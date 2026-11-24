@@ -1,0 +1,144 @@
+{
+  "earned": {
+    "level": 128,
+    "previous": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-22150101",
+      "arena": "nod-nightmare-shore",
+      "entryRoute": [
+        "nod-field",
+        "nod-nightmare-shore"
+      ],
+      "maxHp": 3100000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 85.0,
+      "damagingHits": 457,
+      "moves": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        768050,
+        475
+      ],
+      "commission": {
+        "quest": "whisperer-nightmares-commission",
+        "xp": 9200,
+        "mora": 630
+      },
+      "savedClear": true
+    },
+    "alternateNormal": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-22150101",
+      "arena": "nod-nightmare-shore",
+      "entryRoute": [
+        "nod-field",
+        "nod-nightmare-shore"
+      ],
+      "maxHp": 3100000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 44.75,
+      "damagingHits": 318,
+      "moves": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        768050,
+        475
+      ],
+      "commission": {
+        "quest": "whisperer-nightmares-commission",
+        "xp": 9200,
+        "mora": 630
+      },
+      "savedClear": true
+    },
+    "alternateInterrupted": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-22150101",
+      "arena": "nod-nightmare-shore",
+      "entryRoute": [
+        "nod-field",
+        "nod-nightmare-shore"
+      ],
+      "maxHp": 3100000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 51.883,
+      "damagingHits": 327,
+      "moves": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 1,
+        "SK10": 0
+      },
+      "killXpAndMora": [
+        768050,
+        475
+      ],
+      "commission": {
+        "quest": "whisperer-nightmares-commission",
+        "xp": 9200,
+        "mora": 630
+      },
+      "savedClear": true
+    },
+    "interruptionTick": 128,
+    "fisherHp": 60000,
+    "restoredBossHp": [
+      2737842,
+      2737842
+    ]
+  },
+  "timings": {
+    "hiddenTicks": 36,
+    "telegraphAfterEmergeTicks": 24,
+    "participants": 4,
+    "maxHp": 3100000,
+    "damageAtEachWindow": [
+      9,
+      9,
+      38
+    ],
+    "noExtraFisherCycle": true,
+    "localBurst": true,
+    "naturalRecoveryTicks": 144
+  },
+  "deadline": {
+    "lastAcceptedInputTick": 299,
+    "interruptedOnTick": 300,
+    "downTicks": 180,
+    "standTicks": 24,
+    "uniqueAcrossCasts": true,
+    "unattributedDeathIgnored": true,
+    "bossDeathWinsSameTick": true
+  }
+}

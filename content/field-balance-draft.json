@@ -25,6 +25,18 @@
     "boss-20081001": {
       "FHR02": { "air": [96, 132], "active": [[132, 145]], "recover": 176, "total": 282 },
       "FHR03": { "total": 468 }
+    },
+    "boss-22150101": {
+      "FWN02": { "hide": [84, 120], "active": [[144, 158]], "recover": 190, "total": 286 },
+      "FWN03": {
+        "kind": "sequence", "title": "二漁手・深淵放出", "deploy": 72, "expire": 300, "near": 0.4, "far": 2.8,
+        "active": [[156, 168], [228, 240], [324, 342]], "recover": 360, "total": 504,
+        "fisherHp": 60000, "fisherDamage": 9, "fisherHeight": 0.58, "downTicks": 180, "standTicks": 24,
+        "fishers": [
+          { "offset": 0.85, "near": 0.4, "far": 1.3 },
+          { "offset": 2.35, "near": 1.9, "far": 2.8 }
+        ]
+      }
     }
   },
   "weeklyBossHp": {

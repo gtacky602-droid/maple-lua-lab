@@ -1,0 +1,12 @@
+{
+  "level": 128,
+  "emergenceObservedAt": 121,
+  "twoFishers": true,
+  "interruptedBy": 147,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 16257,
+    "light": 4275
+  },
+  "errors": []
+}

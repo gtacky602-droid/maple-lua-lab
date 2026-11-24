@@ -500,6 +500,7 @@ return function(C,configs,controllers)
 
  function C.defeatEnemy(s,e,owner)
   local defeated=defeatEnemy(s,e,owner)
+  if defeated and e.onFieldDefeat then e.onFieldDefeat(s,e,owner) end
   if defeated and e.fieldGroup then
    local slot=C.fieldSlot(s,e.fieldBoss)
    if slot and slot.cast and slot.cast.member==e then cancelCast(s,byId[e.fieldBoss],slot,true) end

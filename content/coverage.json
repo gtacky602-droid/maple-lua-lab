@@ -8265,12 +8265,22 @@
       "browser_evidence": "evidence/draft-nod-boss-hp-browser.json"
     },
     "draft_field_moves": {
-      "encounters": ["boss-20081001"],
-      "earned_save_level": 128,
-      "same_input_clear_seconds": {"previous": 68.417, "alternate": 63.367},
-      "cooperative_participants": 4,
-      "lua_evidence": "evidence/draft-herra-moves-lua.json",
-      "browser_evidence": "evidence/draft-herra-moves-browser.json"
+      "encounters": {
+        "boss-20081001": {
+          "earned_save_level": 128,
+          "same_input_clear_seconds": {"previous": 68.417, "alternate": 63.367},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-herra-moves-lua.json",
+          "browser_evidence": "evidence/draft-herra-moves-browser.json"
+        },
+        "boss-22150101": {
+          "earned_save_level": 128,
+          "same_input_clear_seconds": {"previous": 85, "alternate": 44.75},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-nightmare-moves-lua.json",
+          "browser_evidence": "evidence/draft-nightmare-moves-browser.json"
+        }
+      }
     }
   },
   "natlan_gear_recovery": {
