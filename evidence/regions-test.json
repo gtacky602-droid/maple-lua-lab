@@ -1,6 +1,7 @@
 {
-  "count": 27,
+  "count": 28,
   "checks": [
+    "sumeru-entry transport finishes",
     "sumeru-entry connected and enterable",
     "sumeru-hub connected and enterable",
     "wanderer-join is unavailable to new saves",
@@ -29,6 +30,6 @@
     "every edge and checkpoint references existing stage",
     "every quest target and hub exist"
   ],
-  "nodes": 1200,
-  "quests": 257
+  "nodes": 1528,
+  "quests": 283
 }

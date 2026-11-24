@@ -8,11 +8,20 @@ quests={q['id']:q for q in graph['quests']}
 def check(n,v):
  assert v,n
  checks.append(n)
-def go(s,id,x=1380):
- s.actors[s.active].x=x;s.actors[s.active].y=480;c.action(s,'story_portal:'+id)
+def go(s,id):
+ edge=next(edge for edge in nodes[s.story.node]['exits'] if edge['to']==id)
+ actor=s.actors[s.active]
+ actor.x,actor.y=edge['x'],edge.get('y',480)
+ c.action(s,'story_portal:'+id)
+ if s.lift:
+  assert s.lift.destination==id
+  for _ in range(2+int(s.lift.remaining*30)):
+   c.step(s,1/30,lua.table())
+  check(id+' transport finishes',s.lift is None and s.story.node==id)
+
 s=c.new(12);c.action(s,'story_start');c.grantExp(s,sum(c.expNeeded(i) for i in range(1,100)),'quest')
 for id in ('mond-road','mond-border','liyue-entry','liyue-harbor'):go(s,id)
-go(s,'liyue-ferry',720)
+go(s,'liyue-ferry')
 for _ in range(900):c.step(s,1/30,lua.table())
 for id in ('inazuma-road','inazuma-town'):go(s,id)
 for prefix,owner in [('sumeru','wanderer'),('fontaine','emilie'),('natlan','kachina')]:
