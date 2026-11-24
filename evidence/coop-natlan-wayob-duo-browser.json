@@ -1,0 +1,282 @@
+{
+  "participants": 2,
+  "potapo": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 174,
+        "moves": [
+          "NP01",
+          "NP02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 172,
+        "moves": [
+          "NP01",
+          "NP02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        68,
+        701,
+        825
+      ],
+      [
+        2,
+        "cryo",
+        106,
+        824,
+        996
+      ],
+      [
+        3,
+        "cryo",
+        146,
+        995,
+        1119
+      ]
+    ],
+    "rewards": [
+      [
+        512900,
+        550
+      ],
+      [
+        512900,
+        550
+      ]
+    ],
+    "contacts": [
+      7,
+      8
+    ],
+    "saved": true,
+    "independentPillarTransfers": true,
+    "returnY": 480,
+    "sharedRematch": true
+  },
+  "tupayo": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 150,
+        "moves": [
+          "NY01",
+          "NY02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 170,
+        "moves": [
+          "NY01",
+          "NY02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        74,
+        328,
+        494
+      ],
+      [
+        2,
+        "pyro",
+        123,
+        477.5,
+        697.5
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        575
+      ],
+      [
+        464100,
+        575
+      ]
+    ],
+    "contacts": [
+      9,
+      8
+    ],
+    "saved": true,
+    "independentPillarTransfers": true,
+    "returnY": 274,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "nat-wp-79051",
+        "stadium-west-waterfall-foot",
+        "raised"
+      ],
+      [
+        "stadium-west-waterfall-foot",
+        "night-trial-potapo",
+        "phase"
+      ],
+      [
+        "night-trial-potapo",
+        "stadium-west-waterfall-foot",
+        "phase"
+      ],
+      [
+        "stadium-west-waterfall-foot",
+        "night-trial-potapo",
+        "phase"
+      ],
+      [
+        "night-trial-potapo",
+        "stadium-west-waterfall-foot",
+        "phase"
+      ],
+      [
+        "stadium-west-waterfall-foot",
+        "nat-wp-79051",
+        "raised"
+      ],
+      [
+        "nat-wp-79051",
+        "nat-wp-72429",
+        "walk"
+      ],
+      [
+        "nat-wp-72429",
+        "natlan-field",
+        "walk"
+      ],
+      [
+        "natlan-field",
+        "natlan-port",
+        "walk"
+      ],
+      [
+        "natlan-port",
+        "nat-wp-79542",
+        "walk"
+      ],
+      [
+        "nat-wp-79542",
+        "flower-feather-statue-back-cliff",
+        "raised"
+      ],
+      [
+        "flower-feather-statue-back-cliff",
+        "night-trial-tupayo",
+        "phase"
+      ],
+      [
+        "night-trial-tupayo",
+        "flower-feather-statue-back-cliff",
+        "phase"
+      ],
+      [
+        "flower-feather-statue-back-cliff",
+        "night-trial-tupayo",
+        "phase"
+      ],
+      [
+        "night-trial-tupayo",
+        "flower-feather-statue-back-cliff",
+        "phase"
+      ]
+    ],
+    [
+      [
+        "nat-wp-79051",
+        "stadium-west-waterfall-foot",
+        "raised"
+      ],
+      [
+        "stadium-west-waterfall-foot",
+        "night-trial-potapo",
+        "phase"
+      ],
+      [
+        "night-trial-potapo",
+        "stadium-west-waterfall-foot",
+        "phase"
+      ],
+      [
+        "stadium-west-waterfall-foot",
+        "night-trial-potapo",
+        "phase"
+      ],
+      [
+        "night-trial-potapo",
+        "stadium-west-waterfall-foot",
+        "phase"
+      ],
+      [
+        "stadium-west-waterfall-foot",
+        "nat-wp-79051",
+        "raised"
+      ],
+      [
+        "nat-wp-79051",
+        "nat-wp-72429",
+        "walk"
+      ],
+      [
+        "nat-wp-72429",
+        "natlan-field",
+        "walk"
+      ],
+      [
+        "natlan-field",
+        "natlan-port",
+        "walk"
+      ],
+      [
+        "natlan-port",
+        "nat-wp-79542",
+        "walk"
+      ],
+      [
+        "nat-wp-79542",
+        "flower-feather-statue-back-cliff",
+        "raised"
+      ],
+      [
+        "flower-feather-statue-back-cliff",
+        "night-trial-tupayo",
+        "phase"
+      ],
+      [
+        "night-trial-tupayo",
+        "flower-feather-statue-back-cliff",
+        "phase"
+      ],
+      [
+        "flower-feather-statue-back-cliff",
+        "night-trial-tupayo",
+        "phase"
+      ],
+      [
+        "night-trial-tupayo",
+        "flower-feather-statue-back-cliff",
+        "phase"
+      ]
+    ]
+  ],
+  "sharedRoomAcrossBothRoutes": true,
+  "bothReported": true,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

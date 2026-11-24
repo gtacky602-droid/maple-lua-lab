@@ -8707,7 +8707,8 @@
       "evidence/coop-natlan-cliff-trials-browser.json",
       "evidence/coop-natlan-northwest-legends-lua-http.json",
       "evidence/coop-natlan-northwest-legends-browser.json",
-      "evidence/coop-natlan-wayob-duo-lua-http.json"
+      "evidence/coop-natlan-wayob-duo-lua-http.json",
+      "evidence/coop-natlan-wayob-duo-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

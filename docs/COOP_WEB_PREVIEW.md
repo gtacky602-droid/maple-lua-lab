@@ -138,7 +138,9 @@ Lv118の神骨の蛇姫へは、神像の先の高台を下から一段ずつ登
 
 ポタポは氷の波と三段の氷柱、トゥパヨは滑り込みと二つの火柱を使う。攻撃はラボの試作で、予告と当たり判定を共有する。敗北した組は元の柱へ戻り、仲間が残っていれば戦闘は続く。全員が出口から退避した場合はHPを保持し、全組が敗北した場合は初期化する。
 
-`python -X utf8 test_coop_natlan_wayob_duo.py` でLua4人とHTTP2人の検証を再現できる。Chromeの2画面での共闘は確認待ち。 [Lua・HTTPの検証](../evidence/coop-natlan-wayob-duo-lua-http.json)
+Chromeの2画面で、同じ部屋のまま両方の柱を個別に通り、予告の範囲と順番、討伐、各自の報酬、元の高さへの帰還と再戦を確認した。二つの道しるべは各自が調べ、両戦の討伐記録と依頼報告を保存してナタ拠点から再開できた。 [Chromeの検証](../evidence/coop-natlan-wayob-duo-browser.json) · [三段の氷柱](../evidence/coop-natlan-wayob-duo-potapo-warning.png) · [二つの火柱](../evidence/coop-natlan-wayob-duo-tupayo-warning.png)
+
+`python -X utf8 test_coop_natlan_wayob_duo.py` でLua4人とHTTP2人を、ラボ起動中の `node test_coop_branch_legends.mjs --natlan-wayob` でChromeの2画面を検証できる。 [Lua・HTTPの検証](../evidence/coop-natlan-wayob-duo-lua-http.json)
 
 ## 無相の風を共闘する
 
