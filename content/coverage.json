@@ -8054,7 +8054,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend Stygian shared combat to Xbalanque and the remaining matches, retaining their encounter-specific mechanics and personal rewards.",
+  "current_priority": "Extend Stygian shared combat to Rerir and the remaining matches, retaining their encounter-specific mechanics and personal rewards.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
@@ -8205,6 +8205,7 @@
       "icewind-coppelia-field",
       "icewind-coppelius-field",
       "natlan-hub",
+      "natlan-solar-court",
       "natlan-duel-entry",
       "natlan-sunset-review",
       "natlan-sunset-arena",
@@ -8605,7 +8606,8 @@
       "legend-frostmoon_prism_slime",
       "legend-frostmoon_mushteshir",
       "stygian-farka",
-      "stygian-capitano"
+      "stygian-capitano",
+      "stygian-xbalanque"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8911,7 +8913,9 @@
       "evidence/coop-stygian-farka-http.json",
       "evidence/coop-stygian-farka-browser.json",
       "evidence/coop-stygian-capitano-http.json",
-      "evidence/coop-stygian-capitano-browser.json"
+      "evidence/coop-stygian-capitano-browser.json",
+      "evidence/coop-stygian-xbalanque-http.json",
+      "evidence/coop-stygian-xbalanque-browser.json"
     ],
     "pending": [
       "remaining Stygian bosses",

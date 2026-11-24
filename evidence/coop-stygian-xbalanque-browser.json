@@ -1,0 +1,70 @@
+{
+  "players": 2,
+  "warning": {
+    "direction": -1,
+    "maxhp": 1780,
+    "areas": [
+      {
+        "top": 409.6,
+        "bottom": 458,
+        "left": 589.36,
+        "active": false,
+        "right": 668.5600000000001,
+        "index": 1
+      },
+      {
+        "top": 400.8,
+        "bottom": 462.4,
+        "left": 555.9200000000001,
+        "active": false,
+        "right": 661.5200000000001,
+        "index": 2
+      }
+    ],
+    "targetSlot": 1
+  },
+  "safeLane": {
+    "right": 550.4,
+    "left": 409.6
+  },
+  "trails": [
+    {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "hits": 37,
+      "finalRecovery": true
+    },
+    {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "hits": 35,
+      "finalRecovery": true
+    }
+  ],
+  "rewards": [
+    {
+      "mora": 2530,
+      "xp": 1161407,
+      "first": true,
+      "rank": 4,
+      "set": "黄金の劇団",
+      "bag": true
+    },
+    {
+      "mora": 2530,
+      "xp": 1161407,
+      "first": true,
+      "rank": 4,
+      "set": "剣闘士のフィナーレ",
+      "bag": true
+    }
+  ],
+  "clearsSavedForBoth": true,
+  "errors": []
+}

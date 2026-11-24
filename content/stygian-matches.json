@@ -648,6 +648,7 @@
       ]
     },
     "xbalanque": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990004,
       "node": "natlan-solar-court",
       "hub": "natlan-hub",

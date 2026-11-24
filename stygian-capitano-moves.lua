@@ -16,23 +16,11 @@ return function(C,G)
  local function hitGroup(s,run,c,group,collides)
   local seen=c.hit[group] or {}
   c.hit[group]=seen
-  for _,party in ipairs(run.parties or {s}) do
-   for _,a in ipairs(party.actors) do
-    local key=run.parties and a or a.id
-    if a.hp>0 and not seen[key] and collides(a) then
-     seen[key]=true
-     hit(party,run,c,a,group)
-    end
-   end
-  end
+  G.eachContact(s,run,seen,collides,function(party,actor) hit(party,run,c,actor,group) end)
  end
  function M.plan(s,run,spec,c)
   local b=run.boss
-  local member=c.targetMember
-  if not member or (member.online and member.state.coop==s.coop and c.targetActor.hp>0) then
-   c.target=c.targetActor.x
-  end
-  local target=c.target
+  local target=G.trackTarget(s,c)
   local d=c.data
   local U=spec.arena.unit
   local dir=target>b.x and 1 or -1

@@ -1,0 +1,57 @@
+{
+  "players": 2,
+  "normalHP": 1780,
+  "fireballsPerPlayer": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      3
+    ]
+  ],
+  "landingLockSlot": 1,
+  "sharedSafeLane": {
+    "right": 550.4,
+    "left": 409.6
+  },
+  "fireBandsHitGroups": [
+    2,
+    3
+  ],
+  "finalPunchOnlyHitsFront": true,
+  "finaleTargetSlot": 1,
+  "lockedFinalDirection": 1,
+  "comboSecondChild": "XB02",
+  "rewards": [
+    {
+      "mora": 2530,
+      "first": true,
+      "set": "黄金の劇団",
+      "xp": 1161407,
+      "bag": true,
+      "rank": 4
+    },
+    {
+      "mora": 2530,
+      "first": true,
+      "set": "剣闘士のフィナーレ",
+      "xp": 1161407,
+      "bag": true,
+      "rank": 4
+    }
+  ],
+  "repeatReward": {
+    "mora": 1640,
+    "first": false,
+    "set": "黄金の劇団",
+    "xp": 1043955,
+    "bag": true,
+    "rank": 4
+  },
+  "personalQuest": true,
+  "savedClears": 2
+}

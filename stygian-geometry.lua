@@ -53,6 +53,24 @@ local G={}
   return G.shape(spec,{kind='rect',u0=0,u1=(x1-x0)/spec.arena.unit,
    v0=(y-bottom)/spec.arena.unit,v1=(y-top)/spec.arena.unit},x0,1,y)
  end
+ function G.trackTarget(s,c)
+  local member=c.targetMember
+  if not member or (member.online and member.state.coop==s.coop and c.targetActor.hp>0) then
+   c.target=c.targetActor.x
+  end
+  return c.target
+ end
+ function G.eachContact(s,run,seen,collides,hit)
+  for _,party in ipairs(run.parties or {s}) do
+   for _,a in ipairs(party.actors) do
+    local key=run.parties and a or a.id
+    if a.hp>0 and not seen[key] and collides(a) then
+     seen[key]=true
+     hit(party,a)
+    end
+   end
+  end
+ end
  function G.dashProgress(n,span)
   if n<=0 then return 0 end
   if n>=span then return 1 end

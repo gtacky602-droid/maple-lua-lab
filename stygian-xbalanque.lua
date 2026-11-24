@@ -8,7 +8,8 @@ return function(C,G,M)
   b.invulnerable=not open;b.noAutoTarget=not open
  end
  local function contact(s,run,spec,b,cast,mult,color,element)
-  if b.hp<=0 or b.invulnerable or run.status~='fighting' then return false end
+  local personal=s.endgameRun
+  if not personal or personal.status~='fighting' or b.hp<=0 or b.invulnerable or run.status~='fighting' then return false end
   local resist=C.enemyResistance(cast,b,element)
   if resist>=1 then return false end
   local amount,critical=C.enemyHitDamage(s,cast,b,mult,element,resist)
@@ -16,7 +17,7 @@ return function(C,G,M)
   amount=math.min(amount,b.hp-boundary)
   if amount<=0 then return false end
   local ability=cast.key or 'normal'
-  run.skills[ability]=(run.skills[ability] or 0)+amount
+  personal.skills[ability]=(personal.skills[ability] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,critical and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -125,7 +126,7 @@ return function(C,G,M)
   if run.pendingStage then shift(s,run);return end
   if run.rest>0 then
    run.rest=run.rest-1
-   local a=s.actors[s.active]
+   local a=run.target or s.actors[s.active]
    if math.abs(a.x-b.x)>12 then b.dir=a.x>b.x and 1 or -1 end
    if math.abs(a.x-b.x)>1.1*spec.arena.unit then
     b.x=G.clamp(spec,b.x+b.dir*spec.timing.walkSpeed/60,1.2*spec.arena.unit)
@@ -166,6 +167,7 @@ return function(C,G,M)
   end
   if allyAvoid then return allyAvoid(s,a) end
  end
+ function D.abort(_,run) run.cast=nil end
  local function painter(f,s)
   return function(x,y,w,h,color,opacity,optional)
    if w>0 and h>0 then
@@ -228,7 +230,7 @@ return function(C,G,M)
    phase=v.phase,label=cast and cast.data.title or v.stageName}
   if run.status=='failed' then return end
   local back={draws={}};local rect=painter(back,s)
-  local clock=s.t*60+(run.endAge or 0)
+  local clock=(run.shared and run.shared.elapsed or s.t)*60+(run.endAge or 0)
   local fireHeight=25+run.stage*10+(c and c.key=='XB08' and c.t<420 and 8 or 0)
   if c and c.key=='XB08' and c.t>=420 then fireHeight=29 end
   if clear then fireHeight=25-12*math.min(1,(run.endAge or 0)/90) end
@@ -268,7 +270,9 @@ return function(C,G,M)
   rect=painter(f,s)
   local cues=M.cues(spec,c)
   local d=c.data
-  v.areas={};v.projectiles=#c.shots;v.locked=c.t>=d.locks[1];v.ground=spec.arena.floor
+  local lock=(d.finalAim and c.t>=d.finalAim) and d.locks[2] or d.locks[1]
+  v.areas={};v.projectiles=#c.shots;v.locked=c.t>=lock;v.ground=spec.arena.floor
+  if c.targetMember then v.targetSlot=c.targetMember.id end
   if cues.road then
    local x0,x1=math.min(cues.road.from,cues.road.to),math.max(cues.road.from,cues.road.to)
    v.road=cues.road
