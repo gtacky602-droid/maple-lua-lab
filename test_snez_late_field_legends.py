@@ -206,7 +206,7 @@ assert [member.hp for member in members] == [member['hp'] for member in beasts['
 for member in members:
     hit(state, walk, member)
 xp[BEASTS] = check_clear(state, beasts, before)
-assert not beasts['moves']
+assert {move['member'] for move in beasts['moves']} == {member.id for member in members}
 walk.cross(alley)
 walk.cross(junction)
 walk.cross(MINE_HOST)

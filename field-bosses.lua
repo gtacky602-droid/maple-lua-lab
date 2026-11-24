@@ -166,11 +166,12 @@ return function(C,configs,controllers)
   if room and room.fieldSlot and room.node==s.story.node then room.nightTrialWipe=true end
  end
 
- local function cancelCast(s,spec,slot)
+ local function cancelCast(s,spec,slot,keepRotation)
   local behavior=controllers[spec.controller]
   if slot.cast and behavior.cancel then
    behavior.cancel(slot.enemy,spec,s,slot.cast)
-   slot.cast=nil;slot.index=1;slot.delay=spec.restTicks
+   slot.cast=nil;slot.delay=spec.restTicks
+   if not keepRotation then slot.index=1 end
   end
  end
 
@@ -311,7 +312,9 @@ return function(C,configs,controllers)
   end
   slot.out=target and 0 or slot.out+1
   if slot.out>=spec.leashTicks then
-   if behavior.swimStep or boss.fieldPartner or (slot.cast and (slot.cast.summon or slot.cast.summons)) then cancelCast(s,spec,slot) end
+   if behavior.swimStep or boss.fieldPartner or boss.fieldMembers or (slot.cast and (slot.cast.summon or slot.cast.summons)) then
+    cancelCast(s,spec,slot)
+   end
    slot.phase='leash';slot.cast=nil;boss.invulnerable=true
    for _,member in ipairs(boss.fieldMembers or {}) do member.invulnerable=true end
    boss.y=spec.floorY;boss.drawHeight=spec.artHeight;boss.hitTop=boss.y-boss.drawHeight;boss.hitBottom=boss.y
@@ -329,25 +332,31 @@ return function(C,configs,controllers)
    return
   end
   if not target then return end
-  local move=spec.moves[slot.index]
+  local index,attacker=slot.index,boss
+  local move=spec.moves[index]
+  if boss.fieldMembers then
+   move,attacker,index=behavior.groupMove(boss,spec,index)
+   if not move then return end
+   target,distance=nearest(s,spec,attacker,behavior)
+  end
   if not move then return end
   if behavior.selectMove then move=behavior.selectMove(boss,move) end
   local reach=move.reach
   if distance>reach-18 then
-   local dir=target.x<boss.x and -1 or 1
-   boss.facing=dir
-   local speed=spec.walkSpeed*C.enemyRate(boss)/60
-   if behavior.pursue then behavior.pursue(boss,spec,target,speed)
+   local dir=target.x<attacker.x and -1 or 1
+   attacker.facing=dir
+   local speed=spec.walkSpeed*C.enemyRate(attacker)/60
+   if behavior.pursue then behavior.pursue(attacker,spec,target,speed)
    else
-    boss.x=math.max(spec.arenaMin+63,math.min(spec.arenaMax-63,boss.x+dir*speed))
-    if behavior.walk then behavior.walk(boss,spec,target,speed) end
+    attacker.x=math.max(spec.arenaMin+63,math.min(spec.arenaMax-63,attacker.x+dir*speed))
+    if behavior.walk then behavior.walk(attacker,spec,target,speed) end
    end
   end
   local farShot=slot.delay<=0 and distance>reach and spec.walkSpeed==0 and behavior.farMove
   if farShot then move=behavior.farMove(spec,move);reach=move.reach end
   if slot.delay<=0 and distance<=reach then
    slot.cast=behavior.begin(boss,spec,move,target,s)
-   if not farShot then slot.index=slot.index%#spec.moves+1 end
+   if not farShot then slot.index=index%#spec.moves+1 end
    return
   end
   slot.delay=math.max(0,slot.delay-1)
@@ -463,7 +472,11 @@ return function(C,configs,controllers)
 
  function C.defeatEnemy(s,e,owner)
   local defeated=defeatEnemy(s,e,owner)
-  if defeated and e.fieldGroup then updateGroup(s,e.fieldGroup,owner) end
+  if defeated and e.fieldGroup then
+   local slot=C.fieldSlot(s,e.fieldBoss)
+   if slot and slot.cast and slot.cast.member==e then cancelCast(s,byId[e.fieldBoss],slot,true) end
+   updateGroup(s,e.fieldGroup,owner)
+  end
   return defeated
  end
 

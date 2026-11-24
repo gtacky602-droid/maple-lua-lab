@@ -8054,7 +8054,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Author dedicated moves for the three remaining grouped Local Legends and extend shared combat to Stygian arenas.",
+  "current_priority": "Connect Stygian matches to shared combat, starting with Farka's arena, and verify personal records and rewards.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
@@ -11317,11 +11317,7 @@
     ],
     "design_candidates": 56,
     "playable_prototypes": 56,
-    "pending_boss_moves": [
-      "legend-natlan_battlegoat_ironclaw",
-      "legend-natlan_polychrome_tristars",
-      "legend-snez_rowdy_beast_host"
-    ],
+    "pending_boss_moves": [],
     "nightsoul_trials": [
       "night-trial-atlatl",
       "night-trial-chimalli",

@@ -9,18 +9,32 @@
   "sharedHpByStep": [
     [
       0,
-      436,
+      264,
       350
     ],
     [
       0,
       0,
-      318
+      262
     ],
     [
       0,
       0,
       0
+    ]
+  ],
+  "warningsBeforeAndAfterFirstDefeat": [
+    [
+      "GT01",
+      "cryo",
+      326,
+      747
+    ],
+    [
+      "GT02",
+      "electro",
+      571,
+      932
     ]
   ],
   "kills": [

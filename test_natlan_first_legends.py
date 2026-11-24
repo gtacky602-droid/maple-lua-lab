@@ -36,6 +36,9 @@ def start(id, level):
     core.action(s, 'story_start')
     core.enterStoryNode(s, HUB)
     core.grantExp(s, exp(level), 'quest')
+    for slot in (1, 2, 3):
+        assert core.giveArtifact(s, slot, 40, 3)
+        core.action(s, 'artifact_equip:' + str(slot))
     core.enterStoryNode(s, HOSTS[id])
     return s
 
@@ -72,11 +75,14 @@ def rewards(s):
 
 
 def defeat(s, walk, body):
-    walk.approach(body.x - 44, 480, body.id)
-    walk.actor.dir = 1
     for _ in range(4500):
         if body.hp <= 0:
             return
+        assert walk.actor.hp > 0 and s.story.node == specs[body.fieldBoss]['node']
+        distance = body.x - walk.actor.x
+        if abs(distance) > 72:
+            walk.approach(body.x - (44 if distance > 0 else -44), 480, body.id)
+        walk.actor.dir = 1 if body.x >= walk.actor.x else -1
         tick(s, 1, attack)
     raise AssertionError((body.id, body.hp, s.t))
 
@@ -132,7 +138,7 @@ snapshots = []
 for i, member in enumerate(members):
     defeat(s, walk, member)
     field = native(core.frame(s).fieldBoss)
-    assert all(body['hp'] == (0 if index <= i else body['maxhp'])
+    assert all(body['hp'] == 0 if index <= i else 0 < body['hp'] <= body['maxhp']
                for index, body in enumerate(field['bodies']))
     assert field['hp'] == sum(body['hp'] for body in field['bodies'])
     snapshots.append([body['hp'] for body in field['bodies']])

@@ -30,7 +30,20 @@
         1,
         2
       ],
-      "rematchGeneration": 2
+      "rematchGeneration": 2,
+      "moveChecks": {
+        "id": "legend-natlan_polychrome_tristars",
+        "testedMoves": [
+          "GT01",
+          "GT02",
+          "GT03"
+        ],
+        "participants": 4,
+        "defeatedBeforeHit": 97074,
+        "nextOwner": 97075,
+        "sharedWarningsAndElementPerMember": true,
+        "distanceAndHeightAvoidDamage": true
+      }
     },
     {
       "id": "legend-natlan_battlegoat_ironclaw",
@@ -54,7 +67,19 @@
         1,
         2
       ],
-      "rematchGeneration": 2
+      "rematchGeneration": 2,
+      "moveChecks": {
+        "id": "legend-natlan_battlegoat_ironclaw",
+        "testedMoves": [
+          "GB01",
+          "GB02"
+        ],
+        "participants": 4,
+        "defeatedBeforeHit": 97094,
+        "nextOwner": 97095,
+        "sharedWarningsAndElementPerMember": true,
+        "distanceAndHeightAvoidDamage": true
+      }
     },
     {
       "id": "legend-snez_rowdy_beast_host",
@@ -86,7 +111,20 @@
         1,
         2
       ],
-      "rematchGeneration": 2
+      "rematchGeneration": 2,
+      "moveChecks": {
+        "id": "legend-snez_rowdy_beast_host",
+        "testedMoves": [
+          "GR01",
+          "GR02",
+          "GR03"
+        ],
+        "participants": 4,
+        "defeatedBeforeHit": 97113,
+        "nextOwner": 97114,
+        "sharedWarningsAndElementPerMember": true,
+        "distanceAndHeightAvoidDamage": true
+      }
     }
   ],
   "http": {

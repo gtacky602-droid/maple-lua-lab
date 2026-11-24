@@ -18,6 +18,7 @@ return function(C)
   setPose(b,spec,'idle')
   if spec.members then
    b.fieldMembers={}
+   b.fieldMembersById={}
    for i,p in ipairs(spec.members) do
     local home=b.home+p.offset
     local member={id=p.entity,fieldBoss=b.fieldBoss,fieldGroup=b,boss=true,custom=true,noRewards=true,
@@ -26,6 +27,7 @@ return function(C)
      legendArtHeight=p.artHeight,legendFloorClearance=p.hitFloorClearance}
     setPose(member,spec,'idle')
     b.fieldMembers[i]=member
+    b.fieldMembersById[member.id]=member
    end
    return
   end
@@ -38,9 +40,22 @@ return function(C)
   setPose(partner,spec,'idle')
  end
 
- function legend.cancel(b,spec)
+ function legend.cancel(b,spec,_,cast)
+  if cast and cast.member then
+   setPose(cast.member,spec,'idle')
+   return
+  end
   setPose(b,spec,'idle')
   if b.fieldPartner then setPose(b.fieldPartner,spec,'idle') end
+ end
+
+ function legend.groupMove(b,spec,nextIndex)
+  for offset=0,#spec.moves-1 do
+   local index=(nextIndex+offset-1)%#spec.moves+1
+   local move=spec.moves[index]
+   local attacker=b.fieldMembersById[move.member]
+   if attacker and attacker.hp>0 then return move,attacker,index end
+  end
  end
 
  function legend.shareCast(cast,actors)
@@ -59,9 +74,10 @@ return function(C)
  end
 
  function legend.begin(b,spec,move,target)
-  local cast={move=move,tick=0,strikes={}}
+  local member=move.member and b.fieldMembersById[move.member]
+  local cast={move=move,member=member,tick=0,strikes={}}
   for i,step in ipairs(move.steps) do
-   local owner=step.partner and b.fieldPartner or b
+   local owner=member or (step.partner and b.fieldPartner or b)
    owner.facing=target.x<owner.x and -1 or 1
    local from,to=owner.x,owner.x
    local left,right
@@ -69,7 +85,7 @@ return function(C)
    if distance then
     to=clamp(from+owner.facing*distance,spec.arenaMin+48,spec.arenaMax-48)
     if step.travel and owner==b and b.fieldPartner then to=math.min(to,b.fieldPartner.x-112) end
-    if step.travel and owner~=b then to=math.max(to,b.x+112) end
+    if step.travel and owner==b.fieldPartner then to=math.max(to,b.x+112) end
     left,right=math.min(from,to)-step.radius,math.max(from,to)+step.radius
    else
     local center=clamp(target.x+(step.offset or 0),spec.arenaMin+step.radius,spec.arenaMax-step.radius)
@@ -105,7 +121,7 @@ return function(C)
     setPose(owner,spec,'brace')
    end
   end
-  if now>=cast.move.total then legend.cancel(b,spec);return true end
+  if now>=cast.move.total then legend.cancel(b,spec,nil,cast);return true end
   return false
  end
 
@@ -115,6 +131,7 @@ return function(C)
 
  function legend.frame(f,_,_,cast)
   if not cast then return end
+  if cast.member then f.moveOwner=cast.member.id end
   f.warnings={}
   for i,strike in ipairs(cast.strikes) do
    local step=strike.step

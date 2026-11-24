@@ -40,6 +40,85 @@ def field_hp(frame):
     return [body['hp'] for body in frame['bodies']]
 
 
+def verify_moves(lua, core, id):
+    spec = SPECS[id]
+    states = [core.new(12) for _ in range(4)]
+    for state in states:
+        core.action(state, 'story_start')
+        enter(core, state, spec)
+    host, guest, distant, elevated = states
+    room = core.newCoop(host)
+    for state in states:
+        core.attachCoop(room, state)
+    slot, group = room.fieldSlot, room.fieldSlot.enemy
+    members = {body.id: body for body in group.fieldMembers.values()}
+    moves = spec['moves']
+    assert {move['member'] for move in moves} == set(members)
+
+    def wait_for_move(expected):
+        for _ in range(420):
+            core.stepCoop(room, TICK)
+            if slot.cast:
+                break
+        assert slot.cast and slot.cast.move.id == expected['id']
+        assert slot.cast.member.id == expected['member']
+        frames = [native(core.frame(state).fieldBoss) for state in states]
+        assert all(frame['moveOwner'] == expected['member'] for frame in frames)
+        assert all(frame['warnings'] == frames[0]['warnings'] for frame in frames)
+        assert all(warning['element'] == members[expected['member']].element for warning in frames[0]['warnings'])
+        return slot.cast
+
+    fired = []
+    for move in moves:
+        for state in states:
+            place(state, members[move['member']].x - 55)
+        cast = wait_for_move(move)
+        strike = cast.strikes[1]
+        moving = 'travel' in move['steps'][0] or 'wave' in move['steps'][0]
+        impact = strike.position if moving else (strike.left + strike.right) / 2
+        for state in (host, guest, elevated):
+            place(state, impact)
+        place(distant, 20)
+        seqs = [state.seq for state in states]
+        start = members[move['member']].x
+        for _ in range(strike.step.first):
+            elevated.actors[1].y, elevated.actors[1].vy, elevated.actors[1].ground = 250, 0, False
+            core.stepCoop(room, TICK)
+        for index, state in enumerate(states):
+            hurts = [event for event in state.events.values() if event.seq > seqs[index] and event.kind == 'hurt']
+            assert [(event.target, event.element) for event in hurts] == (
+                [(move['member'], members[move['member']].element)] if index < 2 else []
+            )
+            place(state, 20)
+        if 'travel' in move['steps'][0]:
+            assert members[move['member']].x != start
+        fired.append(move['id'])
+        for _ in range(move['total'] - strike.step.first):
+            place(host, max(spec['arenaMin'] + 8, members[move['member']].x - 285))
+            core.stepCoop(room, TICK)
+        assert not slot.cast
+
+    owner = members[moves[0]['member']]
+    place(host, owner.x - 55)
+    wait_for_move(moves[0])
+    place(guest, owner.x)
+    guest_seq = guest.seq
+    assert hit(lua, core, host, owner, 9000) > 0
+    assert not slot.cast and slot.phase == 'combat' and group.hp > 0
+    assert all(core.frame(state).fieldBoss.moveOwner is None for state in states)
+    place(host, members[moves[1]['member']].x - 55)
+    place(guest, members[moves[1]['member']].x - 55)
+    wait_for_move(moves[1])
+    for _ in range(moves[0]['steps'][0]['first']):
+        core.stepCoop(room, TICK)
+    assert not any(event.kind == 'hurt' and event.target == owner.id and event.seq > guest_seq
+                   for event in guest.events.values())
+    assert [state.kills for state in states] == [0] * 4
+    return {'id': id, 'testedMoves': fired, 'participants': len(states), 'defeatedBeforeHit': owner.id,
+            'nextOwner': moves[1]['member'], 'sharedWarningsAndElementPerMember': True,
+            'distanceAndHeightAvoidDamage': True}
+
+
 def simulate_group(lua, core, id):
     spec = SPECS[id]
     states = [core.new(12) for _ in range(4)]
@@ -113,10 +192,15 @@ def simulate_group(lua, core, id):
 def run_lua():
     lua, core = runtime()
     output = [simulate_group(lua, core, id) for id in IDS]
+    for row in output:
+        row['moveChecks'] = verify_moves(lua, core, row['id'])
     state = core.new(12)
     core.action(state, 'story_start')
     entry = NODES[SPECS[TRISTARS]['node']]['exits'][0]['to']
     enter(core, state, SPECS[TRISTARS], entry)
+    for slot in (1, 2, 3):
+        assert core.giveArtifact(state, slot, 40, 3)
+        core.action(state, 'artifact_equip:' + str(slot))
     core.enterStoryNode(state, 'natlan-hub')
     save_json('work/coop-legend-groups-fixture.json', validate_save(native(core.checkpoint(state))))
     return output

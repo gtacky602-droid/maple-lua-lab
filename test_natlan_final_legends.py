@@ -82,11 +82,13 @@ def reward_totals(state):
 
 
 def defeat_body(state, walk, body):
-    walk.approach(body.x - 42, 480, body.id)
-    walk.actor.dir = 1
     for _ in range(6900):
         if body.hp <= 0:
             break
+        distance = body.x - walk.actor.x
+        if abs(distance) > 72:
+            walk.approach(body.x - (42 if distance > 0 else -42), 480, body.id)
+        walk.actor.dir = 1 if body.x >= walk.actor.x else -1
         core.step(state, 1 / 60, attack)
     assert body.hp <= 0, (body.id, body.hp)
 
@@ -169,7 +171,7 @@ assert [body.y - body.hitTop for body in members] == [body['artHeight'] for body
 before = reward_totals(state)
 defeat_body(state, walk, members[0])
 assert reward_totals(state) == before and state.endgame.bosses[PAIR] is None
-assert group.hp == members[1].hp == members[1].maxhp
+assert group.hp == members[1].hp > 0
 walk.cross(d_trail)
 walk.cross(pair['node'])
 state.actors[2].hp = 0

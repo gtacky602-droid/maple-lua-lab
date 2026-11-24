@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import { chromium } from 'playwright';
 import { waypointDriver } from './tools/browser_waypoint_test.mjs';
 
-const base=process.env.LAB_URL||'http://127.0.0.1:9005/';
+const base=process.env.LAB_URL||'http://127.0.0.1:9068/';
 const boss='legend-natlan_polychrome_tristars';
 const gate='nat-wp-72432', arena='witztli-tristars-camp';
 const saveKey='maple-lua-lab.checkpoint.v1';
@@ -54,17 +54,38 @@ const readHp=page=>page.evaluate(()=>window.lab.frame.fieldBoss.bodies.map(body=
 
 async function attackBody(players, index) {
  await Promise.all(players.map(async({page,route})=>{
-  const x=await page.evaluate(i=>window.lab.frame.fieldBoss.bodies[i].x,index);
-  await route.walk(x-83);
-  await page.evaluate(()=>document.activeElement.blur());
+  for(let attempt=0;attempt<15;attempt++) {
+   const body=await page.evaluate(i=>window.lab.frame.fieldBoss?.bodies[i],index);
+   assert.ok(body,'Player left the arena during the fight');
+   if(body.hp===0)return;
+   const {x}=await route.actor();
+   await route.walk(body.x+(x<body.x?-42:42));
+   await page.evaluate(()=>document.activeElement.blur());
+   await page.keyboard.down('KeyJ');
+   try {
+    await page.waitForFunction(i=>window.lab.frame.fieldBoss?.bodies[i]?.hp===0,index,{timeout:3000});
+    return;
+   }catch(error){
+    if(error.name!=='TimeoutError')throw error;
+   }finally{
+    await page.keyboard.up('KeyJ');
+   }
+  }
+  assert.fail(`Body ${index+1} was still alive after repeated attacks`);
  }));
- await Promise.all(players.map(({page})=>page.keyboard.down('KeyJ')));
- try {
-  await Promise.all(players.map(({page})=>page.waitForFunction(
-   i=>window.lab.frame.fieldBoss?.bodies[i]?.hp===0,index,{timeout:85000})));
- } finally {
-  await Promise.all(players.map(({page})=>page.keyboard.up('KeyJ')));
- }
+}
+
+async function sharedWarning(players, owner) {
+ const warnings=await Promise.all(players.map(async({page})=>{
+  const snapshot=await page.waitForFunction(id=>{
+   const b=window.lab.frame.fieldBoss;
+   const warning=b?.warnings?.[0];
+   return b?.moveOwner===id&&warning&&!warning.active&&[b.move,warning.element,warning.left,warning.right];
+  },owner);
+  return snapshot.jsonValue();
+ }));
+ assert.deepEqual(warnings[0],warnings[1]);
+ return warnings[0];
 }
 
 try {
@@ -82,10 +103,14 @@ try {
  await Promise.all(players.map(({page})=>waitFresh(page,code)));
  await Promise.all(players.map(({route})=>route.walk(560)));
  await Promise.all(players.map(({page})=>waitBodies(page,[null,null,null],0)));
+ const firstWarning=await sharedWarning(players,97074);
+ assert.deepEqual(firstWarning.slice(0,2),['GT01','cryo']);
  await host.locator('#game').screenshot({path:'evidence/coop-tristars-gather.png'});
  await attackBody(players,0);
  await Promise.all(players.map(({page})=>waitBodies(page,[0,null,null],0)));
  const snapshots=[await readHp(host)];
+ const nextWarning=await sharedWarning(players,97075);
+ assert.deepEqual(nextWarning.slice(0,2),['GT02','electro']);
  await host.locator('#game').screenshot({path:'evidence/coop-tristars-first-down.png'});
  await attackBody(players,1);
  await Promise.all(players.map(({page})=>waitBodies(page,[0,0,null],0)));
@@ -110,7 +135,8 @@ try {
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/coop-tristars-browser.json',JSON.stringify({
   browser:'Chrome',participants:2,fullHp,sharedHpByStep:snapshots,
-  kills,mora,savedClears:[1,1],rematchHp:fullHp,sameRoomAfterRematch:true,errors
+  warningsBeforeAndAfterFirstDefeat:[firstWarning,nextWarning],kills,mora,
+  savedClears:[1,1],rematchHp:fullHp,sameRoomAfterRematch:true,errors
  },null,2)+'\n');
  console.log('Chrome: both players witnessed separate defeats, saved one clear and re-entered the same room.');
 } finally {
