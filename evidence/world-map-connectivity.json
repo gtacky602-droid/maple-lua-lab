@@ -5,6 +5,22 @@
   "reachable_in_route_graph": 873,
   "can_return_in_route_graph": 873,
   "authored_stages_with_outbound_and_return_routes": 1528,
+  "authored_stages_on_atlas": 1528,
+  "authored_stages_linked_to_route_or_runtime_evidence": 1528,
+  "authored_stages_without_evidence_links": [],
+  "regional_evidence_ledger_sizes": {
+    "mondstadt": 25,
+    "liyue": 20,
+    "hidden_worlds": 32,
+    "subregions": 25,
+    "remaining_branches": 34,
+    "inazuma": 27,
+    "sumeru": 36,
+    "snez": 42,
+    "nod": 48,
+    "fontaine": 48,
+    "natlan": 52
+  },
   "battle_interior_to_entrance": {
     "narwhal-inner-echo": "narwhal-star-sea",
     "nod-false-moon-rift": "nod-false-moon-court"

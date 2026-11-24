@@ -187,6 +187,19 @@ return function(C, atlas)
   return exits
  end
 
+ local function parallel_gate_hint(edge,node)
+  if not edge.x then return end
+  local left,right=edge.x,edge.x
+  for _,other in ipairs(node.exits) do
+   if other.to==edge.to and other.x then
+    left,right=math.min(left,other.x),math.max(right,other.x)
+   end
+  end
+  if left==right then return end
+  local side=edge.x==left and '左側の門' or edge.x==right and '右側の門' or '中央の門'
+  return edge.rideLabel and side..'・'..edge.rideLabel or side
+ end
+
  local function route_hint(edge,node,destination)
   local voyage=node.voyage
   local instruction=edge.darkOnly and '灯りを消して足場を出す'
@@ -200,7 +213,8 @@ return function(C, atlas)
   local parts={}
   if edge.y and node.swim then parts[#parts+1]='門と同じ深さまで泳ぐ'
   elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
-  if edge.rideLabel and not edge.windowStart then parts[#parts+1]=edge.rideLabel end
+  local gate=parallel_gate_hint(edge,node) or (not edge.windowStart and edge.rideLabel)
+  if gate then parts[#parts+1]=gate end
   if instruction then parts[#parts+1]=instruction end
   local seconds=edge.liftSeconds or edge.waterwaySeconds or edge.boatSeconds or edge.phaseSeconds
   if seconds then parts[#parts+1]=('移動に%g秒'):format(seconds) end
@@ -502,7 +516,7 @@ return function(C, atlas)
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
-       reason=C.atlasGateRestriction(s,selected.id,edge)}
+       reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id])}
     end
    end
    local spec=C.atlasWeeklyTransfer(selected.id)

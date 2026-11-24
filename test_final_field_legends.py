@@ -90,6 +90,23 @@ def route(state, stops, status):
     assert [leg.id for leg in view.guide.stops.values()] == stops
     core.action(state, 'world_map_toggle')
 
+def console_exits(state, forward_label, *, cleared):
+    core.action(state, 'world_map_toggle')
+    view = core.frame(state).worldMap
+    choices = [leg for leg in view.routes.values() if leg.id == console]
+    assert [leg.hint for leg in choices] == [
+        '左側の門・装置の広間へ戻る',
+        '右側の門・' + forward_label,
+    ]
+    assert choices[0].reason is None
+    if cleared:
+        assert choices[1].reason is None
+    else:
+        assert '2体とも倒してください' in choices[1].reason
+    core.action(state, 'world_map_select:' + console)
+    assert '左側の門' in core.frame(state).worldMap.guide.stops[1].hint
+    core.action(state, 'world_map_close')
+
 
 def hit(state, walk, target):
     state.actors[2].hp = 0
@@ -218,8 +235,16 @@ walk.cross(console)
 blocked(state, walk, FIRST, '第一試験')
 collect(state, walk, MU_Q, 0)
 walk.cross(FIRST)
+console_exits(state, '第一試験を終えて装置へ', cleared=False)
+retreat = exits[FIRST][0]
+walk.approach(retreat['x'], 480, console)
+core.action(state, 'story_nearby_portal')
+assert state.story.node == console and walk.actor.y == 409
+walk.cross(FIRST)
 fight_wave(state, walk, FIRST, 1)
+console_exits(state, '第一試験を終えて装置へ', cleared=True)
 walk.cross(console)
+assert walk.actor.y == 480
 state = restore(state)
 assert state.story.quests[MU_Q].count == 2
 core.enterStoryNode(state, MU_HOST)
@@ -231,7 +256,9 @@ assert not list(state.enemies.values())
 walk.cross(console)
 collect(state, walk, MU_Q, 2)
 walk.cross(SECOND)
+console_exits(state, '第二試験を終えて装置へ', cleared=False)
 fight_wave(state, walk, SECOND, 3)
+console_exits(state, '第二試験を終えて装置へ', cleared=True)
 walk.cross(console)
 collect(state, walk, MU_Q, 4)
 blocked(state, walk, chamber, '190')
@@ -255,6 +282,7 @@ write('evidence/final-field-legends-lua.json', dict(
     entranceLevels=[chur['level'], maha['level'], prism['level'], musht['level']],
     madhavaGateAndLiftReturn=True, sharedBiodomeReportUnlocksNorthAndSouth=True,
     twoRealTwoEnemyWaves=True, eachStartUsesSameConsole=True,
+    atlasDistinguishesRetreatAndClearExits=True,
     firstCompletionSurvivesSave=True, clearedWavesDoNotRespawn=True,
     allFourClearRewardsSaved=True, designRegistryBound=len(covered), killXp=xp))
 print(f'{len(covered)} legend bindings total; four routes, console trials, saves and clear rewards passed')

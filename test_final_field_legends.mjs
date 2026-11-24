@@ -46,6 +46,20 @@ async function guide(region,stops,status,layer,filename){
  await atlas.waitFor({state:'hidden'});
 }
 
+async function consoleExits(label,closed,screenshot){
+ await page.evaluate(()=>document.activeElement.blur());
+ await page.keyboard.press('KeyM');
+ await atlas.waitFor();
+ const routes=atlas.locator('#atlasRoutes');
+ const retreat=routes.getByRole('button',{name:/左側の門・装置の広間へ戻る/});
+ const forward=routes.getByRole('button',{name:new RegExp('右側の門・'+label)});
+ assert.doesNotMatch(await retreat.textContent(),/倒してください/);
+ assert.equal((await forward.textContent()).includes('2体とも倒してください'),closed);
+ if(screenshot)await atlas.screenshot({path:screenshot});
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
+}
+
 async function collect(quest,index){
  const step=graph.quests.find(item=>item.id===quest).itinerary[index];
  await drive.walk(step.x);
@@ -172,13 +186,17 @@ try{
  await drive.cross(musht.trail);
  await collect(musht.quest,0);
  await drive.cross(musht.first);
+ await consoleExits('第一試験を終えて装置へ',true,'evidence/frostmoon-trial-exits-atlas.png');
  await page.waitForFunction(source=>window.lab.frame.draws.some(draw=>draw.source===source),commanderSource);
  await canvas.screenshot({path:'evidence/final-legend-normal-commanders.png'});
  await wave(2);
+ await consoleExits('第一試験を終えて装置へ',false);
  await drive.cross(musht.trail);
  await collect(musht.quest,2);
  await drive.cross(musht.second);
+ await consoleExits('第二試験を終えて装置へ',true);
  await wave(4);
+ await consoleExits('第二試験を終えて装置へ',false);
  await drive.cross(musht.trail);
  await collect(musht.quest,4);
  await drive.cross(musht.arena);
@@ -193,7 +211,8 @@ try{
  await drive.report(musht.quest);
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/final-field-legends-browser.json',
-  JSON.stringify({routes:drive.journeys,comparisons,consoleWavesPassed:true,waveStaysCleared:true,questsReported:true,errors},null,2)+'\n');
+  JSON.stringify({routes:drive.journeys,comparisons,consoleWavesPassed:true,consoleExitLabels:true,
+   waveStaysCleared:true,questsReported:true,errors},null,2)+'\n');
  console.log(JSON.stringify(comparisons));
 }finally{
  await browser.close();

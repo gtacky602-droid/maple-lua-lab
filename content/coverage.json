@@ -8055,7 +8055,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Match the remaining stages against special transit and quest-gated route playthroughs.",
+  "current_priority": "Audit each normal, weekly and original Stygian encounter and each quest against entry, completion, rewards and save evidence.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
@@ -8945,6 +8945,7 @@
     "liyue_stage_evidence": "design/world/liyue-stage-evidence.json",
     "hidden_worlds_stage_evidence": "design/world/hidden-worlds-stage-evidence.json",
     "subregions_stage_evidence": "design/world/subregions-stage-evidence.json",
+    "remaining_branches_stage_evidence": "design/world/remaining-branches-stage-evidence.json",
     "inazuma_stage_evidence": "design/world/inazuma-stage-evidence.json",
     "sumeru_stage_evidence": "design/world/sumeru-stage-evidence.json",
     "snez_stage_evidence": "design/world/snez-stage-evidence.json",

@@ -82,6 +82,8 @@ Luaで両ルートの1Lv手前の入場拒否、往復、訪問履歴の保存�
 
 ## 検証
 
+ドーンマンポート、霜月、ナド・クライ特別地域など、地図と移動の台帳に載っていなかった最後の34地点を試験資料に対応付けた。霜月の試験室では、同じ広間に戻る二つの門をM地図で左右と名前で見分けられる。全1,528地点がM地図に掲載され、接続データに往路と帰路があり、それぞれ試験資料と対応していることを確認した。 [34地点の試験資料](../design/world/remaining-branches-stage-evidence.json) · [全地点の接続と対応資料](../evidence/world-map-connectivity.json)
+
 - Luaで18組の往復を確認した。位相門の順序と保存、国境や橋の5つの通行Lv、発見後に入れる3つの隠し世界を含む。試走は戦闘の影響を外した状態で行った。稲妻と淵下宮の77地点では212方向の門を再試走した。 [Luaの経路ログ](../evidence/sites-atlas-connections-lua.json) · [稲妻・淵下宮](../evidence/inazuma-waypoint-test.json)
 - ChromeでM・Esc、地点検索、階層切替、道順、幅390pxの表示と、淵下宮の位相門の往復を確認した。 [全体図](../evidence/world-atlas-overview.png) · [淵下宮の道順](../evidence/atlas-enkan-phase.png) · [モバイル](../evidence/world-atlas-mobile.png) · [操作ログ](../evidence/world-atlas-browser.json)
 - 9本の地域別Lua試験を再実行し、取り込み済みのワープ・神像873地点への訪問と2,256回の方向別通行を確認した。試験では地域ごとの開始セーブと一部の既存依頼進行を用意している。 `python -X utf8 test_world_regional_runtime.py` で再現できる。 [各地域の集計](../evidence/world-map-runtime.json)

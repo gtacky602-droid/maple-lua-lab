@@ -172,7 +172,7 @@ export function initAtlas(action, clearKeys) {
    const button = document.createElement('button');
    const kind = route.huntKind === 'elite' ? '任意戦・' : route.huntKind ? '狩場・' : '';
    const level = route.level != null && route.reason !== `必要Lv${route.level}` && `Lv${route.level}`;
-   const details = [kind + route.label, level, route.reason].filter(Boolean);
+   const details = [kind + route.label, level, route.hint, route.reason].filter(Boolean);
    button.textContent = `${route.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(route);
    li.append(button);

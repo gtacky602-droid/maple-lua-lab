@@ -9,6 +9,7 @@
   "sharedBiodomeReportUnlocksNorthAndSouth": true,
   "twoRealTwoEnemyWaves": true,
   "eachStartUsesSameConsole": true,
+  "atlasDistinguishesRetreatAndClearExits": true,
   "firstCompletionSurvivesSave": true,
   "clearedWavesDoNotRespawn": true,
   "allFourClearRewardsSaved": true,

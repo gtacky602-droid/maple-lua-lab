@@ -142,6 +142,7 @@
     }
   ],
   "consoleWavesPassed": true,
+  "consoleExitLabels": true,
   "waveStaysCleared": true,
   "questsReported": true,
   "errors": []

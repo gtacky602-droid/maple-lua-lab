@@ -1,0 +1,204 @@
+{
+  "scope": "Stages in eight smaller regions outside the marker, hunt, voyage, short transfer and earlier regional ledgers.",
+  "stage_count": 34,
+  "interpretation": "The linked runs cover entry, traversal, quest steps or combat as specified in each run. Regional fixtures set an appropriate level and visits. The Frostmoon trials check both return gates and the quest lock.",
+  "entries": [
+    {
+      "region": "ドーンマンポート",
+      "kind": "exploration",
+      "stages": [
+        "dornman-depth"
+      ],
+      "evidence": [
+        "evidence/branches-test.json"
+      ]
+    },
+    {
+      "region": "ドーンマンポート",
+      "kind": "normal_boss",
+      "stages": [
+        "windrest-vigil-court"
+      ],
+      "evidence": [
+        "evidence/fallen-vigil-field-lua.json"
+      ]
+    },
+    {
+      "region": "ドーンマンポート",
+      "kind": "side_quest",
+      "stages": [
+        "dornman-windworks"
+      ],
+      "evidence": [
+        "evidence/windward-branch-lua.json"
+      ]
+    },
+    {
+      "region": "ドーンマンポート",
+      "kind": "domain",
+      "stages": [
+        "windcrown-domain"
+      ],
+      "evidence": [
+        "evidence/artifact-domains-lua.json"
+      ]
+    },
+    {
+      "region": "ドーンマンポート",
+      "kind": "local_legend",
+      "stages": [
+        "dorn-shieldrol-lake-trail",
+        "dorn-churldric-cooking-camp"
+      ],
+      "evidence": [
+        "evidence/final-field-legends-lua.json",
+        "evidence/final-field-legends-browser.json"
+      ]
+    },
+    {
+      "region": "ナド・クライ特別地域（仮）",
+      "kind": "exploration",
+      "stages": [
+        "nod-special-camp",
+        "nod-special-depth"
+      ],
+      "evidence": [
+        "evidence/branches-test.json"
+      ]
+    },
+    {
+      "region": "ナド・クライ特別地域（仮）",
+      "kind": "side_quest",
+      "stages": [
+        "nod-reflector-shore",
+        "nod-reflection-garden",
+        "nod-quiet-rim"
+      ],
+      "evidence": [
+        "evidence/moonlit-garden-lua.json",
+        "evidence/moonlit-garden-browser.json"
+      ]
+    },
+    {
+      "region": "ナド・クライ特別地域（仮）",
+      "kind": "trail",
+      "stages": [
+        "sites-nsp-02",
+        "sites-nsp-03",
+        "sites-nsp-04",
+        "sites-nsp-07",
+        "sites-nsp-08"
+      ],
+      "evidence": [
+        "evidence/sites-slot-trails-lua.json"
+      ]
+    },
+    {
+      "region": "翼の峰",
+      "kind": "exploration",
+      "stages": [
+        "wingspan-camp",
+        "wingspan-lookout"
+      ],
+      "evidence": [
+        "evidence/branches-test.json",
+        "evidence/wingspan-quest-browser.json"
+      ]
+    },
+    {
+      "region": "ノヴォキッチェヴ（仮構造）",
+      "kind": "normal_boss",
+      "stages": [
+        "wavebinder-tide-cavern"
+      ],
+      "evidence": [
+        "evidence/wavebinder-field-lua.json"
+      ]
+    },
+    {
+      "region": "ノヴォキッチェヴ（仮構造）",
+      "kind": "side_quest",
+      "stages": [
+        "novo-frozen-works",
+        "novo-drift-passage",
+        "novo-ice-vault"
+      ],
+      "evidence": [
+        "evidence/ice-expedition-lua.json",
+        "evidence/ice-expedition-browser.json"
+      ]
+    },
+    {
+      "region": "オシカ・ナタ",
+      "kind": "side_quest",
+      "stages": [
+        "ochka-tide-stairs",
+        "ochka-patched-court",
+        "ochka-sifting-kiln"
+      ],
+      "evidence": [
+        "evidence/cap-stopover-lua.json",
+        "evidence/cap-stopover-browser.json"
+      ]
+    },
+    {
+      "region": "オシカ・ナタ",
+      "kind": "local_legend",
+      "stages": [
+        "ochka-bronzelock-island-court"
+      ],
+      "evidence": [
+        "evidence/natlan-highland-legends-lua.json",
+        "evidence/natlan-highland-legends-browser.json"
+      ]
+    },
+    {
+      "region": "古の聖山",
+      "kind": "local_legend",
+      "stages": [
+        "sacred-mountain-east-isle-dais"
+      ],
+      "evidence": [
+        "evidence/natlan-highland-legends-lua.json",
+        "evidence/natlan-highland-legends-browser.json"
+      ]
+    },
+    {
+      "region": "空の神殿",
+      "kind": "local_legend",
+      "stages": [
+        "sky-maha-pavilion-court"
+      ],
+      "evidence": [
+        "evidence/final-field-legends-lua.json",
+        "evidence/final-field-legends-browser.json"
+      ]
+    },
+    {
+      "region": "霜月",
+      "kind": "local_legend",
+      "stages": [
+        "frost-wujian-south-trail",
+        "frost-prism-slime-basin"
+      ],
+      "evidence": [
+        "evidence/final-field-legends-lua.json",
+        "evidence/final-field-legends-browser.json"
+      ]
+    },
+    {
+      "region": "霜月",
+      "kind": "local_legend",
+      "stages": [
+        "frost-ancient-moon-console",
+        "frost-commander-first-wave",
+        "frost-commander-second-wave",
+        "frost-mushteshir-inner-chamber"
+      ],
+      "evidence": [
+        "evidence/final-field-legends-lua.json",
+        "evidence/final-field-legends-browser.json"
+      ]
+    }
+  ]
+}

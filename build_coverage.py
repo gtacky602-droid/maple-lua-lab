@@ -172,6 +172,7 @@ def rebuild():
         'liyue_stage_evidence': 'design/world/liyue-stage-evidence.json',
         'hidden_worlds_stage_evidence': 'design/world/hidden-worlds-stage-evidence.json',
         'subregions_stage_evidence': 'design/world/subregions-stage-evidence.json',
+        'remaining_branches_stage_evidence': 'design/world/remaining-branches-stage-evidence.json',
         'inazuma_stage_evidence': 'design/world/inazuma-stage-evidence.json',
         'sumeru_stage_evidence': 'design/world/sumeru-stage-evidence.json',
         'snez_stage_evidence': 'design/world/snez-stage-evidence.json',

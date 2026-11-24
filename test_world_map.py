@@ -8,6 +8,9 @@ from savegame import validate_save
 def content(name):
     return json.loads((ROOT / 'content' / name).read_text(encoding='utf8'))
 
+def evidence_file(path):
+    return json.loads((ROOT / path).read_text(encoding='utf8'))
+
 
 catalog = content('map-catalog.json')
 coverage = content('coverage.json')
@@ -92,6 +95,30 @@ all_outbound, all_inbound = reachable(start, forward), reachable(start, reverse)
 assert all_outbound == ids, sorted(ids - all_outbound)
 assert all_inbound == ids, sorted(ids - all_inbound)
 
+atlas_stages = [p['id'] for region in content('world-atlas.json')['regions']
+                for p in region['points'] if p.get('mode') != 'draft']
+assert set(atlas_stages) == ids and len(atlas_stages) == len(ids)
+checked_stages = bound_stages | {
+    row['stage'] for row in evidence_file('evidence/world-hunt-routes-lua.json')['stages']
+} | {
+    row['stage'] for row in evidence_file('evidence/world-voyage-routes-lua.json')['voyages']
+} | {
+    leg[side] for leg in evidence_file('evidence/world-timed-gates-lua.json')['directions']
+    for side in ('origin', 'destination')
+}
+regional_counts = {}
+for name, path in review.items():
+    if not name.endswith('_stage_evidence'):
+        continue
+    ledger = evidence_file(path)
+    entries = [stage for row in ledger['entries'] for stage in row['stages']]
+    assert len(entries) == len(set(entries)) == ledger['stage_count'], path
+    for entry in ledger['entries']:
+        assert entry['evidence'] and all((ROOT / proof).is_file() for proof in entry['evidence']), entry
+    checked_stages.update(entries)
+    regional_counts[name.removesuffix('_stage_evidence')] = len(entries)
+assert checked_stages <= ids, sorted(checked_stages - ids)
+
 lua, core = runtime()
 state = core.new(12)
 core.action(state, 'story_start')
@@ -107,6 +134,10 @@ evidence = {
     'reachable_in_route_graph': len(bound_stages & outbound),
     'can_return_in_route_graph': len(bound_stages & inbound),
     'authored_stages_with_outbound_and_return_routes': len(all_outbound & all_inbound),
+    'authored_stages_on_atlas': len(atlas_stages),
+    'authored_stages_linked_to_route_or_runtime_evidence': len(checked_stages),
+    'authored_stages_without_evidence_links': sorted(ids - checked_stages),
+    'regional_evidence_ledger_sizes': regional_counts,
     'battle_interior_to_entrance': battle_transfers,
     'verified_marker_fields': ['kind', 'floor', 'position_on_platform_or_in_swim_bounds'],
     'route_model': 'Stage exits, voyage arrivals and two conditional battle transfers. The 873 marker counts use only exits and voyages. No warp or visited-only gates. Gate conditions are checked separately.',
