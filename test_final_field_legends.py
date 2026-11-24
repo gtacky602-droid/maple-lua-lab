@@ -45,6 +45,9 @@ def start(level, hub):
     core.action(result, 'story_start')
     core.enterStoryNode(result, hub)
     core.grantExp(result, exp(level), 'quest')
+    for slot in (1, 2, 3):
+        assert core.giveArtifact(result, slot, 60, 3)
+        core.action(result, 'artifact_equip:' + str(slot))
     return result
 
 
@@ -239,7 +242,7 @@ walk.cross(MU_HOST)
 assert walk.actor.y == 390
 report(state, FROST, MU_Q)
 assert restore(state).story.quests[MU_Q].status == 'complete'
-assert all(not specs[id]['moves'] for id in (CH, MA, PR, MU))
+assert all(not specs[id]['moves'] for id in (PR, MU))
 
 expected = {row['encounter_id'] for row in read('design/world/encounters.json')['legends']}
 covered = read('content/coverage.json')['optional_legend_coverage']['stage_by_legend']

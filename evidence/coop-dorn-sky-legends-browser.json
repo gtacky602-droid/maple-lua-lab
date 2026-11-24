@@ -1,0 +1,291 @@
+{
+  "participants": 2,
+  "churldric": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 337,
+        "moves": [
+          "DC01",
+          "DC02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 361,
+        "moves": [
+          "DC01",
+          "DC02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "geo",
+        72,
+        679,
+        849
+      ],
+      [
+        2,
+        "geo",
+        120,
+        942,
+        1118
+      ]
+    ],
+    "rewards": [
+      [
+        4234198,
+        950
+      ],
+      [
+        4234198,
+        950
+      ]
+    ],
+    "contacts": [
+      11,
+      12
+    ],
+    "saved": true,
+    "returnY": 406,
+    "sharedRematch": true
+  },
+  "maha": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 309,
+        "moves": [
+          "SM01",
+          "SM02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 335,
+        "moves": [
+          "SM01",
+          "SM02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "geo",
+        74,
+        325,
+        469
+      ],
+      [
+        2,
+        "geo",
+        118,
+        368,
+        540
+      ],
+      [
+        3,
+        "geo",
+        165,
+        552,
+        696
+      ]
+    ],
+    "rewards": [
+      [
+        6735825,
+        1050
+      ],
+      [
+        6735825,
+        1050
+      ]
+    ],
+    "contacts": [
+      14,
+      14
+    ],
+    "saved": true,
+    "returnY": 409,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "dornman-camp",
+        "mond-wp-95782",
+        "walk"
+      ],
+      [
+        "mond-wp-95782",
+        "mond-wp-95795",
+        "walk"
+      ],
+      [
+        "mond-wp-95795",
+        "mond-wp-95794",
+        "walk"
+      ],
+      [
+        "mond-wp-95794",
+        "mond-wp-95793",
+        "boat"
+      ],
+      [
+        "mond-wp-95793",
+        "mond-wp-95792",
+        "walk"
+      ],
+      [
+        "mond-wp-95792",
+        "dorn-shieldrol-lake-trail",
+        "raised"
+      ],
+      [
+        "dorn-shieldrol-lake-trail",
+        "dorn-churldric-cooking-camp",
+        "raised"
+      ],
+      [
+        "dorn-churldric-cooking-camp",
+        "dorn-shieldrol-lake-trail",
+        "walk"
+      ],
+      [
+        "dorn-shieldrol-lake-trail",
+        "dorn-churldric-cooking-camp",
+        "raised"
+      ],
+      [
+        "dorn-churldric-cooking-camp",
+        "dorn-shieldrol-lake-trail",
+        "walk"
+      ],
+      [
+        "nat-wp-96377",
+        "sky-sand-pavilion-walk",
+        "lift"
+      ],
+      [
+        "sky-sand-pavilion-walk",
+        "sky-maha-pavilion-court",
+        "raised"
+      ],
+      [
+        "sky-maha-pavilion-court",
+        "sky-sand-pavilion-walk",
+        "walk"
+      ],
+      [
+        "sky-sand-pavilion-walk",
+        "sky-maha-pavilion-court",
+        "raised"
+      ],
+      [
+        "sky-maha-pavilion-court",
+        "sky-sand-pavilion-walk",
+        "walk"
+      ],
+      [
+        "sky-sand-pavilion-walk",
+        "nat-wp-96377",
+        "lift"
+      ]
+    ],
+    [
+      [
+        "dornman-camp",
+        "mond-wp-95782",
+        "walk"
+      ],
+      [
+        "mond-wp-95782",
+        "mond-wp-95795",
+        "walk"
+      ],
+      [
+        "mond-wp-95795",
+        "mond-wp-95794",
+        "walk"
+      ],
+      [
+        "mond-wp-95794",
+        "mond-wp-95793",
+        "boat"
+      ],
+      [
+        "mond-wp-95793",
+        "mond-wp-95792",
+        "walk"
+      ],
+      [
+        "mond-wp-95792",
+        "dorn-shieldrol-lake-trail",
+        "raised"
+      ],
+      [
+        "dorn-shieldrol-lake-trail",
+        "dorn-churldric-cooking-camp",
+        "raised"
+      ],
+      [
+        "dorn-churldric-cooking-camp",
+        "dorn-shieldrol-lake-trail",
+        "walk"
+      ],
+      [
+        "dorn-shieldrol-lake-trail",
+        "dorn-churldric-cooking-camp",
+        "raised"
+      ],
+      [
+        "dorn-churldric-cooking-camp",
+        "dorn-shieldrol-lake-trail",
+        "walk"
+      ],
+      [
+        "nat-wp-96377",
+        "sky-sand-pavilion-walk",
+        "lift"
+      ],
+      [
+        "sky-sand-pavilion-walk",
+        "sky-maha-pavilion-court",
+        "raised"
+      ],
+      [
+        "sky-maha-pavilion-court",
+        "sky-sand-pavilion-walk",
+        "walk"
+      ],
+      [
+        "sky-sand-pavilion-walk",
+        "sky-maha-pavilion-court",
+        "raised"
+      ],
+      [
+        "sky-maha-pavilion-court",
+        "sky-sand-pavilion-walk",
+        "walk"
+      ],
+      [
+        "sky-sand-pavilion-walk",
+        "nat-wp-96377",
+        "lift"
+      ]
+    ]
+  ],
+  "sharedBayCrossing": true,
+  "personalPavilionSurvey": true,
+  "templeLiftReturnY": 365,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

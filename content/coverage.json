@@ -8389,6 +8389,24 @@
       "sne-crystal-prism-gallery",
       "sne-crystal-tree-refuge",
       "sne-novokichev-lantern-alley",
+      "mond-wp-95782",
+      "mond-wp-95795",
+      "mond-wp-95794",
+      "mond-wp-95793",
+      "mond-wp-95792",
+      "dorn-shieldrol-lake-trail",
+      "dorn-churldric-cooking-camp",
+      "nat-wp-84110",
+      "nat-sky-camp",
+      "nat-wp-96366",
+      "nat-wp-96367",
+      "nat-wp-96373",
+      "nat-wp-96375",
+      "nat-wp-96376",
+      "nat-wp-96378",
+      "nat-wp-96377",
+      "sky-sand-pavilion-walk",
+      "sky-maha-pavilion-court",
       "nod-moon-crab-arena",
       "nod-false-moon-court",
       "nod-false-moon-rift",
@@ -8562,7 +8580,9 @@
       "legend-snez_bandersnatch",
       "legend-snez_furiosa",
       "legend-snez_ancient_ironquill",
-      "legend-snez_elder_blighttree"
+      "legend-snez_elder_blighttree",
+      "legend-mondstadt_churldric",
+      "legend-mondstadt_maha_vasudevayaputra"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8860,7 +8880,9 @@
       "evidence/coop-snez-first-field-legends-lua-http.json",
       "evidence/coop-snez-first-field-legends-browser.json",
       "evidence/coop-snez-late-field-legends-lua-http.json",
-      "evidence/coop-snez-late-field-legends-browser.json"
+      "evidence/coop-snez-late-field-legends-browser.json",
+      "evidence/coop-dorn-sky-legends-lua-http.json",
+      "evidence/coop-dorn-sky-legends-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

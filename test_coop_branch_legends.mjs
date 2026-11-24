@@ -18,8 +18,10 @@ const nodFirst=process.argv.includes('--nod-first');
 const nodNorth=process.argv.includes('--nod-north');
 const snezFirst=process.argv.includes('--snez-first');
 const snezLate=process.argv.includes('--snez-late');
+const dornSky=process.argv.includes('--dorn-sky');
 const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
-const prefix=snezLate?'evidence/coop-snez-late-field-legends':snezFirst?'evidence/coop-snez-first-field-legends'
+const prefix=dornSky?'evidence/coop-dorn-sky-legends'
+ : snezLate?'evidence/coop-snez-late-field-legends':snezFirst?'evidence/coop-snez-first-field-legends'
  : nodNorth?'evidence/coop-nod-north-field-legends':nodFirst?'evidence/coop-nod-first-field-legends'
  : highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
  : atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
@@ -178,7 +180,16 @@ const snezLateCases=[
   hp:2750,mora:1210,x:830,warning:'SLT02',entities:[97111],
   warningOrder:[[1,'geo',75],[2,'geo',118],[3,'geo',163]],returnY:389},
 ];
-const cases=snezLate?snezLateCases:snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const dornSkyCases=[
+ {tag:'churldric',id:'legend-mondstadt_churldric',arena:'dorn-churldric-cooking-camp',
+  checkpoint:'dornman-camp',approach:'dornman-camp',entry:'dorn-shieldrol-lake-trail',
+  hp:2100,mora:950,x:830,warning:'DC02',entities:[97116],warningOrder:[[1,'geo',72],[2,'geo',120]],returnY:406},
+ {tag:'maha',id:'legend-mondstadt_maha_vasudevayaputra',arena:'sky-maha-pavilion-court',
+  checkpoint:'nat-sky-camp',approach:'nat-wp-96377',entry:'sky-sand-pavilion-walk',quest:'sky-pavilion-notes',
+  lock:'マーダヴァ',hp:2420,mora:1050,x:830,warning:'SM02',entities:[97117],
+  warningOrder:[[1,'geo',74],[2,'geo',118],[3,'geo',165]],returnY:409},
+];
+const cases=dornSky?dornSkyCases:snezLate?snezLateCases:snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -212,7 +223,8 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=snezLate?'work/snez-late-field-legends-fixture.json':snezFirst?'work/snez-first-field-legends-coop-fixture.json'
+ const fixturePath=dornSky?'work/final-field-legends-fixture.json'
+  : snezLate?'work/snez-late-field-legends-fixture.json':snezFirst?'work/snez-first-field-legends-coop-fixture.json'
   : nodNorth?'work/nod-north-field-legends-fixture.json':nodFirst?'work/nod-first-field-legends-fixture.json'
   : highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
   : atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
@@ -220,16 +232,17 @@ async function start(cfg,needsReport){
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=(localNatlan||nodFirst||nodNorth||snezFirst||snezLate)?9068:dry?9064:lake?9063:9060;
+ const port=(localNatlan||nodFirst||nodNorth||snezFirst||snezLate||dornSky)?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- if(localNatlan||nodFirst||nodNorth||snezFirst||snezLate){
+ if(localNatlan||nodFirst||nodNorth||snezFirst||snezLate||dornSky){
   for(const id of cfg.quests??(cfg.quest?[cfg.quest]:[])) await route.accept(id);
  }
- await route.warp(cfg.approach??cfg.entry);
+ const approach=cfg.approach??cfg.entry;
+ if(approach!==cfg.checkpoint) await route.warp(approach);
  await page.locator('#coopPanel summary').click();
  return {context,page,route};
 }
@@ -1064,7 +1077,7 @@ async function snezFirstJourney(){
   separateSparringAndIceDoor:true,clearedRoundsStayEmpty:true,twoSnowfieldEntrances:true,reportRestoredForBoth:true};
 }
 
-async function inspectSnezSteps(player,quest,first,last){
+async function inspectQuestSteps(player,quest,first,last){
  const {itinerary}=graph.quests.find(q=>q.id===quest);
  for(let index=first;index<last;index++){
   await collectSpot(player,itinerary[index]);
@@ -1078,12 +1091,12 @@ async function snezLateJourney(){
  const [host,guest]=players;
  const code=await createRoom(players);
  await Promise.all(players.map(player=>crossShared(player,mouse.entry,code)));
- await inspectSnezSteps(guest,mouse.quest,0,2);
- await inspectSnezSteps(host,mouse.quest,0,4);
+ await inspectQuestSteps(guest,mouse.quest,0,2);
+ await inspectQuestSteps(host,mouse.quest,0,4);
  await crossShared(host,mouse.arena,code);
  await lockedNatlanGate(guest,mouse);
  await guest.route.count(mouse.quest,2);
- await inspectSnezSteps(guest,mouse.quest,2,4);
+ await inspectQuestSteps(guest,mouse.quest,2,4);
  await crossShared(guest,mouse.arena,code);
  const mouseProof=await fightAndSave(players,mouse);
  await rematch(players,mouse);
@@ -1099,17 +1112,17 @@ async function snezLateJourney(){
    await crossShared(player,id,code);
   }
  }));
- await inspectSnezSteps(host,tree.quest,0,1);
+ await inspectQuestSteps(host,tree.quest,0,1);
  await crossShared(host,tree.entry,code);
  await lockedNatlanGate(guest,{arena:tree.entry,lock:'水位表'});
  await guest.route.count(tree.quest,0);
- await inspectSnezSteps(guest,tree.quest,0,1);
+ await inspectQuestSteps(guest,tree.quest,0,1);
  await crossShared(guest,tree.entry,code);
- await inspectSnezSteps(host,tree.quest,1,2);
+ await inspectQuestSteps(host,tree.quest,1,2);
  await crossShared(host,tree.arena,code);
  await lockedNatlanGate(guest,tree);
  await guest.route.count(tree.quest,1);
- await inspectSnezSteps(guest,tree.quest,1,2);
+ await inspectQuestSteps(guest,tree.quest,1,2);
  await crossShared(guest,tree.arena,code);
  const treeProof=await fightAndSave(players,tree);
  await rematch(players,tree);
@@ -1122,9 +1135,55 @@ async function snezLateJourney(){
   personalMouseRescues:true,personalWaterwayGates:true,sharedRoomViaNorthWorks:true,bothReportsRestored:true};
 }
 
+async function dornSkyJourney(){
+ const [chur,maha]=cases;
+ const players=await Promise.all([start(chur,false),start(chur,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ await Promise.all(players.map(async player=>{
+  for(const id of ['mond-wp-95782','mond-wp-95795','mond-wp-95794','mond-wp-95793','mond-wp-95792',chur.entry]){
+   await crossShared(player,id,code);
+  }
+ }));
+ await enterIndividually(players,chur);
+ const churProof=await fightAndSave(players,chur);
+ await rematch(players,chur);
+ await leaveArena(players,chur);
+ console.log('Chrome: both players crossed the bay and cleared Churldric.');
+ await Promise.all(players.map(async player=>{
+  await player.route.warp(maha.checkpoint);
+  assert.equal((await frame(player.page)).coop.code,code);
+  await player.route.accept(maha.quest);
+  await player.route.warp(maha.approach);
+  await crossShared(player,maha.entry,code);
+ }));
+ await inspectQuestSteps(guest,maha.quest,0,2);
+ await inspectQuestSteps(host,maha.quest,0,3);
+ await crossShared(host,maha.arena,code);
+ await lockedNatlanGate(guest,maha);
+ await guest.route.count(maha.quest,2);
+ await inspectQuestSteps(guest,maha.quest,2,3);
+ await crossShared(guest,maha.arena,code);
+ const mahaProof=await fightAndSave(players,maha);
+ await rematch(players,maha);
+ await leaveArena(players,maha);
+ await Promise.all(players.map(async player=>{
+  await crossShared(player,maha.approach,code);
+  assert.equal((await player.route.actor()).y,365);
+ }));
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ assert.ok(routes.every(route=>route.some(leg=>leg[0]==='mond-wp-95794'&&leg[1]==='mond-wp-95793'&&leg[2]==='boat')));
+ await Promise.all(players.map(p=>p.context.close()));
+ return {churldric:{...churProof,returnY:chur.returnY,sharedRematch:true},
+  maha:{...mahaProof,returnY:maha.returnY,sharedRematch:true},routes,
+  sharedBayCrossing:true,personalPavilionSurvey:true,templeLiftReturnY:365,reportRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(snezLate) Object.assign(evidence,await snezLateJourney());
+ if(dornSky) Object.assign(evidence,await dornSkyJourney());
+ else if(snezLate) Object.assign(evidence,await snezLateJourney());
  else if(snezFirst) Object.assign(evidence,await snezFirstJourney());
  else if(nodNorth) Object.assign(evidence,await nodNorthJourney());
  else if(nodFirst) Object.assign(evidence,await nodFirstJourney());

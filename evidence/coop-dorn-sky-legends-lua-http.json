@@ -1,0 +1,80 @@
+{
+  "lua": {
+    "legend-mondstadt_churldric": {
+      "players": 4,
+      "sharedHP": 2100,
+      "moves": [
+        {
+          "id": "DC01",
+          "warningTicks": [
+            65
+          ]
+        },
+        {
+          "id": "DC02",
+          "warningTicks": [
+            72,
+            120
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 6514150,
+      "mora": 950
+    },
+    "legend-mondstadt_maha_vasudevayaputra": {
+      "players": 4,
+      "sharedHP": 2420,
+      "moves": [
+        {
+          "id": "SM01",
+          "warningTicks": [
+            67
+          ]
+        },
+        {
+          "id": "SM02",
+          "warningTicks": [
+            74,
+            118,
+            165
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 7484250,
+      "mora": 1050
+    }
+  },
+  "http": {
+    "churldric": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 406,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true,
+      "sharedBayCrossingAndReturn": true,
+      "ungatedByQuest": true,
+      "savedClearRestored": true
+    },
+    "maha": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 409,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true,
+      "independentSurveyGate": true,
+      "partialSurveyRestored": true,
+      "sharedTempleLifts": true,
+      "bothReportsRestored": true
+    }
+  }
+}
