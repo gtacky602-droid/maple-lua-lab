@@ -2,7 +2,7 @@
   "browser": "Chrome",
   "play": {
     "won": true,
-    "seconds": 32,
+    "seconds": 34.2,
     "moves": [
       "FSU01",
       "FSU02",
@@ -31,6 +31,11 @@
     "y": 411.55555555555554
   },
   "savedRespawn": true,
+  "resumedFight": {
+    "hp": 726,
+    "elapsedTicks": 444,
+    "bestTicks": 3231
+  },
   "viewport390": true,
   "errors": []
 }

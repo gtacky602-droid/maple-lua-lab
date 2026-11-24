@@ -61,6 +61,23 @@ try{
  await walk(748);
  const beforeFight=await frame();
  assert.equal(beforeFight.fieldBoss.maxhp,738);
+ await walk(beforeFight.fieldBoss.x-54);
+ await page.keyboard.down('KeyJ');
+ try{
+  await page.waitForFunction(()=>{
+   const boss=window.lab.frame.fieldBoss;
+   return boss?.hp>0&&boss.hp<boss.maxhp;
+  });
+ }finally{await page.keyboard.up('KeyJ')}
+ await page.locator('#saveProgress').click();
+ await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
+ const partial=await page.evaluate(id=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')).fieldBosses[id],id);
+ assert.ok(partial.elapsedTicks>0);
+ await page.locator('#loadProgress').click();
+ await page.waitForFunction(hub=>window.lab.frame.story.node===hub,hub);
+ await gate(1380,approach);
+ await gate(1310,arena);
+ await page.waitForFunction(hp=>window.lab.frame.fieldBoss?.hp===hp,partial.hp);
  await page.evaluate(async name=>{
   const image=new Image();
   image.src='./assets/'+name;
@@ -140,6 +157,8 @@ try{
  const save=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(save.fieldBosses[id].hp,0);
  assert.ok(save.fieldBosses[id].waitTicks>0);
+ assert.equal(save.endgame.bosses[id].clears,1);
+ assert.ok(save.endgame.bosses[id].bestTicks>partial.elapsedTicks);
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
@@ -147,11 +166,13 @@ try{
   browser:'Chrome',play,scenery,questAcceptedInUi:true,questReport:{xp:2900,mora:240},
   sameSceneCommands:{png:png.commands,standard:standard.commands,light:light.commands},
   airborneAt:{tick:png.fieldBoss.tick,y:png.fieldBoss.y},
-  savedRespawn:true,viewport390:true,errors
+  savedRespawn:true,resumedFight:{hp:partial.hp,elapsedTicks:partial.elapsedTicks,
+   bestTicks:save.endgame.bosses[id].bestTicks},viewport390:true,errors
  },null,2)+'\n');
  console.log('Solitary Suanni Chrome quest, route, all moves, comparison, clear, report and save passed.');
 }catch(error){
  console.error(await page.evaluate(()=>({node:window.lab?.frame.story.node,
-  field:window.lab?.frame.fieldBoss,play:window.suanniResult})),errors);
+  field:window.lab?.frame.fieldBoss,play:window.suanniResult,
+  saveStatus:document.querySelector('#saveStatus')?.textContent})),errors);
  throw error;
 }finally{await browser.close()}

@@ -57,6 +57,10 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 幽境は、各地域の受付へ案内する。現地の入口でFを押し、受付で**難易度と聖遺物セット**を選ぶ。Chromeでは「北斗」から試合甲板へ移動し、極限のLv165条件と、通常戦の勝利・依頼報告・保存からの復元を確認した。 [幽境の案内画面](../evidence/stygian-beidou-atlas.png) · [北斗戦のログ](../evidence/stygian-clear-rewards-browser.json)
 
+7.2の台帳にある通常49戦を、現地の門での入場、初回と再戦の討伐報酬、保存後の再出現、討伐依頼48件の一度限りの報告までLuaで検証した。開始Lvと開始地点を用意し、戦闘の決着を試験で作って報酬を確かめた。 [49戦の入場・報酬・復元](../evidence/normal-boss-lifecycle-lua.json) · [戦闘ごとの既存の試験](../evidence/boss-roster-lua-audit.json)
+
+ラボ独自の通常15戦・週2戦は個別シナリオを再試験した。週ボス14戦の56難易度枠と幽境7戦の28難易度枠も、初回・再戦・保存再開の報酬試験を実行した。 [ラボ独自17戦の試験](../evidence/original-encounter-scenarios-lua.json) · [週ボス56枠](../evidence/weekly-difficulty-rewards-lua.json) · [幽境28枠](../evidence/stygian-clear-rewards-lua.json)
+
 ## 狩場と脇部屋の入口
 
 M地図の「狩場・任意戦」には、狩場と脇部屋に加えて入口側の地点も出る。璃月・港東の荷揚げ波止場を選ぶと、採石斜面のLv34と港南の征討入口のLv38が並ぶ。行き先を選ぶと、必要Lvと途中の門を確認できる。 [港東の二つの狩場](../evidence/world-hunt-multiple-entrances.png)

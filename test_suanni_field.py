@@ -136,6 +136,37 @@ for _ in range(2):
 assert restored.progression.questXp-xp == 2900 and restored.mora-mora == 240
 
 
+def clear_after_resuming():
+    state, slot, boss, hero = make()
+    spot(hero, boss.x-42)
+    assert hit(state, boss) > 0
+    assert 0 < boss.hp < boss.maxhp
+    for _ in range(42):
+        core.step(state, 1/60, empty)
+    snapshot = validate_save(native(core.checkpoint(state)))
+    elapsed = round((state.t-slot.entryAt)*60)
+    resumed = core.restore(lua.table_from(snapshot, recursive=True), 12)
+    travel_ticks = 600
+    for _ in range(travel_ticks):
+        core.step(resumed, 1/60, empty)
+    portal(resumed, 1380, approach)
+    portal(resumed, 1310, arena)
+    active_slot = resumed.fieldSlots[boss_id]
+    assert active_slot.enemy.hp == snapshot['fieldBosses'][boss_id]['hp']
+    active_slot.enemy.hp = 1
+    assert hit(resumed, active_slot.enemy) == 1
+    record = resumed.endgame and resumed.endgame.bosses[boss_id]
+    assert record and record.clears == 1 and record.bestTicks == elapsed + travel_ticks
+    assert snapshot['fieldBosses'][boss_id]['elapsedTicks'] == elapsed
+    finished = validate_save(native(core.checkpoint(resumed)))
+    assert finished['endgame']['bosses'][boss_id]['bestTicks'] == record.bestTicks
+    legacy_slot = snapshot['fieldBosses'][boss_id]
+    del legacy_slot['elapsedTicks']
+    legacy = core.restore(lua.table_from(validate_save(snapshot), recursive=True), 12)
+    assert legacy.fieldSlots[boss_id].enemy.hp == legacy_slot['hp']
+    return record.bestTicks
+
+
 def clear_solo():
     state, slot, boss, hero = make()
     start = state.t
@@ -175,6 +206,7 @@ result = dict(lockedForeAndRear=True, separateWaterBlades=True, windAndWaterWind
               fixedLanding=True, airborneHurtbox=True, landingAndWaveShareOneHit=True,
               waveCanHitOnItsOwn=True, recoveryTicks=144, exitRestoresGround=True,
               oneQuestReportAndSavedRespawn=True, normalAttackSolo=clear_solo(),
+              timedClearAfterResumingTicks=clear_after_resuming(),
               sameSceneCommands=dict(png=png.commands,standard=standard.commands,light=light.commands))
 (ROOT/'evidence/suanni-field-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)

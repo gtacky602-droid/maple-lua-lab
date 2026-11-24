@@ -8040,6 +8040,19 @@
       "stygian": 7,
       "scope": "Searchable routes to authored fight entrances and Stygian desks.",
       "evidence": "evidence/world-atlas-lua.json"
+    },
+    "normal_lifecycle": {
+      "roster_version": "7.2",
+      "lineups_tested": 49,
+      "commission_reports_tested": 48,
+      "scope": "In-world gate movement from prepared waypoints, controlled terminal defeats, payouts, cooldowns, save restoration and repeat clears.",
+      "evidence": "evidence/normal-boss-lifecycle-lua.json",
+      "browser_resume_evidence": "evidence/suanni-field-browser.json"
+    },
+    "original_scenarios": {
+      "normal": 15,
+      "weekly": 2,
+      "evidence": "evidence/original-encounter-scenarios-lua.json"
     }
   },
   "world_boss_connections": {
@@ -8055,7 +8068,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Audit each normal, weekly and original Stygian encounter and each quest against entry, completion, rewards and save evidence.",
+  "current_priority": "Audit authored quests against acceptance, objective progress, report payouts and save restoration, including quests outside the design-ID and normal boss results.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [

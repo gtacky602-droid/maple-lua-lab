@@ -1,0 +1,92 @@
+{
+  "scope": "Current reruns of the scenario scripts for the 15 original normal fights and two original weekly fights. Each script sets its own entry and combat conditions. This records script completion.",
+  "normal": 15,
+  "weekly": 2,
+  "scenarios": {
+    "original-snow-sweeper": {
+      "kind": "normal",
+      "script": "test_snow_rail.py",
+      "passed": true
+    },
+    "original-frost-antler": {
+      "kind": "normal",
+      "script": "test_white_pass_chapter.py",
+      "passed": true
+    },
+    "original-windward-tower": {
+      "kind": "normal",
+      "script": "test_windward_branch.py",
+      "passed": true
+    },
+    "original-rubble-sifter": {
+      "kind": "normal",
+      "script": "test_cap_stopover.py",
+      "passed": true
+    },
+    "original-prism-walker": {
+      "kind": "normal",
+      "script": "test_moonlit_garden.py",
+      "passed": true
+    },
+    "original-ice-crawler": {
+      "kind": "normal",
+      "script": "test_ice_expedition.py",
+      "passed": true
+    },
+    "original-rime-hare": {
+      "kind": "normal",
+      "script": "test_spine_observation.py",
+      "passed": true
+    },
+    "original-tea-boulder": {
+      "kind": "normal",
+      "script": "test_chenyu_tea_route.py",
+      "passed": true
+    },
+    "original-plate-tail": {
+      "kind": "normal",
+      "script": "test_enkan_lamp_route.py",
+      "passed": true
+    },
+    "original-wind-ring": {
+      "kind": "normal",
+      "script": "test_tunigi_excavation.py",
+      "passed": true
+    },
+    "original-bellgate": {
+      "kind": "normal",
+      "script": "test_bygone_resonance.py",
+      "passed": true
+    },
+    "original-canopy-fungus": {
+      "kind": "normal",
+      "script": "test_sumeru_canopy.py",
+      "passed": true
+    },
+    "original-grand-finale": {
+      "kind": "normal",
+      "script": "test_fontaine_finale.py",
+      "passed": true
+    },
+    "original-river-racer": {
+      "kind": "normal",
+      "script": "test_natlan_sunset_duel.py",
+      "passed": true
+    },
+    "original-moon-crab": {
+      "kind": "normal",
+      "script": "test_nod_moon_vault.py",
+      "passed": true
+    },
+    "original-tide-surveyor": {
+      "kind": "weekly",
+      "script": "test_tide_surveyor.py",
+      "passed": true
+    },
+    "original-twin-shuttle-loom": {
+      "kind": "weekly",
+      "script": "test_twin_shuttle_loom.py",
+      "passed": true
+    }
+  }
+}

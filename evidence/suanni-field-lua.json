@@ -18,6 +18,7 @@
       "FSU03"
     ]
   },
+  "timedClearAfterResumingTicks": 642,
   "sameSceneCommands": {
     "png": 31,
     "standard": 10790,

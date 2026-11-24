@@ -501,7 +501,7 @@ return function(C,configs,controllers)
     local spec=byId[id]
     if not spec.manualRechallenge then
      data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s.t,slot)}
-     if spec.questRewardsOnly and slot.entryAt and slot.enemy.hp>0 and slot.enemy.hp<spec.hp then
+     if slot.entryAt and slot.enemy.hp>0 and slot.enemy.hp<spec.hp then
       data.fieldBosses[id].elapsedTicks=math.min(10^9,math.max(0,math.floor((s.t-slot.entryAt)*60+.5)))
      end
      local behavior=controllers[spec.controller]
@@ -524,9 +524,8 @@ return function(C,configs,controllers)
     if behavior.restore then behavior.restore(slot.enemy,byId[id],saved.flags,slot) end
     if saved.waitTicks>0 then
      slot.waitUntil=s.t+saved.waitTicks/60;slot.phase='respawn'
-    elseif saved.hp<byId[id].hp then
-     slot.phase='notice';slot.delay=byId[id].noticeTicks
     end
+    -- A damaged encounter notices the party on re-entry, after the trip from town.
     s.fieldSlots[id]=slot
    end
    local node=current(s)

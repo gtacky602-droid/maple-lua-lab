@@ -764,8 +764,7 @@ def validate_save(data):
                     or not 0<=slot['waitTicks']<=spec['respawnTicks']
                     or bool(slot['hp'])==bool(slot['waitTicks'])):
                 raise ValueError('フィールドボスの個体情報が不正です')
-            if 'elapsedTicks' in slot and (not spec.get('questRewardsOnly')
-                    or not 0<slot['hp']<spec['hp']
+            if 'elapsedTicks' in slot and (not 0<slot['hp']<spec['hp']
                     or type(slot['elapsedTicks']) is not int or not 0<=slot['elapsedTicks']<=10**9):
                 raise ValueError('フィールドボスの経過時間が不正です')
             if 'flags' in slot:
