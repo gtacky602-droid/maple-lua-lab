@@ -310,7 +310,7 @@ if __name__=='__main__':
     parser.add_argument('--port',type=int,default=8769,help='Loopback port (default: 8769)')
     parser.add_argument('--daily-store',type=Path,help='Override the local daily SQLite database path')
     parser.add_argument('--ranking-store', type=Path, help='Override the private ranking SQLite database path')
-    parser.add_argument('--draft-balance', action='store_true', help='Use provisional field HP and weapon ATK')
+    parser.add_argument('--draft-balance', action='store_true', help='Use provisional field HP, weekly HP and weapon ATK')
     args=parser.parse_args()
     with LabServer(('127.0.0.1',args.port),Handler,daily_path=args.daily_store, ranking_path=args.ranking_store,
                    draft_balance=args.draft_balance) as server:

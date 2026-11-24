@@ -8066,9 +8066,12 @@
     "official_encounters": 14,
     "encounter_difficulty_pairs_tested": 56,
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
-    "evidence": "evidence/weekly-difficulty-rewards-lua.json"
+    "evidence": "evidence/weekly-difficulty-rewards-lua.json",
+    "draft_hp_encounters": ["boss-29020101", "boss-29040101"],
+    "draft_hp_modes": ["advanced", "expert"],
+    "earned_save_evidence": "evidence/cap-boss-encounters-draft.json"
   },
-  "current_priority": "Use the earned Lv200 draft save to audit boss difficulty, encounter phases and rewards, then continue matching skill effects and visual cues against the authored scope.",
+  "current_priority": "Use earned saves to check phase progression and clear times for the remaining weekly and Stygian encounters, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,

@@ -184,8 +184,8 @@ return function(C)
   end
   event(s,w,id,0,w.form)
  end
- local function threshold(w,spec)
-  return w.form<3 and w.primary.hp<=spec.hp*(3-w.form)/3
+ local function threshold(w)
+  return w.form<3 and w.primary.hp<=w.primary.maxhp*(3-w.form)/3
  end
  local function motion(w,spec,c)
   local e=w.primary;local t,id=c.t,c.id
@@ -314,7 +314,7 @@ return function(C)
   if w.primary.hp<=0 then return end
   local e,c=w.primary,w.cast
   if not c then
-   if threshold(w,spec) then start(s,w,spec,'WZ09');return end
+   if threshold(w) then start(s,w,spec,'WZ09');return end
    w.rest=w.rest-1
    local a=live(s)
    if a and math.abs(a.x-e.x)>164 then
@@ -328,7 +328,7 @@ return function(C)
    return
   end
   c.t=c.t+1;local t,id=c.t,c.id
-  if id~='WZ09' and t>=c.move.recovery and threshold(w,spec) then start(s,w,spec,'WZ09');return end
+  if id~='WZ09' and t>=c.move.recovery and threshold(w) then start(s,w,spec,'WZ09');return end
   for i,k in ipairs(c.move.locks) do
    if t==k then lock(s,w,spec,c,i);event(s,w,id..':lock',0,i) end
   end

@@ -1,0 +1,809 @@
+{
+  "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+  "draftBalance": true,
+  "level": 200,
+  "weapon": "SW07",
+  "companion": "amber",
+  "equippedAtk": [
+    152544,
+    127370
+  ],
+  "anemoHypostasis": {
+    "previousClears": 0,
+    "remainingWaitAfterRestore": 54.75,
+    "first": {
+      "phases": [
+        "available",
+        "notice"
+      ],
+      "ticks": 114,
+      "returns": 0,
+      "hpRemaining": 0,
+      "moves": {},
+      "contacts": 1,
+      "firstHit": 870,
+      "maxHp": 870,
+      "xp": 27,
+      "mora": 125
+    },
+    "repeat": {
+      "phases": [
+        "available",
+        "notice",
+        "combat"
+      ],
+      "ticks": 150,
+      "returns": 0,
+      "hpRemaining": 0,
+      "moves": [
+        "FA01"
+      ],
+      "contacts": 1,
+      "firstHit": 870,
+      "maxHp": 870,
+      "xp": 27,
+      "mora": 125
+    }
+  },
+  "andrius": {
+    "entry": {
+      "attackFactor": 1.3,
+      "remainingWaitAfterRestore": 56.31666666666667,
+      "first": {
+        "phases": [
+          "P1"
+        ],
+        "ticks": 45,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 900,
+        "maxHp": 900,
+        "award": {
+          "first": true,
+          "xp": 31241,
+          "mora": 272250
+        }
+      },
+      "repeat": {
+        "phases": [
+          "P1"
+        ],
+        "ticks": 12,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 900,
+        "maxHp": 900,
+        "award": {
+          "first": false,
+          "xp": 29700,
+          "mora": 181500
+        }
+      }
+    },
+    "standard": {
+      "attackFactor": 1.0,
+      "remainingWaitAfterRestore": 56.31666666666667,
+      "first": {
+        "phases": [
+          "P1"
+        ],
+        "ticks": 45,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 900,
+        "maxHp": 900,
+        "award": {
+          "first": true,
+          "xp": 725452,
+          "mora": 1094775
+        }
+      },
+      "repeat": {
+        "phases": [
+          "P1"
+        ],
+        "ticks": 12,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 900,
+        "maxHp": 900,
+        "award": {
+          "first": false,
+          "xp": 630828,
+          "mora": 656865
+        }
+      }
+    },
+    "advanced": {
+      "attackFactor": 0.8,
+      "remainingWaitAfterRestore": 56.31666666666667,
+      "first": {
+        "phases": [
+          "P1",
+          "INTERLUDE"
+        ],
+        "ticks": 891,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WA01",
+          "WA02",
+          "WA06"
+        ],
+        "contacts": 38,
+        "firstHit": 154129,
+        "maxHp": 5000000,
+        "award": {
+          "first": true,
+          "xp": 12955323,
+          "mora": 2640240
+        }
+      },
+      "repeat": {
+        "phases": [
+          "P1",
+          "INTERLUDE"
+        ],
+        "ticks": 919,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WA01",
+          "WA02",
+          "WA06"
+        ],
+        "contacts": 38,
+        "firstHit": 99566,
+        "maxHp": 5000000,
+        "award": {
+          "first": false,
+          "xp": 9126594,
+          "mora": 1320120
+        }
+      }
+    },
+    "expert": {
+      "attackFactor": 0.62,
+      "remainingWaitAfterRestore": 56.31666666666667,
+      "first": {
+        "phases": [
+          "P1",
+          "INTERLUDE",
+          "P2"
+        ],
+        "ticks": 1063,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WA01",
+          "WA02",
+          "WA06",
+          "WA07"
+        ],
+        "contacts": 64,
+        "firstHit": 119450,
+        "maxHp": 6800000,
+        "award": {
+          "first": true,
+          "xp": 32560274,
+          "mora": 3590160
+        }
+      },
+      "repeat": {
+        "phases": [
+          "P1",
+          "INTERLUDE",
+          "P2"
+        ],
+        "ticks": 1049,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WA01",
+          "WA02",
+          "WA06",
+          "WA07"
+        ],
+        "contacts": 63,
+        "firstHit": 77164,
+        "maxHp": 6800000,
+        "award": {
+          "first": false,
+          "xp": 18999684,
+          "mora": 1538640
+        }
+      }
+    }
+  },
+  "azhdaha": {
+    "entry": {
+      "attackFactor": 1.3,
+      "remainingWaitAfterRestore": 57.766666666666666,
+      "first": {
+        "phases": [
+          1
+        ],
+        "ticks": 47,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 1500,
+        "maxHp": 1500,
+        "award": {
+          "first": true,
+          "xp": 31241,
+          "mora": 272250
+        }
+      },
+      "repeat": {
+        "phases": [
+          1
+        ],
+        "ticks": 25,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 1500,
+        "maxHp": 1500,
+        "award": {
+          "first": false,
+          "xp": 29700,
+          "mora": 181500
+        }
+      }
+    },
+    "standard": {
+      "attackFactor": 1.0,
+      "remainingWaitAfterRestore": 57.766666666666666,
+      "first": {
+        "phases": [
+          1
+        ],
+        "ticks": 47,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 1500,
+        "maxHp": 1500,
+        "award": {
+          "first": true,
+          "xp": 725452,
+          "mora": 1094775
+        }
+      },
+      "repeat": {
+        "phases": [
+          1
+        ],
+        "ticks": 25,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": {},
+        "contacts": 1,
+        "firstHit": 1500,
+        "maxHp": 1500,
+        "award": {
+          "first": false,
+          "xp": 630828,
+          "mora": 656865
+        }
+      }
+    },
+    "advanced": {
+      "attackFactor": 0.8,
+      "remainingWaitAfterRestore": 57.766666666666666,
+      "first": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1331,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WZ01",
+          "WZ09"
+        ],
+        "contacts": 58,
+        "firstHit": 153415,
+        "maxHp": 9100000,
+        "award": {
+          "first": true,
+          "xp": 12955323,
+          "mora": 2640240
+        }
+      },
+      "repeat": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1247,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WZ01",
+          "WZ09"
+        ],
+        "contacts": 59,
+        "firstHit": 103852,
+        "maxHp": 9100000,
+        "award": {
+          "first": false,
+          "xp": 9126594,
+          "mora": 1320120
+        }
+      }
+    },
+    "expert": {
+      "attackFactor": 0.62,
+      "remainingWaitAfterRestore": 57.766666666666666,
+      "first": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1645,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WZ01",
+          "WZ02",
+          "WZ09"
+        ],
+        "contacts": 102,
+        "firstHit": 118897,
+        "maxHp": 12000000,
+        "award": {
+          "first": true,
+          "xp": 32560274,
+          "mora": 3590160
+        }
+      },
+      "repeat": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1611,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "WZ01",
+          "WZ09",
+          "WZ12"
+        ],
+        "contacts": 104,
+        "firstHit": 80485,
+        "maxHp": 12000000,
+        "award": {
+          "first": false,
+          "xp": 18999684,
+          "mora": 1538640
+        }
+      }
+    }
+  },
+  "stygianFarka": {
+    "normal": {
+      "first": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1898,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 234,
+        "maxHp": 670,
+        "award": {
+          "first": true,
+          "set": "黄金の劇団",
+          "rank": 3,
+          "xp": 1657,
+          "bag": true,
+          "mora": 2400
+        }
+      },
+      "repeat": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1898,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 234,
+        "maxHp": 670,
+        "award": {
+          "first": false,
+          "set": "剣闘士のフィナーレ",
+          "rank": 3,
+          "xp": 1620,
+          "bag": true,
+          "mora": 1350
+        }
+      }
+    },
+    "hard": {
+      "first": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1968,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 658,
+        "maxHp": 1880,
+        "award": {
+          "first": true,
+          "set": "黄金の劇団",
+          "rank": 4,
+          "xp": 48656,
+          "bag": true,
+          "mora": 11300
+        }
+      },
+      "repeat": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1968,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 658,
+        "maxHp": 1880,
+        "award": {
+          "first": false,
+          "set": "剣闘士のフィナーレ",
+          "rank": 4,
+          "xp": 46260,
+          "bag": true,
+          "mora": 6400
+        }
+      }
+    },
+    "master": {
+      "first": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1826,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 1211,
+        "maxHp": 3460,
+        "award": {
+          "first": true,
+          "set": "黄金の劇団",
+          "rank": 5,
+          "xp": 777161,
+          "bag": true,
+          "mora": 26400
+        }
+      },
+      "repeat": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1840,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 1211,
+        "maxHp": 3460,
+        "award": {
+          "first": false,
+          "set": "剣闘士のフィナーレ",
+          "rank": 5,
+          "xp": 714150,
+          "bag": true,
+          "mora": 15500
+        }
+      }
+    },
+    "extreme": {
+      "first": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1905,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 1932,
+        "maxHp": 5520,
+        "award": {
+          "first": true,
+          "set": "黄金の劇団",
+          "rank": 5,
+          "xp": 18258666,
+          "bag": true,
+          "mora": 51300
+        }
+      },
+      "repeat": {
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1905,
+        "returns": 0,
+        "hpRemaining": 0,
+        "moves": [
+          "FK01",
+          "FK02",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK06",
+          "FK07"
+        ],
+        "contacts": 4,
+        "firstHit": 1932,
+        "maxHp": 5520,
+        "award": {
+          "first": false,
+          "set": "剣闘士のフィナーレ",
+          "rank": 5,
+          "xp": 15429852,
+          "bag": true,
+          "mora": 29000
+        }
+      }
+    }
+  },
+  "atEntryLevel": [
+    {
+      "node": "andrius-wolf-ring",
+      "mode": "advanced",
+      "level": 160,
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "phases": [
+        "P1",
+        "INTERLUDE",
+        "P2"
+      ],
+      "ticks": 5928,
+      "returns": 0,
+      "hpRemaining": 0,
+      "moves": [
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA05",
+        "WA06",
+        "WA07",
+        "WA08",
+        "WA09",
+        "WA10",
+        "WA11"
+      ],
+      "contacts": 598,
+      "firstHit": 5199,
+      "maxHp": 5000000,
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "node": "azhdaha-dragon-seal-arena",
+      "mode": "advanced",
+      "level": 160,
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "ticks": 9601,
+      "returns": 0,
+      "hpRemaining": 0,
+      "moves": [
+        "WZ01",
+        "WZ02",
+        "WZ03",
+        "WZ04",
+        "WZ05",
+        "WZ06",
+        "WZ07",
+        "WZ08",
+        "WZ09",
+        "WZ10",
+        "WZ12",
+        "WZ14"
+      ],
+      "contacts": 982,
+      "firstHit": 5423,
+      "maxHp": 9100000,
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "node": "andrius-wolf-ring",
+      "mode": "expert",
+      "level": 180,
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "phases": [
+        "P1",
+        "INTERLUDE",
+        "P2"
+      ],
+      "ticks": 1555,
+      "returns": 0,
+      "hpRemaining": 0,
+      "moves": [
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA06",
+        "WA07"
+      ],
+      "contacts": 116,
+      "firstHit": 44470,
+      "maxHp": 6800000,
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "node": "azhdaha-dragon-seal-arena",
+      "mode": "expert",
+      "level": 180,
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "ticks": 2397,
+      "returns": 0,
+      "hpRemaining": 0,
+      "moves": [
+        "WZ01",
+        "WZ02",
+        "WZ03",
+        "WZ07",
+        "WZ09",
+        "WZ14"
+      ],
+      "contacts": 181,
+      "firstHit": 65411,
+      "maxHp": 12000000,
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    }
+  ],
+  "sharedBossHp": [
+    {
+      "node": "andrius-wolf-ring",
+      "maxHp": 6800000,
+      "participants": 4
+    },
+    {
+      "node": "azhdaha-dragon-seal-arena",
+      "maxHp": 12000000,
+      "participants": 4
+    }
+  ]
+}

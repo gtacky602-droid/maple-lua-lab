@@ -28,7 +28,8 @@ export function initEndgameUI(action){
   weeklyStart.disabled=!pick.available;
   const rewards=`勝利 ${amount(pick.xp)} EXP・${amount(pick.mora)}モラ${pick.record?'':` ｜ 初回追加 ${amount(pick.firstXp)} EXP・${amount(pick.firstMora)}モラ`}`;
   const pending=weeklyChallenge.wait>0?` ｜ 再出現まで ${weeklyChallenge.wait}秒`:'';
-  weeklyDetails.textContent=`必要Lv${pick.level} ｜ 攻撃ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
+  const hp=`HP ${amount(pick.hp)}${pick.draftHp?'（比較版）':''}`;
+  weeklyDetails.textContent=`必要Lv${pick.level} ｜ ${hp} ｜ 攻撃ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
   weeklyRecord.hidden=!pick.record;
   weeklyRecord.textContent=pick.record?record(pick.record):'';
  }

@@ -72,8 +72,9 @@ return function(C,configs,controllers)
   return C.switchWeeklyStoryScene(s,id,spawn)
  end
  local function spawn(s,spec,slot)
+  local hp=slot.mode and slot.mode.draftHp or spec.hp
   slot.primary={id=spec.entity,weeklyBoss=spec.id,boss=true,custom=true,x=spec.center,y=spec.floorY,
-   hp=spec.hp,maxhp=spec.hp,level=spec.level,rewardMora=spec.mora,expRole=spec.expRole,
+   hp=hp,maxhp=hp,level=spec.level,rewardMora=spec.mora,expRole=spec.expRole,
    respawn=math.huge,warning=0}
   slot.phase='available';slot.cast=nil;slot.reward=nil
   controllers[spec.controller].spawn(s,slot,spec)
@@ -212,8 +213,11 @@ return function(C,configs,controllers)
   if not spec then return end
   s.weeklySlots=s.weeklySlots or {}
   local slot=s.weeklySlots[spec.id]
-  if not slot then slot={generation=1};s.weeklySlots[spec.id]=slot;spawn(s,spec,slot) end
-  if s.weeklyEntry and s.weeklyEntry.node==id then slot.mode=s.weeklyEntry.mode end
+  local mode=s.weeklyEntry and s.weeklyEntry.node==id and s.weeklyEntry.mode
+  local fresh=not slot
+  if fresh then slot={generation=1};s.weeklySlots[spec.id]=slot end
+  if mode then slot.mode=mode end
+  if fresh or (mode and mode.draftHp and not slot.waitUntil) then spawn(s,spec,slot) end
   if not slot.waitUntil then attach(s,slot,spec) end
  end
  function C.action(s,key)
@@ -331,14 +335,15 @@ return function(C,configs,controllers)
    for _,rank in ipairs(target.modes) do
     f.weeklyDesk.modes[#f.weeklyDesk.modes+1]={id=rank.id,name=rank.name,level=rank.level,
      available=portal.available and not s.paused and remaining==0 and s.progression.level>=rank.level,
-     attackFactor=rank.attackFactor,xp=rank.xp,firstXp=rank.firstXp,mora=rank.mora,firstMora=rank.firstMora,
+     attackFactor=rank.attackFactor,hp=rank.draftHp or target.hp,draftHp=rank.draftHp~=nil,
+     xp=rank.xp,firstXp=rank.firstXp,mora=rank.mora,firstMora=rank.firstMora,
      record=history and history[target.id..':'..rank.id]}
    end
   end
   if not slot then return f end
   local room=sharedRoom(s,spec)
   local personal=room and s.weeklySlots[spec.id] or slot
-  f.weeklyBoss={id=spec.id,name=spec.name,level=slot.mode and slot.mode.level or spec.level,hp=slot.primary.hp,maxhp=spec.hp,
+  f.weeklyBoss={id=spec.id,name=spec.name,level=slot.mode and slot.mode.level or spec.level,hp=slot.primary.hp,maxhp=slot.primary.maxhp,
    difficulty=slot.mode and slot.mode.name,reward=personal.reward,
    generation=slot.generation,phase=slot.phase,remaining=wait(room and room.time or s.t,slot)/60}
   controllers[spec.controller].observe(f,s,slot,spec,mode,profile)

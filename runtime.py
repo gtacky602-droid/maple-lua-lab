@@ -118,6 +118,12 @@ def runtime(*, draft_balance=False):
     }
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
     weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])
+    if draft_balance:
+        for spec in weekly_specs:
+            hp_by_mode = balance['weeklyBossHp'].get(spec['id'], {})
+            for mode in spec.get('modes', ()):
+                if mode['id'] in hp_by_mode:
+                    mode['draftHp'] = hp_by_mode[mode['id']]
     story_data['bossNodes']={
         target:spec['node'] for spec in field_specs+weekly_specs
         for target in (spec['id'],spec.get('storyChallenge')) if target}

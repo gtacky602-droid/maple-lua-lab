@@ -8,5 +8,9 @@
   "weaponAttack": {
     "SW02": 16, "SW03": 25, "SW04": 40, "SW05": 65,
     "SW06": 380, "SW07": 1200, "SW08": 30000
+  },
+  "weeklyBossHp": {
+    "boss-29020101": { "advanced": 5000000, "expert": 6800000 },
+    "boss-29040101": { "advanced": 9100000, "expert": 12000000 }
   }
 }

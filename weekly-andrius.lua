@@ -111,7 +111,7 @@ return function(C)
  function wolf.prepare(s,w,spec,_,dt)
   if w.phase=='available' then w.phase='notice' end
   if w.phase=='notice' then w.notice=w.notice-1;if w.notice<=0 then w.phase='combat' end;return end
-  if not w.transitioned and w.primary.hp<=spec.hp*.5 then w.transitionPending=true end
+  if not w.transitioned and w.primary.hp<=w.primary.maxhp*.5 then w.transitionPending=true end
   if not w.cast then start(s,w,spec,w.transitionPending and 'WA06' or nil)end
   local c=w.cast;c.tick=c.tick+1;local m,t=c.move,c.tick
   if t==m.lock and m.kind~='interlude' then lock(s,w,spec,c)end
@@ -181,7 +181,7 @@ return function(C)
  function wolf.finish(s,w,spec)
   if w.phase~='combat' or not w.cast then return end
   local c=w.cast;local m,t=c.move,c.tick;local e=w.primary
-  if not w.transitioned and e.hp<=spec.hp*.5 then w.transitionPending=true end
+  if not w.transitioned and e.hp<=e.maxhp*.5 then w.transitionPending=true end
   if m.kind=='swipe' and t>=60 and t<72 then area(s,w,c.seen[1],c.left,c.right,410,m.damage)
   elseif m.kind=='tail' then
    if t>=72 and t<84 then
