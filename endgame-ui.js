@@ -108,13 +108,16 @@ export function initEndgameUI(action){
    get('stygianHealth').textContent=`${fight.mode}${fight.stageName?` ｜ ${fight.stageName}`:''} ｜ HP ${health.hp} / ${health.maxhp}`;
    get('stygianClock').textContent=fight.status==='fighting'
     ? (fight.remaining!==undefined?`残り ${Math.ceil(fight.remaining)}秒`:'') : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
-   get('stygianDialogue').textContent=fight.dialogue||fight.chain?.join(' → ')||'';
+   get('stygianDialogue').textContent=fight.targetSlot!==undefined&&fight.phase==='cast'
+    ? `攻撃対象　プレイヤー ${fight.targetSlot}${fight.locked?'（確定）':''}`
+    : fight.dialogue||fight.chain?.join(' → ')||'';
    const active=fight.status==='fighting';
+   const roadProgress=fight.road?.total!==undefined;
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
-    &&fight.road===undefined&&fight.windMarks===undefined);
+    &&!roadProgress&&fight.windMarks===undefined);
    if(!mechanic.hidden){
     mechanic.textContent=fight.trial ? `第${fight.trial}局面 ｜ 光 ${fight.collected} / 3`
-     : fight.road ? `通過 ${fight.road.passed} / ${fight.road.total}`
+     : roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
      : fight.windMarks!==undefined ? `風標 ${fight.windMarks} / ${fight.windGoal}${fight.markTime?` ｜ 残り ${Math.ceil(fight.markTime/60)}秒`:''}`
      : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
      : `結界 ${fight.ward} / 2`;

@@ -4,8 +4,12 @@ import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const base=process.env.LAB_URL||'http://127.0.0.1:9068/';
-const hub='mond-town',arena='mond-stygian-dual-court',key='maple-lua-lab.checkpoint.v1';
-const prefix='evidence/coop-stygian-farka';
+const capitano=process.argv.includes('--capitano');
+const cfg=capitano
+ ? {name:'capitano',hub:'snezhnaya-hub',arena:'sne-stygian-frost-court',entity:990003,hp:2430,mora:4200,card:'CP01',lock:12,hit:36}
+ : {name:'farka',hub:'mond-town',arena:'mond-stygian-dual-court',entity:990001,hp:670,mora:2400,card:'FK01',lock:24,hit:48};
+const key='maple-lua-lab.checkpoint.v1';
+const prefix=`evidence/coop-stygian-${cfg.name}`;
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-gpu']});
@@ -22,10 +26,10 @@ async function open(set){
  });
  await page.goto(base);
  await page.waitForFunction(()=>window.lab?.frame);
- await page.locator('#importSave').setInputFiles('work/coop-stygian-farka-fixture.json');
+ await page.locator('#importSave').setInputFiles(`work/coop-stygian-${cfg.name}-fixture.json`);
  const route=waypointDriver(page,nodes);
- await route.waitNode(hub);
- await route.cross(arena);
+ await route.waitNode(cfg.hub);
+ await route.cross(cfg.arena);
  await page.locator('#coopPanel summary').click();
  await page.locator('#stygianMode').selectOption('normal');
  await page.locator('#stygianSet').selectOption(set);
@@ -33,10 +37,10 @@ async function open(set){
 }
 
 async function drive(page,side){
- await page.evaluate(side=>{
+ await page.evaluate(({side,cfg})=>{
   const pressed=new Set();
   const seen={stages:[],hits:0};
-  window.coopFarkaTrail=seen;
+  window.coopStygianTrail=seen;
   const event=(code,on)=>{
    if(pressed.has(code)===on)return;
    if(on)pressed.add(code);else pressed.delete(code);
@@ -50,7 +54,7 @@ async function drive(page,side){
     return;
    }
    if(!seen.stages.includes(v.stage))seen.stages.push(v.stage);
-   for(const hit of Object.values(f.events||{}))if(hit.kind==='hit'&&hit.actor===1&&hit.target===990001&&hit.seq>lastHit){
+   for(const hit of Object.values(f.events||{}))if(hit.kind==='hit'&&hit.target===cfg.entity&&hit.seq>lastHit){
     lastHit=hit.seq;seen.hits++;
    }
    const a=f.actors[f.active-1],dx=b.x-a.x;
@@ -59,12 +63,14 @@ async function drive(page,side){
    const attack=!['phase','enter'].includes(v.phase)&&Math.abs(dx)<105&&a.dir===Math.sign(dx)&&Math.abs(a.y-b.y)<72;
    event('KeyA',move< -12||(!attack&&Math.abs(move)<=12&&a.dir>0&&dx<0&&Math.abs(dx)>17));
    event('KeyD',move>12||(!attack&&Math.abs(move)<=12&&a.dir<0&&dx>0&&Math.abs(dx)>17));
-   event('Space',(v.child||v.card)==='FK05'&&(v.childTick??v.tick)>=86&&(v.childTick??v.tick)<120);
+   const fkJump=(v.child||v.card)==='FK05'&&(v.childTick??v.tick)>=86&&(v.childTick??v.tick)<120;
+   const cpJump=(v.card==='CP05'&&v.tick>=49&&v.tick<108)||(v.card==='CP09'&&v.tick>=195&&v.tick<231);
+   event('Space',fkJump||cpJump);
    event('KeyJ',attack);
    requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
- },side);
+ },{side,cfg});
 }
 
 try{
@@ -82,15 +88,16 @@ try{
  await guest.waitForFunction(()=>window.lab.frame.endgameRun?.gathering>0);
  await Promise.all(players.map(({route})=>route.walk(510)));
  const telegraphs=await Promise.all(players.map(async({page})=>{
-  const value=await page.waitForFunction(()=>{
+  const value=await page.waitForFunction(cfg=>{
    const f=window.lab.frame,v=f.endgameRun;
-   return v.card==='FK01'&&v.tick>=24&&v.tick<48&&v.areas?.length===1&&
-    {direction:f.boss.dir,maxhp:f.boss.maxhp,areas:v.areas};
-  });
+   return v.card===cfg.card&&v.tick>=cfg.lock&&v.tick<cfg.hit&&v.areas?.length>0&&
+    {direction:f.boss.dir,maxhp:f.boss.maxhp,areas:v.areas,targetSlot:v.targetSlot};
+  },cfg);
   return value.jsonValue();
  }));
  assert.deepEqual(telegraphs[0],telegraphs[1]);
- assert.equal(telegraphs[0].maxhp,670);
+ assert.equal(telegraphs[0].maxhp,cfg.hp);
+ if(capitano)assert.ok([1,2].includes(telegraphs[0].targetSlot));
  await host.locator('#game').screenshot({path:prefix+'-warning.png'});
  await Promise.all([drive(host,-1),drive(guest,1)]);
  await Promise.all(players.map(({page})=>page.waitForFunction(
@@ -98,14 +105,15 @@ try{
  const settled=await Promise.all(players.map(({page})=>frame(page)));
  const rewards=settled.map(f=>f.endgameRun.matchReward);
  assert.deepEqual(rewards.map(r=>r.set),['黄金の劇団','剣闘士のフィナーレ']);
- assert.ok(settled.every(f=>f.boss.hp===0&&f.endgame.stygian['farka:normal'].clears===1));
- assert.ok(rewards.every(reward=>reward.first&&reward.mora===2400));
- const trails=await Promise.all(players.map(({page})=>page.evaluate(()=>window.coopFarkaTrail)));
+ assert.ok(settled.every(f=>f.boss.hp===0&&f.endgame.stygian[`${cfg.name}:normal`].clears===1));
+ assert.ok(rewards.every(reward=>reward.first&&reward.mora===cfg.mora));
+ const trails=await Promise.all(players.map(({page})=>page.evaluate(()=>window.coopStygianTrail)));
  assert.ok(trails.every(trail=>trail.hits>0));
  await host.locator('#game').screenshot({path:prefix+'-clear.png'});
  await Promise.all(players.map(async({page})=>{
   await page.locator('#saveProgress').click();
-  await page.waitForFunction(key=>JSON.parse(localStorage.getItem(key))?.endgame?.stygian?.['farka:normal']?.clears===1,key);
+  await page.waitForFunction(([key,id])=>JSON.parse(localStorage.getItem(key))?.endgame?.stygian?.[id]?.clears===1,
+   [key,`${cfg.name}:normal`]);
  }));
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({players:2,warning:telegraphs[0],trails,rewards,

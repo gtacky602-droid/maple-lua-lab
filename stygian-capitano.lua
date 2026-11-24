@@ -9,7 +9,8 @@ return function(C,M)
   b.noAutoTarget=not open
  end
  local function contact(s,run,spec,b,cast,mult,color,element)
-  if b.hp<=0 or b.invulnerable or run.status~='fighting' then return false end
+  local personal=s.endgameRun
+  if not personal or personal.status~='fighting' or b.hp<=0 or b.invulnerable or run.status~='fighting' then return false end
   local r=C.enemyResistance(cast,b,element)
   if r>=1 then return false end
   local amount,crit=C.enemyHitDamage(s,cast,b,mult,element,r)
@@ -17,7 +18,7 @@ return function(C,M)
   amount=math.min(amount,b.hp-floor)
   if amount<=0 then return false end
   local ability=cast.key or 'normal'
-  run.skills[ability]=(run.skills[ability] or 0)+amount
+  personal.skills[ability]=(personal.skills[ability] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,crit and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -60,7 +61,8 @@ return function(C,M)
   local b=run.boss
   run.serial=run.serial+1
   local data=spec.moves[key]
-  local c={key=key,data=data,owner=s.active,t=0,serial=run.serial,
+  local target=run.target or s.actors[s.active]
+  local c={key=key,data=data,owner=target.id,targetActor=target,targetMember=run.targetMember,target=target.x,t=0,serial=run.serial,
    hit={projectiles={}},sparks={},shots={},damage=math.floor(data.damage*run.rules.attackScale+.5)}
   run.cast=c;run.phase='cast'
   M.plan(s,run,spec,c)
@@ -112,7 +114,7 @@ return function(C,M)
   if run.pendingStage then stageShift(s,run);return end
   if run.rest>0 then
    run.rest=run.rest-1
-   local a=s.actors[s.active]
+   local a=run.target or s.actors[s.active]
    local gap=math.abs(a.x-b.x)
    if gap>22 then b.dir=a.x>b.x and 1 or -1 end
    if gap>1.30*spec.arena.unit then
@@ -131,6 +133,7 @@ return function(C,M)
  function D.afterClear(s,run,spec,dt)
   run.defeatAge=math.min(spec.timing.defeat,(run.defeatAge or 0)+math.min(dt,1/30)*60)
  end
+ function D.abort(_,run) run.cast=nil end
  function C.aiAvoidTarget(s,a)
   local run=s.endgameRun
   if run and run.match=='capitano' and run.status=='fighting' then
@@ -263,6 +266,7 @@ return function(C,M)
   local cues=M.cue(spec,c)
   v.areas={};v.locked=c.t>=c.data.lock
   v.projectiles=#c.shots
+  if c.targetMember then v.targetSlot=c.targetMember.id end
   if cues.road then
    local road=cues.road
    v.road=road

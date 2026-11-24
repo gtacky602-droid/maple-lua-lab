@@ -1,0 +1,51 @@
+{
+  "players": 2,
+  "normalHP": 2430,
+  "extremeHP": 5400,
+  "targetSlot": 2,
+  "dashRoad": {
+    "y": 480,
+    "to": 837.0799999999998,
+    "from": 722.0799999999998
+  },
+  "landingHitOnly": true,
+  "waveHitsPerPlayer": [
+    1,
+    1
+  ],
+  "finaleWindows": [
+    138,
+    210,
+    282,
+    348
+  ],
+  "rewards": [
+    {
+      "bag": true,
+      "set": "黄金の劇団",
+      "rank": 4,
+      "mora": 4200,
+      "first": true,
+      "xp": 5621013
+    },
+    {
+      "bag": true,
+      "set": "剣闘士のフィナーレ",
+      "rank": 4,
+      "mora": 4200,
+      "first": true,
+      "xp": 5621013
+    }
+  ],
+  "repeatReward": {
+    "bag": true,
+    "set": "黄金の劇団",
+    "rank": 4,
+    "mora": 2750,
+    "first": false,
+    "xp": 4750164
+  },
+  "personalQuest": true,
+  "timeoutWithoutReward": true,
+  "savedClears": 2
+}

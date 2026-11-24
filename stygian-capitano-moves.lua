@@ -4,17 +4,7 @@ return function(C,G)
  local dashProgress=G.dashProgress
  local abs=math.abs
  M.clamp,M.drawShape=G.clamp,G.drawShape
- local function cluster(s,run,c,index,g)
-  local seen=c.hit[index] or {}
-  c.hit[index]=seen
-  for _,a in ipairs(s.actors) do
-   if not seen[a.id] and bodyContact(g,a) then
-    M.hit(s,run,c,seen,a,index)
-   end
-  end
- end
- function M.hit(s,run,c,seen,a,group)
-  seen[a.id]=true
+ local function hit(s,run,c,a,group)
   local b=run.boss
   local damage=C.damageActor(s,a,c.damage,b,true,true)
   C.combatEvent(s,'stygian:capitano:'..c.key..':contact',a.id,b.id,damage)
@@ -23,15 +13,32 @@ return function(C,G)
    c.sparks[#c.sparks+1]={x=a.x,y=a.y-32,t=c.t}
   end
  end
+ local function hitGroup(s,run,c,group,collides)
+  local seen=c.hit[group] or {}
+  c.hit[group]=seen
+  for _,party in ipairs(run.parties or {s}) do
+   for _,a in ipairs(party.actors) do
+    local key=run.parties and a or a.id
+    if a.hp>0 and not seen[key] and collides(a) then
+     seen[key]=true
+     hit(party,run,c,a,group)
+    end
+   end
+  end
+ end
  function M.plan(s,run,spec,c)
   local b=run.boss
-  local a=s.actors[c.owner]
+  local member=c.targetMember
+  if not member or (member.online and member.state.coop==s.coop and c.targetActor.hp>0) then
+   c.target=c.targetActor.x
+  end
+  local target=c.target
   local d=c.data
   local U=spec.arena.unit
-  local dir=a.x>b.x and 1 or -1
-  if math.abs(a.x-b.x)<12 then dir=b.dir end
-  c.origin=b.x;c.dir=dir;c.target=a.x
-  c.land=d.dash and M.clamp(spec,b.x+dir*math.min(d.reach*U,math.abs(a.x-b.x)),.60*U) or b.x
+  local dir=target>b.x and 1 or -1
+  if math.abs(target-b.x)<12 then dir=b.dir end
+  c.origin=b.x;c.dir=dir
+  c.land=d.dash and M.clamp(spec,b.x+dir*math.min(d.reach*U,math.abs(target-b.x)),.60*U) or b.x
   c.shapes={};c.roots={}
   local root=d.dash and c.land or b.x
   for i,p in ipairs(d.shapes) do
@@ -41,7 +48,7 @@ return function(C,G)
   end
   if d.pillars then
    local p=d.pillars
-   local at=M.clamp(spec,a.x,(p.spacing+.8)*U)
+   local at=M.clamp(spec,target,(p.spacing+.8)*U)
    for _,offset in ipairs({-p.spacing,p.spacing,0}) do
     c.shapes[#c.shapes+1]=shape(spec,{kind='rect',u0=-p.width/2,u1=p.width/2,v0=0,v1=p.height},at+offset*U,1)
    end
@@ -70,18 +77,11 @@ return function(C,G)
   local nextX,nextY=p.x+p.vx,p.y+p.vy
   if c.t>=p.expire or nextX<spec.arena.left-p.radius or nextX>spec.arena.right+p.radius or
      p.maxRange and abs(nextX-p.startX)>p.maxRange+1e-8 then return false end
-  local seen=c.hit.projectiles
-  for _,a in ipairs(s.actors) do
-   if a.hp>0 and not seen[a.id] then
-    local touched
-    if p.h then
-     touched=bodyContact(groundBox(spec,math.min(p.x,nextX)-p.radius,math.max(p.x,nextX)+p.radius,p.y-p.h/2,p.y+p.h/2),a)
-    else
-     touched=G.boltContact(p.x,p.y,nextX,nextY,p.radius,a)
-    end
-    if touched then M.hit(s,run,c,seen,a,'projectiles') end
-   end
-  end
+  local swept=p.h and groundBox(spec,math.min(p.x,nextX)-p.radius,math.max(p.x,nextX)+p.radius,p.y-p.h/2,p.y+p.h/2)
+  hitGroup(s,run,c,'projectiles',function(a)
+   if swept then return bodyContact(swept,a) end
+   return G.boltContact(p.x,p.y,nextX,nextY,p.radius,a)
+  end)
   p.prevX,p.prevY,p.x,p.y=p.x,p.y,nextX,nextY
   return true
  end
@@ -103,7 +103,7 @@ return function(C,G)
     else b.x=c.roots[i] or b.x end
    end
    if c.t>=win[1] and c.t<win[2] and c.shapes[i] then
-    cluster(s,run,c,i,c.shapes[i])
+    hitGroup(s,run,c,i,function(a) return bodyContact(c.shapes[i],a) end)
    end
   end
   for i=#c.shots,1,-1 do

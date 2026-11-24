@@ -146,6 +146,7 @@
       ]
     },
     "capitano": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990003,
       "node": "sne-stygian-frost-court",
       "hub": "snezhnaya-hub",

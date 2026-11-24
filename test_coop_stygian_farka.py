@@ -16,15 +16,18 @@ def place(actor, x):
     actor.x, actor.y, actor.vy, actor.ground = x, 480, 0, True
 
 
-def open_arena(client, level, accept=False):
-    client.frame(['story_start'] + (['story_accept:' + QUEST] if accept else []))
+def open_arena(client, level, accept=False, *, hub=HUB, arena=ARENA, quest=QUEST, entrance_x=295):
+    client.frame(['story_start'])
     with LOCK:
         env = SESSIONS[client.sid]
         core, state = env['core'], env['state']
         core.grantExp(state, LEVELS[level - 1]['maple_reference_total_exp_to_reach'], 'quest')
-        place(state.actors[1], 295)
+        core.enterStoryNode(state, hub)
+        place(state.actors[1], entrance_x)
+    if accept:
+        assert client.frame(['story_accept:' + quest])['story']['quests'][quest]['status'] == 'active'
     frame = client.frame(['story_nearby_portal'])
-    assert frame['story']['node'] == ARENA and frame['coop']['eligible']
+    assert frame['story']['node'] == arena and frame['coop']['eligible']
 
 
 def strike(env, boss, power):
@@ -163,17 +166,17 @@ def play(url):
                 selectedSets=results, rematchReward=second, savedClears=2)
 
 
-def fixture():
+def fixture(hub=HUB, name='farka', item_level=60):
     _, core = runtime()
     state = core.new(12)
     core.action(state, 'story_start')
     core.grantExp(state, LEVELS[199]['maple_reference_total_exp_to_reach'], 'quest')
     for slot in (1, 2, 3):
-        assert core.giveArtifact(state, slot, 60, 3)
+        assert core.giveArtifact(state, slot, item_level, 3)
         core.action(state, 'artifact_equip:' + str(slot))
-    core.enterStoryNode(state, HUB)
+    core.enterStoryNode(state, hub)
     saved = validate_save(native(core.checkpoint(state)))
-    (ROOT / 'work/coop-stygian-farka-fixture.json').write_text(json.dumps(saved), encoding='utf8')
+    (ROOT / f'work/coop-stygian-{name}-fixture.json').write_text(json.dumps(saved), encoding='utf8')
 
 
 if __name__ == '__main__':

@@ -184,7 +184,7 @@ return function(C,abyss,weekly,matches,controllers)
    return
   end
   if run.status~='fighting' then return end
-  local live,target,distance={},nil,math.huge
+  local live,target,targetMember,distance={},nil,nil,math.huge
   local waitingForPeer=false
   for _,member in ipairs(room.members) do
    local s=member.state
@@ -196,7 +196,7 @@ return function(C,abyss,weekly,matches,controllers)
     live[#live+1]=s
     local a=s.actors[s.active]
     local gap=math.abs(a.x-run.boss.x)
-    if gap<distance then target,distance=a,gap end
+    if gap<distance then target,targetMember,distance=a,s.coopMember,gap end
    end
   end
   local result
@@ -211,9 +211,9 @@ return function(C,abyss,weekly,matches,controllers)
    if run.rules.limit and run.elapsed+1e-8>=run.rules.limit then
     result='failed'
    else
-    run.parties,run.target=live,target
+    run.parties,run.target,run.targetMember=live,target,targetMember
     controller.finish(live[1],run,spec,dt)
-    run.parties,run.target=nil,nil
+    run.parties,run.target,run.targetMember=nil,nil,nil
     return
    end
   end
