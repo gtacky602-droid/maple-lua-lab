@@ -361,6 +361,16 @@ function updateProgression(f){
  $('regionLevels').textContent=f.regionEligibility.map(r=>`${r.name} Lv${r.required}：${r.eligible?'レベル条件達成':'未達'}・正式マップ未実装`).join(' ／ ');
 }
 function hud(f,calls,renderMs){
+ const balance=f.fieldBalance, balanceNote=$('fieldBalance');
+ balanceNote.hidden=!balance;
+ if(balance){
+  const hp=balance.minHp===balance.maxHp?balance.minHp?.toLocaleString('ja-JP'):
+   `${balance.minHp?.toLocaleString('ja-JP')}〜${balance.maxHp?.toLocaleString('ja-JP')}`;
+  const text=balance.count?`比較版（試作）　通常敵 ${balance.count}体 ／ 最大HP ${hp}`:
+   '比較版（試作）　通常敵のHPと報酬剣のATKを調整したデータです。';
+  if(balanceNote.textContent!==text)balanceNote.textContent=text;
+ }
+ $('expRanking').hidden=!!balance;
  updateAtlas(f);
  updateDelivery(f);
  updateCooking(f.storyCooking);

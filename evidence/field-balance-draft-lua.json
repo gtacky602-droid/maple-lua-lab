@@ -1,0 +1,25 @@
+{
+  "scope": "Same prepared Lv20 checkpoint, same Liyue field and enemy spawn; actual defeat settlement and respawn.",
+  "standard": {
+    "atk": 6,
+    "ordinaryHp": 15,
+    "dailyEliteHp": 15,
+    "bossHp": 870,
+    "reward": [
+      10,
+      23,
+      1
+    ]
+  },
+  "draft": {
+    "atk": 18,
+    "ordinaryHp": 32,
+    "dailyEliteHp": 15,
+    "bossHp": 870,
+    "reward": [
+      10,
+      23,
+      1
+    ]
+  }
+}

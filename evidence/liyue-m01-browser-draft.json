@@ -1,0 +1,34 @@
+{
+  "errors": [],
+  "wrongLabelRejected": true,
+  "delivered": [
+    "鍋",
+    "器",
+    "車輪"
+  ],
+  "guardedJumpCache": true,
+  "stockedThreeStalls": true,
+  "partialSave": true,
+  "beidouQuestOpensOnAcceptance": true,
+  "report": {
+    "xp": 10929,
+    "mora": 300
+  },
+  "completeSave": true,
+  "mobileWidth": true,
+  "weapon": {
+    "id": "SW02",
+    "upgrade": 1,
+    "cost": 80,
+    "travelerAtkBefore": 4,
+    "travelerAtkAfter": 18,
+    "restored": true
+  },
+  "draftHunt": {
+    "count": 6,
+    "minHp": 32,
+    "maxHp": 51,
+    "kills": 1,
+    "killXp": 23
+  }
+}

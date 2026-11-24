@@ -1,7 +1,9 @@
 """Compare available weapons and earned artifacts on the continuous Lv1–200 route."""
+from argparse import ArgumentParser
 from copy import deepcopy
 from hashlib import sha256
 import json
+from pathlib import Path
 
 from runtime import ROOT, runtime
 from savegame import validate_save
@@ -19,16 +21,16 @@ MILESTONES = (
     (200, 'cap-fresh-route/lv200-save.json', 'dawn-crystal-field'),
 )
 STRATEGIES = (
-    ('starter_only', False, False, 0),
-    ('route_artifacts', True, False, 0),
-    ('owned_weapon', True, True, 0),
-    ('owned_weapon_plus_five', True, True, 5),
-    ('starter_plus_ten', True, False, 10),
+    ('starter_only', False, 'SW01', 0),
+    ('route_artifacts', True, 'SW01', 0),
+    ('owned_weapon', True, 'best', 0),
+    ('owned_weapon_plus_five', True, 'best', 5),
+    ('starter_plus_ten', True, 'SW01', 10),
 )
 
 
-def main():
-    lua, core = runtime()
+def main(draft_balance, moonlit_save):
+    lua, core = runtime(draft_balance=draft_balance)
     run = lua.execute("""
         return function(C, state, enemy)
             local actor = state.actors[1]
@@ -47,7 +49,7 @@ def main():
     # Keep the regional target at its authored spawn while measuring a sustained normal attack.
     core.advanceEnemies = lua.eval('function() end')
 
-    def trial(save, node, artifacts, best_weapon, cap):
+    def trial(save, node, artifacts, selection, cap):
         data = deepcopy(save)
         data.pop('weapons', None)
         if not artifacts:
@@ -60,7 +62,7 @@ def main():
             row for row in core.frame(state).weaponView.options.values()
             if row.owned and row.id.startswith('SW')
         ]
-        sword = max(catalog, key=lambda row: row.atk).id if best_weapon else 'SW01'
+        sword = max(catalog, key=lambda row: row.atk).id if selection == 'best' else selection
         core.action(state, f'weapon_equip:traveler:{sword}')
         assert core.equippedWeapon(state, 'traveler') == sword
         for _ in range(cap):
@@ -87,30 +89,38 @@ def main():
             'enemy': {'spawn': enemy.spawnId, 'level': enemy.level, 'hp': enemy.maxhp},
         }
 
-    samples = []
-    for level, path, node in MILESTONES:
-        raw = (ROOT / 'work' / path).read_bytes()
+    def sample(level, path, node, strategies):
+        raw = (ROOT / path).read_bytes()
         save = validate_save(json.loads(raw))
         assert save['progression']['level'] == level
-        variants = {key: trial(save, node, gear, best, cap) for key, gear, best, cap in STRATEGIES}
-        target = variants['starter_only']['enemy']
+        variants = {key: trial(save, node, gear, selection, cap) for key, gear, selection, cap in strategies}
+        target = variants[strategies[0][0]]['enemy']
         for variant in variants.values():
             assert variant.pop('enemy') == target
         equipped = sum(item['owner'] == 1 for item in save['inventory']['items'])
-        samples.append(dict(level=level, save=f'work/{path}', sha256=sha256(raw).hexdigest(), node=node,
-                            enemy=target, earnedMora=save['mora'], equippedArtifacts=equipped, cases=variants))
         print(level, node, {key: (row['atk'], row['seconds'], row['spentMora']) for key, row in variants.items()})
+        return dict(level=level, save=Path(path).as_posix(), sha256=sha256(raw).hexdigest(), node=node,
+                    enemy=target, earnedMora=save['mora'], equippedArtifacts=equipped, cases=variants)
 
     result = {
         'scope': 'Lua normal-attack benchmark. Each variant uses the same regional enemy and initial combat RNG. '
                  'It places the traveler 50 px from the spawned enemy and disables enemy movement and allied attacks. '
                  'Equipment and Mora come from the named route saves. A null time means the target survived 180 seconds.',
-        'samples': samples,
+        'samples': [sample(level, f'work/{path}', node, STRATEGIES) for level, path, node in MILESTONES],
     }
-    (ROOT / 'evidence/equipment-progression-lua.json').write_text(
+    if moonlit_save:
+        strategies = (('white_pass', True, 'SW07', 0), ('moonlit', True, 'SW08', 0),
+                      ('moonlit_plus_five', True, 'SW08', 5))
+        result['moonlitReward'] = sample(200, moonlit_save, 'dawn-crystal-field', strategies)
+    name = 'equipment-progression-draft-lua.json' if draft_balance else 'equipment-progression-lua.json'
+    (ROOT / 'evidence' / name).write_text(
         json.dumps(result, indent=2, ensure_ascii=False) + '\n', encoding='utf8',
     )
 
 
 if __name__ == '__main__':
-    main()
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('--draft-balance', action='store_true')
+    parser.add_argument('--moonlit-save', type=Path, help='Optional Lv200 save after the Moonlit Garden reward')
+    args = parser.parse_args()
+    main(args.draft_balance, args.moonlit_save)

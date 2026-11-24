@@ -41,7 +41,10 @@ class LabServer(ThreadingHTTPServer):
     request_queue_size = 64
 
     def __init__(self, *args, daily_path=None, daily_period=period_at,
-                 ranking_path=None, ranking_week=week_start, **kwargs):
+                 ranking_path=None, ranking_week=week_start, draft_balance=False, **kwargs):
+        self.draft_balance = draft_balance
+        if draft_balance:
+            daily_path = ranking_path = ':memory:'
         if ranking_path is None:
             ranking_path = ':memory:' if daily_path == ':memory:' else default_path()
         if daily_path is None:
@@ -98,6 +101,9 @@ class Handler(SimpleHTTPRequestHandler):
         return self.server.ranking_store.account(cookies[COOKIE].value) if COOKIE in cookies else None
 
     def do_GET(self):
+        if self.path == '/api/lab-info':
+            self.send_json(200, {'draftBalance': self.server.draft_balance})
+            return
         if self.path != '/api/exp-ranking':
             super().do_GET()
             return
@@ -137,6 +143,8 @@ class Handler(SimpleHTTPRequestHandler):
             saved = validate_save(raw_save) if 'restore' in req else None
             proof = raw_save.get('rankProof') if saved is not None else None
             ranked_start = req.get('rankedStart') is True
+            if self.server.draft_balance and ranked_start:
+                raise ValueError('バランス比較版の冒険はランキング集計対象外です')
             if ranked_start and saved is not None:
                 raise ValueError('ランキングの新規冒険と保存再開は個別に行ってください')
             actions = [str(action) for action in req.get('actions', [])[:10]]
@@ -180,7 +188,7 @@ class Handler(SimpleHTTPRequestHandler):
                     if (saved_daily and saved_daily['ledger']['period'] > period
                             and restore_daily_store.load(saved_profile) is None):
                         raise ValueError('日次依頼の保存日時がラボの更新日より先です')
-                    lua,core=runtime()
+                    lua,core=runtime(draft_balance=self.server.draft_balance)
                     density=int(req.get('density',16));density=density if density in (12,16,20,40) else 16
                     state = core.restore(lua.table_from(saved, recursive=True), density) if saved is not None else core.new(density)
                     rank_player = None
@@ -302,7 +310,9 @@ if __name__=='__main__':
     parser.add_argument('--port',type=int,default=8769,help='Loopback port (default: 8769)')
     parser.add_argument('--daily-store',type=Path,help='Override the local daily SQLite database path')
     parser.add_argument('--ranking-store', type=Path, help='Override the private ranking SQLite database path')
+    parser.add_argument('--draft-balance', action='store_true', help='Use provisional field HP and weapon ATK')
     args=parser.parse_args()
-    with LabServer(('127.0.0.1',args.port),Handler,daily_path=args.daily_store, ranking_path=args.ranking_store) as server:
+    with LabServer(('127.0.0.1',args.port),Handler,daily_path=args.daily_store, ranking_path=args.ranking_store,
+                   draft_balance=args.draft_balance) as server:
         print(f'Lua lab: http://127.0.0.1:{server.server_port}',flush=True)
         server.serve_forever()

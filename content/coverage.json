@@ -8113,6 +8113,15 @@
     "browser_evidence": "evidence/liyue-m01-browser.json",
     "late_report_evidence": ["evidence/natlan-cliff-trials-lua.json", "evidence/white-pass-chapter.json", "evidence/moonlit-garden-lua.json"]
   },
+  "field_balance_draft": {
+    "status": "local_opt_in_prototype",
+    "scope": "Optional local server applies level-based ordinary field HP and revised fixed reward sword ATK. Same saves can be loaded on both servers. The draft server is unranked. Authored boss HP and existing experience and Mora formulas are retained.",
+    "settings": "content/field-balance-draft.json",
+    "lua_evidence": "evidence/field-balance-draft-lua.json",
+    "browser_evidence": "evidence/liyue-m01-browser-draft.json",
+    "route_comparison": "evidence/equipment-progression-draft-lua.json",
+    "late_quest_evidence": "evidence/moonlit-garden-draft-route.json"
+  },
   "full_atlas_checkpoint_transfer": {
     "scope": "Prepared Lv200 checkpoint with all atlas nodes and hidden discoveries, 80 bag items, 160 uncollected drops, and three party presets.",
     "fixture_bytes": 70996,

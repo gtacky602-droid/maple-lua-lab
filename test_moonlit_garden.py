@@ -1,11 +1,18 @@
+from argparse import ArgumentParser
 import json
+from pathlib import Path
 
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 
 
-lua, core = runtime()
+parser = ArgumentParser(description='Play the Moonlit Garden route and report the fixed sword reward.')
+parser.add_argument('--earned-save', type=Path, help='Continue a route checkpoint at Lv195 or higher')
+parser.add_argument('--draft-balance', action='store_true')
+options, _ = parser.parse_known_args()
+comparison = options.earned_save is not None or options.draft_balance
+lua, core = runtime(draft_balance=options.draft_balance)
 field, camp, town = 'nod-field', 'nod-special-camp', 'nod-town'
 water, garden, rim = 'nod-reflector-shore', 'nod-reflection-garden', 'nod-quiet-rim'
 first, second, third = 'nod-light-path', 'nod-light-record', 'nod-rim-return'
@@ -53,12 +60,21 @@ def report(s, q, expected):
     assert (s.progression.questXp-before[0],s.mora-before[1]) == expected
 
 
-s = core.new(12)
-core.action(s,'story_start')
-core.grantExp(s, LEVELS[194]['maple_reference_total_exp_to_reach'], 'quest')
-core.enterStoryNode(s,'nod-port')
-fixture = checkpoint(s)
-gate(s,1380,field)
+if options.earned_save is not None:
+    data = validate_save(json.loads(options.earned_save.read_text(encoding='utf8')))
+    assert data['progression']['level'] >= 195
+    s = core.restore(lua.table_from(data, recursive=True), 12)
+    core.action(s,'story_fast:'+town)
+    assert s.story.node == town
+    fixture = checkpoint(s)
+    gate(s,60,field)
+else:
+    s = core.new(12)
+    core.action(s,'story_start')
+    core.grantExp(s, LEVELS[194]['maple_reference_total_exp_to_reach'], 'quest')
+    core.enterStoryNode(s,'nod-port')
+    fixture = checkpoint(s)
+    gate(s,1380,field)
 gate(s,720,camp)
 core.action(s,'story_accept:'+second)
 assert s.story.quests[second] is None
@@ -119,7 +135,8 @@ report(s,second,(21000000,8700))
 
 gate(s,60,field)
 gate(s,1380,town)
-(ROOT/'work/coop-original-prism-walker-fixture.json').write_text(json.dumps(checkpoint(s)),encoding='utf8')
+if not comparison:
+    (ROOT/'work/coop-original-prism-walker-fixture.json').write_text(json.dumps(checkpoint(s)),encoding='utf8')
 core.action(s,'story_accept:'+third)
 gate(s,60,field)
 gate(s,720,camp)
@@ -190,6 +207,14 @@ proof = dict(threeReflectors=True,blockedBeforeBridge=True,oneBridgeAfterRestore
              shortcutToCamp=True,afterimagesHaveNoHitbox=True,recoveryDamageBonus=True,
              laneDoesNotFollowTarget=True,killDoesNotGrantFirstReport=True,bossSaved=True,
              returnedViaRim=True,firstReport=[14095746,853650],fixedWeaponReward='SW08')
-(ROOT/'evidence/moonlit-garden-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
-(ROOT/'work/moonlit-garden-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+if comparison:
+    profile = 'draft' if options.draft_balance else 'standard'
+    output = ROOT/'work/moonlit-garden-balance'
+    output.mkdir(exist_ok=True)
+    (output/f'{profile}-sword-save.json').write_text(json.dumps(checkpoint(finished)),encoding='utf8')
+    proof |= {'startedAtLevel': fixture['progression']['level'], 'usedEarnedSave': options.earned_save is not None}
+    (ROOT/f'evidence/moonlit-garden-{profile}-route.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
+else:
+    (ROOT/'evidence/moonlit-garden-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
+    (ROOT/'work/moonlit-garden-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
 print(proof)

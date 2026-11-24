@@ -13,6 +13,8 @@ const beidou=page.locator('[data-quest="beidou-join"]');
 const canvas=page.locator('#game');
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const shop=page.locator('#storyDelivery');
+const draft=process.env.DRAFT_BALANCE==='1';
+const suffix=draft?'-draft':'';
 
 async function focus(){
  await canvas.scrollIntoViewIfNeeded();
@@ -49,6 +51,7 @@ async function deliver(label,n){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');
  await page.waitForFunction(()=>window.lab?.frame);
+ assert.equal(Boolean((await frame()).fieldBalance),draft);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
                      await fs.readFile('work/liyue-m01-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
@@ -94,7 +97,7 @@ try{
  await through('liyue-harbor');
  await walk(1050);
  await shop.getByRole('button',{name:'荷札「車輪」を渡す'}).waitFor();
- await page.locator('.game').screenshot({path:'evidence/liyue-m01-delivery.png'});
+ await page.locator('.game').screenshot({path:`evidence/liyue-m01-delivery${suffix}.png`});
  await deliver('車輪',3);
  await page.waitForSelector('[data-quest="liyue-market-delivery"][data-status="ready"]');
  assert.deepEqual((await frame()).storyShopStock,{pot:true,vessel:true,wheel:true});
@@ -116,7 +119,7 @@ try{
  await page.waitForFunction(()=>window.lab.frame.weaponView.options.some(item=>item.id==='SW02'&&item.level===1));
  const upgraded=await frame();
  assert.equal(upgraded.mora,paid.mora-80);
- assert.ok(upgraded.actors[0].atk>paid.actors[0].atk);
+ assert.equal(upgraded.actors[0].atk,draft?18:6);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -131,15 +134,37 @@ try{
  assert.equal(resumed.actors[0].atk,upgraded.actors[0].atk);
  await page.setViewportSize({width:390,height:844});
  await page.locator('#weaponPanel summary').click();
- await page.locator('#weaponPanel').screenshot({path:'evidence/weapon-progression-mobile.png'});
+ await page.locator('#weaponPanel').screenshot({path:`evidence/weapon-progression-mobile${suffix}.png`});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ let draftHunt;
+ if(draft){
+  await page.setViewportSize({width:1200,height:900});
+  await walk(1380);
+  await through('liyue-field');
+  const battlefield=await frame();
+  const {count,minHp,maxHp}=battlefield.fieldBalance;
+  assert.ok(count>0&&minHp>=32&&maxHp>minHp);
+  assert.match(await page.locator('#fieldBalance').innerText(),/比較版.*最大HP/);
+  assert.equal(await page.locator('#expRanking').isVisible(),false);
+  await walk(500,true);
+  await focus();
+  await page.keyboard.down('KeyJ');
+  try{
+   await page.waitForFunction(kills=>window.lab.frame.kills>kills,battlefield.kills);
+  }finally{await page.keyboard.up('KeyJ')}
+  const hunted=await frame();
+  await page.locator('main > header').scrollIntoViewIfNeeded();
+  await page.screenshot({path:'evidence/field-balance-draft-browser.png'});
+  draftHunt={count,minHp,maxHp,kills:hunted.kills-battlefield.kills,
+   killXp:hunted.progression.killXp-battlefield.progression.killXp};
+ }
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/liyue-m01-browser.json',JSON.stringify({
+ await fs.writeFile(`evidence/liyue-m01-browser${suffix}.json`,JSON.stringify({
   errors,wrongLabelRejected:true,delivered:['鍋','器','車輪'],guardedJumpCache:true,
   stockedThreeStalls:true,partialSave:true,beidouQuestOpensOnAcceptance:true,
   report:{xp:10929,mora:300},completeSave:true,mobileWidth:true,
   weapon:{id:'SW02',upgrade:1,cost:80,travelerAtkBefore:paid.actors[0].atk,
-   travelerAtkAfter:resumed.actors[0].atk,restored:true}
+   travelerAtkAfter:resumed.actors[0].atk,restored:true},draftHunt
  },null,2)+'\n');
  console.log('Liyue M01 browser matching labels, guarded crate, report and reload passed');
 }finally{await browser.close()}

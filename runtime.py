@@ -52,7 +52,7 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
     return loader(read, asset_entries)
 
 
-def runtime():
+def runtime(*, draft_balance=False):
     lua = LuaRuntime(unpack_returned_tuples=True)
     core = lua.execute((ROOT / 'core.lua').read_text(encoding='utf-8'))
     skill_settings = json.loads((ROOT / 'content/skill-runtime-settings.json').read_text(encoding='utf8'))
@@ -100,6 +100,10 @@ def runtime():
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
     weapons = json.loads((ROOT/'content/weapon-settings.json').read_text(encoding='utf8'))
+    if draft_balance:
+        balance = json.loads((ROOT/'content/field-balance-draft.json').read_text(encoding='utf8'))
+        for weapon in weapons['items']:
+            weapon['atk'] = balance['weaponAttack'].get(weapon['id'], weapon['atk'])
     quests = {quest['id']: quest for quest in story_data['quests']}
     for weapon in weapons['items']:
         if 'quest' in weapon:
@@ -656,6 +660,8 @@ def runtime():
     coop = json.loads((ROOT/'content/coop-preview.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'coop.lua').read_text(encoding='utf8'))(core,lua.table_from(coop,recursive=True))
     lua.execute((ROOT/'weapons.lua').read_text(encoding='utf8'))(core,lua.table_from(weapons,recursive=True))
+    if draft_balance:
+        lua.execute((ROOT/'field-balance.lua').read_text(encoding='utf8'))(core,lua.table_from(balance,recursive=True))
     lua.execute((ROOT/'party-checkpoint.lua').read_text(encoding='utf8'))(core)
     lua.execute((ROOT/'party-presets.lua').read_text(encoding='utf8'))(core)
     return lua, core

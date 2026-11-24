@@ -1,7 +1,8 @@
 param(
     [ValidateRange(1, 65535)]
     [int]$Port = 8769,
-    [switch]$NoOpen
+    [switch]$NoOpen,
+    [switch]$DraftBalance
 )
 
 $labUrl = "http://127.0.0.1:$Port"
@@ -9,7 +10,9 @@ $labSuffix = if ($Port -eq 8769) { '' } else { "-$Port" }
 $labAlive = $false
 try { $labAlive = (Invoke-WebRequest -Uri $labUrl -TimeoutSec 2).StatusCode -eq 200 } catch {}
 if (-not $labAlive) {
-    $labProcess = Start-Process -FilePath 'C:/Python314/python.exe' -ArgumentList @('server.py', '--port', $Port) -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -RedirectStandardOutput (Join-Path $PSScriptRoot "evidence/server$labSuffix.log") -RedirectStandardError (Join-Path $PSScriptRoot "evidence/server-errors$labSuffix.log") -PassThru
+    $labArgs = @('server.py', '--port', $Port)
+    if ($DraftBalance) { $labArgs += '--draft-balance' }
+    $labProcess = Start-Process -FilePath 'C:/Python314/python.exe' -ArgumentList $labArgs -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -RedirectStandardOutput (Join-Path $PSScriptRoot "evidence/server$labSuffix.log") -RedirectStandardError (Join-Path $PSScriptRoot "evidence/server-errors$labSuffix.log") -PassThru
     $labProcess.Id | Set-Content (Join-Path $PSScriptRoot "work-server$labSuffix.pid")
     for ($labAttempt=0; $labAttempt -lt 20; $labAttempt++) {
         try { $labAlive = (Invoke-WebRequest -Uri $labUrl -TimeoutSec 1).StatusCode -eq 200 } catch {}
@@ -19,7 +22,14 @@ if (-not $labAlive) {
 }
 if (-not $labAlive) {
     Write-Error "Luaサーバーの起動に失敗しました。evidence/server-errors$labSuffix.log を確認してください。"
-} elseif ($NoOpen) {
+    return
+}
+$labInfo = $null
+try { $labInfo = Invoke-RestMethod -Uri "$labUrl/api/lab-info" -TimeoutSec 2 } catch {}
+if ([bool]$labInfo.draftBalance -ne [bool]$DraftBalance) {
+    throw "$labUrl は別のバランス設定で起動しています。別のポートを指定してください。"
+}
+if ($NoOpen) {
     Write-Output $labUrl
 } else {
     Start-Process $labUrl
