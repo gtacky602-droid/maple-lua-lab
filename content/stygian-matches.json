@@ -1499,6 +1499,7 @@
       ]
     },
     "wanderer": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990007,
       "node": "sumeru-stygian-windcourt",
       "hub": "sumeru-hub",

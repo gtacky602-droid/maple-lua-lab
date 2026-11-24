@@ -2,13 +2,17 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
+import {driveWanderer} from './tools/browser_wanderer_driver.mjs';
 
 const base=process.env.LAB_URL||'http://127.0.0.1:9068/';
 const capitano=process.argv.includes('--capitano');
 const xbalanque=process.argv.includes('--xbalanque');
 const rerir=process.argv.includes('--rerir');
 const beidou=process.argv.includes('--beidou');
-const cfg=beidou
+const wanderer=process.argv.includes('--wanderer');
+const cfg=wanderer
+ ? {name:'wanderer',hub:'sumeru-hub',arena:'sumeru-stygian-windcourt',entity:990007,hp:1550,mora:8400,card:'WD02',lock:30,hit:83}
+ : beidou
  ? {name:'beidou',hub:'liyue-harbor',arena:'liyue-stygian-deck',entity:990002,hp:1250,mora:2270,mode:'hard',card:'baited',lock:10,hit:41}
  : rerir
  ? {name:'rerir',hub:'nod-town',arena:'nod-stygian-hunt',entity:990005,hp:2180,mora:22300,card:'RR01',lock:18,hit:42}
@@ -198,6 +202,7 @@ try{
  await guest.locator('#stygianStart').click();
  await guest.waitForFunction(()=>window.lab.frame.endgameRun?.gathering>0);
  if(beidou)await Promise.all([driveBeidou(host,false),driveBeidou(guest,true)]);
+ else if(wanderer)await Promise.all([driveWanderer(host),driveWanderer(guest,false)]);
  else await Promise.all(players.map(({route})=>route.walk(510)));
  const telegraphs=await Promise.all(players.map(async({page})=>{
   const value=await page.waitForFunction(cfg=>{
@@ -214,11 +219,27 @@ try{
  if(beidou)assert.equal(telegraphs[0].targetSlot,(await frame(guest)).coop.slot);
  await host.locator('#game').screenshot({path:prefix+'-warning.png'});
  if(rerir)await Promise.all([driveRerir(host,true),driveRerir(guest,false)]);
- else if(!beidou)await Promise.all([drive(host,-1),drive(guest,1)]);
- let safeLane;
+ else if(!beidou&&!wanderer)await Promise.all([drive(host,-1),drive(guest,1)]);
+ let safeLane,windGates;
  if(beidou){
   await Promise.all(players.map(({page})=>page.waitForFunction(()=>window.lab.frame.endgameRun?.card==='wake')));
   await guest.locator('#game').screenshot({path:prefix+'-wake.png'});
+ }
+ if(wanderer){
+  await Promise.all(players.map(({page})=>page.waitForFunction(
+   ()=>{const v=window.lab.frame.endgameRun;return v.card==='WD03'&&v.phase==='recover';},null,{timeout:65000})));
+  await host.locator('#game').screenshot({path:prefix+'-landing.png'});
+  windGates=await Promise.all(players.map(async({page},index)=>{
+   const value=await page.waitForFunction(()=>{
+    const v=window.lab.frame.endgameRun;
+    return v.card==='WD06'&&v.tick>=460&&v.safe?.inside&&{...v.safe,marks:v.windMarks};
+   },null,{timeout:65000});
+   await page.locator('#game').screenshot({path:prefix+'-gate-'+(index+1)+'.png'});
+   return value.jsonValue();
+  }));
+  assert.deepEqual(windGates.map(gate=>gate.half),[80,56]);
+  assert.deepEqual(windGates.map(gate=>gate.marks),[2,0]);
+  assert.notEqual(windGates[0].x,windGates[1].x);
  }
  if(xbalanque){
   const lanes=await Promise.all(players.map(async({page})=>{
@@ -253,11 +274,14 @@ try{
  const matchKey=`${cfg.name}:${cfg.mode||'normal'}`;
  assert.ok(settled.every(f=>f.boss.hp===0&&f.endgame.stygian[matchKey].clears===1));
  assert.ok(rewards.every(reward=>reward.first&&reward.mora===cfg.mora));
- const trails=await Promise.all(players.map(({page})=>page.evaluate(()=>window.coopStygianTrail)));
+ const trails=await Promise.all(players.map(({page})=>page.evaluate(
+  wanderer=>wanderer?window.wdTrail:window.coopStygianTrail,wanderer)));
  if(rerir){
   assert.deepEqual(trails.map(t=>t.lamps),[[1],[2]]);
   assert.deepEqual(trails.map(t=>t.protected),[{1:true,2:false},{1:false,2:true}]);
   assert.ok(trails.every(t=>t.interlude&&t.stages.join()==='1,2'));
+ }else if(wanderer){
+  assert.ok(trails[0].updrafts>=2&&trails.every(trail=>trail.airOpening&&trail.safeFinal&&trail.stages.join()==='1,2,3'));
  }else assert.ok(trails.every(trail=>trail.hits>0));
  if(beidou)assert.ok(trails.every((trail,index)=>trail.wake&&trail.baited===index));
  if(xbalanque)assert.ok(trails.every(trail=>trail.finalRecovery));
@@ -268,7 +292,7 @@ try{
    [key,matchKey]);
  }));
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({players:2,warning:telegraphs[0],safeLane,trails,rewards,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({players:2,warning:telegraphs[0],safeLane,windGates,trails,rewards,
   clearsSavedForBoth:true,errors},null,2)+'\n');
  console.log('Chrome: shared telegraph, phases, personal sets and saved clears passed.');
 }finally{

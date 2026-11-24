@@ -9,7 +9,8 @@ return function(C,G,M,view)
  end
  local function contact(s,r,cast,mult,color,element)
   local b=r.boss
-  if b.hp<=0 or b.invulnerable or r.status~='fighting' then return false end
+  local party=s.endgameRun
+  if not party or b.hp<=0 or b.invulnerable or r.status~='fighting' or party.status~='fighting' then return false end
   local resist=C.enemyResistance(cast,b,element)
   if resist>=1 then return false end
   local amount,critical=C.enemyHitDamage(s,cast,b,mult,element,resist)
@@ -18,7 +19,7 @@ return function(C,G,M,view)
   amount=math.min(amount,b.hp-lower)
   if amount<=0 then return false end
   local name=cast.key or 'normal'
-  r.skills[name]=(r.skills[name] or 0)+amount
+  party.skills[name]=(party.skills[name] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,critical and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -117,7 +118,7 @@ return function(C,G,M,view)
    r.rest=r.rest-1
    b.y=math.min(spec.arena.floor,b.y+4)
    b.hitTop,b.hitBottom=b.y-105,b.y
-   local gap=s.actors[s.active].x-b.x
+   local gap=(r.target or s.actors[s.active]).x-b.x
    if math.abs(gap)>115 then
     b.dir=gap>=0 and 1 or -1
     b.x=G.clamp(spec,b.x+b.dir*2,28)
@@ -135,12 +136,13 @@ return function(C,G,M,view)
   local r=s.endgameRun
   if r and r.match=='wanderer' and r.status=='fighting' and r.cast then
    local c=r.cast
-   if c.gate and c.t<574 then return c.gate.x end
+   local gate=M.progress(s,c).gate
+   if gate and c.t<574 then return gate.x end
    if c.key=='WD03' and not c.drop or c.key=='WD06' and c.t<438 then
     local lead=s.actors[s.active]
     return lead.x-lead.dir*44
    end
-   for _,z in ipairs(M.cues(r,c)) do
+   for _,z in ipairs(M.cues(r,c,s)) do
     local g=z.shape
     if G.bodyContact(g,a) then
      local left,right=g.left-25,g.right+25

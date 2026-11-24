@@ -1,0 +1,45 @@
+{
+  "players": 2,
+  "hp": 1550,
+  "sharedLockedDash": true,
+  "personalMarkProgress": true,
+  "landingY": 372,
+  "landingRecoveryTicks": 156,
+  "gates": [
+    {
+      "inside": true,
+      "x": 220,
+      "half": 80
+    },
+    {
+      "inside": true,
+      "x": 740,
+      "half": 56
+    }
+  ],
+  "finaleRecoveryTicks": [
+    240,
+    150
+  ],
+  "damageUsesPersonalGate": true,
+  "supportOnlyReward": true,
+  "rewards": [
+    {
+      "rank": 4,
+      "xp": 132288,
+      "mora": 8400,
+      "bag": true,
+      "set": "黄金の劇団",
+      "first": true
+    },
+    {
+      "rank": 4,
+      "xp": 132288,
+      "mora": 8400,
+      "bag": true,
+      "set": "剣闘士のフィナーレ",
+      "first": true
+    }
+  ],
+  "savedClears": 1
+}

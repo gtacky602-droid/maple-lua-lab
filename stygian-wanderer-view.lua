@@ -55,7 +55,8 @@ return function(C,G,M)
  end
  local function cues(rect,s,r,c,v)
   local floor=r.spec.arena.floor
-  for _,z in ipairs(M.cues(r,c)) do
+  local progress=M.progress(s,c)
+  for _,z in ipairs(M.cues(r,c,s)) do
    local g=z.shape
    G.drawShape(rect,g,ink,false,true)
    if z.active then
@@ -71,16 +72,17 @@ return function(C,G,M)
   end
   if c.marks then
    local w=c.data.markWindow
-   v.windMarks,v.windGoal=c.collected,#c.marks
+   v.windMarks,v.windGoal=progress.collected,#c.marks
    v.markers={}
-   v.markTime=c.collected<#c.marks and c.t<w[2] and math.max(0,w[2]-math.max(c.t,w[1])) or nil
+   v.markTime=progress.collected<#c.marks and c.t<w[2] and math.max(0,w[2]-math.max(c.t,w[1])) or nil
    if c.t<w[2] then
     for i,p in ipairs(c.marks) do
      local near=c.t>=w[1]
-     local border=p.taken and storm or ink
+     local taken=M.markTaken(s,c,p)
+     local border=taken and storm or ink
      oval(rect,p.x,p.y-5,21,8,border,.93)
-     rect(p.x-14,p.y-3,28,3,p.taken and warm or mint,near and .95 or .49)
-     if near and not p.taken then
+     rect(p.x-14,p.y-3,28,3,taken and warm or mint,near and .95 or .49)
+     if near and not taken then
       rect(p.x-2,p.y-28,4,12,bright)
       rect(p.x-7,p.y-24,14,3,bright)
       v.markers[#v.markers+1]={id=i,x=p.x,y=p.y}
@@ -91,8 +93,8 @@ return function(C,G,M)
   if c.key=='WD06' then
    v.beat=c.t<86 and 1 or c.t<438 and 2 or c.t<600 and 3 or 4
    for i=1,4 do rect(433+i*17,54,11,5,i==v.beat and bright or ink,.94) end
-   if c.gate and c.t<574 then
-    local g=c.gate
+   if progress.gate and c.t<574 then
+    local g=progress.gate
     local a=s.actors[s.active]
     v.safe={x=g.x,half=g.half,inside=math.abs(a.x-g.x)+8<g.half}
     gate(rect,g,floor)
@@ -104,6 +106,7 @@ return function(C,G,M)
   v.stage,v.stageName=r.stage,labels[r.stage]
   v.phase=r.status=='clear' and 'clear' or c and c.t>=c.recover and 'recover' or r.phase
   v.tick,v.card=c and c.t or r.age-r.phaseAt,c and c.key
+  v.targetSlot=c and c.targetMember and c.targetMember.id
   v.hint=hint(r,c)
   if r.phase=='enter' then v.dialogue='ついて来られるかい？' end
   if c and c.drop then v.dialogue='そこまで登ってきたか。' end

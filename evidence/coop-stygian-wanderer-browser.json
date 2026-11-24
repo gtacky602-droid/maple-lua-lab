@@ -1,0 +1,110 @@
+{
+  "players": 2,
+  "warning": {
+    "direction": -1,
+    "maxhp": 1550,
+    "areas": [
+      {
+        "right": 596,
+        "index": 1,
+        "active": false,
+        "left": 354.5,
+        "top": 289,
+        "bottom": 381
+      }
+    ],
+    "targetSlot": 1
+  },
+  "windGates": [
+    {
+      "x": 480,
+      "half": 80,
+      "inside": true,
+      "marks": 2
+    },
+    {
+      "x": 220,
+      "half": 56,
+      "inside": true,
+      "marks": 0
+    }
+  ],
+  "trails": [
+    {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "cards": [
+        "WD01",
+        "WD02",
+        "WD03",
+        "WD06"
+      ],
+      "updrafts": 3,
+      "marks": {
+        "WD03": 2,
+        "WD06": 2
+      },
+      "heightAtLastMark": 290,
+      "floorGlide": true,
+      "firstAirHit": false,
+      "airOpening": true,
+      "safeFinal": true,
+      "finalContacts": [],
+      "directions": [
+        "wanderer-idle-left-source-v3.png",
+        "wanderer-idle-right-source-v3.png"
+      ]
+    },
+    {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "cards": [
+        "WD01",
+        "WD02",
+        "WD03",
+        "WD06"
+      ],
+      "updrafts": 0,
+      "marks": {
+        "WD03": 0,
+        "WD06": 0
+      },
+      "heightAtLastMark": 0,
+      "floorGlide": true,
+      "firstAirHit": false,
+      "airOpening": true,
+      "safeFinal": true,
+      "finalContacts": [],
+      "directions": [
+        "wanderer-idle-left-source-v3.png",
+        "wanderer-idle-right-source-v3.png"
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "set": "黄金の劇団",
+      "xp": 132288,
+      "rank": 4,
+      "bag": true,
+      "first": true,
+      "mora": 8400
+    },
+    {
+      "set": "剣闘士のフィナーレ",
+      "xp": 132288,
+      "rank": 4,
+      "bag": true,
+      "first": true,
+      "mora": 8400
+    }
+  ],
+  "clearsSavedForBoth": true,
+  "errors": []
+}
