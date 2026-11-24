@@ -29,6 +29,8 @@ return function(C)
   local source=s.echoSource;local cast=copy(source.cast);cast.startedAt=s.t;cast.playerInputAt=C.playerAttackAt(s,a)
   for _,k in ipairs({'atk','elementBonus','normalBonus','skillBonus','troupe4','critRate','critDamageBonus'}) do cast[k]=a[k] end
   cast.key='SK59';cast.echoOf=source.cast.key;cast.mult=cast.mult*.55;cast.x=a.x;cast.y=a.y;cast.dir=a.dir;cast.color='#e9dcff';cast.next=s.t+.12
+  if cast.groundWave then C.placeGroundCast(s,cast) end
+  if cast.travelSpeed then cast.lastPulseX=cast.x end
   a.cd.SK59=24;a.lock=cast.channel and source.lock or .35;s.skillNotice=nil
   if source.dash then a.dash=source.dash;a.dashDir=a.dir end
   if cast.channel then a.channel='SK59' end

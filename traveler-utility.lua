@@ -2,7 +2,7 @@ return function(C)
  local action,attack,step,frame=C.action,C.attack,C.step,C.frame
  C.skillDefinitions={
   SK05={range=180,targets=3,mult=1.8,hits=2,ct=3,lock=.45,interval=.12,color='#ebcb7f',element='geo',push=24},
-  SK07={range=160,targets=7,mult=1.55,hits=5,ct=9,lock=.7,interval=.2,color='#dcbf7c',element='geo',travelSpeed=250,groundOnly=true},
+  SK07={range=160,targets=7,mult=1.55,hits=5,ct=9,lock=.7,interval=.2,color='#dcbf7c',element='geo',travelSpeed=250,groundOnly=true,groundPlacement=true,groundWave=true},
   SK09={range=320,targets=3,mult=2,hits=2,ct=3,lock=.4,interval=.15,color='#d5adff',element='electro'},
   SK10={range=520,targets=6,mult=1.6,hits=5,ct=8,lock=.6,interval=.2,color='#c68fff',element='electro',chain=180},
   SK11={range=150,targets=5,mult=1.4,hits=4,ct=10,lock=.5,interval=.15,color='#bfa0ff',element='electro',dash=.45},

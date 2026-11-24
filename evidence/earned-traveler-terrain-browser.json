@@ -1,0 +1,17 @@
+{
+  "field": "dawn-crystal-field",
+  "level": 200,
+  "wave": {
+    "markers": 9,
+    "lowest": 480,
+    "highest": 470,
+    "hitsAtLastPulse": 2
+  },
+  "seeds": {
+    "markers": 24,
+    "lowest": 452,
+    "highest": 347.8143230088554,
+    "hitsAtLastPulse": 6
+  },
+  "errors": []
+}

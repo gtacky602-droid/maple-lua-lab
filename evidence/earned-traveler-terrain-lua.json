@@ -1,0 +1,211 @@
+{
+  "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+  "field": "dawn-crystal-field",
+  "SK07": {
+    "airCastY": 384.67,
+    "waveY": 480,
+    "groundedHits": {
+      "0.0": [
+        1,
+        2
+      ],
+      "0.2": [
+        1,
+        2,
+        3
+      ],
+      "0.4": [
+        2,
+        3,
+        4
+      ],
+      "0.6": [
+        3,
+        4
+      ],
+      "0.8": [
+        3,
+        4,
+        5
+      ]
+    },
+    "ledgeStopX": 805,
+    "echoReprojectsToNewFloor": true,
+    "closeLedge": {
+      "field": "sites-hunt-41818",
+      "offsetY": 49,
+      "groundedHits": {
+        "0.0": [
+          1
+        ],
+        "0.2": [
+          13
+        ],
+        "0.6": [
+          25
+        ],
+        "0.8": [
+          37
+        ]
+      }
+    }
+  },
+  "SK13": {
+    "normalTargetHeldX": 411.66,
+    "normalReleased": true,
+    "bossField": "ochka-sifting-kiln",
+    "bossMovementRate": 0.7,
+    "bossRoot": 0
+  },
+  "SK14": {
+    "hitsAcrossTwoTiers": {
+      "0.0": [
+        1,
+        9,
+        2,
+        10,
+        3
+      ],
+      "0.15": [
+        1,
+        9,
+        2,
+        10,
+        3
+      ],
+      "0.3": [
+        1,
+        9,
+        2,
+        10,
+        3
+      ],
+      "0.45": [
+        9,
+        1,
+        2,
+        10,
+        3
+      ]
+    },
+    "targetTiers": [
+      384,
+      480
+    ]
+  },
+  "SK15": {
+    "hitsOnTrackedTargets": {
+      "0.0": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+      ],
+      "0.2": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+      ],
+      "0.4": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+      ],
+      "0.6": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+      ],
+      "0.8": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+      ],
+      "1.0": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+      ]
+    },
+    "firstEndpoints": [
+      [
+        214.14,
+        449
+      ],
+      [
+        287.66,
+        449
+      ],
+      [
+        348.52,
+        449
+      ],
+      [
+        222.6,
+        353
+      ],
+      [
+        302.42,
+        353
+      ],
+      [
+        394.72,
+        353
+      ]
+    ],
+    "lastEndpoints": [
+      [
+        214.14,
+        449
+      ],
+      [
+        268.37,
+        449
+      ],
+      [
+        333.57,
+        449
+      ],
+      [
+        204.52,
+        353
+      ],
+      [
+        299.91,
+        353
+      ],
+      [
+        410.09,
+        353
+      ]
+    ]
+  },
+  "nightBanner": {
+    "field": "mond-night-hill",
+    "groundWavePassedUnderFlier": true,
+    "seedHitUpperFlier": true,
+    "reportedAndRestored": true,
+    "report": {
+      "quest": "mond-night-banner-quest",
+      "xp": 967,
+      "mora": 170
+    }
+  }
+}

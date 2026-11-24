@@ -8152,6 +8152,14 @@
       "lua_evidence": "evidence/earned-traveler-electro-lua.json",
       "browser_evidence": "evidence/earned-traveler-electro-browser.json"
     },
+    "earned_traveler_terrain": {
+      "skill_ids": ["SK07", "SK13", "SK14", "SK15"],
+      "additional_echo_check": "SK59 with SK07",
+      "fields": ["dawn-crystal-field", "sites-hunt-41818", "ochka-sifting-kiln", "mond-night-hill"],
+      "quest_reported_and_restored": "mond-night-banner-quest",
+      "lua_evidence": "evidence/earned-traveler-terrain-lua.json",
+      "browser_evidence": "evidence/earned-traveler-terrain-browser.json"
+    },
     "scope": "Prepared combat checks cooldowns, static damage profiles, and companion action locks and scheduled timings. Special followups and actual hits have separate tests. Chrome covers a regional acquisition, loadout restoration, a dodge interrupt, and the shared water field.",
     "lua_evidence": "evidence/skill-roster-lua.json",
     "browser_evidence": "evidence/skill-learning-browser.json",

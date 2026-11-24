@@ -173,12 +173,34 @@ local function hitRegion(a,e,range)
     (a.radial or (e.x-a.x)*a.dir>-25-half) then return true end
  return e.weakpoint and C.hitFieldWeakpoint(a,e,range)
 end
-local function targets(s,a,range,limit,includePartners)
+function C.placeGroundCast(s,cast)
+ local floorY=math.huge
+ for _,p in ipairs(s.platforms) do
+  if cast.x>=p.x and cast.x<=p.x+p.w and p.y>=cast.y and p.y<floorY then floorY=p.y end
+ end
+ if floorY<math.huge then cast.y=floorY end
+end
+local function groundWaveSpan(s,cast)
+ local left,right=cast.x,cast.x
+ local prevLeft,prevRight
+ repeat
+  prevLeft,prevRight=left,right
+  for _,p in ipairs(s.platforms) do
+   if p.y==cast.y and p.x<=right and p.x+p.w>=left then
+    left,right=min(left,p.x),max(right,p.x+p.w)
+   end
+  end
+ until left==prevLeft and right==prevRight
+ if left<right then return left,right end
+end
+local function targets(s,a,range,limit,includePartners,left,right)
  local out={}
  local contacts={}
  for _,e in ipairs(s.enemies) do
   if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and
      (not e.acceptsCast or e.acceptsCast(a,s)) and
+     (not left or (e.x+(e.hitHalfWidth or 0)>=left and e.x-(e.hitHalfWidth or 0)<=right)) and
+     (not a.groundWave or e.boss or abs(e.y-a.y)<5) and
      (not a.groundOnly or not e.flying) and hitRegion(a,e,range) then
    out[#out+1]=e
    if not includePartners and (e.sharedHealth or e.fieldPartner) then
@@ -203,10 +225,18 @@ local function pulse(s,cast)
  cast.impactEvent=(cast.impactEvent or 0)+1
  local touched=false
  if cast.follow then local owner=s.actors[cast.id];cast.x=owner.x;cast.y=owner.y end
+ local waveLeft,waveRight
+ if cast.groundWave then
+  waveLeft,waveRight=groundWaveSpan(s,cast)
+  if not waveLeft then return end
+  waveLeft=max(waveLeft,cast.x-(cast.dir<0 and cast.range or 25))
+  waveRight=min(waveRight,cast.x+(cast.dir>0 and cast.range or 25))
+ end
  local chainLightning,stakeLightning=cast.key=='SK10',cast.key=='SK12'
+ local seedTrail=cast.key=='SK15'
  local lightningX,lightningY=cast.x,cast.y-(stakeLightning and 37 or 45)
  if cast.trail then s.effects[#s.effects+1]={x=cast.x-cast.dir*30,y=cast.y-15,w=80,h=30,life=.3,color=cast.color} end
- local selected=targets(s,cast,cast.range,cast.limit)
+ local selected=targets(s,cast,cast.range,cast.limit,false,waveLeft,waveRight)
  if cast.scatter then
   cast.pellet=(cast.pellet or 0)+1
   if #selected>0 then
@@ -220,7 +250,9 @@ local function pulse(s,cast)
   selected={}
   for _,e in ipairs(s.enemies) do if cast.tracked[e.id] and C.canTargetEnemy(e) and abs(e.x-cast.x)<900 and abs(e.y-cast.y)<360 then
    selected[#selected+1]=e
-   s.effects[#s.effects+1]={x=e.x,y=e.y-30,w=24,h=24,life=.2,color=cast.color}
+   if not seedTrail then
+    s.effects[#s.effects+1]={x=e.x,y=e.y-30,w=24,h=24,life=.2,color=cast.color}
+   end
   end end
  end
  if cast.sharedProjectiles and #selected>0 then
@@ -243,7 +275,9 @@ local function pulse(s,cast)
    selected[#selected+1]=nearest;receivers[receiver(nearest)]=true;x,y=nearest.x,nearest.y
   end
  end
- if not (chainLightning or stakeLightning) and (cast.interval==.3 or cast.travelSpeed or cast.element=='electro') then
+ if waveLeft then
+  s.effects[#s.effects+1]={x=waveLeft,y=cast.y,w=waveRight-waveLeft,life=.19,color=cast.color,groundWave=true,phase=cast.impactEvent}
+ elseif not (chainLightning or stakeLightning) and (cast.interval==.3 or cast.travelSpeed or cast.element=='electro') then
   s.effects[#s.effects+1]={x=cast.radial and cast.x or cast.x+cast.dir*cast.range/2,y=cast.y-40,w=cast.radial and cast.range*2 or cast.range,h=60,life=.3,color=cast.color}
  end
  for _,e in ipairs(selected) do
@@ -255,6 +289,8 @@ local function pulse(s,cast)
    if chainLightning or stakeLightning then
     local y=e.y-35
     s.effects[#s.effects+1]={x=lightningX,y=lightningY,endX=e.x,endY=y,life=.16,color=cast.color}
+   elseif seedTrail then
+    s.effects[#s.effects+1]={x=cast.x,y=cast.y-42,endX=e.x,endY=e.y-31,life=.20,color=cast.color,seedTrail=true}
    end
    if count==0 then cast.contactTargets=cast.contactTargets+1 end;cast.contactHits[id]=count+1
    touched=true
@@ -321,7 +357,7 @@ function C.attack(s,a,key)
  a.cd[key]=ct;a.lock=lock;a.walk=0
  if key=='SK10' then
   s.effects[#s.effects+1]={x=a.x,y=a.y-45,w=20,h=20,life=.2,color=color}
- elseif key~='SK12' then
+ elseif key~='SK12' and key~='SK07' and key~='SK15' then
   s.effects[#s.effects+1]={x=a.x+a.dir*range/2,y=a.y-40,w=range,h=60,life=.3,color=color}
  end
  local cast={id=a.id,startedAt=s.t,atk=a.atk,elementBonus=a.elementBonus,x=a.x,y=a.y,dir=a.dir,range=range,limit=limit,mult=mult,color=color,
@@ -336,6 +372,7 @@ function C.attack(s,a,key)
  if key=='normal' and a.id==1 and a.light>0 then cast.lightNormal=true;cast.suppressAura=true end
  if definition then
   cast.element=definition.element;cast.push=definition.push;cast.travelSpeed=definition.travelSpeed;cast.groundOnly=definition.groundOnly;cast.chain=definition.chain;cast.root=definition.root;cast.vertical=definition.vertical;cast.homing=definition.homing;cast.upward=definition.upward
+  cast.groundWave=definition.groundWave
   if definition.dash then a.dash=definition.dash;a.dashDir=a.dir;cast.follow=true end
   if definition.follow then cast.follow=true end
   cast.trail=definition.trail
@@ -348,11 +385,7 @@ function C.attack(s,a,key)
   cast.physicalBreak=definition.physicalBreak
   if definition.radial then cast.radial=true end
   if definition.offset then cast.x=clamp(a.x+a.dir*definition.offset,20,(s.worldwidth or 2880)-20) end
-  if definition.groundPlacement then
-   local floorY=math.huge
-   for _,p in ipairs(s.platforms) do if cast.x>=p.x and cast.x<=p.x+p.w and p.y>=a.y and p.y<floorY then floorY=p.y end end
-   if floorY<math.huge then cast.y=floorY end
-  end
+  if definition.groundPlacement then C.placeGroundCast(s,cast) end
   if definition.placed then
    cast.placed=key;cast.radial=true
    for i=#s.pending,1,-1 do if s.pending[i].placed==key and s.pending[i].id==a.id then table.remove(s.pending,i) end end
@@ -530,7 +563,13 @@ function C.step(s,dt,input)
  local pending=s.pending
  for i=#pending,1,-1 do
   local cast=pending[i]
-  if cast.travelSpeed then cast.x=cast.x+cast.dir*cast.travelSpeed*dt end
+  if cast.travelSpeed then
+   local x=cast.x+cast.dir*cast.travelSpeed*dt
+   if cast.groundWave then
+    local left,right=groundWaveSpan(s,cast)
+    if left then cast.x=clamp(x,left,right) end
+   else cast.x=x end
+  end
   if s.actors[cast.id].hp<=0 or (cast.gliding and s.actors[cast.id].ground) then table.remove(pending,i)
   elseif s.t+1e-8>=cast.next then
    C.resolveCast(s,cast)
@@ -610,6 +649,27 @@ local function drawLightning(add,e,camera)
  end
 end
 
+local function drawGroundWave(add,e,camera)
+ local markers=math.ceil(e.w/23)
+ for i=1,markers do
+  local x=e.x+(i-1)*23
+  local height=4+((e.phase+i)%3)*3
+  local width=min(18,e.x+e.w-x)
+  add({kind='rect',x=x-camera,y=e.y-height,w=width,h=height,color=e.color,opacity=e.life/.19})
+ end
+end
+
+local function drawSeedTrail(add,e,camera)
+ local opacity=e.life/.20
+ for i=1,4 do
+  local t=.4+i*.15
+  local x=e.x+(e.endX-e.x)*t
+  local y=e.y+(e.endY-e.y)*t-34*math.sin(math.pi*t)
+  local size=2+i
+  add({kind='rect',x=x-camera-size/2,y=y-size/2,w=size,h=size,color=e.color,opacity=opacity})
+ end
+end
+
 function C.frame(s,mode,profile)
  local draws={};local visible=0
  local artFrame={draws=draws}
@@ -666,7 +726,9 @@ function C.frame(s,mode,profile)
   end
  end
  for _,e in ipairs(s.effects) do
-  if e.endX then drawLightning(add,e,s.camera)
+  if e.groundWave then drawGroundWave(add,e,s.camera)
+  elseif e.seedTrail then drawSeedTrail(add,e,s.camera)
+  elseif e.endX then drawLightning(add,e,s.camera)
   else add({kind='effect',x=e.x-s.camera,y=e.y,w=e.w,h=e.h,color=e.color,alpha=e.life/.3}) end
  end
  for _,n in ipairs(s.numbers) do add({kind='text',x=n.x-s.camera,y=n.y-(.8-n.life)*35,text=n.text,color=n.color,size=19}) end
