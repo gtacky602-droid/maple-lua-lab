@@ -1,0 +1,264 @@
+{
+  "scope": "Natlan stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 52,
+  "interpretation": "Links identify available evidence for each stage. Encounter fixtures may enter the arena directly. The corridor proof records actual movement, gates and saves.",
+  "entries": [
+    {
+      "kind": "practice",
+      "stages": [
+        "natlan-iansan-training"
+      ],
+      "evidence": [
+        "evidence/nat-iansan-training-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "natlan-xilonen-workshop",
+        "natlan-xilonen-course"
+      ],
+      "evidence": [
+        "evidence/nat-xilonen-course-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "natlan-kinich-hunt"
+      ],
+      "evidence": [
+        "evidence/nat-kinich-ambush-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "natlan-surf-run",
+        "natlan-surf-cove"
+      ],
+      "evidence": [
+        "evidence/nat-mualani-surf-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "natlan-charm-trail"
+      ],
+      "evidence": [
+        "evidence/nat-kachina-charms-lua.json"
+      ]
+    },
+    {
+      "kind": "daily",
+      "stages": [
+        "natlan-quarry-road",
+        "natlan-riverside-range"
+      ],
+      "evidence": [
+        "evidence/daily-nat-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "qucusaur-field-cavern"
+      ],
+      "evidence": [
+        "evidence/qucusaur-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "yumka-field-ravine"
+      ],
+      "evidence": [
+        "evidence/yumka-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "config-device-field-workshop"
+      ],
+      "evidence": [
+        "evidence/config-device-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "papilla-field-hollow"
+      ],
+      "evidence": [
+        "evidence/papilla-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "atocpan-lava-field"
+      ],
+      "evidence": [
+        "evidence/lava-dragon-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "atocpan-overseer-ruin"
+      ],
+      "evidence": [
+        "evidence/overseer-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "spiritspeaker-field-grotto"
+      ],
+      "evidence": [
+        "evidence/spiritspeaker-field-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "natlan-flag-staging",
+        "natlan-flag-slope",
+        "natlan-flag-ledges",
+        "natlan-flag-cleft",
+        "natlan-flag-summit"
+      ],
+      "evidence": [
+        "evidence/natlan-flag-course-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "natlan-high-trial-steps",
+        "natlan-high-trial-field",
+        "natlan-river-float-run",
+        "natlan-river-turn-basin",
+        "natlan-duel-entry"
+      ],
+      "evidence": [
+        "evidence/natlan-two-trials-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "natlan-sunset-review",
+        "natlan-sunset-arena",
+        "natlan-sunset-rostrum"
+      ],
+      "evidence": [
+        "evidence/natlan-sunset-duel-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "primal-fire-sundered-forge"
+      ],
+      "evidence": [
+        "evidence/primal-fire-weekly-lua.json",
+        "evidence/coop-primal-fire-browser.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "natlan-east-valley-rocks",
+        "natlan-terrace-red-clay"
+      ],
+      "evidence": [
+        "evidence/natlan-fresh-route.json",
+        "evidence/natlan-fresh-route-browser.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "natlan-solar-court"
+      ],
+      "evidence": [
+        "evidence/stygian-xbalanque-lua.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-natlan-cliff",
+        "sites-corridor-natlan-tunnel",
+        "sites-west-desert-border"
+      ],
+      "evidence": [
+        "evidence/natlan-corridors-lua.json",
+        "evidence/natlan-corridors-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "tepeakak-sappho-bank",
+        "witztli-tristars-camp"
+      ],
+      "evidence": [
+        "evidence/natlan-first-legends-lua.json",
+        "evidence/natlan-first-legends-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "toyac-rainbow-key-cave",
+        "toyac-balachko-inner-cave",
+        "toyac-electro-crystal-shore",
+        "toyac-cocijo-stone-ring"
+      ],
+      "evidence": [
+        "evidence/natlan-toyac-legends-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "sulfurous-resonant-basin",
+        "witztli-root-hollow",
+        "witztli-crystal-niche",
+        "witztli-loose-ledge"
+      ],
+      "evidence": [
+        "evidence/natlan-north-trials-lua.json",
+        "evidence/natlan-north-trials-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "night-wind-rilai-clearing"
+      ],
+      "evidence": [
+        "evidence/natlan-northwest-legends-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "atocpan-peak-rock-trail",
+        "atocpan-peak-cave",
+        "atocpan-domain-side-clearing",
+        "atocpan-battlegoat-ironclaw-field",
+        "zapabay-tenochtzitoc-shallows"
+      ],
+      "evidence": [
+        "evidence/natlan-final-legends-browser.json"
+      ]
+    }
+  ]
+}

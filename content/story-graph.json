@@ -2878,6 +2878,7 @@
         {"to": "sites-west-desert-border", "x": 1145, "arrivalX": 1335, "arrivalY": 480, "rideLabel": "ナタ東端・砂岩の国境谷へ"}
       ],
       "checkpoint": "fontaine-hub",
+      "checkpointFallback": "sumeru-hub",
       "mapPoint": "teyvat:72412",
       "waypoint": {
         "kind": "waypoint",

@@ -168,6 +168,7 @@ def rebuild():
             milestone['status'] = 'partial'
 
     coverage['world_map_review'] = {
+        'natlan_stage_evidence': 'design/world/natlan-stage-evidence.json',
         'short_transfer_evidence': ['evidence/world-timed-gates-lua.json', 'evidence/world-timed-gates-browser.json'],
         'voyage_route_evidence': ['evidence/world-voyage-routes-lua.json', 'evidence/world-voyage-routes-browser.json'],
         'basis': ['sources/20261113-master.md sections 4–6', 'sources/20261116-amendment.md sections 1, 7',

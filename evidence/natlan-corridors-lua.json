@@ -1,0 +1,98 @@
+{
+  "routes": [
+    {
+      "stages": [
+        "nat-wp-79057",
+        "sites-corridor-natlan-cliff",
+        "nat-wp-79545"
+      ],
+      "directions": [
+        [
+          "nat-wp-79057",
+          "sites-corridor-natlan-cliff"
+        ],
+        [
+          "nat-wp-79545",
+          "sites-corridor-natlan-cliff"
+        ],
+        [
+          "sites-corridor-natlan-cliff",
+          "nat-wp-79057"
+        ],
+        [
+          "sites-corridor-natlan-cliff",
+          "nat-wp-79545"
+        ]
+      ],
+      "level": 108,
+      "levelBelowRejected": false,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stages": [
+        "nat-wp-82562",
+        "sites-corridor-natlan-tunnel",
+        "nat-wp-82568"
+      ],
+      "directions": [
+        [
+          "nat-wp-82562",
+          "sites-corridor-natlan-tunnel"
+        ],
+        [
+          "nat-wp-82568",
+          "sites-corridor-natlan-tunnel"
+        ],
+        [
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82562"
+        ],
+        [
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82568"
+        ]
+      ],
+      "level": 112,
+      "levelBelowRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stages": [
+        "sum-wp-36696",
+        "sites-west-desert-border",
+        "natlan-entry"
+      ],
+      "directions": [
+        [
+          "natlan-entry",
+          "sites-west-desert-border"
+        ],
+        [
+          "sites-west-desert-border",
+          "natlan-entry"
+        ],
+        [
+          "sites-west-desert-border",
+          "sum-wp-36696"
+        ],
+        [
+          "sum-wp-36696",
+          "sites-west-desert-border"
+        ]
+      ],
+      "level": 100,
+      "levelBelowRejected": true,
+      "restoredAt": "sumeru-hub"
+    }
+  ],
+  "checkpoints": [
+    {
+      "fontaineVisited": false,
+      "saveAndDefeatReturnTo": "sumeru-hub"
+    },
+    {
+      "fontaineVisited": true,
+      "saveAndDefeatReturnTo": "fontaine-hub"
+    }
+  ]
+}

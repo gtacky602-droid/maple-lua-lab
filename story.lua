@@ -947,6 +947,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if departure and s.story.visited[departure.checkpoint] then return departure end
   return present
  end
+ local function checkpointHub(s,node)
+  local visited=s.story.visited
+  if visited[node.checkpoint] then return node.checkpoint end
+  if node.checkpointFallback and visited[node.checkpointFallback] then return node.checkpointFallback end
+  return 'mond-town'
+ end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
  function C.storyNodeName(s)
   local node=s.story and s.story.active and nodes[s.story.node]
@@ -1534,8 +1540,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     enter(s,node.id,node.duel.bellX)
     s.storyNotice='同じ会場で仕切り直します。水路の予告を見てください。'
    else
-    local checkpoint=checkpointNode(s).checkpoint
-    enter(s,s.story.visited[checkpoint] and checkpoint or 'mond-town')
+    enter(s,checkpointHub(s,checkpointNode(s)))
    end
  end
 
@@ -2438,8 +2443,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if d.story then
    s.story=copy(d.story);setup(s)
    if s.story.active then
-    local hub=s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town'
-    enter(s,hub)
+    enter(s,checkpointHub(s,nodes[s.story.node]))
    end
   end
   if C.starterEquipment(s,s.companion) then C.refreshArtifactStats(s,true) end
