@@ -171,7 +171,9 @@ inspect(s,1115,trail,2,y=382)
 inspect(s,1660,trail,3)
 gate(s,55,station)
 report(s,rest,'S04')
+assert not core.canEquipWeapon(s,'traveler','SW07')
 report(s,trail,'M02')
+assert core.canEquipWeapon(resume(s),'traveler','SW07')
 coop_fixture=saved(s)
 core.action(s,'story_accept:'+summit)
 gate(s,1144,woods)
@@ -222,7 +224,7 @@ proof={'earnedLv140KillExp':earned.progression.killXp,'earnedLv160KillExp':almos
        'threeMainQuests':True,'sideFootprintsAndFootwork':True,'sideRestDuringM02':True,
        'walkingBypass':True,'pausedTrain':True,
        'rideSeconds':9,'restoredAtStation':True,'firstClearExp':first_clear,
-       'chapterOrdinaryKillExp':normal_reward,'repeatRewardBlocked':True}
+       'chapterOrdinaryKillExp':normal_reward,'repeatRewardBlocked':True,'fixedWeaponReward':'SW07'}
 (ROOT/'evidence/white-pass-chapter.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/white-pass-fixture.json').write_text(json.dumps(browser_fixture),encoding='utf8')
 (ROOT/'work/coop-original-frost-antler-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')

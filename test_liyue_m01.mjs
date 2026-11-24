@@ -101,12 +101,22 @@ try{
  assert.equal(await page.locator('#storyDeliveryResult').isVisible(),false);
 
  const before=await frame();
+ assert.match(await row.innerText(),/初回報酬：港の護送剣/);
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForSelector('[data-quest="liyue-market-delivery"][data-status="complete"]');
  const paid=await frame();
  assert.match(await row.innerText(),/石切り場/);
  assert.equal(paid.mora-before.mora,300);
  assert.equal(paid.progression.questXp-before.progression.questXp,10929);
+ await page.locator('#weaponPanel summary').click();
+ const weapon=page.locator('[data-weapon="SW02"]');
+ await weapon.getByRole('button',{name:'旅人に装備',exact:true}).click();
+ await page.waitForFunction(()=>window.lab.frame.weaponView.traveler==='SW02');
+ await weapon.getByRole('button',{name:'強化 80モラ',exact:true}).click();
+ await page.waitForFunction(()=>window.lab.frame.weaponView.options.some(item=>item.id==='SW02'&&item.level===1));
+ const upgraded=await frame();
+ assert.equal(upgraded.mora,paid.mora-80);
+ assert.ok(upgraded.actors[0].atk>paid.actors[0].atk);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -115,13 +125,21 @@ try{
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
  assert.equal((await frame()).story.quests[id].status,'complete');
  assert.deepEqual((await frame()).storyShopStock,{pot:true,vessel:true,wheel:true});
+ const resumed=await frame();
+ assert.equal(resumed.weaponView.traveler,'SW02');
+ assert.equal(resumed.weaponView.options.find(item=>item.id==='SW02').level,1);
+ assert.equal(resumed.actors[0].atk,upgraded.actors[0].atk);
  await page.setViewportSize({width:390,height:844});
+ await page.locator('#weaponPanel summary').click();
+ await page.locator('#weaponPanel').screenshot({path:'evidence/weapon-progression-mobile.png'});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/liyue-m01-browser.json',JSON.stringify({
   errors,wrongLabelRejected:true,delivered:['鍋','器','車輪'],guardedJumpCache:true,
   stockedThreeStalls:true,partialSave:true,beidouQuestOpensOnAcceptance:true,
-  report:{xp:10929,mora:300},completeSave:true,mobileWidth:true
+  report:{xp:10929,mora:300},completeSave:true,mobileWidth:true,
+  weapon:{id:'SW02',upgrade:1,cost:80,travelerAtkBefore:paid.actors[0].atk,
+   travelerAtkAfter:resumed.actors[0].atk,restored:true}
  },null,2)+'\n');
  console.log('Liyue M01 browser matching labels, guarded crate, report and reload passed');
 }finally{await browser.close()}

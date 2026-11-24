@@ -16,6 +16,8 @@ _ARTIFACT_DOMAIN_RANKS={
     for rank in domain['ranks']
 }
 _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
+_WEAPON_SETTINGS = json.loads((Path(__file__).parent/'content/weapon-settings.json').read_text(encoding='utf8'))
+_WEAPONS = {item['id']: item for item in _WEAPON_SETTINGS['items']}
 _TRAVELER_SKILLS = {f'SK{index:02}' for index in range(1, 61)}
 _COMBAT_COOLDOWNS = {
     'normal', 'skill1', 'skill2', 'skill3', 'skill4', 'light', 'dodge',
@@ -443,10 +445,19 @@ def validate_party_presets(presets):
     if not isinstance(presets, dict) or set(presets) - {'1', '2', '3'}:
         raise ValueError('編成プリセットの枠が不正です')
     for record in presets.values():
-        if (not isinstance(record, dict) or set(record) != {'companion', 'traveler', 'partner', 'loadout'}
+        if (not isinstance(record, dict) or set(record)-{'weapons'} != {'companion', 'traveler', 'partner', 'loadout'}
                 or record['companion'] not in _COMPANIONS):
             raise ValueError('編成プリセットの形式が不正です')
         validate_loadout(record['loadout'])
+        if 'weapons' in record:
+            pair = record['weapons']
+            if not isinstance(pair, dict) or set(pair) != {'traveler', 'partner'}:
+                raise ValueError('編成プリセットの武器枠が不正です')
+            chosen = {}
+            for role, owner in (('traveler', 'traveler'), ('partner', record['companion'])):
+                if pair[role] != '':
+                    chosen[owner] = pair[role]
+            validate_weapon_slots(chosen)
         used = set()
         for gear in (record['traveler'], record['partner']):
             if not isinstance(gear, list) or len(gear) != 5:
@@ -458,8 +469,36 @@ def validate_party_presets(presets):
                     used.add(item_id)
 
 
+def validate_weapon_slots(slots):
+    if not isinstance(slots, dict):
+        raise ValueError('武器の装備先が不正です')
+    used = set()
+    for owner, weapon_id in slots.items():
+        weapon = _WEAPONS.get(weapon_id) if isinstance(weapon_id, str) else None
+        if (not weapon or weapon['type'] != _WEAPON_SETTINGS['types'].get(owner)
+                or weapon.get('bound', owner) != owner or weapon_id in used):
+            raise ValueError('武器の装備先が不正です')
+        used.add(weapon_id)
+
+
+def validate_weapons(state, quests):
+    if not isinstance(state, dict) or set(state) != {'upgrades', 'equipped'}:
+        raise ValueError('武器の保存形式が不正です')
+    upgrades = state['upgrades']
+    if (not isinstance(upgrades, dict) or set(upgrades)-_WEAPONS.keys()
+            or any(type(level) is not int or not 1 <= level <= _WEAPON_SETTINGS['enhancement']['cap']
+                   for level in upgrades.values())):
+        raise ValueError('武器の強化段階が不正です')
+    validate_weapon_slots(state['equipped'])
+    for weapon_id in set(upgrades) | set(state['equipped'].values()):
+        quest_id = _WEAPONS[weapon_id].get('quest')
+        quest = quests.get(quest_id, {})
+        if quest_id and quest.get('status') != 'complete' and not quest.get('cycles', 0):
+            raise ValueError('入手していない武器の保存情報です')
+
+
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat','partyPresets'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat','partyPresets','weapons'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -841,6 +880,8 @@ def validate_save(data):
         validate_endgame(data)
     elif 'postgame-goal' in data.get('story', {}).get('growth', {}):
         raise ValueError('Missing selected adventure goal')
+    if 'weapons' in data:
+        validate_weapons(data['weapons'], data.get('story', {}).get('quests', {}))
     save = data.copy()
     save.pop('rankProof', None)
     return save

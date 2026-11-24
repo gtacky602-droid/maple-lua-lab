@@ -27,6 +27,8 @@ function partyPresetControls(action,names){
    let description='未登録';
    if(preset){
     const parts=[companionNames[preset.companion],`聖遺物${equipment.length}点`];
+    const sword=f.weaponView?.options.find(item=>item.id===preset.weapons?.traveler);
+    if(sword)parts.push(`旅人：${sword.name}`);
     if(skills.length){
      const first=skills[0].map(id=>names[id]).join(' → ');
      parts.push(skills.length>1?`${first} ほか${skills.length-1}枠`:first);

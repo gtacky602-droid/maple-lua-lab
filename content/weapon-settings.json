@@ -1,0 +1,26 @@
+{
+  "status": "web_prototype",
+  "types": {
+    "traveler": "片手剣", "amber": "弓", "beidou": "両手剣", "ayaka": "片手剣",
+    "wanderer": "法器", "emilie": "長柄武器", "kachina": "長柄武器", "columbina": "法器", "mitya": "法器"
+  },
+  "enhancement": {"cap": 10, "linearBasisPoints": 1200, "quadraticBasisPoints": 135},
+  "items": [
+    {"id":"SW01","name":"旅の初期剣","type":"片手剣","atk":4,"upgradeMora":30,"bound":"traveler"},
+    {"id":"SW02","name":"港の護送剣","type":"片手剣","atk":5,"upgradeMora":80,"quest":"liyue-market-delivery"},
+    {"id":"SW03","name":"灯籠守りの剣","type":"片手剣","atk":6,"upgradeMora":250,"quest":"inazuma-moving-lantern"},
+    {"id":"SW04","name":"森の観測剣","type":"片手剣","atk":7,"upgradeMora":680,"quest":"sumeru-observatory-map"},
+    {"id":"SW05","name":"水路の配達剣","type":"片手剣","atk":9,"upgradeMora":1800,"quest":"fontaine-moon-parcel"},
+    {"id":"SW06","name":"古壁の調査剣","type":"片手剣","atk":24,"upgradeMora":6000,"quest":"natlan-ancient-excavation-wall"},
+    {"id":"SW07","name":"白虹峠の剣","type":"片手剣","atk":240,"upgradeMora":18000,"quest":"white-pass-trail"},
+    {"id":"SW08","name":"月縁の帰路剣","type":"片手剣","atk":1500,"upgradeMora":80000,"quest":"nod-rim-return"},
+    {"id":"START-AMBER","name":"アンバーの入門弓","type":"弓","atk":3,"upgradeMora":30,"quest":"amber-join","bound":"amber"},
+    {"id":"START-BEIDOU","name":"南十字の入門大剣","type":"両手剣","atk":3,"upgradeMora":80,"quest":"beidou-join","bound":"beidou"},
+    {"id":"START-AYAKA","name":"綾華の初期刀","type":"片手剣","atk":4,"upgradeMora":100,"quest":"ayaka-join","bound":"ayaka"},
+    {"id":"START-WANDERER","name":"樹上観測の入門法器","type":"法器","atk":4,"upgradeMora":100,"quest":"sum-wanderer-observation","bound":"wanderer"},
+    {"id":"START-EMILIE","name":"調香師の入門長柄","type":"長柄武器","atk":4,"upgradeMora":100,"quest":"fon-emilie-scent","bound":"emilie"},
+    {"id":"START-KACHINA","name":"山歩きの入門長柄","type":"長柄武器","atk":4,"upgradeMora":100,"quest":"natlan-kachina-charms","bound":"kachina"},
+    {"id":"START-COLUMBINA","name":"月明かりの入門の法器","type":"法器","atk":4,"upgradeMora":100,"quest":"columbina-coast-detour","bound":"columbina"},
+    {"id":"START-MITYA","name":"観測用の入門法器","type":"法器","atk":4,"upgradeMora":100,"quest":"sne-mitya-observation","bound":"mitya"}
+  ]
+}

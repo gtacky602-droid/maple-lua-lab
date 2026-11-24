@@ -152,14 +152,13 @@ return function(C,imprint,artifactSets)
    a.artifactGaugeBonus=(sets.celestialGift or 0)>=2 and 1 or 0
    a.normalBonus=sets.gladiator>=4 and .2 or 0;a.skillBonus=sets.troupe>=2 and .12 or 0;a.troupe4=sets.troupe>=4
    a.critRate=math.min(1,rate/100);a.setCounts=sets
-   if i==2 and starter then
-    atk=atk+starter.weapon.atk
-    if not hasFlower then hp=hp+starter.flower.hp end
-   end
+   if i==2 and starter and not hasFlower then hp=hp+starter.flower.hp end
+   local weaponAtk=C.weaponAttack and C.weaponAttack(s,i)
+   if not weaponAtk then weaponAtk=i==1 and 4 or 3+(starter and starter.weapon.atk or 0) end
    local old=a.maxhp
    a.maxhp=math.floor((140+hp)*(1+hpPct/100))
    a.hp=math.min(a.maxhp,keepHp and a.hp or math.floor(a.hp/old*a.maxhp))
-   a.atk=math.floor(((i==1 and 4 or 3)+atk)*(1+pct/100));a.elementBonus=element/100;a.critDamageBonus=crit/100
+   a.atk=math.floor((weaponAtk+atk)*(1+pct/100));a.elementBonus=element/100;a.critDamageBonus=crit/100
    a.imprint=stars
   end
  end

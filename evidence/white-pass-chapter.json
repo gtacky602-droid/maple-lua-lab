@@ -10,5 +10,6 @@
   "restoredAtStation": true,
   "firstClearExp": 61667202,
   "chapterOrdinaryKillExp": 4796120,
-  "repeatRewardBlocked": true
+  "repeatRewardBlocked": true,
+  "fixedWeaponReward": "SW07"
 }

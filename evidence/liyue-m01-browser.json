@@ -15,5 +15,13 @@
     "mora": 300
   },
   "completeSave": true,
-  "mobileWidth": true
+  "mobileWidth": true,
+  "weapon": {
+    "id": "SW02",
+    "upgrade": 1,
+    "cost": 80,
+    "travelerAtkBefore": 4,
+    "travelerAtkAfter": 6,
+    "restored": true
+  }
 }

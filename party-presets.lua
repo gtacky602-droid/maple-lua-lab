@@ -15,6 +15,10 @@ return function(C)
   s.partyPresets=s.partyPresets or {}
   s.partyPresets[slot]={companion=companion,traveler=traveler,partner=partner,
    loadout=C.copySkillLoadout(s.loadout)}
+  if s.story and s.story.active then
+   s.partyPresets[slot].weapons={traveler=C.equippedWeapon(s,'traveler') or '',
+    partner=C.equippedWeapon(s,companion) or ''}
+  end
   s.partyPresetMessage='枠'..slot..'に現在の編成を登録しました。'
  end
 
@@ -24,6 +28,12 @@ return function(C)
   local skills,reason=C.copySkillLoadout(record.loadout)
   if not skills then return reason end
   if not C.isCompanion(record.companion) then return '同行者を選べません。' end
+  local weapons=record.weapons
+  if weapons and (not C.canEquipWeapon(s,'traveler',weapons.traveler) or
+     not C.canEquipWeapon(s,record.companion,weapons.partner) or
+     (weapons.traveler~='' and weapons.traveler==weapons.partner)) then
+   return '登録した武器を装備できません。'
+  end
 
   local byId={}
   for _,item in ipairs(s.inventory.items) do byId[item.id]=item end
@@ -53,6 +63,10 @@ return function(C)
    elseif item.owner==1 or (item.owner==2 and item.companionId==record.companion) then
     item.owner,item.companionId=0,nil
    end
+  end
+  if weapons then
+   C.setEquippedWeapon(s,'traveler',weapons.traveler)
+   C.setEquippedWeapon(s,record.companion,weapons.partner)
   end
   C.refreshArtifactStats(s,true)
   if switched then

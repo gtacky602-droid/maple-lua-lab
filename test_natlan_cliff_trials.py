@@ -155,8 +155,10 @@ restored = core.restore(lua.table_from(saved, recursive=True), 12)
 assert restored.story.node == HUB and restored.active == 2 and restored.endgame.bosses[ATLATL].clears == 1
 walk.cross(ledge)
 assert s.active == 2 and ally.hp == 73 and not core.frame(s).storyTravelerTrial
+assert not core.canEquipWeapon(restored, 'traveler', 'SW06')
 core.action(restored, 'story_report:' + QUEST)
 assert restored.story.quests[QUEST].status == 'complete'
+assert core.canEquipWeapon(restored, 'traveler', 'SW06')
 
 s = start(119)
 walk = walk_for(s)
@@ -195,5 +197,6 @@ write('evidence/natlan-cliff-trials-lua.json', {
     'soloRestoresCompanionAndSelectedActorOnExitAndDefeat': True,
     'cihuacoatlGateRequiresTopShelf': True, 'cihuacoatlReturnPlacesPartyOnShelf': True,
     'bothClearsAndRewardsPersist': True,
+    'fixedWeaponReward': 'SW06',
 })
 print('Cliff trials: wall traversal, Lv114 route, solo entry/exit, shelves and saved clears passed')

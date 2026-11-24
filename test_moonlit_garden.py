@@ -179,14 +179,17 @@ move(s,1530,389)
 core.action(s,rotate)
 count(s,third,2)
 gate(s,1660,town)
+assert not core.canEquipWeapon(s,'traveler','SW08')
 report(s,third,(14095746,853650))
-assert restore(s).story.quests[third].status == 'complete'
+finished=restore(s)
+assert finished.story.quests[third].status == 'complete'
+assert core.canEquipWeapon(finished,'traveler','SW08')
 
 proof = dict(threeReflectors=True,blockedBeforeBridge=True,oneBridgeAfterRestore=True,
              wrongRecordRejected=True,darkAndLitRequired=True,recordedThreeOrientations=True,
              shortcutToCamp=True,afterimagesHaveNoHitbox=True,recoveryDamageBonus=True,
              laneDoesNotFollowTarget=True,killDoesNotGrantFirstReport=True,bossSaved=True,
-             returnedViaRim=True,firstReport=[14095746,853650])
+             returnedViaRim=True,firstReport=[14095746,853650],fixedWeaponReward='SW08')
 (ROOT/'evidence/moonlit-garden-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/moonlit-garden-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
 print(proof)

@@ -1493,6 +1493,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if not state.sights then s.storyNotice=(not q.sights and q.closing) or (q.sights and q.sights.legacyName or q.name)..'：報酬を受け取りました。' end
     if q.kinichHunt then s.storyNotice=kinichAmbush.report(q,state) end
     if q.starter and s.companion==q.join then C.refreshArtifactStats(s,true) end
+    if q.weaponReward and state.cycles==1 and C.noteWeaponReward then C.noteWeaponReward(s,id) end
    end
    return
   end

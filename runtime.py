@@ -99,6 +99,13 @@ def runtime():
     sights = lua.execute((ROOT / 'story-sights.lua').read_text(encoding='utf-8'))(core)
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
+    weapons = json.loads((ROOT/'content/weapon-settings.json').read_text(encoding='utf8'))
+    quests = {quest['id']: quest for quest in story_data['quests']}
+    for weapon in weapons['items']:
+        if 'quest' in weapon:
+            quest = quests[weapon['quest']]
+            quest['weaponReward'] = weapon['name']
+            weapon['questName'] = quest['name']
     skill_catalog = json.loads((ROOT/'content/skill-catalog.json').read_text(encoding='utf8'))
     story_data['regionalSkills'] = {
         skill['id']: {'level': skill['unlock_level'], 'elements': skill['elements']}
@@ -648,6 +655,7 @@ def runtime():
     lua.execute((ROOT/'world-atlas.lua').read_text(encoding='utf8'))(core,lua.table_from(atlas,recursive=True))
     coop = json.loads((ROOT/'content/coop-preview.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'coop.lua').read_text(encoding='utf8'))(core,lua.table_from(coop,recursive=True))
+    lua.execute((ROOT/'weapons.lua').read_text(encoding='utf8'))(core,lua.table_from(weapons,recursive=True))
     lua.execute((ROOT/'party-checkpoint.lua').read_text(encoding='utf8'))(core)
     lua.execute((ROOT/'party-presets.lua').read_text(encoding='utf8'))(core)
     return lua, core

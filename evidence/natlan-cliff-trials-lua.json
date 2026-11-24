@@ -7,5 +7,6 @@
   "soloRestoresCompanionAndSelectedActorOnExitAndDefeat": true,
   "cihuacoatlGateRequiresTopShelf": true,
   "cihuacoatlReturnPlacesPartyOnShelf": true,
-  "bothClearsAndRewardsPersist": true
+  "bothClearsAndRewardsPersist": true,
+  "fixedWeaponReward": "SW06"
 }

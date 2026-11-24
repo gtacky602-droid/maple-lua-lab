@@ -189,7 +189,8 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   const payout=status==='complete'&&!q.repeatable?'':` ｜ 仮報酬 ${rewardNumber.format(q.xp)}EXP / ${rewardNumber.format(q.mora)}モラ`;
   const firstClear=q.chapterClearXp&&(st?.count??0)<q.chapterClearCount
    ?` ｜ 章ボス初回勝利 ${rewardNumber.format(q.chapterClearXp)}EXP`:'';
-  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear} `;
+  const weapon=q.weaponReward?` ｜ ${status==='complete'?'受取済み':'初回報酬'}：${q.weaponReward}`:'';
+  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear}${weapon} `;
   if(q.bonusLesson&&status!=='locked'){
    const exercises=q.bonusLesson.filter(lesson=>f.progression?.level>=lesson.level);
    if(exercises.length){

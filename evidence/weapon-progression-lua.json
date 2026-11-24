@@ -1,0 +1,18 @@
+{
+  "catalogItems": 16,
+  "fixedQuestRewards": 15,
+  "earlyReportAndDuplicateRejected": true,
+  "existingSavesDeriveEarnedWeapons": true,
+  "slotOwnershipTransfer": true,
+  "preservedByPresetsAndSave": true,
+  "appliedWeaponAtkInCombat": true,
+  "moraAndCapApplied": true,
+  "invalidSavesRejected": [
+    "over cap",
+    "unearned",
+    "wrong type",
+    "duplicate",
+    "starter misuse"
+  ],
+  "preparedQuestStates": true
+}

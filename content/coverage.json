@@ -8068,7 +8068,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Check remaining equipment progression and artifact replacement loops, then continue matching skill effects and visual cues against the authored scope.",
+  "current_priority": "Verify weapon and artifact progression at regional milestones, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -8098,9 +8098,20 @@
   "party_presets": {
     "slots": 3,
     "status": "local_prototype",
-    "scope": "Town-only registration and atomic switching of companion, two five-piece artifact loadouts by item ID, and eight skill or macro slots. Compatible with v1 saves without presets.",
+    "scope": "Town-only registration and atomic switching of companion, weapons, two five-piece artifact loadouts by item ID, and eight skill or macro slots. Compatible with v1 saves without presets.",
     "lua_evidence": "evidence/party-presets-lua.json",
     "browser_evidence": "evidence/party-presets-browser.json"
+  },
+  "weapon_progression": {
+    "status": "local_prototype",
+    "traveler_weapons": 8,
+    "companion_starters": 8,
+    "fixed_quest_rewards": 15,
+    "enhancement_cap": 10,
+    "scope": "Fixed weapon classes, quest rewards, exclusive equipment references, combat ATK, upgrades, presets and saves. Browser exercises the Liyue market delivery reward. Runtime balance and acquisition paths remain provisional.",
+    "lua_evidence": "evidence/weapon-progression-lua.json",
+    "browser_evidence": "evidence/liyue-m01-browser.json",
+    "late_report_evidence": ["evidence/natlan-cliff-trials-lua.json", "evidence/white-pass-chapter.json", "evidence/moonlit-garden-lua.json"]
   },
   "full_atlas_checkpoint_transfer": {
     "scope": "Prepared Lv200 checkpoint with all atlas nodes and hidden discoveries, 80 bag items, 160 uncollected drops, and three party presets.",
