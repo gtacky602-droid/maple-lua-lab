@@ -1,0 +1,117 @@
+{
+  "participants": 4,
+  "spearHitAt112": 18,
+  "airTicks": 36,
+  "groundedAt178": true,
+  "landingHitAt178": 18,
+  "openedSecondWindowAt132": true,
+  "secondWindowRejectedEarlierMultiHit": true,
+  "recordedElements": [
+    "pyro",
+    "hydro"
+  ],
+  "received": [
+    [
+      [
+        26,
+        "pyro"
+      ]
+    ],
+    [
+      [
+        26,
+        "hydro"
+      ]
+    ],
+    [],
+    []
+  ],
+  "expiredAt": 396,
+  "validFirstContactAt216": true,
+  "stoppedFirstOnTick288": true,
+  "secondStillHitAt360": true,
+  "lateBreakAt395": true,
+  "downTicks": 180,
+  "standTicks": 24,
+  "noBacklashOrModifier": true,
+  "repeatedElementRecorded": true,
+  "wideMatchingCastOncePerStar": true,
+  "bossDefeatPrioritized": true,
+  "level": 18,
+  "entryPath": [
+    "mond-road",
+    "dornman-camp"
+  ],
+  "previous": {
+    "sourceSha256": "6cddccc5f8ea0c2ffe580ea8e41f8a17d8c562edf1797fdf6148904f6193d1e0",
+    "boss": "boss-24111101",
+    "arena": "windrest-vigil-court",
+    "entryRoute": [
+      "windrest-vigil-court"
+    ],
+    "maxHp": 700,
+    "partyAttack": [
+      4,
+      3
+    ],
+    "elapsedSeconds": 32.717,
+    "damagingHits": 193,
+    "moves": [
+      "FV01",
+      "FV02",
+      "FV03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1250,
+      155
+    ],
+    "commission": {
+      "quest": "fallen-vigil-commission",
+      "xp": 1400,
+      "mora": 220
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "6cddccc5f8ea0c2ffe580ea8e41f8a17d8c562edf1797fdf6148904f6193d1e0",
+    "boss": "boss-24111101",
+    "arena": "windrest-vigil-court",
+    "entryRoute": [
+      "windrest-vigil-court"
+    ],
+    "maxHp": 700,
+    "partyAttack": [
+      4,
+      3
+    ],
+    "elapsedSeconds": 33.483,
+    "damagingHits": 215,
+    "moves": [
+      "FV01",
+      "FV02",
+      "FV03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1250,
+      155
+    ],
+    "commission": {
+      "quest": "fallen-vigil-commission",
+      "xp": 1400,
+      "mora": 220
+    },
+    "savedClear": true
+  }
+}

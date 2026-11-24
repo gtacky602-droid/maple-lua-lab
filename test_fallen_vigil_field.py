@@ -175,6 +175,7 @@ snap=validate_save(native(core.checkpoint(state)))
 restored=core.restore(lua.table_from(snap,recursive=True),12)
 assert restored.fieldSlots[boss_id].enemy.hp==hp and restored.fieldSlots[boss_id].cast is None
 enter(restored)
+spot(restored.actors[1],restored.fieldSlots[boss_id].enemy.x-88)
 assert len(restored.enemies)==1 and core.frame(restored,'sprite','legacy').fieldBoss.vigil is None
 portal(state,65,hub)
 assert c.summons is None and slot.cast is None and boss.hp==hp

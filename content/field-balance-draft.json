@@ -22,6 +22,19 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-24111101": {
+      "FV02": { "air": [142, 178], "spearStart": 88 },
+      "FV03": {
+        "kind": "dualStars", "title": "監視統制・二星の落光",
+        "scans": [[60, 132], [132, 204]], "deploy": 216, "starClose": 396,
+        "starHeight": 0.80, "starHalfWidth": 0.35, "starLayers": 2, "standTicks": 24,
+        "active": [[288, 300], [360, 372]], "recover": 408, "total": 552,
+        "stars": [
+          { "offset": 0.80, "near": 0.30, "far": 1.30 },
+          { "offset": 2.20, "near": 1.70, "far": 2.70 }
+        ]
+      }
+    },
     "boss-26302101": {
       "FMG02": { "air": [90, 126], "active": [[126, 140]], "recover": 174, "total": 278 },
       "FMG03": {

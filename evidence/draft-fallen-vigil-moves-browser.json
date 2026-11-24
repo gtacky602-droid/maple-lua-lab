@@ -1,0 +1,16 @@
+{
+  "level": 18,
+  "recordedElements": [
+    "pyro",
+    "none"
+  ],
+  "starTick": 220,
+  "interruptedAtTick": 271,
+  "normalAttackInput": true,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 20525,
+    "light": 5451
+  },
+  "errors": []
+}
