@@ -8941,6 +8941,10 @@
     ]
   },
   "world_map_review": {
+    "voyage_route_evidence": [
+      "evidence/world-voyage-routes-lua.json",
+      "evidence/world-voyage-routes-browser.json"
+    ],
     "supplemental_hunt_route_evidence": [
       "evidence/world-hunt-routes-lua.json",
       "evidence/world-hunt-routes-browser.json"

@@ -1,0 +1,20 @@
+{
+  "train": {
+    "stage": "white-pass-coach",
+    "correctLabelInHudAndStoryPanel": true,
+    "restoredAt": "snezhnaya-hub",
+    "arrivedAt": "white-pass-station"
+  },
+  "trolley": {
+    "stage": "veluriyam-trolley-out",
+    "atlasPausesVoyage": true,
+    "window": [
+      1.8,
+      6.3
+    ],
+    "stoppedAt": "veluriyam-petal-stop",
+    "reboardSeconds": 2,
+    "arrivedAt": "veluriyam-rail-end"
+  },
+  "errors": []
+}

@@ -40,7 +40,9 @@ function update(){
  const position=document.createElement('p');position.textContent=node.name+' ｜ '+(f.storyNotice||'水色の門まで歩き、Fキーか画面下のボタンで移動。璃月はLv20から。');
  const trolley=f.voyage?.kind==='trolley';
  if(f.voyage){
-  const phase=trolley?(f.voyage.stopover?'停車中・途中下車可':'トロッコで移動中'):(f.voyage.stopover?'寄港中・途中下船可':'航海中');
+  const phase=f.voyage.kind==='train'?'列車で移動中':trolley?
+   (f.voyage.stopover?'停車中・途中下車可':'トロッコで移動中'):
+   (f.voyage.stopover?'寄港中・途中下船可':'航海中');
   position.textContent+=' ／ 到着まで '+Math.ceil(f.voyage.seconds)+'秒（'+phase+'）';
  }
  panel.append(position);

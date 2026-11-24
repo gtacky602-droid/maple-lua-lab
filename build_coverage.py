@@ -168,6 +168,7 @@ def rebuild():
             milestone['status'] = 'partial'
 
     coverage['world_map_review'] = {
+        'voyage_route_evidence': ['evidence/world-voyage-routes-lua.json', 'evidence/world-voyage-routes-browser.json'],
         'basis': ['sources/20261113-master.md sections 4–6', 'sources/20261116-amendment.md sections 1, 7',
                   'content/map-catalog.json', 'content/story-graph.json'],
         'requested_groups': reviewed_groups,

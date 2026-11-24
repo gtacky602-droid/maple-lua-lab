@@ -1,0 +1,169 @@
+{
+  "setup": "Regional source and checkpoint, required XP, and two completed ticket fixtures; actual movement and portal inputs.",
+  "voyages": [
+    {
+      "stage": "liyue-ferry",
+      "kind": "ferry",
+      "boardedAt": "liyue-harbor",
+      "arrivedAt": "inazuma-port",
+      "duration": 30,
+      "savedAt": "liyue-ferry",
+      "restoredAt": "liyue-harbor",
+      "arrivalGateClosedBeforeArrival": true
+    },
+    {
+      "stage": "natlan-voyage",
+      "kind": "ferry",
+      "boardedAt": "natlan-port",
+      "arrivedAt": "nod-port",
+      "duration": 90,
+      "savedAt": "natlan-port",
+      "restoredAt": "natlan-port",
+      "arrivalGateClosedBeforeArrival": true,
+      "stop": "ochkanatlan-dock",
+      "window": [
+        30,
+        50
+      ],
+      "reboardedFrom": "ochkanatlan-dock",
+      "secondsAfterReboarding": 40,
+      "restoredAfterReboarding": "ochkanatlan-dock",
+      "atlasStopsOfferingClosedGate": true,
+      "reachedEndAfterMissingStop": true
+    },
+    {
+      "stage": "white-pass-coach",
+      "kind": "train",
+      "boardedAt": "snezhnaya-hub",
+      "arrivedAt": "white-pass-station",
+      "duration": 9,
+      "savedAt": "white-pass-coach",
+      "restoredAt": "snezhnaya-hub",
+      "arrivalGateClosedBeforeArrival": true
+    },
+    {
+      "stage": "veluriyam-trolley-out",
+      "kind": "trolley",
+      "boardedAt": "veluriyam-hub",
+      "arrivedAt": "veluriyam-rail-end",
+      "duration": 8.4,
+      "savedAt": "veluriyam-trolley-out",
+      "restoredAt": "veluriyam-hub",
+      "stop": "veluriyam-petal-stop",
+      "window": [
+        1.8,
+        6.3
+      ],
+      "reboardedFrom": "veluriyam-petal-stop",
+      "secondsAfterReboarding": 2.0,
+      "restoredAfterReboarding": "veluriyam-hub",
+      "atlasStopsOfferingClosedGate": true,
+      "reachedEndAfterMissingStop": true
+    },
+    {
+      "stage": "veluriyam-trolley-back",
+      "kind": "trolley",
+      "boardedAt": "veluriyam-rail-end",
+      "arrivedAt": "veluriyam-hub",
+      "duration": 8.4,
+      "savedAt": "veluriyam-trolley-back",
+      "restoredAt": "veluriyam-hub",
+      "stop": "veluriyam-petal-stop",
+      "window": [
+        1.8,
+        6.3
+      ],
+      "reboardedFrom": "veluriyam-petal-stop",
+      "secondsAfterReboarding": 2.0,
+      "restoredAfterReboarding": "veluriyam-hub",
+      "atlasStopsOfferingClosedGate": true,
+      "reachedEndAfterMissingStop": true
+    },
+    {
+      "stage": "sites-mirage-fair-out",
+      "kind": "trolley",
+      "boardedAt": "veluriyam-petal-stop",
+      "arrivedAt": "sites-vlm-06",
+      "duration": 4.8,
+      "savedAt": "sites-mirage-fair-out",
+      "restoredAt": "veluriyam-hub"
+    },
+    {
+      "stage": "sites-mirage-fair-in",
+      "kind": "trolley",
+      "boardedAt": "sites-vlm-06",
+      "arrivedAt": "veluriyam-petal-stop",
+      "duration": 4.8,
+      "savedAt": "sites-mirage-fair-in",
+      "restoredAt": "veluriyam-hub"
+    },
+    {
+      "stage": "sites-star-rail-out",
+      "kind": "trolley",
+      "boardedAt": "sites-sim-04",
+      "arrivedAt": "sites-sim-05",
+      "duration": 4.8,
+      "savedAt": "sites-star-rail-out",
+      "restoredAt": "sites-sim-04"
+    },
+    {
+      "stage": "sites-star-rail-in",
+      "kind": "trolley",
+      "boardedAt": "sites-sim-05",
+      "arrivedAt": "sites-sim-04",
+      "duration": 4.8,
+      "savedAt": "sites-star-rail-in",
+      "restoredAt": "sites-sim-05"
+    },
+    {
+      "stage": "liyue-ferry-return",
+      "kind": "ferry",
+      "boardedAt": "inazuma-port",
+      "arrivedAt": "liyue-harbor",
+      "duration": 30,
+      "savedAt": "liyue-ferry-return",
+      "restoredAt": "inazuma-port",
+      "arrivalGateClosedBeforeArrival": true
+    },
+    {
+      "stage": "natlan-voyage-return",
+      "kind": "ferry",
+      "boardedAt": "nod-port",
+      "arrivedAt": "natlan-port",
+      "duration": 90,
+      "savedAt": "nod-port",
+      "restoredAt": "nod-port",
+      "arrivalGateClosedBeforeArrival": true,
+      "stop": "ochkanatlan-dock",
+      "window": [
+        30,
+        50
+      ],
+      "reboardedFrom": "ochkanatlan-dock",
+      "secondsAfterReboarding": 40,
+      "restoredAfterReboarding": "ochkanatlan-dock",
+      "atlasStopsOfferingClosedGate": true,
+      "reachedEndAfterMissingStop": true
+    },
+    {
+      "stage": "chenyu-ferry-fontaine",
+      "kind": "ferry",
+      "boardedAt": "liyue-wp-66769",
+      "arrivedAt": "sites-lumidouce-landing",
+      "duration": 45,
+      "savedAt": "chenyu-ferry-fontaine",
+      "restoredAt": "liyue-wp-66769",
+      "arrivalGateClosedBeforeArrival": true
+    },
+    {
+      "stage": "fontaine-ferry-chenyu",
+      "kind": "ferry",
+      "boardedAt": "sites-lumidouce-landing",
+      "arrivedAt": "liyue-wp-66769",
+      "duration": 45,
+      "savedAt": "fontaine-ferry-chenyu",
+      "restoredAt": "sites-lumidouce-landing",
+      "arrivalGateClosedBeforeArrival": true
+    }
+  ]
+}

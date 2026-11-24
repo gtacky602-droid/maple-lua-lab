@@ -173,6 +173,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local nextChange=calm and wind.calmEnd or (t<wind.calmStart and wind.calmStart or wind.period+wind.calmStart)
   return calm,nextChange-t
  end
+ local function voyageElapsed(s)
+  -- Treat a tick that lands on the scheduled boundary as exact.
+  return s.voyage and s.t-s.voyage.started+1e-8 or -1
+ end
  local function gateRestriction(s,edge,planning)
   if not planning and edge.darkOnly and s.storyLightMode~='dark' then return '消灯すると出口が見えます。' end
   if edge.roofTrialStage and s.roofTrial and s.roofTrial.count<edge.roofTrialStage then return '屋根の目印を先に調べてください。' end
@@ -195,8 +199,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if planning then return end
   if edge.wind and not windWindow(s,edge.wind) then return edge.wind.notice or '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
-  local passed=s.voyage and s.t-s.voyage.started or -1
-  if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then
+  local passed=voyageElapsed(s)
+  if edge.windowStart and not (passed>=edge.windowStart and passed<edge.windowEnd) then
    if s.voyage and s.voyage.kind=='trolley' then
     return passed<edge.windowStart and '停留所に近づいています。' or '停留所を通過しました。終点から戻れます。'
    end
@@ -209,7 +213,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.progression.level<destination.level then return '必要Lv'..destination.level end
   if destination.travelerTrial and s.actors[1].hp<=0 then return '旅人が戦闘可能な状態で挑戦してください。' end
   if destination.toyDive and s.actors[1].hp<=0 then return '旅人が泳げる状態で潜りましょう。' end
-  if edge.windowStart and from==s.story.node and s.voyage and s.t-s.voyage.started>=edge.windowEnd then
+  if edge.windowStart and from==s.story.node and voyageElapsed(s)>=edge.windowEnd then
    return '乗降時間を過ぎました。'
   end
   return gateRestriction(s,edge,true)
@@ -1859,7 +1863,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   f.growthEligibility={}
   for id,eligible in pairs(growthRequirements) do f.growthEligibility[id]=eligible(s) end
   f.storyGraph,f.storyGraphRevision=visibleStoryGraph(s)
-  f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
+  local elapsed=voyageElapsed(s)
+  f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and elapsed>=s.voyage.stopStart and elapsed<s.voyage.stopEnd or false} or nil
   if f.voyage then
    f.voyage.destinationName=nodes[s.voyage.destination].name
    f.voyage.total=s.voyage.total
