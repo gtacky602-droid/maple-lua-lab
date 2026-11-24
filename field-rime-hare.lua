@@ -11,6 +11,7 @@ return function(C)
  function hare.shareCast(cast,actors)
   C.shareFieldHits({cast.seen},actors)
  end
+ function hare.nextImpact(s,a,cast) return C.fieldLaneImpact(s,a,cast) end
 
  function hare.begin(b,spec,move,target)
   b.facing=target.x<b.x and -1 or 1

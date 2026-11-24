@@ -241,16 +241,44 @@ return function(C,configs,controllers)
   end
  end
 
+ local function inFieldArea(a,left,right,top,bottom)
+  return a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom
+ end
+
  function C.hitFieldArea(s,source,seen,left,right,top,damage,bottom)
   bottom=bottom or source.y
   local owner=source.owner or source
   for _,a in ipairs(s.actors) do
    if owner.hp<=0 then break end
    local key=s.actorOwners and a or a.id
-   if a.hp>0 and not seen[key] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom then
+   if a.hp>0 and not seen[key] and inFieldArea(a,left,right,top,bottom) then
     seen[key]=true
     C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,damage,source,false,true)
    end
+  end
+ end
+
+ function C.fieldLaneImpact(s,a,cast)
+  local key=sharedRoom(s,cast.source.owner.fieldBoss) and a or a.id
+  if cast.seen[key] then return end
+  -- The boss advances after the actors have chosen this tick's actions.
+  local impact,nextTick=nil,cast.tick+1
+  for _,lane in ipairs(cast.lanes) do
+   if nextTick<lane.at+cast.move.active and inFieldArea(a,lane.left,lane.right,lane.top,cast.source.y) then
+    local seconds=math.max(0,lane.at-nextTick)/60
+    impact=math.min(impact or seconds,seconds)
+   end
+  end
+  return impact
+ end
+
+ function C.nextFieldImpact(s,a)
+  local spec=byNode[current(s)]
+  if not spec then return end
+  local behavior=controllers[spec.controller]
+  local slot=C.fieldSlot(s,spec.id)
+  if behavior.nextImpact and slot and slot.phase=='combat' and slot.enemy.hp>0 and slot.cast then
+   return behavior.nextImpact(s,a,slot.cast)
   end
  end
 

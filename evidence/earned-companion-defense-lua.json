@@ -1,0 +1,41 @@
+{
+  "beidou": {
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+    "boss": "original-rime-hare",
+    "move": "RH01",
+    "incomingAndTaken": [
+      [
+        17,
+        0
+      ]
+    ]
+  },
+  "guard": {
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+    "boss": "original-rime-hare",
+    "move": "RH01",
+    "incoming": 17,
+    "afterGuard": 8,
+    "shieldAbsorbed": 8
+  },
+  "ayaka": {
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "boss": "original-rubble-sifter",
+    "move": "RK01",
+    "incomingAndTaken": [
+      [
+        20,
+        0
+      ]
+    ]
+  },
+  "wanderer": {
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+    "boss": "original-rime-hare",
+    "move": "RH01",
+    "standingY": 480,
+    "floatingY": 380,
+    "outsideGroundHitbox": true,
+    "airBarrageHit": true
+  }
+}

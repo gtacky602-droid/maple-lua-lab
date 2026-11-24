@@ -9,6 +9,7 @@ return function(C)
  end
  function sifter.cancel(b) sifter.spawn(b) end
  function sifter.shareCast(cast,actors) C.shareFieldHits({cast.seen},actors) end
+ function sifter.nextImpact(s,a,cast) return C.fieldLaneImpact(s,a,cast) end
 
  function sifter.damageFactor(_,cast,b,spec)
   if b.exposed and C.hitFieldWeakpoint(cast,b) then return spec.rotorFactor end

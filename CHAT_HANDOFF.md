@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 野外ボスの予兆に合わせる同行者の防御
+
+霜紋の岩兎と礫脈の選鉱炉で、北斗と綾華のAIが床攻撃の範囲と着弾時刻を見て反撃・防御・回避するようにした。獲得Lv165で北斗は岩兎の17ダメージを反撃で無効化し、反撃のクールダウン中は防御構えで17から8に軽減した。放浪者の浮遊は岩兎の床攻撃の高さを上回り、直後の空中連射も命中した。獲得Lv200のChromeでは選鉱炉の同じ攻撃で旅人は20ダメージ、綾華は霜影回避で0だった。 [Luaでの効果確認](evidence/earned-companion-defense-lua.json) · [Chromeの着弾記録](evidence/earned-companion-defense-browser.json) · [回避に入った画面](evidence/earned-ayaka-sifter-dodge.png)
+
 ## 氷蔦縄を本編で使う
 
 氷蔦縄の結節点を白虹峠・樹林の道と極光谷の2地点に置いた。獲得Lv165のセーブで6点すべてに着地し、それぞれ門で駅へ戻った。結節点がない場所と遠すぎる場所では、クールダウンを消費せず理由を表示する。同行AIが攻撃しても旅人の操作案内が消えないようにした。 [Luaの試走](evidence/earned-story-grapple-lua.json) · [Chromeの操作](evidence/story-grapple-browser.json)

@@ -1,0 +1,19 @@
+{
+  "field": "ochka-sifting-kiln",
+  "level": 200,
+  "heroDamage": 20,
+  "companionDamage": 0,
+  "before": {
+    "partyHp": [
+      112471,
+      150
+    ],
+    "move": "RK01",
+    "tick": 33,
+    "dodging": 0.5833333333333357,
+    "laneAt": 63,
+    "activeTicks": 23,
+    "cue": true
+  },
+  "errors": []
+}

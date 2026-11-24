@@ -8130,6 +8130,12 @@
     "cooldowns_matched_to_catalog": 100,
     "traveler_cast_profiles_matched_to_catalog": 48,
     "companion_attack_profiles_matched_to_catalog": 34,
+    "earned_companion_defense": {
+      "field_bosses_with_ai_impact_timing": ["original-rime-hare", "original-rubble-sifter"],
+      "live_checks": ["Beidou counter", "Beidou guard on counter cooldown", "Ayaka frost dodge", "Wanderer float and aerial barrage"],
+      "lua_evidence": "evidence/earned-companion-defense-lua.json",
+      "browser_evidence": "evidence/earned-companion-defense-browser.json"
+    },
     "scope": "Prepared combat checks cooldowns, static damage profiles, and companion action locks and scheduled timings. Special followups and actual hits have separate tests. Chrome covers a regional acquisition, loadout restoration, a dodge interrupt, and the shared water field.",
     "lua_evidence": "evidence/skill-roster-lua.json",
     "browser_evidence": "evidence/skill-learning-browser.json",

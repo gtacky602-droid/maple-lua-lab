@@ -42,6 +42,11 @@ return function(C)
  end
  function C.companionAI(s,a,nearest)
   if s.companion~='beidou' then return ai(s,a,nearest) end
+  local impact=C.nextFieldImpact and C.nextFieldImpact(s,a)
+  if impact and (a.guardUntil or 0)<=s.t+impact and (a.counterUntil or 0)<=s.t+impact then
+   if impact<=.8 and (C.attack(s,a,'skill1') or C.attack(s,a,'skill3')) then return true end
+   if impact<=1.65 and math.min(a.cd.skill1 or 0,a.cd.skill3 or 0)<=impact then return true end
+  end
   local danger=((nearest.warning or 0)>0 and math.abs(nearest.x-a.x)<170) or (nearest.strike and nearest.strike.left<=.8 and math.abs(nearest.strike.x-a.x)<nearest.strike.radius) or (nearest.phase=='clap_warning' and nearest.timer<=.8 and math.abs((nearest.target or 0)-a.x)<125)
   if danger and (C.attack(s,a,'skill1') or C.attack(s,a,'skill3')) then return true end
   for _,key in ipairs({'skill4','skill2','normal'}) do if C.attack(s,a,key) then break end end
