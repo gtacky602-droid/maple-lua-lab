@@ -1,5 +1,5 @@
 {
-  "status": "partial",
+  "status": "playable_lab_prototype",
   "source": "20261113-master section6",
   "selected_worlds": [
     "金リンゴ群島",
@@ -15,15 +15,14 @@
     "inspect within75px horizontally/60px vertically",
     "unfound nodes/edges/quests omitted from frame graph and UI",
     "backend rejects undiscovered travel",
+    "the atlas reveals the Golden Apple cave after finding the opening and the tide pocket after quest report",
     "discovery persists and checkpoint resumes hidden hub",
     "bidirectional return to parent stage"
   ],
+  "evidence": "design/world/hidden-worlds-stage-evidence.json",
   "remaining": [
-    "treasure hunting",
-    "minecart/amusement park",
-    "building blocks/origami platforms",
-    "final art",
-    "full waypoint mapping",
+    "final art and 3D backgrounds",
+    "full official waypoint correspondence for the event maps",
     "native verification"
   ]
 }

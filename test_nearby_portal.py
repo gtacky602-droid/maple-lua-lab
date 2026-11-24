@@ -22,9 +22,12 @@ for n in g['nodes']:
        'status':'active' if 'count' in reveal else 'complete','count':reveal.get('count',0)})
   rule=edge.get('requires')
   if edge.get('hideUntilAllowed'):
+   if rule.get('unreported'):
+    s.story.quests[rule['quest']]=lua.table_from({
+        'status':'complete','count':quests[rule['quest']]['goal']})
    unseen=c.frame(s,'sprite','h32c16').storyNearbyPortal
-   assert unseen is None or unseen.to!=edge['to']
-   s.story.quests[rule['quest']]=lua.table_from({
+   assert unseen is None or unseen.to!=edge['to'],(n['id'],edge)
+   s.story.quests[rule['quest']]=None if rule.get('unreported') else lua.table_from({
        'status':'active' if 'count' in rule else 'complete','count':rule.get('count',0)})
   p=c.frame(s,'sprite','h32c16').storyNearbyPortal
   assert p is not None and p.to==edge['to'] and p.name==edge.get('rideLabel',nodes[p.to]['name']),(n['id'],edge,p)
@@ -47,7 +50,7 @@ for n in g['nodes']:
   elif not edge.get('windowStart') and not edge.get('requiresArrival'):assert p.available
   if reveal:s.story.quests[reveal['quest']]=None
   checked.append({'node':n['id'],'to':p.to})
-s=state('mond-town');edge=nodes['mond-town']['exits'][0];s.actors[1].x=edge['x']
+s=state('mond-town');edge=next(e for e in nodes['mond-town']['exits'] if e['to']=='mond-road');s.actors[1].x=edge['x']
 assert c.frame(s,'sprite','legacy').storyNearbyPortal.available
 s.actors[1].x=edge['x']-90;assert c.frame(s,'sprite','legacy').storyNearbyPortal is None
 s.actors[1].x=edge['x'];s.actors[1].y=420;assert c.frame(s,'sprite','legacy').storyNearbyPortal is None

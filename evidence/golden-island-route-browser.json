@@ -10,6 +10,7 @@
   "threePanelsDiffer": true,
   "wrongViewRejected": true,
   "gateConcealedUntilChoice": true,
+  "atlasCaveVisibleAfterPuzzleAndPocketAfterReport": true,
   "readbackAfterSave": true,
   "newOptionalGround": true,
   "dock": {
@@ -23,9 +24,9 @@
     "state": "ready"
   },
   "commands": {
-    "png": 21,
-    "standard": 8520,
-    "light": 2173
+    "png": 17,
+    "standard": 8516,
+    "light": 2169
   },
   "firstReport": [
     220,

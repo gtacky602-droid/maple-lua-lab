@@ -1,0 +1,142 @@
+{
+  "scope": "Golden Apple Archipelago, Veluriyam Mirage and Simulanka stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 32,
+  "interpretation": "Hidden area discovery and map visibility use Lua level fixtures to reach the three clues. Golden starts at Lv1 in the Chrome quest run. The optional battle entries have gate and enemy placement checks.",
+  "entries": [
+    {
+      "region": "金リンゴ群島",
+      "kind": "exploration",
+      "stages": [
+        "golden-play"
+      ],
+      "evidence": [
+        "evidence/hidden-test.json",
+        "evidence/golden-island-route-lua.json"
+      ]
+    },
+    {
+      "region": "金リンゴ群島",
+      "kind": "side_quest",
+      "stages": [
+        "golden-shadow-lookouts",
+        "golden-shadow-grotto",
+        "golden-tide-pocket"
+      ],
+      "evidence": [
+        "evidence/golden-island-route-lua.json",
+        "evidence/golden-island-route-browser.json"
+      ]
+    },
+    {
+      "region": "金リンゴ群島",
+      "kind": "trail",
+      "stages": [
+        "sites-gaa-02",
+        "sites-gaa-04",
+        "sites-gaa-06",
+        "sites-gaa-08"
+      ],
+      "evidence": [
+        "evidence/sites-slot-trails-lua.json"
+      ]
+    },
+    {
+      "region": "金リンゴ群島",
+      "kind": "optional_battle",
+      "stages": [
+        "sites-gaa-04-side-arena",
+        "sites-gaa-06-side-arena",
+        "sites-gaa-07-side-arena"
+      ],
+      "evidence": [
+        "evidence/sites-slot-trails-lua.json"
+      ]
+    },
+    {
+      "region": "ヴェルーリヤ・ミラージュ",
+      "kind": "exploration",
+      "stages": [
+        "veluriyam-hub",
+        "veluriyam-play"
+      ],
+      "evidence": [
+        "evidence/hidden-test.json"
+      ]
+    },
+    {
+      "region": "ヴェルーリヤ・ミラージュ",
+      "kind": "side_quest",
+      "stages": [
+        "veluriyam-petal-stop",
+        "veluriyam-rail-end",
+        "veluriyam-petal-lookout"
+      ],
+      "evidence": [
+        "evidence/veluriyam-trolley-lua.json",
+        "evidence/veluriyam-trolley-browser.json"
+      ]
+    },
+    {
+      "region": "ヴェルーリヤ・ミラージュ",
+      "kind": "trail",
+      "stages": [
+        "sites-vlm-02",
+        "sites-vlm-05",
+        "sites-vlm-06",
+        "sites-vlm-07",
+        "sites-vlm-08"
+      ],
+      "evidence": [
+        "evidence/sites-slot-trails-lua.json"
+      ]
+    },
+    {
+      "region": "シムランカ",
+      "kind": "exploration",
+      "stages": [
+        "simulanka-hub",
+        "simulanka-play"
+      ],
+      "evidence": [
+        "evidence/hidden-test.json"
+      ]
+    },
+    {
+      "region": "シムランカ",
+      "kind": "side_quest",
+      "stages": [
+        "simulanka-fold-valley",
+        "simulanka-lantern-perch"
+      ],
+      "evidence": [
+        "evidence/simulanka-folds-lua.json",
+        "evidence/simulanka-folds-browser.json"
+      ]
+    },
+    {
+      "region": "シムランカ",
+      "kind": "trail",
+      "stages": [
+        "sites-sim-02",
+        "sites-sim-03",
+        "sites-sim-04",
+        "sites-sim-06",
+        "sites-sim-08"
+      ],
+      "evidence": [
+        "evidence/sites-slot-trails-lua.json"
+      ]
+    },
+    {
+      "region": "シムランカ",
+      "kind": "optional_battle",
+      "stages": [
+        "sites-sim-06-side-arena",
+        "sites-sim-08-side-arena"
+      ],
+      "evidence": [
+        "evidence/sites-slot-trails-lua.json"
+      ]
+    }
+  ]
+}

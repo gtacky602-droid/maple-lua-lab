@@ -8943,6 +8943,7 @@
   "world_map_review": {
     "mondstadt_stage_evidence": "design/world/mondstadt-stage-evidence.json",
     "liyue_stage_evidence": "design/world/liyue-stage-evidence.json",
+    "hidden_worlds_stage_evidence": "design/world/hidden-worlds-stage-evidence.json",
     "inazuma_stage_evidence": "design/world/inazuma-stage-evidence.json",
     "sumeru_stage_evidence": "design/world/sumeru-stage-evidence.json",
     "snez_stage_evidence": "design/world/snez-stage-evidence.json",

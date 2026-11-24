@@ -11,6 +11,7 @@
   ],
   "wrongViewDoesNotUnlock": true,
   "caveGateConcealedUntilChoice": true,
+  "atlasCaveVisibleAfterPuzzleAndPocketAfterReport": true,
   "oldSaveShortcutStillWorks": true,
   "groupsResumeAfterSave": true,
   "chestAfterPatrol": true,

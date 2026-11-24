@@ -64,11 +64,25 @@ def defeat(s,enemy):
 def published(s):
     return {node.id:node for node in frame(s).storyGraph.nodes.values()}
 
+def atlas(s, destination, *, available=True):
+    core.action(s,'world_map_toggle')
+    view=frame(s).worldMap
+    assert view.region=='hidden-01'
+    assert any(point.id==destination for point in view.points.values())==available, destination
+    if available:
+        core.action(s,'world_map_select:'+destination)
+        view=frame(s).worldMap
+        assert view.guide and view.guide.status=='ready', destination
+        assert view.guide.stops[len(view.guide.stops)].id==destination
+    core.action(s,'world_map_close')
+
 def cave_stays_hidden(s):
     move(s,1570)
     f=frame(s)
     assert f.storyNearbyPortal is None
     assert grotto not in {exit.to for exit in published(s)[lookout].exits.values()}
+    atlas(s,grotto,available=False)
+    atlas(s,pocket,available=False)
     core.action(s,'story_portal:'+grotto)
     assert s.story.node==lookout
 
@@ -130,6 +144,7 @@ collect(s,second,3,819)
 assert '別の地点' in s.storyNotice
 cave_stays_hidden(s)
 collect(s,second,4,1290,392)
+atlas(s,grotto)
 gate(s,1570,grotto)
 assert sorted(e.y for e in s.enemies.values())==[391,480,480]
 collect(s,second,4,1170)
@@ -142,13 +157,15 @@ assert len(s.enemies)==2
 for e in list(s.enemies.values()): defeat(s,e)
 assert s.story.quests[second].count==5
 collect(s,second,6,1170)
-gate(s,1415,pocket,opened=False)
+atlas(s,pocket,available=False)
+assert pocket not in {edge.to for edge in published(s)[grotto].exits.values()}
 gate(s,53,lookout)
 gate(s,59,island)
 collect(s,second,7,1115)
 report(s,second,(420,210,2))
 s=restore(s)
 assert s.story.node==island
+atlas(s,pocket)
 move(s,1115)
 assert frame(s).storyNearbyMilestone.label=='島の記念札を読む'
 collect(s,second,7,1115)
@@ -177,6 +194,7 @@ gate(legacy,1050,island)
 
 proof=dict(startsAtLevelOne=True,hiddenUntilDiscovery=True,threeMarks=True,twoWayBoat=True,
     pausesOnBoat=True,threeProjectedGaps=gaps,wrongViewDoesNotUnlock=True,caveGateConcealedUntilChoice=True,
+    atlasCaveVisibleAfterPuzzleAndPocketAfterReport=True,
     oldSaveShortcutStillWorks=True,
     groupsResumeAfterSave=True,chestAfterPatrol=True,repeatableCove=True,keepsOldIslandQuest=True,
     mementoReadableAfterSave=True,firstReport=[220,120,1],secondReport=[420,210,2],oneTimePayouts=True)

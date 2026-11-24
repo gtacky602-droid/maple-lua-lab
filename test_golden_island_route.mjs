@@ -11,6 +11,7 @@ const prefix='evidence/golden-island-route';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:960}});
 const canvas=page.locator('#game');
+const atlas=page.locator('#worldAtlas');
 const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
 const frame=()=>page.evaluate(()=>window.lab.frame);
@@ -21,6 +22,20 @@ const row=id=>page.locator(`[data-quest="${id}"]`);
 async function key(code){
   await canvas.click();
   await page.keyboard.press(code);
+}
+
+async function checkAtlas(visible,hidden){
+  await key('KeyM');
+  await atlas.waitFor({state:'visible'});
+  const field=atlas.locator('#atlasField');
+  for(const id of hidden) assert.equal(await field.locator(`option[value="${id}"]`).count(),0,id);
+  if(visible){
+    await field.selectOption(visible);
+    await wait(id=>window.lab.frame.worldMap?.selected?.id===id,visible);
+    await atlas.locator('#atlasItineraryStops button').last().waitFor();
+  }
+  await page.keyboard.press('Escape');
+  await atlas.waitFor({state:'hidden'});
 }
 
 async function walk(x){
@@ -181,10 +196,12 @@ try{
   const stillHidden=await frame();
   assert.ok(!stillHidden.storyNearbyPortal);
   assert.ok(!stillHidden.storyGraph.nodes.find(n=>n.id===lookout).exits.some(e=>e.to===grotto));
+  await checkAtlas(null,[grotto,pocket]);
   await key('KeyF');
   await nodeIs(lookout);
   await jump(1290,392);
   await interact(1290,second,4);
+  await checkAtlas(grotto,[pocket]);
   await gate(1570,grotto);
   const cave=await background();
   assert.deepEqual(cave,{key:'goldenGrotto',file:'golden-grotto-background-v1.png',state:'ready'});
@@ -205,6 +222,7 @@ try{
   await nodeIs(island);
   const resumed=await frame();
   assert.ok([first,second].every(id=>resumed.story.quests[id]?.status==='complete'));
+  await checkAtlas(pocket,[]);
   await walk(1115);
   await wait(()=>window.lab.frame.storyNearbyMilestone?.label==='島の記念札を読む');
   await key('KeyG');
@@ -217,6 +235,7 @@ try{
   assert.deepEqual(errors,[]);
   const proof={startsAtLevelOne:true,freshDiscovery:true,twoWayBoat:true,threeViews:gaps.map(n=>+n.toFixed(2)),
     threePanelsDiffer:true,wrongViewRejected:true,gateConcealedUntilChoice:true,
+    atlasCaveVisibleAfterPuzzleAndPocketAfterReport:true,
     readbackAfterSave:true,newOptionalGround:true,dock,cave,commands,
     firstReport:[220,120,1],secondReport:[420,210,2],errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
