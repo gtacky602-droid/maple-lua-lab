@@ -372,6 +372,7 @@ function updateProgression(f){
  $('regionLevels').textContent=f.regionEligibility.map(r=>`${r.name} Lv${r.required}：${r.eligible?'レベル条件達成':'未達'}・正式マップ未実装`).join(' ／ ');
 }
 function hud(f,calls,renderMs){
+ $('grappleNext').hidden=(f.grappleNodes?.length||0)<2;
  const balance=f.fieldBalance, balanceNote=$('fieldBalance');
  balanceNote.hidden=!balance;
  if(balance){

@@ -1,0 +1,100 @@
+{
+  "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+  "level": 165,
+  "emptyMapRejected": true,
+  "fields": [
+    {
+      "field": "white-pass-woods",
+      "landings": [
+        {
+          "target": "樹林の西棚",
+          "start": [
+            160.0,
+            480
+          ],
+          "landing": [
+            431,
+            388
+          ],
+          "ticks": 29
+        },
+        {
+          "target": "樹林の東棚",
+          "start": [
+            963.0,
+            480
+          ],
+          "landing": [
+            1210,
+            382
+          ],
+          "ticks": 27
+        }
+      ],
+      "farTargetRejected": true,
+      "gateReturn": true
+    },
+    {
+      "field": "aurora-ice-cut",
+      "landings": [
+        {
+          "target": "切通しの西棚",
+          "start": [
+            160.0,
+            480
+          ],
+          "landing": [
+            440,
+            387
+          ],
+          "ticks": 30
+        },
+        {
+          "target": "切通しの東棚",
+          "start": [
+            972.0,
+            480
+          ],
+          "landing": [
+            1220,
+            385
+          ],
+          "ticks": 27
+        }
+      ],
+      "farTargetRejected": true,
+      "gateReturn": true
+    },
+    {
+      "field": "aurora-ice-shelf",
+      "landings": [
+        {
+          "target": "氷棚の西段",
+          "start": [
+            160.0,
+            480
+          ],
+          "landing": [
+            450,
+            389
+          ],
+          "ticks": 31
+        },
+        {
+          "target": "氷棚の東段",
+          "start": [
+            992.5,
+            480
+          ],
+          "landing": [
+            1240,
+            382
+          ],
+          "ticks": 27
+        }
+      ],
+      "farTargetRejected": true,
+      "gateReturn": true
+    }
+  ]
+}

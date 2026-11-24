@@ -9,8 +9,12 @@ return function(C)
   if s.companion~='emilie' then return attack(s,a,key) end
   local d=defs[key]
   if not d or s.paused or a.hp<=0 or a.lock>0 or (a.cd[key] or 0)>0 or #s.pending>=64 or (C.canAttack and not C.canAttack(s)) then return false end
-  if key=='skill3' and not burning(s,a) then s.skillNotice='燃焼強化には近くで燃焼している敵が必要です。';return false end
-  a.cd[key]=d.ct;a.lock=d.lock;s.skillNotice=nil
+  if key=='skill3' and not burning(s,a) then
+   if a.id==s.active then s.skillNotice='燃焼強化には近くで燃焼している敵が必要です。' end
+   return false
+  end
+  a.cd[key]=d.ct;a.lock=d.lock
+  if a.id==s.active then s.skillNotice=nil end
   if key=='skill3' then a.burnBoostUntil=s.t+8;return true end
   local cast={id=2,key='emilie:'..key,x=a.x,y=a.y,dir=a.dir,range=key=='normal' and 180 or 360,vertical=160,limit=d.targets,mult=d.mult,remaining=d.hits,interval=d.interval or .08,next=s.t+(d.delay or .15),gain=key=='normal' and 2 or 5,element=key=='normal' and 'physical' or 'dendro',isNormal=key=='normal',color='#badf91'}
   for _,k in ipairs({'atk','elementBonus','normalBonus','skillBonus','troupe4','critRate','critDamageBonus'}) do cast[k]=a[k] end

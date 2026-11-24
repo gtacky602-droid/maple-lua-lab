@@ -1,0 +1,14 @@
+{
+  "level": 165,
+  "field": "aurora-ice-cut",
+  "selectedByButton": true,
+  "rejectedAtStation": true,
+  "rejectedFarTarget": true,
+  "landing": [
+    440,
+    387
+  ],
+  "tetherDrawn": true,
+  "returnedByGate": true,
+  "errors": []
+}

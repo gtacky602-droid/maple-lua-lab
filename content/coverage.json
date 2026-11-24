@@ -8134,6 +8134,13 @@
     "lua_evidence": "evidence/skill-roster-lua.json",
     "browser_evidence": "evidence/skill-learning-browser.json",
     "tornado_hit_and_pull_evidence": "evidence/timed-combat-test.json",
+    "story_grapple": {
+      "earned_level": 165,
+      "fields": 3,
+      "landings": 6,
+      "lua_evidence": "evidence/earned-story-grapple-lua.json",
+      "browser_evidence": "evidence/story-grapple-browser.json"
+    },
     "shared_healing_evidence": "evidence/hydro-test.json",
     "shared_healing_browser_evidence": "evidence/shared-water-field-browser.json"
   },

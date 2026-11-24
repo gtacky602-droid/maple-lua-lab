@@ -842,6 +842,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   local firstVisit=not s.story.visited[id]
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
+  C.setGrappleNodes(s,n.grappleNodes)
   if firstVisit and (n.branch or n.hiddenGroup) and C.endgameGoalEvent then C.endgameGoalEvent(s,'discover') end
   s.storyEnteredAt=s.t
   s.storyBoxGlimpseStart=nil

@@ -75,8 +75,8 @@ def story(level, *, except_element=None):
     return state
 
 
-def targets(state):
-    core.enterStoryNode(state, 'mond-road')
+def targets(state, node='mond-road'):
+    core.enterStoryNode(state, node)
     for actor in state.actors.values():
         actor.x, actor.inv, actor.dir = 230, 1000, 1
     state.enemies = lua.table_from([
@@ -100,7 +100,7 @@ def traveler(row):
     if id in partners:
         core.action(state, 'companion:' + partners[id])
     configure(state, [id], ['SK58', 'SK09'] if id == 'SK59' else [])
-    targets(state)
+    targets(state, 'white-pass-woods' if id == 'SK46' else 'mond-road')
     state.actors[2].lock = 999
     state.gauge = 100
     if id == 'SK34':

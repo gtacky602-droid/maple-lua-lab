@@ -1,5 +1,5 @@
 return function(C)
- local attack,step,frame=C.attack,C.step,C.frame
+ local attack,step,frame,prerequisite=C.attack,C.step,C.frame,C.skillPrerequisite
  C.skillDefinitions.SK54={range=300,targets=8,mult=.9,hits=12,ct=22,lock=.5,interval=1,delay=1,color='#c6d0ff',element='lunar',damageElements={'electro','hydro'},applicationElement='hydro',follow=true,radial=true,placed=true,partnerRequired='columbina',special=true,suppressAura=true}
  C.skillDefinitions.SK55={range=180,targets=6,mult=1.25,hits=10,ct=24,lock=.5,interval=.8,delay=.8,color='#e3e3c0',element='lunar',damageElements={'geo','hydro'},applicationElement='hydro',follow=true,radial=true,placed=true,partnerRequired='columbina',special=true,suppressAura=true}
  function C.skillPrerequisite(s,a,key)
@@ -11,12 +11,18 @@ return function(C)
    if s.companion~='columbina' then return false,'月技にはコロンビーナの同行が必要です。' end
    if s.actors[2].hp<=0 then return false,'同行するコロンビーナが戦闘不能です。' end
   end
+  if prerequisite then return prerequisite(s,a,key) end
   return true
  end
  function C.attack(s,a,key)
   local ok,reason=C.skillPrerequisite(s,a,key)
-  if not ok then s.skillNotice=reason;return false end
-  local result=attack(s,a,key);if result then s.skillNotice=nil end;return result
+  if not ok then
+   if a.id==s.active then s.skillNotice=reason end
+   return false
+  end
+  local result=attack(s,a,key)
+  if result and a.id==s.active then s.skillNotice=nil end
+  return result
  end
  function C.step(s,dt,input)
   if not s.paused then for i=#s.pending,1,-1 do local cast=s.pending[i]
