@@ -8067,11 +8067,18 @@
     "encounter_difficulty_pairs_tested": 56,
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json",
-    "draft_hp_encounters": ["boss-29020101", "boss-29040101"],
+    "draft_hp_encounters": [
+      "boss-29020101", "boss-29040101", "boss-29060201", "boss-29090101",
+      "boss-29091101", "boss-29130201"
+    ],
     "draft_hp_modes": ["advanced", "expert"],
-    "earned_save_evidence": "evidence/cap-boss-encounters-draft.json"
+    "ranked_replay_evidence": "evidence/cap-boss-encounters-draft.json",
+    "earned_save_evidence": "evidence/earned-boss-roster-draft.json",
+    "earned_save_levels": [160, 180, 200],
+    "earned_save_weekly_clears": 42,
+    "earned_save_stygian_clears": 20
   },
-  "current_priority": "Use earned saves to check phase progression and clear times for the remaining weekly and Stygian encounters, then continue matching skill effects and visual cues against the authored scope.",
+  "current_priority": "Use earned saves to verify the Shouki successful trial route and Beidou reaction windows, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,

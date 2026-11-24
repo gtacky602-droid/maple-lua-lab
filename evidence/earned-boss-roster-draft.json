@@ -1,0 +1,7342 @@
+{
+  "draftBalance": true,
+  "inputBudgetSeconds": 180,
+  "sources": {
+    "160": {
+      "sha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "180": {
+      "sha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "200": {
+      "sha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    }
+  },
+  "encounters": [
+    {
+      "level": 160,
+      "name": "dvalin",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 11.050000000000367,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10727
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "flight"
+        },
+        {
+          "tick": 594,
+          "id": "perch"
+        },
+        {
+          "tick": 603,
+          "id": "guard-break"
+        },
+        {
+          "tick": 645,
+          "id": "exposed"
+        },
+        {
+          "tick": 663,
+          "id": "defeated"
+        }
+      ],
+      "hits": 1,
+      "ticks": 663,
+      "node": "dvalin-sky-arena",
+      "status": "clear",
+      "events": [],
+      "maxHp": 600,
+      "damage": 600,
+      "moves": [
+        {
+          "tick": 37,
+          "id": "WD01"
+        },
+        {
+          "tick": 235,
+          "id": "WD04"
+        },
+        {
+          "tick": 475,
+          "id": "WD02"
+        },
+        {
+          "tick": 603,
+          "id": "WD08"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "andrius",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 98.96666666666214,
+      "hpRemaining": 0,
+      "partyHp": [
+        10283,
+        10753
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "P1"
+        },
+        {
+          "tick": 2905,
+          "id": "INTERLUDE"
+        },
+        {
+          "tick": 3528,
+          "id": "P2"
+        },
+        {
+          "tick": 5938,
+          "id": "finished"
+        }
+      ],
+      "hits": 598,
+      "ticks": 5938,
+      "node": "andrius-wolf-ring",
+      "status": "clear",
+      "events": [],
+      "maxHp": 5000000,
+      "damage": 5000000,
+      "moves": [
+        {
+          "tick": 49,
+          "id": "WA01"
+        },
+        {
+          "tick": 187,
+          "id": "WA02"
+        },
+        {
+          "tick": 343,
+          "id": "WA03"
+        },
+        {
+          "tick": 559,
+          "id": "WA04"
+        },
+        {
+          "tick": 763,
+          "id": "WA05"
+        },
+        {
+          "tick": 2905,
+          "id": "WA06"
+        },
+        {
+          "tick": 3529,
+          "id": "WA07"
+        },
+        {
+          "tick": 3769,
+          "id": "WA08"
+        },
+        {
+          "tick": 4177,
+          "id": "WA09"
+        },
+        {
+          "tick": 4513,
+          "id": "WA10"
+        },
+        {
+          "tick": 4765,
+          "id": "WA11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "childe",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 7.41666666666683,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 144,
+          "id": 2
+        },
+        {
+          "tick": 384,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 445,
+      "node": "childe-golden-house-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 25,
+          "id": "childe:WC14"
+        }
+      ],
+      "maxHp": 960,
+      "damage": 960,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "azhdaha",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 160.41666666668826,
+      "hpRemaining": 0,
+      "partyHp": [
+        10149,
+        10367
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 3540,
+          "id": 2
+        },
+        {
+          "tick": 6852,
+          "id": 3
+        }
+      ],
+      "hits": 983,
+      "ticks": 9625,
+      "node": "azhdaha-dragon-seal-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 48,
+          "id": "azhdaha:WZ01"
+        },
+        {
+          "tick": 90,
+          "id": "azhdaha:WZ01:lock"
+        },
+        {
+          "tick": 178,
+          "id": "azhdaha:WZ01:hit:geo"
+        },
+        {
+          "tick": 288,
+          "id": "azhdaha:WZ02"
+        },
+        {
+          "tick": 336,
+          "id": "azhdaha:WZ02:lock"
+        },
+        {
+          "tick": 372,
+          "id": "azhdaha:WZ02:hit:geo"
+        },
+        {
+          "tick": 684,
+          "id": "azhdaha:WZ06"
+        },
+        {
+          "tick": 738,
+          "id": "azhdaha:WZ06:lock"
+        },
+        {
+          "tick": 786,
+          "id": "azhdaha:WZ06:hit:geo"
+        },
+        {
+          "tick": 966,
+          "id": "azhdaha:WZ03"
+        },
+        {
+          "tick": 1014,
+          "id": "azhdaha:WZ03:lock"
+        },
+        {
+          "tick": 1074,
+          "id": "azhdaha:WZ03:hit:geo"
+        },
+        {
+          "tick": 1194,
+          "id": "azhdaha:WZ04"
+        },
+        {
+          "tick": 1236,
+          "id": "azhdaha:WZ04:lock"
+        },
+        {
+          "tick": 1422,
+          "id": "azhdaha:WZ07"
+        },
+        {
+          "tick": 1482,
+          "id": "azhdaha:WZ07:lock"
+        },
+        {
+          "tick": 1554,
+          "id": "azhdaha:WZ07:hit:geo"
+        },
+        {
+          "tick": 1806,
+          "id": "azhdaha:WZ05"
+        },
+        {
+          "tick": 1854,
+          "id": "azhdaha:WZ05:lock"
+        },
+        {
+          "tick": 2100,
+          "id": "azhdaha:WZ08"
+        },
+        {
+          "tick": 2184,
+          "id": "azhdaha:WZ08:lock"
+        },
+        {
+          "tick": 2244,
+          "id": "azhdaha:WZ08:hit:geo"
+        },
+        {
+          "tick": 3144,
+          "id": "azhdaha:WZ09"
+        },
+        {
+          "tick": 3204,
+          "id": "azhdaha:WZ09:lock"
+        },
+        {
+          "tick": 3234,
+          "id": "azhdaha:WZ09:hit:geo"
+        },
+        {
+          "tick": 3840,
+          "id": "azhdaha:mark:pyro"
+        },
+        {
+          "tick": 3840,
+          "id": "azhdaha:WZ07:hit:pyro"
+        },
+        {
+          "tick": 3900,
+          "id": "azhdaha:mark-tick:pyro"
+        },
+        {
+          "tick": 4185,
+          "id": "azhdaha:WZ02:hit:pyro"
+        },
+        {
+          "tick": 5796,
+          "id": "azhdaha:WZ10"
+        },
+        {
+          "tick": 5856,
+          "id": "azhdaha:WZ10:lock"
+        },
+        {
+          "tick": 5928,
+          "id": "azhdaha:WZ10:hit:pyro"
+        },
+        {
+          "tick": 6445,
+          "id": "azhdaha:WZ01:hit:pyro"
+        },
+        {
+          "tick": 7020,
+          "id": "azhdaha:WZ12"
+        },
+        {
+          "tick": 7164,
+          "id": "azhdaha:WZ12:lock"
+        },
+        {
+          "tick": 7201,
+          "id": "azhdaha:mark:cryo"
+        },
+        {
+          "tick": 7201,
+          "id": "azhdaha:WZ12:hit:cryo"
+        },
+        {
+          "tick": 7261,
+          "id": "azhdaha:mark-tick:cryo"
+        },
+        {
+          "tick": 7812,
+          "id": "azhdaha:WZ03:hit:cryo"
+        },
+        {
+          "tick": 7932,
+          "id": "azhdaha:WZ14"
+        },
+        {
+          "tick": 7974,
+          "id": "azhdaha:WZ14:lock"
+        },
+        {
+          "tick": 8110,
+          "id": "azhdaha:WZ14:impact"
+        },
+        {
+          "tick": 8146,
+          "id": "azhdaha:WZ14:secondary"
+        },
+        {
+          "tick": 9313,
+          "id": "azhdaha:WZ05:hit:cryo"
+        }
+      ],
+      "maxHp": 9100000,
+      "damage": 9100000,
+      "moves": [
+        {
+          "tick": 48,
+          "id": "WZ01"
+        },
+        {
+          "tick": 288,
+          "id": "WZ02"
+        },
+        {
+          "tick": 684,
+          "id": "WZ06"
+        },
+        {
+          "tick": 966,
+          "id": "WZ03"
+        },
+        {
+          "tick": 1194,
+          "id": "WZ04"
+        },
+        {
+          "tick": 1422,
+          "id": "WZ07"
+        },
+        {
+          "tick": 1806,
+          "id": "WZ05"
+        },
+        {
+          "tick": 2100,
+          "id": "WZ08"
+        },
+        {
+          "tick": 3144,
+          "id": "WZ09"
+        },
+        {
+          "tick": 5796,
+          "id": "WZ10"
+        },
+        {
+          "tick": 7020,
+          "id": "WZ12"
+        },
+        {
+          "tick": 7932,
+          "id": "WZ14"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "signora",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 64.81666666666406,
+      "hpRemaining": 0,
+      "partyHp": [
+        10663,
+        10691
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "cryo"
+        },
+        {
+          "tick": 25,
+          "id": "seal"
+        },
+        {
+          "tick": 3709,
+          "id": "transform"
+        },
+        {
+          "tick": 3888,
+          "id": "pyro"
+        }
+      ],
+      "hits": 2,
+      "ticks": 3889,
+      "node": "signora-ten-shrine-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 25,
+          "id": "signora:WS08"
+        },
+        {
+          "tick": 145,
+          "id": "signora:seal-hit"
+        },
+        {
+          "tick": 324,
+          "id": "signora:WS08:hit"
+        },
+        {
+          "tick": 2099,
+          "id": "signora:temperature-damage"
+        },
+        {
+          "tick": 3709,
+          "id": "signora:WS09"
+        }
+      ],
+      "maxHp": 1280,
+      "damage": 1280,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "raiden",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 58.249999999997684,
+      "hpRemaining": 0,
+      "partyHp": [
+        10667,
+        10734
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "normal"
+        },
+        {
+          "tick": 917,
+          "id": "switch"
+        },
+        {
+          "tick": 2694,
+          "id": "awaken"
+        },
+        {
+          "tick": 2874,
+          "id": "armored"
+        }
+      ],
+      "hits": 326,
+      "ticks": 3495,
+      "node": "raiden-thunder-echo-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 42,
+          "id": "raiden:WR01"
+        },
+        {
+          "tick": 78,
+          "id": "raiden:WR01:lock"
+        },
+        {
+          "tick": 138,
+          "id": "raiden:WR01:hit"
+        },
+        {
+          "tick": 306,
+          "id": "raiden:WR02"
+        },
+        {
+          "tick": 360,
+          "id": "raiden:WR02:lock"
+        },
+        {
+          "tick": 426,
+          "id": "raiden:WR02:hit"
+        },
+        {
+          "tick": 630,
+          "id": "raiden:WR05"
+        },
+        {
+          "tick": 690,
+          "id": "raiden:WR05:lock"
+        },
+        {
+          "tick": 701,
+          "id": "raiden:WR05:hit"
+        },
+        {
+          "tick": 809,
+          "id": "raiden:WR05:down"
+        },
+        {
+          "tick": 917,
+          "id": "raiden:WR08"
+        },
+        {
+          "tick": 965,
+          "id": "raiden:WR03"
+        },
+        {
+          "tick": 995,
+          "id": "raiden:WR03:lock"
+        },
+        {
+          "tick": 1211,
+          "id": "raiden:WR04"
+        },
+        {
+          "tick": 1253,
+          "id": "raiden:WR04:lock"
+        },
+        {
+          "tick": 1301,
+          "id": "raiden:WR04:hit"
+        },
+        {
+          "tick": 1547,
+          "id": "raiden:WR06"
+        },
+        {
+          "tick": 1607,
+          "id": "raiden:WR06:lock"
+        },
+        {
+          "tick": 1681,
+          "id": "raiden:WR06:choice"
+        },
+        {
+          "tick": 1727,
+          "id": "raiden:WR06:hit"
+        },
+        {
+          "tick": 1901,
+          "id": "raiden:WR06:down"
+        },
+        {
+          "tick": 2333,
+          "id": "raiden:WR07"
+        },
+        {
+          "tick": 2393,
+          "id": "raiden:WR07:lock"
+        },
+        {
+          "tick": 2561,
+          "id": "raiden:WR07:hit"
+        },
+        {
+          "tick": 2694,
+          "id": "raiden:WR09"
+        },
+        {
+          "tick": 2875,
+          "id": "raiden:WR18:hit"
+        },
+        {
+          "tick": 2898,
+          "id": "raiden:WR10"
+        },
+        {
+          "tick": 2952,
+          "id": "raiden:WR10:lock"
+        },
+        {
+          "tick": 3222,
+          "id": "raiden:WR11"
+        },
+        {
+          "tick": 3276,
+          "id": "raiden:WR11:lock"
+        }
+      ],
+      "maxHp": 3000000,
+      "damage": 3000000,
+      "moves": [
+        {
+          "tick": 42,
+          "id": "WR01"
+        },
+        {
+          "tick": 306,
+          "id": "WR02"
+        },
+        {
+          "tick": 630,
+          "id": "WR05"
+        },
+        {
+          "tick": 965,
+          "id": "WR03"
+        },
+        {
+          "tick": 1211,
+          "id": "WR04"
+        },
+        {
+          "tick": 1547,
+          "id": "WR06"
+        },
+        {
+          "tick": 2333,
+          "id": "WR07"
+        },
+        {
+          "tick": 2898,
+          "id": "WR10"
+        },
+        {
+          "tick": 3222,
+          "id": "WR11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "shouki",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 63.316666666664155,
+      "hpRemaining": 0,
+      "partyHp": [
+        10611,
+        10662
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "p1"
+        },
+        {
+          "tick": 22,
+          "id": "rise"
+        },
+        {
+          "tick": 261,
+          "id": "p2"
+        },
+        {
+          "tick": 1998,
+          "id": "trial"
+        },
+        {
+          "tick": 3438,
+          "id": "failure"
+        }
+      ],
+      "hits": 2,
+      "ticks": 3799,
+      "node": "shouki-godmaking-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 22,
+          "id": "shouki:WN08"
+        },
+        {
+          "tick": 261,
+          "id": "shouki:WN18:supply"
+        },
+        {
+          "tick": 262,
+          "id": "shouki:WN18:guard-hit"
+        },
+        {
+          "tick": 285,
+          "id": "shouki:WN09"
+        },
+        {
+          "tick": 327,
+          "id": "shouki:WN09:lock"
+        },
+        {
+          "tick": 381,
+          "id": "shouki:WN18:auto"
+        },
+        {
+          "tick": 387,
+          "id": "shouki:WN09:hit"
+        },
+        {
+          "tick": 609,
+          "id": "shouki:WN10"
+        },
+        {
+          "tick": 657,
+          "id": "shouki:WN10:lock"
+        },
+        {
+          "tick": 693,
+          "id": "shouki:WN10:launch"
+        },
+        {
+          "tick": 963,
+          "id": "shouki:WN11"
+        },
+        {
+          "tick": 1023,
+          "id": "shouki:WN11:lock"
+        },
+        {
+          "tick": 1143,
+          "id": "shouki:WN11:hit"
+        },
+        {
+          "tick": 1234,
+          "id": "shouki:WN18:floor-hit"
+        },
+        {
+          "tick": 1407,
+          "id": "shouki:WN12"
+        },
+        {
+          "tick": 1455,
+          "id": "shouki:WN12:lock"
+        },
+        {
+          "tick": 1575,
+          "id": "shouki:WN18:collected"
+        },
+        {
+          "tick": 1731,
+          "id": "shouki:WN13"
+        },
+        {
+          "tick": 1791,
+          "id": "shouki:WN13:lock"
+        },
+        {
+          "tick": 1947,
+          "id": "shouki:WN13:hit"
+        },
+        {
+          "tick": 1998,
+          "id": "shouki:WN15"
+        },
+        {
+          "tick": 2095,
+          "id": "shouki:WN15:hit"
+        },
+        {
+          "tick": 2203,
+          "id": "shouki:WN15:destroyed"
+        },
+        {
+          "tick": 3438,
+          "id": "shouki:WN16"
+        },
+        {
+          "tick": 3618,
+          "id": "shouki:WN16:hit"
+        }
+      ],
+      "maxHp": 1630,
+      "damage": 1630,
+      "moves": [
+        {
+          "tick": 285,
+          "id": "WN09"
+        },
+        {
+          "tick": 609,
+          "id": "WN10"
+        },
+        {
+          "tick": 963,
+          "id": "WN11"
+        },
+        {
+          "tick": 1407,
+          "id": "WN12"
+        },
+        {
+          "tick": 1731,
+          "id": "WN13"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "apep",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 24.249999999999744,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "dark"
+        },
+        {
+          "tick": 25,
+          "id": "expose"
+        },
+        {
+          "tick": 204,
+          "id": "defense"
+        },
+        {
+          "tick": 1244,
+          "id": "rebirth"
+        },
+        {
+          "tick": 1454,
+          "id": "prime"
+        }
+      ],
+      "hits": 16,
+      "ticks": 1455,
+      "node": "apep-oasis-heart-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 25,
+          "id": "apep:WP05"
+        },
+        {
+          "tick": 204,
+          "id": "apep:WP06"
+        },
+        {
+          "tick": 204,
+          "id": "apep:WP06:queue"
+        },
+        {
+          "tick": 264,
+          "id": "apep:WP06:spawn:melee"
+        },
+        {
+          "tick": 264,
+          "id": "apep:WP06:spawn:ranged"
+        },
+        {
+          "tick": 264,
+          "id": "apep:WP06:progress"
+        },
+        {
+          "tick": 302,
+          "id": "apep:WP06:defeated"
+        },
+        {
+          "tick": 564,
+          "id": "apep:WP06:spawn:warden"
+        },
+        {
+          "tick": 864,
+          "id": "apep:WP06:spawn:breeder"
+        },
+        {
+          "tick": 1164,
+          "id": "apep:WP06:spawn:barrier"
+        },
+        {
+          "tick": 1164,
+          "id": "apep:WP06:spawn:eater"
+        },
+        {
+          "tick": 1244,
+          "id": "apep:WP13"
+        }
+      ],
+      "maxHp": 1580,
+      "damage": 2120,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "narwhal",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 67.43333333333065,
+      "hpRemaining": 0,
+      "partyHp": [
+        10668,
+        10752
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        },
+        {
+          "tick": 600,
+          "id": "swallow"
+        },
+        {
+          "tick": 780,
+          "id": "inner"
+        },
+        {
+          "tick": 781,
+          "id": "expel"
+        },
+        {
+          "tick": 960,
+          "id": "weak"
+        }
+      ],
+      "hits": 361,
+      "ticks": 4046,
+      "node": "narwhal-star-sea",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 20,
+          "id": "narwhal:WV06:hit"
+        },
+        {
+          "tick": 42,
+          "id": "narwhal:WV01"
+        },
+        {
+          "tick": 96,
+          "id": "narwhal:WV01:lock"
+        },
+        {
+          "tick": 150,
+          "id": "narwhal:WV01:hit"
+        },
+        {
+          "tick": 426,
+          "id": "narwhal:WV05"
+        },
+        {
+          "tick": 496,
+          "id": "narwhal:WV05:eye-hit"
+        },
+        {
+          "tick": 548,
+          "id": "narwhal:WV05:broken"
+        },
+        {
+          "tick": 600,
+          "id": "narwhal:WV07"
+        },
+        {
+          "tick": 600,
+          "id": "narwhal:WV06:reserve"
+        },
+        {
+          "tick": 696,
+          "id": "narwhal:WV16:scene"
+        },
+        {
+          "tick": 781,
+          "id": "narwhal:WV14"
+        },
+        {
+          "tick": 900,
+          "id": "narwhal:WV14:return-loss"
+        },
+        {
+          "tick": 960,
+          "id": "narwhal:WV15"
+        },
+        {
+          "tick": 1704,
+          "id": "narwhal:WV02"
+        },
+        {
+          "tick": 1776,
+          "id": "narwhal:WV02:lock"
+        },
+        {
+          "tick": 1860,
+          "id": "narwhal:WV02:hit"
+        },
+        {
+          "tick": 2148,
+          "id": "narwhal:WV03"
+        },
+        {
+          "tick": 2208,
+          "id": "narwhal:WV03:lock"
+        },
+        {
+          "tick": 2244,
+          "id": "narwhal:WV03:hit"
+        }
+      ],
+      "maxHp": 5500000,
+      "damage": 3301140,
+      "moves": [
+        {
+          "tick": 42,
+          "id": "WV01"
+        },
+        {
+          "tick": 426,
+          "id": "WV05"
+        },
+        {
+          "tick": 1704,
+          "id": "WV02"
+        },
+        {
+          "tick": 2148,
+          "id": "WV03"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "knave",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 4.633333333333322,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 181,
+          "id": 2
+        }
+      ],
+      "hits": 2,
+      "ticks": 278,
+      "node": "knave-crimson-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 38,
+          "id": "knave:WK11"
+        }
+      ],
+      "maxHp": 2400,
+      "damage": 2400,
+      "moves": [
+        {
+          "tick": 38,
+          "id": "WK11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "primal_fire",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 86.29999999999633,
+      "hpRemaining": 0,
+      "partyHp": [
+        10262,
+        10333
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 1869,
+          "id": 2
+        }
+      ],
+      "hits": 490,
+      "ticks": 5178,
+      "node": "primal-fire-sundered-forge",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 49,
+          "id": "primal:WG01"
+        },
+        {
+          "tick": 140,
+          "id": "primal:WG01:hit"
+        },
+        {
+          "tick": 140,
+          "id": "primal:WG18:mark"
+        },
+        {
+          "tick": 211,
+          "id": "primal:WG18:ground"
+        },
+        {
+          "tick": 260,
+          "id": "primal:WG18:resolve"
+        },
+        {
+          "tick": 404,
+          "id": "primal:WG05"
+        },
+        {
+          "tick": 464,
+          "id": "primal:WG05:open"
+        },
+        {
+          "tick": 466,
+          "id": "primal:WG05:gate"
+        },
+        {
+          "tick": 469,
+          "id": "primal:WG18:ground:hit"
+        },
+        {
+          "tick": 584,
+          "id": "primal:WG05:hit"
+        },
+        {
+          "tick": 649,
+          "id": "primal:WG17"
+        },
+        {
+          "tick": 649,
+          "id": "primal:WG05:broken"
+        },
+        {
+          "tick": 1274,
+          "id": "primal:WG02"
+        },
+        {
+          "tick": 1569,
+          "id": "primal:WG08"
+        },
+        {
+          "tick": 1707,
+          "id": "primal:WG08:hit"
+        },
+        {
+          "tick": 1869,
+          "id": "primal:WG08:commit"
+        },
+        {
+          "tick": 1954,
+          "id": "primal:WG09"
+        },
+        {
+          "tick": 2170,
+          "id": "primal:WG09:commit"
+        },
+        {
+          "tick": 2339,
+          "id": "primal:WG10"
+        },
+        {
+          "tick": 2784,
+          "id": "primal:WG14"
+        },
+        {
+          "tick": 2844,
+          "id": "primal:WG14:open"
+        },
+        {
+          "tick": 2845,
+          "id": "primal:WG14:gate"
+        },
+        {
+          "tick": 2917,
+          "id": "primal:WG14:broken"
+        },
+        {
+          "tick": 3685,
+          "id": "primal:WG11"
+        },
+        {
+          "tick": 4425,
+          "id": "primal:WG12"
+        },
+        {
+          "tick": 4510,
+          "id": "primal:WG12:hit"
+        },
+        {
+          "tick": 4750,
+          "id": "primal:WG16"
+        },
+        {
+          "tick": 4810,
+          "id": "primal:WG16:open"
+        },
+        {
+          "tick": 4811,
+          "id": "primal:WG16:gate"
+        },
+        {
+          "tick": 5027,
+          "id": "primal:WG16:broken"
+        }
+      ],
+      "maxHp": 4500000,
+      "damage": 4500000,
+      "moves": [
+        {
+          "tick": 49,
+          "id": "WG01"
+        },
+        {
+          "tick": 404,
+          "id": "WG05"
+        },
+        {
+          "tick": 649,
+          "id": "WG17"
+        },
+        {
+          "tick": 1274,
+          "id": "WG02"
+        },
+        {
+          "tick": 1569,
+          "id": "WG08"
+        },
+        {
+          "tick": 1954,
+          "id": "WG09"
+        },
+        {
+          "tick": 2339,
+          "id": "WG10"
+        },
+        {
+          "tick": 2784,
+          "id": "WG14"
+        },
+        {
+          "tick": 3685,
+          "id": "WG11"
+        },
+        {
+          "tick": 4425,
+          "id": "WG12"
+        },
+        {
+          "tick": 4750,
+          "id": "WG16"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "game_before_gate",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 26.23333333333305,
+      "hpRemaining": 0,
+      "partyHp": [
+        10720,
+        10737
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "king"
+        },
+        {
+          "tick": 1264,
+          "id": "queen"
+        },
+        {
+          "tick": 1282,
+          "id": "finish"
+        },
+        {
+          "tick": 1485,
+          "id": "royal"
+        }
+      ],
+      "hits": 5,
+      "ticks": 1574,
+      "node": "mond-gate-chess-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 25,
+          "id": "gate:WT03"
+        },
+        {
+          "tick": 26,
+          "id": "gate:WT04"
+        },
+        {
+          "tick": 98,
+          "id": "gate:WT04:lock"
+        },
+        {
+          "tick": 164,
+          "id": "gate:WT04:pawn"
+        },
+        {
+          "tick": 292,
+          "id": "gate:WT03:hurt"
+        },
+        {
+          "tick": 761,
+          "id": "gate:WT18"
+        },
+        {
+          "tick": 1264,
+          "id": "gate:phase:queen"
+        },
+        {
+          "tick": 1282,
+          "id": "gate:phase:finish"
+        },
+        {
+          "tick": 1293,
+          "id": "gate:WT09"
+        },
+        {
+          "tick": 1485,
+          "id": "gate:WT09:pair"
+        },
+        {
+          "tick": 1538,
+          "id": "gate:WT19"
+        }
+      ],
+      "maxHp": 3620,
+      "damage": 3620,
+      "moves": [
+        {
+          "tick": 25,
+          "id": "WT03"
+        },
+        {
+          "tick": 761,
+          "id": "WT18"
+        },
+        {
+          "tick": 1293,
+          "id": "WT09"
+        },
+        {
+          "tick": 1538,
+          "id": "WT19"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "false_moon",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 59.11666666666458,
+      "hpRemaining": 0,
+      "partyHp": [
+        10441,
+        10615
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        },
+        {
+          "tick": 1377,
+          "id": "entering"
+        },
+        {
+          "tick": 1557,
+          "id": "inner"
+        },
+        {
+          "tick": 1634,
+          "id": "returning"
+        }
+      ],
+      "hits": 311,
+      "ticks": 3547,
+      "node": "nod-false-moon-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 37,
+          "id": "false-moon:WM09"
+        },
+        {
+          "tick": 457,
+          "id": "false-moon:WM09:success"
+        },
+        {
+          "tick": 662,
+          "id": "false-moon:WM08"
+        },
+        {
+          "tick": 1022,
+          "id": "false-moon:WM08:ward"
+        },
+        {
+          "tick": 1022,
+          "id": "false-moon:WM08:hit"
+        },
+        {
+          "tick": 1167,
+          "id": "false-moon:WM13"
+        },
+        {
+          "tick": 1288,
+          "id": "false-moon:WM13:confirm"
+        },
+        {
+          "tick": 1347,
+          "id": "false-moon:WM13:hit"
+        },
+        {
+          "tick": 1377,
+          "id": "false-moon:WM14"
+        },
+        {
+          "tick": 1467,
+          "id": "false-moon:WM18:scene"
+        },
+        {
+          "tick": 1557,
+          "id": "false-moon:WM15"
+        },
+        {
+          "tick": 1558,
+          "id": "false-moon:WM15:shadow"
+        },
+        {
+          "tick": 1634,
+          "id": "false-moon:WM16"
+        },
+        {
+          "tick": 1730,
+          "id": "false-moon:WM16:loss"
+        },
+        {
+          "tick": 2199,
+          "id": "false-moon:WM10"
+        },
+        {
+          "tick": 2319,
+          "id": "false-moon:WM10:violation:facing"
+        },
+        {
+          "tick": 2619,
+          "id": "false-moon:WM12"
+        },
+        {
+          "tick": 2679,
+          "id": "false-moon:WM12:hit"
+        },
+        {
+          "tick": 2824,
+          "id": "false-moon:WM02"
+        },
+        {
+          "tick": 2920,
+          "id": "false-moon:WM02:hit"
+        },
+        {
+          "tick": 3149,
+          "id": "false-moon:WM04"
+        },
+        {
+          "tick": 3245,
+          "id": "false-moon:WM04:hit"
+        }
+      ],
+      "maxHp": 3300000,
+      "damage": 3300990,
+      "moves": [
+        {
+          "tick": 37,
+          "id": "WM09"
+        },
+        {
+          "tick": 662,
+          "id": "WM08"
+        },
+        {
+          "tick": 1167,
+          "id": "WM13"
+        },
+        {
+          "tick": 1377,
+          "id": "WM14"
+        },
+        {
+          "tick": 1557,
+          "id": "WM15"
+        },
+        {
+          "tick": 1634,
+          "id": "WM16"
+        },
+        {
+          "tick": 2199,
+          "id": "WM10"
+        },
+        {
+          "tick": 2824,
+          "id": "WM02"
+        },
+        {
+          "tick": 3149,
+          "id": "WM04"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "heretic",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 4.483333333333322,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "1/p1"
+        },
+        {
+          "tick": 28,
+          "id": "1/changing"
+        },
+        {
+          "tick": 208,
+          "id": "2/changing"
+        },
+        {
+          "tick": 268,
+          "id": "2/p2"
+        }
+      ],
+      "hits": 2,
+      "ticks": 269,
+      "node": "sumeru-heretic-lattice",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 28,
+          "id": "heretic:WH10"
+        },
+        {
+          "tick": 268,
+          "id": "heretic:WH11"
+        }
+      ],
+      "maxHp": 3900,
+      "damage": 3900,
+      "moves": [
+        {
+          "tick": 28,
+          "id": "WH10"
+        },
+        {
+          "tick": 268,
+          "id": "WH11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 12955323,
+        "mora": 2640240
+      }
+    },
+    {
+      "level": 160,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "master",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 1.4833333333333303,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "intro"
+        },
+        {
+          "tick": 75,
+          "id": "approach"
+        },
+        {
+          "tick": 76,
+          "id": "guard"
+        },
+        {
+          "tick": 77,
+          "id": "tell"
+        }
+      ],
+      "hits": 1,
+      "ticks": 89,
+      "node": "liyue-stygian-deck",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 76,
+          "id": "stygian:beidou:guard"
+        },
+        {
+          "tick": 77,
+          "id": "stygian:beidou:tell:baited"
+        },
+        {
+          "tick": 77,
+          "id": "stygian:beidou:baited"
+        }
+      ],
+      "maxHp": 1830,
+      "damage": 1830,
+      "moves": [
+        {
+          "tick": 77,
+          "id": "baited"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 1169660,
+        "rank": 4,
+        "first": true,
+        "bag": true,
+        "mora": 3820
+      }
+    },
+    {
+      "level": 160,
+      "name": "capitano",
+      "type": "stygian",
+      "mode": "hard",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 8.816666666666801,
+      "hpRemaining": 0,
+      "partyHp": [
+        10743,
+        10709
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 192,
+          "id": 2
+        },
+        {
+          "tick": 438,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 529,
+      "node": "sne-stygian-frost-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 60,
+          "id": "stygian:capitano:coat-off"
+        },
+        {
+          "tick": 120,
+          "id": "stygian:capitano:CP01"
+        },
+        {
+          "tick": 132,
+          "id": "stygian:capitano:CP01:lock"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:capitano:CP01:contact"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:capitano:CP01:window"
+        },
+        {
+          "tick": 192,
+          "id": "stygian:capitano:phase"
+        },
+        {
+          "tick": 282,
+          "id": "stygian:capitano:CP05"
+        },
+        {
+          "tick": 300,
+          "id": "stygian:capitano:CP05:lock"
+        },
+        {
+          "tick": 336,
+          "id": "stygian:capitano:CP05:contact"
+        },
+        {
+          "tick": 336,
+          "id": "stygian:capitano:CP05:window"
+        },
+        {
+          "tick": 528,
+          "id": "stygian:capitano:CP09"
+        }
+      ],
+      "maxHp": 3250,
+      "damage": 3250,
+      "moves": [
+        {
+          "tick": 120,
+          "id": "CP01"
+        },
+        {
+          "tick": 282,
+          "id": "CP05"
+        },
+        {
+          "tick": 528,
+          "id": "CP09"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 18607176,
+        "rank": 4,
+        "first": true,
+        "bag": true,
+        "mora": 5400
+      }
+    },
+    {
+      "level": 160,
+      "name": "xbalanque",
+      "type": "stygian",
+      "mode": "hard",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 8.116666666666767,
+      "hpRemaining": 0,
+      "partyHp": [
+        10745,
+        10745
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 186,
+          "id": 2
+        },
+        {
+          "tick": 396,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 487,
+      "node": "natlan-solar-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 120,
+          "id": "stygian:xbalanque:XB01"
+        },
+        {
+          "tick": 132,
+          "id": "stygian:xbalanque:XB01:lock"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:xbalanque:XB01:contact"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:xbalanque:XB01:window"
+        },
+        {
+          "tick": 186,
+          "id": "stygian:xbalanque:phase"
+        },
+        {
+          "tick": 276,
+          "id": "stygian:xbalanque:XB04"
+        },
+        {
+          "tick": 306,
+          "id": "stygian:xbalanque:XB04:lock"
+        },
+        {
+          "tick": 354,
+          "id": "stygian:xbalanque:XB04:window"
+        },
+        {
+          "tick": 486,
+          "id": "stygian:xbalanque:XB06"
+        }
+      ],
+      "maxHp": 2510,
+      "damage": 2510,
+      "moves": [
+        {
+          "tick": 120,
+          "id": "XB01"
+        },
+        {
+          "tick": 276,
+          "id": "XB04"
+        },
+        {
+          "tick": 486,
+          "id": "XB06"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 6514500,
+        "rank": 4,
+        "first": true,
+        "bag": true,
+        "mora": 3570
+      }
+    },
+    {
+      "level": 160,
+      "name": "rerir",
+      "type": "stygian",
+      "mode": "hard",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 13.200000000000378,
+      "hpRemaining": 0,
+      "partyHp": [
+        10771,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 695,
+          "id": 2
+        }
+      ],
+      "hits": 4,
+      "ticks": 792,
+      "node": "nod-stygian-hunt",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 71,
+          "id": "stygian:rerir:fog-entry"
+        },
+        {
+          "tick": 143,
+          "id": "stygian:rerir:RR05:start"
+        },
+        {
+          "tick": 191,
+          "id": "stygian:rerir:RR05:lock"
+        },
+        {
+          "tick": 228,
+          "id": "stygian:rerir:RR05:lamp"
+        },
+        {
+          "tick": 239,
+          "id": "stygian:rerir:RR05:exposed"
+        },
+        {
+          "tick": 605,
+          "id": "stygian:rerir:fog-done"
+        },
+        {
+          "tick": 606,
+          "id": "stygian:rerir:act-one-ended"
+        },
+        {
+          "tick": 695,
+          "id": "stygian:rerir:act-two"
+        },
+        {
+          "tick": 695,
+          "id": "stygian:rerir:RR12:start"
+        }
+      ],
+      "maxHp": 3540,
+      "damage": 6590,
+      "moves": [
+        {
+          "tick": 143,
+          "id": "RR05"
+        },
+        {
+          "tick": 695,
+          "id": "RR12"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 10782494,
+        "rank": 4,
+        "first": true,
+        "bag": true,
+        "mora": 30700
+      }
+    },
+    {
+      "level": 160,
+      "name": "ronova",
+      "type": "stygian",
+      "mode": "normal",
+      "status": "locked",
+      "requiredLevel": 164
+    },
+    {
+      "level": 160,
+      "name": "wanderer",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 31.899999999999398,
+      "hpRemaining": 0,
+      "partyHp": [
+        10583,
+        10671
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 598,
+          "id": 2
+        },
+        {
+          "tick": 1228,
+          "id": 3
+        }
+      ],
+      "hits": 4,
+      "ticks": 1914,
+      "node": "sumeru-stygian-windcourt",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 84,
+          "id": "stygian:wanderer:WD01:start"
+        },
+        {
+          "tick": 106,
+          "id": "stygian:wanderer:WD01:lock"
+        },
+        {
+          "tick": 136,
+          "id": "stygian:wanderer:WD01:contact"
+        },
+        {
+          "tick": 136,
+          "id": "stygian:wanderer:WD01:window"
+        },
+        {
+          "tick": 323,
+          "id": "stygian:wanderer:WD02:start"
+        },
+        {
+          "tick": 353,
+          "id": "stygian:wanderer:WD02:lock"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:wanderer:WD02:window"
+        },
+        {
+          "tick": 598,
+          "id": "stygian:wanderer:phase"
+        },
+        {
+          "tick": 666,
+          "id": "stygian:wanderer:WD03:start"
+        },
+        {
+          "tick": 702,
+          "id": "stygian:wanderer:WD03:lock"
+        },
+        {
+          "tick": 1095,
+          "id": "stygian:wanderer:WD03:contact"
+        },
+        {
+          "tick": 1095,
+          "id": "stygian:wanderer:WD03:window"
+        },
+        {
+          "tick": 1296,
+          "id": "stygian:wanderer:WD06:start"
+        },
+        {
+          "tick": 1336,
+          "id": "stygian:wanderer:WD06:lock"
+        },
+        {
+          "tick": 1370,
+          "id": "stygian:wanderer:WD06:contact"
+        },
+        {
+          "tick": 1370,
+          "id": "stygian:wanderer:WD06:window"
+        },
+        {
+          "tick": 1734,
+          "id": "stygian:wanderer:WD06:gate"
+        }
+      ],
+      "maxHp": 4850,
+      "damage": 4850,
+      "moves": [
+        {
+          "tick": 84,
+          "id": "WD01"
+        },
+        {
+          "tick": 323,
+          "id": "WD02"
+        },
+        {
+          "tick": 666,
+          "id": "WD03"
+        },
+        {
+          "tick": 1296,
+          "id": "WD06"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 24723908,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 39200
+      }
+    },
+    {
+      "level": 160,
+      "name": "farka",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "elapsed": 31.799999999999443,
+      "hpRemaining": 0,
+      "partyHp": [
+        10559,
+        10771
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 595,
+          "id": 2
+        },
+        {
+          "tick": 1086,
+          "id": 3
+        }
+      ],
+      "hits": 4,
+      "ticks": 1908,
+      "node": "mond-stygian-dual-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 92,
+          "id": "stygian:farka:FK01"
+        },
+        {
+          "tick": 116,
+          "id": "stygian:farka:FK01:lock"
+        },
+        {
+          "tick": 140,
+          "id": "stygian:farka:FK01:contact"
+        },
+        {
+          "tick": 140,
+          "id": "stygian:farka:FK01:window"
+        },
+        {
+          "tick": 316,
+          "id": "stygian:farka:FK02"
+        },
+        {
+          "tick": 340,
+          "id": "stygian:farka:FK02:lock"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:farka:FK02:contact"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:farka:FK02:window"
+        },
+        {
+          "tick": 424,
+          "id": "stygian:farka:FK02:infuse"
+        },
+        {
+          "tick": 522,
+          "id": "stygian:farka:FK06"
+        },
+        {
+          "tick": 595,
+          "id": "stygian:farka:phase"
+        },
+        {
+          "tick": 705,
+          "id": "stygian:farka:FK03"
+        },
+        {
+          "tick": 735,
+          "id": "stygian:farka:FK03:lock"
+        },
+        {
+          "tick": 807,
+          "id": "stygian:farka:FK03:contact"
+        },
+        {
+          "tick": 807,
+          "id": "stygian:farka:FK03:window"
+        },
+        {
+          "tick": 929,
+          "id": "stygian:farka:FK04"
+        },
+        {
+          "tick": 947,
+          "id": "stygian:farka:FK04:lock"
+        },
+        {
+          "tick": 983,
+          "id": "stygian:farka:FK04:window"
+        },
+        {
+          "tick": 1196,
+          "id": "stygian:farka:FK05"
+        },
+        {
+          "tick": 1238,
+          "id": "stygian:farka:FK05:lock"
+        },
+        {
+          "tick": 1301,
+          "id": "stygian:farka:FK05:contact"
+        },
+        {
+          "tick": 1301,
+          "id": "stygian:farka:FK05:window"
+        },
+        {
+          "tick": 1516,
+          "id": "stygian:farka:FK07:B"
+        },
+        {
+          "tick": 1720,
+          "id": "stygian:farka:FK05:child"
+        }
+      ],
+      "maxHp": 5520,
+      "damage": 5520,
+      "moves": [
+        {
+          "tick": 92,
+          "id": "FK01"
+        },
+        {
+          "tick": 316,
+          "id": "FK02"
+        },
+        {
+          "tick": 522,
+          "id": "FK06"
+        },
+        {
+          "tick": 705,
+          "id": "FK03"
+        },
+        {
+          "tick": 929,
+          "id": "FK04"
+        },
+        {
+          "tick": 1196,
+          "id": "FK05"
+        },
+        {
+          "tick": 1516,
+          "id": "FK07"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 18258666,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 51300
+      }
+    },
+    {
+      "level": 180,
+      "name": "dvalin",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 11.050000000000367,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63455
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "flight"
+        },
+        {
+          "tick": 594,
+          "id": "perch"
+        },
+        {
+          "tick": 603,
+          "id": "guard-break"
+        },
+        {
+          "tick": 645,
+          "id": "exposed"
+        },
+        {
+          "tick": 663,
+          "id": "defeated"
+        }
+      ],
+      "hits": 1,
+      "ticks": 663,
+      "node": "dvalin-sky-arena",
+      "status": "clear",
+      "events": [],
+      "maxHp": 600,
+      "damage": 600,
+      "moves": [
+        {
+          "tick": 37,
+          "id": "WD01"
+        },
+        {
+          "tick": 235,
+          "id": "WD04"
+        },
+        {
+          "tick": 475,
+          "id": "WD02"
+        },
+        {
+          "tick": 603,
+          "id": "WD08"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "andrius",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 25.916666666666273,
+      "hpRemaining": 0,
+      "partyHp": [
+        67496,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "P1"
+        },
+        {
+          "tick": 763,
+          "id": "INTERLUDE"
+        },
+        {
+          "tick": 1386,
+          "id": "P2"
+        },
+        {
+          "tick": 1555,
+          "id": "finished"
+        }
+      ],
+      "hits": 115,
+      "ticks": 1555,
+      "node": "andrius-wolf-ring",
+      "status": "clear",
+      "events": [],
+      "maxHp": 6800000,
+      "damage": 6800000,
+      "moves": [
+        {
+          "tick": 49,
+          "id": "WA01"
+        },
+        {
+          "tick": 187,
+          "id": "WA02"
+        },
+        {
+          "tick": 343,
+          "id": "WA03"
+        },
+        {
+          "tick": 559,
+          "id": "WA04"
+        },
+        {
+          "tick": 763,
+          "id": "WA06"
+        },
+        {
+          "tick": 1387,
+          "id": "WA07"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "childe",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 7.166666666666818,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 129,
+          "id": 2
+        },
+        {
+          "tick": 369,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 430,
+      "node": "childe-golden-house-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "childe:WC14"
+        }
+      ],
+      "maxHp": 960,
+      "damage": 960,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "azhdaha",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 39.599999999998914,
+      "hpRemaining": 0,
+      "partyHp": [
+        67401,
+        63294
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 984,
+          "id": 2
+        },
+        {
+          "tick": 1857,
+          "id": 3
+        }
+      ],
+      "hits": 180,
+      "ticks": 2376,
+      "node": "azhdaha-dragon-seal-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 48,
+          "id": "azhdaha:WZ01"
+        },
+        {
+          "tick": 90,
+          "id": "azhdaha:WZ01:lock"
+        },
+        {
+          "tick": 178,
+          "id": "azhdaha:WZ01:hit:geo"
+        },
+        {
+          "tick": 288,
+          "id": "azhdaha:WZ02"
+        },
+        {
+          "tick": 336,
+          "id": "azhdaha:WZ02:lock"
+        },
+        {
+          "tick": 372,
+          "id": "azhdaha:WZ02:hit:geo"
+        },
+        {
+          "tick": 588,
+          "id": "azhdaha:WZ09"
+        },
+        {
+          "tick": 648,
+          "id": "azhdaha:WZ09:lock"
+        },
+        {
+          "tick": 678,
+          "id": "azhdaha:WZ09:hit:geo"
+        },
+        {
+          "tick": 1152,
+          "id": "azhdaha:WZ07"
+        },
+        {
+          "tick": 1212,
+          "id": "azhdaha:WZ07:lock"
+        },
+        {
+          "tick": 1284,
+          "id": "azhdaha:mark:pyro"
+        },
+        {
+          "tick": 1284,
+          "id": "azhdaha:WZ07:hit:pyro"
+        },
+        {
+          "tick": 1344,
+          "id": "azhdaha:mark-tick:pyro"
+        },
+        {
+          "tick": 2025,
+          "id": "azhdaha:WZ03"
+        },
+        {
+          "tick": 2073,
+          "id": "azhdaha:WZ03:lock"
+        },
+        {
+          "tick": 2253,
+          "id": "azhdaha:WZ14"
+        },
+        {
+          "tick": 2295,
+          "id": "azhdaha:WZ14:lock"
+        }
+      ],
+      "maxHp": 12000000,
+      "damage": 12000000,
+      "moves": [
+        {
+          "tick": 48,
+          "id": "WZ01"
+        },
+        {
+          "tick": 288,
+          "id": "WZ02"
+        },
+        {
+          "tick": 588,
+          "id": "WZ09"
+        },
+        {
+          "tick": 1152,
+          "id": "WZ07"
+        },
+        {
+          "tick": 2025,
+          "id": "WZ03"
+        },
+        {
+          "tick": 2253,
+          "id": "WZ14"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "signora",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 64.56666666666408,
+      "hpRemaining": 0,
+      "partyHp": [
+        67501,
+        63419
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "cryo"
+        },
+        {
+          "tick": 10,
+          "id": "seal"
+        },
+        {
+          "tick": 3694,
+          "id": "transform"
+        },
+        {
+          "tick": 3873,
+          "id": "pyro"
+        }
+      ],
+      "hits": 2,
+      "ticks": 3874,
+      "node": "signora-ten-shrine-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "signora:WS08"
+        },
+        {
+          "tick": 130,
+          "id": "signora:seal-hit"
+        },
+        {
+          "tick": 309,
+          "id": "signora:WS08:hit"
+        },
+        {
+          "tick": 2094,
+          "id": "signora:temperature-damage"
+        },
+        {
+          "tick": 3694,
+          "id": "signora:WS09"
+        }
+      ],
+      "maxHp": 1280,
+      "damage": 1280,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "raiden",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 99.64999999999533,
+      "hpRemaining": 0,
+      "partyHp": [
+        67389,
+        63364
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "normal"
+        },
+        {
+          "tick": 917,
+          "id": "switch"
+        },
+        {
+          "tick": 2694,
+          "id": "awaken"
+        },
+        {
+          "tick": 2874,
+          "id": "armored"
+        }
+      ],
+      "hits": 510,
+      "ticks": 5979,
+      "node": "raiden-thunder-echo-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 42,
+          "id": "raiden:WR01"
+        },
+        {
+          "tick": 78,
+          "id": "raiden:WR01:lock"
+        },
+        {
+          "tick": 138,
+          "id": "raiden:WR01:hit"
+        },
+        {
+          "tick": 306,
+          "id": "raiden:WR02"
+        },
+        {
+          "tick": 360,
+          "id": "raiden:WR02:lock"
+        },
+        {
+          "tick": 426,
+          "id": "raiden:WR02:hit"
+        },
+        {
+          "tick": 630,
+          "id": "raiden:WR05"
+        },
+        {
+          "tick": 690,
+          "id": "raiden:WR05:lock"
+        },
+        {
+          "tick": 701,
+          "id": "raiden:WR05:hit"
+        },
+        {
+          "tick": 809,
+          "id": "raiden:WR05:down"
+        },
+        {
+          "tick": 917,
+          "id": "raiden:WR08"
+        },
+        {
+          "tick": 965,
+          "id": "raiden:WR03"
+        },
+        {
+          "tick": 995,
+          "id": "raiden:WR03:lock"
+        },
+        {
+          "tick": 1211,
+          "id": "raiden:WR04"
+        },
+        {
+          "tick": 1253,
+          "id": "raiden:WR04:lock"
+        },
+        {
+          "tick": 1301,
+          "id": "raiden:WR04:hit"
+        },
+        {
+          "tick": 1547,
+          "id": "raiden:WR06"
+        },
+        {
+          "tick": 1607,
+          "id": "raiden:WR06:lock"
+        },
+        {
+          "tick": 1681,
+          "id": "raiden:WR06:choice"
+        },
+        {
+          "tick": 1727,
+          "id": "raiden:WR06:hit"
+        },
+        {
+          "tick": 1901,
+          "id": "raiden:WR06:down"
+        },
+        {
+          "tick": 2333,
+          "id": "raiden:WR07"
+        },
+        {
+          "tick": 2393,
+          "id": "raiden:WR07:lock"
+        },
+        {
+          "tick": 2561,
+          "id": "raiden:WR07:hit"
+        },
+        {
+          "tick": 2694,
+          "id": "raiden:WR09"
+        },
+        {
+          "tick": 2875,
+          "id": "raiden:WR18:hit"
+        },
+        {
+          "tick": 2898,
+          "id": "raiden:WR10"
+        },
+        {
+          "tick": 2952,
+          "id": "raiden:WR10:lock"
+        },
+        {
+          "tick": 3222,
+          "id": "raiden:WR11"
+        },
+        {
+          "tick": 3276,
+          "id": "raiden:WR11:lock"
+        },
+        {
+          "tick": 3534,
+          "id": "raiden:WR12"
+        },
+        {
+          "tick": 3594,
+          "id": "raiden:WR12:lock"
+        },
+        {
+          "tick": 3654,
+          "id": "raiden:WR12:spawn"
+        },
+        {
+          "tick": 3663,
+          "id": "raiden:WR12:hit"
+        },
+        {
+          "tick": 4158,
+          "id": "raiden:WR13"
+        },
+        {
+          "tick": 4218,
+          "id": "raiden:WR13:lock"
+        },
+        {
+          "tick": 4398,
+          "id": "raiden:WR13:hit"
+        },
+        {
+          "tick": 4542,
+          "id": "raiden:WR14"
+        },
+        {
+          "tick": 4602,
+          "id": "raiden:WR14:lock"
+        },
+        {
+          "tick": 5262,
+          "id": "raiden:WR15"
+        },
+        {
+          "tick": 5262,
+          "id": "raiden:WR15:lock"
+        },
+        {
+          "tick": 5322,
+          "id": "raiden:WR15:drain"
+        },
+        {
+          "tick": 5322,
+          "id": "raiden:WR15:hit"
+        }
+      ],
+      "maxHp": 34000000,
+      "damage": 34000000,
+      "moves": [
+        {
+          "tick": 42,
+          "id": "WR01"
+        },
+        {
+          "tick": 306,
+          "id": "WR02"
+        },
+        {
+          "tick": 630,
+          "id": "WR05"
+        },
+        {
+          "tick": 965,
+          "id": "WR03"
+        },
+        {
+          "tick": 1211,
+          "id": "WR04"
+        },
+        {
+          "tick": 1547,
+          "id": "WR06"
+        },
+        {
+          "tick": 2333,
+          "id": "WR07"
+        },
+        {
+          "tick": 2898,
+          "id": "WR10"
+        },
+        {
+          "tick": 3222,
+          "id": "WR11"
+        },
+        {
+          "tick": 3534,
+          "id": "WR12"
+        },
+        {
+          "tick": 4158,
+          "id": "WR13"
+        },
+        {
+          "tick": 4542,
+          "id": "WR14"
+        },
+        {
+          "tick": 5262,
+          "id": "WR15"
+        },
+        {
+          "tick": 5526,
+          "id": "WR11.sweep"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "shouki",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 62.5166666666642,
+      "hpRemaining": 0,
+      "partyHp": [
+        67449,
+        63390
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "p1"
+        },
+        {
+          "tick": 10,
+          "id": "rise"
+        },
+        {
+          "tick": 249,
+          "id": "p2"
+        },
+        {
+          "tick": 1950,
+          "id": "trial"
+        },
+        {
+          "tick": 3390,
+          "id": "failure"
+        }
+      ],
+      "hits": 2,
+      "ticks": 3751,
+      "node": "shouki-godmaking-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "shouki:WN08"
+        },
+        {
+          "tick": 249,
+          "id": "shouki:WN18:supply"
+        },
+        {
+          "tick": 250,
+          "id": "shouki:WN18:guard-hit"
+        },
+        {
+          "tick": 273,
+          "id": "shouki:WN09"
+        },
+        {
+          "tick": 315,
+          "id": "shouki:WN09:lock"
+        },
+        {
+          "tick": 369,
+          "id": "shouki:WN18:auto"
+        },
+        {
+          "tick": 375,
+          "id": "shouki:WN09:hit"
+        },
+        {
+          "tick": 597,
+          "id": "shouki:WN10"
+        },
+        {
+          "tick": 645,
+          "id": "shouki:WN10:lock"
+        },
+        {
+          "tick": 681,
+          "id": "shouki:WN10:launch"
+        },
+        {
+          "tick": 951,
+          "id": "shouki:WN11"
+        },
+        {
+          "tick": 1011,
+          "id": "shouki:WN11:lock"
+        },
+        {
+          "tick": 1131,
+          "id": "shouki:WN11:hit"
+        },
+        {
+          "tick": 1222,
+          "id": "shouki:WN18:floor-hit"
+        },
+        {
+          "tick": 1395,
+          "id": "shouki:WN12"
+        },
+        {
+          "tick": 1443,
+          "id": "shouki:WN12:lock"
+        },
+        {
+          "tick": 1563,
+          "id": "shouki:WN18:collected"
+        },
+        {
+          "tick": 1719,
+          "id": "shouki:WN13"
+        },
+        {
+          "tick": 1779,
+          "id": "shouki:WN13:lock"
+        },
+        {
+          "tick": 1935,
+          "id": "shouki:WN13:hit"
+        },
+        {
+          "tick": 1950,
+          "id": "shouki:WN15"
+        },
+        {
+          "tick": 2047,
+          "id": "shouki:WN15:hit"
+        },
+        {
+          "tick": 2155,
+          "id": "shouki:WN15:destroyed"
+        },
+        {
+          "tick": 3390,
+          "id": "shouki:WN16"
+        },
+        {
+          "tick": 3570,
+          "id": "shouki:WN16:hit"
+        }
+      ],
+      "maxHp": 1630,
+      "damage": 1630,
+      "moves": [
+        {
+          "tick": 273,
+          "id": "WN09"
+        },
+        {
+          "tick": 597,
+          "id": "WN10"
+        },
+        {
+          "tick": 951,
+          "id": "WN11"
+        },
+        {
+          "tick": 1395,
+          "id": "WN12"
+        },
+        {
+          "tick": 1719,
+          "id": "WN13"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "apep",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 23.633333333333113,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "dark"
+        },
+        {
+          "tick": 10,
+          "id": "expose"
+        },
+        {
+          "tick": 189,
+          "id": "defense"
+        },
+        {
+          "tick": 1207,
+          "id": "rebirth"
+        },
+        {
+          "tick": 1417,
+          "id": "prime"
+        }
+      ],
+      "hits": 16,
+      "ticks": 1418,
+      "node": "apep-oasis-heart-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "apep:WP05"
+        },
+        {
+          "tick": 189,
+          "id": "apep:WP06"
+        },
+        {
+          "tick": 189,
+          "id": "apep:WP06:queue"
+        },
+        {
+          "tick": 249,
+          "id": "apep:WP06:spawn:melee"
+        },
+        {
+          "tick": 249,
+          "id": "apep:WP06:spawn:ranged"
+        },
+        {
+          "tick": 249,
+          "id": "apep:WP06:progress"
+        },
+        {
+          "tick": 259,
+          "id": "apep:WP06:defeated"
+        },
+        {
+          "tick": 549,
+          "id": "apep:WP06:spawn:warden"
+        },
+        {
+          "tick": 849,
+          "id": "apep:WP06:spawn:breeder"
+        },
+        {
+          "tick": 1149,
+          "id": "apep:WP06:spawn:barrier"
+        },
+        {
+          "tick": 1149,
+          "id": "apep:WP06:spawn:eater"
+        },
+        {
+          "tick": 1207,
+          "id": "apep:WP13"
+        }
+      ],
+      "maxHp": 1580,
+      "damage": 2120,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "narwhal",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 39.21666666666558,
+      "hpRemaining": 0,
+      "partyHp": [
+        67525,
+        63480
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        },
+        {
+          "tick": 1020,
+          "id": "swallow"
+        },
+        {
+          "tick": 1200,
+          "id": "inner"
+        },
+        {
+          "tick": 1201,
+          "id": "expel"
+        },
+        {
+          "tick": 1380,
+          "id": "weak"
+        }
+      ],
+      "hits": 192,
+      "ticks": 2353,
+      "node": "narwhal-star-sea",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "narwhal:WV06:hit"
+        },
+        {
+          "tick": 42,
+          "id": "narwhal:WV01"
+        },
+        {
+          "tick": 96,
+          "id": "narwhal:WV01:lock"
+        },
+        {
+          "tick": 150,
+          "id": "narwhal:WV01:hit"
+        },
+        {
+          "tick": 426,
+          "id": "narwhal:WV05"
+        },
+        {
+          "tick": 496,
+          "id": "narwhal:WV05:eye-hit"
+        },
+        {
+          "tick": 540,
+          "id": "narwhal:WV05:broken"
+        },
+        {
+          "tick": 599,
+          "id": "narwhal:WV02"
+        },
+        {
+          "tick": 600,
+          "id": "narwhal:WV06:reserve"
+        },
+        {
+          "tick": 671,
+          "id": "narwhal:WV02:lock"
+        },
+        {
+          "tick": 755,
+          "id": "narwhal:WV02:hit"
+        },
+        {
+          "tick": 1020,
+          "id": "narwhal:WV07"
+        },
+        {
+          "tick": 1116,
+          "id": "narwhal:WV16:scene"
+        },
+        {
+          "tick": 1201,
+          "id": "narwhal:WV14"
+        },
+        {
+          "tick": 1320,
+          "id": "narwhal:WV14:return-loss"
+        },
+        {
+          "tick": 1380,
+          "id": "narwhal:WV15"
+        }
+      ],
+      "maxHp": 16000000,
+      "damage": 12800760,
+      "moves": [
+        {
+          "tick": 42,
+          "id": "WV01"
+        },
+        {
+          "tick": 426,
+          "id": "WV05"
+        },
+        {
+          "tick": 599,
+          "id": "WV02"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "knave",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 4.866666666666655,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 195,
+          "id": 2
+        }
+      ],
+      "hits": 2,
+      "ticks": 292,
+      "node": "knave-crimson-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 52,
+          "id": "knave:WK11"
+        }
+      ],
+      "maxHp": 2400,
+      "damage": 2400,
+      "moves": [
+        {
+          "tick": 52,
+          "id": "WK11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "primal_fire",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 54.09999999999816,
+      "hpRemaining": 0,
+      "partyHp": [
+        65426,
+        61537
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 1587,
+          "id": 2
+        }
+      ],
+      "hits": 283,
+      "ticks": 3246,
+      "node": "primal-fire-sundered-forge",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 49,
+          "id": "primal:WG01"
+        },
+        {
+          "tick": 140,
+          "id": "primal:WG01:hit"
+        },
+        {
+          "tick": 140,
+          "id": "primal:WG18:mark"
+        },
+        {
+          "tick": 211,
+          "id": "primal:WG18:ground"
+        },
+        {
+          "tick": 260,
+          "id": "primal:WG18:resolve"
+        },
+        {
+          "tick": 404,
+          "id": "primal:WG05"
+        },
+        {
+          "tick": 464,
+          "id": "primal:WG05:open"
+        },
+        {
+          "tick": 469,
+          "id": "primal:WG18:ground:hit"
+        },
+        {
+          "tick": 469,
+          "id": "primal:WG05:gate"
+        },
+        {
+          "tick": 584,
+          "id": "primal:WG05:hit"
+        },
+        {
+          "tick": 662,
+          "id": "primal:WG17"
+        },
+        {
+          "tick": 662,
+          "id": "primal:WG05:broken"
+        },
+        {
+          "tick": 1287,
+          "id": "primal:WG08"
+        },
+        {
+          "tick": 1425,
+          "id": "primal:WG08:hit"
+        },
+        {
+          "tick": 1587,
+          "id": "primal:WG08:commit"
+        },
+        {
+          "tick": 1672,
+          "id": "primal:WG09"
+        },
+        {
+          "tick": 1888,
+          "id": "primal:WG09:commit"
+        },
+        {
+          "tick": 2057,
+          "id": "primal:WG10"
+        },
+        {
+          "tick": 2502,
+          "id": "primal:WG14"
+        },
+        {
+          "tick": 2562,
+          "id": "primal:WG14:open"
+        },
+        {
+          "tick": 2563,
+          "id": "primal:WG14:gate"
+        },
+        {
+          "tick": 2635,
+          "id": "primal:WG14:broken"
+        },
+        {
+          "tick": 2802,
+          "id": "primal:WG14:hit"
+        }
+      ],
+      "maxHp": 19000000,
+      "damage": 19000000,
+      "moves": [
+        {
+          "tick": 49,
+          "id": "WG01"
+        },
+        {
+          "tick": 404,
+          "id": "WG05"
+        },
+        {
+          "tick": 662,
+          "id": "WG17"
+        },
+        {
+          "tick": 1287,
+          "id": "WG08"
+        },
+        {
+          "tick": 1672,
+          "id": "WG09"
+        },
+        {
+          "tick": 2057,
+          "id": "WG10"
+        },
+        {
+          "tick": 2502,
+          "id": "WG14"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "game_before_gate",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 26.23333333333305,
+      "hpRemaining": 0,
+      "partyHp": [
+        67558,
+        63465
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "king"
+        },
+        {
+          "tick": 1264,
+          "id": "queen"
+        },
+        {
+          "tick": 1273,
+          "id": "finish"
+        },
+        {
+          "tick": 1485,
+          "id": "royal"
+        }
+      ],
+      "hits": 5,
+      "ticks": 1574,
+      "node": "mond-gate-chess-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 25,
+          "id": "gate:WT03"
+        },
+        {
+          "tick": 26,
+          "id": "gate:WT04"
+        },
+        {
+          "tick": 98,
+          "id": "gate:WT04:lock"
+        },
+        {
+          "tick": 164,
+          "id": "gate:WT04:pawn"
+        },
+        {
+          "tick": 292,
+          "id": "gate:WT03:hurt"
+        },
+        {
+          "tick": 761,
+          "id": "gate:WT18"
+        },
+        {
+          "tick": 1264,
+          "id": "gate:phase:queen"
+        },
+        {
+          "tick": 1273,
+          "id": "gate:phase:finish"
+        },
+        {
+          "tick": 1293,
+          "id": "gate:WT09"
+        },
+        {
+          "tick": 1485,
+          "id": "gate:WT09:pair"
+        },
+        {
+          "tick": 1538,
+          "id": "gate:WT19"
+        }
+      ],
+      "maxHp": 3620,
+      "damage": 3620,
+      "moves": [
+        {
+          "tick": 25,
+          "id": "WT03"
+        },
+        {
+          "tick": 761,
+          "id": "WT18"
+        },
+        {
+          "tick": 1293,
+          "id": "WT09"
+        },
+        {
+          "tick": 1538,
+          "id": "WT19"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "false_moon",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 48.46666666666518,
+      "hpRemaining": 0,
+      "partyHp": [
+        67407,
+        63471
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        },
+        {
+          "tick": 1377,
+          "id": "entering"
+        },
+        {
+          "tick": 1557,
+          "id": "inner"
+        },
+        {
+          "tick": 1634,
+          "id": "returning"
+        }
+      ],
+      "hits": 239,
+      "ticks": 2908,
+      "node": "nod-false-moon-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 37,
+          "id": "false-moon:WM09"
+        },
+        {
+          "tick": 457,
+          "id": "false-moon:WM09:success"
+        },
+        {
+          "tick": 662,
+          "id": "false-moon:WM08"
+        },
+        {
+          "tick": 1022,
+          "id": "false-moon:WM08:ward"
+        },
+        {
+          "tick": 1022,
+          "id": "false-moon:WM08:hit"
+        },
+        {
+          "tick": 1167,
+          "id": "false-moon:WM13"
+        },
+        {
+          "tick": 1288,
+          "id": "false-moon:WM13:confirm"
+        },
+        {
+          "tick": 1347,
+          "id": "false-moon:WM13:hit"
+        },
+        {
+          "tick": 1377,
+          "id": "false-moon:WM14"
+        },
+        {
+          "tick": 1467,
+          "id": "false-moon:WM18:scene"
+        },
+        {
+          "tick": 1557,
+          "id": "false-moon:WM15"
+        },
+        {
+          "tick": 1558,
+          "id": "false-moon:WM15:shadow"
+        },
+        {
+          "tick": 1634,
+          "id": "false-moon:WM16"
+        },
+        {
+          "tick": 1730,
+          "id": "false-moon:WM16:loss"
+        },
+        {
+          "tick": 2199,
+          "id": "false-moon:WM10"
+        },
+        {
+          "tick": 2319,
+          "id": "false-moon:WM10:violation:facing"
+        },
+        {
+          "tick": 2619,
+          "id": "false-moon:WM12"
+        },
+        {
+          "tick": 2679,
+          "id": "false-moon:WM12:hit"
+        },
+        {
+          "tick": 2824,
+          "id": "false-moon:WM02"
+        }
+      ],
+      "maxHp": 18000000,
+      "damage": 18000990,
+      "moves": [
+        {
+          "tick": 37,
+          "id": "WM09"
+        },
+        {
+          "tick": 662,
+          "id": "WM08"
+        },
+        {
+          "tick": 1167,
+          "id": "WM13"
+        },
+        {
+          "tick": 1377,
+          "id": "WM14"
+        },
+        {
+          "tick": 1557,
+          "id": "WM15"
+        },
+        {
+          "tick": 1634,
+          "id": "WM16"
+        },
+        {
+          "tick": 2199,
+          "id": "WM10"
+        },
+        {
+          "tick": 2824,
+          "id": "WM02"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "heretic",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 4.183333333333323,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "1/p1"
+        },
+        {
+          "tick": 10,
+          "id": "1/changing"
+        },
+        {
+          "tick": 190,
+          "id": "2/changing"
+        },
+        {
+          "tick": 250,
+          "id": "2/p2"
+        }
+      ],
+      "hits": 2,
+      "ticks": 251,
+      "node": "sumeru-heretic-lattice",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "heretic:WH10"
+        },
+        {
+          "tick": 250,
+          "id": "heretic:WH11"
+        }
+      ],
+      "maxHp": 3900,
+      "damage": 3900,
+      "moves": [
+        {
+          "tick": 10,
+          "id": "WH10"
+        },
+        {
+          "tick": 250,
+          "id": "WH11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 180,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 1.6999999999999962,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "intro"
+        },
+        {
+          "tick": 75,
+          "id": "approach"
+        },
+        {
+          "tick": 76,
+          "id": "guard"
+        },
+        {
+          "tick": 77,
+          "id": "tell"
+        }
+      ],
+      "hits": 1,
+      "ticks": 102,
+      "node": "liyue-stygian-deck",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 76,
+          "id": "stygian:beidou:guard"
+        },
+        {
+          "tick": 77,
+          "id": "stygian:beidou:tell:baited"
+        },
+        {
+          "tick": 77,
+          "id": "stygian:beidou:baited"
+        }
+      ],
+      "maxHp": 2860,
+      "damage": 2860,
+      "moves": [
+        {
+          "tick": 77,
+          "id": "baited"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 30937308,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 6100
+      }
+    },
+    {
+      "level": 180,
+      "name": "capitano",
+      "type": "stygian",
+      "mode": "master",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 8.816666666666801,
+      "hpRemaining": 0,
+      "partyHp": [
+        67577,
+        63429
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 192,
+          "id": 2
+        },
+        {
+          "tick": 438,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 529,
+      "node": "sne-stygian-frost-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 60,
+          "id": "stygian:capitano:coat-off"
+        },
+        {
+          "tick": 120,
+          "id": "stygian:capitano:CP01"
+        },
+        {
+          "tick": 132,
+          "id": "stygian:capitano:CP01:lock"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:capitano:CP01:contact"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:capitano:CP01:window"
+        },
+        {
+          "tick": 192,
+          "id": "stygian:capitano:phase"
+        },
+        {
+          "tick": 282,
+          "id": "stygian:capitano:CP05"
+        },
+        {
+          "tick": 300,
+          "id": "stygian:capitano:CP05:lock"
+        },
+        {
+          "tick": 336,
+          "id": "stygian:capitano:CP05:contact"
+        },
+        {
+          "tick": 336,
+          "id": "stygian:capitano:CP05:window"
+        },
+        {
+          "tick": 528,
+          "id": "stygian:capitano:CP09"
+        }
+      ],
+      "maxHp": 4150,
+      "damage": 4150,
+      "moves": [
+        {
+          "tick": 120,
+          "id": "CP01"
+        },
+        {
+          "tick": 282,
+          "id": "CP05"
+        },
+        {
+          "tick": 528,
+          "id": "CP09"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 46232132,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 7100
+      }
+    },
+    {
+      "level": 180,
+      "name": "xbalanque",
+      "type": "stygian",
+      "mode": "master",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 7.816666666666752,
+      "hpRemaining": 0,
+      "partyHp": [
+        67532,
+        63422
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 186,
+          "id": 2
+        },
+        {
+          "tick": 378,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 469,
+      "node": "natlan-solar-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 120,
+          "id": "stygian:xbalanque:XB01"
+        },
+        {
+          "tick": 132,
+          "id": "stygian:xbalanque:XB01:lock"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:xbalanque:XB01:contact"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:xbalanque:XB01:window"
+        },
+        {
+          "tick": 186,
+          "id": "stygian:xbalanque:phase"
+        },
+        {
+          "tick": 276,
+          "id": "stygian:xbalanque:XB05"
+        },
+        {
+          "tick": 294,
+          "id": "stygian:xbalanque:XB05:lock"
+        },
+        {
+          "tick": 360,
+          "id": "stygian:xbalanque:XB05:contact"
+        },
+        {
+          "tick": 360,
+          "id": "stygian:xbalanque:XB05:window"
+        },
+        {
+          "tick": 468,
+          "id": "stygian:xbalanque:XB06"
+        }
+      ],
+      "maxHp": 3410,
+      "damage": 3410,
+      "moves": [
+        {
+          "tick": 120,
+          "id": "XB01"
+        },
+        {
+          "tick": 276,
+          "id": "XB05"
+        },
+        {
+          "tick": 468,
+          "id": "XB06"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 22837398,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 5640
+      }
+    },
+    {
+      "level": 180,
+      "name": "rerir",
+      "type": "stygian",
+      "mode": "master",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 13.18333333333371,
+      "hpRemaining": 0,
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 694,
+          "id": 2
+        }
+      ],
+      "hits": 4,
+      "ticks": 791,
+      "node": "nod-stygian-hunt",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 70,
+          "id": "stygian:rerir:fog-entry"
+        },
+        {
+          "tick": 142,
+          "id": "stygian:rerir:RR05:start"
+        },
+        {
+          "tick": 190,
+          "id": "stygian:rerir:RR05:lock"
+        },
+        {
+          "tick": 227,
+          "id": "stygian:rerir:RR05:lamp"
+        },
+        {
+          "tick": 238,
+          "id": "stygian:rerir:RR05:exposed"
+        },
+        {
+          "tick": 604,
+          "id": "stygian:rerir:fog-done"
+        },
+        {
+          "tick": 605,
+          "id": "stygian:rerir:act-one-ended"
+        },
+        {
+          "tick": 694,
+          "id": "stygian:rerir:act-two"
+        },
+        {
+          "tick": 694,
+          "id": "stygian:rerir:RR12:start"
+        }
+      ],
+      "maxHp": 4960,
+      "damage": 9200,
+      "moves": [
+        {
+          "tick": 142,
+          "id": "RR05"
+        },
+        {
+          "tick": 694,
+          "id": "RR12"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 44030641,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 45400
+      }
+    },
+    {
+      "level": 180,
+      "name": "ronova",
+      "type": "stygian",
+      "mode": "hard",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 96.94999999999554,
+      "hpRemaining": 0,
+      "partyHp": [
+        67520,
+        0
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 1348,
+          "id": 2
+        },
+        {
+          "tick": 3270,
+          "id": 3
+        },
+        {
+          "tick": 4864,
+          "id": 4
+        }
+      ],
+      "hits": 5,
+      "ticks": 5817,
+      "node": "sne-stygian-last-gate",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 100,
+          "id": "stygian:ronova:RN01:start"
+        },
+        {
+          "tick": 124,
+          "id": "stygian:ronova:RN01:lock"
+        },
+        {
+          "tick": 160,
+          "id": "stygian:ronova:RN01:launch"
+        },
+        {
+          "tick": 160,
+          "id": "stygian:ronova:RN01:window"
+        },
+        {
+          "tick": 344,
+          "id": "stygian:ronova:RN02:start"
+        },
+        {
+          "tick": 368,
+          "id": "stygian:ronova:RN02:lock"
+        },
+        {
+          "tick": 410,
+          "id": "stygian:ronova:RN02:launch"
+        },
+        {
+          "tick": 410,
+          "id": "stygian:ronova:RN02:window"
+        },
+        {
+          "tick": 417,
+          "id": "stygian:ronova:life-loss"
+        },
+        {
+          "tick": 612,
+          "id": "stygian:ronova:RN03:start"
+        },
+        {
+          "tick": 636,
+          "id": "stygian:ronova:RN03:lock"
+        },
+        {
+          "tick": 678,
+          "id": "stygian:ronova:RN03:shadows"
+        },
+        {
+          "tick": 1348,
+          "id": "stygian:ronova:phase"
+        },
+        {
+          "tick": 1424,
+          "id": "stygian:ronova:RN04:start"
+        },
+        {
+          "tick": 1460,
+          "id": "stygian:ronova:RN04:lock"
+        },
+        {
+          "tick": 1508,
+          "id": "stygian:ronova:RN04:window"
+        },
+        {
+          "tick": 1656,
+          "id": "stygian:ronova:RN05:start"
+        },
+        {
+          "tick": 1740,
+          "id": "stygian:ronova:RN05:lock"
+        },
+        {
+          "tick": 1788,
+          "id": "stygian:ronova:authority_lethal"
+        },
+        {
+          "tick": 1788,
+          "id": "stygian:ronova:RN05:window"
+        },
+        {
+          "tick": 1942,
+          "id": "stygian:ronova:RN06:start"
+        },
+        {
+          "tick": 1972,
+          "id": "stygian:ronova:RN06:lock"
+        },
+        {
+          "tick": 2002,
+          "id": "stygian:ronova:RN06:shadows"
+        },
+        {
+          "tick": 2650,
+          "id": "stygian:ronova:lamp-spent"
+        },
+        {
+          "tick": 2650,
+          "id": "stygian:ronova:RN06:window"
+        },
+        {
+          "tick": 2770,
+          "id": "stygian:ronova:returned"
+        },
+        {
+          "tick": 2783,
+          "id": "stygian:ronova:protection-ended"
+        },
+        {
+          "tick": 2948,
+          "id": "stygian:ronova:RN10:start"
+        },
+        {
+          "tick": 2966,
+          "id": "stygian:ronova:RN10:lock"
+        },
+        {
+          "tick": 3002,
+          "id": "stygian:ronova:RN10:launch"
+        },
+        {
+          "tick": 3002,
+          "id": "stygian:ronova:RN10:window"
+        },
+        {
+          "tick": 3346,
+          "id": "stygian:ronova:RN07:start"
+        },
+        {
+          "tick": 3370,
+          "id": "stygian:ronova:RN07:lock"
+        },
+        {
+          "tick": 3418,
+          "id": "stygian:ronova:RN07:window"
+        },
+        {
+          "tick": 3698,
+          "id": "stygian:ronova:RN11:start"
+        },
+        {
+          "tick": 3722,
+          "id": "stygian:ronova:RN11:lock"
+        },
+        {
+          "tick": 3770,
+          "id": "stygian:ronova:RN11:window"
+        },
+        {
+          "tick": 3930,
+          "id": "stygian:ronova:RN12:start"
+        },
+        {
+          "tick": 3960,
+          "id": "stygian:ronova:RN12:lock"
+        },
+        {
+          "tick": 4620,
+          "id": "stygian:ronova:RN12:window"
+        },
+        {
+          "tick": 4650,
+          "id": "stygian:ronova:RN09:pose"
+        },
+        {
+          "tick": 4940,
+          "id": "stygian:ronova:RN08:start"
+        },
+        {
+          "tick": 5000,
+          "id": "stygian:ronova:RN08:lock"
+        },
+        {
+          "tick": 5060,
+          "id": "stygian:ronova:RN08:launch"
+        },
+        {
+          "tick": 5060,
+          "id": "stygian:ronova:RN08:window"
+        },
+        {
+          "tick": 5180,
+          "id": "stygian:ronova:RN08:shadows"
+        }
+      ],
+      "maxHp": 7340,
+      "damage": 7340,
+      "moves": [
+        {
+          "tick": 100,
+          "id": "RN01"
+        },
+        {
+          "tick": 344,
+          "id": "RN02"
+        },
+        {
+          "tick": 612,
+          "id": "RN03"
+        },
+        {
+          "tick": 1424,
+          "id": "RN04"
+        },
+        {
+          "tick": 1656,
+          "id": "RN05"
+        },
+        {
+          "tick": 1942,
+          "id": "RN06"
+        },
+        {
+          "tick": 2948,
+          "id": "RN10"
+        },
+        {
+          "tick": 3346,
+          "id": "RN07"
+        },
+        {
+          "tick": 3698,
+          "id": "RN11"
+        },
+        {
+          "tick": 3930,
+          "id": "RN12"
+        },
+        {
+          "tick": 4940,
+          "id": "RN08"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 42815658,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 80600
+      }
+    },
+    {
+      "level": 180,
+      "name": "wanderer",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 31.899999999999398,
+      "hpRemaining": 0,
+      "partyHp": [
+        67421,
+        63399
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 598,
+          "id": 2
+        },
+        {
+          "tick": 1228,
+          "id": 3
+        }
+      ],
+      "hits": 4,
+      "ticks": 1914,
+      "node": "sumeru-stygian-windcourt",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 84,
+          "id": "stygian:wanderer:WD01:start"
+        },
+        {
+          "tick": 106,
+          "id": "stygian:wanderer:WD01:lock"
+        },
+        {
+          "tick": 136,
+          "id": "stygian:wanderer:WD01:contact"
+        },
+        {
+          "tick": 136,
+          "id": "stygian:wanderer:WD01:window"
+        },
+        {
+          "tick": 323,
+          "id": "stygian:wanderer:WD02:start"
+        },
+        {
+          "tick": 353,
+          "id": "stygian:wanderer:WD02:lock"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:wanderer:WD02:window"
+        },
+        {
+          "tick": 598,
+          "id": "stygian:wanderer:phase"
+        },
+        {
+          "tick": 666,
+          "id": "stygian:wanderer:WD03:start"
+        },
+        {
+          "tick": 702,
+          "id": "stygian:wanderer:WD03:lock"
+        },
+        {
+          "tick": 1095,
+          "id": "stygian:wanderer:WD03:contact"
+        },
+        {
+          "tick": 1095,
+          "id": "stygian:wanderer:WD03:window"
+        },
+        {
+          "tick": 1296,
+          "id": "stygian:wanderer:WD06:start"
+        },
+        {
+          "tick": 1336,
+          "id": "stygian:wanderer:WD06:lock"
+        },
+        {
+          "tick": 1370,
+          "id": "stygian:wanderer:WD06:contact"
+        },
+        {
+          "tick": 1370,
+          "id": "stygian:wanderer:WD06:window"
+        },
+        {
+          "tick": 1734,
+          "id": "stygian:wanderer:WD06:gate"
+        }
+      ],
+      "maxHp": 4850,
+      "damage": 4850,
+      "moves": [
+        {
+          "tick": 84,
+          "id": "WD01"
+        },
+        {
+          "tick": 323,
+          "id": "WD02"
+        },
+        {
+          "tick": 666,
+          "id": "WD03"
+        },
+        {
+          "tick": 1296,
+          "id": "WD06"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 24723908,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 39200
+      }
+    },
+    {
+      "level": 180,
+      "name": "farka",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "elapsed": 31.799999999999443,
+      "hpRemaining": 0,
+      "partyHp": [
+        67397,
+        63499
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 595,
+          "id": 2
+        },
+        {
+          "tick": 1086,
+          "id": 3
+        }
+      ],
+      "hits": 4,
+      "ticks": 1908,
+      "node": "mond-stygian-dual-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 92,
+          "id": "stygian:farka:FK01"
+        },
+        {
+          "tick": 116,
+          "id": "stygian:farka:FK01:lock"
+        },
+        {
+          "tick": 140,
+          "id": "stygian:farka:FK01:contact"
+        },
+        {
+          "tick": 140,
+          "id": "stygian:farka:FK01:window"
+        },
+        {
+          "tick": 316,
+          "id": "stygian:farka:FK02"
+        },
+        {
+          "tick": 340,
+          "id": "stygian:farka:FK02:lock"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:farka:FK02:contact"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:farka:FK02:window"
+        },
+        {
+          "tick": 424,
+          "id": "stygian:farka:FK02:infuse"
+        },
+        {
+          "tick": 522,
+          "id": "stygian:farka:FK06"
+        },
+        {
+          "tick": 595,
+          "id": "stygian:farka:phase"
+        },
+        {
+          "tick": 705,
+          "id": "stygian:farka:FK03"
+        },
+        {
+          "tick": 735,
+          "id": "stygian:farka:FK03:lock"
+        },
+        {
+          "tick": 807,
+          "id": "stygian:farka:FK03:contact"
+        },
+        {
+          "tick": 807,
+          "id": "stygian:farka:FK03:window"
+        },
+        {
+          "tick": 929,
+          "id": "stygian:farka:FK04"
+        },
+        {
+          "tick": 947,
+          "id": "stygian:farka:FK04:lock"
+        },
+        {
+          "tick": 983,
+          "id": "stygian:farka:FK04:window"
+        },
+        {
+          "tick": 1196,
+          "id": "stygian:farka:FK05"
+        },
+        {
+          "tick": 1238,
+          "id": "stygian:farka:FK05:lock"
+        },
+        {
+          "tick": 1301,
+          "id": "stygian:farka:FK05:contact"
+        },
+        {
+          "tick": 1301,
+          "id": "stygian:farka:FK05:window"
+        },
+        {
+          "tick": 1516,
+          "id": "stygian:farka:FK07:B"
+        },
+        {
+          "tick": 1720,
+          "id": "stygian:farka:FK05:child"
+        }
+      ],
+      "maxHp": 5520,
+      "damage": 5520,
+      "moves": [
+        {
+          "tick": 92,
+          "id": "FK01"
+        },
+        {
+          "tick": 316,
+          "id": "FK02"
+        },
+        {
+          "tick": 522,
+          "id": "FK06"
+        },
+        {
+          "tick": 705,
+          "id": "FK03"
+        },
+        {
+          "tick": 929,
+          "id": "FK04"
+        },
+        {
+          "tick": 1196,
+          "id": "FK05"
+        },
+        {
+          "tick": 1516,
+          "id": "FK07"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 18258666,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 51300
+      }
+    },
+    {
+      "level": 200,
+      "name": "dvalin",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 11.050000000000367,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118876
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "flight"
+        },
+        {
+          "tick": 594,
+          "id": "perch"
+        },
+        {
+          "tick": 603,
+          "id": "guard-break"
+        },
+        {
+          "tick": 645,
+          "id": "exposed"
+        },
+        {
+          "tick": 663,
+          "id": "defeated"
+        }
+      ],
+      "hits": 1,
+      "ticks": 663,
+      "node": "dvalin-sky-arena",
+      "status": "clear",
+      "events": [],
+      "maxHp": 600,
+      "damage": 600,
+      "moves": [
+        {
+          "tick": 37,
+          "id": "WD01"
+        },
+        {
+          "tick": 235,
+          "id": "WD04"
+        },
+        {
+          "tick": 475,
+          "id": "WD02"
+        },
+        {
+          "tick": 603,
+          "id": "WD08"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "andrius",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 17.71666666666674,
+      "hpRemaining": 0,
+      "partyHp": [
+        112407,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "P1"
+        },
+        {
+          "tick": 343,
+          "id": "INTERLUDE"
+        },
+        {
+          "tick": 966,
+          "id": "P2"
+        },
+        {
+          "tick": 1063,
+          "id": "finished"
+        }
+      ],
+      "hits": 64,
+      "ticks": 1063,
+      "node": "andrius-wolf-ring",
+      "status": "clear",
+      "events": [],
+      "maxHp": 6800000,
+      "damage": 6800000,
+      "moves": [
+        {
+          "tick": 49,
+          "id": "WA01"
+        },
+        {
+          "tick": 187,
+          "id": "WA02"
+        },
+        {
+          "tick": 343,
+          "id": "WA06"
+        },
+        {
+          "tick": 967,
+          "id": "WA07"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "childe",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 7.633333333333508,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 157,
+          "id": 2
+        },
+        {
+          "tick": 397,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 458,
+      "node": "childe-golden-house-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 38,
+          "id": "childe:WC14"
+        }
+      ],
+      "maxHp": 960,
+      "damage": 960,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "azhdaha",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 27.83333333333291,
+      "hpRemaining": 0,
+      "partyHp": [
+        112261,
+        118698
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 984,
+          "id": 2
+        },
+        {
+          "tick": 1525,
+          "id": 3
+        }
+      ],
+      "hits": 102,
+      "ticks": 1670,
+      "node": "azhdaha-dragon-seal-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 48,
+          "id": "azhdaha:WZ01"
+        },
+        {
+          "tick": 90,
+          "id": "azhdaha:WZ01:lock"
+        },
+        {
+          "tick": 178,
+          "id": "azhdaha:WZ01:hit:geo"
+        },
+        {
+          "tick": 288,
+          "id": "azhdaha:WZ02"
+        },
+        {
+          "tick": 336,
+          "id": "azhdaha:WZ02:lock"
+        },
+        {
+          "tick": 372,
+          "id": "azhdaha:WZ02:hit:geo"
+        },
+        {
+          "tick": 588,
+          "id": "azhdaha:WZ09"
+        },
+        {
+          "tick": 648,
+          "id": "azhdaha:WZ09:lock"
+        },
+        {
+          "tick": 678,
+          "id": "azhdaha:WZ09:hit:geo"
+        }
+      ],
+      "maxHp": 12000000,
+      "damage": 12000000,
+      "moves": [
+        {
+          "tick": 48,
+          "id": "WZ01"
+        },
+        {
+          "tick": 288,
+          "id": "WZ02"
+        },
+        {
+          "tick": 588,
+          "id": "WZ09"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "signora",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 65.03333333333072,
+      "hpRemaining": 0,
+      "partyHp": [
+        112363,
+        118840
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "cryo"
+        },
+        {
+          "tick": 38,
+          "id": "seal"
+        },
+        {
+          "tick": 3722,
+          "id": "transform"
+        },
+        {
+          "tick": 3901,
+          "id": "pyro"
+        }
+      ],
+      "hits": 2,
+      "ticks": 3902,
+      "node": "signora-ten-shrine-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 38,
+          "id": "signora:WS08"
+        },
+        {
+          "tick": 158,
+          "id": "signora:seal-hit"
+        },
+        {
+          "tick": 337,
+          "id": "signora:WS08:hit"
+        },
+        {
+          "tick": 2103,
+          "id": "signora:temperature-damage"
+        },
+        {
+          "tick": 3722,
+          "id": "signora:WS09"
+        }
+      ],
+      "maxHp": 1280,
+      "damage": 1280,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "raiden",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 53.44999999999796,
+      "hpRemaining": 0,
+      "partyHp": [
+        112367,
+        118883
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "normal"
+        },
+        {
+          "tick": 917,
+          "id": "switch"
+        },
+        {
+          "tick": 2694,
+          "id": "awaken"
+        },
+        {
+          "tick": 2874,
+          "id": "armored"
+        }
+      ],
+      "hits": 286,
+      "ticks": 3207,
+      "node": "raiden-thunder-echo-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 42,
+          "id": "raiden:WR01"
+        },
+        {
+          "tick": 78,
+          "id": "raiden:WR01:lock"
+        },
+        {
+          "tick": 138,
+          "id": "raiden:WR01:hit"
+        },
+        {
+          "tick": 306,
+          "id": "raiden:WR02"
+        },
+        {
+          "tick": 360,
+          "id": "raiden:WR02:lock"
+        },
+        {
+          "tick": 426,
+          "id": "raiden:WR02:hit"
+        },
+        {
+          "tick": 630,
+          "id": "raiden:WR05"
+        },
+        {
+          "tick": 690,
+          "id": "raiden:WR05:lock"
+        },
+        {
+          "tick": 701,
+          "id": "raiden:WR05:hit"
+        },
+        {
+          "tick": 809,
+          "id": "raiden:WR05:down"
+        },
+        {
+          "tick": 917,
+          "id": "raiden:WR08"
+        },
+        {
+          "tick": 965,
+          "id": "raiden:WR03"
+        },
+        {
+          "tick": 995,
+          "id": "raiden:WR03:lock"
+        },
+        {
+          "tick": 1211,
+          "id": "raiden:WR04"
+        },
+        {
+          "tick": 1253,
+          "id": "raiden:WR04:lock"
+        },
+        {
+          "tick": 1301,
+          "id": "raiden:WR04:hit"
+        },
+        {
+          "tick": 1547,
+          "id": "raiden:WR06"
+        },
+        {
+          "tick": 1607,
+          "id": "raiden:WR06:lock"
+        },
+        {
+          "tick": 1681,
+          "id": "raiden:WR06:choice"
+        },
+        {
+          "tick": 1727,
+          "id": "raiden:WR06:hit"
+        },
+        {
+          "tick": 1901,
+          "id": "raiden:WR06:down"
+        },
+        {
+          "tick": 2333,
+          "id": "raiden:WR07"
+        },
+        {
+          "tick": 2393,
+          "id": "raiden:WR07:lock"
+        },
+        {
+          "tick": 2561,
+          "id": "raiden:WR07:hit"
+        },
+        {
+          "tick": 2694,
+          "id": "raiden:WR09"
+        },
+        {
+          "tick": 2875,
+          "id": "raiden:WR18:hit"
+        },
+        {
+          "tick": 2898,
+          "id": "raiden:WR10"
+        },
+        {
+          "tick": 2952,
+          "id": "raiden:WR10:lock"
+        }
+      ],
+      "maxHp": 34000000,
+      "damage": 34000000,
+      "moves": [
+        {
+          "tick": 42,
+          "id": "WR01"
+        },
+        {
+          "tick": 306,
+          "id": "WR02"
+        },
+        {
+          "tick": 630,
+          "id": "WR05"
+        },
+        {
+          "tick": 965,
+          "id": "WR03"
+        },
+        {
+          "tick": 1211,
+          "id": "WR04"
+        },
+        {
+          "tick": 1547,
+          "id": "WR06"
+        },
+        {
+          "tick": 2333,
+          "id": "WR07"
+        },
+        {
+          "tick": 2898,
+          "id": "WR10"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "shouki",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 63.13333333333083,
+      "hpRemaining": 0,
+      "partyHp": [
+        112311,
+        118811
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "p1"
+        },
+        {
+          "tick": 22,
+          "id": "rise"
+        },
+        {
+          "tick": 261,
+          "id": "p2"
+        },
+        {
+          "tick": 1987,
+          "id": "trial"
+        },
+        {
+          "tick": 3427,
+          "id": "failure"
+        }
+      ],
+      "hits": 2,
+      "ticks": 3788,
+      "node": "shouki-godmaking-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 22,
+          "id": "shouki:WN08"
+        },
+        {
+          "tick": 261,
+          "id": "shouki:WN18:supply"
+        },
+        {
+          "tick": 262,
+          "id": "shouki:WN18:guard-hit"
+        },
+        {
+          "tick": 285,
+          "id": "shouki:WN09"
+        },
+        {
+          "tick": 327,
+          "id": "shouki:WN09:lock"
+        },
+        {
+          "tick": 381,
+          "id": "shouki:WN18:auto"
+        },
+        {
+          "tick": 387,
+          "id": "shouki:WN09:hit"
+        },
+        {
+          "tick": 609,
+          "id": "shouki:WN10"
+        },
+        {
+          "tick": 657,
+          "id": "shouki:WN10:lock"
+        },
+        {
+          "tick": 693,
+          "id": "shouki:WN10:launch"
+        },
+        {
+          "tick": 963,
+          "id": "shouki:WN11"
+        },
+        {
+          "tick": 1023,
+          "id": "shouki:WN11:lock"
+        },
+        {
+          "tick": 1143,
+          "id": "shouki:WN11:hit"
+        },
+        {
+          "tick": 1234,
+          "id": "shouki:WN18:floor-hit"
+        },
+        {
+          "tick": 1407,
+          "id": "shouki:WN12"
+        },
+        {
+          "tick": 1455,
+          "id": "shouki:WN12:lock"
+        },
+        {
+          "tick": 1575,
+          "id": "shouki:WN18:collected"
+        },
+        {
+          "tick": 1731,
+          "id": "shouki:WN13"
+        },
+        {
+          "tick": 1791,
+          "id": "shouki:WN13:lock"
+        },
+        {
+          "tick": 1947,
+          "id": "shouki:WN13:hit"
+        },
+        {
+          "tick": 1987,
+          "id": "shouki:WN15"
+        },
+        {
+          "tick": 2084,
+          "id": "shouki:WN15:hit"
+        },
+        {
+          "tick": 2192,
+          "id": "shouki:WN15:destroyed"
+        },
+        {
+          "tick": 3427,
+          "id": "shouki:WN16"
+        },
+        {
+          "tick": 3607,
+          "id": "shouki:WN16:hit"
+        }
+      ],
+      "maxHp": 1630,
+      "damage": 1630,
+      "moves": [
+        {
+          "tick": 285,
+          "id": "WN09"
+        },
+        {
+          "tick": 609,
+          "id": "WN10"
+        },
+        {
+          "tick": 963,
+          "id": "WN11"
+        },
+        {
+          "tick": 1407,
+          "id": "WN12"
+        },
+        {
+          "tick": 1731,
+          "id": "WN13"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "apep",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 23.816666666666436,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "dark"
+        },
+        {
+          "tick": 27,
+          "id": "expose"
+        },
+        {
+          "tick": 206,
+          "id": "defense"
+        },
+        {
+          "tick": 1218,
+          "id": "rebirth"
+        },
+        {
+          "tick": 1428,
+          "id": "prime"
+        }
+      ],
+      "hits": 16,
+      "ticks": 1429,
+      "node": "apep-oasis-heart-arena",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 27,
+          "id": "apep:WP05"
+        },
+        {
+          "tick": 206,
+          "id": "apep:WP06"
+        },
+        {
+          "tick": 206,
+          "id": "apep:WP06:queue"
+        },
+        {
+          "tick": 266,
+          "id": "apep:WP06:spawn:melee"
+        },
+        {
+          "tick": 266,
+          "id": "apep:WP06:spawn:ranged"
+        },
+        {
+          "tick": 266,
+          "id": "apep:WP06:progress"
+        },
+        {
+          "tick": 276,
+          "id": "apep:WP06:defeated"
+        },
+        {
+          "tick": 566,
+          "id": "apep:WP06:spawn:warden"
+        },
+        {
+          "tick": 866,
+          "id": "apep:WP06:spawn:breeder"
+        },
+        {
+          "tick": 1166,
+          "id": "apep:WP06:spawn:barrier"
+        },
+        {
+          "tick": 1166,
+          "id": "apep:WP06:spawn:eater"
+        },
+        {
+          "tick": 1205,
+          "id": "apep:WP09"
+        },
+        {
+          "tick": 1218,
+          "id": "apep:WP13"
+        }
+      ],
+      "maxHp": 1580,
+      "damage": 2120,
+      "moves": [],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "narwhal",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 23.149999999999828,
+      "hpRemaining": 0,
+      "partyHp": [
+        112452,
+        118901
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        },
+        {
+          "tick": 600,
+          "id": "swallow"
+        },
+        {
+          "tick": 780,
+          "id": "inner"
+        },
+        {
+          "tick": 781,
+          "id": "expel"
+        },
+        {
+          "tick": 960,
+          "id": "weak"
+        }
+      ],
+      "hits": 107,
+      "ticks": 1389,
+      "node": "narwhal-star-sea",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "narwhal:WV06:hit"
+        },
+        {
+          "tick": 42,
+          "id": "narwhal:WV01"
+        },
+        {
+          "tick": 96,
+          "id": "narwhal:WV01:lock"
+        },
+        {
+          "tick": 150,
+          "id": "narwhal:WV01:hit"
+        },
+        {
+          "tick": 426,
+          "id": "narwhal:WV05"
+        },
+        {
+          "tick": 496,
+          "id": "narwhal:WV05:eye-hit"
+        },
+        {
+          "tick": 550,
+          "id": "narwhal:WV05:broken"
+        },
+        {
+          "tick": 600,
+          "id": "narwhal:WV07"
+        },
+        {
+          "tick": 600,
+          "id": "narwhal:WV06:reserve"
+        },
+        {
+          "tick": 696,
+          "id": "narwhal:WV16:scene"
+        },
+        {
+          "tick": 781,
+          "id": "narwhal:WV14"
+        },
+        {
+          "tick": 900,
+          "id": "narwhal:WV14:return-loss"
+        },
+        {
+          "tick": 960,
+          "id": "narwhal:WV15"
+        }
+      ],
+      "maxHp": 16000000,
+      "damage": 12800760,
+      "moves": [
+        {
+          "tick": 42,
+          "id": "WV01"
+        },
+        {
+          "tick": 426,
+          "id": "WV05"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "knave",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 4.866666666666655,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 195,
+          "id": 2
+        }
+      ],
+      "hits": 2,
+      "ticks": 292,
+      "node": "knave-crimson-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 52,
+          "id": "knave:WK11"
+        }
+      ],
+      "maxHp": 2400,
+      "damage": 2400,
+      "moves": [
+        {
+          "tick": 52,
+          "id": "WK11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "primal_fire",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 23.68333333333322,
+      "hpRemaining": 0,
+      "partyHp": [
+        109008,
+        115296
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 704,
+          "id": 2
+        }
+      ],
+      "hits": 160,
+      "ticks": 1421,
+      "node": "primal-fire-sundered-forge",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 49,
+          "id": "primal:WG01"
+        },
+        {
+          "tick": 140,
+          "id": "primal:WG01:hit"
+        },
+        {
+          "tick": 140,
+          "id": "primal:WG18:mark"
+        },
+        {
+          "tick": 211,
+          "id": "primal:WG18:ground"
+        },
+        {
+          "tick": 260,
+          "id": "primal:WG18:resolve"
+        },
+        {
+          "tick": 404,
+          "id": "primal:WG08"
+        },
+        {
+          "tick": 542,
+          "id": "primal:WG08:hit"
+        },
+        {
+          "tick": 704,
+          "id": "primal:WG08:commit"
+        },
+        {
+          "tick": 789,
+          "id": "primal:WG09"
+        },
+        {
+          "tick": 1005,
+          "id": "primal:WG09:commit"
+        },
+        {
+          "tick": 1174,
+          "id": "primal:WG10"
+        }
+      ],
+      "maxHp": 19000000,
+      "damage": 19000000,
+      "moves": [
+        {
+          "tick": 49,
+          "id": "WG01"
+        },
+        {
+          "tick": 404,
+          "id": "WG08"
+        },
+        {
+          "tick": 789,
+          "id": "WG09"
+        },
+        {
+          "tick": 1174,
+          "id": "WG10"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "game_before_gate",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 26.23333333333305,
+      "hpRemaining": 0,
+      "partyHp": [
+        112420,
+        118886
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "king"
+        },
+        {
+          "tick": 1264,
+          "id": "queen"
+        },
+        {
+          "tick": 1282,
+          "id": "finish"
+        },
+        {
+          "tick": 1485,
+          "id": "royal"
+        }
+      ],
+      "hits": 5,
+      "ticks": 1574,
+      "node": "mond-gate-chess-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 25,
+          "id": "gate:WT03"
+        },
+        {
+          "tick": 26,
+          "id": "gate:WT04"
+        },
+        {
+          "tick": 98,
+          "id": "gate:WT04:lock"
+        },
+        {
+          "tick": 164,
+          "id": "gate:WT04:pawn"
+        },
+        {
+          "tick": 292,
+          "id": "gate:WT03:hurt"
+        },
+        {
+          "tick": 761,
+          "id": "gate:WT18"
+        },
+        {
+          "tick": 1264,
+          "id": "gate:phase:queen"
+        },
+        {
+          "tick": 1282,
+          "id": "gate:phase:finish"
+        },
+        {
+          "tick": 1293,
+          "id": "gate:WT09"
+        },
+        {
+          "tick": 1485,
+          "id": "gate:WT09:pair"
+        },
+        {
+          "tick": 1538,
+          "id": "gate:WT19"
+        }
+      ],
+      "maxHp": 3620,
+      "damage": 3620,
+      "moves": [
+        {
+          "tick": 25,
+          "id": "WT03"
+        },
+        {
+          "tick": 761,
+          "id": "WT18"
+        },
+        {
+          "tick": 1293,
+          "id": "WT09"
+        },
+        {
+          "tick": 1538,
+          "id": "WT19"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "false_moon",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 30.88333333333285,
+      "hpRemaining": 0,
+      "partyHp": [
+        112337,
+        118892
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        },
+        {
+          "tick": 1377,
+          "id": "entering"
+        },
+        {
+          "tick": 1557,
+          "id": "inner"
+        },
+        {
+          "tick": 1634,
+          "id": "returning"
+        }
+      ],
+      "hits": 136,
+      "ticks": 1853,
+      "node": "nod-false-moon-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 37,
+          "id": "false-moon:WM09"
+        },
+        {
+          "tick": 457,
+          "id": "false-moon:WM09:success"
+        },
+        {
+          "tick": 662,
+          "id": "false-moon:WM08"
+        },
+        {
+          "tick": 1022,
+          "id": "false-moon:WM08:ward"
+        },
+        {
+          "tick": 1022,
+          "id": "false-moon:WM08:hit"
+        },
+        {
+          "tick": 1167,
+          "id": "false-moon:WM13"
+        },
+        {
+          "tick": 1288,
+          "id": "false-moon:WM13:confirm"
+        },
+        {
+          "tick": 1347,
+          "id": "false-moon:WM13:hit"
+        },
+        {
+          "tick": 1377,
+          "id": "false-moon:WM14"
+        },
+        {
+          "tick": 1467,
+          "id": "false-moon:WM18:scene"
+        },
+        {
+          "tick": 1557,
+          "id": "false-moon:WM15"
+        },
+        {
+          "tick": 1558,
+          "id": "false-moon:WM15:shadow"
+        },
+        {
+          "tick": 1634,
+          "id": "false-moon:WM16"
+        },
+        {
+          "tick": 1730,
+          "id": "false-moon:WM16:loss"
+        }
+      ],
+      "maxHp": 18000000,
+      "damage": 18000990,
+      "moves": [
+        {
+          "tick": 37,
+          "id": "WM09"
+        },
+        {
+          "tick": 662,
+          "id": "WM08"
+        },
+        {
+          "tick": 1167,
+          "id": "WM13"
+        },
+        {
+          "tick": 1377,
+          "id": "WM14"
+        },
+        {
+          "tick": 1557,
+          "id": "WM15"
+        },
+        {
+          "tick": 1634,
+          "id": "WM16"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "heretic",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 4.183333333333323,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "1/p1"
+        },
+        {
+          "tick": 10,
+          "id": "1/changing"
+        },
+        {
+          "tick": 190,
+          "id": "2/changing"
+        },
+        {
+          "tick": 250,
+          "id": "2/p2"
+        }
+      ],
+      "hits": 2,
+      "ticks": 251,
+      "node": "sumeru-heretic-lattice",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 10,
+          "id": "heretic:WH10"
+        },
+        {
+          "tick": 250,
+          "id": "heretic:WH11"
+        }
+      ],
+      "maxHp": 3900,
+      "damage": 3900,
+      "moves": [
+        {
+          "tick": 10,
+          "id": "WH10"
+        },
+        {
+          "tick": 250,
+          "id": "WH11"
+        }
+      ],
+      "award": {
+        "first": true,
+        "xp": 32560274,
+        "mora": 3590160
+      }
+    },
+    {
+      "level": 200,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 1.6999999999999962,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": "intro"
+        },
+        {
+          "tick": 75,
+          "id": "approach"
+        },
+        {
+          "tick": 76,
+          "id": "guard"
+        },
+        {
+          "tick": 77,
+          "id": "tell"
+        }
+      ],
+      "hits": 1,
+      "ticks": 102,
+      "node": "liyue-stygian-deck",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 76,
+          "id": "stygian:beidou:guard"
+        },
+        {
+          "tick": 77,
+          "id": "stygian:beidou:tell:baited"
+        },
+        {
+          "tick": 77,
+          "id": "stygian:beidou:baited"
+        }
+      ],
+      "maxHp": 2860,
+      "damage": 2860,
+      "moves": [
+        {
+          "tick": 77,
+          "id": "baited"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 30937308,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 6100
+      }
+    },
+    {
+      "level": 200,
+      "name": "capitano",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 8.816666666666801,
+      "hpRemaining": 0,
+      "partyHp": [
+        112435,
+        118841
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 192,
+          "id": 2
+        },
+        {
+          "tick": 438,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 529,
+      "node": "sne-stygian-frost-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 60,
+          "id": "stygian:capitano:coat-off"
+        },
+        {
+          "tick": 120,
+          "id": "stygian:capitano:CP01"
+        },
+        {
+          "tick": 132,
+          "id": "stygian:capitano:CP01:lock"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:capitano:CP01:contact"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:capitano:CP01:window"
+        },
+        {
+          "tick": 192,
+          "id": "stygian:capitano:phase"
+        },
+        {
+          "tick": 282,
+          "id": "stygian:capitano:CP05"
+        },
+        {
+          "tick": 300,
+          "id": "stygian:capitano:CP05:lock"
+        },
+        {
+          "tick": 336,
+          "id": "stygian:capitano:CP05:contact"
+        },
+        {
+          "tick": 336,
+          "id": "stygian:capitano:CP05:window"
+        },
+        {
+          "tick": 528,
+          "id": "stygian:capitano:CP09"
+        }
+      ],
+      "maxHp": 5400,
+      "damage": 5400,
+      "moves": [
+        {
+          "tick": 120,
+          "id": "CP01"
+        },
+        {
+          "tick": 282,
+          "id": "CP05"
+        },
+        {
+          "tick": 528,
+          "id": "CP09"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 107189496,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 9200
+      }
+    },
+    {
+      "level": 200,
+      "name": "xbalanque",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 7.816666666666752,
+      "hpRemaining": 0,
+      "partyHp": [
+        112386,
+        118835
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 186,
+          "id": 2
+        },
+        {
+          "tick": 378,
+          "id": 3
+        }
+      ],
+      "hits": 3,
+      "ticks": 469,
+      "node": "natlan-solar-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 120,
+          "id": "stygian:xbalanque:XB01"
+        },
+        {
+          "tick": 132,
+          "id": "stygian:xbalanque:XB01:lock"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:xbalanque:XB01:contact"
+        },
+        {
+          "tick": 156,
+          "id": "stygian:xbalanque:XB01:window"
+        },
+        {
+          "tick": 186,
+          "id": "stygian:xbalanque:phase"
+        },
+        {
+          "tick": 276,
+          "id": "stygian:xbalanque:XB05"
+        },
+        {
+          "tick": 294,
+          "id": "stygian:xbalanque:XB05:lock"
+        },
+        {
+          "tick": 360,
+          "id": "stygian:xbalanque:XB05:contact"
+        },
+        {
+          "tick": 360,
+          "id": "stygian:xbalanque:XB05:window"
+        },
+        {
+          "tick": 468,
+          "id": "stygian:xbalanque:XB06"
+        }
+      ],
+      "maxHp": 4480,
+      "damage": 4480,
+      "moves": [
+        {
+          "tick": 120,
+          "id": "XB01"
+        },
+        {
+          "tick": 276,
+          "id": "XB05"
+        },
+        {
+          "tick": 468,
+          "id": "XB06"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 76177563,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 7950
+      }
+    },
+    {
+      "level": 200,
+      "name": "rerir",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 13.200000000000378,
+      "hpRemaining": 0,
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 695,
+          "id": 2
+        }
+      ],
+      "hits": 4,
+      "ticks": 792,
+      "node": "nod-stygian-hunt",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 71,
+          "id": "stygian:rerir:fog-entry"
+        },
+        {
+          "tick": 143,
+          "id": "stygian:rerir:RR05:start"
+        },
+        {
+          "tick": 191,
+          "id": "stygian:rerir:RR05:lock"
+        },
+        {
+          "tick": 228,
+          "id": "stygian:rerir:RR05:lamp"
+        },
+        {
+          "tick": 239,
+          "id": "stygian:rerir:RR05:exposed"
+        },
+        {
+          "tick": 605,
+          "id": "stygian:rerir:fog-done"
+        },
+        {
+          "tick": 606,
+          "id": "stygian:rerir:act-one-ended"
+        },
+        {
+          "tick": 695,
+          "id": "stygian:rerir:act-two"
+        },
+        {
+          "tick": 695,
+          "id": "stygian:rerir:RR12:start"
+        }
+      ],
+      "maxHp": 6480,
+      "damage": 11980,
+      "moves": [
+        {
+          "tick": 143,
+          "id": "RR05"
+        },
+        {
+          "tick": 695,
+          "id": "RR12"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 97224086,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 61700
+      }
+    },
+    {
+      "level": 200,
+      "name": "ronova",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 95.08333333332898,
+      "hpRemaining": 0,
+      "partyHp": [
+        112350,
+        0
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 1316,
+          "id": 2
+        },
+        {
+          "tick": 3198,
+          "id": 3
+        },
+        {
+          "tick": 4760,
+          "id": 4
+        }
+      ],
+      "hits": 5,
+      "ticks": 5705,
+      "node": "sne-stygian-last-gate",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 92,
+          "id": "stygian:ronova:RN01:start"
+        },
+        {
+          "tick": 116,
+          "id": "stygian:ronova:RN01:lock"
+        },
+        {
+          "tick": 152,
+          "id": "stygian:ronova:RN01:launch"
+        },
+        {
+          "tick": 152,
+          "id": "stygian:ronova:RN01:window"
+        },
+        {
+          "tick": 328,
+          "id": "stygian:ronova:RN02:start"
+        },
+        {
+          "tick": 352,
+          "id": "stygian:ronova:RN02:lock"
+        },
+        {
+          "tick": 394,
+          "id": "stygian:ronova:RN02:launch"
+        },
+        {
+          "tick": 394,
+          "id": "stygian:ronova:RN02:window"
+        },
+        {
+          "tick": 401,
+          "id": "stygian:ronova:life-loss"
+        },
+        {
+          "tick": 588,
+          "id": "stygian:ronova:RN03:start"
+        },
+        {
+          "tick": 612,
+          "id": "stygian:ronova:RN03:lock"
+        },
+        {
+          "tick": 654,
+          "id": "stygian:ronova:RN03:shadows"
+        },
+        {
+          "tick": 1316,
+          "id": "stygian:ronova:phase"
+        },
+        {
+          "tick": 1384,
+          "id": "stygian:ronova:RN04:start"
+        },
+        {
+          "tick": 1420,
+          "id": "stygian:ronova:RN04:lock"
+        },
+        {
+          "tick": 1468,
+          "id": "stygian:ronova:RN04:window"
+        },
+        {
+          "tick": 1608,
+          "id": "stygian:ronova:RN05:start"
+        },
+        {
+          "tick": 1692,
+          "id": "stygian:ronova:RN05:lock"
+        },
+        {
+          "tick": 1740,
+          "id": "stygian:ronova:authority_lethal"
+        },
+        {
+          "tick": 1740,
+          "id": "stygian:ronova:RN05:window"
+        },
+        {
+          "tick": 1886,
+          "id": "stygian:ronova:RN06:start"
+        },
+        {
+          "tick": 1916,
+          "id": "stygian:ronova:RN06:lock"
+        },
+        {
+          "tick": 1946,
+          "id": "stygian:ronova:RN06:shadows"
+        },
+        {
+          "tick": 2594,
+          "id": "stygian:ronova:lamp-spent"
+        },
+        {
+          "tick": 2594,
+          "id": "stygian:ronova:RN06:window"
+        },
+        {
+          "tick": 2714,
+          "id": "stygian:ronova:returned"
+        },
+        {
+          "tick": 2727,
+          "id": "stygian:ronova:protection-ended"
+        },
+        {
+          "tick": 2884,
+          "id": "stygian:ronova:RN10:start"
+        },
+        {
+          "tick": 2902,
+          "id": "stygian:ronova:RN10:lock"
+        },
+        {
+          "tick": 2938,
+          "id": "stygian:ronova:RN10:launch"
+        },
+        {
+          "tick": 2938,
+          "id": "stygian:ronova:RN10:window"
+        },
+        {
+          "tick": 3266,
+          "id": "stygian:ronova:RN07:start"
+        },
+        {
+          "tick": 3290,
+          "id": "stygian:ronova:RN07:lock"
+        },
+        {
+          "tick": 3338,
+          "id": "stygian:ronova:RN07:window"
+        },
+        {
+          "tick": 3610,
+          "id": "stygian:ronova:RN11:start"
+        },
+        {
+          "tick": 3634,
+          "id": "stygian:ronova:RN11:lock"
+        },
+        {
+          "tick": 3682,
+          "id": "stygian:ronova:RN11:window"
+        },
+        {
+          "tick": 3834,
+          "id": "stygian:ronova:RN12:start"
+        },
+        {
+          "tick": 3864,
+          "id": "stygian:ronova:RN12:lock"
+        },
+        {
+          "tick": 4524,
+          "id": "stygian:ronova:RN12:window"
+        },
+        {
+          "tick": 4554,
+          "id": "stygian:ronova:RN09:pose"
+        },
+        {
+          "tick": 4828,
+          "id": "stygian:ronova:RN08:start"
+        },
+        {
+          "tick": 4888,
+          "id": "stygian:ronova:RN08:lock"
+        },
+        {
+          "tick": 4948,
+          "id": "stygian:ronova:RN08:launch"
+        },
+        {
+          "tick": 4948,
+          "id": "stygian:ronova:RN08:window"
+        },
+        {
+          "tick": 5068,
+          "id": "stygian:ronova:RN08:shadows"
+        }
+      ],
+      "maxHp": 12300,
+      "damage": 12300,
+      "moves": [
+        {
+          "tick": 92,
+          "id": "RN01"
+        },
+        {
+          "tick": 328,
+          "id": "RN02"
+        },
+        {
+          "tick": 588,
+          "id": "RN03"
+        },
+        {
+          "tick": 1384,
+          "id": "RN04"
+        },
+        {
+          "tick": 1608,
+          "id": "RN05"
+        },
+        {
+          "tick": 1886,
+          "id": "RN06"
+        },
+        {
+          "tick": 2884,
+          "id": "RN10"
+        },
+        {
+          "tick": 3266,
+          "id": "RN07"
+        },
+        {
+          "tick": 3610,
+          "id": "RN11"
+        },
+        {
+          "tick": 3834,
+          "id": "RN12"
+        },
+        {
+          "tick": 4828,
+          "id": "RN08"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 130289518,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 148300
+      }
+    },
+    {
+      "level": 200,
+      "name": "wanderer",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 31.916666666666064,
+      "hpRemaining": 0,
+      "partyHp": [
+        112283,
+        118820
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 598,
+          "id": 2
+        },
+        {
+          "tick": 1228,
+          "id": 3
+        }
+      ],
+      "hits": 4,
+      "ticks": 1915,
+      "node": "sumeru-stygian-windcourt",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 84,
+          "id": "stygian:wanderer:WD01:start"
+        },
+        {
+          "tick": 106,
+          "id": "stygian:wanderer:WD01:lock"
+        },
+        {
+          "tick": 136,
+          "id": "stygian:wanderer:WD01:contact"
+        },
+        {
+          "tick": 136,
+          "id": "stygian:wanderer:WD01:window"
+        },
+        {
+          "tick": 323,
+          "id": "stygian:wanderer:WD02:start"
+        },
+        {
+          "tick": 353,
+          "id": "stygian:wanderer:WD02:lock"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:wanderer:WD02:window"
+        },
+        {
+          "tick": 598,
+          "id": "stygian:wanderer:phase"
+        },
+        {
+          "tick": 666,
+          "id": "stygian:wanderer:WD03:start"
+        },
+        {
+          "tick": 702,
+          "id": "stygian:wanderer:WD03:lock"
+        },
+        {
+          "tick": 1095,
+          "id": "stygian:wanderer:WD03:contact"
+        },
+        {
+          "tick": 1095,
+          "id": "stygian:wanderer:WD03:window"
+        },
+        {
+          "tick": 1296,
+          "id": "stygian:wanderer:WD06:start"
+        },
+        {
+          "tick": 1336,
+          "id": "stygian:wanderer:WD06:lock"
+        },
+        {
+          "tick": 1370,
+          "id": "stygian:wanderer:WD06:contact"
+        },
+        {
+          "tick": 1370,
+          "id": "stygian:wanderer:WD06:window"
+        },
+        {
+          "tick": 1734,
+          "id": "stygian:wanderer:WD06:gate"
+        }
+      ],
+      "maxHp": 4850,
+      "damage": 4850,
+      "moves": [
+        {
+          "tick": 84,
+          "id": "WD01"
+        },
+        {
+          "tick": 323,
+          "id": "WD02"
+        },
+        {
+          "tick": 666,
+          "id": "WD03"
+        },
+        {
+          "tick": 1296,
+          "id": "WD06"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 24723908,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 39200
+      }
+    },
+    {
+      "level": 200,
+      "name": "farka",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 31.799999999999443,
+      "hpRemaining": 0,
+      "partyHp": [
+        112259,
+        118920
+      ],
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 595,
+          "id": 2
+        },
+        {
+          "tick": 1086,
+          "id": 3
+        }
+      ],
+      "hits": 4,
+      "ticks": 1908,
+      "node": "mond-stygian-dual-court",
+      "status": "clear",
+      "events": [
+        {
+          "tick": 92,
+          "id": "stygian:farka:FK01"
+        },
+        {
+          "tick": 116,
+          "id": "stygian:farka:FK01:lock"
+        },
+        {
+          "tick": 140,
+          "id": "stygian:farka:FK01:contact"
+        },
+        {
+          "tick": 140,
+          "id": "stygian:farka:FK01:window"
+        },
+        {
+          "tick": 316,
+          "id": "stygian:farka:FK02"
+        },
+        {
+          "tick": 340,
+          "id": "stygian:farka:FK02:lock"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:farka:FK02:contact"
+        },
+        {
+          "tick": 406,
+          "id": "stygian:farka:FK02:window"
+        },
+        {
+          "tick": 424,
+          "id": "stygian:farka:FK02:infuse"
+        },
+        {
+          "tick": 522,
+          "id": "stygian:farka:FK06"
+        },
+        {
+          "tick": 595,
+          "id": "stygian:farka:phase"
+        },
+        {
+          "tick": 705,
+          "id": "stygian:farka:FK03"
+        },
+        {
+          "tick": 735,
+          "id": "stygian:farka:FK03:lock"
+        },
+        {
+          "tick": 807,
+          "id": "stygian:farka:FK03:contact"
+        },
+        {
+          "tick": 807,
+          "id": "stygian:farka:FK03:window"
+        },
+        {
+          "tick": 929,
+          "id": "stygian:farka:FK04"
+        },
+        {
+          "tick": 947,
+          "id": "stygian:farka:FK04:lock"
+        },
+        {
+          "tick": 983,
+          "id": "stygian:farka:FK04:window"
+        },
+        {
+          "tick": 1196,
+          "id": "stygian:farka:FK05"
+        },
+        {
+          "tick": 1238,
+          "id": "stygian:farka:FK05:lock"
+        },
+        {
+          "tick": 1301,
+          "id": "stygian:farka:FK05:contact"
+        },
+        {
+          "tick": 1301,
+          "id": "stygian:farka:FK05:window"
+        },
+        {
+          "tick": 1516,
+          "id": "stygian:farka:FK07:B"
+        },
+        {
+          "tick": 1720,
+          "id": "stygian:farka:FK05:child"
+        }
+      ],
+      "maxHp": 5520,
+      "damage": 5520,
+      "moves": [
+        {
+          "tick": 92,
+          "id": "FK01"
+        },
+        {
+          "tick": 316,
+          "id": "FK02"
+        },
+        {
+          "tick": 522,
+          "id": "FK06"
+        },
+        {
+          "tick": 705,
+          "id": "FK03"
+        },
+        {
+          "tick": 929,
+          "id": "FK04"
+        },
+        {
+          "tick": 1196,
+          "id": "FK05"
+        },
+        {
+          "tick": 1516,
+          "id": "FK07"
+        }
+      ],
+      "award": {
+        "set": "黄金の劇団",
+        "xp": 18258666,
+        "rank": 5,
+        "first": true,
+        "bag": true,
+        "mora": 51300
+      }
+    }
+  ]
+}

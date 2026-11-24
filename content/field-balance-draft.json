@@ -11,6 +11,10 @@
   },
   "weeklyBossHp": {
     "boss-29020101": { "advanced": 5000000, "expert": 6800000 },
-    "boss-29040101": { "advanced": 9100000, "expert": 12000000 }
+    "boss-29040101": { "advanced": 9100000, "expert": 12000000 },
+    "boss-29060201": { "advanced": 3000000, "expert": 34000000 },
+    "boss-29090101": { "advanced": 5500000, "expert": 16000000 },
+    "boss-29091101": { "advanced": 4500000, "expert": 19000000 },
+    "boss-29130201": { "advanced": 3300000, "expert": 18000000 }
   }
 }

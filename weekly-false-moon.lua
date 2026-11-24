@@ -77,7 +77,7 @@ return function(C,M)
   else
    e.hp=e.hp-amount
    local m=spec.moves.WM17
-   if e==w.primary and not w.rewindUsed and not w.rewindLoss and amount>=spec.hp*m.trigger_loss_fraction then
+   if e==w.primary and not w.rewindUsed and not w.rewindLoss and amount>=e.maxhp*m.trigger_loss_fraction then
     w.rewindLoss=amount;log(s,w,'WM17:reserve',cast.id,amount)
    end
    if C.afterElementHit then C.afterElementHit(s,cast,e,cast.applicationElement or element,element,amount) end
@@ -291,7 +291,7 @@ return function(C,M)
  local function settle(s,w,spec)
   if w.paidCycle==w.cycle then return end
   w.paidCycle=w.cycle
-  local n=math.min(w.primary.hp,w.budget,w.innerCount*math.floor(spec.hp*spec.moves.WM15.per_kill_main_maxhp_fraction))
+  local n=math.min(w.primary.hp,w.budget,w.innerCount*math.floor(w.primary.maxhp*spec.moves.WM15.per_kill_main_maxhp_fraction))
   w.budget=w.budget-n
   forParties(s,w,function(party)
    local id=w.shadowContributors[party]
@@ -348,7 +348,7 @@ return function(C,M)
   elseif scheduled[c.key] then M.tick(s,w,spec,c)
   elseif c.key=='WM17' and c.t==c.move.heal_tick then
    local e=w.primary
-   local n=math.min(math.floor(c.rewindLoss*c.move.loss_refund_fraction),math.floor(spec.hp*c.move.max_heal_fraction),e.maxhp-e.hp)
+   local n=math.min(math.floor(c.rewindLoss*c.move.loss_refund_fraction),math.floor(e.maxhp*c.move.max_heal_fraction),e.maxhp-e.hp)
    if e.hp>0 and n>0 then e.hp=e.hp+n;log(s,w,'WM17:heal',0,n) end
   end
   if w.cast==c and c.t>=c.move.total then
@@ -361,7 +361,7 @@ return function(C,M)
   w.stage='outer';w.epoch=0;w.cycle=0;w.lastRift=-math.huge
   w.shadows={};w.innerCount=0;w.defeated={};w.paidCycle=nil;w.shadowContributors=weakKeys()
   w.rewindUsed=false;w.rewindLoss=nil;w.contactTick=nil
-  w.budget=math.floor(spec.hp*spec.moves.WM15.encounter_fraction_cap)
+  w.budget=math.floor(w.primary.maxhp*spec.moves.WM15.encounter_fraction_cap)
   local e=w.primary;e.x,e.y,e.dir=spec.center,spec.floorY,-1
   e.hitTop=spec.floorY-108;e.hitBottom=spec.floorY;e.hitHalfWidth=18
   e.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,spec,e,cast,mult,color,element) end

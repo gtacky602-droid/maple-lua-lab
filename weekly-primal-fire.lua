@@ -376,8 +376,8 @@ return function(C)
   if w.rest>0 then w.rest=w.rest-1;return end
   local a=spec.arena
   local threshold=a.cutThresholds[w.cuts+1]
-  if w.form==1 and w.primary.hp<=spec.hp*a.cutThresholds[1] then start(s,w,spec,'WG08');return end
-  if w.cutPending or (threshold and w.primary.hp<=spec.hp*threshold and w.clock>=w.cutAt+a.cutGap and w.normalCount>=a.ordinaryBetween) then
+  if w.form==1 and w.primary.hp<=w.primary.maxhp*a.cutThresholds[1] then start(s,w,spec,'WG08');return end
+  if w.cutPending or (threshold and w.primary.hp<=w.primary.maxhp*threshold and w.clock>=w.cutAt+a.cutGap and w.normalCount>=a.ordinaryBetween) then
    w.cutPending=false;start(s,w,spec,'WG09');return
   end
   local order=w.form==1 and spec.first or spec.second

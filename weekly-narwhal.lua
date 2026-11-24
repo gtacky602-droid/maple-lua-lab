@@ -72,7 +72,7 @@ return function(C)
   if card then log(s,w,card) end
  end
  local function threshold(w,spec)
-  return w.primary.hp<=spec.hp*spec.hostility.lowRatio
+  return w.primary.hp<=w.primary.maxhp*spec.hostility.lowRatio
  end
  local function hostility(s,w,spec,value,source,id)
   if threshold(w,spec) then return end
@@ -372,7 +372,7 @@ return function(C)
    if t==tr.lossTick and w.returned~=w.entries then
     w.returned=w.entries
     local e=w.primary
-    local n=math.min(e.hp,math.floor(spec.hp*tr.lossRatio+.5))
+    local n=math.min(e.hp,math.floor(e.maxhp*tr.lossRatio+.5))
     log(s,w,'WV14:return-loss',w.returnOwner,n)
     local party=w.returnParty;w.returnParty=nil
     if n==e.hp then

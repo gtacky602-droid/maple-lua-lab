@@ -1,0 +1,203 @@
+{
+  "runtimeRevision": "e6068f5dd9278ba97a7adb635aec75d7e6787b28",
+  "draftBalance": true,
+  "sources": {
+    "200": {
+      "sha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "160": {
+      "sha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "180": {
+      "sha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    }
+  },
+  "encounters": [
+    {
+      "level": 200,
+      "name": "raiden",
+      "mode": "expert",
+      "maxHp": 1500,
+      "ticks": 38,
+      "hits": 1,
+      "phases": [
+        {
+          "tick": 0,
+          "id": "normal"
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 200,
+      "name": "narwhal",
+      "mode": "expert",
+      "maxHp": 2200,
+      "ticks": 10,
+      "hits": 1,
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 200,
+      "name": "primal_fire",
+      "mode": "expert",
+      "maxHp": 2900,
+      "ticks": 1,
+      "hits": 1,
+      "phases": [
+        {
+          "tick": 0,
+          "id": 1
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 200,
+      "name": "false_moon",
+      "mode": "expert",
+      "maxHp": 3400,
+      "ticks": 10,
+      "hits": 1,
+      "phases": [
+        {
+          "tick": 0,
+          "id": "outer"
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 160,
+      "name": "raiden",
+      "mode": "advanced",
+      "maxHp": 1500,
+      "ticks": 25,
+      "hits": 1,
+      "phases": [
+        {
+          "id": "normal",
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 160,
+      "name": "narwhal",
+      "mode": "advanced",
+      "maxHp": 2200,
+      "ticks": 20,
+      "hits": 1,
+      "phases": [
+        {
+          "id": "outer",
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 160,
+      "name": "primal_fire",
+      "mode": "advanced",
+      "maxHp": 2900,
+      "ticks": 1,
+      "hits": 1,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 160,
+      "name": "false_moon",
+      "mode": "advanced",
+      "maxHp": 3400,
+      "ticks": 31,
+      "hits": 1,
+      "phases": [
+        {
+          "id": "outer",
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 180,
+      "name": "raiden",
+      "mode": "expert",
+      "maxHp": 1500,
+      "ticks": 10,
+      "hits": 1,
+      "phases": [
+        {
+          "id": "normal",
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 180,
+      "name": "narwhal",
+      "mode": "expert",
+      "maxHp": 2200,
+      "ticks": 10,
+      "hits": 1,
+      "phases": [
+        {
+          "id": "outer",
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 180,
+      "name": "primal_fire",
+      "mode": "expert",
+      "maxHp": 2900,
+      "ticks": 1,
+      "hits": 1,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    },
+    {
+      "level": 180,
+      "name": "false_moon",
+      "mode": "expert",
+      "maxHp": 3400,
+      "ticks": 10,
+      "hits": 1,
+      "phases": [
+        {
+          "id": "outer",
+          "tick": 0
+        }
+      ],
+      "status": "clear"
+    }
+  ]
+}
