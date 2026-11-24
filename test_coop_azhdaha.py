@@ -26,10 +26,14 @@ def prepare(core, state, pair, accepted=False):
     state.actors[2].hp=0
 
 
-def party(core, accepted=False):
+def party(core, accepted=False, *, shield=False):
     state=core.new(12)
     core.action(state,'story_start')
     prepare(core,state,'pyro:electro',accepted)
+    if shield:
+        xp=LEVELS[95]['maple_reference_total_exp_to_reach']-LEVEL['maple_reference_total_exp_to_reach']
+        core.grantExp(state,xp,'quest')
+        core.enterStoryNode(state,'fontaine-hub')
     core.enterStoryNode(state,ARENA)
     spot(state,375)
     return state
@@ -78,7 +82,7 @@ def near_head(states,slot,spec,step):
 
 
 def test_lua(lua,core):
-    states=[party(core,i==0) for i in range(4)]
+    states=[party(core,i==0,shield=i==0) for i in range(4)]
     host,guest,observer,offside=states
     host.t,guest.t=390,4
     room=core.newCoop(host)
@@ -140,7 +144,8 @@ def test_lua(lua,core):
     strike(lua,core,guest,boss)
     assert boss.hp==0 and slot.phase=='respawn' and not slot.cast and not list(slot.marks.keys())
     assert [s.kills for s in states]==[1,1,0,0]
-    assert [(s.progression.killXp,s.mora) for s in states[:2]]==[(EXP,660)]*2
+    host_exp=max(1,int(EXP*RUNTIME_EXP['gap']['player_higher_by_over_40']+.5))
+    assert [(s.progression.killXp,s.mora) for s in states[:2]]==[(host_exp,660),(EXP,660)]
     assert host.story.quests[QUEST].count==1 and not guest.story.quests[QUEST]
     for state in states[:2]:
         snapshot=validate_save(native(core.checkpoint(state)))

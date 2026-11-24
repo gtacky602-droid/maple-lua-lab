@@ -18,10 +18,12 @@ def place(a,x,y=480):
     a.x,a.y,a.vy,a.ground=x,y,0,True
 
 
-def start(enter=True):
+def start(enter=True, *, electro=False):
     s=core.new(12)
     core.action(s,'story_start')
     core.grantExp(s,LEVELS[131]['maple_reference_total_exp_to_reach'],'quest')
+    if electro:
+        core.enterStoryNode(s,'inazuma-port')
     core.enterStoryNode(s,hub)
     if not enter:
         return s
@@ -126,13 +128,14 @@ assert not c.players[s].violation and c.players[s].logical==-1
 step(s,1,right=True)
 assert c.players[s].violation.kind=='facing' and len(events(s,'WM10:violation:facing'))==1
 
-s,w,spec=start()
+s,w,spec=start(electro=True)
 a=s.actors[1]
 c=choose(s,w,spec,'WM09')
 step(s,119)
 s.macroInputAt=c.players[s].startedAt+1.9
 dash=a.dash
-key=next(k for k,m in core.skillDefinitions.items() if m.dash)
+key='SK11'
+assert core.skillDefinitions[key].dash and core.growthSkillCondition(s,key) is True
 step(s,2)
 assert core.attack(s,a,key)
 s.macroInputAt=None

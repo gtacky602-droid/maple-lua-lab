@@ -28,17 +28,20 @@ def place(a,x,y=480,dir=1):
     a.x,a.y,a.vy,a.dir,a.ground=x,y,0,dir,True
 
 
-def start(pair='pyro:cryo'):
+def start(pair='pyro:cryo', *, shield=False):
     s=core.new(12)
     act(s,'story_start')
-    core.grantExp(s,LEVELS[31]['maple_reference_total_exp_to_reach'],'quest')
+    level = 96 if shield else 32
+    core.grantExp(s,LEVELS[level-1]['maple_reference_total_exp_to_reach'],'quest')
+    if shield:
+        core.enterStoryNode(s,'fontaine-hub')
     core.enterStoryNode(s,hub)
     act(s,'azhdaha_pair:'+pair)
     return s
 
 
-def arena(pair='pyro:cryo'):
-    s=start(pair)
+def arena(pair='pyro:cryo', *, shield=False):
+    s=start(pair, shield=shield)
     core.enterStoryNode(s,node)
     w,spec=core.currentWeeklyBoss(s)
     s.actors[2].hp=0
@@ -127,7 +130,7 @@ assert core.attack(s,a,'normal') and w.primary.hp==hp
 ticks(core,s,227)
 assert not w.primary.underground and core.frame(s).weeklyBoss.damageable
 
-s,w,spec=arena()
+s,w,spec=arena(shield=True)
 set_form(s,w,2)
 a=s.actors[1]
 assert core.attack(s,a,'SK20')
@@ -157,7 +160,7 @@ s.actors[2].lock=99999
 ticks(core,s,480)
 assert len(events(s,'mark-tick:pyro',1))==7 and not w.marks[s.actors[1]]
 
-s,w,spec=arena()
+s,w,spec=arena(shield=True)
 set_form(s,w,2)
 a=s.actors[1]
 c=move(s,w,spec,'WZ01',335)
