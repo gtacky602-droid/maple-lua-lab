@@ -1,0 +1,283 @@
+{
+  "scope": "Fontaine stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 48,
+  "interpretation": "Links identify available evidence per stage. Field boss scenarios may start inside the arena. The exploration route proof covers walking, swimming, gate state and save restoration.",
+  "entries": [
+    {
+      "kind": "daily",
+      "stages": [
+        "fontaine-outskirts-loading"
+      ],
+      "evidence": [
+        "evidence/daily-fon-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "emperor-field-cove"
+      ],
+      "evidence": [
+        "evidence/emperor-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "seahorse-field-cavern"
+      ],
+      "evidence": [
+        "evidence/seahorse-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "field-generator-field-chamber"
+      ],
+      "evidence": [
+        "evidence/field-generator-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "tulpa-field-grotto"
+      ],
+      "evidence": [
+        "evidence/tulpa-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "icewind-promenade",
+        "icewind-coppelia-field",
+        "icewind-coppelius-field"
+      ],
+      "evidence": [
+        "evidence/icewind-field-lua.json",
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "legatus-field-hall"
+      ],
+      "evidence": [
+        "evidence/legatus-field-lua.json"
+      ]
+    },
+    {
+      "kind": "hidden_world",
+      "stages": [
+        "simulanka-book-room"
+      ],
+      "evidence": [
+        "evidence/simulanka-folds-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "fon-toy-shallows"
+      ],
+      "evidence": [
+        "evidence/fon-freminet-dive-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "fon-photo-terrace"
+      ],
+      "evidence": [
+        "evidence/fon-navia-photo-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "fon-emilie-atelier",
+        "fon-emilie-scent-shore"
+      ],
+      "evidence": [
+        "evidence/fon-emilie-scent-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "fontaine-parcel-counter",
+        "fontaine-delivery-quay",
+        "fontaine-old-scenery-door",
+        "fontaine-moon-fly-loft"
+      ],
+      "evidence": [
+        "evidence/fontaine-delivery-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "fontaine-stage-wings",
+        "fontaine-parcel-storeroom",
+        "fontaine-rehearsal-room"
+      ],
+      "evidence": [
+        "evidence/fontaine-understage-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "fontaine-stage-watch",
+        "fontaine-scenery-booth",
+        "fontaine-grand-stage-approach",
+        "fontaine-grand-stage"
+      ],
+      "evidence": [
+        "evidence/fontaine-finale-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "fon-magic-wings",
+        "fon-magic-seats"
+      ],
+      "evidence": [
+        "evidence/fon-lyney-magic-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "narwhal-star-sea",
+        "narwhal-inner-echo"
+      ],
+      "evidence": [
+        "evidence/narwhal-weekly-lua.json",
+        "evidence/atlas-battle-narwhal-browser.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "knave-crimson-court"
+      ],
+      "evidence": [
+        "evidence/knave-weekly-lua.json",
+        "evidence/knave-weekly-browser.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "fontaine-beryl-bank",
+        "fontaine-beryl-foothills"
+      ],
+      "evidence": [
+        "evidence/fontaine-fresh-route.json",
+        "evidence/fontaine-fresh-route-browser.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-beryl-ledge"
+      ],
+      "evidence": [
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "vivianne-legend-bank",
+        "ninianne-legend-bank"
+      ],
+      "evidence": [
+        "evidence/fontaine-exploration-routes-lua.json",
+        "evidence/sites-branch-legends-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "yseut-legend-court",
+        "gravity-device-legend-terrace",
+        "rocky-legend-ledge",
+        "liam-legend-pond"
+      ],
+      "evidence": [
+        "evidence/fontaine-exploration-routes-lua.json",
+        "evidence/sites-fontaine-dry-legends-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "ocean-judge-legend-pool"
+      ],
+      "evidence": [
+        "evidence/ocean-judge-lua.json",
+        "evidence/fontaine-exploration-routes-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "iron-viscount-legend-pool"
+      ],
+      "evidence": [
+        "evidence/iron-viscount-lua.json",
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "fairy-knight-twins-legend-court",
+        "swords-of-the-gorge-legend-rift"
+      ],
+      "evidence": [
+        "evidence/fontaine-ray-pairs-lua.json",
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "fading-veteran-legend-wreck",
+        "dobharcu-legend-garden"
+      ],
+      "evidence": [
+        "evidence/fontaine-echo-lua.json",
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "luachra-legend-shelf",
+        "chassanion-legend-bubble-room"
+      ],
+      "evidence": [
+        "evidence/fontaine-bubble-lua.json",
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "erinnyes-corrouge-cleft"
+      ],
+      "evidence": [
+        "evidence/fontaine-corrouge-lua.json",
+        "evidence/fontaine-exploration-routes-lua.json"
+      ]
+    }
+  ]
+}

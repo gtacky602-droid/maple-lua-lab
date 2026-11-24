@@ -1,0 +1,12 @@
+{
+  "route": [
+    "fon-wp-50065",
+    "ocean-judge-legend-pool",
+    "fon-wp-50065"
+  ],
+  "bothDirectionsLabelledSwim": true,
+  "wrongDepthRejected": true,
+  "savedAt": "ocean-judge-legend-pool",
+  "restoredAt": "fontaine-hub",
+  "errors": []
+}

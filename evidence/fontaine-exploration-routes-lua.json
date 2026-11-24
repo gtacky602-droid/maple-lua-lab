@@ -1,0 +1,182 @@
+{
+  "legendRoutes": [
+    {
+      "host": "fon-wp-50056",
+      "arena": "vivianne-legend-bank",
+      "mode": "walk",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": false,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-50042",
+      "arena": "ninianne-legend-bank",
+      "mode": "walk",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": false,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-50058",
+      "arena": "yseut-legend-court",
+      "mode": "walk",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": false,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-53859",
+      "arena": "gravity-device-legend-terrace",
+      "mode": "walk",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": false,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-55780",
+      "arena": "rocky-legend-ledge",
+      "mode": "walk",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": false,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-55781",
+      "arena": "liam-legend-pond",
+      "mode": "walk",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": false,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-50065",
+      "arena": "ocean-judge-legend-pool",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "iron-viscount-thermal-gallery",
+      "arena": "iron-viscount-legend-pool",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": "fon-beryl-thermal-vents"
+    },
+    {
+      "host": "fon-wp-50075",
+      "arena": "fairy-knight-twins-legend-court",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-50071",
+      "arena": "swords-of-the-gorge-legend-rift",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-50073",
+      "arena": "fading-veteran-legend-wreck",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-50062",
+      "arena": "dobharcu-legend-garden",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-53865",
+      "arena": "luachra-legend-shelf",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "fon-wp-55765",
+      "arena": "chassanion-legend-bubble-room",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": null
+    },
+    {
+      "host": "morte-tower-sluice",
+      "arena": "chassanion-legend-bubble-room",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": "fon-morte-sluice-survey"
+    },
+    {
+      "host": "erinnyes-root-waterway",
+      "arena": "erinnyes-corrouge-cleft",
+      "mode": "swim",
+      "roundTrip": true,
+      "levelBelowRejected": true,
+      "wrongDepthRejected": true,
+      "restoredAt": "fontaine-hub",
+      "prerequisite": "fon-erinnyes-root-water-survey"
+    }
+  ],
+  "landRoutes": [
+    [
+      "fon-wp-50036",
+      "sites-corridor-beryl-ledge",
+      "fon-wp-50037"
+    ],
+    [
+      "fontaine-hub",
+      "icewind-promenade",
+      "icewind-coppelia-field"
+    ],
+    [
+      "fontaine-hub",
+      "icewind-promenade",
+      "icewind-coppelius-field"
+    ]
+  ],
+  "scope": "Physical gate approaches from prepared starting areas; combat is covered by encounter suites."
+}

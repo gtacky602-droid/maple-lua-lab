@@ -166,12 +166,17 @@ return function(C, atlas)
    if vehicle.kind=='train' or vehicle.kind=='trolley' then return 'rail' end
    return vehicle.kind=='ferry' and 'boat' or 'arrival'
   elseif edge.requiresArrival then return 'arrival'
-  elseif edge.wind then return 'wind' end
+  elseif edge.wind then return 'wind'
+  elseif from.swim and to.swim then return 'swim' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
+ local route_labels = {boat='舟・寄港',water='水路',swim='遊泳',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
  local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',air='#a6e3cf',wall='#eabb75',spiritway='#f0d3ff',phase='#eebcfa',night='#d5a0f5',arrival='#ebf4db',
-                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054'}
+                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054',swim='#c2f1ec'}
+
+ local function direct_motion(mode)
+  return mode=='walk' or mode=='swim'
+ end
 
  local function connections(node)
   if not node.voyage then return node.exits end
@@ -193,7 +198,8 @@ return function(C, atlas)
       voyage.kind=='ferry' and ('出航から'..voyage.seconds..'秒で着岸')
       or ('発車から'..voyage.seconds..'秒で到着')) or nil
   local parts={}
-  if edge.y and edge.y<480 and not node.swim then parts[#parts+1]='上段の入口' end
+  if edge.y and node.swim then parts[#parts+1]='門と同じ深さまで泳ぐ'
+  elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
   if edge.rideLabel and not edge.windowStart then parts[#parts+1]=edge.rideLabel end
   if instruction then parts[#parts+1]=instruction end
   local seconds=edge.liftSeconds or edge.waterwaySeconds or edge.boatSeconds or edge.phaseSeconds
@@ -476,8 +482,8 @@ return function(C, atlas)
      local target=where[edge.to]
      if target and not (linked[edge.to] and linked[edge.to][point.id]) then
       local mode=route_mode(edge,node,nodes[edge.to])
-      line(out,point.x,point.y,target.x,target.y,route_colors[mode],mode=='walk' and 1.5 or 2.5,
-        (mode~='walk' or edge.requires) and {4,4} or nil)
+      line(out,point.x,point.y,target.x,target.y,route_colors[mode],direct_motion(mode) and 1.5 or 2.5,
+        (not direct_motion(mode) or edge.requires) and {4,4} or nil)
       linked[point.id]=linked[point.id] or {}
       linked[point.id][edge.to]=true
      end
@@ -521,7 +527,7 @@ return function(C, atlas)
     a,b=positions[leg.from],positions[leg.id]
    end
    if a and b then
-    local dash=(inaccessible or leg.mode~='walk') and {5,4} or nil
+    local dash=(inaccessible or not direct_motion(leg.mode)) and {5,4} or nil
     line(out,a.x,a.y,b.x,b.y,'#33474a',5,dash)
     line(out,a.x,a.y,b.x,b.y,inaccessible and '#e6b4a1' or '#ffe196',2.6,dash)
    end
