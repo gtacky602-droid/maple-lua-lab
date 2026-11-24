@@ -63,6 +63,8 @@ LIMIT: static declarations and old-source markers only; no Lua execution, visual
 
 ## 3. 全13manifestの照合
 
+ランタイム側に氷棺の短縮案が入っている場合、旧 `coffin` の値を照合したうえで、新しい `shortMove` の時刻・範囲・打数を技票と照合する。新しい受付期限を1tickずらしたデータも拒否する。戦闘と保存の実行結果は、[ブレードガーディアンの試験記録](SNEZHNAYA_DRIFTING_SNOW.md#短縮技案をラボで試す)に記録した。
+
 [audit_reference_roster.py](audit_reference_roster.py)は、各形式のボスID欄・技参照欄・owner欄を明示的に正規化する。旧票は同じ `schema_version: 1.0` でも構造が異なるため、version文字列だけでは判別しない。
 
 | manifest | 戦数 | カード数 | 累計 |

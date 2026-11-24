@@ -1,0 +1,180 @@
+{
+  "participants": 4,
+  "thresholdHp": 2750000,
+  "waitedForExistingRecovery": true,
+  "preservedNormalOrder": true,
+  "acceptedWindowStartAt60": true,
+  "cryoHitCountsOnce": true,
+  "earlierMultihitReactionsAndDoTExcluded": true,
+  "cancelledFirstWaveAt144": true,
+  "unchangedPhysicalDamage": 95,
+  "interruptedRecoveryTicks": 144,
+  "acceptedAt299": true,
+  "deadlineAt300DamageStillApplies": true,
+  "noHealing": true,
+  "naturalHitsAt": [
+    144,
+    228,
+    330
+  ],
+  "naturalRecoveryTicks": 144,
+  "normalOrderAfterNaturalEnd": true,
+  "safePlacementBeforeConsumption": true,
+  "preLockRetryReplacesParent": true,
+  "saveWithExplicitFlagAndLegacyInference": true,
+  "legacyHpRescales": true,
+  "exitRetainsFlag": true,
+  "newGenerationResetsFlag": true,
+  "bossDefeatPrioritized": true,
+  "level": 160,
+  "previous": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25135202",
+    "arena": "drifting-snow-court",
+    "entryRoute": [
+      "snezhnaya-field",
+      "drifting-snow-court"
+    ],
+    "maxHp": 5000000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 64.917,
+    "damagingHits": 430,
+    "moves": [
+      "FDS01",
+      "FDS02",
+      "FDS03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1214460,
+      560
+    ],
+    "commission": {
+      "quest": "drifting-snow-commission",
+      "xp": 10800,
+      "mora": 730
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25135202",
+    "arena": "drifting-snow-court",
+    "entryRoute": [
+      "snezhnaya-field",
+      "drifting-snow-court"
+    ],
+    "maxHp": 5000000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 64.967,
+    "damagingHits": 431,
+    "moves": [
+      "FDS01",
+      "FDS02",
+      "FDS03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1214460,
+      560
+    ],
+    "commission": {
+      "quest": "drifting-snow-commission",
+      "xp": 10800,
+      "mora": 730
+    },
+    "savedClear": true
+  },
+  "interrupted": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25135202",
+    "arena": "drifting-snow-court",
+    "entryRoute": [
+      "snezhnaya-field",
+      "drifting-snow-court"
+    ],
+    "maxHp": 5000000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 64.967,
+    "damagingHits": 431,
+    "moves": [
+      "FDS01",
+      "FDS02",
+      "FDS03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1214460,
+      560
+    ],
+    "commission": {
+      "quest": "drifting-snow-commission",
+      "xp": 10800,
+      "mora": 730
+    },
+    "savedClear": true
+  },
+  "evaded": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25135202",
+    "arena": "drifting-snow-court",
+    "entryRoute": [
+      "snezhnaya-field",
+      "drifting-snow-court"
+    ],
+    "maxHp": 5000000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 92.967,
+    "damagingHits": 387,
+    "moves": [
+      "FDS01",
+      "FDS02",
+      "FDS03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1214460,
+      560
+    ],
+    "commission": {
+      "quest": "drifting-snow-commission",
+      "xp": 10800,
+      "mora": 730
+    },
+    "savedClear": true
+  },
+  "interruptedAt": 102,
+  "groundEvasionAndCounterAt": 414
+}

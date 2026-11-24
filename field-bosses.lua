@@ -248,6 +248,18 @@ return function(C,configs,controllers)
   return a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom
  end
 
+ function C.fieldGroundRetreat(state,dir,left,right,ticks)
+  local margin=10+.10*88
+  local escape=dir>0 and right+margin or left-margin
+  if escape<20 or escape>state.worldwidth-20 then return false end
+  for _,actor in ipairs(state.actors) do
+   if actor.hp>0 and actor.x+10>left and actor.x-10<right then
+    if math.abs(escape-actor.x)>ticks*210/60 or not C.pathClear(state,actor,escape,actor.y) then return false end
+   end
+  end
+  return true
+ end
+
  function C.hitFieldArea(s,source,seen,left,right,top,damage,bottom,onDamage)
   bottom=bottom or source.y
   local owner=source.owner or source
@@ -359,7 +371,7 @@ return function(C,configs,controllers)
    if slot.delay<=0 then slot.phase='combat' end
    return
   end
-  if behavior.preempt and behavior.preempt(boss,spec,slot) then return end
+  if behavior.preempt and behavior.preempt(boss,spec,slot,s,target) then return end
   local cast=slot.cast
   if cast then
    if behavior.tick(s,boss,spec,cast,target) then

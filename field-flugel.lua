@@ -84,21 +84,10 @@ return function(C)
    end
   else c.left,c.right=c.origin-m.radius*U,c.origin+m.radius*U end
  end
- local function groundRetreat(s,c,left,right,ticks)
-  local margin=10+.10*U
-  local escape=c.dir>0 and right+margin or left-margin
-  if escape<20 or escape>s.worldwidth-20 then return false end
-  for _,actor in ipairs(s.actors) do
-   if actor.hp>0 and actor.x+10>left and actor.x-10<right then
-    if math.abs(escape-actor.x)>ticks*210/60 or not C.pathClear(s,actor,escape,actor.y) then return false end
-   end
-  end
-  return true
- end
  local function canLock(state,c)
   for i,active in ipairs(c.move.active) do
    local lane=c.waves and c.waves[i] or c
-   if not groundRetreat(state,c,lane.left,lane.right,active[1]-c.move.lock) then return false end
+   if not C.fieldGroundRetreat(state,c.dir,lane.left,lane.right,active[1]-c.move.lock) then return false end
   end
   return true
  end

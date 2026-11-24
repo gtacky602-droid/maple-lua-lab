@@ -286,7 +286,25 @@ def validate_source(data, bosses, moves, config=None, lua_sources=None):
             fixed(source[bid], boss['preserve_source_fields'], 'runtime.' + bid)
             for key, expected in contract[bid].items():
                 fields(source[bid], [key], 'runtime.' + bid)
-                require(json.dumps(source[bid][key], sort_keys=True) == json.dumps(expected, sort_keys=True), 'runtime.' + bid + '.' + key + ': snapshot differs')
+                actual = source[bid][key]
+                if key == 'coffin' and 'shortMove' in actual:
+                    actual = dict(actual)
+                    short = actual.pop('shortMove')
+                    design = moves['FDS03']
+                    counter = rows(data['counters'], 'counters')['ice_coffin']
+                    wanted = {
+                        'id': design['id'], 'kind': 'coffinBurst', 'title': design['name'],
+                        'lock': design['lock'], 'deploy': counter['window'][0], 'deadline': counter['window'][1],
+                        'hitsToBreak': counter['required_units'], 'height': design['events'][0]['shape']['z'][1],
+                        'damage': design['events'][0]['source_damage_comparison'],
+                        'active': [event['active'] for event in design['events']],
+                        'lanes': [event['shape']['u'] for event in design['events']],
+                        'recover': design['recovery'][0], 'total': design['total'],
+                    }
+                    require(json.dumps(short, sort_keys=True) == json.dumps(wanted, sort_keys=True),
+                            'runtime.' + bid + '.coffin.shortMove: short coffin differs from design')
+                require(json.dumps(actual, sort_keys=True) == json.dumps(expected, sort_keys=True),
+                        'runtime.' + bid + '.' + key + ': snapshot differs')
         fields(lua_sources, OLD_HOOKS, 'runtime.Lua')
         for path, markers in OLD_HOOKS.items():
             require(type(lua_sources[path]) is str and all(marker in lua_sources[path] for marker in markers), 'runtime.Lua.' + path + ': old hook marker missing')
@@ -463,6 +481,11 @@ def self_test(data, catalog, config=None, lua_sources=None):
             bad = changed(config, [(('fieldBosses', index, key), value)])
             rejected(lambda: validate(data, catalog, bad, lua_sources), 'runtime.' + bid + '.' + key, 'old JSON ' + key)
             source_count += 1
+        snow = next(i for i, b in enumerate(config['fieldBosses']) if b['id'] == 'boss-25135202')
+        if 'shortMove' in config['fieldBosses'][snow]['coffin']:
+            bad = changed(config, [(('fieldBosses', snow, 'coffin', 'shortMove', 'deadline'), 301)])
+            rejected(lambda: validate(data, catalog, bad, lua_sources), 'short coffin differs from design', 'short coffin deadline')
+            source_count += 1
         for filename in ['field-flugel.lua', 'field-wavebinder.lua']:
             bad = dict(lua_sources)
             bad[filename] = bad[filename].replace(OLD_HOOKS[filename][0], 'missing_old_hook(')
@@ -499,6 +522,7 @@ def main():
     print('PASS: master IDs equal the 49-row reference' if reference_checked else 'SKIP: roster/master files absent; reference equality not checked')
     if config is not None:
         print('PASS: selected old config snapshots, preserved fields, 12 source move IDs, air duration, damage values, and 4 Lua hook snapshots')
+        print('PASS: short coffin declarations match the manifest when present')
     if tests:
         print(f'PASS: {tests[0]} invalid design fixtures rejected / {tests[1]} valid boundary fixtures accepted / {tests[2]} invalid source fixtures rejected')
     print('LIMIT: static declarations and old-source markers only; no Lua execution, visual/geometry/evasion tests, or 45-90 second timing measurement')

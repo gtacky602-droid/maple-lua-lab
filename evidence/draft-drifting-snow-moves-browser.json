@@ -1,0 +1,14 @@
+{
+  "level": 160,
+  "coffinShownAt": 66,
+  "interruptedAt": 118,
+  "normalAttackInput": true,
+  "savedWhileCoffinOpen": true,
+  "coffinUsedRestored": true,
+  "resumedMove": "FDS01",
+  "sameFrameCommands": {
+    "standard": 13300,
+    "light": 3608
+  },
+  "errors": []
+}

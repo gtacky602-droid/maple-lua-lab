@@ -1891,6 +1891,21 @@
     "heal": 96,
     "downTicks": 180,
     "downFactor": 1.2,
+    "shortMove": {
+      "id": "FDS03",
+      "kind": "coffinBurst",
+      "title": "氷の棺・氷剣の返し",
+      "lock": 48,
+      "deploy": 60,
+      "deadline": 300,
+      "hitsToBreak": 3,
+      "height": 0.68,
+      "damage": 25,
+      "active": [[144,158],[228,242],[330,346]],
+      "lanes": [[0.10,2.20],[0.10,2.20],[0.15,2.80]],
+      "recover": 366,
+      "total": 510
+    },
     "move": {
       "id": "FDS03",
       "kind": "coffin",
