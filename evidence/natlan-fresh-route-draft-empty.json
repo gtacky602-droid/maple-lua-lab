@@ -1,0 +1,352 @@
+{
+  "route": [
+    {
+      "id": "natlan-ridge-flag",
+      "seconds": 29.78,
+      "level": 101,
+      "total": 41412797,
+      "questXp": 19435689,
+      "killXp": 21977108,
+      "kills": 9650
+    },
+    {
+      "id": "natlan-two-trials",
+      "seconds": 77.82,
+      "level": 103,
+      "total": 45810515,
+      "questXp": 23799423,
+      "killXp": 22011092,
+      "kills": 9658
+    },
+    {
+      "id": "natlan-sunset-duel",
+      "seconds": 103.3,
+      "level": 109,
+      "total": 60661009,
+      "questXp": 38649917,
+      "killXp": 22011092,
+      "kills": 9659
+    },
+    {
+      "id": "natlan-kachina-charms",
+      "seconds": 117.93,
+      "level": 109,
+      "total": 61987779,
+      "questXp": 39969041,
+      "killXp": 22018738,
+      "kills": 9661
+    },
+    {
+      "id": "natlan-mualani-surf",
+      "seconds": 130.72,
+      "level": 109,
+      "total": 63392646,
+      "questXp": 41373908,
+      "killXp": 22018738,
+      "kills": 9661
+    },
+    {
+      "id": "natlan-kinich-ambush",
+      "seconds": 139.68,
+      "level": 110,
+      "total": 65226721,
+      "questXp": 43181221,
+      "killXp": 22045500,
+      "kills": 9662
+    },
+    {
+      "id": "ridge-watch-gear",
+      "seconds": 169.72,
+      "level": 110,
+      "total": 65228611,
+      "questXp": 43181221,
+      "killXp": 22047390,
+      "kills": 9664
+    },
+    {
+      "id": "lv112",
+      "seconds": 1788.47,
+      "level": 112,
+      "total": 70909919,
+      "questXp": 43181221,
+      "killXp": 27728698,
+      "kills": 10574
+    },
+    {
+      "id": "natlan-ancient-excavation-wall",
+      "seconds": 1803.5,
+      "level": 112,
+      "total": 71221919,
+      "questXp": 43493221,
+      "killXp": 27728698,
+      "kills": 10574
+    },
+    {
+      "id": "lv115",
+      "seconds": 4410.9,
+      "level": 115,
+      "total": 83431979,
+      "questXp": 43493221,
+      "killXp": 39938758,
+      "kills": 12544
+    },
+    {
+      "id": "lv119",
+      "seconds": 6331.78,
+      "level": 119,
+      "total": 104373251,
+      "questXp": 43493221,
+      "killXp": 60880030,
+      "kills": 15010
+    },
+    {
+      "id": "lv120",
+      "seconds": 6688.92,
+      "level": 120,
+      "total": 110655126,
+      "questXp": 43493221,
+      "killXp": 67161905,
+      "kills": 15585
+    },
+    {
+      "id": "nod-town",
+      "seconds": 6817.33,
+      "level": 120,
+      "total": 110757756,
+      "questXp": 43493221,
+      "killXp": 67264535,
+      "kills": 15602
+    }
+  ],
+  "completedQuests": [
+    "natlan-ridge-flag",
+    "natlan-two-trials",
+    "natlan-sunset-duel",
+    "natlan-kachina-charms",
+    "natlan-mualani-surf",
+    "natlan-kinich-ambush"
+  ],
+  "hunts": [
+    {
+      "stage": "natlan-terrace-red-clay",
+      "sorties": 20,
+      "kills": 908,
+      "xp": 5627784,
+      "seconds": 1480.68
+    },
+    {
+      "stage": "natlan-terrace-red-clay",
+      "sorties": 34,
+      "kills": 1970,
+      "xp": 12210060,
+      "seconds": 2488.45
+    },
+    {
+      "stage": "natlan-east-valley-rocks",
+      "sorties": 24,
+      "kills": 2140,
+      "xp": 18172880,
+      "seconds": 1783.92
+    },
+    {
+      "stage": "sites-hunt-73159",
+      "sorties": 5,
+      "kills": 462,
+      "xp": 5047350,
+      "seconds": 308.9
+    }
+  ],
+  "equippedEarnedArtifactIds": {
+    "1": [
+      133,
+      131,
+      135,
+      127,
+      134
+    ],
+    "2": [
+      125,
+      139,
+      117,
+      138,
+      136
+    ]
+  },
+  "recoveryTrips": 34,
+  "inventoryTrips": 0,
+  "partyWipes": 0,
+  "ferrySeconds": 90.0,
+  "stopoverResumeSeconds": 40,
+  "seaSaveRestoredToPort": true,
+  "mapPausesVoyage": true,
+  "savedAndRestored": true,
+  "firstNodQuestAvailable": "nod-first-treasure",
+  "scope": "Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.",
+  "draftGear": "empty",
+  "sourceSha256": "da9a93a01de72618073b72a233b6b0bc781e681a12b747298d6105ecd27ae90f",
+  "gearOnArrival": {
+    "atk": 65,
+    "hp": 140,
+    "mora": 143890,
+    "ownedArtifacts": 0,
+    "wornArtifacts": 0,
+    "sword": "SW05"
+  },
+  "beforeWall": {
+    "atk": 160,
+    "hp": 352,
+    "mora": 194545,
+    "ownedArtifacts": 12,
+    "wornArtifacts": 3,
+    "sword": "SW05"
+  },
+  "afterWall": {
+    "atk": 538,
+    "hp": 352,
+    "mora": 208745,
+    "ownedArtifacts": 12,
+    "wornArtifacts": 3,
+    "sword": "SW06"
+  },
+  "gearOnDeparture": {
+    "atk": 9314,
+    "hp": 10771,
+    "mora": 259025,
+    "ownedArtifacts": 61,
+    "wornArtifacts": 5,
+    "sword": "SW06"
+  },
+  "artifactRecovery": {
+    "before": {
+      "atk": 65,
+      "hp": 140,
+      "mora": 183625,
+      "ownedArtifacts": 1,
+      "wornArtifacts": 0,
+      "sword": "SW05"
+    },
+    "after": {
+      "atk": 155,
+      "hp": 326,
+      "mora": 185445,
+      "ownedArtifacts": 3,
+      "wornArtifacts": 2,
+      "sword": "SW05"
+    },
+    "rank": "ii",
+    "rewards": [
+      {
+        "id": 87,
+        "slot": 1,
+        "seconds": 6.15
+      },
+      {
+        "id": 88,
+        "slot": 2,
+        "seconds": 6.0
+      }
+    ]
+  },
+  "gearUpdates": {
+    "112": {
+      "before": {
+        "atk": 538,
+        "hp": 352,
+        "mora": 208745,
+        "ownedArtifacts": 12,
+        "wornArtifacts": 3,
+        "sword": "SW06"
+      },
+      "after": {
+        "atk": 664,
+        "hp": 7887,
+        "mora": 208745,
+        "ownedArtifacts": 12,
+        "wornArtifacts": 5,
+        "sword": "SW06"
+      },
+      "equipped": {
+        "1": [
+          91,
+          88,
+          97,
+          96,
+          93
+        ],
+        "2": [
+          87,
+          89,
+          95
+        ]
+      }
+    },
+    "115": {
+      "before": {
+        "atk": 664,
+        "hp": 7887,
+        "mora": 228445,
+        "ownedArtifacts": 37,
+        "wornArtifacts": 5,
+        "sword": "SW06"
+      },
+      "after": {
+        "atk": 3900,
+        "hp": 9055,
+        "mora": 228445,
+        "ownedArtifacts": 37,
+        "wornArtifacts": 5,
+        "sword": "SW06"
+      },
+      "equipped": {
+        "1": [
+          91,
+          108,
+          117,
+          119,
+          105
+        ],
+        "2": [
+          106,
+          118,
+          98,
+          116,
+          93
+        ]
+      }
+    },
+    "119": {
+      "before": {
+        "atk": 3900,
+        "hp": 9055,
+        "mora": 253105,
+        "ownedArtifacts": 54,
+        "wornArtifacts": 5,
+        "sword": "SW06"
+      },
+      "after": {
+        "atk": 9314,
+        "hp": 10771,
+        "mora": 253105,
+        "ownedArtifacts": 54,
+        "wornArtifacts": 5,
+        "sword": "SW06"
+      },
+      "equipped": {
+        "1": [
+          133,
+          131,
+          135,
+          127,
+          134
+        ],
+        "2": [
+          125,
+          139,
+          117,
+          138,
+          136
+        ]
+      }
+    }
+  }
+}

@@ -22,8 +22,15 @@
       1
     ]
   },
+  "fillBasics": {
+    "townOnly": true,
+    "keptExistingFlower": true,
+    "keptCompanionFeather": true,
+    "pickedStrongestUnusedFeather": true,
+    "idempotent": true
+  },
   "artifactRecovery": {
-    "saveSha256": "eb292eae4f7e6c0147f917dd5f517e8b83bf40766e0fa773c6e2512a093740fe",
+    "saveSha256": "7fb1ba574809dabb343318ee030467337b57ef6010a2ed71dd1c446e3c671e8c",
     "weapon": "SW01",
     "upgrade": 5,
     "start": {

@@ -1,0 +1,26 @@
+{
+  "level": 100,
+  "mobileWidth": 390,
+  "carried": {
+    "slots": [
+      1,
+      2
+    ],
+    "atkBefore": 4,
+    "atkAfter": 1204,
+    "hpBefore": 140,
+    "hpAfter": 5837,
+    "savedAndRestored": true
+  },
+  "empty": {
+    "returnedToMondstadt": true,
+    "route": [
+      "mond-road",
+      "mond-border",
+      "sites-lookout-10009",
+      "ridge-watch-domain"
+    ],
+    "escapeClosesMap": true
+  },
+  "errors": []
+}

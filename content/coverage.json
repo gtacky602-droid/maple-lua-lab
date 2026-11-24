@@ -8122,6 +8122,14 @@
     "route_comparison": "evidence/equipment-progression-draft-lua.json",
     "late_quest_evidence": "evidence/moonlit-garden-draft-route.json"
   },
+  "natlan_gear_recovery": {
+    "status": "playable_local",
+    "scope": "Fill vacant Traveler flower and feather slots from spare artifacts at the Natlan hub or open a route to Ridge Watch via Mondstadt. Compared three Lua hunting and equipment routes from an earned Lv100 save to Nod-Krai at Lv120 under the optional draft balance.",
+    "browser_evidence": "evidence/natlan-gear-guide-browser.json",
+    "carried_route": "evidence/natlan-fresh-route-draft-carried.json",
+    "recovery_route": "evidence/natlan-fresh-route-draft-empty.json",
+    "late_refresh_comparison": "evidence/natlan-fresh-route-draft-empty-late-refresh.json"
+  },
   "full_atlas_checkpoint_transfer": {
     "scope": "Prepared Lv200 checkpoint with all atlas nodes and hidden discoveries, 80 bag items, 160 uncollected drops, and three party presets.",
     "fixture_bytes": 70996,

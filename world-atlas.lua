@@ -618,6 +618,15 @@ return function(C, atlas)
    end
    return
   end
+  local focus=key:match('^world_map_focus:([%w:_%-]+)$')
+  if focus then
+   if s.story and s.story.active and not s.growthTrial and places[focus]
+      and C.atlasNodeVisible(s,focus) then
+    local revision=s.worldMap and s.worldMap.revision+1 or 1
+    s.worldMap={region=places[focus],layer='all',selected=focus,revision=revision}
+   end
+   return
+  end
   local map=s.worldMap
   if map then
    if key=='world_map_close' then s.worldMap=nil;return end

@@ -12,6 +12,14 @@ export function initInventoryUI(action){
  const blocked=document.getElementById('artifactAttackBlock');
  const blockedText=document.getElementById('artifactAttackBlockText');
  const manage=document.getElementById('manageBlockedDrops');
+ const natlanGuide=document.getElementById('natlanGearGuide');
+ const natlanStatus=document.getElementById('natlanGearStatus');
+ const natlanEquip=document.getElementById('natlanGearEquip');
+ const natlanRoute=document.getElementById('natlanGearRoute');
+ natlanRoute.onclick=()=>{
+  action('story_fast:mond-town');
+  action('world_map_focus:ridge-watch-domain');
+ };
  const root=document.getElementById('inventoryRows');
  const details=root.closest('details');
  let sets={};
@@ -132,6 +140,20 @@ export function initInventoryUI(action){
  return {update(f){updateWeapons(f);const bag=f.inventory;if(!bag)return;
   sets=f.artifactSets??{};
   renderPreview(f);
+  if(f.story?.active&&f.story.node==='natlan-hub'&&!f.growthTrial){
+   const missing=[1,2].filter(slot=>!bag.items.some(item=>item.owner===1&&item.slot===slot));
+   const available=missing.filter(slot=>bag.items.some(item=>item.owner===0&&item.slot===slot));
+   const needsDomain=missing.length>available.length;
+   natlanGuide.hidden=missing.length===0;
+   if(missing.length){
+    const parts=missing.map(slot=>slot===1?'花':'羽').join('と');
+    const text=needsDomain?`旅人の${parts}が空いています。モンドの「山脊の見守り」では、クリア報酬の部位が花・羽から順に巡ります。`:
+     `旅人の${parts}が空いています。バッグにある聖遺物を装備できます。`;
+    if(natlanStatus.textContent!==text)natlanStatus.textContent=text;
+    natlanEquip.hidden=available.length===0;
+    natlanRoute.hidden=!needsDomain||!f.story.visited['mond-town'];
+   }
+  }else natlanGuide.hidden=true;
   blocked.hidden=!f.artifactAttackBlocked;
   if(f.artifactAttackBlocked){
    const inTown=f.campaign?.zone==='town';

@@ -277,6 +277,36 @@ return function(C,imprint,artifactSets)
    end
    return
   end
+  if key=='artifact_fill_basics' then
+   if s.paused or not (s.story and s.story.active and s.campaign and s.campaign.zone=='town') then return end
+   local filled={}
+   local improved=false
+   for slot=1,2 do
+    local equipped,best,bestStat=nil,nil,-1
+    for _,item in ipairs(bag.items) do
+     if item.slot==slot then
+      if item.owner==1 then
+       equipped=item
+      elseif item.owner==0 then
+       local stat=C.artifactStats(item)
+       if stat>bestStat then best,bestStat=item,stat end
+      end
+     end
+    end
+    if not equipped and best then
+     best.owner=1
+     improved=improved or best.setId==bag.targetSet
+     filled[#filled+1]=slot==1 and '花' or '羽'
+    end
+   end
+   if #filled>0 then
+    s.artifactPreview=nil
+    C.refreshArtifactStats(s)
+    bag.message='旅人の空き枠に'..table.concat(filled,'と')..'を装備しました。'
+    if improved and C.endgameGoalEvent then C.endgameGoalEvent(s,'gear') end
+   end
+   return
+  end
   local command,id=string.match(key,'^artifact_(%a+):(%d+)$')
   if command then
    if not s.campaign or s.campaign.zone~='town' then bag.message='町で装備を変更してください。';return end

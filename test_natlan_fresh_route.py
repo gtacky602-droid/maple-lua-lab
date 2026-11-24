@@ -1,13 +1,16 @@
 """Play Natlan from the checkpoint earned by the preceding fresh route."""
 
+from argparse import ArgumentParser
+from hashlib import sha256
 import json
 import subprocess
 import sys
 from math import ceil
 
-from experience import LEVELS
+from experience import LEVELS, RUNTIME_EXP
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.ridge_watch_test import earn_ridge_watch_pair
 from tools.waypoint_test import TrailWalk
 
 
@@ -15,27 +18,41 @@ def read(path):
     return json.loads((ROOT / path).read_text(encoding='utf8'))
 
 
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--draft-gear', choices=('carried', 'empty', 'empty-late-refresh'),
+                    help='Use the existing Lv100 checkpoint; start with carried gear or an empty bag')
+args = parser.parse_args()
+draft = args.draft_gear is not None
+empty_start = args.draft_gear in ('empty', 'empty-late-refresh')
+
 hub = 'natlan-hub'
-work = ROOT / 'work' / 'natlan-fresh-route'
+suffix = f'-draft-{args.draft_gear}' if draft else ''
+work = ROOT / 'work' / ('natlan-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-subprocess.run([sys.executable, str(ROOT / 'test_fontaine_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-checkpoint = validate_save(read('work/fontaine-fresh-route/natlan-save.json'))
+if not draft:
+    subprocess.run([sys.executable, str(ROOT / 'test_fontaine_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
+source = (ROOT / 'work/fontaine-fresh-route/natlan-save.json').read_bytes()
+checkpoint = validate_save(json.loads(source))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 100
+if empty_start:
+    checkpoint['inventory']['items'] = []
+    checkpoint['inventory']['ground'] = []
 
 graph = read('content/story-graph.json')
 nodes = {node['id']: node for node in graph['nodes']}
 exits = {id: node['exits'] for id, node in nodes.items()}
 edges = {(id, edge['to']): edge for id, gates in exits.items() for edge in gates}
-lua, core = runtime()
+lua, core = runtime(draft_balance=draft)
 state = core.restore(lua.table_from(checkpoint, recursive=True), 12)
 trail = TrailWalk(lua, core, state, edges, exits)
 attack = {dx: lua.table_from(dict(left=dx < 0, right=dx > 0, attack=True)) for dx in (-1, 0, 1)}
 jump_attack = lua.table_from(dict(attack=True, jump=True))
 jump_right = lua.table_from(dict(right=True, jump=True))
-farm = lua.eval('''function(core, state, level, controls)
+farm = lua.eval('''function(core, state, level, controls, draft)
     for elapsed=1,4500 do
         core.step(state, 1/60, controls)
         if state.progression.level >= level or state.actors[state.active].hp < 65
+                or draft and state.actors[1].hp < 65
                 or #state.inventory.ground >= 12 then
             return elapsed
         end
@@ -130,6 +147,21 @@ def jump_to(x, y):
         tick(1, jump_right if actor.x < x - 5 else trail.inputs['jump'])
     raise AssertionError((state.story.node, trail.actor.x, trail.actor.y, x, y, state.storyNotice))
 
+
+def equipment_snapshot():
+    return dict(atk=state.actors[1].atk, hp=state.actors[1].maxhp, mora=state.mora,
+                ownedArtifacts=len(state.inventory['items']),
+                wornArtifacts=sum(item.owner == 1 for item in state.inventory['items'].values()),
+                sword=core.equippedWeapon(state, 'traveler'))
+
+
+if draft:
+    act('weapon_equip:traveler:SW05')
+    assert core.equippedWeapon(state, 'traveler') == 'SW05'
+    if args.draft_gear == 'carried':
+        act('artifact_fill_basics')
+        assert equipment_snapshot()['wornArtifacts'] == 2
+    arrival_equipment = equipment_snapshot()
 
 first, staging, slope, cleft, summit = (
     'natlan-ridge-flag', 'natlan-flag-staging', 'natlan-flag-slope', 'natlan-flag-cleft', 'natlan-flag-summit',
@@ -257,18 +289,63 @@ assert quest.huntNotes.outcome == 'direct'
 cross(hub)
 report(kinich)
 
-equipment = {}
-for role in (1, 2):
-    assert state.active == role
-    equipment[role] = []
-    for slot in range(1, 6):
-        choices = [item for item in state.inventory['items'].values() if item.slot == slot and item.owner == 0]
-        best = max(choices, key=lambda item: (item.rarity, item.itemLv, item.id))
-        act('artifact_equip:' + str(best.id))
-        assert best.owner == role
-        equipment[role].append(best.id)
-    act('swap')
-    tick(26)
+recovered_gear = None
+if empty_start:
+    before = equipment_snapshot()
+    rewards = earn_ridge_watch_pair(lua, core, trail, 'ii')
+    act('story_fast:' + hub)
+    assert state.story.node == hub
+    recovered_gear = dict(before=before, after=equipment_snapshot(), rank='ii', rewards=rewards)
+    mark('ridge-watch-gear')
+
+entry, ridge, slope_side, boulder = 'natlan-entry', 'nat-wp-72413', 'nat-wp-72414', 'nat-wp-72440'
+wall_quest = 'natlan-ancient-excavation-wall'
+
+
+def claim_wall_reward():
+    before_wall = equipment_snapshot()
+    act('story_fast:' + hub)
+    assert state.story.node == hub
+    accept(wall_quest)
+    water, ledge = 'tepeacac-waterfall-wall', 'ancient-excavation-upper-ledge'
+    cross(entry, ridge, slope_side, water)
+    collect(382)
+    cross(ledge)
+    collect(1302, 272)
+    act('story_fast:' + hub)
+    assert state.story.node == hub
+    report(wall_quest)
+    act('weapon_equip:traveler:SW06')
+    assert core.equippedWeapon(state, 'traveler') == 'SW06'
+    return before_wall, equipment_snapshot()
+
+
+def refresh_artifacts():
+    equipment = {}
+    if state.active != 1:
+        tick(50)
+        act('swap')
+        tick(50)
+    for role in (1, 2):
+        assert state.active == role
+        equipment[role] = []
+        for slot in range(1, 6):
+            choices = [item for item in state.inventory['items'].values() if item.slot == slot and item.owner == 0]
+            if draft:
+                choices += [item for item in state.inventory['items'].values() if item.slot == slot and item.owner == role]
+                if not choices:
+                    continue
+            best = max(choices, key=lambda item: (item.rarity, item.itemLv, item.id))
+            if best.owner != role:
+                act('artifact_equip:' + str(best.id))
+            assert best.owner == role
+            equipment[role].append(best.id)
+        act('swap')
+        tick(50 if draft else 26)
+    return equipment
+
+
+equipment = refresh_artifacts()
 
 
 def clear_backlog():
@@ -293,7 +370,6 @@ assert closed.to == ship and not closed.available and closed.level == 120
 act('story_nearby_portal')
 assert state.story.node == port and not state.voyage
 
-entry, ridge, slope_side, boulder = 'natlan-entry', 'nat-wp-72413', 'nat-wp-72414', 'nat-wp-72440'
 red_clay, rock_shelves, domain = 'natlan-terrace-red-clay', 'natlan-east-valley-rocks', 'sites-hunt-73159'
 cross(rocky_road, hub, entry, ridge, slope_side, boulder)
 for stage, required in ((red_clay, 110), (rock_shelves, 115), (domain, 119)):
@@ -309,16 +385,28 @@ for stage, required in ((red_clay, 110), (rock_shelves, 115), (domain, 119)):
 
 recovery_trips, inventory_trips = 0, 0
 hunting = []
-for stage, parent, threshold in ((red_clay, boulder, 115), (rock_shelves, slope_side, 119),
-                                 (domain, slope_side, 120)):
+gear_updates = {}
+route_hunts = [(red_clay, boulder, 115), (rock_shelves, slope_side, 119), (domain, slope_side, 120)]
+if draft:
+    route_hunts.insert(0, (red_clay, boulder, 112))
+for stage, parent, threshold in route_hunts:
+    if state.progression.level >= threshold:
+        continue
     if state.story.node != parent:
         cross(parent)
-    exp_per_enemy = LEVELS[nodes[stage]['level'] - 1]['normal_enemy_base_exp']
+    enemy_level = nodes[stage]['level']
+    exp_per_enemy = LEVELS[enemy_level - 1]['normal_enemy_base_exp']
+    min_exp = exp_per_enemy
+    if draft and threshold-enemy_level >= 5:
+        min_exp = int(exp_per_enemy * RUNTIME_EXP['gap']['player_higher_by_5_to_10'] + .5)
     totals = dict(stage=stage, sorties=0, kills=0, xp=0, ticks=0)
+    if draft and threshold == 120:
+        start_save = validate_save(native(core.checkpoint(state)))
+        (work/'lv119-hunt-start.json').write_text(json.dumps(start_save, ensure_ascii=False), encoding='utf8')
     for _ in range(125):
         if state.progression.level >= threshold:
             break
-        needs_recovery = trail.actor.hp < 95
+        needs_recovery = trail.actor.hp < 95 or (draft and (state.actors[1].hp < 95 or state.actors[2].hp <= 0))
         needs_inventory = len(state.inventory.ground) >= 12
         if needs_recovery or needs_inventory:
             act('story_fast:' + hub)
@@ -331,14 +419,20 @@ for stage, parent, threshold in ((red_clay, boulder, 115), (rock_shelves, slope_
             act('story_fast:' + parent)
             assert state.story.node == parent
         cross(stage)
-        before_kills, before_xp = state.kills, state.progression.killXp
+        before_kills, before_xp, before_hits = state.kills, state.progression.killXp, state.hits
         if stage == domain:
             near(370)
         act('auto')
-        elapsed = farm(core, state, threshold, trail.idle)
+        elapsed = farm(core, state, threshold, trail.idle, draft)
         act('auto')
         kills, xp = state.kills - before_kills, state.progression.killXp - before_xp
-        assert kills > 0 and xp == kills * exp_per_enemy and state.returns == 0, (
+        if draft and kills == 0:
+            print(dict(stage=stage, elapsed=elapsed, hits=state.hits-before_hits, active=state.active,
+                       stats=[dict(atk=a.atk, hp=a.hp, maxhp=a.maxhp, x=a.x, y=a.y) for a in state.actors.values()],
+                       ground=len(state.inventory.ground), attackAllowed=core.canAttack(state),
+                       sampleEnemies=[dict(x=e.x, y=e.y, hp=e.hp, maxhp=e.maxhp)
+                                      for e in list(state.enemies.values())[:5]]), flush=True)
+        assert kills > 0 and kills * min_exp <= xp <= kills * exp_per_enemy and state.returns == 0, (
             stage, kills, xp, elapsed, trail.actor.x, trail.actor.hp,
         )
         totals['sorties'] += 1
@@ -350,6 +444,24 @@ for stage, parent, threshold in ((red_clay, boulder, 115), (rock_shelves, slope_
     totals['seconds'] = round(totals.pop('ticks') / 60, 2)
     hunting.append(totals)
     mark('lv' + str(threshold))
+    if draft and threshold == 112:
+        before_wall, after_wall = claim_wall_reward()
+        if args.draft_gear == 'empty':
+            clear_backlog()
+            equipment = refresh_artifacts()
+            gear_updates[112] = dict(before=after_wall, after=equipment_snapshot(), equipped=equipment)
+        act('story_fast:' + boulder)
+        assert state.story.node == boulder
+    refresh_due = draft and (threshold == 119 or threshold == 115 and args.draft_gear == 'empty')
+    if refresh_due:
+        before = equipment_snapshot()
+        act('story_fast:' + hub)
+        assert state.story.node == hub and state.actors[1].hp == state.actors[1].maxhp
+        clear_backlog()
+        equipment = refresh_artifacts()
+        gear_updates[threshold] = dict(before=before, after=equipment_snapshot(), equipped=equipment)
+        act('story_fast:' + parent)
+        assert state.story.node == parent
 
 cross(ridge, entry, hub)
 act('world_map_toggle')
@@ -412,4 +524,10 @@ result = dict(route=milestones, completedQuests=quests, hunts=hunting, equippedE
               seaSaveRestoredToPort=True, mapPausesVoyage=True, savedAndRestored=True,
               firstNodQuestAvailable=next_quest,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
-(ROOT / 'evidence/natlan-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
+if draft:
+    result.update(draftGear=args.draft_gear, sourceSha256=sha256(source).hexdigest(), gearOnArrival=arrival_equipment,
+                  beforeWall=before_wall, afterWall=after_wall, gearOnDeparture=equipment_snapshot(),
+                  artifactRecovery=recovered_gear, gearUpdates=gear_updates)
+    assert restored.story.quests[wall_quest].status == 'complete'
+    assert core.equippedWeapon(restored, 'traveler') == 'SW06'
+(ROOT / 'evidence' / f'natlan-fresh-route{suffix}.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
