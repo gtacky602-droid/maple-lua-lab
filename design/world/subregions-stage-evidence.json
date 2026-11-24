@@ -1,0 +1,161 @@
+{
+  "scope": "Dragonspine, Chenyu Vale, The Chasm, Enkanomiya, Tunigi Hollow and Sea of Bygone Eras stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 25,
+  "interpretation": "The two Liyue border routes start at a waypoint with a prepared level. Encounter tests may start near a field entrance or inside an arena. Each link records the scope of the corresponding run.",
+  "entries": [
+    {
+      "region": "ドラゴンスパイン",
+      "kind": "normal_boss",
+      "stages": [
+        "dragonspine-depth",
+        "cryo-hypostasis-field-basin"
+      ],
+      "evidence": [
+        "evidence/cryo-hypostasis-field-lua.json"
+      ]
+    },
+    {
+      "region": "ドラゴンスパイン",
+      "kind": "side_quest",
+      "stages": [
+        "spine-observation-shelf",
+        "spine-lee-walk",
+        "spine-trace-ridge"
+      ],
+      "evidence": [
+        "evidence/spine-observation-lua.json",
+        "evidence/spine-observation-browser.json"
+      ]
+    },
+    {
+      "region": "ドラゴンスパイン",
+      "kind": "corridor",
+      "stages": [
+        "sites-dragonspine-south-foothill"
+      ],
+      "evidence": [
+        "evidence/subregion-checkpoints-lua.json",
+        "evidence/subregion-checkpoints-browser.json",
+        "evidence/sites-atlas-connections-lua.json"
+      ]
+    },
+    {
+      "region": "沈玉の谷",
+      "kind": "normal_boss",
+      "stages": [
+        "suanni-field-sanctum"
+      ],
+      "evidence": [
+        "evidence/suanni-field-lua.json"
+      ]
+    },
+    {
+      "region": "沈玉の谷",
+      "kind": "side_quest",
+      "stages": [
+        "chenyu-tea-terraces",
+        "chenyu-cart-road",
+        "chenyu-boulder-gully"
+      ],
+      "evidence": [
+        "evidence/chenyu-tea-lua.json",
+        "evidence/chenyu-tea-browser.json"
+      ]
+    },
+    {
+      "region": "沈玉の谷",
+      "kind": "local_legend",
+      "stages": [
+        "chizhang-legend-terrace"
+      ],
+      "evidence": [
+        "evidence/sites-branch-legends-lua.json",
+        "evidence/sites-branch-legends-browser.json"
+      ]
+    },
+    {
+      "region": "層岩巨淵・地下鉱区",
+      "kind": "normal_boss",
+      "stages": [
+        "ruin-serpent-field-pit"
+      ],
+      "evidence": [
+        "evidence/ruin-serpent-field-lua.json",
+        "evidence/chasm-waypoint-test.json"
+      ]
+    },
+    {
+      "region": "層岩巨淵・地上",
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-chasm-border"
+      ],
+      "evidence": [
+        "evidence/subregion-checkpoints-lua.json",
+        "evidence/subregion-checkpoints-browser.json",
+        "evidence/sumeru-border-routes-lua.json"
+      ]
+    },
+    {
+      "region": "淵下宮",
+      "kind": "normal_boss",
+      "stages": [
+        "bathysmal-field-sanctum"
+      ],
+      "evidence": [
+        "evidence/bathysmal-field-lua.json"
+      ]
+    },
+    {
+      "region": "淵下宮",
+      "kind": "side_quest",
+      "stages": [
+        "enkan-guide-shelf",
+        "enkan-lamp-chamber",
+        "enkan-route-gallery",
+        "enkan-tablet-hollow"
+      ],
+      "evidence": [
+        "evidence/enkan-lamp-lua.json",
+        "evidence/enkan-lamp-browser.json"
+      ]
+    },
+    {
+      "region": "トゥニギの黒淵",
+      "kind": "side_quest",
+      "stages": [
+        "tunigi-vent-shelf",
+        "tunigi-elite-passage",
+        "tunigi-fragment-vault"
+      ],
+      "evidence": [
+        "evidence/tunigi-excavation-lua.json",
+        "evidence/tunigi-excavation-browser.json"
+      ]
+    },
+    {
+      "region": "往日の海",
+      "kind": "side_quest",
+      "stages": [
+        "bygone-inscribed-hall",
+        "bygone-listening-gallery",
+        "bygone-bell-archive"
+      ],
+      "evidence": [
+        "evidence/bygone-resonance-lua.json",
+        "evidence/bygone-resonance-browser.json"
+      ]
+    },
+    {
+      "region": "往日の海",
+      "kind": "local_legend",
+      "stages": [
+        "cineas-legend-chamber"
+      ],
+      "evidence": [
+        "evidence/sites-branch-legends-lua.json",
+        "evidence/sites-branch-legends-browser.json"
+      ]
+    }
+  ]
+}

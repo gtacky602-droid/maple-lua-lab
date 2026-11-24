@@ -72,6 +72,14 @@ ChromeではLv36で港東からLv34の採石斜面へ往復し、Lv38の入口�
 
 地図上の「戦闘中に移動」「戦闘中に帰還」は、条件と操作を読むための案内。共闘で地図を開いている間に戦場が切り替わると、現在地と道順も更新する。Luaで実際の戦闘処理を使った往復、必要Lv未満での入場拒否と共闘の表示更新を検証した。Chromeのソロ試走でも両方の案内、戦闘中の往復、討伐・報告・保存復元を確認した。 [Luaの検証](../evidence/atlas-battle-routes-lua.json) · [鯨の腹中への案内](../evidence/narwhal-weekly-atlas-entry.png) · [偽月の異界からの帰還](../evidence/false-moon-weekly-atlas-return.png) · [鯨のChrome記録](../evidence/atlas-battle-narwhal-browser.json) · [偽月のChrome記録](../evidence/atlas-battle-false-moon-browser.json)
 
+## 璃月から西の雪線道と巨淵の国境洞道を渡る
+
+璃月の雪山南麓の湿地から西の雪線道を通り、西斜面の岩間へ入れる。入場はLv44。ドラゴンスパインの拠点をまだ訪れていなければ、訪問済みの璃月港で再開できる。拠点を訪れたあとは、西斜面で保存するとドラゴンスパインの拠点で再開する。
+
+層岩巨淵の採掘場西の岩棚からは国境洞道を抜けてスメール側の神像へ入れる。入場はLv64。スメール・巨淵・稲妻の近隣拠点が未訪問の場合にも、訪問済みの璃月港を再開先として使える。国境側の神像からスメール入口、木橋を経て北東の神像まで同じ再開先を使う。
+
+Luaで両ルートの1Lv手前の入場拒否、往復、訪問履歴の保存復元を確認した。Chromeでも璃月側のワープ地点からM地図を開き、両ルートを往復して璃月港で再開した。 [Luaの試験](../evidence/subregion-checkpoints-lua.json) · [Chromeの試験](../evidence/subregion-checkpoints-browser.json) · [6地域25地点の試験資料](../design/world/subregions-stage-evidence.json)
+
 ## 検証
 
 - Luaで18組の往復を確認した。位相門の順序と保存、国境や橋の5つの通行Lv、発見後に入れる3つの隠し世界を含む。試走は戦闘の影響を外した状態で行った。稲妻と淵下宮の77地点では212方向の門を再試走した。 [Luaの経路ログ](../evidence/sites-atlas-connections-lua.json) · [稲妻・淵下宮](../evidence/inazuma-waypoint-test.json)

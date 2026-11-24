@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "level": 44,
+      "path": [
+        "liyue-wp-34",
+        "sites-dragonspine-south-foothill",
+        "mond-wp-6599"
+      ],
+      "unvisited": [
+        "dragonspine-camp"
+      ],
+      "roundTrip": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "level": 64,
+      "path": [
+        "liyue-wp-28732",
+        "sites-corridor-chasm-border",
+        "sum-wp-28704"
+      ],
+      "unvisited": [
+        "chasm-camp",
+        "sumeru-hub"
+      ],
+      "roundTrip": true,
+      "restoredAt": "liyue-harbor"
+    }
+  ],
+  "errors": []
+}

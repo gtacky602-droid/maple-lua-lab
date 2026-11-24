@@ -1,0 +1,104 @@
+{
+  "snowline": {
+    "gateLevel": 44,
+    "firstArrivalRestoresAt": "liyue-harbor",
+    "returnTripRestoresAt": "dragonspine-camp",
+    "directions": [
+      [
+        "dragonspine-camp",
+        "mond-wp-6601"
+      ],
+      [
+        "liyue-wp-34",
+        "sites-dragonspine-south-foothill"
+      ],
+      [
+        "mond-wp-6594",
+        "mond-wp-6596"
+      ],
+      [
+        "mond-wp-6594",
+        "mond-wp-6601"
+      ],
+      [
+        "mond-wp-6596",
+        "mond-wp-6594"
+      ],
+      [
+        "mond-wp-6596",
+        "mond-wp-6599"
+      ],
+      [
+        "mond-wp-6599",
+        "mond-wp-6596"
+      ],
+      [
+        "mond-wp-6599",
+        "sites-dragonspine-south-foothill"
+      ],
+      [
+        "mond-wp-6601",
+        "dragonspine-camp"
+      ],
+      [
+        "mond-wp-6601",
+        "mond-wp-6594"
+      ],
+      [
+        "sites-dragonspine-south-foothill",
+        "liyue-wp-34"
+      ],
+      [
+        "sites-dragonspine-south-foothill",
+        "mond-wp-6599"
+      ]
+    ]
+  },
+  "tunnel": {
+    "gateLevel": 64,
+    "firstArrivalRestoresAt": "liyue-harbor",
+    "defeatReturnsTo": "liyue-harbor",
+    "directions": [
+      [
+        "liyue-wp-28732",
+        "sites-corridor-chasm-border"
+      ],
+      [
+        "sites-corridor-chasm-border",
+        "liyue-wp-28732"
+      ],
+      [
+        "sites-corridor-chasm-border",
+        "sum-wp-28704"
+      ],
+      [
+        "sites-corridor-sumeru-bridge",
+        "sum-wp-28700"
+      ],
+      [
+        "sites-corridor-sumeru-bridge",
+        "sumeru-entry"
+      ],
+      [
+        "sum-wp-28700",
+        "sites-corridor-sumeru-bridge"
+      ],
+      [
+        "sum-wp-28704",
+        "sites-corridor-chasm-border"
+      ],
+      [
+        "sum-wp-28704",
+        "sumeru-entry"
+      ],
+      [
+        "sumeru-entry",
+        "sites-corridor-sumeru-bridge"
+      ],
+      [
+        "sumeru-entry",
+        "sum-wp-28704"
+      ]
+    ]
+  }
+}
