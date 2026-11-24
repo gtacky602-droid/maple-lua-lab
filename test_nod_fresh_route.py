@@ -1,5 +1,7 @@
 """Play Nod-Krai from the checkpoint earned by the preceding fresh route."""
 
+from argparse import ArgumentParser
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -14,27 +16,36 @@ def read(path):
     return json.loads((ROOT / path).read_text(encoding='utf8'))
 
 
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--draft-balance', action='store_true',
+                    help='Continue the existing Lv120 checkpoint earned in the draft Natlan recovery route')
+draft = parser.parse_args().draft_balance
+suffix = '-draft' if draft else ''
 hub = 'nod-town'
-work = ROOT / 'work' / 'nod-fresh-route'
+work = ROOT / 'work' / ('nod-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-subprocess.run([sys.executable, str(ROOT / 'test_natlan_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-checkpoint = validate_save(read('work/natlan-fresh-route/nod-save.json'))
+if not draft:
+    subprocess.run([sys.executable, str(ROOT / 'test_natlan_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
+source_dir = 'natlan-fresh-route-draft-empty' if draft else 'natlan-fresh-route'
+source = (ROOT / 'work' / source_dir / 'nod-save.json').read_bytes()
+checkpoint = validate_save(json.loads(source))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 120
 
 graph = read('content/story-graph.json')
 nodes = {node['id']: node for node in graph['nodes']}
 exits = {id: node['exits'] for id, node in nodes.items()}
 edges = {(id, edge['to']): edge for id, gates in exits.items() for edge in gates}
-lua, core = runtime()
+lua, core = runtime(draft_balance=draft)
 state = core.restore(lua.table_from(checkpoint, recursive=True), 12)
 trail = TrailWalk(lua, core, state, edges, exits)
 attack = {dx: lua.table_from(dict(left=dx < 0, right=dx > 0, attack=True)) for dx in (-1, 0, 1)}
 jump_attack = lua.table_from(dict(attack=True, jump=True))
 jump_right = lua.table_from(dict(right=True, jump=True))
-farm = lua.eval('''function(core, state, level, controls)
+farm = lua.eval('''function(core, state, level, controls, draft)
     for elapsed=1,4500 do
         core.step(state, 1/60, controls)
         if state.progression.level >= level or state.actors[state.active].hp < 65
+                or draft and state.actors[1].hp < 65
                 or #state.inventory.ground >= 12 then
             return elapsed
         end
@@ -142,6 +153,13 @@ def clear_backlog():
     assert len(state.inventory.ground) == 0
 
 
+def gear_snapshot():
+    return dict(atk=state.actors[1].atk, hp=state.actors[1].maxhp,
+                companionAtk=state.actors[2].atk, companionHp=state.actors[2].maxhp,
+                sword=core.equippedWeapon(state, 'traveler'))
+
+
+arrival_gear = gear_snapshot() if draft else None
 clear_backlog()
 first, coast, shallows, rocks = 'nod-first-treasure', 'nod-workshop-coast', 'nod-moon-shallows', 'nod-tide-rocks'
 quest = accept(first)
@@ -206,10 +224,28 @@ cross(arena)
 fight(lambda: quest.count == 2, (810, 480))
 cross(vault)
 collect(416)
+reward_id = state.inventory.nextId
+if draft:
+    near(730)
+    offered = {option.id: option for option in frame().storyArtifactChoices.options.values()}
+    assert set(offered) == {'flower', 'feather'} and offered['feather'].equipped
+    assert state.inventory.nextId == reward_id and quest.count == 3
 collect(657)
 assert quest.storyChoice == 'feather'
 cross(hub)
 report(third)
+if draft:
+    items = list(state.inventory['items'].values())
+    reward = next(item for item in items if item.id == reward_id)
+    equipped = next((item for item in items if item.slot == 2 and item.owner == 1), None)
+    prior_stat = core.artifactStats(equipped) if equipped else 0
+    reward_stat = core.artifactStats(reward)
+    assert (offered['feather'].equipped.stat, offered['feather'].offered.stat) == (prior_stat, reward_stat)
+    if reward_stat > prior_stat:
+        assert state.active == 1
+        act(f'artifact_equip:{reward.id}')
+    vault_reward = dict(id=reward.id, equipped=reward.owner == 1, equippedAttack=prior_stat,
+                        rewardAttack=reward_stat, itemLevel=reward.itemLv, rarity=reward.rarity, comparedBeforeClaim=True)
 
 appraisal, workshop, yard = 'nod-treasure-appraisal', 'nod-appraisal-workshop', 'nod-appraisal-yard'
 cross(workshop)
@@ -269,6 +305,7 @@ for stage, required in ((spruce, 130), (frost, 133), (switchback, 136)):
     act('world_map_close')
 
 recovery_trips, inventory_trips = 0, 0
+recovery_by_actor = dict(traveler=0, companion=0)
 hunting = []
 for stage, parent, threshold in ((spruce, forest_path, 133), (frost, west, 136), (switchback, hub, 140)):
     if parent == hub:
@@ -280,7 +317,9 @@ for stage, parent, threshold in ((spruce, forest_path, 133), (frost, west, 136),
     for _ in range(125):
         if state.progression.level >= threshold:
             break
-        needs_recovery = trail.actor.hp < 95
+        traveler_hurt = state.actors[1].hp < 95
+        companion_down = state.actors[2].hp <= 0
+        needs_recovery = trail.actor.hp < 95 or draft and (traveler_hurt or companion_down)
         needs_inventory = len(state.inventory.ground) >= 12
         if needs_recovery or needs_inventory:
             act('story_fast:' + hub)
@@ -290,6 +329,9 @@ for stage, parent, threshold in ((spruce, forest_path, 133), (frost, west, 136),
                 inventory_trips += 1
             if needs_recovery:
                 recovery_trips += 1
+                if draft:
+                    recovery_by_actor['traveler'] += int(traveler_hurt)
+                    recovery_by_actor['companion'] += int(companion_down)
             if parent != hub:
                 act('story_fast:' + parent)
                 assert state.story.node == parent
@@ -300,7 +342,7 @@ for stage, parent, threshold in ((spruce, forest_path, 133), (frost, west, 136),
         elif stage == switchback:
             near(260)
         act('auto')
-        elapsed = farm(core, state, threshold, trail.idle)
+        elapsed = farm(core, state, threshold, trail.idle, draft)
         act('auto')
         kills, xp = state.kills - before_kills, state.progression.killXp - before_xp
         assert kills > 0 and xp == kills * exp_per_enemy and state.returns == 0, (
@@ -348,4 +390,7 @@ result = dict(route=milestones, completedQuests=quests, hunts=hunting, recoveryT
               inventoryTrips=inventory_trips, partyWipes=state.returns, savedAndRestored=True,
               nextChapter=dict(id=ticket, requiredLevel=141, availableHunt='white-pass-cut'),
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
-(ROOT / 'evidence/nod-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
+if draft:
+    result.update(sourceSha256=sha256(source).hexdigest(), gearOnArrival=arrival_gear, vaultReward=vault_reward,
+                  gearOnDeparture=gear_snapshot(), recoveryByActor=recovery_by_actor)
+(ROOT / 'evidence' / f'nod-fresh-route{suffix}.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

@@ -10,6 +10,7 @@
   "basicAmberParty": true,
   "recoverAfterFullBag": true,
   "bothRewardChoices": true,
+  "rewardPreviewBeforeClaim": true,
   "supplies": 8,
   "cacheMora": 14500,
   "reportXp": 25032225,

@@ -5,7 +5,9 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
-const proof=JSON.parse(await fs.readFile('evidence/snez-fresh-route.json','utf8'));
+const draft=process.env.DRAFT_BALANCE==='1';
+const suffix=draft?'-draft':'';
+const proof=JSON.parse(await fs.readFile(`evidence/snez-fresh-route${suffix}.json`,'utf8'));
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:940}});
 const drive=waypointDriver(page,nodes);
@@ -23,7 +25,7 @@ const huntLevels={
 };
 
 async function load(name,node){
- const path=`work/snez-fresh-route/${name}.json`;
+ const path=`work/snez-fresh-route${suffix}/${name}.json`;
  await page.locator('#importSave').setInputFiles(path);
  await drive.waitNode(node);
  return JSON.parse(await fs.readFile(path,'utf8'));
@@ -51,6 +53,7 @@ try {
  await page.waitForFunction(()=>window.lab?.frame);
  const savedTrain=await load('train-save',hub);
  const before=await frame();
+ assert.equal(Boolean(before.fieldBalance),draft);
  assert.equal(before.progression.level,savedTrain.progression.level);
  assert.equal(before.story.quests['white-pass-ticket'].status,'complete');
  assert.equal(before.voyage,undefined);
@@ -59,7 +62,7 @@ try {
  assert.equal(trainGuide.status,'ready');
  assert.deepEqual(trainGuide.stops.map(s=>[s.id,s.mode]),[[coach,'rail'],[station,'rail']]);
  assert.equal(trainGuide.stops[1].hint,'発車から9秒で到着');
- await atlas.screenshot({path:'evidence/snez-fresh-train-atlas.png'});
+ await atlas.screenshot({path:`evidence/snez-fresh-train-atlas${suffix}.png`});
  await closeMap();
 
  await drive.walk(800);
@@ -83,6 +86,7 @@ try {
  let soFar=await frame();
  assert.equal(soFar.progression.total,saved.progression.total);
  for(const id of proof.completedQuests)assert.equal(soFar.story.quests[id].status,'complete');
+ if(draft)assert.equal(soFar.weaponView.traveler,'SW07');
  await openMap();
  await page.locator('#atlasLayer').selectOption('hunt');
  const firstHunt=await guide(aurora);
@@ -95,7 +99,7 @@ try {
  assert.equal(later.reason,'必要Lv165');
  assert.equal(later.stops.at(-1).id,cap);
  assert.equal(later.stops.at(-1).reason,'必要Lv200');
- await atlas.screenshot({path:'evidence/snez-fresh-endgame-atlas.png'});
+ await atlas.screenshot({path:`evidence/snez-fresh-endgame-atlas${suffix}.png`});
  await closeMap();
 
  await drive.cross(aurora);
@@ -124,7 +128,7 @@ try {
  assert.equal(soFar.storyNearbyPortal.available,false);
  assert.equal(soFar.storyNearbyPortal.level,165);
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/snez-fresh-route-browser.json',JSON.stringify({
+ await fs.writeFile(`evidence/snez-fresh-route-browser${suffix}.json`,JSON.stringify({
   trainGuide:trainGuide.stops,boardLabel:'F：列車に乗る',trainSeconds:vehicle.total,
   persistedQuests:proof.completedQuests,firstHunt:aurora,huntLevels,capGuide:later.stops,
   verifiedAtLv:soFar.progression.level,lightReleaseKeyQ:true,blockedGate:iceShelf,errors

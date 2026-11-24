@@ -1,0 +1,134 @@
+{
+  "trainGuide": [
+    {
+      "label": "鉄道",
+      "id": "white-pass-coach",
+      "region": "region-08",
+      "mode": "rail",
+      "from": "snezhnaya-hub",
+      "name": "白虹行きの列車"
+    },
+    {
+      "label": "鉄道",
+      "id": "white-pass-station",
+      "hint": "発車から9秒で到着",
+      "region": "region-08",
+      "mode": "rail",
+      "from": "white-pass-coach",
+      "name": "雪原の終着駅"
+    }
+  ],
+  "boardLabel": "F：列車に乗る",
+  "trainSeconds": 9,
+  "persistedQuests": [
+    "sne-mitya-observation",
+    "white-pass-ticket",
+    "white-pass-footprints",
+    "white-pass-trail",
+    "sne-snow-match-quest",
+    "white-pass-footwork",
+    "white-pass-rest",
+    "white-pass-summit"
+  ],
+  "firstHunt": "aurora-ice-cut",
+  "huntLevels": {
+    "white-pass-cut": 140,
+    "white-pass-woods": 148,
+    "white-pass-ridge": 155,
+    "aurora-ice-cut": 160,
+    "aurora-ice-shelf": 165,
+    "aurora-steam-channel": 170,
+    "aurora-mineral-terraces": 175,
+    "dawn-vein-mine": 180,
+    "dawn-vein-deep": 185,
+    "dawn-glass-ridge": 190,
+    "dawn-glass-divide": 195,
+    "dawn-crystal-field": 200
+  },
+  "capGuide": [
+    {
+      "from": "white-pass-station",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "aurora-ice-cut",
+      "label": "徒歩",
+      "name": "極光谷・氷の切通し"
+    },
+    {
+      "from": "aurora-ice-cut",
+      "reason": "必要Lv165",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "aurora-ice-shelf",
+      "label": "徒歩",
+      "name": "極光谷・氷棚"
+    },
+    {
+      "from": "aurora-ice-shelf",
+      "reason": "必要Lv170",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "aurora-steam-channel",
+      "label": "徒歩",
+      "name": "湯気谷・温泉水路"
+    },
+    {
+      "from": "aurora-steam-channel",
+      "reason": "必要Lv175",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "aurora-mineral-terraces",
+      "label": "徒歩",
+      "name": "湯気谷・鉱泉段丘"
+    },
+    {
+      "from": "aurora-mineral-terraces",
+      "reason": "必要Lv180",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "dawn-vein-mine",
+      "label": "徒歩",
+      "name": "星脈坑・凍てた坑口"
+    },
+    {
+      "from": "dawn-vein-mine",
+      "reason": "必要Lv185",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "dawn-vein-deep",
+      "label": "徒歩",
+      "name": "星脈坑・群青の採掘路"
+    },
+    {
+      "from": "dawn-vein-deep",
+      "reason": "必要Lv190",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "dawn-glass-ridge",
+      "label": "徒歩",
+      "name": "暁晶尾根・露頭の道"
+    },
+    {
+      "from": "dawn-glass-ridge",
+      "reason": "必要Lv195",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "dawn-glass-divide",
+      "label": "徒歩",
+      "name": "暁晶尾根・稜線の段丘"
+    },
+    {
+      "from": "dawn-glass-divide",
+      "reason": "必要Lv200",
+      "mode": "walk",
+      "region": "region-08",
+      "id": "dawn-crystal-field",
+      "label": "徒歩",
+      "name": "極地の暁晶原"
+    }
+  ],
+  "verifiedAtLv": 160,
+  "lightReleaseKeyQ": true,
+  "blockedGate": "aurora-ice-shelf",
+  "errors": []
+}

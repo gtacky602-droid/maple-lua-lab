@@ -1,0 +1,163 @@
+{
+  "route": [
+    {
+      "id": "columbina-coast-detour",
+      "seconds": 26.63,
+      "level": 120,
+      "total": 114192222,
+      "questXp": 46899841,
+      "killXp": 67292381,
+      "kills": 15605
+    },
+    {
+      "id": "nod-first-treasure",
+      "seconds": 43.58,
+      "level": 122,
+      "total": 123953267,
+      "questXp": 56633040,
+      "killXp": 67320227,
+      "kills": 15608
+    },
+    {
+      "id": "nod-moon-crossroads",
+      "seconds": 72.47,
+      "level": 123,
+      "total": 137603125,
+      "questXp": 70245770,
+      "killXp": 67357355,
+      "kills": 15612
+    },
+    {
+      "id": "nod-moon-vault-quest",
+      "seconds": 92.7,
+      "level": 128,
+      "total": 184347170,
+      "questXp": 116572125,
+      "killXp": 67775045,
+      "kills": 15613
+    },
+    {
+      "id": "nod-treasure-appraisal",
+      "seconds": 126.67,
+      "level": 129,
+      "total": 188771441,
+      "questXp": 120954626,
+      "killXp": 67816815,
+      "kills": 15618
+    },
+    {
+      "id": "nod-lantern-patrol",
+      "seconds": 159.18,
+      "level": 130,
+      "total": 198185741,
+      "questXp": 130285387,
+      "killXp": 67900354,
+      "kills": 15622
+    },
+    {
+      "id": "lv133",
+      "seconds": 1506.92,
+      "level": 133,
+      "total": 236725417,
+      "questXp": 130285387,
+      "killXp": 106440030,
+      "kills": 17834
+    },
+    {
+      "id": "lv136",
+      "seconds": 3378.52,
+      "level": 136,
+      "total": 283721135,
+      "questXp": 130285387,
+      "killXp": 153435748,
+      "kills": 20067
+    },
+    {
+      "id": "lv140",
+      "seconds": 6408.3,
+      "level": 140,
+      "total": 361998552,
+      "questXp": 130285387,
+      "killXp": 231713165,
+      "kills": 23146
+    },
+    {
+      "id": "snezhnaya-hub",
+      "seconds": 6414.5,
+      "level": 140,
+      "total": 362136600,
+      "questXp": 130285387,
+      "killXp": 231851213,
+      "kills": 23152
+    }
+  ],
+  "completedQuests": [
+    "nod-first-treasure",
+    "nod-moon-crossroads",
+    "nod-moon-vault-quest",
+    "columbina-coast-detour",
+    "nod-treasure-appraisal",
+    "nod-lantern-patrol"
+  ],
+  "hunts": [
+    {
+      "stage": "nod-north-spruce-shelves",
+      "sorties": 17,
+      "kills": 2099,
+      "xp": 36570877,
+      "seconds": 1260.8
+    },
+    {
+      "stage": "nod-west-frost-slope",
+      "sorties": 24,
+      "kills": 1987,
+      "xp": 41818402,
+      "seconds": 1687.75
+    },
+    {
+      "stage": "winter-frontier-switchback",
+      "sorties": 39,
+      "kills": 2957,
+      "xp": 75175811,
+      "seconds": 2845.15
+    }
+  ],
+  "recoveryTrips": 0,
+  "inventoryTrips": 2,
+  "partyWipes": 0,
+  "savedAndRestored": true,
+  "nextChapter": {
+    "id": "white-pass-ticket",
+    "requiredLevel": 141,
+    "availableHunt": "white-pass-cut"
+  },
+  "scope": "Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.",
+  "sourceSha256": "f5878ff190b45467843d9380addca40d46b79820996089aab0ab3d62ec3ce523",
+  "gearOnArrival": {
+    "atk": 9314,
+    "hp": 10771,
+    "companionAtk": 6652,
+    "companionHp": 10771,
+    "sword": "SW06"
+  },
+  "vaultReward": {
+    "id": 147,
+    "equipped": false,
+    "equippedAttack": 6226,
+    "rewardAttack": 4768,
+    "itemLevel": 140,
+    "rarity": 4,
+    "comparedBeforeClaim": true
+  },
+  "gearOnDeparture": {
+    "atk": 9314,
+    "hp": 10771,
+    "companionAtk": 6652,
+    "companionHp": 10771,
+    "sword": "SW06"
+  },
+  "recoveryByActor": {
+    "traveler": 0,
+    "companion": 0
+  }
+}

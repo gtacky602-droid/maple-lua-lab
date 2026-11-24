@@ -163,6 +163,9 @@
 #dailyBoardNotice:empty{display:none}
 #natlanGearGuide{background:#183935;border:1px solid #668577;border-radius:8px;padding:10px 14px}
 #natlanGearStatus{color:#e3f0e9;margin:0 0 8px}
+#storyArtifactChoices{background:#183935;border:1px solid #668577;border-radius:8px;padding:10px 14px;color:#e3f0e9}
+#storyArtifactChoices ul{margin:6px 0;padding-inline-start:22px}
+#storyArtifactChoices p{margin:6px 0}
 [data-spring-touch]{display:none}
 @media(max-width:850px){[data-spring-touch]{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
  [data-spring-touch] button{touch-action:none}}
@@ -331,6 +334,11 @@
  <p id="natlanGearStatus"></p>
  <button id="natlanGearEquip" type="button" data-action="artifact_fill_basics" hidden>手持ちから旅人の空き枠を埋める</button>
  <button id="natlanGearRoute" type="button" hidden>モンドへ戻って秘境への道順を見る</button>
+</section>
+<section id="storyArtifactChoices" class="note" aria-label="宝箱の聖遺物を比較" hidden>
+ <strong>旅人の装備と宝箱の聖遺物を比較</strong>
+ <ul id="storyArtifactChoiceRows"></ul>
+ <p id="storyArtifactChoiceHint"></p>
 </section>
 <section id="fireworkDesign" hidden aria-label="花火の色と形" style="padding:10px 18px;background:#173a3b">
  <label>色 <select id="fireworkColor"></select></label>

@@ -163,8 +163,15 @@ assert progress(s).count==2 and s.progression.questXp==chapter_before+chapter_xp
 assert frame(s).fieldBoss is None
 gate(s,1731,vault)
 inspect(s,416)
+move(s,730)
+preview=frame(s).storyArtifactChoices
+assert not preview.full
+assert [(option.id,option.offered.slot,option.offered.itemLv,option.equipped) for option in preview.options.values()] == [
+    ('feather',2,140,None), ('flower',1,140,None)]
+assert progress(s).count == 3 and progress(s).storyChoice is None
 while len(s.inventory["items"])<80:
     assert core.giveArtifact(s,2,20,3)
+assert frame(s).storyArtifactChoices.full
 ore,mora=s.inventory.upgradeOre,s.mora
 inspect(s,657)
 assert progress(s).count==3 and progress(s).storyChoice is None and '満杯' in s.storyNotice
@@ -180,6 +187,7 @@ ore,mora=s.inventory.upgradeOre,s.mora
 choose=657
 inspect(s,choose)
 assert progress(s).count==4 and progress(s).storyChoice=="feather"
+assert frame(s).storyArtifactChoices is None
 item=s.inventory["items"][80]
 assert (item.slot,item.itemLv,item.rarity,item.setId,item.subpair)==(2,140,4,"gladiator","atk_crit")
 assert (s.inventory.upgradeOre,s.mora)==(ore+8,mora+14500)
@@ -224,7 +232,7 @@ assert progress(restore(alternate)).storyChoice=="flower"
 proof=dict(clawDamage=True, sideHitsStillWork=True, bodyWalks=True, boxLocksPosition=True,
            reflectionDelayedThreeBands=True, crackedHpRestored=True, newMoveAfterShell=True,
            firstChapterXp=chapter_xp, basicAmberParty=True, recoverAfterFullBag=True,
-           bothRewardChoices=True, supplies=8, cacheMora=14500, reportXp=report,
+           bothRewardChoices=True, rewardPreviewBeforeClaim=True, supplies=8, cacheMora=14500, reportXp=report,
            chapterRewardAndChestOnlyOnce=True, repeatableAfterReport=True, tabletReadback=True)
 (ROOT/"evidence/nod-moon-vault-lua.json").write_text(json.dumps(proof,indent=2)+"\n",encoding="utf8")
 (ROOT/"work/nod-moon-vault-fixture.json").write_text(json.dumps(fixture),encoding="utf8")

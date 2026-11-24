@@ -48,4 +48,8 @@ Lv140で雪の町に着いたセーブから、ミティヤの観測器を固定
 
 `python -X utf8 test_snez_fresh_route.py` で新規Lv1から再現し、`--checkpoint` を付けると前の試走で作ったLv140到着セーブから始める。Lv160の続きは `work/snez-fresh-route/white-pass-save.json`。Chromeでは `node test_snez_fresh_route.mjs` で列車の案内・乗車、8件の報告の復元、M地図の狩場一覧、Lv165の門、Qで光界解放を再検査できる。 [列車の案内](../../evidence/snez-fresh-train-atlas.png) · [極光谷以降の道順](../../evidence/snez-fresh-endgame-atlas.png) · [Chromeの検証](../../evidence/snez-fresh-route-browser.json)
 
+比較版では、ナド・クライから到着したLv140のセーブで同じ8件を報告した。白虹峠の剣を装備すると旅人ATKが9,314から10,470に上がった。9秒の列車と雪合戦を経て、Lv160で極光谷に入り、雪原の終着駅に戻って剣を装備したまま保存と再開を確認した。Lua内時間は4時間24分27秒で、回復帰還と全滅は0回、荷物整理の帰還は6回。狩りには自動戦闘を使った。Chromeでも9秒の乗車、装備した剣の復元、Lv160の光界解放、Lv165の門を確認した。 [比較版の試走](../../evidence/snez-fresh-route-draft.json) · [Chromeの検査](../../evidence/snez-fresh-route-browser-draft.json)
+
+比較版を再走する場合は `python test_snez_fresh_route.py --checkpoint --draft-balance`。保存先は `work/snez-fresh-route-draft/white-pass-save.json`。
+
 背景はラボ用の仮画像で、狩場4地点は同じ雪道画像を使う。効果の連続作画、車窓の動き、章の追加演出、企画書の残りのサブ依頼、本番3Dと実機の性能は未検証。装備整理や通常の歩行を含む人間のプレイ時間も計測が残る。

@@ -1,5 +1,6 @@
 """Continue the fresh adventure from Snezhnaya through White Rainbow Pass."""
 import argparse
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -15,13 +16,20 @@ def read(path):
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--checkpoint', action='store_true', help='Reuse the earned Lv140 save instead of replaying from Lv1')
+parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 options = parser.parse_args()
+draft = options.draft_balance
+suffix = '-draft' if draft else ''
 if not options.checkpoint:
-    subprocess.run([sys.executable, str(ROOT / 'test_nod_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
+    command = [sys.executable, str(ROOT / 'test_nod_fresh_route.py')]
+    if draft:
+        command.append('--draft-balance')
+    subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / 'snez-fresh-route'
+work = ROOT / 'work' / ('snez-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-start = validate_save(read(ROOT / 'work/nod-fresh-route/snezhnaya-save.json'))
+source = (ROOT / 'work' / ('nod-fresh-route' + suffix) / 'snezhnaya-save.json').read_bytes()
+start = validate_save(json.loads(source))
 hub, road, cut = 'snezhnaya-hub', 'snezhnaya-field', 'white-pass-cut'
 coach, station = 'white-pass-coach', 'white-pass-station'
 woods, ridge, basin = 'white-pass-woods', 'white-pass-ridge', 'white-rainbow-basin'
@@ -36,18 +44,18 @@ data = read(ROOT / 'content/story-graph.json')
 nodes = {n['id']: n for n in data['nodes']}
 exits = {id: n['exits'] for id, n in nodes.items()}
 edges = {(id, e['to']): e for id, route in exits.items() for e in route}
-lua, core = runtime()
+lua, core = runtime(draft_balance=draft)
 state = core.restore(lua.table_from(start, recursive=True), 12)
 trail = TrailWalk(lua, core, state, edges, exits)
 advance = lua.eval('''function(C,s,n,input)
     for _=1,n do C.step(s,1/60,input) end
 end''')
-farm = lua.eval('''function(C,s,target,input)
+farm = lua.eval('''function(C,s,target,input,draft)
     local node=s.story.node
     for tick=1,4500 do
         C.step(s,1/60,input)
         if s.story.node~=node or s.progression.level>=target
-                or s.actors[s.active].hp<65 or #s.inventory.ground>=12 then
+                or s.actors[s.active].hp<65 or draft and s.actors[1].hp<65 or #s.inventory.ground>=12 then
             return tick
         end
     end
@@ -136,7 +144,7 @@ def hunt(path, gathering_x, level):
         near(gathering_x)
         before_kills, before_xp = state.kills, state.progression.killXp
         act('auto')
-        ticks += farm(core, state, level, trail.idle)
+        ticks += farm(core, state, level, trail.idle, draft)
         if state.auto:
             act('auto')
         kills += state.kills - before_kills
@@ -259,6 +267,11 @@ inspect(1115, 382)
 inspect(1660)
 cross(station)
 report(trail_quest)
+if draft:
+    before = state.actors[1].atk
+    act('weapon_equip:traveler:SW07')
+    assert core.equippedWeapon(state, 'traveler') == 'SW07'
+    sword_reward = dict(weapon='SW07', quest=trail_quest, before=before, after=state.actors[1].atk)
 
 accept(snow)
 inspect(327)
@@ -321,6 +334,8 @@ assert restored.story.node == station and restored.progression.level == 160
 assert restored.progression.total == state.progression.total
 assert all(restored.story.quests[id].status == 'complete' and restored.story.quests[id].cycles == 1 for id in done)
 assert restored.endgame.bosses['original-frost-antler'].clears == 1
+if draft:
+    assert core.equippedWeapon(restored, 'traveler') == 'SW07'
 assert state.returns == 0
 
 check = TrailWalk(lua, core, restored, edges, exits)
@@ -338,4 +353,7 @@ result = dict(route=milestones, hunts=hunts, completedQuests=done, trainSeconds=
               snowMatch=snow_record, recoveryTrips=recovery_trips, inventoryTrips=inventory_trips,
               partyWipes=state.returns, savedAndRestored=True, unlockedHunt=end, lightReleaseAt160=True,
               scope='Earned Lv140 checkpoint from a new Lv1 adventure. Lua movement and built-in auto battle.')
-(ROOT / 'evidence/snez-fresh-route.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+if draft:
+    result.update(sourceSha256=sha256(source).hexdigest(), weaponReward=sword_reward, draftBalance=True)
+(ROOT / 'evidence' / f'snez-fresh-route{suffix}.json').write_text(
+    json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf8')

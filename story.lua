@@ -2318,6 +2318,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       if milestone.treasure then
        local x=milestone.treasure.x-s.camera
        if x>=-32 and x<=992 then drawIslandChest(markers,x,milestone.treasure.y,false) end
+       local actor=s.actors[s.active]
+       if actor.hp>0 and math.abs(actor.x-milestone.treasure.x)<180 and math.abs(actor.y-milestone.treasure.y)<34 then
+        f.storyArtifactChoices=C.artifactChoicePreview(s,milestone.choices)
+       end
       end
       for _,option in ipairs(milestone.choices) do
        local x,y=option.x-s.camera,option.y

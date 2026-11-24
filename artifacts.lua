@@ -131,6 +131,24 @@ return function(C,imprint,artifactSets)
   if item.slot<=2 then return math.floor(base*factor+.5) end
   return math.floor(base*factor*100+.5)/100
  end
+ function C.artifactChoicePreview(s,choices)
+  setup(s)
+  local result={full=#s.inventory.items>=80,options={}}
+  for _,choice in ipairs(choices) do
+   local reward=choice.artifact
+   if reward then
+    local equipped
+    for _,item in ipairs(s.inventory.items) do
+     if item.slot==reward.slot and item.owner==1 then equipped=item;break end
+    end
+    local offered={slot=reward.slot,itemLv=reward.level,rarity=reward.rarity,enhance=0,
+                   setId=reward.setId,subpair=reward.subpair}
+    result.options[#result.options+1]={id=choice.id,name=choice.name,
+      offered=previewItem(offered),equipped=previewItem(equipped)}
+   end
+  end
+  if #result.options>0 then return result end
+ end
  function C.refreshArtifactStats(s,keepHp)
   setup(s)
   local starter=C.starterEquipment and C.starterEquipment(s,s.companion)

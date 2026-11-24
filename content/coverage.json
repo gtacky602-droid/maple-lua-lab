@@ -8130,6 +8130,20 @@
     "recovery_route": "evidence/natlan-fresh-route-draft-empty.json",
     "late_refresh_comparison": "evidence/natlan-fresh-route-draft-empty-late-refresh.json"
   },
+  "nod_vault_reward_comparison": {
+    "status": "playable_local",
+    "scope": "View both cache rewards and the Traveler's equipped flower and feather main stats before selecting. Verified inventory capacity, both reward choices, one-time reward, and mobile display.",
+    "lua_evidence": "evidence/nod-moon-vault-lua.json",
+    "browser_evidence": "evidence/nod-moon-vault-browser.json",
+    "draft_route_evidence": "evidence/nod-fresh-route-draft.json",
+    "draft_route_browser_evidence": "evidence/nod-fresh-route-browser-draft.json"
+  },
+  "white_pass_draft_route": {
+    "status": "verified_local",
+    "scope": "Continues the draft Lv140 save earned at Nod-Krai, reports eight quests, equips the fixed sword reward, and unlocks Aurora at Lv160. Browser verification covers the train, equipment and progress restore, light release, and the next gate.",
+    "lua_evidence": "evidence/snez-fresh-route-draft.json",
+    "browser_evidence": "evidence/snez-fresh-route-browser-draft.json"
+  },
   "full_atlas_checkpoint_transfer": {
     "scope": "Prepared Lv200 checkpoint with all atlas nodes and hidden discoveries, 80 bag items, 160 uncollected drops, and three party presets.",
     "fixture_bytes": 70996,

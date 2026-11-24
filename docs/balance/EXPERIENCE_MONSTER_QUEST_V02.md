@@ -214,9 +214,15 @@ Lv120の町の広場から、浅瀬の反射板で橋を架け、森の道を経
 
 `python -X utf8 test_nod_fresh_route.py` で、新規Lv1からスネージナヤ・雪の町まで再現できる。到着後のセーブは `work/nod-fresh-route/snezhnaya-save.json`。続けて `node test_nod_fresh_route.mjs` を実行すると、Lv140のナド・クライの町からM地図の狩場表示、スネージナヤへの移動、第1章の必要Lv141と雪線の切通しへの入場を確認できる。 [雪の町への案内](../../evidence/nod-fresh-snezhnaya-atlas.png) · [Chromeの到着ログ](../../evidence/nod-fresh-route-browser.json)
 
+比較版では、装備を立て直したナタのLv120セーブを使い、本編3件と寄り道3件を報告した。Lv130のトウヒ棚、Lv133の霜斜面、Lv136の冬越えの折返し道を経て、Lv140で雪の町に到着。Lua内時間は1時間46分55秒、回復帰還と全滅は0回、荷物整理の帰還は2回だった。宝箱で両候補を確認し、試走では装備中の羽を保持した。Chromeでも到着前のセーブから町まで歩き、Lv141の依頼条件と雪線の切通しに入れることを確認した。 [Luaの比較版試走](../../evidence/nod-fresh-route-draft.json) · [Chromeの到着ログ](../../evidence/nod-fresh-route-browser-draft.json)
+
+ナタの比較版を完走したセーブから再測定する場合は `python test_nod_fresh_route.py --draft-balance` を実行する。出力は `work/nod-fresh-route-draft/snezhnaya-save.json`。ブラウザーの再検査には比較版のラボURLと `DRAFT_BALANCE=1` を指定する。
+
 ## 同じ冒険データでスネージナヤからLv160へ
 
 白虹峠の3章と5件のサブ依頼を報告し、極光谷の入口まで歩いた。Lv140からのLua内経過は4時間22分4秒。全滅は0回、荷物整理で6回帰還。Lv160では訓練依頼の受注前に光界解放を使えた。 [白虹峠の試走と狩場別のEXP](WHITE_PASS_PROGRESSION_WEB.md) · [続きの狩場と通行Lv](../WORLD_ATLAS_WEB.md)
+
+比較版もナタからの連続セーブを使い、Lv160で極光谷に到達した。白虹峠の剣を固定報酬で受け取り、装備した状態から再開できた。 [比較版の試走](../../evidence/snez-fresh-route-draft.json)
 
 ## 同じ冒険データでLv160からLv200へ
 

@@ -5,8 +5,10 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
-const proof=JSON.parse(await fs.readFile('evidence/nod-fresh-route.json','utf8'));
-const path='work/nod-fresh-route/snow-ready-save.json';
+const draft=process.env.DRAFT_BALANCE==='1';
+const suffix=draft?'-draft':'';
+const proof=JSON.parse(await fs.readFile(`evidence/nod-fresh-route${suffix}.json`,'utf8'));
+const path=`work/nod-fresh-route${suffix}/snow-ready-save.json`;
 const saved=JSON.parse(await fs.readFile(path,'utf8'));
 const start='nod-town',entry='snezhnaya-entry',town='snezhnaya-hub',road='snezhnaya-field',hunt='white-pass-cut';
 const ticket='white-pass-ticket';
@@ -24,6 +26,7 @@ try {
  await page.locator('#importSave').setInputFiles(path);
  await drive.waitNode(start);
  const before=await frame();
+ assert.equal(Boolean(before.fieldBalance),draft);
  assert.equal(before.progression.level,140);
  assert.equal(before.progression.total,saved.progression.total);
  for(const id of proof.completedQuests) assert.equal(before.story.quests[id].status,'complete');
@@ -47,7 +50,7 @@ try {
  const route=guide.stops.map(stop=>[stop.id,stop.mode]);
  assert.equal(guide.status,'ready');
  assert.deepEqual(route,[[entry,'walk'],[town,'walk']]);
- await atlas.screenshot({path:'evidence/nod-fresh-snezhnaya-atlas.png'});
+ await atlas.screenshot({path:`evidence/nod-fresh-snezhnaya-atlas${suffix}.png`});
  await page.keyboard.press('Escape');
  await atlas.waitFor({state:'hidden'});
 
@@ -69,7 +72,7 @@ try {
  assert.equal((await frame()).total,28);
  assert.deepEqual(errors,[]);
 
- await fs.writeFile('evidence/nod-fresh-route-browser.json',JSON.stringify({
+ await fs.writeFile(`evidence/nod-fresh-route-browser${suffix}.json`,JSON.stringify({
   importedLevel:before.progression.level,arrivalLevel:after.progression.level,route,hunts,
   completedQuests:proof.completedQuests,nextChapter:{id:ticket,requiredLevel:141,availableHunt:hunt},
   travelKillXp,errors

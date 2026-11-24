@@ -22,6 +22,10 @@ export function initInventoryUI(action){
  };
  const root=document.getElementById('inventoryRows');
  const details=root.closest('details');
+ const rewardPanel=document.getElementById('storyArtifactChoices');
+ const rewardRows=document.getElementById('storyArtifactChoiceRows');
+ const rewardHint=document.getElementById('storyArtifactChoiceHint');
+ let rewardSignature='';
  let sets={};
  const number=new Intl.NumberFormat('ja-JP');
  const displaySet=id=>sets[id]?.name??'セットなし';
@@ -137,9 +141,26 @@ export function initInventoryUI(action){
   details.open=true;
   details.querySelector('summary').focus();
  };
+ function renderRewardChoices(view){
+  rewardPanel.hidden=!view;
+  const next=JSON.stringify(view??null);
+  if(next===rewardSignature)return;
+  rewardSignature=next;
+  if(!view)return;
+  rewardRows.replaceChildren(...view.options.map(({name,offered,equipped})=>{
+   const row=document.createElement('li');
+   const stat=offered.slot===1?'HP':'ATK';
+   const current=equipped?number.format(equipped.stat):'空き';
+   row.textContent=`${name}（★${offered.rarity} Lv${offered.itemLv}）　主能力 ${stat}　装備中 ${current} → 報酬 ${number.format(offered.stat)}`;
+   return row;
+  }));
+  rewardHint.textContent=view.full?'バッグが満杯です。町で空きを作ると受け取れます。':
+   '受け取りたい札の前で G。セット効果とサブ能力は装備画面で確認できます。';
+ }
  return {update(f){updateWeapons(f);const bag=f.inventory;if(!bag)return;
   sets=f.artifactSets??{};
   renderPreview(f);
+  renderRewardChoices(f.storyArtifactChoices);
   if(f.story?.active&&f.story.node==='natlan-hub'&&!f.growthTrial){
    const missing=[1,2].filter(slot=>!bag.items.some(item=>item.owner===1&&item.slot===slot));
    const available=missing.filter(slot=>bag.items.some(item=>item.owner===0&&item.slot===slot));

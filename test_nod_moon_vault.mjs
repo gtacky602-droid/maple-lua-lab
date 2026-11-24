@@ -127,8 +127,20 @@ try{
   });
   assert.deepEqual(vaultScene,{key:'nodMoonVault',file:'nod-moon-vault-background-v1.png',state:'ready'});
   await inspect(416,3);
+  await walk(730);
+  const comparison=page.locator('#storyArtifactChoices');
+  await comparison.waitFor();
+  const compared=await comparison.locator('li').allTextContents();
+  assert.match(compared[0],/剣闘士の羽.*主能力 ATK.*報酬/);
+  assert.match(compared[1],/劇団の花.*主能力 HP.*報酬/);
+  assert.equal((await frame()).story.quests[quest].count,3);
+  await page.setViewportSize({width:390,height:844});
+  await comparison.screenshot({path:prefix+'-reward-preview-mobile.png'});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await page.setViewportSize({width:1280,height:940});
   const before=(await frame());
   await inspect(803,4);
+  await comparison.waitFor({state:'hidden'});
   const after=await frame();
   assert.equal(after.story.quests[quest].storyChoice,'flower');
   assert.equal(after.inventory.upgradeOre-before.inventory.upgradeOre,luaProof.supplies);
@@ -150,6 +162,7 @@ try{
   assert.deepEqual(errors,[]);
   const proof={clawAndBox:true,reflection:true,chapterXp:luaProof.firstChapterXp,commands,vaultScene,
     clearAndReport:true,chosen:'flower',artifactsAndSupplies:true,rewardAfterReload:true,
+    rewardPreview:{rowCount:compared.length,mobileWidth:390,noClaimWhileComparing:true},
     repeatGeneration:true,reportXp:luaProof.reportXp,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);

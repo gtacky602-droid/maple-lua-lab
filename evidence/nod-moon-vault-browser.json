@@ -3,9 +3,9 @@
   "reflection": true,
   "chapterXp": 21294130,
   "commands": {
-    "png": 72,
-    "standard": 8713,
-    "light": 2269
+    "png": 71,
+    "standard": 8712,
+    "light": 2268
   },
   "vaultScene": {
     "key": "nodMoonVault",
@@ -16,6 +16,11 @@
   "chosen": "flower",
   "artifactsAndSupplies": true,
   "rewardAfterReload": true,
+  "rewardPreview": {
+    "rowCount": 2,
+    "mobileWidth": 390,
+    "noClaimWhileComparing": true
+  },
   "repeatGeneration": true,
   "reportXp": 25032225,
   "errors": []
