@@ -17,8 +17,9 @@ const highland=process.argv.includes('--natlan-highland');
 const nodFirst=process.argv.includes('--nod-first');
 const nodNorth=process.argv.includes('--nod-north');
 const snezFirst=process.argv.includes('--snez-first');
+const snezLate=process.argv.includes('--snez-late');
 const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
-const prefix=snezFirst?'evidence/coop-snez-first-field-legends'
+const prefix=snezLate?'evidence/coop-snez-late-field-legends':snezFirst?'evidence/coop-snez-first-field-legends'
  : nodNorth?'evidence/coop-nod-north-field-legends':nodFirst?'evidence/coop-nod-first-field-legends'
  : highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
  : atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
@@ -166,7 +167,18 @@ const snezFirstCases=[
   entry:'sne-obsession-scar-upper-trail',domain:'sites-hunt-100707',hp:1890,mora:860,x:830,
   warning:'SF02',entities:[97109],warningOrder:[[1,'physical',72],[2,'physical',116],[3,'physical',158]],returnY:480},
 ].map(cfg=>({...cfg,checkpoint:'snezhnaya-hub'}));
-const cases=snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const snezLateCases=[
+ {tag:'ancient-mouse',id:'legend-snez_ancient_ironquill',arena:'sne-ancient-mouse-den',
+  approach:'sne-wp-106194',entry:'sne-merciful-fissure',quest:'sne-rescue-three-mice',
+  checkpoint:'snezhnaya-hub',lock:'三匹',hp:1920,mora:875,x:830,warning:'SLM02',
+  entities:[97110],warningOrder:[[1,'physical',72],[2,'physical',119]],returnY:393},
+ {tag:'calamitous-tree',id:'legend-snez_elder_blighttree',arena:'sne-crystal-tree-refuge',
+  approach:'sne-wp-106186',junction:'sne-crystal-mining-junction',entry:'sne-crystal-prism-gallery',
+  quest:'sne-crystal-stream-survey',checkpoint:'novokichev-camp',lock:'水門',
+  hp:2750,mora:1210,x:830,warning:'SLT02',entities:[97111],
+  warningOrder:[[1,'geo',75],[2,'geo',118],[3,'geo',163]],returnY:389},
+];
+const cases=snezLate?snezLateCases:snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -200,7 +212,7 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=snezFirst?'work/snez-first-field-legends-coop-fixture.json'
+ const fixturePath=snezLate?'work/snez-late-field-legends-fixture.json':snezFirst?'work/snez-first-field-legends-coop-fixture.json'
   : nodNorth?'work/nod-north-field-legends-fixture.json':nodFirst?'work/nod-first-field-legends-fixture.json'
   : highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
   : atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
@@ -208,13 +220,13 @@ async function start(cfg,needsReport){
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=(localNatlan||nodFirst||nodNorth||snezFirst)?9068:dry?9064:lake?9063:9060;
+ const port=(localNatlan||nodFirst||nodNorth||snezFirst||snezLate)?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- if(localNatlan||nodFirst||nodNorth||snezFirst){
+ if(localNatlan||nodFirst||nodNorth||snezFirst||snezLate){
   for(const id of cfg.quests??(cfg.quest?[cfg.quest]:[])) await route.accept(id);
  }
  await route.warp(cfg.approach??cfg.entry);
@@ -363,6 +375,7 @@ async function verifyQuestReports(players,cfg,quests=cfg.quest?[cfg.quest]:[]){
   await route.waitNode(cfg.checkpoint);
   for(const id of quests){
    const quest=graph.quests.find(q=>q.id===id);
+   if(await route.node()!==quest.hub) await route.warp(quest.hub);
    const before=await frame(page);
    await route.report(id);
    const after=await frame(page);
@@ -1051,9 +1064,68 @@ async function snezFirstJourney(){
   separateSparringAndIceDoor:true,clearedRoundsStayEmpty:true,twoSnowfieldEntrances:true,reportRestoredForBoth:true};
 }
 
+async function inspectSnezSteps(player,quest,first,last){
+ const {itinerary}=graph.quests.find(q=>q.id===quest);
+ for(let index=first;index<last;index++){
+  await collectSpot(player,itinerary[index]);
+  await player.route.count(quest,index+1);
+ }
+}
+
+async function snezLateJourney(){
+ const [mouse,tree]=cases;
+ const players=await Promise.all([start(mouse,false),start(mouse,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ await Promise.all(players.map(player=>crossShared(player,mouse.entry,code)));
+ await inspectSnezSteps(guest,mouse.quest,0,2);
+ await inspectSnezSteps(host,mouse.quest,0,4);
+ await crossShared(host,mouse.arena,code);
+ await lockedNatlanGate(guest,mouse);
+ await guest.route.count(mouse.quest,2);
+ await inspectSnezSteps(guest,mouse.quest,2,4);
+ await crossShared(guest,mouse.arena,code);
+ const mouseProof=await fightAndSave(players,mouse);
+ await rematch(players,mouse);
+ await leaveArena(players,mouse);
+ console.log('Chrome: both players rescued their own mice and cleared Ancient Ironquill.');
+
+ await Promise.all(players.map(async player=>{
+  for(const id of [mouse.approach,'sne-north-works','sne-wp-106192','sne-wp-106206',tree.checkpoint]){
+   await crossShared(player,id,code);
+  }
+  await player.route.accept(tree.quest);
+  for(const id of ['sne-wp-106204','sne-wp-106183','sne-wp-106220',tree.approach,tree.junction]){
+   await crossShared(player,id,code);
+  }
+ }));
+ await inspectSnezSteps(host,tree.quest,0,1);
+ await crossShared(host,tree.entry,code);
+ await lockedNatlanGate(guest,{arena:tree.entry,lock:'水位表'});
+ await guest.route.count(tree.quest,0);
+ await inspectSnezSteps(guest,tree.quest,0,1);
+ await crossShared(guest,tree.entry,code);
+ await inspectSnezSteps(host,tree.quest,1,2);
+ await crossShared(host,tree.arena,code);
+ await lockedNatlanGate(guest,tree);
+ await guest.route.count(tree.quest,1);
+ await inspectSnezSteps(guest,tree.quest,1,2);
+ await crossShared(guest,tree.arena,code);
+ const treeProof=await fightAndSave(players,tree);
+ await rematch(players,tree);
+ await leaveArena(players,tree);
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ await Promise.all(players.map(p=>p.context.close()));
+ return {ancientMouse:{...mouseProof,returnY:mouse.returnY,sharedRematch:true},
+  calamitousTree:{...treeProof,returnY:tree.returnY,sharedRematch:true},routes,
+  personalMouseRescues:true,personalWaterwayGates:true,sharedRoomViaNorthWorks:true,bothReportsRestored:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(snezFirst) Object.assign(evidence,await snezFirstJourney());
+ if(snezLate) Object.assign(evidence,await snezLateJourney());
+ else if(snezFirst) Object.assign(evidence,await snezFirstJourney());
  else if(nodNorth) Object.assign(evidence,await nodNorthJourney());
  else if(nodFirst) Object.assign(evidence,await nodFirstJourney());
  else if(highland) Object.assign(evidence,await highlandJourney());

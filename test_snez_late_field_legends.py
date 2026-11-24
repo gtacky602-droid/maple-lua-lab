@@ -44,6 +44,9 @@ def start(level, hub):
     core.action(result, 'story_start')
     core.enterStoryNode(result, hub)
     core.grantExp(result, exp(level), 'quest')
+    for slot in (1, 2, 3):
+        assert core.giveArtifact(result, slot, 60, 3)
+        core.action(result, 'artifact_equip:' + str(slot))
     return result
 
 
@@ -203,7 +206,7 @@ assert [member.hp for member in members] == [member['hp'] for member in beasts['
 for member in members:
     hit(state, walk, member)
 xp[BEASTS] = check_clear(state, beasts, before)
-assert not any(spec['moves'] for spec in (mouse, tree, beasts))
+assert not beasts['moves']
 walk.cross(alley)
 walk.cross(junction)
 walk.cross(MINE_HOST)

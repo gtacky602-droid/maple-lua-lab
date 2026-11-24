@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する335地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。部屋には最大4人が入れる。通常の編成なら、同じ地点に旅人と同行者が最大8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する354地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。部屋には最大4人が入れる。通常の編成なら、同じ地点に旅人と同行者が最大8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -193,6 +193,16 @@ Chromeの2画面で、片方は海岸から、もう片方は湖の尾根から�
 `python -X utf8 test_coop_snez_first_field_legends.py` で各自の入場、討伐と再戦、報告の保存をLua4人・HTTP2人で検証できる。 [Lua・HTTPの検証](../evidence/coop-snez-first-field-legends-lua-http.json)
 
 Chromeの2画面で、各自が手合わせと氷扉を終えて合流し、雪の脇道には別々の入口から入った。三戦の攻撃予告、報酬、帰還と再戦、二つの依頼の報告と保存再開を確認した。ラボ起動中の `node test_coop_branch_legends.mjs --snez-first` で再現できる。 [Chromeの検証](../evidence/coop-snez-first-field-legends-browser.json) · [チュリンの氷彫](../evidence/coop-snez-first-field-legends-churin-warning.png) · [バンダースナッチの前爪](../evidence/coop-snez-first-field-legends-bandersnatch-warning.png) · [フュリオサの矢の着弾](../evidence/coop-snez-first-field-legends-furiosa-warning.png)
+
+## 古代種・カチカチネズミと災禍古樹
+
+古代種はLv160。雪の町から北の海岸へ下りる坂を経て裂け目に入り、三匹を助けた人から氷の通路を通れる。裂け目と巣穴で保存すると雪の町から再開し、救出の途中経過は各自に残る。北の工区から同じ部屋のままノヴォキッチェヴへ進める。
+
+災禍古樹はLv198。ノヴォキッチェヴの拠点から分岐駅下の昇降室を通って鉱区へ向かう。水位表を調べた人が水路へ進み、上段の水門を調べると支流の隠れ家で合流できる。鉱区の分岐から既存の獣衆の集積場へも、各自が北の街灯の依頼を進めて入れる。二戦に二種類ずつラボ用の試作攻撃を追加した。 [入口と足場](SNEZ_LATE_FIELD_LEGENDS_WEB.md)
+
+`python -X utf8 test_coop_snez_late_field_legends.py` でLua4人・HTTP2人の検証を再現できる。 [Lua・HTTPの検証](../evidence/coop-snez-late-field-legends-lua-http.json)
+
+Chromeの2画面では、救出の進行と水路の入口が個別に開いた。二人が同じ部屋で北の工区と昇降室を通り、二戦の予告、討伐報酬、帰還と再戦、各依頼の町での報告と保存再開を確認した。ラボ起動中の `node test_coop_branch_legends.mjs --snez-late` で再現できる。 [Chromeの検証](../evidence/coop-snez-late-field-legends-browser.json) · [古代種の二連の棘打ち](../evidence/coop-snez-late-field-legends-ancient-mouse-warning.png) · [災禍古樹の三段の結晶柱](../evidence/coop-snez-late-field-legends-calamitous-tree-warning.png)
 
 ## 無相の風を共闘する
 
@@ -794,4 +804,4 @@ Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみ�
 
 同じPCから各接続が毎秒30回の受信を目指す短時間試験。サイズはHTTP応答本文の中央値。4人の軽量16色では描画する矩形が5,251個のまま、本文は97.1%減り、応答時間の中央値は101.89msから27.54msになった。表は通信とLuaの試験で、Chromeの描画FPSや幻境実機の値は含まない。 [生の計測結果](../evidence/coop-local-http.json)
 
-現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦と通常ボス15戦、地方伝説50戦を共闘に登録した。残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)
+現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦と通常ボス15戦、地方伝説52戦を共闘に登録した。残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)

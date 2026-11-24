@@ -8370,6 +8370,25 @@
       "sne-obsession-scar-upper-trail",
       "sites-hunt-100707",
       "sne-furiosa-domain-outlook",
+      "sne-wp-100674",
+      "sne-wp-100679",
+      "sne-wp-106182",
+      "sne-wp-106183",
+      "sne-wp-106191",
+      "sne-wp-106193",
+      "sne-wp-106194",
+      "sne-merciful-fissure",
+      "sne-ancient-mouse-den",
+      "sne-north-works",
+      "sne-wp-106192",
+      "sne-wp-106206",
+      "sne-wp-106204",
+      "sne-wp-106220",
+      "sne-wp-106186",
+      "sne-crystal-mining-junction",
+      "sne-crystal-prism-gallery",
+      "sne-crystal-tree-refuge",
+      "sne-novokichev-lantern-alley",
       "nod-moon-crab-arena",
       "nod-false-moon-court",
       "nod-false-moon-rift",
@@ -8541,7 +8560,9 @@
       "legend-nod_homesick_lone_wolf",
       "legend-snez_churin",
       "legend-snez_bandersnatch",
-      "legend-snez_furiosa"
+      "legend-snez_furiosa",
+      "legend-snez_ancient_ironquill",
+      "legend-snez_elder_blighttree"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8837,7 +8858,9 @@
       "evidence/coop-nod-north-field-legends-lua-http.json",
       "evidence/coop-nod-north-field-legends-browser.json",
       "evidence/coop-snez-first-field-legends-lua-http.json",
-      "evidence/coop-snez-first-field-legends-browser.json"
+      "evidence/coop-snez-first-field-legends-browser.json",
+      "evidence/coop-snez-late-field-legends-lua-http.json",
+      "evidence/coop-snez-late-field-legends-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

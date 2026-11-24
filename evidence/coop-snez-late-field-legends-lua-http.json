@@ -1,0 +1,77 @@
+{
+  "lua": {
+    "legend-snez_ancient_ironquill": {
+      "players": 4,
+      "sharedHP": 1920,
+      "moves": [
+        {
+          "id": "SLM01",
+          "warningTicks": [
+            67
+          ]
+        },
+        {
+          "id": "SLM02",
+          "warningTicks": [
+            72,
+            119
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 2816850,
+      "mora": 875
+    },
+    "legend-snez_elder_blighttree": {
+      "players": 4,
+      "sharedHP": 2750,
+      "moves": [
+        {
+          "id": "SLT01",
+          "warningTicks": [
+            69
+          ]
+        },
+        {
+          "id": "SLT02",
+          "warningTicks": [
+            75,
+            118,
+            163
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 14112700,
+      "mora": 1210
+    }
+  },
+  "http": {
+    "participants": 2,
+    "mouse": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 393,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true
+    },
+    "tree": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 389,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true
+    },
+    "partialRescueRestoredAtSnowTown": true,
+    "personalWaterwayGates": true,
+    "sameRoomViaNorthWorks": true,
+    "sharedAccessToOreYard": true,
+    "bothReportsRestored": true
+  }
+}

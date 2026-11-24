@@ -1,0 +1,331 @@
+{
+  "participants": 2,
+  "ancientMouse": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 339,
+        "moves": [
+          "SLM01",
+          "SLM02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 336,
+        "moves": [
+          "SLM01",
+          "SLM02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        72,
+        326,
+        468
+      ],
+      [
+        2,
+        "physical",
+        119,
+        508.5,
+        672.5
+      ]
+    ],
+    "rewards": [
+      [
+        563370,
+        875
+      ],
+      [
+        563370,
+        875
+      ]
+    ],
+    "contacts": [
+      11,
+      10
+    ],
+    "saved": true,
+    "returnY": 393,
+    "sharedRematch": true
+  },
+  "calamitousTree": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 361,
+        "moves": [
+          "SLT01",
+          "SLT02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 333,
+        "moves": [
+          "SLT01",
+          "SLT02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "geo",
+        75,
+        656.5,
+        794.5
+      ],
+      [
+        2,
+        "geo",
+        118,
+        806.5,
+        978.5
+      ],
+      [
+        3,
+        "geo",
+        163,
+        987.5,
+        1131.5
+      ]
+    ],
+    "rewards": [
+      [
+        14112700,
+        1210
+      ],
+      [
+        14112700,
+        1210
+      ]
+    ],
+    "contacts": [
+      17,
+      15
+    ],
+    "saved": true,
+    "returnY": 389,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "sne-wp-106194",
+        "sne-merciful-fissure",
+        "raised"
+      ],
+      [
+        "sne-merciful-fissure",
+        "sne-ancient-mouse-den",
+        "raised"
+      ],
+      [
+        "sne-ancient-mouse-den",
+        "sne-merciful-fissure",
+        "walk"
+      ],
+      [
+        "sne-merciful-fissure",
+        "sne-ancient-mouse-den",
+        "raised"
+      ],
+      [
+        "sne-ancient-mouse-den",
+        "sne-merciful-fissure",
+        "walk"
+      ],
+      [
+        "sne-merciful-fissure",
+        "sne-wp-106194",
+        "walk"
+      ],
+      [
+        "sne-wp-106194",
+        "sne-north-works",
+        "walk"
+      ],
+      [
+        "sne-north-works",
+        "sne-wp-106192",
+        "walk"
+      ],
+      [
+        "sne-wp-106192",
+        "sne-wp-106206",
+        "walk"
+      ],
+      [
+        "sne-wp-106206",
+        "novokichev-camp",
+        "walk"
+      ],
+      [
+        "novokichev-camp",
+        "sne-wp-106204",
+        "walk"
+      ],
+      [
+        "sne-wp-106204",
+        "sne-wp-106183",
+        "walk"
+      ],
+      [
+        "sne-wp-106183",
+        "sne-wp-106220",
+        "lift"
+      ],
+      [
+        "sne-wp-106220",
+        "sne-wp-106186",
+        "lift"
+      ],
+      [
+        "sne-wp-106186",
+        "sne-crystal-mining-junction",
+        "raised"
+      ],
+      [
+        "sne-crystal-mining-junction",
+        "sne-crystal-prism-gallery",
+        "raised"
+      ],
+      [
+        "sne-crystal-prism-gallery",
+        "sne-crystal-tree-refuge",
+        "raised"
+      ],
+      [
+        "sne-crystal-tree-refuge",
+        "sne-crystal-prism-gallery",
+        "walk"
+      ],
+      [
+        "sne-crystal-prism-gallery",
+        "sne-crystal-tree-refuge",
+        "raised"
+      ],
+      [
+        "sne-crystal-tree-refuge",
+        "sne-crystal-prism-gallery",
+        "walk"
+      ]
+    ],
+    [
+      [
+        "sne-wp-106194",
+        "sne-merciful-fissure",
+        "raised"
+      ],
+      [
+        "sne-merciful-fissure",
+        "sne-ancient-mouse-den",
+        "raised"
+      ],
+      [
+        "sne-ancient-mouse-den",
+        "sne-merciful-fissure",
+        "walk"
+      ],
+      [
+        "sne-merciful-fissure",
+        "sne-ancient-mouse-den",
+        "raised"
+      ],
+      [
+        "sne-ancient-mouse-den",
+        "sne-merciful-fissure",
+        "walk"
+      ],
+      [
+        "sne-merciful-fissure",
+        "sne-wp-106194",
+        "walk"
+      ],
+      [
+        "sne-wp-106194",
+        "sne-north-works",
+        "walk"
+      ],
+      [
+        "sne-north-works",
+        "sne-wp-106192",
+        "walk"
+      ],
+      [
+        "sne-wp-106192",
+        "sne-wp-106206",
+        "walk"
+      ],
+      [
+        "sne-wp-106206",
+        "novokichev-camp",
+        "walk"
+      ],
+      [
+        "novokichev-camp",
+        "sne-wp-106204",
+        "walk"
+      ],
+      [
+        "sne-wp-106204",
+        "sne-wp-106183",
+        "walk"
+      ],
+      [
+        "sne-wp-106183",
+        "sne-wp-106220",
+        "lift"
+      ],
+      [
+        "sne-wp-106220",
+        "sne-wp-106186",
+        "lift"
+      ],
+      [
+        "sne-wp-106186",
+        "sne-crystal-mining-junction",
+        "raised"
+      ],
+      [
+        "sne-crystal-mining-junction",
+        "sne-crystal-prism-gallery",
+        "raised"
+      ],
+      [
+        "sne-crystal-prism-gallery",
+        "sne-crystal-tree-refuge",
+        "raised"
+      ],
+      [
+        "sne-crystal-tree-refuge",
+        "sne-crystal-prism-gallery",
+        "walk"
+      ],
+      [
+        "sne-crystal-prism-gallery",
+        "sne-crystal-tree-refuge",
+        "raised"
+      ],
+      [
+        "sne-crystal-tree-refuge",
+        "sne-crystal-prism-gallery",
+        "walk"
+      ]
+    ]
+  ],
+  "personalMouseRescues": true,
+  "personalWaterwayGates": true,
+  "sharedRoomViaNorthWorks": true,
+  "bothReportsRestored": true,
+  "errors": []
+}
