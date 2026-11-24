@@ -4,6 +4,8 @@ from daily_store import validate_daily_state
 from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP, WEEKLY_MODE_IDS
 _STORY_GRAPH_PATH=Path(__file__).parent/'content/story-graph.json'
 _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
+_DRAFT_FIELD_BOSS_HP = json.loads(
+    (Path(__file__).parent/'content/field-balance-draft.json').read_text(encoding='utf8'))['fieldBossHp']
 _WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']}
 _LEGACY_LOOT_ZONES={'town','field','arena','anemo','electro','geo','oceanid','primo','maguu','array',
                     'thunder','farka','cryo_regisvine','pyro_regisvine'}
@@ -849,14 +851,19 @@ def validate_save(data):
             raise ValueError('フィールドボスの保存形式が不正です')
         for id, slot in slots.items():
             spec=_FIELD_BOSSES.get(id)
-            if (not spec or spec.get('manualRechallenge') or not isinstance(slot,dict)
-                    or set(slot)-{'flags','elapsedTicks'}!={'generation','hp','waitTicks'}
+            if not spec or spec.get('manualRechallenge') or not isinstance(slot, dict):
+                raise ValueError('フィールドボスの個体情報が不正です')
+            max_hp = slot.get('maxHp', spec['hp'])
+            if 'maxHp' in slot and (id not in _DRAFT_FIELD_BOSS_HP or type(max_hp) is not int
+                                    or not 1 <= max_hp <= 10**9):
+                raise ValueError('フィールドボスの最大HPが不正です')
+            if (set(slot)-{'flags','elapsedTicks','maxHp'}!={'generation','hp','waitTicks'}
                     or any(type(slot[k]) is not int for k in ('generation','hp','waitTicks'))
-                    or not 1<=slot['generation']<=10**9 or not 0<=slot['hp']<=spec['hp']
+                    or not 1<=slot['generation']<=10**9 or not 0<=slot['hp']<=max_hp
                     or not 0<=slot['waitTicks']<=spec['respawnTicks']
                     or bool(slot['hp'])==bool(slot['waitTicks'])):
                 raise ValueError('フィールドボスの個体情報が不正です')
-            if 'elapsedTicks' in slot and (not 0<slot['hp']<spec['hp']
+            if 'elapsedTicks' in slot and (not 0<slot['hp']<max_hp
                     or type(slot['elapsedTicks']) is not int or not 0<=slot['elapsedTicks']<=10**9):
                 raise ValueError('フィールドボスの経過時間が不正です')
             if 'flags' in slot:

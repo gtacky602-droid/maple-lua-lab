@@ -8229,12 +8229,19 @@
   },
   "field_balance_draft": {
     "status": "local_opt_in_prototype",
-    "scope": "Optional local server applies level-based ordinary field HP, revised fixed reward sword ATK, and opt-in HP values for selected weekly tiers and Beidou extreme. Same saves can be loaded on both servers. The draft server is unranked and uses the existing EXP and Mora formulas.",
+    "scope": "Optional local server applies level-based ordinary field HP, revised reward sword ATK, and fixed trial HP for four normal bosses, selected weekly tiers, and Beidou extreme. The draft server is unranked and uses the existing EXP and Mora formulas.",
     "settings": "content/field-balance-draft.json",
     "lua_evidence": "evidence/field-balance-draft-lua.json",
     "browser_evidence": "evidence/liyue-m01-browser-draft.json",
     "route_comparison": "evidence/equipment-progression-draft-lua.json",
-    "late_quest_evidence": "evidence/moonlit-garden-draft-route.json"
+    "late_quest_evidence": "evidence/moonlit-garden-draft-route.json",
+    "snezhnaya_normal_boss_hp": {
+      "encounters": 4,
+      "earned_save_levels": [145, 160, 165],
+      "checkpoint_conversion": "Preserves remaining HP percentage, elapsed time, respawn cooldown, and phase flags when changing profiles.",
+      "lua_evidence": "evidence/draft-snezhnaya-boss-hp-lua.json",
+      "browser_evidence": "evidence/draft-snezhnaya-boss-hp-browser.json"
+    }
   },
   "natlan_gear_recovery": {
     "status": "playable_local",

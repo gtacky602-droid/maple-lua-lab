@@ -18,7 +18,7 @@ async function pause(value) {
 }
 
 try {
- await page.goto(process.env.LAB_URL || 'http://127.0.0.1:9095/');
+ await page.goto(process.env.LAB_URL || 'http://127.0.0.1:9097/');
  await page.waitForFunction(() => window.lab?.frame);
  await page.locator('#importSave').setInputFiles('work/earned-drifting-snow.json');
  await drive.waitNode(hub);
@@ -64,7 +64,7 @@ try {
   requestAnimationFrame(play);
  });
 
- await page.waitForFunction(() => window.lab.frame.fieldBoss?.driftingSnow.layers === 8);
+ await page.waitForFunction(() => window.lab.frame.fieldBoss?.driftingSnow.layers === 8,null,{timeout:60000});
  await pause(true);
  assert.match(await page.locator('#fieldBossLabel').textContent(), /氷の棺/);
  await page.locator('#game').screenshot({path:'evidence/earned-drifting-snow-coffin.png'});
@@ -74,7 +74,7 @@ try {
   const b = window.lab.frame.fieldBoss;
   return b?.form === 'down' && b.driftingSnow.layers === 0 && b.hp > 0;
  });
- await page.waitForFunction(() => window.lab.frame.fieldBoss?.phase === 'respawn');
+ await page.waitForFunction(() => window.lab.frame.fieldBoss?.phase === 'respawn',null,{timeout:60000});
  await drive.count(quest,1);
  const killed = await page.evaluate(() => window.lab.frame.fieldBoss);
  assert.equal(killed.id,boss);

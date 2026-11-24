@@ -15,7 +15,6 @@ exits = {node['id']: node['exits'] for node in graph['nodes']}
 edges = {(node, exit['to']): exit for node, gates in exits.items() for exit in gates}
 lua, core = runtime(draft_balance=True)
 advance = lua.eval('function(C,s,n,input) for _=1,n do C.step(s,1/60,input) end end')
-attack = lua.table(attack=True)
 
 DORN, WIND_STAIRS, FLAGS, WORKS = ('dornman-camp', 'dornman-wind-stairs',
                                    'dornman-flag-trestle', 'dornman-windworks')
@@ -28,28 +27,30 @@ PRISM, INNER = 'frost-prism-slime-basin', 'frost-mushteshir-inner-chamber'
 
 
 class Journey(TrailWalk):
-    def __init__(self, file):
-        raw = (ROOT / f'work/cap-fresh-route-draft/{file}').read_bytes()
+    def __init__(self, file, engine=None):
+        self.lua, runtime_core = engine or (lua, core)
+        self._advance = self.lua.eval('function(C,s,n,input) for _=1,n do C.step(s,1/60,input) end end') if engine else advance
+        raw = (ROOT / 'work/cap-fresh-route-draft' / file).read_bytes()
         self.source = sha256(raw).hexdigest()
         self.itineraries, self.reports, self.battles, self.locks = [], [], [], []
-        state = core.restore(lua.table_from(validate_save(json.loads(raw)), recursive=True), 12)
-        super().__init__(lua, core, state, edges, exits)
+        state = runtime_core.restore(self.lua.table_from(validate_save(json.loads(raw)), recursive=True), 12)
+        super().__init__(self.lua, runtime_core, state, edges, exits)
         assert state.active == 1 and not state.auto
 
     def act(self, action):
-        core.action(self.state, action)
+        self.core.action(self.state, action)
 
     def frame(self):
-        return core.frame(self.state, 'sprite', 'legacy')
+        return self.core.frame(self.state, 'sprite', 'legacy')
 
     def tick(self, count, controls=None):
-        advance(core, self.state, count, self.idle if controls is None else controls)
+        self._advance(self.core, self.state, count, self.idle if controls is None else controls)
 
     def snapshot(self):
-        return validate_save(native(core.checkpoint(self.state)))
+        return validate_save(native(self.core.checkpoint(self.state)))
 
     def restore(self):
-        self.state = core.restore(lua.table_from(self.snapshot(), recursive=True), 12)
+        self.state = self.core.restore(self.lua.table_from(self.snapshot(), recursive=True), 12)
 
     def warp(self, hub):
         assert self.state.story.visited[hub]
@@ -114,13 +115,14 @@ class Journey(TrailWalk):
         self.reports.append(dict(quest=quest, xp=after[0]-before[0], mora=after[1]-before[1]))
 
     def fight(self, enemies, before, *, rewarded=True):
+        controls = self.lua.table(attack=True)
         for enemy in enemies:
             if enemy.hp > 0:
                 self.approach(max(30, enemy.x-52), enemy.y, enemy.id)
             for _ in range(600):
                 if enemy.hp <= 0:
                     break
-                core.step(self.state, 1/60, attack)
+                self.tick(1, controls)
             assert enemy.hp <= 0, (enemy.id, enemy.hp, self.actor.x, self.actor.dir)
         assert self.state.kills-before[0] == len(enemies)
         xp = self.state.progression.killXp-before[1]

@@ -529,6 +529,7 @@ return function(C,configs,controllers)
     local spec=byId[id]
     if not spec.manualRechallenge then
      data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s.t,slot)}
+     if spec.baseHp then data.fieldBosses[id].maxHp=spec.hp end
      if slot.entryAt and slot.enemy.hp>0 and slot.enemy.hp<spec.hp then
       data.fieldBosses[id].elapsedTicks=math.min(10^9,math.max(0,math.floor((s.t-slot.entryAt)*60+.5)))
      end
@@ -545,11 +546,16 @@ return function(C,configs,controllers)
   if data.fieldBosses then
    s.fieldSlots={}
    for id,saved in pairs(data.fieldBosses) do
+    local spec=byId[id]
     local slot={generation=saved.generation}
-    spawn(slot,byId[id],saved.hp)
+    local hp,previousMax=saved.hp,saved.maxHp or spec.baseHp or spec.hp
+    if hp>0 and previousMax~=spec.hp then
+     hp=hp==previousMax and spec.hp or math.max(1,math.min(spec.hp-1,math.floor(hp*spec.hp/previousMax+.5)))
+    end
+    spawn(slot,spec,hp)
     if saved.elapsedTicks then slot.entryAt=s.t-saved.elapsedTicks/60 end
-    local behavior=controllers[byId[id].controller]
-    if behavior.restore then behavior.restore(slot.enemy,byId[id],saved.flags,slot) end
+    local behavior=controllers[spec.controller]
+    if behavior.restore then behavior.restore(slot.enemy,spec,saved.flags,slot) end
     if saved.waitTicks>0 then
      slot.waitUntil=s.t+saved.waitTicks/60;slot.phase='respawn'
     end
@@ -584,6 +590,7 @@ return function(C,configs,controllers)
   if boss.hp>0 and not cast and spec.displayLabel and (slot.phase=='available' or slot.phase=='notice') then label=spec.displayLabel end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
+   draftHp=spec.baseHp~=nil or nil,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(now,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
    weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}

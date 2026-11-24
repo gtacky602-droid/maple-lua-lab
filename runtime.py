@@ -52,7 +52,7 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
     return loader(read, asset_entries)
 
 
-def runtime(*, draft_balance=False):
+def runtime(*, draft_balance=False, draft_field_boss_hp=True):
     lua = LuaRuntime(unpack_returned_tuples=True)
     core = lua.execute((ROOT / 'core.lua').read_text(encoding='utf-8'))
     skill_settings = json.loads((ROOT / 'content/skill-runtime-settings.json').read_text(encoding='utf8'))
@@ -117,6 +117,19 @@ def runtime(*, draft_balance=False):
         if skill['owner'] == 'traveler' and skill.get('category') in ('単独', '二元素', '三元素')
     }
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
+    if draft_balance and draft_field_boss_hp:
+        for spec in field_specs:
+            draft_hp = balance['fieldBossHp'].get(spec['id'])
+            if draft_hp is None:
+                continue
+            spec['baseHp'] = spec['hp']
+            spec['hp'] = draft_hp
+            ratio = draft_hp / spec['baseHp']
+            # Keep health exchanged by these mechanics proportional in both profiles.
+            for key, fields in (('life', ('cost', 'healOnHit', 'healBudget')), ('coffin', ('heal',))):
+                if key in spec:
+                    for field in fields:
+                        spec[key][field] = round(spec[key][field] * ratio)
     weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])
     if draft_balance:
         for spec in weekly_specs:

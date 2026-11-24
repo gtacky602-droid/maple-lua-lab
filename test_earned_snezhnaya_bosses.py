@@ -3,8 +3,8 @@
 from dataclasses import dataclass
 import json
 
-from runtime import ROOT
-from test_earned_branch_quests import Journey, core, lua
+from runtime import ROOT, runtime
+from test_earned_branch_quests import Journey
 
 
 @dataclass(frozen=True)
@@ -22,25 +22,28 @@ ENCOUNTERS = {
     'wavebinder': Encounter('boss-25134601', 'wavebinder-tide-cavern', 'wavebinder-commission', 'novokichev-camp'),
 }
 SKILLS = ('SK21', 'SK09', 'SK10', 'SK13')
-CONTROLS = {(move, attack):lua.table(left=move == -1, right=move == 1, attack=attack)
-            for move in (-1, 0, 1) for attack in (False, True)}
+REFERENCE_ENGINE = runtime(draft_balance=True, draft_field_boss_hp=False)
 
 
 class Trial:
-    def __init__(self, spec, controlled):
+    def __init__(self, spec, controlled, *, file='lv165-save.json', engine=REFERENCE_ENGINE):
         self.spec = spec
-        self.trip = Journey('lv165-save.json')
+        self.trip = Journey(file, engine=engine)
+        self.controls = {
+            (move, attack): self.trip.lua.table(left=move == -1, right=move == 1, attack=attack)
+            for move in (-1, 0, 1) for attack in (False, True)
+        }
         self.trip.warp('snezhnaya-hub')
         if controlled:
             self.trip.act('companion:kachina')
             self.trip.act('weapon_equip:traveler:SW03')
-            assert core.equippedWeapon(self.trip.state, 'traveler') == 'SW03'
+            assert self.trip.core.equippedWeapon(self.trip.state, 'traveler') == 'SW03'
             for item in self.trip.state.inventory['items'].values():
                 if item.owner == 1 and item.slot in (2, 3):
                     self.trip.act(f'artifact_remove:{item.id}')
             assert 0 < self.trip.actor.atk < 70
         slots = [[key] for key in SKILLS] + [[] for _ in range(4)]
-        assert core.configure(self.trip.state, lua.table_from(slots, recursive=True))[0]
+        assert self.trip.core.configure(self.trip.state, self.trip.lua.table_from(slots, recursive=True))[0]
         if spec.hub != self.trip.state.story.node:
             self.trip.travel(spec.hub)
         self.trip.act('story_accept:'+spec.quest)
@@ -82,7 +85,7 @@ class Trial:
                 chosen = key
                 attack = False
                 break
-        self.trip.tick(1, CONTROLS[move, attack])
+        self.trip.tick(1, self.controls[move, attack])
         if chosen:
             assert actor.cd[chosen] > 0
             self.attacks[chosen] += 1

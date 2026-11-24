@@ -1,0 +1,562 @@
+{
+  "earnedGear": {
+    "flugel": {
+      "nearEntry": {
+        "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+        "boss": "boss-26310501",
+        "arena": "flugel-tundra-basin",
+        "entryRoute": [
+          "snezhnaya-field",
+          "flugel-tundra-basin"
+        ],
+        "maxHp": 6000000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 84.25,
+        "damagingHits": 536,
+        "moves": [
+          "FL01",
+          "FL02",
+          "FL03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          1466100,
+          540
+        ],
+        "commission": {
+          "quest": "flugel-commission",
+          "xp": 10400,
+          "mora": 710
+        },
+        "savedClear": true,
+        "level": 145
+      },
+      "higherGear": {
+        "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+        "boss": "boss-26310501",
+        "arena": "flugel-tundra-basin",
+        "entryRoute": [
+          "snezhnaya-field",
+          "flugel-tundra-basin"
+        ],
+        "maxHp": 6000000,
+        "partyAttack": [
+          58542,
+          53711
+        ],
+        "elapsedSeconds": 15.367,
+        "damagingHits": 79,
+        "moves": [
+          "FL01",
+          "FL02",
+          "FL03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          293220,
+          540
+        ],
+        "commission": {
+          "quest": "flugel-commission",
+          "xp": 10400,
+          "mora": 710
+        },
+        "savedClear": true,
+        "level": 165
+      }
+    },
+    "driftingSnow": {
+      "nearEntry": {
+        "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+        "boss": "boss-25135202",
+        "arena": "drifting-snow-court",
+        "entryRoute": [
+          "snezhnaya-field",
+          "drifting-snow-court"
+        ],
+        "maxHp": 5000000,
+        "partyAttack": [
+          10470,
+          6652
+        ],
+        "elapsedSeconds": 64.917,
+        "damagingHits": 430,
+        "moves": [
+          "FDS01",
+          "FDS02",
+          "FDS03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          1214460,
+          560
+        ],
+        "commission": {
+          "quest": "drifting-snow-commission",
+          "xp": 10800,
+          "mora": 730
+        },
+        "savedClear": true,
+        "level": 160
+      },
+      "higherGear": {
+        "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+        "boss": "boss-25135202",
+        "arena": "drifting-snow-court",
+        "entryRoute": [
+          "snezhnaya-field",
+          "drifting-snow-court"
+        ],
+        "maxHp": 5000000,
+        "partyAttack": [
+          58542,
+          53711
+        ],
+        "elapsedSeconds": 12.767,
+        "damagingHits": 65,
+        "moves": [
+          "FDS01",
+          "FDS03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          1214460,
+          560
+        ],
+        "commission": {
+          "quest": "drifting-snow-commission",
+          "xp": 10800,
+          "mora": 730
+        },
+        "savedClear": true,
+        "level": 165
+      }
+    },
+    "immortalConstruct": {
+      "nearEntry": {
+        "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+        "boss": "boss-25140101",
+        "arena": "immortal-construct-root-hollow",
+        "entryRoute": [
+          "snezhnaya-field",
+          "immortal-construct-root-hollow"
+        ],
+        "maxHp": 6500000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 69.867,
+        "damagingHits": 463,
+        "moves": [
+          "IC01",
+          "IC02",
+          "IC03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          1298650,
+          550
+        ],
+        "commission": {
+          "quest": "immortal-construct-commission",
+          "xp": 10600,
+          "mora": 720
+        },
+        "savedClear": true,
+        "level": 145
+      },
+      "higherGear": {
+        "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+        "boss": "boss-25140101",
+        "arena": "immortal-construct-root-hollow",
+        "entryRoute": [
+          "snezhnaya-field",
+          "immortal-construct-root-hollow"
+        ],
+        "maxHp": 6500000,
+        "partyAttack": [
+          58542,
+          53711
+        ],
+        "elapsedSeconds": 15.3,
+        "damagingHits": 85,
+        "moves": [
+          "IC01",
+          "IC02",
+          "IC03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          259730,
+          550
+        ],
+        "commission": {
+          "quest": "immortal-construct-commission",
+          "xp": 10600,
+          "mora": 720
+        },
+        "savedClear": true,
+        "level": 165
+      }
+    },
+    "wavebinder": {
+      "nearEntry": {
+        "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+        "boss": "boss-25134601",
+        "arena": "wavebinder-tide-cavern",
+        "entryRoute": [
+          "novokichev-depth",
+          "wavebinder-tide-cavern"
+        ],
+        "maxHp": 6800000,
+        "partyAttack": [
+          10470,
+          6652
+        ],
+        "elapsedSeconds": 87.3,
+        "damagingHits": 590,
+        "moves": [
+          "WB01",
+          "WB02",
+          "WB03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          2143035,
+          570
+        ],
+        "commission": {
+          "quest": "wavebinder-commission",
+          "xp": 11200,
+          "mora": 750
+        },
+        "savedClear": true,
+        "level": 160
+      },
+      "higherGear": {
+        "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+        "boss": "boss-25134601",
+        "arena": "wavebinder-tide-cavern",
+        "entryRoute": [
+          "novokichev-depth",
+          "wavebinder-tide-cavern"
+        ],
+        "maxHp": 6800000,
+        "partyAttack": [
+          58542,
+          53711
+        ],
+        "elapsedSeconds": 15.167,
+        "damagingHits": 90,
+        "moves": [
+          "WB01",
+          "WB02",
+          "WB03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          1547748,
+          570
+        ],
+        "commission": {
+          "quest": "wavebinder-commission",
+          "xp": 11200,
+          "mora": 750
+        },
+        "savedClear": true,
+        "level": 165
+      }
+    }
+  },
+  "mechanicsAt165": {
+    "wavebinder": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-25134601",
+      "arena": "wavebinder-tide-cavern",
+      "entryRoute": [
+        "novokichev-depth",
+        "wavebinder-tide-cavern"
+      ],
+      "maxHp": 6800000,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "elapsedSeconds": 19.883,
+      "damagingHits": 87,
+      "moves": [
+        "WB01",
+        "WB02",
+        "WB03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 1,
+        "SK10": 1,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        1547748,
+        570
+      ],
+      "commission": {
+        "quest": "wavebinder-commission",
+        "xp": 11200,
+        "mora": 750
+      },
+      "savedClear": true
+    },
+    "immortalConstruct": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-25140101",
+      "arena": "immortal-construct-root-hollow",
+      "entryRoute": [
+        "snezhnaya-field",
+        "immortal-construct-root-hollow"
+      ],
+      "maxHp": 6500000,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "elapsedSeconds": 20.8,
+      "damagingHits": 83,
+      "moves": [
+        "IC01",
+        "IC02",
+        "IC03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        259730,
+        550
+      ],
+      "commission": {
+        "quest": "immortal-construct-commission",
+        "xp": 10600,
+        "mora": 720
+      },
+      "savedClear": true
+    },
+    "driftingSnow": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-25135202",
+      "arena": "drifting-snow-court",
+      "entryRoute": [
+        "snezhnaya-field",
+        "drifting-snow-court"
+      ],
+      "maxHp": 5000000,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "elapsedSeconds": 12.367,
+      "damagingHits": 64,
+      "moves": [
+        "FDS01",
+        "FDS03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 1,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        1214460,
+        560
+      ],
+      "commission": {
+        "quest": "drifting-snow-commission",
+        "xp": 10800,
+        "mora": 730
+      },
+      "savedClear": true
+    },
+    "flugel": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-26310501",
+      "arena": "flugel-tundra-basin",
+      "entryRoute": [
+        "snezhnaya-field",
+        "flugel-tundra-basin"
+      ],
+      "maxHp": 6000000,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "elapsedSeconds": 20.05,
+      "damagingHits": 84,
+      "moves": [
+        "FL01",
+        "FL02",
+        "FL03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 1,
+        "SK10": 0,
+        "SK13": 1
+      },
+      "killXpAndMora": [
+        293220,
+        540
+      ],
+      "commission": {
+        "quest": "flugel-commission",
+        "xp": 10400,
+        "mora": 710
+      },
+      "savedClear": true
+    }
+  },
+  "checkpointPortability": {
+    "flugel": {
+      "base": {
+        "waitTicks": 0,
+        "elapsedTicks": 190,
+        "hp": 1174,
+        "generation": 1
+      },
+      "baseMaxHp": 1180,
+      "draft": {
+        "generation": 1,
+        "maxHp": 6000000,
+        "elapsedTicks": 190,
+        "waitTicks": 0,
+        "hp": 5969492
+      },
+      "roundTripMatchesBase": true,
+      "clearCooldownPreserved": true
+    },
+    "driftingSnow": {
+      "base": {
+        "waitTicks": 0,
+        "elapsedTicks": 1151,
+        "flags": {
+          "coffinUsed": true
+        },
+        "generation": 1,
+        "hp": 625
+      },
+      "baseMaxHp": 1200,
+      "draft": {
+        "generation": 1,
+        "flags": {
+          "coffinUsed": true
+        },
+        "maxHp": 5000000,
+        "elapsedTicks": 1151,
+        "waitTicks": 0,
+        "hp": 2604167
+      },
+      "roundTripMatchesBase": true,
+      "clearCooldownPreserved": true
+    },
+    "immortalConstruct": {
+      "base": {
+        "waitTicks": 0,
+        "elapsedTicks": 190,
+        "hp": 1252,
+        "generation": 1
+      },
+      "baseMaxHp": 1260,
+      "draft": {
+        "generation": 1,
+        "maxHp": 6500000,
+        "elapsedTicks": 190,
+        "waitTicks": 0,
+        "hp": 6458730
+      },
+      "roundTripMatchesBase": true,
+      "clearCooldownPreserved": true
+    },
+    "wavebinder": {
+      "base": {
+        "waitTicks": 0,
+        "elapsedTicks": 190,
+        "hp": 1152,
+        "generation": 1
+      },
+      "baseMaxHp": 1160,
+      "draft": {
+        "generation": 1,
+        "maxHp": 6800000,
+        "elapsedTicks": 190,
+        "waitTicks": 0,
+        "hp": 6753103
+      },
+      "roundTripMatchesBase": true,
+      "clearCooldownPreserved": true
+    }
+  },
+  "coopHp": {
+    "flugel": {
+      "soloMaxHp": 6000000,
+      "fourPlayerMaxHp": 6000000
+    },
+    "driftingSnow": {
+      "soloMaxHp": 5000000,
+      "fourPlayerMaxHp": 5000000
+    },
+    "immortalConstruct": {
+      "soloMaxHp": 6500000,
+      "fourPlayerMaxHp": 6500000
+    },
+    "wavebinder": {
+      "soloMaxHp": 6800000,
+      "fourPlayerMaxHp": 6800000
+    }
+  }
+}
