@@ -25,11 +25,13 @@ return function(C,G)
  }
  local travel={RR02={54,78,3},RR07={72,108,3,1.4},RR08={210,234,2}}
  local function holdShape(s,run,c)
-  local a,b,spec=s.actors[s.active],run.boss,run.spec
-  c.dir=a.x>=c.startX and 1 or -1
+  local b,spec=run.boss,run.spec
+  if not c.targetMember then c.targetActor=s.actors[s.active] end
+  local x=G.trackTarget(s,c)
+  c.dir=x>=c.startX and 1 or -1
   b.dir=c.dir
-  c.aimX,c.aimY=a.x,a.y-36
-  if c.key=='RR05' then c.dir=a.x>=c.origin and 1 or -1;b.dir=c.dir end
+  c.aimX,c.aimY=x,c.targetY-36
+  if c.key=='RR05' then c.dir=x>=c.origin and 1 or -1;b.dir=c.dir end
   if c.travel then
    local gap=math.max(0,math.min(c.travel[3]*spec.arena.unit,math.abs(c.aimX-c.startX)-.58*spec.arena.unit))
    c.finishX=G.clamp(spec,c.startX+c.dir*gap,28)
@@ -46,12 +48,13 @@ return function(C,G)
   run.serial=run.serial+1
   local alternate=key=='RR08' and variant=='B'
   local poseKey=alternate and 'RR08B' or key
+  local a=run.target or s.actors[s.active]
   local c={key=key,variant=variant,data=d,title=base.title,t=0,serial=run.serial,
+   targetActor=a,targetMember=run.targetMember,target=a.x,targetY=a.y,
    startX=run.boss.x,origin=run.boss.x,windows={},areas={},shots={},groups={},
    travel=travel[poseKey],projectile=projectile[poseKey],
    damage=math.floor((run.spec.damage[key] or 0)*run.rules.damageScale+.5)}
   if key=='RR05' then
-   local a=s.actors[s.active]
    local anchor=run.spec.fog.anchors[(run.fog.attempt-1)%#run.spec.fog.anchors+1]
    local side=a.x>=anchor and -1 or 1
    c.origin=G.clamp(run.spec,a.x+side*run.spec.arena.unit*.91,64)
@@ -66,6 +69,7 @@ return function(C,G)
   if key=='RR09' or key=='RR13' then
    c.path=c.key=='RR09' and 1 or 2
    c.pickups={};c.collected=0;c.burst={}
+   if run.parties then c.pickupsByMember={} end
    for i,p in ipairs(run.spec.trials.paths[c.path].pickups) do
     c.pickups[i]={id=i,x=p[1],y=p[2]-24,sole=p[2]}
    end
@@ -133,43 +137,64 @@ return function(C,G)
    if c.t>=p.expires or ny>arena.floor or nx<arena.left-p.radius or nx>arena.right+p.radius then
     table.remove(c.shots,i)
    else
-    for _,a in ipairs(s.actors) do
-     local group=c.groups[p.group]
-     if not p.seen[a.id] and (group[a.id] or 0)<p.cap and G.boltContact(p.x,p.y,nx,ny,p.radius,a) then
-      p.seen[a.id]=true
-      group[a.id]=(group[a.id] or 0)+1
-      damage(s,run,c,a,c.windows[p.index],{id=run.boss.id,x=p.x,y=p.y+30})
-     end
-    end
+    local group=c.groups[p.group]
+    G.eachContact(s,run,p.seen,function(a,key)
+     return (group[key] or 0)<p.cap and G.boltContact(p.x,p.y,nx,ny,p.radius,a)
+    end,function(party,a,key)
+     group[key]=(group[key] or 0)+1
+     damage(party,run,c,a,c.windows[p.index],{id=run.boss.id,x=p.x,y=p.y+30})
+    end)
     p.x,p.y=nx,ny
+   end
+  end
+ end
+ function M.trialProgress(c,s)
+  return c.pickupsByMember and c.pickupsByMember[s.coopMember] or c
+ end
+ local function collect(s,run,c)
+  local a=s.actors[s.active]
+  if a.hp<=0 or s.auto then return end
+  local personal=M.trialProgress(c,s)
+  if c.pickupsByMember and personal==c then
+   personal={collected=0,pickups={}}
+   for i,p in ipairs(c.pickups) do personal.pickups[i]={id=p.id,x=p.x,y=p.y,sole=p.sole} end
+   c.pickupsByMember[s.coopMember]=personal
+  end
+  for _,p in ipairs(personal.pickups) do
+   if not p.owner and math.abs(a.x-p.x)<=24 and a.y>=p.y and a.y-68<=p.y then
+    p.owner=s.coopMember and s.coopMember.id or 1
+    p.t=c.t
+    personal.collected=personal.collected+1
+    M.log(s,run,c,'pickup',a.id,personal.collected,p.id)
    end
   end
  end
  local function tickPath(s,run,c)
   if c.t<120 or c.t>=960 then return end
-  local a=s.actors[s.active]
-  if a.hp<=0 or s.auto then return end
-  for _,p in ipairs(c.pickups) do
-   if not p.owner and math.abs(a.x-p.x)<=24 and a.y>=p.y and a.y-68<=p.y then
-    p.owner=1
-    p.t=c.t
-    c.collected=c.collected+1
-    M.log(s,run,c,'pickup',a.id,c.collected,p.id)
-   end
-  end
+  for _,party in ipairs(run.parties or {s}) do collect(party,run,c) end
  end
  local function finalBurst(s,run,c,w)
-  for _,a in ipairs(s.actors) do
-   if a.hp>0 then
-    if c.collected==3 then
-     M.log(s,run,c,'protected',a.id,1,w.index)
-    else
-     local n=C.damageActor(s,a,math.floor(run.spec.damage.collapse*run.rules.damageScale+.5),run.boss,false,true)
-     M.log(s,run,c,'collapse',a.id,n,w.index)
+  local anyProtected=false
+  for _,party in ipairs(run.parties or {s}) do
+   local personal=M.trialProgress(c,party)
+   local protected=personal.collected==3
+   if personal~=c then personal.protected=protected end
+   if protected then
+    anyProtected=true
+    if c.path==2 and run.parties then party.endgameRun.mechanicContribution=true end
+   end
+   for _,a in ipairs(party.actors) do
+    if a.hp>0 then
+     if protected then
+      M.log(party,run,c,'protected',a.id,1,w.index)
+     else
+      local n=C.damageActor(party,a,math.floor(run.spec.damage.collapse*run.rules.damageScale+.5),run.boss,false,true)
+      M.log(party,run,c,'collapse',a.id,n,w.index)
+     end
     end
    end
   end
-  c.burst.complete=c.collected==3
+  c.burst.complete=anyProtected
   if c.key=='RR13' and not c.burst.complete then c.stop=1176 end
  end
  function M.tick(s,run,c)
@@ -195,12 +220,8 @@ return function(C,G)
     end
    end
    if not w.shot and c.t>=w.first and c.t<w.last and not (c.path and w.sequence==4) then
-    for _,a in ipairs(s.actors) do
-     if not w.seen[a.id] and G.bodyContact(c.areas[w.index],a) then
-      w.seen[a.id]=true
-      damage(s,run,c,a,w)
-     end
-    end
+    G.eachContact(s,run,w.seen,function(a) return G.bodyContact(c.areas[w.index],a) end,
+     function(party,a) damage(party,run,c,a,w) end)
    end
   end
   if #c.shots>0 then tickShots(s,run,c) end

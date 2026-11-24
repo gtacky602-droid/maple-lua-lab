@@ -166,11 +166,11 @@ def play(url):
                 selectedSets=results, rematchReward=second, savedClears=2)
 
 
-def fixture(hub=HUB, name='farka', item_level=60):
+def fixture(hub=HUB, name='farka', item_level=60, level=200):
     _, core = runtime()
     state = core.new(12)
     core.action(state, 'story_start')
-    core.grantExp(state, LEVELS[199]['maple_reference_total_exp_to_reach'], 'quest')
+    core.grantExp(state, LEVELS[level - 1]['maple_reference_total_exp_to_reach'], 'quest')
     for slot in (1, 2, 3):
         assert core.giveArtifact(state, slot, item_level, 3)
         core.action(state, 'artifact_equip:' + str(slot))

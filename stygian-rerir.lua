@@ -7,13 +7,17 @@ return function(C,G,M,render)
  local function targetable(b,enabled)
   b.invulnerable,b.noAutoTarget=not enabled,not enabled
  end
- local function clearEffects(s,b)
-  C.clearWeeklySceneCasts(s)
+ local function clearEffects(s,run)
+  if s.coop and s.coop.stygianRun==run then
+   for _,member in ipairs(s.coop.members) do C.clearWeeklySceneCasts(member.state) end
+  else C.clearWeeklySceneCasts(s) end
+  local b=run.boss
   b.burning,b.aura,b.applicationClocks=nil,nil,nil
  end
  local function contact(s,run,cast,mult,color,element)
   local b,spec=run.boss,run.spec
-  if b.hp<=0 or b.invulnerable or run.status~='fighting' then return false end
+  local personal=s.endgameRun
+  if not personal or personal.status~='fighting' or b.hp<=0 or b.invulnerable or run.status~='fighting' then return false end
   local resist=C.enemyResistance(cast,b,element)
   if resist>=1 then return false end
   local amount,critical=C.enemyHitDamage(s,cast,b,mult,element,resist)
@@ -23,7 +27,7 @@ return function(C,G,M,render)
   amount=math.min(amount,b.hp-lower)
   if amount<=0 then return false end
   local ability=cast.key or 'normal'
-  run.skills[ability]=(run.skills[ability] or 0)+amount
+  personal.skills[ability]=(personal.skills[ability] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,critical and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -86,7 +90,7 @@ return function(C,G,M,render)
    run.phase='trial'
    run.trials[c.path]='active'
    targetable(run.boss,false)
-   clearEffects(s,run.boss)
+   clearEffects(s,run)
   elseif key~='RR05' then
    run.phase='cast'
   end
@@ -96,7 +100,7 @@ return function(C,G,M,render)
   run.phase,run.age,run.cast='fog-entry',0,nil
   run.fogPending=nil
   run.fog={ward=run.spec.fog.ward,attempt=0}
-  targetable(run.boss,false);clearEffects(s,run.boss)
+  targetable(run.boss,false);clearEffects(s,run)
   event(s,run,'fog-entry',run.fog.ward)
  end
  local function ready(s,run)
@@ -114,12 +118,14 @@ return function(C,G,M,render)
   local a=s.actors[s.active]
   if run.phase~='fog' or not c or c.lamp or s.auto or a.hp<=0 then return end
   if c.t<84 or c.t>=132 then
-   c.tryAt=c.t
+   if run.shared then run.lampAttempt={cast=c.serial,tick=c.t}
+   else c.tryAt=c.t end
    M.log(s,run,c,'lamp-early',a.id,0)
    return
   end
   run.fog.ward=run.fog.ward-1
-  c.lamp={at=c.t,owner=1,stop=c.t+(run.fog.ward==0 and 192 or 102)}
+  c.lamp={at=c.t,owner=s.coopMember and s.coopMember.id or 1,stop=c.t+(run.fog.ward==0 and 192 or 102)}
+  if run.shared then run.mechanicContribution=true end
   M.log(s,run,c,'lamp',a.id,run.fog.ward)
  end
  local function nextAttack(s,run)
@@ -161,7 +167,7 @@ return function(C,G,M,render)
  local function tick(s,run,spec)
   local b=run.boss
   if run.phase=='enter' or run.phase=='interlude' or run.phase=='fog-entry' then
-   if run.phase=='interlude' and run.age==0 then clearEffects(s,b) end
+   if run.phase=='interlude' and run.age==0 then clearEffects(s,run) end
    run.age=run.age+1
    if run.phase=='enter' and run.age>=spec.timing.enter then
     ready(s,run)
@@ -197,7 +203,7 @@ return function(C,G,M,render)
   end
   if run.fogPending then startFog(s,run);return end
   if run.rest>0 then
-   local a=s.actors[s.active]
+   local a=run.target or s.actors[s.active]
    run.rest=run.rest-1
    local gap=a.x-b.x
    if math.abs(gap)>1.3*spec.arena.unit then

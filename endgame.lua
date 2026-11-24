@@ -113,7 +113,7 @@ return function(C,abyss,weekly,matches,controllers)
   local first=data.stygian[key]==nil
   local improved,record=personalBest(s,data.stygian,key,elapsed)
   if improved then
-   local best,amount='normal',-1
+   local best,amount=run.mechanicContribution and 'support' or 'normal',-1
    for skill,damage in pairs(run.skills) do
     if damage>amount or damage==amount and skill<best then best,amount=skill,damage end
    end
@@ -200,7 +200,7 @@ return function(C,abyss,weekly,matches,controllers)
    end
   end
   local result
-  if run.boss.hp<=0 then result='clear'
+  if run.boss.hp<=0 and not run.preparingNextAct then result='clear'
   elseif #live==0 then
    if waitingForPeer then return end
    result='failed'
@@ -222,7 +222,7 @@ return function(C,abyss,weekly,matches,controllers)
   for _,member in ipairs(room.members) do
    local s=member.state
    local personal=s.endgameRun
-   if result=='clear' and next(personal.skills) then
+   if result=='clear' and (next(personal.skills) or personal.mechanicContribution) then
     stygianClear(s,personal,spec,run.elapsed)
    else
     personal.status=result

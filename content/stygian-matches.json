@@ -1155,6 +1155,7 @@
       ]
     },
     "rerir": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990005,
       "node": "nod-stygian-hunt",
       "hub": "nod-town",

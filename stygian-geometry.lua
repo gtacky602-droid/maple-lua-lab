@@ -57,6 +57,7 @@ local G={}
   local member=c.targetMember
   if not member or (member.online and member.state.coop==s.coop and c.targetActor.hp>0) then
    c.target=c.targetActor.x
+   c.targetY=c.targetActor.y
   end
   return c.target
  end
@@ -64,9 +65,9 @@ local G={}
   for _,party in ipairs(run.parties or {s}) do
    for _,a in ipairs(party.actors) do
     local key=run.parties and a or a.id
-    if a.hp>0 and not seen[key] and collides(a) then
+    if a.hp>0 and not seen[key] and collides(a,key) then
      seen[key]=true
-     hit(party,a)
+     hit(party,a,key)
     end
    end
   end

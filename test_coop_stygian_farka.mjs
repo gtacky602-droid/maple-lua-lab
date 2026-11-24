@@ -6,7 +6,10 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 const base=process.env.LAB_URL||'http://127.0.0.1:9068/';
 const capitano=process.argv.includes('--capitano');
 const xbalanque=process.argv.includes('--xbalanque');
-const cfg=xbalanque
+const rerir=process.argv.includes('--rerir');
+const cfg=rerir
+ ? {name:'rerir',hub:'nod-town',arena:'nod-stygian-hunt',entity:990005,hp:2180,mora:22300,card:'RR01',lock:18,hit:42}
+ : xbalanque
  ? {name:'xbalanque',hub:'natlan-hub',arena:'natlan-solar-court',entity:990004,hp:1780,mora:2530,card:'XB01',lock:12,hit:36}
  : capitano
  ? {name:'capitano',hub:'snezhnaya-hub',arena:'sne-stygian-frost-court',entity:990003,hp:2430,mora:4200,card:'CP01',lock:12,hit:36}
@@ -78,6 +81,57 @@ async function drive(page,side){
  },{side,cfg});
 }
 
+async function driveRerir(page,first){
+ await page.evaluate(first=>{
+  const pressed=new Set(),lamps=new Set();
+  let trial,jumpUntil=0;
+  const trail=window.coopStygianTrail={stages:[],lamps:[],protected:{},interlude:false};
+  const key=(code,on)=>{
+   if(pressed.has(code)===on)return;
+   if(on)pressed.add(code);else pressed.delete(code);
+   window.dispatchEvent(new KeyboardEvent(on?'keydown':'keyup',{code,bubbles:true,cancelable:true}));
+  };
+  function loop(){
+   const f=window.lab.frame,v=f.endgameRun,b=f.boss;
+   if(v?.status!=='fighting'){
+    for(const code of [...pressed])key(code,false);
+    return;
+   }
+   if(!trail.stages.includes(v.stage))trail.stages.push(v.stage);
+   if(v.phase==='interlude')trail.interlude=b.hp===0&&!v.matchReward;
+   const a=f.actors[f.active-1],dx=b.x-a.x,t=v.tick;
+   let goal=a.x,attack=false,jump=false;
+   if(v.card==='RR05'){
+    if(v.lampReady&&!lamps.has(v.fogAttempt)&&first===(v.fogAttempt%2===1)){
+     lamps.add(v.fogAttempt);trail.lamps.push(v.fogAttempt);
+     key('KeyH',true);key('KeyH',false);
+    }
+   }else if(v.trial&&t<1080){
+    if(trial!==v.trial){trial=v.trial;jumpUntil=0;}
+    const collects=first?v.trial===1:v.trial===2;
+    if(collects&&t>=120&&t<960){
+     const p=v.pickups?.find(p=>!p.owner);
+     if(p){
+      goal=p.x;
+      if(p.y<400&&a.y>400&&Math.abs(a.x-p.x)<122&&t>jumpUntil+10)jumpUntil=t+39;
+      jump=t<jumpUntil;
+     }
+    }else if(!collects)goal=first?50:910;
+    if(t>=1008)trail.protected[v.trial]=v.protected===true;
+   }else if(v.trial===2&&t>=1080||v.stage===1||b.hp>b.maxhp*.234){
+    if(!['enter','fog-entry','blessing','interlude'].includes(v.phase)){
+     goal=b.x-Math.sign(dx||1)*74;
+     if(Math.abs(goal-a.x)<11&&Math.sign(dx)!==a.dir)goal=a.x+Math.sign(dx)*20;
+     attack=Math.abs(dx)<107&&Math.sign(dx)===a.dir&&a.y>422;
+    }
+   }else goal=first?50:910;
+   key('KeyA',goal<a.x-7);key('KeyD',goal>a.x+7);key('Space',jump);key('KeyJ',attack);
+   requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+ },first);
+}
+
 try{
  const players=await Promise.all([open('troupe'),open('gladiator')]);
  const [{page:host},{page:guest}]=players;
@@ -104,7 +158,8 @@ try{
  assert.equal(telegraphs[0].maxhp,cfg.hp);
  if(capitano||xbalanque)assert.ok([1,2].includes(telegraphs[0].targetSlot));
  await host.locator('#game').screenshot({path:prefix+'-warning.png'});
- await Promise.all([drive(host,-1),drive(guest,1)]);
+ if(rerir)await Promise.all([driveRerir(host,true),driveRerir(guest,false)]);
+ else await Promise.all([drive(host,-1),drive(guest,1)]);
  let safeLane;
  if(xbalanque){
   const lanes=await Promise.all(players.map(async({page})=>{
@@ -118,15 +173,32 @@ try{
   safeLane=lanes[0];
   await host.locator('#game').screenshot({path:prefix+'-safe-lane.png'});
  }
+ if(rerir){
+  await Promise.all(players.map(({page})=>page.waitForFunction(
+   ()=>window.lab.frame.endgameRun?.lampReady||window.lab.frame.endgameRun?.lampOwner)));
+  await host.locator('#game').screenshot({path:prefix+'-fog.png'});
+  await guest.waitForFunction(()=>{
+   const v=window.lab.frame.endgameRun;
+   return v?.trial===2&&v.collected===3&&v.tick<960;
+  },null,{timeout:125000});
+  const trial=await frame(host);
+  assert.equal(trial.endgameRun.trial,2);
+  assert.equal(trial.endgameRun.collected,0);
+  await guest.locator('#game').screenshot({path:prefix+'-trial.png'});
+ }
  await Promise.all(players.map(({page})=>page.waitForFunction(
-  ()=>window.lab.frame.endgameRun?.status==='clear',null,{timeout:110000})));
+  ()=>window.lab.frame.endgameRun?.status==='clear',null,{timeout:rerir?130000:110000})));
  const settled=await Promise.all(players.map(({page})=>frame(page)));
  const rewards=settled.map(f=>f.endgameRun.matchReward);
  assert.deepEqual(rewards.map(r=>r.set),['黄金の劇団','剣闘士のフィナーレ']);
  assert.ok(settled.every(f=>f.boss.hp===0&&f.endgame.stygian[`${cfg.name}:normal`].clears===1));
  assert.ok(rewards.every(reward=>reward.first&&reward.mora===cfg.mora));
  const trails=await Promise.all(players.map(({page})=>page.evaluate(()=>window.coopStygianTrail)));
- assert.ok(trails.every(trail=>trail.hits>0));
+ if(rerir){
+  assert.deepEqual(trails.map(t=>t.lamps),[[1],[2]]);
+  assert.deepEqual(trails.map(t=>t.protected),[{1:true,2:false},{1:false,2:true}]);
+  assert.ok(trails.every(t=>t.interlude&&t.stages.join()==='1,2'));
+ }else assert.ok(trails.every(trail=>trail.hits>0));
  if(xbalanque)assert.ok(trails.every(trail=>trail.finalRecovery));
  await host.locator('#game').screenshot({path:prefix+'-clear.png'});
  await Promise.all(players.map(async({page})=>{

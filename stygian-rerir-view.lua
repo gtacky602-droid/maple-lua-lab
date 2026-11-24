@@ -47,7 +47,7 @@ return function(C,G,M)
    end
   end
  end
- local function hint(run,c)
+ local function hint(run,c,progress)
   if run.phase=='enter' then return '狩人が間合いを測っている' end
   if run.phase=='interlude' then return '第一幕終了。長槍を構える' end
   if run.phase=='fog-entry' then return '足跡を探し、輪郭が赤くなったら灯を掲げる（H）' end
@@ -59,15 +59,17 @@ return function(C,G,M)
     return run.fog.ward==0 and '結界が消えた。反撃の時間' or '灯が通った。次の襲撃に備える'
    end
    if c.t>=84 and c.t<132 then return '赤い輪郭が見えた。灯を掲げる（H）' end
-   if c.tryAt and c.t-c.tryAt<32 then
-    return c.tryAt<84 and 'まだ霧が濃い。赤い輪郭を待つ' or '灯の合図に間に合わなかった。次の足跡を探す'
+   local attempt=run.lampAttempt
+   local tryAt=(attempt and attempt.cast==c.serial and attempt.tick) or c.tryAt
+   if tryAt and c.t-tryAt<32 then
+    return tryAt<84 and 'まだ霧が濃い。赤い輪郭を待つ' or '灯の合図に間に合わなかった。次の足跡を探す'
    end
    return c.t<84 and '足跡が示す側を見て、灯の合図を待つ' or '蹴りの範囲から離れる'
   end
   if c.path and c.t<1080 then
    if c.t<120 then return '上空の試練。淡金の光を三つ集める' end
-   if c.t<960 then return c.collected<3 and '上段はジャンプで登る。赤い落下帯を避ける' or '三つそろった。淡金の輪で最後の衝撃を防ぐ' end
-   return c.collected==3 and '淡金の輪で最終衝撃に備える' or 'レリルが最終衝撃を溜めている'
+   if c.t<960 then return progress.collected<3 and '上段はジャンプで登る。赤い落下帯を避ける' or '三つそろった。淡金の輪で最後の衝撃を防ぐ' end
+   return progress.collected==3 and '淡金の輪で最終衝撃に備える' or 'レリルが最終衝撃を溜めている'
   end
   local recovery=c.stop or c.data.total_ticks
   if c.t>=c.data.recovery[1] then return string.format('反撃の隙 %.1f秒',(recovery-c.t)/60) end
@@ -95,9 +97,9 @@ return function(C,G,M)
    if v.lampReady then ring(rect,b.x,b.y-52,37,57,pink,.85) end
   end
  end
- local function pickups(rect,s,c)
+ local function pickups(rect,s,c,progress)
   if c.t<120 then return end
-  for _,p in ipairs(c.pickups) do
+  for _,p in ipairs(progress.pickups) do
    if not p.owner and c.t<960 then
     rect(p.x-8,p.y-9,16,19,'#705845')
     rect(p.x-11,p.y-5,22,11,gold)
@@ -109,7 +111,7 @@ return function(C,G,M)
     rect(p.x+(a.x-p.x)*u-3,p.y+(a.y-48-p.y)*u-3,7,7,pale,1-u)
    end
   end
-  if c.collected==3 and c.t<1020 then
+  if progress.collected==3 and c.t<1020 then
    local a=s.actors[s.active]
    ring(rect,a.x,a.y-40,39,47,gold,.8)
   end
@@ -135,21 +137,26 @@ return function(C,G,M)
  end
  return function(f,s,run,spec,mode,profile)
   local b,c,v=run.boss,run.cast,f.endgameRun
+  local progress=c and c.path and M.trialProgress(c,s)
   local clear=run.status=='clear'
   v.stage,v.stageName=run.stage,run.stage==1 and '第一幕　狩人の爪' or '第二幕　深淵の長槍'
   v.phase=clear and 'clear' or run.phase
   v.card,v.variant,v.tick=c and c.key,c and c.variant,c and c.t or run.age
-  v.hint=clear and '狩場の試練を終えた' or hint(run,c)
+  v.hint=clear and '狩場の試練を終えた' or hint(run,c,progress)
   if run.phase=='fog-entry' or run.phase=='fog' then
    v.ward=run.fog.ward
    v.fogAttempt=run.fog.attempt
    v.lampVisible=run.phase=='fog' and c~=nil and not c.lamp
    v.lampReady=v.lampVisible and c.t>=84 and c.t<132
+   v.lampOwner=c and c.lamp and c.lamp.owner
   elseif c and c.path then
-   v.trial,v.collected=c.path,c.collected
-   v.protected=c.burst.complete
-   v.pickups={}
-   for i,p in ipairs(c.pickups) do v.pickups[i]={x=p.x,y=p.y,owner=p.owner} end
+   v.trial,v.collected=c.path,progress.collected
+   v.protected=progress.protected
+   if not c.pickupsByMember then v.protected=c.burst.complete end
+   if run.status=='fighting' then
+    v.pickups={}
+    for i,p in ipairs(progress.pickups) do v.pickups[i]={x=p.x,y=p.y,owner=p.owner} end
+   end
   end
   f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,phase=v.phase,label=c and c.title or v.stageName}
   if run.status=='failed' then return end
@@ -159,14 +166,14 @@ return function(C,G,M)
   if v.ward then
    local density=run.phase=='fog-entry' and math.min(1,run.age/36) or c.lamp and .35 or 1
    for i=1,5 do
-    local u=(s.t*12+i*194)%1110
+    local u=((run.shared and run.shared.elapsed or s.t)*12+i*194)%1110
     rect(u-175,332+i*24,344,23,'#72576d',density*.24,true)
    end
   elseif c and c.path and c.t>=90 and c.t<1050 then
    local airY=spec.arena.floor-3.5*spec.arena.unit-47
    ring(rect,b.x,airY,102,65,crimson,c.t>=960 and .9 or .5)
    ring(rect,b.x,airY,79,49,crimson,.65)
-   if c.path==2 and c.collected==3 then
+   if c.path==2 and (c.burst.complete or progress.collected==3) then
     for _,sign in ipairs({-1,1}) do
      pixelsLine(rect,b.x+sign*75,airY-27,b.x+sign*53,airY+14,gold,4)
     end
@@ -199,7 +206,7 @@ return function(C,G,M)
     end
     v.areas[#v.areas+1]={left=z.left,right=z.right,top=z.top,bottom=z.bottom,index=entry.index,active=entry.active,final=entry.final}
    end
-   if c.path then pickups(rect,s,c) end
+   if progress and run.status=='fighting' then pickups(rect,s,c,progress) end
    shots(rect,hints.rays,c.shots,spec.arena.floor)
   end
   f.commands=#f.draws

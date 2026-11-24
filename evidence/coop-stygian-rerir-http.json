@@ -1,0 +1,42 @@
+{
+  "players": 2,
+  "hpByAct": [
+    2180,
+    2470
+  ],
+  "lampsDeduplicated": true,
+  "interludeWithoutRewards": true,
+  "offlinePartyEffectsResetAtPhaseChange": true,
+  "independentOrbsAndProtection": true,
+  "recoveryEndWithOneSuccess": 1320,
+  "recoveryEndWithNoSuccess": 1176,
+  "supportOnlyRewarded": true,
+  "personalQuest": true,
+  "rewards": [
+    {
+      "rank": 4,
+      "set": "黄金の劇団",
+      "first": true,
+      "bag": true,
+      "xp": 2023305,
+      "mora": 22300
+    },
+    {
+      "rank": 4,
+      "set": "剣闘士のフィナーレ",
+      "first": true,
+      "bag": true,
+      "xp": 2023305,
+      "mora": 22300
+    }
+  ],
+  "repeatReward": {
+    "rank": 4,
+    "set": "黄金の劇団",
+    "first": false,
+    "bag": true,
+    "xp": 1773239,
+    "mora": 12500
+  },
+  "savedClears": 2
+}

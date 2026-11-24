@@ -8054,7 +8054,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend Stygian shared combat to Rerir and the remaining matches, retaining their encounter-specific mechanics and personal rewards.",
+  "current_priority": "Extend Stygian shared combat to Ronova and the remaining matches, retaining their encounter-specific mechanics and personal rewards.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
@@ -8311,6 +8311,7 @@
       "atocpan-overseer-ruin",
       "spiritspeaker-field-grotto",
       "nod-town",
+      "nod-stygian-hunt",
       "nod-moon-cave-mouth",
       "nod-wp-88128",
       "nod-wp-88147",
@@ -8607,7 +8608,8 @@
       "legend-frostmoon_mushteshir",
       "stygian-farka",
       "stygian-capitano",
-      "stygian-xbalanque"
+      "stygian-xbalanque",
+      "stygian-rerir"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8915,7 +8917,9 @@
       "evidence/coop-stygian-capitano-http.json",
       "evidence/coop-stygian-capitano-browser.json",
       "evidence/coop-stygian-xbalanque-http.json",
-      "evidence/coop-stygian-xbalanque-browser.json"
+      "evidence/coop-stygian-xbalanque-browser.json",
+      "evidence/coop-stygian-rerir-http.json",
+      "evidence/coop-stygian-rerir-browser.json"
     ],
     "pending": [
       "remaining Stygian bosses",

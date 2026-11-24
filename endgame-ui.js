@@ -47,7 +47,8 @@ export function initEndgameUI(action){
    : `Lv${pick.level}で挑戦できます`;
   const history=get('stygianRecord');
   history.hidden=!pick.record;
-  const primary=pick.record?.mainSkill==='normal'?'通常攻撃':pick.record?.mainSkill;
+  const skill=pick.record?.mainSkill;
+  const primary=({normal:'通常攻撃',support:'ギミック支援'})[skill]||skill;
   if(pick.record)history.textContent=`自己記録 ${record(pick.record)} ｜ 主力 ${primary}`;
  }
  duelMode.onchange=updateDuelSelection;
