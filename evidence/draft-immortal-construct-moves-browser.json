@@ -1,0 +1,14 @@
+{
+  "level": 145,
+  "glowWithoutCounterAt": 61,
+  "counterShownAt": 120,
+  "hitsLeftAtOpening": 3,
+  "interruptedAt": 175,
+  "normalAttackInput": true,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 19098,
+    "light": 5131
+  },
+  "errors": []
+}

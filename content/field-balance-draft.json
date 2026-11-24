@@ -22,6 +22,19 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-25140101": {
+      "IC02": { "offsets": [0.85, 2.15], "width": 1.0 },
+      "IC03": {
+        "kind": "bloomSequence", "title": "輝かしき命の姿・灼焔の華",
+        "glowAt": 60, "chantAt": 240, "counterOpen": 120, "counterClose": 300, "hitsToBreak": 3,
+        "active": [[144, 158], [228, 242], [324, 342]], "recover": 360, "total": 504,
+        "waves": [
+          { "near": 0.10, "far": 2.20, "height": 0.68, "damage": 22 },
+          { "near": 0.10, "far": 2.20, "height": 0.68, "damage": 22 },
+          { "near": 0.10, "far": 2.60, "height": 0.72, "damage": 32 }
+        ]
+      }
+    },
     "boss-25135202": {
       "FDS02": { "offsets": [0.85, 2.15], "width": 1.0 }
     },

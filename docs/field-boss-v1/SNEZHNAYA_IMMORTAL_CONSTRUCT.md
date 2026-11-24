@@ -1,6 +1,23 @@
 # 不滅の副産物：Webフィールド試作
 
-> **2026-11-18：次設計への移行注記。** 最新の短い仕様は[スネージナヤの4戦](SNEZHNAYA_QUARTET_MOVESETS.md)・[索引](MANIFEST_SNEZHNAYA.json)・[QA](QA_SNEZHNAYA.md)を参照。命の姿と開花を固定三拍・3回の任意中断へ。旧自己消耗・12点の層・部分よろけ・命中回復・可変詠唱・倍率を置換し、自然／中断ともREC144へ。 以下は参照基点の試作と既存試験の履歴で、新仕様の実装／合格報告ではない。配置・報酬・保存の既存規則を保持する。
+## 短縮技案をラボで試す
+
+雪の町で討伐調査を受け、凍った街道から「赤葉の根洞」へ進む。短縮技案はポート9101、比較元は9099。同じLv145の獲得セーブで、どちらも最大HP650万。 [比較版の起動手順](../balance/FIELD_BALANCE_DRAFT_WEB.md#ナドクライの短縮技案を比較)
+
+翼と胸の花が光り始め、技の120tick目から中断の受付が始まる。299tickまでに新しい直接攻撃で本体HPを三回減らせば、残りの波と開花を中断できる。二打まででは波の時刻や威力は変わらない。二波と本開花を横へ避けた場合も、中断した場合も2.4秒の反撃時間に入る。看板技では本体のHPを消費せず、攻撃が当たっても回復しない。 [技票](SNEZHNAYA_QUARTET_MOVESETS.md#5-不滅の副産物--赤い翼が開いたら開花前に崩す)
+
+獲得Lv145の同じ装備で、通常攻撃と同行AIを使った討伐は従来69.87秒、短縮案89.57秒。短縮案では旧来の自傷ダメージとダウン中の与ダメージ増加を外した。別試走では翼が光り始めた時点で同行の攻撃を止め、二波と開花を横へ避け、150.10秒で討伐した。どの試走も報告と保存再開まで確認した。 [Luaの実測](../../evidence/draft-immortal-construct-moves-lua.json)
+
+Chromeでは、翼と花が先に光り、120tickで残り三打の表示が出た。通常攻撃で開花を中断し、反撃時間に入った。同一フレームの描画命令は標準19,098、軽量5,131。軽量表示でも花と翼の形、残り打数が見分けられる。 [Chromeの記録](../../evidence/draft-immortal-construct-moves-browser.json) · [標準](../../evidence/short-immortal-construct-bloom.png) · [軽量](../../evidence/short-immortal-construct-bloom-light.png) · [中断時](../../evidence/short-immortal-construct-interrupted.png)
+
+獲得Lv145のルートセーブを用意してLuaの試験を実行すると、ブラウザー試験用セーブも作成する。
+
+```powershell
+python test_draft_immortal_construct_moves.py
+node test_draft_immortal_construct_moves.mjs
+```
+
+## 従来技
 
 雪の町で討伐調査を受け、凍った街道のx=1210の門から「赤葉の根洞」へ進む。根爪の二連掻き・赤葉の二粒・輝かしき命の姿を持つ。守りの一層破壊で小波を止め、すべて壊すと灼焔の華を中断できる。左の門で街道へ戻り、雪の町で報告・保存する。
 

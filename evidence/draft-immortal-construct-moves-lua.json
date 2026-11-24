@@ -1,0 +1,174 @@
+{
+  "participants": 4,
+  "openingAt120AndPreviousCastRejected": true,
+  "baseDamageAcrossForms": 95,
+  "noSelfCostOrHealing": true,
+  "partialProgressKeptBothWaves": true,
+  "deadlineAt300BodyDamageStillApplies": true,
+  "naturalHitsAt": [
+    144,
+    228,
+    324
+  ],
+  "naturalRecoveryTicks": 144,
+  "threeDistinctHitsFromTwoParties": true,
+  "multihitReactionDoTMissAndImmuneExclude": true,
+  "lastContactAcceptedAt299": true,
+  "cancelledFirstWaveAt144": true,
+  "interruptRecoveryTicks": 144,
+  "wallRepositionRecreatesCast": true,
+  "staleBeforeRetryExcluded": true,
+  "checkpointKeepsHpWithoutCounter": true,
+  "hpZeroWins": true,
+  "level": 145,
+  "previous": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-25140101",
+    "arena": "immortal-construct-root-hollow",
+    "entryRoute": [
+      "snezhnaya-field",
+      "immortal-construct-root-hollow"
+    ],
+    "maxHp": 6500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 69.867,
+    "damagingHits": 463,
+    "moves": [
+      "IC01",
+      "IC02",
+      "IC03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1298650,
+      550
+    ],
+    "commission": {
+      "quest": "immortal-construct-commission",
+      "xp": 10600,
+      "mora": 720
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-25140101",
+    "arena": "immortal-construct-root-hollow",
+    "entryRoute": [
+      "snezhnaya-field",
+      "immortal-construct-root-hollow"
+    ],
+    "maxHp": 6500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 89.567,
+    "damagingHits": 603,
+    "moves": [
+      "IC01",
+      "IC02",
+      "IC03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1298650,
+      550
+    ],
+    "commission": {
+      "quest": "immortal-construct-commission",
+      "xp": 10600,
+      "mora": 720
+    },
+    "savedClear": true
+  },
+  "interrupted": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-25140101",
+    "arena": "immortal-construct-root-hollow",
+    "entryRoute": [
+      "snezhnaya-field",
+      "immortal-construct-root-hollow"
+    ],
+    "maxHp": 6500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 89.567,
+    "damagingHits": 603,
+    "moves": [
+      "IC01",
+      "IC02",
+      "IC03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1298650,
+      550
+    ],
+    "commission": {
+      "quest": "immortal-construct-commission",
+      "xp": 10600,
+      "mora": 720
+    },
+    "savedClear": true
+  },
+  "evaded": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-25140101",
+    "arena": "immortal-construct-root-hollow",
+    "entryRoute": [
+      "snezhnaya-field",
+      "immortal-construct-root-hollow"
+    ],
+    "maxHp": 6500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 150.1,
+    "damagingHits": 516,
+    "moves": [
+      "IC01",
+      "IC02",
+      "IC03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1298650,
+      550
+    ],
+    "commission": {
+      "quest": "immortal-construct-commission",
+      "xp": 10600,
+      "mora": 720
+    },
+    "savedClear": true
+  },
+  "interruptedAt": 191,
+  "groundEvasionAndCounterAt": 403
+}

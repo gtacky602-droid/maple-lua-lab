@@ -8266,6 +8266,13 @@
     },
     "draft_field_moves": {
       "encounters": {
+        "boss-25140101": {
+          "earned_save_level": 145,
+          "same_input_clear_seconds": {"previous": 69.867, "alternate": 89.567},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-immortal-construct-moves-lua.json",
+          "browser_evidence": "evidence/draft-immortal-construct-moves-browser.json"
+        },
         "boss-25135202": {
           "earned_save_level": 160,
           "same_input_clear_seconds": {"previous": 64.917, "alternate": 64.967},
