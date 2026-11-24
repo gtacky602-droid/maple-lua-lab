@@ -15,8 +15,9 @@ const atocpan=process.argv.includes('--natlan-atocpan');
 const finalNatlan=process.argv.includes('--natlan-final');
 const highland=process.argv.includes('--natlan-highland');
 const nodFirst=process.argv.includes('--nod-first');
+const nodNorth=process.argv.includes('--nod-north');
 const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
-const prefix=nodFirst?'evidence/coop-nod-first-field-legends'
+const prefix=nodNorth?'evidence/coop-nod-north-field-legends':nodFirst?'evidence/coop-nod-first-field-legends'
  : highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
  : atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
  : northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
@@ -138,7 +139,19 @@ const nodFirstCases=[
   quest:'nod-bureau-lift-check',lock:'操作盤',hp:1640,mora:750,x:830,warning:'NRK02',
   entities:[97103],warningOrder:[[1,'pyro',72],[2,'pyro',112],[3,'pyro',153]],returnY:407},
 ].map(cfg=>({...cfg,checkpoint:'nod-town'}));
-const cases=nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const nodNorthCases=[
+ {tag:'mandragora',leg:'coast',id:'legend-nod_hexadecatonic_mandragora',arena:'nod-mandragora-cliff-foot',
+  approach:'nod-wp-92875',entry:'nod-pyramid-seaward-steps',hp:1640,mora:748,x:825,warning:'NNM02',
+  entities:[97104],warningOrder:[[1,'dendro',72],[2,'dendro',122]],shelves:[[596,411]],returnY:480},
+ {tag:'hiljetta',leg:'peninsula',id:'legend-nod_hiljetta',arena:'nod-hiljetta-peninsula-camp',
+  approach:'nod-wp-92879',alternate:'nod-wp-92880',entry:'nod-wind-fort-peninsula',
+  hp:1600,mora:753,x:825,warning:'NNH02',entities:[97105],
+  warningOrder:[[1,'physical',70],[2,'physical',121]],shelves:[],returnY:480},
+ {tag:'homesick-wolf',leg:'ridge',id:'legend-nod_homesick_lone_wolf',arena:'nod-homesick-wolf-lakeland',
+  approach:'nod-wp-92889',entry:'nod-aamsvaltnir-east-ridge',hp:1720,mora:785,x:825,warning:'NNW02',
+  entities:[97106],warningOrder:[[1,'cryo',75],[2,'cryo',118],[3,'cryo',163]],shelves:[[570,412],[836,345]],returnY:345},
+].map(cfg=>({...cfg,checkpoint:'nod-north-harbor',quest:'nod-north-landmark-round'}));
+const cases=nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -172,20 +185,20 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=nodFirst?'work/nod-first-field-legends-fixture.json'
+ const fixturePath=nodNorth?'work/nod-north-field-legends-fixture.json':nodFirst?'work/nod-first-field-legends-fixture.json'
   : highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
   : atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
   : northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=(localNatlan||nodFirst)?9068:dry?9064:lake?9063:9060;
+ const port=(localNatlan||nodFirst||nodNorth)?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- if(localNatlan||nodFirst){
+ if(localNatlan||nodFirst||nodNorth){
   for(const id of cfg.quests??(cfg.quest?[cfg.quest]:[])) await route.accept(id);
  }
  await route.warp(cfg.approach??cfg.entry);
@@ -887,9 +900,59 @@ async function nodFirstJourney(){
   allThreeReportsRestoredForBoth:true};
 }
 
+async function visitNodNorth(player,cfg,approach,order,code){
+ const {page,route}=player;
+ if(await route.node()!==approach) await route.warp(approach);
+ assert.equal((await frame(page)).coop.code,code);
+ await crossShared(player,cfg.entry,code);
+ await climb(route,cfg.shelves);
+ if(order.includes(cfg.leg)) return;
+ const survey=graph.quests.find(q=>q.id===cfg.quest);
+ await collectSpot(player,survey.paths.find(path=>path.id===cfg.leg).steps[0]);
+ await wait(page,({quest,leg})=>window.lab.frame.story.quests[quest].pathProgress[leg].count===1,
+  {quest:cfg.quest,leg:cfg.leg});
+ order.push(cfg.leg);
+ await route.count(cfg.quest,Number(order.length===survey.paths.length));
+}
+
+async function nodNorthJourney(){
+ const [coast,peninsula,wolf]=cases;
+ const players=await Promise.all([start(coast,false),start(coast,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ const orders=[[],[]], proof={};
+ await visitNodNorth(guest,wolf,wolf.approach,orders[1],code);
+ const untouched=(await frame(host.page)).story.quests[wolf.quest];
+ assert.equal(untouched.count,0);
+ assert.ok(Object.values(untouched.pathProgress).every(path=>path.count===0));
+ await crossShared(guest,wolf.approach,code);
+
+ for(const cfg of cases){
+  const approaches=[cfg.approach,cfg.alternate??cfg.approach];
+  await Promise.all(players.map((player,index)=>visitNodNorth(player,cfg,approaches[index],orders[index],code)));
+  await enterIndividually(players,cfg);
+  const result=await fightAndSave(players,cfg);
+  await rematch(players,cfg);
+  await leaveArena(players,cfg);
+  proof[cfg.tag]={...result,returnY:cfg.returnY,sharedRematch:true};
+  await Promise.all(players.map(async (player,index)=>{
+   if(cfg===coast) await climb(player.route,[[640,411],[365,340]]);
+   await crossShared(player,approaches[index],code);
+  }));
+  console.log('Chrome: both players cleared '+cfg.tag+' and verified the return route.');
+ }
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ assert.notDeepEqual(orders[0],orders[1]);
+ assert.ok(routes.every((route,index)=>route.some(leg=>leg[0]===[peninsula.approach,peninsula.alternate][index]&&leg[1]===peninsula.entry)));
+ await Promise.all(players.map(p=>p.context.close()));
+ return {...proof,routes,surveyOrders:orders,personalSurveyProgress:true,peninsulaEntrances:2,reportRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(nodFirst) Object.assign(evidence,await nodFirstJourney());
+ if(nodNorth) Object.assign(evidence,await nodNorthJourney());
+ else if(nodFirst) Object.assign(evidence,await nodFirstJourney());
  else if(highland) Object.assign(evidence,await highlandJourney());
  else if(finalNatlan) Object.assign(evidence,await finalNatlanJourney());
  else if(atocpan) Object.assign(evidence,await atocpanJourney());

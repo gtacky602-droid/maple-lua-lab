@@ -1,0 +1,387 @@
+{
+  "participants": 2,
+  "mandragora": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 167,
+        "moves": [
+          "NNM01",
+          "NNM02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 190,
+        "moves": [
+          "NNM01",
+          "NNM02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "dendro",
+        72,
+        671,
+        829
+      ],
+      [
+        2,
+        "dendro",
+        122,
+        939,
+        1117
+      ]
+    ],
+    "rewards": [
+      [
+        1441750,
+        748
+      ],
+      [
+        1441750,
+        748
+      ]
+    ],
+    "contacts": [
+      10,
+      11
+    ],
+    "saved": true,
+    "returnY": 480,
+    "sharedRematch": true
+  },
+  "hiljetta": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 123,
+        "moves": [
+          "NNH01",
+          "NNH02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 143,
+        "moves": [
+          "NNH01",
+          "NNH02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        70,
+        325,
+        517
+      ],
+      [
+        2,
+        "physical",
+        121,
+        529.5,
+        695.5
+      ]
+    ],
+    "rewards": [
+      [
+        1441750,
+        753
+      ],
+      [
+        1441750,
+        753
+      ]
+    ],
+    "contacts": [
+      10,
+      12
+    ],
+    "saved": true,
+    "returnY": 480,
+    "sharedRematch": true
+  },
+  "homesick-wolf": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 54,
+        "moves": [
+          "NNW01",
+          "NNW02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 98,
+        "moves": [
+          "NNW01",
+          "NNW02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        75,
+        325,
+        447
+      ],
+      [
+        2,
+        "cryo",
+        118,
+        364.5,
+        510.5
+      ],
+      [
+        3,
+        "cryo",
+        163,
+        545.5,
+        673.5
+      ]
+    ],
+    "rewards": [
+      [
+        1150400,
+        785
+      ],
+      [
+        1150400,
+        785
+      ]
+    ],
+    "contacts": [
+      12,
+      12
+    ],
+    "saved": true,
+    "returnY": 345,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "nod-wp-92875",
+        "nod-pyramid-seaward-steps",
+        "raised"
+      ],
+      [
+        "nod-pyramid-seaward-steps",
+        "nod-mandragora-cliff-foot",
+        "walk"
+      ],
+      [
+        "nod-mandragora-cliff-foot",
+        "nod-pyramid-seaward-steps",
+        "walk"
+      ],
+      [
+        "nod-pyramid-seaward-steps",
+        "nod-mandragora-cliff-foot",
+        "walk"
+      ],
+      [
+        "nod-mandragora-cliff-foot",
+        "nod-pyramid-seaward-steps",
+        "walk"
+      ],
+      [
+        "nod-pyramid-seaward-steps",
+        "nod-wp-92875",
+        "raised"
+      ],
+      [
+        "nod-wp-92879",
+        "nod-wind-fort-peninsula",
+        "raised"
+      ],
+      [
+        "nod-wind-fort-peninsula",
+        "nod-hiljetta-peninsula-camp",
+        "walk"
+      ],
+      [
+        "nod-hiljetta-peninsula-camp",
+        "nod-wind-fort-peninsula",
+        "walk"
+      ],
+      [
+        "nod-wind-fort-peninsula",
+        "nod-hiljetta-peninsula-camp",
+        "walk"
+      ],
+      [
+        "nod-hiljetta-peninsula-camp",
+        "nod-wind-fort-peninsula",
+        "walk"
+      ],
+      [
+        "nod-wind-fort-peninsula",
+        "nod-wp-92879",
+        "walk"
+      ],
+      [
+        "nod-wp-92889",
+        "nod-aamsvaltnir-east-ridge",
+        "raised"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-homesick-wolf-lakeland",
+        "raised"
+      ],
+      [
+        "nod-homesick-wolf-lakeland",
+        "nod-aamsvaltnir-east-ridge",
+        "walk"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-homesick-wolf-lakeland",
+        "raised"
+      ],
+      [
+        "nod-homesick-wolf-lakeland",
+        "nod-aamsvaltnir-east-ridge",
+        "walk"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-wp-92889",
+        "walk"
+      ]
+    ],
+    [
+      [
+        "nod-wp-92889",
+        "nod-aamsvaltnir-east-ridge",
+        "raised"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-wp-92889",
+        "walk"
+      ],
+      [
+        "nod-wp-92875",
+        "nod-pyramid-seaward-steps",
+        "raised"
+      ],
+      [
+        "nod-pyramid-seaward-steps",
+        "nod-mandragora-cliff-foot",
+        "walk"
+      ],
+      [
+        "nod-mandragora-cliff-foot",
+        "nod-pyramid-seaward-steps",
+        "walk"
+      ],
+      [
+        "nod-pyramid-seaward-steps",
+        "nod-mandragora-cliff-foot",
+        "walk"
+      ],
+      [
+        "nod-mandragora-cliff-foot",
+        "nod-pyramid-seaward-steps",
+        "walk"
+      ],
+      [
+        "nod-pyramid-seaward-steps",
+        "nod-wp-92875",
+        "raised"
+      ],
+      [
+        "nod-wp-92880",
+        "nod-wind-fort-peninsula",
+        "raised"
+      ],
+      [
+        "nod-wind-fort-peninsula",
+        "nod-hiljetta-peninsula-camp",
+        "walk"
+      ],
+      [
+        "nod-hiljetta-peninsula-camp",
+        "nod-wind-fort-peninsula",
+        "walk"
+      ],
+      [
+        "nod-wind-fort-peninsula",
+        "nod-hiljetta-peninsula-camp",
+        "walk"
+      ],
+      [
+        "nod-hiljetta-peninsula-camp",
+        "nod-wind-fort-peninsula",
+        "walk"
+      ],
+      [
+        "nod-wind-fort-peninsula",
+        "nod-wp-92880",
+        "walk"
+      ],
+      [
+        "nod-wp-92889",
+        "nod-aamsvaltnir-east-ridge",
+        "raised"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-homesick-wolf-lakeland",
+        "raised"
+      ],
+      [
+        "nod-homesick-wolf-lakeland",
+        "nod-aamsvaltnir-east-ridge",
+        "walk"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-homesick-wolf-lakeland",
+        "raised"
+      ],
+      [
+        "nod-homesick-wolf-lakeland",
+        "nod-aamsvaltnir-east-ridge",
+        "walk"
+      ],
+      [
+        "nod-aamsvaltnir-east-ridge",
+        "nod-wp-92889",
+        "walk"
+      ]
+    ]
+  ],
+  "surveyOrders": [
+    [
+      "coast",
+      "peninsula",
+      "ridge"
+    ],
+    [
+      "ridge",
+      "coast",
+      "peninsula"
+    ]
+  ],
+  "personalSurveyProgress": true,
+  "peninsulaEntrances": 2,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

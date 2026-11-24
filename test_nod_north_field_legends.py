@@ -41,6 +41,9 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, HUB)
     core.grantExp(state, exp(level), 'quest')
+    for slot in (1, 2):
+        assert core.giveArtifact(state, slot, 40, 3)
+        core.action(state, 'artifact_equip:' + str(slot))
     return state
 
 

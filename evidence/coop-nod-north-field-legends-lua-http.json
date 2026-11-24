@@ -1,0 +1,122 @@
+{
+  "lua": {
+    "legend-nod_hexadecatonic_mandragora": {
+      "players": 4,
+      "sharedHP": 1640,
+      "moves": [
+        {
+          "id": "NNM01",
+          "warningTicks": [
+            65
+          ]
+        },
+        {
+          "id": "NNM02",
+          "warningTicks": [
+            72,
+            122
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 1441750,
+      "mora": 748
+    },
+    "legend-nod_hiljetta": {
+      "players": 4,
+      "sharedHP": 1600,
+      "moves": [
+        {
+          "id": "NNH01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "NNH02",
+          "warningTicks": [
+            70,
+            121
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 1441750,
+      "mora": 753
+    },
+    "legend-nod_homesick_lone_wolf": {
+      "players": 4,
+      "sharedHP": 1720,
+      "moves": [
+        {
+          "id": "NNW01",
+          "warningTicks": [
+            68
+          ]
+        },
+        {
+          "id": "NNW02",
+          "warningTicks": [
+            75,
+            118,
+            163
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 1150400,
+      "mora": 785
+    }
+  },
+  "http": {
+    "participants": 2,
+    "mainIslandTravel": true,
+    "ungatedWolfBeforeSurvey": true,
+    "peninsulaEntrances": 2,
+    "independentSurveyOrders": [
+      [
+        "coast",
+        "peninsula",
+        "ridge"
+      ],
+      [
+        "ridge",
+        "peninsula",
+        "coast"
+      ]
+    ],
+    "bothReportsRestored": true,
+    "encounters": {
+      "coast": {
+        "sharedOrdinaryAttack": true,
+        "pausedOnRetreat": true,
+        "returnY": 480,
+        "clearPersistsUntilEveryoneLeaves": true,
+        "personalAwards": true
+      },
+      "peninsula": {
+        "sharedOrdinaryAttack": true,
+        "pausedOnRetreat": true,
+        "returnY": 480,
+        "clearPersistsUntilEveryoneLeaves": true,
+        "personalAwards": true
+      },
+      "ridge": {
+        "sharedOrdinaryAttack": true,
+        "pausedOnRetreat": true,
+        "returnY": 345,
+        "clearPersistsUntilEveryoneLeaves": true,
+        "personalAwards": true
+      }
+    }
+  }
+}
