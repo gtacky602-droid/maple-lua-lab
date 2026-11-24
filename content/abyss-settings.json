@@ -2,7 +2,29 @@
   "status": "Web prototype for accepted points 70-1 to 70-3. Room geometry, timings and rewards are provisional.",
   "modes": {
     "entry": {"name": "入門", "limit": 180, "threeStars": 65, "twoStars": 110, "healthFactor": 1, "extraPerGroup": 0, "mora": 650, "itemLevel": 21, "rarity": 3},
-    "elite": {"name": "精鋭", "limit": 240, "threeStars": 90, "twoStars": 150, "healthFactor": 3, "extraPerGroup": 1, "mora": 2400, "itemLevel": 48, "rarity": 4}
+    "elite": {"name": "精鋭", "limit": 240, "threeStars": 90, "twoStars": 150, "healthFactor": 3, "extraPerGroup": 1, "mora": 2400, "itemLevel": 48, "rarity": 4},
+    "upper": {
+      "name": "上層", "level": 160, "draft": true, "limit": 180, "threeStars": 48, "twoStars": 80,
+      "healthFactor": 1, "extraPerGroup": 0, "mora": 300000, "itemLevel": 184, "rarity": 5,
+      "rooms": [
+        {"name":"二段の前哨","platforms":[{"x":0,"y":480,"w":960},{"x":300,"y":392,"w":370}],"groups":[
+          {"x":282,"y":480,"count":7,"spacing":53,"hp":270000,"kind":1,"damage":245},
+          {"x":366,"y":392,"count":6,"spacing":45,"hp":240000,"kind":2,"damage":269},
+          {"x":792,"y":480,"count":3,"spacing":50,"hp":305000,"kind":2,"damage":259}
+        ]},
+        {"name":"棚を渡る回廊","platforms":[{"x":0,"y":480,"w":960},{"x":300,"y":388,"w":265},{"x":622,"y":369,"w":280}],"groups":[
+          {"x":330,"y":388,"count":5,"spacing":43,"hp":350000,"kind":2,"damage":274},
+          {"x":645,"y":369,"count":5,"spacing":52,"hp":350000,"kind":1,"damage":278},
+          {"x":382,"y":480,"count":8,"spacing":53,"hp":320000,"kind":1,"damage":264}
+        ]},
+        {"name":"精鋭の関門","platforms":[{"x":0,"y":480,"w":960},{"x":333,"y":389,"w":286}],"groups":[
+          {"x":260,"y":480,"count":6,"spacing":52,"hp":340000,"kind":1,"damage":283},
+          {"x":370,"y":389,"count":5,"spacing":47,"hp":300000,"kind":2,"damage":293},
+          {"x":750,"y":480,"count":2,"spacing":112,"hp":1300000,"kind":3,"damage":504,
+           "art":"frostarm-lawachurl","elite":true,"resist":{"physical":0.65},"armored":true}
+        ]}
+      ]
+    }
   },
   "rooms": [
     {"name":"群れの回廊","platforms":[{"x":0,"y":480,"w":960}],"groups":[

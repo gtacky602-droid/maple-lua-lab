@@ -5,6 +5,7 @@ export function initEndgameUI(action){
  const get=id=>document.getElementById(id);
  const desk=get('endgameDesk'),run=get('endgameRun'),status=get('endgameRunStatus');
  const next=get('abyssNext'),weekly=get('endgameWeekly'),personal=get('endgamePersonal');
+ const abyssButtons={entry:get('abyssEntry'),elite:get('abyssElite'),upper:get('abyssUpper')};
  const weeklyDesk=get('weeklyDesk'),weeklyDifficulty=get('weeklyDifficulty'),weeklyStart=get('weeklyChallengeStart');
  const weeklyDetails=get('weeklyChallengeDetails'),weeklyRecord=get('weeklyChallengeRecord'),weeklyResult=get('weeklyChallengeResult');
  const goals=get('endgameGoals'),goalHelp=get('endgameGoalHelp');
@@ -60,7 +61,7 @@ export function initEndgameUI(action){
   duelStart.blur();
  };
 
- for(const [el,mode] of [[get('abyssEntry'),'entry'],[get('abyssElite'),'elite']]){
+ for(const [mode,el] of Object.entries(abyssButtons)){
   el.onclick=()=>{action(`abyss_start:${mode}:${get('abyssSet').value}`);el.blur()};
  }
  return function update(frame){
@@ -152,7 +153,7 @@ export function initEndgameUI(action){
     :fight.hint)
     :fight.status==='clear'?`突破：${fight.reward?`星${fight.stars}・${fight.reward}`:'自己記録を保存しました'}`:
     fight.status==='failed'?'挑戦終了。入口から再挑戦できます。':
-    fight.kind==='abyss'?`${fight.mode} ${fight.room}/3・${fight.name} ｜ 残り ${Math.ceil(fight.remaining)}秒・${fight.targets}体`:
+    fight.kind==='abyss'?`${fight.mode} ${fight.room}/${fight.roomCount}・${fight.name} ｜ 残り ${Math.ceil(fight.remaining)}秒・${fight.targets}体${fight.armored?' ｜ 装甲のある精鋭には元素攻撃':''}`:
      'ファルカの通常模擬戦。突進は進路を空け、低い斬撃は跳んで回避。攻撃後の隙を狙います。';
    if(status.textContent!==result)status.textContent=result;
   }
@@ -171,9 +172,14 @@ export function initEndgameUI(action){
    return li;
   }));
   const results=[];
-  for(const [id,name] of [['entry','入門'],['elite','精鋭']]){
+  for(const [id,button] of Object.entries(abyssButtons)){
+   const mode=frame.endgameDesk.abyss[id];
+   button.hidden=!mode;
+   if(!mode)continue;
+   button.disabled=!mode.available;
+   button.textContent=`深境螺旋・${mode.name}${mode.draft?'（比較版）':''}${mode.soloBlock?'・ソロ専用':mode.level&&!mode.available?`・Lv${mode.level}〜`:''}`;
    const best=all?.abyss?.[id];
-   if(best)results.push(`螺旋${name} 星${best.bestStars}・${record(best)}`);
+   if(best)results.push(`螺旋${mode.name} 星${best.bestStars}・${record(best)}`);
   }
   if(all?.bosses?.farka)results.push(`幽境ファルカ 通常・${record(all.bosses.farka)}`);
   personal.hidden=results.length===0;

@@ -346,13 +346,20 @@
     {
       "id": "abyss",
       "name": "深境螺旋",
-      "status": "playable_intro_floor_prototype",
+      "status": "playable_intro_and_opt_in_upper_floor",
       "room_count": 3,
       "available_modes": [
         "entry",
         "elite"
       ],
-      "config": "content/abyss-settings.json"
+      "config": "content/abyss-settings.json",
+      "draft_upper": {
+        "min_level": 160,
+        "room_targets": [16, 18, 13],
+        "earned_clear_seconds": {"160": 101.85, "200": 25.433},
+        "lua_evidence": "evidence/abyss-upper-lua.json",
+        "browser_evidence": "evidence/abyss-upper-browser.json"
+      }
     },
     {
       "id": "stygian",

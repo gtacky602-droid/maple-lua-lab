@@ -600,6 +600,8 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True):
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
     abyss=json.loads((ROOT/'content/abyss-settings.json').read_text(encoding='utf8'))
+    if not draft_balance:
+        abyss['modes'] = {id: mode for id, mode in abyss['modes'].items() if not mode.get('draft')}
     stygian_geometry=lua.execute((ROOT/'stygian-geometry.lua').read_text(encoding='utf8'))
     stygian_beidou=lua.execute((ROOT/'stygian-beidou.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     guard_assets={}

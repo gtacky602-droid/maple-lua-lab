@@ -62,26 +62,27 @@ return function(C,abyss,weekly,matches,controllers)
   s.storyNotice=trial.status=='clear' and '挑戦記録を保存しました。依頼は拠点で報告できます。' or '挑戦入口へ戻りました。'
  end
  local function openRoom(s,run)
-  local room=abyss.rooms[run.room]
+  local room=run.rooms[run.room]
   s.platforms={};s.solids={}
   for _,platform in ipairs(room.platforms) do
    s.platforms[#s.platforms+1]={x=platform.x,y=platform.y,w=platform.w}
   end
-  s.enemies={};s.pending={};s.effects={};s.numbers={};s.decoys={}
-  s.grappleNodes={};s.selectedGrapple=nil
-  s.echoSource=nil;s.ultimate=nil;s.starSeed=nil;s.macro=nil
+  s.enemies={}
+  C.clearWeeklySceneCasts(s)
   s.camera=0;s.worldwidth=960
   for index,actor in ipairs(s.actors) do
    actor.x=200-(index-1)*50;actor.y=480;actor.vy=0;actor.ground=true
+   actor.drop=0;actor.buffer=0;actor.dash=0;actor.leap=0
   end
   for _,group in ipairs(room.groups) do
-   local extra=group.elite and 0 or abyss.modes[run.mode].extraPerGroup
+   local extra=group.elite and 0 or run.spec.extraPerGroup
    for index=1,group.count+extra do
     local x=group.x+(index-1)*group.spacing
-    local hp=group.hp*abyss.modes[run.mode].healthFactor
+    local hp=group.hp*run.spec.healthFactor
     local id=#s.enemies+1
     s.enemies[id]={id=id,x=x,home=x,y=group.y,hp=hp,maxhp=hp,kind=group.kind,art=group.art,noRewards=true,
-     cd=1.2+(id%4)*.35,respawn=0,warning=0,pursuit=group.elite and {range=320,leash=350,speed=50} or nil}
+     cd=1.2+(id%4)*.35,respawn=0,warning=0,contactDamage=group.damage,resist=group.resist,
+     armored=group.armored,pursuit=group.elite and {range=320,leash=350,speed=50} or nil}
    end
   end
   run.status='fighting'
@@ -89,7 +90,7 @@ return function(C,abyss,weekly,matches,controllers)
   s.campaign.message='三つの区画を時間内に突破してください。'
  end
  local function abyssClear(s,run)
-  local spec=abyss.modes[run.mode]
+  local spec=run.spec
   local elapsed=s.t-run.start
   local time=ticks(elapsed)
   local stars=time<=spec.threeStars*60 and 3 or time<=spec.twoStars*60 and 2 or 1
@@ -100,7 +101,8 @@ return function(C,abyss,weekly,matches,controllers)
   local slot=(record.clears-1)%5+1
   local preset={setId=run.set,subpair=slot==3 and 'hp_crit' or 'atk_crit'}
   s.mora=s.mora+spec.mora
-  if not C.giveArtifact(s,slot,spec.itemLevel,spec.rarity,preset) then
+  run.rewardInBag=C.giveArtifact(s,slot,spec.itemLevel,spec.rarity,preset)
+  if not run.rewardInBag then
    C.dropArtifact(s,slot,spec.itemLevel,spec.rarity,180,480,preset,'town')
   end
   s.campaign.message='三つの区画を突破しました。'
@@ -261,10 +263,20 @@ return function(C,abyss,weekly,matches,controllers)
   end
   local mode,set=key:match('^abyss_start:(%a+):(%a+)$')
   if mode then
-   if abyss.modes[mode] and sets[set] and atHub(s,'mond-town') then
+   local spec=abyss.modes[mode]
+   if spec and sets[set] and atHub(s,'mond-town') then
+    if spec.level and s.progression.level<spec.level then
+     s.storyNotice='深境螺旋・'..spec.name..'はLv'..spec.level..'から挑戦できます。'
+     return
+    end
+    if spec.draft and s.coop then
+     s.storyNotice='比較版の上層はソロで挑戦できます。'
+     return
+    end
     local origin=s.story.node
     action(s,'field')
-    s.endgameRun={kind='abyss',origin=origin,start=s.t,mode=mode,room=1,set=set}
+    s.endgameRun={kind='abyss',origin=origin,start=s.t,mode=mode,room=1,set=set,
+     spec=spec,rooms=spec.rooms or abyss.rooms}
     openRoom(s,s.endgameRun)
    end
    return
@@ -342,14 +354,14 @@ return function(C,abyss,weekly,matches,controllers)
     return
    end
   end
-  if s.returns~=returns or (run.kind=='abyss' and s.t-run.start>=abyss.modes[run.mode].limit) then
+  if s.returns~=returns or (run.kind=='abyss' and s.t-run.start>=run.spec.limit) then
    run.status='failed'
    s.campaign.message='挑戦終了。入口から再挑戦できます。'
    return
   end
   if run.kind=='abyss' and run.status=='fighting' then
    for _,enemy in ipairs(s.enemies) do if enemy.hp>0 then return end end
-   if run.room==#abyss.rooms then abyssClear(s,run)
+   if run.room==#run.rooms then abyssClear(s,run)
    else run.status='between';s.campaign.message='区画を突破しました。次へ進めます。' end
   end
  end
@@ -377,11 +389,18 @@ return function(C,abyss,weekly,matches,controllers)
   if run then
    local v={kind=run.kind,status=run.status}
    if run.kind=='abyss' then
-    v.room=run.room;v.name=abyss.rooms[run.room].name;v.mode=abyss.modes[run.mode].name
-    v.remaining=math.max(0,abyss.modes[run.mode].limit-(s.t-run.start));v.stars=run.stars
-    v.targets=0
-    for _,enemy in ipairs(s.enemies) do if enemy.hp>0 then v.targets=v.targets+1 end end
-    if run.stars then v.reward=abyss.modes[run.mode].mora..'モラ・'..sets[run.set]..' 1個' end
+    v.room=run.room;v.roomCount=#run.rooms;v.name=run.rooms[run.room].name;v.mode=run.spec.name
+    v.remaining=math.max(0,run.spec.limit-(s.t-run.start));v.stars=run.stars
+    v.targets=0;v.armored=0
+    for _,enemy in ipairs(s.enemies) do
+     if enemy.hp>0 then
+      v.targets=v.targets+1
+      if enemy.armored then v.armored=v.armored+1 end
+     end
+    end
+    if run.stars then
+     v.reward=run.spec.mora..'モラ・'..sets[run.set]..' 1個'..(run.rewardInBag and '' or '（拠点で受取）')
+    end
     f.location='深境螺旋・'..v.name..'（試作）'
    end
    f.endgameRun=v
@@ -406,7 +425,12 @@ return function(C,abyss,weekly,matches,controllers)
      itemLevel=r.itemLevel,rarity=r.rarity,record=record}
    end
   elseif s.story and s.story.active and s.story.node=='mond-town' then
-   f.endgameDesk={weekly={}}
+   f.endgameDesk={weekly={},abyss={}}
+   for id,spec in pairs(abyss.modes) do
+    f.endgameDesk.abyss[id]={name=spec.name,level=spec.level,
+     available=not spec.level or s.progression.level>=spec.level and not s.coop,
+     draft=spec.draft,soloBlock=spec.draft and s.coop~=nil}
+   end
    for _,boss in ipairs(weekly) do
     f.endgameDesk.weekly[#f.endgameDesk.weekly+1]={id=boss.id,name=boss.name,level=boss.level,node=boss.node}
    end
