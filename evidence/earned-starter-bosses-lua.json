@@ -1,0 +1,144 @@
+{
+  "cryo": {
+    "level": 16,
+    "arena": "cryo-field-grove",
+    "route": [
+      "mond-road",
+      "mond-border",
+      "cryo-approach",
+      "cryo-field-grove"
+    ],
+    "sourceSha256": "618123b1d3742403ffb070a417f9ea2fa90a4b32facd62665ad39e8f002a6e16",
+    "attack": 4,
+    "startHp": 140,
+    "finishHp": 35,
+    "seconds": 43.35,
+    "moves": [
+      "FC01",
+      "FC02",
+      "FC03"
+    ],
+    "recoveryLabels": [
+      "FC01",
+      "FC02",
+      "FC03"
+    ],
+    "counterHit": true,
+    "rewards": [
+      900,
+      125
+    ],
+    "slamEvadedWithoutDamage": true,
+    "nucleusBrokenByGroundAttacks": true,
+    "commission": {
+      "quest": "cryo-commission",
+      "xp": 1500,
+      "mora": 300
+    },
+    "restored": true
+  },
+  "anemo": {
+    "level": 16,
+    "arena": "anemo-field-basin",
+    "route": [
+      "mond-road",
+      "anemo-approach",
+      "anemo-field-basin"
+    ],
+    "sourceSha256": "618123b1d3742403ffb070a417f9ea2fa90a4b32facd62665ad39e8f002a6e16",
+    "attack": 4,
+    "startHp": 140,
+    "finishHp": 26,
+    "seconds": 38.55,
+    "moves": [
+      "FA01",
+      "FA02",
+      "FA03"
+    ],
+    "recoveryLabels": [
+      "FA01",
+      "FA02",
+      "FA03"
+    ],
+    "counterHit": true,
+    "rewards": [
+      900,
+      125
+    ],
+    "commission": {
+      "quest": "anemo-commission",
+      "xp": 1500,
+      "mora": 300
+    },
+    "restored": true
+  },
+  "electro": {
+    "level": 18,
+    "arena": "electro-field-shelf",
+    "route": [
+      "mond-road",
+      "electro-approach",
+      "electro-field-shelf"
+    ],
+    "sourceSha256": "92e0994e95854c494551948749b89dee28a47cace00a49ac0493ffe3df97c6c6",
+    "attack": 4,
+    "startHp": 140,
+    "finishHp": 140,
+    "seconds": 36.683,
+    "moves": [
+      "FE01",
+      "FE02",
+      "FE03"
+    ],
+    "recoveryLabels": [
+      "FE01",
+      "FE02",
+      "FE03"
+    ],
+    "counterHit": true,
+    "rewards": [
+      1250,
+      140
+    ],
+    "commission": {
+      "quest": "electro-commission",
+      "xp": 1500,
+      "mora": 300
+    },
+    "restored": true
+  },
+  "jadeplume": {
+    "level": 60,
+    "arena": "sumeru-jadeplume-grove",
+    "route": [
+      "sumeru-field",
+      "sumeru-jadeplume-grove"
+    ],
+    "sourceSha256": "54fcde8409f2f3f4a07ac0183418d88f96921bcf31f6019b9a4f9a7287584e62",
+    "attack": 44,
+    "startHp": 384,
+    "finishHp": 322,
+    "seconds": 17.1,
+    "moves": [
+      "FJ01",
+      "FJ02",
+      "FJ03"
+    ],
+    "recoveryLabels": [
+      "FJ01",
+      "FJ02",
+      "FJ03"
+    ],
+    "counterHit": true,
+    "rewards": [
+      39950,
+      180
+    ],
+    "commission": {
+      "quest": "jadeplume-commission",
+      "xp": 4000,
+      "mora": 300
+    },
+    "restored": true
+  }
+}

@@ -90,7 +90,7 @@ return function(C)
  function electro.label(boss,cast)
   if not cast then return end
   local move,t=cast.move,cast.tick
-  if t>=move.recover then return '息継ぎ・核が見える' end
+  if t>=move.recover then return '反撃の隙・核が見える' end
   if move.strikes then
    local i=strikeIndex(move,t)
    return move.title..'（'..move.strikes[i].title..' '..i..'/3）'

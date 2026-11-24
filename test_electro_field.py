@@ -115,7 +115,8 @@ hp = b.hp
 pulse(s, a.x)
 assert b.hp < hp
 at(s, slot, 'FE02', 121)
-assert b.x == drill.dest and core.frame(s).fieldBoss.label.startswith('息継ぎ')
+field = core.frame(s).fieldBoss
+assert b.x == drill.dest and field.recovering and field.label.startswith('反撃の隙')
 
 # Two ordinary jumps across two timed waves. The same path grounded takes exactly two hits.
 def wave_trial(jump):

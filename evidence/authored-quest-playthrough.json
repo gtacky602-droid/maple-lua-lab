@@ -1,7 +1,7 @@
 {
   "scope": "The listed Lua scenarios accepted each new quest and reported with full objective progress and a payout. Reload evidence means the scenario also restored a completed quest after observing payout. Scenarios may use prepared levels, visits or combat states.",
-  "authored_story_quests": 283,
-  "newly_acceptable_story_quests": 279,
+  "authored_story_quests": 284,
+  "newly_acceptable_story_quests": 280,
   "legacy_save_only": {
     "wanderer-join": {
       "savedBeforeFinalKill": true,
@@ -25,7 +25,7 @@
     }
   },
   "daily_quests_with_report_links": 40,
-  "prior_story_report_links": 161,
+  "prior_story_report_links": 162,
   "new_quest_reports": {
     "andrius-weekly-commission": {
       "goal": 1,
@@ -799,6 +799,6 @@
       "fon-hidden-lab-access"
     ]
   },
-  "story_quests_with_report_links": 279,
+  "story_quests_with_report_links": 280,
   "story_quests_without_report_links": []
 }

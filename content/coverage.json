@@ -8058,10 +8058,18 @@
     "normal_lifecycle": {
       "roster_version": "7.2",
       "lineups_tested": 49,
-      "commission_reports_tested": 48,
+      "commission_reports_tested": 49,
       "scope": "In-world gate movement from prepared waypoints, controlled terminal defeats, payouts, cooldowns, save restoration and repeat clears.",
       "evidence": "evidence/normal-boss-lifecycle-lua.json",
       "browser_resume_evidence": "evidence/suanni-field-browser.json"
+    },
+    "earned_starter_mechanics": {
+      "levels": [16, 16, 18, 60],
+      "encounters_cleared_and_commissions_restored": [
+        "boss-26020101", "boss-20040201", "boss-20040101", "boss-26110101"
+      ],
+      "lua_evidence": "evidence/earned-starter-bosses-lua.json",
+      "browser_evidence": "evidence/jadeplume-commission-browser.json"
     },
     "earned_normal_mechanics": {
       "level": 165,
@@ -8294,8 +8302,8 @@
     "browser_evidence": "evidence/full-atlas-checkpoint-browser.json"
   },
   "quest_runtime_checks": {
-    "authored_story_records": 283,
-    "acceptance_and_report_links": 279,
+    "authored_story_records": 284,
+    "acceptance_and_report_links": 280,
     "legacy_save_records_resumed": 4,
     "daily_acceptance_and_payout_links": 40,
     "scope": "Per-quest acceptance and report evidence, with fixtures as documented in individual scenarios. Save restoration is checked in the linked scenarios that exercise it.",

@@ -429,7 +429,7 @@
       "firstKillXp": 39950,
       "firstKillMora": 180,
       "redoKillXp": 39950,
-      "commission": null,
+      "commission": "jadeplume-commission",
       "cooldownResumed": true,
       "encounterScenario": "test_jadeplume_field.py"
     },

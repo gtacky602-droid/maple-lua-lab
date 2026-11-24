@@ -10756,6 +10756,7 @@
     {"id":"wolflord-commission","name":"黄金王獣の討伐調査","hub":"inazuma-port","target":"wolflord","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"鶴観の浜から進む霧浜遺跡での討伐が対象。"},
     {"id":"ruin-serpent-commission","name":"遺跡サーペントの討伐調査","hub":"chasm-camp","target":"ruin-serpent","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"巨蛇岩穴の岩棚を越えた掘削場での討伐が対象。"},
     {"id":"bathysmal-commission","name":"アビサルヴィシャップの群れの討伐調査","hub":"enkanomiya-camp","target":"bathysmal-herd","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"探索路の奥にある双影の石庭での討伐が対象。"},
+    {"id":"jadeplume-commission","name":"菌傘の谷の討伐調査","giver":"植物の観測係","hub":"sumeru-hub","target":"jadeplume","kind":"boss","level":60,"goal":1,"xp":4000,"mora":300,"briefing":"雨林の道から菌傘の谷へ。跳びかかる前に地面に出る印から離れ、着地して体勢を立て直す間に攻撃してください。"},
     {"id":"electro-regisvine-commission","name":"迅電樹の討伐調査","hub":"sumeru-hub","target":"electro-regisvine","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"雨林の道の奥にある紫脈の石窟での討伐が対象。"},
     {"id":"aeonblight-commission","name":"兆載永劫ドレイクの討伐調査","hub":"sumeru-hub","target":"aeonblight","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"雨林の道から入る機翼の間での討伐が対象。"},
     {"id":"dendro-hypostasis-commission","name":"無相の草の討伐調査","hub":"sumeru-hub","target":"dendro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"雨林の道から入る枯蔓の洞での討伐が対象。"},

@@ -581,8 +581,10 @@ return function(C,configs,controllers)
   local playerX=s.actors[s.active].x
   if math.abs(playerX-boss.x)>550 and (not partner or math.abs(playerX-partner.x)>550) and slot.phase=='available' then return f end
   local cast=slot.cast
+  local recovering=spec.showRecovery and cast and cast.move.recover and cast.tick>=cast.move.recover
   local label=slot.phase=='cleared' and '討伐完了・入口から再挑戦' or slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
+  if recovering then label='反撃の隙' end
   if slot.phase=='cleared' and sharedRoom(s,spec.id) then label='討伐完了・全員で出口へ' end
   if slot.phase=='available' and spec.provokeOnly then label=spec.provokeLabel or '演奏中・攻撃で挑戦' end
   if slot.phase=='combat' and #spec.moves==0 then label='戦闘テスト' end
@@ -592,7 +594,7 @@ return function(C,configs,controllers)
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    draftHp=spec.baseHp~=nil or nil,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(now,slot)/60,label=label,elementSlots=boss.elementSlots,
-   move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
+   move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,recovering=recovering or nil,
    weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}
   if behavior.frame then behavior.frame(f.fieldBoss,boss,spec,cast,s) end
   local summon=cast and cast.summon

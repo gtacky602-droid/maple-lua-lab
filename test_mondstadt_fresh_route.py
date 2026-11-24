@@ -19,6 +19,8 @@ trail = TrailWalk(lua, core, state, edges, exits)
 inputs = {direction: lua.table_from(dict(left=direction < 0, right=direction > 0, attack=True))
           for direction in (-1, 0, 1)}
 milestones = []
+work = ROOT / 'work' / 'mondstadt-fresh-route'
+work.mkdir(parents=True, exist_ok=True)
 
 
 def act(key):
@@ -76,6 +78,12 @@ def report(id):
     mark(id)
 
 
+def checkpoint(name):
+    data = validate_save(native(core.checkpoint(state)))
+    (work / (name + '.json')).write_text(json.dumps(data, ensure_ascii=False) + '\n', encoding='utf8')
+    return data
+
+
 main = accept('amber-join')
 trail.cross('mond-road')
 fight(465, lambda: True)
@@ -108,6 +116,7 @@ fight(662, lambda: main.count == 2)
 trail.cross('mond-road')
 trail.cross('mond-town')
 report('mond-old-trail')
+checkpoint('lv9-save')
 
 main = accept('mond-watchtower-clear')
 trail.cross('mond-road')
@@ -120,6 +129,7 @@ assert state.progression.questXp - before == 5152
 trail.cross('mond-restored-road')
 trail.cross('mond-town')
 report('mond-watchtower-clear')
+checkpoint('lv16-save')
 
 rest = accept('mond-rest-stop')
 trail.cross('mond-road')
@@ -172,6 +182,7 @@ collect(563)
 assert roof.count == 4
 trail.cross('mond-town')
 report('mond-windmill')
+checkpoint('lv18-save')
 
 trail.cross('mond-road')
 trail.cross('mond-border')
@@ -234,14 +245,11 @@ trail.cross('liyue-entry')
 trail.cross('liyue-harbor')
 mark('liyue-harbor')
 assert state.returns == 0
-saved = validate_save(native(core.checkpoint(state)))
+saved = checkpoint('liyue-save')
 restored = core.restore(lua.table_from(saved, recursive=True), 12)
 assert restored.story.node == 'liyue-harbor' and restored.progression.level >= 20
 assert restored.progression.total == state.progression.total
 assert all(restored.story.quests[row['id']].cycles == 1 for row in milestones[:6])
-work = ROOT / 'work' / 'mondstadt-fresh-route'
-work.mkdir(parents=True, exist_ok=True)
-(work / 'liyue-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
 result = dict(route=milestones, hunt=hunt, partyWipes=state.returns, savedAndRestored=True,
               scope='New Lv1 save, scripted normal inputs and built-in auto-battle for hunting. Lua clock.')
 (ROOT / 'evidence/mondstadt-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
