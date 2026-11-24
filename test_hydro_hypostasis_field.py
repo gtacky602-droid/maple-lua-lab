@@ -15,8 +15,12 @@ assert s.story.quests[quest].status=='active'
 (ROOT/'work').mkdir(exist_ok=True)
 (ROOT/'work/hydro-hypostasis-field-fixture.json').write_text(json.dumps(validate_save(native(c.checkpoint(s)))),encoding='utf8')
 a=s.actors[1]
+empty=lua.table()
 a.x=1050
 c.action(s,'story_nearby_portal')
+assert s.lift and s.lift.boat and s.lift.destination=='watatsumi-landing'
+for _ in range(math.ceil(s.lift.seconds*60)):
+    c.step(s,1/60,empty)
 assert s.story.node=='watatsumi-landing'
 a.x=1340
 c.action(s,'story_nearby_portal')
@@ -25,7 +29,6 @@ slot=s.fieldSlots['boss-20040401']
 b=slot.enemy
 same=lua.eval('rawequal')
 s.actors[2].hp=0
-empty=lua.table()
 
 def spot(x):
     a.x,a.y,a.inv,a.vy,a.ground=x,480,0,0,True

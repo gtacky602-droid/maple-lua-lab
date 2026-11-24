@@ -33,7 +33,7 @@ stages = set(mapping.values())
 exits = {k: n['exits'] for k, n in nodes.items()}
 edges = {(a, e['to']): e for a in stages for e in exits[a] if e['to'] in stages}
 assert len(edges) == 212 and set(edges) == {(b, a) for a, b in edges}
-for key, count in {'boatSeconds': 24, 'liftSeconds': 18, 'waterwaySeconds': 2, 'phaseSeconds': 6, 'y': 10}.items():
+for key, count in {'boatSeconds': 28, 'liftSeconds': 18, 'waterwaySeconds': 2, 'phaseSeconds': 6, 'y': 10}.items():
     assert sum(key in e for e in edges.values()) == count
 
 

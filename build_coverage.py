@@ -168,6 +168,7 @@ def rebuild():
             milestone['status'] = 'partial'
 
     coverage['world_map_review'] = {
+        'inazuma_stage_evidence': 'design/world/inazuma-stage-evidence.json',
         'sumeru_stage_evidence': 'design/world/sumeru-stage-evidence.json',
         'snez_stage_evidence': 'design/world/snez-stage-evidence.json',
         'nod_stage_evidence': 'design/world/nod-stage-evidence.json',

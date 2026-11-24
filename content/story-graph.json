@@ -1546,11 +1546,19 @@
         },
         {
           "to": "watatsumi-landing",
-          "x": 1050
+          "x": 1050,
+          "boatSeconds": 4.2,
+          "arrivalX": 160,
+          "arrivalY": 480,
+          "rideLabel": "海祇島行きの連絡船"
         },
         {
           "to": "tsurumi-coast",
-          "x": 1205
+          "x": 1205,
+          "boatSeconds": 4.8,
+          "arrivalX": 160,
+          "arrivalY": 480,
+          "rideLabel": "鶴観行きの連絡船"
         },
         {
           "to": "inazuma-outer-shore",
@@ -1583,9 +1591,9 @@
         "y": 480
       }
     },
-    {"id":"tsurumi-coast","name":"稲妻・鶴観の浜","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":420,"y":391,"w":285}],"exits":[{"to":"inazuma-port","x":65},{"to":"wolflord-field-ruins","x":1340},{"to":"ina-wp-15940","x":345,"arrivalX":1262,"arrivalY":480,"boatSeconds":4.3,"rideLabel":"海祇島と鶴観の連絡船"},{"to":"ina-wp-18586","x":1020,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-16012","x":690,"arrivalX":76,"arrivalY":480,"boatSeconds":4.1,"rideLabel":"霧の島への連絡船"},{"to":"sites-hunt-18667","x":216,"arrivalX":2788,"arrivalY":480,"rideLabel":"鶴観の浜から離れ小島へ渡る小舟","boatSeconds":4.4}],"checkpoint":"inazuma-port","mapPoint":"teyvat:18584","waypoint":{"kind":"statue","area":"鶴観","x":575,"y":480}},
+    {"id":"tsurumi-coast","name":"稲妻・鶴観の浜","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":420,"y":391,"w":285}],"exits":[{"to":"inazuma-port","x":65,"boatSeconds":4.8,"arrivalX":1205,"arrivalY":480,"rideLabel":"鶴観から離島に戻る連絡船"},{"to":"wolflord-field-ruins","x":1340},{"to":"ina-wp-15940","x":345,"arrivalX":1262,"arrivalY":480,"boatSeconds":4.3,"rideLabel":"海祇島と鶴観の連絡船"},{"to":"ina-wp-18586","x":1020,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-16012","x":690,"arrivalX":76,"arrivalY":480,"boatSeconds":4.1,"rideLabel":"霧の島への連絡船"},{"to":"sites-hunt-18667","x":216,"arrivalX":2788,"arrivalY":480,"rideLabel":"鶴観の浜から離れ小島へ渡る小舟","boatSeconds":4.4}],"checkpoint":"inazuma-port","mapPoint":"teyvat:18584","waypoint":{"kind":"statue","area":"鶴観","x":575,"y":480}},
     {"id":"wolflord-field-ruins","name":"稲妻・鶴観の霧浜遺跡","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"tsurumi-coast","x":65}],"checkpoint":"inazuma-port"},
-    {"id":"watatsumi-landing","name":"稲妻・海祇島の浜","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":480,"y":382,"w":310}],"exits":[{"to":"inazuma-port","x":65},{"to":"hydro-hypostasis-field-cove","x":1340},{"to":"ina-wp-15940","x":760,"arrivalX":826,"arrivalY":480},{"to":"ina-wp-15942","x":1030,"arrivalX":1382,"arrivalY":480},{"to":"ina-wp-15951","x":320,"arrivalX":76,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"珊瑚の岸までの小舟"}],"checkpoint":"inazuma-port","mapPoint":"teyvat:15947","waypoint":{"kind":"waypoint","area":"海祇島","x":615,"y":480}},
+    {"id":"watatsumi-landing","name":"稲妻・海祇島の浜","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":480,"y":382,"w":310}],"exits":[{"to":"inazuma-port","x":65,"boatSeconds":4.2,"arrivalX":1050,"arrivalY":480,"rideLabel":"海祇島から離島に戻る連絡船"},{"to":"hydro-hypostasis-field-cove","x":1340},{"to":"ina-wp-15940","x":760,"arrivalX":826,"arrivalY":480},{"to":"ina-wp-15942","x":1030,"arrivalX":1382,"arrivalY":480},{"to":"ina-wp-15951","x":320,"arrivalX":76,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"珊瑚の岸までの小舟"}],"checkpoint":"inazuma-port","mapPoint":"teyvat:15947","waypoint":{"kind":"waypoint","area":"海祇島","x":615,"y":480}},
     {"id":"hydro-hypostasis-field-cove","name":"稲妻・潮紋の洞","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1600,"platforms":[{"x":0,"y":480,"w":1600}],"exits":[{"to":"watatsumi-landing","x":65}],"checkpoint":"inazuma-port"},
     {
       "id": "inazuma-outer-shore",

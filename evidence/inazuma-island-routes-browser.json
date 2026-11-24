@@ -1,0 +1,16 @@
+{
+  "shuttles": [
+    {
+      "shore": "watatsumi-landing",
+      "arena": "hydro-hypostasis-field-cove",
+      "secondsEachWay": 4.2
+    },
+    {
+      "shore": "tsurumi-coast",
+      "arena": "wolflord-field-ruins",
+      "secondsEachWay": 4.8
+    }
+  ],
+  "usedFForAllFourCrossings": true,
+  "errors": []
+}

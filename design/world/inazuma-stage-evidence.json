@@ -1,0 +1,183 @@
+{
+  "scope": "Inazuma stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 27,
+  "interpretation": "Links identify available evidence per stage. Some encounter trials start in the arena. The island-loop check uses arrival gates, both shuttles and the sandbar.",
+  "entries": [
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "wolflord-field-ruins"
+      ],
+      "evidence": [
+        "evidence/wolflord-field-lua.json",
+        "evidence/inazuma-island-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "hydro-hypostasis-field-cove"
+      ],
+      "evidence": [
+        "evidence/hydro-hypostasis-field-lua.json",
+        "evidence/inazuma-island-routes-lua.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "inazuma-outer-shore"
+      ],
+      "evidence": [
+        "evidence/inazuma-fresh-route.json",
+        "evidence/inazuma-fresh-route-browser.json"
+      ]
+    },
+    {
+      "kind": "daily",
+      "stages": [
+        "inazuma-shore-hunt"
+      ],
+      "evidence": [
+        "evidence/daily-ina-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "ina-firework-lookouts",
+        "ina-firework-beach"
+      ],
+      "evidence": [
+        "evidence/ina-fireworks-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "ina-festival-games"
+      ],
+      "evidence": [
+        "evidence/ina-itto-games-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "ina-tea-crossroads",
+        "ina-tea-landing"
+      ],
+      "evidence": [
+        "evidence/ina-tea-case-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "ina-sayu-watchpath"
+      ],
+      "evidence": [
+        "evidence/ina-sayu-route-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "pyro-hypostasis-field-terrace"
+      ],
+      "evidence": [
+        "evidence/pyro-hypostasis-field-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "inazuma-lantern-trail",
+        "inazuma-lantern-clearing"
+      ],
+      "evidence": [
+        "evidence/inazuma-m01-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "inazuma-torii-footprints",
+        "inazuma-torii-statues",
+        "inazuma-torii-reflections",
+        "inazuma-torii-thicket",
+        "inazuma-forest-shore"
+      ],
+      "evidence": [
+        "evidence/inazuma-m02-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "inazuma-sea-cave",
+        "inazuma-shiomi-cape"
+      ],
+      "evidence": [
+        "evidence/inazuma-m03-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "maguu-field-dojo"
+      ],
+      "evidence": [
+        "evidence/maguu-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "array-approach",
+        "array-field-court"
+      ],
+      "evidence": [
+        "evidence/array-field-lua.json",
+        "evidence/array-field-browser.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "thunder-field-crest"
+      ],
+      "evidence": [
+        "evidence/thunder-field-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "signora-ten-shrine-arena"
+      ],
+      "evidence": [
+        "evidence/signora-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "raiden-thunder-echo-arena"
+      ],
+      "evidence": [
+        "evidence/raiden-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-inazuma-sandbar"
+      ],
+      "evidence": [
+        "evidence/inazuma-island-routes-lua.json",
+        "evidence/sites-main-corridors-lua.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "shuttles": [
+    {
+      "shore": "watatsumi-landing",
+      "fieldBossArena": "hydro-hypostasis-field-cove",
+      "minLevel": 52,
+      "secondsEachWay": 4.2,
+      "belowLevelRejected": true,
+      "restoredMidRideAt": "inazuma-port",
+      "returned": true
+    },
+    {
+      "shore": "tsurumi-coast",
+      "fieldBossArena": "wolflord-field-ruins",
+      "minLevel": 54,
+      "secondsEachWay": 4.8,
+      "belowLevelRejected": true,
+      "restoredMidRideAt": "inazuma-port",
+      "returned": true
+    }
+  ],
+  "sandbar": {
+    "directions": [
+      [
+        "ina-wp-12704",
+        "sites-corridor-inazuma-sandbar"
+      ],
+      [
+        "ina-wp-12716",
+        "sites-corridor-inazuma-sandbar"
+      ],
+      [
+        "sites-corridor-inazuma-sandbar",
+        "ina-wp-12704"
+      ],
+      [
+        "sites-corridor-inazuma-sandbar",
+        "ina-wp-12716"
+      ]
+    ],
+    "upperLandingY": 373
+  }
+}
