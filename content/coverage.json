@@ -8259,6 +8259,18 @@
       "nat-wp-79542",
       "flower-feather-statue-back-cliff",
       "night-trial-tupayo",
+      "nat-wp-82572",
+      "nat-wp-82558",
+      "nat-wp-82559",
+      "tetenanco-seaward-foot",
+      "night-trial-reji",
+      "nat-wp-82557",
+      "nat-wp-82560",
+      "nat-wp-82561",
+      "nat-wp-82562",
+      "nat-wp-82563",
+      "collective-eastern-headland",
+      "night-trial-tupu",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
       "config-device-field-workshop",
@@ -8424,7 +8436,9 @@
       "legend-natlan_fallen_dawnstar",
       "legend-natlan_ironbeard",
       "legend-natlan_potapo",
-      "legend-natlan_tupayo"
+      "legend-natlan_tupayo",
+      "legend-natlan_reji",
+      "legend-natlan_tupu"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8708,7 +8722,9 @@
       "evidence/coop-natlan-northwest-legends-lua-http.json",
       "evidence/coop-natlan-northwest-legends-browser.json",
       "evidence/coop-natlan-wayob-duo-lua-http.json",
-      "evidence/coop-natlan-wayob-duo-browser.json"
+      "evidence/coop-natlan-wayob-duo-browser.json",
+      "evidence/coop-natlan-atocpan-totem-lua-http.json",
+      "evidence/coop-natlan-atocpan-totem-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

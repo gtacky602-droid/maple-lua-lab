@@ -47,6 +47,9 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, HUB)
     core.grantExp(state, xp_to(level), 'quest')
+    for slot in (1, 2):
+        assert core.giveArtifact(state, slot, 40, 3)
+        core.action(state, 'artifact_equip:' + str(slot))
     return state
 
 
@@ -118,7 +121,7 @@ def exercise_trial(state, walk, spec, approach):
 
 
 fixture = start(120)
-for host in (RIM, ISLAND, VALLEY, HUB):
+for host in (RIM, ISLAND, VALLEY, 'nat-wp-79051', HUB):
     core.enterStoryNode(fixture, host)
 write('work/natlan-atocpan-totem-fixture.json', saved(fixture))
 

@@ -11,8 +11,10 @@ const north=process.argv.includes('--natlan-north');
 const cliff=process.argv.includes('--natlan-cliff');
 const northwest=process.argv.includes('--natlan-northwest');
 const wayob=process.argv.includes('--natlan-wayob');
-const localNatlan=natlan||night||north||cliff||northwest||wayob;
-const prefix=wayob?'evidence/coop-natlan-wayob-duo':northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
+const atocpan=process.argv.includes('--natlan-atocpan');
+const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan;
+const prefix=atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
+ : northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
  : north?'evidence/coop-natlan-north-trials':night?'evidence/coop-natlan-night-trials'
  : 'evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
 const dryCases=[
@@ -93,7 +95,15 @@ const wayobCases=[
   entry:'flower-feather-statue-back-cliff',hp:1280,mora:575,x:845,warning:'NY02',entities:[97089],
   warningOrder:[[1,'pyro',74],[2,'pyro',123]],returnY:274},
 ].map(cfg=>({...cfg,checkpoint:'natlan-hub',quest:'natlan-two-pillar-trails'}));
-const cases=wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const atocpanCases=[
+ {tag:'reji',id:'legend-natlan_reji',arena:'night-trial-reji',approach:'nat-wp-79051',
+  entry:'tetenanco-seaward-foot',hp:1280,mora:580,x:845,warning:'AR02',entities:[97090],
+  warningOrder:[[1,'electro',63],[2,'electro',116]],movingWave:true,returnY:480},
+ {tag:'tupu',id:'legend-natlan_tupu',arena:'night-trial-tupu',
+  entry:'collective-eastern-headland',hp:1300,mora:590,x:845,warning:'AT02',entities:[97091],
+  warningOrder:[[1,'electro',70],[2,'electro',110],[3,'electro',150]],returnY:345},
+].map(cfg=>({...cfg,checkpoint:'natlan-hub',quest:'natlan-atocpan-landmarks'}));
+const cases=atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -127,7 +137,8 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=wayob?'work/natlan-wayob-duo-fixture.json':northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
+ const fixturePath=atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
+  : northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
@@ -528,6 +539,12 @@ async function climb(route,shelves){
  }
 }
 
+async function crossShared({route,page},id,code){
+ await route.cross(id);
+ const {coop}=await frame(page);
+ assert.ok(coop.shared&&coop.code===code&&coop.map===id);
+}
+
 async function wayobJourney(){
  const [water,cliff]=cases;
  const players=await Promise.all([start(water,false),start(water,false)]);
@@ -556,39 +573,98 @@ async function wayobJourney(){
   Object.assign(proof[cfg.tag],{independentPillarTransfers:true,returnY:cfg.returnY,sharedRematch:true});
   if(cfg===water){
    console.log('Chrome: both players cleared Potapo and returned to the waterfall pillar.');
-   await Promise.all(players.map(async ({route,page})=>{
-    await climb(route,[[665,407],[370,335]]);
+   await Promise.all(players.map(async player=>{
+    await climb(player.route,[[665,407],[370,335]]);
     for(const id of [water.approach,'nat-wp-72429','natlan-field','natlan-port',cliff.approach]){
-     await route.cross(id);
-     const {coop}=await frame(page);
-     assert.ok(coop.shared&&coop.code===code&&coop.map===id);
+     await crossShared(player,id,code);
     }
    }));
   }
  }
- await verifyNatlanSave(players,cliff);
- const ids=cases.map(cfg=>cfg.id);
- await Promise.all(players.map(async ({page,route})=>{
-  await page.locator('#saveProgress').click();
-  await wait(page,({key,quest,ids})=>{
-   const data=JSON.parse(localStorage.getItem(key));
-   return data?.story?.quests?.[quest]?.status==='complete'&&ids.every(id=>data?.endgame?.bosses?.[id]?.clears===1);
-  },{key,quest:cliff.quest,ids});
-  await page.reload();
-  await wait(page,()=>window.lab?.frame);
-  await page.locator('#loadProgress').click();
-  await wait(page,()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
-  await route.waitNode(cliff.checkpoint);
-  await wait(page,quest=>window.lab.frame.story.quests[quest]?.status==='complete',cliff.quest);
- }));
+ await verifySavedReports(players,cases);
  const routes=players.map(p=>p.route.journeys);
  await Promise.all(players.map(p=>p.context.close()));
  return {...proof,routes,sharedRoomAcrossBothRoutes:true,bothReported:true,reportRestoredForBoth:true};
 }
 
+async function atocpanJourney(){
+ const [reji,tupu]=cases;
+ const rim='nat-wp-82559',valley='nat-wp-82562',island='nat-wp-82563';
+ const players=await Promise.all([start(reji,false),start(reji,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ const {itinerary}=graph.quests.find(q=>q.id===reji.quest);
+ await Promise.all(players.map(async player=>{
+  for(const id of ['nat-wp-82572','nat-wp-82558',rim,reji.entry]) await crossShared(player,id,code);
+  assert.equal((await player.route.actor()).y,414);
+  await collectSpot(player,itinerary[0]);
+  await player.route.count(reji.quest,1);
+ }));
+ await enterPillars(players,reji);
+ const rejiProof=await fightAndSave(players,reji);
+ await rematch(players,reji);
+ await leaveArena(players,reji);
+ console.log('Chrome: both players cleared Reji and returned to the hillside pillar.');
+ await Promise.all(players.map(async player=>{
+  await climb(player.route,[[415,414]]);
+  for(const id of [rim,'nat-wp-82557','nat-wp-82560','nat-wp-82561',valley]){
+   await crossShared(player,id,code);
+  }
+ }));
+ await crossShared(host,tupu.entry,code);
+ assert.equal(await guest.route.node(),valley);
+ await crossShared(guest,island,code);
+ await Promise.all([
+  crossShared(guest,tupu.entry,code),
+  (async()=>{
+   await wait(guest.page,()=>window.lab.frame.storyLift?.boat);
+   assert.equal(await host.route.node(),tupu.entry);
+   await capture(guest.page,'tupu-ferry');
+  })(),
+ ]);
+ assert.equal(guest.route.journeys.at(-1)[2],'boat');
+ assert.equal(host.route.journeys.at(-1)[2],'raised');
+ await Promise.all(players.map(async player=>{
+  await climb(player.route,[[536,414],[735,345]]);
+  await collectSpot(player,itinerary[1]);
+  await player.route.count(tupu.quest,2);
+ }));
+ await enterPillars(players,tupu);
+ const tupuProof=await fightAndSave(players,tupu);
+ await rematch(players,tupu);
+ await leaveArena(players,tupu);
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ await Promise.all(players.map(p=>p.context.close()));
+ return {reji:{...rejiProof,returnY:reji.returnY,sharedRematch:true},
+  tupu:{...tupuProof,returnY:tupu.returnY,sharedRematch:true},
+  routes,sharedRoomAcrossBothRoutes:true,footAndFerryRegroup:true,
+  independentPillarTransfers:true,bothReported:true,reportRestoredForBoth:true};
+}
+
+async function verifySavedReports(players,bosses){
+ const cfg=bosses.at(-1);
+ await verifyNatlanSave(players,cfg);
+ const ids=bosses.map(boss=>boss.id);
+ await Promise.all(players.map(async ({page,route})=>{
+  await page.locator('#saveProgress').click();
+  await wait(page,({key,quest,ids})=>{
+   const data=JSON.parse(localStorage.getItem(key));
+   return data?.story?.quests?.[quest]?.status==='complete'&&ids.every(id=>data?.endgame?.bosses?.[id]?.clears===1);
+  },{key,quest:cfg.quest,ids});
+  await page.reload();
+  await wait(page,()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await wait(page,()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
+  await route.waitNode(cfg.checkpoint);
+  await wait(page,quest=>window.lab.frame.story.quests[quest]?.status==='complete',cfg.quest);
+ }));
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(wayob) Object.assign(evidence,await wayobJourney());
+ if(atocpan) Object.assign(evidence,await atocpanJourney());
+ else if(wayob) Object.assign(evidence,await wayobJourney());
  else for(const cfg of cases)evidence[cfg.tag]=await scenario(cfg);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({...evidence,errors},null,2)+'\n');

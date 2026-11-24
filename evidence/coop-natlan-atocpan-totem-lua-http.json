@@ -1,0 +1,87 @@
+{
+  "legend-natlan_reji": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1280,
+      "moves": [
+        {
+          "id": "AR01",
+          "warningTicks": [
+            58
+          ]
+        },
+        {
+          "id": "AR02",
+          "warningTicks": [
+            63,
+            116
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 580,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "northernConnection": true,
+      "footAndFerryRegroup": true,
+      "personalMarksAndReports": true,
+      "ferryReturnChecked": true
+    }
+  },
+  "legend-natlan_tupu": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1300,
+      "moves": [
+        {
+          "id": "AT01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "AT02",
+          "warningTicks": [
+            70,
+            110,
+            150
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 590,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "northernConnection": true,
+      "footAndFerryRegroup": true,
+      "personalMarksAndReports": true,
+      "sameHeightAfterDefeatAndExit": 345
+    }
+  }
+}

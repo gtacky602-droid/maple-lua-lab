@@ -1,0 +1,317 @@
+{
+  "participants": 2,
+  "reji": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 151,
+        "moves": [
+          "AR01",
+          "AR02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 170,
+        "moves": [
+          "AR01",
+          "AR02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "electro",
+        63,
+        499,
+        896
+      ],
+      [
+        2,
+        "electro",
+        116,
+        786,
+        1190
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        580
+      ],
+      [
+        464100,
+        580
+      ]
+    ],
+    "contacts": [
+      8,
+      7
+    ],
+    "saved": true,
+    "returnY": 480,
+    "sharedRematch": true
+  },
+  "tupu": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 105,
+        "moves": [
+          "AT01",
+          "AT02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 126,
+        "moves": [
+          "AT01",
+          "AT02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "electro",
+        70,
+        328,
+        448
+      ],
+      [
+        2,
+        "electro",
+        110,
+        414.5,
+        558.5
+      ],
+      [
+        3,
+        "electro",
+        150,
+        588.5,
+        708.5
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        590
+      ],
+      [
+        464100,
+        590
+      ]
+    ],
+    "contacts": [
+      8,
+      10
+    ],
+    "saved": true,
+    "returnY": 345,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "nat-wp-79051",
+        "nat-wp-82572",
+        "walk"
+      ],
+      [
+        "nat-wp-82572",
+        "nat-wp-82558",
+        "walk"
+      ],
+      [
+        "nat-wp-82558",
+        "nat-wp-82559",
+        "walk"
+      ],
+      [
+        "nat-wp-82559",
+        "tetenanco-seaward-foot",
+        "raised"
+      ],
+      [
+        "tetenanco-seaward-foot",
+        "night-trial-reji",
+        "phase"
+      ],
+      [
+        "night-trial-reji",
+        "tetenanco-seaward-foot",
+        "phase"
+      ],
+      [
+        "tetenanco-seaward-foot",
+        "night-trial-reji",
+        "phase"
+      ],
+      [
+        "night-trial-reji",
+        "tetenanco-seaward-foot",
+        "phase"
+      ],
+      [
+        "tetenanco-seaward-foot",
+        "nat-wp-82559",
+        "raised"
+      ],
+      [
+        "nat-wp-82559",
+        "nat-wp-82557",
+        "walk"
+      ],
+      [
+        "nat-wp-82557",
+        "nat-wp-82560",
+        "walk"
+      ],
+      [
+        "nat-wp-82560",
+        "nat-wp-82561",
+        "walk"
+      ],
+      [
+        "nat-wp-82561",
+        "nat-wp-82562",
+        "walk"
+      ],
+      [
+        "nat-wp-82562",
+        "collective-eastern-headland",
+        "raised"
+      ],
+      [
+        "collective-eastern-headland",
+        "night-trial-tupu",
+        "phase"
+      ],
+      [
+        "night-trial-tupu",
+        "collective-eastern-headland",
+        "phase"
+      ],
+      [
+        "collective-eastern-headland",
+        "night-trial-tupu",
+        "phase"
+      ],
+      [
+        "night-trial-tupu",
+        "collective-eastern-headland",
+        "phase"
+      ]
+    ],
+    [
+      [
+        "nat-wp-79051",
+        "nat-wp-82572",
+        "walk"
+      ],
+      [
+        "nat-wp-82572",
+        "nat-wp-82558",
+        "walk"
+      ],
+      [
+        "nat-wp-82558",
+        "nat-wp-82559",
+        "walk"
+      ],
+      [
+        "nat-wp-82559",
+        "tetenanco-seaward-foot",
+        "raised"
+      ],
+      [
+        "tetenanco-seaward-foot",
+        "night-trial-reji",
+        "phase"
+      ],
+      [
+        "night-trial-reji",
+        "tetenanco-seaward-foot",
+        "phase"
+      ],
+      [
+        "tetenanco-seaward-foot",
+        "night-trial-reji",
+        "phase"
+      ],
+      [
+        "night-trial-reji",
+        "tetenanco-seaward-foot",
+        "phase"
+      ],
+      [
+        "tetenanco-seaward-foot",
+        "nat-wp-82559",
+        "raised"
+      ],
+      [
+        "nat-wp-82559",
+        "nat-wp-82557",
+        "walk"
+      ],
+      [
+        "nat-wp-82557",
+        "nat-wp-82560",
+        "walk"
+      ],
+      [
+        "nat-wp-82560",
+        "nat-wp-82561",
+        "walk"
+      ],
+      [
+        "nat-wp-82561",
+        "nat-wp-82562",
+        "walk"
+      ],
+      [
+        "nat-wp-82562",
+        "nat-wp-82563",
+        "boat"
+      ],
+      [
+        "nat-wp-82563",
+        "collective-eastern-headland",
+        "boat"
+      ],
+      [
+        "collective-eastern-headland",
+        "night-trial-tupu",
+        "phase"
+      ],
+      [
+        "night-trial-tupu",
+        "collective-eastern-headland",
+        "phase"
+      ],
+      [
+        "collective-eastern-headland",
+        "night-trial-tupu",
+        "phase"
+      ],
+      [
+        "night-trial-tupu",
+        "collective-eastern-headland",
+        "phase"
+      ]
+    ]
+  ],
+  "sharedRoomAcrossBothRoutes": true,
+  "footAndFerryRegroup": true,
+  "independentPillarTransfers": true,
+  "bothReported": true,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

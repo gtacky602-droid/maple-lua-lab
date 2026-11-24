@@ -20,13 +20,14 @@ HOSTS={
 
 def timed_travel(client,source,target,other,*,shared=True):
     gate=edge(source,target)
-    duration=gate.get('phaseSeconds',gate.get('liftSeconds'))
+    duration=gate.get('phaseSeconds') or gate.get('liftSeconds') or gate['boatSeconds']
     with LOCK:
         state=SESSIONS[client.sid]['state']
         actor=state.actors[state.active]
         actor.x,actor.y,actor.vy,actor.ground=gate['x'],gate.get('y',480),0,True
     frame=client.frame(['story_portal:'+target])
     assert frame['story']['node']==source and frame['storyLift']['phase']==('phaseSeconds' in gate)
+    assert bool(frame['storyLift'].get('boat'))==('boatSeconds' in gate)
     assert frame['storyLift']['seconds']==duration
     if 'wallTrack' in gate:
         assert frame['storyLift']['wall']
