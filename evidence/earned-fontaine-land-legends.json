@@ -1,0 +1,656 @@
+{
+  "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+  "itineraries": [
+    {
+      "start": "fontaine-hub",
+      "destination": "fon-wp-55770",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ・地域の入口",
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fontaine-entry"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ南部・水路橋南の岸",
+          "from": "fontaine-entry",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+          "id": "fon-wp-50046"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ南部・水路東の尾根",
+          "from": "fon-wp-50046",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50045"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・湾西の水路脇",
+          "from": "fon-wp-50045",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55763"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・湾南西の岩礁",
+          "from": "fon-wp-55763",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55762"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・南の連絡島",
+          "from": "fon-wp-55762",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55771"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・湾東の岬",
+          "from": "fon-wp-55771",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55770"
+        }
+      ]
+    },
+    {
+      "start": "fon-wp-55770",
+      "destination": "fon-wp-55768",
+      "stops": [
+        {
+          "mode": "water",
+          "name": "フォンテーヌ湖・東の島の水洞",
+          "from": "fon-wp-55770",
+          "region": "region-05",
+          "label": "水路",
+          "hint": "島の水洞口・移動に2.4秒",
+          "id": "fon-wp-55768"
+        }
+      ]
+    },
+    {
+      "start": "fon-wp-55768",
+      "destination": "fon-wp-55770",
+      "stops": [
+        {
+          "mode": "water",
+          "name": "フォンテーヌ東部・湾東の岬",
+          "from": "fon-wp-55768",
+          "region": "region-05",
+          "label": "水路",
+          "hint": "門と同じ深さまで泳ぐ・島の水洞口・移動に2.4秒",
+          "id": "fon-wp-55770"
+        }
+      ]
+    },
+    {
+      "start": "fontaine-hub",
+      "destination": "yseut-legend-court",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ廷・市街西の波止場",
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "上段の入口",
+          "id": "fon-wp-50053"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ廷・市外の西の水門",
+          "from": "fon-wp-50053",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50077"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ廷・西の丘の並木道",
+          "from": "fon-wp-50077",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50058"
+        },
+        {
+          "mode": "walk",
+          "name": "西の丘・巡視の訓練場",
+          "from": "fon-wp-50058",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "イゾルトの任意戦",
+          "id": "yseut-legend-court"
+        }
+      ]
+    },
+    {
+      "start": "yseut-legend-court",
+      "destination": "fon-wp-50058",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ廷・西の丘の並木道",
+          "from": "yseut-legend-court",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "元の道に退く",
+          "id": "fon-wp-50058"
+        }
+      ]
+    },
+    {
+      "start": "fontaine-hub",
+      "destination": "gravity-device-legend-terrace",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ廷・市街北のテラス",
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "上段の入口",
+          "id": "fon-wp-50050"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ廷・市外北の坂",
+          "from": "fon-wp-50050",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50056"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ北部・北の入口の神像",
+          "from": "fon-wp-50056",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-53867"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ北部・北西岸の船着き場",
+          "from": "fon-wp-53867",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "北西岸への連絡船・移動に3.4秒",
+          "id": "fon-wp-53852"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ北部・北西湾の入口",
+          "from": "fon-wp-53852",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-53863"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ北部・北端の高台",
+          "from": "fon-wp-53863",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-53862"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ北部・山裾の運河",
+          "from": "fon-wp-53862",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "上段の入口",
+          "id": "fon-wp-53860"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ北部・北の縁の岩道",
+          "from": "fon-wp-53860",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-53859"
+        },
+        {
+          "mode": "walk",
+          "name": "北の岩道・力場試験の台地",
+          "from": "fon-wp-53859",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "自律スーパー・コンピューティング型力場生成装置の任意戦",
+          "id": "gravity-device-legend-terrace"
+        }
+      ]
+    },
+    {
+      "start": "gravity-device-legend-terrace",
+      "destination": "fon-wp-53859",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ北部・北の縁の岩道",
+          "from": "gravity-device-legend-terrace",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "元の道に退く",
+          "id": "fon-wp-53859"
+        }
+      ]
+    },
+    {
+      "start": "fontaine-hub",
+      "destination": "rocky-legend-ledge",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ・地域の入口",
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fontaine-entry"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ南部・水路橋南の岸",
+          "from": "fontaine-entry",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+          "id": "fon-wp-50046"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ南部・水路東の尾根",
+          "from": "fon-wp-50046",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50045"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・橋の南の高台",
+          "from": "fon-wp-50045",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55773"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・砂利の舟置き場",
+          "from": "fon-wp-55773",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55775"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・東岸の南道",
+          "from": "fon-wp-55775",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55774"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・東の工房の裏道",
+          "from": "fon-wp-55774",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55776"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・小湖の岸",
+          "from": "fon-wp-55776",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55779"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・東の滝の上",
+          "from": "fon-wp-55779",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55780"
+        },
+        {
+          "mode": "walk",
+          "name": "東の滝・岩棚の練武場",
+          "from": "fon-wp-55780",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "ロッキー・アヴィルドセンの任意戦",
+          "id": "rocky-legend-ledge"
+        }
+      ]
+    },
+    {
+      "start": "rocky-legend-ledge",
+      "destination": "fon-wp-55780",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・東の滝の上",
+          "from": "rocky-legend-ledge",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "元の道に退く",
+          "id": "fon-wp-55780"
+        }
+      ]
+    },
+    {
+      "start": "fontaine-hub",
+      "destination": "liam-legend-pond",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ・地域の入口",
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fontaine-entry"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ南部・水路橋南の岸",
+          "from": "fontaine-entry",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+          "id": "fon-wp-50046"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ南部・水路東の尾根",
+          "from": "fon-wp-50046",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50045"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・橋の南の高台",
+          "from": "fon-wp-50045",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55773"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・砂利の舟置き場",
+          "from": "fon-wp-55773",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55775"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ東部・東湾の神像",
+          "from": "fon-wp-55775",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "東湾へ向かう連絡船・移動に3.4秒",
+          "id": "fon-wp-55760"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ東部・島北の見張り場",
+          "from": "fon-wp-55760",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "島北から渡る小舟・移動に3.4秒",
+          "id": "fon-wp-55772"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ東部・東岸沖の石島",
+          "from": "fon-wp-55772",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "東沖への連絡船・移動に3.4秒",
+          "id": "fon-wp-55783"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・孤立湖の南の坂",
+          "from": "fon-wp-55783",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55782"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・東端の崖の渡り",
+          "from": "fon-wp-55782",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55781"
+        },
+        {
+          "mode": "walk",
+          "name": "東端の崖・薬瓶の池畔",
+          "from": "fon-wp-55781",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "リアムの任意戦",
+          "id": "liam-legend-pond"
+        }
+      ]
+    },
+    {
+      "start": "liam-legend-pond",
+      "destination": "fon-wp-55781",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・東端の崖の渡り",
+          "from": "liam-legend-pond",
+          "region": "region-05",
+          "label": "徒歩",
+          "hint": "元の道に退く",
+          "id": "fon-wp-55781"
+        }
+      ]
+    },
+    {
+      "start": "fontaine-hub",
+      "destination": "deianeira-legend-lab",
+      "stops": [
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ・地域の入口",
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fontaine-entry"
+        },
+        {
+          "mode": "boat",
+          "name": "フォンテーヌ南部・水路橋南の岸",
+          "from": "fontaine-entry",
+          "region": "region-05",
+          "label": "舟・寄港",
+          "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+          "id": "fon-wp-50046"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ南部・水路東の尾根",
+          "from": "fon-wp-50046",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-50045"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・湾西の水路脇",
+          "from": "fon-wp-50045",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55763"
+        },
+        {
+          "mode": "walk",
+          "name": "フォンテーヌ東部・湾南西の岩礁",
+          "from": "fon-wp-55763",
+          "region": "region-05",
+          "label": "徒歩",
+          "id": "fon-wp-55762"
+        },
+        {
+          "mode": "water",
+          "name": "フォンテーヌ湖・湾の南の沈水溝",
+          "from": "fon-wp-55762",
+          "region": "region-05",
+          "label": "水路",
+          "hint": "南西の岩礁からの潜水口・移動に2.4秒",
+          "id": "fon-wp-55765"
+        },
+        {
+          "mode": "swim",
+          "name": "フォンテーヌ湖・東端の水中の棚",
+          "from": "fon-wp-55765",
+          "region": "region-05",
+          "label": "遊泳",
+          "hint": "門と同じ深さまで泳ぐ",
+          "id": "fon-wp-55766"
+        },
+        {
+          "mode": "water",
+          "name": "フォンテーヌ湖・東の島の水洞",
+          "from": "fon-wp-55766",
+          "region": "region-05",
+          "label": "水路",
+          "hint": "門と同じ深さまで泳ぐ・島の岩棚の下を抜ける水路・移動に2.6秒",
+          "id": "fon-wp-55768"
+        },
+        {
+          "mode": "water",
+          "name": "東の島・水中研究室の乾いた床",
+          "from": "fon-wp-55768",
+          "region": "region-05",
+          "label": "水路",
+          "hint": "門と同じ深さまで泳ぐ・スネージヴナのディアンナラの任意戦・移動に1.8秒",
+          "id": "deianeira-legend-lab"
+        }
+      ]
+    },
+    {
+      "start": "deianeira-legend-lab",
+      "destination": "fon-wp-55768",
+      "stops": [
+        {
+          "mode": "water",
+          "name": "フォンテーヌ湖・東の島の水洞",
+          "from": "deianeira-legend-lab",
+          "region": "region-05",
+          "label": "水路",
+          "hint": "水洞へ退く・移動に1.8秒",
+          "id": "fon-wp-55768"
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "quest": "fon-hidden-lab-access",
+      "xp": 162000,
+      "mora": 13600
+    }
+  ],
+  "battles": [
+    {
+      "node": "yseut-legend-court",
+      "targets": [
+        "legend-fontaine_yseut"
+      ],
+      "xp": 6372,
+      "kills": 1
+    },
+    {
+      "node": "gravity-device-legend-terrace",
+      "targets": [
+        "legend-fontaine_automated_supercomputing_field_generator"
+      ],
+      "xp": 6372,
+      "kills": 1
+    },
+    {
+      "node": "rocky-legend-ledge",
+      "targets": [
+        "legend-fontaine_rocky_avildsen"
+      ],
+      "xp": 6372,
+      "kills": 1
+    },
+    {
+      "node": "liam-legend-pond",
+      "targets": [
+        "legend-fontaine_liam"
+      ],
+      "xp": 6372,
+      "kills": 1
+    },
+    {
+      "node": "deianeira-legend-lab",
+      "targets": [
+        "legend-fontaine_deianeira_of_snezhevna"
+      ],
+      "xp": 6372,
+      "kills": 1
+    }
+  ],
+  "locks": [
+    {
+      "node": "fon-wp-55768",
+      "target": "deianeira-legend-lab",
+      "reason": "依頼「水洞の奥の圧力扉」を報告してください。"
+    }
+  ],
+  "returns": 0,
+  "draftBalance": true,
+  "levelAtStart": 165,
+  "clearsAfterReload": {
+    "legend-fontaine_yseut": {
+      "node": "yseut-legend-court",
+      "previous": 0,
+      "clears": 1,
+      "seconds": 2.65
+    },
+    "legend-fontaine_automated_supercomputing_field_generator": {
+      "node": "gravity-device-legend-terrace",
+      "previous": 0,
+      "clears": 1,
+      "seconds": 2.83
+    },
+    "legend-fontaine_rocky_avildsen": {
+      "node": "rocky-legend-ledge",
+      "previous": 0,
+      "clears": 1,
+      "seconds": 2.55
+    },
+    "legend-fontaine_liam": {
+      "node": "liam-legend-pond",
+      "previous": 0,
+      "clears": 1,
+      "seconds": 3.17
+    },
+    "legend-fontaine_deianeira_of_snezhevna": {
+      "node": "deianeira-legend-lab",
+      "previous": 0,
+      "clears": 1,
+      "seconds": 2.88
+    }
+  }
+}

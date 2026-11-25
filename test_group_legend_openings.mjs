@@ -30,6 +30,7 @@ try{
   const legends=await choices.jsonValue();
   assert.equal(legends.length,56);
   assert.ok(legends.every(b=>b.preview));
+  assert.deepEqual(Object.keys(scenes).sort(),legends.map(b=>b.node).sort());
   legendLinks=legends.length;
  }
  const verified={},gallery=[];
@@ -61,7 +62,7 @@ try{
    if(viewer)await viewer.close();
    [viewer]=await Promise.all([page.waitForEvent('popup'),link.click()]);
    viewer.on('pageerror',e=>errors.push(e.message));
-   if(field){fieldViewer=viewer;lastPreset=preset}
+   fieldViewer=viewer;lastPreset=preset;
   }else{
    await viewer.selectOption('#node',id);
   }
@@ -90,12 +91,10 @@ try{
    const diff=await compareOpeningPixels(viewer,translate(refs.png),translate(refs[profile]),node,initial.camera);
    assert.deepEqual(diff,{png:0,rect:0},id+' '+profile+' '+JSON.stringify(diff));
    profiles[profile]=refs[profile].filter(d=>d.kind==='rect').length;
-   if(field){
-    await viewer.locator('#measureSprite').click();
-    fidelity[profile]=JSON.parse(await viewer.locator('#spriteFidelity').getAttribute('data-result'));
-    const m=fidelity[profile];
-    assert.ok(m.union>=m.overlap && m.overlap>0 && m.overlapPercent<=100 && m.meanRgbError>=0 && m.meanRgbError<=255,id);
-   }
+   await viewer.locator('#measureSprite').click();
+   fidelity[profile]=JSON.parse(await viewer.locator('#spriteFidelity').getAttribute('data-result'));
+   const m=fidelity[profile];
+   assert.ok(m.union>=m.overlap && m.overlap>0 && m.overlapPercent<=100 && m.meanRgbError>=0 && m.meanRgbError<=255,id);
   }
   if(field && duets.has(id)){
    const lead=id==='icewind-coppelia-field'?'風':'氷';
@@ -130,9 +129,9 @@ try{
   if(field){
    Object.assign(verified[id],{parts:scene.parts.map(p=>p.name),fidelity,extraRectangles:rectCount,
     behind:scene.parts.reduce((sum,p)=>sum+(p.behind?.length??0),0),...(scene.quest&&{quest:scene.quest})});
-  }else verified[id].hpBarRectangles=rectCount;
-  if(field && Object.keys(verified).length%8===0)console.log(Object.keys(verified).length+' field arenas verified');
-  if(!field)await viewer.close();
+  }else Object.assign(verified[id],{hpBarRectangles:rectCount,fidelity});
+  if(Object.keys(verified).length%8===0)console.log(Object.keys(verified).length+' arenas verified');
+
  }
  if(fieldViewer){
   const masks=await fieldViewer.evaluate(async()=>{

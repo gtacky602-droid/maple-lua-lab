@@ -2,43 +2,334 @@
   "legendLinks": 56,
   "differentPixels": 0,
   "verified": {
+    "atocpan-battlegoat-ironclaw-field": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [],
+      "profiles": {
+        "legacy": 3626,
+        "h48c32": 2176,
+        "h32c16": 944
+      },
+      "hpBarRectangles": 4,
+      "fidelity": {
+        "legacy": {
+          "union": 6536,
+          "overlap": 6536,
+          "overlapPercent": 100,
+          "meanRgbError": 2.917686658506732
+        },
+        "h48c32": {
+          "union": 6612,
+          "overlap": 6406,
+          "overlapPercent": 96.88445251058681,
+          "meanRgbError": 11.307992507024665
+        },
+        "h32c16": {
+          "union": 6821,
+          "overlap": 6361,
+          "overlapPercent": 93.25612080340126,
+          "meanRgbError": 17.90195461929466
+        }
+      }
+    },
+    "atocpan-peak-cave": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 5720,
+        "h48c32": 3565,
+        "h32c16": 1679
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 10640,
+          "overlap": 10640,
+          "overlapPercent": 100,
+          "meanRgbError": 4.471835839598998
+        },
+        "h48c32": {
+          "union": 10700,
+          "overlap": 10515,
+          "overlapPercent": 98.27102803738318,
+          "meanRgbError": 11.043049611665873
+        },
+        "h32c16": {
+          "union": 10970,
+          "overlap": 10539,
+          "overlapPercent": 96.07110300820419,
+          "meanRgbError": 16.17515893348515
+        }
+      }
+    },
+    "chassanion-legend-bubble-room": {
+      "tick": 37,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3255,
+        "h48c32": 2029,
+        "h32c16": 911
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5954,
+          "overlap": 5954,
+          "overlapPercent": 100,
+          "meanRgbError": 2.953924532527153
+        },
+        "h48c32": {
+          "union": 6043,
+          "overlap": 5851,
+          "overlapPercent": 96.82277014727784,
+          "meanRgbError": 9.10567994075087
+        },
+        "h32c16": {
+          "union": 6151,
+          "overlap": 5751,
+          "overlapPercent": 93.49699235896603,
+          "meanRgbError": 15.397612009505593
+        }
+      }
+    },
     "chizhang-legend-terrace": {
       "tick": 1,
       "phase": "available",
       "swimming": false,
       "actors": 2,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 10012,
         "h48c32": 6191,
         "h32c16": 3005
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 25658,
+          "overlap": 25658,
+          "overlapPercent": 100,
+          "meanRgbError": 0.5661522072388079
+        },
+        "h48c32": {
+          "union": 26018,
+          "overlap": 25536,
+          "overlapPercent": 98.1474363901914,
+          "meanRgbError": 7.980589494569758
+        },
+        "h32c16": {
+          "union": 26150,
+          "overlap": 25172,
+          "overlapPercent": 96.26003824091778,
+          "meanRgbError": 16.717159277504106
+        }
       }
     },
-    "ocean-judge-legend-pool": {
-      "tick": 37,
+    "cineas-legend-chamber": {
+      "tick": 62,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 5273,
+        "h48c32": 3170,
+        "h32c16": 1497
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 12741,
+          "overlap": 12686,
+          "overlapPercent": 99.56832273761871,
+          "meanRgbError": 5.712123600819801
+        },
+        "h48c32": {
+          "union": 12872,
+          "overlap": 12548,
+          "overlapPercent": 97.48290863890615,
+          "meanRgbError": 9.184332164488366
+        },
+        "h32c16": {
+          "union": 12929,
+          "overlap": 12521,
+          "overlapPercent": 96.84430350375126,
+          "meanRgbError": 16.132923355429543
+        }
+      }
+    },
+    "deianeira-legend-lab": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3692,
+        "h48c32": 2281,
+        "h32c16": 1012
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 7311,
+          "overlap": 7272,
+          "overlapPercent": 99.46655724251129,
+          "meanRgbError": 9.145443711037771
+        },
+        "h48c32": {
+          "union": 7467,
+          "overlap": 7173,
+          "overlapPercent": 96.06267577340297,
+          "meanRgbError": 16.18848459500906
+        },
+        "h32c16": {
+          "union": 7498,
+          "overlap": 7104,
+          "overlapPercent": 94.74526540410776,
+          "meanRgbError": 23.527730855855857
+        }
+      }
+    },
+    "dobharcu-legend-garden": {
+      "tick": 35,
       "phase": "available",
       "swimming": true,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
-        "legacy": 3982,
-        "h48c32": 2425,
-        "h32c16": 1076
+        "legacy": 2684,
+        "h48c32": 1746,
+        "h32c16": 922
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 10735,
+          "overlap": 10735,
+          "overlapPercent": 100,
+          "meanRgbError": 0.04924701133364384
+        },
+        "h48c32": {
+          "union": 10846,
+          "overlap": 10729,
+          "overlapPercent": 98.92126129448644,
+          "meanRgbError": 3.932177587224656
+        },
+        "h32c16": {
+          "union": 10989,
+          "overlap": 10709,
+          "overlapPercent": 97.45199745199746,
+          "meanRgbError": 7.353970180844772
+        }
       }
     },
-    "iron-viscount-legend-pool": {
-      "tick": 38,
+    "dorn-churldric-cooking-camp": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3577,
+        "h48c32": 2176,
+        "h32c16": 985
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5646,
+          "overlap": 5646,
+          "overlapPercent": 100,
+          "meanRgbError": 4.3835753926083365
+        },
+        "h48c32": {
+          "union": 5815,
+          "overlap": 5487,
+          "overlapPercent": 94.35941530524505,
+          "meanRgbError": 16.65020351132981
+        },
+        "h32c16": {
+          "union": 6029,
+          "overlap": 5353,
+          "overlapPercent": 88.78752695306021,
+          "meanRgbError": 26.830437760757206
+        }
+      }
+    },
+    "erinnyes-corrouge-cleft": {
+      "tick": 39,
       "phase": "available",
       "swimming": true,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
-        "legacy": 3730,
-        "h48c32": 2228,
-        "h32c16": 1009
+        "legacy": 1421,
+        "h48c32": 896,
+        "h32c16": 361
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 2800,
+          "overlap": 2800,
+          "overlapPercent": 100,
+          "meanRgbError": 4.098214285714286
+        },
+        "h48c32": {
+          "union": 2865,
+          "overlap": 2730,
+          "overlapPercent": 95.28795811518324,
+          "meanRgbError": 13.753357753357754
+        },
+        "h32c16": {
+          "union": 2958,
+          "overlap": 2662,
+          "overlapPercent": 89.99323867478026,
+          "meanRgbError": 21.99060856498873
+        }
+      }
+    },
+    "fading-veteran-legend-wreck": {
+      "tick": 33,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3162,
+        "h48c32": 1977,
+        "h32c16": 897
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 10557,
+          "overlap": 10557,
+          "overlapPercent": 100,
+          "meanRgbError": 0.055760790628650816
+        },
+        "h48c32": {
+          "union": 10682,
+          "overlap": 10547,
+          "overlapPercent": 98.73619172439618,
+          "meanRgbError": 4.124648399228849
+        },
+        "h32c16": {
+          "union": 10805,
+          "overlap": 10538,
+          "overlapPercent": 97.52892179546507,
+          "meanRgbError": 7.069842474852913
+        }
       }
     },
     "fairy-knight-twins-legend-court": {
@@ -50,11 +341,1252 @@
         "アンジェリカ",
         "ミドロ"
       ],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 3528,
         "h48c32": 2234,
         "h32c16": 1088
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 10325,
+          "overlap": 10325,
+          "overlapPercent": 100,
+          "meanRgbError": 0.06686037126715093
+        },
+        "h48c32": {
+          "union": 10467,
+          "overlap": 10238,
+          "overlapPercent": 97.81217158689213,
+          "meanRgbError": 5.943608777756072
+        },
+        "h32c16": {
+          "union": 10607,
+          "overlap": 10140,
+          "overlapPercent": 95.59724710097106,
+          "meanRgbError": 9.88007889546351
+        }
+      }
+    },
+    "frost-mushteshir-inner-chamber": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3431,
+        "h48c32": 2090,
+        "h32c16": 1014
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 7212,
+          "overlap": 7212,
+          "overlapPercent": 100,
+          "meanRgbError": 5.391430948419301
+        },
+        "h48c32": {
+          "union": 7317,
+          "overlap": 7125,
+          "overlapPercent": 97.37597375973759,
+          "meanRgbError": 15.259181286549708
+        },
+        "h32c16": {
+          "union": 7498,
+          "overlap": 7078,
+          "overlapPercent": 94.39850626833822,
+          "meanRgbError": 22.773476499952906
+        }
+      }
+    },
+    "frost-prism-slime-basin": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1553,
+        "h48c32": 993,
+        "h32c16": 473
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4559,
+          "overlap": 4559,
+          "overlapPercent": 100,
+          "meanRgbError": 6.2279739709000514
+        },
+        "h48c32": {
+          "union": 4579,
+          "overlap": 4510,
+          "overlapPercent": 98.4931207687268,
+          "meanRgbError": 15.066223207686622
+        },
+        "h32c16": {
+          "union": 4698,
+          "overlap": 4527,
+          "overlapPercent": 96.36015325670498,
+          "meanRgbError": 23.82961490317355
+        }
+      }
+    },
+    "gravity-device-legend-terrace": {
+      "tick": 32,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3734,
+        "h48c32": 2216,
+        "h32c16": 975
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 8084,
+          "overlap": 8060,
+          "overlapPercent": 99.70311726867887,
+          "meanRgbError": 7.124565756823821
+        },
+        "h48c32": {
+          "union": 8167,
+          "overlap": 8008,
+          "overlapPercent": 98.05314068813517,
+          "meanRgbError": 11.799284049284049
+        },
+        "h32c16": {
+          "union": 8178,
+          "overlap": 7974,
+          "overlapPercent": 97.50550256786501,
+          "meanRgbError": 17.323008109689827
+        }
+      }
+    },
+    "iron-viscount-legend-pool": {
+      "tick": 38,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3730,
+        "h48c32": 2228,
+        "h32c16": 1009
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 8942,
+          "overlap": 8897,
+          "overlapPercent": 99.49675687765601,
+          "meanRgbError": 6.149713386534787
+        },
+        "h48c32": {
+          "union": 9045,
+          "overlap": 8789,
+          "overlapPercent": 97.16970702045329,
+          "meanRgbError": 8.732696173246861
+        },
+        "h32c16": {
+          "union": 9115,
+          "overlap": 8728,
+          "overlapPercent": 95.75425123422929,
+          "meanRgbError": 13.440230675221509
+        }
+      }
+    },
+    "liam-legend-pond": {
+      "tick": 52,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3277,
+        "h48c32": 1899,
+        "h32c16": 868
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4894,
+          "overlap": 4894,
+          "overlapPercent": 100,
+          "meanRgbError": 2.4253507696499113
+        },
+        "h48c32": {
+          "union": 4964,
+          "overlap": 4853,
+          "overlapPercent": 97.76390008058017,
+          "meanRgbError": 10.99876365134968
+        },
+        "h32c16": {
+          "union": 5075,
+          "overlap": 4827,
+          "overlapPercent": 95.11330049261083,
+          "meanRgbError": 19.011118016711553
+        }
+      }
+    },
+    "luachra-legend-shelf": {
+      "tick": 36,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2476,
+        "h48c32": 1525,
+        "h32c16": 657
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5480,
+          "overlap": 5480,
+          "overlapPercent": 100,
+          "meanRgbError": 4.18661800486618
+        },
+        "h48c32": {
+          "union": 5617,
+          "overlap": 5446,
+          "overlapPercent": 96.95567028662987,
+          "meanRgbError": 9.074978577549272
+        },
+        "h32c16": {
+          "union": 5677,
+          "overlap": 5386,
+          "overlapPercent": 94.87405319711115,
+          "meanRgbError": 13.389095185047655
+        }
+      }
+    },
+    "night-trial-atlatl": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3052,
+        "h48c32": 1849,
+        "h32c16": 765
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5982,
+          "overlap": 5982,
+          "overlapPercent": 100,
+          "meanRgbError": 2.7493034659534157
+        },
+        "h48c32": {
+          "union": 6051,
+          "overlap": 5901,
+          "overlapPercent": 97.52107089737234,
+          "meanRgbError": 12.606111958425126
+        },
+        "h32c16": {
+          "union": 6159,
+          "overlap": 5803,
+          "overlapPercent": 94.21984088326028,
+          "meanRgbError": 20.244184042736517
+        }
+      }
+    },
+    "night-trial-chimalli": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2247,
+        "h48c32": 1427,
+        "h32c16": 694
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5969,
+          "overlap": 5969,
+          "overlapPercent": 100,
+          "meanRgbError": 4.336683978332496
+        },
+        "h48c32": {
+          "union": 6086,
+          "overlap": 5828,
+          "overlapPercent": 95.76076240552086,
+          "meanRgbError": 13.288206360100663
+        },
+        "h32c16": {
+          "union": 6319,
+          "overlap": 5794,
+          "overlapPercent": 91.69172337395158,
+          "meanRgbError": 20.825681739730754
+        }
+      }
+    },
+    "night-trial-cihuacoatl": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2697,
+        "h48c32": 1585,
+        "h32c16": 688
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4780,
+          "overlap": 4780,
+          "overlapPercent": 100,
+          "meanRgbError": 3.5267782426778242
+        },
+        "h48c32": {
+          "union": 4862,
+          "overlap": 4707,
+          "overlapPercent": 96.81201151789386,
+          "meanRgbError": 23.37780610438354
+        },
+        "h32c16": {
+          "union": 4920,
+          "overlap": 4640,
+          "overlapPercent": 94.3089430894309,
+          "meanRgbError": 33.444468390804595
+        }
+      }
+    },
+    "night-trial-fallen-dawnstar": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3230,
+        "h48c32": 1881,
+        "h32c16": 864
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5356,
+          "overlap": 5356,
+          "overlapPercent": 100,
+          "meanRgbError": 3.6222927557879014
+        },
+        "h48c32": {
+          "union": 5403,
+          "overlap": 5248,
+          "overlapPercent": 97.13122339441051,
+          "meanRgbError": 13.715701219512194
+        },
+        "h32c16": {
+          "union": 5522,
+          "overlap": 5288,
+          "overlapPercent": 95.76240492575154,
+          "meanRgbError": 20.5088880484115
+        }
+      }
+    },
+    "night-trial-ichcahuipilli": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1914,
+        "h48c32": 1140,
+        "h32c16": 531
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 2705,
+          "overlap": 2705,
+          "overlapPercent": 100,
+          "meanRgbError": 4.196549599507086
+        },
+        "h48c32": {
+          "union": 2809,
+          "overlap": 2640,
+          "overlapPercent": 93.98362406550373,
+          "meanRgbError": 18.55189393939394
+        },
+        "h32c16": {
+          "union": 2856,
+          "overlap": 2534,
+          "overlapPercent": 88.72549019607843,
+          "meanRgbError": 28.631938963430677
+        }
+      }
+    },
+    "night-trial-ironbeard": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2728,
+        "h48c32": 1703,
+        "h32c16": 809
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 7292,
+          "overlap": 7292,
+          "overlapPercent": 100,
+          "meanRgbError": 3.3461327482172245
+        },
+        "h48c32": {
+          "union": 7343,
+          "overlap": 7231,
+          "overlapPercent": 98.4747378455672,
+          "meanRgbError": 14.029133821970222
+        },
+        "h32c16": {
+          "union": 7532,
+          "overlap": 7250,
+          "overlapPercent": 96.25597450876262,
+          "meanRgbError": 21.1647816091954
+        }
+      }
+    },
+    "night-trial-potapo": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 889,
+        "h48c32": 548,
+        "h32c16": 244
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 1553,
+          "overlap": 1553,
+          "overlapPercent": 100,
+          "meanRgbError": 5.539171496029191
+        },
+        "h48c32": {
+          "union": 1583,
+          "overlap": 1493,
+          "overlapPercent": 94.31459254579912,
+          "meanRgbError": 24.803750837240454
+        },
+        "h32c16": {
+          "union": 1650,
+          "overlap": 1455,
+          "overlapPercent": 88.18181818181819,
+          "meanRgbError": 38.652233676975946
+        }
+      }
+    },
+    "night-trial-reji": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2823,
+        "h48c32": 1700,
+        "h32c16": 836
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5224,
+          "overlap": 5224,
+          "overlapPercent": 100,
+          "meanRgbError": 4.308129147524247
+        },
+        "h48c32": {
+          "union": 5326,
+          "overlap": 5126,
+          "overlapPercent": 96.24483665039429,
+          "meanRgbError": 24.07016517102354
+        },
+        "h32c16": {
+          "union": 5437,
+          "overlap": 5019,
+          "overlapPercent": 92.31193672981424,
+          "meanRgbError": 35.22308560802285
+        }
+      }
+    },
+    "night-trial-tlatzacuilotl": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3450,
+        "h48c32": 2162,
+        "h32c16": 1052
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 7772,
+          "overlap": 7772,
+          "overlapPercent": 100,
+          "meanRgbError": 3.696731857951621
+        },
+        "h48c32": {
+          "union": 7833,
+          "overlap": 7642,
+          "overlapPercent": 97.5615983658879,
+          "meanRgbError": 17.548852830847075
+        },
+        "h32c16": {
+          "union": 8013,
+          "overlap": 7687,
+          "overlapPercent": 95.93161113191064,
+          "meanRgbError": 26.21204631195525
+        }
+      }
+    },
+    "night-trial-tupayo": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1461,
+        "h48c32": 980,
+        "h32c16": 479
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 3913,
+          "overlap": 3913,
+          "overlapPercent": 100,
+          "meanRgbError": 4.1720759860294745
+        },
+        "h48c32": {
+          "union": 4009,
+          "overlap": 3873,
+          "overlapPercent": 96.60763282614118,
+          "meanRgbError": 11.004217230398485
+        },
+        "h32c16": {
+          "union": 4142,
+          "overlap": 3805,
+          "overlapPercent": 91.86383389666828,
+          "meanRgbError": 16.335173017958827
+        }
+      }
+    },
+    "night-trial-tupu": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1967,
+        "h48c32": 1185,
+        "h32c16": 547
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 3614,
+          "overlap": 3614,
+          "overlapPercent": 100,
+          "meanRgbError": 2.4941892639734364
+        },
+        "h48c32": {
+          "union": 3693,
+          "overlap": 3529,
+          "overlapPercent": 95.55916598971027,
+          "meanRgbError": 15.880986115046756
+        },
+        "h32c16": {
+          "union": 3839,
+          "overlap": 3492,
+          "overlapPercent": 90.96118780932534,
+          "meanRgbError": 23.059087437953416
+        }
+      }
+    },
+    "night-trial-undead": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2166,
+        "h48c32": 1452,
+        "h32c16": 686
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 6870,
+          "overlap": 6870,
+          "overlapPercent": 100,
+          "meanRgbError": 3.0726346433770013
+        },
+        "h48c32": {
+          "union": 6904,
+          "overlap": 6779,
+          "overlapPercent": 98.18945538818076,
+          "meanRgbError": 4.656586517185426
+        },
+        "h32c16": {
+          "union": 7067,
+          "overlap": 6840,
+          "overlapPercent": 96.78788736380359,
+          "meanRgbError": 7.3505360623781675
+        }
+      }
+    },
+    "night-wind-rilai-clearing": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2592,
+        "h48c32": 1615,
+        "h32c16": 753
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4836,
+          "overlap": 4836,
+          "overlapPercent": 100,
+          "meanRgbError": 8.455059277639922
+        },
+        "h48c32": {
+          "union": 4908,
+          "overlap": 4780,
+          "overlapPercent": 97.3920130399348,
+          "meanRgbError": 25.129358437935842
+        },
+        "h32c16": {
+          "union": 5049,
+          "overlap": 4719,
+          "overlapPercent": 93.4640522875817,
+          "meanRgbError": 36.44239598785053
+        }
+      }
+    },
+    "ninianne-legend-bank": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 425,
+        "h48c32": 291,
+        "h32c16": 224
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 9298,
+          "overlap": 9298,
+          "overlapPercent": 100,
+          "meanRgbError": 0.010862551086255109
+        },
+        "h48c32": {
+          "union": 9349,
+          "overlap": 9235,
+          "overlapPercent": 98.78061824794095,
+          "meanRgbError": 1.672911026890453
+        },
+        "h32c16": {
+          "union": 9426,
+          "overlap": 9130,
+          "overlapPercent": 96.85974962868661,
+          "meanRgbError": 1.8623585250091275
+        }
+      }
+    },
+    "nod-crab-tsar-palace": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4013,
+        "h48c32": 2337,
+        "h32c16": 945
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 8447,
+          "overlap": 8447,
+          "overlapPercent": 100,
+          "meanRgbError": 3.8561224892466752
+        },
+        "h48c32": {
+          "union": 8510,
+          "overlap": 8325,
+          "overlapPercent": 97.82608695652173,
+          "meanRgbError": 14.8201001001001
+        },
+        "h32c16": {
+          "union": 8724,
+          "overlap": 8353,
+          "overlapPercent": 95.74736359468133,
+          "meanRgbError": 21.94844167764077
+        }
+      }
+    },
+    "nod-hiljetta-peninsula-camp": {
+      "tick": 33,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2318,
+        "h48c32": 1337,
+        "h32c16": 610
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4865,
+          "overlap": 4865,
+          "overlapPercent": 100,
+          "meanRgbError": 3.188626241863652
+        },
+        "h48c32": {
+          "union": 4948,
+          "overlap": 4845,
+          "overlapPercent": 97.91835084882781,
+          "meanRgbError": 10.802132782937736
+        },
+        "h32c16": {
+          "union": 4986,
+          "overlap": 4743,
+          "overlapPercent": 95.12635379061372,
+          "meanRgbError": 18.722679035772014
+        }
+      }
+    },
+    "nod-homesick-wolf-lakeland": {
+      "tick": 33,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3920,
+        "h48c32": 2435,
+        "h32c16": 1078
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 7849,
+          "overlap": 7849,
+          "overlapPercent": 100,
+          "meanRgbError": 2.784091391684716
+        },
+        "h48c32": {
+          "union": 8001,
+          "overlap": 7727,
+          "overlapPercent": 96.57542807149106,
+          "meanRgbError": 10.248263664207757
+        },
+        "h32c16": {
+          "union": 8031,
+          "overlap": 7623,
+          "overlapPercent": 94.91968621591333,
+          "meanRgbError": 14.759062486335214
+        }
+      }
+    },
+    "nod-mandragora-cliff-foot": {
+      "tick": 33,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1583,
+        "h48c32": 920,
+        "h32c16": 382
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4524,
+          "overlap": 4524,
+          "overlapPercent": 100,
+          "meanRgbError": 2.9837164750957856
+        },
+        "h48c32": {
+          "union": 4554,
+          "overlap": 4458,
+          "overlapPercent": 97.8919631093544,
+          "meanRgbError": 9.799237326155227
+        },
+        "h32c16": {
+          "union": 4608,
+          "overlap": 4448,
+          "overlapPercent": 96.52777777777777,
+          "meanRgbError": 15.218225419664268
+        }
+      }
+    },
+    "nod-raskolnikov-upper-ring": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2964,
+        "h48c32": 1758,
+        "h32c16": 779
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5090,
+          "overlap": 5090,
+          "overlapPercent": 100,
+          "meanRgbError": 4.239554682383759
+        },
+        "h48c32": {
+          "union": 5139,
+          "overlap": 5041,
+          "overlapPercent": 98.09301420509827,
+          "meanRgbError": 15.8781987700853
+        },
+        "h32c16": {
+          "union": 5262,
+          "overlap": 5023,
+          "overlapPercent": 95.45800076016724,
+          "meanRgbError": 24.287543964430288
+        }
+      }
+    },
+    "nod-sigurd-grave-court": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2263,
+        "h48c32": 1411,
+        "h32c16": 641
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 3965,
+          "overlap": 3965,
+          "overlapPercent": 100,
+          "meanRgbError": 3.7808322824716267
+        },
+        "h48c32": {
+          "union": 4021,
+          "overlap": 3882,
+          "overlapPercent": 96.54314847052972,
+          "meanRgbError": 16.371286278550574
+        },
+        "h32c16": {
+          "union": 4140,
+          "overlap": 3793,
+          "overlapPercent": 91.61835748792271,
+          "meanRgbError": 27.19667809122067
+        }
+      }
+    },
+    "ocean-judge-legend-pool": {
+      "tick": 37,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3982,
+        "h48c32": 2425,
+        "h32c16": 1076
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 9523,
+          "overlap": 9464,
+          "overlapPercent": 99.38044733802373,
+          "meanRgbError": 5.489292758523527
+        },
+        "h48c32": {
+          "union": 9628,
+          "overlap": 9345,
+          "overlapPercent": 97.06065641877856,
+          "meanRgbError": 8.05079365079365
+        },
+        "h32c16": {
+          "union": 9671,
+          "overlap": 9252,
+          "overlapPercent": 95.66745941474511,
+          "meanRgbError": 11.802349041648652
+        }
+      }
+    },
+    "ochka-bronzelock-island-court": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 6701,
+        "h48c32": 3975,
+        "h32c16": 1711
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 10691,
+          "overlap": 10691,
+          "overlapPercent": 100,
+          "meanRgbError": 3.728369656720606
+        },
+        "h48c32": {
+          "union": 10856,
+          "overlap": 10640,
+          "overlapPercent": 98.01031687546057,
+          "meanRgbError": 11.140538847117794
+        },
+        "h32c16": {
+          "union": 11008,
+          "overlap": 10609,
+          "overlapPercent": 96.37536337209302,
+          "meanRgbError": 16.351776793288717
+        }
+      }
+    },
+    "rocky-legend-ledge": {
+      "tick": 15,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3403,
+        "h48c32": 2009,
+        "h32c16": 940
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 6033,
+          "overlap": 5997,
+          "overlapPercent": 99.40328194927896,
+          "meanRgbError": 6.206936801734201
+        },
+        "h48c32": {
+          "union": 6056,
+          "overlap": 5915,
+          "overlapPercent": 97.67173051519154,
+          "meanRgbError": 9.705719921104537
+        },
+        "h32c16": {
+          "union": 6190,
+          "overlap": 5968,
+          "overlapPercent": 96.41357027463651,
+          "meanRgbError": 13.605786416443253
+        }
+      }
+    },
+    "sacred-mountain-east-isle-dais": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4567,
+        "h48c32": 2881,
+        "h32c16": 1281
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 11819,
+          "overlap": 11819,
+          "overlapPercent": 100,
+          "meanRgbError": 3.0164706545957074
+        },
+        "h48c32": {
+          "union": 11964,
+          "overlap": 11790,
+          "overlapPercent": 98.5456369107322,
+          "meanRgbError": 7.873395532937518
+        },
+        "h32c16": {
+          "union": 12113,
+          "overlap": 11741,
+          "overlapPercent": 96.92891934285478,
+          "meanRgbError": 12.817108139567896
+        }
+      }
+    },
+    "sky-maha-pavilion-court": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2040,
+        "h48c32": 1232,
+        "h32c16": 513
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4021,
+          "overlap": 4021,
+          "overlapPercent": 100,
+          "meanRgbError": 4.170853021636409
+        },
+        "h48c32": {
+          "union": 4089,
+          "overlap": 3979,
+          "overlapPercent": 97.30985571044265,
+          "meanRgbError": 12.31079835804641
+        },
+        "h32c16": {
+          "union": 4194,
+          "overlap": 3966,
+          "overlapPercent": 94.56366237482118,
+          "meanRgbError": 18.711296016137165
+        }
+      }
+    },
+    "sne-ancient-mouse-den": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1848,
+        "h48c32": 1109,
+        "h32c16": 542
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 3627,
+          "overlap": 3627,
+          "overlapPercent": 100,
+          "meanRgbError": 4.420457678522195
+        },
+        "h48c32": {
+          "union": 3703,
+          "overlap": 3608,
+          "overlapPercent": 97.4345125573859,
+          "meanRgbError": 13.480229120473023
+        },
+        "h32c16": {
+          "union": 3791,
+          "overlap": 3593,
+          "overlapPercent": 94.77710366657874,
+          "meanRgbError": 21.62185731514983
+        }
+      }
+    },
+    "sne-bandersnatch-ice-cavern": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3205,
+        "h48c32": 1984,
+        "h32c16": 1014
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 6685,
+          "overlap": 6685,
+          "overlapPercent": 100,
+          "meanRgbError": 5.814809274495138
+        },
+        "h48c32": {
+          "union": 6796,
+          "overlap": 6652,
+          "overlapPercent": 97.88110653325485,
+          "meanRgbError": 19.258769292443375
+        },
+        "h32c16": {
+          "union": 6924,
+          "overlap": 6633,
+          "overlapPercent": 95.79722703639514,
+          "meanRgbError": 29.38750690989497
+        }
+      }
+    },
+    "sne-churin-snow-court": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1175,
+        "h48c32": 677,
+        "h32c16": 340
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 2074,
+          "overlap": 2074,
+          "overlapPercent": 100,
+          "meanRgbError": 5.1123432979749275
+        },
+        "h48c32": {
+          "union": 2102,
+          "overlap": 2018,
+          "overlapPercent": 96.00380589914367,
+          "meanRgbError": 24.69672943508424
+        },
+        "h32c16": {
+          "union": 2222,
+          "overlap": 2037,
+          "overlapPercent": 91.67416741674167,
+          "meanRgbError": 37.534773359515626
+        }
+      }
+    },
+    "sne-crystal-tree-refuge": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2408,
+        "h48c32": 1408,
+        "h32c16": 652
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 3400,
+          "overlap": 3400,
+          "overlapPercent": 100,
+          "meanRgbError": 3.711078431372549
+        },
+        "h48c32": {
+          "union": 3586,
+          "overlap": 3280,
+          "overlapPercent": 91.46681539319576,
+          "meanRgbError": 15.173882113821138
+        },
+        "h32c16": {
+          "union": 3689,
+          "overlap": 3074,
+          "overlapPercent": 83.32881539712659,
+          "meanRgbError": 23.050639774452396
+        }
+      }
+    },
+    "sne-furiosa-domain-outlook": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2901,
+        "h48c32": 1731,
+        "h32c16": 810
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 4989,
+          "overlap": 4989,
+          "overlapPercent": 100,
+          "meanRgbError": 7.311084385648426
+        },
+        "h48c32": {
+          "union": 5175,
+          "overlap": 4900,
+          "overlapPercent": 94.68599033816425,
+          "meanRgbError": 23.830816326530613
+        },
+        "h32c16": {
+          "union": 5208,
+          "overlap": 4657,
+          "overlapPercent": 89.42012288786482,
+          "meanRgbError": 34.605182163052035
+        }
+      }
+    },
+    "sne-novokichev-ore-yard": {
+      "tick": 62,
+      "phase": "available",
+      "swimming": false,
+      "actors": 3,
+      "labels": [],
+      "profiles": {
+        "legacy": 8176,
+        "h48c32": 4937,
+        "h32c16": 2251
+      },
+      "hpBarRectangles": 6,
+      "fidelity": {
+        "legacy": {
+          "union": 16227,
+          "overlap": 16227,
+          "overlapPercent": 100,
+          "meanRgbError": 6.518847188841643
+        },
+        "h48c32": {
+          "union": 16505,
+          "overlap": 16072,
+          "overlapPercent": 97.37655255983036,
+          "meanRgbError": 20.356665837066533
+        },
+        "h32c16": {
+          "union": 16801,
+          "overlap": 15898,
+          "overlapPercent": 94.62531992143325,
+          "meanRgbError": 31.85692120602172
+        }
       }
     },
     "swords-of-the-gorge-legend-rift": {
@@ -66,76 +1598,163 @@
         "コルタナ",
         "モーグレイ"
       ],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 3900,
         "h48c32": 2494,
         "h32c16": 1066
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 9786,
+          "overlap": 9786,
+          "overlapPercent": 100,
+          "meanRgbError": 0.13570406703453913
+        },
+        "h48c32": {
+          "union": 9918,
+          "overlap": 9675,
+          "overlapPercent": 97.54990925589837,
+          "meanRgbError": 5.902670111972437
+        },
+        "h32c16": {
+          "union": 10062,
+          "overlap": 9574,
+          "overlapPercent": 95.15006956867423,
+          "meanRgbError": 11.237796810807048
+        }
       }
     },
-    "fading-veteran-legend-wreck": {
-      "tick": 33,
+    "tepeakak-sappho-bank": {
+      "tick": 26,
       "phase": "available",
-      "swimming": true,
+      "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
-        "legacy": 3162,
-        "h48c32": 1977,
-        "h32c16": 897
+        "legacy": 2960,
+        "h48c32": 1854,
+        "h32c16": 797
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5171,
+          "overlap": 5171,
+          "overlapPercent": 100,
+          "meanRgbError": 4.3959904596145165
+        },
+        "h48c32": {
+          "union": 5259,
+          "overlap": 5100,
+          "overlapPercent": 96.97661152310326,
+          "meanRgbError": 21.686535947712418
+        },
+        "h32c16": {
+          "union": 5449,
+          "overlap": 5095,
+          "overlapPercent": 93.50339511837035,
+          "meanRgbError": 33.275564278704614
+        }
       }
     },
-    "dobharcu-legend-garden": {
-      "tick": 35,
+    "toyac-balachko-inner-cave": {
+      "tick": 38,
       "phase": "available",
-      "swimming": true,
+      "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
-        "legacy": 2684,
-        "h48c32": 1746,
-        "h32c16": 922
+        "legacy": 3336,
+        "h48c32": 1998,
+        "h32c16": 951
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5644,
+          "overlap": 5644,
+          "overlapPercent": 100,
+          "meanRgbError": 3.522856130403969
+        },
+        "h48c32": {
+          "union": 5740,
+          "overlap": 5587,
+          "overlapPercent": 97.33449477351917,
+          "meanRgbError": 14.73724718095579
+        },
+        "h32c16": {
+          "union": 5776,
+          "overlap": 5437,
+          "overlapPercent": 94.1308864265928,
+          "meanRgbError": 22.08736435534302
+        }
       }
     },
-    "luachra-legend-shelf": {
-      "tick": 36,
+    "toyac-cocijo-stone-ring": {
+      "tick": 38,
       "phase": "available",
-      "swimming": true,
+      "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
-        "legacy": 2476,
-        "h48c32": 1525,
-        "h32c16": 657
+        "legacy": 3771,
+        "h48c32": 2332,
+        "h32c16": 1114
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 12461,
+          "overlap": 12461,
+          "overlapPercent": 100,
+          "meanRgbError": 4.243078404622422
+        },
+        "h48c32": {
+          "union": 12501,
+          "overlap": 12394,
+          "overlapPercent": 99.14406847452204,
+          "meanRgbError": 10.779086654832984
+        },
+        "h32c16": {
+          "union": 12634,
+          "overlap": 12339,
+          "overlapPercent": 97.66503086908342,
+          "meanRgbError": 18.685387794796984
+        }
       }
     },
-    "chassanion-legend-bubble-room": {
-      "tick": 37,
+    "vivianne-legend-bank": {
+      "tick": 52,
       "phase": "available",
-      "swimming": true,
+      "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
-        "legacy": 3255,
-        "h48c32": 2029,
-        "h32c16": 911
-      }
-    },
-    "erinnyes-corrouge-cleft": {
-      "tick": 39,
-      "phase": "available",
-      "swimming": true,
-      "actors": 1,
-      "labels": [],
+        "legacy": 384,
+        "h48c32": 274,
+        "h32c16": 191
+      },
       "hpBarRectangles": 0,
-      "profiles": {
-        "legacy": 1421,
-        "h48c32": 896,
-        "h32c16": 361
+      "fidelity": {
+        "legacy": {
+          "union": 5552,
+          "overlap": 5504,
+          "overlapPercent": 99.13544668587896,
+          "meanRgbError": 1.8131661821705427
+        },
+        "h48c32": {
+          "union": 5648,
+          "overlap": 5427,
+          "overlapPercent": 96.08711048158641,
+          "meanRgbError": 2.55309870401081
+        },
+        "h32c16": {
+          "union": 5687,
+          "overlap": 5373,
+          "overlapPercent": 94.47863548443819,
+          "meanRgbError": 3.5997270302127924
+        }
       }
     },
     "witztli-tristars-camp": {
@@ -144,37 +1763,97 @@
       "swimming": false,
       "actors": 3,
       "labels": [],
-      "hpBarRectangles": 6,
       "profiles": {
         "legacy": 9444,
         "h48c32": 5817,
         "h32c16": 2674
+      },
+      "hpBarRectangles": 6,
+      "fidelity": {
+        "legacy": {
+          "union": 21258,
+          "overlap": 21258,
+          "overlapPercent": 100,
+          "meanRgbError": 4.496863925737761
+        },
+        "h48c32": {
+          "union": 21511,
+          "overlap": 21022,
+          "overlapPercent": 97.72674445632467,
+          "meanRgbError": 18.78230742396854
+        },
+        "h32c16": {
+          "union": 21946,
+          "overlap": 20900,
+          "overlapPercent": 95.2337555818828,
+          "meanRgbError": 29.41377990430622
+        }
       }
     },
-    "atocpan-battlegoat-ironclaw-field": {
+    "yseut-legend-court": {
+      "tick": 20,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4046,
+        "h48c32": 2398,
+        "h32c16": 1046
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 5664,
+          "overlap": 5664,
+          "overlapPercent": 100,
+          "meanRgbError": 1.5887476459510357
+        },
+        "h48c32": {
+          "union": 5699,
+          "overlap": 5602,
+          "overlapPercent": 98.29794700824706,
+          "meanRgbError": 13.749970248720695
+        },
+        "h32c16": {
+          "union": 5820,
+          "overlap": 5624,
+          "overlapPercent": 96.63230240549828,
+          "meanRgbError": 22.498933143669987
+        }
+      }
+    },
+    "zapabay-tenochtzitoc-shallows": {
       "tick": 39,
       "phase": "available",
       "swimming": false,
-      "actors": 2,
+      "actors": 1,
       "labels": [],
-      "hpBarRectangles": 4,
       "profiles": {
-        "legacy": 3626,
-        "h48c32": 2176,
-        "h32c16": 944
-      }
-    },
-    "sne-novokichev-ore-yard": {
-      "tick": 62,
-      "phase": "available",
-      "swimming": false,
-      "actors": 3,
-      "labels": [],
-      "hpBarRectangles": 6,
-      "profiles": {
-        "legacy": 8176,
-        "h48c32": 4937,
-        "h32c16": 2251
+        "legacy": 2831,
+        "h48c32": 1770,
+        "h32c16": 851
+      },
+      "hpBarRectangles": 0,
+      "fidelity": {
+        "legacy": {
+          "union": 8041,
+          "overlap": 8041,
+          "overlapPercent": 100,
+          "meanRgbError": 7.065083115698711
+        },
+        "h48c32": {
+          "union": 8105,
+          "overlap": 7986,
+          "overlapPercent": 98.53177051202961,
+          "meanRgbError": 15.919525836881208
+        },
+        "h32c16": {
+          "union": 8239,
+          "overlap": 7986,
+          "overlapPercent": 96.92923898531375,
+          "meanRgbError": 25.99206945487937
+        }
       }
     }
   }

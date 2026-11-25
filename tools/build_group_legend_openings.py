@@ -1,4 +1,4 @@
-"""Extract a field controller’s first visible draw layer and build group legend previews."""
+"""Extract a field controller’s first visible draw layer and build local legend previews."""
 import json
 import sys
 from pathlib import Path
@@ -92,8 +92,7 @@ def build():
     gallery = {r['file']: r for r in read('content/boss-art-gallery.json')['items']}
     result = {}
     for boss in read('content/field-boss-spawns.json')['fieldBosses']:
-        if boss['controller'] == 'waterLegend' or (boss['controller'] == 'branchLegend' and
-                                                    (boss.get('members') or boss.get('partner'))):
+        if boss['id'].startswith('legend-'):
             key = boss['node']
             result[key] = capture(lua, core, boss, nodes[key], gallery, work)
             print(key, len(result[key]['parts']), flush=True)

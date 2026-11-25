@@ -66,6 +66,10 @@ M地図で行き先を選ぶと、渡し舟、昇降機、水路、位相門な�
 
 ## ボスの場所を探す
 
+「地方伝説」と地域「フォンテーヌ」を組み合わせると、5段階の背景を持つ16会場を一覧にできる。ディアンナラの研究室では「入口を開く依頼」から水洞へ移動し、調査地点の行程を読める。陸上5会場の登場ポーズは本編と同じ。イゾルトとディアンナラは「通常敵と共用する待機候補を試す」で採用前の絵を比較できる。[地域と会場を指定して開く](http://127.0.0.1:9117/map-art.html?arena=legend&region=フォンテーヌ&measured=1&node=deianeira-legend-lab&placements=live&tier=4096)
+
+全地方伝説の再検証は `python tools/build_group_legend_openings.py` で本編から開幕を取り出し、ラボを起動して `node test_group_legend_openings.mjs` を実行する。5会場の背景と共用待機候補は `node test_fontaine_land_arenas.mjs`、育成済みLv165のセーブからの道順・施錠・討伐・再読込は `python test_earned_fontaine_land_legends.py` で検証できる。
+
 「会場」の「水中の地方伝説」にはフォンテーヌの9戦が並ぶ。泳げる地点では地上用の足場を背景に重ねず、水中を移動する敵と海底の位置関係をそのまま見られる。舞台の観察には「背景だけを比較」、キャラの輪郭と色の観察にはドット絵の設定と測定ボタンを使う。シャサニョンには「会場の時期」があり、調査報告後は塔の下層の背景に変わる。[水中の9戦を開く](http://127.0.0.1:9117/map-art.html?arena=waterLegend&measured=1&node=fading-veteran-legend-wreck&placements=live&compare=background&tier=4096)
 
 再検証は `python tools/build_group_legend_openings.py` の後、ラボを起動して `node test_water_legend_arenas.mjs` を実行する。既存の6本のLua試験（`test_ocean_judge.py`、`test_iron_viscount.py`、`test_fontaine_ray_pairs.py`、`test_fontaine_echo.py`、`test_fontaine_bubbles.py`、`test_fontaine_corrouge.py`）で全9戦の水中操作と討伐を検証できる。

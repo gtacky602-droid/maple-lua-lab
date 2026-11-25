@@ -187,7 +187,9 @@ try{
   assert.equal(await visibleCards.count(),1);
   assert.equal(await visibleCards.locator('canvas').count(),2);
   await page.locator('#assetSearch').fill('ディアンナラ');
-  assert.equal(await visibleCards.count(),1);
+  const ids=await visibleCards.evaluateAll(cards=>cards.map(card=>card.dataset.id).sort());
+  assert.deepEqual(ids,['legend-deianeira','legend-deianeira-shared-operative']);
+  assert.equal(await visibleCards.locator('canvas').count(),4);
  }else{
   const revisions=lake?6:2;
   const visible=revisions*2+(revisedChizhang?2:0);

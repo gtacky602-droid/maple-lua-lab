@@ -27,6 +27,7 @@ export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBo
  field('背景を5段階で比較できる地点 ',measured);
  const query=new URLSearchParams(location.search);
  if(query.get('arena')&&Array.from(arena.options).some(o=>o.value===query.get('arena'))){arena.value=query.get('arena');panel.open=true}
+ if(query.get('region')&&Array.from(region.options).some(o=>o.value===query.get('region'))){region.value=query.get('region');panel.open=true}
  if(query.get('measured')==='1'){measured.checked=true;panel.open=true}
  const clear=document.createElement('button');clear.type='button';clear.textContent='地点の絞り込みを解除';clear.id='clearNodeSearch';controls.append(clear);
  const status=document.createElement('p');status.id='nodeSearchStatus';status.setAttribute('role','status');

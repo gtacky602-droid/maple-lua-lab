@@ -61,6 +61,21 @@
       }
     ]
   },
+  "atocpan-peak-cave": {
+    "parts": [
+      {
+        "anchorX": 0.44751381215469616,
+        "flip": false,
+        "h": 109,
+        "hover": 0,
+        "id": "legend-natlan_peak",
+        "name": "ピーク",
+        "species": "boss-legend-peak",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
   "chassanion-legend-bubble-room": {
     "parts": [
       {
@@ -102,6 +117,36 @@
       }
     ]
   },
+  "cineas-legend-chamber": {
+    "parts": [
+      {
+        "anchorX": 0.5821917808219178,
+        "flip": false,
+        "h": 118,
+        "hover": 0,
+        "id": "legend-fontaine_cineas",
+        "name": "シネアス",
+        "species": "boss-cineas-revised",
+        "x": 925,
+        "y": 480
+      }
+    ]
+  },
+  "deianeira-legend-lab": {
+    "parts": [
+      {
+        "anchorX": 0.6148148148148148,
+        "flip": false,
+        "h": 116,
+        "hover": 0,
+        "id": "legend-fontaine_deianeira_of_snezhevna",
+        "name": "スネージヴナのディアンナラ",
+        "species": "boss-legend-deianeira",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
   "dobharcu-legend-garden": {
     "parts": [
       {
@@ -114,6 +159,21 @@
         "species": "boss-legend-dobharcu",
         "x": 842,
         "y": 484
+      }
+    ]
+  },
+  "dorn-churldric-cooking-camp": {
+    "parts": [
+      {
+        "anchorX": 0.504950495049505,
+        "flip": false,
+        "h": 122,
+        "hover": 0,
+        "id": "legend-mondstadt_churldric",
+        "name": "チャルデリック",
+        "species": "boss-legend-churldric",
+        "x": 830,
+        "y": 480
       }
     ]
   },
@@ -193,6 +253,51 @@
       }
     ]
   },
+  "frost-mushteshir-inner-chamber": {
+    "parts": [
+      {
+        "anchorX": 0.45454545454545453,
+        "flip": false,
+        "h": 101,
+        "hover": 0,
+        "id": "legend-frostmoon_mushteshir",
+        "name": "ムーシュ＝テヒル",
+        "species": "boss-legend-mushteshir",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "frost-prism-slime-basin": {
+    "parts": [
+      {
+        "anchorX": 0.4942528735632184,
+        "flip": false,
+        "h": 81,
+        "hover": 0,
+        "id": "legend-frostmoon_prism_slime",
+        "name": "プリズムスライム",
+        "species": "boss-legend-prism-slime",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "gravity-device-legend-terrace": {
+    "parts": [
+      {
+        "anchorX": 0.5113636363636364,
+        "flip": false,
+        "h": 127,
+        "hover": 0,
+        "id": "legend-fontaine_automated_supercomputing_field_generator",
+        "name": "自律スーパー・コンピューティング型力場生成装置",
+        "species": "boss-legend-gravity-device",
+        "x": 820,
+        "y": 480
+      }
+    ]
+  },
   "iron-viscount-legend-pool": {
     "parts": [
       {
@@ -204,6 +309,21 @@
         "name": "鉄皮の子爵",
         "species": "boss-legend-iron-viscount",
         "x": 851,
+        "y": 480
+      }
+    ]
+  },
+  "liam-legend-pond": {
+    "parts": [
+      {
+        "anchorX": 0.4520547945205479,
+        "flip": false,
+        "h": 102,
+        "hover": 0,
+        "id": "legend-fontaine_liam",
+        "name": "リアム",
+        "species": "boss-legend-liam",
+        "x": 890,
         "y": 480
       }
     ]
@@ -223,6 +343,306 @@
       }
     ]
   },
+  "night-trial-atlatl": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 122,
+        "hover": 0,
+        "id": "legend-natlan_atlatl",
+        "name": "アトラトの祝福",
+        "species": "boss-legend-atlatl",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-chimalli": {
+    "parts": [
+      {
+        "anchorX": 0.49767441860465117,
+        "flip": false,
+        "h": 113,
+        "hover": 0,
+        "id": "legend-natlan_chimalli",
+        "name": "シェマリの陰",
+        "species": "boss-legend-chimalli",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-cihuacoatl": {
+    "parts": [
+      {
+        "anchorX": 0.5595238095238095,
+        "flip": false,
+        "h": 112,
+        "hover": 0,
+        "id": "legend-natlan_cihuacoatl",
+        "name": "神骨の蛇姫",
+        "species": "boss-legend-cihuacoatl",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-fallen-dawnstar": {
+    "parts": [
+      {
+        "anchorX": 0.49572649572649574,
+        "flip": false,
+        "h": 105,
+        "hover": 0,
+        "id": "legend-natlan_fallen_dawnstar",
+        "name": "墜落せし晨星の霊",
+        "species": "boss-legend-fallen-dawnstar",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-ichcahuipilli": {
+    "parts": [
+      {
+        "anchorX": 0.4909090909090909,
+        "flip": false,
+        "h": 122,
+        "hover": 0,
+        "id": "legend-natlan_ichcahuipilli",
+        "name": "イチカウイピリの庇護",
+        "species": "boss-legend-ichcahuipilli",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-ironbeard": {
+    "parts": [
+      {
+        "anchorX": 0.5841584158415841,
+        "flip": false,
+        "h": 115,
+        "hover": 0,
+        "id": "legend-natlan_ironbeard",
+        "name": "鉄髭",
+        "species": "boss-legend-ironbeard",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-potapo": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 120,
+        "hover": 0,
+        "id": "legend-natlan_potapo",
+        "name": "ポタポの応援",
+        "species": "boss-legend-potapo",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-reji": {
+    "parts": [
+      {
+        "anchorX": 0.5094339622641509,
+        "flip": false,
+        "h": 112,
+        "hover": 0,
+        "id": "legend-natlan_reji",
+        "name": "レジ",
+        "species": "boss-legend-reji",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-tlatzacuilotl": {
+    "parts": [
+      {
+        "anchorX": 0.6434108527131783,
+        "flip": false,
+        "h": 113,
+        "hover": 0,
+        "id": "legend-natlan_tlatzacuilotl",
+        "name": "トゥラカルワスクアウィトゥル",
+        "species": "boss-legend-tlatzacuilotl",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-tupayo": {
+    "parts": [
+      {
+        "anchorX": 0.494949494949495,
+        "flip": false,
+        "h": 123,
+        "hover": 0,
+        "id": "legend-natlan_tupayo",
+        "name": "トゥパヨの協力",
+        "species": "boss-legend-tupayo",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-tupu": {
+    "parts": [
+      {
+        "anchorX": 0.4931506849315068,
+        "flip": false,
+        "h": 123,
+        "hover": 0,
+        "id": "legend-natlan_tupu",
+        "name": "トゥプの繁栄",
+        "species": "boss-legend-tupu",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-trial-undead": {
+    "parts": [
+      {
+        "anchorX": 0.4959349593495935,
+        "flip": false,
+        "h": 85,
+        "hover": 0,
+        "id": "legend-natlan_undead",
+        "name": "アンデッド",
+        "species": "boss-legend-undead",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "night-wind-rilai-clearing": {
+    "parts": [
+      {
+        "anchorX": 0.4625,
+        "flip": false,
+        "h": 111,
+        "hover": 0,
+        "id": "legend-natlan_rilai",
+        "name": "リライ",
+        "species": "boss-legend-rilai",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
+  "ninianne-legend-bank": {
+    "parts": [
+      {
+        "anchorX": 0.49743589743589745,
+        "flip": false,
+        "h": 114,
+        "hover": 0,
+        "id": "legend-fontaine_ninianne_of_the_lake",
+        "name": "湖辺のニニアン",
+        "species": "boss-lake-ninianne-idle-v5-a",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "nod-crab-tsar-palace": {
+    "parts": [
+      {
+        "anchorX": 0.5563380281690141,
+        "flip": false,
+        "h": 85,
+        "hover": 0,
+        "id": "legend-nod_crab_tsar",
+        "name": "カニ皇帝",
+        "species": "boss-legend-crab-tsar",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "nod-hiljetta-peninsula-camp": {
+    "parts": [
+      {
+        "anchorX": 0.4393939393939394,
+        "flip": false,
+        "h": 110,
+        "hover": 0,
+        "id": "legend-nod_hiljetta",
+        "name": "ハイジェード",
+        "species": "boss-legend-hiljetta",
+        "x": 825,
+        "y": 480
+      }
+    ]
+  },
+  "nod-homesick-wolf-lakeland": {
+    "parts": [
+      {
+        "anchorX": 0.41935483870967744,
+        "flip": false,
+        "h": 108,
+        "hover": 0,
+        "id": "legend-nod_homesick_lone_wolf",
+        "name": "故郷を偲ぶ孤独の狼",
+        "species": "boss-legend-homesick-wolf",
+        "x": 825,
+        "y": 480
+      }
+    ]
+  },
+  "nod-mandragora-cliff-foot": {
+    "parts": [
+      {
+        "anchorX": 0.32222222222222224,
+        "flip": false,
+        "h": 84,
+        "hover": 0,
+        "id": "legend-nod_hexadecatonic_mandragora",
+        "name": "十六倍マンドラゴラ",
+        "species": "boss-legend-mandragora",
+        "x": 825,
+        "y": 480
+      }
+    ]
+  },
+  "nod-raskolnikov-upper-ring": {
+    "parts": [
+      {
+        "anchorX": 0.6261682242990654,
+        "flip": false,
+        "h": 121,
+        "hover": 0,
+        "id": "legend-nod_raskolnikov",
+        "name": "ラスコルニコフ",
+        "species": "boss-legend-raskolnikov",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "nod-sigurd-grave-court": {
+    "parts": [
+      {
+        "anchorX": 0.7111111111111111,
+        "flip": false,
+        "h": 114,
+        "hover": 0,
+        "id": "legend-nod_sigurd",
+        "name": "シグルド",
+        "species": "boss-legend-sigurd",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
   "ocean-judge-legend-pool": {
     "parts": [
       {
@@ -234,6 +654,141 @@
         "name": "オーシャン巡回法官",
         "species": "boss-legend-ocean-judge",
         "x": 850,
+        "y": 480
+      }
+    ]
+  },
+  "ochka-bronzelock-island-court": {
+    "parts": [
+      {
+        "anchorX": 0.4312796208530806,
+        "flip": false,
+        "h": 107,
+        "hover": 0,
+        "id": "legend-natlan_bronzelock",
+        "name": "銅の錠",
+        "species": "boss-legend-bronzelock",
+        "x": 832,
+        "y": 480
+      }
+    ]
+  },
+  "rocky-legend-ledge": {
+    "parts": [
+      {
+        "anchorX": 0.5308641975308642,
+        "flip": false,
+        "h": 106,
+        "hover": 0,
+        "id": "legend-fontaine_rocky_avildsen",
+        "name": "ロッキー・アヴィルドセン",
+        "species": "boss-legend-rocky",
+        "x": 760,
+        "y": 480
+      }
+    ]
+  },
+  "sacred-mountain-east-isle-dais": {
+    "parts": [
+      {
+        "anchorX": 0.4675925925925926,
+        "flip": false,
+        "h": 91,
+        "hover": 0,
+        "id": "legend-natlan_infinitesimal",
+        "name": "微末",
+        "species": "boss-legend-infinitesimal",
+        "x": 832,
+        "y": 480
+      }
+    ]
+  },
+  "sky-maha-pavilion-court": {
+    "parts": [
+      {
+        "anchorX": 0.4788732394366197,
+        "flip": false,
+        "h": 97,
+        "hover": 0,
+        "id": "legend-mondstadt_maha_vasudevayaputra",
+        "name": "マハーヴァスデーヴァヤプトラ太子",
+        "species": "boss-legend-maha-vasudevayaputra",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "sne-ancient-mouse-den": {
+    "parts": [
+      {
+        "anchorX": 0.4533333333333333,
+        "flip": false,
+        "h": 75,
+        "hover": 0,
+        "id": "legend-snez_ancient_ironquill",
+        "name": "古代種・カチカチネズミ",
+        "species": "boss-legend-ancient-mouse",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "sne-bandersnatch-ice-cavern": {
+    "parts": [
+      {
+        "anchorX": 0.42201834862385323,
+        "flip": false,
+        "h": 99,
+        "hover": 0,
+        "id": "legend-snez_bandersnatch",
+        "name": "バンダースナッチ",
+        "species": "boss-legend-bandersnatch",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "sne-churin-snow-court": {
+    "parts": [
+      {
+        "anchorX": 0.42424242424242425,
+        "flip": false,
+        "h": 94,
+        "hover": 0,
+        "id": "legend-snez_churin",
+        "name": "チュリン",
+        "species": "boss-legend-churin",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "sne-crystal-tree-refuge": {
+    "parts": [
+      {
+        "anchorX": 0.4647887323943662,
+        "flip": false,
+        "h": 124,
+        "hover": 0,
+        "id": "legend-snez_elder_blighttree",
+        "name": "災禍古樹",
+        "species": "boss-legend-calamitous-tree",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "sne-furiosa-domain-outlook": {
+    "parts": [
+      {
+        "anchorX": 0.5242718446601942,
+        "flip": false,
+        "h": 124,
+        "hover": 0,
+        "id": "legend-snez_furiosa",
+        "name": "フュリオサ",
+        "species": "boss-legend-furiosa",
+        "x": 830,
         "y": 480
       }
     ]
@@ -375,6 +930,66 @@
       }
     ]
   },
+  "tepeakak-sappho-bank": {
+    "parts": [
+      {
+        "anchorX": 0.5151515151515151,
+        "flip": false,
+        "h": 109,
+        "hover": 0,
+        "id": "legend-natlan_sappho",
+        "name": "波のジャプー",
+        "species": "boss-legend-sappho",
+        "x": 800,
+        "y": 480
+      }
+    ]
+  },
+  "toyac-balachko-inner-cave": {
+    "parts": [
+      {
+        "anchorX": 0.494949494949495,
+        "flip": false,
+        "h": 112,
+        "hover": 0,
+        "id": "legend-natlan_balachko",
+        "name": "バラチコ",
+        "species": "boss-legend-balachko",
+        "x": 842,
+        "y": 480
+      }
+    ]
+  },
+  "toyac-cocijo-stone-ring": {
+    "parts": [
+      {
+        "anchorX": 0.44021739130434784,
+        "flip": false,
+        "h": 98,
+        "hover": 0,
+        "id": "legend-natlan_cocijo",
+        "name": "コシーホ",
+        "species": "boss-legend-cocijo",
+        "x": 842,
+        "y": 480
+      }
+    ]
+  },
+  "vivianne-legend-bank": {
+    "parts": [
+      {
+        "anchorX": 0.4953271028037383,
+        "flip": false,
+        "h": 131.1,
+        "hover": 0,
+        "id": "legend-fontaine_vivianne_of_the_lake",
+        "name": "湖辺のヴィヴィアン",
+        "species": "boss-lake-vivianne-idle-v5-a",
+        "x": 890,
+        "y": 480
+      }
+    ]
+  },
   "witztli-tristars-camp": {
     "parts": [
       {
@@ -462,6 +1077,36 @@
         "name": "炎銃",
         "species": "boss-legend-tristars-pyro",
         "x": 1050,
+        "y": 480
+      }
+    ]
+  },
+  "yseut-legend-court": {
+    "parts": [
+      {
+        "anchorX": 0.5185185185185185,
+        "flip": false,
+        "h": 104,
+        "hover": 0,
+        "id": "legend-fontaine_yseut",
+        "name": "イゾルト",
+        "species": "boss-legend-yseut",
+        "x": 780,
+        "y": 480
+      }
+    ]
+  },
+  "zapabay-tenochtzitoc-shallows": {
+    "parts": [
+      {
+        "anchorX": 0.49557522123893805,
+        "flip": false,
+        "h": 119,
+        "hover": 0,
+        "id": "legend-natlan_last_tenochtzitoc",
+        "name": "最後のテノチズトク人",
+        "species": "boss-legend-last-tenochtzitoc",
+        "x": 845,
         "y": 480
       }
     ]

@@ -148,7 +148,7 @@ try{
    const option=document.createElement('option');option.value=id;option.textContent=name;$('species').append(option);
   }
  }
- const galleryFiles=new Map();
+ const galleryFiles=new Map(),idleCandidates=new Map();
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
   const loaded=await Promise.all(gallery.items.map(async item=>{
@@ -161,7 +161,7 @@ try{
    const size={h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
    return {item,art:{...data,...size,left:left&&{...left,...size}}};
   }));
-  for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
+  for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;if(kind==='boss' && item.candidateFor)idleCandidates.set(item.candidateFor,id);const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
  for(const boss of weeklyData.weeklyBosses){
@@ -187,6 +187,15 @@ try{
    const quests=stepsByNode.get(step.node);
    if(!quests.has(quest))quests.set(quest,[]);
    quests.get(quest).push({number:index+1,objective:step.objective});
+  }
+ }
+ const questGates=new Map(),questsById=new Map(graph.quests.map(q=>[q.id,q]));
+ for(const from of graph.nodes){
+  for(const gate of from.exits){
+   const quest=questsById.get(gate.requires?.quest);
+   if(!quest)continue;
+   if(!questGates.has(gate.to))questGates.set(gate.to,[]);
+   questGates.get(gate.to).push({from,quest});
   }
  }
  const questNotes=new Map();
@@ -278,10 +287,16 @@ try{
   return {camera,platforms:n.platforms,storySwim:Boolean(n.swim),storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
  }
  function placements(){return drafts.nodes[node().id]??[]}
+ function previewCandidate(e){return liveView && $('candidateIdle').checked && idleCandidates.has(e.id)}
+ $('candidateIdle').onchange=render;
  function placementArt(e){
   const original=assets[e.species],art=e.flip&&original.left?original.left:original;
   const boss=arenaPreviews.get(node().id);
   const part=openings[node().id]?.parts.find(p=>p.id===e.id && p.species===e.species);
+  if(part && previewCandidate(e)){
+   const candidate=assets[idleCandidates.get(e.id)];
+   return {...candidate,h:part.h,hover:part.hover,openingPose:true,mirrorSource:true};
+  }
   if(part)return {...original,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,weaponMarks:part.weaponMarks,behind:part.behind,rotation:part.rotation,anchorY:part.anchorY,openingPose:true,mirrorSource:true,rear:null};
   if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
    if(boss.controller==='branchLegend' && boss.openingPose){
@@ -371,13 +386,13 @@ try{
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
-  $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
+  $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};
   const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
   const fidelity=$('spriteFidelity');
-  const currentKey=[n.id,camera,profile,subject.value,matchedSprites].join('/');
+  const currentKey=[n.id,camera,profile,subject.value,matchedSprites,$('candidateIdle').checked].join('/');
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
@@ -469,7 +484,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=stygianScenes[n.id]?'幽境・4難度に共通する開始時の配置':fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
+   const label=visibleItems.some(previewCandidate)?'通常敵と共用する待機絵の候補':stygianScenes[n.id]?'幽境・4難度に共通する開始時の配置':fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -502,6 +517,20 @@ try{
   const n=node(),camera=$('camera');
   $('sceneryPhaseControl').hidden=!n.locationAfterReport;
   $('sceneryPhase').value=n.id===openingNode.id && n.locationAfterReport && query.get('phase')==='after'?'after':'before';
+  const candidateAvailable=liveView && openings[n.id]?.parts.some(part=>idleCandidates.has(part.id));
+  $('candidateIdleControl').hidden=!candidateAvailable;
+  $('candidateIdle').checked=Boolean(candidateAvailable && n.id===openingNode.id && query.get('idle')==='candidate');
+  const access=$('legendAccess'),accessList=access.querySelector('ul');
+  accessList.replaceChildren();
+  if(liveView && legendNames.has(n.id)){
+   for(const {from,quest} of questGates.get(n.id)??[]){
+    const item=document.createElement('li'),link=document.createElement('a');
+    link.href='map-art.html?'+new URLSearchParams({node:from.id,placements:'live'});
+    link.textContent=from.name;item.append(link,'から入るには、依頼「'+quest.name+'」を報告（受注Lv'+quest.level+'）。');
+    accessList.append(item);
+   }
+  }
+  access.hidden=!accessList.children.length;
   const questPanel=$('localQuestSteps'),steps=stepsByNode.get(n.id);
   questPanel.hidden=!(liveView && steps);
   const questList=questPanel.querySelector('div');

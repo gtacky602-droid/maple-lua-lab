@@ -1,0 +1,51 @@
+{
+  "origin": "Five original ImageGen local-lab backdrops matched to the field design records.",
+  "sharedPrompt": "Create a single original wide 16:9 pixel-art environment painting for a side-scrolling 2D RPG in a French-inspired fantasy Fontaine setting. Fixed side view, artful 1990s pixel clusters, 3 distinct spatial planes, restrained large areas of consistent colour with deliberate highlights. Keep horizontal fighting space open in the middle-right, foreground floor at the bottom, lower edges subdued. Suitable for compressing to 4096 rectangles at 512x288. No characters, weapons being used, creatures, written text, logo, status bars or interface. Full-bleed single scene.",
+  "scenes": [
+    {
+      "key": "yseutDrill",
+      "node": "yseut-legend-court",
+      "source": "yseut-drill-background-v1.png",
+      "preview": "yseut-drill-native-preview-v1.png",
+      "note": "西の丘・巡視の訓練場のラボ用仮背景",
+      "surface": "grass",
+      "prompt": "An isolated hilltop patrol training ground. Swept golden grass and a rough circular patch of packed ground, two weathered training posts and a tied blue canvas awning against a large boulder at the left, a low fieldstone wall framing the far edge. Open sunlit upland countryside and winding path in soft green haze; no town plaza."
+    },
+    {
+      "key": "gravityTestTerrace",
+      "node": "gravity-device-legend-terrace",
+      "source": "gravity-test-terrace-background-v1.png",
+      "preview": "gravity-test-terrace-native-preview-v1.png",
+      "note": "北の岩道・力場試験の台地のラボ用仮背景",
+      "surface": "stone",
+      "prompt": "An outdoor experimental terrace on a pale rocky upland. Remnants of an abandoned field laboratory: brass conductor pylons bolted to a partially sunken circular engraved plate, an empty instrument housing to the left, three distant rock fragments hanging motionless above the valley. Pale blue sky and weathered chalk escarpments. No robot, boss, large field in the center or indoor hall."
+    },
+    {
+      "key": "rockyFallsLedge",
+      "node": "rocky-legend-ledge",
+      "source": "rocky-falls-ledge-background-v1.png",
+      "preview": "rocky-falls-ledge-native-preview-v1.png",
+      "note": "東の滝・岩棚の練武場のラボ用仮背景",
+      "surface": "stone",
+      "prompt": "A natural rock ledge beside a spectacular slender waterfall in the eastern hills. Cascading water and cool mist behind the left side, terraced ochre limestone to the right, late-summer grasses beside the worn flat stone training floor. No stairs or buildings in the foreground."
+    },
+    {
+      "key": "liamCliffPond",
+      "node": "liam-legend-pond",
+      "source": "liam-cliff-pond-background-v1.png",
+      "preview": "liam-cliff-pond-native-preview-v1.png",
+      "note": "東端の崖・薬瓶の池畔のラボ用仮背景",
+      "surface": "grass",
+      "prompt": "A quiet tawny cliffside pond. The still jade water reflects willow reeds and a steep eastern crag. A little wooden travel case with several small coloured glass vials at the far left, and a low bank of rust-coloured brush. Warm amber sunset gives copper reflections across the pond. Dry walkable shore in the foreground."
+    },
+    {
+      "key": "deianeiraDryLab",
+      "node": "deianeira-legend-lab",
+      "source": "deianeira-dry-lab-background-v1.png",
+      "preview": "deianeira-dry-lab-native-preview-v1.png",
+      "note": "東の島・水中研究室の乾いた床のラボ用仮背景",
+      "surface": "stone",
+      "prompt": "A dry sealed research room inside a drowned laboratory, completely dry tiled stone floor. One large thick round glass viewport looking out into blue-green water; suspended silt, kelp and bubbles are confined visibly OUTSIDE the glass. Pressure door, aged brass braces and a workbench on the left. Warm lamp on the desk for contrast, teal light falls across floor from the porthole. No theatrical props or curtains."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1435,
+  "verifiedModules": 1460,
   "dimensions": [
     512,
     288
@@ -1035,6 +1035,41 @@
       "5632": 27285,
       "6144": 29479
     },
+    "yseut-drill-background-v1.png": {
+      "4096": 17994,
+      "4608": 21480,
+      "5120": 24831,
+      "5632": 28189,
+      "6144": 30379
+    },
+    "gravity-test-terrace-background-v1.png": {
+      "4096": 17543,
+      "4608": 21001,
+      "5120": 24316,
+      "5632": 27590,
+      "6144": 29750
+    },
+    "rocky-falls-ledge-background-v1.png": {
+      "4096": 17796,
+      "4608": 21276,
+      "5120": 24637,
+      "5632": 27973,
+      "6144": 30157
+    },
+    "liam-cliff-pond-background-v1.png": {
+      "4096": 17898,
+      "4608": 21460,
+      "5120": 24895,
+      "5632": 28321,
+      "6144": 30171
+    },
+    "deianeira-dry-lab-background-v1.png": {
+      "4096": 17772,
+      "4608": 21240,
+      "5120": 24571,
+      "5632": 27919,
+      "6144": 30103
+    },
     "iron-viscount-background-v1.png": {
       "4096": 17600,
       "4608": 21026,
@@ -2019,7 +2054,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 313
+      "verified": 318
     },
     "domainHunts": {
       "total": 124,
@@ -2093,17 +2128,14 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 77,
+      "verified": 82,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
         "cineas-legend-chamber",
-        "deianeira-legend-lab",
         "dorn-churldric-cooking-camp",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "gravity-device-legend-terrace",
-        "liam-legend-pond",
         "night-trial-atlatl",
         "night-trial-chimalli",
         "night-trial-cihuacoatl",
@@ -2124,7 +2156,6 @@
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
         "ochka-bronzelock-island-court",
-        "rocky-legend-ledge",
         "sacred-mountain-east-isle-dais",
         "sky-maha-pavilion-court",
         "sne-ancient-mouse-den",
@@ -2136,7 +2167,6 @@
         "tepeakak-sappho-bank",
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
-        "yseut-legend-court",
         "zapabay-tenochtzitoc-shallows"
       ]
     },
@@ -2147,17 +2177,14 @@
     },
     "localLegends": {
       "totalArenas": 56,
-      "verified": 13,
+      "verified": 18,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
         "cineas-legend-chamber",
-        "deianeira-legend-lab",
         "dorn-churldric-cooking-camp",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "gravity-device-legend-terrace",
-        "liam-legend-pond",
         "night-trial-atlatl",
         "night-trial-chimalli",
         "night-trial-cihuacoatl",
@@ -2178,7 +2205,6 @@
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
         "ochka-bronzelock-island-court",
-        "rocky-legend-ledge",
         "sacred-mountain-east-isle-dais",
         "sky-maha-pavilion-court",
         "sne-ancient-mouse-den",
@@ -2190,7 +2216,6 @@
         "tepeakak-sappho-bank",
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
-        "yseut-legend-court",
         "zapabay-tenochtzitoc-shallows"
       ]
     },

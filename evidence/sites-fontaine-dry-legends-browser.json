@@ -7,9 +7,9 @@
   "bothRetreatsAndReentryPassed": true,
   "measuredDrawCommandsSamePausedFrame": {
     "yseut": {
-      "png": 24,
-      "legacy": 8836,
-      "h32c16": 2201
+      "png": 21,
+      "legacy": 8142,
+      "h32c16": 2055
     }
   },
   "errors": []

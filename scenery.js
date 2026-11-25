@@ -1,6 +1,11 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ yseutDrill:{file:'yseut-drill-background-v1.png',decodedPreview:'yseut-drill-native-preview-v1.png',decodedTiers:'yseut-drill-native-tiers-v1.webp',surface:'grass',zones:['story:yseut-legend-court'],note:'西の丘・巡視の訓練場のラボ用仮背景'},
+ gravityTestTerrace:{file:'gravity-test-terrace-background-v1.png',decodedPreview:'gravity-test-terrace-native-preview-v1.png',decodedTiers:'gravity-test-terrace-native-tiers-v1.webp',surface:'stone',zones:['story:gravity-device-legend-terrace'],note:'北の岩道・力場試験の台地のラボ用仮背景'},
+ rockyFallsLedge:{file:'rocky-falls-ledge-background-v1.png',decodedPreview:'rocky-falls-ledge-native-preview-v1.png',decodedTiers:'rocky-falls-ledge-native-tiers-v1.webp',surface:'stone',zones:['story:rocky-legend-ledge'],note:'東の滝・岩棚の練武場のラボ用仮背景'},
+ liamCliffPond:{file:'liam-cliff-pond-background-v1.png',decodedPreview:'liam-cliff-pond-native-preview-v1.png',decodedTiers:'liam-cliff-pond-native-tiers-v1.webp',surface:'grass',zones:['story:liam-legend-pond'],note:'東端の崖・薬瓶の池畔のラボ用仮背景'},
+ deianeiraDryLab:{file:'deianeira-dry-lab-background-v1.png',decodedPreview:'deianeira-dry-lab-native-preview-v1.png',decodedTiers:'deianeira-dry-lab-native-tiers-v1.webp',surface:'stone',zones:['story:deianeira-legend-lab'],note:'東の島・水中研究室の乾いた床のラボ用仮背景'},
  erinnyesRootCleft:{file:'corrouge-root-cleft-background-v1.png',decodedPreview:'corrouge-root-cleft-native-preview-v1.png',decodedTiers:'corrouge-root-cleft-native-tiers-v1.webp',zones:['story:erinnyes-corrouge-cleft','story:erinnyes-root-waterway'],note:'エリニュスの根・クルージュの割れ目の仮背景'},
  dobharcuGarden:{file:'hidden-watergarden-background-v1.png',decodedPreview:'hidden-watergarden-native-preview-v1.png',decodedTiers:'hidden-watergarden-native-tiers-v1.webp',zones:['story:dobharcu-legend-garden'],note:'希望の道・隠者の水庭の仮背景'},
  eltonWreck:{file:'veteran-wreck-background-v1.png',decodedPreview:'veteran-wreck-native-preview-v1.png',decodedTiers:'veteran-wreck-native-tiers-v1.webp',zones:['story:fading-veteran-legend-wreck'],note:'エルトン海溝・老兵の沈船跡の仮背景'},

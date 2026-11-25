@@ -1,0 +1,136 @@
+{
+  "region": "フォンテーヌ",
+  "measured": [
+    "chassanion-legend-bubble-room",
+    "deianeira-legend-lab",
+    "dobharcu-legend-garden",
+    "erinnyes-corrouge-cleft",
+    "fading-veteran-legend-wreck",
+    "fairy-knight-twins-legend-court",
+    "gravity-device-legend-terrace",
+    "iron-viscount-legend-pool",
+    "liam-legend-pond",
+    "luachra-legend-shelf",
+    "ninianne-legend-bank",
+    "ocean-judge-legend-pool",
+    "rocky-legend-ledge",
+    "swords-of-the-gorge-legend-rift",
+    "vivianne-legend-bank",
+    "yseut-legend-court"
+  ],
+  "results": [
+    {
+      "node": "yseut-legend-court",
+      "name": "イゾルト",
+      "source": "yseut-drill-background-v1.png",
+      "tiers": {
+        "4096": 17994,
+        "4608": 21480,
+        "5120": 24831,
+        "5632": 28189,
+        "6144": 30379
+      },
+      "opening": {
+        "id": "legend-fontaine_yseut",
+        "source": "fontaine-dry-legend-poses-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 104
+      },
+      "preview": {
+        "source": "fatui-frost-operative-shared-idle-source-v2.png",
+        "shape": {
+          "union": 3769,
+          "overlap": 3463,
+          "overlapPercent": 91.88113557972937,
+          "meanRgbError": 27.75878332852055
+        }
+      }
+    },
+    {
+      "node": "gravity-device-legend-terrace",
+      "name": "自律スーパー・コンピューティング型力場生成装置",
+      "source": "gravity-test-terrace-background-v1.png",
+      "tiers": {
+        "4096": 17543,
+        "4608": 21001,
+        "5120": 24316,
+        "5632": 27590,
+        "6144": 29750
+      },
+      "opening": {
+        "id": "legend-fontaine_automated_supercomputing_field_generator",
+        "source": "fontaine-dry-legend-poses-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 127
+      }
+    },
+    {
+      "node": "rocky-legend-ledge",
+      "name": "ロッキー・アヴィルドセン",
+      "source": "rocky-falls-ledge-background-v1.png",
+      "tiers": {
+        "4096": 17796,
+        "4608": 21276,
+        "5120": 24637,
+        "5632": 27973,
+        "6144": 30157
+      },
+      "opening": {
+        "id": "legend-fontaine_rocky_avildsen",
+        "source": "fontaine-dry-legend-poses-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 106
+      }
+    },
+    {
+      "node": "liam-legend-pond",
+      "name": "リアム",
+      "source": "liam-cliff-pond-background-v1.png",
+      "tiers": {
+        "4096": 17898,
+        "4608": 21460,
+        "5120": 24895,
+        "5632": 28321,
+        "6144": 30171
+      },
+      "opening": {
+        "id": "legend-fontaine_liam",
+        "source": "fontaine-dry-legend-poses-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 102
+      }
+    },
+    {
+      "node": "deianeira-legend-lab",
+      "name": "スネージヴナのディアンナラ",
+      "source": "deianeira-dry-lab-background-v1.png",
+      "tiers": {
+        "4096": 17772,
+        "4608": 21240,
+        "5120": 24571,
+        "5632": 27919,
+        "6144": 30103
+      },
+      "opening": {
+        "id": "legend-fontaine_deianeira_of_snezhevna",
+        "source": "fontaine-dry-legend-poses-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 116
+      },
+      "preview": {
+        "source": "fatui-wind-operative-shared-idle-source-v2.png",
+        "shape": {
+          "union": 6237,
+          "overlap": 5877,
+          "overlapPercent": 94.22799422799423,
+          "meanRgbError": 25.07072769553627
+        }
+      }
+    }
+  ]
+}
