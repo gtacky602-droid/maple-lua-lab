@@ -147,10 +147,10 @@ return function(C,canInspect)
   s.camera=clamp(actor.x-460,0,math.max(0,s.worldwidth-960))
  end
 
- function surf.observe(f,s,draws,node,q,state,mode,profile)
+ function surf.observe(f,s,window,node,q,state,mode,profile)
   if not state then return end
   local props=C.mualaniSurfArt
-  local window={draws=draws}
+  local draws=window.draws
   local function art(id,x,y,h,flip)
    local sprite=props[id]
    local half=h*sprite.box[3]/sprite.box[4]/2

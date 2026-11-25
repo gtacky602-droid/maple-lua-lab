@@ -1,0 +1,41 @@
+{
+  "completedMain": 3,
+  "completedSide": 5,
+  "level": 120,
+  "partyWipes": 0,
+  "springs": {
+    "best": {
+      "high-low-high": 281
+    },
+    "layout": {
+      "reach": "high",
+      "rise": "high",
+      "roof": "low"
+    },
+    "samples": {
+      "high": 152,
+      "low": 64
+    }
+  },
+  "training": {
+    "baseline": {
+      "hits": 2,
+      "stopped": [
+        1,
+        10,
+        170
+      ],
+      "ticks": 565
+    },
+    "focus": "recovery",
+    "retest": {
+      "hits": 1,
+      "stopped": [
+        1,
+        10,
+        0
+      ],
+      "ticks": 395
+    }
+  }
+}

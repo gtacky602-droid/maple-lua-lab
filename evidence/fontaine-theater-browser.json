@@ -16,5 +16,9 @@
   "packedLiveFrame": true,
   "mobileWidth": 390,
   "atlas": "fon-magic-seats",
+  "stagePixels": {
+    "fontaine-exhibits-frame": "同じ背景を含む画面全体で、色が変わったのは 20,350 / 518,400 ピクセル（3.9%）。",
+    "natlan-podium-frame": "同じ背景を含む画面全体で、色が変わったのは 11,175 / 518,400 ピクセル（2.2%）。"
+  },
   "errors": []
 }

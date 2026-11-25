@@ -425,6 +425,6 @@ if after_revisits:
     for key, record in checkpoint['story']['quests'].items():
         if record['status'] == 'complete':
             assert saved['story']['quests'][key] == record
-    (ROOT/'evidence/fontaine-revisit-save.json').write_text(json.dumps(saved, ensure_ascii=False)+'\n', encoding='utf8')
+    (ROOT/'evidence/fontaine-revisit-save.json').write_bytes((json.dumps(saved, ensure_ascii=False, sort_keys=True)+'\n').encode('utf8'))
 filename = 'fontaine-after-revisits.json' if after_revisits else 'fontaine-fresh-route.json'
 (ROOT/'evidence'/filename).write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

@@ -90,7 +90,8 @@ return function(C)
   end
  end
 
- local function drawGuide(s,f,draws,spec,mode,profile)
+ local function drawGuide(s,f,layer,spec,mode,profile)
+  local draws=layer.draws
   local guide=spec.guide
   if not guide then return end
   local active=s.flagLowering
@@ -110,7 +111,7 @@ return function(C)
   end
   if x< -100 or x>1060 then return end
   if s.companion~='kachina' then
-   C.drawCompanionArt({draws=draws},s,{x=gx,y=y,dir=1},mode,profile,'kachina')
+   C.drawCompanionArt(layer,s,{x=gx,y=y,dir=1},mode,profile,'kachina')
   end
   if active then
    rect(draws,x-12,y-13,24,12,'#bc754a')
@@ -119,18 +120,19 @@ return function(C)
   elseif s.companion~='kachina' then text(draws,'カチーナ',x,y-88) end
  end
 
- function course.observe(s,f,draws,spec,mode,profile)
+ function course.observe(s,f,layer,spec,mode,profile)
+  local draws=layer.draws
   if not spec then return end
   local state=s.story.quests[spec.quest]
   if not state then return end
   local run=s.flagTrial
   local count=run and run.count or math.max(0,math.min(2,state.count-1))
   drawMarks(s,draws,spec,count)
-  drawGuide(s,f,draws,spec,mode,profile)
+  drawGuide(s,f,layer,spec,mode,profile)
   if spec.goal then
    local x=spec.goal.x-s.camera
    if x>=-75 and x<=1035 then
-    C.drawFieldDisplayArt({draws=draws},C.natlanRaceFlagArt,x,spec.goal.y,121,mode,profile,false)
+    C.drawFieldDisplayArt(layer,C.natlanRaceFlagArt,x,spec.goal.y,121,mode,profile,false)
    end
   end
   local action=site(s,spec,state)
@@ -142,6 +144,62 @@ return function(C)
   elseif state.flagBestTicks then f.storyFlagStatus='旗取りの最短記録　'..timeLabel(state.flagBestTicks)
   elseif state.status=='complete' and spec.board then f.storyFlagStatus='旗取りのタイム計測に挑戦できます。'
   elseif state.status=='active' and state.count>0 then f.storyFlagStatus='中継印 '..count..' / 2' end
+ end
+
+ local podium={x=847,y=390}
+ local function complete(s,id)
+  local q=s.story.quests[id]
+  return q and q.status=='complete' and q
+ end
+ local function optionName(options,id)
+  for _,option in ipairs(options) do if option.id==id then return option.label end end
+  return '記録なし'
+ end
+ function course.memorial(s,f,layer,quests,mode,profile)
+  if not complete(s,'natlan-sunset-duel') then return end
+  local x=podium.x-s.camera
+  if x < -130 or x>1090 then return end
+  C.drawFieldDisplayArt(layer,C.natlanRaceFlagArt,x-73,390,92,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.iansanTrainingArt.board,x+36,390,78,mode,profile,false)
+  text(layer.draws,'祭の記録台',x,282)
+  if not near(s,podium) then return end
+  local rows={}
+  local function entry(name,detail,node)
+   rows[#rows+1]={name=name,detail=detail,node=node}
+  end
+  local flag=complete(s,'natlan-ridge-flag')
+  if flag then
+   entry('尾根の旗取り',flag.flagBestTicks and '初完走。最短 '..timeLabel(flag.flagBestTicks) or '二つの中継印を押し、山頂の旗に到着。','natlan-flag-summit')
+  end
+  entry('夕映えの模擬戦','旅人とムアラニの対戦札。練習試合は合図台から。','natlan-sunset-arena')
+  local id='natlan-kachina-charms'
+  local q=complete(s,id)
+  if q and q.stonePair then
+   local spec=quests[id].stoneOrnaments
+   entry('カチーナと作った石飾り',optionName(spec.colors,q.stonePair.color)..'・'..optionName(spec.patterns,q.stonePair.pattern),'natlan-hub')
+  end
+  if complete(s,'natlan-mualani-surf') then entry('ムアラニの波札','入り江でボールを打ち返し、記念の波札を受け取った。','natlan-surf-cove') end
+  id='natlan-kinich-ambush'
+  q=complete(s,id)
+  if q and q.huntNotes then entry('キィニチと開いた狩道',quests[id].kinichHunt.reports[q.huntNotes.outcome] or '岩場への近道が開いた。','natlan-kinich-hunt') end
+  id='natlan-xilonen-springs'
+  q=complete(s,id)
+  if q and q.springRecord and q.springRecord.layout then
+   local labels,types={},quests[id].springCourse.types
+   for _,section in ipairs(quests[id].springCourse.sections) do
+    local kind=types[q.springRecord.layout[section.id]]
+    labels[#labels+1]=kind and kind.label or '記録なし'
+   end
+   entry('シロネンの踏み台',table.concat(labels,' → '),'natlan-xilonen-course')
+  end
+  id='natlan-iansan-self-test'
+  q=complete(s,id)
+  if q and q.trainingLog and q.trainingLog.baseline and q.trainingLog.retest then
+   local log=q.trainingLog
+   entry('イアンサの稽古',optionName(quests[id].iansanTraining.focus,log.focus)..'。初回 '..timeLabel(log.baseline.ticks)
+    ..'（被弾'..log.baseline.hits..'回） → 二周目 '..timeLabel(log.retest.ticks)..'（被弾'..log.retest.hits..'回）','natlan-iansan-training')
+  end
+  f.storyFestivalLedger=rows
  end
 
  return course

@@ -119,6 +119,10 @@
 #furinaRehearsal .active-cue{color:#fbf1bf;border-color:#e9c680;background:#426755}
 #groupPhoto{padding:14px 18px;background:#23423f;color:#edf2df}
 
+#festivalLedger h2{font-size:20px;color:#ffd49b;margin:0 0 12px}
+#festivalLedger dl{display:grid;grid-template-columns:auto 1fr;gap:.65em 1em;align-items:baseline;margin:0}
+#festivalLedger dd{margin:0}
+@media(max-width:600px){#festivalLedger dl{grid-template-columns:1fr;gap:.25em}#festivalLedger dd{margin-bottom:.65em}}
 #groupPhotoTitle{font-size:18px;margin:0;color:#ffe8b3}
 #groupPhotoStatus{margin:6px 0 12px}
 #groupPhotoStatus:empty{display:none}
@@ -373,6 +377,9 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
 <div id="fieldSwimHelp" hidden>WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG</div>
 <div id="diveHelp" hidden><span>WASD・方向キーで泳ぐ ｜ Gで調べる ｜ Fで浮上</span> <button id="diveReset" type="button" data-action="story_dive_reset">回収灯へ戻る</button></div>
 <div id="iansanRun" hidden aria-label="訓練の計測"></div>
+<section id="festivalLedger" hidden aria-labelledby="festivalLedgerTitle" style="padding:14px 20px;background:#3a322e">
+ <h2 id="festivalLedgerTitle">夕映えの表彰台に残った記録</h2><dl></dl>
+</section>
 <section id="iansanReview" hidden aria-labelledby="iansanReviewTitle">
  <h2 id="iansanReviewTitle">自分の記録</h2>
  <table id="iansanResults" aria-label="時間・被弾・停止した区間"><tbody></tbody></table>

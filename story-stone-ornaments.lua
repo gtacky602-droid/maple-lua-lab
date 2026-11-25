@@ -49,11 +49,11 @@ return function(C,canInspect)
   end
  end
 
- function charms.observe(f,s,draws,q,state,mode,profile)
+ function charms.observe(f,s,world,q,state,mode,profile)
   if not state then return end
   local spec,record=q.stoneOrnaments,state.stonePair
   local props=C.stoneOrnamentArt
-  local world={draws=draws}
+  local draws=world.draws
   local count=state.count
   local ready=record and count==q.goal
   local function art(key,x,y,h)

@@ -3,6 +3,16 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "natlan_festival_revisits": {
+    "completedMain": 3,
+    "completedSide": 5,
+    "earnedLevel": 120,
+    "podiumEntries": 7,
+    "save": "evidence/natlan-revisit-save.json",
+    "lua": "evidence/natlan-revisits-lua.json",
+    "drawingPackets": "evidence/natlan-festival-packing.json",
+    "browser": "evidence/natlan-festival-browser.json"
+  },
   "fontaine_theater_revisits": {
     "completedMain": 3,
     "completedSide": 5,

@@ -1,70 +1,70 @@
 {
   "3": [
     {
-      "author": "フリーナ",
-      "title": "終幕の合図灯",
       "asset": "fon-furina-cues-lamp",
+      "author": "フリーナ",
       "detail": "ひと言のあと、一拍待つ。幕と照明を合わせてから波を送る。",
+      "node": "fontaine-rehearsal-room",
       "place": "稽古場",
-      "node": "fontaine-rehearsal-room"
+      "title": "終幕の合図灯"
     },
     {
-      "author": "ナヴィア",
-      "title": "水路の集合写真",
       "asset": "fon-navia-photo-board",
+      "author": "ナヴィア",
       "detail": "菓子を囲む休憩写真",
+      "node": "fon-photo-terrace",
       "place": "写真掲示板",
-      "node": "fon-photo-terrace"
+      "title": "水路の集合写真"
     },
     {
-      "author": "エミリエ",
-      "title": "旅の記念小瓶",
       "asset": "fon-emilie-scent-amber",
+      "author": "エミリエ",
       "detail": "木のぬくもり。木の扉を思わせる温かさと、乾いた葉の落ち着く香り。",
+      "node": "fon-emilie-atelier",
       "place": "調香台",
-      "node": "fon-emilie-atelier"
+      "title": "旅の記念小瓶"
     }
   ],
   "5": [
     {
-      "author": "フリーナ",
-      "title": "終幕の合図灯",
       "asset": "fon-furina-cues-lamp",
+      "author": "フリーナ",
       "detail": "ひと言のあと、一拍待つ。幕と照明を合わせてから波を送る。",
+      "node": "fontaine-rehearsal-room",
       "place": "稽古場",
-      "node": "fontaine-rehearsal-room"
+      "title": "終幕の合図灯"
     },
     {
-      "author": "リネとリネット",
-      "title": "今夜の奇術",
       "asset": "fon-lyney-magic-birds",
+      "author": "リネとリネット",
       "detail": "逆光の影絵",
+      "node": "fon-magic-seats",
       "place": "客席",
-      "node": "fon-magic-seats"
+      "title": "今夜の奇術"
     },
     {
-      "author": "ナヴィア",
-      "title": "水路の集合写真",
       "asset": "fon-navia-photo-board",
+      "author": "ナヴィア",
       "detail": "菓子を囲む休憩写真",
+      "node": "fon-photo-terrace",
       "place": "写真掲示板",
-      "node": "fon-photo-terrace"
+      "title": "水路の集合写真"
     },
     {
-      "author": "フレミネ",
-      "title": "初航海の潜航玩具",
       "asset": "fon-freminet-dive-toy",
+      "author": "フレミネ",
       "detail": "帰り道の目印は「珊瑚のくぼみ」。",
+      "node": "fon-toy-shallows",
       "place": "試験区画",
-      "node": "fon-toy-shallows"
+      "title": "初航海の潜航玩具"
     },
     {
-      "author": "エミリエ",
-      "title": "旅の記念小瓶",
       "asset": "fon-emilie-scent-amber",
+      "author": "エミリエ",
       "detail": "木のぬくもり。木の扉を思わせる温かさと、乾いた葉の落ち着く香り。",
+      "node": "fon-emilie-atelier",
       "place": "調香台",
-      "node": "fon-emilie-atelier"
+      "title": "旅の記念小瓶"
     }
   ]
 }

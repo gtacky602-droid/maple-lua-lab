@@ -538,6 +538,6 @@ if args.after_revisits:
     for key, record in checkpoint['story']['quests'].items():
         if record['status']=='complete':
             assert saved['story']['quests'][key]==record
-    result['sourceSha256'] = sha256(source).hexdigest()
-    (ROOT/'evidence/natlan-after-fontaine-save.json').write_text(json.dumps(saved,ensure_ascii=False)+'\n','utf8')
+    result['sourceSha256'] = sha256(source.replace(b'\r\n',b'\n')).hexdigest()
+    (ROOT/'evidence/natlan-after-fontaine-save.json').write_bytes((json.dumps(saved,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
 (ROOT / 'evidence' / f'natlan-fresh-route{suffix}.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

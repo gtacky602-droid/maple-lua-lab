@@ -50,5 +50,5 @@ state.camera=435
 results['stage-wings']={p:measure(core,state,p) for p in ('legacy','h48c32','h32c16')}
 assert all(r['stamps']>r['batches'] for r in results['stage-wings'].values())
 (ROOT/'evidence/fontaine-theater-packing.json').write_text(json.dumps(results,indent=2)+'\n','utf8')
-(ROOT/'evidence/fontaine-theater-exhibits.json').write_text(json.dumps(exhibits,ensure_ascii=False,indent=2)+'\n','utf8')
+(ROOT/'evidence/fontaine-theater-exhibits.json').write_text(json.dumps(exhibits,ensure_ascii=False,sort_keys=True,indent=2)+'\n','utf8')
 print(json.dumps(results,indent=2))

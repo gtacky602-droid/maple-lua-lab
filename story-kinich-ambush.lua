@@ -127,11 +127,11 @@ return function(C,canInspect)
   return q.kinichHunt.reports[notes and notes.outcome or 'direct']..' '..q.closing
  end
 
- function hunt.observe(f,s,draws,node,q,state,mode,profile)
+ function hunt.observe(f,s,target,node,q,state,mode,profile)
   if not state then return end
   local spec,notes=q.kinichHunt,state.huntNotes
   local props=C.kinichHuntArt
-  local target={draws=draws}
+  local draws=target.draws
   local function art(sprite,x,y,h,flip)
    local half=h*sprite.box[3]/sprite.box[4]/2
    local localX=x-s.camera

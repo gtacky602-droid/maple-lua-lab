@@ -70,8 +70,9 @@ return function(C)
   end
  end
 
- function platforms.observe(s,f,draws,river,mode,profile)
+ function platforms.observe(s,f,layer,river,mode,profile)
   if not river then return end
+  local draws=layer.draws
   f.storyRiverDecks={}
   for _,entry in ipairs(s.riverDecks or {}) do
    local spec,p=entry.spec,entry.platform
@@ -79,7 +80,7 @@ return function(C)
    f.storyRiverDecks[#f.storyRiverDecks+1]={x=p.x,y=p.y,w=p.w,direction=entry.direction,
     atBank=entry.direction==0,dockSeconds=entry.dockSeconds}
    if x>=-115 and x<=1075 then
-    C.drawFieldDisplayArt({draws=draws},C.natlanTrialRaftArt,x,p.y+spec.drawBelow,spec.height,mode,profile,false)
+    C.drawFieldDisplayArt(layer,C.natlanTrialRaftArt,x,p.y+spec.drawBelow,spec.height,mode,profile,false)
    end
   end
   local turn=river.turn

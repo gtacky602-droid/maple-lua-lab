@@ -1,0 +1,182 @@
+{
+  "natlan-hub": {
+    "legacy": {
+      "before": 1644079,
+      "after": 505722,
+      "stamps": 11,
+      "batches": 7
+    },
+    "h48c32": {
+      "before": 1021500,
+      "after": 348626,
+      "stamps": 11,
+      "batches": 7
+    },
+    "h32c16": {
+      "before": 411382,
+      "after": 132861,
+      "stamps": 11,
+      "batches": 7
+    }
+  },
+  "natlan-flag-summit": {
+    "legacy": {
+      "before": 420687,
+      "after": 352643,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 313796,
+      "after": 253537,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 115944,
+      "after": 92309,
+      "stamps": 1,
+      "batches": 1
+    }
+  },
+  "natlan-river-turn-basin": {
+    "legacy": {
+      "before": 435456,
+      "after": 354364,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 316004,
+      "after": 253273,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 108101,
+      "after": 90656,
+      "stamps": 1,
+      "batches": 1
+    }
+  },
+  "natlan-xilonen-workshop": {
+    "legacy": {
+      "before": 878257,
+      "after": 429639,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 592044,
+      "after": 302074,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 202627,
+      "after": 107039,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "natlan-xilonen-course": {
+    "legacy": {
+      "before": 889660,
+      "after": 431955,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 601814,
+      "after": 303977,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 211736,
+      "after": 108454,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "natlan-iansan-training": {
+    "legacy": {
+      "before": 901328,
+      "after": 405083,
+      "stamps": 3,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 576547,
+      "after": 283122,
+      "stamps": 3,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 201467,
+      "after": 102729,
+      "stamps": 3,
+      "batches": 2
+    }
+  },
+  "natlan-surf-cove": {
+    "legacy": {
+      "before": 695313,
+      "after": 396248,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 490824,
+      "after": 282832,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 197169,
+      "after": 105408,
+      "stamps": 2,
+      "batches": 2
+    }
+  },
+  "natlan-kinich-hunt": {
+    "legacy": {
+      "before": 1251592,
+      "after": 427061,
+      "stamps": 3,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 818320,
+      "after": 298352,
+      "stamps": 3,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 327221,
+      "after": 111110,
+      "stamps": 3,
+      "batches": 2
+    }
+  },
+  "natlan-sunset-rostrum": {
+    "legacy": {
+      "before": 807917,
+      "after": 419434,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 546498,
+      "after": 296777,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 207275,
+      "after": 109032,
+      "stamps": 2,
+      "batches": 2
+    }
+  }
+}

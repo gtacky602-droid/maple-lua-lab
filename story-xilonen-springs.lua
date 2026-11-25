@@ -188,10 +188,10 @@ return function(C,canInspect)
   return milestone
  end
 
- function springs.observe(f,s,draws,node,q,state,mode,profile)
+ function springs.observe(f,s,world,node,q,state,mode,profile)
   if not state then return end
   local spec,props,record=q.springCourse,C.springCourseArt,state.springRecord
-  local world={draws=draws}
+  local draws=world.draws
   local function art(id,x,y,height,width)
    local sprite=props[id]
    x=x-s.camera

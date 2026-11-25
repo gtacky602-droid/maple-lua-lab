@@ -148,5 +148,5 @@
   "savedAndRestored": true,
   "firstNodQuestAvailable": "nod-first-treasure",
   "scope": "Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.",
-  "sourceSha256": "990435e68bc1164085de9ee0a146dd03512ef48757fb8123bafef874007ae362"
+  "sourceSha256": "727699b2a69a7fa8ff92740c914f912206c6a9ecdb66e847900d54d8a429f816"
 }

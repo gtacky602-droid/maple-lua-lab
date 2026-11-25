@@ -1,22 +1,59 @@
 <!doctype html>
 <html lang="ja">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>大劇場の記念品を見比べる</title>
+<title>フォンテーヌとナタのドット絵比較</title>
 <link rel="stylesheet" href="theater-programme.css">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#23212b;color:#fff1d8;font:16px/1.6 system-ui,sans-serif}
 main{max-width:1220px;margin:6vh auto;padding:0 16px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px}
 a{color:#f1ca8a}select,button{font:inherit;background:#244345;color:#fff4dc;border:1px solid #74918a;padding:5px 8px;border-radius:4px;max-width:100%}
 button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{color:#e8cfac}
+#stageComparison{margin:22px auto;max-width:960px}#stageComparison h2{margin:.3em 0;color:#f5d298;font-size:1.2rem}
+#stageComparison figure{margin:10px 0;position:relative;--split:50%;background:#312d38}
+#stageComparison figure img{width:100%;height:auto;display:block}
+#stageComparison figure img+img{position:absolute;inset:0;clip-path:inset(0 0 0 var(--split))}
+#stageComparison figure:after{content:"";position:absolute;top:0;bottom:0;left:var(--split);border-left:2px solid #f4da93;pointer-events:none}
+#stageComparison label{display:flex;gap:10px;align-items:center}#stageComparison input{flex:1;min-width:0}
 </style>
 <main><header><label>冒険の記録 <select id="record"><option value="5">Lv100・展示5点</option><option value="3">Lv92・展示3点</option></select></label><a href="./">ローカルラボへ</a></header>
-<section id="theaterProgramme" aria-labelledby="programmeHeading" hidden></section><p id="loadMessage" role="status">展示記録を読み込み中…</p></main>
+<section id="theaterProgramme" aria-labelledby="programmeHeading" hidden></section><p id="loadMessage" role="status">展示記録を読み込み中…</p>
+<section id="stageComparison" aria-labelledby="stageTitle"><h2 id="stageTitle">同じ場面で見比べる</h2>
+<label>場所 <select id="stage"><option value="fontaine-exhibits-frame">フォンテーヌ・公演記念展示（5点）</option><option value="natlan-podium-frame">ナタ・夕映えの表彰台</option></select></label>
+<figure><img id="stageSource" width="960" height="540" alt="同じ場面の元絵"><img id="stage16" width="960" height="540" alt="元絵との差分を重ねた16色版"></figure>
+<label>元絵<input type="range" id="stageSplit" min="0" max="100" value="50" aria-label="元絵を表示する割合"><span>16色</span></label>
+<p id="pixelComparison" role="status"></p></section></main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
 const update=initTheaterProgramme({},action=>{
  if(action==='story_photo_print')location.href='evidence/fontaine-theater-posted-photo.png';
  else if(action.startsWith('world_map_focus:'))location.href='map-art.html?'+new URLSearchParams({node:action.slice('world_map_focus:'.length),placements:'live'});
 });
+const stage=document.getElementById('stage'),split=document.getElementById('stageSplit');
+stage.onchange=async()=>{
+ const name=stage.value,status=document.getElementById('pixelComparison');
+ const original=document.getElementById('stageSource'),light=document.getElementById('stage16');
+ original.src='evidence/'+name+'-source.png';light.src='evidence/'+name+'-delta.png';
+ status.textContent='';
+ try{
+  await Promise.all([original.decode(),light.decode()]);
+  if(stage.value!==name)return;
+  const canvas=document.createElement('canvas');
+  canvas.width=original.naturalWidth;canvas.height=original.naturalHeight;
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  ctx.drawImage(light,0,0);
+  const overlay=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+  let changed=0;
+  for(let i=3;i<overlay.length;i+=4)if(overlay[i])changed++;
+  const total=canvas.width*canvas.height;
+  status.textContent='同じ背景を含む画面全体で、色が変わったのは '+changed.toLocaleString('ja-JP')+' / '+
+   total.toLocaleString('ja-JP')+' ピクセル（'+(100*changed/total).toFixed(1)+'%）。';
+ }catch{if(stage.value===name)status.textContent='比較画像を読み込めませんでした。'}
+};
+split.oninput=()=>{
+ document.querySelector('#stageComparison figure').style.setProperty('--split',split.value+'%');
+ split.setAttribute('aria-valuetext',split.value+'パーセント');
+};
+stage.onchange();split.oninput();
 const selector=document.getElementById('record'),message=document.getElementById('loadMessage');
 try{
  const response=await fetch('evidence/fontaine-theater-exhibits.json');

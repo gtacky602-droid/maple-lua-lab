@@ -2298,31 +2298,38 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[n.toyDive.quest]
     freminetDive.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
    end
-   if n.stoneCharmQuest then
-    local q=quests[n.stoneCharmQuest]
-    stoneOrnaments.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
-   end
    if n.toyDisplay then
     freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
-   if n.iansanQuest then
-    local q=quests[n.iansanQuest]
-    iansanTraining.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+   if n.stoneCharmQuest or n.iansanQuest or n.springQuest or n.kinichQuest or n.surfQuest
+       or n.flagCourse or n.riverCrossing or n.id=='natlan-sunset-rostrum' then
+    local props={draws=markers}
+    if s.packRectArt and mode=='rect' then props.rectIndex,props.rectBatches={},f.rectBatches or {} end
+    if n.stoneCharmQuest then
+     local q=quests[n.stoneCharmQuest]
+     stoneOrnaments.observe(f,s,props,q,s.story.quests[q.id],mode,profile)
+    end
+    if n.iansanQuest then
+     local q=quests[n.iansanQuest]
+     iansanTraining.observe(f,s,props,n,q,s.story.quests[q.id],mode,profile)
+    end
+    if n.springQuest then
+     local q=quests[n.springQuest]
+     xilonenSprings.observe(f,s,props,n,q,s.story.quests[q.id],mode,profile)
+    end
+    if n.kinichQuest then
+     local q=quests[n.kinichQuest]
+     kinichAmbush.observe(f,s,props,n,q,s.story.quests[q.id],mode,profile)
+    end
+    if n.surfQuest then
+     local q=quests[n.surfQuest]
+     mualaniSurf.observe(f,s,props,n,q,s.story.quests[q.id],mode,profile)
+    end
+    if n.id=='natlan-sunset-rostrum' then flagCourse.memorial(s,f,props,quests,mode,profile) end
+    flagCourse.observe(s,f,props,n.flagCourse,mode,profile)
+    movingPlatforms.observe(s,f,props,n.riverCrossing,mode,profile)
+    if props.rectBatches and #props.rectBatches>0 then f.rectBatches=props.rectBatches end
    end
-   if n.springQuest then
-    local q=quests[n.springQuest]
-    xilonenSprings.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
-   end
-   if n.kinichQuest then
-    local q=quests[n.kinichQuest]
-    kinichAmbush.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
-   end
-   if n.surfQuest then
-    local q=quests[n.surfQuest]
-    mualaniSurf.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
-   end
-   flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
-   movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
    if n.snowMatch then snowMatch.observe(s,f,markers,n.snowMatch,s.story.quests[n.snowMatch.quest],mode,profile) end
    if n.returnBox then

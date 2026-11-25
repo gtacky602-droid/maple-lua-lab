@@ -188,10 +188,10 @@ return function(C,canInspect)
   return spec.focus[index]
  end
 
- function training.observe(f,s,draws,node,q,state,mode,profile)
+ function training.observe(f,s,world,node,q,state,mode,profile)
   if not state then return end
   local spec,props=q.iansanTraining,C.iansanTrainingArt
-  local world={draws=draws}
+  local draws=world.draws
   local function art(id,x,y,h,width)
    local sprite=props[id]
    x=x-s.camera

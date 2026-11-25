@@ -381,18 +381,19 @@ return function(C)
   local x=programmeDesk.x-s.camera
   if x< -226 or x>1186 then return end
   local draws=layer.draws
-  box(draws,x-178,455,356,7,'#c6a06a')
-  box(draws,x-175,462,350,8,'#654b49')
-  box(draws,x-166,470,8,10,'#80574a')
-  box(draws,x+158,470,8,10,'#80574a')
-  label(draws,'公演記念展示',x,366,'#ffe8ab')
+  local shelfY=380
+  box(draws,x-178,shelfY,356,7,'#c6a06a')
+  box(draws,x-175,shelfY+7,350,8,'#654b49')
+  box(draws,x-166,shelfY+15,8,480-shelfY-15,'#80574a')
+  box(draws,x+158,shelfY+15,8,480-shelfY-15,'#80574a')
+  label(draws,'公演記念展示',x,shelfY-64,'#ffe8ab')
   local near=canInspect(s.actors[s.active],programmeDesk)
   local entries=near and {} or nil
   for i,item in ipairs(exhibits) do
    local state=s.story.quests[item[1]]
    if state and state.status=='complete' then
     local art,detail,asset=exhibit(quests[item[1]],state)
-    C.drawFieldDisplayArt(layer,art,x+(i-3)*70,455,47,mode,profile,false)
+    C.drawFieldDisplayArt(layer,art,x+(i-3)*70,shelfY,47,mode,profile,false)
     if near then
      entries[#entries+1]={author=item[2],title=item[3],detail=detail,node=item[4],place=item[5],
                           asset=asset}
