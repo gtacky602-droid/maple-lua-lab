@@ -46,7 +46,8 @@
     "field-arenas-snez-native-backgrounds.lua": "49ac7bc9dd957d85f22a2c02ed5d16ed66416fdb37873eb8b1aaa2245e52f444",
     "field-arenas-spine-native-backgrounds.lua": "48b2fa7b38ef738540b6c55a0368caf30209828b9646b48deed3626b290920c6",
     "field-arenas-sumeru-native-backgrounds.lua": "c329fd20c702d1ff327ddfaf7f17b5c8d2fde1a72f2c7793acbd3b32aa9504db",
-    "field-arenas-lake-legends-native-backgrounds.lua": "d55e863406cc4ad35b8110d105e534b46e982a047971a2eb1a2462c6344f9f1b"
+    "field-arenas-lake-legends-native-backgrounds.lua": "d55e863406cc4ad35b8110d105e534b46e982a047971a2eb1a2462c6344f9f1b",
+    "field-arenas-legend-formations-native-backgrounds.lua": "0bd30b33abdabb0619150d5c352ce808b0f9aad6ea1eee7c879989dd9e0aa1f6"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -9673,6 +9674,117 @@
         "minDecodeMs": 26.9,
         "maxDecodeMs": 40.19,
         "medianRetainedLuaKiB": 1184.0
+      }
+    },
+    "fairy-knight-twins-legend-court": {
+      "4096": {
+        "fileBytes": 18210,
+        "medianDecodeMs": 17.46,
+        "minDecodeMs": 11.97,
+        "maxDecodeMs": 24.41,
+        "medianRetainedLuaKiB": 795.7
+      },
+      "4608": {
+        "fileBytes": 21818,
+        "medianDecodeMs": 24.04,
+        "minDecodeMs": 22.77,
+        "maxDecodeMs": 26.46,
+        "medianRetainedLuaKiB": 938.7
+      },
+      "5120": {
+        "fileBytes": 25289,
+        "medianDecodeMs": 25.18,
+        "minDecodeMs": 24.23,
+        "maxDecodeMs": 28.66,
+        "medianRetainedLuaKiB": 1022.4
+      },
+      "5632": {
+        "fileBytes": 28757,
+        "medianDecodeMs": 27.84,
+        "minDecodeMs": 25.41,
+        "maxDecodeMs": 35.31,
+        "medianRetainedLuaKiB": 1106.0
+      },
+      "6144": {
+        "fileBytes": 30575,
+        "medianDecodeMs": 30.88,
+        "minDecodeMs": 26.88,
+        "maxDecodeMs": 32.81,
+        "medianRetainedLuaKiB": 1193.5
+      }
+    },
+    "chassanion-legend-bubble-room": {
+      "4096": {
+        "fileBytes": 16854,
+        "medianDecodeMs": 18.09,
+        "minDecodeMs": 16.7,
+        "maxDecodeMs": 45.0,
+        "medianRetainedLuaKiB": 793.0
+      },
+      "4608": {
+        "fileBytes": 20246,
+        "medianDecodeMs": 22.01,
+        "minDecodeMs": 21.25,
+        "maxDecodeMs": 60.97,
+        "medianRetainedLuaKiB": 935.3
+      },
+      "5120": {
+        "fileBytes": 23527,
+        "medianDecodeMs": 24.1,
+        "minDecodeMs": 21.62,
+        "maxDecodeMs": 55.18,
+        "medianRetainedLuaKiB": 1017.7
+      },
+      "5632": {
+        "fileBytes": 26787,
+        "medianDecodeMs": 33.13,
+        "minDecodeMs": 24.47,
+        "maxDecodeMs": 61.86,
+        "medianRetainedLuaKiB": 1100.7
+      },
+      "6144": {
+        "fileBytes": 28897,
+        "medianDecodeMs": 29.17,
+        "minDecodeMs": 25.04,
+        "maxDecodeMs": 93.03,
+        "medianRetainedLuaKiB": 1187.3
+      }
+    },
+    "witztli-tristars-camp": {
+      "4096": {
+        "fileBytes": 18268,
+        "medianDecodeMs": 19.81,
+        "minDecodeMs": 17.01,
+        "maxDecodeMs": 26.15,
+        "medianRetainedLuaKiB": 795.1
+      },
+      "4608": {
+        "fileBytes": 21882,
+        "medianDecodeMs": 23.02,
+        "minDecodeMs": 19.91,
+        "maxDecodeMs": 44.88,
+        "medianRetainedLuaKiB": 942.1
+      },
+      "5120": {
+        "fileBytes": 25371,
+        "medianDecodeMs": 25.96,
+        "minDecodeMs": 23.44,
+        "maxDecodeMs": 35.24,
+        "medianRetainedLuaKiB": 1025.5
+      },
+      "5632": {
+        "fileBytes": 28861,
+        "medianDecodeMs": 29.18,
+        "minDecodeMs": 26.14,
+        "maxDecodeMs": 33.45,
+        "medianRetainedLuaKiB": 1108.9
+      },
+      "6144": {
+        "fileBytes": 30703,
+        "medianDecodeMs": 32.29,
+        "minDecodeMs": 28.48,
+        "maxDecodeMs": 37.17,
+        "medianRetainedLuaKiB": 1192.2
       }
     }
   }

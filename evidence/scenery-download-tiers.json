@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1300,
+  "verifiedModules": 1315,
   "dimensions": [
     512,
     288
@@ -621,6 +621,27 @@
       "5120": 24950,
       "5632": 28224,
       "6144": 30460
+    },
+    "fairy-channel-background-v1.png": {
+      "4096": 18210,
+      "4608": 21818,
+      "5120": 25289,
+      "5632": 28757,
+      "6144": 30575
+    },
+    "morte-bubble-room-background-v1.png": {
+      "4096": 16854,
+      "4608": 20246,
+      "5120": 23527,
+      "5632": 26787,
+      "6144": 28897
+    },
+    "tristars-camp-background-v1.png": {
+      "4096": 18268,
+      "4608": 21882,
+      "5120": 25371,
+      "5632": 28861,
+      "6144": 30703
     },
     "oceanid-field-background-v1.png": {
       "4096": 14522,
@@ -1830,7 +1851,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 260
+      "verified": 263
     },
     "domainHunts": {
       "total": 124,
@@ -1904,12 +1925,11 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 53,
+      "verified": 56,
       "pending": [
         "anemo-field-basin",
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
-        "chassanion-legend-bubble-room",
         "chenyu-boulder-gully",
         "cineas-legend-chamber",
         "deianeira-legend-lab",
@@ -1918,7 +1938,6 @@
         "enkan-tablet-hollow",
         "erinnyes-corrouge-cleft",
         "fading-veteran-legend-wreck",
-        "fairy-knight-twins-legend-court",
         "fontaine-grand-stage",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
@@ -1970,7 +1989,6 @@
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
         "tunigi-fragment-vault",
-        "witztli-tristars-camp",
         "yseut-legend-court",
         "zapabay-tenochtzitoc-shallows"
       ]

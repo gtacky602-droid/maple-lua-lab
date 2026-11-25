@@ -1,6 +1,9 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ fairyKnightChannel:{file:'fairy-channel-background-v1.png',decodedPreview:'fairy-channel-native-preview-v1.png',decodedTiers:'fairy-channel-native-tiers-v1.webp',surface:'stone',zones:['story:fairy-knight-twins-legend-court'],note:'サラシア海原・妖精の騎士の水路の仮背景'},
+ morteBubbleChamber:{file:'morte-bubble-room-background-v1.png',decodedPreview:'morte-bubble-room-native-preview-v1.png',decodedTiers:'morte-bubble-room-native-tiers-v1.webp',surface:'stone',zones:['story:chassanion-legend-bubble-room'],note:'モルテ・シャサニョンの泡室の仮背景'},
+ tristarsCamp:{file:'tristars-camp-background-v1.png',decodedPreview:'tristars-camp-native-preview-v1.png',decodedTiers:'tristars-camp-native-tiers-v1.webp',surface:'grass',zones:['story:witztli-tristars-camp'],note:'ウィッツトリの丘・三連星の野営場の仮背景'},
  ninianneSpringBank:{file:'lake-ninianne-bank-background-v1.png',decodedPreview:'lake-ninianne-bank-native-preview-v1.png',decodedTiers:'lake-ninianne-bank-native-tiers-v1.webp',surface:'stone',zones:['story:ninianne-legend-bank'],note:'西岬・ニニアンの湧水棚の仮背景'},
  vivianneLakeBank:{file:'lake-vivianne-bank-background-v1.png',decodedPreview:'lake-vivianne-bank-native-preview-v1.png',decodedTiers:'lake-vivianne-bank-native-tiers-v1.webp',surface:'grass',zones:['story:vivianne-legend-bank'],note:'フォンテーヌ廷北・ヴィヴィアンの湖岸の仮背景'},
  sunderedForge:{file:'sundered-forge-background-v1.png',decodedPreview:'sundered-forge-native-preview-v1.png',decodedTiers:'sundered-forge-native-tiers-v1.webp',surface:'stone',zones:['story:primal-fire-sundered-forge'],note:'源焔の再現戦の仮背景'},

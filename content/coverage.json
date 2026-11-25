@@ -11742,6 +11742,20 @@
     "route_review": "design/world/atlas-route-plan.json"
   },
   "optional_legend_coverage": {
+    "opening_placement_checks": {
+      "matched_stages": 56,
+      "pending_stages": [],
+      "renderings": [
+        "png",
+        "legacy",
+        "h48c32",
+        "h32c16"
+      ],
+      "evidence": [
+        "evidence/land-legend-openings-browser.json",
+        "evidence/group-legend-openings-browser.json"
+      ]
+    },
     "basis": [
       "design/world/encounters.json",
       "content/field-boss-spawns.json",

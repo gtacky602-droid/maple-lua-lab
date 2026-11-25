@@ -39,7 +39,7 @@ for boss in read('content/field-boss-spawns.json')['fieldBosses']:
     if boss['id'].startswith('legend-'):
         source = legends[boss['id']].get('source_enemy_base')
         roster[boss['node']] = {'id': boss['id'], 'kind': 'legend', 'name': boss['name'],
-                                **({'placementPreview': True} if boss.get('mapIdleArt') else {}),
+                                'placementPreview': True,
                                 **({'aliases': [source]} if source else {})}
 boss_points = {p['id']: p['boss'] for r in atlas['regions'] for p in r['points'] if 'boss' in p}
 assert boss_points == {

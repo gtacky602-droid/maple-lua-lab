@@ -1,0 +1,29 @@
+{
+  "origin": "ImageGen original temporary scenery for the local lab. Production uses a placed 3D scene.",
+  "scenes": [
+    {
+      "node": "fairy-knight-twins-legend-court",
+      "key": "fairyKnightChannel",
+      "note": "サラシア海原・妖精の騎士の水路",
+      "brief": "双アーチの間に明るい海流と海草が流れる水路",
+      "source": "fairy-channel-background-v1.png",
+      "preview": "fairy-channel-native-preview-v1.png"
+    },
+    {
+      "node": "chassanion-legend-bubble-room",
+      "key": "morteBubbleChamber",
+      "note": "モルテ・シャサニョンの泡室",
+      "brief": "深い藍の水中石室、青銅の扉と上昇する気泡",
+      "source": "morte-bubble-room-background-v1.png",
+      "preview": "morte-bubble-room-native-preview-v1.png"
+    },
+    {
+      "node": "witztli-tristars-camp",
+      "key": "tristarsCamp",
+      "note": "ウィッツトリの丘・三連星の野営場",
+      "brief": "黄土色の段丘、左右の天幕、中央の広い乾いた戦闘床",
+      "source": "tristars-camp-background-v1.png",
+      "preview": "tristars-camp-native-preview-v1.png"
+    }
+  ]
+}

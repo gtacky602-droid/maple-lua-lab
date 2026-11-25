@@ -213,6 +213,7 @@ def build():
         bosses_by_stage[stage] = {key: boss[key] for key in ('id', 'name', 'kind', 'aliases') if key in boss}
 
     legends = {row['encounter_id']: row for row in load('design/world/encounters.json')['legends']}
+    group_openings = load('content/group-legend-openings.json')
     for boss in load('content/field-boss-spawns.json')['fieldBosses']:
         legend = legends.get(boss['id'])
         if legend is None:
@@ -220,7 +221,7 @@ def build():
         stage = boss['node']
         assert stage in mapped_stage and stage not in bosses_by_stage, (boss['id'], stage)
         entry = {'id': boss['id'], 'name': boss['name'], 'kind': 'legend'}
-        if boss.get('mapIdleArt'):
+        if boss.get('mapIdleArt') or stage in group_openings:
             entry['placementPreview'] = True
         if legend.get('source_enemy_base'):
             entry['aliases'] = [legend['source_enemy_base']]

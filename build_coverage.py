@@ -124,6 +124,21 @@ def rebuild():
         'nightsoul_trials': sorted(night_trial_nodes),
         'stage_by_legend': legend_bindings,
     }
+    opening_reports = {
+        'land-legend-openings-browser.json': 'scenes',
+        'group-legend-openings-browser.json': 'verified',
+    }
+    matching = set()
+    for filename, key in opening_reports.items():
+        report = json.loads((CONTENT.parent / 'evidence' / filename).read_text('utf8'))
+        if report['differentPixels'] == 0:
+            matching.update(report[key])
+    stages = set(legend_bindings.values())
+    coverage['optional_legend_coverage']['opening_placement_checks'] = {
+        'matched_stages': len(stages & matching), 'pending_stages': sorted(stages - matching),
+        'renderings': ['png', 'legacy', 'h48c32', 'h32c16'],
+        'evidence': ['evidence/' + name for name in opening_reports],
+    }
     manifest_path = 'docs/quest-v1/MANIFEST.json'
     manifest = json.loads((CONTENT.parent / manifest_path).read_text(encoding='utf8'))
     design_ids = {entry['id'] for entry in manifest['growth']}

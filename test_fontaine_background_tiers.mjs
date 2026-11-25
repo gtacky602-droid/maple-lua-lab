@@ -11,7 +11,8 @@ const reports = {};
 const {fileBytesByRectangles}=JSON.parse(await fs.readFile('evidence/scenery-download-tiers.json','utf8'));
 const weekly=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
 const fieldBosses=JSON.parse(await fs.readFile('content/field-boss-spawns.json','utf8')).fieldBosses;
-const components=JSON.parse(await fs.readFile('content/weekly-opening-parts.json','utf8'));
+const components={...JSON.parse(await fs.readFile('content/weekly-opening-parts.json','utf8')),
+  ...JSON.parse(await fs.readFile('content/group-legend-openings.json','utf8'))};
 const {nodes: spawns} = JSON.parse(await fs.readFile('content/enemy-spawns.json','utf8'));
 try {
   for (const group of groups) {

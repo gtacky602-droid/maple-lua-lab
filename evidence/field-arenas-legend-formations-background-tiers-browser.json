@@ -1,0 +1,38 @@
+{
+  "fairy-knight-twins-legend-court": {
+    "source": "fairy-channel-background-v1.png",
+    "count": 2,
+    "sourceCanvas": "98d25c0e02b60e7b323ef9dfc3ff9dbaa377b4b58a01f1e20a1bf2508f454919",
+    "tiers": {
+      "4096": "9a78cbd79fddb3511c10cc99a9ffff51d06aae31be4215122590c524c069a990",
+      "4608": "ccc94c9bf60c3965809e04722bcf55132cf68fa2b67c85fb965e668c0d77522c",
+      "5120": "f3526b4b7c576664c780b32b302ac7614458a70ca6c828b6d939cbbb78a6e661",
+      "5632": "f5b5ca54abfe287c513d6fcfc3e4a1e10daa1f36264249fef537cd5ba54f99de",
+      "6144": "18af0cbc746fef6fadc06c9a53b052488c82af847c93e40d6fac7d80299ce87e"
+    }
+  },
+  "chassanion-legend-bubble-room": {
+    "source": "morte-bubble-room-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "b3e25498811a7fc50823681be737b0fbd4a4ec2c17edce6c61578fd3ef7aa81e",
+    "tiers": {
+      "4096": "77e0965e6f60d33d7b6e831d2c7f6ad9c8e590be68486a92a494796d26b3507e",
+      "4608": "ba26dcd92bf6f0458d18c69a842208b7f381b039467ab855a0276c33a064efbe",
+      "5120": "57d2bfc0390670d344cf38814167848795470bcff0234b98ad4960265d88a0b3",
+      "5632": "cc5a7cbcaf28de2f0409cf04e9ff6f05ebdd2b9b5f4c95539b46ade2a035eca7",
+      "6144": "cd768cfd044cd0a081aca858e9fdbbf287b27875eb1811246324e7b3c7d1cf07"
+    }
+  },
+  "witztli-tristars-camp": {
+    "source": "tristars-camp-background-v1.png",
+    "count": 3,
+    "sourceCanvas": "7d1e030928417bcbf30dcf759666e654bfbc22150a43b51988f088e66d0e33ef",
+    "tiers": {
+      "4096": "15b59cf54e07c3881e3d0352fb22a776e5f6960eaa7baca8cf1ad7a549e020e2",
+      "4608": "802e1d395bad8830db779e2a8fd7947c95aac392a2b2b855eda051d0a40823fb",
+      "5120": "595b0a4811b2be7a9dd2116a817022a92c6b9cb57f04df48e3e44e29caa93ac3",
+      "5632": "a1707b33eefe7cd34bb1e21a209eacd993cc5629a6937844c823c4d5d6116e6e",
+      "6144": "5237d484b7ac8255a2eae9cb5b1e70eb11e8b074e24981b016dd9f21d3af3fef"
+    }
+  }
+}

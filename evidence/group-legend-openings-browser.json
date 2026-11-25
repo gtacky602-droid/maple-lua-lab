@@ -1,0 +1,181 @@
+{
+  "legendLinks": 56,
+  "differentPixels": 0,
+  "verified": {
+    "chizhang-legend-terrace": {
+      "tick": 1,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 10012,
+        "h48c32": 6191,
+        "h32c16": 3005
+      }
+    },
+    "ocean-judge-legend-pool": {
+      "tick": 37,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 3982,
+        "h48c32": 2425,
+        "h32c16": 1076
+      }
+    },
+    "iron-viscount-legend-pool": {
+      "tick": 38,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 3730,
+        "h48c32": 2228,
+        "h32c16": 1009
+      }
+    },
+    "fairy-knight-twins-legend-court": {
+      "tick": 27,
+      "phase": "available",
+      "swimming": true,
+      "actors": 2,
+      "labels": [
+        "アンジェリカ",
+        "ミドロ"
+      ],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 3528,
+        "h48c32": 2234,
+        "h32c16": 1088
+      }
+    },
+    "swords-of-the-gorge-legend-rift": {
+      "tick": 27,
+      "phase": "available",
+      "swimming": true,
+      "actors": 2,
+      "labels": [
+        "コルタナ",
+        "モーグレイ"
+      ],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 3900,
+        "h48c32": 2494,
+        "h32c16": 1066
+      }
+    },
+    "fading-veteran-legend-wreck": {
+      "tick": 33,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 3162,
+        "h48c32": 1977,
+        "h32c16": 897
+      }
+    },
+    "dobharcu-legend-garden": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 2684,
+        "h48c32": 1746,
+        "h32c16": 922
+      }
+    },
+    "luachra-legend-shelf": {
+      "tick": 36,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 2476,
+        "h48c32": 1525,
+        "h32c16": 657
+      }
+    },
+    "chassanion-legend-bubble-room": {
+      "tick": 37,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 3255,
+        "h48c32": 2029,
+        "h32c16": 911
+      }
+    },
+    "erinnyes-corrouge-cleft": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": true,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 1421,
+        "h48c32": 896,
+        "h32c16": 361
+      }
+    },
+    "witztli-tristars-camp": {
+      "tick": 48,
+      "phase": "notice",
+      "swimming": false,
+      "actors": 3,
+      "labels": [],
+      "hpBarRectangles": 6,
+      "profiles": {
+        "legacy": 9444,
+        "h48c32": 5817,
+        "h32c16": 2674
+      }
+    },
+    "atocpan-battlegoat-ironclaw-field": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [],
+      "hpBarRectangles": 4,
+      "profiles": {
+        "legacy": 3626,
+        "h48c32": 2176,
+        "h32c16": 944
+      }
+    },
+    "sne-novokichev-ore-yard": {
+      "tick": 62,
+      "phase": "available",
+      "swimming": false,
+      "actors": 3,
+      "labels": [],
+      "hpBarRectangles": 6,
+      "profiles": {
+        "legacy": 8176,
+        "h48c32": 4937,
+        "h32c16": 2251
+      }
+    }
+  }
+}

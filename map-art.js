@@ -1,4 +1,5 @@
 import {setupSceneryDetail} from './scenery-detail.js';
+import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
@@ -137,7 +138,10 @@ try{
   assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
   $('species').append(new Option(shadow.name,shadow.species));
  }
- const mechanismScenes=await json('content/weekly-opening-parts.json');
+ const [mechanismScenes,legendScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json')]);
+ for(const [node,scene] of Object.entries(legendScenes)){
+  arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
+ }
  const mechanismFiles=new Map();
  for(const [node,scene] of Object.entries(mechanismScenes)){
   arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
@@ -157,6 +161,8 @@ try{
  const imageArt=Object.values(assets).flatMap(data=>[data,data.left,data.rear].filter(Boolean));
  const images=await loadImageSet(imageArt.map(data=>data.source).filter(Boolean),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
  for(const data of imageArt)data.image=images[data.source];
+ const sharedLegendArt=liveView?setupSharedLegendArt(layouts,assets):null;
+ const legendNames=new Map(fieldData.fieldBosses.filter(b=>b.id.startsWith('legend-')).map(b=>[b.node,b.name]));
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  let storedRaw=null;
  try{
@@ -192,6 +198,8 @@ try{
  function placementArt(e){
   const original=assets[e.species],art=e.flip&&original.left?original.left:original;
   const boss=arenaPreviews.get(node().id);
+  const part=legendScenes[node().id]?.parts.find(p=>p.id===e.id && p.species===e.species);
+  if(part)return {...original,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,openingPose:true,mirrorSource:true};
   if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
    if(boss.controller==='branchLegend' && boss.openingPose){
     const h=boss.artScale?art.box[3]*boss.artScale:Math.round(boss.artHeight*(boss.poseHeights?.idle??1));
@@ -270,9 +278,11 @@ try{
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   const cost={total:0,visible:0,standard:0};
   const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
+  if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
+   e=>legendScenes[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
    for(const e of visibleItems){
-    const a=placementArt(e),flip=e.flip&&!assets[e.species].left,x=e.x-camera,y=e.y-a.hover;
+    const a=placementArt(e),flip=e.flip&&(a.mirrorSource||!assets[e.species].left),x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
     const quality=mode==='png'||matchedSprites?null:profile;
     if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
@@ -315,14 +325,21 @@ try{
    }
   }
   updateDetail();
-  $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
+  $('placements').replaceChildren();
+  for(const e of items){
+   const label=document.createElement('button'),hover=placementArt(e).hover;
+   label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));
+   label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};
+   label.textContent=`${e.species}：(${e.x}, ${e.y})${hover?` ／ 浮き ${Number(hover.toFixed(2))}px`:''}`;
+   $('placements').append(label);
+  }
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   $('viewportCost').textContent=matchedSprites?'キャラは左右とも元PNG':decoded&&!cost.standard?'':viewportSummary(cost,profile);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
+   const label=legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -360,7 +377,7 @@ try{
    liveItems=[];liveError='';
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
-    const openingBoss=liveItems.length>0 && liveItems[0].id===arenaPreviews.get(n.id)?.id;
+    const openingBoss=liveItems.length>0 && (legendScenes[n.id] || liveItems[0].id===arenaPreviews.get(n.id)?.id);
     if(liveItems.length && (openingBoss || !liveItems.some(e=>e.x>=0 && e.x<960))){
      const focusX=openingBoss?(liveItems[0].x+liveItems.at(-1).x)/2:liveItems[0].x;
      camera.value=Math.min(Number(camera.max),Math.max(0,focusX-480));
@@ -368,6 +385,7 @@ try{
    }catch(error){liveError='本編配置を表示できません：'+error.message}
    subject.replaceChildren(new Option('全員を表示',''));
    const names=new Map((liveSource.nodes[n.id]??[]).map(e=>[e.id,e.name]));
+   for(const p of legendScenes[n.id]?.parts??[])names.set(p.id,p.name);
    for(const e of liveItems){
     const name=names.get(e.id)||assets[e.species]?.displayName||layouts[e.species]?.name||e.species;
     subject.add(new Option(name+'（'+e.x+', '+e.y+'）',e.id));

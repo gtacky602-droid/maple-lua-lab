@@ -1,8 +1,8 @@
 {
-  "fieldPickerCount": 53,
+  "fieldPickerCount": 56,
   "atlasEntry": "ruin-serpent-field-pit",
-  "sceneCount": 50,
-  "verifiedTiers": 250,
+  "sceneCount": 53,
+  "verifiedTiers": 265,
   "scenes": {
     "ruin-serpent-field-pit": {
       "source": "ruin-serpent-field-background-v1.png",
@@ -401,6 +401,81 @@
         "6144": {
           "bytes": 30460,
           "pixelHash": "d2e3b233252000553c972a7b3edcfca714b68e192d2ba3cfb88a0618a354832b"
+        }
+      }
+    },
+    "fairy-knight-twins-legend-court": {
+      "source": "fairy-channel-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18210,
+          "pixelHash": "565aee9c3fb4aab0ceb0b39e75486be9df09581ea6e7705c21371f82c08c63c5"
+        },
+        "4608": {
+          "bytes": 21818,
+          "pixelHash": "89b9de02bacb6b9d1b323040aadde6250b13a06b206557e9c742dee650710f23"
+        },
+        "5120": {
+          "bytes": 25289,
+          "pixelHash": "09ab88ba51d1102805b6e44f88992655685e1079d6689c3fa310663b55b86b7c"
+        },
+        "5632": {
+          "bytes": 28757,
+          "pixelHash": "22189e1b83c66fbf2776c907d2bfe29adbbd91030c0266311aa61fa39669da71"
+        },
+        "6144": {
+          "bytes": 30575,
+          "pixelHash": "577f549dd92fdd19971b46092f0ff719825654ccc444df00009d4191a9f89a4f"
+        }
+      }
+    },
+    "chassanion-legend-bubble-room": {
+      "source": "morte-bubble-room-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16854,
+          "pixelHash": "6cc54142635ba47629603dde8d7d13d5d07a2c3ff7b21d15902d2237a5313678"
+        },
+        "4608": {
+          "bytes": 20246,
+          "pixelHash": "18b9c28b64a56283ac59a8b3402a332766ec84a6c40b72bf44edac5b6c2c5ee7"
+        },
+        "5120": {
+          "bytes": 23527,
+          "pixelHash": "68a5bbdf6facdcbad1f41b432e0da31e4651682a4cc75d6ad54f0d1cef6d02ad"
+        },
+        "5632": {
+          "bytes": 26787,
+          "pixelHash": "4c4c9a41dbf21ef96e6a4b48e02faa036071edcfee84440dd3e43770cc1a987f"
+        },
+        "6144": {
+          "bytes": 28897,
+          "pixelHash": "ce600836042a72d0d796efaf3ea9f9e63fab0fbe27bae1106dbe8b31a7d2bb2f"
+        }
+      }
+    },
+    "witztli-tristars-camp": {
+      "source": "tristars-camp-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18268,
+          "pixelHash": "e5808b84887f75d3fb14781ab424afbb566dc5c28ae4851bc2ac3fbb3c985736"
+        },
+        "4608": {
+          "bytes": 21882,
+          "pixelHash": "e98a2a6b12f8380d28e9efff0ed8ea2378d2badc5d03ca84e2ff93644af515d5"
+        },
+        "5120": {
+          "bytes": 25371,
+          "pixelHash": "06c089bdd5529f4974b5f67ae140956760f8027d0ff6677116f65c08a01f9fab"
+        },
+        "5632": {
+          "bytes": 28861,
+          "pixelHash": "f3197cc7fb50af8dd20bb3e2c2d76b3136af61afb3fc74e92bbeaf377ac3107a"
+        },
+        "6144": {
+          "bytes": 30703,
+          "pixelHash": "5e30b213c856f59560244193c54ce947be68172f5245b153bb470fee31e95cfa"
         }
       }
     },
