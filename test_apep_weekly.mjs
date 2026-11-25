@@ -34,11 +34,11 @@ try{
  await page.keyboard.press('KeyF');
  await wait(node=>window.lab.frame.story.node===node,node);
  const scene=await page.evaluate(async()=>{
-  const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-  await backgroundReady;
+  const {loadScenery,sceneryStatus}=await import('./scenery.js');
+  await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['tunigiExcavation','ready']);
+ assert.deepEqual([scene.key,scene.state],['oasisHeart','ready']);
  const opening=await frame();
  assert.deepEqual(opening.weeklyBoss.phaseHp.map(v=>v.max),[560,1020]);
  assert.equal(opening.draws[0].source,'apep-dark-idle-source-v1.png');
@@ -109,12 +109,32 @@ try{
  });
  await wait(()=>{
   const f=window.lab.frame;
-  return f.weeklyBoss?.apep.units?.length>=3;
+  if(f.paused || !(f.weeklyBoss?.apep.units?.length>=3))return false;
+  window.lab.action('pause');return true;
  });
+ await wait(()=>window.lab.frame.paused);
  assert.ok(await page.locator('#weeklyApepProgress').isVisible());
  assert.ok(await page.locator('#fieldBossHp').isHidden());
  assert.ok(new Set((await frame()).weeklyBoss.apep.units.map(unit=>unit.x)).size>=3);
  await page.locator('.game').screenshot({path:prefix+'-defense.png'});
+ const defense=await frame();
+ const units=defense.weeklyBoss.apep.units.map(u=>[u.id,u.x,u.role]);
+ const meter=defense.draws.find(d=>d.kind==='rect' && d.color==='#f3df8e');
+ assert.equal(meter.w,Math.floor(54*defense.weeklyBoss.apep.progress/defense.weeklyBoss.apep.max));
+ const defenseRaw=await capture('defense-original');
+ await page.locator('#renderMode').selectOption('h32c16');
+ await wait(n=>window.lab.frame.commands>n,defense.commands);
+ const defenseLight=await frame();
+ assert.notEqual(defenseRaw,await capture('defense-16colors'));
+ assert.equal(defenseLight.t,defense.t);
+ assert.deepEqual(defenseLight.weeklyBoss.apep.units.map(u=>[u.id,u.x,u.role]),units);
+ assert.deepEqual(defenseLight.draws.find(d=>d.kind==='rect' && d.color==='#f3df8e'),meter);
+ const defenseComparison={t:defense.t,units,progress:defense.weeklyBoss.apep.progress,meterWidth:meter.w,
+  commands:{png:defense.commands,light:defenseLight.commands}};
+ await page.locator('#renderMode').selectOption('sprite');
+ await wait(n=>window.lab.frame.commands===n,defense.commands);
+ await canvas.click();await page.keyboard.press('KeyP');
+
  await wait(()=>{
   const f=window.lab.frame,b=f.weeklyBoss;
   if(f.paused||b?.apepStage!=='shelter'||b.moveTick<542||!b.apep.protected)return false;
@@ -166,7 +186,7 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({entered:true,phases,defenseRetries,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({entered:true,phases,defenseRetries,defenseComparison,
   finalPulseProtected:true,eightSecondOpening:true,clearReportRestore:true,remainingHp:finished.actors[0].hp,
   viewport390:true,scene,commands:{png:dome.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Apep Chrome: quest, defense, prime, dome protection, recovery, report and save passed');

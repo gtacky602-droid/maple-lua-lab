@@ -517,7 +517,7 @@ return function(C)
   end
   local slump=c and c.key=='WG17' and math.min(1,c.t/60,(600-c.t)/60) or 0
   local mist=c and ((c.key=='WG04' and c.t>=144 and c.t<210) or (c.key=='WG13' and c.t>=126 and c.t<336))
-  local height=278-64*slump
+  local height=spec.artHeight-64*slump
   C.drawFieldDisplayArt(back,C.primalWeeklyArt.idle,e.x-s.camera,e.y,height,mode,profile,false,nil,nil,mist and .53 or 1)
   local lift=w.phase=='warning' and .58 or w.phase=='active' and -.14 or .20
   blade(rear,e.x-82,e.y-125+36*slump,-1,lift,ember,'#af4f38',13)

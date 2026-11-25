@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1005,
+  "verifiedModules": 1050,
   "dimensions": [
     512,
     288
@@ -1392,6 +1392,69 @@
       "5632": 25335,
       "6144": 27219
     },
+    "oasis-heart-background-v1.png": {
+      "4096": 17172,
+      "4608": 20562,
+      "5120": 23811,
+      "5632": 27045,
+      "6144": 29101
+    },
+    "narwhal-star-sea-background-v1.png": {
+      "4096": 17285,
+      "4608": 20799,
+      "5120": 24202,
+      "5632": 27580,
+      "6144": 29220
+    },
+    "crimson-moon-court-background-v1.png": {
+      "4096": 13849,
+      "4608": 16933,
+      "5120": 19918,
+      "5632": 22860,
+      "6144": 23830
+    },
+    "sundered-forge-background-v1.png": {
+      "4096": 17019,
+      "4608": 20419,
+      "5120": 23716,
+      "5632": 27012,
+      "6144": 28728
+    },
+    "narwhal-inner-background-v1.png": {
+      "4096": 13862,
+      "4608": 17012,
+      "5120": 20015,
+      "5632": 22985,
+      "6144": 24331
+    },
+    "heretic-lattice-background-v1.png": {
+      "4096": 16090,
+      "4608": 19506,
+      "5120": 22783,
+      "5632": 26041,
+      "6144": 27373
+    },
+    "gate-court-background-v1.png": {
+      "4096": 12829,
+      "4608": 15811,
+      "5120": 18692,
+      "5632": 21582,
+      "6144": 22842
+    },
+    "buried-weaving-background-v1.png": {
+      "4096": 15777,
+      "4608": 18999,
+      "5120": 22100,
+      "5632": 25192,
+      "6144": 26766
+    },
+    "tide-calibration-background-v1.png": {
+      "4096": 16177,
+      "4608": 19499,
+      "5120": 22690,
+      "5632": 25884,
+      "6144": 27830
+    },
     "godmaking-hall-background-v1.png": {
       "4096": 16429,
       "4608": 19685,
@@ -1417,7 +1480,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 201
+      "verified": 210
     },
     "domainHunts": {
       "total": 124,
@@ -1614,18 +1677,8 @@
     },
     "weeklyBosses": {
       "totalArenas": 18,
-      "verified": 9,
-      "pending": [
-        "apep-oasis-heart-arena",
-        "buried-weaving-room",
-        "knave-crimson-court",
-        "mond-gate-chess-court",
-        "narwhal-inner-echo",
-        "narwhal-star-sea",
-        "primal-fire-sundered-forge",
-        "sumeru-heretic-lattice",
-        "tide-calibration-hall"
-      ]
+      "verified": 18,
+      "pending": []
     }
   }
 }

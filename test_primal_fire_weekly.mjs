@@ -38,7 +38,7 @@ try{
   await backgroundReady;
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scenery.key,scenery.state],['lavaDragonField','ready']);
+ assert.deepEqual([scenery.key,scenery.state],['sunderedForge','ready']);
  await wait(()=>window.lab.frame.weeklyBoss?.primal?.objects?.[0]?.kind==='gate');
  await page.keyboard.press('KeyP');
  await wait(()=>window.lab.frame.paused);

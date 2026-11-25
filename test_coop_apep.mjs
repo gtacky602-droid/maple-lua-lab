@@ -136,7 +136,7 @@ try{
   await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['tunigiExcavation','ready']);
+ assert.deepEqual([scene.key,scene.state],['oasisHeart','ready']);
  await Promise.all([play(a,-1),play(b,1)]);
  await a.waitForFunction(()=>window.lab.frame.weeklyBoss?.apep.units?.length>=3,null,{timeout:40000});
  await a.locator('#game').screenshot({path:'evidence/coop-apep-defense.png'});

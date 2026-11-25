@@ -288,12 +288,18 @@ return function(C,D)
  end
  local function paintHeart(x,y,scale,rect)
   local function draw(dx,dy,w,h,c) rect(x+dx*scale,y+dy*scale,w*scale,h*scale,c) end
-  draw(-25,-16,50,12,'#566745')
-  draw(-22,-51,44,34,'#b5c883')
-  draw(-16,-60,32,32,'#cce4a0')
-  draw(-9,-66,18,28,'#f2eab4')
-  draw(-5,-55,10,21,'#fff5c7')
-  draw(-32,-32,13,15,'#87af83');draw(19,-32,13,15,'#87af83')
+  -- Dark sepals separate the pale core from the green organisms on either side.
+  local rim,leaf,vein='#284944','#5b9e80','#9dd29a'
+  draw(-24,-7,48,7,rim);draw(-18,-13,36,7,leaf)
+  draw(-31,-30,9,17,rim);draw(-24,-24,12,16,rim)
+  draw(22,-30,9,17,rim);draw(12,-24,12,16,rim)
+  draw(-29,-28,6,13,vein);draw(23,-28,6,13,vein)
+  draw(-23,-21,12,10,leaf);draw(11,-21,12,10,leaf)
+  draw(-16,-46,32,28,rim);draw(-12,-55,24,38,rim);draw(-7,-63,14,51,rim)
+  draw(-3,-69,6,7,rim);draw(-13,-44,26,24,'#afc67b')
+  draw(-9,-53,18,33,'#d9d790');draw(-4,-61,8,40,'#f4e6a3')
+  draw(-3,-50,6,21,'#fff8cc');draw(-8,-44,16,7,'#fff8cc')
+  draw(-12,-19,24,6,leaf);draw(-6,-15,12,7,vein)
  end
  function controller.observe(f,s,w,spec,mode,profile)
   local b,e,c,stage=f.weeklyBoss,w.primary,w.cast,w.stage
@@ -342,7 +348,7 @@ return function(C,D)
   local y=spec.floorY
   if stage=='dark' or stage=='expose' and w.stageTick<52 then
    if not e.underground or stage=='expose' then
-    local h=stage=='expose' and math.max(31,191-w.stageTick*3) or 191
+    local h=stage=='expose' and math.max(31,spec.artHeight-w.stageTick*3) or spec.artHeight
     C.drawFieldDisplayArt(backdrop,C.apepWeeklyArt.dark,e.x-s.camera,y,h,mode,profile,e.dir>0)
    end
   elseif stage=='prime' or stage=='shelter' or stage=='weak' or stage=='rebirth' and w.stageTick>=60 then
@@ -353,7 +359,13 @@ return function(C,D)
   end
   if v.defense or stage=='expose' and w.stageTick>=48 or stage=='rebirth' then
    paintHeart(spec.center,y,stage=='failed' and .62 or 1,rect)
-   if stage~='rebirth' then label(spec.center,y-78,'オアシスの心',mint) end
+   if v.defense then
+    local progress=w.defense and w.defense.progress or 0
+    rect(spec.center-29,y-84,58,8,'#233d3a')
+    rect(spec.center-27,y-82,54,4,'#55564a')
+    rect(spec.center-27,y-82,math.floor(54*progress/spec.defense.max),4,'#f3df8e')
+   end
+   if stage~='rebirth' then label(spec.center,y-90,'オアシスの心',mint) end
   end
   if #draws>0 then
    table.move(f.draws,1,#f.draws,#draws+1,draws)
@@ -394,6 +406,18 @@ return function(C,D)
     rect(left,y-46,945-left,7,gold);rect(left,y-37,945-left,4,mint)
    end
   end
+ end
+ -- The comparison page starts this scene in a fresh lab session.
+ local previousAction=C.action
+ function C.action(s,key)
+  if key~='boss_apep_defense' then return previousAction(s,key) end
+  if s.story and s.story.active then return end
+  C.action(s,'story_start')
+  C.enterStoryNode(s,'apep-oasis-heart-arena')
+  local slot,spec=C.currentWeeklyBoss(s)
+  slot.primary.hp=spec.primeHp
+  phase(s,slot,spec,'defense','WP06')
+  for i=1,spec.defense.first+55 do C.step(s,1/60,{}) end
  end
  return controller
 end

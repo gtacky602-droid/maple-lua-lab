@@ -69,6 +69,7 @@ function viewportSummary(cost,profile){
 
 try{
  const [graph,initial,variants,weeklyData,fieldData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),json('content/weekly-boss-spawns.json'),json('content/field-boss-spawns.json')]);
+ const weeklyArenaNodes=new Set(weeklyData.weeklyBosses.flatMap(b=>[b.node,b.innerNode].filter(Boolean)));
  const arenaPreviews=new Map([...weeklyData.weeklyBosses,...fieldData.fieldBosses].filter(b=>b.mapIdleArt).map(b=>[b.node,b]));
  const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
@@ -277,7 +278,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':'本編の敵配置 '+items.length+'体';
+   const label=boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -308,6 +309,7 @@ try{
   colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
+  $('defenseCompareLink').hidden=n.id!=='apep-oasis-heart-arena';
   camera.max=Math.max(0,n.width-960);
   camera.value=0;
   if(liveView){

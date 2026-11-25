@@ -55,7 +55,7 @@ try{
   await backgroundReady;
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scenery.key,scenery.state],['fontaineUnderstage','ready']);
+ assert.deepEqual([scenery.key,scenery.state],['crimsonMoonCourt','ready']);
  const first=await compare('single','knave-weekly-single-source-v1.png',await frame());
  await canvas.click();
  await page.evaluate(()=>{

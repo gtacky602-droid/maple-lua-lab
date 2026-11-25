@@ -495,8 +495,8 @@ return function(C)
   local back={draws={}}
   if scene=='outer' then
    if stage~='swallow' or w.stageTick<spec.transition.sceneTick then
-    local h=stage=='weak' and 159 or 212
-    local y=spec.floorY-12
+    local h=stage=='weak' and 159 or spec.artHeight
+    local y=spec.floorY-spec.openingPose.hover
     if c and c.id=='WV02' and c.t>=96 and c.t<156 then y=y-math.sin(math.pi*(c.t-96)/120)*110
     elseif c and c.id=='WV05' and c.t<spec.eye.expiry then y=y-66;h=188
     elseif stage=='swallow' then h=214+math.sin(w.stageTick*.017)*38

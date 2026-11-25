@@ -424,7 +424,7 @@ return function(C)
   v.knave=b
   local back={draws={}}
   local double=w.form==2 or c and c.key=='WK11' and c.t>=96
-  local height=double and 136 or 112
+  local height=double and 136 or spec.artHeight
   if w.phase=='exposure' then height=height-13 end
   if c and c.key=='WK18' and c.t<420 then
    local radius=math.min(61,8+c.t*.59)

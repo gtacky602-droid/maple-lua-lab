@@ -1,0 +1,110 @@
+{
+  "apep-oasis-heart-arena": {
+    "source": "oasis-heart-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "c1f51674bbe4fe0d6709aae97740e8066e9923814a48f3cf3a2adc767df1bc5a",
+    "tiers": {
+      "4096": "ee78896d133a521974f39b858187413a55fb5a9811522242e824ccdecee0e9b3",
+      "4608": "f1fe14c7b701ee22ebdc194addecdd3aff74383c8d44940e31eccbc1c45e661e",
+      "5120": "ec72c0743f6c91508894b1ffab968bcc7bf84a30e42672e989d5ecc1fff913d5",
+      "5632": "376b3256714e50bab67db964712beddd0476f9c99bf874832dd8efb2a825577e",
+      "6144": "79a19862245e2aa7ea3a8d427c0e8831caddd48fbecdfa307a95a7a8e383c2be"
+    }
+  },
+  "narwhal-star-sea": {
+    "source": "narwhal-star-sea-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "2ebb60f966fcc3d78d1b9056a9a69234c3ebd34957c4865d4c1670b2c7428a66",
+    "tiers": {
+      "4096": "452ebdfdb4bf0e43655efd7c9081e43f6f32cbb4bf0e917a7a9723d8a5fd8db9",
+      "4608": "318e3e667b0d03087b822335a0b7002bfb8f683f82d96c6c8e83e3b650121087",
+      "5120": "4a055847f5991d41967edc6fee397585e5728971f141258d71cc87c23ef341cc",
+      "5632": "ecaa92bb2f74c55473df7628c7fdc29fde1ee704855e23b06612d9b7a23967a4",
+      "6144": "aa75e4a137067fbe6cafd62f2a7d4b5c81303bb7308fd5ec4f3cdab27e356dc2"
+    }
+  },
+  "knave-crimson-court": {
+    "source": "crimson-moon-court-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "8855450812bf9131868a5443cce29a4886629a4b6604279a3d7bd12bf59ccb00",
+    "tiers": {
+      "4096": "43440c9ee6c83c98ed3786bc00a3887107eb478626cdcd9691fdc7fb4ea30513",
+      "4608": "8eb8e925eb860340ec693215f480e98375aafa04944c56a959b6ca66e496ae86",
+      "5120": "4e8601f19764bd345f9113f70675e180c6d1bbb99eb2690e227b977d5eb54854",
+      "5632": "b60c40b88208dbf28a8d00ad70e42259e5df73ed67b801df79bde5986015a36b",
+      "6144": "a546a45d81d6702a872b1066f669e6e009119d484b7b701347a9c3217d15926c"
+    }
+  },
+  "primal-fire-sundered-forge": {
+    "source": "sundered-forge-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "0cbf20d3cd595271396dca838ec6f4f9e36ca0cc1b7ee01515a8f84485b5e5c6",
+    "tiers": {
+      "4096": "9cb1d600480096bc68c97f38ea5afacd11c2fc70ec32b5cb1026c7e5e6a7c821",
+      "4608": "9a6b31046eea3797046b847e964c72136f74c080dd3ff591d8e09c6114bdf635",
+      "5120": "29fae86984fc3bbf7a53027e32103b60d21c80edf502e9e19817f8e5f5be59aa",
+      "5632": "bf33fb1ca8b5525b5eeb1a1be50e8a51e9e1a2040853f1716cdab4b81f60a76e",
+      "6144": "ee999c3062e139ca69e5f0dec58b772162b1e8aa12c4ef7d0bfb0c0b1cd0fc63"
+    }
+  },
+  "narwhal-inner-echo": {
+    "source": "narwhal-inner-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "f9e3f8f62e59dd3b764611821dfa928a616a091f29a50843d0c5955b01c371f0",
+    "tiers": {
+      "4096": "840df7b24adfe7683510fb1d56073db0c9c372bf251211a7fd9255380cc189ec",
+      "4608": "12ce0f0708fb7c44dc35eb03149cf247a413a9af2340a6d2b7b90a9f918ac681",
+      "5120": "e0fee53a9fa6233321707ba35f33a63796bcb37b8070b16452c2ddb66718cbe0",
+      "5632": "aab55f0bc5601b5ad2762823de3bc4d43eb8dff149b02f82afe05f405812f82c",
+      "6144": "62173d19afb92764d666580fa9d2e6e1acf2ebd1f97e29dac39937627ff0e1d8"
+    }
+  },
+  "sumeru-heretic-lattice": {
+    "source": "heretic-lattice-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "a6dfe82d7dce7fa691174887f40dae1f4870fffea217f99d2ff1046d33fa05e3",
+    "tiers": {
+      "4096": "52f341fa269251dc033c94136945da3f7340845754586e2676ab43631d3814f0",
+      "4608": "75f31a8658bde9e79ee2169f79f71d9014745afd0626d1a0391f9384898c005b",
+      "5120": "9e5c434eed8f8dc3c7721c20ae781f139dc5e7145f58a854a6289690641e80e3",
+      "5632": "85bd9d719c2e3ba04fa92ae70a0b84ddfd5eb5f916ccd1a75f0bed3ea114da73",
+      "6144": "d83a3a746a6ff94b7c38fc9ef5173dfc92e54f2889857e451a0ebcd2dc9a76c5"
+    }
+  },
+  "mond-gate-chess-court": {
+    "source": "gate-court-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "1cf5b9c609f39f493f5704e6a2d589369066ee2754b9bbe1e72d527a9c6f8d73",
+    "tiers": {
+      "4096": "79d0306b0624bc9e14bd2f8cac0653a636d5b9c2d1d3feb96d57ee837e5a543e",
+      "4608": "a268879a84ced5f5fb59e94ed1ae07ba7299745b2bd9d97c8ddebac283481e1d",
+      "5120": "7befb87c66883a036596685c2f796b044331098e8819e729133c207ce6b5f7fd",
+      "5632": "31df3d2b4dc428fe09812127640c6c415029c496e65eb4069dab9c17576aa875",
+      "6144": "5c154dfc7ccaf44aadf4d28a827b942e0ca91f513701d0b0f7d66c9857e8f25a"
+    }
+  },
+  "buried-weaving-room": {
+    "source": "buried-weaving-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "08cd71b7a9cfb9193184a808f2f466d833dba771461a136c80f31f91c0c9edca",
+    "tiers": {
+      "4096": "9586010be2eda6ff406704714cb35c7cb91ba2a662524a6faabff575ee02807e",
+      "4608": "1047ca81fbec4bc63df1c1229553775fbfdd10d0e9cdce6c7b9ce1c7e74f52bc",
+      "5120": "1fd66881acd14e4080b27410ea7f710d7b0fd0ed66127ee3b3bb2c93c91c42f0",
+      "5632": "fd77babbf330cd973353a2b5d455f81b030b0c1bc990790456fa2e538cae2b33",
+      "6144": "34df661e8a5524dfa4ec5e3b0411a79c6fa9424f5132b1a54a06c50f951c8744"
+    }
+  },
+  "tide-calibration-hall": {
+    "source": "tide-calibration-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "1f90082a469c26d593a1944642f7abc19841a0c2f60660a14b236018f7ab1ccb",
+    "tiers": {
+      "4096": "901facab4acbcf3b683afbc0964e1874e98e13bbe40f0dc4c6c5c1045665756b",
+      "4608": "a486a3fe7c875d994f2577dbeba5ff77b8858eaa0b63aca0b4a5a38b39d60cdd",
+      "5120": "52020504f46ab613079b4f62f58f9549f37dd427c8a16571cb38df28c1748c7c",
+      "5632": "04d719e2630b39e09fef1a2e179c41632fe2e56e3ab02373642d5a592384be6b",
+      "6144": "81bb6414f4529e2a40d4e4597cf562031383a83ff375b7d810ee28450c92368f"
+    }
+  }
+}

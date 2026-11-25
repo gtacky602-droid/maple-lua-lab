@@ -7,19 +7,19 @@
       "state": "ready"
     },
     "opening": {
+      "anchorX": 0.5,
+      "w": 242.27848101265823,
+      "source": "dvalin-weekly-body-source-v1.png",
+      "y": 330,
+      "kind": "boss_sprite",
+      "flip": false,
       "box": [
         25,
         25,
         435,
         395
       ],
-      "kind": "boss_sprite",
-      "flip": false,
-      "y": 330,
       "h": 220,
-      "w": 242.27848101265823,
-      "source": "dvalin-weekly-body-source-v1.png",
-      "anchorX": 0.5,
       "x": 480
     },
     "profiles": {
@@ -66,14 +66,14 @@
         492,
         323
       ],
-      "anchorX": 0.5121951219512195,
-      "w": 274.1795665634675,
-      "y": 480,
-      "x": 480,
       "kind": "boss_sprite",
       "source": "andrius-weekly-normal-source-v1.png",
-      "flip": false,
-      "h": 180
+      "y": 480,
+      "anchorX": 0.5121951219512195,
+      "w": 274.1795665634675,
+      "x": 480,
+      "h": 180,
+      "flip": false
     },
     "profiles": {
       "legacy": {
@@ -113,9 +113,6 @@
       "state": "ready"
     },
     "opening": {
-      "w": 63.71182458888019,
-      "x": 480,
-      "flip": false,
       "box": [
         261,
         18,
@@ -124,8 +121,11 @@
       ],
       "kind": "boss_sprite",
       "y": 480,
+      "flip": false,
       "h": 120,
       "anchorX": 0.5022123893805309,
+      "w": 63.71182458888019,
+      "x": 480,
       "source": "signora-idle-source-v1.png"
     },
     "profiles": {
@@ -166,12 +166,6 @@
       "state": "ready"
     },
     "opening": {
-      "anchorX": 0.5667613636363636,
-      "x": 480,
-      "w": 70.08711111111111,
-      "source": "raiden-weekly-normal-source-v1.png",
-      "kind": "boss_sprite",
-      "y": 480,
       "h": 112,
       "box": [
         216,
@@ -179,7 +173,13 @@
         704,
         1125
       ],
-      "flip": true
+      "w": 70.08711111111111,
+      "flip": true,
+      "kind": "boss_sprite",
+      "x": 480,
+      "anchorX": 0.5667613636363636,
+      "y": 480,
+      "source": "raiden-weekly-normal-source-v1.png"
     },
     "profiles": {
       "legacy": {
@@ -219,20 +219,20 @@
       "state": "ready"
     },
     "opening": {
-      "flip": false,
+      "x": 480,
+      "y": 480,
+      "source": "shouki-idle-source-v1.png",
       "anchorX": 0.5,
       "kind": "boss_sprite",
+      "w": 1392.6417704011064,
       "box": [
         87,
         14,
         868,
         723
       ],
-      "y": 480,
-      "x": 480,
-      "source": "shouki-idle-source-v1.png",
       "h": 1160,
-      "w": 1392.6417704011064
+      "flip": false
     },
     "profiles": {
       "legacy": {
@@ -256,6 +256,272 @@
       "h32c16": {
         "sourceRuns": 2125,
         "drawnRuns": 1392,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "apep": {
+    "node": "apep-oasis-heart-arena",
+    "background": {
+      "key": "oasisHeart",
+      "file": "oasis-heart-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "anchorX": 0.275748502994012,
+      "w": 475.3651266766021,
+      "kind": "boss_sprite",
+      "flip": false,
+      "box": [
+        57,
+        166,
+        1670,
+        671
+      ],
+      "h": 191,
+      "y": 480,
+      "x": 480,
+      "source": "apep-dark-idle-source-v1.png"
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 18603,
+        "drawnRuns": 18603,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 11910,
+        "drawnRuns": 11910,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 5320,
+        "drawnRuns": 5320,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "narwhal": {
+    "node": "narwhal-star-sea",
+    "background": {
+      "key": "starSea",
+      "file": "narwhal-star-sea-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "w": 438.21647058823527,
+      "flip": false,
+      "y": 468,
+      "x": 480,
+      "box": [
+        9,
+        15,
+        1757,
+        850
+      ],
+      "source": "narwhal-idle-source-v1.png",
+      "anchorX": 0.5,
+      "kind": "boss_sprite",
+      "h": 212
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 10430,
+        "drawnRuns": 10430,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 6670,
+        "drawnRuns": 6670,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 3070,
+        "drawnRuns": 3070,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "knave": {
+    "node": "knave-crimson-court",
+    "background": {
+      "key": "crimsonMoonCourt",
+      "file": "crimson-moon-court-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "anchorX": 0.6800422386483632,
+      "kind": "boss_sprite",
+      "w": 88.01991701244813,
+      "x": 480,
+      "y": 480,
+      "flip": true,
+      "box": [
+        50,
+        49,
+        947,
+        1205
+      ],
+      "source": "knave-weekly-single-source-v1.png",
+      "h": 112
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 2610,
+        "drawnRuns": 2610,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 1616,
+        "drawnRuns": 1616,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 721,
+        "drawnRuns": 721,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "primal_fire": {
+    "node": "primal-fire-sundered-forge",
+    "background": {
+      "key": "sunderedForge",
+      "file": "sundered-forge-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "box": [
+        144,
+        27,
+        1122,
+        1147
+      ],
+      "opacity": 1,
+      "kind": "boss_sprite",
+      "anchorX": 0.5,
+      "source": "gosoythoth-idle-source-v1.png",
+      "h": 278,
+      "flip": false,
+      "y": 480,
+      "w": 271.94071490845687,
+      "x": 540
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 12054,
+        "drawnRuns": 12054,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 7447,
+        "drawnRuns": 7447,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 3281,
+        "drawnRuns": 3281,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "heretic": {
+    "node": "sumeru-heretic-lattice",
+    "background": {
+      "key": "hereticLattice",
+      "file": "heretic-lattice-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "x": 480,
+      "w": 117.57682177348552,
+      "kind": "boss_sprite",
+      "y": 480,
+      "anchorX": 0.4166666666666667,
+      "flip": false,
+      "box": [
+        163,
+        119,
+        930,
+        1139
+      ],
+      "source": "heretic-weekly-idle-source-v1.png",
+      "h": 144
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 4838,
+        "drawnRuns": 4838,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 3084,
+        "drawnRuns": 3084,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 1422,
+        "drawnRuns": 1422,
         "heldDraws": 0,
         "differentPixels": {
           "png": 0,

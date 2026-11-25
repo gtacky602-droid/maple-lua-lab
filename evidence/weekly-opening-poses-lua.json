@@ -7,20 +7,20 @@
       "sites-hunt-7111"
     ],
     "png": {
-      "flip": false,
-      "w": 242.27848101265823,
-      "anchorX": 0.5,
-      "kind": "boss_sprite",
+      "source": "dvalin-weekly-body-source-v1.png",
       "box": [
         25,
         25,
         435,
         395
       ],
+      "w": 242.27848101265823,
+      "kind": "boss_sprite",
       "h": 220,
-      "y": 330,
+      "flip": false,
       "x": 480,
-      "source": "dvalin-weekly-body-source-v1.png"
+      "anchorX": 0.5,
+      "y": 330
     },
     "heldRects": [],
     "profiles": {
@@ -45,20 +45,20 @@
       "mond-road"
     ],
     "png": {
-      "flip": false,
-      "w": 274.1795665634675,
-      "anchorX": 0.5121951219512195,
-      "kind": "boss_sprite",
+      "source": "andrius-weekly-normal-source-v1.png",
       "box": [
         25,
         25,
         492,
         323
       ],
+      "w": 274.1795665634675,
+      "kind": "boss_sprite",
       "h": 180.0,
-      "y": 480,
+      "flip": false,
       "x": 480,
-      "source": "andrius-weekly-normal-source-v1.png"
+      "anchorX": 0.5121951219512195,
+      "y": 480
     },
     "heldRects": [],
     "profiles": {
@@ -83,20 +83,20 @@
       "inazuma-town"
     ],
     "png": {
-      "flip": false,
-      "w": 63.71182458888019,
-      "anchorX": 0.5022123893805309,
-      "kind": "boss_sprite",
+      "source": "signora-idle-source-v1.png",
       "box": [
         261,
         18,
         678,
         1277
       ],
+      "w": 63.71182458888019,
+      "kind": "boss_sprite",
       "h": 120,
-      "y": 480,
+      "flip": false,
       "x": 480,
-      "source": "signora-idle-source-v1.png"
+      "anchorX": 0.5022123893805309,
+      "y": 480
     },
     "heldRects": [],
     "profiles": {
@@ -121,20 +121,20 @@
       "inazuma-town"
     ],
     "png": {
-      "flip": true,
-      "w": 70.08711111111111,
-      "anchorX": 0.5667613636363636,
-      "kind": "boss_sprite",
+      "source": "raiden-weekly-normal-source-v1.png",
       "box": [
         216,
         94,
         704,
         1125
       ],
+      "w": 70.08711111111111,
+      "kind": "boss_sprite",
       "h": 112,
-      "y": 480,
+      "flip": true,
       "x": 480,
-      "source": "raiden-weekly-normal-source-v1.png"
+      "anchorX": 0.5667613636363636,
+      "y": 480
     },
     "heldRects": [
       [
@@ -230,20 +230,20 @@
       "sumeru-hub"
     ],
     "png": {
-      "flip": false,
-      "w": 1392.6417704011064,
-      "anchorX": 0.5,
-      "kind": "boss_sprite",
+      "source": "shouki-idle-source-v1.png",
       "box": [
         87,
         14,
         868,
         723
       ],
+      "w": 1392.6417704011064,
+      "kind": "boss_sprite",
       "h": 1160,
-      "y": 480,
+      "flip": false,
       "x": 480,
-      "source": "shouki-idle-source-v1.png"
+      "anchorX": 0.5,
+      "y": 480
     },
     "heldRects": [],
     "profiles": {
@@ -258,6 +258,197 @@
       "h32c16": {
         "sourceRuns": 2125,
         "drawnRuns": 1392
+      }
+    }
+  },
+  "apep": {
+    "node": "apep-oasis-heart-arena",
+    "hub": "sumeru-hub",
+    "approach": [
+      "sumeru-hub"
+    ],
+    "png": {
+      "source": "apep-dark-idle-source-v1.png",
+      "box": [
+        57,
+        166,
+        1670,
+        671
+      ],
+      "w": 475.3651266766021,
+      "kind": "boss_sprite",
+      "h": 191,
+      "flip": false,
+      "x": 480,
+      "anchorX": 0.275748502994012,
+      "y": 480
+    },
+    "heldRects": [],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 18603,
+        "drawnRuns": 18603
+      },
+      "h48c32": {
+        "sourceRuns": 11910,
+        "drawnRuns": 11910
+      },
+      "h32c16": {
+        "sourceRuns": 5320,
+        "drawnRuns": 5320
+      }
+    }
+  },
+  "narwhal": {
+    "node": "narwhal-star-sea",
+    "hub": "fontaine-hub",
+    "approach": [
+      "fontaine-hub"
+    ],
+    "png": {
+      "source": "narwhal-idle-source-v1.png",
+      "box": [
+        9,
+        15,
+        1757,
+        850
+      ],
+      "w": 438.21647058823527,
+      "kind": "boss_sprite",
+      "h": 212,
+      "flip": false,
+      "x": 480,
+      "anchorX": 0.5,
+      "y": 468
+    },
+    "heldRects": [],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 10430,
+        "drawnRuns": 10430
+      },
+      "h48c32": {
+        "sourceRuns": 6670,
+        "drawnRuns": 6670
+      },
+      "h32c16": {
+        "sourceRuns": 3070,
+        "drawnRuns": 3070
+      }
+    }
+  },
+  "knave": {
+    "node": "knave-crimson-court",
+    "hub": "fontaine-hub",
+    "approach": [
+      "fontaine-hub"
+    ],
+    "png": {
+      "source": "knave-weekly-single-source-v1.png",
+      "box": [
+        50,
+        49,
+        947,
+        1205
+      ],
+      "w": 88.01991701244813,
+      "kind": "boss_sprite",
+      "h": 112,
+      "flip": true,
+      "x": 480,
+      "anchorX": 0.6800422386483632,
+      "y": 480
+    },
+    "heldRects": [],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 2610,
+        "drawnRuns": 2610
+      },
+      "h48c32": {
+        "sourceRuns": 1616,
+        "drawnRuns": 1616
+      },
+      "h32c16": {
+        "sourceRuns": 721,
+        "drawnRuns": 721
+      }
+    }
+  },
+  "primal_fire": {
+    "node": "primal-fire-sundered-forge",
+    "hub": "natlan-hub",
+    "approach": [
+      "natlan-hub"
+    ],
+    "png": {
+      "source": "gosoythoth-idle-source-v1.png",
+      "opacity": 1,
+      "box": [
+        144,
+        27,
+        1122,
+        1147
+      ],
+      "w": 271.94071490845687,
+      "kind": "boss_sprite",
+      "h": 278,
+      "flip": false,
+      "x": 540,
+      "anchorX": 0.5,
+      "y": 480
+    },
+    "heldRects": [],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 12054,
+        "drawnRuns": 12054
+      },
+      "h48c32": {
+        "sourceRuns": 7447,
+        "drawnRuns": 7447
+      },
+      "h32c16": {
+        "sourceRuns": 3281,
+        "drawnRuns": 3281
+      }
+    }
+  },
+  "heretic": {
+    "node": "sumeru-heretic-lattice",
+    "hub": "sumeru-hub",
+    "approach": [
+      "sumeru-hub"
+    ],
+    "png": {
+      "source": "heretic-weekly-idle-source-v1.png",
+      "box": [
+        163,
+        119,
+        930,
+        1139
+      ],
+      "w": 117.57682177348552,
+      "kind": "boss_sprite",
+      "h": 144,
+      "flip": false,
+      "x": 480,
+      "anchorX": 0.4166666666666667,
+      "y": 480
+    },
+    "heldRects": [],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 4838,
+        "drawnRuns": 4838
+      },
+      "h48c32": {
+        "sourceRuns": 3084,
+        "drawnRuns": 3084
+      },
+      "h32c16": {
+        "sourceRuns": 1422,
+        "drawnRuns": 1422
       }
     }
   }

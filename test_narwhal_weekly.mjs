@@ -45,7 +45,7 @@ try{
  await page.keyboard.press('KeyF');
  await wait(outer=>window.lab.frame.story.node===outer,outer);
  const open=await scene();
- assert.deepEqual([open.key,open.state],['tulpaField','ready']);
+ assert.deepEqual([open.key,open.state],['starSea','ready']);
  assert.equal((await frame()).draws[0].source,'narwhal-idle-source-v1.png');
  await page.locator('.game').screenshot({path:prefix+'-outer.png'});
  await canvas.click();

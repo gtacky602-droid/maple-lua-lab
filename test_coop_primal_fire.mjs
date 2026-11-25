@@ -124,7 +124,7 @@ try{
   await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['lavaDragonField','ready']);
+ assert.deepEqual([scene.key,scene.state],['sunderedForge','ready']);
  await Promise.all([play(a,-1),play(b,1)]);
  await a.waitForFunction(()=>window.lab.frame.weeklyBoss?.primal.objects?.[0]?.kind==='gate',null,{timeout:33000});
  await a.locator('#game').screenshot({path:'evidence/coop-primal-fire-gate.png'});

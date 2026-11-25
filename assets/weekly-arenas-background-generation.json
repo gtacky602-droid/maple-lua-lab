@@ -1,0 +1,78 @@
+{
+  "generator": "OpenAI ImageGen for new images; original lab rasters retained where indicated",
+  "prompt": "Original wide 16:9 side-view fantasy RPG background for a pixel art arena. Large deliberate stepped pixel clusters, limited flat palette, readable atmospheric layers. Small player sprites will be drawn separately. Put landmarks at the edges or high in the sky. Clear quiet horizontal stage across the lower third, center mid-dark and muted. No actors, enemies, typography, floating platforms, interface, foreground props or collectible objects.",
+  "scenes": [
+    {
+      "node": "apep-oasis-heart-arena",
+      "key": "oasisHeart",
+      "note": "オアシスの心の再現戦",
+      "source": "oasis-heart-background-v1.png",
+      "preview": "oasis-heart-native-preview-v1.png",
+      "prompt": "Interior of a vast ancient organic desert dragon sanctuary, cavern ribs like curling roots, dark petrol teal cavern, golden seed-like distant lights confined to upper corners, amber sandy terraces and distant turquoise oasis haze. Empty dark center for a pale green seed that gameplay draws separately. No seed in center."
+    },
+    {
+      "node": "narwhal-star-sea",
+      "key": "starSea",
+      "note": "星海の再現戦",
+      "source": "narwhal-star-sea-background-v1.png",
+      "preview": "narwhal-star-sea-native-preview-v1.png",
+      "prompt": "A vast cosmic ocean under indigo star arcs, distant soft aquamarine swells and floating sea-glass reefs, sculptural paired spiral tide formations near sides and reflected starlight on a flat horizon. No whale, no animal."
+    },
+    {
+      "node": "knave-crimson-court",
+      "key": "crimsonMoonCourt",
+      "note": "凶月の再現戦",
+      "source": "crimson-moon-court-background-v1.png",
+      "preview": "crimson-moon-court-native-preview-v1.png",
+      "prompt": "A ruined ceremonial court under an eclipsed crimson moon, charcoal gothic silhouettes and fractured columns at sides with restrained dark garnet horizon and desaturated slate floor. Red rim light on architectural edges. No throne, people, weapons or foreground attack telegraphs."
+    },
+    {
+      "node": "primal-fire-sundered-forge",
+      "key": "sunderedForge",
+      "note": "源焔の再現戦",
+      "source": "sundered-forge-background-v1.png",
+      "preview": "sundered-forge-native-preview-v1.png",
+      "prompt": "A monumental ancient volcanic forging chamber in Natlan, obsidian terraces and geometric ochre masonry, bronze crucibles and restrained molten-orange channels in the back wall, embers at far edges. Keep central floor clear and cool charcoal. No deep pit across the floor."
+    },
+    {
+      "node": "narwhal-inner-echo",
+      "key": "narwhalInner",
+      "note": "呑星の鯨・腹中",
+      "source": "narwhal-inner-background-v1.png",
+      "preview": "narwhal-inner-native-preview-v1.png",
+      "origin": "Existing arena background retained at its original resolution"
+    },
+    {
+      "node": "sumeru-heretic-lattice",
+      "key": "hereticLattice",
+      "note": "左道の結合格子",
+      "source": "heretic-lattice-background-v1.png",
+      "preview": "heretic-lattice-native-preview-v1.png",
+      "origin": "Existing arena background retained at its original resolution"
+    },
+    {
+      "node": "mond-gate-chess-court",
+      "key": "gateCourt",
+      "note": "扉の対局・再現盤",
+      "source": "gate-court-background-v1.png",
+      "preview": "gate-court-native-preview-v1.png",
+      "origin": "Existing arena background retained at its original resolution"
+    },
+    {
+      "node": "buried-weaving-room",
+      "key": "buriedWeaving",
+      "note": "埋もれた織房",
+      "source": "buried-weaving-background-v1.png",
+      "preview": "buried-weaving-native-preview-v1.png",
+      "origin": "Existing arena background retained at its original resolution"
+    },
+    {
+      "node": "tide-calibration-hall",
+      "key": "tideCalibration",
+      "note": "潮位較正室",
+      "source": "tide-calibration-background-v1.png",
+      "preview": "tide-calibration-native-preview-v1.png",
+      "origin": "Existing arena background retained at its original resolution"
+    }
+  ]
+}

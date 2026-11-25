@@ -122,7 +122,7 @@ try{
   await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['fontaineUnderstage','ready']);
+ assert.deepEqual([scene.key,scene.state],['crimsonMoonCourt','ready']);
  await Promise.all([play(a,-1),play(b,1)]);
  await Promise.all(players.map(page=>page.waitForFunction(()=>{
   const k=window.lab.frame.weeklyBoss?.knave;

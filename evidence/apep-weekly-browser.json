@@ -10,14 +10,45 @@
     "weak"
   ],
   "defenseRetries": 0,
+  "defenseComparison": {
+    "t": 10.500000000000101,
+    "units": [
+      [
+        29080202,
+        96.75999999999999,
+        "melee"
+      ],
+      [
+        29080203,
+        863.24,
+        "ranged"
+      ],
+      [
+        29080204,
+        128.76,
+        "ranged"
+      ],
+      [
+        29080205,
+        831.24,
+        "melee"
+      ]
+    ],
+    "progress": 26,
+    "meterWidth": 14,
+    "commands": {
+      "png": 39,
+      "light": 2099
+    }
+  },
   "finalPulseProtected": true,
   "eightSecondOpening": true,
   "clearReportRestore": true,
   "remainingHp": 780,
   "viewport390": true,
   "scene": {
-    "key": "tunigiExcavation",
-    "file": "tunigi-excavation-background-v1.png",
+    "key": "oasisHeart",
+    "file": "oasis-heart-background-v1.png",
     "state": "ready"
   },
   "commands": {

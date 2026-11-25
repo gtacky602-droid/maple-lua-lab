@@ -11,7 +11,8 @@ const results={};
 try{
  for(const [key,pose] of Object.entries(opening)){
   const page=await browser.newPage({viewport:{width:1420,height:970}});
-  const drive=waypointDriver(page,nodes);
+  console.log(key);
+  const drive=waypointDriver(page,nodes,{walkTimeout:30000});
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:9101/');
@@ -84,5 +85,5 @@ try{
   await view.close();await page.close();
  }
  await fs.writeFile('evidence/weekly-opening-poses-browser.json',JSON.stringify(results,null,2)+'\n');
- console.log('All five combat openings match the M-map preview: PNG and three rectangle profiles.');
+ console.log('All ten combat openings match the M-map preview: PNG and three rectangle profiles.');
 }finally{await browser.close()}
