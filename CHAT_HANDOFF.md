@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 早柚の見回り道と木の実のお礼
+
+「最短ルートは、静かなルート」を追跡すると、草むら、石段の洞穴、大木の裏を順に地図から開ける。足元の線が隠れられる範囲、十字が確認点。元PNGと16色の矩形版を並べて見られる。草むらの外からGを押しても隠密の確認点は進まない。見つかった場合は見回り役を退けて続行できる。報告後は近道で木陰へ戻り、木の実のそばのお礼を読み返せる。[三つの隠れ場所を見比べる](evidence/sayu-hideouts-comparison.png) ／ [草むらの地図](map-art.html?placements=live&node=ina-sayu-watchpath&quest=ina-sayu-quiet-route&step=2&tier=4096)
+
+Lv42の育成セーブから4,096矩形の仮背景で巡回、開門、報告、再訪を確認。草むらに隠れたコマでは、軽量16色の4,407件の描画命令をまとめて送り、座標・色・順番をそのまま復元できた。このコマの描画用JSONは502,200 Bから163,622 Bになった。地図は3か所と背景5段階の計15条件で、各素材を元PNGまたは矩形データから別に描いた参照と照合した。[Luaの進行・描画データ](evidence/ina-sayu-route-earned-lua.json) ／ [操作検証](evidence/ina-sayu-route-earned-browser.json) ／ [地図の画素照合](evidence/sayu-hideouts-pixels.json)
+
 ## 宵宮の花火を同じコマで見比べる
 
 「遠くの人にも、届く一発」で、火花の外側の光と芯に同じ中心座標を使い、色と大きさをまとめて送る。海の青・夕焼けの橙・藤の紫と、輪・菊・扇を選べる。比較画面で開き具合を止めると、同じ仮背景の上で元の矩形描画と並べて見られる。夕焼け色の扇が40%開いたコマは、火花部分のJSONが16,673 Bから1,093 Bになり、画素差はゼロ。海辺にはラボの既存の背景画像と5段階の復号画像を使う。[比較画面](firework-preview.html) ／ [比較画像](evidence/firework-packing-comparison.png) ／ [54条件の測定結果](evidence/firework-packing-pixels.json)

@@ -51,6 +51,10 @@ return function(C,canInspect)
     s.storyNotice='見回り役との戦闘が終わってから、確認点を調べましょう。'
     return true
    end
+   if not state.stealthEncounter and not concealed(s.actors[s.active],step.cover) then
+    s.storyNotice=step.cover.name..'に身を隠してから、印を確かめよう。'
+    return true
+   end
    if state.stealthEncounter=='cleared' then s.enemies={} end
    state.stealthEncounter=nil
    s.sayuHeat=0
@@ -112,15 +116,26 @@ return function(C,canInspect)
   end
  end
 
- local function art(draws,id,x,y,h,mode,profile)
+ local function artFrame(draws,f)
+  return {draws=draws,rectIndex=f.rectIndex,rectBatches=f.rectBatches}
+ end
+
+ local function art(draws,id,x,y,h,mode,profile,f)
   local sprite=C.stealthArt[id]
   local half=h*sprite.box[3]/sprite.box[4]/2
   if x+half>=0 and x-half<=960 then
-   C.drawFieldDisplayArt({draws=draws},sprite,x,y,h,mode,profile,false)
+   C.drawFieldDisplayArt(artFrame(draws,f),sprite,x,y,h,mode,profile,false)
   end
  end
 
+ local function packingFor(s,f,mode)
+  if mode~='rect' or not s.packRectArt then return f end
+  f.rectBatches=f.rectBatches or {}
+  return {rectBatches=f.rectBatches,rectIndex={}}
+ end
+
  function stealth.observe(s,f,draws,q,state,spec,mode,profile)
+  local packing=packingFor(s,f,mode)
   local step=current(q,state)
   local open=state and state.count>=spec.opensAt
   local fence=spec.fence
@@ -134,14 +149,14 @@ return function(C,canInspect)
    end
    rect(draws,gateX-62,fence.y-250,124,7,'#776042')
   end
-  art(draws,'gate',gateX,fence.y-lift,121,mode,profile)
+  art(draws,'gate',gateX,fence.y-lift,121,mode,profile,packing)
   if not state or state.count==0 then return end
   for _,entry in ipairs(q.itinerary) do
    if entry.cover then
     local cover=entry.cover
     local isHidden=entry==step and concealed(s.actors[s.active],cover)
     local layer=isHidden and cover.front and f.draws or draws
-    art(layer,cover.art,cover.x+cover.w/2-s.camera,cover.y,cover.height,mode,profile)
+    art(layer,cover.art,cover.x+cover.w/2-s.camera,cover.y,cover.height,mode,profile,packing)
     if entry==step then rect(draws,cover.x-s.camera,cover.y-3,cover.w,3,isHidden and '#b9efd0' or '#68aa9bab') end
    end
   end
@@ -158,7 +173,7 @@ return function(C,canInspect)
      rect(draws,x+dir*distance-5,y-5,10,3,color)
     end
     local artInfo=C.enemyArtLayout[guard.art]
-    C.drawFieldDisplayArt({draws=draws},C.enemyIdleArt[guard.art],x,y,artInfo.height,mode,profile,dir>0)
+    C.drawFieldDisplayArt(artFrame(draws,packing),C.enemyIdleArt[guard.art],x,y,artInfo.height,mode,profile,dir>0)
     label(draws,x,y-99,dir>0 and '見回り  ›' or '‹  見回り')
     if x>=-29 and x<=989 then
      rect(draws,x-25,y-87,50,5,'#272a44')
@@ -167,9 +182,9 @@ return function(C,canInspect)
    end
    local near=canMark(s,step)
    local cx=step.x-s.camera
-   art(draws,'leaf',cx,step.y-72,23,mode,profile)
+   art(draws,'leaf',cx,step.y-72,23,mode,profile,packing)
    label(draws,cx,step.y-142,step.name)
-   if near and not s.paused and state.stealthEncounter~='engaged' and not f.storyNearbyMilestone then
+   if near and not s.paused and (state.stealthEncounter=='cleared' or hidden and not state.stealthEncounter) and not f.storyNearbyMilestone then
     f.storyNearbyMilestone={label=step.action}
    end
    local mode,message
@@ -182,10 +197,10 @@ return function(C,canInspect)
   elseif step and step.kind=='stealthHatch' then
    local x=step.x-s.camera
    if s.sayuHatch then
-    art(f.draws,'leaf',x+(fence.x-step.x+44)*progress,step.y-8-math.sin(progress*math.pi)*11,22,mode,profile)
+    art(f.draws,'leaf',x+(fence.x-step.x+44)*progress,step.y-8-math.sin(progress*math.pi)*11,22,mode,profile,packing)
     f.storyStealth={mode='hatch',message='早柚が狭い抜け穴をくぐって、裏から柵を開けます。'}
    else
-    art(draws,'cave',x,step.y,35,mode,profile)
+    art(draws,'cave',x,step.y,35,mode,profile,packing)
     label(draws,x,step.y-104,step.name)
     if not s.paused and not f.storyNearbyMilestone and canMark(s,step) then
      f.storyNearbyMilestone={label=step.action}
@@ -197,12 +212,15 @@ return function(C,canInspect)
   end
  end
 
- function stealth.nap(s,draws,q,state,mode,profile)
+ function stealth.nap(s,f,draws,q,state,mode,profile)
   if state and state.count>=q.goal-1 then
    local step=q.itinerary[q.goal]
    local x=step.x-s.camera
-   art(draws,'nap',x,step.y,43,mode,profile)
+   art(draws,'nap',x,step.y,43,mode,profile,packingFor(s,f,mode))
    label(draws,x,step.y-94,'早柚の昼寝場所')
+   if state.status=='complete' and not f.storyNearbyMilestone and not s.paused and canMark(s,step) then
+    f.storyNearbyMilestone={label='木の実のそばのお礼をもう一度読む'}
+   end
   end
  end
 

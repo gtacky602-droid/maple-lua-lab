@@ -1,0 +1,302 @@
+[
+  {
+    "tier": 4096,
+    "art": "brush",
+    "profile": "h32c16",
+    "camera": 0,
+    "samples": {
+      "png": {
+        "equal": 4432,
+        "count": 4432,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 3895,
+        "count": 3895,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 4608,
+    "art": "brush",
+    "profile": "h32c16",
+    "camera": 0,
+    "samples": {
+      "png": {
+        "equal": 4432,
+        "count": 4432,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 3922,
+        "count": 3922,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 5120,
+    "art": "brush",
+    "profile": "h32c16",
+    "camera": 0,
+    "samples": {
+      "png": {
+        "equal": 4432,
+        "count": 4432,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 3922,
+        "count": 3922,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 5632,
+    "art": "brush",
+    "profile": "h32c16",
+    "camera": 0,
+    "samples": {
+      "png": {
+        "equal": 4432,
+        "count": 4432,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 3922,
+        "count": 3922,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 6144,
+    "art": "brush",
+    "profile": "h32c16",
+    "camera": 0,
+    "samples": {
+      "png": {
+        "equal": 4432,
+        "count": 4432,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 3922,
+        "count": 3922,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 4096,
+    "art": "cave",
+    "profile": "h32c16",
+    "camera": 532,
+    "samples": {
+      "png": {
+        "equal": 9362,
+        "count": 9362,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 8827,
+        "count": 8827,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 4608,
+    "art": "cave",
+    "profile": "h32c16",
+    "camera": 532,
+    "samples": {
+      "png": {
+        "equal": 9362,
+        "count": 9362,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 8824,
+        "count": 8824,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 5120,
+    "art": "cave",
+    "profile": "h32c16",
+    "camera": 532,
+    "samples": {
+      "png": {
+        "equal": 9362,
+        "count": 9362,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 8845,
+        "count": 8845,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 5632,
+    "art": "cave",
+    "profile": "h32c16",
+    "camera": 532,
+    "samples": {
+      "png": {
+        "equal": 9362,
+        "count": 9362,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 8858,
+        "count": 8858,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 6144,
+    "art": "cave",
+    "profile": "h32c16",
+    "camera": 532,
+    "samples": {
+      "png": {
+        "equal": 9362,
+        "count": 9362,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 8834,
+        "count": 8834,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 4096,
+    "art": "tree",
+    "profile": "h32c16",
+    "camera": 1109,
+    "samples": {
+      "png": {
+        "equal": 7634,
+        "count": 7634,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 7648,
+        "count": 7648,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 4608,
+    "art": "tree",
+    "profile": "h32c16",
+    "camera": 1109,
+    "samples": {
+      "png": {
+        "equal": 7634,
+        "count": 7634,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 7647,
+        "count": 7647,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 5120,
+    "art": "tree",
+    "profile": "h32c16",
+    "camera": 1109,
+    "samples": {
+      "png": {
+        "equal": 7634,
+        "count": 7634,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 7645,
+        "count": 7645,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 5632,
+    "art": "tree",
+    "profile": "h32c16",
+    "camera": 1109,
+    "samples": {
+      "png": {
+        "equal": 7634,
+        "count": 7634,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 7645,
+        "count": 7645,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  },
+  {
+    "tier": 6144,
+    "art": "tree",
+    "profile": "h32c16",
+    "camera": 1109,
+    "samples": {
+      "png": {
+        "equal": 7634,
+        "count": 7634,
+        "meanDelta": 0,
+        "maxDelta": 0
+      },
+      "rect": {
+        "equal": 7645,
+        "count": 7645,
+        "meanDelta": 0,
+        "maxDelta": 0
+      }
+    }
+  }
+]

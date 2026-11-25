@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='ina-sayu-quiet-route',town='inazuma-town',path='ina-sayu-watchpath';
-const prefix='evidence/ina-sayu-route';
+const suffix=process.argv.includes('--earned')?'-earned':'';
+const prefix='evidence/ina-sayu-route'+suffix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -95,6 +96,7 @@ async function compareCover(){
   await menu.selectOption('h32c16');
   await wait(n=>window.lab.frame.commands<n,standard.commands);
   const light=await frame();
+  assert.ok(light.rectBatches?.length&&light.draws.some(d=>d.kind==='rect_runs'));
   await shot('cover-light');
   for(const f of [standard,light]){
     assert.equal(f.t,png.t);
@@ -108,30 +110,62 @@ async function compareCover(){
 }
 
 try{
+  await page.addInitScript(()=>{
+    const draw=CanvasRenderingContext2D.prototype.drawImage;
+    CanvasRenderingContext2D.prototype.drawImage=function(image,...coords){
+      const result=draw.call(this,image,...coords);
+      if(this.canvas.id==='game'&&image.src?.includes('ina-sayu-route-native-tiers-')&&coords.length===8)
+        window.patrolTile=coords.slice(0,4);
+      return result;
+    };
+  });
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8913/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/ina-sayu-route-fixture.json','utf8');
+  const seed=await fs.readFile('work/ina-sayu-route'+suffix+'-fixture.json','utf8');
   const useFixture=()=>page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await useFixture();
   await load();
   await begin();
   const scene=await page.evaluate(async()=>{
-    const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-    await backgroundReady;
+    const {loadScenery,sceneryStatus}=await import('./scenery.js');
+    await loadScenery(window.lab.frame);
     return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(scene,{key:'sayuWatchpath',file:'ina-sayu-route-background-v1.png',state:'ready'});
+  await page.selectOption('#playBackgroundTier','4096');
+  await wait(()=>window.patrolTile?.join(',')==='0,0,512,288');
+  const row=page.locator('[data-quest="'+quest+'"]');
+  if(await row.getByRole('button',{name:'この依頼を追跡'}).count())
+    await row.getByRole('button',{name:'この依頼を追跡'}).click();
+  const maps=[];
+  async function location(name,step){
+    const link=page.locator('#trackedSurveyPoint');
+    await wait(name=>document.querySelector('#trackedSurveyPoint')?.textContent===name+'の位置を見る',name);
+    const url=new URL(await link.getAttribute('href'),page.url());
+    assert.equal(url.searchParams.get('step'),String(step));
+    maps.push(url.pathname+url.search);
+  }
+  await location('草むら',2);
+  await key('KeyM');
+  await wait(()=>window.lab.frame.worldMap);
+  await page.locator('#atlasQuestFocus').click();
+  await page.locator('#atlasQuestPoint').waitFor({state:'visible'});
+  assert.equal(new URL(await page.locator('#atlasQuestPoint').getAttribute('href'),page.url()).search,new URL(maps[0],page.url()).search);
+  await page.keyboard.press('Escape');
+  await wait(()=>!window.lab.frame.worldMap);
   const initialKills=(await frame()).kills;
   await walk(443);
   await mode('cover');
   const commands=await compareCover();
   await collect(472,2);
+  await location('洞穴',3);
   await walk(1012);
   await ground(480);
   assert.ok(!(await frame()).storyNearbyMilestone);
   await held('Space',()=>ground(392));
   await mode('cover');
   await collect(1012,3);
+  await location('木の裏',4);
   await walk(1589);
   await ground(480);
   await mode('cover');
@@ -159,6 +193,11 @@ try{
   await page.reload();
   await wait(()=>window.lab?.frame);
   await load();
+  await walk(1135);
+  await wait(()=>window.lab.frame.storyNearbyMilestone?.label.includes('もう一度'));
+  await key('KeyG');
+  await wait(()=>window.lab.frame.storyNotice?.includes('ありがとう'));
+  assert.equal((await frame()).mora,after.mora);
   await gate(1148,path);
   assert.ok((await frame()).actors[0].x>2058);
   await mode('open');
@@ -186,7 +225,7 @@ try{
   await collect(1012,3);
   assert.deepEqual(errors,[]);
   const proof={scene,threeCovers:true,quietWithoutKills:true,openedGateAndNap:true,shortcutAfterReload:true,
-    detectedBattleReloaded:true,continuedAfterNormalCombat:true,commands,reward,errors};
+    detectedBattleReloaded:true,continuedAfterNormalCombat:true,rereadGift:true,maps,worldMapFocus:true,backgroundTier:4096,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

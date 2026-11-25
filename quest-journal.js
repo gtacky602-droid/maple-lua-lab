@@ -221,6 +221,12 @@ export function trackedQuest(f,id,selectedWorksite){
   return {node:room.node,pointUrl:'map-art.html?'+params,pointLabel:'広場の様子を見る',
    text:`${q.name} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
  }
+ const patrolStep=status==='active'&&q.itinerary?.[st.count];
+ if(patrolStep?.cover&&route.node===patrolStep.node){
+  const point=surveyPoint(q,st.count,route.node);
+  return {node:route.node,pointUrl:surveyPointUrl(point),pointLabel:patrolStep.cover.name+'の位置を見る',
+   text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+ }
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));
  const point=status==='active' && (worksitePoint(q,site?.point,route.node)??surveyPoint(q,st.count,route.node));

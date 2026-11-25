@@ -722,6 +722,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local state=s.story.quests[q.id]
      for _,item in ipairs(completedSteps(q,state)) do
       local done=milestoneAt(item,s.story.node)
+      if done.stealthNap and done.node==s.story.node and s.actors[s.active].ground and canInspect(s.actors[s.active],done) then
+       s.storyNotice=q.closing
+       return true
+      end
       if (done.readback or done.resonancePages or done.paperDisplay) and done.node==s.story.node and canInspect(s.actors[s.active],done) then
        if done.resonancePages then resonance.turnPage(s,done,emitCue)
        elseif done.paperDisplay then s.storyNotice=paper.giftLabel(q,s.story.quests[q.id])..'を広場の飾り棚に置きました。'
@@ -2320,7 +2324,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if n.stealthNap then
     local q=quests[n.stealthNap]
-    stealth.nap(s,markers,q,s.story.quests[q.id],mode,profile)
+    stealth.nap(s,f,markers,q,s.story.quests[q.id],mode,profile)
    end
    if n.ittoGames then itto.observe(s,f,markers,n.ittoGames,s.story.quests[n.ittoGames.quest],mode,profile) end
    if n.teaQuest then teaCase.observe(s,f,markers,quests[n.teaQuest],s.story.quests[n.teaQuest],mode,profile) end

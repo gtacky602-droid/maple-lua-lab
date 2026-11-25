@@ -1,0 +1,59 @@
+{
+  "prerequisite": true,
+  "coverCoolsAttention": true,
+  "quietRouteWithoutKills": true,
+  "heightMatters": true,
+  "detectedCanContinue": true,
+  "engagedAndClearedRestore": true,
+  "invalidAlertRejected": true,
+  "fenceAndPause": true,
+  "animatedGateLift": true,
+  "shortcutRoundTrip": true,
+  "singleReportReward": true,
+  "reward": [
+    78355,
+    1050
+  ],
+  "coverEdgeBlocked": true,
+  "rereadGift": true,
+  "packing": {
+    "brush": {
+      "before": 502200,
+      "after": 163622,
+      "rectangles": 4407,
+      "batches": 4,
+      "profile": "h32c16"
+    },
+    "cave": {
+      "before": 1308451,
+      "after": 437590,
+      "rectangles": 10726,
+      "batches": 4,
+      "profile": "h48c32"
+    },
+    "tree": {
+      "before": 1957261,
+      "after": 672272,
+      "rectangles": 18261,
+      "batches": 4,
+      "profile": "legacy"
+    },
+    "liftingGate": {
+      "before": 495688,
+      "after": 159148,
+      "rectangles": 4260,
+      "batches": 3,
+      "profile": "h32c16"
+    },
+    "nap": {
+      "before": 143482,
+      "after": 99409,
+      "rectangles": 1384,
+      "batches": 1,
+      "profile": "h32c16"
+    }
+  },
+  "startLevel": 42,
+  "source": "forest-earned-start.json",
+  "sha256": "dc7a02f01ff8b9325485bf2e0fbf5a8b5d10380a14a0df2977a46ad77ee3a756"
+}

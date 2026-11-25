@@ -1,0 +1,31 @@
+{
+  "scene": {
+    "key": "sayuWatchpath",
+    "file": "ina-sayu-route-background-v1.png",
+    "state": "ready"
+  },
+  "threeCovers": true,
+  "quietWithoutKills": true,
+  "openedGateAndNap": true,
+  "shortcutAfterReload": true,
+  "detectedBattleReloaded": true,
+  "continuedAfterNormalCombat": true,
+  "rereadGift": true,
+  "maps": [
+    "/map-art.html?placements=live&node=ina-sayu-watchpath&quest=ina-sayu-quiet-route&step=2&tier=4096",
+    "/map-art.html?placements=live&node=ina-sayu-watchpath&quest=ina-sayu-quiet-route&step=3&tier=4096",
+    "/map-art.html?placements=live&node=ina-sayu-watchpath&quest=ina-sayu-quiet-route&step=4&tier=4096"
+  ],
+  "worldMapFocus": true,
+  "backgroundTier": 4096,
+  "commands": {
+    "png": 29,
+    "standard": 16840,
+    "light": 4407
+  },
+  "reward": [
+    78355,
+    1050
+  ],
+  "errors": []
+}

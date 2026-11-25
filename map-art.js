@@ -108,9 +108,9 @@ function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
  ctx.restore();
 }
 
-function viewportSummary(cost,profile){
+function viewportSummary(cost,profile,subject='キャラクター'){
  if(!cost.standard)return 'この画角に表示する素材はありません';
- const current='この画角のキャラクター矩形 '+cost.visible.toLocaleString('ja-JP')+'個';
+ const current='この画角の'+subject+'矩形 '+cost.visible.toLocaleString('ja-JP')+'個';
  if(profile==='legacy')return current+'（標準）';
  const change=100*(cost.visible-cost.standard)/cost.standard;
  const difference=change===0?'変化なし':Math.abs(change).toFixed(1)+(change<0?'%減':'%増');
@@ -268,6 +268,7 @@ try{
  }
  // Poses unique to a field encounter are fetched only when someone places or views them.
  const fieldPoseLoads=new Map();
+ const patrolArt=new Map();
  for(const scene of Object.values(trialScenes)){
   for(const part of scene.parts){
    if(!part.file || assets[part.species])continue;
@@ -387,6 +388,12 @@ try{
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera);
   if(n.localLight)$('lampNote').textContent=darkRoom(n)?'消灯中。影の足場を渡ると上段の門へ進めます。':'点灯中。操作盤のそばでGを押すと、影の足場と門が現れます。';
   const missing=[...new Set(items.map(e=>assets[e.species]).filter(a=>a.poseFile&&!a.image))];
+  const watchSteps=liveView&&n.stealthRoute?questsById.get(n.stealthRoute.quest).itinerary.filter(s=>s.cover):[];
+  for(const {cover} of watchSteps){
+   if(!patrolArt.has(cover.art))patrolArt.set(cover.art,{poseFile:'ina-sayu-route-'+cover.art+'-sprites-v1.json',openingPose:true});
+   const art=patrolArt.get(cover.art);
+   if(!art.image)missing.push(art);
+  }
   if(missing.length){
    $('fidelityControls').hidden=true;
    window.mapArt={ready:false,node:n.id,backgroundState:'loading'};
@@ -522,6 +529,14 @@ try{
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
+   for(const {cover} of watchSteps){
+    const art=patrolArt.get(cover.art),x=cover.x+cover.w/2-camera;
+    paintPlacementLayer(ctx,art,spriteBounds(art,cover.height),mode==='png'||matchedSprites?null:profile,x,cover.y,false,cost);
+    if(selectedSurveyPoint?.cover===cover){
+     ctx.fillStyle='#68aa9bab';
+     ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
+    }
+   }
    if(stage){
     if(stage.cart){
      for(const [x,y,w,h,color] of questPreview.fixed){
@@ -628,7 +643,9 @@ try{
    $('placements').append(label);
   }
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  $('viewportCost').textContent=matchedSprites?'キャラは左右とも元PNG':decoded&&!cost.standard?'':viewportSummary(cost,profile);
+  const subjects=watchSteps.length?'隠れ場所とキャラクター':'キャラクター';
+  const matchedLabel=watchSteps.length?'隠れ場所とキャラは左右とも元PNG':'キャラは左右とも元PNG';
+  $('viewportCost').textContent=matchedSprites?matchedLabel:decoded&&!cost.standard?'':viewportSummary(cost,profile,subjects);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
