@@ -50,7 +50,8 @@
     "field-arenas-legend-formations-native-backgrounds.lua": "0bd30b33abdabb0619150d5c352ce808b0f9aad6ea1eee7c879989dd9e0aa1f6",
     "field-arenas-icewind-native-backgrounds.lua": "0cfac8097a604a700c1a138ed14529b4937b1a9214709c469f7400ee3664054d",
     "field-arenas-shared-courts-native-backgrounds.lua": "171fc92600eec4b493dca1cc1235e9390b54e830aec14ac35af7ca98f6287646",
-    "stygian-arenas-native-backgrounds.lua": "37368f99cc5e06a779bd8f16b3da9b664700bd7b50a4175dd47f3651327df78b"
+    "stygian-arenas-native-backgrounds.lua": "37368f99cc5e06a779bd8f16b3da9b664700bd7b50a4175dd47f3651327df78b",
+    "field-final-arenas-native-backgrounds.lua": "1434d2d9eba78084f7209d05889fc6023fa26d79f808f116e433f296d27542f2"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -10269,6 +10270,191 @@
         "minDecodeMs": 26.07,
         "maxDecodeMs": 33.52,
         "medianRetainedLuaKiB": 1175.3
+      }
+    },
+    "sumeru-jadeplume-grove": {
+      "4096": {
+        "fileBytes": 18518,
+        "medianDecodeMs": 20.48,
+        "minDecodeMs": 17.14,
+        "maxDecodeMs": 29.26,
+        "medianRetainedLuaKiB": 796.6
+      },
+      "4608": {
+        "fileBytes": 22108,
+        "medianDecodeMs": 24.35,
+        "minDecodeMs": 21.18,
+        "maxDecodeMs": 28.28,
+        "medianRetainedLuaKiB": 940.5
+      },
+      "5120": {
+        "fileBytes": 25577,
+        "medianDecodeMs": 25.46,
+        "minDecodeMs": 23.81,
+        "maxDecodeMs": 27.35,
+        "medianRetainedLuaKiB": 1024.3
+      },
+      "5632": {
+        "fileBytes": 29043,
+        "medianDecodeMs": 34.79,
+        "minDecodeMs": 28.34,
+        "maxDecodeMs": 73.7,
+        "medianRetainedLuaKiB": 1108.0
+      },
+      "6144": {
+        "fileBytes": 31121,
+        "medianDecodeMs": 31.08,
+        "minDecodeMs": 24.89,
+        "maxDecodeMs": 70.63,
+        "medianRetainedLuaKiB": 1191.6
+      }
+    },
+    "chenyu-boulder-gully": {
+      "4096": {
+        "fileBytes": 17913,
+        "medianDecodeMs": 18.48,
+        "minDecodeMs": 17.42,
+        "maxDecodeMs": 48.09,
+        "medianRetainedLuaKiB": 796.3
+      },
+      "4608": {
+        "fileBytes": 21389,
+        "medianDecodeMs": 27.72,
+        "minDecodeMs": 21.2,
+        "maxDecodeMs": 62.53,
+        "medianRetainedLuaKiB": 939.9
+      },
+      "5120": {
+        "fileBytes": 24758,
+        "medianDecodeMs": 27.03,
+        "minDecodeMs": 24.06,
+        "maxDecodeMs": 65.34,
+        "medianRetainedLuaKiB": 1023.6
+      },
+      "5632": {
+        "fileBytes": 28120,
+        "medianDecodeMs": 30.73,
+        "minDecodeMs": 28.45,
+        "maxDecodeMs": 57.88,
+        "medianRetainedLuaKiB": 1106.8
+      },
+      "6144": {
+        "fileBytes": 30322,
+        "medianDecodeMs": 34.7,
+        "minDecodeMs": 30.26,
+        "maxDecodeMs": 88.92,
+        "medianRetainedLuaKiB": 1194.6
+      }
+    },
+    "enkan-tablet-hollow": {
+      "4096": {
+        "fileBytes": 17332,
+        "medianDecodeMs": 22.36,
+        "minDecodeMs": 17.59,
+        "maxDecodeMs": 58.01,
+        "medianRetainedLuaKiB": 792.1
+      },
+      "4608": {
+        "fileBytes": 20750,
+        "medianDecodeMs": 31.53,
+        "minDecodeMs": 22.81,
+        "maxDecodeMs": 64.01,
+        "medianRetainedLuaKiB": 934.0
+      },
+      "5120": {
+        "fileBytes": 24063,
+        "medianDecodeMs": 28.79,
+        "minDecodeMs": 23.35,
+        "maxDecodeMs": 122.28,
+        "medianRetainedLuaKiB": 1016.5
+      },
+      "5632": {
+        "fileBytes": 27343,
+        "medianDecodeMs": 32.76,
+        "minDecodeMs": 27.83,
+        "maxDecodeMs": 62.32,
+        "medianRetainedLuaKiB": 1098.8
+      },
+      "6144": {
+        "fileBytes": 29443,
+        "medianDecodeMs": 38.3,
+        "minDecodeMs": 28.65,
+        "maxDecodeMs": 59.15,
+        "medianRetainedLuaKiB": 1184.9
+      }
+    },
+    "novo-ice-vault": {
+      "4096": {
+        "fileBytes": 16621,
+        "medianDecodeMs": 17.83,
+        "minDecodeMs": 15.42,
+        "maxDecodeMs": 20.61,
+        "medianRetainedLuaKiB": 792.8
+      },
+      "4608": {
+        "fileBytes": 20071,
+        "medianDecodeMs": 21.18,
+        "minDecodeMs": 18.79,
+        "maxDecodeMs": 22.84,
+        "medianRetainedLuaKiB": 934.6
+      },
+      "5120": {
+        "fileBytes": 23360,
+        "medianDecodeMs": 24.65,
+        "minDecodeMs": 23.15,
+        "maxDecodeMs": 32.93,
+        "medianRetainedLuaKiB": 1017.7
+      },
+      "5632": {
+        "fileBytes": 26630,
+        "medianDecodeMs": 28.66,
+        "minDecodeMs": 26.45,
+        "maxDecodeMs": 35.26,
+        "medianRetainedLuaKiB": 1099.8
+      },
+      "6144": {
+        "fileBytes": 28520,
+        "medianDecodeMs": 32.23,
+        "minDecodeMs": 29.06,
+        "maxDecodeMs": 39.05,
+        "medianRetainedLuaKiB": 1182.3
+      }
+    },
+    "nod-quiet-rim": {
+      "4096": {
+        "fileBytes": 17114,
+        "medianDecodeMs": 24.11,
+        "minDecodeMs": 18.18,
+        "maxDecodeMs": 32.33,
+        "medianRetainedLuaKiB": 793.9
+      },
+      "4608": {
+        "fileBytes": 20534,
+        "medianDecodeMs": 23.04,
+        "minDecodeMs": 21.07,
+        "maxDecodeMs": 37.04,
+        "medianRetainedLuaKiB": 937.0
+      },
+      "5120": {
+        "fileBytes": 23829,
+        "medianDecodeMs": 26.59,
+        "minDecodeMs": 22.9,
+        "maxDecodeMs": 38.96,
+        "medianRetainedLuaKiB": 1020.2
+      },
+      "5632": {
+        "fileBytes": 27109,
+        "medianDecodeMs": 28.91,
+        "minDecodeMs": 26.31,
+        "maxDecodeMs": 40.33,
+        "medianRetainedLuaKiB": 1102.8
+      },
+      "6144": {
+        "fileBytes": 29049,
+        "medianDecodeMs": 31.03,
+        "minDecodeMs": 28.14,
+        "maxDecodeMs": 43.75,
+        "medianRetainedLuaKiB": 1189.7
       }
     }
   }

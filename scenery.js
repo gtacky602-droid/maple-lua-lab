@@ -1,6 +1,11 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ jadeplumeGrove:{file:'jadeplume-grove-background-v1.png',decodedPreview:'jadeplume-grove-native-preview-v1.png',decodedTiers:'jadeplume-grove-native-tiers-v1.webp',surface:'grass',zones:['story:sumeru-jadeplume-grove'],note:'菌傘の谷のラボ用仮背景'},
+ chenyuBoulderGully:{file:'chenyu-boulder-gully-background-v1.png',decodedPreview:'chenyu-boulder-gully-native-preview-v1.png',decodedTiers:'chenyu-boulder-gully-native-tiers-v1.webp',surface:'grass',zones:['story:chenyu-boulder-gully'],note:'段丘の岩陰のラボ用仮背景'},
+ enkanTabletHollow:{file:'enkan-tablet-hollow-background-v1.png',decodedPreview:'enkan-tablet-hollow-native-preview-v1.png',decodedTiers:'enkan-tablet-hollow-native-tiers-v1.webp',surface:'stone',zones:['story:enkan-tablet-hollow'],note:'石版裏の窪みのラボ用仮背景'},
+ novoIceVault:{file:'novo-ice-vault-background-v1.png',decodedPreview:'novo-ice-vault-native-preview-v1.png',decodedTiers:'novo-ice-vault-native-tiers-v1.webp',surface:'stone',zones:['story:novo-ice-vault'],note:'氷殻の最深室のラボ用仮背景'},
+ nodQuietRim:{file:'nod-quiet-rim-background-v1.png',decodedPreview:'nod-quiet-rim-native-preview-v1.png',decodedTiers:'nod-quiet-rim-native-tiers-v1.webp',surface:'grass',zones:['story:nod-quiet-rim'],note:'庭の外周・静かな道のラボ用仮背景'},
  fairyKnightChannel:{file:'fairy-channel-background-v1.png',decodedPreview:'fairy-channel-native-preview-v1.png',decodedTiers:'fairy-channel-native-tiers-v1.webp',surface:'stone',zones:['story:fairy-knight-twins-legend-court'],note:'サラシア海原・妖精の騎士の水路の仮背景'},
  morteBubbleChamber:{file:'morte-bubble-room-background-v1.png',decodedPreview:'morte-bubble-room-native-preview-v1.png',decodedTiers:'morte-bubble-room-native-tiers-v1.webp',surface:'stone',zones:['story:chassanion-legend-bubble-room'],note:'モルテ・シャサニョンの泡室の仮背景'},
  tristarsCamp:{file:'tristars-camp-background-v1.png',decodedPreview:'tristars-camp-native-preview-v1.png',decodedTiers:'tristars-camp-native-tiers-v1.webp',surface:'grass',zones:['story:witztli-tristars-camp'],note:'ウィッツトリの丘・三連星の野営場の仮背景'},

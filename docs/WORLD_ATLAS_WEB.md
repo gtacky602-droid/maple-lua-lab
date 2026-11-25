@@ -66,6 +66,10 @@ M地図で行き先を選ぶと、渡し舟、昇降機、水路、位相門な�
 
 ## ボスの場所を探す
 
+通常ボス64会場の背景はすべて5段階で比較できる。「会場」で「通常ボス」または「地方伝説」を選ぶと該当する会場だけが並ぶ。「この地点で進む依頼」は、その地点に行程があるときに表示される。番号は依頼全体の中での順番。選んだ地点で開幕ポーズと背景を見ながら討伐や調査の順番を確認できる。[今回追加した5会場の比較](../evidence/field-final-arenas-comparison.png) · [元画像と生成指示](../assets/field-final-arenas-background-generation.json)
+
+検証するには `python tools/capture_normal_arena_frames.py` で通常ボス入場時のLuaフレームを保存し、ラボを起動して `node test_field_final_arenas.mjs` を実行する。4地方の依頼は `python test_earned_terrain_quests.py enkanomiya novo` と `python test_earned_highland_quests.py chenyu moonlit` で操作から再現できる。後者の2コマンドは既存の育成済みセーブを使う。
+
 幽境専用戦は全7会場で背景5段階とドット絵3設定を比較できる。ファルカでは「比較する個体」から奥の剣・本体・手前の剣を選べる。ロノヴァでは翼と本体を選べる。「幽境の挑戦レベルとHP」には4難度それぞれの条件が出る。[7会場を並べた画像](../evidence/stygian-openings-comparison.png)
 
 開幕を再検証するときは、リポジトリ直下で `python tools/build_stygian_openings.py` を実行して本編Luaの比較用データを取り出す。ラボを9117番ポートで起動し、`node test_stygian_openings.mjs` を実行すると、地図から7会場を開いて画像と背景Luaを照合する。別のポートを使う場合は環境変数 `LAB_URL` にラボのURLを指定する。

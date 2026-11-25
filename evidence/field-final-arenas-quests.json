@@ -1,0 +1,896 @@
+{
+  "chenyu": {
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+    "itineraries": [
+      {
+        "start": "liyue-harbor",
+        "destination": "chenyu-camp",
+        "stops": [
+          {
+            "region": "region-02",
+            "label": "徒歩",
+            "from": "liyue-harbor",
+            "id": "liyue-entry",
+            "mode": "walk",
+            "name": "璃月・北の入口"
+          },
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "liyue-entry",
+            "id": "chenyu-camp",
+            "mode": "walk",
+            "name": "沈玉の谷・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-camp",
+        "destination": "chenyu-tea-terraces",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-terraces",
+            "mode": "walk",
+            "name": "茶畑の段丘道"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-tea-terraces",
+        "destination": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-tea-terraces",
+            "hint": "上段の入口・展望亭への登り道",
+            "id": "chenyu-tea-pavilion",
+            "mode": "walk",
+            "name": "谷を望む茶亭"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-tea-pavilion",
+        "destination": "chenyu-cart-road",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-tea-pavilion",
+            "id": "chenyu-cart-road",
+            "mode": "walk",
+            "name": "谷沿いの荷車道"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-cart-road",
+        "destination": "chenyu-camp",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-cart-road",
+            "id": "chenyu-camp",
+            "mode": "walk",
+            "name": "沈玉の谷・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-camp",
+        "destination": "chenyu-tea-lift",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-lift",
+            "mode": "walk",
+            "name": "茶荷の昇降台"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-camp",
+        "destination": "chenyu-tea-lift",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-lift",
+            "mode": "walk",
+            "name": "茶荷の昇降台"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-tea-lift",
+        "destination": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "昇降機",
+            "from": "chenyu-tea-lift",
+            "hint": "上段の入口・展望亭横の中継台・移動に1.35秒",
+            "id": "chenyu-tea-pavilion",
+            "mode": "lift",
+            "name": "谷を望む茶亭"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-tea-pavilion",
+        "destination": "chenyu-camp",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-tea-pavilion",
+            "hint": "上段の入口",
+            "id": "chenyu-camp",
+            "mode": "walk",
+            "name": "沈玉の谷・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-camp",
+        "destination": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-terraces",
+            "mode": "walk",
+            "name": "茶畑の段丘道"
+          },
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-tea-terraces",
+            "hint": "上段の入口・展望亭への登り道",
+            "id": "chenyu-tea-pavilion",
+            "mode": "walk",
+            "name": "谷を望む茶亭"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-tea-pavilion",
+        "destination": "chenyu-boulder-gully",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-tea-pavilion",
+            "id": "chenyu-boulder-gully",
+            "mode": "walk",
+            "name": "段丘の岩陰"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-boulder-gully",
+        "destination": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "region": "branch-02",
+            "label": "徒歩",
+            "from": "chenyu-boulder-gully",
+            "id": "chenyu-tea-pavilion",
+            "mode": "walk",
+            "name": "谷を望む茶亭"
+          }
+        ]
+      },
+      {
+        "start": "chenyu-tea-pavilion",
+        "destination": "chenyu-tea-pavilion",
+        "stops": []
+      }
+    ],
+    "reports": [
+      {
+        "quest": "chenyu-tea-delivery",
+        "xp": 122000,
+        "mora": 2100
+      },
+      {
+        "quest": "chenyu-loading-landing",
+        "xp": 191000,
+        "mora": 2800
+      },
+      {
+        "quest": "chenyu-tea-with-friends",
+        "xp": 55165,
+        "mora": 290472
+      }
+    ],
+    "battles": [
+      {
+        "node": "chenyu-boulder-gully",
+        "targets": [
+          "original-tea-boulder"
+        ],
+        "xp": 6947,
+        "kills": 1
+      }
+    ],
+    "locks": [
+      {
+        "node": "chenyu-camp",
+        "target": "chenyu-tea-lift",
+        "reason": "依頼「茶葉より速く、帰り道」を報告してください。"
+      }
+    ],
+    "returns": 0,
+    "restoredReports": [
+      "chenyu-tea-delivery",
+      "chenyu-loading-landing",
+      "chenyu-tea-with-friends"
+    ]
+  },
+  "enkanomiya": {
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+    "itineraries": [
+      {
+        "start": "inazuma-town",
+        "destination": "enkanomiya-camp",
+        "stops": [
+          {
+            "region": "region-03",
+            "label": "徒歩",
+            "from": "inazuma-town",
+            "id": "inazuma-road",
+            "mode": "walk",
+            "name": "稲妻・海辺の街道"
+          },
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "inazuma-road",
+            "id": "enkanomiya-camp",
+            "mode": "walk",
+            "name": "淵下宮・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "enkanomiya-camp",
+        "destination": "enkan-guide-shelf",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkanomiya-camp",
+            "id": "enkan-guide-shelf",
+            "mode": "walk",
+            "name": "帰路しるべの棚"
+          }
+        ]
+      },
+      {
+        "start": "enkan-guide-shelf",
+        "destination": "enkanomiya-camp",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkan-guide-shelf",
+            "id": "enkanomiya-camp",
+            "mode": "walk",
+            "name": "淵下宮・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "enkanomiya-camp",
+        "destination": "enkan-lamp-chamber",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkanomiya-camp",
+            "id": "enkan-lamp-chamber",
+            "mode": "walk",
+            "name": "照り影の灯室"
+          }
+        ]
+      },
+      {
+        "start": "enkanomiya-camp",
+        "destination": "enkan-lamp-chamber",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkanomiya-camp",
+            "id": "enkan-lamp-chamber",
+            "mode": "walk",
+            "name": "照り影の灯室"
+          }
+        ]
+      },
+      {
+        "start": "enkan-lamp-chamber",
+        "destination": "enkan-route-gallery",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkan-lamp-chamber",
+            "hint": "上段の入口・灯りを消して足場を出す",
+            "id": "enkan-route-gallery",
+            "mode": "walk",
+            "name": "道順記録の小間"
+          }
+        ]
+      },
+      {
+        "start": "enkan-route-gallery",
+        "destination": "enkanomiya-camp",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkan-route-gallery",
+            "id": "enkanomiya-camp",
+            "mode": "walk",
+            "name": "淵下宮・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "enkanomiya-camp",
+        "destination": "enkan-route-gallery",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkanomiya-camp",
+            "id": "enkan-route-gallery",
+            "mode": "walk",
+            "name": "道順記録の小間"
+          }
+        ]
+      },
+      {
+        "start": "enkan-route-gallery",
+        "destination": "enkan-tablet-hollow",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkan-route-gallery",
+            "id": "enkan-tablet-hollow",
+            "mode": "walk",
+            "name": "石版裏の窪み"
+          }
+        ]
+      },
+      {
+        "start": "enkan-tablet-hollow",
+        "destination": "enkan-route-gallery",
+        "stops": [
+          {
+            "region": "branch-03",
+            "label": "徒歩",
+            "from": "enkan-tablet-hollow",
+            "id": "enkan-route-gallery",
+            "mode": "walk",
+            "name": "道順記録の小間"
+          }
+        ]
+      },
+      {
+        "start": "enkan-route-gallery",
+        "destination": "enkan-route-gallery",
+        "stops": []
+      }
+    ],
+    "reports": [
+      {
+        "quest": "enkan-safety-leaflet",
+        "xp": 284000,
+        "mora": 3200
+      },
+      {
+        "quest": "enkan-shadow-crossing",
+        "xp": 391000,
+        "mora": 4400
+      },
+      {
+        "quest": "enkan-coverless-log",
+        "xp": 103552,
+        "mora": 371745
+      }
+    ],
+    "battles": [
+      {
+        "node": "enkan-tablet-hollow",
+        "targets": [
+          "original-plate-tail"
+        ],
+        "xp": 9297,
+        "kills": 1
+      }
+    ],
+    "locks": [
+      {
+        "node": "enkanomiya-camp",
+        "target": "enkan-lamp-chamber",
+        "reason": "依頼「海の底の、遠足案内」を報告してください。"
+      }
+    ],
+    "returns": 0,
+    "restoredReports": [
+      "enkan-safety-leaflet",
+      "enkan-shadow-crossing",
+      "enkan-coverless-log"
+    ]
+  },
+  "novo": {
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "itineraries": [
+      {
+        "start": "snezhnaya-hub",
+        "destination": "novokichev-camp",
+        "stops": [
+          {
+            "region": "region-08",
+            "label": "徒歩",
+            "from": "snezhnaya-hub",
+            "id": "snezhnaya-field",
+            "mode": "walk",
+            "name": "スネージナヤ・凍った街道"
+          },
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "snezhnaya-field",
+            "id": "novokichev-camp",
+            "mode": "walk",
+            "name": "ノヴォキッチェヴ（仮構造）・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "novokichev-camp",
+        "destination": "novokichev-camp",
+        "stops": []
+      },
+      {
+        "start": "novokichev-camp",
+        "destination": "novo-frozen-works",
+        "stops": [
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "novokichev-camp",
+            "id": "novo-frozen-works",
+            "mode": "walk",
+            "name": "凍止設備の通路"
+          }
+        ]
+      },
+      {
+        "start": "novokichev-camp",
+        "destination": "novo-frozen-works",
+        "stops": [
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "novokichev-camp",
+            "id": "novo-frozen-works",
+            "mode": "walk",
+            "name": "凍止設備の通路"
+          }
+        ]
+      },
+      {
+        "start": "novo-frozen-works",
+        "destination": "novokichev-camp",
+        "stops": [
+          {
+            "region": "branch-09",
+            "gateX": 1435,
+            "label": "徒歩",
+            "from": "novo-frozen-works",
+            "hint": "右側の門",
+            "id": "novokichev-camp",
+            "mode": "walk",
+            "name": "ノヴォキッチェヴ（仮構造）・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "novokichev-camp",
+        "destination": "novo-drift-passage",
+        "stops": [
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "novokichev-camp",
+            "id": "novo-frozen-works",
+            "mode": "walk",
+            "name": "凍止設備の通路"
+          },
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "novo-frozen-works",
+            "hint": "上段の入口",
+            "id": "novo-drift-passage",
+            "mode": "walk",
+            "name": "吹き溜まりの連絡坑"
+          }
+        ]
+      },
+      {
+        "start": "novo-drift-passage",
+        "destination": "novo-ice-vault",
+        "stops": [
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "novo-drift-passage",
+            "id": "novo-ice-vault",
+            "mode": "walk",
+            "name": "氷殻の最深室"
+          }
+        ]
+      },
+      {
+        "start": "novo-ice-vault",
+        "destination": "novokichev-camp",
+        "stops": [
+          {
+            "region": "branch-09",
+            "label": "徒歩",
+            "from": "novo-ice-vault",
+            "id": "novokichev-camp",
+            "mode": "walk",
+            "name": "ノヴォキッチェヴ（仮構造）・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "novokichev-camp",
+        "destination": "novokichev-camp",
+        "stops": []
+      }
+    ],
+    "reports": [
+      {
+        "quest": "novo-expedition-ready",
+        "xp": 19500000,
+        "mora": 9200
+      },
+      {
+        "quest": "novo-equipment-route",
+        "xp": 26800000,
+        "mora": 10800
+      },
+      {
+        "quest": "novo-return-report",
+        "xp": 17133467,
+        "mora": 882270
+      }
+    ],
+    "battles": [
+      {
+        "node": "novo-frozen-works",
+        "targets": [
+          "novo-works-hoist-guard"
+        ],
+        "xp": 1975778,
+        "kills": 1
+      },
+      {
+        "node": "novo-frozen-works",
+        "targets": [
+          "novo-works-wheel-guard"
+        ],
+        "xp": 1975778,
+        "kills": 1
+      },
+      {
+        "node": "novo-drift-passage",
+        "targets": [
+          "novo-drift-west-guard",
+          "novo-drift-upper-guard",
+          "novo-drift-east-guard"
+        ],
+        "xp": 6223686,
+        "kills": 3
+      },
+      {
+        "node": "novo-ice-vault",
+        "targets": [
+          "original-ice-crawler"
+        ],
+        "xp": 14818300,
+        "kills": 1
+      }
+    ],
+    "locks": [
+      {
+        "node": "novokichev-camp",
+        "target": "novo-frozen-works",
+        "reason": "依頼「最深部へ、急がずに」を報告してください。"
+      },
+      {
+        "node": "novo-frozen-works",
+        "target": "novo-drift-passage",
+        "reason": "依頼「凍った設備に、通り道」を報告してください。"
+      }
+    ],
+    "returns": 0,
+    "restoredReports": [
+      "novo-expedition-ready",
+      "novo-equipment-route",
+      "novo-return-report"
+    ]
+  },
+  "moonlit": {
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "itineraries": [
+      {
+        "start": "nod-town",
+        "destination": "nod-special-camp",
+        "stops": [
+          {
+            "region": "region-07",
+            "label": "徒歩",
+            "from": "nod-town",
+            "id": "nod-field",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-field",
+            "id": "nod-special-camp",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "nod-special-camp",
+        "destination": "nod-reflector-shore",
+        "stops": [
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "mode": "walk",
+            "name": "照り返しの波打ち際"
+          }
+        ]
+      },
+      {
+        "start": "nod-special-camp",
+        "destination": "nod-reflector-shore",
+        "stops": [
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "mode": "walk",
+            "name": "照り返しの波打ち際"
+          }
+        ]
+      },
+      {
+        "start": "nod-reflector-shore",
+        "destination": "nod-reflection-garden",
+        "stops": [
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflector-shore",
+            "hint": "上段の入口",
+            "id": "nod-reflection-garden",
+            "mode": "walk",
+            "name": "月映りの庭（仮）"
+          }
+        ]
+      },
+      {
+        "start": "nod-reflection-garden",
+        "destination": "nod-special-camp",
+        "stops": [
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflection-garden",
+            "id": "nod-reflector-shore",
+            "mode": "walk",
+            "name": "照り返しの波打ち際"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflector-shore",
+            "id": "nod-special-camp",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "nod-special-camp",
+        "destination": "nod-reflection-garden",
+        "stops": [
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "mode": "walk",
+            "name": "照り返しの波打ち際"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflector-shore",
+            "hint": "上段の入口",
+            "id": "nod-reflection-garden",
+            "mode": "walk",
+            "name": "月映りの庭（仮）"
+          }
+        ]
+      },
+      {
+        "start": "nod-reflection-garden",
+        "destination": "nod-special-camp",
+        "stops": [
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflection-garden",
+            "hint": "上段の入口",
+            "id": "nod-special-camp",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "nod-special-camp",
+        "destination": "nod-town",
+        "stops": [
+          {
+            "region": "region-07",
+            "label": "徒歩",
+            "from": "nod-special-camp",
+            "id": "nod-field",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道"
+          },
+          {
+            "region": "region-07",
+            "label": "徒歩",
+            "from": "nod-field",
+            "id": "nod-town",
+            "mode": "walk",
+            "name": "ナド・クライ・町の広場"
+          }
+        ]
+      },
+      {
+        "start": "nod-town",
+        "destination": "nod-quiet-rim",
+        "stops": [
+          {
+            "region": "region-07",
+            "label": "徒歩",
+            "from": "nod-town",
+            "id": "nod-field",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-field",
+            "id": "nod-special-camp",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "mode": "walk",
+            "name": "照り返しの波打ち際"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflector-shore",
+            "hint": "上段の入口",
+            "id": "nod-reflection-garden",
+            "mode": "walk",
+            "name": "月映りの庭（仮）"
+          },
+          {
+            "region": "branch-08",
+            "label": "徒歩",
+            "from": "nod-reflection-garden",
+            "id": "nod-quiet-rim",
+            "mode": "walk",
+            "name": "庭の外周・静かな道"
+          }
+        ]
+      },
+      {
+        "start": "nod-quiet-rim",
+        "destination": "nod-town",
+        "stops": [
+          {
+            "region": "region-07",
+            "label": "徒歩",
+            "from": "nod-quiet-rim",
+            "id": "nod-town",
+            "mode": "walk",
+            "name": "ナド・クライ・町の広場"
+          }
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "quest": "nod-light-path",
+        "xp": 15000000,
+        "mora": 6400
+      },
+      {
+        "quest": "nod-light-record",
+        "xp": 21000000,
+        "mora": 8700
+      },
+      {
+        "quest": "nod-rim-return",
+        "xp": 14095746,
+        "mora": 853650
+      }
+    ],
+    "battles": [
+      {
+        "node": "nod-quiet-rim",
+        "targets": [
+          "original-prism-walker"
+        ],
+        "xp": 10971945,
+        "kills": 1
+      }
+    ],
+    "locks": [
+      {
+        "node": "nod-reflection-garden",
+        "target": "nod-quiet-rim",
+        "reason": "依頼「月の光を、しまう箱」を報告してください。"
+      }
+    ],
+    "returns": 0,
+    "restoredReports": [
+      "nod-light-path",
+      "nod-light-record",
+      "nod-rim-return"
+    ],
+    "fixedWeaponReward": "SW08"
+  }
+}

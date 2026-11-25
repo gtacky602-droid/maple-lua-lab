@@ -180,6 +180,15 @@ try{
  const [mechanismScenes,legendScenes,fieldScenes,stygianScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json')]);
  const trialScenes={...fieldScenes,...stygianScenes};
  const openings={...legendScenes,...trialScenes};
+ const stepsByNode=new Map();
+ for(const quest of graph.quests){
+  for(const [index,step] of (quest.itinerary??[]).entries()){
+   if(!stepsByNode.has(step.node))stepsByNode.set(step.node,new Map());
+   const quests=stepsByNode.get(step.node);
+   if(!quests.has(quest))quests.set(quest,[]);
+   quests.get(quest).push({number:index+1,objective:step.objective});
+  }
+ }
  const questNotes=new Map();
  for(const boss of fieldData.fieldBosses){
   const window=boss.storyWindow,scene=fieldScenes[boss.node];
@@ -487,6 +496,21 @@ try{
   colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
+  const questPanel=$('localQuestSteps'),steps=stepsByNode.get(n.id);
+  questPanel.hidden=!(liveView && steps);
+  const questList=questPanel.querySelector('div');
+  questList.replaceChildren();
+  if(liveView && steps){
+   for(const [quest,entries] of steps){
+    const title=document.createElement('strong'),list=document.createElement('ol');
+    title.textContent=quest.name;
+    for(const {number,objective} of entries){
+     const item=document.createElement('li');
+     item.value=number;item.textContent=objective;list.append(item);
+    }
+    questList.append(title,list);
+   }
+  }
   const rules=$('stygianRules'),duel=stygianScenes[n.id];
   rules.hidden=!(liveView && duel);
   const table=rules.querySelector('tbody');table.replaceChildren();

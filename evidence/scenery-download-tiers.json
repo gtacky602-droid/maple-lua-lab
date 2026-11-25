@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1380,
+  "verifiedModules": 1405,
   "dimensions": [
     512,
     288
@@ -936,6 +936,41 @@
       "5120": 20029,
       "5632": 23053,
       "6144": 24473
+    },
+    "jadeplume-grove-background-v1.png": {
+      "4096": 18518,
+      "4608": 22108,
+      "5120": 25577,
+      "5632": 29043,
+      "6144": 31121
+    },
+    "chenyu-boulder-gully-background-v1.png": {
+      "4096": 17913,
+      "4608": 21389,
+      "5120": 24758,
+      "5632": 28120,
+      "6144": 30322
+    },
+    "enkan-tablet-hollow-background-v1.png": {
+      "4096": 17332,
+      "4608": 20750,
+      "5120": 24063,
+      "5632": 27343,
+      "6144": 29443
+    },
+    "novo-ice-vault-background-v1.png": {
+      "4096": 16621,
+      "4608": 20071,
+      "5120": 23360,
+      "5632": 26630,
+      "6144": 28520
+    },
+    "nod-quiet-rim-background-v1.png": {
+      "4096": 17114,
+      "4608": 20534,
+      "5120": 23829,
+      "5632": 27109,
+      "6144": 29049
     },
     "fon-domain-reef-background-v1.png": {
       "4096": 17800,
@@ -1942,7 +1977,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 297
+      "verified": 302
     },
     "domainHunts": {
       "total": 124,
@@ -2016,16 +2051,14 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 65,
+      "verified": 70,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
-        "chenyu-boulder-gully",
         "cineas-legend-chamber",
         "deianeira-legend-lab",
         "dobharcu-legend-garden",
         "dorn-churldric-cooking-camp",
-        "enkan-tablet-hollow",
         "erinnyes-corrouge-cleft",
         "fading-veteran-legend-wreck",
         "frost-mushteshir-inner-chamber",
@@ -2051,10 +2084,8 @@
         "nod-hiljetta-peninsula-camp",
         "nod-homesick-wolf-lakeland",
         "nod-mandragora-cliff-foot",
-        "nod-quiet-rim",
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
-        "novo-ice-vault",
         "ocean-judge-legend-pool",
         "ochka-bronzelock-island-court",
         "rocky-legend-ledge",
@@ -2066,7 +2097,67 @@
         "sne-crystal-tree-refuge",
         "sne-furiosa-domain-outlook",
         "sne-novokichev-ore-yard",
-        "sumeru-jadeplume-grove",
+        "swords-of-the-gorge-legend-rift",
+        "tepeakak-sappho-bank",
+        "toyac-balachko-inner-cave",
+        "toyac-cocijo-stone-ring",
+        "yseut-legend-court",
+        "zapabay-tenochtzitoc-shallows"
+      ]
+    },
+    "normalBosses": {
+      "totalArenas": 64,
+      "verified": 64,
+      "pending": []
+    },
+    "localLegends": {
+      "totalArenas": 56,
+      "verified": 6,
+      "pending": [
+        "atocpan-battlegoat-ironclaw-field",
+        "atocpan-peak-cave",
+        "cineas-legend-chamber",
+        "deianeira-legend-lab",
+        "dobharcu-legend-garden",
+        "dorn-churldric-cooking-camp",
+        "erinnyes-corrouge-cleft",
+        "fading-veteran-legend-wreck",
+        "frost-mushteshir-inner-chamber",
+        "frost-prism-slime-basin",
+        "gravity-device-legend-terrace",
+        "iron-viscount-legend-pool",
+        "liam-legend-pond",
+        "luachra-legend-shelf",
+        "night-trial-atlatl",
+        "night-trial-chimalli",
+        "night-trial-cihuacoatl",
+        "night-trial-fallen-dawnstar",
+        "night-trial-ichcahuipilli",
+        "night-trial-ironbeard",
+        "night-trial-potapo",
+        "night-trial-reji",
+        "night-trial-tlatzacuilotl",
+        "night-trial-tupayo",
+        "night-trial-tupu",
+        "night-trial-undead",
+        "night-wind-rilai-clearing",
+        "nod-crab-tsar-palace",
+        "nod-hiljetta-peninsula-camp",
+        "nod-homesick-wolf-lakeland",
+        "nod-mandragora-cliff-foot",
+        "nod-raskolnikov-upper-ring",
+        "nod-sigurd-grave-court",
+        "ocean-judge-legend-pool",
+        "ochka-bronzelock-island-court",
+        "rocky-legend-ledge",
+        "sacred-mountain-east-isle-dais",
+        "sky-maha-pavilion-court",
+        "sne-ancient-mouse-den",
+        "sne-bandersnatch-ice-cavern",
+        "sne-churin-snow-court",
+        "sne-crystal-tree-refuge",
+        "sne-furiosa-domain-outlook",
+        "sne-novokichev-ore-yard",
         "swords-of-the-gorge-legend-rift",
         "tepeakak-sappho-bank",
         "toyac-balachko-inner-cave",

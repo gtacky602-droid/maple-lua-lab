@@ -38,6 +38,11 @@ def location_coverage(sources, root):
         assert all(stage in nodes for stage in arenas)
         pending = [stage for stage in arenas if stage not in assigned]
         coverage[label] = {'totalArenas': len(arenas), 'verified': len(arenas)-len(pending), 'pending': pending}
+        if label == 'fieldBosses':
+            for subgroup, is_legend in [('normalBosses', False), ('localLegends', True)]:
+                rooms = {boss['node'] for boss in roster if boss['id'].startswith('legend-') == is_legend}
+                missing = sorted(rooms - assigned.keys())
+                coverage[subgroup] = {'totalArenas': len(rooms), 'verified': len(rooms)-len(missing), 'pending': missing}
     trials = json.loads((root/'content/stygian-matches.json').read_bytes())['matches']
     arenas = {spec['node'] for spec in trials.values()}
     assert arenas <= nodes.keys()

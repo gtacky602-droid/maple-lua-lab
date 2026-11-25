@@ -1,0 +1,192 @@
+{
+  "normalPlay": {
+    "sumeru-jadeplume-grove": "jadeplume-grove-background-v1.png",
+    "cryo-field-grove": "cryo-regisvine-field-background-v1.png",
+    "anemo-field-basin": "mond-hill-background-v1.png",
+    "electro-field-shelf": "electro-hypostasis-field-background-v1.png",
+    "pyro-field-grotto": "pyro-regisvine-field-background-v1.png",
+    "geo-field-court": "geo-hypostasis-field-background-v1.png",
+    "primo-field-vault": "primo-geovishap-field-background-v1.png",
+    "oceanid-field-reservoir": "oceanid-field-background-v1.png",
+    "maguu-field-dojo": "maguu-field-background-v1.png",
+    "array-field-court": "array-field-background-v1.png",
+    "thunder-field-crest": "thunder-field-background-v1.png",
+    "cryo-hypostasis-field-basin": "cryo-hypostasis-field-background-v1.png",
+    "pyro-hypostasis-field-terrace": "pyro-hypostasis-field-background-v1.png",
+    "hydro-hypostasis-field-cove": "hydro-hypostasis-field-background-v1.png",
+    "wolflord-field-ruins": "wolflord-field-background-v1.png",
+    "ruin-serpent-field-pit": "ruin-serpent-field-background-v1.png",
+    "bathysmal-field-sanctum": "bathysmal-field-background-v1.png",
+    "electro-regisvine-field-cave": "electro-regisvine-field-background-v1.png",
+    "aeonblight-field-chamber": "aeonblight-field-background-v1.png",
+    "dendro-hypostasis-field-den": "dendro-hypostasis-field-background-v1.png",
+    "asimon-field-ruins": "asimon-field-background-v1.png",
+    "wenut-field-cavern": "wenut-field-background-v1.png",
+    "baptist-field-sanctuary": "baptist-field-background-v1.png",
+    "emperor-field-cove": "emperor-field-background-v1.png",
+    "seahorse-field-cavern": "seahorse-field-background-v1.png",
+    "field-generator-field-chamber": "field-generator-field-background-v1.png",
+    "tulpa-field-grotto": "tulpa-field-background-v1.png",
+    "icewind-coppelia-field": "icewind-field-background-v1.png",
+    "icewind-coppelius-field": "icewind-field-background-v1.png",
+    "legatus-field-hall": "legatus-field-background-v1.png",
+    "suanni-field-sanctum": "suanni-field-background-v1.png",
+    "qucusaur-field-cavern": "qucusaur-field-background-v1.png",
+    "yumka-field-ravine": "yumka-field-background-v1.png",
+    "config-device-field-workshop": "config-device-field-background-v1.png",
+    "papilla-field-hollow": "papilla-field-background-v1.png",
+    "atocpan-lava-field": "lava-dragon-field-background-v1.png",
+    "atocpan-overseer-ruin": "overseer-field-background-v1.png",
+    "nod-duckle-workyard": "knuckle-duckle-field-background-v1.png",
+    "nod-battleship-depot": "battleship-field-background-v1.png",
+    "nod-herra-terrace": "frostnight-herra-field-background-v1.png",
+    "nod-nightmare-shore": "whisperer-nightmares-field-background-v1.png",
+    "nod-moonfly-hollow": "moonfly-field-background-v1.png",
+    "nod-gecko-depths": "moongecko-field-background-v1.png",
+    "spiritspeaker-field-grotto": "spiritspeaker-field-background-v1.png",
+    "windrest-vigil-court": "fallen-vigil-field-background-v1.png",
+    "flugel-tundra-basin": "flugel-field-background-v1.png",
+    "drifting-snow-court": "drifting-snow-field-background-v1.png",
+    "immortal-construct-root-hollow": "immortal-construct-field-background-v1.png",
+    "wavebinder-tide-cavern": "wavebinder-field-background-v1.png",
+    "steam-stabling-depot": "steam-stabling-depot-background-v1.png",
+    "white-rainbow-basin": "white-rainbow-background-v1.png",
+    "dornman-windworks": "windward-works-background-v1.png",
+    "ochka-sifting-kiln": "ochka-kiln-background-v1.png",
+    "nod-quiet-rim": "nod-quiet-rim-background-v1.png",
+    "novo-ice-vault": "novo-ice-vault-background-v1.png",
+    "spine-trace-ridge": "spine-ridge-background-v1.png",
+    "chenyu-boulder-gully": "chenyu-boulder-gully-background-v1.png",
+    "enkan-tablet-hollow": "enkan-tablet-hollow-background-v1.png",
+    "tunigi-fragment-vault": "tunigi-excavation-background-v1.png",
+    "bygone-bell-archive": "bygone-resonance-background-v1.png",
+    "sumeru-observatory-terrace": "sumeru-canopy-background-v1.png",
+    "fontaine-grand-stage": "fontaine-grand-stage-background-v1.png",
+    "natlan-sunset-arena": "natlan-sunset-arena-background-v1.png",
+    "nod-moon-crab-arena": "nod-moon-cave-background-v1.png"
+  },
+  "results": [
+    {
+      "node": "sumeru-jadeplume-grove",
+      "name": "マッシュラプトル",
+      "source": "jadeplume-grove-background-v1.png",
+      "opening": 1,
+      "localSteps": [],
+      "tiers": {
+        "4096": 18518,
+        "4608": 22108,
+        "5120": 25577,
+        "5632": 29043,
+        "6144": 31121
+      }
+    },
+    {
+      "node": "chenyu-boulder-gully",
+      "name": "苔衣の踏石獣",
+      "source": "chenyu-boulder-gully-background-v1.png",
+      "opening": 1,
+      "localSteps": [
+        {
+          "quest": "一杯ぶんの、大冒険",
+          "steps": [
+            {
+              "number": 1,
+              "objective": "段丘の岩陰で苔衣の踏石獣を遠ざける"
+            }
+          ]
+        }
+      ],
+      "tiers": {
+        "4096": 17913,
+        "4608": 21389,
+        "5120": 24758,
+        "5632": 28120,
+        "6144": 30322
+      }
+    },
+    {
+      "node": "enkan-tablet-hollow",
+      "name": "灯断ちの盤尾獣",
+      "source": "enkan-tablet-hollow-background-v1.png",
+      "opening": 1,
+      "localSteps": [
+        {
+          "quest": "表紙のない探検記",
+          "steps": [
+            {
+              "number": 1,
+              "objective": "石版裏の窪みで灯断ちの盤尾獣を退ける"
+            },
+            {
+              "number": 2,
+              "objective": "窪みの右奥で記録箱を調べる"
+            }
+          ]
+        }
+      ],
+      "tiers": {
+        "4096": 17332,
+        "4608": 20750,
+        "5120": 24063,
+        "5632": 27343,
+        "6144": 29443
+      }
+    },
+    {
+      "node": "novo-ice-vault",
+      "name": "氷継ぎの岩這い",
+      "source": "novo-ice-vault-background-v1.png",
+      "opening": 1,
+      "localSteps": [
+        {
+          "quest": "雪の向こうの、帰還報告",
+          "steps": [
+            {
+              "number": 2,
+              "objective": "最深室の氷継ぎの岩這いを退ける"
+            },
+            {
+              "number": 3,
+              "objective": "奥の高台で帰還路を確認する"
+            }
+          ]
+        }
+      ],
+      "tiers": {
+        "4096": 16621,
+        "4608": 20071,
+        "5120": 23360,
+        "5632": 26630,
+        "6144": 28520
+      }
+    },
+    {
+      "node": "nod-quiet-rim",
+      "name": "玻璃根の歩行晶",
+      "source": "nod-quiet-rim-background-v1.png",
+      "opening": 1,
+      "localSteps": [
+        {
+          "quest": "帰り道にも、月はある",
+          "steps": [
+            {
+              "number": 1,
+              "objective": "庭の外周で玻璃根の歩行晶を退ける"
+            },
+            {
+              "number": 2,
+              "objective": "右奥の高台で街の灯りを見つける"
+            }
+          ]
+        }
+      ],
+      "tiers": {
+        "4096": 17114,
+        "4608": 20534,
+        "5120": 23829,
+        "5632": 27109,
+        "6144": 29049
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "origin": "Built-in ImageGen. Five original provisional background plates for the local lab.",
+  "sharedPrompt": "Create one standalone widescreen 16:9 environment painting for a side scrolling pixel RPG inspired by MapleStory and Genshin Impact. Fixed lateral camera, a straight walkable floor crossing at 86% of image height, with a quiet open stage across the middle and boss standing space at the right. Elegant chunky pixel clusters with clean readable silhouette, carefully grouped values, atmospheric depth, broad planes suitable for encoding in 4096 colored rectangles. No lettering, HUD, people, monsters or cutouts. Edge to edge finished game background, one scene.",
+  "scenes": [
+    {
+      "key": "jadeplumeGrove",
+      "node": "sumeru-jadeplume-grove",
+      "source": "jadeplume-grove-background-v1.png",
+      "preview": "jadeplume-grove-native-preview-v1.png",
+      "note": "菌傘の谷のラボ用仮背景",
+      "surface": "grass",
+      "prompt": "A lush Sumeru rainforest hollow beneath immense overlapping jade mushroom parasols. A massive umbrella cap and partly exposed luminous gills on the left, hanging roots and concentric distant fungus platforms, golden shafts through a high emerald canopy. Dark teal frame with warm apricot spore glows. Moss-turf floor."
+    },
+    {
+      "key": "chenyuBoulderGully",
+      "node": "chenyu-boulder-gully",
+      "source": "chenyu-boulder-gully-background-v1.png",
+      "preview": "chenyu-boulder-gully-native-preview-v1.png",
+      "note": "段丘の岩陰のラボ用仮背景",
+      "surface": "grass",
+      "prompt": "A sunlit Chenyu Vale tea terrace under the projecting shoulder of a weathered limestone boulder. Pale jade limestone karst peaks and stepped tea hedges in mist through the central opening. Ochre and sage green mossy bank with spaced stepping stones, a very small rustic roof far away."
+    },
+    {
+      "key": "enkanTabletHollow",
+      "node": "enkan-tablet-hollow",
+      "source": "enkan-tablet-hollow-background-v1.png",
+      "preview": "enkan-tablet-hollow-native-preview-v1.png",
+      "note": "石版裏の窪みのラボ用仮背景",
+      "surface": "stone",
+      "prompt": "An intimate deep blue Enkanomiya archaeological recess behind a huge broken ceremonial stone tablet set to the left. Worn geometric relief bands with no writing, near-black indigo pillars, a turquoise lantern deep in the alcove; faint cool glints on the ancient flat masonry floor. Emphasize roofed cavern and a carved stone niche."
+    },
+    {
+      "key": "novoIceVault",
+      "node": "novo-ice-vault",
+      "source": "novo-ice-vault-background-v1.png",
+      "preview": "novo-ice-vault-native-preview-v1.png",
+      "note": "氷殻の最深室のラボ用仮背景",
+      "surface": "stone",
+      "prompt": "A sealed subterranean polar chamber, arched shells of thick translucent glacier ice in layered scalloped blue and grey cross sections. Dark fractured rock at the base, a single milky cyan seam of light in the back wall. Hard flat frozen floor. No sky, dwellings or ruins."
+    },
+    {
+      "key": "nodQuietRim",
+      "node": "nod-quiet-rim",
+      "source": "nod-quiet-rim-background-v1.png",
+      "preview": "nod-quiet-rim-native-preview-v1.png",
+      "note": "庭の外周・静かな道のラボ用仮背景",
+      "surface": "grass",
+      "prompt": "A quiet Nod-Krai moon garden perimeter. A level muted violet garden path edged with silvery grass and small crystalline roots. A broken old curved low garden wall on the left frames a view of a reflective pond and pale lavender moon. Distant cypress silhouettes, soft indigo light, tranquil open-air garden."
+    }
+  ]
+}
