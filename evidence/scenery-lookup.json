@@ -1,0 +1,8 @@
+{
+  "stageCount": 1528,
+  "cases": 12625,
+  "timingScope": "One scenery selection per stage in Chrome, excluding drawing and file I/O",
+  "samplesPerMethod": 7,
+  "previousMedianMs": 61.200000047683716,
+  "indexedMedianMs": 0.40000003576278687
+}

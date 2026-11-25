@@ -1,0 +1,98 @@
+{
+  "branch-hunt-64826": {
+    "source": "chenyu-west-bank-background-v1.png",
+    "count": 36,
+    "sourceCanvas": "148b9ed94cb45c0e12fc5433185bb7b7744c62f5f932012bd9e60b53035e7eee",
+    "tiers": {
+      "4096": "13ef43321fe2aee0133e6fcd2387dc95d087a6ffa2b9f23571995a921080fd03",
+      "4608": "9dee039f1454ca999cad967b084c6a51e4d747834795be018595e031bd538cd0",
+      "5120": "2a73b37bb6b2b59d3c0db13ca776bec372facd7bae0c3d2e7443fdecc45d6013",
+      "5632": "d7e44322984f467c420df285b098f6eeadbfa42efe237cc0159a4c1e8a228e49",
+      "6144": "6e5f749dedf907fc450606a7226ad60c2e3235bbd3db29742e02e941229a13d6"
+    }
+  },
+  "branch-hunt-64826-pocket-1": {
+    "source": "chenyu-root-den-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "8613875ee558c6bf5418ee6e1b30260ec8998d32d3660e9632c9b0cb454d62f7",
+    "tiers": {
+      "4096": "021169c022c0a4b9eeefea1edd3b4626a246e02fdb900c8f5ffbee8ba595afd1",
+      "4608": "6e6f3f7a76088d5fbc42ea4d5574d0f5007586ab5906e8db4d6bd5ea8defbddd",
+      "5120": "5b3a056ed08683f812a8f4a167b1fef6ddb70103fd58b108a3491e62f0ca27ff",
+      "5632": "6a529c5455d2957adb94c77e8f56b711778311fdac65e766bb59fd3c576ead39",
+      "6144": "b8c67b7b7705c1e6ffbb7c8f5333d1eaf722bbf0cb2624cfeaacdcb56c996dd4"
+    }
+  },
+  "branch-hunt-64827": {
+    "source": "chenyu-west-peak-background-v1.png",
+    "count": 36,
+    "sourceCanvas": "cef1b91b7aeb58c881823950db2f68c8033e7691096a4554e0d66d3a28f8313c",
+    "tiers": {
+      "4096": "a0d300ebaf6ceb051afb33c818f9ddfb9c54eac0f1245c74d78fe7459886aef6",
+      "4608": "327de0fd46f0032ba650c224a4f17e1dbfe9cd9cd75ca5730481290280a8c6d4",
+      "5120": "ff136d1c27260fc92b78b16d39a9141451bd484a1e1d7d2abaeadb6bd8a54eeb",
+      "5632": "a36813a70e9a909cc5c542894e549c668acb606ebf61593713cb2256ba612e26",
+      "6144": "95e57d03ea70b6f6cc4bd82f66a2d3e5e59625652a8d3a8a79f8b2ebb42f6cf7"
+    }
+  },
+  "branch-hunt-64827-pocket-1": {
+    "source": "chenyu-wind-lookout-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "e6dd4827c6922e4d0e697ffb58b6efd380d159c4b8e48b72a21e3c0180e2a1f7",
+    "tiers": {
+      "4096": "8a390e2462f8901dbe4530f1f4cb0fdb4fa8a1a485a6137c16a5b9c313713977",
+      "4608": "68ee96c277576d266b37d06a4452bd251deaf830c813b25c01f78f54d76c1580",
+      "5120": "f6cec9f1bc02ac6acb7e23d2a1a5f0a9e89812cb393bdf6f3803f18c12eb46c0",
+      "5632": "1eae11e1911fc9e1975867365f8600c4eea8a7f7a4be3677f097fe2b430fff6c",
+      "6144": "e3d2da80d4768edaf9b4ade7a3672e77b070dca9e8ac2f7730ed5ae48c31d39d"
+    }
+  },
+  "branch-hunt-64828": {
+    "source": "chenyu-west-ferry-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "72e50c32be42003827569534423c66a2c6f1d9fdbc8e13bb10587eea0e5ff0c1",
+    "tiers": {
+      "4096": "af88fb57bbac67b100512802a59907c7966a4dc19d3b537de25d0f9ffb64d957",
+      "4608": "428e68f54069f8fab57bc34654cca3571fd1cd1a1c3942575d7c01849349c37e",
+      "5120": "406b89cf971e238cc22f074bc7876f193d53e08e199ca447ce29b8efa5f172a3",
+      "5632": "3f732d28eb70dea9ddc34f9dd3e2edb9c51e1c7749e63d2ea2875fc7430b2f3d",
+      "6144": "5b30d47f4eea243340f1f6f7f2d4b56679838adf39ea75b80add72afa5dffcc5"
+    }
+  },
+  "branch-hunt-64828-pocket-1": {
+    "source": "chenyu-flood-shrine-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "626f079fc10b0a6360714b86cff262835d636e17585eb4e2d36e2845983e0a89",
+    "tiers": {
+      "4096": "4d098a0ef533aa6a73fbdaab5ac0e4f9a2521691c6dfe1a124043a915ecbf89d",
+      "4608": "808df30d6a03dac3c76267ecab653512aff21bcebcd90f184e0884acd496acff",
+      "5120": "7a776521f073acf0880b0c58141a2bdd69efcd716aa6339f9fff2e0aac9f6bca",
+      "5632": "53bcc5b53bf29136c9a106e0d415769c8d8e987b77313eba00dbbb54b6f4335d",
+      "6144": "806afa9f7509dc838196c48427980184078e27c551796c6ed26e5dedc81c89ca"
+    }
+  },
+  "branch-hunt-64829": {
+    "source": "chenyu-south-pass-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "374f32a5bdda6a3a93446e36c43d87ca87f26b93297a6ba0408ceaffb6c9a80e",
+    "tiers": {
+      "4096": "9a2fc3cb699273bcbca19034fd85131467e98b4e71032e8d0691f473de20b98c",
+      "4608": "54edcd677bb757bac2f97afaa25916eca4772e96f7709920c217c9efab7f31fc",
+      "5120": "77510d100d1d35455efad8501fed36a0c44f097350e334b3d1cd716c34c65040",
+      "5632": "c16f67ea09375588a381ff4370049e279a46a601c6083466ad48bd8a9648109f",
+      "6144": "50e5c4bce927ac3a5564da81959ff87ff71708b75c176b50bb51f8b0d27e1fe3"
+    }
+  },
+  "branch-hunt-64829-pocket-1": {
+    "source": "chenyu-fern-hollow-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "d3686b9263c0c9e50754311c53cc133d4721ced92a0b045e801eb07c15049e3f",
+    "tiers": {
+      "4096": "8d2f2c9999ec65bad739f111e0788cdf9ccf92e2b21423918403db857a57eff3",
+      "4608": "bd20c979f4ad682b8c0a13b4dba292f5e0daa3427961a2628be8801c9ebf29e6",
+      "5120": "65030620a73f8bdbc27b507bc93ac4626944deb4f7c893f5e16c4fb9168c75d3",
+      "5632": "401acf1d59da17a2989153f748bdf306a13a4f1a5246db0b092a6243a78b2eac",
+      "6144": "773894b063c851978bba3578f55852360980b8eb48f18878da57b97567176a22"
+    }
+  }
+}

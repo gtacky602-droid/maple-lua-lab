@@ -64,7 +64,9 @@ async function editorReady(page,node) {
 
 try {
  const old=await visit('/');
- await old.page.route('**/scenery.js',r=>r.fulfill({contentType:'text/javascript',body:previous}));
+ // The historical renderer only has the original PNG mode. Adapt its entry point to today's game host.
+ const historicalModule=previous+"\nexport function drawPlayScenery(ctx,frame){scenery(ctx,frame);return ''}\n";
+ await old.page.route('**/scenery.js',r=>r.fulfill({contentType:'text/javascript',body:historicalModule}));
  await old.open();
  await old.page.waitForFunction(()=>window.lab?.frame);
  await old.page.evaluate(async()=>{const {backgroundReady}=await import('./scenery.js');await backgroundReady});

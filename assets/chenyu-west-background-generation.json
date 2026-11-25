@@ -1,0 +1,70 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Wide 16:9 background plate for a hand-pixeled side-scrolling fantasy RPG in a Chinese jade mountain valley. Crisp 1990s storybook pixel art with restrained palette, distinct large readable shapes, layered side elevation and atmospheric light. Quiet open lower middle for overlaying characters and gameplay platforms; rich detail at perimeter. No sprites, people, monsters, lettering, HUD, framing or panels. ",
+  "scenes": [
+    {
+      "node": "branch-hunt-64826",
+      "key": "chenyuWestBank",
+      "note": "西岸の石畳",
+      "prompt": "A riverside flagstone road, jade green water and a low stone parapet under a lone red-leaf elm, layered pale blue karst peaks.",
+      "source": "chenyu-west-bank-background-v1.png",
+      "preview": "chenyu-west-bank-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64826-pocket-1",
+      "key": "chenyuRootDen",
+      "note": "根の張る岩屋",
+      "prompt": "A shady riverside limestone grotto, a huge network of pale roots curling over its roof and a shaft of emerald sunlight. An old animal lair with no animals.",
+      "source": "chenyu-root-den-background-v1.png",
+      "preview": "chenyu-root-den-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64827",
+      "key": "chenyuWestPeak",
+      "note": "西峰の石棚",
+      "prompt": "A high airy stack of angled pale limestone ledges, a single crooked pine clinging to the right crag, and a sea of blue morning cloud below.",
+      "source": "chenyu-west-peak-background-v1.png",
+      "preview": "chenyu-west-peak-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64827-pocket-1",
+      "key": "chenyuWindLookout",
+      "note": "風渡る見張り台",
+      "prompt": "A cliff-top hill scout lookout built from wooden poles and a torn pennant overlooking a bright windswept valley. No inhabitants.",
+      "source": "chenyu-wind-lookout-background-v1.png",
+      "preview": "chenyu-wind-lookout-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64828",
+      "key": "chenyuFerry",
+      "note": "西岸の渡し場",
+      "prompt": "A Chinese river ferry landing at amber sunset: short wooden jetty at left, a small roofed ferry tied up behind it, broad green still water and silhouetted karst.",
+      "source": "chenyu-west-ferry-background-v1.png",
+      "preview": "chenyu-west-ferry-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64828-pocket-1",
+      "key": "chenyuFloodShrine",
+      "note": "水際の祠",
+      "prompt": "An abandoned half-flooded Chinese river shrine beneath the ferry road. Weathered carved stone lintels frame a cyan pool, faded violet hanging cloth, dry walking bank.",
+      "source": "chenyu-flood-shrine-background-v1.png",
+      "preview": "chenyu-flood-shrine-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64829",
+      "key": "chenyuSouthPass",
+      "note": "南端の山道",
+      "prompt": "A warm red-earth trail winding across the southern shoulder of a jagged Chinese mountain, bamboo shade near camera, a weathered stone pass marker and mossy switchbacks.",
+      "source": "chenyu-south-pass-background-v1.png",
+      "preview": "chenyu-south-pass-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64829-pocket-1",
+      "key": "chenyuFernHollow",
+      "note": "山陰のシダの窪地",
+      "prompt": "Sheltered hollow beneath a mountain trail: large curling ferns, an old mossy fallen pine, dappled gold sunlight on reddish soil, blue limestone in the distance.",
+      "source": "chenyu-fern-hollow-background-v1.png",
+      "preview": "chenyu-fern-hollow-native-preview-v1.png"
+    }
+  ]
+}

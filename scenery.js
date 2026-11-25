@@ -1,5 +1,13 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ chenyuWestBank:{file:'chenyu-west-bank-background-v1.png',decodedPreview:'chenyu-west-bank-native-preview-v1.png',decodedTiers:'chenyu-west-bank-native-tiers-v1.webp',zones:['story:branch-hunt-64826'],note:'西岸の石畳の仮背景'},
+ chenyuRootDen:{file:'chenyu-root-den-background-v1.png',decodedPreview:'chenyu-root-den-native-preview-v1.png',decodedTiers:'chenyu-root-den-native-tiers-v1.webp',zones:['story:branch-hunt-64826-pocket-1'],note:'根の張る岩屋の仮背景'},
+ chenyuWestPeak:{file:'chenyu-west-peak-background-v1.png',decodedPreview:'chenyu-west-peak-native-preview-v1.png',decodedTiers:'chenyu-west-peak-native-tiers-v1.webp',zones:['story:branch-hunt-64827'],note:'西峰の石棚の仮背景'},
+ chenyuWindLookout:{file:'chenyu-wind-lookout-background-v1.png',decodedPreview:'chenyu-wind-lookout-native-preview-v1.png',decodedTiers:'chenyu-wind-lookout-native-tiers-v1.webp',zones:['story:branch-hunt-64827-pocket-1'],note:'風渡る見張り台の仮背景'},
+ chenyuFerry:{file:'chenyu-west-ferry-background-v1.png',decodedPreview:'chenyu-west-ferry-native-preview-v1.png',decodedTiers:'chenyu-west-ferry-native-tiers-v1.webp',zones:['story:branch-hunt-64828'],note:'西岸の渡し場の仮背景'},
+ chenyuFloodShrine:{file:'chenyu-flood-shrine-background-v1.png',decodedPreview:'chenyu-flood-shrine-native-preview-v1.png',decodedTiers:'chenyu-flood-shrine-native-tiers-v1.webp',zones:['story:branch-hunt-64828-pocket-1'],note:'水際の祠の仮背景'},
+ chenyuSouthPass:{file:'chenyu-south-pass-background-v1.png',decodedPreview:'chenyu-south-pass-native-preview-v1.png',decodedTiers:'chenyu-south-pass-native-tiers-v1.webp',zones:['story:branch-hunt-64829'],note:'南端の山道の仮背景'},
+ chenyuFernHollow:{file:'chenyu-fern-hollow-background-v1.png',decodedPreview:'chenyu-fern-hollow-native-preview-v1.png',decodedTiers:'chenyu-fern-hollow-native-tiers-v1.webp',zones:['story:branch-hunt-64829-pocket-1'],note:'山陰のシダの窪地の仮背景'},
  bygoneCoralGallery:{file:'bygone-coral-gallery-background-v1.png',decodedPreview:'bygone-coral-gallery-native-preview-v1.png',decodedTiers:'bygone-coral-gallery-native-tiers-v1.webp',zones:['story:branch-hunt-68600'],note:'珊瑚水路の乾いた回廊の仮背景'},
  bygoneSiltChamber:{file:'bygone-silt-chamber-background-v1.png',decodedPreview:'bygone-silt-chamber-native-preview-v1.png',decodedTiers:'bygone-silt-chamber-native-tiers-v1.webp',zones:['story:branch-hunt-68603'],note:'西の沈殿物の石室の仮背景'},
  bygoneSouthSeal:{file:'bygone-south-seal-background-v1.png',decodedPreview:'bygone-south-seal-native-preview-v1.png',decodedTiers:'bygone-south-seal-native-tiers-v1.webp',zones:['story:branch-hunt-68607'],note:'南岸の密閉室の仮背景'},
@@ -366,19 +374,30 @@ export const backgroundReady={
   return allBackgrounds.then(resolve,reject);
  },
 };
+// Compile the location rules once. Some locations have ordered lighting or quest overrides.
+const rulesByLocation=new Map();
+const sceneryByRegion=new Map();
+for(const [key,definition] of Object.entries(sceneryDefinitions)){
+ if(definition.region && !sceneryByRegion.has(definition.region))sceneryByRegion.set(definition.region,key);
+ for(const location of new Set([...definition.zones,...(definition.clearedZones??[])])){
+  let rules=rulesByLocation.get(location);
+  if(!rules){rules=[];rulesByLocation.set(location,rules)}
+  rules.push({key,lightMode:definition.lightMode,requiresClear:!definition.zones.includes(location)});
+ }
+}
 // Explicit prototype mappings; stale story state must not recolor unrelated lab fights.
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
  const location=zone==='town'&&frame.story?.active?'story:'+frame.story.node:zone;
- for(const [key,definition] of Object.entries(sceneryDefinitions)){
-  if(definition.lightMode&&frame.storyLocalLight?.mode!==definition.lightMode)continue;
-  if(definition.zones.includes(location)||(frame.storyCleared&&definition.clearedZones?.includes(location)))return key;
+ const rules=rulesByLocation.get(location);
+ if(rules)for(const rule of rules){
+  if((!rule.lightMode||frame.storyLocalLight?.mode===rule.lightMode)&&(!rule.requiresClear||frame.storyCleared))return rule.key;
  }
  if(frame.story?.active&&(zone==='town'||zone?.startsWith('story:'))){
   if(frame.storyScenery&&Object.hasOwn(sceneryDefinitions,frame.storyScenery))return frame.storyScenery;
   const node=frame.storyGraph?.nodes?.find(n=>n.id===frame.story.node);
   if(node?.scenery&&Object.hasOwn(sceneryDefinitions,node.scenery))return node.scenery;
-  for(const [key,definition] of Object.entries(sceneryDefinitions))if(definition.region&&node?.region===definition.region)return key;
+  return sceneryByRegion.get(node?.region)??'mondstadt';
  }
  return 'mondstadt';
 }

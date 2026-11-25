@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 710,
+  "verifiedModules": 750,
   "dimensions": [
     512,
     288
@@ -131,6 +131,62 @@
       "5120": 24506,
       "5632": 27790,
       "6144": 29898
+    },
+    "chenyu-west-bank-background-v1.png": {
+      "4096": 18019,
+      "4608": 21523,
+      "5120": 24880,
+      "5632": 28238,
+      "6144": 30436
+    },
+    "chenyu-root-den-background-v1.png": {
+      "4096": 17718,
+      "4608": 21200,
+      "5120": 24561,
+      "5632": 27909,
+      "6144": 30089
+    },
+    "chenyu-west-peak-background-v1.png": {
+      "4096": 18033,
+      "4608": 21539,
+      "5120": 24916,
+      "5632": 28284,
+      "6144": 30528
+    },
+    "chenyu-wind-lookout-background-v1.png": {
+      "4096": 18256,
+      "4608": 21776,
+      "5120": 25167,
+      "5632": 28545,
+      "6144": 30767
+    },
+    "chenyu-west-ferry-background-v1.png": {
+      "4096": 17988,
+      "4608": 21440,
+      "5120": 24767,
+      "5632": 28077,
+      "6144": 30317
+    },
+    "chenyu-flood-shrine-background-v1.png": {
+      "4096": 17796,
+      "4608": 21276,
+      "5120": 24641,
+      "5632": 28005,
+      "6144": 30167
+    },
+    "chenyu-south-pass-background-v1.png": {
+      "4096": 18022,
+      "4608": 21526,
+      "5120": 24923,
+      "5632": 28295,
+      "6144": 30551
+    },
+    "chenyu-fern-hollow-background-v1.png": {
+      "4096": 18227,
+      "4608": 21741,
+      "5120": 25144,
+      "5632": 28526,
+      "6144": 30794
     },
     "fon-domain-reef-background-v1.png": {
       "4096": 17800,
@@ -1004,7 +1060,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 142
+      "verified": 150
     },
     "domainHunts": {
       "total": 124,
@@ -1063,11 +1119,11 @@
     },
     "branchHunts": {
       "total": 62,
-      "verified": 9,
+      "verified": 17,
       "byRegion": {
         "沈玉の谷": {
           "total": 59,
-          "verified": 6
+          "verified": 14
         },
         "往日の海": {
           "total": 3,
@@ -1075,14 +1131,6 @@
         }
       },
       "pending": [
-        "branch-hunt-64826",
-        "branch-hunt-64826-pocket-1",
-        "branch-hunt-64827",
-        "branch-hunt-64827-pocket-1",
-        "branch-hunt-64828",
-        "branch-hunt-64828-pocket-1",
-        "branch-hunt-64829",
-        "branch-hunt-64829-pocket-1",
         "branch-hunt-64830",
         "branch-hunt-64830-pocket-1",
         "branch-hunt-64831",

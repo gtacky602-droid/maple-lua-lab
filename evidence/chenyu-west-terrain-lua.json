@@ -1,0 +1,80 @@
+{
+  "branch-hunt-64826": {
+    "population": 36,
+    "shelf_heights_from_entrance": [
+      402,
+      370,
+      334,
+      378
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 88,
+    "exterior_scenery": "chenyuWestBank",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64827": {
+    "population": 36,
+    "shelf_heights_from_entrance": [
+      419,
+      383,
+      343,
+      308
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 89,
+    "exterior_scenery": "chenyuWestPeak",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64828": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      391,
+      414,
+      383
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 89,
+    "exterior_scenery": "chenyuFerry",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64829": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      383,
+      347,
+      378
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 85,
+    "exterior_scenery": "chenyuSouthPass",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "riverToPeak": [
+    "liyue-wp-64828",
+    "branch-hunt-64828",
+    "liyue-wp-64828",
+    "liyue-wp-64826",
+    "branch-hunt-64826",
+    "liyue-wp-64826",
+    "liyue-wp-64827",
+    "branch-hunt-64827",
+    "liyue-wp-64827",
+    "liyue-wp-64849",
+    "liyue-wp-64827",
+    "liyue-wp-64826",
+    "liyue-wp-64828"
+  ],
+  "southernBoat": [
+    "liyue-wp-66770",
+    "liyue-wp-64829",
+    "branch-hunt-64829",
+    "liyue-wp-64829",
+    "liyue-wp-66770"
+  ]
+}
