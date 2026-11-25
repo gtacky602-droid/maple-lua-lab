@@ -1,0 +1,37 @@
+{
+  "prerequisite": true,
+  "collectAndReread": true,
+  "requiredLedge": true,
+  "twoWrongAnswersRetry": true,
+  "rangeAndCardLimit": true,
+  "arrivalAndPause": true,
+  "saveMidarrival": true,
+  "noCombat": true,
+  "completedMapRest": true,
+  "repeatRecoveryCapped": true,
+  "reward": [
+    145027,
+    1750
+  ],
+  "packing": {
+    "6-legacy": {
+      "before": 831895,
+      "after": 399103
+    },
+    "6-h32c16": {
+      "before": 186274,
+      "after": 98205
+    },
+    "7-legacy": {
+      "before": 1076372,
+      "after": 476424
+    },
+    "7-h32c16": {
+      "before": 259321,
+      "after": 118078
+    }
+  },
+  "startLevel": 45,
+  "source": "lantern-earned-start.json",
+  "sha256": "a5489d83ad715f3e623a6384f7c85a687176ce7d33741087afd795fd2143042f"
+}

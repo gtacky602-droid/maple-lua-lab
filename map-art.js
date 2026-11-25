@@ -184,7 +184,7 @@ try{
  const [mechanismScenes,legendScenes,fieldScenes,stygianScenes,questPreviews,worksiteArt]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json'),json('content/toyac-quest-previews.json'),json('content/worksite-props.json')]);
  const festival=worksiteArt.festival;
  questPreviews[festival.node]={stages:festival.stages.map(stage=>({...stage,visible:[],focusX:480}))};
- const courseArt=new Map();
+ const courseArt=new Map(),teaArt=new Map();
  const forest=forestPreview($('forestPreview'),worksiteArt.forest,render);
  const contest=lanternPreview($('contestPreview'),worksiteArt.contest,render);
  questPreviews[worksiteArt.contest.node]={stages:worksiteArt.contest.stages.map(stage=>({...stage,visible:[]}))};
@@ -403,6 +403,13 @@ try{
    const art=courseArt.get(key);
    if(!art.image)missing.push(art);
   }
+  const teaProps=liveView&&selectedSurveyPoint?.tea&&selectedSurveyPoint.node===n.id?
+   worksiteArt.teahouse.stages[selectedSurveyPoint.step]:[];
+  for(const key of new Set(teaProps.map(prop=>prop.key))){
+   if(!teaArt.has(key))teaArt.set(key,{poseFile:worksiteArt.teahouse.files[key],openingPose:true});
+   const art=teaArt.get(key);
+   if(!art.image)missing.push(art);
+  }
   if(missing.length){
    $('fidelityControls').hidden=true;
    window.mapArt={ready:false,node:n.id,backgroundState:'loading'};
@@ -546,6 +553,10 @@ try{
      ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
     }
    }
+   for(const {key,x,y,height} of teaProps){
+    const art=teaArt.get(key);
+    paintPlacementLayer(ctx,art,spriteBounds(art,height),mode==='png'||matchedSprites?null:profile,x-camera,y,false,cost);
+   }
    for(const mark of course??[]){
     if(mark.kind==='prop'){
      const art=courseArt.get(mark.key);
@@ -658,8 +669,8 @@ try{
    $('placements').append(label);
   }
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  const subjects=course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':'キャラクター';
-  const matchedLabel=course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':'キャラは左右とも元PNG';
+  const subjects=teaProps.length?'事件帖の絵札・茶屋の道具':course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':'キャラクター';
+  const matchedLabel=teaProps.length?'事件帖の道具は左右とも元PNG':course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':'キャラは左右とも元PNG';
   $('viewportCost').textContent=matchedSprites?matchedLabel:decoded&&!cost.standard?'':viewportSummary(cost,profile,subjects);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);

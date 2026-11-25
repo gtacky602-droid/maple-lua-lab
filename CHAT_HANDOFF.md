@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 平蔵の事件帖と船着き場の茶屋
+
+依頼手帳から事件帖を開くと、入手した絵札をどこでも読み返せる。絵札ごとに発見場所を地図で開ける。証拠を照合するのは船着き場の絵札台。解決後は事件帖から茶屋に目印を合わせ、開通した休憩地点へ移動してお茶を飲める。[絵札4枚の事件帖](evidence/ina-tea-case-earned-notebook.png) ／ [船着き場の茶屋を見比べる](map-art.html?placements=live&node=ina-tea-landing&quest=ina-walking-teahouse&step=7&tier=4096)
+
+屋台・店主・湯飲みを同じ位置に置いて、元PNGとLua矩形の16色版を比較できる。Lv45の育成セーブを使った停車後の1コマでは、16色版の描画用JSONが259,321 Bから118,078 Bに減った。展開後の命令列は一致。絵札台と停車後の屋台では、地図に描いた小物と調査印の画素も本編Luaの配置を使った参照画像と一致した。[比較画像](evidence/ina-tea-case-comparison.png) ／ [Lua検証](evidence/ina-tea-case-earned-lua.json) ／ [地図の画素照合](evidence/ina-tea-case-map-pixels.json) ／ [ブラウザー操作](evidence/ina-tea-case-earned-browser.json)
+
 ## 荒瀧天下一の競技広場と得点表
 
 一斗の三番勝負を追跡すると、M地図から競技に合った会場配置を開ける。旗集めは地上と足場に5本、訓練的は上下段に3個ずつ。最終戦では下段の子を旅人、上段の子を一斗が応援する。子どもが印で止まると組名と「応援待ち」が出て、応援が届くとその組の掛け声に変わる。景品台に近づくと競技ごとの両組の得点を読める。途中で再戦を離れても、前回完走した三番勝負の成績が残る。[3競技の比較画像](evidence/itto-course-comparison.png) ／ [子どもの応援競走を開く](map-art.html?node=ina-festival-games&placements=live&round=3&tier=4096)

@@ -428,6 +428,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local stealth=stealthModule(C,canInspect)
  local itto=ittoModule(C,canInspect)
  local teaCase=teaCaseModule(C,canInspect)
+ for _,quest in ipairs(data.quests) do
+  if quest.teaCase then
+   for _,step in ipairs(quest.itinerary) do
+    local clue=step.teaClue
+    if clue then
+     local art=C.teaCaseArt[clue.art]
+     clue.source,clue.box=art.source,art.box
+    end
+   end
+  end
+ end
  local wandererSurvey=wandererSurveyModule(C)
  local visitors=visitorsModule(C,canInspect)
  local colleiGuide=colleiGuideModule(C,canInspect)

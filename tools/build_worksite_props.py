@@ -104,6 +104,34 @@ def festival_courses(lua,graph):
     return dict(node=node['id'],stages=stages)
 
 
+def tea_stages(lua,quest):
+    keys=('paper','tracks','day','dusk','keeper','cart','cup')
+    files={key:(f'ina-tea-case-{key}-sprites-v1.json' if key!='cup'
+                else 'nod-lantern-patrol-tea-sprites-v1.json') for key in keys}
+    art={key:dict(key=key,box=json.loads((ROOT/'assets'/file).read_bytes())['box'])
+         for key,file in files.items()}
+    context=lua.table()
+    context.teaCaseArt=lua.table_from(art,recursive=True)
+    tea=lua.execute((ROOT/'story-tea-case.lua').read_text('utf8'))(context,lambda *_:False)
+    stages={}
+    q=lua.table_from(quest,recursive=True)
+    for i,step in enumerate(quest['itinerary'],1):
+        if not (step.get('teaClue') or step.get('teaCup') or step['kind']=='teaEvidence'):
+            continue
+        camera=step['x']-480
+        props=[]
+        def stamp(layer,sprite,x,y,height,*_):
+            props.append(dict(key=sprite.key,x=x+camera,y=y,height=height))
+        context.drawFieldDisplayArt=stamp
+        state=lua.table_from(dict(status='active',count=i-1))
+        sim=lua.table_from(dict(story=dict(node=step['node']),camera=camera,t=0,
+                                active=1,actors=[{}],teaEvidence={}),recursive=True)
+        tea.observe(sim,lua.table(),lua.table(),q,state,'sprite','legacy')
+        assert props
+        stages[str(i)]=props
+    return dict(files=files,stages=stages)
+
+
 def build():
     lua=LuaRuntime(unpack_returned_tuples=True)
     graph=json.loads((ROOT/'content/story-graph.json').read_bytes())
@@ -144,7 +172,8 @@ def build():
     forest_quest=next(q for q in graph['quests'] if q.get('forest'))
     contest_quest=next(q for q in graph['quests'] if q.get('contest'))
     return dict(worksites=props,haul=haul_routes(lua,quest),forest=forest_rooms(lua,forest_quest),
-                contest=lantern_contest(lua,contest_quest,graph['nodes']),festival=festival_courses(lua,graph))
+                contest=lantern_contest(lua,contest_quest,graph['nodes']),festival=festival_courses(lua,graph),
+                teahouse=tea_stages(lua,next(q for q in graph['quests'] if q.get('teaCase'))))
 
 if __name__=='__main__':
     output=ROOT/'content/worksite-props.json'

@@ -1,6 +1,9 @@
 // Physical inspection points on the authored travel-and-survey itineraries.
 export function surveyPoint(quest,index,node){
  const steps=quest?.itinerary,step=steps?.[index];
+ if(quest?.teaCase&&step?.node===node&&(step.teaClue||step.teaCup||step.kind==='teaEvidence')){
+  return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,tea:true};
+ }
  if(step?.kind==='stealthCheck'&&step.node===node){
   return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,cover:step.cover};
  }
@@ -28,7 +31,7 @@ export function surveyPointUrl(point){
   params.set('tier','4096');
  }else{
   params.set('step',String(point.step));
-  if(point.cover)params.set('tier','4096');
+  if(point.cover||point.tea)params.set('tier','4096');
  }
  return 'map-art.html?'+params;
 }

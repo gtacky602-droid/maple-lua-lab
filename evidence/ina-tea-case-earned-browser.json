@@ -1,0 +1,32 @@
+{
+  "scenes": [
+    {
+      "key": "teaCrossroads",
+      "file": "ina-tea-case-crossroads-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "teaLanding",
+      "file": "ina-tea-case-landing-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "walkAndJump": true,
+  "wrongThenCorrect": true,
+  "boardFits390px": true,
+  "cartRollsIn": true,
+  "mapButtonAndKeyboardAfterReload": true,
+  "notebookAfterReload": true,
+  "acquiredCluesOnly": true,
+  "repeatRest": true,
+  "commands": {
+    "png": 19,
+    "standard": 9728,
+    "light": 2364
+  },
+  "reward": [
+    145027,
+    1750
+  ],
+  "errors": []
+}

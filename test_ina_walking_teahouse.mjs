@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='ina-walking-teahouse',town='inazuma-town';
-const forks='ina-tea-crossroads',landing='ina-tea-landing',prefix='evidence/ina-tea-case';
+const suffix=process.argv.includes('--earned')?'-earned':'';
+const forks='ina-tea-crossroads',landing='ina-tea-landing',prefix='evidence/ina-tea-case'+suffix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -109,13 +110,18 @@ async function compare(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8915/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/ina-tea-case-fixture.json','utf8');
+  const seed=await fs.readFile('work/ina-tea-case'+suffix+'-fixture.json','utf8');
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await load();
   await questButton('受注','active');
+  const notebook=page.locator('.tea-notebook');
+  await notebook.locator('summary').click();
+  assert.equal(await notebook.locator('li').count(),0);
   await collect(169,1);
   await collect(396,2);
   await gate(350,forks);
+  assert.deepEqual(await notebook.locator('li').evaluateAll(rows=>rows.map(r=>r.dataset.clue)),['paper']);
+  assert.equal(await notebook.getAttribute('open'),'');
   const crossroads=await scene();
   assert.deepEqual(crossroads,{key:'teaCrossroads',file:'ina-tea-case-crossroads-background-v1.png',state:'ready'});
   await collect(345,3);
@@ -176,6 +182,13 @@ try{
   await page.reload();
   await wait(()=>window.lab?.frame);
   await load();
+  await notebook.locator('summary').click();
+  assert.deepEqual(await notebook.locator('li').evaluateAll(rows=>rows.map(r=>r.dataset.clue)),['paper','ruts','day','dusk']);
+  await notebook.screenshot({path:prefix+'-notebook.png'});
+  await notebook.getByRole('button',{name:'船着き場の茶屋を地図で見る'}).click();
+  await wait(id=>window.lab.frame.worldMap?.selected?.id===id,landing);
+  await page.keyboard.press('Escape');
+  await wait(()=>!window.lab.frame.worldMap);
   await page.locator(`[data-rest-waypoint="${landing}"]`).click();
   await at(landing);
   assert.equal((await frame()).storyTeaCase.parked,true);
@@ -192,7 +205,7 @@ try{
   assert.equal(revisited.mora,after.mora);
   assert.deepEqual(errors,[]);
   const proof={scenes:[crossroads,dusk],walkAndJump:true,wrongThenCorrect:true,boardFits390px:true,cartRollsIn:true,
-    mapButtonAndKeyboardAfterReload:true,repeatRest:true,commands,reward,errors};
+    mapButtonAndKeyboardAfterReload:true,notebookAfterReload:true,acquiredCluesOnly:true,repeatRest:true,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

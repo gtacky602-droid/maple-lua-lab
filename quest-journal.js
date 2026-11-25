@@ -1,4 +1,5 @@
 import {questRoute,questTargetNode} from './quest-route.js';
+import {teaNotebook} from './tea-notebook.js';
 import {surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
@@ -185,6 +186,11 @@ export function trackedQuest(f,id,selectedWorksite){
     text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route?' ｜ '+route:'')};
   }
  }
+ if(q.teaCase&&status==='complete'){
+  const point=surveyPoint(q,q.goal-1,q.target);
+  return {node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'茶屋の位置を見る',
+   text:q.name+' ｜ 船着き場の湯飲みでGを押すと、操作中の仲間のHPが最大'+q.teaCase.heal+'回復します。'};
+ }
  const festivalRound=q.itinerary?.[st?.count]?.kind==='festivalGame'?st.count:null;
  if(festivalRound||(status==='complete'&&st?.ittoContest?.series>0)){
   const round=f.story.node===q.target&&(f.storyIttoGames?.round??f.storyIttoGames?.next)||festivalRound||1;
@@ -310,6 +316,9 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   }
   if(q.note){const note=document.createElement('small');note.style.display='block';note.textContent=q.note;row.append(note)}
   section.append(row);
+  if(q.teaCase&&st){
+   section.append(teaNotebook(q,st,id=>graph.nodes.find(n=>n.id===id)?.name??id,button));
+  }
  }
  if(!shown){const empty=document.createElement('p');empty.textContent='この条件に当てはまる依頼はありません。';section.append(empty)}
  return section;

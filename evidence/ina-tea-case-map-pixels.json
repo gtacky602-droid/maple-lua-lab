@@ -1,0 +1,24 @@
+[
+  {
+    "step": 6,
+    "png": {
+      "checked": 8516,
+      "different": 0
+    },
+    "rect": {
+      "checked": 8768,
+      "different": 0
+    }
+  },
+  {
+    "step": 7,
+    "png": {
+      "checked": 17060,
+      "different": 0
+    },
+    "rect": {
+      "checked": 16672,
+      "different": 0
+    }
+  }
+]

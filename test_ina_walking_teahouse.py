@@ -1,4 +1,7 @@
 import json
+import sys
+from hashlib import sha256
+from test_coop_local import expand_rectangles
 
 from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
@@ -75,7 +78,50 @@ for id_, count, details in (
 ):
     state = dict(status='complete', count=count, cycles=1, **details)
     s.story.quests[id_] = lua.table_from(state, recursive=True)
+earned = '--earned' in sys.argv
+suffix = '-earned' if earned else ''
+if earned:
+    source = ROOT/'work/inazuma-fresh-route/lantern-earned-start.json'
+    raw = source.read_bytes()
+    s = load(validate_save(json.loads(raw)))
+    assert s.story.quests['inazuma-torii-maze'].status == 'complete'
+    action('story_fast:' + town)
+    assert s.story.node == town and not record()
+initial_kills = s.kills
 fixture = checkpoint()
+packing = {}
+map_frames = {}
+catalog = json.loads((ROOT/'content/worksite-props.json').read_bytes())['teahouse']
+
+def verify_art(step):
+    stage = core.frame(s,'sprite','legacy')
+    visible = [(d.source,list(d.box.values()),d.x,d.y,d.h) for d in stage.draws.values()
+               if d.source in ('ina-tea-case-props-source-v1.png','nod-lantern-patrol-props-source-v1.png')]
+    expected = []
+    for mark in catalog['stages'][str(step)]:
+        asset = json.loads((ROOT/'assets'/catalog['files'][mark['key']]).read_bytes())
+        expected.append((asset['source'],asset['box'],mark['x']-s.camera,mark['y'],mark['height']))
+    assert visible == expected, (visible,expected)
+    layer = lua.table_from(dict(draws=[]),recursive=True)
+    for mode in ('sprite','rect'):
+        layer.draws = lua.table()
+        for mark in catalog['stages'][str(step)]:
+            core.drawFieldDisplayArt(layer,core.teaCaseArt[mark['key']],mark['x'],mark['y'],
+                                     mark['height'],mode,'h32c16',False)
+        map_frames.setdefault(step,{})[mode] = native(layer.draws)
+    for profile in ('legacy','h32c16'):
+        reference = {'draws':native(core.frame(s,'rect',profile).draws)}
+        s.packRectArt = True
+        try:
+            f = core.frame(s,'rect',profile)
+            packet = {'draws':native(f.draws),'rectBatches':native(f.rectBatches)}
+        finally:
+            s.packRectArt = None
+        assert list(expand_rectangles(packet)) == reference['draws']
+        before,after = (len(json.dumps(data,ensure_ascii=False,separators=(',',':')).encode())
+                        for data in (reference,packet))
+        assert after < before
+        packing[f'{step}-{profile}'] = dict(before=before,after=after)
 action('story_accept:' + quest)
 gate(350, forks, False)
 collect(169, 1)
@@ -95,9 +141,10 @@ assert s.actors[s.active].ground and s.actors[s.active].y == 403
 action('story_collect')
 assert record().count == 4
 gate(1166, landing)
-assert not len(s.enemies) and s.kills == 0
+assert not len(s.enemies) and s.kills == initial_kills
 collect(284, 5)
 assert frame().storyTeaCase.clues == 4
+verify_art(6)
 
 choose('ruts')
 move(469)
@@ -143,6 +190,7 @@ gate(350, forks)
 gate(1166, landing)
 assert frame().storyTeaCase.parked and frame().storyTeaCase.cartX == 697
 actor = s.actors[s.active]
+verify_art(7)
 actor.hp = actor.maxhp - 45
 collect(600, 7)
 assert actor.hp == actor.maxhp - 10
@@ -173,7 +221,11 @@ proof = {
     'saveMidarrival': True, 'noCombat': True, 'completedMapRest': True,
     'repeatRecoveryCapped': True, 'reward': reward,
 }
-(ROOT/'evidence/ina-tea-case-lua.json').write_text(json.dumps(proof, indent=2)+'\n', encoding='utf8')
+proof['packing'] = packing
+if earned:
+    proof.update(startLevel=fixture['progression']['level'],source=source.name,sha256=sha256(raw).hexdigest())
+(ROOT/f'evidence/ina-tea-case{suffix}-lua.json').write_text(json.dumps(proof, indent=2)+'\n', encoding='utf8')
 (ROOT/'work').mkdir(exist_ok=True)
-(ROOT/'work/ina-tea-case-fixture.json').write_text(json.dumps(fixture), encoding='utf8')
+(ROOT/f'work/ina-tea-case{suffix}-fixture.json').write_text(json.dumps(fixture), encoding='utf8')
+(ROOT/f'work/ina-tea-case{suffix}-map-frames.json').write_text(json.dumps(map_frames),encoding='utf8')
 print(proof)

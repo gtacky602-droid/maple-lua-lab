@@ -1,4 +1,5 @@
 import {drawFireworkSparks} from './firework-sparks.js';
+import {teaCardPicture} from './tea-notebook.js';
 import {drawHuntMarker} from './hunt-guide.js';
 import {surveyPointUrl} from './survey-point.js';
 import {forestSketches} from './forest-preview.js';
@@ -84,12 +85,7 @@ function updateTeaCase(view){
    const button=document.createElement('button');
    button.dataset.teaEvidence=card.id;
    button.type='button';
-   const picture=document.createElement('canvas');
-   picture.width=104;picture.height=60;picture.setAttribute('aria-hidden','true');
-   const context=picture.getContext('2d'),[x,y,w,h]=card.box;
-   const scale=Math.min(picture.width/w,picture.height/h);
-   context.imageSmoothingEnabled=false;
-   context.drawImage(bossImages[card.source],x,y,w,h,(picture.width-w*scale)/2,(picture.height-h*scale)/2,w*scale,h*scale);
+   const picture=teaCardPicture(card,bossImages[card.source]);
    const label=document.createElement('strong');
    label.textContent=card.label;
    const detail=document.createElement('small');

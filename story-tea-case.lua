@@ -104,11 +104,24 @@ return function(C,canInspect)
   return false
  end
 
- local function art(draws,key,x,y,h,mode,profile)
+ function tea.shopProps(q,elapsed,emit)
+  local spec=q.teaCase
+  local progress=elapsed and math.min(1,elapsed/spec.seconds) or 1
+  local x=spec.stopX+(spec.startX-spec.stopX)*(1-progress)^1.4
+  emit('keeper',x+86,spec.y-(elapsed and math.abs(math.sin(elapsed*15))*4 or 0),83)
+  emit('cart',x,spec.y,109)
+  if not elapsed then
+   local seat=q.itinerary[q.goal]
+   emit('cup',seat.x,seat.y,43)
+  end
+  return x
+ end
+
+ local function art(layer,key,x,y,h,mode,profile)
   local sprite=C.teaCaseArt[key]
   local w=h*sprite.box[3]/sprite.box[4]
   if x+w/2>=0 and x-w/2<=960 then
-   C.drawFieldDisplayArt({draws=draws},sprite,x,y,h,mode,profile,false)
+   C.drawFieldDisplayArt(layer,sprite,x,y,h,mode,profile,false)
   end
  end
 
@@ -122,11 +135,16 @@ return function(C,canInspect)
 
  function tea.observe(s,f,draws,q,state,mode,profile)
   if not state then return end
+  local layer={draws=draws}
+  if mode=='rect' and s.packRectArt then
+   f.rectBatches=f.rectBatches or {}
+   layer.rectIndex,layer.rectBatches={},f.rectBatches
+  end
   local current=q.itinerary[state.count+1]
   for index,step in ipairs(q.itinerary) do
    if step.teaClue and step.node==s.story.node and index<=state.count+1 then
     local x=step.x-s.camera
-    art(draws,step.teaClue.art,x,step.y,step.teaClue.height,mode,profile)
+    art(layer,step.teaClue.art,x,step.y,step.teaClue.height,mode,profile)
     label(draws,x,step.y-step.teaClue.height-27,step.name)
     if index<=state.count and not s.paused and canInspect(s.actors[s.active],step) then
      f.storyNearbyMilestone={label='絵札「'..step.teaClue.label..'」を読み直す'}
@@ -136,8 +154,8 @@ return function(C,canInspect)
   local message
   if current and current.kind=='teaEvidence' and current.node==s.story.node then
    local x=current.x-s.camera
-   art(draws,'day',x-14,current.y,61,mode,profile)
-   art(draws,'dusk',x+19,current.y,55,mode,profile)
+   art(layer,'day',x-14,current.y,61,mode,profile)
+   art(layer,'dusk',x+19,current.y,55,mode,profile)
    label(draws,x,current.y-123,current.name)
    if board(s,q,state) then
     local cards={}
@@ -154,15 +172,12 @@ return function(C,canInspect)
   local parked,cartX
   if s.story.node==q.target and state.count>=q.goal-1 then
    local spec=q.teaCase
-   local progress=s.teaArrival and math.min(1,(s.t-s.teaArrival)/spec.seconds) or 1
-   local x=spec.stopX+(spec.startX-spec.stopX)*(1-progress)^1.4
+   local x=tea.shopProps(q,s.teaArrival and s.t-s.teaArrival,function(key,wx,y,h)
+    art(layer,key,wx-s.camera,y,h,mode,profile)
+   end)
    cartX=x
    parked=not s.teaArrival
-   art(draws,'keeper',x+86-s.camera,spec.y-(parked and 0 or math.abs(math.sin(s.t*15))*4),83,mode,profile)
-   art(draws,'cart',x-s.camera,spec.y,109,mode,profile)
    if parked then
-    local seat=q.itinerary[q.goal]
-    art(draws,'cup',seat.x-s.camera,seat.y,43,mode,profile)
     label(draws,x-s.camera,spec.y-133,'船着き場の茶屋')
     if state.status=='complete' and tea.allowed(s,q,state) and not f.storyNearbyMilestone then
      f.storyNearbyMilestone={label='お茶を飲んで休む'}
