@@ -1,0 +1,52 @@
+{
+  "quest": "daily-liyue-relics",
+  "trips": [
+    {
+      "room": "branch-hunt-64845-pocket-1",
+      "normalAttackTicks": 1014,
+      "savedCount": 1
+    },
+    {
+      "room": "branch-hunt-64846-pocket-1",
+      "normalAttackTicks": 1055,
+      "savedCount": 2
+    },
+    {
+      "room": "branch-hunt-64847-pocket-1",
+      "normalAttackTicks": 1017,
+      "savedCount": 3
+    },
+    {
+      "room": "branch-hunt-64848-pocket-1",
+      "normalAttackTicks": 972,
+      "savedCount": 1
+    },
+    {
+      "room": "branch-hunt-64849-pocket-1",
+      "normalAttackTicks": 1089,
+      "savedCount": 2
+    },
+    {
+      "room": "branch-hunt-64850-pocket-1",
+      "normalAttackTicks": 901,
+      "savedCount": 3
+    },
+    {
+      "room": "branch-hunt-66768-pocket-1",
+      "normalAttackTicks": 1053,
+      "savedCount": 1
+    },
+    {
+      "room": "branch-hunt-66770-pocket-1",
+      "normalAttackTicks": 1017,
+      "savedCount": 2
+    },
+    {
+      "room": "branch-hunt-66979-pocket-1",
+      "normalAttackTicks": 977,
+      "savedCount": 3
+    }
+  ],
+  "xp": 1830,
+  "mora": 380
+}

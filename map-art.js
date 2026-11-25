@@ -149,7 +149,23 @@ try{
   });
  }
  $('decodedBackground').onchange=render;
- $('backgroundTier').onchange=render;
+ const colorResult=$('colorResult');
+ if(location.hash==='#sceneryBudget')$('sceneryBudget').querySelector('details').open=true;
+ function fitBackground(){
+  const error=backgroundMeasurements[node().id]?.error;
+  if(!error || !$('decodedBackground').checked)return;
+  const limit=$('colorLimit').valueAsNumber;
+  const tiers=Array.from($('backgroundTier').options,option=>Number(option.value));
+  const matching=tiers.find(tier=>error[tier]<=limit);
+  const chosen=matching??tiers.reduce((best,tier)=>error[tier]<error[best]?tier:best);
+  $('backgroundTier').value=String(chosen);
+  render();
+  const explanation=matching?'上限内で最少':'上限内の段階がないため、色差が最小';
+  colorResult.textContent=chosen.toLocaleString('ja-JP')+'矩形（'+explanation+'、平均色差 '+error[chosen].toFixed(3)+'）';
+ }
+ $('fitBackground').onsubmit=event=>{event.preventDefault();fitBackground()};
+ $('colorLimit').oninput=()=>{colorResult.textContent=''};
+ $('backgroundTier').onchange=()=>{colorResult.textContent='';render()};
  $('matchSpritePng').onchange=render;
  const updateDetail=setupSceneryDetail(liveView,query);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
@@ -178,6 +194,7 @@ try{
   $('decodedBackgroundStatus').textContent=decoded?tier.toLocaleString('ja-JP')+'矩形を復号':preview?.state==='loading'?'読み込み中':
    preview?.state==='error'?'読み込みに失敗しました':'';
   const metrics=backgroundMeasurements[n.id];
+  $('sceneryBudget').hidden=!(definition.decodedTiers && metrics?.error && $('decodedBackground').checked);
   $('backgroundMetrics').textContent=decoded&&metrics?
    `元画像との平均色差 ${metrics.error[tier].toFixed(2)} / 255 ｜ Lua格納量（全5段階） ${metrics.bytes.toLocaleString('ja-JP')} B`:'';
   const costSample=decoded && metrics?.decode?.[tier];
@@ -245,6 +262,7 @@ try{
   }catch(e){$('fileStatus').textContent='履歴を復元できません：'+e.message+' 編集案と履歴は保持しています。'}
  }
  function select(){
+  colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
   camera.max=Math.max(0,n.width-960);
@@ -335,6 +353,14 @@ for(const id of ['camera','profile'])$(id).oninput=render;
   finally{if(ticket===importTicket)$('import').value=''}
  };
  select();
+ const requestedLimit=query.get('colorLimit');
+ if(requestedLimit && requestedLimit.trim()){
+  const value=Number(requestedLimit);
+  if(Number.isFinite(value) && value>=0 && value<=255){
+   $('colorLimit').value=String(value);
+   fitBackground();
+  }
+ }
  if(liveView && liveItems.some(e=>e.id===query.get('subject'))){
   subject.value=query.get('subject');
   if(!query.has('camera') && !query.has('sampleX') && !query.has('sampleY'))focusSubject();

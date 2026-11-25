@@ -32,6 +32,12 @@ def location_coverage(sources, root):
             count['verified'] += int(node in assigned)
         coverage[category] = {'total': len(ids), 'verified': len(ids)-len(pending),
                               'byRegion': by_region, 'pending': pending}
+    for label, filename in [('fieldBosses', 'field-boss-spawns.json'), ('weeklyBosses', 'weekly-boss-spawns.json')]:
+        roster = json.loads((root / 'content' / filename).read_text('utf8'))[label]
+        arenas = sorted({boss[key] for boss in roster for key in ('node', 'innerNode') if boss.get(key)})
+        assert all(stage in nodes for stage in arenas)
+        pending = [stage for stage in arenas if stage not in assigned]
+        coverage[label] = {'totalArenas': len(arenas), 'verified': len(arenas)-len(pending), 'pending': pending}
     return coverage
 
 

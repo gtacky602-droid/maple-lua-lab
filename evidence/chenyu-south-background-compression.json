@@ -1,0 +1,804 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "chenyu-depth-trail-background-v1.png": {
+      "sourceBytes": 1448492,
+      "sourceSha256": "1c611c77fc9008ffcf0bfc7c56b4f6b34802c7c78c916c8696a5bb16663d5691",
+      "preview": "chenyu-depth-trail-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17835,
+      "baseSelectedBytes": 17821,
+      "detailFixed13Bytes": 12035,
+      "detailSelectedBytes": 12025,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.991398564091435,
+          "rgbSha256": "f5a500ab64c21ebe5ced1b126402ff7c3e20d1f185bf866fefce55ab919f54c0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.5820628978587963,
+          "rgbSha256": "c5147783c93d04711d7dc11d44807ef384b4150e9207aef6ec38ddd45c9461ef"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.2882441767939814,
+          "rgbSha256": "e0b76add6147dd867dd4969800b9783bc1d2030f224e5fb877da3d8a6f76281f"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.0666865596064814,
+          "rgbSha256": "9e44d37bb9f7ed8aeb0585660ac4de4f26acfe125e44fc32d268964af028ad19"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.8791368272569444,
+          "rgbSha256": "f296786bc041a5b2590a80dc98f613f4ee112b1e2534382e28593cb6ba326679"
+        }
+      ]
+    },
+    "chenyu-fern-den-background-v1.png": {
+      "sourceBytes": 1446413,
+      "sourceSha256": "402151b63bb793ab23606d0960dbb724bc62dfdb7303b4c1ec9add6ccea29d87",
+      "preview": "chenyu-fern-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17605,
+      "baseSelectedBytes": 17585,
+      "detailFixed13Bytes": 11983,
+      "detailSelectedBytes": 11971,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.662452980324074,
+          "rgbSha256": "c0c79449e4e00d4f6b613fe9382d6c3670c8ec83f6952e3325c94bbe52620e65"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.3115776909722223,
+          "rgbSha256": "b45905b1ec11046552c0922305a654073d145756972b42b9719d6fac957257eb"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.079578540943287,
+          "rgbSha256": "18a972bfd7805feb33b5c532dc878ae509292f2314875cf10d8f58f07d367c1e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.8930596245659723,
+          "rgbSha256": "165a212b24cbb7d568b63ae52780a49f3bcb6a8fd2dc2aca908ef6b355ddad3f"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.7322478117766205,
+          "rgbSha256": "b1f9e0dded5bc4ca583907484ec7930bcdfbb539d92429a5fc71e201dede7717"
+        }
+      ]
+    },
+    "chenyu-foothill-turn-background-v1.png": {
+      "sourceBytes": 1449501,
+      "sourceSha256": "9f029ae9ba6ae7c989f5ccd16cefb7baed41b3f405a01013bf8f7d66fabc5af9",
+      "preview": "chenyu-foothill-turn-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18139,
+      "baseSelectedBytes": 18119,
+      "detailFixed13Bytes": 12239,
+      "detailSelectedBytes": 12229,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.9788049768518516,
+          "rgbSha256": "b9102c172bf332202544d45959071640bbc09c6a2174ee64a85080bbc7d5dc75"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.565707736545139,
+          "rgbSha256": "0c2f7d306b36bb807b5a272da208e9c07589eabb83d547361717ba93f88e3d62"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.2972773799189814,
+          "rgbSha256": "09c123b95ee60c94656400ad7514a4dad2e4f478df74bbd890bcc477732029bf"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.0731608072916665,
+          "rgbSha256": "115068c47acf2ea136b6f104b6062d88b66a68daf349b5d17d2c35a73e488068"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.8922141746238426,
+          "rgbSha256": "8c67806c1deb19d1d82b0b78304dd47f0811c8ad8765082d8cb9e5b3441c3130"
+        }
+      ]
+    },
+    "chenyu-spring-gully-background-v1.png": {
+      "sourceBytes": 1463579,
+      "sourceSha256": "ee268a1a3db27a5b94faaef83d6e162c0bf5475559b78131058bafb82339e055",
+      "preview": "chenyu-spring-gully-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18043,
+      "baseSelectedBytes": 18029,
+      "detailFixed13Bytes": 12127,
+      "detailSelectedBytes": 12115,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.2292616102430554,
+          "rgbSha256": "363bff35481c12653239b4c9e2a1bc8ac90a496421bbda3d91e53db825d9329e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.8115098741319446,
+          "rgbSha256": "663022e68ee2a50501c2e2c8080be82fe4b24e7ecfca5377ab4caba68b702480"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.5084906684027777,
+          "rgbSha256": "840393761cd1584a56a9c44392821099d7bfed21fb51a02307785c95fff0f7b4"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.275713885271991,
+          "rgbSha256": "b4db1fd5bd0bed51b59f320085924676f629319e2c981f63bbc737d909097b11"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.084511085792824,
+          "rgbSha256": "569e728c601020d9c9eb6b4a6340135ba746912eac45209258aef157e927c2ed"
+        }
+      ]
+    },
+    "chenyu-south-scree-background-v1.png": {
+      "sourceBytes": 1346506,
+      "sourceSha256": "337ccd357ceb41ce0bbee322a08503c7fd5a4b767a66dc81bec876abe974a9aa",
+      "preview": "chenyu-south-scree-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16831,
+      "baseSelectedBytes": 16813,
+      "detailFixed13Bytes": 11577,
+      "detailSelectedBytes": 11565,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.19952392578125,
+          "rgbSha256": "56d7f1448ee2afe103091a025fdc525f9520ec0a1de9d235d84be5c9ae636ca9"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.0725662796585649,
+          "rgbSha256": "7fe4fbea79f165b442d59cd5a703801e5d4f9e5e03430a961480289c8d133075"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.9789067021122685,
+          "rgbSha256": "d607e18d2a65aab02903cca7d5c40f1bba1199c92acf1f89081957a5f8aa8c19"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.9031530309606481,
+          "rgbSha256": "e37182a51ee81cfbf3c14e1939a53f7959402c1815c61a97a902019c5bc513a6"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.8365885416666666,
+          "rgbSha256": "90392db67b19cbda60afaf35d97edca2e3edf52278bd91efc59bf2fcb12ef89a"
+        }
+      ]
+    },
+    "chenyu-shale-den-background-v1.png": {
+      "sourceBytes": 1393429,
+      "sourceSha256": "5c6de0e3b891a6ea1f9e0d9772d14c9fb612e52649f829f2e0f078655b082151",
+      "preview": "chenyu-shale-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17623,
+      "baseSelectedBytes": 17603,
+      "detailFixed13Bytes": 11981,
+      "detailSelectedBytes": 11967,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.6694584599247686,
+          "rgbSha256": "c8b4e138744ba06018e8a1995b9ab80cf89f02c425820ff96e6e6c0112f33fe5"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.495533130787037,
+          "rgbSha256": "99aeb446e7bbac56e3ef75ee2dada4cb57b7f8beadb210b3e6599ef72e5c7a3a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.3654988606770833,
+          "rgbSha256": "84c55915dcbfdabbce9ff32d44871a49c3396dfa4f972053ec78c996421b47c3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2569421838831019,
+          "rgbSha256": "cb699091c0417f674fdd28f6c5c77929c8cd482584a2b11b0c1119d7eb927892"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.169971607349537,
+          "rgbSha256": "c12f91b2d70592aea35b49938de4760dde32e812415e2b016d015f36ccd7e2c5"
+        }
+      ]
+    },
+    "chenyu-south-fork-background-v1.png": {
+      "sourceBytes": 1413277,
+      "sourceSha256": "0a394ad3888c3275cff6c634dbb7ffe97a49228996f8c15f9b12bd8dc5a819d3",
+      "preview": "chenyu-south-fork-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17537,
+      "baseSelectedBytes": 17521,
+      "detailFixed13Bytes": 11891,
+      "detailSelectedBytes": 11879,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.7084599247685186,
+          "rgbSha256": "84197fc2c3b591334a16a86607d3cfd90dcd90ceb90fda91a71c1684676a7fd9"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.5136334454571758,
+          "rgbSha256": "324ad68d03a6706d1309d250d5be5ecd2fbd69d7e24e8688f776285137b71cdd"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.3786779333043981,
+          "rgbSha256": "2710d162f906c88957983f96e4b281b16cb7f159d0606b3c7d160af946ff3cf4"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2684122721354167,
+          "rgbSha256": "4a6f1704effed0e61bfc14943ec19a74841ceafa5a9c28e48277d6aaf6be5364"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.1806504991319444,
+          "rgbSha256": "36c66f13353eb1c6062c8e13e611cc55be4e583b0ecc1625ba3b4af6a3bda505"
+        }
+      ]
+    },
+    "chenyu-shield-yard-background-v1.png": {
+      "sourceBytes": 1328519,
+      "sourceSha256": "7f2cb5894406e8ed2a06fe68713ca97530e30b6723f9e59d3e101fbcc9cbfa01",
+      "preview": "chenyu-shield-yard-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16851,
+      "baseSelectedBytes": 16831,
+      "detailFixed13Bytes": 11775,
+      "detailSelectedBytes": 11761,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.18011474609375,
+          "rgbSha256": "84b2f8a5a5cd7fa84cb625c98486c4ada2c6b394848e64f3884166ff35ddfea4"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.0625791196469907,
+          "rgbSha256": "a821009bc6b2b695c65dcc4f9a49a8551ecaffa013ade566602d2a359e3ebbc7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.9756447120949074,
+          "rgbSha256": "11c6fa36430809f7547507372d10a88c41366072a0934c4cabf52a8ba44fae44"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.9033157913773148,
+          "rgbSha256": "37d3cfc94342e6dee81c0070d54358d1f5c4ad4665eb90c510c6f4e9bc295b8d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.8443671332465278,
+          "rgbSha256": "6cd3e84e6d46fa9f1c5bde8ac8780817e9c5bd91529a461b56d336214b67caf4"
+        }
+      ]
+    },
+    "chenyu-west-vault-background-v1.png": {
+      "sourceBytes": 1380541,
+      "sourceSha256": "525071f5e00af9bb20e80f44b9bea52e2fbd41aba16afb814d59d738a629d975",
+      "preview": "chenyu-west-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16911,
+      "baseSelectedBytes": 16895,
+      "detailFixed13Bytes": 11729,
+      "detailSelectedBytes": 11717,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.8472063982928242,
+          "rgbSha256": "94b5a9300d8e25096220dc55eed644b671723802ea338be583361bcb80719bc2"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.6262794777199074,
+          "rgbSha256": "bd89fd66f4e81de647dd8745765b1822d86ee1cdd4363712611309a4112d25fa"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.4738633897569444,
+          "rgbSha256": "25677d3fabe878aced3b4e2ba75cb27dd0668b987be8bfe2ed98763f4afec160"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.3463767722800926,
+          "rgbSha256": "b1898f5f77462aaafaf7e97ce70512db055269076b7b015a3da74d6e7e5f604d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.2374131944444444,
+          "rgbSha256": "fe2011885a9b8cdaf45b9a4d2c82553b6b2029a77a17be74201c9d019d1ca6d4"
+        }
+      ]
+    },
+    "chenyu-jade-niche-background-v1.png": {
+      "sourceBytes": 1370806,
+      "sourceSha256": "a139d66443bc3d3bdd847aa92a6bb7906afc69774f89b0918cbf3ceb8a6b8500",
+      "preview": "chenyu-jade-niche-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17051,
+      "baseSelectedBytes": 17035,
+      "detailFixed13Bytes": 11825,
+      "detailSelectedBytes": 11811,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.7165188259548612,
+          "rgbSha256": "2d006db0148eefa6a08eeb76dcc2d086a59b1a22f1bbef0795d939da99cb4bec"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.502979419849537,
+          "rgbSha256": "a3ec4f1a834c94742008155c424e987e671e99009c0dde0341d62760a9a16d89"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.355213306568287,
+          "rgbSha256": "ef2142a2325e357cd592e23c5a71bc7215c12106e0f9196ea6ba267c1171bd6e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2392193829571758,
+          "rgbSha256": "4dfe1175b3fd34e4f320953190bc69ea90b37b91e36a52bcf8146f7343364067"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.135730884693287,
+          "rgbSha256": "e64415ba10bd799464026b30027ed24ed6844800163e4da1805fe3216990b897"
+        }
+      ]
+    },
+    "chenyu-trail-camp-background-v1.png": {
+      "sourceBytes": 1485069,
+      "sourceSha256": "817b61cf7d1cca853dfdd56978c4b412b140713db2556746c54c24460b7287bc",
+      "preview": "chenyu-trail-camp-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18033,
+      "baseSelectedBytes": 18015,
+      "detailFixed13Bytes": 12213,
+      "detailSelectedBytes": 12203,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.869407371238426,
+          "rgbSha256": "40075c2d20dd70a8952254f0a288a7a110f4e406475f7d3d8d5bd1946a989d50"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.537803367332176,
+          "rgbSha256": "13f3a6b00057602bf75e380c56ea015daed4c2c57839b092b67004c2d4340745"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.294743290653935,
+          "rgbSha256": "9dfa24bc356aa8b53a896ac7bb8a0d901a13501f63d66021008a6458d75db9e3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.1027289496527777,
+          "rgbSha256": "ddcd4dd134657f594f2f1427748b2de5b9add91bf5278d9eaddb523ffb8523a3"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.9405155888310186,
+          "rgbSha256": "5de098358d6c7af36d1b5616bd237947831db8335ee05a17db5884e01be3d1bc"
+        }
+      ]
+    },
+    "chenyu-banner-ledge-background-v1.png": {
+      "sourceBytes": 1331697,
+      "sourceSha256": "9ed2fd1079ceaab0a815067af08abf28fb66cfcc555155f63ace260a8b7571f2",
+      "preview": "chenyu-banner-ledge-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17021,
+      "baseSelectedBytes": 17001,
+      "detailFixed13Bytes": 11745,
+      "detailSelectedBytes": 11733,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.0081018518518519,
+          "rgbSha256": "24372e8fffce87b0fa8f408a68dcdb498e364ae13727d1e10d859c89c6a258b1"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.9164767795138888,
+          "rgbSha256": "d6d0582a9f7fd9d81f4715338cad826581f95ff48e0f92d9f3735bbbec1b662f"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.8444146050347222,
+          "rgbSha256": "a75e7d054d5536de66585ce470d86546f4a655d5cd9dac458d52e3a3a611b6b7"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.7857643410011574,
+          "rgbSha256": "4eb5baa0a356a20cb165409e130562fd06067c14c4eaa3e8997b8e88d71b6186"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.7399857132523148,
+          "rgbSha256": "f53f11de9d8d4c7037055941eb511c8312813dc22b33acaeae0b2eedb0bdb3f3"
+        }
+      ]
+    },
+    "chenyu-harbor-bluff-background-v1.png": {
+      "sourceBytes": 1381442,
+      "sourceSha256": "7be3e4a385acd3c525ed1d82b476336f17c657041d48307f5fc408ccecd7e5a7",
+      "preview": "chenyu-harbor-bluff-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17395,
+      "baseSelectedBytes": 17375,
+      "detailFixed13Bytes": 11761,
+      "detailSelectedBytes": 11749,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.5893848560474537,
+          "rgbSha256": "36b1b95b6ea7b06e80c01d19958b0fb88e9e610ff6763d8186f789784b0f7636"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.418773509837963,
+          "rgbSha256": "08900d832238055cfb3ef79aeb92f5ee4247ba92d37b139596cba86f5594113a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.2928308557581019,
+          "rgbSha256": "5f7e2cba8d16372b1a54bd4a1b69ae20f560d84f811a6567f4fba7a29385ab52"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.1889128508391205,
+          "rgbSha256": "20eb52ce6f3ad18e4e3dc1219272eb8b788872d48c282bca9e31505007b211d2"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.0911820023148149,
+          "rgbSha256": "d8926edfa357bac1284f9aaf06f77e6bbd8d09ee77402d6962ab581c3417cc32"
+        }
+      ]
+    },
+    "chenyu-brine-step-background-v1.png": {
+      "sourceBytes": 1451372,
+      "sourceSha256": "950681f42b379d48089c038397fb7e6c508d5fc1aa7de8a028e70a7303ef6e78",
+      "preview": "chenyu-brine-step-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18139,
+      "baseSelectedBytes": 18123,
+      "detailFixed13Bytes": 12193,
+      "detailSelectedBytes": 12185,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.6720784505208335,
+          "rgbSha256": "a90f4b5c30a3af3ce04cc6ca3f47a83c36054e643906478bb3e3d0126a09509a"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.348361545138889,
+          "rgbSha256": "fd147b2165f41a3cb3340b051ccec3a8ff22448cc20cac73966b7b0b5c073ba7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.1120899341724537,
+          "rgbSha256": "3f61b27b6e98d86791415713427b16fef3c52286532d03695798fcc4090de1db"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.9201682761863426,
+          "rgbSha256": "164a3e88df6bc136387e4e74b5b0b909f783a0fc485a893c152e34d07e7dfd22"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.77044677734375,
+          "rgbSha256": "6f0257e8337eae9b6c316d954218d23b4b298be9c3a043a6d627dfc7e90ee863"
+        }
+      ]
+    },
+    "chenyu-cargo-wharf-background-v1.png": {
+      "sourceBytes": 1453133,
+      "sourceSha256": "8c7b485060eff80f2b5c14b5a206440e337ce6ebae4c2fcc2d1fd5037ce973fc",
+      "preview": "chenyu-cargo-wharf-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17885,
+      "baseSelectedBytes": 17867,
+      "detailFixed13Bytes": 11983,
+      "detailSelectedBytes": 11971,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.763249150028935,
+          "rgbSha256": "2f4f54b6939839318df7212a0582b369a29ddb045fd1c622b986a4b713993c69"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.4259168836805554,
+          "rgbSha256": "ce7022b35707cc65878a4886413728e7f88321d2a381f9f5c92a1323d0f585e1"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.1787086769386574,
+          "rgbSha256": "0e23adc52d9a8754aa1cd18e409ba56380e4cb289ca3206930709b41ea9b7e6b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.9834413881655093,
+          "rgbSha256": "6286e673258d345f074612da92fa83ac1ea8d6735065898fd7a3cd2ba6e1b25c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.8192229094328705,
+          "rgbSha256": "92105df725b8b1b6071c8e8ba06f7af9b92a5ef62aa6775e48664b22c98eadc0"
+        }
+      ]
+    },
+    "chenyu-outer-reef-background-v1.png": {
+      "sourceBytes": 1362121,
+      "sourceSha256": "754d1833ee37ce1fc196e76966793d8b50e321e3f395f2a36d4f1cc10855233b",
+      "preview": "chenyu-outer-reef-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17729,
+      "baseSelectedBytes": 17705,
+      "detailFixed13Bytes": 11937,
+      "detailSelectedBytes": 11925,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.344288013599537,
+          "rgbSha256": "2963aec6e7fc616cbe79ca6b7986375126351dd85b6068012ddbaae127bd885e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.2107114438657407,
+          "rgbSha256": "c3975aed02135bfdda8293a2dc755fa6d47367128e17d028dd18fcc35ba7c6d0"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.1178747106481481,
+          "rgbSha256": "29a32b54c8cd90b44b67f9b97248b381ede32444c731ab20192b43f53fdc0e83"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.0284197771990742,
+          "rgbSha256": "05bb361122e34156741719ff6c47e83781821ea511c5cfa2a5832593092bcc40"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.9599925853587963,
+          "rgbSha256": "c079c1b010550ef40814dd8068362bfaa1a987f0f74a0f8c90bbeb33f24c0986"
+        }
+      ]
+    },
+    "chenyu-tide-den-background-v1.png": {
+      "sourceBytes": 1411464,
+      "sourceSha256": "79dc4797d92828e2794494548dd94329ef2c229192ce1bfc1d0b6284e9b8013b",
+      "preview": "chenyu-tide-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17183,
+      "baseSelectedBytes": 17163,
+      "detailFixed13Bytes": 11867,
+      "detailSelectedBytes": 11853,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.9720526801215277,
+          "rgbSha256": "cf2d34fe4b61e893e06745fd06fd7b1c18c267bb6e687590d79bb9d3fb4b8aa9"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.7193671332465277,
+          "rgbSha256": "b5d59bac943ea548f0d8c8325f7fbf1816f5b04c670419fd3ec17df9a7a687c1"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.5454169379340277,
+          "rgbSha256": "ec0d4ca0fd33315d39cd8c5584ca4d348fedf7c02926ea809c148d656863f418"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.4056306061921295,
+          "rgbSha256": "799e53835930e1963ae7ae672f6baad36adba850e4f80203b291e33c0a5ccdb9"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.286792896412037,
+          "rgbSha256": "cb683f65516062539fff28dc90379530a296ccbedc5c063bfe499f9b7183bba0"
+        }
+      ]
+    },
+    "chenyu-hidden-grotto-background-v1.png": {
+      "sourceBytes": 1384457,
+      "sourceSha256": "83ac5e70747b6199f0cd2e57bf4de7e0ab84a8660c5b313c5b0d7896e49e8ebd",
+      "preview": "chenyu-hidden-grotto-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17189,
+      "baseSelectedBytes": 17173,
+      "detailFixed13Bytes": 11835,
+      "detailSelectedBytes": 11821,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.843700267650463,
+          "rgbSha256": "8600a35d5a69026fd62c9b50f6a8facf4e7f8b2312eae5a9031c655dc40b3079"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.6216068974247686,
+          "rgbSha256": "e7bfa2a6ca48a21ad23cc407181e934111a00426552252e3c8360f3cb8e7bcac"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.4595133463541667,
+          "rgbSha256": "42538c7b43029755d0e21775d01c22c2a1d73db7a673f21fd51059e78bf795bf"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.3329241717303242,
+          "rgbSha256": "eeb5900898d22b1a8cc6c6160c95e39fd5feea020853e428d4e674780cbf8587"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.2251066984953705,
+          "rgbSha256": "5c7f224f22105cb1f351926985e24534ddb1be0d13ef2a931afffb7b1b74e4ca"
+        }
+      ]
+    },
+    "chenyu-echo-vault-background-v1.png": {
+      "sourceBytes": 1305034,
+      "sourceSha256": "fdcf2e72391b2f902a9ddc85d825ec3225f46fe4a19f2a0d741415c8e26aea4d",
+      "preview": "chenyu-echo-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16479,
+      "baseSelectedBytes": 16461,
+      "detailFixed13Bytes": 12017,
+      "detailSelectedBytes": 12007,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.8153460467303241,
+          "rgbSha256": "b75a4230827df19758694a2596eb3e6e69d5d3bd63eb091105a89679c368120c"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.7383648907696759,
+          "rgbSha256": "40bf0351f6b8a97f5442f06020cd6eb98b6e55f0fcc91456f2af219369643743"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.6824273003472222,
+          "rgbSha256": "871dec313b6479892039ac4763b85e8e8f2b52655230ce6dc9646fe8a8a9e85b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.6403672960069444,
+          "rgbSha256": "85d6316fa37fb27ffdf6fcecd6fb0244d453dafcc0fcee319ad2eb0d6dfd43fa"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.6035924840856481,
+          "rgbSha256": "b18cb07792e924d1b2e896cf77cfec357bf23341e734c3c52f1d69758c29ac8c"
+        }
+      ]
+    }
+  }
+}

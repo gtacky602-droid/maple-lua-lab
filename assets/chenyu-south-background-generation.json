@@ -1,0 +1,177 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Original side-scrolling pixel art BACKGROUND ONLY for a cozy Chinese mountain fantasy RPG. Wide horizontal landscape 16:9. Use chunky deliberate pixels as if drawn at 160x90 from 12 solid opaque colors. Strong stepped silhouettes, flat color clusters, broad calm bands of sky or cave wall, avoid texture noise. One clear landmark near the side, quiet lower foreground for game actors, no people, creatures, lettering, UI, floating platforms, borders or gradients. ",
+  "scenes": [
+    {
+      "node": "branch-hunt-64845",
+      "key": "chenyuDepthTrail",
+      "note": "探索路",
+      "surface": "grass",
+      "prompt": "A weathered jade survey marker beside a fern path, jade peaks and layers of spring mist.",
+      "source": "chenyu-depth-trail-background-v1.png",
+      "preview": "chenyu-depth-trail-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64845-pocket-1",
+      "key": "chenyuFernDen",
+      "note": "探索路・玄文獣の蕨穴",
+      "surface": "grass",
+      "prompt": "A hidden fern hollow beneath a massive looping root; an ochre opening lights cool moss from the side.",
+      "source": "chenyu-fern-den-background-v1.png",
+      "preview": "chenyu-fern-den-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64846",
+      "key": "chenyuFoothillTurn",
+      "note": "山裾の曲がり道",
+      "surface": "stone",
+      "prompt": "A stone pack road bends around a huge warm limestone buttress, a pair of terraced fields and distant blue peaks.",
+      "source": "chenyu-foothill-turn-background-v1.png",
+      "preview": "chenyu-foothill-turn-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64846-pocket-1",
+      "key": "chenyuSpringGully",
+      "note": "曲がり道・水レンジャーの石樋",
+      "surface": "stone",
+      "prompt": "An old carved stone aqueduct spills into a round pool below the mountain at blue noon.",
+      "source": "chenyu-spring-gully-background-v1.png",
+      "preview": "chenyu-spring-gully-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64847",
+      "key": "chenyuSouthScree",
+      "note": "南側の岩斜面",
+      "surface": "stone",
+      "prompt": "Strong diagonal scree steps beneath a blunt red hillside, shale shelves, clear apricot dawn and sparse pine.",
+      "source": "chenyu-south-scree-background-v1.png",
+      "preview": "chenyu-south-scree-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64847-pocket-1",
+      "key": "chenyuShaleDen",
+      "note": "南斜面・玄文獣の割岩",
+      "surface": "stone",
+      "prompt": "Two split ochre slabs form a triangular den mouth with mossy jade stones, cool shade behind it.",
+      "source": "chenyu-shale-den-background-v1.png",
+      "preview": "chenyu-shale-den-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64848",
+      "key": "chenyuSouthFork",
+      "note": "谷南の分岐",
+      "surface": "grass",
+      "prompt": "Two old paths part around a unique broad umbrella pine in a grassy valley saddle, blue and mauve hazy mountains.",
+      "source": "chenyu-south-fork-background-v1.png",
+      "preview": "chenyu-south-fork-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64848-pocket-1",
+      "key": "chenyuShieldYard",
+      "note": "谷南・岩盾暴徒の石塁",
+      "surface": "stone",
+      "prompt": "Abandoned dry stone barricade and one tall shield-shaped slate megalith against red earth and pale sky.",
+      "source": "chenyu-shield-yard-background-v1.png",
+      "preview": "chenyu-shield-yard-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64849",
+      "key": "chenyuWestVault",
+      "note": "西峰の石室",
+      "surface": "stone",
+      "prompt": "An excavated Chinese mountain hall with one grand square stone doorway, side light cuts across the broad blue-grey stone floor.",
+      "source": "chenyu-west-vault-background-v1.png",
+      "preview": "chenyu-west-vault-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64849-pocket-1",
+      "key": "chenyuJadeNiche",
+      "note": "西峰・玄文獣の玉座の間",
+      "surface": "stone",
+      "prompt": "A natural jade-colored throne rock inside a dark stone niche; two warm streaks of light touch the pedestal.",
+      "source": "chenyu-jade-niche-background-v1.png",
+      "preview": "chenyu-jade-niche-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64850",
+      "key": "chenyuTrailCamp",
+      "note": "入口拠点の茶小屋",
+      "surface": "timber",
+      "prompt": "A tiny green roof tea shelter with a round amber lantern and stacked travel baskets at a sunny mountain trailhead.",
+      "source": "chenyu-trail-camp-background-v1.png",
+      "preview": "chenyu-trail-camp-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64850-pocket-1",
+      "key": "chenyuBannerLedge",
+      "note": "拠点裏・風レンジャーの吹き流し台",
+      "surface": "grass",
+      "prompt": "A single tall mustard-yellow windsock stretched horizontally above a jade grass ledge against a vast pale blue sky.",
+      "source": "chenyu-banner-ledge-background-v1.png",
+      "preview": "chenyu-banner-ledge-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66768",
+      "key": "chenyuHarborBluff",
+      "note": "港西の山縁",
+      "surface": "stone",
+      "prompt": "Sea-facing grassy bluff with a big angular boulder at the west of a Chinese trading port, distant ochre ships at dusk.",
+      "source": "chenyu-harbor-bluff-background-v1.png",
+      "preview": "chenyu-harbor-bluff-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66768-pocket-1",
+      "key": "chenyuBrineStep",
+      "note": "港西・水レンジャーの潮溜まり",
+      "surface": "stone",
+      "prompt": "Terraced coastal rock pools reflecting turquoise light below the shadow of a huge rusty-red bluff.",
+      "source": "chenyu-brine-step-background-v1.png",
+      "preview": "chenyu-brine-step-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66769",
+      "key": "chenyuCargoWharf",
+      "note": "谷北の埠頭",
+      "surface": "timber",
+      "prompt": "Large timber loading crane and three blue ceramic cargo jars on a long Chinese river wharf in peach sunrise.",
+      "source": "chenyu-cargo-wharf-background-v1.png",
+      "preview": "chenyu-cargo-wharf-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66770",
+      "key": "chenyuOuterReef",
+      "note": "谷南の沖合の岩礁",
+      "surface": "stone",
+      "prompt": "Three fins of dark weathered rock emerge from a green sea. Geometric foam bands; warm distant mountain island.",
+      "source": "chenyu-outer-reef-background-v1.png",
+      "preview": "chenyu-outer-reef-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66770-pocket-1",
+      "key": "chenyuTideDen",
+      "note": "沖合・玄文獣の潮穴",
+      "surface": "stone",
+      "prompt": "An eroded sea cave with a bright oval opening to the turquoise horizon; empty blue pebble shore at low tide.",
+      "source": "chenyu-tide-den-background-v1.png",
+      "preview": "chenyu-tide-den-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66979",
+      "key": "chenyuHiddenGrotto",
+      "note": "北尾根の隠れ石窟",
+      "surface": "stone",
+      "prompt": "A concealed entrance to a hanging mountain grotto behind a tilted pine; pale shaft of cold lavender light.",
+      "source": "chenyu-hidden-grotto-background-v1.png",
+      "preview": "chenyu-hidden-grotto-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-66979-pocket-1",
+      "key": "chenyuEchoVault",
+      "note": "北尾根・玄文獣の反響洞",
+      "surface": "stone",
+      "prompt": "Deep resonant cavern with three enormous tapered jade columns and a single small opening of orange daylight.",
+      "source": "chenyu-echo-vault-background-v1.png",
+      "preview": "chenyu-echo-vault-native-preview-v1.png"
+    }
+  ]
+}

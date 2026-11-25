@@ -1,5 +1,7 @@
 """Build five portable scenery tiers and verify their pixels with the lab's Lua decoder."""
 import argparse
+from concurrent.futures import ProcessPoolExecutor
+from functools import partial
 import hashlib
 import json
 from pathlib import Path
@@ -73,15 +75,22 @@ def encode_scene(scene, codec, assets):
     return record, report
 
 
-def build(batch):
+def build(batch, jobs=1):
     assets = ROOT / 'assets'
     scenes = json.loads((assets / f'{batch}-background-generation.json').read_text('utf8'))['scenes']
     codec = (assets / 'MapleCodec.lua').read_bytes()
     report = {'codec':'MapleCodec.lua with the R61C variable-width reader',
               'codecSha256': hashlib.sha256(codec).hexdigest(), 'scenes': {}}
+    encode_one = partial(encode_scene, codec=codec, assets=assets)
+    if jobs > 1 and scenes:
+        if len({s['preview'] for s in scenes}) != len(scenes):
+            raise ValueError('Parallel scenes must have distinct preview filenames')
+        with ProcessPoolExecutor(max_workers=min(jobs, len(scenes))) as pool:
+            encoded = list(pool.map(encode_one, scenes))
+    else:
+        encoded = map(encode_one, scenes)
     records = []
-    for scene in scenes:
-        record, measures = encode_scene(scene, codec, assets)
+    for scene, (record, measures) in zip(scenes, encoded, strict=True):
         records.append(record)
         report['scenes'][scene['source']] = measures
         print(scene['source'], flush=True)
@@ -93,4 +102,8 @@ def build(batch):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('batch', help='Prefix of the generation manifest in assets, for example ina-islands')
-    build(parser.parse_args().batch)
+    parser.add_argument('--jobs', type=int, default=1, help='Number of scenes to encode concurrently')
+    args = parser.parse_args()
+    if args.jobs < 1:
+        parser.error('--jobs must be positive')
+    build(args.batch, args.jobs)

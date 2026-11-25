@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 885,
+  "verifiedModules": 980,
   "dimensions": [
     512,
     288
@@ -320,6 +320,139 @@
       "5120": 22980,
       "5632": 26136,
       "6144": 28136
+    },
+    "chenyu-depth-trail-background-v1.png": {
+      "4096": 17929,
+      "4608": 21291,
+      "5120": 24572,
+      "5632": 27810,
+      "6144": 29952
+    },
+    "chenyu-fern-den-background-v1.png": {
+      "4096": 17690,
+      "4608": 21072,
+      "5120": 24349,
+      "5632": 27579,
+      "6144": 29659
+    },
+    "chenyu-foothill-turn-background-v1.png": {
+      "4096": 18229,
+      "4608": 21659,
+      "5120": 24934,
+      "5632": 28226,
+      "6144": 30456
+    },
+    "chenyu-spring-gully-background-v1.png": {
+      "4096": 18138,
+      "4608": 21536,
+      "5120": 24849,
+      "5632": 28119,
+      "6144": 30251
+    },
+    "chenyu-south-scree-background-v1.png": {
+      "4096": 16921,
+      "4608": 20165,
+      "5120": 23318,
+      "5632": 26470,
+      "6144": 28484
+    },
+    "chenyu-shale-den-background-v1.png": {
+      "4096": 17709,
+      "4608": 21035,
+      "5120": 24284,
+      "5632": 27530,
+      "6144": 29674
+    },
+    "chenyu-south-fork-background-v1.png": {
+      "4096": 17628,
+      "4608": 21090,
+      "5120": 24427,
+      "5632": 27751,
+      "6144": 29505
+    },
+    "chenyu-shield-yard-background-v1.png": {
+      "4096": 16939,
+      "4608": 20215,
+      "5120": 23382,
+      "5632": 26566,
+      "6144": 28698
+    },
+    "chenyu-west-vault-background-v1.png": {
+      "4096": 17002,
+      "4608": 20290,
+      "5120": 23461,
+      "5632": 26643,
+      "6144": 28717
+    },
+    "chenyu-jade-niche-background-v1.png": {
+      "4096": 17142,
+      "4608": 20466,
+      "5120": 23677,
+      "5632": 26867,
+      "6144": 28951
+    },
+    "chenyu-trail-camp-background-v1.png": {
+      "4096": 18122,
+      "4608": 21538,
+      "5120": 24849,
+      "5632": 28135,
+      "6144": 30323
+    },
+    "chenyu-banner-ledge-background-v1.png": {
+      "4096": 17110,
+      "4608": 20362,
+      "5120": 23509,
+      "5632": 26691,
+      "6144": 28841
+    },
+    "chenyu-harbor-bluff-background-v1.png": {
+      "4096": 17484,
+      "4608": 20800,
+      "5120": 23967,
+      "5632": 27143,
+      "6144": 29231
+    },
+    "chenyu-brine-step-background-v1.png": {
+      "4096": 18230,
+      "4608": 21658,
+      "5120": 24973,
+      "5632": 28253,
+      "6144": 30413
+    },
+    "chenyu-cargo-wharf-background-v1.png": {
+      "4096": 17975,
+      "4608": 21327,
+      "5120": 24574,
+      "5632": 27778,
+      "6144": 29944
+    },
+    "chenyu-outer-reef-background-v1.png": {
+      "4096": 17812,
+      "4608": 21260,
+      "5120": 24617,
+      "5632": 27967,
+      "6144": 29735
+    },
+    "chenyu-tide-den-background-v1.png": {
+      "4096": 17268,
+      "4608": 20588,
+      "5120": 23777,
+      "5632": 26981,
+      "6144": 29119
+    },
+    "chenyu-hidden-grotto-background-v1.png": {
+      "4096": 17283,
+      "4608": 20607,
+      "5120": 23814,
+      "5632": 27020,
+      "6144": 29102
+    },
+    "chenyu-echo-vault-background-v1.png": {
+      "4096": 16568,
+      "4608": 20026,
+      "5120": 23383,
+      "5632": 26731,
+      "6144": 28573
     },
     "chenyu-west-bank-background-v1.png": {
       "4096": 18019,
@@ -1249,7 +1382,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 177
+      "verified": 196
     },
     "domainHunts": {
       "total": 124,
@@ -1308,37 +1441,160 @@
     },
     "branchHunts": {
       "total": 62,
-      "verified": 43,
+      "verified": 62,
       "byRegion": {
         "沈玉の谷": {
           "total": 59,
-          "verified": 40
+          "verified": 59
         },
         "往日の海": {
           "total": 3,
           "verified": 3
         }
       },
+      "pending": []
+    },
+    "fieldBosses": {
+      "totalArenas": 120,
+      "verified": 3,
       "pending": [
-        "branch-hunt-64845",
-        "branch-hunt-64845-pocket-1",
-        "branch-hunt-64846",
-        "branch-hunt-64846-pocket-1",
-        "branch-hunt-64847",
-        "branch-hunt-64847-pocket-1",
-        "branch-hunt-64848",
-        "branch-hunt-64848-pocket-1",
-        "branch-hunt-64849",
-        "branch-hunt-64849-pocket-1",
-        "branch-hunt-64850",
-        "branch-hunt-64850-pocket-1",
-        "branch-hunt-66768",
-        "branch-hunt-66768-pocket-1",
-        "branch-hunt-66769",
-        "branch-hunt-66770",
-        "branch-hunt-66770-pocket-1",
-        "branch-hunt-66979",
-        "branch-hunt-66979-pocket-1"
+        "aeonblight-field-chamber",
+        "anemo-field-basin",
+        "array-field-court",
+        "asimon-field-ruins",
+        "atocpan-battlegoat-ironclaw-field",
+        "atocpan-lava-field",
+        "atocpan-overseer-ruin",
+        "atocpan-peak-cave",
+        "baptist-field-sanctuary",
+        "bathysmal-field-sanctum",
+        "chassanion-legend-bubble-room",
+        "chenyu-boulder-gully",
+        "cineas-legend-chamber",
+        "config-device-field-workshop",
+        "cryo-field-grove",
+        "cryo-hypostasis-field-basin",
+        "deianeira-legend-lab",
+        "dendro-hypostasis-field-den",
+        "dobharcu-legend-garden",
+        "dorn-churldric-cooking-camp",
+        "dornman-windworks",
+        "drifting-snow-court",
+        "electro-field-shelf",
+        "electro-regisvine-field-cave",
+        "emperor-field-cove",
+        "enkan-tablet-hollow",
+        "erinnyes-corrouge-cleft",
+        "fading-veteran-legend-wreck",
+        "fairy-knight-twins-legend-court",
+        "field-generator-field-chamber",
+        "flugel-tundra-basin",
+        "fontaine-grand-stage",
+        "frost-mushteshir-inner-chamber",
+        "frost-prism-slime-basin",
+        "geo-field-court",
+        "gravity-device-legend-terrace",
+        "hydro-hypostasis-field-cove",
+        "icewind-coppelia-field",
+        "icewind-coppelius-field",
+        "immortal-construct-root-hollow",
+        "iron-viscount-legend-pool",
+        "legatus-field-hall",
+        "liam-legend-pond",
+        "luachra-legend-shelf",
+        "maguu-field-dojo",
+        "natlan-sunset-arena",
+        "night-trial-atlatl",
+        "night-trial-chimalli",
+        "night-trial-cihuacoatl",
+        "night-trial-fallen-dawnstar",
+        "night-trial-ichcahuipilli",
+        "night-trial-ironbeard",
+        "night-trial-potapo",
+        "night-trial-reji",
+        "night-trial-tlatzacuilotl",
+        "night-trial-tupayo",
+        "night-trial-tupu",
+        "night-trial-undead",
+        "night-wind-rilai-clearing",
+        "ninianne-legend-bank",
+        "nod-battleship-depot",
+        "nod-crab-tsar-palace",
+        "nod-duckle-workyard",
+        "nod-gecko-depths",
+        "nod-herra-terrace",
+        "nod-hiljetta-peninsula-camp",
+        "nod-homesick-wolf-lakeland",
+        "nod-mandragora-cliff-foot",
+        "nod-moon-crab-arena",
+        "nod-moonfly-hollow",
+        "nod-nightmare-shore",
+        "nod-quiet-rim",
+        "nod-raskolnikov-upper-ring",
+        "nod-sigurd-grave-court",
+        "novo-ice-vault",
+        "ocean-judge-legend-pool",
+        "oceanid-field-reservoir",
+        "ochka-bronzelock-island-court",
+        "ochka-sifting-kiln",
+        "papilla-field-hollow",
+        "primo-field-vault",
+        "pyro-field-grotto",
+        "pyro-hypostasis-field-terrace",
+        "qucusaur-field-cavern",
+        "rocky-legend-ledge",
+        "ruin-serpent-field-pit",
+        "sacred-mountain-east-isle-dais",
+        "seahorse-field-cavern",
+        "sky-maha-pavilion-court",
+        "sne-ancient-mouse-den",
+        "sne-bandersnatch-ice-cavern",
+        "sne-churin-snow-court",
+        "sne-crystal-tree-refuge",
+        "sne-furiosa-domain-outlook",
+        "sne-novokichev-ore-yard",
+        "spine-trace-ridge",
+        "spiritspeaker-field-grotto",
+        "steam-stabling-depot",
+        "sumeru-jadeplume-grove",
+        "sumeru-observatory-terrace",
+        "swords-of-the-gorge-legend-rift",
+        "tepeakak-sappho-bank",
+        "thunder-field-crest",
+        "toyac-balachko-inner-cave",
+        "toyac-cocijo-stone-ring",
+        "tulpa-field-grotto",
+        "tunigi-fragment-vault",
+        "vivianne-legend-bank",
+        "wavebinder-tide-cavern",
+        "wenut-field-cavern",
+        "white-rainbow-basin",
+        "windrest-vigil-court",
+        "witztli-tristars-camp",
+        "wolflord-field-ruins",
+        "yseut-legend-court",
+        "yumka-field-ravine",
+        "zapabay-tenochtzitoc-shallows"
+      ]
+    },
+    "weeklyBosses": {
+      "totalArenas": 18,
+      "verified": 4,
+      "pending": [
+        "andrius-wolf-ring",
+        "apep-oasis-heart-arena",
+        "buried-weaving-room",
+        "dvalin-sky-arena",
+        "knave-crimson-court",
+        "mond-gate-chess-court",
+        "narwhal-inner-echo",
+        "narwhal-star-sea",
+        "primal-fire-sundered-forge",
+        "raiden-thunder-echo-arena",
+        "shouki-godmaking-arena",
+        "signora-ten-shrine-arena",
+        "sumeru-heretic-lattice",
+        "tide-calibration-hall"
       ]
     }
   }

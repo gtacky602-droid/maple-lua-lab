@@ -1,0 +1,181 @@
+{
+  "branch-hunt-64845": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      422,
+      390,
+      365,
+      388
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 81,
+    "exterior_scenery": "chenyuDepthTrail",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64846": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      399,
+      372,
+      401
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 82,
+    "exterior_scenery": "chenyuFoothillTurn",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64847": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      416,
+      378,
+      343,
+      377
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 86,
+    "exterior_scenery": "chenyuSouthScree",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64848": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      418,
+      388,
+      351,
+      382
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 88,
+    "exterior_scenery": "chenyuSouthFork",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64849": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      426,
+      394,
+      357,
+      392
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 90,
+    "exterior_scenery": "chenyuWestVault",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64850": {
+    "population": 36,
+    "shelf_heights_from_entrance": [
+      431,
+      406,
+      387,
+      408
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 76,
+    "exterior_scenery": "chenyuTrailCamp",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-66768": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      384,
+      353,
+      389
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 88,
+    "exterior_scenery": "chenyuHarborBluff",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-66769": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      434,
+      413,
+      396,
+      418
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 86,
+    "exterior_scenery": "chenyuCargoWharf",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "branch-hunt-66770": {
+    "population": 36,
+    "shelf_heights_from_entrance": [
+      423,
+      393,
+      360,
+      388
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 90,
+    "exterior_scenery": "chenyuOuterReef",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-66979": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      380,
+      348,
+      381
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 87,
+    "exterior_scenery": "chenyuHiddenGrotto",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "routeTrips": [
+    [
+      "chenyu-camp",
+      "chenyu-depth",
+      "liyue-wp-64846",
+      "liyue-wp-64847",
+      "liyue-wp-64848",
+      "chenyu-depth",
+      "liyue-wp-64848",
+      "liyue-wp-64847",
+      "liyue-wp-64846",
+      "chenyu-depth",
+      "chenyu-camp"
+    ],
+    [
+      "liyue-wp-64847",
+      "liyue-wp-64829",
+      "liyue-wp-66770",
+      "liyue-wp-64829",
+      "liyue-wp-64847"
+    ],
+    [
+      "liyue-wp-64827",
+      "liyue-wp-64849",
+      "liyue-wp-64827"
+    ],
+    [
+      "liyue-wp-64834",
+      "liyue-wp-66768",
+      "liyue-wp-66769",
+      "liyue-wp-66768",
+      "liyue-wp-64834"
+    ],
+    [
+      "liyue-wp-64839",
+      "liyue-wp-66979",
+      "liyue-wp-64839"
+    ]
+  ]
+}

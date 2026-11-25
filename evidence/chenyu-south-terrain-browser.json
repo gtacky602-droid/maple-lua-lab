@@ -1,0 +1,624 @@
+{
+  "depth": {
+    "stage": "branch-hunt-64845",
+    "scenery": {
+      "key": "chenyuDepthTrail",
+      "file": "chenyu-depth-trail-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 558.9,
+      "y": 265.1,
+      "adjacent": [
+        "chenyu-depth",
+        "branch-hunt-64845-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64845&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64845-pocket-1": "2. 探索路・玄文獣の蕨穴 ｜ 任意戦・精鋭・徒歩・Lv83・上の足場の門"
+      },
+      "next": "branch-hunt-64845-pocket-1"
+    },
+    "jump": [
+      480,
+      422
+    ],
+    "returnHeight": 388,
+    "pocketScenery": {
+      "key": "chenyuFernDen",
+      "file": "chenyu-fern-den-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "chenyu-depth",
+        "branch-hunt-64845",
+        "walk"
+      ],
+      [
+        "branch-hunt-64845",
+        "branch-hunt-64845-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64845-pocket-1",
+        "branch-hunt-64845",
+        "walk"
+      ],
+      [
+        "branch-hunt-64845",
+        "chenyu-depth",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64845-pocket-1",
+        "returnHeight": 388,
+        "pocketScenery": {
+          "key": "chenyuFernDen",
+          "file": "chenyu-fern-den-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "turn": {
+    "stage": "branch-hunt-64846",
+    "scenery": {
+      "key": "chenyuFoothillTurn",
+      "file": "chenyu-foothill-turn-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 517.3,
+      "y": 279.8,
+      "adjacent": [
+        "liyue-wp-64846",
+        "branch-hunt-64846-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64846&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64846-pocket-1": "2. 曲がり道・水レンジャーの石樋 ｜ 任意戦・精鋭・徒歩・Lv84・上の足場の門"
+      },
+      "next": "branch-hunt-64846-pocket-1"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuSpringGully",
+      "file": "chenyu-spring-gully-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64846",
+        "branch-hunt-64846",
+        "walk"
+      ],
+      [
+        "branch-hunt-64846",
+        "branch-hunt-64846-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64846-pocket-1",
+        "branch-hunt-64846",
+        "walk"
+      ],
+      [
+        "branch-hunt-64846",
+        "liyue-wp-64846",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64846-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuSpringGully",
+          "file": "chenyu-spring-gully-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "scree": {
+    "stage": "branch-hunt-64847",
+    "scenery": {
+      "key": "chenyuSouthScree",
+      "file": "chenyu-south-scree-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 508.3,
+      "y": 373.7,
+      "adjacent": [
+        "liyue-wp-64847",
+        "branch-hunt-64847-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64847&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64847-pocket-1": "2. 南斜面・玄文獣の割岩 ｜ 任意戦・精鋭・徒歩・Lv88・上の足場の門"
+      },
+      "next": "branch-hunt-64847-pocket-1"
+    },
+    "jump": [
+      480,
+      416
+    ],
+    "returnHeight": 377,
+    "pocketScenery": {
+      "key": "chenyuShaleDen",
+      "file": "chenyu-shale-den-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64847",
+        "branch-hunt-64847",
+        "walk"
+      ],
+      [
+        "branch-hunt-64847",
+        "branch-hunt-64847-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64847-pocket-1",
+        "branch-hunt-64847",
+        "walk"
+      ],
+      [
+        "branch-hunt-64847",
+        "liyue-wp-64847",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64847-pocket-1",
+        "returnHeight": 377,
+        "pocketScenery": {
+          "key": "chenyuShaleDen",
+          "file": "chenyu-shale-den-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "fork": {
+    "stage": "branch-hunt-64848",
+    "scenery": {
+      "key": "chenyuSouthFork",
+      "file": "chenyu-south-fork-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 560.5,
+      "y": 327.3,
+      "adjacent": [
+        "liyue-wp-64848",
+        "branch-hunt-64848-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64848&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64848-pocket-1": "2. 谷南・岩盾暴徒の石塁 ｜ 任意戦・精鋭・徒歩・Lv90・上の足場の門"
+      },
+      "next": "branch-hunt-64848-pocket-1"
+    },
+    "jump": [
+      480,
+      418
+    ],
+    "returnHeight": 382,
+    "pocketScenery": {
+      "key": "chenyuShieldYard",
+      "file": "chenyu-shield-yard-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64848",
+        "branch-hunt-64848",
+        "walk"
+      ],
+      [
+        "branch-hunt-64848",
+        "branch-hunt-64848-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64848-pocket-1",
+        "branch-hunt-64848",
+        "walk"
+      ],
+      [
+        "branch-hunt-64848",
+        "liyue-wp-64848",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64848-pocket-1",
+        "returnHeight": 382,
+        "pocketScenery": {
+          "key": "chenyuShieldYard",
+          "file": "chenyu-shield-yard-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "vault": {
+    "stage": "branch-hunt-64849",
+    "scenery": {
+      "key": "chenyuWestVault",
+      "file": "chenyu-west-vault-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 298.2,
+      "y": 295.1,
+      "adjacent": [
+        "liyue-wp-64849",
+        "branch-hunt-64849-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64849&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64849-pocket-1": "2. 西峰・玄文獣の玉座の間 ｜ 任意戦・精鋭・徒歩・Lv90・上の足場の門"
+      },
+      "next": "branch-hunt-64849-pocket-1"
+    },
+    "jump": [
+      480,
+      426
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuJadeNiche",
+      "file": "chenyu-jade-niche-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64849",
+        "branch-hunt-64849",
+        "walk"
+      ],
+      [
+        "branch-hunt-64849",
+        "branch-hunt-64849-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64849-pocket-1",
+        "branch-hunt-64849",
+        "walk"
+      ],
+      [
+        "branch-hunt-64849",
+        "liyue-wp-64849",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64849-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuJadeNiche",
+          "file": "chenyu-jade-niche-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "camp": {
+    "stage": "branch-hunt-64850",
+    "scenery": {
+      "key": "chenyuTrailCamp",
+      "file": "chenyu-trail-camp-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 697.1,
+      "y": 188.7,
+      "adjacent": [
+        "chenyu-camp",
+        "branch-hunt-64850-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64850&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64850-pocket-1": "2. 拠点裏・風レンジャーの吹き流し台 ｜ 任意戦・精鋭・徒歩・Lv78・上の足場の門"
+      },
+      "next": "branch-hunt-64850-pocket-1"
+    },
+    "jump": [
+      480,
+      431
+    ],
+    "returnHeight": 408,
+    "pocketScenery": {
+      "key": "chenyuBannerLedge",
+      "file": "chenyu-banner-ledge-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "chenyu-camp",
+        "branch-hunt-64850",
+        "walk"
+      ],
+      [
+        "branch-hunt-64850",
+        "branch-hunt-64850-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64850-pocket-1",
+        "branch-hunt-64850",
+        "walk"
+      ],
+      [
+        "branch-hunt-64850",
+        "chenyu-camp",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64850-pocket-1",
+        "returnHeight": 408,
+        "pocketScenery": {
+          "key": "chenyuBannerLedge",
+          "file": "chenyu-banner-ledge-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "bluff": {
+    "stage": "branch-hunt-66768",
+    "scenery": {
+      "key": "chenyuHarborBluff",
+      "file": "chenyu-harbor-bluff-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 339.3,
+      "y": 92,
+      "adjacent": [
+        "liyue-wp-66768",
+        "branch-hunt-66768-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-66768&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-66768-pocket-1": "2. 港西・水レンジャーの潮溜まり ｜ 任意戦・精鋭・徒歩・Lv90・上の足場の門"
+      },
+      "next": "branch-hunt-66768-pocket-1"
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuBrineStep",
+      "file": "chenyu-brine-step-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-66768",
+        "branch-hunt-66768",
+        "walk"
+      ],
+      [
+        "branch-hunt-66768",
+        "branch-hunt-66768-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-66768-pocket-1",
+        "branch-hunt-66768",
+        "walk"
+      ],
+      [
+        "branch-hunt-66768",
+        "liyue-wp-66768",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-66768-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuBrineStep",
+          "file": "chenyu-brine-step-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "wharf": {
+    "stage": "branch-hunt-66769",
+    "scenery": {
+      "key": "chenyuCargoWharf",
+      "file": "chenyu-cargo-wharf-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 375.8,
+      "y": 52.9,
+      "adjacent": [
+        "liyue-wp-66769"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-66769&placements=live&compare=background",
+      "pockets": {},
+      "next": "liyue-wp-66769"
+    },
+    "jump": [
+      480,
+      434
+    ],
+    "journeys": [
+      [
+        "liyue-wp-66769",
+        "branch-hunt-66769",
+        "walk"
+      ],
+      [
+        "branch-hunt-66769",
+        "liyue-wp-66769",
+        "walk"
+      ]
+    ],
+    "detours": []
+  },
+  "reef": {
+    "stage": "branch-hunt-66770",
+    "scenery": {
+      "key": "chenyuOuterReef",
+      "file": "chenyu-outer-reef-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 424.3,
+      "y": 432.7,
+      "adjacent": [
+        "liyue-wp-66770",
+        "branch-hunt-66770-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-66770&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-66770-pocket-1": "2. 沖合・玄文獣の潮穴 ｜ 任意戦・精鋭・徒歩・Lv90・上の足場の門"
+      },
+      "next": "branch-hunt-66770-pocket-1"
+    },
+    "jump": [
+      480,
+      423
+    ],
+    "returnHeight": 388,
+    "pocketScenery": {
+      "key": "chenyuTideDen",
+      "file": "chenyu-tide-den-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-66770",
+        "branch-hunt-66770",
+        "walk"
+      ],
+      [
+        "branch-hunt-66770",
+        "branch-hunt-66770-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-66770-pocket-1",
+        "branch-hunt-66770",
+        "walk"
+      ],
+      [
+        "branch-hunt-66770",
+        "liyue-wp-66770",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-66770-pocket-1",
+        "returnHeight": 388,
+        "pocketScenery": {
+          "key": "chenyuTideDen",
+          "file": "chenyu-tide-den-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "grotto": {
+    "stage": "branch-hunt-66979",
+    "scenery": {
+      "key": "chenyuHiddenGrotto",
+      "file": "chenyu-hidden-grotto-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 479.4,
+      "y": 141.2,
+      "adjacent": [
+        "liyue-wp-66979",
+        "branch-hunt-66979-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-66979&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-66979-pocket-1": "2. 北尾根・玄文獣の反響洞 ｜ 任意戦・精鋭・徒歩・Lv89・上の足場の門"
+      },
+      "next": "branch-hunt-66979-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuEchoVault",
+      "file": "chenyu-echo-vault-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-66979",
+        "branch-hunt-66979",
+        "walk"
+      ],
+      [
+        "branch-hunt-66979",
+        "branch-hunt-66979-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-66979-pocket-1",
+        "branch-hunt-66979",
+        "walk"
+      ],
+      [
+        "branch-hunt-66979",
+        "liyue-wp-66979",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-66979-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuEchoVault",
+          "file": "chenyu-echo-vault-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "errors": []
+}
