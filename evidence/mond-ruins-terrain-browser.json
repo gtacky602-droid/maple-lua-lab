@@ -1,0 +1,211 @@
+{
+  "garden": {
+    "stage": "sites-hunt-7092",
+    "scenery": {
+      "key": "mondCeciliaGarden",
+      "file": "mond-cecilia-garden-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 306.2,
+      "y": 216.6,
+      "adjacent": [
+        "mond-wp-21",
+        "sites-hunt-7092-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7092&placements=live&compare=background",
+      "next": "sites-hunt-7092-pocket-1"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "mondRiftBurrow",
+      "file": "mond-rift-burrow-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "mond-wp-21",
+        "sites-hunt-7092",
+        "walk"
+      ],
+      [
+        "sites-hunt-7092",
+        "sites-hunt-7092-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7092-pocket-1",
+        "sites-hunt-7092",
+        "walk"
+      ],
+      [
+        "sites-hunt-7092",
+        "mond-wp-21",
+        "walk"
+      ]
+    ]
+  },
+  "tower": {
+    "stage": "sites-hunt-7111",
+    "scenery": {
+      "key": "mondBrokenSpire",
+      "file": "mond-broken-spire-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 217.4,
+      "y": 120.1,
+      "adjacent": [
+        "mond-wp-24",
+        "sites-hunt-7111-pocket-1",
+        "sites-hunt-7111-pocket-2",
+        "dvalin-sky-arena"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7111&placements=live&compare=background",
+      "pockets": {
+        "sites-hunt-7111-pocket-2": "風龍廃墟・中央塔周辺・モンド本土の変わったヒルチャールの脇部屋 ｜ 任意戦・希少遭遇・徒歩・Lv14・上の足場の門",
+        "sites-hunt-7111-pocket-1": "風龍廃墟・中央塔周辺・モンドのヒルチャール暴徒・木盾の脇部屋 ｜ 任意戦・精鋭・徒歩・Lv15・地上の門"
+      },
+      "next": "sites-hunt-7111-pocket-2"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "returnHeight": 389,
+    "pocketScenery": {
+      "key": "mondQuietLookout",
+      "file": "mond-quiet-lookout-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "mond-wp-24",
+        "sites-hunt-7111",
+        "raised"
+      ],
+      [
+        "sites-hunt-7111",
+        "sites-hunt-7111-pocket-2",
+        "raised"
+      ],
+      [
+        "sites-hunt-7111-pocket-2",
+        "sites-hunt-7111",
+        "walk"
+      ],
+      [
+        "sites-hunt-7111",
+        "sites-hunt-7111-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7111-pocket-1",
+        "sites-hunt-7111",
+        "walk"
+      ],
+      [
+        "sites-hunt-7111",
+        "dvalin-sky-arena",
+        "raised"
+      ],
+      [
+        "dvalin-sky-arena",
+        "sites-hunt-7111",
+        "walk"
+      ],
+      [
+        "sites-hunt-7111",
+        "mond-wp-24",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "sites-hunt-7111-pocket-2",
+        "returnHeight": 389,
+        "pocketScenery": {
+          "key": "mondQuietLookout",
+          "file": "mond-quiet-lookout-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-7111-pocket-1",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "mondShieldCamp",
+          "file": "mond-shield-camp-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "dvalin-sky-arena",
+        "returnHeight": 388,
+        "pocketScenery": {
+          "key": "dvalinWeekly",
+          "file": "dvalin-weekly-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "valley": {
+    "stage": "sites-hunt-7137",
+    "scenery": {
+      "key": "mondMemoryValley",
+      "file": "mond-memory-valley-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 410.3,
+      "y": 351.7,
+      "adjacent": [
+        "mond-wp-19",
+        "sites-hunt-7137-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7137&placements=live&compare=background",
+      "next": "sites-hunt-7137-pocket-1"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "mondLogHollow",
+      "file": "mond-log-hollow-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "mond-wp-19",
+        "sites-hunt-7137",
+        "walk"
+      ],
+      [
+        "sites-hunt-7137",
+        "sites-hunt-7137-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7137-pocket-1",
+        "sites-hunt-7137",
+        "walk"
+      ],
+      [
+        "sites-hunt-7137",
+        "mond-wp-19",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

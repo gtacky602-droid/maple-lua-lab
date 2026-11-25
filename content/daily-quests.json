@@ -82,8 +82,8 @@
       "giver": "フィッシュル",
       "name": "皇女の巡察",
       "intro": "フィッシュル「オズと見張っていたのは、街道をうろつく精鋭よ。」",
-      "target": "モンドの境の街道・旧道の地上・街道の見張り塔の指定精鋭",
-      "filter": {"kind": "elite"},
+      "target": "国境の道・旧道の下段・丘の見張り台と、秘境周辺の精鋭部屋6か所の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["mond-border", "mond-old-ground", "mond-watchtower", "sites-hunt-7092-pocket-1", "sites-hunt-7111-pocket-1", "sites-hunt-7137-pocket-1", "sites-hunt-7149-pocket-1", "sites-hunt-7206-pocket-1", "sites-hunt-7210-pocket-1"]},
       "goal": 3,
       "xp": 280,
       "mora": 220

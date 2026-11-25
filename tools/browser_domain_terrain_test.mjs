@@ -51,7 +51,7 @@ async function visit(browser, suite, field, errors) {
     if (suite.compareBackgrounds) {
       const link = page.locator('#atlasBackgroundCompare');
       assert.equal(await link.isVisible(),true);
-      assert.equal(await link.getAttribute('href'),'map-art.html?node='+field.stage);
+      assert.equal(await link.getAttribute('href'),'map-art.html?node='+field.stage+'&placements=live&compare=background');
       map.backgroundComparison = await link.getAttribute('href');
     }
     assert.ok(map.adjacent.includes(field.host) && map.adjacent.includes(destination));

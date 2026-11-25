@@ -120,7 +120,7 @@ return function(C,config,graph)
   if not includes(region.includeRegions,node.region) or includes(region.excludeNodes,node.id) then return false end
   local filter=q.filter
   if filter.nodes and not includes(filter.nodes,node.id) then return false end
-  if filter.art and not includes(filter.art,placement.art) then return false end
+  if filter.art and not includes(filter.art,placement.dailySpecies or placement.art) then return false end
   if filter.kind=='elite' then return placement.dailyElite==true end
   if filter.kind=='species' then return observedNames[q.id][placement.art]~=nil end
   return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'

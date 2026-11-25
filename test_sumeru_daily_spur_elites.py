@@ -10,9 +10,13 @@ def read(file):
 
 lua,core=runtime()
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('region', nargs='?', choices=['sumeru','natlan','inazuma'], default='sumeru')
+parser.add_argument('region', nargs='?', choices=['sumeru','natlan','inazuma','mondstadt'], default='sumeru')
 region=parser.parse_args().region
-if region=='inazuma':
+if region=='mondstadt':
+    quest,design_id,region_name='daily-mond-elites','Q-MON-D03','モンド'
+    level,xp,mora=18,280,220
+    original={'mond-border','mond-old-ground','mond-watchtower'}
+elif region=='inazuma':
     quest,design_id,region_name='daily-ina-trial','Q-INA-D04','稲妻'
     level,xp,mora=60,3300,520
     original={'inazuma-road','inazuma-shore-hunt'}
@@ -24,7 +28,7 @@ else:
     quest,design_id,region_name='daily-sum-elites','Q-SUM-D03','スメール'
     level,xp,mora=80,11990,800
     original={'sumeru-field','sum-kaveh-timberyard'}
-hub='inazuma-town' if region=='inazuma' else region+'-hub'
+hub={'mondstadt':'mond-town','inazuma':'inazuma-town'}.get(region,region+'-hub')
 design=next(row for row in read('design/world/quest-bindings.json')['bindings'] if row['design_quest_id']==design_id)
 nodes={n['id']:n for n in read('content/story-graph.json')['nodes']}
 spawns=read('content/enemy-spawns.json')['nodes']
@@ -33,7 +37,7 @@ rooms=[n['id'] for n in nodes.values() if n['region']==region_name
        and any(e.get('dailyElite') and not e.get('dailyExclude') for e in spawns.get(n['id'],[]))]
 config=next(q for q in read('content/daily-quests.json')['quests'] if q['id']==quest)
 assert set(config['filter']['nodes'])==original.union(rooms)
-assert len(rooms)=={'inazuma':7,'natlan':3,'sumeru':9}[region]
+assert len(rooms)=={'mondstadt':6,'inazuma':7,'natlan':3,'sumeru':9}[region]
 
 fight=lua.eval("""function(C,s)
  local target=s.enemies[1]
@@ -66,8 +70,9 @@ for start in range(0,len(rooms),3):
     parent=nodes[rooms[start]]['atlasParent']
     core.enterStoryNode(state,parent)
     assert core.defeatEnemy(state,state.enemies[1],1) and progress(state).count==0
-    if region in ('natlan','inazuma'):
-        rare='sites-hunt-73159-pocket-2' if region=='natlan' else 'sites-hunt-12791-pocket-2'
+    rare={'mondstadt':'sites-hunt-7111-pocket-2','natlan':'sites-hunt-73159-pocket-2',
+          'inazuma':'sites-hunt-12791-pocket-2'}.get(region)
+    if rare:
         core.enterStoryNode(state,rare)
         ticks=fight(core,state)
         assert ticks and progress(state).count==0

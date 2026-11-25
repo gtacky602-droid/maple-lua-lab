@@ -15,17 +15,26 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
 
  async function walk(x){
   await focusGame();
-  const start=(await actor()).x;
-  if(Math.abs(start-x)<20)return;
-  const key=start>x?'KeyA':'KeyD';
-  await page.keyboard.down(key);
-  try{
-   await page.waitForFunction(([x,start])=>{
+  // A delayed frame can carry the actor beyond a narrow gate before keyup arrives.
+  for(let pass=0;pass<3;pass++){
+   const start=(await actor()).x;
+   if(Math.abs(start-x)<20)return;
+   const key=start>x?'KeyA':'KeyD';
+   await page.keyboard.down(key);
+   try{
+    await page.waitForFunction(([x,start])=>{
+     const f=window.lab.frame;
+     const a=f.actors.find(a=>a.id===f.active);
+     return start>x?a.x<=x+15:a.x>=x-15;
+    },[x,start],{timeout:walkTimeout});
+   }finally{await page.keyboard.up(key)}
+   await page.waitForFunction(()=>{
     const f=window.lab.frame;
-    const a=f.actors.find(a=>a.id===f.active);
-    return start>x?a.x<=x+15:a.x>=x-15;
-   },[x,start],{timeout:walkTimeout});
-  }finally{await page.keyboard.up(key)}
+    return !f.actors.find(a=>a.id===f.active).walk;
+   },undefined,{timeout:walkTimeout});
+   if(Math.abs((await actor()).x-x)<45)return;
+  }
+  assert.ok(Math.abs((await actor()).x-x)<45,'Could not stop near '+x);
  }
 
  const waitY=y=>page.waitForFunction(y=>{

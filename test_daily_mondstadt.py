@@ -46,6 +46,12 @@ def valid(s):
     return validate_save(native(core.checkpoint(s)))
 
 
+proxy=begin()
+for quest in (slimes,elites):
+    act(proxy,'accept',quest)
+authored(proxy,'sites-hunt-7210-pocket-1','sites-hunt-7210-pocket-1-guardian')
+assert slots(proxy)[slimes]['count']==0 and slots(proxy)[elites]['count']==1
+
 s=begin()
 authored(s,'mond-road','mond-road-2')
 assert not slots(s)

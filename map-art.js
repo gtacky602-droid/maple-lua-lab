@@ -47,6 +47,12 @@ try{
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const query=new URLSearchParams(location.search);
  const openingNode=nodes.get(query.get('node'))??nodes.get('mond-road');
+ const liveView=query.get('placements')==='live';
+ const liveSource=liveView?await json('content/enemy-spawns.json'):null;
+ let liveItems=[],liveError='';
+ $('draftControls').hidden=$('draftInspection').hidden=liveView;
+ const viewLink=$('placementViewLink');
+ viewLink.textContent=liveView?'配置案を編集する':'本編の敵配置で見比べる';
  const requestedTier=query.get('tier');
  if(Array.from($('backgroundTier').options).some(option=>option.value===requestedTier)){
   $('backgroundTier').value=requestedTier;
@@ -108,6 +114,7 @@ try{
  $('node').value=openingNode.id;
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
  const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
+ $('mapNodePicker').hidden=liveView;
  function node(){return nodes.get($('node').value)}
  function sceneFrame(n,camera){
   return {camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
@@ -128,7 +135,11 @@ try{
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
-  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame=sceneFrame(n,camera);
+  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera);
+  const otherView=new URLSearchParams({node:n.id,tier:$('backgroundTier').value});
+  if(!liveView)otherView.set('placements','live');
+  if($('matchSpritePng').checked)otherView.set('compare','background');
+  viewLink.href='map-art.html?'+otherView;
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
   loadComparisonImage(frame,background);
@@ -182,6 +193,7 @@ try{
   $('viewportCost').textContent=matchedSprites?'キャラは左右とも元PNG':decoded&&!cost.standard?'':viewportSummary(cost,profile);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
+  if(liveView)$('status').textContent=liveError||('本編の敵配置 '+items.length+'体 ｜ '+placementCost);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
   $('diffDetails').replaceChildren();
@@ -194,7 +206,7 @@ try{
    const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
    return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(rear&&{rear})};
   });
-  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file,requestedDecodedBackground:preview?.file,decodedBackgroundFile:decoded,decodedBackgroundRectangles:decoded?tier:undefined};
+  window.mapArt={diff,dirty,liveView,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file,requestedDecodedBackground:preview?.file,decodedBackgroundFile:decoded,decodedBackgroundRectangles:decoded?tier:undefined};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
  function restoreHistory(from,to){
@@ -206,7 +218,22 @@ try{
    from[id].pop();drafts=next;render();
   }catch(e){$('fileStatus').textContent='履歴を復元できません：'+e.message+' 編集案と履歴は保持しています。'}
  }
- function select(){selected=null;const n=node();$('camera').max=Math.max(0,n.width-960);$('camera').value=0;render()}
+ function select(){
+  selected=null;
+  const n=node(),camera=$('camera');
+  camera.max=Math.max(0,n.width-960);
+  camera.value=0;
+  if(liveView){
+   liveItems=[];liveError='';
+   try{
+    liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets));
+    if(liveItems.length && !liveItems.some(e=>e.x>=0 && e.x<960)){
+     camera.value=Math.min(Number(camera.max),Math.max(0,liveItems[0].x-480));
+    }
+   }catch(error){liveError='本編配置を表示できません：'+error.message}
+  }
+  render();
+ }
  $('node').onchange=select;$('editMode').onchange=render;
  $('clearSelection').onclick=()=>{selected=null;$('editMode').value='add';render()};
  $('focusSelected').onclick=()=>{
@@ -227,7 +254,7 @@ try{
  $('flipSelected').onclick=()=>{const e=placements().find(e=>e.id===selected);if(!e)return;remember(node().id);e.flip=!e.flip;render()};
  $('deleteSelected').onclick=()=>{if(!selected)return;remember(node().id);drafts.nodes[node().id]=placements().filter(e=>e.id!==selected);selected=null;render()};
 for(const id of ['camera','profile'])$(id).oninput=render;
- for(const mode of ['png','rect'])$(mode).onclick=event=>{const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
+ for(const mode of ['png','rect'])$(mode).onclick=event=>{if(liveView)return;const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
   if($('editMode').value==='move'){const e=placements().find(e=>e.id===selected);if(!e){$('fileStatus').textContent='下の個体一覧から移動する個体を選んでください。';return}if(e.x!==x||e.y!==supports[0].y){remember(n.id);e.x=x;e.y=supports[0].y}render();return}
   if(placements().length>=MAX_NODE_PLACEMENTS||Object.values(drafts.nodes).reduce((s,x)=>s+x.length,0)>=MAX_TOTAL_PLACEMENTS){$('fileStatus').textContent='配置数の上限です。別の案として保存してから編集してください。';return}
   const copying=$('editMode').value==='copy',source=copying?placements().find(e=>e.id===selected):null;

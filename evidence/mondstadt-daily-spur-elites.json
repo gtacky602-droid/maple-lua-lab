@@ -1,0 +1,35 @@
+{
+  "rooms": {
+    "sites-hunt-7092-pocket-1": {
+      "normalCombatTicks": 392,
+      "countAfterSaveLoad": 1
+    },
+    "sites-hunt-7111-pocket-1": {
+      "normalCombatTicks": 404,
+      "countAfterSaveLoad": 2
+    },
+    "sites-hunt-7137-pocket-1": {
+      "normalCombatTicks": 430,
+      "countAfterSaveLoad": 3
+    },
+    "sites-hunt-7149-pocket-1": {
+      "normalCombatTicks": 392,
+      "countAfterSaveLoad": 1
+    },
+    "sites-hunt-7206-pocket-1": {
+      "normalCombatTicks": 404,
+      "countAfterSaveLoad": 2
+    },
+    "sites-hunt-7210-pocket-1": {
+      "normalCombatTicks": 430,
+      "countAfterSaveLoad": 3
+    }
+  },
+  "claimXp": 280,
+  "claimMora": 220,
+  "rareEncounterExcluded": {
+    "node": "sites-hunt-7111-pocket-2",
+    "normalCombatTicks": 329,
+    "questCountAfterKill": 0
+  }
+}

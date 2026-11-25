@@ -4,6 +4,7 @@ import {chromium} from 'playwright';
 
 const region=process.argv[2] || 'sumeru';
 const settings={
+ mondstadt:['mond-town','mond-ruins-terrain-fixture.json','daily-mond-elites',9,'sites-hunt-7111-pocket-1'],
  sumeru:['sumeru-hub','sumeru-domain-terrain-fixture.json','daily-sum-elites',11,'sites-hunt-36704-pocket-1'],
  natlan:['natlan-hub','natlan-eastern-rooms-fixture.json','daily-nat-elite-hunt',6,'sites-hunt-73159-pocket-1'],
  inazuma:['inazuma-town','inazuma-domain-terrain-fixture.json','daily-ina-trial',9,'sites-hunt-12778-pocket-1'],

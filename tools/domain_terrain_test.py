@@ -55,16 +55,23 @@ def jump_across(walk, src, dest, direction):
 def check_field(stage, host, hub, level, scenery, first_x, *, raised_gate=False, population_count=48):
     state = start(level - 1, [host], hub)
     core.action(state, 'story_fast:' + host)
-    assert state.story.node == host
     walk = TrailWalk(lua, core, state, gates, exits)
     entry = gates[host, stage]
-    walk.approach(entry['x'], entry.get('y', 480), stage)
-    portal = core.frame(state).storyNearbyPortal
-    assert portal.to == stage and not portal.available and portal.level == level
-    core.action(state, 'story_nearby_portal')
-    assert state.story.node == host
+    if nodes[host]['level'] == level:
+        # Some domain approaches and their host waypoint unlock together.
+        assert state.story.node == hub
+    else:
+        assert state.story.node == host
+        walk.approach(entry['x'], entry.get('y', 480), stage)
+        portal = core.frame(state).storyNearbyPortal
+        assert portal.to == stage and not portal.available and portal.level == level
+        core.action(state, 'story_nearby_portal')
+        assert state.story.node == host
     core.grantExp(state, LEVELS[level - 1]['maple_reference_total_exp_to_reach']
                   - LEVELS[level - 2]['maple_reference_total_exp_to_reach'], 'quest')
+    if state.story.node == hub:
+        core.action(state, 'story_fast:' + host)
+        assert state.story.node == host
     # Ignore damage to isolate platform traversal while all local enemies remain active.
     for actor in state.actors.values():
         actor.inv = 1000

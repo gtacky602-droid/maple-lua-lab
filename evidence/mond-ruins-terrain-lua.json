@@ -1,0 +1,59 @@
+{
+  "sites-hunt-7092": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      410,
+      393,
+      374
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 13,
+    "exterior_scenery": "mondCeciliaGarden",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7111": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      404,
+      381,
+      364
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 4,
+    "level_required": 14,
+    "exterior_scenery": "mondBrokenSpire",
+    "arrivals_outside_enemy_contact": 4
+  },
+  "sites-hunt-7137": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      421,
+      386,
+      371,
+      398
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 13,
+    "exterior_scenery": "mondMemoryValley",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "towerAtLevel14": {
+    "eliteRequires": 15,
+    "rareArt": "hilichurl",
+    "returnY": 389
+  },
+  "weeklyGate": {
+    "level": 20,
+    "blockedAt": 19,
+    "boss": "boss-29010101",
+    "mapSteps": [
+      "dvalin-sky-arena"
+    ],
+    "returnedTo": "sites-hunt-7111",
+    "returnY": 388
+  }
+}

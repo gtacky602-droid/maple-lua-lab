@@ -162,7 +162,7 @@ export function initAtlas(action, clearKeys) {
   const selected = view.selected;
   compare.hidden = !Object.hasOwn(backgroundMeasurements, selected?.id);
   if (compare.hidden) compare.removeAttribute('href');
-  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id);
+  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id) + '&placements=live&compare=background';
   const area = view.options.find(item => item.id === view.region);
   title.textContent = selected?.boss?.name ?? selected?.name ?? area?.name ?? 'テイワット全域';
   level.textContent = selected?.mode === 'draft' ? [

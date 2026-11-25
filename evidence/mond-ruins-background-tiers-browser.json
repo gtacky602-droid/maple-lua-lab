@@ -1,0 +1,86 @@
+{
+  "sites-hunt-7092": {
+    "source": "mond-cecilia-garden-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "81bedafd6982ff823059c0ebe513f6588b6da119523c72ad32182d72a7e55d7a",
+    "tiers": {
+      "4096": "59943d33cc19bffde949cb8d544c8630519b122bf39d9991a653a742801d0daa",
+      "4608": "54b616df57c97063d7628ce63a909d168b38bb5362752873e0f7a617019eda6c",
+      "5120": "b672fe9ecfcdd475b59716e2cc361ae7363ffd6361fe66b90df5e4e28099ce72",
+      "5632": "bc99f19de78594523eed0f04a0248adb06d3b34626d0c381e26c577568fdd04b",
+      "6144": "b695d2eec29da4be99ec2393d3bdd07860db69fa19745facda5f236328a61816"
+    }
+  },
+  "sites-hunt-7092-pocket-1": {
+    "source": "mond-rift-burrow-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "c64910dd0f586ff2081507ee0de0b69ac359c9b9504552282911f977fc116b38",
+    "tiers": {
+      "4096": "2d04d576279de1eeba9888e20f21c01bbe4f67cd857d3e7819b386faf98b2225",
+      "4608": "b8985a325d7eb761b377085772e66cfe88dc9da8009013544fb29a7b785d9278",
+      "5120": "28b53e27e37da3bd9586bef8d9e1a9f5256726754635758d8bd8331d5fbff1d3",
+      "5632": "dd07f5d621a2d7457a5dad5d8e2e0bcd25dae4d928e671797f549ff4e844852d",
+      "6144": "7fada881b6cf22fa29b61dc5e7906815e651a045024f4fd9de6fae412621d455"
+    }
+  },
+  "sites-hunt-7111": {
+    "source": "mond-broken-spire-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "38379badfbf4e9d34b13243e2bb5e0bcccdcab4cdfa6650ee2040bdfee9d70c1",
+    "tiers": {
+      "4096": "3206e175bb3cffd3c2ff77790a3cda20997b4cd7bf566018761543ae381653f5",
+      "4608": "8a63b5cba57af451ca21896be510f87e6ae661dd44f92f01c467686c3192d91a",
+      "5120": "c9e5629790152dc4f60a94e0c0b578905bc19bced7e0572c529b8dde38ec04f6",
+      "5632": "b1a58c697f383f7d0dd838992055452415fb67c7986e7c9cb54b18b52be3fe94",
+      "6144": "7ec5a8eeec30e185dc326940f599a36d3390e92d35ef6875057472c26c98f138"
+    }
+  },
+  "sites-hunt-7111-pocket-1": {
+    "source": "mond-shield-camp-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "0e26c0c0eb5216b282cfd60bf483dd9656e359ab884e06f0ffca86f750245fdc",
+    "tiers": {
+      "4096": "45a6fcb084afd107e762d1ce0f5a2cadf196b693f6a8f6bc716c8ff74a8c2807",
+      "4608": "4324f06110b5c98592b7d4d6ae552c420b55f35eba71314bb6c6172cf5249daf",
+      "5120": "cba126c334c3af031b9fe0996a95624151ab77ca68e0a39ca7ebcf086448a501",
+      "5632": "1809b13c933dcb5548536c501ef711e308abf4475c583616ef4cd6ceb4dc5b8c",
+      "6144": "001acba7e6339ba0e716386d1ffb21d4380d4d66a9936bf7f5fec28fb4262607"
+    }
+  },
+  "sites-hunt-7111-pocket-2": {
+    "source": "mond-quiet-lookout-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "5f7bfd6d7af1a369f7891364b969f7b53cbfdfac6572aa45ca774500b56d2eb7",
+    "tiers": {
+      "4096": "622ba44b63a721d48ebdf154a5c8f4a85d3bd6877f6d0ce5d5041b10af222d91",
+      "4608": "ba1e16def0e3bbbada7928ba34675a6b6edf68bcc7bca5fce6123e2f80a233a4",
+      "5120": "9204e4a1a0d0ceb5ed46ae517ed3942efea193842f13adb43cba6741ce27d2ff",
+      "5632": "369024e7a5b1f859bbc93bbecb094c670e7b183b752241017d5e81940cc24a08",
+      "6144": "924d65e2a32ca571da609b265236c3d1262c81f0900d864a76da7d51b7613d19"
+    }
+  },
+  "sites-hunt-7137": {
+    "source": "mond-memory-valley-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "c5cd30c1b6e07a16bb5f198a9934f2421e99b56b2a57d9d22719763e3da7a92e",
+    "tiers": {
+      "4096": "3c832ef669ff86d9665344ead7e0c30fe8c8e24280bfc7b2224d16b3971f10c9",
+      "4608": "9ccfd4a1683529c1f772e8a8a567457310554b1aff81155d5bb1007a4aa3415e",
+      "5120": "338e7a857c42e655bf4334348797c8f35f18d0f1c81582fc387892af30565c53",
+      "5632": "3a0b3db2a73a1cdf1d69f03b0efa93d36097a869420c3692bfe8105b007d7556",
+      "6144": "0dde9fef0d48d1c24ae9c5f83e3d49fb11bb47fdaa6e6295f8f5b9cdaaf81c6d"
+    }
+  },
+  "sites-hunt-7137-pocket-1": {
+    "source": "mond-log-hollow-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "ff6d6a0edd33a679af178fb36111df632d563e8f4f270eaea76adce8a4d452d7",
+    "tiers": {
+      "4096": "96fc3e106a368b40c425fa9ad16893228c8cec2505fac0cb1ec88bd73dfebde2",
+      "4608": "164567c6dbdcb31c1d26f474160d7f8dc9ed3c6a61877fe69797b302827f4bc7",
+      "5120": "15cc321d68fb0c9422a3e0645050e27b732abdcd40000e0e3963b4b59aefbc3a",
+      "5632": "9b9046975a25a687de196c9a594544c45f6a3319960ea5de36c20ed201086b40",
+      "6144": "f2058ff674e2156be752dfabb61f76b7659581ce1adaaf3d1a6ca7c4a2a96f2a"
+    }
+  }
+}

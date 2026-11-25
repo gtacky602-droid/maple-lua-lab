@@ -1,0 +1,17 @@
+{
+  "quest": "daily-mond-elites",
+  "targets": [
+    "mond-border",
+    "mond-old-ground",
+    "mond-watchtower",
+    "sites-hunt-7092-pocket-1",
+    "sites-hunt-7111-pocket-1",
+    "sites-hunt-7137-pocket-1",
+    "sites-hunt-7149-pocket-1",
+    "sites-hunt-7206-pocket-1",
+    "sites-hunt-7210-pocket-1"
+  ],
+  "selected": "sites-hunt-7111-pocket-1",
+  "download": "mond-shield-camp-4096.lua",
+  "returnNode": "mond-town"
+}
