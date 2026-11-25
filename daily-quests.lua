@@ -87,12 +87,12 @@ return function(C,config,graph)
   return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
  end
 
- -- Some species-based dispatches accept kills anywhere in their region.
+ -- Species and elite dispatches can accept kills anywhere in their region.
  -- Resolve matching spawns once, then expose only currently revealed map locations.
- local speciesLocations={}
+ local dispatchLocations={}
  local function targetNodes(s,q)
-  if q.filter.nodes or q.filter.kind~='art' then return q.filter.nodes end
-  local locations=speciesLocations[q.id]
+  if q.filter.nodes or (q.filter.kind~='art' and q.filter.kind~='elite') then return q.filter.nodes end
+  local locations=dispatchLocations[q.id]
   if not locations then
    locations={}
    for _,node in ipairs(graph.nodes) do
@@ -106,7 +106,7 @@ return function(C,config,graph)
     if nodes[a.id].level~=nodes[b.id].level then return nodes[a.id].level<nodes[b.id].level end
     return a.id<b.id
    end)
-   speciesLocations[q.id]=locations
+   dispatchLocations[q.id]=locations
   end
   local visible={}
   for _,place in ipairs(locations) do

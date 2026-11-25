@@ -21,7 +21,9 @@ export function liveNodeDraft(input,graph,nodeId,species){
 const forestShelfHeights=[480,390,352,394,350];
 const westIslandHeights=[480,408,369,404,378];
 const mondRuinsHeights=[480,397,358,404,360];
+const liyueNorthHeights=[480,403,360,389,345];
 const previousHeights=new Map([
+ ['sites-hunt-7114',liyueNorthHeights],['sites-hunt-7116',liyueNorthHeights],['sites-hunt-7121',liyueNorthHeights],
  ['sites-hunt-7149',mondRuinsHeights],
  ['sites-hunt-7157',mondRuinsHeights],
  ['sites-hunt-7186',mondRuinsHeights],

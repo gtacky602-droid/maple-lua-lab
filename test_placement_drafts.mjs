@@ -15,6 +15,7 @@ for(const [name,change] of [
  ['total limit',d=>{d.nodes={};for(const n of graph.nodes.slice(0,9))d.nodes[n.id]=Array.from({length:128},(_,i)=>({id:'e'+i,species:'hilichurl',x:n.platforms[0].x,y:n.platforms[0].y,flip:false}))}]
 ]){const d=structuredClone(draft);change(d);assert.throws(()=>validate(d,graph,species),undefined,name);checks.push(name)}
 const previousShelfRows = [
+ ['sites-hunt-7114',403,419],['sites-hunt-7116',403,422],['sites-hunt-7121',403,426],
  ['sites-hunt-7149',397,365],
  ['sites-hunt-7157',397,417],
  ['sites-hunt-7186',397,424],

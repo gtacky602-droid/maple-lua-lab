@@ -36,7 +36,13 @@ export function initDailyBoard(dispatch){
    const label=element('label','討伐・調査地点 ');
    const select=element('select');
    select.append(new Option('地図で対象地点を見る',''));
-   for(const target of targets)select.append(new Option(`Lv${target.level} ｜ ${target.name}`,target.id));
+   const nameCounts=new Map();
+   for(const {name} of targets)nameCounts.set(name,(nameCounts.get(name)??0)+1);
+   for(const target of targets){
+    const parent=nameCounts.get(target.name)>1 && mapNodes.get(target.atlasParent);
+    const location=parent ? parent.name+' → '+target.name : target.name;
+    select.append(new Option(`Lv${target.level} ｜ ${location}`,target.id));
+   }
    select.onchange=()=>{
     const id=select.value;
     select.value='';

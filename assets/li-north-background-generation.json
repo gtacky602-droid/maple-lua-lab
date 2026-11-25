@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-7114",
+      "source": "li-aocang-ridge-background-v1.png",
+      "preview": "li-aocang-ridge-native-preview-v1.png",
+      "key": "liyueAocangRidge",
+      "note": "奥蔵の北・山際の岩棚",
+      "prompt": "Warm afternoon at a terraced Chinese limestone escarpment, ochre banded cliffs with a single leaning pine, distant blue karst needles and an ancient stone lintel high on the right. Create a wide landscape 16:9 pixel art background only for a side scrolling fantasy RPG. Authentic hand-placed crisp clustered pixels, carefully limited palette, expressive 1990s pixel scenery at 512x288, no dithering, no outlines around every shape, distinct near/mid/far layers and quiet lower fifth to place moving sprites, straight side camera view. No characters, lettering, symbols, UI, border, signs or captions. Original Liyue-inspired scenery."
+    },
+    {
+      "node": "sites-hunt-7114-pocket-1",
+      "source": "li-geovishap-den-background-v1.png",
+      "preview": "li-geovishap-den-native-preview-v1.png",
+      "key": "liyueGeovishapDen",
+      "note": "岩ヴィシャップの晶洞",
+      "prompt": "Inside a low amber geode cave, faceted golden mineral seam catching sunlight from a small opening on the left, broad earthy bare floor, dark tea-brown walls and some jade minerals. Create a wide landscape 16:9 pixel art background only for a side scrolling fantasy RPG. Authentic hand-placed crisp clustered pixels, carefully limited palette, expressive 1990s pixel scenery at 512x288, no dithering, no outlines around every shape, distinct near/mid/far layers and quiet lower fifth to place moving sprites, straight side camera view. No characters, lettering, symbols, UI, border, signs or captions. Original Liyue-inspired scenery."
+    },
+    {
+      "node": "sites-hunt-7116",
+      "source": "li-jueyun-pool-background-v1.png",
+      "preview": "li-jueyun-pool-native-preview-v1.png",
+      "key": "liyueJueyunPool",
+      "note": "絶雲の池畔・水鏡の段",
+      "prompt": "A quiet jade pool at dawn in cloudwrapped limestone spires, elegant wooden Chinese pavilion in the middle distance, a curving line of stepping stones and a willow. Soft lavender sky. Create a wide landscape 16:9 pixel art background only for a side scrolling fantasy RPG. Authentic hand-placed crisp clustered pixels, carefully limited palette, expressive 1990s pixel scenery at 512x288, no dithering, no outlines around every shape, distinct near/mid/far layers and quiet lower fifth to place moving sprites, straight side camera view. No characters, lettering, symbols, UI, border, signs or captions. Original Liyue-inspired scenery."
+    },
+    {
+      "node": "sites-hunt-7121",
+      "source": "li-north-lakeshore-background-v1.png",
+      "preview": "li-north-lakeshore-native-preview-v1.png",
+      "key": "liyueNorthLakeshore",
+      "note": "北の秘境・霧の湖岸",
+      "prompt": "A cool deep turquoise mountain lake under drifting ribbons of low mist, waterside reeds and a low ruined stone sluice, broad silhouettes of emerald hills and a red maple anchoring the left. Create a wide landscape 16:9 pixel art background only for a side scrolling fantasy RPG. Authentic hand-placed crisp clustered pixels, carefully limited palette, expressive 1990s pixel scenery at 512x288, no dithering, no outlines around every shape, distinct near/mid/far layers and quiet lower fifth to place moving sprites, straight side camera view. No characters, lettering, symbols, UI, border, signs or captions. Original Liyue-inspired scenery."
+    },
+    {
+      "node": "sites-hunt-7121-pocket-1",
+      "source": "li-fireaxe-camp-background-v1.png",
+      "preview": "li-fireaxe-camp-native-preview-v1.png",
+      "key": "liyueFireaxeCamp",
+      "note": "湖岸の脇部屋・炎斧の野営地",
+      "prompt": "A hidden riverside camp at sunset on a dry granite terrace, a rough timber awning and one glowing orange fire basket against dark spruce silhouettes, distant cool lake visible between rocks. Create a wide landscape 16:9 pixel art background only for a side scrolling fantasy RPG. Authentic hand-placed crisp clustered pixels, carefully limited palette, expressive 1990s pixel scenery at 512x288, no dithering, no outlines around every shape, distinct near/mid/far layers and quiet lower fifth to place moving sprites, straight side camera view. No characters, lettering, symbols, UI, border, signs or captions. Original Liyue-inspired scenery."
+    }
+  ]
+}

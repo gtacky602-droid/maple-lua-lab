@@ -4,6 +4,7 @@ import {chromium} from 'playwright';
 
 const region=process.argv[2] || 'sumeru';
 const settings={
+ liyue:['liyue-harbor','li-north-terrain-fixture.json','daily-liyue-relics',35,'sites-hunt-7114-pocket-1'],
  'mond-slimes':['mond-town','mond-temples-terrain-fixture.json','daily-mond-slimes',17,'sites-hunt-7206'],
  mondstadt:['mond-town','mond-ruins-terrain-fixture.json','daily-mond-elites',9,'sites-hunt-7111-pocket-1'],
  sumeru:['sumeru-hub','sumeru-domain-terrain-fixture.json','daily-sum-elites',11,'sites-hunt-36704-pocket-1'],
@@ -29,6 +30,11 @@ try {
  await select.waitFor();
  const targets=await select.locator('option').evaluateAll(opts=>opts.map(o=>o.value).filter(Boolean));
  assert.equal(targets.length,targetCount);
+ if(region==='liyue'){
+  const labels=await select.locator('option:enabled').allTextContents();
+  assert.equal(new Set(labels).size,labels.length);
+  assert.ok(labels.some(label=>label.includes('西岸の道') && label.includes('玄文獣')));
+ }
  await select.selectOption(room);
  await page.waitForFunction(room=>window.lab.frame.worldMap?.selected?.id===room,room);
  const link=page.locator('#atlasBackgroundCompare');

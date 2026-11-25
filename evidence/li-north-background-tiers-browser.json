@@ -1,0 +1,62 @@
+{
+  "sites-hunt-7114": {
+    "source": "li-aocang-ridge-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "bd99d9440613a58594415665250262cd31757ed8956043d06e60d3e7b9dd3115",
+    "tiers": {
+      "4096": "615d3568938b671f832f620a431723fda3e47364cf11b0c5f1ddd9927669a720",
+      "4608": "453615d03adc9a283740b3953ea373b12d846cf16203fc6ef69dd8f72b64b9f8",
+      "5120": "68ddf637469905c245e40c6a9200e0e2f5bb10cb278fda3d72b75f7c8f05388d",
+      "5632": "bbcadb6925f40f84971020a646c2e7b3de063389a2c7d2589bb657839b20f70f",
+      "6144": "3bf983e78c74648a385f724f365851a47d58f70491e3008aeca0b5e2144d31b0"
+    }
+  },
+  "sites-hunt-7114-pocket-1": {
+    "source": "li-geovishap-den-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "5860b3e6d53c2ba80e899be3d1cdf49d0a780107aace95975fb423d910b5b037",
+    "tiers": {
+      "4096": "cc4ec23b13076d6572761dc6f5c8e024b796f48fde2246bc6da2bbc417036bd6",
+      "4608": "6dbdbce8d45204db1e52588aea5c1f1351885160c0207bd75fcbcbefa259af43",
+      "5120": "ba8436ab3d9c713748af0ccb226111b387bcf89d58b0214794abb0c44fdf7960",
+      "5632": "9784fd9131544864bcf7c9629757336c02ec97cef0bf82e2c39b2f4c957c7cee",
+      "6144": "b12e59f4ce8e3a1fc25b039dedd8bfeb391d2b7b0666cbd807daece061f90098"
+    }
+  },
+  "sites-hunt-7116": {
+    "source": "li-jueyun-pool-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "48539ce50f99cda34dcc9d98be2a340c24adb2eb5b1914070d03d70054a68eb1",
+    "tiers": {
+      "4096": "f9a6e14b4aeac428db49e731e69bd5d73c025dac20b975773bf6cf79b818acd9",
+      "4608": "bb579a04a2fec8da2d607a98c34ab9bdd11b823af52bca3e25ad1ef08887ecf3",
+      "5120": "1909362cc723061995d0231a8155794278501ab6f474f5890b8e6a5dea9b8151",
+      "5632": "0ac1c29e0bc08995f0adff085914874f3ba80e3b2d76ded98e33a18299ab6a1f",
+      "6144": "79d5524aeebe36b678f2935c68e2386bc2e9299487b52b1a86ccb96ec2d5fa76"
+    }
+  },
+  "sites-hunt-7121": {
+    "source": "li-north-lakeshore-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "5aa81f96d11caa62a3f2d68031ea7258f3d736881f2d37cf6d1ecf8253cc97c2",
+    "tiers": {
+      "4096": "ea202ac312921d85c520b8c99d2f9ee12434e07d9d8d76830d38166d4139495b",
+      "4608": "90c7a02083efbf6792a0b2198e652397ca05592ceb0625ea21d40fe8ee3ca6a9",
+      "5120": "9a7e6c6dd4cb6c3dd08a3b1db393ddf08554c0ae7e2100e12cee8c67ca436f9e",
+      "5632": "762c738996e0bc993e14b3832161e6fa3cf2ba5ebccaa2288da4c22615ceb884",
+      "6144": "95c459ddb9c50253cd04fbde8f795d0bbad38a55db0bcf038ce0faaeadbfcda8"
+    }
+  },
+  "sites-hunt-7121-pocket-1": {
+    "source": "li-fireaxe-camp-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "f8dd90133cb7dc1b9b32098fce8e857116ca2f3d5e93627fca1838c413053be0",
+    "tiers": {
+      "4096": "8a63a22e67eacdbd92b5caa58b5bf1cea8d42c4605e5b2b164868c7fb5bc090b",
+      "4608": "5c215cea9705173b7cff01f7acb8443c20afc10d32a5259d46ee9f846859c1b5",
+      "5120": "65e4eaf7a6d877855196816d02fad732bd548efd7bc0752ec48356eb0b849122",
+      "5632": "1538d752c1c97121155493324bfa20fcf2434e9f7aa76374fd583503d9f2ec55",
+      "6144": "03090c0b7addb9f9ce0b79d0079d3d2b0ba5209fe5274e6c83267270fc4364a6"
+    }
+  }
+}

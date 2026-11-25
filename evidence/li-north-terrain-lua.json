@@ -1,0 +1,46 @@
+{
+  "sites-hunt-7114": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      383,
+      354,
+      381
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "liyueAocangRidge",
+    "arrivals_outside_enemy_contact": 2,
+    "eliteReturnHeight": 390
+  },
+  "sites-hunt-7116": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      422,
+      394,
+      419,
+      391
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 38,
+    "exterior_scenery": "liyueJueyunPool",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-7121": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      426,
+      411,
+      388,
+      418
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "liyueNorthLakeshore",
+    "arrivals_outside_enemy_contact": 2,
+    "eliteReturnHeight": 480
+  }
+}
