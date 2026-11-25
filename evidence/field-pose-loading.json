@@ -1,0 +1,24 @@
+{
+  "initialPoseJsonRequests": 0,
+  "firstVisits": 15,
+  "repeatVisitRequests": 0,
+  "savedDraftPose": "wenut-field-poses-source-v1.png",
+  "poseJsonBytesOnDisk": 4085908,
+  "files": {
+    "anemo-core-sprites.json": 36606,
+    "array-field-core-sprites-v1.json": 107542,
+    "drifting-snow-field-ready-sprites-v1.json": 306135,
+    "electro-core-sprites.json": 37221,
+    "emperor-field-guard-sprites-v1.json": 352839,
+    "flugel-field-ready-sprites-v1.json": 684717,
+    "geo-core-sprites.json": 35696,
+    "immortal-construct-field-ready-sprites-v1.json": 603218,
+    "oceanid-boar-sprites.json": 82783,
+    "ruin-serpent-field-idle-sprites-v1.json": 245857,
+    "spiritspeaker-field-ready-sprites-v1.json": 228034,
+    "wavebinder-field-ready-sprites-v1.json": 467104,
+    "wenut-field-idle-sprites-v1.json": 192252,
+    "fallen-vigil-field-ready-sprites-v1.json": 519565,
+    "wolflord-field-idle-sprites-v1.json": 186339
+  }
+}

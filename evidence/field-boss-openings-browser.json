@@ -8,12 +8,190 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 8195,
         "h48c32": 5179,
         "h32c16": 2271
-      }
+      },
+      "parts": [
+        "兆載永劫ドレイク"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 9972,
+          "overlap": 9766,
+          "overlapPercent": 97.9342158042519,
+          "meanRgbError": 17.418902314151136
+        },
+        "h48c32": {
+          "union": 10025,
+          "overlap": 9720,
+          "overlapPercent": 96.9576059850374,
+          "meanRgbError": 20.717832647462277
+        },
+        "h32c16": {
+          "union": 10134,
+          "overlap": 9597,
+          "overlapPercent": 94.70100651272942,
+          "meanRgbError": 27.853287485672606
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "anemo-field-basin": {
+      "tick": 26,
+      "phase": "available",
+      "swimming": false,
+      "actors": 7,
+      "labels": [],
+      "profiles": {
+        "legacy": 10865,
+        "h48c32": 6486,
+        "h32c16": 2805
+      },
+      "parts": [
+        "外殻 1",
+        "外殻 2",
+        "外殻 3",
+        "外殻 4",
+        "外殻 5",
+        "外殻 6",
+        "元素の核"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 4251,
+          "overlap": 4176,
+          "overlapPercent": 98.23570924488355,
+          "meanRgbError": 24.388649425287355
+        },
+        "h48c32": {
+          "union": 4266,
+          "overlap": 4158,
+          "overlapPercent": 97.46835443037975,
+          "meanRgbError": 25.32010582010582
+        },
+        "h32c16": {
+          "union": 4294,
+          "overlap": 4160,
+          "overlapPercent": 96.8793665579879,
+          "meanRgbError": 27.75096153846154
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "array-field-court": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 2598,
+        "h48c32": 1622,
+        "h32c16": 682
+      },
+      "parts": [
+        "恒常からくり陣形"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 5000,
+          "overlap": 4880,
+          "overlapPercent": 97.6,
+          "meanRgbError": 12.803005464480874
+        },
+        "h48c32": {
+          "union": 4990,
+          "overlap": 4895,
+          "overlapPercent": 98.09619238476954,
+          "meanRgbError": 14.350017024174328
+        },
+        "h32c16": {
+          "union": 5055,
+          "overlap": 4826,
+          "overlapPercent": 95.46983184965381,
+          "meanRgbError": 20.381337201270895
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "asimon-field-ruins": {
+      "tick": 29,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 6838,
+        "h48c32": 4121,
+        "h32c16": 1813
+      },
+      "parts": [
+        "半永久統制マトリックス"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 6408,
+          "overlap": 6145,
+          "overlapPercent": 95.89575530586767,
+          "meanRgbError": 22.254461621914835
+        },
+        "h48c32": {
+          "union": 6492,
+          "overlap": 6119,
+          "overlapPercent": 94.25446703635244,
+          "meanRgbError": 25.61415263932015
+        },
+        "h32c16": {
+          "union": 6554,
+          "overlap": 6085,
+          "overlapPercent": 92.84406469331705,
+          "meanRgbError": 37.134209805532734
+        }
+      },
+      "extraRectangles": 2,
+      "behind": 2
+    },
+    "atocpan-lava-field": {
+      "tick": 62,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 11211,
+        "h48c32": 7569,
+        "h32c16": 3430
+      },
+      "parts": [
+        "輝ける溶岩の龍像"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 35137,
+          "overlap": 34856,
+          "overlapPercent": 99.20027321626775,
+          "meanRgbError": 10.762919822507842
+        },
+        "h48c32": {
+          "union": 35201,
+          "overlap": 34841,
+          "overlapPercent": 98.9773017811994,
+          "meanRgbError": 12.575643638242301
+        },
+        "h32c16": {
+          "union": 35256,
+          "overlap": 34722,
+          "overlapPercent": 98.48536419332879,
+          "meanRgbError": 18.0673540310658
+        }
+      },
+      "extraRectangles": 5,
+      "behind": 0
     },
     "atocpan-overseer-ruin": {
       "tick": 59,
@@ -21,12 +199,36 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 8227,
         "h48c32": 5181,
         "h32c16": 2280
-      }
+      },
+      "parts": [
+        "秘源機兵・統御デバイス"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 11513,
+          "overlap": 11260,
+          "overlapPercent": 97.80248414835404,
+          "meanRgbError": 19.965275310834812
+        },
+        "h48c32": {
+          "union": 11563,
+          "overlap": 11242,
+          "overlapPercent": 97.22390383118568,
+          "meanRgbError": 23.949623435924806
+        },
+        "h32c16": {
+          "union": 11654,
+          "overlap": 11144,
+          "overlapPercent": 95.62382014758882,
+          "meanRgbError": 30.57615458243599
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "baptist-field-sanctuary": {
       "tick": 35,
@@ -34,12 +236,723 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 19,
       "profiles": {
         "legacy": 6044,
         "h48c32": 3796,
         "h32c16": 1734
+      },
+      "parts": [
+        "深罪の浸礼者"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 6479,
+          "overlap": 6234,
+          "overlapPercent": 96.21855224571694,
+          "meanRgbError": 27.367607742487433
+        },
+        "h48c32": {
+          "union": 6531,
+          "overlap": 6202,
+          "overlapPercent": 94.96248660235798,
+          "meanRgbError": 30.79829087391164
+        },
+        "h32c16": {
+          "union": 6651,
+          "overlap": 6058,
+          "overlapPercent": 91.08404751165239,
+          "meanRgbError": 38.76598437328051
+        }
+      },
+      "extraRectangles": 19,
+      "behind": 0
+    },
+    "bathysmal-field-sanctum": {
+      "tick": 20,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [],
+      "profiles": {
+        "legacy": 15806,
+        "h48c32": 9981,
+        "h32c16": 4741
+      },
+      "parts": [
+        "アビサルヴィシャップ・噛氷",
+        "アビサルヴィシャップ・吞雷"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 16055,
+          "overlap": 15760,
+          "overlapPercent": 98.16256617876051,
+          "meanRgbError": 13.5
+        },
+        "h48c32": {
+          "union": 16090,
+          "overlap": 15694,
+          "overlapPercent": 97.53884400248602,
+          "meanRgbError": 14.823775540546281
+        },
+        "h32c16": {
+          "union": 16248,
+          "overlap": 15612,
+          "overlapPercent": 96.08567208271788,
+          "meanRgbError": 19.25303185583739
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "bygone-bell-archive": {
+      "tick": 65,
+      "phase": "notice",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4665,
+        "h48c32": 3182,
+        "h32c16": 1094
+      },
+      "parts": [
+        "潮鐘の門像"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 14931,
+          "overlap": 14684,
+          "overlapPercent": 98.34572366217935,
+          "meanRgbError": 7.01278035049487
+        },
+        "h48c32": {
+          "union": 14917,
+          "overlap": 14579,
+          "overlapPercent": 97.73412884628276,
+          "meanRgbError": 10.36486270206004
+        },
+        "h32c16": {
+          "union": 15010,
+          "overlap": 14519,
+          "overlapPercent": 96.7288474350433,
+          "meanRgbError": 15.595013430677044
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0,
+      "quest": {
+        "count": 0,
+        "id": "bygone-sound-book"
       }
+    },
+    "chenyu-boulder-gully": {
+      "tick": 56,
+      "phase": "notice",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4868,
+        "h48c32": 2978,
+        "h32c16": 1301
+      },
+      "parts": [
+        "苔衣の踏石獣"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 12264,
+          "overlap": 12206,
+          "overlapPercent": 99.52707110241357,
+          "meanRgbError": 4.063684526735485
+        },
+        "h48c32": {
+          "union": 12344,
+          "overlap": 12143,
+          "overlapPercent": 98.37167854828256,
+          "meanRgbError": 6.7803947404540335
+        },
+        "h32c16": {
+          "union": 12413,
+          "overlap": 12140,
+          "overlapPercent": 97.80069282204141,
+          "meanRgbError": 9.458978583196046
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "config-device-field-workshop": {
+      "tick": 52,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 8499,
+        "h48c32": 5393,
+        "h32c16": 2429
+      },
+      "parts": [
+        "秘源機兵・機巧デバイス"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 12066,
+          "overlap": 11797,
+          "overlapPercent": 97.77059506050058,
+          "meanRgbError": 24.361730383430817
+        },
+        "h48c32": {
+          "union": 12097,
+          "overlap": 11764,
+          "overlapPercent": 97.24725138464082,
+          "meanRgbError": 28.546667800068004
+        },
+        "h32c16": {
+          "union": 12233,
+          "overlap": 11676,
+          "overlapPercent": 95.44674241804954,
+          "meanRgbError": 37.92954208062122
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "cryo-field-grove": {
+      "tick": 26,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3806,
+        "h48c32": 2339,
+        "h32c16": 1104
+      },
+      "parts": [
+        "急凍樹"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 13336,
+          "overlap": 12813,
+          "overlapPercent": 96.07828434313137,
+          "meanRgbError": 22.528005411170945
+        },
+        "h48c32": {
+          "union": 13401,
+          "overlap": 12724,
+          "overlapPercent": 94.94813819864189,
+          "meanRgbError": 26.718668133710572
+        },
+        "h32c16": {
+          "union": 13561,
+          "overlap": 12546,
+          "overlapPercent": 92.5153012314726,
+          "meanRgbError": 35.24198947871832
+        }
+      },
+      "extraRectangles": 5,
+      "behind": 0
+    },
+    "cryo-hypostasis-field-basin": {
+      "tick": 36,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4383,
+        "h48c32": 2889,
+        "h32c16": 1184
+      },
+      "parts": [
+        "無相の氷"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 8707,
+          "overlap": 8691,
+          "overlapPercent": 99.8162398070518,
+          "meanRgbError": 4.745675603114333
+        },
+        "h48c32": {
+          "union": 8827,
+          "overlap": 8599,
+          "overlapPercent": 97.417015973717,
+          "meanRgbError": 18.172229328991744
+        },
+        "h32c16": {
+          "union": 8882,
+          "overlap": 8548,
+          "overlapPercent": 96.23958567890115,
+          "meanRgbError": 27.50783809078147
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "dendro-hypostasis-field-den": {
+      "tick": 26,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 5766,
+        "h48c32": 3547,
+        "h32c16": 1439
+      },
+      "parts": [
+        "無相の草"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 7848,
+          "overlap": 7600,
+          "overlapPercent": 96.83995922528032,
+          "meanRgbError": 12.982456140350877
+        },
+        "h48c32": {
+          "union": 7849,
+          "overlap": 7643,
+          "overlapPercent": 97.3754618422729,
+          "meanRgbError": 14.759649352348553
+        },
+        "h32c16": {
+          "union": 7836,
+          "overlap": 7569,
+          "overlapPercent": 96.5926493108729,
+          "meanRgbError": 20.12877086361034
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "dornman-windworks": {
+      "tick": 54,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 8948,
+        "h48c32": 5458,
+        "h32c16": 2194
+      },
+      "parts": [
+        "稜風の帆塔機"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 14571,
+          "overlap": 14504,
+          "overlapPercent": 99.54018255438885,
+          "meanRgbError": 8.564373046515904
+        },
+        "h48c32": {
+          "union": 14744,
+          "overlap": 14433,
+          "overlapPercent": 97.89066739012479,
+          "meanRgbError": 20.59862814383704
+        },
+        "h32c16": {
+          "union": 14750,
+          "overlap": 14281,
+          "overlapPercent": 96.82033898305085,
+          "meanRgbError": 28.14604486147095
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "drifting-snow-court": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 6980,
+        "h48c32": 4486,
+        "h32c16": 2029
+      },
+      "parts": [
+        "游雪のブレードガーディアン"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 12826,
+          "overlap": 12756,
+          "overlapPercent": 99.45423358802432,
+          "meanRgbError": 9.431875195986203
+        },
+        "h48c32": {
+          "union": 12976,
+          "overlap": 12643,
+          "overlapPercent": 97.43372379778052,
+          "meanRgbError": 17.201218065332593
+        },
+        "h32c16": {
+          "union": 12947,
+          "overlap": 12546,
+          "overlapPercent": 96.90275739553564,
+          "meanRgbError": 25.691747701790742
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "electro-field-shelf": {
+      "tick": 40,
+      "phase": "available",
+      "swimming": false,
+      "actors": 7,
+      "labels": [],
+      "profiles": {
+        "legacy": 12453,
+        "h48c32": 7788,
+        "h32c16": 3432
+      },
+      "parts": [
+        "外殻 1",
+        "外殻 2",
+        "外殻 3",
+        "外殻 4",
+        "外殻 5",
+        "外殻 6",
+        "元素の核"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 4415,
+          "overlap": 4347,
+          "overlapPercent": 98.45979614949037,
+          "meanRgbError": 22.4925235794801
+        },
+        "h48c32": {
+          "union": 4431,
+          "overlap": 4309,
+          "overlapPercent": 97.24667118032048,
+          "meanRgbError": 23.2343157731879
+        },
+        "h32c16": {
+          "union": 4453,
+          "overlap": 4311,
+          "overlapPercent": 96.81113855827532,
+          "meanRgbError": 26.550606974406556
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "electro-regisvine-field-cave": {
+      "tick": 26,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 8159,
+        "h48c32": 5317,
+        "h32c16": 2504
+      },
+      "parts": [
+        "迅電樹"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 13900,
+          "overlap": 13609,
+          "overlapPercent": 97.90647482014388,
+          "meanRgbError": 14.692066524603817
+        },
+        "h48c32": {
+          "union": 13976,
+          "overlap": 13560,
+          "overlapPercent": 97.02346880366342,
+          "meanRgbError": 16.93232546705998
+        },
+        "h32c16": {
+          "union": 14079,
+          "overlap": 13462,
+          "overlapPercent": 95.61758647631224,
+          "meanRgbError": 22.95572723220918
+        }
+      },
+      "extraRectangles": 5,
+      "behind": 0
+    },
+    "emperor-field-cove": {
+      "tick": 40,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 8278,
+        "h48c32": 5178,
+        "h32c16": 2264
+      },
+      "parts": [
+        "鉄甲熔炎帝王"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 15786,
+          "overlap": 15740,
+          "overlapPercent": 99.7086025592297,
+          "meanRgbError": 9.80988987717069
+        },
+        "h48c32": {
+          "union": 15894,
+          "overlap": 15657,
+          "overlapPercent": 98.50887127217818,
+          "meanRgbError": 17.592429371314214
+        },
+        "h32c16": {
+          "union": 15968,
+          "overlap": 15616,
+          "overlapPercent": 97.79559118236473,
+          "meanRgbError": 24.392140539617486
+        }
+      },
+      "extraRectangles": 3,
+      "behind": 0
+    },
+    "enkan-tablet-hollow": {
+      "tick": 63,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 6284,
+        "h48c32": 4204,
+        "h32c16": 1840
+      },
+      "parts": [
+        "灯断ちの盤尾獣"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 16312,
+          "overlap": 16105,
+          "overlapPercent": 98.7309955860716,
+          "meanRgbError": 5.883431646486598
+        },
+        "h48c32": {
+          "union": 16329,
+          "overlap": 16042,
+          "overlapPercent": 98.24239083838569,
+          "meanRgbError": 7.39984623696131
+        },
+        "h32c16": {
+          "union": 16371,
+          "overlap": 15961,
+          "overlapPercent": 97.49557143729766,
+          "meanRgbError": 10.073658709771735
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "field-generator-field-chamber": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 8097,
+        "h48c32": 5051,
+        "h32c16": 2266
+      },
+      "parts": [
+        "実験用フィールド生成装置"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 8642,
+          "overlap": 8375,
+          "overlapPercent": 96.91043739875029,
+          "meanRgbError": 18.445373134328356
+        },
+        "h48c32": {
+          "union": 8660,
+          "overlap": 8317,
+          "overlapPercent": 96.03926096997691,
+          "meanRgbError": 21.197547192497296
+        },
+        "h32c16": {
+          "union": 8740,
+          "overlap": 8247,
+          "overlapPercent": 94.35926773455378,
+          "meanRgbError": 28.987025585061236
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "flugel-tundra-basin": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 15505,
+        "h48c32": 9940,
+        "h32c16": 4351
+      },
+      "parts": [
+        "合成獣・フリューゲルレーヴェ"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 30557,
+          "overlap": 30274,
+          "overlapPercent": 99.07386196288903,
+          "meanRgbError": 11.139008169826694
+        },
+        "h48c32": {
+          "union": 30778,
+          "overlap": 30022,
+          "overlapPercent": 97.54370004548704,
+          "meanRgbError": 16.15055625874359
+        },
+        "h32c16": {
+          "union": 30996,
+          "overlap": 29808,
+          "overlapPercent": 96.16724738675958,
+          "meanRgbError": 23.532194936482377
+        }
+      },
+      "extraRectangles": 13,
+      "behind": 0
+    },
+    "fontaine-grand-stage": {
+      "tick": 76,
+      "phase": "notice",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 11798,
+        "h48c32": 7225,
+        "h32c16": 3035
+      },
+      "parts": [
+        "グラン・フィナーレ"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 20565,
+          "overlap": 20297,
+          "overlapPercent": 98.6968149769025,
+          "meanRgbError": 17.151352416613292
+        },
+        "h48c32": {
+          "union": 20660,
+          "overlap": 20243,
+          "overlapPercent": 97.98160696999032,
+          "meanRgbError": 22.391114623985246
+        },
+        "h32c16": {
+          "union": 20782,
+          "overlap": 20190,
+          "overlapPercent": 97.15138100279087,
+          "meanRgbError": 29.137130592702658
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0,
+      "quest": {
+        "count": 3,
+        "id": "fontaine-grand-finale"
+      }
+    },
+    "geo-field-court": {
+      "tick": 36,
+      "phase": "available",
+      "swimming": false,
+      "actors": 7,
+      "labels": [],
+      "profiles": {
+        "legacy": 11307,
+        "h48c32": 7219,
+        "h32c16": 2984
+      },
+      "parts": [
+        "外殻 1",
+        "外殻 2",
+        "外殻 3",
+        "外殻 4",
+        "外殻 5",
+        "外殻 6",
+        "元素の核"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 4287,
+          "overlap": 4211,
+          "overlapPercent": 98.22719850711454,
+          "meanRgbError": 20.907860365708856
+        },
+        "h48c32": {
+          "union": 4309,
+          "overlap": 4218,
+          "overlapPercent": 97.8881411000232,
+          "meanRgbError": 21.009167061798642
+        },
+        "h32c16": {
+          "union": 4376,
+          "overlap": 4203,
+          "overlapPercent": 96.04661791590493,
+          "meanRgbError": 24.080180823221507
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "hydro-hypostasis-field-cove": {
+      "tick": 40,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4764,
+        "h48c32": 3040,
+        "h32c16": 1259
+      },
+      "parts": [
+        "無相の水"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 8639,
+          "overlap": 8637,
+          "overlapPercent": 99.97684917235792,
+          "meanRgbError": 2.9542279340820503
+        },
+        "h48c32": {
+          "union": 8790,
+          "overlap": 8563,
+          "overlapPercent": 97.41751990898749,
+          "meanRgbError": 13.104013390945541
+        },
+        "h32c16": {
+          "union": 8868,
+          "overlap": 8426,
+          "overlapPercent": 95.01578709968426,
+          "meanRgbError": 17.50617137431759
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "icewind-coppelia-field": {
       "tick": 38,
@@ -50,12 +963,37 @@
         "風",
         "氷"
       ],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 6645,
         "h48c32": 4048,
         "h32c16": 1829
-      }
+      },
+      "parts": [
+        "主役・コッペリア",
+        "相方・コペリウス"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 10928,
+          "overlap": 10736,
+          "overlapPercent": 98.24304538799414,
+          "meanRgbError": 12.56582215598609
+        },
+        "h48c32": {
+          "union": 11017,
+          "overlap": 10610,
+          "overlapPercent": 96.3057093582645,
+          "meanRgbError": 20.178730757147346
+        },
+        "h32c16": {
+          "union": 11158,
+          "overlap": 10441,
+          "overlapPercent": 93.5741172253092,
+          "meanRgbError": 28.2647894518405
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "icewind-coppelius-field": {
       "tick": 10,
@@ -66,12 +1004,74 @@
         "氷",
         "風"
       ],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 6645,
         "h48c32": 4048,
         "h32c16": 1829
-      }
+      },
+      "parts": [
+        "主役・コペリウス",
+        "相方・コッペリア"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 10928,
+          "overlap": 10736,
+          "overlapPercent": 98.24304538799414,
+          "meanRgbError": 12.56582215598609
+        },
+        "h48c32": {
+          "union": 11017,
+          "overlap": 10610,
+          "overlapPercent": 96.3057093582645,
+          "meanRgbError": 20.178730757147346
+        },
+        "h32c16": {
+          "union": 11158,
+          "overlap": 10441,
+          "overlapPercent": 93.5741172253092,
+          "meanRgbError": 28.2647894518405
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "immortal-construct-root-hollow": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 13892,
+        "h48c32": 8634,
+        "h32c16": 3726
+      },
+      "parts": [
+        "不滅の副産物"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 24501,
+          "overlap": 24240,
+          "overlapPercent": 98.93473735765888,
+          "meanRgbError": 11.260519801980198
+        },
+        "h48c32": {
+          "union": 24766,
+          "overlap": 23983,
+          "overlapPercent": 96.8384074941452,
+          "meanRgbError": 15.697090995010354
+        },
+        "h32c16": {
+          "union": 24941,
+          "overlap": 23796,
+          "overlapPercent": 95.4091656308889,
+          "meanRgbError": 20.340967669636353
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "legatus-field-hall": {
       "tick": 43,
@@ -79,12 +1079,36 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 9413,
         "h48c32": 5857,
         "h32c16": 2647
-      }
+      },
+      "parts": [
+        "魔像レガトゥス"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 8987,
+          "overlap": 8786,
+          "overlapPercent": 97.76343607432959,
+          "meanRgbError": 19.082024432809774
+        },
+        "h48c32": {
+          "union": 9025,
+          "overlap": 8747,
+          "overlapPercent": 96.9196675900277,
+          "meanRgbError": 21.673716702869555
+        },
+        "h32c16": {
+          "union": 9131,
+          "overlap": 8676,
+          "overlapPercent": 95.01697513963421,
+          "meanRgbError": 29.662248347932994
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "maguu-field-dojo": {
       "tick": 43,
@@ -92,12 +1116,151 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 4295,
         "h48c32": 2564,
         "h32c16": 1135
+      },
+      "parts": [
+        "魔偶剣鬼"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 9168,
+          "overlap": 8898,
+          "overlapPercent": 97.05497382198953,
+          "meanRgbError": 24.059264254139507
+        },
+        "h48c32": {
+          "union": 9252,
+          "overlap": 8843,
+          "overlapPercent": 95.57933419801124,
+          "meanRgbError": 28.747144634173925
+        },
+        "h32c16": {
+          "union": 9396,
+          "overlap": 8738,
+          "overlapPercent": 92.99702000851426,
+          "meanRgbError": 38.703288319218736
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "natlan-sunset-arena": {
+      "tick": 76,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 1700,
+        "h48c32": 1036,
+        "h32c16": 417
+      },
+      "parts": [
+        "夕映えの水走者（模擬役）"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 4445,
+          "overlap": 4309,
+          "overlapPercent": 96.94038245219348,
+          "meanRgbError": 8.631391660864857
+        },
+        "h48c32": {
+          "union": 4397,
+          "overlap": 4264,
+          "overlapPercent": 96.9752103707073,
+          "meanRgbError": 12.621560350218887
+        },
+        "h32c16": {
+          "union": 4466,
+          "overlap": 4267,
+          "overlapPercent": 95.54411106135244,
+          "meanRgbError": 17.957737676744003
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0,
+      "quest": {
+        "count": 2,
+        "id": "natlan-sunset-duel"
       }
+    },
+    "nod-battleship-depot": {
+      "tick": 63,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 19685,
+        "h48c32": 12206,
+        "h32c16": 5631
+      },
+      "parts": [
+        "重量級陸巡艦「バトルシップ」"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 40499,
+          "overlap": 40135,
+          "overlapPercent": 99.10121237561421,
+          "meanRgbError": 12.278701050620821
+        },
+        "h48c32": {
+          "union": 40716,
+          "overlap": 40010,
+          "overlapPercent": 98.26603792121034,
+          "meanRgbError": 15.558027159876698
+        },
+        "h32c16": {
+          "union": 40731,
+          "overlap": 39809,
+          "overlapPercent": 97.73636787704697,
+          "meanRgbError": 20.88164317951552
+        }
+      },
+      "extraRectangles": 5,
+      "behind": 0
+    },
+    "nod-duckle-workyard": {
+      "tick": 60,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 7431,
+        "h48c32": 4607,
+        "h32c16": 2096
+      },
+      "parts": [
+        "ボコボコダック"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 15357,
+          "overlap": 15228,
+          "overlapPercent": 99.15999218597382,
+          "meanRgbError": 12.4312231853603
+        },
+        "h48c32": {
+          "union": 15492,
+          "overlap": 15139,
+          "overlapPercent": 97.72140459592048,
+          "meanRgbError": 20.048506066010525
+        },
+        "h32c16": {
+          "union": 15588,
+          "overlap": 15063,
+          "overlapPercent": 96.6320246343341,
+          "meanRgbError": 27.691739140056207
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "nod-gecko-depths": {
       "tick": 66,
@@ -105,11 +1268,113 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 9736,
         "h48c32": 6170,
         "h32c16": 2845
+      },
+      "parts": [
+        "集光の月ヤモリ"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 18103,
+          "overlap": 17672,
+          "overlapPercent": 97.61917914157874,
+          "meanRgbError": 15.152444545043005
+        },
+        "h48c32": {
+          "union": 18157,
+          "overlap": 17587,
+          "overlapPercent": 96.86071487580547,
+          "meanRgbError": 18.293625973730595
+        },
+        "h32c16": {
+          "union": 18313,
+          "overlap": 17385,
+          "overlapPercent": 94.93256156828483,
+          "meanRgbError": 25.71799443965104
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "nod-herra-terrace": {
+      "tick": 60,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 13573,
+        "h48c32": 8538,
+        "h32c16": 3863
+      },
+      "parts": [
+        "霜夜の空を巡る霊主"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 24797,
+          "overlap": 24219,
+          "overlapPercent": 97.66907287171836,
+          "meanRgbError": 12.884140550807217
+        },
+        "h48c32": {
+          "union": 25086,
+          "overlap": 24013,
+          "overlapPercent": 95.72271386430678,
+          "meanRgbError": 18.360374241730174
+        },
+        "h32c16": {
+          "union": 25260,
+          "overlap": 23711,
+          "overlapPercent": 93.86777513855898,
+          "meanRgbError": 24.005820083505547
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "nod-moon-crab-arena": {
+      "tick": 69,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 5271,
+        "h48c32": 3541,
+        "h32c16": 1612
+      },
+      "parts": [
+        "月殻の大ヤドカニ"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 14024,
+          "overlap": 13863,
+          "overlapPercent": 98.85196805476326,
+          "meanRgbError": 8.42003895260766
+        },
+        "h48c32": {
+          "union": 14085,
+          "overlap": 13861,
+          "overlapPercent": 98.40965566205183,
+          "meanRgbError": 12.835726138085276
+        },
+        "h32c16": {
+          "union": 14104,
+          "overlap": 13757,
+          "overlapPercent": 97.53970504821328,
+          "meanRgbError": 17.564997213539773
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0,
+      "quest": {
+        "count": 1,
+        "id": "nod-moon-vault-quest"
       }
     },
     "nod-moonfly-hollow": {
@@ -118,12 +1383,222 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 6452,
         "h48c32": 4095,
         "h32c16": 1847
-      }
+      },
+      "parts": [
+        "集光の幻月蝶"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 12113,
+          "overlap": 11392,
+          "overlapPercent": 94.04771732849005,
+          "meanRgbError": 19.961932350187265
+        },
+        "h48c32": {
+          "union": 11985,
+          "overlap": 11255,
+          "overlapPercent": 93.90905298289529,
+          "meanRgbError": 22.564282541092847
+        },
+        "h32c16": {
+          "union": 12170,
+          "overlap": 11068,
+          "overlapPercent": 90.94494658997534,
+          "meanRgbError": 30.47867726779906
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "nod-nightmare-shore": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 6956,
+        "h48c32": 4404,
+        "h32c16": 2004
+      },
+      "parts": [
+        "昏き魘夢の主"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 12077,
+          "overlap": 11669,
+          "overlapPercent": 96.62167756893268,
+          "meanRgbError": 14.044962436084212
+        },
+        "h48c32": {
+          "union": 12234,
+          "overlap": 11513,
+          "overlapPercent": 94.10658819682851,
+          "meanRgbError": 18.897738788036712
+        },
+        "h32c16": {
+          "union": 12446,
+          "overlap": 11261,
+          "overlapPercent": 90.47886871283947,
+          "meanRgbError": 25.68919278927271
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "nod-quiet-rim": {
+      "tick": 63,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4185,
+        "h48c32": 2640,
+        "h32c16": 1246
+      },
+      "parts": [
+        "玻璃根の歩行晶"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 11759,
+          "overlap": 11686,
+          "overlapPercent": 99.37919891147206,
+          "meanRgbError": 7.897854983170745
+        },
+        "h48c32": {
+          "union": 11808,
+          "overlap": 11599,
+          "overlapPercent": 98.2300135501355,
+          "meanRgbError": 11.102020289105383
+        },
+        "h32c16": {
+          "union": 11868,
+          "overlap": 11514,
+          "overlapPercent": 97.01718907987866,
+          "meanRgbError": 15.817815992125528
+        }
+      },
+      "extraRectangles": 1,
+      "behind": 0
+    },
+    "novo-ice-vault": {
+      "tick": 64,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4479,
+        "h48c32": 2952,
+        "h32c16": 1283
+      },
+      "parts": [
+        "氷継ぎの岩這い"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 17673,
+          "overlap": 17570,
+          "overlapPercent": 99.41719006393934,
+          "meanRgbError": 4.311439954467843
+        },
+        "h48c32": {
+          "union": 17738,
+          "overlap": 17520,
+          "overlapPercent": 98.77100011275229,
+          "meanRgbError": 5.891457382039574
+        },
+        "h32c16": {
+          "union": 17762,
+          "overlap": 17487,
+          "overlapPercent": 98.45175092894944,
+          "meanRgbError": 9.553401574502963
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "oceanid-field-reservoir": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [],
+      "profiles": {
+        "legacy": 5591,
+        "h48c32": 3580,
+        "h32c16": 1677
+      },
+      "parts": [
+        "純水精霊・本体",
+        "水の幻形・イノシシ"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 10387,
+          "overlap": 9985,
+          "overlapPercent": 96.12977760662366,
+          "meanRgbError": 18.136337840093475
+        },
+        "h48c32": {
+          "union": 10465,
+          "overlap": 9945,
+          "overlapPercent": 95.03105590062111,
+          "meanRgbError": 21.930517848164907
+        },
+        "h32c16": {
+          "union": 10615,
+          "overlap": 9797,
+          "overlapPercent": 92.29392369288742,
+          "meanRgbError": 28.44796025994352
+        }
+      },
+      "extraRectangles": 12,
+      "behind": 0
+    },
+    "ochka-sifting-kiln": {
+      "tick": 42,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 9609,
+        "h48c32": 5868,
+        "h32c16": 2538
+      },
+      "parts": [
+        "礫脈の選鉱炉"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 18512,
+          "overlap": 18310,
+          "overlapPercent": 98.90881590319792,
+          "meanRgbError": 11.298161296195158
+        },
+        "h48c32": {
+          "union": 18550,
+          "overlap": 18309,
+          "overlapPercent": 98.70080862533693,
+          "meanRgbError": 13.560944526371365
+        },
+        "h32c16": {
+          "union": 18541,
+          "overlap": 18154,
+          "overlapPercent": 97.91273394099564,
+          "meanRgbError": 19.600712423341044
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "papilla-field-hollow": {
       "tick": 52,
@@ -131,12 +1606,147 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 7089,
         "h48c32": 4396,
         "h32c16": 1979
-      }
+      },
+      "parts": [
+        "深遠なるミミックパピラ・I型"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 8772,
+          "overlap": 8388,
+          "overlapPercent": 95.62243502051983,
+          "meanRgbError": 17.677475759020822
+        },
+        "h48c32": {
+          "union": 8839,
+          "overlap": 8345,
+          "overlapPercent": 94.41113248104989,
+          "meanRgbError": 20.712402636309168
+        },
+        "h32c16": {
+          "union": 8932,
+          "overlap": 8258,
+          "overlapPercent": 92.45409762651143,
+          "meanRgbError": 27.702833615887624
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "primo-field-vault": {
+      "tick": 49,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 9954,
+        "h48c32": 6228,
+        "h32c16": 2788
+      },
+      "parts": [
+        "エンシェントヴィシャップ・岩"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 20268,
+          "overlap": 20004,
+          "overlapPercent": 98.69745411486086,
+          "meanRgbError": 13.11747650469906
+        },
+        "h48c32": {
+          "union": 20333,
+          "overlap": 19994,
+          "overlapPercent": 98.3327595534353,
+          "meanRgbError": 15.524824113900836
+        },
+        "h32c16": {
+          "union": 20425,
+          "overlap": 19839,
+          "overlapPercent": 97.13096695226439,
+          "meanRgbError": 21.152779878018045
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "pyro-field-grotto": {
+      "tick": 38,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3414,
+        "h48c32": 2167,
+        "h32c16": 990
+      },
+      "parts": [
+        "爆炎樹"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 14046,
+          "overlap": 13541,
+          "overlapPercent": 96.40467036878827,
+          "meanRgbError": 13.605395957954853
+        },
+        "h48c32": {
+          "union": 14224,
+          "overlap": 13470,
+          "overlapPercent": 94.69910011248594,
+          "meanRgbError": 16.88473150210344
+        },
+        "h32c16": {
+          "union": 14353,
+          "overlap": 13352,
+          "overlapPercent": 93.02584825472027,
+          "meanRgbError": 23.857524465747954
+        }
+      },
+      "extraRectangles": 5,
+      "behind": 0
+    },
+    "pyro-hypostasis-field-terrace": {
+      "tick": 39,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4814,
+        "h48c32": 2771,
+        "h32c16": 1163
+      },
+      "parts": [
+        "無相の炎"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 9211,
+          "overlap": 9202,
+          "overlapPercent": 99.90229073933341,
+          "meanRgbError": 3.754038977033978
+        },
+        "h48c32": {
+          "union": 9304,
+          "overlap": 9013,
+          "overlapPercent": 96.87231298366294,
+          "meanRgbError": 12.064610377602722
+        },
+        "h32c16": {
+          "union": 9342,
+          "overlap": 8912,
+          "overlapPercent": 95.39713123528152,
+          "meanRgbError": 17.54200329144225
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "qucusaur-field-cavern": {
       "tick": 45,
@@ -144,12 +1754,73 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 9599,
         "h48c32": 6176,
         "h32c16": 2642
-      }
+      },
+      "parts": [
+        "暴君・金焔のクク竜"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 15169,
+          "overlap": 14850,
+          "overlapPercent": 97.89702683103698,
+          "meanRgbError": 13.7662177328844
+        },
+        "h48c32": {
+          "union": 15276,
+          "overlap": 14814,
+          "overlapPercent": 96.97564807541241,
+          "meanRgbError": 16.51581837001035
+        },
+        "h32c16": {
+          "union": 15367,
+          "overlap": 14713,
+          "overlapPercent": 95.74412702544413,
+          "meanRgbError": 21.42527016923809
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "ruin-serpent-field-pit": {
+      "tick": 23,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 5696,
+        "h48c32": 3614,
+        "h32c16": 1636
+      },
+      "parts": [
+        "遺跡サーペント"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 10750,
+          "overlap": 10568,
+          "overlapPercent": 98.30697674418604,
+          "meanRgbError": 7.610269997476659
+        },
+        "h48c32": {
+          "union": 10809,
+          "overlap": 10492,
+          "overlapPercent": 97.06725876584328,
+          "meanRgbError": 10.158406404879909
+        },
+        "h32c16": {
+          "union": 10846,
+          "overlap": 10450,
+          "overlapPercent": 96.34888438133875,
+          "meanRgbError": 14.714673046251994
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "seahorse-field-cavern": {
       "tick": 40,
@@ -157,12 +1828,147 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 8422,
         "h48c32": 5406,
         "h32c16": 2461
-      }
+      },
+      "parts": [
+        "千年真珠の海駿"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 11313,
+          "overlap": 11072,
+          "overlapPercent": 97.8697074162468,
+          "meanRgbError": 18.335982658959537
+        },
+        "h48c32": {
+          "union": 11388,
+          "overlap": 11041,
+          "overlapPercent": 96.95293291183702,
+          "meanRgbError": 19.93222232285723
+        },
+        "h32c16": {
+          "union": 11517,
+          "overlap": 10935,
+          "overlapPercent": 94.94660067725971,
+          "meanRgbError": 26.246029568663314
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "spine-trace-ridge": {
+      "tick": 62,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3229,
+        "h48c32": 1973,
+        "h32c16": 895
+      },
+      "parts": [
+        "霜紋の岩兎"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 7593,
+          "overlap": 7455,
+          "overlapPercent": 98.18253654681943,
+          "meanRgbError": 7.1086519114688125
+        },
+        "h48c32": {
+          "union": 7605,
+          "overlap": 7415,
+          "overlapPercent": 97.50164365548981,
+          "meanRgbError": 10.074578556979096
+        },
+        "h32c16": {
+          "union": 7653,
+          "overlap": 7372,
+          "overlapPercent": 96.328237292565,
+          "meanRgbError": 14.127147766323024
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "spiritspeaker-field-grotto": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 5355,
+        "h48c32": 3330,
+        "h32c16": 1527
+      },
+      "parts": [
+        "迷える霊覚の修験者"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 9694,
+          "overlap": 9395,
+          "overlapPercent": 96.91561790798433,
+          "meanRgbError": 18.999325882561646
+        },
+        "h48c32": {
+          "union": 9736,
+          "overlap": 9334,
+          "overlapPercent": 95.87099424815119,
+          "meanRgbError": 22.29655024641097
+        },
+        "h32c16": {
+          "union": 9792,
+          "overlap": 9280,
+          "overlapPercent": 94.77124183006536,
+          "meanRgbError": 29.94967672413793
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "steam-stabling-depot": {
+      "tick": 23,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4160,
+        "h48c32": 2690,
+        "h32c16": 1099
+      },
+      "parts": [
+        "鉱殻除雪機"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 8653,
+          "overlap": 8587,
+          "overlapPercent": 99.2372587541893,
+          "meanRgbError": 6.91133884554171
+        },
+        "h48c32": {
+          "union": 8706,
+          "overlap": 8548,
+          "overlapPercent": 98.1851596600046,
+          "meanRgbError": 11.651614412728124
+        },
+        "h32c16": {
+          "union": 8831,
+          "overlap": 8552,
+          "overlapPercent": 96.84067489525535,
+          "meanRgbError": 17.965310258808856
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "suanni-field-sanctum": {
       "tick": 44,
@@ -170,12 +1976,151 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 7678,
         "h48c32": 4946,
         "h32c16": 2257
+      },
+      "parts": [
+        "山隠れの猊獣"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 12118,
+          "overlap": 11812,
+          "overlapPercent": 97.47483083016999,
+          "meanRgbError": 15.450869172592844
+        },
+        "h48c32": {
+          "union": 12206,
+          "overlap": 11795,
+          "overlapPercent": 96.632803539243,
+          "meanRgbError": 17.580415430267063
+        },
+        "h32c16": {
+          "union": 12324,
+          "overlap": 11640,
+          "overlapPercent": 94.44985394352483,
+          "meanRgbError": 24.048969072164947
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "sumeru-jadeplume-grove": {
+      "tick": 36,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 6145,
+        "h48c32": 4055,
+        "h32c16": 1893
+      },
+      "parts": [
+        "マッシュラプトル"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 15965,
+          "overlap": 15779,
+          "overlapPercent": 98.83495145631068,
+          "meanRgbError": 14.442740351099562
+        },
+        "h48c32": {
+          "union": 16025,
+          "overlap": 15705,
+          "overlapPercent": 98.003120124805,
+          "meanRgbError": 16.604223707948638
+        },
+        "h32c16": {
+          "union": 16145,
+          "overlap": 15654,
+          "overlapPercent": 96.95881077733044,
+          "meanRgbError": 22.589476598100592
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "sumeru-observatory-terrace": {
+      "tick": 63,
+      "phase": "notice",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 3393,
+        "h48c32": 2365,
+        "h32c16": 1120
+      },
+      "parts": [
+        "枝傘の大キノコン"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 13048,
+          "overlap": 13026,
+          "overlapPercent": 99.83139178418148,
+          "meanRgbError": 5.542683863043145
+        },
+        "h48c32": {
+          "union": 13176,
+          "overlap": 12911,
+          "overlapPercent": 97.98876745598056,
+          "meanRgbError": 11.334133684455116
+        },
+        "h32c16": {
+          "union": 13297,
+          "overlap": 12879,
+          "overlapPercent": 96.8564337820561,
+          "meanRgbError": 16.708465978207418
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0,
+      "quest": {
+        "count": 1,
+        "id": "sumeru-observatory-map"
       }
+    },
+    "thunder-field-crest": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4530,
+        "h48c32": 2831,
+        "h32c16": 1199
+      },
+      "parts": [
+        "雷音権現"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 6960,
+          "overlap": 6608,
+          "overlapPercent": 94.94252873563218,
+          "meanRgbError": 14.802310330912025
+        },
+        "h48c32": {
+          "union": 7066,
+          "overlap": 6579,
+          "overlapPercent": 93.10784036229833,
+          "meanRgbError": 17.906368749050007
+        },
+        "h32c16": {
+          "union": 7126,
+          "overlap": 6491,
+          "overlapPercent": 91.08896996912713,
+          "meanRgbError": 23.80732295999589
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "tulpa-field-grotto": {
       "tick": 43,
@@ -183,12 +2128,262 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 9888,
         "h48c32": 6597,
         "h32c16": 2989
+      },
+      "parts": [
+        "水形タルパ"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 15640,
+          "overlap": 15360,
+          "overlapPercent": 98.20971867007673,
+          "meanRgbError": 12.668858506944444
+        },
+        "h48c32": {
+          "union": 15643,
+          "overlap": 15321,
+          "overlapPercent": 97.94157130985106,
+          "meanRgbError": 14.513782825316015
+        },
+        "h32c16": {
+          "union": 15760,
+          "overlap": 15274,
+          "overlapPercent": 96.91624365482234,
+          "meanRgbError": 19.388830692680372
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "tunigi-fragment-vault": {
+      "tick": 62,
+      "phase": "notice",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4866,
+        "h48c32": 2984,
+        "h32c16": 1344
+      },
+      "parts": [
+        "風礫の割輪機"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 9540,
+          "overlap": 9375,
+          "overlapPercent": 98.27044025157232,
+          "meanRgbError": 12.562773333333332
+        },
+        "h48c32": {
+          "union": 9634,
+          "overlap": 9341,
+          "overlapPercent": 96.95868798007058,
+          "meanRgbError": 16.82692788066945
+        },
+        "h32c16": {
+          "union": 9666,
+          "overlap": 9243,
+          "overlapPercent": 95.62383612662943,
+          "meanRgbError": 23.104259078942622
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0,
+      "quest": {
+        "count": 1,
+        "id": "tunigi-fragment-return"
       }
+    },
+    "wavebinder-tide-cavern": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 10747,
+        "h48c32": 6818,
+        "h32c16": 3003
+      },
+      "parts": [
+        "波濤の投錨者"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 20193,
+          "overlap": 19938,
+          "overlapPercent": 98.73718615361759,
+          "meanRgbError": 13.461062627478517
+        },
+        "h48c32": {
+          "union": 20231,
+          "overlap": 19766,
+          "overlapPercent": 97.70154713064109,
+          "meanRgbError": 19.948295052109682
+        },
+        "h32c16": {
+          "union": 20373,
+          "overlap": 19719,
+          "overlapPercent": 96.78986894419084,
+          "meanRgbError": 27.27491252091891
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "wenut-field-cavern": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4403,
+        "h48c32": 2903,
+        "h32c16": 1351
+      },
+      "parts": [
+        "風蝕ウェネト"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 9301,
+          "overlap": 9140,
+          "overlapPercent": 98.26900333297495,
+          "meanRgbError": 10.862253829321663
+        },
+        "h48c32": {
+          "union": 9309,
+          "overlap": 9081,
+          "overlapPercent": 97.55075733161456,
+          "meanRgbError": 14.797893036743384
+        },
+        "h32c16": {
+          "union": 9408,
+          "overlap": 9010,
+          "overlapPercent": 95.76955782312925,
+          "meanRgbError": 22.189234184239734
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "white-rainbow-basin": {
+      "tick": 20,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 12004,
+        "h48c32": 7552,
+        "h32c16": 3339
+      },
+      "parts": [
+        "霜鎧の大角獣"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 21703,
+          "overlap": 21513,
+          "overlapPercent": 99.12454499377966,
+          "meanRgbError": 8.141743751839973
+        },
+        "h48c32": {
+          "union": 21752,
+          "overlap": 21449,
+          "overlapPercent": 98.60702464141228,
+          "meanRgbError": 11.662222015012356
+        },
+        "h32c16": {
+          "union": 21865,
+          "overlap": 21437,
+          "overlapPercent": 98.04253372970501,
+          "meanRgbError": 17.0879631789274
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "windrest-vigil-court": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 12238,
+        "h48c32": 7313,
+        "h32c16": 3359
+      },
+      "parts": [
+        "守護者・堕天"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 20803,
+          "overlap": 20702,
+          "overlapPercent": 99.51449310195645,
+          "meanRgbError": 9.511110037677518
+        },
+        "h48c32": {
+          "union": 21228,
+          "overlap": 20291,
+          "overlapPercent": 95.58601846617675,
+          "meanRgbError": 20.455423586811886
+        },
+        "h32c16": {
+          "union": 21312,
+          "overlap": 20164,
+          "overlapPercent": 94.61336336336336,
+          "meanRgbError": 29.5404516299676
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
+    },
+    "wolflord-field-ruins": {
+      "tick": 40,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "profiles": {
+        "legacy": 4456,
+        "h48c32": 2727,
+        "h32c16": 1171
+      },
+      "parts": [
+        "黄金王獣"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 7337,
+          "overlap": 7136,
+          "overlapPercent": 97.26046067875153,
+          "meanRgbError": 11.558202541106128
+        },
+        "h48c32": {
+          "union": 7409,
+          "overlap": 7086,
+          "overlapPercent": 95.64043730597922,
+          "meanRgbError": 15.614874400225798
+        },
+        "h32c16": {
+          "union": 7531,
+          "overlap": 6993,
+          "overlapPercent": 92.85619439649449,
+          "meanRgbError": 21.453644120310788
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     },
     "yumka-field-ravine": {
       "tick": 53,
@@ -196,12 +2391,36 @@
       "swimming": false,
       "actors": 1,
       "labels": [],
-      "hpBarRectangles": 0,
       "profiles": {
         "legacy": 6431,
         "h48c32": 4323,
         "h32c16": 1914
-      }
+      },
+      "parts": [
+        "山の王・貪食のユムカ竜"
+      ],
+      "fidelity": {
+        "legacy": {
+          "union": 14102,
+          "overlap": 13918,
+          "overlapPercent": 98.69522053609417,
+          "meanRgbError": 13.693562293432965
+        },
+        "h48c32": {
+          "union": 14158,
+          "overlap": 13879,
+          "overlapPercent": 98.02938268116965,
+          "meanRgbError": 14.920263227417921
+        },
+        "h32c16": {
+          "union": 14212,
+          "overlap": 13828,
+          "overlapPercent": 97.29805797917253,
+          "meanRgbError": 20.238622119371325
+        }
+      },
+      "extraRectangles": 0,
+      "behind": 0
     }
   }
 }

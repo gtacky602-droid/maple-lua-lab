@@ -1,4 +1,4 @@
-"""Capture the first visible group in each water or multi-body local legend encounter."""
+"""Extract a field controller’s first visible draw layer and build group legend previews."""
 import json
 import sys
 from pathlib import Path
@@ -15,12 +15,14 @@ def read(name):
 def capture(lua, core, boss, node, gallery, work, styles=None):
     state = core.new(12)
     core.action(state, 'story_start')
+    window = boss.get('storyWindow')
+    if window:
+        state.story.quests[window['quest']] = lua.table_from({'status': 'active', 'count': window['first']})
     core.enterStoryNode(state, node['id'])
     swimming = boss['controller'] == 'waterLegend'
     assert bool(state.storySwimming) == swimming, node['id']
     if styles is None:
         styles = boss.get('members') or [boss] + ([boss['partner']] if boss.get('partner') else [])
-    slot = state.fieldSlots[boss['id']]
     forward = lua.table_from({'right': True})
     for tick in range(1, 360):
         core.step(state, 1 / 60, forward)
@@ -30,21 +32,17 @@ def capture(lua, core, boss, node, gallery, work, styles=None):
     assert frame.fieldBoss and frame.fieldBoss.phase in ('available', 'notice'), (node['id'], tick)
     camera = frame.camera
 
-    # The controller prepends only its own draws to the normal gameplay frame.
     def actor_layer(mode, profile):
-        full = native(core.frame(state, mode, profile).draws)
-        hp = slot.enemy.hp
-        try:
-            slot.enemy.hp = 0
-            without = native(core.frame(state, mode, profile).draws)
-        finally:
-            slot.enemy.hp = hp
-        assert without and full[-len(without):] == without, node['id']
-        return full[:-len(without)]
+        frame = core.frame(state, mode, profile)
+        count = frame.fieldBoss.drawCount
+        assert count and count > 0, node['id']
+        return [native(frame.draws[i]) for i in range(1, count + 1)]
 
     png = actor_layer('sprite', 'legacy')
     indices = [i for i, d in enumerate(png) if d['kind'] == 'boss_sprite']
-    assert indices and indices[0] == 0 and len(indices) == len(styles), (node['id'], indices)
+    if callable(styles):
+        styles = styles([png[i] for i in indices])
+    assert indices and len(indices) == len(styles), (node['id'], indices)
     parts = []
     for style, i, stop in zip(styles, indices, [*indices[1:], len(png)], strict=True):
         draw = png[i]
@@ -59,22 +57,31 @@ def capture(lua, core, boss, node, gallery, work, styles=None):
             name = gallery[file]['name'].split('（')[0]
         part_id = style.get('placementId') or (boss['id'] if style is boss else 'boss-' + str(style['entity']))
         part = dict(id=part_id,
-                    species='boss-' + gallery[file]['id'], name=name,
+                    species='boss-' + gallery[file]['id'] if file in gallery else 'opening-' + file.split('-sprites')[0], name=name,
                     x=x, y=ground['y'], hover=ground['y'] - draw['y'], h=draw['h'],
                     anchorX=draw['anchorX'], flip=draw['flip'])
-        marks = []
-        for mark in png[i+1:stop]:
-            assert mark['kind'] in ('rect', 'text')
-            dx = mark['x'] - draw['x']
-            marks.append(dict(mark, x=-dx-mark.get('w', 0) if draw['flip'] else dx, y=mark['y']-draw['y']))
-        if marks:
-            part['marks'] = marks
+        if file not in gallery:
+            part.update(file=file, box=draw['box'])
+        layers = {'marks': png[i+1:stop]}
+        if i == indices[0] and i:
+            layers['behind'] = png[:i]
+        for layer, commands in layers.items():
+            marks = []
+            for mark in commands:
+                assert mark['kind'] in ('rect', 'text')
+                dx = mark['x'] - draw['x']
+                marks.append(dict(mark, x=-dx-mark.get('w', 0) if draw['flip'] else dx, y=mark['y']-draw['y']))
+            if marks:
+                part[layer] = marks
         parts.append(part)
     ref = {'png': png, 'camera': camera, 'tick': tick, 'phase': frame.fieldBoss.phase, 'swimming': swimming}
     for profile in ('legacy', 'h48c32', 'h32c16'):
         ref[profile] = actor_layer('rect', profile)
     (work / (node['id'] + '.json')).write_text(json.dumps(ref, separators=(',', ':')), 'utf8')
-    return {'parts': parts}
+    scene = {'parts': parts}
+    if window:
+        scene['quest'] = {'id': window['quest'], 'count': window['first']}
+    return scene
 
 
 def build():

@@ -14,6 +14,206 @@
       }
     ]
   },
+  "anemo-field-basin": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 65.82635402092052,
+        "id": "boss-20040201-shell-1",
+        "name": "外殻 1",
+        "species": "boss-anemo",
+        "x": 851.7280766579381,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 48.421515759252145,
+        "id": "boss-20040201-shell-2",
+        "name": "外殻 2",
+        "species": "boss-anemo",
+        "x": 809.6805725705829,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 57.59516173833157,
+        "id": "boss-20040201-shell-3",
+        "name": "外殻 3",
+        "species": "boss-anemo",
+        "x": 757.9524959126447,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 84.17364597907948,
+        "id": "boss-20040201-shell-4",
+        "name": "外殻 4",
+        "species": "boss-anemo",
+        "x": 748.2719233420619,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 101.57848424074785,
+        "id": "boss-20040201-shell-5",
+        "name": "外殻 5",
+        "species": "boss-anemo",
+        "x": 790.3194274294171,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 92.40483826166843,
+        "id": "boss-20040201-shell-6",
+        "name": "外殻 6",
+        "species": "boss-anemo",
+        "x": 842.0475040873553,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "box": [
+          206,
+          296,
+          710,
+          878
+        ],
+        "file": "anemo-core-sprites.json",
+        "flip": false,
+        "h": 44,
+        "hover": 18,
+        "id": "boss-20040201",
+        "name": "元素の核",
+        "species": "opening-anemo-core",
+        "x": 800,
+        "y": 480
+      }
+    ]
+  },
+  "array-field-court": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "box": [
+          661,
+          745,
+          535,
+          354
+        ],
+        "file": "array-field-core-sprites-v1.json",
+        "flip": false,
+        "h": 70,
+        "hover": 39.60000000000002,
+        "id": "boss-24021101",
+        "name": "恒常からくり陣形",
+        "species": "opening-array-field-core",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "asimon-field-ruins": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "behind": [
+          {
+            "color": "#402d45",
+            "h": 5,
+            "kind": "rect",
+            "w": 70,
+            "x": -35,
+            "y": 3
+          },
+          {
+            "color": "#ab7f60",
+            "h": 2,
+            "kind": "rect",
+            "w": 60,
+            "x": -30,
+            "y": 2
+          }
+        ],
+        "flip": false,
+        "h": 120,
+        "hover": 8,
+        "id": "boss-24050101",
+        "name": "半永久統制マトリックス",
+        "species": "boss-asimon",
+        "x": 810,
+        "y": 480
+      }
+    ]
+  },
+  "atocpan-lava-field": {
+    "parts": [
+      {
+        "anchorX": 0.5068002863278454,
+        "flip": true,
+        "h": 180,
+        "hover": 0,
+        "id": "boss-26270301",
+        "marks": [
+          {
+            "color": "#301b1e",
+            "h": 8,
+            "kind": "rect",
+            "w": 54,
+            "x": -27.0,
+            "y": -192
+          },
+          {
+            "color": "#674746",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": 14.0,
+            "y": -190
+          },
+          {
+            "color": "#674746",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": 1.0,
+            "y": -190
+          },
+          {
+            "color": "#674746",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": -12.0,
+            "y": -190
+          },
+          {
+            "color": "#674746",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": -25.0,
+            "y": -190
+          }
+        ],
+        "name": "輝ける溶岩の龍像",
+        "species": "boss-lava-dragon",
+        "x": 925,
+        "y": 480
+      }
+    ]
+  },
   "atocpan-overseer-ruin": {
     "parts": [
       {
@@ -198,6 +398,678 @@
       }
     ]
   },
+  "bathysmal-field-sanctum": {
+    "parts": [
+      {
+        "anchorX": 0.3793706293706294,
+        "flip": false,
+        "h": 110,
+        "hover": 0,
+        "id": "bathysmal-herd",
+        "name": "アビサルヴィシャップ・噛氷",
+        "species": "boss-rimebiter",
+        "x": 780,
+        "y": 480
+      },
+      {
+        "anchorX": 0.35101651842439646,
+        "flip": false,
+        "h": 110,
+        "hover": 0,
+        "id": "bathysmal-herd-partner",
+        "name": "アビサルヴィシャップ・吞雷",
+        "species": "boss-bolteater",
+        "x": 932,
+        "y": 480
+      }
+    ]
+  },
+  "bygone-bell-archive": {
+    "parts": [
+      {
+        "anchorX": 0.48542713567839196,
+        "flip": false,
+        "h": 152,
+        "hover": 0,
+        "id": "original-bellgate",
+        "name": "潮鐘の門像",
+        "species": "boss-bellgate",
+        "x": 937,
+        "y": 480
+      }
+    ],
+    "quest": {
+      "count": 0,
+      "id": "bygone-sound-book"
+    }
+  },
+  "chenyu-boulder-gully": {
+    "parts": [
+      {
+        "anchorX": 0.544131455399061,
+        "flip": false,
+        "h": 125,
+        "hover": 0,
+        "id": "original-tea-boulder",
+        "name": "苔衣の踏石獣",
+        "species": "boss-tea-boulder",
+        "x": 925,
+        "y": 480
+      }
+    ]
+  },
+  "config-device-field-workshop": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": true,
+        "h": 156,
+        "hover": 14,
+        "id": "boss-24090201",
+        "name": "秘源機兵・機巧デバイス",
+        "species": "boss-config-device",
+        "x": 890,
+        "y": 480
+      }
+    ]
+  },
+  "cryo-field-grove": {
+    "parts": [
+      {
+        "anchorX": 0.54,
+        "flip": false,
+        "h": 188,
+        "hover": 0,
+        "id": "boss-26020101",
+        "marks": [
+          {
+            "color": "#5476a1",
+            "h": 14,
+            "kind": "rect",
+            "w": 16,
+            "x": -8,
+            "y": -37.80000000000001
+          },
+          {
+            "color": "#fff3cb",
+            "h": 8,
+            "kind": "rect",
+            "w": 10,
+            "x": -5,
+            "y": -34.80000000000001
+          },
+          {
+            "color": "#f4d296",
+            "h": 4,
+            "kind": "rect",
+            "w": 6,
+            "x": -13,
+            "y": -19.80000000000001
+          },
+          {
+            "color": "#f4d296",
+            "h": 4,
+            "kind": "rect",
+            "w": 6,
+            "x": -4,
+            "y": -19.80000000000001
+          },
+          {
+            "color": "#f4d296",
+            "h": 4,
+            "kind": "rect",
+            "w": 6,
+            "x": 5,
+            "y": -19.80000000000001
+          }
+        ],
+        "name": "急凍樹",
+        "species": "boss-cryo-regisvine",
+        "x": 800,
+        "y": 480
+      }
+    ]
+  },
+  "cryo-hypostasis-field-basin": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 128,
+        "hover": 13,
+        "id": "boss-20040501",
+        "name": "無相の氷",
+        "species": "boss-cryo-hypostasis",
+        "x": 835,
+        "y": 480
+      }
+    ]
+  },
+  "dendro-hypostasis-field-den": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 108,
+        "hover": 14,
+        "id": "boss-20040701",
+        "name": "無相の草",
+        "species": "boss-dendro-hypostasis",
+        "x": 800,
+        "y": 480
+      }
+    ]
+  },
+  "dornman-windworks": {
+    "parts": [
+      {
+        "anchorX": 0.4944954128440367,
+        "flip": false,
+        "h": 146,
+        "hover": 0,
+        "id": "original-windward-tower",
+        "name": "稜風の帆塔機",
+        "species": "boss-windward-tower",
+        "x": 897,
+        "y": 480
+      }
+    ]
+  },
+  "drifting-snow-court": {
+    "parts": [
+      {
+        "anchorX": 0.6477832512315271,
+        "box": [
+          25,
+          25,
+          406,
+          467
+        ],
+        "file": "drifting-snow-field-ready-sprites-v1.json",
+        "flip": false,
+        "h": 180,
+        "hover": -2,
+        "id": "boss-25135202",
+        "name": "游雪のブレードガーディアン",
+        "species": "opening-drifting-snow-field-ready",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "electro-field-shelf": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 59.86184829350549,
+        "id": "boss-20040101-shell-1",
+        "name": "外殻 1",
+        "species": "boss-electro",
+        "x": 895.9419849071149,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 48.01105098478848,
+        "id": "boss-20040101-shell-2",
+        "name": "外殻 2",
+        "species": "boss-electro",
+        "x": 848.3945704785056,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 61.149202691282994,
+        "id": "boss-20040101-shell-3",
+        "name": "外殻 3",
+        "species": "boss-electro",
+        "x": 802.4525855713906,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 86.13815170649451,
+        "id": "boss-20040101-shell-4",
+        "name": "外殻 4",
+        "species": "boss-electro",
+        "x": 804.0580150928851,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 97.98894901521152,
+        "id": "boss-20040101-shell-5",
+        "name": "外殻 5",
+        "species": "boss-electro",
+        "x": 851.6054295214944,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 84.850797308717,
+        "id": "boss-20040101-shell-6",
+        "name": "外殻 6",
+        "species": "boss-electro",
+        "x": 897.5474144286094,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "box": [
+          267,
+          207,
+          727,
+          843
+        ],
+        "file": "electro-core-sprites.json",
+        "flip": false,
+        "h": 46,
+        "hover": 18,
+        "id": "boss-20040101",
+        "name": "元素の核",
+        "species": "opening-electro-core",
+        "x": 850,
+        "y": 480
+      }
+    ]
+  },
+  "electro-regisvine-field-cave": {
+    "parts": [
+      {
+        "anchorX": 0.51,
+        "flip": false,
+        "h": 174,
+        "hover": 0,
+        "id": "boss-26020301",
+        "marks": [
+          {
+            "color": "#714483",
+            "h": 12,
+            "kind": "rect",
+            "w": 16,
+            "x": -8,
+            "y": -36.80000000000001
+          },
+          {
+            "color": "#fff3b1",
+            "h": 8,
+            "kind": "rect",
+            "w": 8,
+            "x": -4,
+            "y": -34.80000000000001
+          },
+          {
+            "color": "#c49cff",
+            "h": 3,
+            "kind": "rect",
+            "w": 6,
+            "x": -13,
+            "y": -20.80000000000001
+          },
+          {
+            "color": "#c49cff",
+            "h": 3,
+            "kind": "rect",
+            "w": 6,
+            "x": -4,
+            "y": -20.80000000000001
+          },
+          {
+            "color": "#c49cff",
+            "h": 3,
+            "kind": "rect",
+            "w": 6,
+            "x": 5,
+            "y": -20.80000000000001
+          }
+        ],
+        "name": "迅電樹",
+        "species": "boss-electro-regisvine",
+        "x": 800,
+        "y": 480
+      }
+    ]
+  },
+  "emperor-field-cove": {
+    "parts": [
+      {
+        "anchorX": 0.5712945590994373,
+        "box": [
+          86,
+          30,
+          533,
+          478
+        ],
+        "file": "emperor-field-guard-sprites-v1.json",
+        "flip": true,
+        "h": 146,
+        "hover": 0,
+        "id": "boss-26160302",
+        "marks": [
+          {
+            "color": "#fff2c6",
+            "h": 3,
+            "kind": "rect",
+            "w": 8,
+            "x": 52,
+            "y": -49
+          },
+          {
+            "color": "#fff2c6",
+            "h": 3,
+            "kind": "rect",
+            "w": 8,
+            "x": 56,
+            "y": -44
+          },
+          {
+            "color": "#fff2c6",
+            "h": 3,
+            "kind": "rect",
+            "w": 8,
+            "x": 52,
+            "y": -39
+          }
+        ],
+        "name": "鉄甲熔炎帝王",
+        "species": "opening-emperor-field-guard",
+        "x": 850,
+        "y": 480
+      }
+    ]
+  },
+  "enkan-tablet-hollow": {
+    "parts": [
+      {
+        "anchorX": 0.37087719298245614,
+        "flip": false,
+        "h": 132,
+        "hover": 0,
+        "id": "original-plate-tail",
+        "name": "灯断ちの盤尾獣",
+        "species": "boss-plate-tail",
+        "x": 930,
+        "y": 480
+      }
+    ]
+  },
+  "field-generator-field-chamber": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": true,
+        "h": 141,
+        "hover": 10,
+        "id": "boss-24080101",
+        "name": "実験用フィールド生成装置",
+        "species": "boss-field-generator",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "flugel-tundra-basin": {
+    "parts": [
+      {
+        "anchorX": 0.569327731092437,
+        "box": [
+          25,
+          25,
+          476,
+          376
+        ],
+        "file": "flugel-field-ready-sprites-v1.json",
+        "flip": false,
+        "h": 220,
+        "hover": 0,
+        "id": "boss-26310501",
+        "marks": [
+          {
+            "color": "#25303d",
+            "h": 8,
+            "kind": "rect",
+            "w": 94,
+            "x": -47,
+            "y": -234
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": -45.0,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": -33.5,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": -22.0,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": -10.5,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": 1.0,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": 12.5,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": 24.0,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 4,
+            "kind": "rect",
+            "w": 10,
+            "x": 35.5,
+            "y": -232
+          },
+          {
+            "color": "#dc76ff",
+            "h": 44,
+            "kind": "rect",
+            "w": 4,
+            "x": -66,
+            "y": -100
+          },
+          {
+            "color": "#dc76ff",
+            "h": 3,
+            "kind": "rect",
+            "w": 20,
+            "x": -74,
+            "y": -104
+          },
+          {
+            "color": "#dc76ff",
+            "h": 44,
+            "kind": "rect",
+            "w": 4,
+            "x": 62,
+            "y": -100
+          },
+          {
+            "color": "#dc76ff",
+            "h": 3,
+            "kind": "rect",
+            "w": 20,
+            "x": 54,
+            "y": -104
+          }
+        ],
+        "name": "合成獣・フリューゲルレーヴェ",
+        "species": "opening-flugel-field-ready",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "fontaine-grand-stage": {
+    "parts": [
+      {
+        "anchorX": 0.4896115627822945,
+        "flip": false,
+        "h": 167,
+        "hover": 0,
+        "id": "original-grand-finale",
+        "name": "グラン・フィナーレ",
+        "species": "boss-grand-finale",
+        "x": 976.0,
+        "y": 480
+      }
+    ],
+    "quest": {
+      "count": 3,
+      "id": "fontaine-grand-finale"
+    }
+  },
+  "geo-field-court": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 64.0088283834462,
+        "id": "boss-20040301-shell-1",
+        "name": "外殻 1",
+        "species": "boss-geo",
+        "x": 883.2130234741044,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 49.23347428934005,
+        "id": "boss-20040301-shell-2",
+        "name": "外殻 2",
+        "species": "boss-geo",
+        "x": 842.235581839323,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 58.22464590589385,
+        "id": "boss-20040301-shell-3",
+        "name": "外殻 3",
+        "species": "boss-geo",
+        "x": 794.0225583652186,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 81.9911716165538,
+        "id": "boss-20040301-shell-4",
+        "name": "外殻 4",
+        "species": "boss-geo",
+        "x": 786.7869765258956,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 96.76652571065995,
+        "id": "boss-20040301-shell-5",
+        "name": "外殻 5",
+        "species": "boss-geo",
+        "x": 827.764418160677,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 28,
+        "hover": 87.77535409410609,
+        "id": "boss-20040301-shell-6",
+        "name": "外殻 6",
+        "species": "boss-geo",
+        "x": 875.9774416347815,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "box": [
+          462,
+          170,
+          612,
+          684
+        ],
+        "file": "geo-core-sprites.json",
+        "flip": false,
+        "h": 48,
+        "hover": 44.0,
+        "id": "boss-20040301",
+        "name": "元素の核",
+        "species": "opening-geo-core",
+        "x": 835,
+        "y": 480
+      }
+    ]
+  },
+  "hydro-hypostasis-field-cove": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 128,
+        "hover": 15,
+        "id": "boss-20040401",
+        "name": "無相の水",
+        "species": "boss-hydro-hypostasis",
+        "x": 850,
+        "y": 480
+      }
+    ]
+  },
   "icewind-coppelia-field": {
     "parts": [
       {
@@ -290,6 +1162,28 @@
       }
     ]
   },
+  "immortal-construct-root-hollow": {
+    "parts": [
+      {
+        "anchorX": 0.4786150712830957,
+        "box": [
+          25,
+          25,
+          491,
+          370
+        ],
+        "file": "immortal-construct-field-ready-sprites-v1.json",
+        "flip": false,
+        "h": 200,
+        "hover": 0,
+        "id": "boss-25140101",
+        "name": "不滅の副産物",
+        "species": "opening-immortal-construct-field-ready",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
   "legatus-field-hall": {
     "parts": [
       {
@@ -320,6 +1214,97 @@
       }
     ]
   },
+  "natlan-sunset-arena": {
+    "parts": [
+      {
+        "anchorX": 0.5091863517060368,
+        "flip": false,
+        "h": 103,
+        "hover": 0,
+        "id": "original-river-racer",
+        "name": "夕映えの水走者（模擬役）",
+        "species": "boss-river-racer",
+        "x": 975.0,
+        "y": 480
+      }
+    ],
+    "quest": {
+      "count": 2,
+      "id": "natlan-sunset-duel"
+    }
+  },
+  "nod-battleship-depot": {
+    "parts": [
+      {
+        "anchorX": 0.41449934980494146,
+        "flip": true,
+        "h": 190,
+        "hover": 0,
+        "id": "boss-23090101",
+        "marks": [
+          {
+            "color": "#212d3c",
+            "h": 8,
+            "kind": "rect",
+            "w": 60,
+            "x": -30.0,
+            "y": -202
+          },
+          {
+            "color": "#545363",
+            "h": 4,
+            "kind": "rect",
+            "w": 11,
+            "x": 16.0,
+            "y": -200
+          },
+          {
+            "color": "#545363",
+            "h": 4,
+            "kind": "rect",
+            "w": 11,
+            "x": 2.0,
+            "y": -200
+          },
+          {
+            "color": "#545363",
+            "h": 4,
+            "kind": "rect",
+            "w": 11,
+            "x": -12.0,
+            "y": -200
+          },
+          {
+            "color": "#545363",
+            "h": 4,
+            "kind": "rect",
+            "w": 11,
+            "x": -26.0,
+            "y": -200
+          }
+        ],
+        "name": "重量級陸巡艦「バトルシップ」",
+        "species": "boss-battleship",
+        "x": 930,
+        "y": 480
+      }
+    ]
+  },
+  "nod-duckle-workyard": {
+    "parts": [
+      {
+        "anchorX": 0.49810174639331817,
+        "flip": true,
+        "h": 155,
+        "hover": 0,
+        "id": "boss-24100101",
+        "name": "ボコボコダック",
+        "species": "boss-knuckle-duckle",
+        "x": 920,
+        "y": 480
+      }
+    ]
+  },
   "nod-gecko-depths": {
     "parts": [
       {
@@ -335,6 +1320,40 @@
       }
     ]
   },
+  "nod-herra-terrace": {
+    "parts": [
+      {
+        "anchorX": 0.46064981949458483,
+        "flip": false,
+        "h": 220,
+        "hover": 0,
+        "id": "boss-20081001",
+        "name": "霜夜の空を巡る霊主",
+        "species": "boss-frostnight-herra",
+        "x": 920,
+        "y": 480
+      }
+    ]
+  },
+  "nod-moon-crab-arena": {
+    "parts": [
+      {
+        "anchorX": 0.57,
+        "flip": false,
+        "h": 122,
+        "hover": 0,
+        "id": "original-moon-crab",
+        "name": "月殻の大ヤドカニ",
+        "species": "boss-moon-crab",
+        "x": 950.0,
+        "y": 480
+      }
+    ],
+    "quest": {
+      "count": 1,
+      "id": "nod-moon-vault-quest"
+    }
+  },
   "nod-moonfly-hollow": {
     "parts": [
       {
@@ -346,6 +1365,207 @@
         "name": "集光の幻月蝶",
         "species": "boss-moonfly",
         "x": 920,
+        "y": 480
+      }
+    ]
+  },
+  "nod-nightmare-shore": {
+    "parts": [
+      {
+        "anchorX": 0.3378016085790885,
+        "flip": false,
+        "h": 210,
+        "hover": 0,
+        "id": "boss-22150101",
+        "name": "昏き魘夢の主",
+        "species": "boss-whisperer-nightmares",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "nod-quiet-rim": {
+    "parts": [
+      {
+        "anchorX": 0.49,
+        "flip": false,
+        "h": 129,
+        "hover": 0,
+        "id": "original-prism-walker",
+        "marks": [
+          {
+            "color": "#ffedaf",
+            "h": 4,
+            "kind": "rect",
+            "w": 30,
+            "x": -15,
+            "y": -5
+          }
+        ],
+        "name": "玻璃根の歩行晶",
+        "species": "boss-prism-walker",
+        "x": 930,
+        "y": 480
+      }
+    ]
+  },
+  "novo-ice-vault": {
+    "parts": [
+      {
+        "anchorX": 0.4742138364779874,
+        "flip": false,
+        "h": 116,
+        "hover": 0,
+        "id": "original-ice-crawler",
+        "name": "氷継ぎの岩這い",
+        "species": "boss-ice-crawler",
+        "x": 933,
+        "y": 480
+      }
+    ]
+  },
+  "oceanid-field-reservoir": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 130,
+        "hover": 223,
+        "id": "boss-20050101-host",
+        "marks": [
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 8.015384615384619
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 22.030769230769238
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 36.04615384615386
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 50.061538461538476
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 64.0769230769231
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 78.09230769230771
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 92.10769230769233
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 106.12307692307695
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 120.13846153846151
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 134.1538461538462
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 148.16923076923075
+          },
+          {
+            "color": "#5caabd",
+            "h": 4,
+            "kind": "rect",
+            "w": 3,
+            "x": -1.0,
+            "y": 162.18461538461537
+          }
+        ],
+        "name": "純水精霊・本体",
+        "species": "boss-oceanid",
+        "x": 860,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5206349206349207,
+        "box": [
+          130,
+          122,
+          1260,
+          800
+        ],
+        "file": "oceanid-boar-sprites.json",
+        "flip": false,
+        "h": 60,
+        "hover": 0,
+        "id": "boss-20050101",
+        "name": "水の幻形・イノシシ",
+        "species": "opening-oceanid-boar",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "ochka-sifting-kiln": {
+    "parts": [
+      {
+        "anchorX": 0.5220183486238532,
+        "flip": false,
+        "h": 142,
+        "hover": 0,
+        "id": "original-rubble-sifter",
+        "name": "礫脈の選鉱炉",
+        "species": "boss-rubble-sifter",
+        "x": 856,
         "y": 480
       }
     ]
@@ -365,6 +1585,93 @@
       }
     ]
   },
+  "primo-field-vault": {
+    "parts": [
+      {
+        "anchorX": 0.43,
+        "flip": false,
+        "h": 134,
+        "hover": 0,
+        "id": "boss-26050101",
+        "name": "エンシェントヴィシャップ・岩",
+        "species": "boss-primo",
+        "x": 880,
+        "y": 480
+      }
+    ]
+  },
+  "pyro-field-grotto": {
+    "parts": [
+      {
+        "anchorX": 0.49,
+        "flip": false,
+        "h": 188,
+        "hover": 0,
+        "id": "boss-26020201",
+        "marks": [
+          {
+            "color": "#743c3f",
+            "h": 14,
+            "kind": "rect",
+            "w": 16,
+            "x": -8,
+            "y": -37.80000000000001
+          },
+          {
+            "color": "#fff0b8",
+            "h": 8,
+            "kind": "rect",
+            "w": 10,
+            "x": -5,
+            "y": -34.80000000000001
+          },
+          {
+            "color": "#ffc478",
+            "h": 4,
+            "kind": "rect",
+            "w": 6,
+            "x": -13,
+            "y": -19.80000000000001
+          },
+          {
+            "color": "#ffc478",
+            "h": 4,
+            "kind": "rect",
+            "w": 6,
+            "x": -4,
+            "y": -19.80000000000001
+          },
+          {
+            "color": "#ffc478",
+            "h": 4,
+            "kind": "rect",
+            "w": 6,
+            "x": 5,
+            "y": -19.80000000000001
+          }
+        ],
+        "name": "爆炎樹",
+        "species": "boss-pyro-regisvine",
+        "x": 840,
+        "y": 480
+      }
+    ]
+  },
+  "pyro-hypostasis-field-terrace": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 128,
+        "hover": 13,
+        "id": "boss-20040601",
+        "name": "無相の炎",
+        "species": "boss-pyro-hypostasis",
+        "x": 845,
+        "y": 480
+      }
+    ]
+  },
   "qucusaur-field-cavern": {
     "parts": [
       {
@@ -376,6 +1683,28 @@
         "name": "暴君・金焔のクク竜",
         "species": "boss-qucusaur",
         "x": 865,
+        "y": 480
+      }
+    ]
+  },
+  "ruin-serpent-field-pit": {
+    "parts": [
+      {
+        "anchorX": 0.134,
+        "box": [
+          48,
+          125,
+          651,
+          209
+        ],
+        "file": "ruin-serpent-field-idle-sprites-v1.json",
+        "flip": false,
+        "h": 92,
+        "hover": 8,
+        "id": "boss-24010401",
+        "name": "遺跡サーペント",
+        "species": "opening-ruin-serpent-field-idle",
+        "x": 790,
         "y": 480
       }
     ]
@@ -395,6 +1724,58 @@
       }
     ]
   },
+  "spine-trace-ridge": {
+    "parts": [
+      {
+        "anchorX": 0.48881789137380194,
+        "flip": false,
+        "h": 116,
+        "hover": 0,
+        "id": "original-rime-hare",
+        "name": "霜紋の岩兎",
+        "species": "boss-rime-hare",
+        "x": 926,
+        "y": 480
+      }
+    ]
+  },
+  "spiritspeaker-field-grotto": {
+    "parts": [
+      {
+        "anchorX": 0.46064814814814814,
+        "box": [
+          25,
+          25,
+          432,
+          446
+        ],
+        "file": "spiritspeaker-field-ready-sprites-v1.json",
+        "flip": true,
+        "h": 160,
+        "hover": 24,
+        "id": "boss-25520101",
+        "name": "迷える霊覚の修験者",
+        "species": "opening-spiritspeaker-field-ready",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "steam-stabling-depot": {
+    "parts": [
+      {
+        "anchorX": 0.5785256410256411,
+        "flip": false,
+        "h": 96,
+        "hover": 0,
+        "id": "original-snow-sweeper",
+        "name": "鉱殻除雪機",
+        "species": "boss-snow-sweeper",
+        "x": 788,
+        "y": 480
+      }
+    ]
+  },
   "suanni-field-sanctum": {
     "parts": [
       {
@@ -410,6 +1791,55 @@
       }
     ]
   },
+  "sumeru-jadeplume-grove": {
+    "parts": [
+      {
+        "anchorX": 0.2640167364016736,
+        "flip": false,
+        "h": 156.0,
+        "hover": 0,
+        "id": "boss-26110101",
+        "name": "マッシュラプトル",
+        "species": "boss-jadeplume",
+        "x": 835,
+        "y": 480
+      }
+    ]
+  },
+  "sumeru-observatory-terrace": {
+    "parts": [
+      {
+        "anchorX": 0.46591970121381887,
+        "flip": false,
+        "h": 149,
+        "hover": 0,
+        "id": "original-canopy-fungus",
+        "name": "枝傘の大キノコン",
+        "species": "boss-canopy-fungus",
+        "x": 930,
+        "y": 480
+      }
+    ],
+    "quest": {
+      "count": 1,
+      "id": "sumeru-observatory-map"
+    }
+  },
+  "thunder-field-crest": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": false,
+        "h": 118,
+        "hover": 35.19999999999999,
+        "id": "boss-20070101",
+        "name": "雷音権現",
+        "species": "boss-thunder",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
   "tulpa-field-grotto": {
     "parts": [
       {
@@ -421,6 +1851,128 @@
         "name": "水形タルパ",
         "species": "boss-tulpa",
         "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "tunigi-fragment-vault": {
+    "parts": [
+      {
+        "anchorX": 0.4886934673366834,
+        "flip": false,
+        "h": 139,
+        "hover": 0,
+        "id": "original-wind-ring",
+        "name": "風礫の割輪機",
+        "species": "boss-wind-ring",
+        "x": 924,
+        "y": 480
+      }
+    ],
+    "quest": {
+      "count": 1,
+      "id": "tunigi-fragment-return"
+    }
+  },
+  "wavebinder-tide-cavern": {
+    "parts": [
+      {
+        "anchorX": 0.4731934731934732,
+        "box": [
+          25,
+          25,
+          429,
+          478
+        ],
+        "file": "wavebinder-field-ready-sprites-v1.json",
+        "flip": false,
+        "h": 200,
+        "hover": 0,
+        "id": "boss-25134601",
+        "name": "波濤の投錨者",
+        "species": "opening-wavebinder-field-ready",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "wenut-field-cavern": {
+    "parts": [
+      {
+        "anchorX": 0.8681592039800995,
+        "box": [
+          36,
+          165,
+          402,
+          269
+        ],
+        "file": "wenut-field-idle-sprites-v1.json",
+        "flip": true,
+        "h": 110,
+        "hover": 6,
+        "id": "boss-26130101",
+        "name": "風蝕ウェネト",
+        "species": "opening-wenut-field-idle",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "white-rainbow-basin": {
+    "parts": [
+      {
+        "anchorX": 0.66015625,
+        "flip": false,
+        "h": 136,
+        "hover": 0,
+        "id": "original-frost-antler",
+        "name": "霜鎧の大角獣",
+        "species": "boss-frost-antler",
+        "x": 778,
+        "y": 480
+      }
+    ]
+  },
+  "windrest-vigil-court": {
+    "parts": [
+      {
+        "anchorX": 0.4233983286908078,
+        "box": [
+          24,
+          24,
+          359,
+          454
+        ],
+        "file": "fallen-vigil-field-ready-sprites-v1.json",
+        "flip": false,
+        "h": 230,
+        "hover": 32,
+        "id": "boss-24111101",
+        "name": "守護者・堕天",
+        "species": "opening-fallen-vigil-field-ready",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "wolflord-field-ruins": {
+    "parts": [
+      {
+        "anchorX": 0.102,
+        "box": [
+          61,
+          25,
+          581,
+          290
+        ],
+        "file": "wolflord-field-idle-sprites-v1.json",
+        "flip": false,
+        "h": 105,
+        "hover": 36,
+        "id": "boss-22060101",
+        "name": "黄金王獣",
+        "species": "opening-wolflord-field-idle",
+        "x": 850,
         "y": 480
       }
     ]

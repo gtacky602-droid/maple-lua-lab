@@ -1,0 +1,67 @@
+{
+  "tunigi-fragment-vault": {
+    "quest": "出口までが、発掘だ",
+    "objective": "記録庫で風礫の割輪機を退ける",
+    "visible": {
+      "未受注": false,
+      "依頼戦": true,
+      "討伐後": false,
+      "報告後": true,
+      "直前の目標": false
+    }
+  },
+  "bygone-bell-archive": {
+    "quest": "最後の一音は、帰ってから",
+    "objective": "潮鐘の記録室で潮鐘の門像を止める",
+    "visible": {
+      "未受注": false,
+      "依頼戦": true,
+      "討伐後": false,
+      "報告後": true
+    }
+  },
+  "sumeru-observatory-terrace": {
+    "quest": "空の観測所へ！",
+    "objective": "枝傘の止まり台で枝傘の大キノコンを退ける",
+    "visible": {
+      "未受注": false,
+      "依頼戦": true,
+      "討伐後": false,
+      "報告後": true,
+      "直前の目標": false
+    }
+  },
+  "fontaine-grand-stage": {
+    "quest": "大舞台機関、ただいま暴走中！",
+    "objective": "グラン・フィナーレの外装を止め、制御部を露出させる",
+    "visible": {
+      "未受注": false,
+      "依頼戦": true,
+      "討伐後": false,
+      "報告後": false,
+      "直前の目標": false
+    }
+  },
+  "natlan-sunset-arena": {
+    "quest": "夕映えの一番勝負！",
+    "objective": "往復突進と時間差の水柱を避けて、模擬戦の勝負ゲージを削り切る",
+    "visible": {
+      "未受注": false,
+      "依頼戦": true,
+      "討伐後": false,
+      "報告後": false,
+      "直前の目標": false
+    }
+  },
+  "nod-moon-crab-arena": {
+    "quest": "宝箱には、脚がある！",
+    "objective": "月殻の大ヤドカニを退けて貯蔵所への道を開く",
+    "visible": {
+      "未受注": false,
+      "依頼戦": true,
+      "討伐後": false,
+      "報告後": true,
+      "直前の目標": false
+    }
+  }
+}
