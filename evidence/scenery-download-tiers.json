@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 795,
+  "verifiedModules": 850,
   "dimensions": [
     512,
     288
@@ -194,6 +194,83 @@
       "5120": 23782,
       "5632": 26998,
       "6144": 29106
+    },
+    "chenyu-post-road-background-v1.png": {
+      "4096": 16101,
+      "4608": 19335,
+      "5120": 22482,
+      "5632": 25554,
+      "6144": 27584
+    },
+    "chenyu-post-quarry-background-v1.png": {
+      "4096": 17495,
+      "4608": 20973,
+      "5120": 24324,
+      "5632": 27676,
+      "6144": 29412
+    },
+    "chenyu-stream-tea-background-v1.png": {
+      "4096": 18948,
+      "4608": 22458,
+      "5120": 25825,
+      "5632": 29189,
+      "6144": 31173
+    },
+    "chenyu-stream-cascade-background-v1.png": {
+      "4096": 17578,
+      "4608": 20894,
+      "5120": 24129,
+      "5632": 27337,
+      "6144": 29485
+    },
+    "chenyu-stream-shale-background-v1.png": {
+      "4096": 17638,
+      "4608": 21036,
+      "5120": 24321,
+      "5632": 27577,
+      "6144": 29655
+    },
+    "chenyu-east-lake-background-v1.png": {
+      "4096": 18283,
+      "4608": 21725,
+      "5120": 25056,
+      "5632": 28360,
+      "6144": 30598
+    },
+    "chenyu-lake-willow-den-background-v1.png": {
+      "4096": 18191,
+      "4608": 21697,
+      "5120": 25064,
+      "5632": 28450,
+      "6144": 30200
+    },
+    "chenyu-lake-pebble-bed-background-v1.png": {
+      "4096": 18249,
+      "4608": 21631,
+      "5120": 24924,
+      "5632": 28176,
+      "6144": 30430
+    },
+    "chenyu-harbor-bamboo-background-v1.png": {
+      "4096": 18477,
+      "4608": 22001,
+      "5120": 25402,
+      "5632": 28776,
+      "6144": 30768
+    },
+    "chenyu-north-edge-background-v1.png": {
+      "4096": 17238,
+      "4608": 20494,
+      "5120": 23673,
+      "5632": 26879,
+      "6144": 28981
+    },
+    "chenyu-north-stonehelm-background-v1.png": {
+      "4096": 16505,
+      "4608": 19809,
+      "5120": 22980,
+      "5632": 26136,
+      "6144": 28136
     },
     "chenyu-west-bank-background-v1.png": {
       "4096": 18019,
@@ -1123,7 +1200,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 159
+      "verified": 170
     },
     "domainHunts": {
       "total": 124,
@@ -1182,11 +1259,11 @@
     },
     "branchHunts": {
       "total": 62,
-      "verified": 25,
+      "verified": 36,
       "byRegion": {
         "沈玉の谷": {
           "total": 59,
-          "verified": 22
+          "verified": 33
         },
         "往日の海": {
           "total": 3,
@@ -1194,17 +1271,6 @@
         }
       },
       "pending": [
-        "branch-hunt-64834",
-        "branch-hunt-64834-pocket-1",
-        "branch-hunt-64835",
-        "branch-hunt-64835-pocket-1",
-        "branch-hunt-64835-pocket-2",
-        "branch-hunt-64836",
-        "branch-hunt-64836-pocket-1",
-        "branch-hunt-64836-pocket-2",
-        "branch-hunt-64838",
-        "branch-hunt-64839",
-        "branch-hunt-64839-pocket-1",
         "branch-hunt-64840",
         "branch-hunt-64841",
         "branch-hunt-64841-pocket-1",

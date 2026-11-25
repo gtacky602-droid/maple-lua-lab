@@ -1,0 +1,341 @@
+{
+  "inn": {
+    "stage": "branch-hunt-64834",
+    "scenery": {
+      "key": "chenyuPostRoad",
+      "file": "chenyu-post-road-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 336.2,
+      "y": 167.8,
+      "adjacent": [
+        "liyue-wp-64834",
+        "branch-hunt-64834-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64834&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64834-pocket-1": "宿場裏・玄文獣の切石場 ｜ 任意戦・精鋭・徒歩・Lv89・上の足場の門"
+      },
+      "next": "branch-hunt-64834-pocket-1"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuPostQuarry",
+      "file": "chenyu-post-quarry-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64834",
+        "branch-hunt-64834",
+        "walk"
+      ],
+      [
+        "branch-hunt-64834",
+        "branch-hunt-64834-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64834-pocket-1",
+        "branch-hunt-64834",
+        "walk"
+      ],
+      [
+        "branch-hunt-64834",
+        "liyue-wp-64834",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64834-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuPostQuarry",
+          "file": "chenyu-post-quarry-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "tea": {
+    "stage": "branch-hunt-64835",
+    "scenery": {
+      "key": "chenyuStreamTea",
+      "file": "chenyu-stream-tea-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 469.8,
+      "y": 228.3,
+      "adjacent": [
+        "liyue-wp-64835",
+        "branch-hunt-64835-pocket-1",
+        "branch-hunt-64835-pocket-2"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64835&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64835-pocket-1": "沢沿い・玄文獣の滝壺 ｜ 任意戦・精鋭・徒歩・Lv83・上の足場の門",
+        "branch-hunt-64835-pocket-2": "沢底・ヴィシャップの岩層 ｜ 任意戦・希少遭遇・徒歩・Lv81・地上の門"
+      },
+      "next": "branch-hunt-64835-pocket-1"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "returnHeight": 386,
+    "pocketScenery": {
+      "key": "chenyuCascade",
+      "file": "chenyu-stream-cascade-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64835",
+        "branch-hunt-64835",
+        "walk"
+      ],
+      [
+        "branch-hunt-64835",
+        "branch-hunt-64835-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64835-pocket-1",
+        "branch-hunt-64835",
+        "walk"
+      ],
+      [
+        "branch-hunt-64835",
+        "branch-hunt-64835-pocket-2",
+        "raised"
+      ],
+      [
+        "branch-hunt-64835-pocket-2",
+        "branch-hunt-64835",
+        "walk"
+      ],
+      [
+        "branch-hunt-64835",
+        "liyue-wp-64835",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64835-pocket-1",
+        "returnHeight": 386,
+        "pocketScenery": {
+          "key": "chenyuCascade",
+          "file": "chenyu-stream-cascade-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "branch-hunt-64835-pocket-2",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "chenyuShale",
+          "file": "chenyu-stream-shale-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "east": {
+    "stage": "branch-hunt-64836",
+    "scenery": {
+      "key": "chenyuEastLake",
+      "file": "chenyu-east-lake-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 484.2,
+      "y": 162.7,
+      "adjacent": [
+        "liyue-wp-64836",
+        "branch-hunt-64836-pocket-1",
+        "branch-hunt-64836-pocket-2"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64836&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64836-pocket-1": "湖東・玄文獣の柳根 ｜ 任意戦・精鋭・徒歩・Lv86・上の足場の門",
+        "branch-hunt-64836-pocket-2": "浅瀬・ベビーヴィシャップの丸石浜 ｜ 任意戦・希少遭遇・徒歩・Lv84・地上の門"
+      },
+      "next": "branch-hunt-64836-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuWillowDen",
+      "file": "chenyu-lake-willow-den-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64836",
+        "branch-hunt-64836",
+        "walk"
+      ],
+      [
+        "branch-hunt-64836",
+        "branch-hunt-64836-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64836-pocket-1",
+        "branch-hunt-64836",
+        "walk"
+      ],
+      [
+        "branch-hunt-64836",
+        "branch-hunt-64836-pocket-2",
+        "raised"
+      ],
+      [
+        "branch-hunt-64836-pocket-2",
+        "branch-hunt-64836",
+        "walk"
+      ],
+      [
+        "branch-hunt-64836",
+        "liyue-wp-64836",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64836-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuWillowDen",
+          "file": "chenyu-lake-willow-den-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "branch-hunt-64836-pocket-2",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "chenyuPebbleBed",
+          "file": "chenyu-lake-pebble-bed-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "harbor": {
+    "stage": "branch-hunt-64838",
+    "scenery": {
+      "key": "chenyuHarborBamboo",
+      "file": "chenyu-harbor-bamboo-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 450.1,
+      "y": 84.3,
+      "adjacent": [
+        "liyue-wp-64838"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64838&placements=live&compare=background",
+      "pockets": {},
+      "next": "liyue-wp-64838"
+    },
+    "jump": [
+      480,
+      426
+    ],
+    "journeys": [
+      [
+        "liyue-wp-64838",
+        "branch-hunt-64838",
+        "walk"
+      ],
+      [
+        "branch-hunt-64838",
+        "liyue-wp-64838",
+        "walk"
+      ]
+    ],
+    "detours": []
+  },
+  "ridge": {
+    "stage": "branch-hunt-64839",
+    "scenery": {
+      "key": "chenyuNorthEdge",
+      "file": "chenyu-north-edge-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 491,
+      "y": 101.8,
+      "adjacent": [
+        "liyue-wp-64839",
+        "branch-hunt-64839-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64839&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64839-pocket-1": "北尾根・岩兜の王の岩門 ｜ 任意戦・精鋭・徒歩・Lv81・上の足場の門"
+      },
+      "next": "branch-hunt-64839-pocket-1"
+    },
+    "jump": [
+      480,
+      416
+    ],
+    "returnHeight": 379,
+    "pocketScenery": {
+      "key": "chenyuStonehelm",
+      "file": "chenyu-north-stonehelm-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64839",
+        "branch-hunt-64839",
+        "walk"
+      ],
+      [
+        "branch-hunt-64839",
+        "branch-hunt-64839-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64839-pocket-1",
+        "branch-hunt-64839",
+        "walk"
+      ],
+      [
+        "branch-hunt-64839",
+        "liyue-wp-64839",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64839-pocket-1",
+        "returnHeight": 379,
+        "pocketScenery": {
+          "key": "chenyuStonehelm",
+          "file": "chenyu-north-stonehelm-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,89 @@
+{
+  "branch-hunt-64834": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      394,
+      356,
+      388
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 87,
+    "exterior_scenery": "chenyuPostRoad",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64835": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      383,
+      354,
+      386
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 3,
+    "level_required": 81,
+    "exterior_scenery": "chenyuStreamTea",
+    "arrivals_outside_enemy_contact": 3
+  },
+  "branch-hunt-64836": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      392,
+      366,
+      397
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 3,
+    "level_required": 84,
+    "exterior_scenery": "chenyuEastLake",
+    "arrivals_outside_enemy_contact": 3
+  },
+  "branch-hunt-64838": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      426,
+      406,
+      374,
+      403
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 80,
+    "exterior_scenery": "chenyuHarborBamboo",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "branch-hunt-64839": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      416,
+      378,
+      342,
+      379
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "chenyuNorthEdge",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "ridgeRoundTrip": [
+    "liyue-wp-64834",
+    "liyue-wp-64833",
+    "liyue-wp-64835",
+    "liyue-wp-64836",
+    "liyue-wp-64840",
+    "liyue-wp-64838",
+    "liyue-wp-64839",
+    "liyue-wp-66979",
+    "liyue-wp-64839",
+    "liyue-wp-64838",
+    "liyue-wp-64840",
+    "liyue-wp-64836",
+    "liyue-wp-64835",
+    "liyue-wp-64833",
+    "liyue-wp-64834"
+  ]
+}

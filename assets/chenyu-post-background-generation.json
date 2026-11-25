@@ -1,0 +1,105 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Original horizontally scrolling Chinese fantasy RPG BACKGROUND ONLY in 1990s 16-bit pixel art, 16:9. Treat the image as if composed at 160x90 logical pixels using about 12 opaque matte colors. Large flat connected color clusters, boldly stepped silhouettes, simple gradient-free sky bands, sturdy pixel contours. One identifiable landmark, wide quiet middle and lower foreground where the engine will place characters. Do not draw characters, monsters, text, UI, borders, or floating platforms. No photographic detail, dithering or individually rendered leaves. ",
+  "scenes": [
+    {
+      "node": "branch-hunt-64834",
+      "key": "chenyuPostRoad",
+      "note": "西岸の宿場道",
+      "prompt": "A low Chinese wayside inn, warm amber wall, broad tiled roof and a pair of vermilion lanterns, beyond a paved trade road with blue-gray mountains at dusk.",
+      "surface": "stone",
+      "source": "chenyu-post-road-background-v1.png",
+      "preview": "chenyu-post-road-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64834-pocket-1",
+      "key": "chenyuPostQuarry",
+      "note": "宿場裏の切石場",
+      "prompt": "An empty abandoned quarry behind the inn. Three immense warm ochre cut blocks, a tilted timber hoist silhouetted against a jade ridge, late afternoon.",
+      "surface": "stone",
+      "source": "chenyu-post-quarry-background-v1.png",
+      "preview": "chenyu-post-quarry-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64835",
+      "key": "chenyuStreamTea",
+      "note": "沢沿いの茶棚",
+      "prompt": "Three sweeping horizontal bands of lime-green tea hedges, a narrow silver stream and one strong footbridge silhouette in a steep Chinese valley in spring.",
+      "surface": "grass",
+      "source": "chenyu-stream-tea-background-v1.png",
+      "preview": "chenyu-stream-tea-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64835-pocket-1",
+      "key": "chenyuCascade",
+      "note": "茶棚の奥の滝壺",
+      "prompt": "A narrow turquoise waterfall dropping between two massive jade bluffs into a still round pool, dry fern bank and a crooked pine; sheltered blue shade.",
+      "surface": "grass",
+      "source": "chenyu-stream-cascade-background-v1.png",
+      "preview": "chenyu-stream-cascade-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64835-pocket-2",
+      "key": "chenyuShale",
+      "note": "沢底の岩層",
+      "prompt": "A dry geode cleft in an exposed riverbed. Monumental diagonal ochre and amethyst bands of shale, three bold wedge-shaped mineral crystals.",
+      "surface": "stone",
+      "source": "chenyu-stream-shale-background-v1.png",
+      "preview": "chenyu-stream-shale-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64836",
+      "key": "chenyuEastLake",
+      "note": "湖東の小径",
+      "prompt": "A gently winding path along the eastern shore of a green lake, a single willow leaning over a curved red footbridge, broad reflections and distant karst.",
+      "surface": "grass",
+      "source": "chenyu-east-lake-background-v1.png",
+      "preview": "chenyu-east-lake-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64836-pocket-1",
+      "key": "chenyuWillowDen",
+      "note": "柳根の岩陰",
+      "prompt": "Close view into a hidden mossy rock shelter framed by the broad looping roots of a pollarded willow beside an emerald lake. Muted warm stone.",
+      "surface": "grass",
+      "source": "chenyu-lake-willow-den-background-v1.png",
+      "preview": "chenyu-lake-willow-den-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64836-pocket-2",
+      "key": "chenyuPebbleBed",
+      "note": "浅瀬の丸石浜",
+      "prompt": "Low exposed pebbly lakeshore, several very large round amber river stones, a tiny line of shallow pale-blue water, open sky and reeds at right.",
+      "surface": "stone",
+      "source": "chenyu-lake-pebble-bed-background-v1.png",
+      "preview": "chenyu-lake-pebble-bed-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64838",
+      "key": "chenyuHarborBamboo",
+      "note": "港東の竹道",
+      "prompt": "A sunlit bamboo lane beside a distant traditional Chinese harbor. Bold bamboo columns at left, angular groups of leaves, two muted vermilion sails in the distance.",
+      "surface": "timber",
+      "source": "chenyu-harbor-bamboo-background-v1.png",
+      "preview": "chenyu-harbor-bamboo-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64839",
+      "key": "chenyuNorthEdge",
+      "note": "見晴らし岩の北尾根",
+      "prompt": "Narrow blue-gray north ridge above a sea of morning clouds. A prominent overhanging viewing rock on the right, a small lone windswept pine and long bands of cloud.",
+      "surface": "stone",
+      "source": "chenyu-north-edge-background-v1.png",
+      "preview": "chenyu-north-edge-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64839-pocket-1",
+      "key": "chenyuStonehelm",
+      "note": "北尾根の岩門",
+      "prompt": "A craggy mountain arena before two massive fractured stone gateposts, a single torn russet clan banner and a low amber campfire pit, cool indigo cliffs.",
+      "surface": "stone",
+      "source": "chenyu-north-stonehelm-background-v1.png",
+      "preview": "chenyu-north-stonehelm-native-preview-v1.png"
+    }
+  ]
+}

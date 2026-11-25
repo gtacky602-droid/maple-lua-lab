@@ -1,3 +1,4 @@
+import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSceneryDownload} from './scenery-export.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
@@ -60,6 +61,8 @@ try{
   $('backgroundTier').value=requestedTier;
  }
  if(query.get('compare')==='background')$('matchSpritePng').checked=true;
+ if(query.get('background')==='original')$('decodedBackground').checked=false;
+ if(Array.from($('profile').options).some(o=>o.value===query.get('profile')))$('profile').value=query.get('profile');
  const openingBackground=loadScenery(sceneFrame(openingNode,0));
  const pendingBackgrounds=new Set();
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
@@ -147,6 +150,7 @@ try{
  $('decodedBackground').onchange=render;
  $('backgroundTier').onchange=render;
  $('matchSpritePng').onchange=render;
+ const updateDetail=setupSceneryDetail(liveView,query);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
@@ -203,6 +207,7 @@ try{
     ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
    }
   }
+  updateDetail();
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   $('viewportCost').textContent=matchedSprites?'キャラは左右とも元PNG':decoded&&!cost.standard?'':viewportSummary(cost,profile);
@@ -309,4 +314,8 @@ for(const id of ['camera','profile'])$(id).oninput=render;
   finally{if(ticket===importTicket)$('import').value=''}
  };
  select();
+ if(liveView && /^\d+$/.test(query.get('camera')??'')){
+  $('camera').value=query.get('camera');
+  render();
+ }
 }catch(e){$('status').textContent='読み込みに失敗しました: '+e.message;throw e}

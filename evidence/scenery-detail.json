@@ -1,0 +1,38 @@
+{
+  "desktopLive": {
+    "selected": {
+      "x": 325,
+      "y": 188,
+      "unequalSamples": 3502
+    },
+    "high": {
+      "x": 325,
+      "y": 188,
+      "unequalSamples": 3469
+    },
+    "corner": {
+      "x": 880,
+      "y": 0,
+      "unequalSamples": 3289
+    },
+    "editingResumed": false
+  },
+  "mobileEditor": {
+    "selected": {
+      "x": 327,
+      "y": 189,
+      "unequalSamples": 3535
+    },
+    "high": {
+      "x": 327,
+      "y": 189,
+      "unequalSamples": 3470
+    },
+    "corner": {
+      "x": 880,
+      "y": 0,
+      "unequalSamples": 3449
+    },
+    "editingResumed": true
+  }
+}

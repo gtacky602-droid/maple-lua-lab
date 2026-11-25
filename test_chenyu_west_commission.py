@@ -7,9 +7,10 @@ from savegame import validate_save
 quest = 'daily-liyue-relics'
 hub = 'liyue-harbor'
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('area', nargs='?', choices=('west', 'lake'), default='west')
+areas = {'west':range(64826, 64830), 'lake':range(64830, 64834), 'post':(64834, 64835, 64836, 64839)}
+parser.add_argument('area', nargs='?', choices=areas, default='west')
 area = parser.parse_args().area
-fields = range(64826, 64830) if area == 'west' else range(64830, 64834)
+fields = areas[area]
 hosts = [f'liyue-wp-{n}' for n in fields]
 rooms = [f'branch-hunt-{n}-pocket-1' for n in fields]
 fight = lua.eval("""function(C, s)
@@ -64,5 +65,23 @@ for stops in ((0, 1, 2), (3, 1, 2)):
         core.dailySettle(state)
         state = reload(state)
         assert (state.daily.paidXp, state.daily.paidMora) == (1830, 380)
-write(f'evidence/chenyu-{area}-commission.json', {'quest': quest, 'trips': trips, 'xp': 1830, 'mora': 380})
+result = {'quest': quest, 'trips': trips, 'xp': 1830, 'mora': 380}
+if area == 'post':
+    result['rareEncounters'] = []
+    for field in (64835, 64836):
+        state = start(90, hosts, hub)
+        core.dailyBind(state, 'd72ac5349dd6498f9e25ea3dfff820e1', 20801, None)
+        core.action(state, 'daily_accept:' + quest)
+        core.action(state, f'story_fast:liyue-wp-{field}')
+        walk = TrailWalk(lua, core, state, gates, exits)
+        stage = f'branch-hunt-{field}'
+        room = stage + '-pocket-2'
+        shown = next(q for q in core.frame(state).daily.activeSlots.values() if q.id == quest)
+        assert room not in shown.targetNodes.values()
+        walk.cross(stage)
+        walk.cross(room)
+        ticks = fight(core, state)
+        assert ticks and slot(reload(state)).count == 0
+        result['rareEncounters'].append({'room':room, 'normalAttackTicks':ticks, 'savedCount':0})
+write(f'evidence/chenyu-{area}-commission.json', result)
 print('Both three-room circuits paid once and survived reloads.')
