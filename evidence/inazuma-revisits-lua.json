@@ -1,0 +1,34 @@
+{
+  "alternateChoices": true,
+  "cape": [
+    "lantern",
+    "sway",
+    "unmask",
+    "rest"
+  ],
+  "chapterAndLocalGates": true,
+  "completedMain": [
+    "inazuma-moving-lantern",
+    "inazuma-torii-maze",
+    "inazuma-lantern-contest"
+  ],
+  "completedSide": [
+    "ayaka-join",
+    "ina-window-fireworks",
+    "ina-sayu-quiet-route",
+    "ina-itto-three-games",
+    "ina-walking-teahouse"
+  ],
+  "legacyBridgeSilent": true,
+  "lines": {
+    "ina-festival-games": "最後の競走、あなたの組の子が真っ先に振り返ったの、見えました？　応援の声がちゃんと届いていましたね。",
+    "ina-firework-beach": "あの窓からも見えたでしょうか。藤の紫の花火が、扇の形に開くところ。",
+    "ina-sayu-watchpath": "早柚さんがここにすっと消えて、向こうで柵が開いて……。私たちが通れる道まで考えてくれていたのですね。",
+    "ina-tea-landing": "今日はここで一杯いただきませんか？　車輪の跡を追わずに、このお茶を飲みに来られるのはうれしいですね。",
+    "inazuma-town": "絵図の「屋根越しの高台」、覚えていますか？　ここであなたが選んでくださった景色です。"
+  },
+  "noRepeatRewards": true,
+  "pauseAndRearm": true,
+  "sameSaveAllFive": true,
+  "startLevel": 60
+}

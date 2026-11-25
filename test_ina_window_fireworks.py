@@ -93,9 +93,11 @@ s.story.quests["inazuma-moving-lantern"] = lua.table_from({
     "lantern":{"inspected":{"box-leaf":True,"stone-shadow":True,"eaten-nuts":True}},
 }, recursive=True)
 s.story.visited["inazuma-port"] = True
-earned = '--earned' in sys.argv
+epilogue = '--epilogue' in sys.argv
+earned = epilogue or '--earned' in sys.argv
 if earned:
-    source = ROOT / 'work/inazuma-fresh-route/forest-earned-start.json'
+    folder = ROOT/'work/inazuma-fresh-route'
+    source = folder/('boat-ready-save.json' if epilogue else 'forest-earned-start.json')
     raw = source.read_bytes()
     s = load(validate_save(json.loads(raw)))
     assert s.story.quests["inazuma-moving-lantern"].status == "complete" and not state(s)
@@ -203,6 +205,10 @@ assert phase(s) == "burst" and frame(s).storyFireworkStatus.design.color == "wis
 assert frame(s).storyFireworkStatus.design.shape == "fan"
 tick(s,160)
 assert state(s).status == "complete" and s.mora == before[1]+reward[1]
+if epilogue:
+    (folder/'epilogue-fireworks.json').write_text(json.dumps(checkpoint(s),ensure_ascii=False),encoding='utf8')
+    print('Saved epilogue-fireworks after normal quest report')
+    sys.exit(0)
 
 result = {
     "prerequisite":True, "surveyStatuses":surveys, "peacefulMaps":True,

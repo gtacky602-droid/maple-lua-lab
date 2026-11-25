@@ -74,6 +74,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if q.roof then roofQuest=q end
   if q.join and q.starter then starterQuests[q.join]=q end
  end
+ local ayakaRevisit=contest.revisits(quests,nodes)
  local function setup(s)
   if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
   s.story.discovered=s.story.discovered or {}
@@ -1109,6 +1110,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.contestReplay=nil
   s.contestFlash=nil
   s.contestVista=nil
+  s.chiefGreetingAt=nil
   s.storyFirstClear=nil
   s.sightNotice=nil
   s.restNotice=nil
@@ -2118,6 +2120,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
    huntGuides(s,f)
+   if contestQuest and completed(s,contestQuest.id) then f.storyAyakaMemory=ayakaRevisit(s) end
    local phase=n.locationAfterReport
    if phase and completed(s,phase.quest) then
     f.location=phase.name..'（本編試作）'

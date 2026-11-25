@@ -80,6 +80,21 @@ function renderGrowthPractice(frame){
   '練習目標を達成しました。練習を終えると依頼手帳から報告できます。':
   practiceGuides[trial.skill]+' 冒険のHP・技の待ち時間・ゲージ・装備は入場前のままです。';
 }
+function updateRevisitMap(f){
+ const panel=document.getElementById('ayakaRevisitMap');
+ const chapter=f.story.quests['inazuma-lantern-contest'];
+ panel.hidden=!f.story.active||chapter?.status!=='complete';
+ if(panel.hidden)return;
+ const buttons=[];
+ for(const q of f.storyGraph.quests){
+  const stop=q.ayakaRevisit,state=f.story.quests[q.id];
+  if(stop&&state?.status==='complete'&&(!q.sights||state.sights?.favorite)){
+   const b=button(stop.name,'world_map_focus:'+stop.node);
+   b.dataset.revisit=stop.node;buttons.push(b);
+  }
+ }
+ panel.lastElementChild.replaceChildren(...buttons);
+}
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
  updateEndgame(f);
@@ -102,6 +117,7 @@ function update(){
  }
  const signature=JSON.stringify([lampSide,target?.point,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
+ updateRevisitMap(f);
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
  questMap.hidden=!guide.node||Boolean(f.growthTrial);
  questMap.dataset.node=guide.node??'';

@@ -1,0 +1,596 @@
+{
+  "active": 1,
+  "companion": "ayaka",
+  "count": 0,
+  "damage": 90933,
+  "gauge": 100,
+  "hits": 28992,
+  "inventory": {
+    "combatRng": 1973,
+    "ground": [],
+    "items": [
+      {
+        "enhance": 0,
+        "id": 1,
+        "itemLv": 19,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 2,
+        "itemLv": 31,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 3,
+        "itemLv": 35,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 5,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 4,
+        "itemLv": 38,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 5,
+        "itemLv": 58,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 6,
+        "itemLv": 56,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 4,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 7,
+        "itemLv": 58,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 8,
+        "itemLv": 58,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 9,
+        "itemLv": 56,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 10,
+        "itemLv": 60,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 1,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 11,
+        "itemLv": 64,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 12,
+        "itemLv": 72,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 13,
+        "itemLv": 70,
+        "owner": 0,
+        "rarity": 4,
+        "setId": "gladiator",
+        "slot": 5,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 14,
+        "itemLv": 74,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 15,
+        "itemLv": 74,
+        "owner": 0,
+        "rarity": 4,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 16,
+        "itemLv": 72,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 17,
+        "itemLv": 80,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 18,
+        "itemLv": 80,
+        "owner": 0,
+        "rarity": 4,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 19,
+        "itemLv": 76,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 20,
+        "itemLv": 76,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 1,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 21,
+        "itemLv": 70,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 5,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 22,
+        "itemLv": 78,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 2,
+        "subpair": "atk_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 23,
+        "itemLv": 76,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 3,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 24,
+        "itemLv": 76,
+        "owner": 0,
+        "rarity": 4,
+        "setId": "gladiator",
+        "slot": 1,
+        "subpair": "hp_crit"
+      },
+      {
+        "enhance": 0,
+        "id": 25,
+        "itemLv": 76,
+        "owner": 0,
+        "rarity": 3,
+        "setId": "gladiator",
+        "slot": 4,
+        "subpair": "hp_crit"
+      }
+    ],
+    "message": "聖遺物を回収しました。",
+    "nextId": 26,
+    "rng": 456508217,
+    "sampleKit": false,
+    "targetSet": "gladiator",
+    "upgradeOre": 1
+  },
+  "kills": 2714,
+  "loadout": [
+    [
+      "SK01"
+    ],
+    [
+      "SK02"
+    ],
+    [
+      "SK01",
+      "SK02"
+    ],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "mora": 36800,
+  "partyCombat": {
+    "companion": {
+      "cooldowns": {},
+      "hp": 150
+    },
+    "reserve": {
+      "amber": {
+        "cooldowns": {},
+        "hp": 140
+      }
+    },
+    "swap": 0,
+    "traveler": {
+      "cooldowns": {},
+      "hp": 140
+    }
+  },
+  "progression": {
+    "baseXp": 2902159,
+    "curve": "maplesea-reference-v02",
+    "curveAdjustment": 0,
+    "killXp": 1186468,
+    "lastKills": 2714,
+    "level": 60,
+    "overflowXp": 0,
+    "questRewarded": false,
+    "questXp": 1715691,
+    "total": 2902159,
+    "xp": 169071
+  },
+  "quest": "available",
+  "story": {
+    "active": true,
+    "discovered": {},
+    "growth": {
+      "ai-hit": true,
+      "manual-swap": true
+    },
+    "node": "inazuma-town",
+    "quests": {
+      "amber-join": {
+        "count": 4,
+        "cycles": 1,
+        "recovered": {
+          "basket": true,
+          "crate": true,
+          "toolbox": true
+        },
+        "status": "complete"
+      },
+      "ayaka-join": {
+        "count": 4,
+        "cycles": 1,
+        "sights": {
+          "favorite": "rooftops",
+          "seen": {
+            "rooftops": true,
+            "sakura": true,
+            "slope": true
+          }
+        },
+        "status": "complete"
+      },
+      "beidou-join": {
+        "count": 4,
+        "cycles": 1,
+        "recovered": {
+          "ledge": true,
+          "pier": true,
+          "rocks": true
+        },
+        "status": "complete"
+      },
+      "ina-itto-three-games": {
+        "count": 4,
+        "cycles": 1,
+        "ittoContest": {
+          "best": 3,
+          "last": [
+            {
+              "player": 5,
+              "rival": 0
+            },
+            {
+              "player": 6,
+              "rival": 1
+            },
+            {
+              "player": 3,
+              "rival": 1
+            }
+          ],
+          "series": 1
+        },
+        "status": "complete"
+      },
+      "ina-sayu-quiet-route": {
+        "count": 6,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "ina-walking-teahouse": {
+        "count": 7,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "ina-window-fireworks": {
+        "count": 5,
+        "cycles": 1,
+        "fireworkDesign": {
+          "color": "wisteria",
+          "shape": "fan"
+        },
+        "status": "complete"
+      },
+      "inazuma-lantern-contest": {
+        "count": 5,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "inazuma-moving-lantern": {
+        "count": 6,
+        "cycles": 1,
+        "lantern": {
+          "inspected": {
+            "box-leaf": true,
+            "eaten-nuts": true,
+            "stone-shadow": true
+          }
+        },
+        "status": "complete"
+      },
+      "inazuma-torii-maze": {
+        "count": 5,
+        "cycles": 1,
+        "forest": {
+          "defeated": {
+            "inazuma-thicket-1": true,
+            "inazuma-thicket-2": true,
+            "inazuma-thicket-3": true
+          },
+          "looped": true
+        },
+        "status": "complete"
+      },
+      "liyue-book-rescue": {
+        "book": {
+          "defeated": {
+            "liyue-book-scout-1": true,
+            "liyue-book-scout-2": true,
+            "liyue-book-scout-3": true
+          }
+        },
+        "count": 4,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "liyue-caravan-search": {
+        "count": 3,
+        "cycles": 1,
+        "inspected": {
+          "caravan": true,
+          "cart-ruts": true
+        },
+        "status": "complete"
+      },
+      "liyue-harbor-meal": {
+        "cooking": {
+          "flavor": "herbal",
+          "gathered": {
+            "fish": true,
+            "herb": true,
+            "mushroom": true
+          },
+          "meals": 1
+        },
+        "count": 4,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "liyue-hauling-shortcut": {
+        "construction": {
+          "plan": "ground",
+          "surveyed": {
+            "detour": true,
+            "old-lift": true,
+            "roof": true
+          }
+        },
+        "count": 6,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "liyue-market-delivery": {
+        "count": 3,
+        "cycles": 1,
+        "delivery": {
+          "delivered": {
+            "pot": true,
+            "vessel": true,
+            "wheel": true
+          },
+          "guardCleared": true,
+          "recovered": true
+        },
+        "status": "complete"
+      },
+      "liyue-market-opening": {
+        "count": 3,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "mond-bennett-cave": {
+        "count": 4,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "mond-old-trail": {
+        "count": 2,
+        "cycles": 1,
+        "inspected": {
+          "wheel-ruts": true
+        },
+        "status": "complete"
+      },
+      "mond-rest-stop": {
+        "count": 5,
+        "cycles": 1,
+        "rest": {
+          "defeated": {
+            "mond-rest-hilichurl": true,
+            "mond-rest-slime": true
+          }
+        },
+        "status": "complete"
+      },
+      "mond-watchtower-clear": {
+        "count": 1,
+        "cycles": 1,
+        "status": "complete"
+      },
+      "mond-windmill": {
+        "count": 4,
+        "cycles": 1,
+        "roof": {
+          "bestTicks": 520,
+          "falls": 0,
+          "ticks": 520
+        },
+        "status": "complete"
+      }
+    },
+    "visited": {
+      "ina-festival-games": true,
+      "ina-firework-beach": true,
+      "ina-firework-lookouts": true,
+      "ina-sayu-watchpath": true,
+      "ina-tea-crossroads": true,
+      "ina-tea-landing": true,
+      "inazuma-forest-shore": true,
+      "inazuma-lantern-clearing": true,
+      "inazuma-lantern-trail": true,
+      "inazuma-outer-shore": true,
+      "inazuma-port": true,
+      "inazuma-road": true,
+      "inazuma-sea-cave": true,
+      "inazuma-shiomi-cape": true,
+      "inazuma-torii-footprints": true,
+      "inazuma-torii-reflections": true,
+      "inazuma-torii-statues": true,
+      "inazuma-torii-thicket": true,
+      "inazuma-town": true,
+      "liyue-book-camp": true,
+      "liyue-cart-road": true,
+      "liyue-cliff-planks": true,
+      "liyue-crux-wharf": true,
+      "liyue-entry": true,
+      "liyue-ferry": true,
+      "liyue-field": true,
+      "liyue-harbor": true,
+      "liyue-loading-yard": true,
+      "liyue-quarry-post": true,
+      "liyue-quarry-scree": true,
+      "liyue-quarry-storage": true,
+      "liyue-river-trail": true,
+      "liyue-wp-104": true,
+      "mond-bennett-depth": true,
+      "mond-bennett-ledge": true,
+      "mond-border": true,
+      "mond-hill": true,
+      "mond-old-ground": true,
+      "mond-old-road": true,
+      "mond-restored-road": true,
+      "mond-road": true,
+      "mond-roadside-rest": true,
+      "mond-roof-route": true,
+      "mond-town": true,
+      "mond-watchtower": true,
+      "mond-windmill-lookout": true,
+      "mond-wp-19": true,
+      "sites-hunt-18667": true,
+      "sites-hunt-7137": true,
+      "sites-hunt-7218": true,
+      "tsurumi-coast": true
+    }
+  },
+  "version": 1
+}

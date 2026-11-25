@@ -3,6 +3,15 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "inazuma_chapter_revisits": {
+    "earnedLevel": 60,
+    "completedMain": 3,
+    "completedSide": 5,
+    "companionStops": 5,
+    "save": "evidence/inazuma-revisit-save.json",
+    "lua": "evidence/inazuma-revisits-lua.json",
+    "browser": "evidence/inazuma-revisits-browser.json"
+  },
   "all_bosses_scope": "all normal + all weekly + original Stygian encounters; explicit user confirmation 2026-11-16",
   "background_policy": {
     "production": "3D scene, outside Lua draw commands",

@@ -298,7 +298,7 @@ let lanternNote='';
 function updateLanternNote(note,sight,maze){
  const panel=$('storyLanternNotes'),sketches=$('forestSketches');
  const count=maze?.forest?Math.min(3,maze.count):0;
- panel.hidden=!(note||sight||count);
+ panel.hidden=!(note||sight||count||frame?.story?.quests?.['inazuma-lantern-contest']?.status==='complete');
  if(sketches.dataset.count!==String(count)){
   sketches.dataset.count=String(count);
   sketches.hidden=!count;
@@ -442,6 +442,9 @@ function hud(f,calls,renderMs){
  const vista=$('capeVista');
  vista.hidden=!f.storyContest?.vista||Boolean(f.worldMap);
  if(!vista.hidden&&!vista.querySelector('img').hasAttribute('src'))vista.querySelector('img').src='assets/inazuma-shiomi-cape-background-v1.png';
+ const memory=$('ayakaRevisit');
+ memory.hidden=!f.storyAyakaMemory||Boolean(f.worldMap);
+ if(!memory.hidden&&memory.lastElementChild.textContent!==f.storyAyakaMemory)memory.lastElementChild.textContent=f.storyAyakaMemory;
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
  const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyWandererSurvey?.message??f.storyObservationVisitors?.message??f.storyColleiGuide?.message??f.storyKavehRoom?.message??f.storyNahidaDiscovery?.message??f.storyEmilieScent?.message??f.storyNaviaPhoto?.message??f.storyIansan?.message??f.storySpringCourse?.message??f.storyKinichHunt?.message??f.storySurf?.message??f.storyToyDive?.message??f.storyDiveExhibit?.message??f.storyLyneyMagic?.message??f.storyFurinaFinale?.message??(!f.storyFurinaRehearsal?.open?f.storyFurinaRehearsal?.message:undefined)??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;

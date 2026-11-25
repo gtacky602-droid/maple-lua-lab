@@ -9,6 +9,61 @@ return function(C)
  }
  local names={'左','中央','右'}
 
+ -- Revisit the same physical props that the side quests use. Only the dialogue is new.
+ function contest.revisits(quests,nodes)
+  local stops={}
+  local function stop(q,node,point,line)
+   q.ayakaRevisit={node=node,name=point.name}
+   stops[node]={quest=q.id,point=point,line=line}
+  end
+  local bridge=quests['ayaka-join']
+  stop(bridge,bridge.target,bridge.sights.bridge,function(state)
+   if not state.sights then return end
+   for _,place in ipairs(bridge.sights.places) do
+    if place.id==state.sights.favorite then
+     return '絵図の「'..place.name..'」、覚えていますか？　ここであなたが選んでくださった景色です。'
+    end
+   end
+  end)
+  local fireworks=quests['ina-window-fireworks']
+  stop(fireworks,fireworks.target,fireworks.itinerary[fireworks.goal],function(state)
+   local design=state.fireworkDesign
+   if design then
+    local color,shape
+    for _,v in ipairs(fireworks.fireworks.colors) do if v.id==design.color then color=v.label end end
+    for _,v in ipairs(fireworks.fireworks.shapes) do if v.id==design.shape then shape=v.label end end
+    if color and shape then return 'あの窓からも見えたでしょうか。'..color..'の花火が、'..shape..'の形に開くところ。' end
+   end
+   return 'あの日は、花火より先に向こうの窓を見てしまいました。ふふ、あなたもですか？'
+  end)
+  local sayu=quests['ina-sayu-quiet-route']
+  local hatch=sayu.itinerary[sayu.goal-1]
+  stop(sayu,hatch.node,hatch,function()
+   return '早柚さんがここにすっと消えて、向こうで柵が開いて……。私たちが通れる道まで考えてくれていたのですね。'
+  end)
+  local itto=quests['ina-itto-three-games']
+  local games=nodes[itto.target].ittoGames
+  stop(itto,itto.target,{x=games.prizeX,y=games.bell.y,name='競技広場の景品台'},function(state)
+   local relay=state.ittoContest and state.ittoContest.last and state.ittoContest.last[3]
+   if relay and relay.player>relay.rival then
+    return '最後の競走、あなたの組の子が真っ先に振り返ったの、見えました？　応援の声がちゃんと届いていましたね。'
+   end
+   return '景品を受け取った子たち、一斗さんの笛をもう一度鳴らそうとしていましたね。次は私も走ってみたいです。'
+  end)
+  local tea=quests['ina-walking-teahouse']
+  stop(tea,tea.target,tea.itinerary[tea.goal],function()
+   return '今日はここで一杯いただきませんか？　車輪の跡を追わずに、このお茶を飲みに来られるのはうれしいですね。'
+  end)
+  return function(s)
+   local here=stops[s.story.node]
+   if not here or s.companion~='ayaka' or s.actors[2].hp<=0 or s.ittoRound or s.fireworkShow then return end
+   local actor=s.actors[s.active]
+   local state=s.story.quests[here.quest]
+   if state and state.status=='complete' and actor.hp>0 and math.abs(actor.x-here.point.x)<80
+      and math.abs(actor.y-here.point.y)<34 then return here.line(state) end
+  end
+ end
+
  local function phase(s,state)
   return s.contestReplay or (state.status=='active' and state.count) or 5
  end
@@ -81,7 +136,15 @@ return function(C)
   return true
  end
 
+ local function greeting(s,q)
+  local a=s.actors[s.active]
+  local dx=math.abs(a.x-(q.contest.overlookX+88))
+  if a.hp<=0 or dx>235 or math.abs(a.y-480)>100 then s.chiefGreetingAt=nil
+  elseif dx<155 and math.abs(a.y-480)<48 and not s.chiefGreetingAt then s.chiefGreetingAt=s.t end
+ end
+
  function contest.step(s,q,state)
+  if state and state.status=='complete' and not s.paused and s.story.node==q.contest.cape then greeting(s,q) end
   if s.contestVista then
    local a=s.actors[s.active]
    if s.story.node~=q.contest.cape or math.abs(a.x-q.contest.overlookX)>=58 or math.abs(a.y-480)>=34 or a.hp<=0 then s.contestVista=nil end
@@ -163,6 +226,36 @@ return function(C)
 
 
 
+ local function greetAtCape(s,f,boxes,x,mode,profile)
+  local age=s.chiefGreetingAt and s.t-s.chiefGreetingAt or -1
+  local phase=age<0 and 'lantern' or age<.45 and 'sway' or age<1.3 and 'unmask' or 'rest'
+  if x>=-65 and x<=1025 then
+   if phase=='lantern' or phase=='sway' then
+    local sway=phase=='sway' and math.sin(age*22)*3 or 0
+    for _,r in ipairs(contest.motifs.lantern) do
+     rect(boxes,x+r[1]+sway*(-r[2]/84),480+r[2],r[3],r[4],r[5])
+    end
+    for _,r in ipairs(contest.motifs.tail) do rect(boxes,x+r[1]-.5*sway,479+r[2],r[3],r[4],r[5]) end
+   else
+    local t=math.min(1,(age-.45)/.85)
+    local hop=math.sin(t*math.pi)*16
+    local layer={draws=boxes}
+    if mode=='rect' and s.packRectArt then
+     f.rectBatches=f.rectBatches or {}
+     layer.rectIndex,layer.rectBatches={},f.rectBatches
+    end
+    C.drawDanukiArt(layer,x,480-hop,mode,profile)
+    if phase=='unmask' then
+     local leafX=x+t*35
+     local leafY=421-22*math.sin(t*math.pi)+t*41
+     rect(boxes,leafX,leafY,10,4,'#708947')
+     rect(boxes,leafX+5,leafY-3,8,4,'#adbb72')
+    end
+   end
+  end
+  return phase
+ end
+
  function contest.observe(s,f,boxes,node,q,state,mode,profile)
   if not state then return end
   local spec=q.contest
@@ -172,8 +265,14 @@ return function(C)
   if item then f.storyNearbyContest={label=label} end
   if s.story.node==spec.cape then
    sign(boxes,spec.overlookX-c)
-   C.drawDanukiArt({draws=boxes},spec.overlookX+88-c,480,mode,profile)
-   f.storyContest={stage=stage,vista=s.contestVista,message='潮見の岬 ｜ 海と町の灯り'}
+   local x=spec.overlookX+88-c
+   local pose
+   if state.status=='complete' then pose=greetAtCape(s,f,boxes,x,mode,profile)
+   else C.drawDanukiArt({draws=boxes},x,480,mode,profile) end
+   local message='潮見の岬 ｜ 海と町の灯り'
+   if pose=='sway' then message='道標のとなりで、灯籠のしっぽが揺れた。'
+   elseif pose=='unmask' then message='親分はひょいと葉を放して、こちらに素顔を見せた。' end
+   f.storyContest={stage=stage,vista=s.contestVista,greeting=pose,message=message}
    return
   end
   if s.story.node~=q.target then return end

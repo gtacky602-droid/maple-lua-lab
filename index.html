@@ -196,6 +196,7 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
 <main><header><div><div class="eyebrow">TEYVAT · 2D ADVENTURE LAB</div><h1>風の狩場</h1><p>3D背景を想定した画像と、Luaで動く2Dの旅人・アンバー。</p></div><span class="badge">Lua 5.3 / ローカル試作 A</span></header>
 <p id="fieldBalance" class="note" hidden></p>
 <div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><figure id="capeVista" hidden><img alt="夕暮れの海に町の灯りが映る潮見の岬"><figcaption>潮見の岬 <button type="button" data-action="story_collect">眺望を閉じる</button></figcaption></figure><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
+<p id="ayakaRevisit" hidden style="margin:0;padding:10px 18px;background:#263c52;color:#eaf2ff"><strong>神里綾華</strong>　<span></span></p>
 <section id="growthTrialHud" class="note" aria-label="光界の練習" hidden>
  <p id="growthTrialHelp" role="status"></p>
  <button data-action="normal">通常攻撃 J</button>
@@ -479,6 +480,7 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
  </div>
  <section id="forestSketches" hidden><h3>森で見つけた手掛かり</h3><div></div></section>
  <p id="storySightNote" hidden></p>
+ <section id="ayakaRevisitMap" hidden><h3>綾華ともう一度歩く</h3><p>思い出の場所を選ぶと、地図に印が付きます。綾華と一緒に立ち寄ってみましょう。</p><div></div></section>
 </details>
 <p id="storyForest" hidden style="margin:0;padding:10px 18px;background:#173a3b"></p>
 <div id="trackedQuest" hidden style="padding:10px 18px;background:#173a3b;overflow-wrap:anywhere"><span id="trackedQuestText"></span> <strong id="trackedHuntHint" hidden></strong> <label id="trackedWorksiteLabel" hidden>次に向かう場所 <select id="trackedWorksite"></select></label> <button id="trackedQuestMap" hidden>目的地を地図で見る</button> <a id="trackedSurveyPoint" target="_blank" rel="noopener" hidden>調査位置を見る</a> <button id="clearTrackedQuest">追跡を解除</button></div>

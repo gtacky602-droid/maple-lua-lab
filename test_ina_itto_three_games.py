@@ -97,9 +97,11 @@ for id,count,state in (
     ("inazuma-torii-maze",5,{"forest":{"looped":True,"defeated":{f"inazuma-thicket-{i}":True for i in range(1,4)}}}),
 ):
     s.story.quests[id]=lua.table_from(dict(status="complete",count=count,cycles=1,**state),recursive=True)
-earned='--earned' in sys.argv
+epilogue = '--epilogue' in sys.argv
+earned = epilogue or '--earned' in sys.argv
 if earned:
-    source=ROOT/'work/inazuma-fresh-route/lantern-earned-start.json'
+    folder = ROOT/'work/inazuma-fresh-route'
+    source = folder/('epilogue-fireworks.json' if epilogue else 'lantern-earned-start.json')
     raw=source.read_bytes()
     s=load(validate_save(json.loads(raw)))
     assert s.story.quests['inazuma-torii-maze'].status=='complete' and not record(s)
@@ -213,6 +215,10 @@ assert board.heading=='前回の三番勝負' and native(board.scores)==native(r
 reward=report(s)
 assert reward==[QUEST_REPORT_EXP["Q-INA-S04"],1550]
 first=checkpoint(s)
+if epilogue:
+    (folder/'epilogue-all.json').write_text(json.dumps(first,ensure_ascii=False),encoding='utf8')
+    print('Saved epilogue-all after normal quest report')
+    sys.exit(0)
 s=load(first)
 gate(s,828,field)
 assert frame(s).storyIttoGames.title and frame(s).storyIttoGames.next==1
