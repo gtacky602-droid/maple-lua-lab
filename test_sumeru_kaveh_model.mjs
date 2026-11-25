@@ -103,6 +103,8 @@ async function compareRoom(){
   await menu.selectOption('h32c16');
   await wait(n=>window.lab.frame.commands<n,standard.commands);
   const light=await frame();
+  assert.equal(light.draws.filter(d=>d.kind==='rect_runs').length,4);
+  assert.equal(light.rectBatches.length,4);
   await shot('room-light');
   for(const f of [standard,light]){
     assert.equal(f.t,png.t);

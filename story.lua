@@ -2339,6 +2339,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if n.ittoGames then itto.observe(s,f,markers,n.ittoGames,s.story.quests[n.ittoGames.quest],mode,profile) end
    if n.teaQuest then teaCase.observe(s,f,markers,quests[n.teaQuest],s.story.quests[n.teaQuest],mode,profile) end
+   -- These quest observers append artwork to the same draw list.
+   if s.packRectArt and mode=='rect' and (n.wandererSurveyQuest or n.visitorSite or n.colleiGuideQuest
+       or n.colleiLetterQuest or n.kavehQuest or n.nahidaMapQuest or n.scentQuest) then
+    f.rectIndex,f.rectBatches={},f.rectBatches or {}
+   end
    if n.wandererSurveyQuest then
     local q=quests[n.wandererSurveyQuest]
     wandererSurvey.observe(f,s,q,s.story.quests[q.id],mode,profile)
@@ -2363,6 +2368,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.scentQuest then
     local q=quests[n.scentQuest]
     emilieScent.observe(f,s,q,s.story.quests[q.id],mode,profile)
+   end
+   if f.rectIndex then
+    f.rectIndex=nil
+    if #f.rectBatches==0 then f.rectBatches=nil end
    end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end

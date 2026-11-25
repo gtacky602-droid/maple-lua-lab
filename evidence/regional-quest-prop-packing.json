@@ -1,0 +1,122 @@
+{
+  "sum-wanderer-hollow": {
+    "legacy": {
+      "before": 743634,
+      "after": 562517,
+      "stamps": 2,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 535695,
+      "after": 409331,
+      "stamps": 2,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 200884,
+      "after": 149395,
+      "stamps": 2,
+      "batches": 1
+    }
+  },
+  "sum-visitors-terrace": {
+    "legacy": {
+      "before": 425090,
+      "after": 360632,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 302574,
+      "after": 259048,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 112447,
+      "after": 91093,
+      "stamps": 1,
+      "batches": 1
+    }
+  },
+  "sum-collei-rainfork": {
+    "legacy": {
+      "before": 638691,
+      "after": 420826,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 501701,
+      "after": 298089,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 192655,
+      "after": 107774,
+      "stamps": 2,
+      "batches": 2
+    }
+  },
+  "sum-kaveh-reading-room": {
+    "legacy": {
+      "before": 1773169,
+      "after": 669150,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h48c32": {
+      "before": 1382682,
+      "after": 449193,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h32c16": {
+      "before": 514994,
+      "after": 164897,
+      "stamps": 4,
+      "batches": 4
+    }
+  },
+  "sum-nahida-dew-glade": {
+    "legacy": {
+      "before": 549384,
+      "after": 386484,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 407887,
+      "after": 274489,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 150974,
+      "after": 97306,
+      "stamps": 1,
+      "batches": 1
+    }
+  },
+  "fon-emilie-atelier": {
+    "legacy": {
+      "before": 838418,
+      "after": 463689,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h48c32": {
+      "before": 638874,
+      "after": 322237,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h32c16": {
+      "before": 215909,
+      "after": 117564,
+      "stamps": 4,
+      "batches": 4
+    }
+  }
+}

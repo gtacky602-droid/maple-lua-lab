@@ -18,9 +18,9 @@
   "escapePreservesModel": true,
   "acceptedAfterMainAndRoomRestored": true,
   "commands": {
-    "png": 17,
-    "standard": 18144,
-    "light": 4393
+    "png": 11,
+    "standard": 18030,
+    "light": 4359
   },
   "reward": [
     293808,
