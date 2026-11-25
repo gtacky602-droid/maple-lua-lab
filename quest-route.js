@@ -4,8 +4,8 @@ export function questTargetNode(q,graph){
  return graph.nodes.find(n=>n.challenge===q.target)?.id??graph.bossNodes?.[q.target];
 }
 
-export function questRouteText(f,q,status){
- if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return '';
+export function questRoute(f,q,status){
+ if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return {text:''};
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
@@ -38,9 +38,9 @@ export function questRouteText(f,q,status){
  const destinations=arrival?[arrival.from]:branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
   :unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
  const targets=new Set(destinations.filter(id=>nodes.has(id)));
- if(!targets.size)return '目的地は未公開または未登録です。';
- const from=f.story.node;if(!nodes.has(from))return '';
- if(targets.has(from)&&!arrival)return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
+ if(!targets.size)return {text:'目的地は未公開または未登録です。'};
+ const from=f.story.node;if(!nodes.has(from))return {text:''};
+ if(targets.has(from)&&!arrival)return {node:from,text:status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。'};
  function meetsRule(rule){
   const questState=f.story.quests?.[rule.quest];
   const state=rule.path?questState?.pathProgress?.[rule.path]:questState;
@@ -59,7 +59,7 @@ export function questRouteText(f,q,status){
   return ride?.kind==='trolley'?[...exits,{to:ride.destination,trolleyArrival:true}]:exits;
  }
  if(arrival&&(!nodes.has(arrival.node)||!connections(nodes.get(arrival.from)).some(edge=>edge.to===arrival.node&&gateOpen(edge))))
-  return '指定された出発地点の門から通れる経路がありません。';
+  return {text:'指定された出発地点の門から通れる経路がありません。'};
  const level=f.progression?.level??0;
  function routeAtLevel(limit){
   if(arrival&&(nodes.get(arrival.node).level||1)>limit)return;
@@ -80,7 +80,7 @@ export function questRouteText(f,q,status){
  if(!path)for(const limit of [...new Set([...nodes.values()].map(n=>n.level||1))].filter(n=>n>level).sort((a,b)=>a-b)){
   path=routeAtLevel(limit);if(path)break;
  }
- if(!path)return '公開中の地点からつながる経路がありません。';
+ if(!path)return {text:'公開中の地点からつながる経路がありません。'};
  const next=nodes.get(path[1]),edge=connections(nodes.get(from)).find(e=>e.to===next.id&&gateOpen(e));
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
@@ -118,5 +118,10 @@ export function questRouteText(f,q,status){
  else if(edge.darkOnly)notes.push('室内の操作盤で灯りを消すと、この門が現れます');
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
- return `次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`;
+ const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);
+ return {node:focus,text:`次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`};
+}
+
+export function questRouteText(f,q,status){
+ return questRoute(f,q,status).text;
 }

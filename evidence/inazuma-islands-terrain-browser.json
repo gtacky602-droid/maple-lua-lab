@@ -1,0 +1,207 @@
+{
+  "pool": {
+    "stage": "sites-hunt-15949",
+    "scenery": {
+      "key": "inaSuigetsuPool",
+      "file": "ina-suigetsu-pool-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 336.4,
+      "y": 201.8,
+      "adjacent": [
+        "ina-wp-15951"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-15949",
+      "next": "ina-wp-15951"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "journeys": [
+      [
+        "ina-wp-15951",
+        "sites-hunt-15949",
+        "lift"
+      ],
+      [
+        "sites-hunt-15949",
+        "ina-wp-15951",
+        "lift"
+      ]
+    ]
+  },
+  "castle": {
+    "stage": "sites-hunt-17223",
+    "scenery": {
+      "key": "inaCastleKeep",
+      "file": "ina-castle-keep-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 604.6,
+      "y": 181.6,
+      "adjacent": [
+        "ina-wp-12722"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-17223",
+      "next": "ina-wp-12722"
+    },
+    "jump": [
+      480,
+      423
+    ],
+    "journeys": [
+      [
+        "ina-wp-12722",
+        "sites-hunt-17223",
+        "walk"
+      ],
+      [
+        "sites-hunt-17223",
+        "ina-wp-12722",
+        "walk"
+      ]
+    ]
+  },
+  "islet": {
+    "stage": "sites-hunt-18667",
+    "scenery": {
+      "key": "inaFogIslet",
+      "file": "ina-fog-islet-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 447,
+      "y": 307.8,
+      "adjacent": [
+        "tsurumi-coast",
+        "sites-hunt-18667-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-18667",
+      "next": "sites-hunt-18667-pocket-1"
+    },
+    "jump": [
+      480,
+      425
+    ],
+    "returnHeight": 398,
+    "pocketScenery": {
+      "key": "inaTideChamber",
+      "file": "ina-tide-chamber-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "tsurumi-coast",
+        "sites-hunt-18667",
+        "boat"
+      ],
+      [
+        "sites-hunt-18667",
+        "sites-hunt-18667-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-18667-pocket-1",
+        "sites-hunt-18667",
+        "walk"
+      ],
+      [
+        "sites-hunt-18667",
+        "tsurumi-coast",
+        "boat"
+      ]
+    ]
+  },
+  "seirai": {
+    "stage": "sites-hunt-20369",
+    "scenery": {
+      "key": "inaSeiraiCrags",
+      "file": "ina-seirai-crags-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 577.3,
+      "y": 255,
+      "adjacent": [
+        "ina-wp-16030"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-20369",
+      "next": "ina-wp-16030"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "journeys": [
+      [
+        "ina-wp-16030",
+        "sites-hunt-20369",
+        "walk"
+      ],
+      [
+        "sites-hunt-20369",
+        "ina-wp-16030",
+        "walk"
+      ]
+    ]
+  },
+  "shrine": {
+    "stage": "sites-hunt-24906",
+    "scenery": {
+      "key": "inaSacredRoots",
+      "file": "ina-sacred-roots-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 591.9,
+      "y": 113.4,
+      "adjacent": [
+        "ina-wp-12733",
+        "sites-hunt-24906-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-24906",
+      "next": "sites-hunt-24906-pocket-1"
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "inaMirrorSanctum",
+      "file": "ina-mirror-sanctum-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "ina-wp-12733",
+        "sites-hunt-24906",
+        "raised"
+      ],
+      [
+        "sites-hunt-24906",
+        "sites-hunt-24906-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-24906-pocket-1",
+        "sites-hunt-24906",
+        "walk"
+      ],
+      [
+        "sites-hunt-24906",
+        "ina-wp-12733",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

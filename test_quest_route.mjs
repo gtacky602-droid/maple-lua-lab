@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import {questRouteText} from './quest-route.js';
+import {questRoute,questRouteText} from './quest-route.js';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const q=graph.quests.find(q=>q.id==='mond-patrol'),frame={story:{active:true,node:'mond-town'},storyGraph:graph,progression:{level:1}};
 assert.match(questRouteText(frame,q,'unaccepted'),/拠点にいます/);
@@ -103,7 +103,10 @@ const viaWest={story:{active:true,node:'enkan-wp-21581',quests:{[beam.id]:{statu
 assert.match(questRouteText(viaWest,beam,'active'),/^次は 淵下宮・.*残り3区間/);
 viaWest.story.node='enkan-wp-21580';
 assert.match(questRouteText(viaWest,beam,'active'),/^次は 淵下宮・大塔西の回廊.*残り2区間/);
+assert.equal(questRoute(viaWest,beam,'active').node,beam.itinerary[0].from);
 viaWest.story.node='enkan-wp-21579';
 assert.match(questRouteText(viaWest,beam,'active'),/^次は 淵下宮・中央の石灯広場.*残り1区間/);
+assert.equal(questRoute(viaWest,beam,'active').node,beam.itinerary[0].node);
+assert.equal(questRoute(frame,{...q,target:'missing'},'active').node,undefined);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
 await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','ordered arrival directions reach the specified departure gate','no frame mutation']},null,2));console.log('Quest routing fixtures passed');

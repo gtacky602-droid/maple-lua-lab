@@ -1,4 +1,4 @@
-import {questRouteText,questTargetNode} from './quest-route.js';
+import {questRoute,questTargetNode} from './quest-route.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
@@ -158,14 +158,15 @@ export function questObjective(q,graph,state,growth={}){
  }
  return q.kind==='visit'?`${place}を訪れる`:q.kind==='kill'?`${place}で敵を${q.goal}体倒す`:`${place}の本編入口から挑戦し、ボスを討伐する`;
 }
-export function trackedQuestText(f,id){
- if(!f.story?.active)return '';
- const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return '';
+export function trackedQuest(f,id){
+ if(!f.story?.active)return {text:''};
+ const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth);
- const route=status==='locked'?'':questRouteText(f,q,status);
- return `${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
+ const route=status==='locked'?{text:''}:questRoute(f,q,status);
+ return {node:route.node,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
 }
+export function trackedQuestText(f,id){return trackedQuest(f,id).text}
 function prerequisiteText(q,graph,level){
  if(q.level!==undefined&&level<q.level)return `Lv${q.level}になる`;
  if(q.unlockHint)return q.unlockHint;

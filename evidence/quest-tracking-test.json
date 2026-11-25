@@ -1,4 +1,5 @@
 {
+  "mapBeforeAcceptAndAfterRestore": true,
   "liveSelectAccept": true,
   "independentOfFilter": true,
   "reloadResume": true,

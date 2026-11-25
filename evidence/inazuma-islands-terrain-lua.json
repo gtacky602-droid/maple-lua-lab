@@ -1,0 +1,72 @@
+{
+  "sites-hunt-15949": {
+    "population": 3,
+    "shelf_heights_from_entrance": [
+      420,
+      377,
+      397,
+      365
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 59,
+    "exterior_scenery": "inaSuigetsuPool",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-17223": {
+    "population": 3,
+    "shelf_heights_from_entrance": [
+      423,
+      406,
+      387,
+      372
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 59,
+    "exterior_scenery": "inaCastleKeep",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-18667": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      425,
+      393,
+      407,
+      383
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 56,
+    "exterior_scenery": "inaFogIslet",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-20369": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      421,
+      380,
+      400,
+      364
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 59,
+    "exterior_scenery": "inaSeiraiCrags",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-24906": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      394,
+      367,
+      382
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 59,
+    "exterior_scenery": "inaSacredRoots",
+    "arrivals_outside_enemy_contact": 2
+  }
+}

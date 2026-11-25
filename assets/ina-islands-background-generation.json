@@ -1,0 +1,61 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-15949",
+      "key": "inaSuigetsuPool",
+      "source": "ina-suigetsu-pool-background-v1.png",
+      "preview": "ina-suigetsu-pool-native-preview-v1.png",
+      "note": "池の中の秘境・水月池の石井戸",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Watatsumi: an enormous sunken round carved stone cistern with turquoise still water under coral-pink branches; low mossy ruin arches overhead. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    },
+    {
+      "node": "sites-hunt-17223",
+      "key": "inaCastleKeep",
+      "source": "ina-castle-keep-background-v1.png",
+      "preview": "ina-castle-keep-native-preview-v1.png",
+      "note": "稲妻城・御殿の外廊",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Tenshukaku: imposing white Japanese castle keep on a dark blue stone foundation, purple ceramic roof tiers, plum foliage, evening gold behind shoji windows; approach seen from an outer courtyard. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    },
+    {
+      "node": "sites-hunt-18667",
+      "key": "inaFogIslet",
+      "source": "ina-fog-islet-background-v1.png",
+      "preview": "ina-fog-islet-native-preview-v1.png",
+      "note": "離れ小島・霧の岸",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. An isolated Inazuman islet off Tsurumi, quiet pale gray blue fog, low sea stacks, distant broken flagstones emerging from the water and a solitary twisted pine. Boat route approaches from the right. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    },
+    {
+      "node": "sites-hunt-18667-pocket-1",
+      "key": "inaTideChamber",
+      "source": "ina-tide-chamber-background-v1.png",
+      "preview": "ina-tide-chamber-native-preview-v1.png",
+      "note": "離れ小島・潮の石室",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Inside a flooded island grotto with a ruined square doorway, pale cyan tidal reflections and a massive water-worn stone lintel; cool green and blue palette, softly illuminated basin; no mage. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    },
+    {
+      "node": "sites-hunt-20369",
+      "key": "inaSeiraiCrags",
+      "source": "ina-seirai-crags-background-v1.png",
+      "preview": "ina-seirai-crags-native-preview-v1.png",
+      "note": "セイライ・雷雲の岩場",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Storm-torn Seirai island. In the middle distance a crooked line of detached levitating slate slabs leads the eye upwards to a purple storm above split peaks; luminous violet along cloud undersides, subdued blue-slate lower valley. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    },
+    {
+      "node": "sites-hunt-24906",
+      "key": "inaSacredRoots",
+      "source": "ina-sacred-roots-background-v1.png",
+      "preview": "ina-sacred-roots-native-preview-v1.png",
+      "note": "鳴神・神櫻の根道",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Under the Narukami mountain, immense twisted sacred cherry roots curve down a dark cliff by a shadowy cave entrance, quiet pool, sparse lilac blossom clusters and a small faded red shrine gate in the middle distance. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    },
+    {
+      "node": "sites-hunt-24906-pocket-1",
+      "key": "inaMirrorSanctum",
+      "source": "ina-mirror-sanctum-background-v1.png",
+      "preview": "ina-mirror-sanctum-native-preview-v1.png",
+      "note": "鳴神・鏡の控え間",
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. A secret chamber dug into a Japanese mountain shrine, damp carved slate, one tall tilted silver-backed mirror and two smaller azure glass planes leaning against a back wall, subtle reflections of pink sacred roots; no humans. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+    }
+  ]
+}

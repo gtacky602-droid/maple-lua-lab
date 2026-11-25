@@ -1,0 +1,300 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "ina-suigetsu-pool-background-v1.png": {
+      "sourceBytes": 1664947,
+      "sourceSha256": "062889f2bb3b629359fa4e30314a85580d67827234ae33c7d3678bb7bf760d55",
+      "preview": "ina-suigetsu-pool-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18143,
+      "baseSelectedBytes": 18127,
+      "detailFixed13Bytes": 12197,
+      "detailSelectedBytes": 12187,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.930537471064815,
+          "rgbSha256": "6a7f52fb2e8310a37c3bac51e3beb1e992b61d17131ef243900469b425062ccf"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.442052770543982,
+          "rgbSha256": "989c426086383490788503bcad01cbe0a7c863bd0427590b4ec5fe4878e3f4f8"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.066688820167824,
+          "rgbSha256": "37738b3f6fa8e5767cf259b4dbeddb8b0e64e51c5c9d561e336518e5fb4f2aa6"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.7540147569444446,
+          "rgbSha256": "e1584b1301e540a002e687196b13e8eb40bc54bd4fb620f99c926cca973716c5"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.480674461082176,
+          "rgbSha256": "b5491bcec6341c97f537299830f589836aca015930f29ecf4f550ee490f779b6"
+        }
+      ]
+    },
+    "ina-castle-keep-background-v1.png": {
+      "sourceBytes": 1853298,
+      "sourceSha256": "761d1bff8e93c82dad26063cfb6b2cb24e5f694cd89c55c07219c47a83b4cc88",
+      "preview": "ina-castle-keep-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18369,
+      "baseSelectedBytes": 18353,
+      "detailFixed13Bytes": 12097,
+      "detailSelectedBytes": 12087,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.613222475405093,
+          "rgbSha256": "e2f5744ccc64dcaad036472ffb200345b2fbb0ea66dd018719569512e3bf2e19"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.089118109809028,
+          "rgbSha256": "5e88c3871110929b4b27ff77f83155563c4ac0b282c871a6de414955d0302630"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.706147370515047,
+          "rgbSha256": "9c9ef4c73debc080c99ab9851cff1bc451acbf80e38cc097353f6e621b93b331"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.377400716145833,
+          "rgbSha256": "e3fda8251fc59f07aaef695091436534738b8772785696263cece94399044687"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.09642650462963,
+          "rgbSha256": "f08bbe7226c87cce5a8444daf8df22617aa7a7fb87a22d7a7f3c84cda4b71c39"
+        }
+      ]
+    },
+    "ina-fog-islet-background-v1.png": {
+      "sourceBytes": 1487002,
+      "sourceSha256": "03d2bfadda35f5f758d4ed0f9141caeaafc5141b92ada674cae83d35b369d613",
+      "preview": "ina-fog-islet-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15179,
+      "baseSelectedBytes": 15167,
+      "detailFixed13Bytes": 11211,
+      "detailSelectedBytes": 11201,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.8228194625289351,
+          "rgbSha256": "85fc815fb9fd5154e7c5789bd13970e181a94cea2356161c6c423b9fb63a13b4"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.6409053096064814,
+          "rgbSha256": "56561cd70d7077428b60e7b14f50799b65752dc7cbe254e4dd50f894aab20ff1"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.5020232024016205,
+          "rgbSha256": "c5d512ccd7b60c4153ffbe1181f792006154e23d899bb8aa16f1f60bc27ce725"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.3866351092303242,
+          "rgbSha256": "11d87adec08618e75bf034b0d620a4404850bebe36dd62863a634afb235a3e74"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.2971214011863426,
+          "rgbSha256": "15d8fb306c8bdc0360b67e011a671908e28659bfabe2e8948fafe993a81bcd56"
+        }
+      ]
+    },
+    "ina-tide-chamber-background-v1.png": {
+      "sourceBytes": 1581647,
+      "sourceSha256": "d6328c22b747c3ff27fddab6b2b1b3322144c4821a50ad8282b10d17fdd1acf3",
+      "preview": "ina-tide-chamber-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17503,
+      "baseSelectedBytes": 17487,
+      "detailFixed13Bytes": 12269,
+      "detailSelectedBytes": 12259,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.693271213107639,
+          "rgbSha256": "962ac35a3b54b1e94c7acacae02d421b35fb59beaccf168a66367cd5a9e819db"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.295636212384259,
+          "rgbSha256": "9926f119261f91ea192a018e49ddec6edce4e72c6d8423d6f823a95ff26cdd72"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.0107557508680554,
+          "rgbSha256": "ac6492f1c09704bab374ceb3382fa94efc31af34e0d54f057ec1a1a72640a4d1"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.7612621166087963,
+          "rgbSha256": "29410053f1a8b25481fcd57e8075250e921420a45d563b647664f974231315e0"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.5568870261863426,
+          "rgbSha256": "d6e9a4e02b9aaaacfb955cc66362d22bf08fa99c3af2688be67f063851ea93f5"
+        }
+      ]
+    },
+    "ina-seirai-crags-background-v1.png": {
+      "sourceBytes": 1698154,
+      "sourceSha256": "b2dee974f7b19317622583a5abd7cdfe3c79e32e255cf9a7c15d789225055f80",
+      "preview": "ina-seirai-crags-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17131,
+      "baseSelectedBytes": 17119,
+      "detailFixed13Bytes": 11989,
+      "detailSelectedBytes": 11975,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.090325249565972,
+          "rgbSha256": "8de048a429e1f2755809ff67c604fd27277f00bc804e4ff93c4deb8ca1ca955e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.6737377025462963,
+          "rgbSha256": "ff6bcd0d1bd168f16992d7ec1388c063650351b2358d8c1bc637cc5d309fbecb"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.364529079861111,
+          "rgbSha256": "c27bda284267c56263e42a54a361bbecc704df830aae7b3bea706581aa983b2e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1177074291087963,
+          "rgbSha256": "466b5de1ce27a10d21a64fec81e15cb8789592e5ce1083d9f1577df8d43eca43"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.8991767035590277,
+          "rgbSha256": "b1f495a1d1133d62809b9a467988995a440186f12cd6b86de04b20170e6c4109"
+        }
+      ]
+    },
+    "ina-sacred-roots-background-v1.png": {
+      "sourceBytes": 1712153,
+      "sourceSha256": "d52d99d6abf757b87963121ec4a49b0c8186c61ff3115659c30f76d981f45c88",
+      "preview": "ina-sacred-roots-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17539,
+      "baseSelectedBytes": 17523,
+      "detailFixed13Bytes": 12277,
+      "detailSelectedBytes": 12263,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.767951117621528,
+          "rgbSha256": "fefe5c81da9037870af01a37082012ff04ee58ce74235bbe1ef9bc753f3d06e1"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.2499208803530095,
+          "rgbSha256": "fd45f2242ccb7ba8df9ad9e955be53e64852f65d0627870f2e1521be2a5e2777"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.8817070855034723,
+          "rgbSha256": "deeb9be485afd08fd136682bbffa1288bd0b5fdea8c74241b83961e4f53fd886"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.5769020363136574,
+          "rgbSha256": "7a3636c1aab86c554bfad9ec93aa09fba7c2aefc9640633920dcecc928b8967f"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.3181401005497686,
+          "rgbSha256": "070f4457dd12891af7ec1d9d8b0637ee189ce001de6722adde7d6319ec67f223"
+        }
+      ]
+    },
+    "ina-mirror-sanctum-background-v1.png": {
+      "sourceBytes": 1751300,
+      "sourceSha256": "fc964960c9cefba85f9919a747beedbac91ae47c4e3475330eecc7e391dcb23f",
+      "preview": "ina-mirror-sanctum-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17297,
+      "baseSelectedBytes": 17283,
+      "detailFixed13Bytes": 12217,
+      "detailSelectedBytes": 12205,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.870784053096065,
+          "rgbSha256": "1cc35f17770ebbaac7e93da85440cf5e2cd257877521fa3986dcca92452a168d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.213044343171297,
+          "rgbSha256": "fc220b85de89bc731617088660512edd5cb3be05e11e6e764031a70dd566c7ee"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.708753797743055,
+          "rgbSha256": "ea27df4294ceb1472e4ab2a47deb46d4f7901a942e5ebdfeaa4631a5473d82e6"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.330240885416667,
+          "rgbSha256": "93c5bf0496a8fc860cc0434fdaca768b8c343cd62f81cb904a232f4a55076d56"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.014528627748843,
+          "rgbSha256": "e8031c56dfb33ad2cce35f66d037b9f264ecb8c0f4b72b55587d19796e6ae902"
+        }
+      ]
+    }
+  }
+}

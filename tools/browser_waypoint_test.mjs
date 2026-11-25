@@ -62,11 +62,14 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
    await page.keyboard.down('Space');
    try{
     await page.waitForFunction(previous=>{
-     const f=window.lab.frame;
-     const a=f.actors.find(a=>a.id===f.active);
-     return a.ground&&a.y<previous;
-    },previous,{timeout:4000});
+     const f=window.lab.frame,a=f.actors.find(a=>a.id===f.active);
+     return a.y<previous && a.vy>=0;
+    },previous,{timeout:6000});
    }finally{await page.keyboard.up('Space')}
+   await page.waitForFunction(()=>{
+    const f=window.lab.frame;
+    return f.actors.find(a=>a.id===f.active).ground;
+   },undefined,{timeout:6000});
   }
   await waitY(y);
  }

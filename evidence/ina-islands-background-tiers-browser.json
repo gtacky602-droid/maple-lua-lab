@@ -1,0 +1,86 @@
+{
+  "sites-hunt-15949": {
+    "source": "ina-suigetsu-pool-background-v1.png",
+    "count": 3,
+    "sourceCanvas": "32a06e76c39a64f69bfe6eb39e7ea74223951a39e204239131d63d833ca25f76",
+    "tiers": {
+      "4096": "5ade5fafb7186604ede12e673561fa2dc64f3db5e8b7c5ff1fdeb48d2eecd519",
+      "4608": "77e6b77ab97f09f11ce13b17fa9b78bc49a5ff3d4f8eccdb6c62a1f02c41de37",
+      "5120": "701b42882c4cfa9cc51b61b071f31220cc7f3c2cf299d9f236e7a5b2b89554d8",
+      "5632": "92dd85ae9667851b5af82e0c1864f083c01b91b09a10180bf0ccedf441c3609c",
+      "6144": "ef5cc4c8be7d5a1219188e65bced2d012b390871512bea296048efa063ad2884"
+    }
+  },
+  "sites-hunt-17223": {
+    "source": "ina-castle-keep-background-v1.png",
+    "count": 3,
+    "sourceCanvas": "18250f5aee6d88615e960581819ff0f430502b7edeece3e6281cc70f21c210cd",
+    "tiers": {
+      "4096": "d1dc372daf6d4a0ad39dcd261c6c396257e4771872efce43cc8e240473a2ea8a",
+      "4608": "1bb15ef743efee563ee4d632be698d24c15834e990c96b65037443b94e5d9ad3",
+      "5120": "476ab5166b44b9ffa1ab20b826db178984600c9fbae4ada5af65f4ac3dd07bae",
+      "5632": "bb9d558906d4c6f0c547090619946edaa097670d15d7f4cd238d1f6b7eb50c24",
+      "6144": "fd8c1c366f830d1ec4e799a8010e5751b7994a9bed37facb91316870e303c3be"
+    }
+  },
+  "sites-hunt-18667": {
+    "source": "ina-fog-islet-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "083f4f6cf6a0d00494ed9cfb05c01d0b96221425083d89b3b1e23184a1225072",
+    "tiers": {
+      "4096": "eb6d4fd1b3e5d74516c8c331769c96bb508f6bca5b6561461f06722efe452f46",
+      "4608": "844f5a2413bd7912e86c4ed11ed1cb28fe59675341118c5537a0fc7b609d0152",
+      "5120": "97940f1fc2c652a2855c76ddf670ac1827bf5a970bd6fcfd04fdd3f1525a5f2b",
+      "5632": "4435838e382cdb7388b5a39bed37d3c22200f9fd2aba28621af5ed198d5b84fb",
+      "6144": "32d3cf6036d077c6e329cd0400c89fe77d15b66f50ee4b8d9c8b4798678da19c"
+    }
+  },
+  "sites-hunt-18667-pocket-1": {
+    "source": "ina-tide-chamber-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "76aca214def59391abd4fb3fae4d5f4e9c4cee5937af59a1f5241ca589c10d41",
+    "tiers": {
+      "4096": "f7c9395dd1d585af32b48f2f58a4f5b5373e06474071cf3a1f4c6d0084ea0297",
+      "4608": "699316da87a661f9bc7412a7de2635d2c6fc694d31f014d1cb2dbf196071c146",
+      "5120": "0c8e13e8e066703cbd8d90f811e55e86fc8c0d3f4894f8aee9ee4b61f636f1a0",
+      "5632": "4bf5e21269cb6d8ed704528d201981aa0f35a8c6d6d102c1c2f0cd8e12a3020c",
+      "6144": "dfec4216c2ce8d14f26b7484da61801f859c3991e31925e2d2f3aed2db55bd5c"
+    }
+  },
+  "sites-hunt-20369": {
+    "source": "ina-seirai-crags-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "5ddfa0bfa71fa781eed0a14b801d322b52a63b959ee86f1032d8b7fa924a6d32",
+    "tiers": {
+      "4096": "b2e0c5a2f069a4151e6289f477cffc6b92fa5e5da7adca575a3532bee1a009ee",
+      "4608": "ab8142dd9d3e9d69e39a25d73e086e78d262824780389766f100b66e0631d41a",
+      "5120": "c7042f3e2faadd8c18ecd0c7c7104bcf984af3f5d3ff0c93390267e7dd6116c9",
+      "5632": "5ac30433cfed916cfd16d6d4c7d5e7717e03c5a65a3307201a5e3dc036406878",
+      "6144": "416d2336969b9b797773c124c1cdb4640ae46d2a2c6cca5a690fdc13f3ec533c"
+    }
+  },
+  "sites-hunt-24906": {
+    "source": "ina-sacred-roots-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "1fb844dbe9058fe41406bbb00a36f521f38396bd05f60ff43986ec993f86e6ff",
+    "tiers": {
+      "4096": "98300cfb885dfb720e8e7c13d8a18c67ab39b7eb568cf55cb400d9a4764b7dbb",
+      "4608": "62bb6bc7e18fc60fe6557b5f1ed750731263cd1770960bd3eab2e1613df7c5cf",
+      "5120": "63758202e1002821067a04e89b08f87e9018ee0328c792bcfda22331d7202264",
+      "5632": "41b2edcc90103177915b7e7f880f9f3b20c9ac166a3ef3908bbf189b12415d0e",
+      "6144": "db6d2b7032412ab38add7cf736bac366830fc66b0c71933081f3e462aa582034"
+    }
+  },
+  "sites-hunt-24906-pocket-1": {
+    "source": "ina-mirror-sanctum-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "4dfec99f0793e41e2b1bffd977bfe23b7fab1787bda17364139ec69ff8b5a7dc",
+    "tiers": {
+      "4096": "6dca1fc2b47ca2cf91c2f93be0f39b6e771ca60c87b8fe12d7c299d3dc8e8394",
+      "4608": "eae9045fcfcc33cc78ed6fb199d7ead8d8badd45fac9929703ea30c40829524e",
+      "5120": "c24e291ed7a747836991b76e65ee280413b6d3b76f2c9b6354c04350bb3c9653",
+      "5632": "fa33aaa1e364de2d409abe4f982d2ce0e4956eebee348c83dadfcfcfc9bde579",
+      "6144": "7f3e6d0b7f260dd2204fb406d5343725ff2714b7429dd3e587116de6c0479c20"
+    }
+  }
+}
