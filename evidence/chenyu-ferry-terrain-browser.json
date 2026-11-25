@@ -1,0 +1,234 @@
+{
+  "peak": {
+    "stage": "branch-hunt-64840",
+    "scenery": {
+      "key": "chenyuNeedlePeak",
+      "file": "chenyu-needle-peak-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 437.6,
+      "y": 153.7,
+      "adjacent": [
+        "liyue-wp-64840"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64840&placements=live&compare=background",
+      "pockets": {},
+      "next": "liyue-wp-64840"
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "journeys": [
+      [
+        "liyue-wp-64840",
+        "branch-hunt-64840",
+        "walk"
+      ],
+      [
+        "branch-hunt-64840",
+        "liyue-wp-64840",
+        "walk"
+      ]
+    ],
+    "detours": []
+  },
+  "ridge": {
+    "stage": "branch-hunt-64841",
+    "scenery": {
+      "key": "chenyuSaddle",
+      "file": "chenyu-high-saddle-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 543.5,
+      "y": 100.9,
+      "adjacent": [
+        "liyue-wp-64841",
+        "branch-hunt-64841-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64841&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64841-pocket-1": "尾根裏・水レンジャーの雨受け ｜ 任意戦・精鋭・徒歩・Lv79・上の足場の門"
+      },
+      "next": "branch-hunt-64841-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 382,
+    "pocketScenery": {
+      "key": "chenyuRainCatch",
+      "file": "chenyu-rain-catch-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64841",
+        "branch-hunt-64841",
+        "walk"
+      ],
+      [
+        "branch-hunt-64841",
+        "branch-hunt-64841-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64841-pocket-1",
+        "branch-hunt-64841",
+        "walk"
+      ],
+      [
+        "branch-hunt-64841",
+        "liyue-wp-64841",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64841-pocket-1",
+        "returnHeight": 382,
+        "pocketScenery": {
+          "key": "chenyuRainCatch",
+          "file": "chenyu-rain-catch-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "river": {
+    "stage": "branch-hunt-64842",
+    "scenery": {
+      "key": "chenyuReedBend",
+      "file": "chenyu-reed-bend-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 550.4,
+      "y": 150.5,
+      "adjacent": [
+        "liyue-wp-64842",
+        "branch-hunt-64842-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64842&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64842-pocket-1": "川東・風レンジャーの石窓 ｜ 任意戦・精鋭・徒歩・Lv80・上の足場の門"
+      },
+      "next": "branch-hunt-64842-pocket-1"
+    },
+    "jump": [
+      480,
+      430
+    ],
+    "returnHeight": 400,
+    "pocketScenery": {
+      "key": "chenyuWindArch",
+      "file": "chenyu-wind-arch-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64842",
+        "branch-hunt-64842",
+        "walk"
+      ],
+      [
+        "branch-hunt-64842",
+        "branch-hunt-64842-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64842-pocket-1",
+        "branch-hunt-64842",
+        "walk"
+      ],
+      [
+        "branch-hunt-64842",
+        "liyue-wp-64842",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64842-pocket-1",
+        "returnHeight": 400,
+        "pocketScenery": {
+          "key": "chenyuWindArch",
+          "file": "chenyu-wind-arch-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "ferry": {
+    "stage": "branch-hunt-64844",
+    "scenery": {
+      "key": "chenyuNorthFerry",
+      "file": "chenyu-north-ferry-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 558.6,
+      "y": 220.7,
+      "adjacent": [
+        "liyue-wp-64844",
+        "branch-hunt-64844-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64844&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64844-pocket-1": "渡し裏・風レンジャーの帆干し場 ｜ 任意戦・精鋭・徒歩・Lv82・上の足場の門"
+      },
+      "next": "branch-hunt-64844-pocket-1"
+    },
+    "jump": [
+      480,
+      428
+    ],
+    "returnHeight": 405,
+    "pocketScenery": {
+      "key": "chenyuSailLoft",
+      "file": "chenyu-sail-loft-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64844",
+        "branch-hunt-64844",
+        "walk"
+      ],
+      [
+        "branch-hunt-64844",
+        "branch-hunt-64844-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64844-pocket-1",
+        "branch-hunt-64844",
+        "walk"
+      ],
+      [
+        "branch-hunt-64844",
+        "liyue-wp-64844",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64844-pocket-1",
+        "returnHeight": 405,
+        "pocketScenery": {
+          "key": "chenyuSailLoft",
+          "file": "chenyu-sail-loft-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "errors": []
+}

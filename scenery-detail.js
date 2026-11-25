@@ -19,6 +19,8 @@ export function setupSceneryDetail(liveView, query) {
       for (const [param,id] of [['node','node'],['tier','backgroundTier'],['camera','camera'],['profile','profile']]) {
         params.set(param, document.getElementById(id).value);
       }
+      const subject = document.getElementById('liveSubject').value;
+      if (subject) params.set('subject', subject);
       if (document.getElementById('matchSpritePng').checked) params.set('compare','background');
       if (!document.getElementById('decodedBackground').checked) params.set('background','original');
       link.href = '?' + params + '#sceneryDetail';

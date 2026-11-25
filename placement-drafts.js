@@ -34,6 +34,10 @@ export function liveNodeDraft(input,graph,nodeId,species,boss){
 // These hunting ledges also grew sideways. Migrate only coordinates on the former ledge.
 const formerSeaSpans=[[0,2880],[475,923],[1060,1674],[1900,2410]];
 const formerHuntSpans=new Map([
+ ['branch-hunt-64840',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
+ ['branch-hunt-64841',[[0,2880],[482,914],[1040,1695],[1944,2370]]],
+ ['branch-hunt-64842',[[0,2880],[482,914],[1040,1695],[1944,2370]]],
+ ['branch-hunt-64844',[[0,2880],[482,914],[1040,1695],[1944,2370]]],
  ['branch-hunt-64834',[[0,2880],[506,896],[1080,1610],[1650,1910],[1984,2367]]],
  ['branch-hunt-64835',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
  ['branch-hunt-64836',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
@@ -59,6 +63,10 @@ const nodIslandHeights=[480,396,356,395,361];
 const snowDomainHeights=[480,407,366,409,365];
 const seaCourtHeights=[480,408,362,401];
 const previousHeights=new Map([
+ ['branch-hunt-64840',[480,393,353,397]],
+ ['branch-hunt-64841',[480,419,392,413]],
+ ['branch-hunt-64842',[480,419,392,413]],
+ ['branch-hunt-64844',[480,419,392,413]],
  ['branch-hunt-64834',[480,402,370,334,378]],
  ['branch-hunt-64835',[480,393,353,397]],
  ['branch-hunt-64836',[480,393,353,397]],

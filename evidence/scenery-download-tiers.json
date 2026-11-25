@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 850,
+  "verifiedModules": 885,
   "dimensions": [
     512,
     288
@@ -89,6 +89,55 @@
       "5120": 24467,
       "5632": 27771,
       "6144": 29711
+    },
+    "chenyu-needle-peak-background-v1.png": {
+      "4096": 16817,
+      "4608": 20025,
+      "5120": 23142,
+      "5632": 26266,
+      "6144": 28398
+    },
+    "chenyu-high-saddle-background-v1.png": {
+      "4096": 17665,
+      "4608": 21043,
+      "5120": 24324,
+      "5632": 27556,
+      "6144": 29668
+    },
+    "chenyu-rain-catch-background-v1.png": {
+      "4096": 17414,
+      "4608": 20836,
+      "5120": 24119,
+      "5632": 27407,
+      "6144": 29515
+    },
+    "chenyu-reed-bend-background-v1.png": {
+      "4096": 18335,
+      "4608": 21779,
+      "5120": 25094,
+      "5632": 28418,
+      "6144": 30628
+    },
+    "chenyu-wind-arch-background-v1.png": {
+      "4096": 18201,
+      "4608": 21705,
+      "5120": 25094,
+      "5632": 28468,
+      "6144": 30152
+    },
+    "chenyu-north-ferry-background-v1.png": {
+      "4096": 18495,
+      "4608": 21909,
+      "5120": 25184,
+      "5632": 28430,
+      "6144": 30620
+    },
+    "chenyu-sail-loft-background-v1.png": {
+      "4096": 17623,
+      "4608": 20969,
+      "5120": 24186,
+      "5632": 27434,
+      "6144": 29452
     },
     "chenyu-gate-tea-banks-background-v1.png": {
       "4096": 17648,
@@ -1200,7 +1249,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 170
+      "verified": 177
     },
     "domainHunts": {
       "total": 124,
@@ -1259,11 +1308,11 @@
     },
     "branchHunts": {
       "total": 62,
-      "verified": 36,
+      "verified": 43,
       "byRegion": {
         "沈玉の谷": {
           "total": 59,
-          "verified": 33
+          "verified": 40
         },
         "往日の海": {
           "total": 3,
@@ -1271,13 +1320,6 @@
         }
       },
       "pending": [
-        "branch-hunt-64840",
-        "branch-hunt-64841",
-        "branch-hunt-64841-pocket-1",
-        "branch-hunt-64842",
-        "branch-hunt-64842-pocket-1",
-        "branch-hunt-64844",
-        "branch-hunt-64844-pocket-1",
         "branch-hunt-64845",
         "branch-hunt-64845-pocket-1",
         "branch-hunt-64846",

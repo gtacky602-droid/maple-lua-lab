@@ -1,0 +1,86 @@
+{
+  "branch-hunt-64840": {
+    "source": "chenyu-needle-peak-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "fb73f1b18c31b44798c046bd997c66e0e8020a05292bc02327fa0497cc464b13",
+    "tiers": {
+      "4096": "64b70e27ca35363c94a61d39a955203d5e4da1de931c4e3017aa7dde8989f1ad",
+      "4608": "7aad3db3443509a46d3ea180c29f338385e773c7546e4b11565c9c85f2bd6e57",
+      "5120": "ed80e24d0d882444a3b2871843b80604a81594d3abb51761894adfd9744b76eb",
+      "5632": "6f695841ba0cd89219a7bc960611fe030fa523d96139119eb9a4d05e7a45ba42",
+      "6144": "c7bc3bc5186b6d17201f5a3cce4f35c96b3d7fedddc2850d60d8c63f0e8e7112"
+    }
+  },
+  "branch-hunt-64841": {
+    "source": "chenyu-high-saddle-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "2352e78c483ffd58d716383827dfe2903f84ea6b4240cc1ca99a86dcc83f5015",
+    "tiers": {
+      "4096": "cd5aa646a7b3b4a895da06d39158e9d5c0eed2c4df4f166939f8d4ad8807160d",
+      "4608": "ff59e132e16e7540f177e9c104ee667728c5bc5997ddb5d63a9125f548f03a0c",
+      "5120": "e441cd24617aa178474c78a91e13d168955df40c675536876a039b2e32c7c8f7",
+      "5632": "7b837876daf4a3ffa8523904ab94f09c3b14e35d567299e7589c7feb015633c1",
+      "6144": "585e786a479e2ccd58cd627552eca82519e4a841dffb215c30e664b1d81c5ecf"
+    }
+  },
+  "branch-hunt-64841-pocket-1": {
+    "source": "chenyu-rain-catch-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "0e8ca357b4905eda72e7c3bbdda09de96af585c8dbbb385f1570f4e0df7eeb21",
+    "tiers": {
+      "4096": "003717340b8c5eac85cdb6115f596f2308a5223b27a1c183b32239cf6938747d",
+      "4608": "58884bbede8cab1fa1370bf05d2133876f9bc93b8d1a66012077bbc3cd756a67",
+      "5120": "829534e49ea8afea53ae13f5f0e63695db26c7f66b12ef0770ba0b457f3c7c33",
+      "5632": "be4c60903a34b52faea695999ac13653354112b6eabaf3a1ee61bc60ebc11a71",
+      "6144": "ac33f814653096c47cf0dccc209c92d9e243e9c92ccea18f22f946da4f649998"
+    }
+  },
+  "branch-hunt-64842": {
+    "source": "chenyu-reed-bend-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "c97b2a3533da6dfe53a41c8ab971e688ef62f991b3eaf7f28dc75eff772947c3",
+    "tiers": {
+      "4096": "8d719f111caeab0ec8c89fe5080b6366113360f822332854c252a26365a91e2f",
+      "4608": "d09163cc1a6a0ad636d3a64529c27e9ac3622448aa56b62999ebb7a57bbad117",
+      "5120": "7f655abea131e451370e1189166961f6d95536e617af54e65844c59439373f5f",
+      "5632": "47b2f7ce1332c8ce2af68e898c7d2cec168b336a422fc358c0a5fd0e12598b06",
+      "6144": "3b9aafd8122b4221587ee35b301da166321a6af673b5d23c366ac7c23bc46efe"
+    }
+  },
+  "branch-hunt-64842-pocket-1": {
+    "source": "chenyu-wind-arch-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "5fd4f370d4ae5bcb6412d841153ac395aea4dfd50d403522e9a7df922a050660",
+    "tiers": {
+      "4096": "c627e148c13b5e6aef19aec4560241703788eedf2436d1fcf2bdf899a18d242c",
+      "4608": "89a82c44fc15c1372cf23733021a69f7a9a35f95317ec58343ded0f3cdde9e77",
+      "5120": "3066831ef116be871c9d1529f67a612fd3b557997452c751d10b46a3d7755df1",
+      "5632": "158f967fc69a389c0d0971e34b89463a92642fe0d0a707848b7a06e679a19727",
+      "6144": "52426f32f2c41728ae5ca7ec11794b1a3da47ffa657cc3bd7605a8c070c62db0"
+    }
+  },
+  "branch-hunt-64844": {
+    "source": "chenyu-north-ferry-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "d1183925ebd876f250ad4e409eaa3bdc6c84e18e514588cea60fecfff5dd2d22",
+    "tiers": {
+      "4096": "f76c0115ea4bda6a11bfd3fc8465557e21e309b28872e1c4fe02f21568450388",
+      "4608": "b1d92b808becce4a5c9949f90f074bb97aea0af1fb8a17fd97cffab90acb7c5e",
+      "5120": "8e8e2d71c8013f51d235c008c099384727b2bee96fa5ae9359d668a01fa1f51a",
+      "5632": "5f3b80d2de78905ab50e1e4459a026221f7e0d76d5b99cf07c05a0ce71ba0e10",
+      "6144": "2eec4c3d457cba5bd4faf58a00df193a33e3eaf06e962eed8f10d4e390a6ae0e"
+    }
+  },
+  "branch-hunt-64844-pocket-1": {
+    "source": "chenyu-sail-loft-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "f153d9837b71a40635cf1fee095580566d6e3b914fe5dcb080ad907947b70c57",
+    "tiers": {
+      "4096": "4ec355380275c1ac4418df03484e6aaedc913d0b8afdceb48fa645dafce8bed5",
+      "4608": "d33a80a66ac5d84cc8bab865d5a4eec4f657b6327370ecb9b96694f7554c9bb8",
+      "5120": "c991ffa7137961f30720cd43a71ca66d042985d8bfd69aab77d6f1fa0d452ed6",
+      "5632": "2f6e358ef3abf158321538351272e7d263df74058e61f512909c8fdbf8bc81b7",
+      "6144": "36958914ae9e4e011173d2573af399892db4c59f05881fdff9d54c82740df6e7"
+    }
+  }
+}

@@ -53,6 +53,7 @@ try{
  const liveView=query.get('placements')==='live';
  const liveSource=liveView?await json('content/enemy-spawns.json'):null;
  let liveItems=[],liveError='';
+ const subject=$('liveSubject');
  $('draftControls').hidden=$('draftInspection').hidden=liveView;
  const viewLink=$('placementViewLink');
  viewLink.textContent=liveView?'配置案を編集する':'本編の敵配置で見比べる';
@@ -189,8 +190,9 @@ try{
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   const cost={total:0,visible:0,standard:0};
+  const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
-   for(const e of items){
+   for(const e of visibleItems){
     const a=placementArt(e),flip=e.flip&&!assets[e.species].left,x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
     const quality=mode==='png'||matchedSprites?null:profile;
@@ -230,7 +232,7 @@ try{
    const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
    return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(a.opacity!==undefined && {opacity:a.opacity}),...(rear&&{rear})};
   });
-  window.mapArt={diff,dirty,liveView,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file,requestedDecodedBackground:preview?.file,decodedBackgroundFile:decoded,decodedBackgroundRectangles:decoded?tier:undefined};
+  window.mapArt={diff,dirty,liveView,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,shownCount:visibleItems.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file,requestedDecodedBackground:preview?.file,decodedBackgroundFile:decoded,decodedBackgroundRectangles:decoded?tier:undefined};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
  function restoreHistory(from,to){
@@ -257,9 +259,28 @@ try{
      camera.value=Math.min(Number(camera.max),Math.max(0,focusX-480));
     }
    }catch(error){liveError='本編配置を表示できません：'+error.message}
+   subject.replaceChildren(new Option('全員を表示',''));
+   const names=new Map((liveSource.nodes[n.id]??[]).map(e=>[e.id,e.name]));
+   for(const e of liveItems){
+    const name=names.get(e.id)||layouts[e.species]?.name||e.species;
+    subject.add(new Option(name+'（'+e.x+', '+e.y+'）',e.id));
+   }
+   $('liveSubjectControl').hidden=liveItems.length<2;
   }
   render();
  }
+ function focusSubject(){
+  const e=liveItems.find(e=>e.id===subject.value);
+  if(e){
+   const art=placementArt(e), bounds=spriteBounds(art,art.h);
+   const centerX=e.x+bounds.x+bounds.width/2;
+   $('camera').value=Math.round(centerX-480);
+   $('detailX').value=Math.round(centerX-Number($('camera').value)-40);
+   $('detailY').value=Math.round(e.y-art.hover+bounds.y+bounds.height/2-22);
+  }
+  render();
+ }
+ subject.onchange=focusSubject;
  $('node').onchange=select;$('editMode').onchange=render;
  $('clearSelection').onclick=()=>{selected=null;$('editMode').value='add';render()};
  $('focusSelected').onclick=()=>{
@@ -314,6 +335,11 @@ for(const id of ['camera','profile'])$(id).oninput=render;
   finally{if(ticket===importTicket)$('import').value=''}
  };
  select();
+ if(liveView && liveItems.some(e=>e.id===query.get('subject'))){
+  subject.value=query.get('subject');
+  if(!query.has('camera') && !query.has('sampleX') && !query.has('sampleY'))focusSubject();
+  else render();
+ }
  if(liveView && /^\d+$/.test(query.get('camera')??'')){
   $('camera').value=query.get('camera');
   render();

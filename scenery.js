@@ -1,6 +1,13 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ chenyuNeedlePeak:{file:'chenyu-needle-peak-background-v1.png',decodedPreview:'chenyu-needle-peak-native-preview-v1.png',decodedTiers:'chenyu-needle-peak-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64840'],note:'湖の北の石峰の仮背景'},
+ chenyuSaddle:{file:'chenyu-high-saddle-background-v1.png',decodedPreview:'chenyu-high-saddle-native-preview-v1.png',decodedTiers:'chenyu-high-saddle-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64841'],note:'谷北の尾根道の仮背景'},
+ chenyuRainCatch:{file:'chenyu-rain-catch-background-v1.png',decodedPreview:'chenyu-rain-catch-native-preview-v1.png',decodedTiers:'chenyu-rain-catch-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64841-pocket-1'],note:'尾根裏・水レンジャーの雨受けの仮背景'},
+ chenyuReedBend:{file:'chenyu-reed-bend-background-v1.png',decodedPreview:'chenyu-reed-bend-native-preview-v1.png',decodedTiers:'chenyu-reed-bend-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64842'],note:'谷東の川沿いの仮背景'},
+ chenyuWindArch:{file:'chenyu-wind-arch-background-v1.png',decodedPreview:'chenyu-wind-arch-native-preview-v1.png',decodedTiers:'chenyu-wind-arch-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64842-pocket-1'],note:'川東・風レンジャーの石窓の仮背景'},
+ chenyuNorthFerry:{file:'chenyu-north-ferry-background-v1.png',decodedPreview:'chenyu-north-ferry-native-preview-v1.png',decodedTiers:'chenyu-north-ferry-native-tiers-v1.webp',surface:'timber',zones:['story:branch-hunt-64844'],note:'川の北岸の渡し場の仮背景'},
+ chenyuSailLoft:{file:'chenyu-sail-loft-background-v1.png',decodedPreview:'chenyu-sail-loft-native-preview-v1.png',decodedTiers:'chenyu-sail-loft-native-tiers-v1.webp',surface:'timber',zones:['story:branch-hunt-64844-pocket-1'],note:'渡し裏・風レンジャーの帆干し場の仮背景'},
  chenyuPostRoad:{file:'chenyu-post-road-background-v1.png',decodedPreview:'chenyu-post-road-native-preview-v1.png',decodedTiers:'chenyu-post-road-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64834'],note:'西岸の宿場道の仮背景'},
  chenyuPostQuarry:{file:'chenyu-post-quarry-background-v1.png',decodedPreview:'chenyu-post-quarry-native-preview-v1.png',decodedTiers:'chenyu-post-quarry-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64834-pocket-1'],note:'宿場裏の切石場の仮背景'},
  chenyuStreamTea:{file:'chenyu-stream-tea-background-v1.png',decodedPreview:'chenyu-stream-tea-native-preview-v1.png',decodedTiers:'chenyu-stream-tea-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64835'],note:'沢沿いの茶棚の仮背景'},

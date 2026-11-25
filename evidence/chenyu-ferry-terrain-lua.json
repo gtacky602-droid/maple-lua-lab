@@ -1,0 +1,87 @@
+{
+  "branch-hunt-64840": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      382,
+      346,
+      385
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 83,
+    "exterior_scenery": "chenyuNeedlePeak",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "branch-hunt-64841": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      378,
+      353,
+      382
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 77,
+    "exterior_scenery": "chenyuSaddle",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64842": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      430,
+      408,
+      382,
+      405
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 78,
+    "exterior_scenery": "chenyuReedBend",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64844": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      428,
+      413,
+      391,
+      405
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 80,
+    "exterior_scenery": "chenyuNorthFerry",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "riverFatui": {
+    "count": 32,
+    "art": "fatui-skirmisher-cryogunner",
+    "source": "natlan-first-legend-poses-source-v1.png",
+    "rectangles": {
+      "legacy": 3207,
+      "h48c32": 2006,
+      "h32c16": 951
+    }
+  },
+  "roundTrip": [
+    "liyue-wp-64840",
+    "liyue-wp-64838",
+    "liyue-wp-64839",
+    "liyue-wp-64841",
+    "liyue-wp-64842",
+    "liyue-wp-64844",
+    "liyue-wp-38",
+    "liyue-wp-64844",
+    "liyue-wp-64842",
+    "liyue-wp-64841",
+    "liyue-wp-64839",
+    "liyue-wp-64838",
+    "liyue-wp-64840"
+  ],
+  "ferrySeconds": [
+    3.0,
+    3.0
+  ]
+}

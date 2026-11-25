@@ -7,7 +7,7 @@ from savegame import validate_save
 quest = 'daily-liyue-relics'
 hub = 'liyue-harbor'
 parser = argparse.ArgumentParser(description=__doc__)
-areas = {'west':range(64826, 64830), 'lake':range(64830, 64834), 'post':(64834, 64835, 64836, 64839)}
+areas = {'west':range(64826, 64830), 'lake':range(64830, 64834), 'post':(64834, 64835, 64836, 64839), 'ferry':(64841, 64842, 64844)}
 parser.add_argument('area', nargs='?', choices=areas, default='west')
 area = parser.parse_args().area
 fields = areas[area]
@@ -34,7 +34,8 @@ def reload(state):
     return core.restore(lua.table_from(save, recursive=True))
 
 trips = []
-for stops in ((0, 1, 2), (3, 1, 2)):
+second_route = (2, 1, 0) if area == 'ferry' else (3, 1, 2)
+for stops in ((0, 1, 2), second_route):
     state = start(90, hosts, hub)
     core.dailyBind(state, 'd72ac5349dd6498f9e25ea3dfff820e1', 20801, None)
     core.action(state, 'daily_accept:' + quest)

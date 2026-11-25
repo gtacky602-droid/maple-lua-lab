@@ -1,0 +1,69 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Original side-view Chinese mountain fantasy RPG background in 1990s 16-bit pixel art. Wide 16:9 landscape. Draw as at 160×90 logical pixels using 12 flat matte colors, chunky stepped silhouettes, crisp edges, no gradients. One dominant landmark, quiet lower foreground for the engine to place characters. No text, people, monsters, icons, UI, floating platforms, border, or dithering. ",
+  "scenes": [
+    {
+      "node": "branch-hunt-64840",
+      "key": "chenyuNeedlePeak",
+      "note": "湖の北の石峰",
+      "prompt": "A split pair of immense jade limestone fingers thrust out of a calm indigo lake. One small ochre pine at left, pale pink dawn sky, a stone shore across the bottom.",
+      "surface": "stone",
+      "source": "chenyu-needle-peak-background-v1.png",
+      "preview": "chenyu-needle-peak-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64841",
+      "key": "chenyuSaddle",
+      "note": "谷北の尾根道",
+      "prompt": "A long narrow grassy saddle in side elevation, one bent pine and two vermilion pennants mark its high pass. Distant purple ranges in afternoon light.",
+      "surface": "grass",
+      "source": "chenyu-high-saddle-background-v1.png",
+      "preview": "chenyu-high-saddle-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64841-pocket-1",
+      "key": "chenyuRainCatch",
+      "note": "尾根裏・水レンジャーの雨受け",
+      "prompt": "Sheltered spring on the back of a mossy ridge. A tilted dark timber waterwheel feeds a broad turquoise basin below a slate overhang. Blue morning shade.",
+      "surface": "stone",
+      "source": "chenyu-rain-catch-background-v1.png",
+      "preview": "chenyu-rain-catch-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64842",
+      "key": "chenyuReedBend",
+      "note": "谷東の川沿い",
+      "prompt": "A bright turquoise river rounds three pale stepping stones below an apricot cliff wall. A few large blocks of ochre rushes along the bank. Broad horizontal reflections.",
+      "surface": "grass",
+      "source": "chenyu-reed-bend-background-v1.png",
+      "preview": "chenyu-reed-bend-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64842-pocket-1",
+      "key": "chenyuWindArch",
+      "note": "川東・風レンジャーの石窓",
+      "prompt": "A naturally eroded circular opening in an ochre cliff forms a single giant wind window. Wind-bent grasses around its foot, through the window a distant blue ridge.",
+      "surface": "stone",
+      "source": "chenyu-wind-arch-background-v1.png",
+      "preview": "chenyu-wind-arch-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64844",
+      "key": "chenyuNorthFerry",
+      "note": "川の北岸の渡し場",
+      "prompt": "A sturdy ferry jetty with a curved roof, one empty low Chinese ferryboat tied alongside; broad flat calm blue water and a golden evening sky.",
+      "surface": "timber",
+      "source": "chenyu-north-ferry-background-v1.png",
+      "preview": "chenyu-north-ferry-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64844-pocket-1",
+      "key": "chenyuSailLoft",
+      "note": "渡し裏・風レンジャーの帆干し場",
+      "prompt": "Behind a river ferry, an empty weathered mast and a large ochre sail drying on an A frame above a dark plank deck. Silhouette against a lavender sunset and distant water.",
+      "surface": "timber",
+      "source": "chenyu-sail-loft-background-v1.png",
+      "preview": "chenyu-sail-loft-native-preview-v1.png"
+    }
+  ]
+}
