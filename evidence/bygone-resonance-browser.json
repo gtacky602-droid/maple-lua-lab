@@ -27,23 +27,23 @@
     587
   ],
   "background": {
-    "key": "bygoneResonance",
+    "key": "bygoneBellArchive",
     "file": "bygone-resonance-background-v1.png",
     "state": "ready"
   },
   "commands": {
-    "png": 33,
-    "standard": 8918,
-    "light": 2170
+    "png": 56,
+    "standard": 8941,
+    "light": 2193
   },
   "battle": {
     "moves": [
-      "BG02",
-      "BG01"
+      "BG01",
+      "BG02"
     ],
     "recovered": [
-      "BG02",
-      "BG01"
+      "BG01",
+      "BG02"
     ],
     "alive": true,
     "returns": 0
