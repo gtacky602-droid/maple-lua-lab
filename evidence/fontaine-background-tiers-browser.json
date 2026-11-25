@@ -1,0 +1,74 @@
+{
+  "sites-hunt-50034": {
+    "source": "fon-beryl-coast-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "a93fc259fd197c890beae4ccb2ddf7f706ab371de863faa240335ad4e8c462ba",
+    "tiers": {
+      "4096": "7c95cc70bd8df98992b21688507cd3cb49ea9329146cb876d379c56349d2f238",
+      "4608": "8adab412d08ead4307e7df71e4ef0eab6835c2ff57f1ba59fe9c71cb642ea4bb",
+      "5120": "3f1fb0cc527466e2d16914345b713d351967e56f0d06f390662192584c8b2f25",
+      "5632": "0a5b5f9f14c0018ca92d4194096885e8cc4006be45a030929039b0e408a8e5f8",
+      "6144": "7f426e5a9689244448dcc39e66ccefea7f4d6bcc881ba4e2004d0a3529d41baf"
+    }
+  },
+  "sites-hunt-50034-pocket-1": {
+    "source": "fon-beryl-sluice-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "fba75a029972315fa94accc9bfbf8b03e7ca36bc0ea5dffd4f1038501e69b325",
+    "tiers": {
+      "4096": "2df491197779a6a3b41deb218721fe950c388ac113a1df16204a3f0fb02a9134",
+      "4608": "1cbeb2be6824e0ddfb3f5ea32489a9e191ffceae8dad4c9db6319ae6f67eac74",
+      "5120": "c5e6a03b554c9ad7391286665ba7fbde7acc37142649bae769fcbdd2cd10ef79",
+      "5632": "58ceb2f36ab7efd5d474d0f1ff8fe63edaec07945dc4536159971f97106bcce7",
+      "6144": "eaa3b7202d960273d7b4101fb6527eb8278c4ef003264838c8c0a90cd009371f"
+    }
+  },
+  "sites-hunt-50067": {
+    "source": "fon-domain-reef-background-v1.png",
+    "count": 18,
+    "sourceCanvas": "9625089fc9fddb15739deb2fba6973c9efc881ec9e9ba3aecc8bd2853d7e51b5",
+    "tiers": {
+      "4096": "12cc58b0b77b756de1472f4a25e358a210cb80e425196b650ecdf38fa88b9063",
+      "4608": "4efbe76366e2f0b9a743bd78ecad9265b733f7d1d1a996eebe3b00a259bc7e56",
+      "5120": "c3bc34427c1e90f7bf94e6ccb9b2d5c9c81c5e2f68218cbec63f43056d38e25a",
+      "5632": "d06d50c28978264147e5b0817b7e71aceadd87a3299d91b707146f359b60cef2",
+      "6144": "7764c588cef059d5724b0f1c605085ad362906e1c08bd9ca34eda667fe67742b"
+    }
+  },
+  "sites-hunt-56792": {
+    "source": "fon-domain-seal-background-v1.png",
+    "count": 18,
+    "sourceCanvas": "9479f592dda1f7dba703e4ae87d736a20fab5d713f2f30107fd7358b758f457c",
+    "tiers": {
+      "4096": "005856c2c99e243e78eaf330eed235c5b109ea86db722da477f001e13a1cb077",
+      "4608": "40001c762e5a07441b20e8105c67d93c5950f6c7cd06ba5e610ae04b1ee0e4a8",
+      "5120": "c9c542d35737f25bc0a7cef8e42dcc2ba56d8923013870c4e7496f42ce0089a0",
+      "5632": "61ba2f620d5d4ebaf34b4d20990a2b1b62d504912fceb26240ae7028e113eb26",
+      "6144": "23b31797308ccf3335a6863922e809abbf957473c4a46a3bbc8db9270a148d81"
+    }
+  },
+  "sites-hunt-63738": {
+    "source": "fon-domain-drain-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "23c7d5ef3a70fbd6beaf962710172c8979c7ecf6c0ff2025f05ef5cb7433e168",
+    "tiers": {
+      "4096": "dbffb5a9dc7238df393bbe43cfb9e54307b54cf200b4eb3819087e4bf7182887",
+      "4608": "139c32635ce93f87bc28fc380c6ea577ee31c6b44d00b56027be4b04691498a3",
+      "5120": "5a01bdeac1f27987ced0e3d80c127d3d64701e4fa9361535e44070b052480264",
+      "5632": "6afd618285f371d08b3b5d948801be301a71345960be18229b5da48e05c12082",
+      "6144": "680713ed212822c5c83ba88c8d1a3569e02b8d5d275a3bba6650f36012d8ff10"
+    }
+  },
+  "sites-hunt-63738-pocket-1": {
+    "source": "fon-domain-valve-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "09707aaf9be6fe8b4f4af20817126a2a6238ba14839a827b0e31efc8e4ebaa97",
+    "tiers": {
+      "4096": "f5e57b0095a60268c1f599994acacbef857e637f77a7d79e594232b294ac530a",
+      "4608": "b66974f82b39d8f963673d92fb2ace5d15ea3dc11a4c3461f413a86f31ab1844",
+      "5120": "971f3d63f4912925da7b816d5a08791a531ad5e85b9aaa534bf762b744821cc3",
+      "5632": "1653aa0ebcf06c667b639207b12804b3d25cca93a2423b7237d947c4c9724e07",
+      "6144": "b25f948187cbe7e6f5745cdd15f7d82802518755c2c5324b68ac92f90d324a2b"
+    }
+  }
+}

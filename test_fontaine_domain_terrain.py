@@ -3,11 +3,11 @@ from tools.domain_terrain_test import check_field, nodes, write, write_fixture
 
 
 routes = [
-    (50034, 50035, 2280, 'fontaineScentShore', 48),
+    (50034, 50035, 2280, 'fontaineBerylCoast', 48),
     (50057, 50056, 2280, 'fontaineDelivery', 48),
-    (50067, 50075, 700, 'bygone', 18),
-    (56792, 50066, 2280, 'bygoneResonance', 18),
-    (63738, 55763, 2280, 'tideCalibration', 48),
+    (50067, 50075, 700, 'fontaineSunkenReef', 18),
+    (56792, 50066, 2280, 'fontaineSunkenSeal', 18),
+    (63738, 55763, 2280, 'fontaineMorteDrain', 48),
     (68347, 53867, 2280, 'coastalLookout', 48),
 ]
 hub = 'fontaine-hub'

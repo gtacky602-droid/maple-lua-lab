@@ -90,6 +90,10 @@ M地図の「狩場・任意戦」には、狩場と脇部屋に加えて入口�
 
 フォンテーヌのベリルの秘境周辺と水門脇の脇部屋に、石造水路と水車室の仮背景を追加した。配置比較を開くと、同じ画角で左は元PNG、右はLuaで6,144矩形を復号した512×288の画像になる。チェックを外すと両側に元の背景が出る。本編は元PNGで表示する。Luaでは入江の北岸から地図で探し、二つの入口を通って北岸に戻るところまで確認した。 [ベリル沿岸の比較](../evidence/beryl-coast-scene-comparison.png) · [水門の比較](../evidence/beryl-sluice-scene-comparison.png) · [入場と帰路](../evidence/beryl-background-lua-route.json)
 
+海中の秘境周辺（石灰棚）、海中の征討入口（青銅扉）、モルテ側の秘境周辺（排水路）、氷霜の従者の脇部屋（弁室）にも専用の仮背景がある。ベリルの2地点を含む6地点では、配置比較の「背景の描画量」で右の背景を4,096〜6,144矩形まで512刻みで切り替えられる。「この地点の本編配置を読み込む」で左右に同じ敵が出る。足場・カメラ・敵の軽量設定を固定して、背景だけの違いを見られる。 [海中の石灰棚](../evidence/fon-domain-reef-comparison.png) · [征討の青銅扉](../evidence/fon-domain-seal-comparison.png) · [モルテの排水路](../evidence/fon-domain-drain-comparison.png) · [弁室](../evidence/fon-domain-valve-comparison.png)
+
+新規4枚のLua文字列は従来の固定幅で115,950バイト、R61Cの可変幅を併用すると115,846バイト。5段階の復号画素は両方式で一致した。元PNGの512×288換算に対するRGBの平均絶対誤差（0〜255）は4,096矩形で1.90〜4.36、6,144矩形で1.29〜3.29。比較用の画像は `tools/render_scenery_tiers.py <MapleCodec.lua> <背景のLuaファイル> <出力先>` で再生成できる。新規4枚のデータは `assets/fon-domain-native-backgrounds.lua` に収録。 [4枚の計測](../evidence/fon-domain-background-compression.json) · [6地点のブラウザ確認](../evidence/fontaine-background-tiers-browser.json)
+
 4,096矩形の土台と2,048矩形の細部を別々に圧縮した。R61C方式では短くなるブロックだけを採用し、2枚の圧縮済みLua文字列は57,942から57,898バイトになった。4,096〜6,144矩形の5段階で、固定幅と可変幅をLuaで復号した画像を照合した1,474,560画素はすべて一致した。矩形化で元PNGに生じる色差は測定値に残した。 [容量と画素の照合](../evidence/beryl-background-compression.json) · [移植用Luaデータ](../assets/fon-beryl-native-backgrounds.lua) · [仮背景の生成記録](../assets/fon-beryl-background-generation.json)
 
 Sites由来の追加狩場103か所と脇部屋83か所をLuaで往復し、計372方向の通行と全186地点の訪問の保存復元を確認した。手前の地点より必要Lvが高い167地点は、1Lv手前で地図に条件が出て現地で入場が止まることを確認。試験は地域ごとの開始地点とレベルを用意し、移動中の被弾を抑えて実施した。 [地点IDごとの実移動記録](../evidence/world-hunt-routes-lua.json)

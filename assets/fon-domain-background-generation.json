@@ -1,0 +1,37 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-50067",
+      "kind": "reef",
+      "key": "fontaineSunkenReef",
+      "source": "fon-domain-reef-background-v1.png",
+      "preview": "fon-domain-reef-native-preview-v1.png",
+      "prompt": "Create one original widescreen 16:9 pixel-art backdrop, a hand-authored scenic painting for a side-scrolling 2D fantasy RPG. A submerged limestone sanctuary reached by a downward current. One crooked half-arch at left, bright sea-glass aquamarine water, far distant sunlit kelp canopy and enormous softly outlined scallop limestone shelves ascending toward the upper right. Sparse red fan coral at the outer edge. The character walks on separately drawn stone shelves, not in open blue sky. Horizontal side-on camera. Crisp deliberate pixel clusters, large clear shapes with a concise palette, well separated silhouettes, sparse detail at the landmark, no dithering, noise or faux-pixel grid. Keep the bottom quarter subdued, no foreground platforms or traversable floor (added by game). No text, HUD, characters, monsters, logos or borders. Original composition, opaque, full bleed."
+    },
+    {
+      "node": "sites-hunt-56792",
+      "kind": "seal",
+      "key": "fontaineSunkenSeal",
+      "source": "fon-domain-seal-background-v1.png",
+      "preview": "fon-domain-seal-native-preview-v1.png",
+      "prompt": "Create one original widescreen 16:9 pixel-art backdrop, a hand-authored scenic painting for a side-scrolling 2D fantasy RPG. A grand flooded threshold to a deep trial. One monumental bronze circular sealed door in the upper right middle distance, set into a tall basalt wall edged in pale cream limestone and two dim amber lamps. Deep petrol-blue water recedes on the left. Majestic and solemn, slightly brighter teal silhouette behind the ring. Different from a coral reef. Horizontal side-on camera. Crisp deliberate pixel clusters, large clear shapes with a concise palette, well separated silhouettes, sparse detail at the landmark, no dithering, noise or faux-pixel grid. Keep the bottom quarter subdued, no foreground platforms or traversable floor (added by game). No text, HUD, characters, monsters, logos or borders. Original composition, opaque, full bleed."
+    },
+    {
+      "node": "sites-hunt-63738",
+      "kind": "drain",
+      "key": "fontaineMorteDrain",
+      "source": "fon-domain-drain-background-v1.png",
+      "preview": "fon-domain-drain-native-preview-v1.png",
+      "prompt": "Create one original widescreen 16:9 pixel-art backdrop, a hand-authored scenic painting for a side-scrolling 2D fantasy RPG. An above-water canal approaching a drainage station in a French-inspired coastal region after rain. Amber afternoon sky, a monumental stone siphon tower on the left, long canted copper pressure pipe and narrow stone arches in middle distance, still muted olive-blue canal water. Restrained industrial masonry amid autumn reeds. Quiet gameplay lane in front. Horizontal side-on camera. Crisp deliberate pixel clusters, large clear shapes with a concise palette, well separated silhouettes, sparse detail at the landmark, no dithering, noise or faux-pixel grid. Keep the bottom quarter subdued, no foreground platforms or traversable floor (added by game). No text, HUD, characters, monsters, logos or borders. Original composition, opaque, full bleed."
+    },
+    {
+      "node": "sites-hunt-63738-pocket-1",
+      "kind": "valve",
+      "key": "fontaineMorteValve",
+      "source": "fon-domain-valve-background-v1.png",
+      "preview": "fon-domain-valve-native-preview-v1.png",
+      "prompt": "Create one original widescreen 16:9 pixel-art backdrop, a hand-authored scenic painting for a side-scrolling 2D fantasy RPG. A small cold service chamber beside a canal drainage gate, with one horizontal frost-rimed brass isolation valve and two thick pipe elbows grouped in the upper left. Slanted ice-blue daylight enters across old muted indigo limestone from a high narrow grille on the right. Dry indoor space, cohesive cool shadows, intimate scale, quiet contrasting wall behind a single enemy. Horizontal side-on camera. Crisp deliberate pixel clusters, large clear shapes with a concise palette, well separated silhouettes, sparse detail at the landmark, no dithering, noise or faux-pixel grid. Keep the bottom quarter subdued, no foreground platforms or traversable floor (added by game). No text, HUD, characters, monsters, logos or borders. Original composition, opaque, full bleed."
+    }
+  ]
+}

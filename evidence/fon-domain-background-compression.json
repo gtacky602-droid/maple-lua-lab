@@ -1,0 +1,174 @@
+{
+  "codec": "R63C MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "fon-domain-reef-background-v1.png": {
+      "sourceBytes": 1650136,
+      "sourceSha256": "233fcaa525689e2f768c4e1b900c558490b2beee6a9d2754efd318eb215174da",
+      "preview": "fon-domain-reef-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17707,
+      "baseSelectedBytes": 17695,
+      "detailFixed13Bytes": 12133,
+      "detailSelectedBytes": 12121,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.213085033275463,
+          "rgbSha256": "fe29dab51f6a83c4dd9576da5688ef0b4eb63b817c12b14f092972d823719f05"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.7862571433738426,
+          "rgbSha256": "50e8c92f0dc4e657c290ee6589dc6ffca313aa975b831e0a5dad7ba1a27162cd"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.485896357783565,
+          "rgbSha256": "ca09b448039b041f996d6a365b864b3d208392f8bc3c0eb4904debb9532c30a1"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.2180469654224537,
+          "rgbSha256": "18d35552106078a9d1edd3e5b2662a837b29b8e0efaa457f21695dac2d29116c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.9992268880208335,
+          "rgbSha256": "d6f6a21ca07ee88171b184c8295234ea1fa896cbfc8062d786febbbdd8ce8a35"
+        }
+      ]
+    },
+    "fon-domain-seal-background-v1.png": {
+      "sourceBytes": 1397383,
+      "sourceSha256": "2f073878de393e77ea83133755568d1837b4962467f187399c085db2cce02e7a",
+      "preview": "fon-domain-seal-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17337,
+      "baseSelectedBytes": 17323,
+      "detailFixed13Bytes": 11993,
+      "detailSelectedBytes": 11981,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.9028184678819444,
+          "rgbSha256": "f4b2a59a469bc8e1f02652f9e1cf6e196b434d365802e307e1d0c22ce6713796"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.6717913592303242,
+          "rgbSha256": "d34b55f0ba1aeb7ea79b3d72bfb98f08e287689e3e7c9f06cf0cf22bd6a9b1df"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.5145421911168981,
+          "rgbSha256": "6054c04808b72aa90137ee3e285634321f53fb9d5e37279cbbb99749162be0c7"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.3902813946759258,
+          "rgbSha256": "b2b562dee77bfae0b1335a35db1d49032480895e3936148af908ba9b68d5d5c3"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.291698314525463,
+          "rgbSha256": "9831a065c0d14d0bad6d93ea0a31444162b9ab9c840f0afd94d2f2d527545975"
+        }
+      ]
+    },
+    "fon-domain-drain-background-v1.png": {
+      "sourceBytes": 1861583,
+      "sourceSha256": "366b27ad601eca582de371f269ba3865b38c391babfaa398be8bb7131bf92756",
+      "preview": "fon-domain-drain-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17493,
+      "baseSelectedBytes": 17479,
+      "detailFixed13Bytes": 11921,
+      "detailSelectedBytes": 11909,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.363326461226852,
+          "rgbSha256": "d2ebdfd32d1c10e66da5aab4113e3c6ba6ca9f281ff7938db7f0031b1878dfb0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.997059009693287,
+          "rgbSha256": "aa2a1e8e032592bad8aef21ce5a262df055881d85fc116ad385da171d08a58a7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.7252061631944446,
+          "rgbSha256": "c29451a0dad7c722fd09ef2214bf364a8c8699625ec493f4951854f8a2391ddd"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.483176902488426,
+          "rgbSha256": "e9c0d7a276db2e1008fe16e74db492579b17a9025c060d318f3e70a9faa58945"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.291187427662037,
+          "rgbSha256": "db58c05663e5a299b042ddcac06c0c33d1c44b83a465f1e16120f16d1dd3ec3d"
+        }
+      ]
+    },
+    "fon-domain-valve-background-v1.png": {
+      "sourceBytes": 1468020,
+      "sourceSha256": "66904b589a6d5f4ed1b53a91b98b3a5940003d0bf3fb0982ed03fc117a355d2d",
+      "preview": "fon-domain-valve-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15909,
+      "baseSelectedBytes": 15893,
+      "detailFixed13Bytes": 11457,
+      "detailSelectedBytes": 11445,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.0478967737268516,
+          "rgbSha256": "e44a0a219676b3627b0fdad0f58f1221f23648d5b1cdfa59016843101ef94207"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.8311338071469907,
+          "rgbSha256": "c2ef7701526223c47d650a119730d735c27e9fc8334ea666a277442d3d27798f"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.670398853443287,
+          "rgbSha256": "48d82fc912dceadd1e337da1a56cf638479695b76a2d5dd4e54753f9e66487ef"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.5428986725983795,
+          "rgbSha256": "beec3c517ec20c4c69ea5282170f8d3ff2463766302bdb5dd4501caac081d51c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.4354903609664351,
+          "rgbSha256": "3b786fa84028ab4897a04fe6e662e8d2ed9df835987fb13726ecebcbb8cf6862"
+        }
+      ]
+    }
+  }
+}

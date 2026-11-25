@@ -2,8 +2,8 @@
   "inlet": {
     "stage": "sites-hunt-50034",
     "scenery": {
-      "key": "fontaineScentShore",
-      "file": "fon-emilie-scent-shore-background-v1.png",
+      "key": "fontaineBerylCoast",
+      "file": "fon-beryl-coast-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -22,8 +22,8 @@
     ],
     "returnHeight": 480,
     "pocketScenery": {
-      "key": "goldenGrotto",
-      "file": "golden-grotto-background-v1.png",
+      "key": "fontaineBerylSluice",
+      "file": "fon-beryl-sluice-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -85,8 +85,8 @@
   "sunken-terrace": {
     "stage": "sites-hunt-50067",
     "scenery": {
-      "key": "bygone",
-      "file": "bygone-background-v1.png",
+      "key": "fontaineSunkenReef",
+      "file": "fon-domain-reef-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -118,8 +118,8 @@
   "sunken-hall": {
     "stage": "sites-hunt-56792",
     "scenery": {
-      "key": "bygoneResonance",
-      "file": "bygone-resonance-background-v1.png",
+      "key": "fontaineSunkenSeal",
+      "file": "fon-domain-seal-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -151,8 +151,8 @@
   "sluice": {
     "stage": "sites-hunt-63738",
     "scenery": {
-      "key": "tideCalibration",
-      "file": "tide-calibration-background-v1.png",
+      "key": "fontaineMorteDrain",
+      "file": "fon-domain-drain-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -171,8 +171,8 @@
     ],
     "returnHeight": 480,
     "pocketScenery": {
-      "key": "tideCalibration",
-      "file": "tide-calibration-background-v1.png",
+      "key": "fontaineMorteValve",
+      "file": "fon-domain-valve-background-v1.png",
       "state": "ready"
     },
     "journeys": [

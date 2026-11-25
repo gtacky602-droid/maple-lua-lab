@@ -10,7 +10,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 99,
-    "exterior_scenery": "fontaineScentShore",
+    "exterior_scenery": "fontaineBerylCoast",
     "arrivals_outside_enemy_contact": 2,
     "side_rooms": {
       "sites-hunt-50034-pocket-1": 100
@@ -44,7 +44,7 @@
     "upper_route_jumps": 6,
     "round_trips": 1,
     "level_required": 99,
-    "exterior_scenery": "bygone",
+    "exterior_scenery": "fontaineSunkenReef",
     "arrivals_outside_enemy_contact": 1,
     "side_rooms": {},
     "waterway_seconds": 2.4
@@ -60,7 +60,7 @@
     "upper_route_jumps": 6,
     "round_trips": 1,
     "level_required": 99,
-    "exterior_scenery": "bygoneResonance",
+    "exterior_scenery": "fontaineSunkenSeal",
     "arrivals_outside_enemy_contact": 1,
     "side_rooms": {},
     "waterway_seconds": 2.4
@@ -76,7 +76,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 99,
-    "exterior_scenery": "tideCalibration",
+    "exterior_scenery": "fontaineMorteDrain",
     "arrivals_outside_enemy_contact": 2,
     "side_rooms": {
       "sites-hunt-63738-pocket-1": 100

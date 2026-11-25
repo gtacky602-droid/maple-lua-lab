@@ -143,8 +143,12 @@ export const sceneryDefinitions={
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu','story:signora-ten-shrine-arena']},
  fontaineScentAtelier:{file:'fon-emilie-scent-atelier-background-v1.png',zones:['story:fon-emilie-atelier'],note:'水辺の調香工房の仮背景'},
  fontaineScentShore:{file:'fon-emilie-scent-shore-background-v1.png',zones:['story:fon-emilie-scent-shore'],note:'香り草の船着き場の仮背景'},
- fontaineBerylCoast:{file:'fon-beryl-coast-background-v1.png',decodedPreview:'fon-beryl-coast-native-preview-v1.png',zones:['story:sites-hunt-50034'],note:'石造水路が見えるベリル沿岸の仮背景'},
- fontaineBerylSluice:{file:'fon-beryl-sluice-background-v1.png',decodedPreview:'fon-beryl-sluice-native-preview-v1.png',zones:['story:sites-hunt-50034-pocket-1'],note:'ベリルの水門脇の仮背景'},
+ fontaineSunkenReef:{file:'fon-domain-reef-background-v1.png',decodedPreview:'fon-domain-reef-native-preview-v1.png',decodedTiers:'fon-domain-reef-native-tiers-v1.webp',zones:['story:sites-hunt-50067'],note:'海中の石灰棚と沈んだアーチの仮背景'},
+ fontaineSunkenSeal:{file:'fon-domain-seal-background-v1.png',decodedPreview:'fon-domain-seal-native-preview-v1.png',decodedTiers:'fon-domain-seal-native-tiers-v1.webp',zones:['story:sites-hunt-56792'],note:'海中に沈んだ青銅の征討門の仮背景'},
+ fontaineMorteDrain:{file:'fon-domain-drain-background-v1.png',decodedPreview:'fon-domain-drain-native-preview-v1.png',decodedTiers:'fon-domain-drain-native-tiers-v1.webp',zones:['story:sites-hunt-63738'],note:'モルテの排水路と圧力塔の仮背景'},
+ fontaineMorteValve:{file:'fon-domain-valve-background-v1.png',decodedPreview:'fon-domain-valve-native-preview-v1.png',decodedTiers:'fon-domain-valve-native-tiers-v1.webp',zones:['story:sites-hunt-63738-pocket-1'],note:'氷霜の従者がいる排水弁室の仮背景'},
+ fontaineBerylCoast:{file:'fon-beryl-coast-background-v1.png',decodedPreview:'fon-beryl-coast-native-preview-v1.png',decodedTiers:'fon-beryl-coast-native-tiers-v1.webp',zones:['story:sites-hunt-50034'],note:'石造水路が見えるベリル沿岸の仮背景'},
+ fontaineBerylSluice:{file:'fon-beryl-sluice-background-v1.png',decodedPreview:'fon-beryl-sluice-native-preview-v1.png',decodedTiers:'fon-beryl-sluice-native-tiers-v1.webp',zones:['story:sites-hunt-50034-pocket-1'],note:'ベリルの水門脇の仮背景'},
  fontainePhotoTerrace:{file:'fon-navia-photo-terrace-background-v1.png',zones:['story:fon-photo-terrace'],note:'並木の写真広場の仮背景'},
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay','story:fontaine-outskirts-loading']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
@@ -268,20 +272,21 @@ function drawDecorations(ctx,frame,camera){
   ctx.restore();
  }
 }
-export function scenery(ctx,frame,previewFile){
+export function scenery(ctx,frame,previewFile,tierTile){
  ctx.save();ctx.imageSmoothingEnabled=!previewFile;
  const key=sceneryKey(frame),{image:background,state}=backgroundFor(previewFile??sceneryDefinitions[key].file);
  if(state==='ready'){
   // The temporary image has only 200px of overscan. Stop its parallax at
   // either image edge even when the playable map extends farther.
   const w=1160,h=540,offset=(frame.voyage?.scroll??Math.max(0,Math.min(1,(frame.camera||0)/1920)))*(w-960);
-  ctx.drawImage(background,-offset,0,w,h);
+  if(tierTile===undefined)ctx.drawImage(background,-offset,0,w,h);
+  else ctx.drawImage(background,(tierTile%2)*512,Math.floor(tierTile/2)*288,512,288,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','narwhalInner','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
+ const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','narwhalInner','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','fontaineMorteDrain','fontaineMorteValve','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','sumeruDesertTombApproach','wenutField','emperorField','lavaDragonField','tunigiExcavation'].includes(key);
- const bygone=key==='bygone'||key==='bygoneResonance';
+ const bygone=['bygone','bygoneResonance','fontaineSunkenReef','fontaineSunkenSeal'].includes(key);
  const golden=key==='golden'||key==='goldenDock';
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass','sneSurveyRidge','sneSnowMatch'].includes(key);
  const forge=frame.weeklyBoss?.primal;
