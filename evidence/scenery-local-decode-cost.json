@@ -16,7 +16,8 @@
     "li-highlands-native-backgrounds.lua": "e3aa4872c26b1165cbb151666faba7c12b8af753cecc8a20a4619325a52f0c76",
     "li-weekly-native-backgrounds.lua": "36a9095726147c041611c4ec207f132038de7c171f82fc1c929a15e7c2f68714",
     "nod-islands-native-backgrounds.lua": "cc026b24d2883b2c73ad2922f2f42ce7c5a80f89a12721dcf07a63a47f0292c4",
-    "nod-false-moon-native-backgrounds.lua": "c294037d91208d4c7d600d86c9d8691ee10bce661438bacc093c24104e641da0"
+    "nod-false-moon-native-backgrounds.lua": "c294037d91208d4c7d600d86c9d8691ee10bce661438bacc093c24104e641da0",
+    "sne-domains-native-backgrounds.lua": "d4455c1b54b3b569d3465f0614b3d39d61f134d36bf5be830560fa3f9fc75803"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -4019,6 +4020,191 @@
         "minDecodeMs": 13.52,
         "maxDecodeMs": 20.8,
         "medianRetainedLuaKiB": 1029.1
+      }
+    },
+    "sites-hunt-100705": {
+      "4096": {
+        "fileBytes": 17732,
+        "medianDecodeMs": 14.79,
+        "minDecodeMs": 11.43,
+        "maxDecodeMs": 18.32,
+        "medianRetainedLuaKiB": 793.8
+      },
+      "4608": {
+        "fileBytes": 21172,
+        "medianDecodeMs": 17.3,
+        "minDecodeMs": 14.03,
+        "maxDecodeMs": 21.17,
+        "medianRetainedLuaKiB": 936.2
+      },
+      "5120": {
+        "fileBytes": 24531,
+        "medianDecodeMs": 20.51,
+        "minDecodeMs": 14.91,
+        "maxDecodeMs": 22.81,
+        "medianRetainedLuaKiB": 1019.1
+      },
+      "5632": {
+        "fileBytes": 27865,
+        "medianDecodeMs": 22.93,
+        "minDecodeMs": 19.79,
+        "maxDecodeMs": 28.93,
+        "medianRetainedLuaKiB": 1102.0
+      },
+      "6144": {
+        "fileBytes": 30041,
+        "medianDecodeMs": 24.76,
+        "minDecodeMs": 20.36,
+        "maxDecodeMs": 26.88,
+        "medianRetainedLuaKiB": 1184.8
+      }
+    },
+    "sites-hunt-100705-pocket-1": {
+      "4096": {
+        "fileBytes": 17578,
+        "medianDecodeMs": 13.14,
+        "minDecodeMs": 11.73,
+        "maxDecodeMs": 15.63,
+        "medianRetainedLuaKiB": 793.3
+      },
+      "4608": {
+        "fileBytes": 21044,
+        "medianDecodeMs": 16.5,
+        "minDecodeMs": 14.28,
+        "maxDecodeMs": 20.54,
+        "medianRetainedLuaKiB": 935.6
+      },
+      "5120": {
+        "fileBytes": 24365,
+        "medianDecodeMs": 19.61,
+        "minDecodeMs": 14.9,
+        "maxDecodeMs": 26.3,
+        "medianRetainedLuaKiB": 1018.4
+      },
+      "5632": {
+        "fileBytes": 27687,
+        "medianDecodeMs": 21.92,
+        "minDecodeMs": 18.17,
+        "maxDecodeMs": 25.9,
+        "medianRetainedLuaKiB": 1101.1
+      },
+      "6144": {
+        "fileBytes": 29741,
+        "medianDecodeMs": 21.93,
+        "minDecodeMs": 18.9,
+        "maxDecodeMs": 28.59,
+        "medianRetainedLuaKiB": 1188.0
+      }
+    },
+    "sites-hunt-100706": {
+      "4096": {
+        "fileBytes": 15833,
+        "medianDecodeMs": 13.29,
+        "minDecodeMs": 12.07,
+        "maxDecodeMs": 15.8,
+        "medianRetainedLuaKiB": 738.8
+      },
+      "4608": {
+        "fileBytes": 19137,
+        "medianDecodeMs": 17.5,
+        "minDecodeMs": 13.83,
+        "maxDecodeMs": 18.59,
+        "medianRetainedLuaKiB": 908.9
+      },
+      "5120": {
+        "fileBytes": 22294,
+        "medianDecodeMs": 18.78,
+        "minDecodeMs": 13.99,
+        "maxDecodeMs": 20.3,
+        "medianRetainedLuaKiB": 987.3
+      },
+      "5632": {
+        "fileBytes": 25434,
+        "medianDecodeMs": 21.22,
+        "minDecodeMs": 18.77,
+        "maxDecodeMs": 24.64,
+        "medianRetainedLuaKiB": 1065.3
+      },
+      "6144": {
+        "fileBytes": 27048,
+        "medianDecodeMs": 20.88,
+        "minDecodeMs": 16.79,
+        "maxDecodeMs": 26.89,
+        "medianRetainedLuaKiB": 1143.5
+      }
+    },
+    "sites-hunt-100706-pocket-1": {
+      "4096": {
+        "fileBytes": 17315,
+        "medianDecodeMs": 14.37,
+        "minDecodeMs": 12.67,
+        "maxDecodeMs": 17.73,
+        "medianRetainedLuaKiB": 790.0
+      },
+      "4608": {
+        "fileBytes": 20729,
+        "medianDecodeMs": 18.31,
+        "minDecodeMs": 12.65,
+        "maxDecodeMs": 20.36,
+        "medianRetainedLuaKiB": 931.9
+      },
+      "5120": {
+        "fileBytes": 24020,
+        "medianDecodeMs": 18.62,
+        "minDecodeMs": 15.49,
+        "maxDecodeMs": 22.03,
+        "medianRetainedLuaKiB": 1014.3
+      },
+      "5632": {
+        "fileBytes": 27298,
+        "medianDecodeMs": 22.9,
+        "minDecodeMs": 16.76,
+        "maxDecodeMs": 24.15,
+        "medianRetainedLuaKiB": 1096.5
+      },
+      "6144": {
+        "fileBytes": 29404,
+        "medianDecodeMs": 24.95,
+        "minDecodeMs": 19.39,
+        "maxDecodeMs": 26.12,
+        "medianRetainedLuaKiB": 1178.7
+      }
+    },
+    "sites-hunt-100707": {
+      "4096": {
+        "fileBytes": 18028,
+        "medianDecodeMs": 16.74,
+        "minDecodeMs": 12.59,
+        "maxDecodeMs": 20.17,
+        "medianRetainedLuaKiB": 794.0
+      },
+      "4608": {
+        "fileBytes": 21500,
+        "medianDecodeMs": 17.21,
+        "minDecodeMs": 14.44,
+        "maxDecodeMs": 19.68,
+        "medianRetainedLuaKiB": 937.6
+      },
+      "5120": {
+        "fileBytes": 24851,
+        "medianDecodeMs": 19.83,
+        "minDecodeMs": 16.75,
+        "maxDecodeMs": 22.4,
+        "medianRetainedLuaKiB": 1020.7
+      },
+      "5632": {
+        "fileBytes": 28173,
+        "medianDecodeMs": 21.96,
+        "minDecodeMs": 16.3,
+        "maxDecodeMs": 25.6,
+        "medianRetainedLuaKiB": 1104.0
+      },
+      "6144": {
+        "fileBytes": 30399,
+        "medianDecodeMs": 21.93,
+        "minDecodeMs": 19.88,
+        "maxDecodeMs": 25.15,
+        "medianRetainedLuaKiB": 1191.1
       }
     }
   }

@@ -33,7 +33,10 @@ const westIslandHeights=[480,408,369,404,378];
 const mondRuinsHeights=[480,397,358,404,360];
 const liyueNorthHeights=[480,403,360,389,345];
 const nodIslandHeights=[480,396,356,395,361];
+const snowDomainHeights=[480,407,366,409,365];
 const previousHeights=new Map([
+ ['sites-hunt-100705',snowDomainHeights],['sites-hunt-100706',snowDomainHeights],
+ ['sites-hunt-100707',[480,398,345,396,348]],
  ['sites-hunt-88121',nodIslandHeights],['sites-hunt-88122',nodIslandHeights],['sites-hunt-88123',nodIslandHeights],['sites-hunt-92859',nodIslandHeights],
  ['sites-hunt-92860',[480,398,345,396,348]],
  ['sites-hunt-7173',liyueNorthHeights],

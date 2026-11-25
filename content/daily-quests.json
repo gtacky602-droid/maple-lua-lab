@@ -688,9 +688,9 @@
       "level": 140,
       "giver": "タルタリヤ",
       "name": "面白い相手を見つけたよ",
-      "intro": "タルタリヤ「切通しと観測路に面白い相手がいる。先に手合わせしてくるかい？」",
-      "target": "雪線の切通し・郊外の観測路の指定精鋭",
-      "filter": {"kind": "elite", "nodes": ["white-pass-cut", "sne-survey-outskirts"]},
+      "intro": "タルタリヤ「切通しと観測路のほか、中央と西の脇道にも強い獣がいるそうだ。手合わせしてくるかい？」",
+      "target": "雪線の切通し・郊外の観測路、または中央・西の脇部屋の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["white-pass-cut", "sne-survey-outskirts", "sites-hunt-100705-pocket-1", "sites-hunt-100706-pocket-1"]},
       "goal": 3,
       "xp": 345120,
       "mora": 3300

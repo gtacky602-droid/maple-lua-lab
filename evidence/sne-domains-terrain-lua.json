@@ -1,0 +1,69 @@
+{
+  "sites-hunt-100705": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      418,
+      375,
+      402,
+      381
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 159,
+    "exterior_scenery": "sneCentralIcewall",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-100706": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      423,
+      397,
+      414,
+      383
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 159,
+    "exterior_scenery": "sneWestCutting",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-100707": {
+    "population": 3,
+    "shelf_heights_from_entrance": [
+      421,
+      390,
+      358,
+      379
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 159,
+    "exterior_scenery": "sneCityUnderpass",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "furiosaRoute": {
+    "from": "sites-hunt-100707",
+    "stops": [
+      "sne-obsession-scar-upper-trail",
+      "sne-furiosa-domain-outlook"
+    ],
+    "returnY": 391,
+    "level": 159,
+    "level158FromWaypoint": [
+      "sne-obsession-scar-upper-trail",
+      "sne-furiosa-domain-outlook"
+    ]
+  },
+  "eliteCommission": {
+    "locations": [
+      "white-pass-cut",
+      "sne-survey-outskirts",
+      "sites-hunt-100705-pocket-1",
+      "sites-hunt-100706-pocket-1"
+    ],
+    "credited": [
+      "sites-hunt-100705-pocket-1",
+      "sites-hunt-100706-pocket-1"
+    ]
+  }
+}

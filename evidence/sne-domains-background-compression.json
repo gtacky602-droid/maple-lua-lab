@@ -1,0 +1,216 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "sne-central-icewall-background-v1.png": {
+      "sourceBytes": 2049534,
+      "sourceSha256": "69d6f8c1182c7534866d3caf84057c1326a6d3abd13cb1c6074ac336295944f9",
+      "preview": "sne-central-icewall-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17637,
+      "baseSelectedBytes": 17623,
+      "detailFixed13Bytes": 12321,
+      "detailSelectedBytes": 12311,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.260834870515046,
+          "rgbSha256": "37caacac98e67d6dd31f0fd33111504baf1501478626716838bfa38934f4f45d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.501439977575232,
+          "rgbSha256": "aa7b7f2227c4fb82efcbb408ee14c241c3c0a95198b21b91ccd3b2c22e59fec1"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.938080964265047,
+          "rgbSha256": "dc800e9ae0cc5f118301d30ad62e9f68dfbc9b515030793aa15b730a4c518762"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.4588193540219905,
+          "rgbSha256": "3bfbabfc473eb9893d27f4c7ace287091edfb86e3f821391392c69d4c22c8917"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.071431477864583,
+          "rgbSha256": "29d83570ac15d827159024a7360d51db3f4a884db34b51c663bc24441f1a1d34"
+        }
+      ]
+    },
+    "sne-warrior-shelf-background-v1.png": {
+      "sourceBytes": 2216187,
+      "sourceSha256": "d1aca1aa8195a1aab38585be3a10824dabaffb48a24738e14889223cc7f871f2",
+      "preview": "sne-warrior-shelf-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17485,
+      "baseSelectedBytes": 17471,
+      "detailFixed13Bytes": 12177,
+      "detailSelectedBytes": 12165,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.271436903211805,
+          "rgbSha256": "b4115a45e1d817054c39b9d81d333cb773a2a613bb1614ea597828adc38c110d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.582732024016203,
+          "rgbSha256": "95030c8470bc4f5072d9ba439dbad2083fc67f9ae1571d93064298971815ac73"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.052151150173611,
+          "rgbSha256": "2adc5306ca531145691f28181cf05c98183237838137a5be77bb6a9b727e500f"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.615806297019676,
+          "rgbSha256": "66c814edc5779a8c9c8a4a7177e89b6b316eb90a842cffb83a43e274ae91521b"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.227572970920139,
+          "rgbSha256": "b3388d3e91b44f8700771cdefab6db5ff0538bab235b57958bb96127cfb69a31"
+        }
+      ]
+    },
+    "sne-west-cutting-background-v1.png": {
+      "sourceBytes": 2049627,
+      "sourceSha256": "ee8c5cb46e51829b5b07485c4f8192332d5641f4409adcbc68d40ddc4debed67",
+      "preview": "sne-west-cutting-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15737,
+      "baseSelectedBytes": 15727,
+      "detailFixed13Bytes": 11227,
+      "detailSelectedBytes": 11217,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.51032398365162,
+          "rgbSha256": "5dfd2a6c81f74ebb1be34cfabdea0a964ab6b7026a699a47bd79e1e64659f304"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.963399251302083,
+          "rgbSha256": "b833118702e43a7ca87dd04531311c919fdfe4a5617920c61ba5ea17c1fa1ecd"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.521791811342593,
+          "rgbSha256": "5930d3a3f86a32ccc7cd89c26372f0a0d7a47a49bc3eb86838afc37634a0b544"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.137862594039352,
+          "rgbSha256": "3a1686a0063a5046aef36976ea378869ff874410616de09bb6972a9a81525c20"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.813087745949074,
+          "rgbSha256": "92329a0055dfdbd9cd856e88a3520efa60448d6c7dce9bddbfedbc60d805f145"
+        }
+      ]
+    },
+    "sne-snowbound-shed-background-v1.png": {
+      "sourceBytes": 2175828,
+      "sourceSha256": "fd7c4c87fcffbf9de2328e494a2dfcef07e0ef95062338e13cf46f01ad7f51c6",
+      "preview": "sne-snowbound-shed-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17223,
+      "baseSelectedBytes": 17207,
+      "detailFixed13Bytes": 12103,
+      "detailSelectedBytes": 12091,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.383375379774305,
+          "rgbSha256": "449a6546cf688ad0bef7d66a172a055c71a76ff20302a246e2e0dae55d735bcf"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.801699037905093,
+          "rgbSha256": "45bec0ec2bce2f5bb0fdf9ca91129e33bd0b02bdc4f7677b8828d3a57a27d57e"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.3621396665219905,
+          "rgbSha256": "c41f12911ea7728e42ae8c757e14b65090eab2e1dfa2db09ff00f670595d2b28"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.977179633246528,
+          "rgbSha256": "e9546eaddd0549db659acef9460060cb4b51e928da7f568573640f65a613b48c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.653191460503472,
+          "rgbSha256": "5c5240d968add1ed0d30fdf738bbf8f2e0563c71ab5a19c6acd5810b80d05a57"
+        }
+      ]
+    },
+    "sne-underpass-background-v1.png": {
+      "sourceBytes": 2142587,
+      "sourceSha256": "3ce969dd51836cc84f375e2ec6ffe104c13cc08ff37ab5c852f6fa70d8eaeae6",
+      "preview": "sne-underpass-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17937,
+      "baseSelectedBytes": 17925,
+      "detailFixed13Bytes": 12385,
+      "detailSelectedBytes": 12373,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.092086226851851,
+          "rgbSha256": "07ecf78a100a96eff9b5afe5a94364a919b2d2770a9c5319fc74f2dbba510c92"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.489034016927083,
+          "rgbSha256": "9c05bcaf9070e73e96bc6b8869c1a438490c7d5456ee6fc1710bc715477e8722"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.997585720486111,
+          "rgbSha256": "fc55a84229f536b0daf2cc4e63ab14e11e1f1ad30f8955693db9209e5cc40ee5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.560673466435185,
+          "rgbSha256": "247cb03337f8a0608a46994f2fbc5e62029dc906bf336eb17c3a1aabf246a06b"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.190526891637732,
+          "rgbSha256": "ddeba31364214135a940dc66338b5d15087d7c882d2c847e19d0cbd132940680"
+        }
+      ]
+    }
+  }
+}

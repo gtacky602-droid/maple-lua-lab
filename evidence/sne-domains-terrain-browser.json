@@ -1,0 +1,156 @@
+{
+  "icewall": {
+    "stage": "sites-hunt-100705",
+    "scenery": {
+      "key": "sneCentralIcewall",
+      "file": "sne-central-icewall-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-08",
+      "x": 301.9,
+      "y": 306.7,
+      "adjacent": [
+        "sne-wp-100658",
+        "sites-hunt-100705-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-100705&placements=live&compare=background",
+      "next": "sites-hunt-100705-pocket-1"
+    },
+    "jump": [
+      480,
+      418
+    ],
+    "returnHeight": 391,
+    "pocketScenery": {
+      "key": "sneWarriorShelf",
+      "file": "sne-warrior-shelf-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sne-wp-100658",
+        "sites-hunt-100705",
+        "walk"
+      ],
+      [
+        "sites-hunt-100705",
+        "sites-hunt-100705-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-100705-pocket-1",
+        "sites-hunt-100705",
+        "walk"
+      ],
+      [
+        "sites-hunt-100705",
+        "sne-wp-100658",
+        "walk"
+      ]
+    ]
+  },
+  "cut": {
+    "stage": "sites-hunt-100706",
+    "scenery": {
+      "key": "sneWestCutting",
+      "file": "sne-west-cutting-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-08",
+      "x": 243.8,
+      "y": 253.3,
+      "adjacent": [
+        "white-pass-cut",
+        "sites-hunt-100706-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-100706&placements=live&compare=background",
+      "next": "sites-hunt-100706-pocket-1"
+    },
+    "jump": [
+      480,
+      423
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "sneSnowboundShed",
+      "file": "sne-snowbound-shed-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "white-pass-cut",
+        "sites-hunt-100706",
+        "walk"
+      ],
+      [
+        "sites-hunt-100706",
+        "sites-hunt-100706-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-100706-pocket-1",
+        "sites-hunt-100706",
+        "walk"
+      ],
+      [
+        "sites-hunt-100706",
+        "white-pass-cut",
+        "walk"
+      ]
+    ]
+  },
+  "underpass": {
+    "stage": "sites-hunt-100707",
+    "scenery": {
+      "key": "sneCityUnderpass",
+      "file": "sne-underpass-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-08",
+      "x": 298.6,
+      "y": 239.6,
+      "adjacent": [
+        "sne-wp-100695",
+        "sne-obsession-scar-upper-trail"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-100707&placements=live&compare=background",
+      "next": "sne-obsession-scar-upper-trail"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "returnHeight": 391,
+    "pocketScenery": {
+      "key": "whiteRainbowBasin",
+      "file": "white-rainbow-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sne-wp-100695",
+        "sites-hunt-100707",
+        "walk"
+      ],
+      [
+        "sites-hunt-100707",
+        "sne-obsession-scar-upper-trail",
+        "raised"
+      ],
+      [
+        "sne-obsession-scar-upper-trail",
+        "sites-hunt-100707",
+        "walk"
+      ],
+      [
+        "sites-hunt-100707",
+        "sne-wp-100695",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

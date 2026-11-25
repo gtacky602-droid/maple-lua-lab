@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-100705",
+      "key": "sneCentralIcewall",
+      "note": "中央の氷壁回廊",
+      "source": "sne-central-icewall-background-v1.png",
+      "preview": "sne-central-icewall-native-preview-v1.png",
+      "prompt": "Deep blue stratified icewall canyon with snow-carved giant columns and an old iron waylamp, low honey sunlight from the left. Original Snezhnaya-inspired cold northern fantasy landscape, wide 16:9 side-view pixel RPG backdrop, elegant crisp pixel clusters like classic scrolling 2D field art. Broad connected color shapes, high readability at 512x288 with a 4096 rectangle budget, subdued lower quarter. No characters or monsters, no text, no HUD, no overlaid gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-100705-pocket-1",
+      "key": "sneWarriorShelf",
+      "note": "氷壁の獣道",
+      "source": "sne-warrior-shelf-background-v1.png",
+      "preview": "sne-warrior-shelf-native-preview-v1.png",
+      "prompt": "High snow shelf inside an eroded glacial arch looking down on a frozen blue valley, windblown powder and claw marks on rock, icy turquoise morning. Original Snezhnaya-inspired cold northern fantasy landscape, wide 16:9 side-view pixel RPG backdrop, elegant crisp pixel clusters like classic scrolling 2D field art. Broad connected color shapes, high readability at 512x288 with a 4096 rectangle budget, subdued lower quarter. No characters or monsters, no text, no HUD, no overlaid gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-100706",
+      "key": "sneWestCutting",
+      "note": "西の雪線の切通し",
+      "source": "sne-west-cutting-background-v1.png",
+      "preview": "sne-west-cutting-native-preview-v1.png",
+      "prompt": "A long snow-filled mountain cutting beneath black spruce, railway sleepers nearly buried in the drifts and the faded outline of a stone signal cabin, gray pink dusk. Original Snezhnaya-inspired cold northern fantasy landscape, wide 16:9 side-view pixel RPG backdrop, elegant crisp pixel clusters like classic scrolling 2D field art. Broad connected color shapes, high readability at 512x288 with a 4096 rectangle budget, subdued lower quarter. No characters or monsters, no text, no HUD, no overlaid gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-100706-pocket-1",
+      "key": "sneSnowboundShed",
+      "note": "雪線の雪囲い跡",
+      "source": "sne-snowbound-shed-background-v1.png",
+      "preview": "sne-snowbound-shed-native-preview-v1.png",
+      "prompt": "Sheltered abandoned snow shed below the rail cutting, rough dark wood beams opening on to an amber winter sunset, deep straw and snow, cold shadow under the eaves. Original Snezhnaya-inspired cold northern fantasy landscape, wide 16:9 side-view pixel RPG backdrop, elegant crisp pixel clusters like classic scrolling 2D field art. Broad connected color shapes, high readability at 512x288 with a 4096 rectangle budget, subdued lower quarter. No characters or monsters, no text, no HUD, no overlaid gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-100707",
+      "key": "sneCityUnderpass",
+      "note": "都南の白虹地下道",
+      "source": "sne-underpass-background-v1.png",
+      "preview": "sne-underpass-native-preview-v1.png",
+      "prompt": "A subterranean passage below a northern winter city, a broad vault of brick framed by prismatic frost, glazed violet windows and green aurora light filtering through a grated opening near the ceiling. Original Snezhnaya-inspired cold northern fantasy landscape, wide 16:9 side-view pixel RPG backdrop, elegant crisp pixel clusters like classic scrolling 2D field art. Broad connected color shapes, high readability at 512x288 with a 4096 rectangle budget, subdued lower quarter. No characters or monsters, no text, no HUD, no overlaid gameplay platforms."
+    }
+  ]
+}

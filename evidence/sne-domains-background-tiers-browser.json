@@ -1,0 +1,62 @@
+{
+  "sites-hunt-100705": {
+    "source": "sne-central-icewall-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "696c088aab1772139d6e3560a2a0e72ab32d40ad95518b55688e709b8763be18",
+    "tiers": {
+      "4096": "0eecf2d8480ffa2ebb155e669e7c0b732f60654068c43b1b00a90f131c54afff",
+      "4608": "8a0580ced027e5faeea072a61c270228f16c1118226de000d454a5f1455dc5bf",
+      "5120": "faf47b9ca74ca4fa5ec48bcf8026426f3baf8a8f20290f7926f514fe7f638549",
+      "5632": "6dcb21fbf4ad04e925142432e2922bd7c463e5164dec7a0ca4ae4556a7370369",
+      "6144": "78f3ae0380d548eea9235dfadf4007c3324f7dd26c3caaba1fe2428232ce6f6c"
+    }
+  },
+  "sites-hunt-100705-pocket-1": {
+    "source": "sne-warrior-shelf-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "7241aad4ffe239e76dacb4f919c034f15b3443ea9cc1a5a052f04524bb46b0d0",
+    "tiers": {
+      "4096": "e273b37ead57b81a70ca8c18f723de5b455578a9350547fc04fcfbbef71a9c61",
+      "4608": "d35cb0d2aa4019f50399e9d6f4d2acd8f733326f3686690b151fb41b82efb9b3",
+      "5120": "4ec4e4d9030567464f6b635b80f180ee78d95b6b1dc9d9e58396e1f49ebd45c4",
+      "5632": "37ad732ae6bcd1f85cbd7cd2f298ea2bcc58ccfb7cf0b51b07b2a036e6728dc0",
+      "6144": "d55d7e8430482e29179b83a5dde1b9f730810e40b78092d26fc882a65b8773a8"
+    }
+  },
+  "sites-hunt-100706": {
+    "source": "sne-west-cutting-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "1774b366e0fa5cee858cfdc0dba857eedebec2c9ecf1a4447ee30141b4a04880",
+    "tiers": {
+      "4096": "24e286a169be27dbde6cd1178d0f7e1909dbf077acdac002a8b157d7550af6de",
+      "4608": "2537e7f258ee04c0fe5a8954129d33b3640366b811ec0dda59be4c07f5299193",
+      "5120": "3f8a99ba1131501720f26c0fdaa62e86fab54ab5d40756cc4ca1795d5d4d89a2",
+      "5632": "3b57a87bf118ea6b62beb1292cbd74309e8a6bba8c9d00f7615935b84b0a4c08",
+      "6144": "3d8b0f5c7d26ea8a000edd67d28d6ff4095025c779d00a80b01c41a2f8dea02b"
+    }
+  },
+  "sites-hunt-100706-pocket-1": {
+    "source": "sne-snowbound-shed-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "4e2d01c710bf2cc3cbb5c25fc5ac1fde6a864e765fe06e612d40b13832a37317",
+    "tiers": {
+      "4096": "01cc34992389ae4a71a5ac8597e3c65926a6e85a5d618cad912643811166603b",
+      "4608": "e3e85226d04c7db55ef815d52183b10c97dd513c3ca9a400d6dcadfc214aec06",
+      "5120": "3b7e93cf21090412c5802b5706ab4e2a4547c3d4f3871dece60bab8f2c628c0b",
+      "5632": "64e32ed6aff699c8a1a0f938aa8cd4cba453453f62c31790c832ef1d1aa958f7",
+      "6144": "05089056c9a03f62556ac3b1e6e8e71d9d736b2e73923bbc6155159e7cffaa5f"
+    }
+  },
+  "sites-hunt-100707": {
+    "source": "sne-underpass-background-v1.png",
+    "count": 3,
+    "sourceCanvas": "7c5eb0a0d3e3a73fc194fa90541627b8fbefc0b6961d6c0ef85e8a74b3c76e09",
+    "tiers": {
+      "4096": "4dd0cac69ea8d0e6987b5ed8ea00680507121a51e08f07317e5599ff10305941",
+      "4608": "3210d06c6e34af0ff9dce782a3a15f0f83544e15cd1c93a36fed12ef453595d2",
+      "5120": "a4f3ec9f0afb15322526fba7b34249a82fa55af9dc8827b66bf4c54cea484a5f",
+      "5632": "e8657f47c64ac96a465217efe2fce132bc175315c9ff4014aad16314f42775e4",
+      "6144": "6bcc4166e9259b516f0b6dd49b4e0cccf312fb3ffbc041890fac0ff20d9b73f4"
+    }
+  }
+}

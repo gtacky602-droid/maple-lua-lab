@@ -63,6 +63,11 @@ export const sceneryDefinitions={
  baptistField:{file:'baptist-field-background-v1.png',zones:['story:baptist-field-sanctuary'],note:'三環の祭場の仮背景'},
  wenutField:{file:'wenut-field-background-v1.png',zones:['story:wenut-field-cavern'],note:'風蝕の砂洞の仮背景'},
  asimonField:{file:'asimon-field-background-v1.png',zones:['story:asimon-field-ruins'],note:'砂鏡の遺構の仮背景'},
+ sneCentralIcewall:{file:'sne-central-icewall-background-v1.png',decodedPreview:'sne-central-icewall-native-preview-v1.png',decodedTiers:'sne-central-icewall-native-tiers-v1.webp',zones:['story:sites-hunt-100705'],note:'中央の氷壁回廊の仮背景'},
+ sneWarriorShelf:{file:'sne-warrior-shelf-background-v1.png',decodedPreview:'sne-warrior-shelf-native-preview-v1.png',decodedTiers:'sne-warrior-shelf-native-tiers-v1.webp',zones:['story:sites-hunt-100705-pocket-1'],note:'氷壁の獣道の仮背景'},
+ sneWestCutting:{file:'sne-west-cutting-background-v1.png',decodedPreview:'sne-west-cutting-native-preview-v1.png',decodedTiers:'sne-west-cutting-native-tiers-v1.webp',zones:['story:sites-hunt-100706'],note:'西の雪線の切通しの仮背景'},
+ sneSnowboundShed:{file:'sne-snowbound-shed-background-v1.png',decodedPreview:'sne-snowbound-shed-native-preview-v1.png',decodedTiers:'sne-snowbound-shed-native-tiers-v1.webp',zones:['story:sites-hunt-100706-pocket-1'],note:'雪線の雪囲い跡の仮背景'},
+ sneCityUnderpass:{file:'sne-underpass-background-v1.png',decodedPreview:'sne-underpass-native-preview-v1.png',decodedTiers:'sne-underpass-native-tiers-v1.webp',zones:['story:sites-hunt-100707'],note:'都南の白虹地下道の仮背景'},
  nodHiisiBridge:{file:'nod-hiisi-bridge-background-v1.png',decodedPreview:'nod-hiisi-bridge-native-preview-v1.png',decodedTiers:'nod-hiisi-bridge-native-tiers-v1.webp',zones:['story:sites-hunt-88121'],note:'ヒーシ島の渡り橋の仮背景'},
  nodReedDen:{file:'nod-reed-den-background-v1.png',decodedPreview:'nod-reed-den-native-preview-v1.png',decodedTiers:'nod-reed-den-native-tiers-v1.webp',zones:['story:sites-hunt-88121-pocket-1'],note:'ヒーシ島の葦の巣穴の仮背景'},
  nodLempoTerrace:{file:'nod-lempo-terrace-background-v1.png',decodedPreview:'nod-lempo-terrace-native-preview-v1.png',decodedTiers:'nod-lempo-terrace-native-tiers-v1.webp',zones:['story:sites-hunt-88122'],note:'レンポ島の工房を望む高台の仮背景'},
@@ -411,7 +416,7 @@ export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['sumSandMarket','sumSandBalances','sumSandWindcut','sumSandSentry','sumSandEastBasin','sumRedSandWell','sumRedSandRoost','sumRoyalDen','sumDuneVault','sumDuneCounterweight','asimonField','sumeruDesertTombApproach','wenutField','emperorField','lavaDragonField','tunigiExcavation'].includes(key);
  const bygone=['bygone','bygoneResonance','fontaineSunkenReef','fontaineSunkenSeal'].includes(key);
  const golden=key==='golden'||key==='goldenDock';
- const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass','sneSurveyRidge','sneSnowMatch'].includes(key);
+ const camera=frame.camera||0,snow=['sneCentralIcewall','sneWarriorShelf','sneWestCutting','sneSnowboundShed','sneCityUnderpass','snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass','sneSurveyRidge','sneSnowMatch'].includes(key);
  const forge=frame.weeklyBoss?.primal;
  if(forge){
   const pit=ctx.createLinearGradient(0,480,0,540);

@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 540,
+  "verifiedModules": 565,
   "dimensions": [
     512,
     288
@@ -629,6 +629,41 @@
       "5632": 26564,
       "6144": 28090
     },
+    "sne-central-icewall-background-v1.png": {
+      "4096": 17732,
+      "4608": 21172,
+      "5120": 24531,
+      "5632": 27865,
+      "6144": 30041
+    },
+    "sne-warrior-shelf-background-v1.png": {
+      "4096": 17578,
+      "4608": 21044,
+      "5120": 24365,
+      "5632": 27687,
+      "6144": 29741
+    },
+    "sne-west-cutting-background-v1.png": {
+      "4096": 15833,
+      "4608": 19137,
+      "5120": 22294,
+      "5632": 25434,
+      "6144": 27048
+    },
+    "sne-snowbound-shed-background-v1.png": {
+      "4096": 17315,
+      "4608": 20729,
+      "5120": 24020,
+      "5632": 27298,
+      "6144": 29404
+    },
+    "sne-underpass-background-v1.png": {
+      "4096": 18028,
+      "4608": 21500,
+      "5120": 24851,
+      "5632": 28173,
+      "6144": 30399
+    },
     "sum-redsand-well-background-v1.png": {
       "4096": 15485,
       "4608": 18711,
@@ -761,6 +796,164 @@
       "5120": 23275,
       "5632": 26579,
       "6144": 28059
+    }
+  },
+  "locationCoverage": {
+    "allStages": {
+      "total": 1528,
+      "verified": 113
+    },
+    "domainHunts": {
+      "total": 124,
+      "verified": 106,
+      "byRegion": {
+        "モンド": {
+          "total": 16,
+          "verified": 16
+        },
+        "璃月": {
+          "total": 18,
+          "verified": 18
+        },
+        "層岩巨淵・地上": {
+          "total": 2,
+          "verified": 0
+        },
+        "稲妻": {
+          "total": 19,
+          "verified": 19
+        },
+        "スメール": {
+          "total": 24,
+          "verified": 19
+        },
+        "トゥニギの黒淵": {
+          "total": 8,
+          "verified": 0
+        },
+        "フォンテーヌ": {
+          "total": 11,
+          "verified": 11
+        },
+        "ノストイ地区": {
+          "total": 2,
+          "verified": 0
+        },
+        "ナタ": {
+          "total": 9,
+          "verified": 9
+        },
+        "ナド・クライ": {
+          "total": 9,
+          "verified": 9
+        },
+        "スネージナヤ": {
+          "total": 5,
+          "verified": 5
+        },
+        "ドラゴンスパイン": {
+          "total": 1,
+          "verified": 0
+        }
+      },
+      "pending": [
+        "sites-hunt-24907",
+        "sites-hunt-24907-pocket-1",
+        "sites-hunt-28752",
+        "sites-hunt-28753",
+        "sites-hunt-28756",
+        "sites-hunt-41009",
+        "sites-hunt-46531",
+        "sites-hunt-46531-pocket-1",
+        "sites-hunt-46532",
+        "sites-hunt-46532-pocket-1",
+        "sites-hunt-46533",
+        "sites-hunt-46533-pocket-1",
+        "sites-hunt-46534",
+        "sites-hunt-46534-pocket-1",
+        "sites-hunt-98499",
+        "sites-hunt-68346",
+        "sites-hunt-68346-pocket-1",
+        "sites-hunt-7164"
+      ]
+    },
+    "branchHunts": {
+      "total": 62,
+      "verified": 0,
+      "byRegion": {
+        "沈玉の谷": {
+          "total": 59,
+          "verified": 0
+        },
+        "往日の海": {
+          "total": 3,
+          "verified": 0
+        }
+      },
+      "pending": [
+        "branch-hunt-64824",
+        "branch-hunt-64824-pocket-1",
+        "branch-hunt-64824-pocket-2",
+        "branch-hunt-64824-pocket-3",
+        "branch-hunt-64825",
+        "branch-hunt-64825-pocket-1",
+        "branch-hunt-64826",
+        "branch-hunt-64826-pocket-1",
+        "branch-hunt-64827",
+        "branch-hunt-64827-pocket-1",
+        "branch-hunt-64828",
+        "branch-hunt-64828-pocket-1",
+        "branch-hunt-64829",
+        "branch-hunt-64829-pocket-1",
+        "branch-hunt-64830",
+        "branch-hunt-64830-pocket-1",
+        "branch-hunt-64831",
+        "branch-hunt-64831-pocket-1",
+        "branch-hunt-64832",
+        "branch-hunt-64832-pocket-1",
+        "branch-hunt-64833",
+        "branch-hunt-64833-pocket-1",
+        "branch-hunt-64834",
+        "branch-hunt-64834-pocket-1",
+        "branch-hunt-64835",
+        "branch-hunt-64835-pocket-1",
+        "branch-hunt-64835-pocket-2",
+        "branch-hunt-64836",
+        "branch-hunt-64836-pocket-1",
+        "branch-hunt-64836-pocket-2",
+        "branch-hunt-64838",
+        "branch-hunt-64839",
+        "branch-hunt-64839-pocket-1",
+        "branch-hunt-64840",
+        "branch-hunt-64841",
+        "branch-hunt-64841-pocket-1",
+        "branch-hunt-64842",
+        "branch-hunt-64842-pocket-1",
+        "branch-hunt-64844",
+        "branch-hunt-64844-pocket-1",
+        "branch-hunt-64845",
+        "branch-hunt-64845-pocket-1",
+        "branch-hunt-64846",
+        "branch-hunt-64846-pocket-1",
+        "branch-hunt-64847",
+        "branch-hunt-64847-pocket-1",
+        "branch-hunt-64848",
+        "branch-hunt-64848-pocket-1",
+        "branch-hunt-64849",
+        "branch-hunt-64849-pocket-1",
+        "branch-hunt-64850",
+        "branch-hunt-64850-pocket-1",
+        "branch-hunt-66768",
+        "branch-hunt-66768-pocket-1",
+        "branch-hunt-66769",
+        "branch-hunt-66770",
+        "branch-hunt-66770-pocket-1",
+        "branch-hunt-66979",
+        "branch-hunt-66979-pocket-1",
+        "branch-hunt-68600",
+        "branch-hunt-68603",
+        "branch-hunt-68607"
+      ]
     }
   }
 }

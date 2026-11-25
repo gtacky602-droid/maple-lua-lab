@@ -1,0 +1,12 @@
+{
+  "quest": "daily-sne-elites",
+  "targets": [
+    "white-pass-cut",
+    "sne-survey-outskirts",
+    "sites-hunt-100705-pocket-1",
+    "sites-hunt-100706-pocket-1"
+  ],
+  "selected": "sites-hunt-100705-pocket-1",
+  "download": "sne-warrior-shelf-4096.lua",
+  "returnNode": "snezhnaya-hub"
+}

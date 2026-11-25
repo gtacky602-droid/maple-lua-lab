@@ -8,6 +8,33 @@ from lupa.lua53 import LuaRuntime
 from PIL import Image, ImageDraw
 
 
+def location_coverage(sources, root):
+    """Count stage-specific five-tier bindings separately from shared lab backdrops."""
+    graph = json.loads((root / 'content/story-graph.json').read_text('utf8'))
+    nodes = {n['id']: n for n in graph['nodes']}
+    assigned = {}
+    for path in sorted((root / 'assets').glob('*-background-generation.json')):
+        for row in json.loads(path.read_text('utf8')).get('scenes', []):
+            if row.get('source') not in sources or not row.get('node'):
+                continue
+            node = row['node']
+            assert node in nodes and node not in assigned, (path.name, node)
+            assigned[node] = row['source']
+    assert set(assigned.values()) == set(sources)
+    coverage = {'allStages': {'total': len(nodes), 'verified': len(assigned)}}
+    for category, prefix in [('domainHunts', 'sites-hunt-'), ('branchHunts', 'branch-hunt-')]:
+        ids = [node for node in nodes if node.startswith(prefix)]
+        pending = [node for node in ids if node not in assigned]
+        by_region = {}
+        for node in ids:
+            count = by_region.setdefault(nodes[node]['region'], {'total': 0, 'verified': 0})
+            count['total'] += 1
+            count['verified'] += int(node in assigned)
+        coverage[category] = {'total': len(ids), 'verified': len(ids)-len(pending),
+                              'byRegion': by_region, 'pending': pending}
+    return coverage
+
+
 def check(codec, directory):
     lua=LuaRuntime(encoding=None)
     ctx=lua.table()
@@ -35,12 +62,15 @@ def check(codec, directory):
             x,y,w,h,color=(rect[j] for j in range(1,6))
             draw.rectangle((x,y,x+w-1,y+h-1),fill=color.decode())
         assert hashlib.sha256(image.tobytes()).hexdigest()==row['rgbSha256'],row['file']
-        groups.setdefault(row['source'],{})[n]=len(raw)
+        group=groups.setdefault(row['source'],{})
+        assert n not in group, (row['source'],n)
+        group[n]=len(raw)
     for costs in groups.values():
         assert list(costs)==[4096,4608,5120,5632,6144]
         assert all(a<b for a,b in zip(costs.values(),list(costs.values())[1:]))
     return {'codecSha256':hashlib.sha256(codec.read_bytes()).hexdigest(),'verifiedModules':sum(map(len,groups.values())),
-            'dimensions':[512,288],'fileBytesByRectangles':groups}
+            'dimensions':[512,288],'fileBytesByRectangles':groups,
+            'locationCoverage':location_coverage(groups,Path(__file__).resolve().parents[1])}
 
 
 if __name__=='__main__':
@@ -49,5 +79,5 @@ if __name__=='__main__':
     parser.add_argument('--directory',type=Path,default=Path('work/scenery-download-check'))
     args=parser.parse_args()
     report=check(args.codec,args.directory)
-    Path('evidence/scenery-download-tiers.json').write_text(json.dumps(report,indent=2)+'\n','utf8')
+    Path('evidence/scenery-download-tiers.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n','utf8')
     print(f"{report['verifiedModules']} independent Lua exports matched the displayed tiers.")
