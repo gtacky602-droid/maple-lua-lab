@@ -11,10 +11,10 @@ return function(C,canInspect)
   return box.x>=spec.finish
  end
 
- local function draw(s,draws,key,x,y,height,mode,profile)
+ local function draw(s,layer,key,x,y,height,mode,profile)
   x=x-s.camera
   if x>=-85 and x<=1045 then
-   C.drawFieldDisplayArt({draws=draws},C.returnBoxArt[key],x,y,height,mode,profile,false)
+   C.drawFieldDisplayArt(layer,C.returnBoxArt[key],x,y,height,mode,profile,false)
   end
  end
 
@@ -27,12 +27,13 @@ return function(C,canInspect)
   end
  end
 
- function delivery.observe(s,f,draws,spec,q,state,mode,profile)
+ function delivery.observe(s,f,layer,spec,q,state,mode,profile)
+  local draws=layer.draws
   if not state or state.count==q.goal then return end
   local nextStep=q.itinerary[state.count+1]
   local clue=nextStep.returnClue
   if clue then
-   draw(s,draws,clue.art,nextStep.x,nextStep.y,clue.height,mode,profile)
+   draw(s,layer,clue.art,nextStep.x,nextStep.y,clue.height,mode,profile)
    label(s,draws,nextStep.x,nextStep.y-clue.height-12,nextStep.name)
   end
   if state.count<spec.chaseAt then return end
@@ -42,13 +43,13 @@ return function(C,canInspect)
   local hop=chasing and box and math.sin(box.hop*math.pi) or 0
   local y=spec.y-hop*spec.lift
   if chasing then
-   C.drawFieldDisplayArt({draws=draws},C.returnBoxCarrier,x-s.camera,y+9,29,mode,profile,false)
+   C.drawFieldDisplayArt(layer,C.returnBoxCarrier,x-s.camera,y+9,29,mode,profile,false)
    f.storyReturnBox={x=x,y=y,chasing=true,message='返却箱を追いかける  ›   離れると箱が止まります'}
   else
    f.storyReturnBox={x=x,y=y,chasing=false,message=nextStep.objective}
   end
   local base=chasing and y-13 or y
-  draw(s,draws,'crate',x,base,51,mode,profile)
+  draw(s,layer,'crate',x,base,51,mode,profile)
   label(s,draws,x,base-66,chasing and '動く返却箱  ›' or '返却箱')
  end
 
@@ -59,9 +60,10 @@ return function(C,canInspect)
   end
  end
 
- function delivery.archive(s,f,draws,spec,state,mode,profile)
+ function delivery.archive(s,f,layer,spec,state,mode,profile)
+  local draws=layer.draws
   if not state or state.status~='complete' then return end
-  draw(s,draws,'crate',spec.x,spec.y,51,mode,profile)
+  draw(s,layer,'crate',spec.x,spec.y,51,mode,profile)
   label(s,draws,spec.x,spec.y-66,'魔物観察記録')
   if not s.paused and not f.storyNearbyMilestone and canInspect(s.actors[s.active],spec) then
    f.storyNearbyMilestone={label='魔物観察記録を読む'}

@@ -1,16 +1,22 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 
-export async function captureFrozenStage(page,prefix){
+export async function captureFrozenStage(page,prefix,{include32=false}={}){
  await page.evaluate(()=>{
   if(!window.lab.frame.paused)window.lab.action('pause');
  });
  await page.waitForFunction(()=>window.lab.frame.paused);
  const frozen=await page.evaluate(()=>window.lab.frame.t);
  let reference;
- for(const [mode,name] of [['sprite','source'],['h32c16','16']]){
+ const profiles=[['sprite','source'],['h32c16','16']];
+ if(include32)profiles.push(['h48c32','32']);
+ for(const [mode,name] of profiles){
+  if(name==='32'){
+   await page.selectOption('#renderMode','sprite');
+   await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.kind==='rect_runs'));
+  }
   await page.selectOption('#renderMode',mode);
-  await page.waitForFunction(packed=>window.lab.frame.draws.some(d=>d.kind==='rect_runs')===packed,name==='16');
+  await page.waitForFunction(packed=>window.lab.frame.draws.some(d=>d.kind==='rect_runs')===packed,name!=='source');
   await page.evaluate(()=>new Promise(done=>requestAnimationFrame(()=>requestAnimationFrame(done))));
   const data=await page.locator('#game').evaluate(async(c,source)=>{
    if(!source)return c.toDataURL();
@@ -34,7 +40,7 @@ export async function captureFrozenStage(page,prefix){
    return patch;
   },reference??null);
   if(name==='source')reference=data;
-  const suffix=name==='16'?'delta':name;
+  const suffix=name==='16'?'delta':name==='32'?'delta32':name;
   await fs.writeFile('evidence/'+prefix+'-'+suffix+'.png',Buffer.from(data.split(',')[1],'base64'));
   assert.equal(await page.evaluate(()=>window.lab.frame.t),frozen);
  }

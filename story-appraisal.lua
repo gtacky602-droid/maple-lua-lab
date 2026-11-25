@@ -9,8 +9,8 @@ return function(C,canInspect)
   draws[#draws+1]={kind='text',x=x,y=y,text=text,size=14,color=color or '#fff2bc'}
  end
 
- local function art(draws,id,x,y,height,mode,profile)
-  C.drawFieldDisplayArt({draws=draws},C.appraisalArt[id],x,y,height,mode,profile,false)
+ local function art(layer,id,x,y,height,mode,profile)
+  C.drawFieldDisplayArt(layer,C.appraisalArt[id],x,y,height,mode,profile,false)
  end
 
  local function countCollected(items,gathered)
@@ -61,12 +61,13 @@ return function(C,canInspect)
   end
  end
 
- local function renderYard(s,f,draws,cfg,log,mode,profile)
+ local function renderYard(s,f,layer,cfg,log,mode,profile)
+  local draws=layer.draws
   for _,item in ipairs(cfg.items) do
    if not log.gathered[item.id] then
     local x=item.x-s.camera
     if x>=-32 and x<=992 then
-     art(draws,item.id,x,item.y,30,mode,profile)
+     art(layer,item.id,x,item.y,30,mode,profile)
      caption(draws,x,item.y-46,item.name)
     end
     nearby(s,f,item,item.name..'を拾う')
@@ -74,17 +75,18 @@ return function(C,canInspect)
   end
  end
 
- local function renderWorkshop(s,f,draws,q,state,stage,mode,profile)
+ local function renderWorkshop(s,f,layer,q,state,stage,mode,profile)
+  local draws=layer.draws
   local cfg=q.appraisal
   local log=state and state.appraisal
   local machine=cfg.machine
   local mx=machine.x-s.camera
   if mx>=-100 and mx<=1060 then
-   art(draws,'machine',mx,machine.y,112,mode,profile)
+   art(layer,'machine',mx,machine.y,112,mode,profile)
    caption(draws,mx,machine.y-127,'お宝判定機')
    if log and log.measured>0 and stage=='measure' then
     local tested=cfg.items[log.measured]
-    art(draws,tested.id,mx+62,machine.y-3,30,mode,profile)
+    art(layer,tested.id,mx+62,machine.y-3,30,mode,profile)
    end
   end
   if not log then return end
@@ -107,7 +109,7 @@ return function(C,canInspect)
      for i=1,log.sorted do
       local item=cfg.items[i]
       if item.use==tray.id and (state.count<q.goal or item.id~=cfg.lamp.part) then
-       art(draws,item.id,x,tray.y-16,30,mode,profile)
+       art(layer,item.id,x,tray.y-16,30,mode,profile)
       end
      end
     end
@@ -117,21 +119,21 @@ return function(C,canInspect)
    local lamp=cfg.lamp
    local x=lamp.x-s.camera
    if x>=-66 and x<=1026 then
-    art(draws,'lamp',x,lamp.y,68,mode,profile)
+    art(layer,'lamp',x,lamp.y,68,mode,profile)
     caption(draws,x,lamp.y-88,'月形板の小灯り','#ffe8a0')
    end
   end
  end
 
- function appraisal.observe(s,f,draws,q,state,milestone,mode,profile)
+ function appraisal.observe(s,f,layer,q,state,milestone,mode,profile)
   local cfg=q.appraisal
   local stage=milestone and milestone.appraisalStage
-  if s.story.node==q.hub then renderWorkshop(s,f,draws,q,state,stage,mode,profile) end
+  if s.story.node==q.hub then renderWorkshop(s,f,layer,q,state,stage,mode,profile) end
   if not state or not state.appraisal then return end
   local log=state.appraisal
   local n=#cfg.items
   local collected=countCollected(cfg.items,log.gathered)
-  if s.story.node==cfg.yard and stage=='gather' then renderYard(s,f,draws,cfg,log,mode,profile) end
+  if s.story.node==cfg.yard and stage=='gather' then renderYard(s,f,layer,cfg,log,mode,profile) end
   local current=stage=='sort' and cfg.items[log.sorted+1] or nil
   local measured=log.measured>0 and cfg.items[log.measured] or nil
   local message

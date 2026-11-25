@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>フォンテーヌとナタのドット絵比較</title>
+<title>冒険のドット絵比較</title>
 <link rel="stylesheet" href="theater-programme.css">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#23212b;color:#fff1d8;font:16px/1.6 system-ui,sans-serif}
@@ -14,14 +14,29 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 #stageComparison figure img+img{position:absolute;inset:0;clip-path:inset(0 0 0 var(--split))}
 #stageComparison figure:after{content:"";position:absolute;top:0;bottom:0;left:var(--split);border-left:2px solid #f4da93;pointer-events:none}
 #stageComparison label{display:flex;gap:10px;align-items:center}#stageComparison input{flex:1;min-width:0}
+#stageComparison figure{cursor:crosshair;touch-action:manipulation}
+#cropCursor{display:none;position:absolute;border:1px dashed white;box-shadow:0 0 0 1px #182025;pointer-events:none}
+#stageComparison:has(#stageDetail[open]) #cropCursor{display:block}
+#pixelLoupe{display:flex;align-items:start;gap:16px;flex-wrap:wrap;margin-top:12px}
+#pixelLoupe div{flex:1 1 220px;min-width:0}
+#pixelLoupe canvas{width:100%;height:auto;image-rendering:pixelated;background:#1e2733;display:block}
+#pixelLoupe p{margin:0 0 4px}#cropMeasurement{font-variant-numeric:tabular-nums}
 </style>
 <main><header><label>冒険の記録 <select id="record"><option value="5">Lv100・展示5点</option><option value="3">Lv92・展示3点</option></select></label><a href="./">ローカルラボへ</a></header>
 <section id="theaterProgramme" aria-labelledby="programmeHeading" hidden></section><p id="loadMessage" role="status">展示記録を読み込み中…</p>
 <section id="stageComparison" aria-labelledby="stageTitle"><h2 id="stageTitle">同じ場面で見比べる</h2>
-<label>場所 <select id="stage"><option value="fontaine-exhibits-frame">フォンテーヌ・公演記念展示（5点）</option><option value="natlan-podium-frame">ナタ・夕映えの表彰台</option></select></label>
-<figure><img id="stageSource" width="960" height="540" alt="同じ場面の元絵"><img id="stage16" width="960" height="540" alt="元絵との差分を重ねた16色版"></figure>
-<label>元絵<input type="range" id="stageSplit" min="0" max="100" value="50" aria-label="元絵を表示する割合"><span>16色</span></label>
-<p id="pixelComparison" role="status"></p></section></main>
+<label>場所 <select id="stage"><option value="fontaine-exhibits-frame">フォンテーヌ・公演記念展示（5点）</option><option value="natlan-podium-frame">ナタ・夕映えの表彰台</option><option value="nod-moon-bloom-frame">ナド・クライ・月花の見晴らし席</option><option value="snez-snow-match-frame">スネージナヤ・雪合戦広場</option></select></label>
+<label>比較する画質 <select id="compareColors"><option value="16">軽量・16色</option><option value="32">中間・32色</option></select></label>
+<figure tabindex="0" aria-label="拡大する位置。クリック、タップ、または矢印キーで移動"><img id="stageSource" width="960" height="540" alt="同じ場面の元絵"><img id="stage16" width="960" height="540" alt="元絵との差分を重ねた16色版"><span id="cropCursor" aria-hidden="true"></span></figure>
+<label>元絵<input type="range" id="stageSplit" min="0" max="100" value="50" aria-label="元絵を表示する割合"><span id="splitLabel">16色</span></label>
+<p id="pixelComparison" role="status"></p><p id="packetComparison" role="status"></p>
+<details id="stageDetail"><summary>ドットを拡大して見比べる</summary>
+<p>全景の見たい部分をタップしてください。全景にフォーカスすると矢印キーでも動かせます。</p>
+<div id="pixelLoupe"><div><p>元絵</p><canvas id="cropSource" width="96" height="72" aria-label="選んだ範囲の元絵"></canvas></div><div><p id="cropLabel">16色</p><canvas id="crop16" width="96" height="72" aria-label="選んだ範囲の16色版"></canvas></div></div>
+<p id="cropMeasurement" role="status"></p></details>
+<p><a id="backgroundCompare" href="map-art.html">この場所の仮背景を5段階のLua圧縮で比較する</a></p></section>
+<p><a href="evidence/dornman-after-chapters-save.json" download>地域章64件とドーンマンポート3件を終えたLv200のセーブをダウンロード</a></p>
+</main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
 const update=initTheaterProgramme({},action=>{
@@ -29,14 +44,85 @@ const update=initTheaterProgramme({},action=>{
  else if(action.startsWith('world_map_focus:'))location.href='map-art.html?'+new URLSearchParams({node:action.slice('world_map_focus:'.length),placements:'live'});
 });
 const stage=document.getElementById('stage'),split=document.getElementById('stageSplit');
-stage.onchange=async()=>{
+const measurements={
+ 'fontaine-exhibits-frame':['fontaine-theater-packing','5'],
+ 'natlan-podium-frame':['natlan-festival-packing','natlan-sunset-rostrum'],
+ 'nod-moon-bloom-frame':['nod-harbor-packing','nod-bloom-grove'],
+ 'snez-snow-match-frame':['regional-chapters-packing','snow-match']
+};
+const colors=document.getElementById("compareColors");
+async function showPacketSize(name,tier){
+ const out=document.getElementById('packetComparison'),[file,key]=measurements[name];
+ out.textContent='';
+ try{
+  const response=await fetch('evidence/'+file+'.json');
+  if(!response.ok)throw Error();
+  const {before,after}= (await response.json())[key][tier==='32'?'h48c32':'h32c16'];
+  if(stage.value===name&&colors.value===tier)out.textContent='この場所で計測した'+tier+'色の描画命令は、矩形をまとめると '+
+   before.toLocaleString('ja-JP')+' B → '+after.toLocaleString('ja-JP')+' B（'+
+   (100*(1-after/before)).toFixed(1)+'%減）。展開後の矩形は位置・色・順序まで一致。';
+ }catch{if(stage.value===name&&colors.value===tier)out.textContent='描画データの計測値を読み込めませんでした。'}
+}
+const figure=document.querySelector('#stageComparison figure'),detail=document.getElementById('stageDetail');
+let cropImages=null,point={x:460,y:252};
+function drawCrop(){
+ if(!cropImages||!detail.open)return;
+ const [base,overlay]=cropImages;
+ const original=document.getElementById('cropSource'),light=document.getElementById('crop16');
+ const w=original.width,h=original.height;
+ const x=Math.max(0,Math.min(base.naturalWidth-w,Math.round(point.x-w/2)));
+ const y=Math.max(0,Math.min(base.naturalHeight-h,Math.round(point.y-h/2)));
+ const cursor=document.getElementById('cropCursor');
+ cursor.style.left=100*x/base.naturalWidth+'%';cursor.style.top=100*y/base.naturalHeight+'%';
+ cursor.style.width=100*w/base.naturalWidth+'%';cursor.style.height=100*h/base.naturalHeight+'%';
+ const ctx=light.getContext('2d',{willReadFrequently:true});
+ original.getContext('2d').drawImage(base,x,y,w,h,0,0,w,h);
+ ctx.clearRect(0,0,w,h);ctx.drawImage(overlay,x,y,w,h,0,0,w,h);
+ const pixels=ctx.getImageData(0,0,w,h).data;
+ let changed=0;
+ for(let i=3;i<pixels.length;i+=4)if(pixels[i])changed++;
+ ctx.drawImage(base,x,y,w,h,0,0,w,h);ctx.drawImage(overlay,x,y,w,h,0,0,w,h);
+ document.getElementById('cropMeasurement').textContent='拡大範囲 '+w+' × '+h+' のうち '+changed.toLocaleString('ja-JP')+' ピクセルが変化（'+(100*changed/(w*h)).toFixed(1)+'%）。';
+}
+detail.ontoggle=drawCrop;
+figure.onclick=e=>{
+ if(!cropImages)return;
+ const box=figure.getBoundingClientRect(),base=cropImages[0];
+ point={x:(e.clientX-box.left)*base.naturalWidth/box.width,y:(e.clientY-box.top)*base.naturalHeight/box.height};
+ detail.open=true;drawCrop();
+};
+figure.onkeydown=e=>{
+ const step={ArrowLeft:[-12,0],ArrowRight:[12,0],ArrowUp:[0,-12],ArrowDown:[0,12]}[e.key];
+ if(!step||!cropImages)return;
+ e.preventDefault();
+ point.x=Math.max(0,Math.min(cropImages[0].naturalWidth,point.x+step[0]));
+ point.y=Math.max(0,Math.min(cropImages[0].naturalHeight,point.y+step[1]));
+ detail.open=true;drawCrop();
+};
+async function updateComparison(resetPoint){
  const name=stage.value,status=document.getElementById('pixelComparison');
+ const has32=name==='nod-moon-bloom-frame'||name==='snez-snow-match-frame';
+ colors.options[1].disabled=!has32;
+ if(!has32)colors.value='16';
+ const tier=colors.value;
+ document.getElementById('splitLabel').textContent=tier+'色';
+ document.getElementById('cropLabel').textContent=tier+'色';
+ document.getElementById('crop16').setAttribute('aria-label','選んだ範囲の'+tier+'色版');
+ cropImages=null;if(resetPoint)point={x:460,y:252};
+ for(const id of ['cropSource','crop16']){const c=document.getElementById(id);c.getContext('2d').clearRect(0,0,c.width,c.height)}
+ document.getElementById('cropMeasurement').textContent='';
+ const node={'fontaine-exhibits-frame':'fontaine-grand-stage','natlan-podium-frame':'natlan-sunset-rostrum',
+  'nod-moon-bloom-frame':'nod-bloom-grove','snez-snow-match-frame':'sne-snow-match'}[name];
+ document.getElementById('backgroundCompare').href='map-art.html?'+new URLSearchParams({node,placements:'live',compare:'background',tier:'4096'});
+ showPacketSize(name,tier);
  const original=document.getElementById('stageSource'),light=document.getElementById('stage16');
- original.src='evidence/'+name+'-source.png';light.src='evidence/'+name+'-delta.png';
+ original.src='evidence/'+name+'-source.png';light.src='evidence/'+name+(tier==='32'?'-delta32.png':'-delta.png');
+ light.alt='元絵との差分を重ねた'+tier+'色版';
  status.textContent='';
  try{
   await Promise.all([original.decode(),light.decode()]);
-  if(stage.value!==name)return;
+  if(stage.value!==name||colors.value!==tier)return;
+  cropImages=[original,light];drawCrop();
   const canvas=document.createElement('canvas');
   canvas.width=original.naturalWidth;canvas.height=original.naturalHeight;
   const ctx=canvas.getContext('2d',{willReadFrequently:true});
@@ -47,12 +133,16 @@ stage.onchange=async()=>{
   const total=canvas.width*canvas.height;
   status.textContent='同じ背景を含む画面全体で、色が変わったのは '+changed.toLocaleString('ja-JP')+' / '+
    total.toLocaleString('ja-JP')+' ピクセル（'+(100*changed/total).toFixed(1)+'%）。';
- }catch{if(stage.value===name)status.textContent='比較画像を読み込めませんでした。'}
-};
+ }catch{if(stage.value===name&&colors.value===tier)status.textContent='比較画像を読み込めませんでした。'}
+}
+stage.onchange=()=>updateComparison(true);
+colors.onchange=()=>updateComparison(false);
 split.oninput=()=>{
  document.querySelector('#stageComparison figure').style.setProperty('--split',split.value+'%');
  split.setAttribute('aria-valuetext',split.value+'パーセント');
 };
+const requested=new URLSearchParams(location.search).get('stage');
+if(Array.from(stage.options).some(option=>option.value===requested))stage.value=requested;
 stage.onchange();split.oninput();
 const selector=document.getElementById('record'),message=document.getElementById('loadMessage');
 try{

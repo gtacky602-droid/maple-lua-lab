@@ -261,11 +261,53 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
  const counts={locked:0,unaccepted:0,active:0,ready:0,complete:0};for(const q of graph.quests)counts[statusOf(q)]++;
  const summary=document.createElement('p');summary.textContent=Object.entries(labels).map(([key,label])=>`${label}${counts[key]}件`).join(' ／ ');section.append(summary);
  const label=document.createElement('label');label.textContent='表示する依頼 ';const select=document.createElement('select');select.id='questFilter';
- for(const [value,text] of Object.entries({relevant:'現在地の依頼＋受注済み',all:'すべて',...labels})){const o=document.createElement('option');o.value=value;o.textContent=text;select.append(o)}select.value=filter;select.onchange=()=>onFilter(select.value);label.append(select);section.append(label);
+ for(const [value,text] of Object.entries({relevant:'現在地の依頼＋受注済み',all:'すべて',...labels}))select.add(new Option(text,value));
+ const regionNames={MON:'モンド',LIY:'璃月',INA:'稲妻',SUM:'スメール',FON:'フォンテーヌ',NAT:'ナタ',NOD:'ナド・クライ',SNE:'スネージナヤ'};
+ const chapters=new Map(),branches=new Map();
+ const hubRegions=new Map(graph.nodes.map(n=>[n.id,n.region]));
+ for(const q of graph.quests){
+  const chapter=q.designId?.match(/^Q-([A-Z]+)-[MS]\d{2}$/)?.[1];
+  const branch=q.designId?.match(/^Q-(B\d{2})-\d{2}$/)?.[1];
+  const done=story.quests[q.id]?.status==='complete';
+  if(regionNames[chapter])chapters.set(q.id,{code:chapter,name:regionNames[chapter],done});
+  if(branch)branches.set(q.id,{code:branch,name:hubRegions.get(q.hub)||q.hub,done});
+ }
+ function addRegions(rows,prefix,label,allLabel){
+  const group=document.createElement('optgroup');group.label=label;
+  const counts=new Map();
+  let reported=0;
+  for(const row of rows.values()){
+   const count=counts.get(row.code)??{name:row.name,done:0,total:0};
+   count.total++;
+   if(row.done){count.done++;reported++}
+   counts.set(row.code,count);
+  }
+  group.append(new Option(allLabel+'の未報告（'+(rows.size-reported)+'件）',prefix+':pending'));
+  const codes=prefix==='chapter'?Object.keys(regionNames):Array.from(counts.keys()).sort();
+  for(const code of codes){
+   const c=counts.get(code);
+   if(c)group.append(new Option(c.name+'　'+c.done+' / '+c.total+'件報告',prefix+':'+code));
+  }
+  select.append(group);
+  return reported;
+ }
+ const chapterReports=addRegions(chapters,'chapter','地域章の本編・寄り道','全地域章');
+ const branchReports=addRegions(branches,'branch','分岐地域の連続依頼','分岐地域');
+ select.value=filter;select.onchange=()=>onFilter(select.value);label.append(select);section.append(label);
+ const [kind,selection]=filter.split(':');
+ const selected=kind==='chapter'?chapters:kind==='branch'?branches:null;
+ if(selected){
+  const progress=document.createElement('p');progress.id='chapterProgress';
+  progress.textContent=(kind==='chapter'?'地域章の報告　'+chapterReports:'分岐地域の報告　'+branchReports)+' / '+selected.size+'件';
+  section.append(progress);
+ }
  let shown=0;
  for(const q of graph.quests){
   const st=story.quests[q.id],status=statusOf(q);
-  if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
+  if(selected){
+   const record=selected.get(q.id);
+   if(!record||(selection==='pending'?record.done:record.code!==selection))continue;
+  }else if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
   shown++;const row=document.createElement('p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
   const payout=status==='complete'&&!q.repeatable?'':` ｜ 仮報酬 ${rewardNumber.format(q.xp)}EXP / ${rewardNumber.format(q.mora)}モラ`;
@@ -273,6 +315,9 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
    ?` ｜ 章ボス初回勝利 ${rewardNumber.format(q.chapterClearXp)}EXP`:'';
   const weapon=q.weaponReward?` ｜ ${status==='complete'?'受取済み':'初回報酬'}：${q.weaponReward}`:'';
   row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear}${weapon} `;
+  if(selected&&status!=='complete'){
+   row.append(button('受注・報告場所を地図で見る','world_map_focus:'+q.hub));
+  }
   if(q.fireworks&&status==='complete'){
    const design=recordedFirework(q,st);
    if(design){

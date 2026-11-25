@@ -1,0 +1,142 @@
+{
+  "nod-port": {
+    "legacy": {
+      "before": 792982,
+      "after": 419891,
+      "stamps": 3,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 545046,
+      "after": 294042,
+      "stamps": 3,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 197386,
+      "after": 108547,
+      "stamps": 3,
+      "batches": 2
+    }
+  },
+  "nod-far-sea-bench": {
+    "legacy": {
+      "before": 357732,
+      "after": 343900,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 264027,
+      "after": 248881,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 94970,
+      "after": 90401,
+      "stamps": 1,
+      "batches": 1
+    }
+  },
+  "nod-appraisal-workshop": {
+    "legacy": {
+      "before": 538403,
+      "after": 382735,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 395060,
+      "after": 271867,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 139297,
+      "after": 100121,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "nod-rumor-quay": {
+    "legacy": {
+      "before": 2035113,
+      "after": 636167,
+      "stamps": 7,
+      "batches": 6
+    },
+    "h48c32": {
+      "before": 1461784,
+      "after": 424979,
+      "stamps": 7,
+      "batches": 6
+    },
+    "h32c16": {
+      "before": 493892,
+      "after": 159548,
+      "stamps": 7,
+      "batches": 6
+    }
+  },
+  "nod-bloom-grove": {
+    "legacy": {
+      "before": 947913,
+      "after": 549978,
+      "stamps": 5,
+      "batches": 5
+    },
+    "h48c32": {
+      "before": 697099,
+      "after": 370815,
+      "stamps": 5,
+      "batches": 5
+    },
+    "h32c16": {
+      "before": 238389,
+      "after": 139577,
+      "stamps": 5,
+      "batches": 5
+    }
+  },
+  "nod-patrol-shore": {
+    "legacy": {
+      "before": 579813,
+      "after": 419983,
+      "stamps": 3,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 403302,
+      "after": 302850,
+      "stamps": 3,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 158280,
+      "after": 106691,
+      "stamps": 3,
+      "batches": 1
+    }
+  },
+  "nod-patrol-cabin": {
+    "legacy": {
+      "before": 582495,
+      "after": 446438,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 426530,
+      "after": 319004,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 153440,
+      "after": 113876,
+      "stamps": 2,
+      "batches": 2
+    }
+  }
+}

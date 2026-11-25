@@ -1,12 +1,12 @@
 return function(C,canInspect)
  local banner={}
 
- local function draw(s,draws,key,x,y,height,mode,profile)
+ local function draw(s,layer,key,x,y,height,mode,profile)
   local art=C.nightBannerArt[key]
   local half=height*art.box[3]/art.box[4]/2
   x=x-s.camera
   if x+half>=0 and x-half<=960 then
-   C.drawFieldDisplayArt({draws=draws},art,x,y,height,mode,profile,false)
+   C.drawFieldDisplayArt(layer,art,x,y,height,mode,profile,false)
   end
  end
 
@@ -29,12 +29,13 @@ return function(C,canInspect)
   end
  end
 
- function banner.observe(s,f,draws,node,q,state,mode,profile)
+ function banner.observe(s,f,layer,node,q,state,mode,profile)
+  local draws=layer.draws
   if not state or state.count==0 then return end
   local step=q.itinerary[state.count+1]
   local pickup,post=q.itinerary[q.goal-1],q.itinerary[q.goal]
   if state.count>=q.goal then
-   draw(s,draws,'repaired',post.x,post.y,106,mode,profile)
+   draw(s,layer,'repaired',post.x,post.y,106,mode,profile)
    label(s,draws,post.x,post.y-142,'修繕した幟')
    if state.status=='complete' and not s.paused and not f.storyNearbyMilestone and canInspect(s.actors[s.active],post) then
     f.storyNearbyMilestone={label='フィッシュルとオズの調査記録を読む'}
@@ -43,18 +44,18 @@ return function(C,canInspect)
    wind(s,draws,post.x,post.y)
    label(s,draws,post.x,post.y-101,post.name)
   elseif state.count>=node.spawnAt then
-   draw(s,draws,'torn',pickup.x,pickup.y,65,mode,profile)
+   draw(s,layer,'torn',pickup.x,pickup.y,65,mode,profile)
    label(s,draws,pickup.x,pickup.y-93,step==pickup and pickup.name or '風スライムが絡んでいた幟')
   elseif step.nightClue=='shadow' then
    local x=step.x+math.sin(s.t*1.4)*20
    local y=step.y-86+math.sin(s.t*2)*7
-   draw(s,draws,'shadow',x,y,83,mode,profile)
+   draw(s,layer,'shadow',x,y,83,mode,profile)
    label(s,draws,step.x,step.y-179,step.name)
   elseif step.nightClue=='wind' then
    wind(s,draws,step.x,step.y)
    label(s,draws,step.x,step.y-104,step.name)
   elseif step.nightClue=='cloth' then
-   draw(s,draws,'torn',step.x,step.y,30,mode,profile)
+   draw(s,layer,'torn',step.x,step.y,30,mode,profile)
    label(s,draws,step.x,step.y-94,step.name)
   end
  end

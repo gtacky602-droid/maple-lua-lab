@@ -3,6 +3,23 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "regional_chapters_and_harbor": {
+    "regions": 8,
+    "main": 24,
+    "side": 40,
+    "reportedOnOneAdventure": 64,
+    "level": 200,
+    "nodHarborPages": 8,
+    "followingBranch": "ドーンマンポート",
+    "followingBranchReports": 3,
+    "branchContinuationSave": "evidence/dornman-after-chapters-save.json",
+    "regionalSave": "evidence/regional-chapters-save.json",
+    "regionalRoute": "evidence/regional-chapters-route.json",
+    "nodPacking": "evidence/nod-harbor-packing.json",
+    "regionalPacking": "evidence/regional-chapters-packing.json",
+    "comparison": "theater-preview.html?stage=nod-moon-bloom-frame#stageComparison",
+    "browser": "evidence/regional-chapters-browser.json"
+  },
   "natlan_festival_revisits": {
     "completedMain": 3,
     "completedSide": 5,

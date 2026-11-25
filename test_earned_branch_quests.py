@@ -27,7 +27,7 @@ PRISM, INNER = 'frost-prism-slime-basin', 'frost-mushteshir-inner-chamber'
 
 
 class Journey(TrailWalk):
-    def __init__(self, file, engine=None):
+    def __init__(self, file, engine=None, *, select_traveler=False):
         self.lua, runtime_core = engine or (lua, core)
         self._advance = self.lua.eval('function(C,s,n,input) for _=1,n do C.step(s,1/60,input) end end') if engine else advance
         raw = (ROOT / 'work/cap-fresh-route-draft' / file).read_bytes()
@@ -35,6 +35,8 @@ class Journey(TrailWalk):
         self.itineraries, self.reports, self.battles, self.locks = [], [], [], []
         state = runtime_core.restore(self.lua.table_from(validate_save(json.loads(raw)), recursive=True), 12)
         super().__init__(self.lua, runtime_core, state, edges, exits)
+        if select_traveler and state.active != 1:
+            self.act('swap')
         assert state.active == 1 and not state.auto
 
     def act(self, action):
@@ -145,9 +147,10 @@ class Journey(TrailWalk):
                     battles=self.battles, locks=self.locks, returns=self.state.returns)
 
 
-def windward():
-    trip = Journey('lv180-save.json')
-    assert trip.state.progression.level == 180
+def windward(trip=None):
+    if trip is None:
+        trip = Journey('lv180-save.json')
+        assert trip.state.progression.level == 180
     trip.warp('mond-town')
     trip.travel(DORN)
     for quest in WIND_QUESTS[1:]:

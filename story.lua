@@ -2107,6 +2107,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
 
+ local function markerLayer(s,f,markers,mode)
+  local layer={draws=markers}
+  if s.packRectArt and mode=='rect' then
+   layer.rectIndex,layer.rectBatches={},f.rectBatches or {}
+  end
+  return layer
+ end
+
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story
   f.growthEligibility={}
@@ -2303,8 +2311,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if n.stoneCharmQuest or n.iansanQuest or n.springQuest or n.kinichQuest or n.surfQuest
        or n.flagCourse or n.riverCrossing or n.id=='natlan-sunset-rostrum' then
-    local props={draws=markers}
-    if s.packRectArt and mode=='rect' then props.rectIndex,props.rectBatches={},f.rectBatches or {} end
+    local props=markerLayer(s,f,markers,mode)
     if n.stoneCharmQuest then
      local q=quests[n.stoneCharmQuest]
      stoneOrnaments.observe(f,s,props,q,s.story.quests[q.id],mode,profile)
@@ -2331,17 +2338,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if props.rectBatches and #props.rectBatches>0 then f.rectBatches=props.rectBatches end
    end
    duel.frame(s,f,markers,n.duel)
-   if n.snowMatch then snowMatch.observe(s,f,markers,n.snowMatch,s.story.quests[n.snowMatch.quest],mode,profile) end
-   if n.returnBox then
-    local q=quests[n.returnBox.quest]
-    returnBox.observe(s,f,markers,n.returnBox,q,s.story.quests[q.id],mode,profile)
-   end
-   if n.returnBoxArchive then
-    returnBox.archive(s,f,markers,n.returnBoxArchive,s.story.quests[n.returnBoxArchive.quest],mode,profile)
-   end
-   if n.nightBanner then
-    local q=quests[n.clearedBy]
-    nightBanner.observe(s,f,markers,n,q,s.story.quests[q.id],mode,profile)
+   if n.snowMatch or n.returnBox or n.returnBoxArchive or n.nightBanner then
+    local layer=markerLayer(s,f,markers,mode)
+    if n.snowMatch then snowMatch.observe(s,f,layer,n.snowMatch,s.story.quests[n.snowMatch.quest],mode,profile) end
+    if n.returnBox then
+     local q=quests[n.returnBox.quest]
+     returnBox.observe(s,f,layer,n.returnBox,q,s.story.quests[q.id],mode,profile)
+    end
+    if n.returnBoxArchive then
+     returnBox.archive(s,f,layer,n.returnBoxArchive,s.story.quests[n.returnBoxArchive.quest],mode,profile)
+    end
+    if n.nightBanner then
+     local q=quests[n.clearedBy]
+     nightBanner.observe(s,f,layer,n,q,s.story.quests[q.id],mode,profile)
+    end
+    if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
    end
    if n.fireworkLookouts then
     local q=quests[n.fireworkLookouts]
@@ -2397,29 +2408,34 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
-    if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
-    if n.appraisalQuest then
-     local q=quests[n.appraisalQuest]
-     appraisal.observe(s,f,markers,q,s.story.quests[q.id],nextMilestone(s,q),mode,profile)
-    end
-    if n.rumorQuest then
-     local q=quests[n.rumorQuest]
-     local state=s.story.quests[q.id]
-     if n.id==q.hub then rumor.observe(s,f,markers,q,state,mode,profile)
-     elseif state and state.count>=q.goal-1 then
-      local mirror=q.itinerary[q.goal-1]
-      if mirror.node==n.id then
-       reflection.draw(s,f,markers,mirror,not s.paused and canInspect(s.actors[s.active],mirror),state,mode,profile,true)
+    if n.coastDetour or n.appraisalQuest or n.rumorQuest or n.bloomQuest or n.patrol or n.id=='nod-port' then
+     local layer=markerLayer(s,f,markers,mode)
+     if n.coastDetour then coastDetour.observe(s,f,layer,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
+     if n.appraisalQuest then
+      local q=quests[n.appraisalQuest]
+      appraisal.observe(s,f,layer,q,s.story.quests[q.id],nextMilestone(s,q),mode,profile)
+     end
+     if n.rumorQuest then
+      local q=quests[n.rumorQuest]
+      local state=s.story.quests[q.id]
+      if n.id==q.hub then rumor.observe(s,f,layer,q,state,mode,profile)
+      elseif state and state.count>=q.goal-1 then
+       local mirror=q.itinerary[q.goal-1]
+       if mirror.node==n.id then
+        reflection.draw(s,f,markers,mirror,not s.paused and canInspect(s.actors[s.active],mirror),state,mode,profile,true)
+       end
       end
      end
-    end
-    if n.bloomQuest then
-     local q=quests[n.bloomQuest]
-     bloom.observe(s,f,markers,q,s.story.quests[q.id],mode,profile)
-    end
-    if n.patrol then
-     local q=quests[n.patrol.quest]
-     patrol.observe(s,f,markers,n.patrol,q,s.story.quests[q.id],mode,profile)
+     if n.bloomQuest then
+      local q=quests[n.bloomQuest]
+      bloom.observe(s,f,layer,q,s.story.quests[q.id],mode,profile)
+     end
+     if n.patrol then
+      local q=quests[n.patrol.quest]
+      patrol.observe(s,f,layer,n.patrol,q,s.story.quests[q.id],mode,profile)
+     end
+     if n.id=='nod-port' then rumor.harbor(s,f,layer,quests,mode,profile) end
+     if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
     end
     if n.survey then
      local q=quests[n.survey.quest]

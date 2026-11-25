@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "count": 4,
+      "drawings": 4
+    },
+    {
+      "count": 8,
+      "drawings": 8
+    }
+  ],
+  "selected": "nod-rumor-quay",
+  "mobileWidth": 390,
+  "frozen": "nod-bloom-grove",
+  "errors": []
+}

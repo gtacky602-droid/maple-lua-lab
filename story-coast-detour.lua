@@ -26,7 +26,8 @@ return function(C)
   emitCue(s,'resonance',gift=='chime' and {72,76,79} or {72,76},'海辺の風鈴')
  end
 
- function detour.observe(s,f,draws,scene,q,mode,profile)
+ function detour.observe(s,f,layer,scene,q,mode,profile)
+  local draws=layer.draws
   local state=s.story.quests[q.id]
   if scene.meeting then
    local main=s.story.quests[q.opensAfter]
@@ -35,7 +36,7 @@ return function(C)
   local x=position(s,scene.x)
   if x < -150 or x > 1110 then return end
   if s.companion~='columbina' and (not state or state.status~='complete') then
-   C.drawCompanionArt({draws=draws},s,{x=scene.x,y=scene.y,dir=-1},mode,profile,'columbina')
+   C.drawCompanionArt(layer,s,{x=scene.x,y=scene.y,dir=-1},mode,profile,'columbina')
    draws[#draws+1]={kind='text',x=x,y=scene.y-115,text='コロンビーナ',size=14,color='#e6dfff'}
   end
   if scene.bench then
@@ -55,7 +56,7 @@ return function(C)
     rect(draws,bx+36,by-76,35,5,'#b49371')
     gx,gy=bx+44+math.floor(math.sin((s.t-s.storyEnteredAt)*2.1)*3),by-37
    end
-   C.drawFieldDisplayArt({draws=draws},art,gx,gy,35,mode,profile,false)
+   C.drawFieldDisplayArt(layer,art,gx,gy,35,mode,profile,false)
    f.coastDetourRest={gift=id,rested=state.count>=4}
   end
  end

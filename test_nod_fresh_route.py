@@ -19,15 +19,20 @@ def read(path):
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--draft-balance', action='store_true',
                     help='Continue the existing Lv120 checkpoint earned in the draft Natlan recovery route')
-draft = parser.parse_args().draft_balance
-suffix = '-draft' if draft else ''
+parser.add_argument('--after-revisits',action='store_true',help='Continue the earned eight-quest Natlan adventure')
+args=parser.parse_args()
+draft=args.draft_balance
+if draft and args.after_revisits:
+    parser.error('The revisit route uses standard balance')
+suffix = '-after-revisits' if args.after_revisits else '-draft' if draft else ''
 hub = 'nod-town'
 work = ROOT / 'work' / ('nod-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-if not draft:
+if not draft and not args.after_revisits:
     subprocess.run([sys.executable, str(ROOT / 'test_natlan_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
 source_dir = 'natlan-fresh-route-draft-empty' if draft else 'natlan-fresh-route'
-source = (ROOT / 'work' / source_dir / 'nod-save.json').read_bytes()
+source_file = ROOT/'evidence/natlan-revisit-save.json' if args.after_revisits else ROOT/'work'/source_dir/'nod-save.json'
+source=source_file.read_bytes()
 checkpoint = validate_save(json.loads(source))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 120
 
@@ -237,6 +242,9 @@ collect(657)
 assert quest.storyChoice == 'feather'
 cross(hub)
 report(third)
+if args.after_revisits:
+    partial=validate_save(native(core.checkpoint(state)))
+    (work/'harbor-chapter.json').write_text(json.dumps(partial,ensure_ascii=False),encoding='utf8')
 if draft:
     items = list(state.inventory['items'].values())
     reward = next(item for item in items if item.id == reward_id)
@@ -286,6 +294,42 @@ collect(756)
 report(patrol)
 cross(hub)
 
+rumor, bloom = 'nod-moon-rumor','nod-moon-bloom'
+if args.after_revisits:
+    quay, ledge = 'nod-rumor-quay','nod-rumor-ledge'
+    cross(quay)
+    quest=accept(rumor)
+    for x in (242,510,738,963):
+        collect(x)
+    cross(ledge)
+    collect(470)
+    collect(470)
+    act('story_reflection_light')
+    assert not frame().storyReflection.lit
+    act('story_reflection_light')
+    act('story_reflection_confirm')
+    assert quest.count==5
+    cross(quay)
+    collect(1390)
+    report(rumor)
+    assert quest.storyChoice=='traveling-story'
+    cross(hub,'nod-bloom-gate')
+    quest=accept(bloom)
+    collect(270)
+    cross('nod-bloom-trail')
+    fight(lambda:quest.count==2,(505,480))
+    cross('nod-bloom-grove')
+    collect(315)
+    collect(668,386)
+    collect(464)
+    near(874,386)
+    near(874,290)
+    collect(1018,290)
+    collect(1240,290)
+    cross('nod-bloom-gate')
+    report(bloom)
+    cross(hub)
+
 entry, snow_town = 'snezhnaya-entry', 'snezhnaya-hub'
 near(1380)
 closed = frame().storyNearbyPortal
@@ -301,7 +345,7 @@ for stage, required in ((spruce, 130), (frost, 133), (switchback, 136)):
     act('world_map_layer:hunt')
     act('world_map_select:' + stage)
     guide = frame().worldMap.guide
-    if required == 130:
+    if state.progression.level >= required:
         assert guide.status == 'ready'
     else:
         assert guide.status == 'blocked' and guide.reason == f'必要Lv{required}', (stage, guide.reason)
@@ -377,7 +421,7 @@ assert state.returns == 0
 saved = validate_save(native(core.checkpoint(state)))
 restored = core.restore(lua.table_from(saved, recursive=True), 12)
 assert restored.story.node == snow_town and restored.progression.total == state.progression.total
-quests = (first, second, third, columbina, appraisal, patrol)
+quests = (first, second, third, columbina, appraisal, patrol) + ((rumor,bloom) if args.after_revisits else ())
 assert all(restored.story.quests[id].status == 'complete' and restored.story.quests[id].cycles == 1 for id in quests)
 ticket = 'white-pass-ticket'
 core.action(restored, 'story_accept:' + ticket)
@@ -396,4 +440,10 @@ result = dict(route=milestones, completedQuests=quests, hunts=hunting, recoveryT
 if draft:
     result.update(sourceSha256=sha256(source).hexdigest(), gearOnArrival=arrival_gear, vaultReward=vault_reward,
                   gearOnDeparture=gear_snapshot(), recoveryByActor=recovery_by_actor)
+if args.after_revisits:
+    for id,record in checkpoint['story']['quests'].items():
+        if record['status']=='complete':
+            assert saved['story']['quests'][id]==record
+    result['sourceSha256']=sha256(source.replace(b'\r\n',b'\n')).hexdigest()
+    (ROOT/'evidence/nod-revisit-save.json').write_bytes((json.dumps(saved,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
 (ROOT / 'evidence' / f'nod-fresh-route{suffix}.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

@@ -10,9 +10,9 @@ return function(C,canInspect)
   draws[#draws+1]={kind='text',x=x,y=y,text=line,size=14,color=color or warm}
  end
 
- local function art(draws,id,x,y,h,mode,profile)
+ local function art(layer,id,x,y,h,mode,profile)
   if x < -160 or x > 1120 then return end
-  C.drawFieldDisplayArt({draws=draws},C.patrolArt[id],x,y,h,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.patrolArt[id],x,y,h,mode,profile,false)
  end
 
  local function livingShooter(s,config)
@@ -63,17 +63,19 @@ return function(C,canInspect)
   return true
  end
 
- local function lamps(s,draws,config,mode,profile)
+ local function lamps(s,layer,config,mode,profile)
+  local draws=layer.draws
   for _,lamp in ipairs(config.lamps or {}) do
    local x,y=lamp.x-s.camera,lamp.y
    if x>=-44 and x<=1004 then
     rect(draws,x-25,y-4,50,4,'#ba9a6669')
-    art(draws,'lantern',x,y,53,mode,profile)
+    art(layer,'lantern',x,y,53,mode,profile)
    end
   end
  end
 
- local function tea(s,f,draws,config,q,count,mode,profile)
+ local function tea(s,f,layer,config,q,count,mode,profile)
+  local draws=layer.draws
   local table= config.table
   local x,y=table.x-s.camera,table.y
   local ready=count>=q.goal-1
@@ -82,8 +84,8 @@ return function(C,canInspect)
   rect(draws,x-88,y-44,10,44,'#50404c')
   rect(draws,x+78,y-44,10,44,'#50404c')
   if ready then
-   art(draws,'tea',x-27,y-54,51,mode,profile)
-   art(draws,'biscuits',x+63,y-54,27,mode,profile)
+   art(layer,'tea',x-27,y-54,51,mode,profile)
+   art(layer,'biscuits',x+63,y-54,27,mode,profile)
    caption(draws,x,y-126,'温かいお茶と焼き菓子')
   end
   if count>=q.goal and not s.paused and canInspect(s.actors[s.active],table) then
@@ -131,13 +133,14 @@ return function(C,canInspect)
     or '曲がり角は安全です。奥の合流標へ。'}
  end
 
- function patrol.observe(s,f,draws,config,q,state,mode,profile)
+ function patrol.observe(s,f,layer,config,q,state,mode,profile)
+  local draws=layer.draws
   local count=state and state.count or 0
   if config.table then
-   local ready=tea(s,f,draws,config,q,count,mode,profile)
+   local ready=tea(s,f,layer,config,q,count,mode,profile)
    if ready then f.storyPatrol={tea=true,message=count>=q.goal and '灯台守の暖房小屋 ｜ 茶卓で休めます' or nil} end
   else
-   lamps(s,draws,config,mode,profile)
+   lamps(s,layer,config,mode,profile)
    if config.shooter then bend(s,f,draws,config) end
   end
  end

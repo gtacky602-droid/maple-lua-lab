@@ -9,9 +9,9 @@ return function(C,canInspect)
   draws[#draws+1]={kind='text',x=x,y=y,text=text,color=color or '#e9e0fa',size=14}
  end
 
- local function art(draws,key,x,y,h,mode,profile)
+ local function art(layer,key,x,y,h,mode,profile)
   if x < -148 or x > 1108 then return end
-  C.drawFieldDisplayArt({draws=draws},C.bloomArt[key],x,y,h,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.bloomArt[key],x,y,h,mode,profile,false)
  end
 
  local function bench(draws,x,y,width)
@@ -21,10 +21,11 @@ return function(C,canInspect)
   rect(draws,x+width/2-13,y-3,6,3,'#363650')
  end
 
- local function overhead(draws,x,y,mode,profile)
+ local function overhead(layer,x,y,mode,profile)
+  local draws=layer.draws
   rect(draws,x-50,y-119,100,115,'#9990b2')
   rect(draws,x-48,y-117,96,111,'#242345')
-  art(draws,'overhead',x,y-27,82,mode,profile)
+  art(layer,'overhead',x,y-27,82,mode,profile)
   caption(draws,x,y-11,'月花の内側','#ffe1ab')
  end
 
@@ -50,7 +51,8 @@ return function(C,canInspect)
   end
  end
 
- function bloom.observe(s,f,draws,q,state,mode,profile)
+ function bloom.observe(s,f,layer,q,state,mode,profile)
+  local draws=layer.draws
   local config=q.bloom
   local a=s.actors[s.active]
   local count=state and state.count or 0
@@ -59,7 +61,7 @@ return function(C,canInspect)
   bench(draws,lowX,480,136)
   caption(draws,lowX,418,'前列席・先客あり')
   for _,animal in ipairs(occupied) do
-   art(draws,animal.art,animal.x-s.camera,animal.y-10,animal.height,mode,profile)
+   art(layer,animal.art,animal.x-s.camera,animal.y-10,animal.height,mode,profile)
   end
 
   local view,decorated,nearSeats=false,false,false
@@ -69,7 +71,7 @@ return function(C,canInspect)
    local x,y=step.x and step.x-s.camera,step.y
    if prop=='petal' or prop=='berry' then
     if count<i then
-     art(draws,prop,x,y,20,mode,profile)
+     art(layer,prop,x,y,20,mode,profile)
      if count==i-1 then caption(draws,x,y-29,step.name) end
     end
    elseif prop=='seats' and canInspect(a,step) then
@@ -79,12 +81,12 @@ return function(C,canInspect)
     bench(draws,x,y,94)
     caption(draws,x,y-28,'上の見晴らし席')
     view=count>=i
-    if view and a.y<324 then overhead(draws,x+117,y-26,mode,profile) end
+    if view and a.y<324 then overhead(layer,x+117,y-26,mode,profile) end
    elseif prop=='charm' then
     rect(draws,x+31,y-59,5,59,'#696279')
     rect(draws,x+11,y-59,25,4,'#c8aabe')
     if count>=i then
-     art(draws,'charm',x+16,y-22,38,mode,profile)
+     art(layer,'charm',x+16,y-22,38,mode,profile)
      decorated=true
      if not s.paused and canInspect(a,step) then
       f.storyNearbyMilestone={label='花飾りのそばで休む'}
@@ -96,7 +98,7 @@ return function(C,canInspect)
    end
   end
   local flower=config.flower
-  art(draws,view and 'flower' or 'bud',flower.x-s.camera,flower.y,120,mode,profile)
+  art(layer,view and 'flower' or 'bud',flower.x-s.camera,flower.y,120,mode,profile)
   if view and a.y<324 and not message then
    message='上の見晴らし席 ｜ 月花の金色のしべが見えます'
   end

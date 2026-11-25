@@ -19,18 +19,24 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--replay', action='store_true', help='Regenerate the upstream Lv160 checkpoint')
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 parser.add_argument('--checkpoint-165', action='store_true', help='Stop after earning the Lv165 checkpoint')
+parser.add_argument('--after-revisits',action='store_true',help='Continue the adventure with the regional side stories')
 options = parser.parse_args()
+if options.after_revisits and options.draft_balance:
+    parser.error('The revisit route uses standard balance')
 draft = options.draft_balance
-suffix = '-draft' if draft else ''
+suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
 if options.replay:
     command = [sys.executable, str(ROOT / 'test_snez_fresh_route.py')]
     if draft:
         command.append('--draft-balance')
+    if options.after_revisits:
+        command.append('--after-revisits')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
 work = ROOT / 'work' / ('cap-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-source = (ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json').read_bytes()
+source_file = ROOT/'evidence/snez-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json'
+source=source_file.read_bytes()
 initial = validate_save(json.loads(source))
 station, snow, town = 'white-pass-station', 'snezhnaya-hub', 'mond-town'
 assert initial['story']['node'] == station and initial['progression']['level'] == 160
@@ -400,5 +406,11 @@ progression.update(
 write_progress('lv200-post-cap')
 if draft:
     progression.update(sourceSha256=sha256(source).hexdigest(), draftBalance=True)
+if options.after_revisits:
+    for id,record in initial['story']['quests'].items():
+        if record['status']=='complete':
+            assert cap['story']['quests'][id]==record
+    progression['sourceSha256']=sha256(source.replace(b'\r\n',b'\n')).hexdigest()
+    (ROOT/'evidence/cap-revisit-save.json').write_bytes((json.dumps(cap,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
 (ROOT / 'evidence' / f'cap-fresh-route{suffix}.json').write_text(
     json.dumps(progression,ensure_ascii=False,indent=2)+'\n',encoding='utf8')

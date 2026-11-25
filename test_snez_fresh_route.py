@@ -17,10 +17,13 @@ def read(path):
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--checkpoint', action='store_true', help='Reuse the earned Lv140 save instead of replaying from Lv1')
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
+parser.add_argument('--after-revisits',action='store_true',help='Continue the adventure with the regional side stories')
 options = parser.parse_args()
+if options.after_revisits and options.draft_balance:
+    parser.error('The revisit route uses standard balance')
 draft = options.draft_balance
-suffix = '-draft' if draft else ''
-if not options.checkpoint:
+suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
+if not options.checkpoint and not options.after_revisits:
     command = [sys.executable, str(ROOT / 'test_nod_fresh_route.py')]
     if draft:
         command.append('--draft-balance')
@@ -28,7 +31,8 @@ if not options.checkpoint:
 
 work = ROOT / 'work' / ('snez-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-source = (ROOT / 'work' / ('nod-fresh-route' + suffix) / 'snezhnaya-save.json').read_bytes()
+source_file = ROOT/'evidence/nod-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('nod-fresh-route' + suffix) / 'snezhnaya-save.json'
+source=source_file.read_bytes()
 start = validate_save(json.loads(source))
 hub, road, cut = 'snezhnaya-hub', 'snezhnaya-field', 'white-pass-cut'
 coach, station = 'white-pass-coach', 'white-pass-station'
@@ -355,5 +359,11 @@ result = dict(route=milestones, hunts=hunts, completedQuests=done, trainSeconds=
               scope='Earned Lv140 checkpoint from a new Lv1 adventure. Lua movement and built-in auto battle.')
 if draft:
     result.update(sourceSha256=sha256(source).hexdigest(), weaponReward=sword_reward, draftBalance=True)
+if options.after_revisits:
+    for id,record in start['story']['quests'].items():
+        if record['status']=='complete':
+            assert finished['story']['quests'][id]==record
+    result['sourceSha256']=sha256(source.replace(b'\r\n',b'\n')).hexdigest()
+    (ROOT/'evidence/snez-revisit-save.json').write_bytes((json.dumps(finished,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
 (ROOT / 'evidence' / f'snez-fresh-route{suffix}.json').write_text(
     json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf8')

@@ -163,17 +163,18 @@ return function(C,canInspect)
   rect(draws,x-5,y-2,11,5,color or '#f6ffff')
  end
 
- function match.observe(s,f,draws,spec,state,mode,profile)
+ function match.observe(s,f,layer,spec,state,mode,profile)
+  local draws=layer.draws
   local r=s.snowballRound
   local x=r and r.hostX or spec.hostX
-  C.drawFieldDisplayArt({draws=draws},C.snowMatchHost,x,spec.hostY,88,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.snowMatchHost,x,spec.hostY,88,mode,profile,false)
   text(draws,x,spec.hostY-101,'タルタリヤ')
   for _,wall in ipairs(spec.walls) do
-   C.drawFieldDisplayArt({draws=draws},C.snowMatchArt[r and r.collapsed and 'rubble' or 'wall'],
+   C.drawFieldDisplayArt(layer,C.snowMatchArt[r and r.collapsed and 'rubble' or 'wall'],
      wall.x+wall.w/2,wall.y+wall.h,r and r.collapsed and 21 or wall.h,mode,profile,false)
   end
   for i,flag in ipairs(spec.flags) do
-   C.drawFieldDisplayArt({draws=draws},C.snowMatchArt.flag,flag.x,flag.y,65,mode,profile,false)
+   C.drawFieldDisplayArt(layer,C.snowMatchArt.flag,flag.x,flag.y,65,mode,profile,false)
    local used=r and r.flags[i]
    text(draws,flag.x,flag.y-77,used and '得点済み' or '旗 ＋1',used and '#f4ddbd' or '#e8ffef')
   end

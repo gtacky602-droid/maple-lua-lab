@@ -1,5 +1,17 @@
 # ChatGPTへの引き継ぎ
 
+## ナド・クライの港の旅日誌と地域章の記録
+
+ナド・クライの港の上段で旅日誌を開ける。最初の宝探しで話を聞いた相手、林と海岸の分かれ道、宝物庫の報酬、贈った風鈴、波止場の小石の見出しなど、実際の冒険で決めた内容が挿絵と一緒に残る。Lv129では4ページ、Lv140では8ページをめくれる。[港の旅日誌](evidence/nod-harbor-journal.png) ／ [港までの冒険](evidence/nod-fresh-route-after-revisits.json)
+
+同じ冒険で白峠の列車を利用し、雪合戦は5対3で勝利。Lv160で白峠駅に到着し、そのままLv200に到達した。モンドの返却箱を追って図書館に戻し、夜の丘で幟を直し、璃月の石工の壁画を組み立てると、8地域の本編24件と寄り道40件がすべて報告済みになる。依頼手帳で地域別の進み具合と未報告の依頼を絞り込める。[8地域の継続セーブ](evidence/regional-chapters-save.json) ／ [報告済み64件の明細](evidence/regional-chapters-route.json) ／ [白峠からLv200まで](evidence/cap-fresh-route-after-revisits.json)
+
+4場面を同じ時刻の元絵と16色版で比較できる。全景をタップすると96×72ピクセルの範囲を拡大し、色が変わった画素数をその範囲で数える。月花の見晴らし席では16色の描画命令が238,389 Bから139,577 Bになった。展開後の矩形は位置・寸法・色・順序まで一致。仮背景は別の比較画面で4,096〜6,144矩形の5段階を選べる。[月花の比較](theater-preview.html?stage=nod-moon-bloom-frame#stageComparison) ／ [雪合戦の比較](theater-preview.html?stage=snez-snow-match-frame#stageComparison) ／ [ナド・クライ7場面の圧縮計測](evidence/nod-harbor-packing.json)
+
+白峠から同じセーブでモンドへ戻り、ドーンマンポートの見張り、旗、風車塔の連続依頼3件を報告。昇降機を使い、風車塔のボスを倒して、港の拠点でセーブした。手帳の「分岐地域」から各地域の3件と受注・報告地点を探せる。[ドーンマンポートの継続セーブ](evidence/dornman-after-chapters-save.json) ／ [討伐と報告の記録](evidence/dornman-after-chapters-route.json)
+
+月花と雪合戦は、同じコマのまま32色にも切り替えられる。髪飾りや目元を見比べるときは全景の顔をタップしてから画質を変更する。比較用の画像は元絵を一枚だけ保存し、16色・32色はそれぞれ変化した画素だけを重ねている。[元絵と32色の拡大](evidence/nod-moon-bloom-loupe32.png)
+
 ## ナタの表彰台と二つの試走記録
 
 フォンテーヌから続く冒険でナタの本編3件とサブ5件を報告した。シロネンの踏み台で高い型と低い型を試し、高→低→高を配置して完走。イアンサの稽古は上段の印を踏み、訓練的を壊し、1周目9.42秒・被弾2回、2周目6.58秒・被弾1回を記録した。表彰台の上段で初完走、模擬戦、石飾り、波札、狩道、踏み台、稽古の7件から現地を地図で開ける。[記録台](evidence/natlan-festival-ledger.png) ／ [稽古後のLv120セーブ](evidence/natlan-revisit-save.json) ／ [再訪の操作](evidence/natlan-festival-browser.json)
