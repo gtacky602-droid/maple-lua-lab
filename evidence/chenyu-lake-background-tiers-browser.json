@@ -1,0 +1,110 @@
+{
+  "branch-hunt-64830": {
+    "source": "chenyu-grass-steps-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "7d89867a7cf7f96474673cd68de3302eab828578d5056bd2d0107c004fe18377",
+    "tiers": {
+      "4096": "77434820712213082fc780c749cf966dd879209064483751b6408ce65763d2bf",
+      "4608": "7fe1f80d5c4492e938d4efef523d0917643783aef902532d46c24b0be50bdf99",
+      "5120": "ca7444b9c2aba670c7b852da96f175d74a8331c7eb7fce2d4e912cc9294de5b1",
+      "5632": "b9b4fe775a33dd603c9203afe62cce82fddae0ec254b3f5c776988519113e569",
+      "6144": "9bf78cc59ec4b50a7e53dc0a3061ff4190302b9b11cbaa706b03626ff7383c6b"
+    }
+  },
+  "branch-hunt-64830-pocket-1": {
+    "source": "chenyu-amber-hollow-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "3fbb4c346bd80d7b6c463b5dbc27cefa3a75582f9d5f32857a38677a47761719",
+    "tiers": {
+      "4096": "04c93d6d88763ec487d0b616599e67962e65e4b31346c270d1e932e338e6803e",
+      "4608": "11f4dd0e963aed9b9c4d27f323d1b4a3efec572959711a89027578027a75b99d",
+      "5120": "0019833b0a0f2d72db55a7bc22b0941b4f7408e809d2a32d9bcbe1518e07acc9",
+      "5632": "b399b2cb91b523b3f4ddcaa6dd49fd36d02e71b91fd37b29c17633254a4ac65b",
+      "6144": "e78e0e0c3a36cea0db4d2007dbd6e9ecdfd7641b5f535c3e6732f1bd11b0769d"
+    }
+  },
+  "branch-hunt-64831": {
+    "source": "chenyu-lake-pier-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "eacaf14ee0a4d74ef1ad4cafbbea077295499f464276cbc6e5e4830dffd6c653",
+    "tiers": {
+      "4096": "d5e566fe29086ff45b40b7ef9847e53914974cf5793e970dfa594851b1c6b24d",
+      "4608": "9c7e65a5ee7eab8758a2a3ecbe80eaebd06e95e6cc6a7ebc3449bd3a48cb5a5e",
+      "5120": "877fb77c217de36a8be155fed35367961f03f8c026db512e9aede6607873de67",
+      "5632": "cb2d1db9961e216ff1ba4729f84fd685e842985f7a8512fd6fbffc3f71fc4acc",
+      "6144": "66d42a805e9dc9af1f3df931cf05d3f38371f8ec7459882be9889b150de3b658"
+    }
+  },
+  "branch-hunt-64831-pocket-1": {
+    "source": "chenyu-reed-island-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "f4b4f9876923291f7d202e8ece079ff4ea10a49fac7f38071319ebce9d2ea617",
+    "tiers": {
+      "4096": "8e258fc5411b6c46a6cff7d2910b45d429aeb598ba3fcd0a923c9f9804ca7e6a",
+      "4608": "795a76777965e2631e0d0566e64ef71a358067b2a6221fdd379385b0fa881fcf",
+      "5120": "7ad4b807d35e85a7131aa81e396d326305c94bdc3fd733d0d0bef5d3450a3a1d",
+      "5632": "059d845eba1cdf73f4791451a27d4ffb91eb74b8430f964bf573af070382b2b7",
+      "6144": "86b8f83db38116b8754521de38b4052613df1c000555893af90b37d2bba3d0ec"
+    }
+  },
+  "branch-hunt-64832": {
+    "source": "chenyu-lake-aqueduct-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "0bd4ec5df762430a7d7b8057bd23c0c98b1f527cd7fc456a3f3b0456befe7a60",
+    "tiers": {
+      "4096": "5afe4d0472029e1cabf57a6bee03a3c49b7241e14302bad1e62965df6f4d88cf",
+      "4608": "80521352dc6fe7e5046e8621e5e2682540877d7bf45a65958f00f5d44f76f38b",
+      "5120": "269da5ce93b9c3644e4db5295fd52d57f5953cfed4df335f91d52650ccb3a4e1",
+      "5632": "f6209677ceaed8de829da3bf3bea0964c2069fe607d6b4090c95dc0b60d77593",
+      "6144": "4ff229e2fae86f577ed1ee6ef0f731171f2f1c72617ac1ff6412c8c870c27ffc"
+    }
+  },
+  "branch-hunt-64832-pocket-1": {
+    "source": "chenyu-lake-culvert-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "83e9acc2a021f54f5209946f6af9c4e72aa935cc87265d16fa8536a230368076",
+    "tiers": {
+      "4096": "9f40ead7dea3a6c2e692db43b5843557ba82dbbc7492f8d55767aa9f0fdcb7b6",
+      "4608": "a0ac3d71eb3bccad27bfc98eaf03be8e0e14000d5eaaf4f624e3ca712e74d8ad",
+      "5120": "8aa9caa492901b70b6c6a93591f528f9da5ccb046137f6305501065cda10dd6e",
+      "5632": "81a6cf032de42aefd15c14ed5fbe14ec0ebb92dffc82e919283ee580b7a0ef99",
+      "6144": "e7cc19bc8c57f2736c02309315fa88c0b71013f0c005ccf219c6cdc0238134f0"
+    }
+  },
+  "branch-hunt-64833": {
+    "source": "chenyu-river-bend-tea-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "146c2655fe86a6303c66fa4c3d70aed11e288e1956ebd5bdc049e43142afc9c1",
+    "tiers": {
+      "4096": "7e2f3013af59ca801a2ce909b4f00017a5dc397076885f9b8c3b339f9e0ee483",
+      "4608": "d855adc36c90d9d2428296cf7bb2dab96d6d7292cf500894a156f347312e76fa",
+      "5120": "7b04c18881c37b1d5641169c5a6039a8f1959770974c4aab26f7a64af0e2489b",
+      "5632": "b7f2c2f3ee9708ed0558f281315c517c4f8fa6ea05221a2f5510deaf13c30035",
+      "6144": "59defa32f649d957219d9af16cb78a4be56dc7c3bcf7b79459328cf4617bb8bf"
+    }
+  },
+  "branch-hunt-64833-pocket-1": {
+    "source": "chenyu-river-tea-store-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "6ba63d5c01264b4b7fc53a95e04470e01e77f25dffb38ad92309977f48813e18",
+    "tiers": {
+      "4096": "cc6e465c40e1c32b9c571bbc2a078a5733cea13dc97a5df44513ac0c5d5d83dd",
+      "4608": "1a11be4e01aa4675d6ce8a94294bd22d5f4110c8c6ed052f1d50a2fd433e9f23",
+      "5120": "23d67c178b52ceb3acb7da547ea3539941e2c9ad5ff77a204c3ae334ef5af7be",
+      "5632": "037feea0002cbca46683568dbb2a53708f8fe1b3952850de501dc1273ccc95cd",
+      "6144": "0e5628930af8e51752920ed62b9081b499db0ff5ef0a8c81636538b26f7fdeef"
+    }
+  },
+  "chizhang-legend-terrace": {
+    "source": "chenyu-twin-vishap-court-background-v1.png",
+    "count": 2,
+    "sourceCanvas": "b42ec5e6329b9cf32596aab48a23816aa2401a4d0c1294671337a0d7a0a196d9",
+    "tiers": {
+      "4096": "ffc7e875deef005fb18edd3be30101eb29afe369b3afb439d5fa12e121a97c61",
+      "4608": "d604dc92a48ddd6ac085ba3cd1b92f2927b214d55739d377e7740bde10db418a",
+      "5120": "ef4bd618df456ef084c0ba838427f1ac5630f0aa9e3330fb280c02409d362bdc",
+      "5632": "d17b20e147b084d20895f679f588d51e5f602c0de033b68fb9fa11b09660e5dd",
+      "6144": "450c61eb54a60998a25c73341209e70c1051f370a410d3f4d42c814717b24083"
+    }
+  }
+}

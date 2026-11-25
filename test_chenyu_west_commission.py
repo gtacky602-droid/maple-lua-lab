@@ -1,12 +1,17 @@
 """Clear Zhongli's commission by walking to named side rooms and using normal attacks."""
+import argparse
 from tools.domain_terrain_test import TrailWalk, core, exits, gates, lua, start, write
 from runtime import native
 from savegame import validate_save
 
 quest = 'daily-liyue-relics'
 hub = 'liyue-harbor'
-hosts = [f'liyue-wp-{n}' for n in range(64826, 64830)]
-rooms = [f'branch-hunt-{n}-pocket-1' for n in range(64826, 64830)]
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('area', nargs='?', choices=('west', 'lake'), default='west')
+area = parser.parse_args().area
+fields = range(64826, 64830) if area == 'west' else range(64830, 64834)
+hosts = [f'liyue-wp-{n}' for n in fields]
+rooms = [f'branch-hunt-{n}-pocket-1' for n in fields]
 fight = lua.eval("""function(C, s)
     local enemy = s.enemies[1]
     for tick = 1, 7200 do
@@ -59,5 +64,5 @@ for stops in ((0, 1, 2), (3, 1, 2)):
         core.dailySettle(state)
         state = reload(state)
         assert (state.daily.paidXp, state.daily.paidMora) == (1830, 380)
-write('evidence/chenyu-west-commission.json', {'quest': quest, 'trips': trips, 'xp': 1830, 'mora': 380})
+write(f'evidence/chenyu-{area}-commission.json', {'quest': quest, 'trips': trips, 'xp': 1830, 'mora': 380})
 print('Both three-room circuits paid once and survived reloads.')

@@ -10,6 +10,10 @@ export function liveNodeDraft(input,graph,nodeId,species,boss){
   let actors;
   if(boss.node===nodeId && boss.mapIdleArt){
    actors=[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:false}];
+   if(boss.partner?.mapIdleArt){
+    actors.push({id:'boss-'+boss.partner.entity,species:boss.partner.mapIdleArt,
+     x:boss.home+boss.partner.offset,y:boss.floorY,flip:false});
+   }
   }else if(boss.innerNode===nodeId && boss.rift?.shadowArt){
    actors=boss.rift.pointsU.map((u,i)=>({id:'boss-'+(boss.entity+11+i),species:boss.rift.shadowArt.species,
     x:boss.board.left+boss.board.unit*u,y:boss.floorY,flip:false}));
@@ -30,6 +34,10 @@ export function liveNodeDraft(input,graph,nodeId,species,boss){
 // These hunting ledges also grew sideways. Migrate only coordinates on the former ledge.
 const formerSeaSpans=[[0,2880],[475,923],[1060,1674],[1900,2410]];
 const formerHuntSpans=new Map([
+ ['branch-hunt-64830',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
+ ['branch-hunt-64831',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
+ ['branch-hunt-64832',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
+ ['branch-hunt-64833',[[0,2880],[506,896],[1080,1610],[1650,1910],[1984,2367]]],
  ['branch-hunt-64827',[[0,2880],[506,896],[1080,1610],[1650,1910],[1984,2367]]],
  ['branch-hunt-64828',[[0,2880],[506,896],[1080,1610],[1650,1910],[1984,2367]]],
  ['branch-hunt-64829',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
@@ -46,6 +54,10 @@ const nodIslandHeights=[480,396,356,395,361];
 const snowDomainHeights=[480,407,366,409,365];
 const seaCourtHeights=[480,408,362,401];
 const previousHeights=new Map([
+ ['branch-hunt-64830',[480,393,353,397]],
+ ['branch-hunt-64831',[480,393,353,397]],
+ ['branch-hunt-64832',[480,393,353,397]],
+ ['branch-hunt-64833',[480,402,370,334,378]],
  ['branch-hunt-64827',[480,402,370,334,378]],
  ['branch-hunt-64828',[480,402,370,334,378]],
  ['branch-hunt-64829',[480,393,353,397]],

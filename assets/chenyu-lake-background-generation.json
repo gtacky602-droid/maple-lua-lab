@@ -1,0 +1,79 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Original wide 16:9 side-scrolling fantasy RPG background in a traditional Chinese karst valley. Design specifically for tiny 512x288 resolution and severe rectangle compression. Classic handcrafted 16-bit pixel illustration, large contiguous 3-4 value clusters per material, no microtextures, no dithering. Horizontally layered side elevation; leave the bottom quarter quiet and playable. A strong distinctive distant landmark, atmospheric separation. No people, enemies, lettering, UI, frame or painted game platforms. ",
+  "scenes": [
+    {
+      "node": "branch-hunt-64830",
+      "key": "chenyuGrassSteps",
+      "note": "南東の草段",
+      "prompt": "A wind-swept staircase of meadow terraces, layered ochre limestone bands, bright citron grass, a curving stand of bamboo on the left, clear cool morning light.",
+      "source": "chenyu-grass-steps-background-v1.png",
+      "preview": "chenyu-grass-steps-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64830-pocket-1",
+      "key": "chenyuAmberHollow",
+      "note": "草段の琥珀岩",
+      "prompt": "Sheltered sandstone hollow beneath the meadows. Huge warm amber boulder rising through lush wild grass, a deep shaded cleft under it, jade karst silhouettes.",
+      "source": "chenyu-amber-hollow-background-v1.png",
+      "preview": "chenyu-amber-hollow-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64831",
+      "key": "chenyuLakePier",
+      "note": "湖西の小桟橋",
+      "prompt": "Small humble timber fishing pier facing a pale blue mountain lake. Two large drying nets, a reed basket and a low skiff, morning mist dissolving toward silvery distant limestone towers.",
+      "source": "chenyu-lake-pier-background-v1.png",
+      "preview": "chenyu-lake-pier-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64831-pocket-1",
+      "key": "chenyuReedIsland",
+      "note": "湖西の葦洲",
+      "prompt": "An isolated gravel island deep in golden reed beds. Silvery lake reflections, a fallen bleached willow trunk framing the dry shore. Cool mint haze and ochre grass.",
+      "source": "chenyu-reed-island-background-v1.png",
+      "preview": "chenyu-reed-island-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64832",
+      "key": "chenyuAqueduct",
+      "note": "湖西の水路跡",
+      "prompt": "A broken elevated Chinese stone irrigation channel curves down a cool gray-green mountain slope. Two distinct massive aqueduct arches at left, rusty water stains, ivy and a thin ribbon of running water.",
+      "source": "chenyu-lake-aqueduct-background-v1.png",
+      "preview": "chenyu-lake-aqueduct-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64832-pocket-1",
+      "key": "chenyuCulvert",
+      "note": "水路の石樋",
+      "prompt": "Inside a dry rectangular stone culvert below a broken aqueduct. Blue-green reflected light, broad tilted slabs and two glowing cracks in the roof, a trickle pools along the back wall.",
+      "source": "chenyu-lake-culvert-background-v1.png",
+      "preview": "chenyu-lake-culvert-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64833",
+      "key": "chenyuRiverBendTea",
+      "note": "川曲がりの茶畑",
+      "prompt": "From the side: an S-bend of a jade river behind terraced rows of tea bushes. A low ochre tile tea-drying shed beside a footbridge, distinct yellow-green hedges, soft afternoon light.",
+      "source": "chenyu-river-bend-tea-background-v1.png",
+      "preview": "chenyu-river-bend-tea-native-preview-v1.png"
+    },
+    {
+      "node": "branch-hunt-64833-pocket-1",
+      "key": "chenyuTeaStore",
+      "note": "茶畑の旧蔵",
+      "prompt": "An abandoned tea storehouse on a hillside by the bend of a river, broad open side door reveals a stack of round woven drying trays, a collapsed timber roof and a dark interior, plum and russet tones.",
+      "source": "chenyu-river-tea-store-background-v1.png",
+      "preview": "chenyu-river-tea-store-native-preview-v1.png"
+    },
+    {
+      "node": "chizhang-legend-terrace",
+      "key": "chenyuTwinVishapCourt",
+      "note": "赤璋の丘の双龍の段丘",
+      "prompt": "Create a traditional 1990s 16-bit SIDE-SCROLLING RPG pixel art backdrop, widescreen 16:9. Imagine you only have 160 by 90 square pixels and twelve opaque paint colors. Use large solid-color connected stepped shapes and flat graphic motifs. Two UNEQUAL old carved pillars framing an empty Chinese karst mountain arena, a tall deep-red sandstone pillar with a single simple bold cloud spiral on the far left and a shorter jade pillar on far right. A rounded cluster of rust-red maple leaves, pale jade distant mountains, three long sky bands, pale gold dawn. In the middle bottom keep 60 percent clear for two dragons to be overlaid by the game. The floor is simple dull ochre stone with a handful of broad slabs. No dragons, no characters, no words or borders. Deliberately simple Maple-like storybook pixel backdrop, matte arcade game colors, restrained contrast behind characters, perfectly crisp square pixels. Do not render a painting, photograph, realistic cloud, or fine textures. No outlines smaller than two logical pixels.",
+      "source": "chenyu-twin-vishap-court-background-v1.png",
+      "preview": "chenyu-twin-vishap-court-native-preview-v1.png",
+      "standalonePrompt": true
+    }
+  ]
+}

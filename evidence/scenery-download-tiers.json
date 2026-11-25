@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 750,
+  "verifiedModules": 795,
   "dimensions": [
     512,
     288
@@ -131,6 +131,69 @@
       "5120": 24506,
       "5632": 27790,
       "6144": 29898
+    },
+    "chenyu-grass-steps-background-v1.png": {
+      "4096": 18437,
+      "4608": 22023,
+      "5120": 25498,
+      "5632": 28964,
+      "6144": 30902
+    },
+    "chenyu-amber-hollow-background-v1.png": {
+      "4096": 18042,
+      "4608": 21610,
+      "5120": 25057,
+      "5632": 28485,
+      "6144": 30299
+    },
+    "chenyu-lake-pier-background-v1.png": {
+      "4096": 17509,
+      "4608": 20895,
+      "5120": 24162,
+      "5632": 27406,
+      "6144": 29566
+    },
+    "chenyu-reed-island-background-v1.png": {
+      "4096": 17429,
+      "4608": 20855,
+      "5120": 24164,
+      "5632": 27454,
+      "6144": 29542
+    },
+    "chenyu-lake-aqueduct-background-v1.png": {
+      "4096": 17351,
+      "4608": 20781,
+      "5120": 24076,
+      "5632": 27338,
+      "6144": 29402
+    },
+    "chenyu-lake-culvert-background-v1.png": {
+      "4096": 17558,
+      "4608": 21008,
+      "5120": 24301,
+      "5632": 27603,
+      "6144": 29791
+    },
+    "chenyu-river-bend-tea-background-v1.png": {
+      "4096": 18626,
+      "4608": 22186,
+      "5120": 25615,
+      "5632": 29057,
+      "6144": 31021
+    },
+    "chenyu-river-tea-store-background-v1.png": {
+      "4096": 17587,
+      "4608": 21039,
+      "5120": 24340,
+      "5632": 27624,
+      "6144": 29762
+    },
+    "chenyu-twin-vishap-court-background-v1.png": {
+      "4096": 17287,
+      "4608": 20573,
+      "5120": 23782,
+      "5632": 26998,
+      "6144": 29106
     },
     "chenyu-west-bank-background-v1.png": {
       "4096": 18019,
@@ -1060,7 +1123,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 150
+      "verified": 159
     },
     "domainHunts": {
       "total": 124,
@@ -1119,11 +1182,11 @@
     },
     "branchHunts": {
       "total": 62,
-      "verified": 17,
+      "verified": 25,
       "byRegion": {
         "沈玉の谷": {
           "total": 59,
-          "verified": 14
+          "verified": 22
         },
         "往日の海": {
           "total": 3,
@@ -1131,14 +1194,6 @@
         }
       },
       "pending": [
-        "branch-hunt-64830",
-        "branch-hunt-64830-pocket-1",
-        "branch-hunt-64831",
-        "branch-hunt-64831-pocket-1",
-        "branch-hunt-64832",
-        "branch-hunt-64832-pocket-1",
-        "branch-hunt-64833",
-        "branch-hunt-64833-pocket-1",
         "branch-hunt-64834",
         "branch-hunt-64834-pocket-1",
         "branch-hunt-64835",

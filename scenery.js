@@ -1,5 +1,15 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
+import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ chenyuGrassSteps:{file:'chenyu-grass-steps-background-v1.png',decodedPreview:'chenyu-grass-steps-native-preview-v1.png',decodedTiers:'chenyu-grass-steps-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64830'],note:'南東の草段の仮背景'},
+ chenyuAmberHollow:{file:'chenyu-amber-hollow-background-v1.png',decodedPreview:'chenyu-amber-hollow-native-preview-v1.png',decodedTiers:'chenyu-amber-hollow-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64830-pocket-1'],note:'草段の琥珀岩の仮背景'},
+ chenyuLakePier:{file:'chenyu-lake-pier-background-v1.png',decodedPreview:'chenyu-lake-pier-native-preview-v1.png',decodedTiers:'chenyu-lake-pier-native-tiers-v1.webp',surface:'timber',zones:['story:branch-hunt-64831'],note:'湖西の小桟橋の仮背景'},
+ chenyuReedIsland:{file:'chenyu-reed-island-background-v1.png',decodedPreview:'chenyu-reed-island-native-preview-v1.png',decodedTiers:'chenyu-reed-island-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64831-pocket-1'],note:'湖西の葦洲の仮背景'},
+ chenyuAqueduct:{file:'chenyu-lake-aqueduct-background-v1.png',decodedPreview:'chenyu-lake-aqueduct-native-preview-v1.png',decodedTiers:'chenyu-lake-aqueduct-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64832'],note:'湖西の水路跡の仮背景'},
+ chenyuCulvert:{file:'chenyu-lake-culvert-background-v1.png',decodedPreview:'chenyu-lake-culvert-native-preview-v1.png',decodedTiers:'chenyu-lake-culvert-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64832-pocket-1'],note:'水路の石樋の仮背景'},
+ chenyuRiverBendTea:{file:'chenyu-river-bend-tea-background-v1.png',decodedPreview:'chenyu-river-bend-tea-native-preview-v1.png',decodedTiers:'chenyu-river-bend-tea-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64833'],note:'川曲がりの茶畑の仮背景'},
+ chenyuTeaStore:{file:'chenyu-river-tea-store-background-v1.png',decodedPreview:'chenyu-river-tea-store-native-preview-v1.png',decodedTiers:'chenyu-river-tea-store-native-tiers-v1.webp',surface:'timber',zones:['story:branch-hunt-64833-pocket-1'],note:'茶畑の旧蔵の仮背景'},
+ chenyuTwinVishapCourt:{file:'chenyu-twin-vishap-court-background-v1.png',decodedPreview:'chenyu-twin-vishap-court-native-preview-v1.png',decodedTiers:'chenyu-twin-vishap-court-native-tiers-v1.webp',surface:'stone',zones:['story:chizhang-legend-terrace'],note:'赤璋の丘の双龍の段丘の仮背景'},
  chenyuWestBank:{file:'chenyu-west-bank-background-v1.png',decodedPreview:'chenyu-west-bank-native-preview-v1.png',decodedTiers:'chenyu-west-bank-native-tiers-v1.webp',zones:['story:branch-hunt-64826'],note:'西岸の石畳の仮背景'},
  chenyuRootDen:{file:'chenyu-root-den-background-v1.png',decodedPreview:'chenyu-root-den-native-preview-v1.png',decodedTiers:'chenyu-root-den-native-tiers-v1.webp',zones:['story:branch-hunt-64826-pocket-1'],note:'根の張る岩屋の仮背景'},
  chenyuWestPeak:{file:'chenyu-west-peak-background-v1.png',decodedPreview:'chenyu-west-peak-native-preview-v1.png',decodedTiers:'chenyu-west-peak-native-tiers-v1.webp',zones:['story:branch-hunt-64827'],note:'西峰の石棚の仮背景'},
@@ -474,6 +484,10 @@ export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(sceneryDefinitions[key].surface){
+   drawScenerySurface(ctx,sceneryDefinitions[key].surface,x,p);
+   continue;
+  }
   if(key==='dualCourt'){
    ctx.fillStyle='#504a4e';ctx.fillRect(x,p.y,p.w,p.y===480?60:14);
    ctx.fillStyle='#d8c5a9';ctx.fillRect(x,p.y,p.w,4);

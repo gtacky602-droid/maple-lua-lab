@@ -1,0 +1,71 @@
+{
+  "branch-hunt-64830": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      418,
+      380,
+      348,
+      381
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 83,
+    "exterior_scenery": "chenyuGrassSteps",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64831": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      407,
+      383,
+      408
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 85,
+    "exterior_scenery": "chenyuLakePier",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64832": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      418,
+      384,
+      351,
+      394
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 84,
+    "exterior_scenery": "chenyuAqueduct",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64833": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      389,
+      363,
+      404
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 88,
+    "exterior_scenery": "chenyuRiverBendTea",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "lakeRoundTrip": [
+    "liyue-wp-64833",
+    "branch-hunt-64833",
+    "liyue-wp-64833",
+    "liyue-wp-64831",
+    "branch-hunt-64831",
+    "liyue-wp-64831",
+    "liyue-wp-64832",
+    "branch-hunt-64832",
+    "liyue-wp-64832",
+    "liyue-wp-64831",
+    "liyue-wp-64833"
+  ]
+}

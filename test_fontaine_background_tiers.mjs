@@ -23,7 +23,7 @@ try {
       const errors = [];
       page.on('pageerror',error=>errors.push(error.message));
       try {
-        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena' || node === 'nod-false-moon-rift' || node === 'sites-hunt-88121' || node === 'sites-hunt-100707' || node === 'sites-hunt-46532' || node === 'sites-hunt-28756' || ['branch-hunt-64828','branch-hunt-68600','branch-hunt-64825','bygone-bell-archive','suanni-field-sanctum'].includes(node);
+        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena' || node === 'nod-false-moon-rift' || node === 'sites-hunt-88121' || node === 'sites-hunt-100707' || node === 'sites-hunt-46532' || node === 'sites-hunt-28756' || ['branch-hunt-64831','chizhang-legend-terrace','branch-hunt-64828','branch-hunt-68600','branch-hunt-64825','bygone-bell-archive','suanni-field-sanctum'].includes(node);
         const query = new URLSearchParams({node});
         if (lightweightLink) {
           query.set('tier','4096');
@@ -49,7 +49,7 @@ try {
         await page.locator('#loadLive').click();
         const boss=[...weekly,...fieldBosses].find(b=>b.node===node && b.mapIdleArt);
         const inner=weekly.find(b=>b.innerNode===node && b.rift?.shadowArt);
-        const expectedCount=spawns[node]?.length ?? (boss?1:inner?.rift.pointsU.length??0);
+        const expectedCount=spawns[node]?.length ?? (boss?(boss.partner?.mapIdleArt?2:1):inner?.rift.pointsU.length??0);
         await page.waitForFunction(n=>window.mapArt.count===n && window.mapArt.diff?.unchanged===n,expectedCount);
         if (await page.locator('#placements button').count()===1) {
           await page.locator('#placements button').click();
@@ -66,7 +66,10 @@ try {
         }
         if(boss){
           if (boss.home!==undefined) assert.equal(before.visuals[0].height,boss.artHeight);
-          assert.deepEqual(before.placements,[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:false}]);
+          const expected=[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:false}];
+          if(boss.partner?.mapIdleArt)expected.push({id:'boss-'+boss.partner.entity,species:boss.partner.mapIdleArt,
+            x:boss.home+boss.partner.offset,y:boss.floorY,flip:false});
+          assert.deepEqual(before.placements,expected);
         }
         const seen = new Set();
         for (const {rectangles,rgbSha256,meanAbsoluteRgbErrorToReference} of report.scenes[source].tiers) {
@@ -125,7 +128,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly','nod-islands','nod-false-moon','sne-domains','sum-frontier','tun-domains','border-domains','chenyu-gates','bygone-hunts','branch-boss-courts','chenyu-west'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly','nod-islands','nod-false-moon','sne-domains','sum-frontier','tun-domains','border-domains','chenyu-gates','bygone-hunts','branch-boss-courts','chenyu-west','chenyu-lake'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);

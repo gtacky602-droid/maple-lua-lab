@@ -1,0 +1,17 @@
+{
+  "dimensions": [
+    512,
+    288
+  ],
+  "rectangles": 4096,
+  "metric": "Mean absolute per-channel RGB error against each respective resized source (0–255)",
+  "first": {
+    "meanAbsoluteRgbError": 9.913343641493055,
+    "sha256": "02b9b88fc53ddaca3ed8902fe067cde20044f049d94c91588edecbf962a64ccd"
+  },
+  "selected": {
+    "file": "chenyu-twin-vishap-court-background-v1.png",
+    "meanAbsoluteRgbError": 1.115672923900463,
+    "sha256": "cf129fc6f471c2d45ef3f09274aae7c901257e652861499a7834db5a943d471d"
+  }
+}

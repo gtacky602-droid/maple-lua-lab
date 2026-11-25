@@ -132,7 +132,9 @@ try{
  function placementArt(e){
   const original=assets[e.species],art=e.flip&&original.left?original.left:original;
   const boss=arenaPreviews.get(node().id);
-  return boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt ? {...art,h:boss.artHeight} : art;
+  if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt)return {...art,h:boss.artHeight};
+  if(boss?.partner?.mapIdleArt===e.species && e.id==='boss-'+boss.partner.entity)return {...art,h:boss.partner.artHeight??boss.artHeight};
+  return art;
  }
  function loadComparisonImage(frame,status,previewFile){
   if(status.state!=='loading'||pendingBackgrounds.has(status.file))return;
@@ -244,9 +246,10 @@ try{
    liveItems=[];liveError='';
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
-    const openingBoss=liveItems.length===1 && liveItems[0].id===arenaPreviews.get(n.id)?.id;
+    const openingBoss=liveItems.length>0 && liveItems[0].id===arenaPreviews.get(n.id)?.id;
     if(liveItems.length && (openingBoss || !liveItems.some(e=>e.x>=0 && e.x<960))){
-     camera.value=Math.min(Number(camera.max),Math.max(0,liveItems[0].x-480));
+     const focusX=openingBoss?(liveItems[0].x+liveItems.at(-1).x)/2:liveItems[0].x;
+     camera.value=Math.min(Number(camera.max),Math.max(0,focusX-480));
     }
    }catch(error){liveError='本編配置を表示できません：'+error.message}
   }

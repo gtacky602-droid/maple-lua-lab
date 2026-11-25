@@ -1,0 +1,22 @@
+{
+  "arena": "chizhang-legend-terrace",
+  "live": [
+    {
+      "x": 700,
+      "y": 480,
+      "height": 118,
+      "flip": false,
+      "source": "chizhang-ember-shared-idle-v3.png"
+    },
+    {
+      "x": 942,
+      "y": 480,
+      "height": 118,
+      "flip": false,
+      "source": "chizhang-frost-shared-idle-v3.png"
+    }
+  ],
+  "camera": 341,
+  "tier": 4096,
+  "background": "chenyu-twin-vishap-court-background-v1.png"
+}

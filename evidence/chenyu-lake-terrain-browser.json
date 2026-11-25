@@ -1,0 +1,219 @@
+{
+  "grass": {
+    "stage": "branch-hunt-64830",
+    "scenery": {
+      "key": "chenyuGrassSteps",
+      "file": "chenyu-grass-steps-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 467.4,
+      "y": 301.7,
+      "adjacent": [
+        "liyue-wp-64830",
+        "branch-hunt-64830-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64830&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64830-pocket-1": "南東の草段・玄文獣の琥珀岩 ｜ 任意戦・精鋭・徒歩・Lv85・上の足場の門"
+      },
+      "next": "branch-hunt-64830-pocket-1"
+    },
+    "jump": [
+      480,
+      418
+    ],
+    "returnHeight": 402,
+    "pocketScenery": {
+      "key": "chenyuAmberHollow",
+      "file": "chenyu-amber-hollow-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64830",
+        "branch-hunt-64830",
+        "walk"
+      ],
+      [
+        "branch-hunt-64830",
+        "branch-hunt-64830-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64830-pocket-1",
+        "branch-hunt-64830",
+        "walk"
+      ],
+      [
+        "branch-hunt-64830",
+        "liyue-wp-64830",
+        "walk"
+      ]
+    ]
+  },
+  "pier": {
+    "stage": "branch-hunt-64831",
+    "scenery": {
+      "key": "chenyuLakePier",
+      "file": "chenyu-lake-pier-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 383.2,
+      "y": 177.9,
+      "adjacent": [
+        "liyue-wp-64831",
+        "branch-hunt-64831-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64831&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64831-pocket-1": "湖西の小桟橋・玄文獣の葦洲 ｜ 任意戦・精鋭・徒歩・Lv87・地上の門"
+      },
+      "next": "branch-hunt-64831-pocket-1"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "chenyuReedIsland",
+      "file": "chenyu-reed-island-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64831",
+        "branch-hunt-64831",
+        "walk"
+      ],
+      [
+        "branch-hunt-64831",
+        "branch-hunt-64831-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64831-pocket-1",
+        "branch-hunt-64831",
+        "walk"
+      ],
+      [
+        "branch-hunt-64831",
+        "liyue-wp-64831",
+        "walk"
+      ]
+    ]
+  },
+  "aqueduct": {
+    "stage": "branch-hunt-64832",
+    "scenery": {
+      "key": "chenyuAqueduct",
+      "file": "chenyu-lake-aqueduct-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 413.1,
+      "y": 197.9,
+      "adjacent": [
+        "liyue-wp-64832",
+        "branch-hunt-64832-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64832&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64832-pocket-1": "湖西の水路跡・玄文獣の石樋 ｜ 任意戦・精鋭・徒歩・Lv86・上の足場の門"
+      },
+      "next": "branch-hunt-64832-pocket-1"
+    },
+    "jump": [
+      480,
+      418
+    ],
+    "returnHeight": 394,
+    "pocketScenery": {
+      "key": "chenyuCulvert",
+      "file": "chenyu-lake-culvert-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64832",
+        "branch-hunt-64832",
+        "walk"
+      ],
+      [
+        "branch-hunt-64832",
+        "branch-hunt-64832-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64832-pocket-1",
+        "branch-hunt-64832",
+        "walk"
+      ],
+      [
+        "branch-hunt-64832",
+        "liyue-wp-64832",
+        "walk"
+      ]
+    ]
+  },
+  "tea": {
+    "stage": "branch-hunt-64833",
+    "scenery": {
+      "key": "chenyuRiverBendTea",
+      "file": "chenyu-river-bend-tea-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 373.4,
+      "y": 227.3,
+      "adjacent": [
+        "liyue-wp-64833",
+        "branch-hunt-64833-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64833&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64833-pocket-1": "川曲がり・アビスの魔術師の旧蔵 ｜ 任意戦・精鋭・徒歩・Lv90・上の足場の門"
+      },
+      "next": "branch-hunt-64833-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 404,
+    "pocketScenery": {
+      "key": "chenyuTeaStore",
+      "file": "chenyu-river-tea-store-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64833",
+        "branch-hunt-64833",
+        "walk"
+      ],
+      [
+        "branch-hunt-64833",
+        "branch-hunt-64833-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64833-pocket-1",
+        "branch-hunt-64833",
+        "walk"
+      ],
+      [
+        "branch-hunt-64833",
+        "liyue-wp-64833",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}
