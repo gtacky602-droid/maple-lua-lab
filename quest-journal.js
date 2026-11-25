@@ -168,6 +168,14 @@ export function trackedQuest(f,id,selectedWorksite){
   if(point)return {node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'絵図に残した景色を見る',
    text:`${q.name} ｜ みちくさ帳に「${point.name}」を記録しました。`};
  }
+ if(status==='complete'&&q.forest){
+  const exit=f.storyGraph.nodes.find(n=>n.id===q.target)?.exits.find(e=>e.requires?.quest===q.id&&e.requires.count===q.goal);
+  if(exit){
+   const params=new URLSearchParams({node:q.target,placements:'live',to:exit.to,gateX:exit.x,gateY:exit.y??480,compare:'background',tier:'4096'});
+   return {node:q.target,pointUrl:'map-art.html?'+params,pointLabel:'海岸への出口を見る',
+    text:`${q.name} ｜ 森の奥の鳥居から海岸へ抜けられます。`};
+  }
+ }
  if(status==='complete'&&q.construction){
   const plan=q.construction.plans.find(p=>p.id===st.construction?.plan);
   const opened=f.storyGraph.nodes.find(n=>n.id===plan?.route);
@@ -179,6 +187,13 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ const room=status==='active'&&q.forest?.rooms[st.count];
+ if(room&&route.node===room.node){
+  const phase=st.forest.looped?'search':'entry';
+  const params=new URLSearchParams({node:room.node,placements:'live',forest:phase,compare:'background',tier:'4096'});
+  return {node:room.node,pointUrl:'map-art.html?'+params,pointLabel:'広場の様子を見る',
+   text:`${q.name} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
+ }
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));
  const point=status==='active' && (worksitePoint(q,site?.point,route.node)??surveyPoint(q,st.count,route.node));

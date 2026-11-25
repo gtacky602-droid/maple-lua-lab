@@ -37,6 +37,20 @@ questMap.onclick=()=>{if(questMap.dataset.node)window.lab.action('world_map_focu
 const atlasFocus=document.getElementById('atlasQuestFocus');
 const atlasPoint=document.getElementById('atlasQuestPoint');
 atlasFocus.onclick=questMap.onclick;
+// Sample the field's animation phase when opening the two-background comparison.
+function copyForestBeat(event){
+ const frame=window.lab?.frame,link=event.currentTarget;
+ if(!Number.isInteger(frame?.storyForest?.beat)||!link.hasAttribute('href'))return;
+ const url=new URL(link.href);
+ if(url.searchParams.has('forest')&&url.searchParams.get('node')===frame.story.node){
+  url.searchParams.set('beat',frame.storyForest.beat);
+  link.href=url.href;
+ }
+}
+for(const link of [atlasPoint,surveyLink]){
+ link.addEventListener('click',copyForestBeat);
+ link.addEventListener('auxclick',copyForestBeat);
+}
 function syncAtlasPoint(frame){
  atlasPoint.hidden=surveyLink.hidden || !frame.worldMap?.selected || frame.worldMap.selected.id!==questMap.dataset.node;
  if(atlasPoint.hidden)atlasPoint.removeAttribute('href');

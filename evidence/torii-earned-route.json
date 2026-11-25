@@ -1,0 +1,33 @@
+{
+  "startLevel": 40,
+  "rooms": [
+    {
+      "node": "inazuma-torii-footprints",
+      "phases": 1,
+      "rectangles": 54,
+      "hintAndRetry": true
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "phases": 60,
+      "rectangles": 46,
+      "hintAndRetry": true
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "phases": 1,
+      "rectangles": 42,
+      "hintAndRetry": true
+    }
+  ],
+  "coast": "inazuma-forest-shore",
+  "report": {
+    "id": "inazuma-torii-maze",
+    "seconds": 115.43,
+    "level": 45,
+    "total": 696051,
+    "questXp": 566477,
+    "killXp": 129574,
+    "kills": 1184
+  }
+}

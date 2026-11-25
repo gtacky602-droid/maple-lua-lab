@@ -1,0 +1,698 @@
+[
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 0,
+    "calls": 54,
+    "pixels": 3709
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "search",
+    "tier": 4608,
+    "beat": 0,
+    "calls": 54,
+    "pixels": 3709
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "search",
+    "tier": 5120,
+    "beat": 0,
+    "calls": 54,
+    "pixels": 3709
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "search",
+    "tier": 5632,
+    "beat": 0,
+    "calls": 54,
+    "pixels": 3709
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "search",
+    "tier": 6144,
+    "beat": 0,
+    "calls": 54,
+    "pixels": 3709
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "entry",
+    "tier": 4096,
+    "beat": 0,
+    "calls": 9,
+    "pixels": 982
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "entry",
+    "tier": 4608,
+    "beat": 0,
+    "calls": 9,
+    "pixels": 982
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "entry",
+    "tier": 5120,
+    "beat": 0,
+    "calls": 9,
+    "pixels": 982
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "entry",
+    "tier": 5632,
+    "beat": 0,
+    "calls": 9,
+    "pixels": 982
+  },
+  {
+    "node": "inazuma-torii-footprints",
+    "phase": "entry",
+    "tier": 6144,
+    "beat": 0,
+    "calls": 9,
+    "pixels": 982
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 0,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 1,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 2,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 3,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 4,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 5,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 6,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 7,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 8,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 9,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 10,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 11,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 12,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 13,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 14,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 15,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 16,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 17,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 18,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 19,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 20,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 21,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 22,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 23,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 24,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 25,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 26,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 27,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 28,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 29,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 30,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 31,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 32,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 33,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 34,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 35,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 36,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 37,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 38,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 39,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 40,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 41,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 42,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 43,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 44,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 45,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 46,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 47,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 48,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 49,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 50,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 51,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 52,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 53,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 54,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 55,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 56,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 57,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 58,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 59,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4608,
+    "beat": 0,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4608,
+    "beat": 15,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 4608,
+    "beat": 45,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 5120,
+    "beat": 0,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 5120,
+    "beat": 15,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 5120,
+    "beat": 45,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 5632,
+    "beat": 0,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 5632,
+    "beat": 15,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 5632,
+    "beat": 45,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 6144,
+    "beat": 0,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 6144,
+    "beat": 15,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-statues",
+    "phase": "search",
+    "tier": 6144,
+    "beat": 45,
+    "calls": 46,
+    "pixels": 4314
+  },
+  {
+    "node": "inazuma-torii-reflections",
+    "phase": "search",
+    "tier": 4096,
+    "beat": 0,
+    "calls": 42,
+    "pixels": 4006
+  },
+  {
+    "node": "inazuma-torii-reflections",
+    "phase": "search",
+    "tier": 4608,
+    "beat": 0,
+    "calls": 42,
+    "pixels": 4006
+  },
+  {
+    "node": "inazuma-torii-reflections",
+    "phase": "search",
+    "tier": 5120,
+    "beat": 0,
+    "calls": 42,
+    "pixels": 4006
+  },
+  {
+    "node": "inazuma-torii-reflections",
+    "phase": "search",
+    "tier": 5632,
+    "beat": 0,
+    "calls": 42,
+    "pixels": 4006
+  },
+  {
+    "node": "inazuma-torii-reflections",
+    "phase": "search",
+    "tier": 6144,
+    "beat": 0,
+    "calls": 42,
+    "pixels": 4006
+  }
+]

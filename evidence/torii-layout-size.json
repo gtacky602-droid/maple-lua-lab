@@ -1,0 +1,15 @@
+{
+  "inline": {
+    "jsonBytes": 4372,
+    "gzipBytes": 1036
+  },
+  "shared": {
+    "jsonBytes": 2257,
+    "gzipBytes": 891
+  },
+  "placements": 19,
+  "inlineRectangles": 151,
+  "sharedRectangles": 55,
+  "poses": 13,
+  "beats": 60
+}

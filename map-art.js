@@ -1,5 +1,6 @@
 import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
 import {drawSurveyPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
+import {forestPreview} from './forest-preview.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
@@ -180,6 +181,7 @@ try{
   $('species').append(new Option(shadow.name,shadow.species));
  }
  const [mechanismScenes,legendScenes,fieldScenes,stygianScenes,questPreviews,worksiteArt]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json'),json('content/toyac-quest-previews.json'),json('content/worksite-props.json')]);
+ const forest=forestPreview($('forestPreview'),worksiteArt.forest,render);
  for(const [node,route] of Object.entries(worksiteArt.haul.routes)){
   questPreviews[node]={stages:route.stops.map(stop=>({label:stop.label,focusX:stop.x,cart:stop,visible:[]})),
    fixed:route.fixed,load:[...route.deck,...worksiteArt.haul.cart]};
@@ -409,6 +411,7 @@ try{
    link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
    link.href='map-art.html?'+params;
   }
+  const forestRects=forest.rectangles(camera,960);
   const questPreview=liveView&&questPreviews[n.id];
   const stage=questPreview?.stages?.[Number($('questPropStage').value)];
   if(stage){
@@ -596,6 +599,9 @@ try{
      ctx.fillStyle='#e2e8c6';ctx.fillRect(x-3,c.y-13,6,6);
     }
    }
+   for(const [x,y,w,h,color] of forestRects){
+    ctx.fillStyle=color;ctx.fillRect(x,y,w,h);
+   }
    gatePreview.draw(ctx,camera,darkRoom(n));
    if(selectedSurveyPoint){
     const point=selectedSurveyPoint;
@@ -709,6 +715,8 @@ try{
   $('defenseCompareLink').hidden=n.id!=='apep-oasis-heart-arena';
   camera.max=Math.max(0,n.width-960);
   camera.value=0;
+  forest.reset(liveView?n.id:null,n===openingNode?query:null);
+  if(liveView&&worksiteArt.forest.rooms[n.id])camera.value=Math.round(Number(camera.max)/2);
   const preview=liveView&&questPreviews[n.id],stageSelect=$('questPropStage');
   $('questPropPreview').hidden=!preview;
   stageSelect.replaceChildren();

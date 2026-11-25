@@ -74,7 +74,7 @@ try{
  await page.goto(root);
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-                     await fs.readFile('work/inazuma-m02-fixture.json','utf8'));
+                     await fs.readFile(process.env.TORII_SAVE||'work/inazuma-m02-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await current(port);
  await quest.getByRole('button',{name:'受注',exact:true}).click();
@@ -84,11 +84,15 @@ try{
  await through(clearing);
  await walk(1020);
  await through(prints);
+ const link=page.locator('#trackedSurveyPoint'),sketches=page.locator('#forestSketches a');
+ assert.equal(await sketches.count(),0);
+ assert.match(await link.getAttribute('href'),/forest=entry/);
  await walk(1240);
  await gate(statues);
  await page.keyboard.press('KeyF');
  await page.waitForFunction(()=>window.lab.frame.storyForest?.looped && window.lab.frame.actors[0].x<250);
  await current(prints);
+ await page.waitForFunction(()=>document.querySelector('#trackedSurveyPoint').href.includes('forest=search'));
  await walk(1240);
  await gate(statues,false);
  await inspect(245,'綾華にヒントを聞く');
@@ -98,10 +102,27 @@ try{
  await progress(0);
  await inspect(485,'左の岩のそばを調べる');
  await progress(1);
+ await page.waitForFunction(()=>document.querySelectorAll('#forestSketches a').length===1);
+ assert.match(await sketches.first().textContent(),/足跡/);
  await walk(1240);
  await through(statues);
+ await page.keyboard.press('KeyM');
+ await page.locator('#atlasQuestFocus').click();
+ const atlas=page.locator('#atlasQuestPoint');
+ await atlas.waitFor();
+ await atlas.evaluate(a=>a.addEventListener('click',()=>{a.dataset.observed=window.lab.frame.storyForest.beat},{once:true}));
+ const [preview]=await Promise.all([page.waitForEvent('popup'),atlas.click()]);
+ const beat=Number(await atlas.getAttribute('data-observed'));
+ await preview.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===4096);
+ assert.equal(Number(new URL(preview.url()).searchParams.get('beat')),beat);
+ assert.equal(await preview.locator('#forestPreview input').inputValue(),String(beat));
+ await preview.close();
+ await page.keyboard.press('Escape');
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
  await inspect(855,'右の石像を調べる');
  await progress(2);
+ await page.waitForFunction(()=>document.querySelectorAll('#forestSketches a').length===2);
+ assert.equal(await sketches.getByText('水面に映った化け狸').count(),0);
  await walk(1240);
  await through(water);
  await walk(445);
@@ -135,6 +156,15 @@ try{
  await page.locator('#loadProgress').click();
  await current(port);
  assert.equal((await frame()).storyLanternNote.challenge,true);
+ await page.locator('#storyLanternNotes summary').click();
+ await sketches.nth(2).waitFor();
+ assert.deepEqual(await sketches.allTextContents(),['木の実のそばの足跡','宙に浮く石像','水面に映った化け狸']);
+ await page.locator('#forestSketches').screenshot({path:'evidence/inazuma-forest-sketches.png'});
+ const [gatePage]=await Promise.all([page.waitForEvent('popup'),link.click()]);
+ const gateSelect=gatePage.locator('#gatePreview select');
+ await gateSelect.waitFor();
+ assert.equal(await gateSelect.locator('option:checked').getAttribute('data-to'),shore);
+ await gatePage.close();
  await reachTown();
  await walk(940);
  await through(shore);
@@ -145,7 +175,8 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/inazuma-m02-browser.json',JSON.stringify({
   browser:'Chrome', actual_controls:true, one_time_return:true, three_clues_and_retry:true,
-  forest_combat_and_guest:true, port_report_and_restore:true, coastal_shortcut:true, viewport_390:true, errors
+  forest_combat_and_guest:true, port_report_and_restore:true, coastal_shortcut:true, viewport_390:true,
+  entryAndLoopLinks:true,atlasStatuePhase:beat,restoredExitPreview:shore,restoredSketchCount:3,errors
  },null,2)+'\n');
  console.log('Inazuma M02 Chrome maze, combat, report and coastal shortcut passed');
 }catch(error){

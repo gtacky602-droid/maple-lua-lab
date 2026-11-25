@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## 三つ灯籠の広場の見比べ
+
+化け狸の森では鳥居を一度くぐると広場の様子が変わる。依頼手帳またはM地図の「広場の様子を見る」で現在の段階を開ける。石像の部屋で開くと直前の動きから始まり、スライダーを動かすと元背景と圧縮背景が同じコマを表示する。正解した手掛かりは順にみちくさ帳へ入り、海岸への近道が開いた後も読み返せる。[石像の動きを見比べる](http://127.0.0.1:9117/map-art.html?node=inazuma-torii-statues&placements=live&forest=search&beat=15&compare=background&tier=4096) ／ [3部屋の比較画像](evidence/inazuma-torii-clues.png)
+
+足跡・灯籠・石像など7つの図柄を共用し、石像は台座と本体を分けて同じ絵を動かす。Lv40の離島到着から3部屋でヒントと誤答を試して海岸へ抜け、報告まで進行。石像の60コマは冒険中のLua描画と照合した。[進行記録](evidence/torii-earned-route.json) ／ [背景5段階での画素検査](evidence/torii-preview-pixels.json)
+
+比較画面の「3部屋の小物データ量を比較」で、同じ配置を二通りで保存した場合の容量を見られる。三つの部屋と初回の広場を合わせて、矩形を全部書くと4,372 B、7図柄を共用すると2,257 B。石像の動きと手帳の位置は両方に含めた。[サイズの実測](evidence/torii-layout-size.json)
+
 ## 稲妻城下で絵図に残す景色
 
 綾華の依頼「絵図にない、ひとつの景色」で桜並木・海の坂・屋根越しの高台を調べ、最後に橋へ行く。好きな景色に印を付けると、みちくさ帳に挿絵が残る。手帳の「この景色を地図で見る」で同じ場所を再訪表示できる。[桜並木を背景比較で開く](http://127.0.0.1:9117/map-art.html?placements=live&node=inazuma-town&quest=ayaka-join&worksite=sakura&compare=background&tier=4096) ／ [4地点の比較](evidence/inazuma-sightbook-comparison.png)

@@ -1,5 +1,6 @@
 import {drawHuntMarker} from './hunt-guide.js';
 import {surveyPointUrl} from './survey-point.js';
+import {forestSketches} from './forest-preview.js';
 import {initSaveTransfer} from './save-transfer.js';
 import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
@@ -253,17 +254,21 @@ function updateConstruction(view){
   row.append(button,detail);plans.append(row);
  }
 }
-let sightArt;
+let propArt;
+function loadPropArt(){
+ if(!propArt)propArt=fetch('content/worksite-props.json').then(response=>{
+  if(!response.ok)throw Error(String(response.status));
+  return response.json();
+ }).catch(()=>{propArt=null;return null});
+ return propArt;
+}
 function sightPicture(id){
  const canvas=document.createElement('canvas');
  canvas.className='sight-picture';canvas.width=216;canvas.height=78;
  canvas.setAttribute('aria-hidden','true');
- if(!sightArt)sightArt=fetch('content/worksite-props.json').then(response=>{
-  if(!response.ok)throw Error(String(response.status));
-  return response.json();
- }).then(data=>data.worksites['ayaka-join']).catch(()=>{sightArt=null;return {}});
- sightArt.then(art=>{
-  if(!art[id])return;
+ loadPropArt().then(data=>{
+  const art=data?.worksites['ayaka-join'];
+  if(!art?.[id])return;
   const ctx=canvas.getContext('2d');
   ctx.fillStyle='#eadbb8';ctx.fillRect(0,0,canvas.width,canvas.height);
   for(const [dx,dy,w,h,color] of art[id]){
@@ -293,9 +298,20 @@ function updateSights(f){
  }));
 }
 let lanternNote='';
-function updateLanternNote(note,sight){
- const panel=$('storyLanternNotes');
- panel.hidden=!(note||sight);
+function updateLanternNote(note,sight,maze){
+ const panel=$('storyLanternNotes'),sketches=$('forestSketches');
+ const count=maze?.forest?Math.min(3,maze.count):0;
+ panel.hidden=!(note||sight||count);
+ if(sketches.dataset.count!==String(count)){
+  sketches.dataset.count=String(count);
+  sketches.hidden=!count;
+  const links=sketches.querySelector('div');links.replaceChildren();
+  if(count)loadPropArt().then(data=>{
+   if(data?.forest&&sketches.dataset.count===String(count)){
+    links.replaceChildren();forestSketches(links,data.forest,count);
+   }
+  });
+ }
  $('storyLanternEntry').hidden=!note;
  const sightLabel=$('storySightNote');
  const text=sight?`城下の案内絵図で「${sight.name}」に印を付けた。`:'';
@@ -425,7 +441,7 @@ function hud(f,calls,renderMs){
  updateStone(f.storyStone);
  updateConstruction(f.storyConstruction);
  updateSights(f);
- updateLanternNote(f.storyLanternNote,f.storySightNote);
+ updateLanternNote(f.storyLanternNote,f.storySightNote,f.story?.quests?.['inazuma-torii-maze']);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
  const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyWandererSurvey?.message??f.storyObservationVisitors?.message??f.storyColleiGuide?.message??f.storyKavehRoom?.message??f.storyNahidaDiscovery?.message??f.storyEmilieScent?.message??f.storyNaviaPhoto?.message??f.storyIansan?.message??f.storySpringCourse?.message??f.storyKinichHunt?.message??f.storySurf?.message??f.storyToyDive?.message??f.storyDiveExhibit?.message??f.storyLyneyMagic?.message??f.storyFurinaFinale?.message??(!f.storyFurinaRehearsal?.open?f.storyFurinaRehearsal?.message:undefined)??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;

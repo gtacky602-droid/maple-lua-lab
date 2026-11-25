@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from runtime import LuaRuntime
+from runtime import LuaRuntime, native
 
 def rectangles(draws):
     runs=[]
@@ -49,6 +49,20 @@ def haul_routes(lua,quest):
         routes[plan['route']]=dict(fixed=fixed,deck=deck,stops=samples)
     return dict(cart=cart,routes=routes)
 
+def forest_rooms(lua,quest):
+    forest=lua.execute((ROOT/'story-forest.lua').read_text('utf8'))(lua.table())
+    rooms={}
+    notes=[]
+    for index,room in enumerate(quest['forest']['rooms']):
+        data=lua.table_from(room,recursive=True)
+        stages={'search':native(forest.arrangement(data,True,False))}
+        if index==0:
+            stages['entry']=native(forest.arrangement(data,False,False))
+        rooms[room['node']]=stages
+        notes.append(dict(node=room['node'],kind=room['kind'],x=forest.revealX(data)))
+    offsets=[forest.offset(beat) for beat in range(forest.beats)]
+    return dict(motifs=native(forest.motifs),rooms=rooms,offsets=offsets,notes=notes)
+
 def build():
     lua=LuaRuntime(unpack_returned_tuples=True)
     graph=json.loads((ROOT/'content/story-graph.json').read_bytes())
@@ -86,7 +100,8 @@ def build():
             art[item['id']]=runs
         props[q['id']]=art
     quest=next(q for q in graph['quests'] if q['kind']=='construction')
-    return dict(worksites=props,haul=haul_routes(lua,quest))
+    forest_quest=next(q for q in graph['quests'] if q.get('forest'))
+    return dict(worksites=props,haul=haul_routes(lua,quest),forest=forest_rooms(lua,forest_quest))
 
 if __name__=='__main__':
     output=ROOT/'content/worksite-props.json'

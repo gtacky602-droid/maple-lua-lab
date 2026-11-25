@@ -127,6 +127,7 @@ act('story_collect')
 cross_all(town, road, port)
 report(lantern)
 
+(work/'forest-earned-start.json').write_text(json.dumps(validate_save(native(core.checkpoint(state)))),encoding='utf8')
 maze = 'inazuma-torii-maze'
 q = accept(maze)
 prints, statues, water, thicket = ('inazuma-torii-footprints', 'inazuma-torii-statues',
@@ -136,7 +137,38 @@ near(1240)
 act('story_nearby_portal')
 guides.expect(frame(),maze,absent=True)
 assert state.story.node == prints and q.forest.looped
+forest_art=read('content/worksite-props.json')['forest']
+def check_room_art():
+    near(670)
+    node=state.story.node
+    scene=forest_art['rooms'][node]['search']
+    moving=any(len(p)>3 for p in scene)
+    checked=set()
+    for _ in range(150):
+        f=frame()
+        beat=f.storyForest.beat if moving else 0
+        if beat not in checked:
+            expected=[]
+            for name,x,y,*motion in scene:
+                offset=forest_art['offsets'][beat] if motion else 0
+                expected.extend((x-f.camera+dx,y+offset+dy,w,h,color)
+                                for dx,dy,w,h,color in forest_art['motifs'][name])
+            drawn=[(r.x,r.y,r.w,r.h,r.color) for r in f.draws.values() if r.kind=='rect']
+            assert any(drawn[i:i+len(expected)]==expected for i in range(len(drawn))), (node,beat)
+            checked.add(beat)
+            if len(checked)==(len(forest_art['offsets']) if moving else 1):
+                return dict(node=node,phases=len(checked),rectangles=len(expected))
+        step()
+    raise AssertionError((node,checked))
+
+forest_clues=[]
 for count, x, stage in [(1, 485, statues), (2, 855, water), (3, 485, thicket)]:
+    art_check=check_room_art()
+    collect(245)
+    assert q.count==count-1 and '綾華' in frame().storyForest.message
+    collect(855 if x==485 else 485)
+    assert q.count==count-1 and 'もう一方' in frame().storyForest.message
+    forest_clues.append(dict(**art_check,hintAndRetry=True))
     collect(x)
     assert q.count == count
     trail.cross(stage)
@@ -149,6 +181,10 @@ collect(1280)
 cross_all(shore, town, road, port)
 report(maze)
 guides.expect(frame(),maze,absent=True)
+assert q.status=='complete' and q.cycles==1
+(ROOT/'evidence/torii-earned-route.json').write_text(json.dumps(dict(
+    startLevel=checkpoint['progression']['level'],rooms=forest_clues,coast=shore,report=milestones[-1]),
+    ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 guides.save()
 
 contest, cave, cape = 'inazuma-lantern-contest', 'inazuma-sea-cave', 'inazuma-shiomi-cape'
