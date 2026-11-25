@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-17",
+  "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
   "all_bosses_scope": "all normal + all weekly + original Stygian encounters; explicit user confirmation 2026-11-16",
@@ -8186,7 +8186,7 @@
     "lua_evidence": "evidence/earned-highland-quests-lua.json",
     "browser_carrier_evidence": "evidence/earned-ochka-carrier-browser.json"
   },
-  "current_priority": "Cross-check remaining traveler and companion hit timings, effects and visual cues against the authored scope and test them in earned-save encounters.",
+  "current_priority": "Build the remaining field and boss settings, link their entrances and quest objectives, and verify travel and saved progress in Lua. Detailed move design is in the separate design chat.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -11742,6 +11742,13 @@
     "route_review": "design/world/atlas-route-plan.json"
   },
   "optional_legend_coverage": {
+    "scenery_and_quest_checks": {
+      "five_tier_coverage": "evidence/scenery-download-tiers.json",
+      "coverage_key": "locationCoverage.localLegends",
+      "natlan_night_trials": "evidence/earned-night-trials.json",
+      "natlan_toyac_encounters": "evidence/earned-toyac-legends.json",
+      "natlan_toyac_quest_views": "evidence/toyac-legend-arenas-browser.json"
+    },
     "opening_placement_checks": {
       "matched_stages": 56,
       "pending_stages": [],

@@ -54,7 +54,8 @@
     "field-final-arenas-native-backgrounds.lua": "1434d2d9eba78084f7209d05889fc6023fa26d79f808f116e433f296d27542f2",
     "fontaine-water-legends-native-backgrounds.lua": "8add559573e652547295ed20320501b31955f9fab624317d0a60ca270c822fc9",
     "fontaine-land-legends-native-backgrounds.lua": "efdb57b0322d644469331a3a815c04b81b01888878058e14486738fc5faffb48",
-    "natlan-night-trials-native-backgrounds.lua": "805f88522a1f6be02a51d71533aba015a51d6842dcd7535d86b2bbbed1ee6098"
+    "natlan-night-trials-native-backgrounds.lua": "805f88522a1f6be02a51d71533aba015a51d6842dcd7535d86b2bbbed1ee6098",
+    "natlan-toyac-legends-native-backgrounds.lua": "75190893edcf455561bad31f59bc98256bd258fdd35d05e6d3b8e04fcc2cd6f1"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -10902,6 +10903,154 @@
         "minDecodeMs": 30.04,
         "maxDecodeMs": 40.13,
         "medianRetainedLuaKiB": 1172.6
+      }
+    },
+    "tepeakak-sappho-bank": {
+      "4096": {
+        "fileBytes": 18941,
+        "medianDecodeMs": 19.04,
+        "minDecodeMs": 16.95,
+        "maxDecodeMs": 20.76,
+        "medianRetainedLuaKiB": 796.9
+      },
+      "4608": {
+        "fileBytes": 22517,
+        "medianDecodeMs": 21.6,
+        "minDecodeMs": 19.71,
+        "maxDecodeMs": 39.77,
+        "medianRetainedLuaKiB": 940.6
+      },
+      "5120": {
+        "fileBytes": 26000,
+        "medianDecodeMs": 24.25,
+        "minDecodeMs": 22.84,
+        "maxDecodeMs": 29.84,
+        "medianRetainedLuaKiB": 1023.9
+      },
+      "5632": {
+        "fileBytes": 29454,
+        "medianDecodeMs": 27.94,
+        "minDecodeMs": 22.35,
+        "maxDecodeMs": 30.36,
+        "medianRetainedLuaKiB": 1107.9
+      },
+      "6144": {
+        "fileBytes": 31472,
+        "medianDecodeMs": 29.91,
+        "minDecodeMs": 23.78,
+        "maxDecodeMs": 31.7,
+        "medianRetainedLuaKiB": 1195.7
+      }
+    },
+    "toyac-cocijo-stone-ring": {
+      "4096": {
+        "fileBytes": 18852,
+        "medianDecodeMs": 16.36,
+        "minDecodeMs": 15.46,
+        "maxDecodeMs": 18.56,
+        "medianRetainedLuaKiB": 796.0
+      },
+      "4608": {
+        "fileBytes": 22440,
+        "medianDecodeMs": 21.03,
+        "minDecodeMs": 15.83,
+        "maxDecodeMs": 28.7,
+        "medianRetainedLuaKiB": 939.5
+      },
+      "5120": {
+        "fileBytes": 25915,
+        "medianDecodeMs": 21.71,
+        "minDecodeMs": 18.8,
+        "maxDecodeMs": 25.03,
+        "medianRetainedLuaKiB": 1023.3
+      },
+      "5632": {
+        "fileBytes": 29367,
+        "medianDecodeMs": 24.7,
+        "minDecodeMs": 22.2,
+        "maxDecodeMs": 30.24,
+        "medianRetainedLuaKiB": 1107.0
+      },
+      "6144": {
+        "fileBytes": 31395,
+        "medianDecodeMs": 26.35,
+        "minDecodeMs": 22.11,
+        "maxDecodeMs": 37.01,
+        "medianRetainedLuaKiB": 1190.5
+      }
+    },
+    "toyac-balachko-inner-cave": {
+      "4096": {
+        "fileBytes": 17579,
+        "medianDecodeMs": 17.63,
+        "minDecodeMs": 13.15,
+        "maxDecodeMs": 18.94,
+        "medianRetainedLuaKiB": 791.7
+      },
+      "4608": {
+        "fileBytes": 21017,
+        "medianDecodeMs": 20.44,
+        "minDecodeMs": 16.35,
+        "maxDecodeMs": 24.91,
+        "medianRetainedLuaKiB": 933.7
+      },
+      "5120": {
+        "fileBytes": 24328,
+        "medianDecodeMs": 24.27,
+        "minDecodeMs": 21.54,
+        "maxDecodeMs": 31.33,
+        "medianRetainedLuaKiB": 1016.4
+      },
+      "5632": {
+        "fileBytes": 27644,
+        "medianDecodeMs": 25.76,
+        "minDecodeMs": 17.54,
+        "maxDecodeMs": 29.44,
+        "medianRetainedLuaKiB": 1098.6
+      },
+      "6144": {
+        "fileBytes": 29672,
+        "medianDecodeMs": 28.01,
+        "minDecodeMs": 21.85,
+        "maxDecodeMs": 34.89,
+        "medianRetainedLuaKiB": 1180.9
+      }
+    },
+    "toyac-electro-crystal-shore": {
+      "4096": {
+        "fileBytes": 18860,
+        "medianDecodeMs": 18.43,
+        "minDecodeMs": 16.28,
+        "maxDecodeMs": 24.94,
+        "medianRetainedLuaKiB": 796.1
+      },
+      "4608": {
+        "fileBytes": 22448,
+        "medianDecodeMs": 18.94,
+        "minDecodeMs": 16.64,
+        "maxDecodeMs": 22.97,
+        "medianRetainedLuaKiB": 939.8
+      },
+      "5120": {
+        "fileBytes": 25905,
+        "medianDecodeMs": 23.19,
+        "minDecodeMs": 21.54,
+        "maxDecodeMs": 30.46,
+        "medianRetainedLuaKiB": 1023.5
+      },
+      "5632": {
+        "fileBytes": 29347,
+        "medianDecodeMs": 24.86,
+        "minDecodeMs": 20.19,
+        "maxDecodeMs": 48.47,
+        "medianRetainedLuaKiB": 1107.4
+      },
+      "6144": {
+        "fileBytes": 31455,
+        "medianDecodeMs": 25.65,
+        "minDecodeMs": 24.82,
+        "maxDecodeMs": 76.63,
+        "medianRetainedLuaKiB": 1195.3
       }
     }
   }

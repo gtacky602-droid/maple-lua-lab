@@ -1,0 +1,174 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "sappho-reed-bank-background-v1.png": {
+      "sourceBytes": 940699,
+      "sourceSha256": "982a9481fdf3b73d3f98873f10d6c818e977c4385960df11840411f6bc7c0315",
+      "preview": "sappho-reed-bank-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18847,
+      "baseSelectedBytes": 18835,
+      "detailFixed13Bytes": 12541,
+      "detailSelectedBytes": 12533,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 11.758095070167824,
+          "rgbSha256": "6f0f1f4b6975e6c2bb86e8c29eeec766e4b6003f707983fba66805c8254eee22"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 10.987551088686343,
+          "rgbSha256": "4238b828deb427f637b34b9450d056de1454dae8f2a383fbb2015a9b38eccc66"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 10.38054515697338,
+          "rgbSha256": "871864ec4bda730b391bf82b7fba50267d3d79220e8015bb13ebcbae095a4e94"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 9.852249710648149,
+          "rgbSha256": "c37d52186a0b25a488cc0d366a6aea88966aeba417a26419c4f4480705308569"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 9.40204761646412,
+          "rgbSha256": "824a45eadffbbd1cd064a89e7f39a2048c9c9f4242f1cbf7170a2c801a0badc3"
+        }
+      ]
+    },
+    "cocijo-stone-ring-background-v1.png": {
+      "sourceBytes": 786251,
+      "sourceSha256": "e6eb72ddf2ad07274826c373af22df0a6974fa390807c5c21f13271183bd583e",
+      "preview": "cocijo-stone-ring-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18761,
+      "baseSelectedBytes": 18745,
+      "detailFixed13Bytes": 12557,
+      "detailSelectedBytes": 12545,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.769359447337964,
+          "rgbSha256": "129f1cd0a688dcc5d3bf3e2562ec9f648ab2590e5adc9fff1a00c3cb6a77bf31"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.094217936197916,
+          "rgbSha256": "e3c4fad01716ab9256c4ca78ebea67e37903e7fda15d762f5a01c3f103b74485"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.58374927662037,
+          "rgbSha256": "352d0871a4f4d619ea11fd09c11264b403bdf7c30c32e87397cfb619a2730e10"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.142677589699074,
+          "rgbSha256": "302d085a1c2dff4f24f926ee3bd7275a33b557f7a0793c01370f62900eee38c0"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.7620668764467595,
+          "rgbSha256": "e00c3cd59fcc7f728a42e14ffe5281b1c0adc360e3572b4691459137561ecac9"
+        }
+      ]
+    },
+    "balachko-grate-chamber-background-v1.png": {
+      "sourceBytes": 655627,
+      "sourceSha256": "45651d8102ecd513da671b572532a47840a4db5d7cb4ea268636451444e05e0b",
+      "preview": "balachko-grate-chamber-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17483,
+      "baseSelectedBytes": 17467,
+      "detailFixed13Bytes": 12105,
+      "detailSelectedBytes": 12095,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.035524721498843,
+          "rgbSha256": "5c75a1de7280d58bdef65ec95490bd8d1e34e02911d3be32e99c2cfa91bbb0dc"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.60253002025463,
+          "rgbSha256": "bbf681775367a3469278ebff448d03b0bd091453abcd5e1e4fbb546ba3cd59a6"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.284023708767361,
+          "rgbSha256": "334fdab25f3cca0dfb6fd9cc5be7c43f222d4f816e3448dee9d4c41c0c40a298"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.012528030960648,
+          "rgbSha256": "27d1d5bc4961288f62209844acc19b10e92b4d8b70551522a62db8b7ef86a343"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.772255226417824,
+          "rgbSha256": "7a1b76ce9f1ad10d6a3e32e2e8d2665dba05b2cce0e79333d2e682208b372f11"
+        }
+      ]
+    },
+    "toyac-shallow-shore-background-v1.png": {
+      "sourceBytes": 771621,
+      "sourceSha256": "e96e60714d1aac7eedf69ce15aaff13a083810e773a53af0d28472d34ce3bdec",
+      "preview": "toyac-shallow-shore-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18767,
+      "baseSelectedBytes": 18751,
+      "detailFixed13Bytes": 12609,
+      "detailSelectedBytes": 12597,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.080796983506945,
+          "rgbSha256": "fd6ab4c8f4a7e8e58aa0f25e1c2aefc51ece8155836a29594eef546617723549"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.4316225405092595,
+          "rgbSha256": "33dba6863ab3c1416be682e8cb2298ddb22af4e46f081234b1474ba957866719"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.940461335358797,
+          "rgbSha256": "fffe9ce08e5667b9dafea81c754288223dc27c244b2e9ac1a8cbd6939da8296b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.518830475983797,
+          "rgbSha256": "a8bc7ec3658ae7fa1aa7c064dfbb65ddad7255d403d12a2252e1a8cf6c0be3ec"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.160997178819445,
+          "rgbSha256": "a87b57b6f1656ecf7fa724f1449790aae4d5650799ac3456988ae0c0a8a5ee52"
+        }
+      ]
+    }
+  }
+}

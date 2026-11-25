@@ -1,0 +1,450 @@
+{
+  "results": [
+    {
+      "node": "tepeakak-sappho-bank",
+      "source": "sappho-reed-bank-background-v1.png",
+      "records": [
+        {
+          "rectangles": 4096,
+          "bytes": 18941
+        },
+        {
+          "rectangles": 4608,
+          "bytes": 22517
+        },
+        {
+          "rectangles": 5120,
+          "bytes": 26000
+        },
+        {
+          "rectangles": 5632,
+          "bytes": 29454
+        },
+        {
+          "rectangles": 6144,
+          "bytes": 31472
+        }
+      ],
+      "visuals": [
+        {
+          "id": "legend-natlan_sappho",
+          "source": "natlan-first-legend-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 109
+        }
+      ]
+    },
+    {
+      "node": "toyac-cocijo-stone-ring",
+      "source": "cocijo-stone-ring-background-v1.png",
+      "records": [
+        {
+          "rectangles": 4096,
+          "bytes": 18852
+        },
+        {
+          "rectangles": 4608,
+          "bytes": 22440
+        },
+        {
+          "rectangles": 5120,
+          "bytes": 25915
+        },
+        {
+          "rectangles": 5632,
+          "bytes": 29367
+        },
+        {
+          "rectangles": 6144,
+          "bytes": 31395
+        }
+      ],
+      "visuals": [
+        {
+          "id": "legend-natlan_cocijo",
+          "source": "natlan-toyac-legend-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 98
+        }
+      ]
+    },
+    {
+      "node": "toyac-balachko-inner-cave",
+      "source": "balachko-grate-chamber-background-v1.png",
+      "records": [
+        {
+          "rectangles": 4096,
+          "bytes": 17579
+        },
+        {
+          "rectangles": 4608,
+          "bytes": 21017
+        },
+        {
+          "rectangles": 5120,
+          "bytes": 24328
+        },
+        {
+          "rectangles": 5632,
+          "bytes": 27644
+        },
+        {
+          "rectangles": 6144,
+          "bytes": 29672
+        }
+      ],
+      "visuals": [
+        {
+          "id": "legend-natlan_balachko",
+          "source": "natlan-toyac-legend-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 112
+        }
+      ]
+    },
+    {
+      "node": "toyac-electro-crystal-shore",
+      "source": "toyac-shallow-shore-background-v1.png",
+      "records": [
+        {
+          "rectangles": 4096,
+          "bytes": 18860
+        },
+        {
+          "rectangles": 4608,
+          "bytes": 22448
+        },
+        {
+          "rectangles": 5120,
+          "bytes": 25905
+        },
+        {
+          "rectangles": 5632,
+          "bytes": 29347
+        },
+        {
+          "rectangles": 6144,
+          "bytes": 31455
+        }
+      ],
+      "visuals": []
+    }
+  ],
+  "phases": {
+    "toyac-rainbow-key-cave": [
+      {
+        "camera": 0,
+        "checked": [
+          {
+            "index": 0,
+            "id": "png",
+            "differing": 0,
+            "changed": 1276
+          },
+          {
+            "index": 0,
+            "id": "rect",
+            "differing": 0,
+            "changed": 1276
+          },
+          {
+            "index": 1,
+            "id": "png",
+            "differing": 0,
+            "changed": 153
+          },
+          {
+            "index": 1,
+            "id": "rect",
+            "differing": 0,
+            "changed": 153
+          },
+          {
+            "index": 2,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 2,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 3,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 3,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          }
+        ]
+      },
+      {
+        "camera": 560,
+        "checked": [
+          {
+            "index": 0,
+            "id": "png",
+            "differing": 0,
+            "changed": 5220
+          },
+          {
+            "index": 0,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5220
+          },
+          {
+            "index": 1,
+            "id": "png",
+            "differing": 0,
+            "changed": 5373
+          },
+          {
+            "index": 1,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5373
+          },
+          {
+            "index": 2,
+            "id": "png",
+            "differing": 0,
+            "changed": 5220
+          },
+          {
+            "index": 2,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5220
+          },
+          {
+            "index": 3,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 3,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          }
+        ]
+      }
+    ],
+    "toyac-electro-crystal-shore": [
+      {
+        "camera": 0,
+        "checked": [
+          {
+            "index": 0,
+            "id": "png",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 0,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 1,
+            "id": "png",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 1,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 2,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 2,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 3,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 3,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 4,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 4,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 5,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 5,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 6,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 6,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 7,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 7,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          }
+        ]
+      },
+      {
+        "camera": 580,
+        "checked": [
+          {
+            "index": 0,
+            "id": "png",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 0,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 1,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 1,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 2,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 2,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 3,
+            "id": "png",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 3,
+            "id": "rect",
+            "differing": 0,
+            "changed": 5358
+          },
+          {
+            "index": 4,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 4,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 5,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 5,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 6,
+            "id": "png",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 6,
+            "id": "rect",
+            "differing": 0,
+            "changed": 2679
+          },
+          {
+            "index": 7,
+            "id": "png",
+            "differing": 0,
+            "changed": 0
+          },
+          {
+            "index": 7,
+            "id": "rect",
+            "differing": 0,
+            "changed": 0
+          }
+        ]
+      }
+    ]
+  }
+}

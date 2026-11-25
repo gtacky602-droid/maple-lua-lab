@@ -1,5 +1,7 @@
 # Luaラボの「旅路の地図」
 
+[電気水晶の岸辺](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-electro-crystal-shore)で「破壊済みの電気水晶」にチェックを入れると、その水晶が左右両方で消える。[二つの鍵の洞窟](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-rainbow-key-cave)では依頼の段階を選ぶと、次の鍵や格子にカメラが移る。どちらも会場リンクから、同じ画質でボスの開幕を見られる。
+
 ナタの黒曜石の柱と試練場は、[夜魂の試練12会場の比較](http://127.0.0.1:9117/map-art.html?node=night-trial-undead&arena=nightTrial&placements=live&compare=background&tier=4096)で見られる。比較画面のリンクを押すと、選んだ画質を保って入口と試練場を切り替える。本編では現地の柱から入場する。
 
 [ローカルLuaラボ](http://127.0.0.1:8989/)で「本編ルートへ」を押し、Mキーか「地図」ボタンで開く。地図の印を押すか、地名・ボス名・Lvで検索して目的地を選ぶ。「現在地からの道順」に、途中で通る門や乗り物が順に表示される。地図上では同じ地域・階層にある区間が金色で光る。通行にLvや依頼の進行が必要な場合は、その条件が出る。EscかMで地図を閉じると冒険を再開する。技3はIキー。

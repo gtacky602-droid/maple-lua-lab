@@ -5,6 +5,7 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
+const roster=JSON.parse(await fs.readFile('content/field-boss-spawns.json','utf8')).fieldBosses;
 const bal={host:'sites-hunt-73160',work:'toyac-rainbow-key-cave',arena:'toyac-balachko-inner-cave',quest:'natlan-rainbow-cave-keys'};
 const coc={host:'nat-wp-77772',work:'toyac-electro-crystal-shore',arena:'toyac-cocijo-stone-ring',quest:'natlan-toyac-electro-crystals'};
 const source='natlan-toyac-legend-poses-source-v1.png';
@@ -52,7 +53,8 @@ async function guide({work,arena}){
 
 const read=()=>page.evaluate(source=>{
  const f=window.lab.frame;
- return {t:f.t,boss:f.fieldBoss,commands:f.commands,sprites:f.draws.filter(draw=>draw.source===source).length};
+ const {drawCount,...boss}=f.fieldBoss;
+ return {t:f.t,boss,drawCount,commands:f.commands,sprites:f.draws.filter(draw=>draw.source===source).length};
 },source);
 async function pause(value){
  await page.evaluate(()=>document.activeElement.blur());
@@ -63,8 +65,13 @@ async function face(direction){
  await drive.walk((await drive.actor()).x+direction*24);
 }
 async function compare(name){
- await drive.walk(685);
- await page.waitForFunction(()=>window.lab.frame.fieldBoss?.x===842);
+ const id='legend-natlan_'+name;
+ const boss=roster.find(b=>b.id===id);
+ await drive.walk(boss.home-340);
+ await page.waitForFunction(({id,source})=>{
+  const f=window.lab.frame;
+  return f.fieldBoss?.id===id&&f.draws.some(d=>d.source===source);
+ },{id,source});
  await pause(true);
  await page.evaluate(async source=>{
   const img=new Image();
@@ -81,10 +88,18 @@ async function compare(name){
  await mode.selectOption('h32c16');
  await page.waitForFunction(n=>window.lab.frame.commands<n,full.commands);
  const light=await read();
+ assert.ok(full.drawCount>light.drawCount&&light.drawCount>png.drawCount);
  assert.equal(light.t,png.t);
  assert.deepEqual(light.boss,png.boss);
  await canvas.screenshot({path:'evidence/natlan-'+name+'-16colors.png'});
- comparisons.push({name,pngCommands:png.commands,rectangleCommands:full.commands,lightCommands:light.commands});
+ const scene=await page.evaluate(async()=>{
+  const {sceneryStatus}=await import('./scenery.js');
+  const {key,file,state}=sceneryStatus(window.lab.frame);
+  return {key,file,state};
+ });
+ assert.equal(scene.key,name==='balachko'?'balachkoGrateChamber':'cocijoStoneRing');
+ assert.equal(scene.state,'ready');
+ comparisons.push({name,scene,pngCommands:png.commands,rectangleCommands:full.commands,lightCommands:light.commands});
  await mode.selectOption('sprite');
  await pause(false);
 }

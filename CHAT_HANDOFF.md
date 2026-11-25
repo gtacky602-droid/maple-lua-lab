@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## ナタ地上の地方伝説3戦と鍵・電気水晶
+
+[波のジャプーの演奏場](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=tepeakak-sappho-bank)、[コシーホの石広場](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-cocijo-stone-ring)、[バラチコの岩室](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-balachko-inner-cave)を、それぞれ川沿いの草地、湖畔の円形広場、格子奥の洞窟として描いた。コシーホに通じる[電気水晶の岸辺](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-electro-crystal-shore)にも独立した仮背景を追加した。4枚とも5段階で比較できる。ラボと別セッションのR103でMapleCodec.luaのSHA-256が一致した。4,096矩形で17,579～18,941バイト、6,144矩形で29,672～31,472バイト。[4地点の画像比較](evidence/toyac-legend-comparison.png)
+
+岸辺では左・中央・右の電気水晶を個別に切り替えられる。[二つの鍵の洞窟](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-rainbow-key-cave)では、一本目の鍵から解錠まで4段階を選べる。絵は本編Luaの描画命令から取得した。元背景と復号背景で、左右の画角から水晶8状態と鍵4状態の描画を照合した。[比較画面の検証記録](evidence/toyac-legend-arenas-browser.json)
+
+育成済みLv165から40区間を移動して3戦をクリアし、2依頼の報告とクリア記録を再読込で確認した。鍵を1本取った状態、水晶を1つ割った状態でも保存から再開できた。電気水晶は同じ途中セーブから全6順序を試し、3つ目を割るまでは石広場への道が開かないことを確認した。[移動・依頼・保存の記録](evidence/earned-toyac-legends.json) · [本編ブラウザで2会場の表示を確認](evidence/natlan-toyac-legends-browser.json)
+
 ## ナタの夜魂の試練12会場
 
 [夜魂の試練を見比べる](http://127.0.0.1:9117/map-art.html?node=night-trial-undead&arena=nightTrial&placements=live&compare=background&tier=4096)。会場名を選ぶと、左に元背景、右に指定した矩形数の背景が出る。どちらにも本編の敵を同じ位置・大きさで重ねる。黒曜石の柱へのリンクで入口と試練場を行き来できる。入口の地形は各地のまま、転送先だけが同じ夜の石舞台を使う。ラボ用の仮背景で、本番は3D配置を予定している。

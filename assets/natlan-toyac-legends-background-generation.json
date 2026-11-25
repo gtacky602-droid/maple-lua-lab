@@ -1,0 +1,42 @@
+{
+  "origin": "Four original lab backdrops for the overworld arenas and crystal approach.",
+  "sharedPrompt": "Original single wide 16:9 background painting for a side-scrolling pixel-art RPG in a lush volcanic fantasy region. Fixed horizontal side-on gameplay camera. Clear chunky pixel clusters in the tradition of classic hand-painted adventure-game backgrounds, controlled palette, three planes with clear silhouettes, a calm open stage in the center and simple horizontal walking surface at the bottom 10 to 12 percent. Avoid fine noise. No characters, animals, creatures, weapons, lettering, HUD, frames or panels.",
+  "scenes": [
+    {
+      "key": "sapphoReedBank",
+      "node": "tepeakak-sappho-bank",
+      "source": "sappho-reed-bank-background-v1.png",
+      "preview": "sappho-reed-bank-native-preview-v1.png",
+      "note": "テペアカク坂・ジャプーの演奏場のラボ用仮背景",
+      "surface": "grass",
+      "prompt": "A sun-warmed grass bank beside a shallow gently winding stream. Golden grasses and tall green reeds left, a few simple colorful woven cloths and an empty small gourd and woven stool off to the side hint that a wandering musician plays here. Warm terracotta cliffs in the rear, turquoise water and softly backlit trees. Intimate peaceful afternoon glade, no buildings."
+    },
+    {
+      "key": "cocijoStoneRing",
+      "node": "toyac-cocijo-stone-ring",
+      "source": "cocijo-stone-ring-background-v1.png",
+      "preview": "cocijo-stone-ring-native-preview-v1.png",
+      "note": "アメヤルコの水域・コシーホの石広場のラボ用仮背景",
+      "surface": "sandstone",
+      "prompt": "Open lake shore in bright tropical light, a broad low weathered circular stone fighting plaza inset into the shoreline viewed side on. Broken curved courses of thick ochre flagstones plainly describe a circular ring receding in perspective behind the walkable front; short clusters of purple electro crystal fragments at the far left margin only, still teal lake framed by sandstone bluffs and palm-like trees. Quiet rocky center."
+    },
+    {
+      "key": "balachkoGrateChamber",
+      "node": "toyac-balachko-inner-cave",
+      "source": "balachko-grate-chamber-background-v1.png",
+      "preview": "balachko-grate-chamber-native-preview-v1.png",
+      "note": "アメヤルコの水域・格子奥の岩室のラボ用仮背景",
+      "surface": "cavern",
+      "prompt": "Interior of a spacious basalt cavern hidden behind an iron grate. An open, rusted iron-bar door recessed far left, worn keyhole plate; large layered charcoal and warm copper rock shoulders framing a long dark quiet central niche, turquoise reflected light from shallow water on the right side, a small amber lamp near the door. Continuous flat weathered stone foreground. No sky, no outdoor view, no lava, no furniture in the center."
+    },
+    {
+      "key": "toyacShallowShore",
+      "node": "toyac-electro-crystal-shore",
+      "source": "toyac-shallow-shore-background-v1.png",
+      "preview": "toyac-shallow-shore-native-preview-v1.png",
+      "note": "アメヤルコの水域・電気水晶の岸辺のラボ用仮背景",
+      "surface": "sandstone",
+      "prompt": "The approach to a lake-side stone plaza, from a low shallow grotto. Turquoise tropical stream rippling over flat ochre ledges, dark cave mouth at the far left, an old square sandstone pillar in the middle distance, rounded boulders and a glimpse of the distant low arena rim far right. Keep the three interactive crystal positions on the foreground shore completely empty; no crystals or gems painted anywhere. Low sandy terrace in front, tranquil afternoon light."
+    }
+  ]
+}

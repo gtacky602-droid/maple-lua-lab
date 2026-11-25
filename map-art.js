@@ -177,7 +177,7 @@ try{
   assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
   $('species').append(new Option(shadow.name,shadow.species));
  }
- const [mechanismScenes,legendScenes,fieldScenes,stygianScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json')]);
+ const [mechanismScenes,legendScenes,fieldScenes,stygianScenes,questPreviews]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json'),json('content/toyac-quest-previews.json')]);
  const trialScenes={...fieldScenes,...stygianScenes};
  const openings={...legendScenes,...trialScenes};
  const stepsByNode=new Map();
@@ -367,6 +367,25 @@ try{
    link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
    link.href='map-art.html?'+params;
   }
+  const questPreview=liveView&&questPreviews[n.id];
+  const stage=questPreview?.stages?.[Number($('questPropStage').value)];
+  if(stage){
+   if(n.breakTargets)$('crystalPreview').querySelector('output').textContent='残り '+stage.visible.length+' / '+n.breakTargets.length;
+   const gate=n.exits.find(e=>e.requires&&legendNames.has(e.to));
+   const link=$('questArenaLink');
+   link.hidden=!gate;
+   if(gate){
+    const params=new URLSearchParams(otherView);
+    params.set('placements','live');params.set('node',gate.to);
+    link.href='map-art.html?'+params;
+    link.textContent=nodes.get(gate.to).name+'を見る';
+   }
+  }
+  for(const link of $('legendAccess').querySelectorAll('a[data-node]')){
+   const params=new URLSearchParams(otherView);
+   params.set('placements','live');params.set('node',link.dataset.node);
+   link.href='map-art.html?'+params;
+  }
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
   loadComparisonImage(frame,background);
@@ -424,6 +443,11 @@ try{
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
+   if(stage){
+    for(const id of stage.visible){
+     for(const mark of questPreview.props[id])paintMechanismMark(ctx,mark,-camera,0,false);
+    }
+   }
    if(liveView && !subject.value){
     for(const mark of stygianScenes[n.id]?.stageMarks??[]){
      if(omitCombatDraw(mark))continue;
@@ -535,7 +559,7 @@ try{
   if(liveView && (legendNames.has(n.id)||n.exits.some(e=>e.nightTotem==='enter'))){
    for(const {from,quest,rule} of questGates.get(n.id)??[]){
     const item=document.createElement('li'),link=document.createElement('a');
-    link.href='map-art.html?'+new URLSearchParams({node:from.id,placements:'live'});
+    link.dataset.node=from.id;
     link.textContent=from.name;
     const condition=rule.count!=null
      ? 'から入るには、依頼「'+quest.name+'」を進めます。'+(rule.unavailableNotice??'目標を'+rule.count+'件達成してください。')
@@ -572,6 +596,34 @@ try{
   $('defenseCompareLink').hidden=n.id!=='apep-oasis-heart-arena';
   camera.max=Math.max(0,n.width-960);
   camera.value=0;
+  const preview=liveView&&questPreviews[n.id],stageSelect=$('questPropStage');
+  $('questPropPreview').hidden=!preview;
+  stageSelect.replaceChildren();
+  const crystals=$('crystalPreview'),targets=preview&&n.breakTargets;
+  crystals.hidden=!targets;
+  $('questStageControl').hidden=Boolean(targets);
+  const switches=crystals.querySelector('span');
+  switches.replaceChildren();
+  if(targets){
+   const points=[...targets].sort((a,b)=>a.x-b.x);
+   for(const [index,point] of points.entries()){
+    const label=document.createElement('label'),input=document.createElement('input');
+    input.type='checkbox';input.value=String(point.entity);
+    label.append(input,points.length===3?['左','中央','右'][index]:String(index+1));switches.append(label);
+    input.onchange=()=>{
+     const remaining=[...switches.querySelectorAll('input:not(:checked)')].map(i=>i.value);
+     const index=preview.stages.findIndex(s=>s.visible.length===remaining.length&&remaining.every(id=>s.visible.includes(id)));
+     stageSelect.value=String(index);
+     camera.value=point.x-480;
+     render();
+    };
+   }
+  }
+  if(preview){
+   for(const [index,stage] of preview.stages.entries())stageSelect.add(new Option(stage.label,String(index)));
+   stageSelect.value='0';
+   camera.value=preview.stages[0].focusX-480;
+  }
   if(liveView){
    liveItems=[];liveError='';
    try{
@@ -593,6 +645,11 @@ try{
   }
   render();
  }
+ $('questPropStage').onchange=()=>{
+  const stage=questPreviews[node().id].stages[Number($('questPropStage').value)];
+  $('camera').value=stage.focusX-480;
+  render();
+ };
  function focusSubject(){
   const e=liveItems.find(e=>e.id===subject.value);
   if(e){

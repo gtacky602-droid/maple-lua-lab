@@ -8,7 +8,7 @@
     [
       "sites-hunt-73160",
       "toyac-rainbow-key-cave",
-      "walk"
+      "raised"
     ],
     [
       "toyac-rainbow-key-cave",
@@ -18,7 +18,7 @@
     [
       "sites-hunt-73160",
       "toyac-rainbow-key-cave",
-      "walk"
+      "raised"
     ],
     [
       "toyac-rainbow-key-cave",
@@ -69,15 +69,25 @@
   "comparisons": [
     {
       "name": "balachko",
-      "pngCommands": 19,
-      "rectangleCommands": 7575,
-      "lightCommands": 2013
+      "scene": {
+        "key": "balachkoGrateChamber",
+        "file": "balachko-grate-chamber-background-v1.png",
+        "state": "ready"
+      },
+      "pngCommands": 13,
+      "rectangleCommands": 7569,
+      "lightCommands": 2007
     },
     {
       "name": "cocijo",
-      "pngCommands": 14,
-      "rectangleCommands": 7908,
-      "lightCommands": 2144
+      "scene": {
+        "key": "cocijoStoneRing",
+        "file": "cocijo-stone-ring-background-v1.png",
+        "state": "ready"
+      },
+      "pngCommands": 9,
+      "rectangleCommands": 7521,
+      "lightCommands": 2096
     }
   ],
   "errors": []

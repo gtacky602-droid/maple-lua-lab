@@ -1,0 +1,493 @@
+{
+  "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+  "itineraries": [
+    {
+      "start": "natlan-hub",
+      "destination": "tepeakak-sappho-bank",
+      "stops": [
+        {
+          "id": "natlan-entry",
+          "mode": "walk",
+          "from": "natlan-hub",
+          "region": "region-06",
+          "name": "ナタ・地域の入口",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72413",
+          "mode": "walk",
+          "from": "natlan-entry",
+          "region": "region-06",
+          "name": "テケメカンの谷・東の岩尾根",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72414",
+          "mode": "walk",
+          "from": "nat-wp-72413",
+          "region": "region-06",
+          "name": "テケメカンの谷・東の谷へ入る坂",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72438",
+          "mode": "walk",
+          "from": "nat-wp-72414",
+          "region": "region-06",
+          "name": "テケメカンの谷・谷東の横道",
+          "label": "徒歩"
+        },
+        {
+          "id": "tepeakak-sappho-bank",
+          "mode": "walk",
+          "from": "nat-wp-72438",
+          "hint": "演奏が聞こえる横道へ",
+          "region": "region-06",
+          "name": "テペアカク坂・ジャプーの演奏場",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "tepeakak-sappho-bank",
+      "destination": "nat-wp-72438",
+      "stops": [
+        {
+          "id": "nat-wp-72438",
+          "mode": "walk",
+          "from": "tepeakak-sappho-bank",
+          "hint": "元の分岐に戻る",
+          "region": "region-06",
+          "name": "テケメカンの谷・谷東の横道",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "toyac-rainbow-key-cave",
+      "stops": [
+        {
+          "id": "natlan-field",
+          "mode": "walk",
+          "from": "natlan-hub",
+          "region": "region-06",
+          "name": "ナタ・岩場の道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72429",
+          "mode": "walk",
+          "from": "natlan-field",
+          "region": "region-06",
+          "name": "万火のほとぎ周辺・競技場の裏口",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-82575",
+          "mode": "walk",
+          "from": "nat-wp-72429",
+          "region": "region-06",
+          "name": "アトクパンの大地・東の森の門",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72421",
+          "mode": "walk",
+          "from": "nat-wp-82575",
+          "region": "region-06",
+          "name": "トヤック源泉地・湾西の細道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72422",
+          "mode": "walk",
+          "from": "nat-wp-72421",
+          "region": "region-06",
+          "name": "トヤック源泉地・源泉北の岩径",
+          "label": "徒歩"
+        },
+        {
+          "id": "sites-hunt-73160",
+          "mode": "walk",
+          "from": "nat-wp-72422",
+          "hint": "南西の秘境入口",
+          "region": "region-06",
+          "name": "南西の秘境周辺",
+          "label": "徒歩"
+        },
+        {
+          "id": "toyac-rainbow-key-cave",
+          "mode": "walk",
+          "from": "sites-hunt-73160",
+          "hint": "上段の入口・岩棚から二つの鍵の洞窟へ",
+          "region": "region-06",
+          "name": "アメヤルコの水域・二つの鍵の洞窟",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "toyac-rainbow-key-cave",
+      "stops": [
+        {
+          "id": "natlan-field",
+          "mode": "walk",
+          "from": "natlan-hub",
+          "region": "region-06",
+          "name": "ナタ・岩場の道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72429",
+          "mode": "walk",
+          "from": "natlan-field",
+          "region": "region-06",
+          "name": "万火のほとぎ周辺・競技場の裏口",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-82575",
+          "mode": "walk",
+          "from": "nat-wp-72429",
+          "region": "region-06",
+          "name": "アトクパンの大地・東の森の門",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72421",
+          "mode": "walk",
+          "from": "nat-wp-82575",
+          "region": "region-06",
+          "name": "トヤック源泉地・湾西の細道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72422",
+          "mode": "walk",
+          "from": "nat-wp-72421",
+          "region": "region-06",
+          "name": "トヤック源泉地・源泉北の岩径",
+          "label": "徒歩"
+        },
+        {
+          "id": "sites-hunt-73160",
+          "mode": "walk",
+          "from": "nat-wp-72422",
+          "hint": "南西の秘境入口",
+          "region": "region-06",
+          "name": "南西の秘境周辺",
+          "label": "徒歩"
+        },
+        {
+          "id": "toyac-rainbow-key-cave",
+          "mode": "walk",
+          "from": "sites-hunt-73160",
+          "hint": "上段の入口・岩棚から二つの鍵の洞窟へ",
+          "region": "region-06",
+          "name": "アメヤルコの水域・二つの鍵の洞窟",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "toyac-rainbow-key-cave",
+      "destination": "toyac-balachko-inner-cave",
+      "stops": [
+        {
+          "id": "toyac-balachko-inner-cave",
+          "mode": "walk",
+          "from": "toyac-rainbow-key-cave",
+          "hint": "格子の奥へ",
+          "region": "region-06",
+          "name": "アメヤルコの水域・格子奥の岩室",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "toyac-balachko-inner-cave",
+      "destination": "toyac-rainbow-key-cave",
+      "stops": [
+        {
+          "id": "toyac-rainbow-key-cave",
+          "mode": "walk",
+          "from": "toyac-balachko-inner-cave",
+          "hint": "鍵の洞窟へ戻る",
+          "region": "region-06",
+          "name": "アメヤルコの水域・二つの鍵の洞窟",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "toyac-electro-crystal-shore",
+      "stops": [
+        {
+          "id": "natlan-entry",
+          "mode": "walk",
+          "from": "natlan-hub",
+          "region": "region-06",
+          "name": "ナタ・地域の入口",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72413",
+          "mode": "walk",
+          "from": "natlan-entry",
+          "region": "region-06",
+          "name": "テケメカンの谷・東の岩尾根",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72415",
+          "mode": "walk",
+          "from": "nat-wp-72413",
+          "region": "region-06",
+          "name": "テケメカンの谷・南東の高台",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72416",
+          "mode": "walk",
+          "from": "nat-wp-72415",
+          "region": "region-06",
+          "name": "テケメカンの谷・段丘南の道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72417",
+          "mode": "walk",
+          "from": "nat-wp-72416",
+          "region": "region-06",
+          "name": "テケメカンの谷・南端の桟道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72420",
+          "mode": "walk",
+          "from": "nat-wp-72417",
+          "region": "region-06",
+          "name": "トヤック源泉地・源泉東の岬",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-77772",
+          "mode": "water",
+          "from": "nat-wp-72420",
+          "hint": "浅瀬の洞の水路・移動に2秒",
+          "region": "region-06",
+          "name": "トヤック源泉地・海の浅瀬の洞",
+          "label": "水路"
+        },
+        {
+          "id": "toyac-electro-crystal-shore",
+          "mode": "walk",
+          "from": "nat-wp-77772",
+          "hint": "上段の入口・上段の岩段から岸辺へ",
+          "region": "region-06",
+          "name": "アメヤルコの水域・電気水晶の岸辺",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "toyac-electro-crystal-shore",
+      "stops": [
+        {
+          "id": "natlan-entry",
+          "mode": "walk",
+          "from": "natlan-hub",
+          "region": "region-06",
+          "name": "ナタ・地域の入口",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72413",
+          "mode": "walk",
+          "from": "natlan-entry",
+          "region": "region-06",
+          "name": "テケメカンの谷・東の岩尾根",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72415",
+          "mode": "walk",
+          "from": "nat-wp-72413",
+          "region": "region-06",
+          "name": "テケメカンの谷・南東の高台",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72416",
+          "mode": "walk",
+          "from": "nat-wp-72415",
+          "region": "region-06",
+          "name": "テケメカンの谷・段丘南の道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72417",
+          "mode": "walk",
+          "from": "nat-wp-72416",
+          "region": "region-06",
+          "name": "テケメカンの谷・南端の桟道",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-72420",
+          "mode": "walk",
+          "from": "nat-wp-72417",
+          "region": "region-06",
+          "name": "トヤック源泉地・源泉東の岬",
+          "label": "徒歩"
+        },
+        {
+          "id": "nat-wp-77772",
+          "mode": "water",
+          "from": "nat-wp-72420",
+          "hint": "浅瀬の洞の水路・移動に2秒",
+          "region": "region-06",
+          "name": "トヤック源泉地・海の浅瀬の洞",
+          "label": "水路"
+        },
+        {
+          "id": "toyac-electro-crystal-shore",
+          "mode": "walk",
+          "from": "nat-wp-77772",
+          "hint": "上段の入口・上段の岩段から岸辺へ",
+          "region": "region-06",
+          "name": "アメヤルコの水域・電気水晶の岸辺",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "toyac-electro-crystal-shore",
+      "destination": "toyac-cocijo-stone-ring",
+      "stops": [
+        {
+          "id": "toyac-cocijo-stone-ring",
+          "mode": "walk",
+          "from": "toyac-electro-crystal-shore",
+          "hint": "石の広場へ",
+          "region": "region-06",
+          "name": "アメヤルコの水域・コシーホの石広場",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "toyac-cocijo-stone-ring",
+      "destination": "toyac-electro-crystal-shore",
+      "stops": [
+        {
+          "id": "toyac-electro-crystal-shore",
+          "mode": "walk",
+          "from": "toyac-cocijo-stone-ring",
+          "hint": "電気水晶の岸辺へ戻る",
+          "region": "region-06",
+          "name": "アメヤルコの水域・電気水晶の岸辺",
+          "label": "徒歩"
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "quest": "natlan-rainbow-cave-keys",
+      "xp": 590000,
+      "mora": 19500
+    },
+    {
+      "quest": "natlan-toyac-electro-crystals",
+      "xp": 365000,
+      "mora": 15400
+    }
+  ],
+  "battles": [
+    {
+      "node": "tepeakak-sappho-bank",
+      "targets": [
+        "legend-natlan_sappho"
+      ],
+      "xp": 10545,
+      "kills": 1
+    },
+    {
+      "node": "toyac-balachko-inner-cave",
+      "targets": [
+        "legend-natlan_balachko"
+      ],
+      "xp": 13923,
+      "kills": 1
+    },
+    {
+      "node": "toyac-cocijo-stone-ring",
+      "targets": [
+        "legend-natlan_cocijo"
+      ],
+      "xp": 13566,
+      "kills": 1
+    }
+  ],
+  "locks": [
+    {
+      "node": "toyac-rainbow-key-cave",
+      "target": "toyac-balachko-inner-cave",
+      "reason": "洞窟の鍵を2本集めて格子の錠を外してください。"
+    },
+    {
+      "node": "toyac-electro-crystal-shore",
+      "target": "toyac-cocijo-stone-ring",
+      "reason": "岸辺にある電気水晶を炎元素で3つ砕いてください。"
+    }
+  ],
+  "returns": 0,
+  "levelAtStart": 165,
+  "draftBalance": true,
+  "clearsAfterReload": {
+    "legend-natlan_sappho": 1,
+    "legend-natlan_balachko": 1,
+    "legend-natlan_cocijo": 1
+  },
+  "crystalOrders": [
+    [
+      "toyac-crystal-bank",
+      "toyac-crystal-pillar",
+      "toyac-crystal-ring"
+    ],
+    [
+      "toyac-crystal-bank",
+      "toyac-crystal-ring",
+      "toyac-crystal-pillar"
+    ],
+    [
+      "toyac-crystal-pillar",
+      "toyac-crystal-bank",
+      "toyac-crystal-ring"
+    ],
+    [
+      "toyac-crystal-pillar",
+      "toyac-crystal-ring",
+      "toyac-crystal-bank"
+    ],
+    [
+      "toyac-crystal-ring",
+      "toyac-crystal-bank",
+      "toyac-crystal-pillar"
+    ],
+    [
+      "toyac-crystal-ring",
+      "toyac-crystal-pillar",
+      "toyac-crystal-bank"
+    ]
+  ],
+  "partiallyCollectedAfterReload": [
+    "natlan-rainbow-cave-keys",
+    "natlan-toyac-electro-crystals"
+  ]
+}

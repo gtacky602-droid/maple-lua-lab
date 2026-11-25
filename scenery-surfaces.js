@@ -26,6 +26,16 @@ function surfaceTile(material, ground) {
       rect('#594167', 13 + i * 3, 7 + i * 3, 4, 3);
       rect('#402e52', 48 - i * 2, 10 + i * 2, 3, 2);
     }
+  } else if (material === 'sandstone' || material === 'cavern') {
+    const cave = material === 'cavern';
+    rect(cave ? '#433842' : '#ad7352', 0, 0, 64, tile.height);
+    for (let y = 4; y < tile.height; y += 15) {
+      const joint = (y * 5) % 53;
+      rect(cave ? '#2b2936' : '#865646', 0, y + 11, 64, 3);
+      rect(cave ? '#342d38' : '#92624b', joint, y + 1, 3, 11);
+      rect(cave ? '#655052' : '#c68b5d', joint + 3, y, 17, 2);
+    }
+    rect(cave ? '#725951' : '#e0aa72', 0, 0, 64, 3);
   } else if (material === 'timber') {
     // The gap beneath the boards lets the lake show through the piles.
     rect('#533a31', 0, 0, 64, 10);

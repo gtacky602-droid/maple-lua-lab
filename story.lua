@@ -1,5 +1,10 @@
 return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule,kinichAmbushModule,xilonenSpringsModule,iansanTrainingModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
+ local function identifyQuestProp(s,draws,first,id)
+  -- Only the preview exporter needs per-mark IDs in its frame.
+  if not s.captureQuestProps then return end
+  for i=first,#draws do draws[i].questProp=id end
+ end
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
@@ -2021,11 +2026,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     for _,object in ipairs(s.enemies) do
      local x,y=object.x-s.camera,object.y
      if object.breakTarget and object.hp>0 and x>=-30 and x<=990 then
+      local first=#markers+1
       markers[#markers+1]={kind='rect',x=x-24,y=y-14,w=48,h=14,color='#352049'}
       markers[#markers+1]={kind='rect',x=x-16,y=y-44,w=32,h=34,color='#6d3a98'}
       markers[#markers+1]={kind='rect',x=x-9,y=y-58,w=18,h=28,color='#a469d7'}
       markers[#markers+1]={kind='rect',x=x-5,y=y-54,w=6,h=23,color='#efd1ff'}
       markers[#markers+1]={kind='text',x=x,y=y-68,text=object.breakName or '電気水晶',color='#f8dbff',size=13}
+      identifyQuestProp(s,markers,first,object.id)
      end
     end
    end
@@ -2038,12 +2045,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      markers[#markers+1]={kind='rect',x=x-26,y=y-44,w=50,h=44,color='#6a4b51'}
      markers[#markers+1]={kind='rect',x=x-17,y=y-59,w=32,h=17,color='#a4785f'}
     elseif edge.ironGate and not meetsGateRule(s,rule) then
+     local first=#markers+1
      markers[#markers+1]={kind='rect',x=x-30,y=y-88,w=60,h=87,color='#332337'}
      for offset=-25,25,10 do
       markers[#markers+1]={kind='rect',x=x+offset,y=y-86,w=4,h=85,color='#93849b'}
      end
      markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
+     identifyQuestProp(s,markers,first,edge.to)
     elseif edge.spiritwayTrack then
      local track=edge.spiritwayTrack
      if gateRestriction(s,edge) then
@@ -2382,6 +2391,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp and not milestone.springProp and not milestone.iansanProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.ironKey then
+       local first=#markers+1
        if milestone.ironKey=='cage' then
         markers[#markers+1]={kind='rect',x=x-22,y=y-29,w=44,h=29,color='#4e3d53'}
         for offset=-18,18,9 do
@@ -2391,6 +2401,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        markers[#markers+1]={kind='rect',x=x-8,y=y-23,w=12,h=9,color='#dab26f'}
        markers[#markers+1]={kind='rect',x=x+3,y=y-19,w=13,h=3,color='#fcecb0'}
        markers[#markers+1]={kind='rect',x=x+12,y=y-18,w=3,h=5,color='#fcecb0'}
+       identifyQuestProp(s,markers,first,milestone.ironKey)
       elseif milestone.routeBeacon then drawRouteBeacon(markers,x,y,false)
       elseif milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
