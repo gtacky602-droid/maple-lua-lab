@@ -187,15 +187,26 @@ try{
  const trialScenes={...fieldScenes,...stygianScenes};
  const openings={...legendScenes,...trialScenes};
  const stepsByNode=new Map();
- let selectedSurveyPoint=null;
+ let selectedSurveyPoint=null,visibleLandmarks=[];
  function focusSurveyPoint(point){
   selectedSurveyPoint=point;
+  visibleLandmarks=[];
+  if(point?.worksite){
+   const quest=graph.quests.find(q=>q.id===point.quest);
+   const sites=quest?.sights?worksitePoints(quest).filter(site=>site.node===point.node):
+    [{id:point.worksite,x:point.x,y:point.y}];
+   for(const site of sites){
+    for(const [dx,dy,w,h,color] of worksiteArt.worksites[point.quest]?.[site.id]??[]){
+     visibleLandmarks.push({x:site.x+dx,y:site.y+dy,w,h,color});
+    }
+   }
+  }
   const marker=$('surveyPointNote');
   marker.hidden=!point;
   if(point){
    $('camera').value=point.x-480;
    marker.dataset.quest=point.quest;marker.dataset.step=point.step??'';marker.dataset.worksite=point.worksite??'';
-   marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`;
+
   }
  }
  for(const quest of graph.quests){
@@ -451,6 +462,12 @@ try{
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};
+  const landmarksInView=visibleLandmarks.filter(r=>r.x+r.w>camera&&r.x<camera+960&&r.y+r.h>0&&r.y<540);
+  if(selectedSurveyPoint){
+   const point=selectedSurveyPoint,marker=$('surveyPointNote');
+   const count=visibleLandmarks.length?` ／ この画角の小物 ${landmarksInView.length}矩形`:'';
+   marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`+count;
+  }
   const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
   const fidelity=$('spriteFidelity');
   const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked].join('/');
@@ -582,8 +599,8 @@ try{
    gatePreview.draw(ctx,camera,darkRoom(n));
    if(selectedSurveyPoint){
     const point=selectedSurveyPoint;
-    for(const [dx,dy,w,h,color] of worksiteArt.worksites[point.quest]?.[point.worksite]??[]){
-     ctx.fillStyle=color;ctx.fillRect(point.x-camera+dx,point.y+dy,w,h);
+    for(const r of landmarksInView){
+     ctx.fillStyle=r.color;ctx.fillRect(r.x-camera,r.y,r.w,r.h);
     }
     drawSurveyPoint(ctx,point,camera);
    }

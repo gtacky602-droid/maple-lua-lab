@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 稲妻城下で絵図に残す景色
+
+綾華の依頼「絵図にない、ひとつの景色」で桜並木・海の坂・屋根越しの高台を調べ、最後に橋へ行く。好きな景色に印を付けると、みちくさ帳に挿絵が残る。手帳の「この景色を地図で見る」で同じ場所を再訪表示できる。[桜並木を背景比較で開く](http://127.0.0.1:9117/map-art.html?placements=live&node=inazuma-town&quest=ayaka-join&worksite=sakura&compare=background&tier=4096) ／ [4地点の比較](evidence/inazuma-sightbook-comparison.png)
+
+木・帆船・瓦屋根・橋はそれぞれ17・16・15・15矩形。画面・手帳・背景比較でLuaの同じ形を使う。Lv40で離島に着いたセーブから4つの選択を個別に報告し、再読込後の絵と加入を確認した。[選択別の進行記録](evidence/earned-sightbook.json) ／ [ブラウザ操作](evidence/inazuma-s01-browser.json)
+
 ## 璃月の採集と調査、開通後の荷車道
 
 [桟道の山の香草を元背景と4,096矩形で比較](http://127.0.0.1:9117/map-art.html?placements=live&node=liyue-cliff-planks&quest=liyue-harbor-meal&worksite=herb&compare=background&tier=4096)。料理・石板・建設の依頼を追跡すると、手帳の「次に向かう場所」で未調査の候補を選べる。M地図の「追跡中の依頼へ」でその地点を表示し、「調査位置を見る」で足場の高さと目印を確認できる。同じ港内の屋根と地上も個別に選べる。調べ終えた候補は一覧から消える。[9地点の見比べ](evidence/liyue-worksites-comparison.png)

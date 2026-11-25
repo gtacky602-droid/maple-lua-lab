@@ -55,6 +55,16 @@ def build():
     props={}
     for q in graph['quests']:
         kind=q['kind']
+        if kind=='sights':
+            sights=lua.execute((ROOT/'story-sights.lua').read_text('utf8'))(lua.table())
+            art={}
+            for place in [*q[kind]['places'],q[kind]['bridge']]:
+                draws=lua.table()
+                sights.drawLandmark(draws,place['id'],0,0)
+                art[place['id']]=rectangles(draws)
+                assert art[place['id']]
+            props[q['id']]=art
+            continue
         if kind not in ('construction','cooking','stone'):
             continue
         module=lua.execute((ROOT/f'story-{kind}.lua').read_text('utf8'))

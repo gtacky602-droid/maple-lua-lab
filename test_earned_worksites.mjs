@@ -76,7 +76,7 @@ try{
  }
 
  await preview.bringToFront();
- for(const quest of graph.quests){
+ for(const quest of graph.quests.filter(q=>q.hub===hub)){
   for(const site of worksitePoints(quest)){
    const p=worksitePoint(quest,site.id,site.node);
    await preview.selectOption('#node',site.node);

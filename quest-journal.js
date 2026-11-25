@@ -163,6 +163,11 @@ export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ if(status==='complete'&&st.sights?.favorite){
+  const point=worksitePoint(q,st.sights.favorite,q.target);
+  if(point)return {node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'絵図に残した景色を見る',
+   text:`${q.name} ｜ みちくさ帳に「${point.name}」を記録しました。`};
+ }
  if(status==='complete'&&q.construction){
   const plan=q.construction.plans.find(p=>p.id===st.construction?.plan);
   const opened=f.storyGraph.nodes.find(n=>n.id===plan?.route);

@@ -78,12 +78,20 @@ try{
  await page.goto(root);
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-                     await fs.readFile('work/inazuma-s01-fixture.json','utf8'));
+                     await fs.readFile(process.env.SIGHTBOOK_SAVE||'work/inazuma-s01-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await current(port);
  await quest.getByRole('button',{name:'受注',exact:true}).click();
  await quest.getByRole('button',{name:'この依頼を追跡'}).click();
  await reachTown();
+ await page.locator('#trackedWorksite').selectOption('rooftops');
+ assert.match(await page.locator('#trackedHuntHint').textContent(),/上段/);
+ await page.keyboard.press('KeyM');
+ await page.locator('#atlasQuestFocus').click();
+ await page.locator('#atlasQuestPoint').waitFor();
+ assert.match(await page.locator('#atlasQuestPoint').getAttribute('href'),/worksite=rooftops/);
+ await page.keyboard.press('Escape');
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
  assert.equal(await page.evaluate(async()=>{
   const {sceneryStatus,backgroundReady}=await import('./scenery.js');
   await backgroundReady;
@@ -101,6 +109,8 @@ try{
  await inspect(790,'橋から港を眺める');
  const choices=page.locator('#storySightChoices');
  await choices.waitFor();
+ await page.waitForFunction(()=>document.querySelectorAll('#storySightChoices canvas[data-sight]').length===4);
+ await choices.screenshot({path:'evidence/inazuma-sightbook-choices.png'});
  assert.equal(await choices.getByRole('button').count(),4);
  const bridge=await frame();
  const ayaka=bridge.draws.find(d=>d.source?.startsWith('ayaka-idle-right'));
@@ -132,12 +142,22 @@ try{
  await current(port);
  await page.waitForFunction(()=>window.lab.frame.storyJoined?.ayaka&&window.lab.frame.starterEquipment?.useFlower);
  assert.equal((await frame()).storySightNote.id,'bridge');
+ await page.locator('#storyLanternNotes summary').click();
+ const note=page.locator('#storySightNote');
+ await note.locator('canvas[data-sight="bridge"]').waitFor();
+ const href=await note.locator('a').getAttribute('href');
+ assert.equal(await page.locator('#trackedSurveyPoint').getAttribute('href'),href);
+ const [preview]=await Promise.all([page.waitForEvent('popup'),note.locator('a').click()]);
+ await preview.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===4096);
+ assert.equal(await preview.locator('#surveyPointNote').getAttribute('data-worksite'),'bridge');
+ await preview.close();
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/inazuma-s01-browser.json',JSON.stringify({
   browser:'Chrome', actual_controls:true, three_sights_and_rooftop_jump:true, bridge_and_notebook:true, reportXp:42335, dedicated_town_background:true,
-  recruitment_starter_equipment_and_restore:true, viewport_390:true, errors
+  recruitment_starter_equipment_and_restore:true, viewport_390:true,
+  illustratedChoices:4,upperPlatformAtlasLink:true,restoredNotebookMap:'bridge',errors
  },null,2)+'\n');
  console.log('Inazuma S01 Chrome sights, bridge, recruitment and starter gear passed');
 }catch(error){

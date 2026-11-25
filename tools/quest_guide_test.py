@@ -1,6 +1,7 @@
 """Sample the target the Lua frame actually exposes during a fresh campaign route."""
 import json
 from functools import cache
+from math import floor
 from runtime import ROOT, native
 
 @cache
@@ -11,7 +12,10 @@ def check_worksite_art(frame, quest, item):
     if not item or not item.point or not frame.storyWorksites or not frame.storyWorksites[quest]:
         return 0
     art=worksite_art()[quest][item.point]
-    expected=[(item.x-frame.camera+dx,item.y+dy,w,h,color) for dx,dy,w,h,color in art]
+    x=item.x-frame.camera
+    if frame.story.quests[quest].sights:
+        x=floor(x)
+    expected=[(x+dx,item.y+dy,w,h,color) for dx,dy,w,h,color in art]
     draws=[(d.x,d.y,d.w,d.h,d.color) for d in frame.draws.values() if d.kind=='rect']
     assert any(draws[i:i+len(expected)]==expected for i in range(len(draws))), (quest,item.point)
     return len(art)

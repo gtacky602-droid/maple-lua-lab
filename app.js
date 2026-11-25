@@ -1,4 +1,5 @@
 import {drawHuntMarker} from './hunt-guide.js';
+import {surveyPointUrl} from './survey-point.js';
 import {initSaveTransfer} from './save-transfer.js';
 import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
@@ -252,6 +253,26 @@ function updateConstruction(view){
   row.append(button,detail);plans.append(row);
  }
 }
+let sightArt;
+function sightPicture(id){
+ const canvas=document.createElement('canvas');
+ canvas.className='sight-picture';canvas.width=216;canvas.height=78;
+ canvas.setAttribute('aria-hidden','true');
+ if(!sightArt)sightArt=fetch('content/worksite-props.json').then(response=>{
+  if(!response.ok)throw Error(String(response.status));
+  return response.json();
+ }).then(data=>data.worksites['ayaka-join']).catch(()=>{sightArt=null;return {}});
+ sightArt.then(art=>{
+  if(!art[id])return;
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#eadbb8';ctx.fillRect(0,0,canvas.width,canvas.height);
+  for(const [dx,dy,w,h,color] of art[id]){
+   ctx.fillStyle=color;ctx.fillRect(108+dx,74+dy,w,h);
+  }
+  canvas.dataset.sight=id;
+ });
+ return canvas;
+}
 let sightOptions='';
 function updateSights(f){
  const message=f.storySightMessage??'';
@@ -266,7 +287,7 @@ function updateSights(f){
  host.hidden=!options.length;
  host.replaceChildren(...options.map(({id,name})=>{
   const button=document.createElement('button');
-  button.type='button';button.textContent=name+'に印を付ける';
+  button.type='button';button.append(sightPicture(id),name+'に印を付ける');
   button.onclick=()=>actions.push('story_sight_mark:'+id);
   return button;
  }));
@@ -279,7 +300,16 @@ function updateLanternNote(note,sight){
  const sightLabel=$('storySightNote');
  const text=sight?`城下の案内絵図で「${sight.name}」に印を付けた。`:'';
  sightLabel.hidden=!sight;
- if(sightLabel.textContent!==text)sightLabel.textContent=text;
+ if(sightLabel.dataset.sight!==(sight?.id??'')){
+  sightLabel.dataset.sight=sight?.id??'';
+  sightLabel.replaceChildren();
+  if(sight){
+   const link=document.createElement('a');
+   link.href=surveyPointUrl({quest:sight.quest,node:sight.node,worksite:sight.id});
+   link.target='_blank';link.rel='noopener';link.textContent='この景色を地図で見る';
+   sightLabel.append(sightPicture(sight.id),text,' ',link);
+  }
+ }
  if(panel.hidden)panel.open=false;
  const signature=JSON.stringify(note??null);
  if(signature===lanternNote)return;

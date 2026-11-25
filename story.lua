@@ -830,15 +830,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    sites,done,action=q.stone.marks,state.stone.marked,'Gで調べる'
   elseif q.construction then
    sites,done,action=q.construction.surveys,state.construction.surveyed,'Gで調査'
+  elseif q.sights and state.sights then
+   sites,done,action=q.sights.places,state.sights.seen,'Gで景色を見る'
+   if state.count==#sites then
+    sites,done,action={q.sights.bridge},{},'Gで橋から港を眺める'
+   end
   else return end
   local actor=s.actors[s.active]
-  if state.count<#sites then
+  if state.count<#sites or q.sights then
    local pending,nearest,distance={}
    for _,item in ipairs(sites) do
     if not done[item.id] then
-     local point={node=item.node,x=item.x,y=item.y,point=item.id,name=item.name,action=action}
+     local node=item.node or q.target
+     local point={node=node,x=item.x,y=item.y,point=item.id,name=item.name,action=action}
      pending[#pending+1]=point
-     if item.node==s.story.node then
+     if node==s.story.node then
       local d=(actor.x-item.x)^2+(actor.y-item.y)^2
       if not distance or d<distance then nearest,distance=point,d end
      end

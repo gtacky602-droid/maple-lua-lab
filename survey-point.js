@@ -9,6 +9,7 @@ export function surveyPoint(quest,index,node){
 }
 
 export function worksitePoints(quest){
+ if(quest?.sights)return [...quest.sights.places,quest.sights.bridge].map(p=>({...p,node:quest.target}));
  return quest?.cooking?.ingredients??quest?.construction?.surveys??quest?.stone?.marks??[];
 }
 export function worksitePoint(quest,id,node){

@@ -1,0 +1,58 @@
+[
+  {
+    "quest": "ayaka-join",
+    "node": "inazuma-town",
+    "count": 0,
+    "guide": {
+      "name": "桜並木",
+      "node": "inazuma-town",
+      "y": 480,
+      "action": "Gで景色を見る",
+      "point": "sakura",
+      "x": 250
+    },
+    "checkedPropRectangles": 17
+  },
+  {
+    "quest": "ayaka-join",
+    "node": "inazuma-town",
+    "count": 1,
+    "guide": {
+      "name": "屋根越しの高台",
+      "node": "inazuma-town",
+      "y": 340,
+      "action": "Gで景色を見る",
+      "point": "rooftops",
+      "x": 570
+    },
+    "checkedPropRectangles": 15
+  },
+  {
+    "quest": "ayaka-join",
+    "node": "inazuma-town",
+    "count": 2,
+    "guide": {
+      "name": "海の坂",
+      "node": "inazuma-town",
+      "y": 480,
+      "action": "Gで景色を見る",
+      "point": "slope",
+      "x": 1090
+    },
+    "checkedPropRectangles": 16
+  },
+  {
+    "quest": "ayaka-join",
+    "node": "inazuma-town",
+    "count": 3,
+    "guide": {
+      "name": "港を見渡す橋",
+      "node": "inazuma-town",
+      "y": 480,
+      "action": "Gで橋から港を眺める",
+      "point": "bridge",
+      "x": 790
+    },
+    "checkedPropRectangles": 15
+  }
+]

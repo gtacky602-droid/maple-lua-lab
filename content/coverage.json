@@ -8161,6 +8161,7 @@
       "browser_ferry_evidence": "evidence/earned-atlas-ferry-browser.json"
     }
   },
+  "inazuma_sightbook": {"places": 4, "propRectangles": 63, "earnedChoices": "evidence/earned-sightbook.json", "field": "evidence/quest-field-guide-inazuma-sightbook.json", "preview": "evidence/sightbook-preview-pixels.json", "browser": "evidence/inazuma-s01-browser.json"},
   "liyue_worksite_guides": {"quests": 3, "points": 9, "propRectangles": 74, "haulRoutes": 2, "cartRectangles": 9, "lua": "evidence/earned-worksites.json", "market": "evidence/quest-field-guide-liyue-market-worksites.json", "browser": "evidence/earned-worksites-browser.json"},
   "earned_field_guides": {"quests": 10, "regions": 4, "samples": 38, "delivery": "evidence/cargo-guide-browser.json", "escort": "evidence/parcel-escort-guide-browser.json"},
   "earned_hunt_checks": {"contracts": 12, "fields": 9, "reports": 20, "legs": 48, "lua": "evidence/earned-hunt-contracts.json", "browser": "evidence/earned-hunts-browser.json"},

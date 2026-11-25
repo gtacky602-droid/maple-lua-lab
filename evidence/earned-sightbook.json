@@ -1,0 +1,38 @@
+{
+  "ferrySave": "207fdf024bcca09d9468a7accb3f21e361c71e23d6e56413a41b896f6186eafd",
+  "bridgeSave": "c4d7a636eb5ab8b5ad3ed825708d7cae953a1ea0cf7deb3911178ffe14d78dbe",
+  "choices": {
+    "sakura": {
+      "name": "桜並木",
+      "report": {
+        "quest": "ayaka-join",
+        "xp": 42335,
+        "mora": 200
+      }
+    },
+    "rooftops": {
+      "name": "屋根越しの高台",
+      "report": {
+        "quest": "ayaka-join",
+        "xp": 42335,
+        "mora": 200
+      }
+    },
+    "slope": {
+      "name": "海の坂",
+      "report": {
+        "quest": "ayaka-join",
+        "xp": 42335,
+        "mora": 200
+      }
+    },
+    "bridge": {
+      "name": "港を見渡す橋",
+      "report": {
+        "quest": "ayaka-join",
+        "xp": 42335,
+        "mora": 200
+      }
+    }
+  }
+}

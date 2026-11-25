@@ -7,5 +7,8 @@
   "dedicated_town_background": true,
   "recruitment_starter_equipment_and_restore": true,
   "viewport_390": true,
+  "illustratedChoices": 4,
+  "upperPlatformAtlasLink": true,
+  "restoredNotebookMap": "bridge",
   "errors": []
 }
