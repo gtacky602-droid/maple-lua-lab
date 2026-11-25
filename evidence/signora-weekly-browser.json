@@ -4,17 +4,17 @@
   "cocoonAndPyro": true,
   "normalKeyBattleAndReport": true,
   "savedRespawn": true,
-  "remainingHp": 112,
+  "remainingHp": 104,
   "viewport390": true,
   "scene": {
-    "key": "inazuma",
-    "file": "inazuma-background-v1.png",
+    "key": "tenshukakuDuel",
+    "file": "tenshukaku-duel-background-v1.png",
     "state": "ready"
   },
   "sameStateCommands": {
-    "png": 25,
-    "standard": 9144,
-    "light": 2404
+    "png": 21,
+    "standard": 9140,
+    "light": 2400
   },
   "errors": []
 }

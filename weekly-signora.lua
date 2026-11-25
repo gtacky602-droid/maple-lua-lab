@@ -106,7 +106,7 @@ return function(C)
   w.index=1;w.cast=nil;w.rest=spec.noticeTicks;w.seal=nil;w.lastTornado=-math.huge;w.sinceTornado=3
   clearEnvironment(w)
   local e=w.primary;e.dir=-1;e.invulnerable=false;e.underground=false
-  body(e,spec.center,spec.floorY,120)
+  body(e,spec.center,spec.floorY,spec.artHeight)
   e.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,spec,cast,mult,color,element) end
  end
  function controller.attach(s,w)

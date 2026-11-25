@@ -1,6 +1,8 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ tenshukakuDuel:{file:'tenshukaku-duel-background-v1.png',decodedPreview:'tenshukaku-duel-native-preview-v1.png',decodedTiers:'tenshukaku-duel-native-tiers-v1.webp',surface:'lacquer',zones:['story:signora-ten-shrine-arena'],note:'天守閣・御前試合場の仮背景'},
+ euthymiaDuel:{file:'euthymia-duel-background-v1.png',decodedPreview:'euthymia-duel-native-preview-v1.png',decodedTiers:'euthymia-duel-native-tiers-v1.webp',surface:'violetSlate',zones:['story:raiden-thunder-echo-arena'],note:'鳴神追憶の異空間の仮背景'},
  godmakingHall:{file:'godmaking-hall-background-v1.png',decodedPreview:'godmaking-hall-native-preview-v1.png',decodedTiers:'godmaking-hall-native-tiers-v1.webp',surface:'stone',zones:['story:shouki-godmaking-arena'],note:'スメール・造神工房の仮背景'},
  chenyuDepthTrail:{file:'chenyu-depth-trail-background-v1.png',decodedPreview:'chenyu-depth-trail-native-preview-v1.png',decodedTiers:'chenyu-depth-trail-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64845'],note:'探索路の仮背景'},
  chenyuFernDen:{file:'chenyu-fern-den-background-v1.png',decodedPreview:'chenyu-fern-den-native-preview-v1.png',decodedTiers:'chenyu-fern-den-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64845-pocket-1'],note:'探索路・玄文獣の蕨穴の仮背景'},
@@ -256,7 +258,7 @@ export const sceneryDefinitions={
  hydroHypostasisField:{file:'hydro-hypostasis-field-background-v1.png',zones:['story:hydro-hypostasis-field-cove'],note:'潮紋の洞の仮背景'},
  pyroHypostasisField:{file:'pyro-hypostasis-field-background-v1.png',zones:['story:pyro-hypostasis-field-terrace'],note:'燎火の石浜の仮背景'},
  cryoHypostasisField:{file:'cryo-hypostasis-field-background-v1.png',zones:['story:cryo-hypostasis-field-basin'],note:'霜輪の窪地の仮背景'},
- thunderField:{file:'thunder-field-background-v1.png',zones:['story:raiden-thunder-echo-arena','story:thunder-field-crest'],note:'雷鳴の岩峰の仮背景'},
+ thunderField:{file:'thunder-field-background-v1.png',zones:['story:thunder-field-crest'],note:'雷鳴の岩峰の仮背景'},
  arrayField:{file:'array-field-background-v1.png',zones:['story:array-field-court'],note:'機巧の石庭の仮背景'},
  maguuField:{file:'maguu-field-background-v1.png',zones:['story:maguu-field-dojo'],note:'剣鬼の古庭の仮背景'},
  oceanidField:{file:'oceanid-field-background-v1.png',zones:['story:oceanid-field-reservoir'],note:'軽策の水鏡の仮背景'},
@@ -323,7 +325,7 @@ export const sceneryDefinitions={
  nodAppraisal:{file:'nod-appraisal-workshop-background-v1.png',zones:['story:nod-appraisal-workshop'],note:'アイノの部品工房のラボ用仮背景'},
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
- inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu','story:signora-ten-shrine-arena']},
+ inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
  fontaineScentAtelier:{file:'fon-emilie-scent-atelier-background-v1.png',zones:['story:fon-emilie-atelier'],note:'水辺の調香工房の仮背景'},
  fontaineScentShore:{file:'fon-emilie-scent-shore-background-v1.png',zones:['story:fon-emilie-scent-shore'],note:'香り草の船着き場の仮背景'},
  fontaineCourtTerrace:{file:'fon-north-terrace-background-v1.png',decodedPreview:'fon-north-terrace-native-preview-v1.png',decodedTiers:'fon-north-terrace-native-tiers-v1.webp',zones:['story:sites-hunt-50057'],note:'廷北の庭園水路の仮背景'},

@@ -29,7 +29,8 @@
     "chenyu-post-native-backgrounds.lua": "371188c222967b1b1e51ca8a3c2efc795460a47b93298819ba93652b10157675",
     "chenyu-ferry-native-backgrounds.lua": "29d7adf105cd4c5cc986bc288e04fa717f9b9db8a1a3709e8863ca85cc03c244",
     "chenyu-south-native-backgrounds.lua": "04e37af273b681ab415446b2e2b0774691d861068138163ab5da0a6fedc40a7a",
-    "weekly-opening-native-backgrounds.lua": "8b6f74d25db61a5d1f3ace808b4edfdd9a82afbbdeecf9ae15fbd3f9d146f745"
+    "weekly-opening-native-backgrounds.lua": "8b6f74d25db61a5d1f3ace808b4edfdd9a82afbbdeecf9ae15fbd3f9d146f745",
+    "inazuma-weekly-native-backgrounds.lua": "29bb428d2e32c4a5bcb2b3577104ecf3b0526702e2a15e12a1b5ac9e90e3464f"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -7399,6 +7400,80 @@
         "minDecodeMs": 25.38,
         "maxDecodeMs": 34.96,
         "medianRetainedLuaKiB": 1176.6
+      }
+    },
+    "signora-ten-shrine-arena": {
+      "4096": {
+        "fileBytes": 16156,
+        "medianDecodeMs": 19.54,
+        "minDecodeMs": 18.36,
+        "maxDecodeMs": 22.31,
+        "medianRetainedLuaKiB": 731.2
+      },
+      "4608": {
+        "fileBytes": 19414,
+        "medianDecodeMs": 22.82,
+        "minDecodeMs": 21.22,
+        "maxDecodeMs": 34.32,
+        "medianRetainedLuaKiB": 867.4
+      },
+      "5120": {
+        "fileBytes": 22565,
+        "medianDecodeMs": 26.29,
+        "minDecodeMs": 25.93,
+        "maxDecodeMs": 32.97,
+        "medianRetainedLuaKiB": 942.0
+      },
+      "5632": {
+        "fileBytes": 25731,
+        "medianDecodeMs": 29.07,
+        "minDecodeMs": 27.1,
+        "maxDecodeMs": 45.37,
+        "medianRetainedLuaKiB": 1050.9
+      },
+      "6144": {
+        "fileBytes": 27397,
+        "medianDecodeMs": 32.39,
+        "minDecodeMs": 29.27,
+        "maxDecodeMs": 39.59,
+        "medianRetainedLuaKiB": 1130.2
+      }
+    },
+    "raiden-thunder-echo-arena": {
+      "4096": {
+        "fileBytes": 14358,
+        "medianDecodeMs": 16.2,
+        "minDecodeMs": 14.77,
+        "maxDecodeMs": 20.04,
+        "medianRetainedLuaKiB": 720.4
+      },
+      "4608": {
+        "fileBytes": 17474,
+        "medianDecodeMs": 22.26,
+        "minDecodeMs": 18.03,
+        "maxDecodeMs": 26.74,
+        "medianRetainedLuaKiB": 854.7
+      },
+      "5120": {
+        "fileBytes": 20549,
+        "medianDecodeMs": 25.43,
+        "minDecodeMs": 22.28,
+        "maxDecodeMs": 37.14,
+        "medianRetainedLuaKiB": 928.7
+      },
+      "5632": {
+        "fileBytes": 23533,
+        "medianDecodeMs": 29.47,
+        "minDecodeMs": 26.36,
+        "maxDecodeMs": 37.25,
+        "medianRetainedLuaKiB": 1003.1
+      },
+      "6144": {
+        "fileBytes": 25175,
+        "medianDecodeMs": 28.28,
+        "minDecodeMs": 24.29,
+        "maxDecodeMs": 37.79,
+        "medianRetainedLuaKiB": 1077.5
       }
     }
   }

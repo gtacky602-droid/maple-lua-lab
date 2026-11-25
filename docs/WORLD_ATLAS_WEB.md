@@ -164,6 +164,8 @@ M地図から背景比較を開くと、その地点の本編の敵配置を表�
 
 19地点の背景Luaの合計は333,179 B（4,096矩形）から559,628 B（6,144矩形）。複数の背景を並行して作れるようにし、4プロセスで作った背景を1プロセスで再生成した。全40ファイルの内容が一致した。[画像の生成指示](../assets/chenyu-south-background-generation.json) · [各段階の表示](../evidence/chenyu-south-background-tiers-browser.json) · [再生成](../evidence/chenyu-south-rebuild.json)
 
+稲妻の御前試合場では淑女の氷形態が床に立ち、鳴神追憶では変身前の雷電が左を向いて薙刀を持つ。薙刀は手の位置を基準にした10個の矩形で、Lua戦闘とM地図が同じ配置データを読む。背景だけを比較するには「キャラは両方とも元PNG」を選び、ドット絵も比較するには解除する。御前試合場は4,096矩形で16,156 B、鳴神追憶は14,358 B。どちらも5段階から選んでLuaを書き出せる。[背景の5段階](../evidence/inazuma-weekly-background-tiers-browser.json) · [原画の生成指示](../assets/inazuma-weekly-background-generation.json)
+
 正機の神・トワリン・アンドリアスの3会場で、M地図から実際の開戦時の姿を比較できる。造神工房は新しい仮背景を使い、風龍の空域と奔狼領は既存の原画を5段階に変換した。トワリンは床から150 px浮いた開戦時の姿、アンドリアスは接地した待機姿を表示する。正機の神は床とくびれを合わせた上半身を幅約1,393 pxで描く。元PNGと3段階の機体表示を、Luaの座標と矩形列から描いた画像に照合した。[3会場の照合](../evidence/weekly-opening-poses-browser.json) · [背景の5段階](../evidence/weekly-opening-background-tiers-browser.json)
 
 専用の5段階背景はラボ全1,528ステージ中199地点に対応した。秘境周辺の狩場と脇部屋（sites-hunt）124地点はすべて対応済み。別地域の狩場・脇部屋（branch-hunt）62地点は、往日の海3/3地点、沈玉の谷59/59地点に対応した。書き出し検査の locationCoverage に、地域別件数と残っている地点IDを記録する。フィールドボス配置表の120会場は3か所、週ボス配置表の18会場（内部マップを含む）は7か所に専用の5段階背景がある。[背景の対応範囲](../evidence/scenery-download-tiers.json)

@@ -10,7 +10,23 @@ function surfaceTile(material, ground) {
     pen.fillStyle = color;
     pen.fillRect(x, y, w, h);
   }
-  if (material === 'timber') {
+  if (material === 'lacquer') {
+    rect('#402527', 0, 0, 64, tile.height);
+    for (let y = 3; y < tile.height; y += 13) {
+      rect('#623231', 0, y, 64, 9);
+      rect('#332029', y % 2 ? 12 : 43, y, 2, 10);
+      rect('#7d4838', 24, y + 2, 20, 1);
+    }
+    rect('#ba8451', 0, 0, 64, 2);
+  } else if (material === 'violetSlate') {
+    rect('#302343', 0, 0, 64, tile.height);
+    rect('#73598b', 0, 0, 64, 3);
+    rect('#49335c', 0, 3, 64, 6);
+    for (let i = 0; i < 4; i++) {
+      rect('#594167', 13 + i * 3, 7 + i * 3, 4, 3);
+      rect('#402e52', 48 - i * 2, 10 + i * 2, 3, 2);
+    }
+  } else if (material === 'timber') {
     // The gap beneath the boards lets the lake show through the piles.
     rect('#533a31', 0, 0, 64, 10);
     rect('#a47549', 0, 1, 64, 5);

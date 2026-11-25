@@ -1,0 +1,26 @@
+{
+  "signora-ten-shrine-arena": {
+    "source": "tenshukaku-duel-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "98a9aca75142c4b2429e2143ea0dd6f6f8b4c2ab371be65b3ef9333dd50178b2",
+    "tiers": {
+      "4096": "18274828745188393e38d48f4582cf1e20aff5adfcc38e67dd26a82246c1b39a",
+      "4608": "d706686348a128fc3adc02972c2ca83712628b3e03387ff3331d55816bac9406",
+      "5120": "ce3b2988cdb7b1d66924454aca12bbff3d6e2984acee8a620557cf4ad4ffcb13",
+      "5632": "8b4cb8649663127ff225ba5d14f1ec3dc6253c77f522a10a5b325b51647fc89d",
+      "6144": "58e2437595e744b241d217bf08bb3b7cee01736bc0d3598bc111a01dd290d9b0"
+    }
+  },
+  "raiden-thunder-echo-arena": {
+    "source": "euthymia-duel-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "aad1feb5c3fc450b0c34f178c18a9cfe5ad2237c3f551f01b70b5a4631d4f995",
+    "tiers": {
+      "4096": "134da66431b433d3bb75313be8efb325ce9748addb0d55d5fdda7158e82e381d",
+      "4608": "228755b22b9296a9c59268219823c7f44d6d1acae0d2c2ad742bd2c29594a864",
+      "5120": "cb9a324365356f7ca422a46cf1875b03efbf850859f902ec6ba2b9113a8983ee",
+      "5632": "f762b0a0c29e581e7ce4c99cb389b83785226dff9497bb6c48464c9118dcc27d",
+      "6144": "22ba4c718d7e49b89e97758aa1e329c1c10d1404f11e7b0640d0cad51a21a82c"
+    }
+  }
+}

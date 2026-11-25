@@ -1,4 +1,4 @@
-"""Capture the first Lua draw for three weekly fights and the equivalent uncropped rectangle streams."""
+"""Capture the first Lua draw for weekly fights with authored opening poses and the equivalent uncropped rectangle streams."""
 import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
@@ -12,8 +12,8 @@ work.mkdir(parents=True, exist_ok=True)
 proof = {}
 for boss in (v for v in specs if v.get('openingPose')):
     key = boss['controller']
-    hub = 'sumeru-hub' if key == 'shouki' else 'mond-town'
-    routes = {'shouki':[hub], 'dvalin':['mond-wp-24','sites-hunt-7111']}
+    hub = {'shouki':'sumeru-hub', 'signora':'inazuma-town', 'raiden':'inazuma-town'}.get(key, 'mond-town')
+    routes = {'shouki':[hub], 'signora':[hub], 'raiden':[hub], 'dvalin':['mond-wp-24','sites-hunt-7111']}
     if key == 'andrius':
         routes[key] = [next(n for n in ('mond-wp-19','mond-road') if any(e['to']==boss['node'] for e in nodes[n]['exits']))]
     approach = routes[key]
@@ -27,12 +27,18 @@ for boss in (v for v in specs if v.get('openingPose')):
     core.enterStoryNode(state, boss['node'])
     frame = core.frame(state, 'sprite', 'legacy')
     art = {'shouki':core.shoukiWeeklyArt.upper, 'andrius':core.andriusWeeklyArt['normal-ready'],
-           'dvalin':core.dvalinWeeklyArt.hover}[key]
+           'dvalin':core.dvalinWeeklyArt.hover, 'signora':core.signoraWeeklyArt.cryo, 'raiden':core.raidenWeeklyArt.normal}[key]
     draw, = [d for d in frame.draws.values() if d.source == art.source]
     data = native(draw)
     packed = json.loads((ROOT/'assets'/boss['openingPose']['file']).read_text('utf8'))
     assert data['source'] == packed['source'] and data['box'] == packed['box']
-    assert (draw.x, draw.y, draw.h, draw.flip) == (boss['center'], boss['floorY']-boss['openingPose']['hover'], boss['artHeight'], False)
+    assert (draw.x, draw.y, draw.h, draw.flip) == (boss['center'], boss['floorY']-boss['openingPose']['hover'], boss['artHeight'], boss['openingPose'].get('flip',False))
+    # Held rectangles immediately follow the body sprite in the actual Lua draw list.
+    draws = native(frame.draws)
+    after_body = draws.index(data)+1
+    held_count = len(boss['openingPose'].get('heldArt',{}).get('rects',[]))
+    held = draws[after_body:after_body+held_count]
+    assert all(r['kind']=='rect' for r in held)
     streams = {}
     counts = {}
     for profile in ('legacy', 'h48c32', 'h32c16'):
@@ -50,10 +56,11 @@ for boss in (v for v in specs if v.get('openingPose')):
             keys = ('x','y','w','h','color')
             raw_keys = {tuple(d[k] for k in keys) for d in raw}
             assert not any(tuple(d.get(k) for k in keys) in raw_keys for d in actual[len(expected):] if d['kind']=='rect')
+        assert actual[first+len(expected):first+len(expected)+held_count] == held
         streams[profile] = [[r[k] for k in ('x','y','w','h','color')] for r in raw]
         counts[profile] = {'sourceRuns':len(raw), 'drawnRuns':len(expected)}
     (work/(key+'-runs.json')).write_text(json.dumps(streams,separators=(',',':')), 'utf8')
-    proof[key] = {'node':boss['node'],'hub':hub,'approach':approach,'png':data,'profiles':counts}
-assert set(proof) == {'shouki','andrius','dvalin'}
+    proof[key] = {'node':boss['node'],'hub':hub,'approach':approach,'png':data, 'heldRects':[[r[k] for k in ('x','y','w','h','color')] for r in held], 'profiles':counts}
+assert set(proof) == {'shouki','andrius','dvalin','raiden','signora'}
 (ROOT/'evidence/weekly-opening-poses-lua.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n','utf8')
 print({k:p['profiles'] for k,p in proof.items()})

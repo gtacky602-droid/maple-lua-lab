@@ -484,13 +484,18 @@ return function(C)
    end
   end
   if not e.underground then
-   local h=armor and 144 or (stage=='collapse' and w.stageTick>=48 or c and c.downUntil) and 87 or 112
+   local h=armor and 144 or (stage=='collapse' and w.stageTick>=48 or c and c.downUntil) and 87 or spec.artHeight
    local art=armor and C.raidenWeeklyArt.armored or C.raidenWeeklyArt.normal
    C.drawFieldDisplayArt(f,art,e.x-s.camera,e.y,h,mode,profile,armor and e.dir>0 or not armor and e.dir<0)
    if not armor then
-    local long=w.weapon==1;local startX=e.x+e.dir*(h*.29)
-    for i=0,long and 9 or 6 do
-     rect(startX-4+e.dir*i*3,e.y-h*.47-i*(long and 7 or 4),8,8,i>4 and pale or dark)
+    local polearm=spec.openingPose.heldArt
+    local handX,handY=e.x+e.dir*h*polearm.gripX,e.y-h*polearm.gripY
+    if w.weapon==1 then
+     for _,r in ipairs(polearm.rects) do
+      rect(handX-r[3]/2+e.dir*r[1],handY+r[2],r[3],r[4],r[5])
+     end
+    else
+     for i=0,6 do rect(handX-4+e.dir*i*3,handY-i*4,8,8,i>4 and pale or dark) end
     end
    end
   end

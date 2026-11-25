@@ -117,7 +117,7 @@ try{
   const pose=boss.openingPose;
   if(pose){
    const data=await json('assets/'+pose.file);
-   assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,clipToViewport:pose.clipToViewport};
+   assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,heldArt:pose.heldArt,clipToViewport:pose.clipToViewport};
    $('species').append(new Option(boss.name+'（開戦時）',boss.mapIdleArt));
   }
   const shadow=boss.rift?.shadowArt;
@@ -245,6 +245,17 @@ try{
     const quality=mode==='png'||matchedSprites?null:profile;
     if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
     paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
+    if(a.heldArt){
+     const {gripX,gripY,rects}=a.heldArt,dir=flip?-1:1;
+     const handX=x+dir*a.h*gripX,handY=y-a.h*gripY;
+     for(const [dx,dy,w,h,color] of rects){
+      const rx=handX-w/2+dir*dx,ry=handY+dy;
+      if(quality)cost.total++;
+      if(rx+w<=0 || ry+h<=0 || rx>=ctx.canvas.width || ry>=ctx.canvas.height)continue;
+      ctx.fillStyle=color;ctx.fillRect(rx,ry,w,h);
+      if(quality){cost.visible++;cost.standard++}
+     }
+    }
     if(e.id===selected){
      const left=flip?-body.x-body.width:body.x;
      const minX=rear?Math.min(left,rear.x):left;

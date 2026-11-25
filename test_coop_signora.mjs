@@ -116,7 +116,7 @@ try{
   await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['inazuma','ready']);
+ assert.deepEqual([scene.key,scene.state],['tenshukakuDuel','ready']);
  await Promise.all([host.route.walk(95),guest.route.walk(388)]);
  await b.waitForFunction(()=>window.lab.frame.weeklyBoss.temperature>0.65);
  await a.keyboard.down('KeyG');

@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 995,
+  "verifiedModules": 1005,
   "dimensions": [
     512,
     288
@@ -706,6 +706,20 @@
       "5632": 26364,
       "6144": 28328
     },
+    "tenshukaku-duel-background-v1.png": {
+      "4096": 16156,
+      "4608": 19414,
+      "5120": 22565,
+      "5632": 25731,
+      "6144": 27397
+    },
+    "euthymia-duel-background-v1.png": {
+      "4096": 14358,
+      "4608": 17474,
+      "5120": 20549,
+      "5632": 23533,
+      "6144": 25175
+    },
     "li-mingyun-adit-background-v1.png": {
       "4096": 18394,
       "4608": 21898,
@@ -1403,7 +1417,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 199
+      "verified": 201
     },
     "domainHunts": {
       "total": 124,
@@ -1600,7 +1614,7 @@
     },
     "weeklyBosses": {
       "totalArenas": 18,
-      "verified": 7,
+      "verified": 9,
       "pending": [
         "apep-oasis-heart-arena",
         "buried-weaving-room",
@@ -1609,8 +1623,6 @@
         "narwhal-inner-echo",
         "narwhal-star-sea",
         "primal-fire-sundered-forge",
-        "raiden-thunder-echo-arena",
-        "signora-ten-shrine-arena",
         "sumeru-heretic-lattice",
         "tide-calibration-hall"
       ]

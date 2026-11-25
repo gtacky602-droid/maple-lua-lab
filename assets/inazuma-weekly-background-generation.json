@@ -1,0 +1,24 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Original widescreen 16:9 side-scrolling fantasy RPG BACKGROUND ONLY. Pixel art composed at about 240x135 with broad flat color blocks, limited palette, deliberate coarse pixels, strongly stepped silhouettes. View straight across a stage. Leave the lower third quiet for play and the center low contrast for small character sprites. No characters, text, weapons, interface or foreground objects.",
+  "scenes": [
+    {
+      "node": "signora-ten-shrine-arena",
+      "key": "tenshukakuDuel",
+      "note": "天守閣・御前試合場",
+      "surface": "lacquer",
+      "source": "tenshukaku-duel-background-v1.png",
+      "preview": "tenshukaku-duel-native-preview-v1.png",
+      "prompt": "Interior of an imposing Japanese shogunate audience hall at night. A wide, empty lacquered wood dojo floor, paired dark red pillars at far edges, gold panels with restrained cloud motifs behind a distant empty dais, dark teal roof beams. Straight-on symmetrical composition, warm maroon and aged gold. No people, thrones, statues, ice or fire."
+    },
+    {
+      "node": "raiden-thunder-echo-arena",
+      "key": "euthymiaDuel",
+      "note": "鳴神追憶の異空間",
+      "surface": "violetSlate",
+      "source": "euthymia-duel-background-v1.png",
+      "preview": "euthymia-duel-native-preview-v1.png",
+      "prompt": "A boundless violet plane of stillness. Distant fragmented black torii gates on the far left and right, enormous dim mauve moon behind charcoal cloud bands, a few suspended violet angular stone fragments near the sides, almost empty level indigo ground tapering toward a lavender horizon. Ethereal and quiet, very different from a palace interior. No palace, lightning in foreground, combat effects or living figures."
+    }
+  ]
+}

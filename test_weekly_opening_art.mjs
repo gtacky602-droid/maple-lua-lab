@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
-import {waypointDriver} from './tools/browser_waypoint_test.mjs';
+import {waypointDriver,holdPortalFrame} from './tools/browser_waypoint_test.mjs';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
@@ -22,6 +22,7 @@ try{
   if(waypoint!==pose.hub)await drive.warp(waypoint);
   await page.selectOption('#renderMode','sprite');
   for(const id of trail)await drive.cross(id);
+  await holdPortalFrame(page);
   await drive.cross(pose.node);
   await page.waitForFunction(src=>window.lab.frame.draws.some(d=>d.source===src),pose.png.source);
   const live=await page.evaluate(async src=>{
@@ -46,7 +47,7 @@ try{
   const counts={};
   for(const [profile,rects] of Object.entries(runs)){
    await view.selectOption('#profile',profile);
-   const error=await view.evaluate(async ({node,draw,rects})=>{
+   const error=await view.evaluate(async ({node,draw,rects,held})=>{
     const {scenery}=await import('./scenery.js');
     const test=document.createElement('canvas');test.width=960;test.height=540;
     const ctx=test.getContext('2d');
@@ -60,22 +61,28 @@ try{
     };
     scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
     const img=new Image();img.src='assets/'+draw.source;await img.decode();
-    ctx.drawImage(img,...draw.box,draw.x-draw.w*(draw.anchorX??.5),draw.y-draw.h,draw.w,draw.h);
+    ctx.save();ctx.translate(draw.x,draw.y);
+    if(draw.flip)ctx.scale(-1,1);
+    ctx.drawImage(img,...draw.box,-draw.w*(draw.anchorX??.5),-draw.h,draw.w,draw.h);
+    ctx.restore();
+    const paintHeld=()=>{for(const [x,y,w,h,color] of held){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}};
+    paintHeld();
     const png=diff('png');
     ctx.clearRect(0,0,960,540);scenery(ctx,frame);
     for(const [x,y,w,h,color] of rects){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+    paintHeld();
     return {png,rect:diff('rect')};
-   },{node:nodes[pose.node],draw:pose.png,rects});
+   },{node:nodes[pose.node],draw:pose.png,rects,held:pose.heldRects});
    assert.deepEqual(error,{png:0,rect:0},key+' '+profile+' '+JSON.stringify(error));
-   const count=pose.profiles[profile].drawnRuns;
+   const count=pose.profiles[profile].drawnRuns+pose.heldRects.length;
    assert.ok((await view.locator('#viewportCost').innerText()).includes(count.toLocaleString('ja-JP')+'個'));
-   counts[profile]={...pose.profiles[profile],differentPixels:error};
+   counts[profile]={...pose.profiles[profile],heldDraws:pose.heldRects.length,differentPixels:error};
   }
-  if(key==='shouki')await view.locator('main').screenshot({path:'evidence/weekly-opening-shouki-light.png'});
+  if(['shouki','signora','raiden'].includes(key))await view.locator('main').screenshot({path:'evidence/weekly-opening-'+key+'-light.png'});
   assert.deepEqual(errors,[]);
   results[key]={node:pose.node,background:live.background,opening:live.draw,profiles:counts};
   await view.close();await page.close();
  }
  await fs.writeFile('evidence/weekly-opening-poses-browser.json',JSON.stringify(results,null,2)+'\n');
- console.log('All three combat openings match the M-map preview: PNG and three rectangle profiles.');
+ console.log('All five combat openings match the M-map preview: PNG and three rectangle profiles.');
 }finally{await browser.close()}

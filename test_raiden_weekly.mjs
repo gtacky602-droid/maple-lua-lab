@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {holdPortalFrame} from './tools/browser_waypoint_test.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
@@ -52,18 +53,20 @@ try{
  await page.keyboard.down('KeyD');
  try{await wait(node=>window.lab.frame.storyNearbyPortal?.to===node&&window.lab.frame.storyNearbyPortal.available,node);}
  finally{await page.keyboard.up('KeyD');}
+ const releaseOpening=await holdPortalFrame(page);
  await page.keyboard.press('KeyF');
  await wait(node=>window.lab.frame.story.node===node,node);
  const scene=await page.evaluate(async()=>{
-  const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-  await backgroundReady;
+  const {loadScenery,sceneryStatus}=await import('./scenery.js');
+  await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['thunderField','ready']);
+ assert.deepEqual([scene.key,scene.state],['euthymiaDuel','ready']);
  const opening=await frame();
  assert.equal(opening.weeklyBoss.formName,'薙刀');
  assert.ok(opening.draws.some(draw=>draw.source===normal));
  await page.locator('.game').screenshot({path:prefix+'-normal.png'});
+ await releaseOpening();
  await canvas.click();
  await page.evaluate(()=>{
   const held=new Set();

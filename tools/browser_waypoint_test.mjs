@@ -1,5 +1,18 @@
 import assert from 'node:assert/strict';
 
+export async function holdPortalFrame(page){
+  // The server applies portal actions before simulation ticks. Capture that instant,
+  // before moving bosses take their first step toward the player.
+  let entered=false;
+  const hold=route=>{
+   const request=route.request().postDataJSON();
+   if(request.actions?.includes('story_nearby_portal'))entered=true;
+   return entered?route.continue({postData:JSON.stringify({...request,steps:0})}):route.continue();
+  };
+  await page.route('**/api/frame',hold);
+  return ()=>page.unroute('**/api/frame',hold);
+}
+
 export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
  const journeys=[];
  const node=()=>page.evaluate(()=>window.lab.frame.story.node);

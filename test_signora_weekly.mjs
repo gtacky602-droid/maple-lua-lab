@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {holdPortalFrame} from './tools/browser_waypoint_test.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
@@ -43,18 +44,20 @@ try{
  await page.keyboard.down('KeyD');
  try{await wait(node=>window.lab.frame.storyNearbyPortal?.to===node&&window.lab.frame.storyNearbyPortal.available,node);}
  finally{await page.keyboard.up('KeyD');}
+ const releaseOpening=await holdPortalFrame(page);
  await page.keyboard.press('KeyF');
  await wait(node=>window.lab.frame.story.node===node,node);
  const scene=await page.evaluate(async()=>{
-  const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-  await backgroundReady;
+  const {loadScenery,sceneryStatus}=await import('./scenery.js');
+  await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['inazuma','ready']);
+ assert.deepEqual([scene.key,scene.state],['tenshukakuDuel','ready']);
  const first=await frame();
  assert.deepEqual(first.weeklyBoss.phaseHp.map(p=>[p.name,p.hp]),[['氷',480],['炎',800]]);
  assert.ok(first.draws.some(draw=>draw.source==='signora-idle-source-v1.png'));
  await canvas.screenshot({path:prefix+'-cryo.png'});
+ await releaseOpening();
  await canvas.click();
  await page.keyboard.down('KeyA');
  try{await wait(()=>window.lab.frame.actors[0].x<=105);}

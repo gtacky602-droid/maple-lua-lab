@@ -9,7 +9,7 @@ export function liveNodeDraft(input,graph,nodeId,species,boss){
  if(boss && items===undefined){
   let actors;
   if(boss.node===nodeId && boss.mapIdleArt){
-   actors=[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:false}];
+   actors=[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:boss.openingPose?.flip??false}];
    if(boss.partner?.mapIdleArt){
     actors.push({id:'boss-'+boss.partner.entity,species:boss.partner.mapIdleArt,
      x:boss.home+boss.partner.offset,y:boss.floorY,flip:false});

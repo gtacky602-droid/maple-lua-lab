@@ -1,0 +1,90 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "tenshukaku-duel-background-v1.png": {
+      "sourceBytes": 1356527,
+      "sourceSha256": "ffe332f60f133febf867e432281d082576d24a4dc5d02fc42c1d7b68f6f01d09",
+      "preview": "tenshukaku-duel-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16063,
+      "baseSelectedBytes": 16051,
+      "detailFixed13Bytes": 11255,
+      "detailSelectedBytes": 11243,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.4141710069444444,
+          "rgbSha256": "e3592b8a917cfe73550fe4181262ab58e131d44e9c2c202077a77758655f17f4"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.2853054470486112,
+          "rgbSha256": "f8a8c57e80bab9ba5b1a711cc4d3310f88901609f8124c443c16ab269ba4808b"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.1932327835648149,
+          "rgbSha256": "b9daa3583e82d26c1e4e36272c9f90b2a13766809bbbc8f50db85db5b4d45bc0"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.1161544234664351,
+          "rgbSha256": "cc06a2336791ff5b890d908f4d5ac850834b3fa007ae1e0e6b5abf08ec41abd6"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.0495243778935186,
+          "rgbSha256": "8c1752d4829d0a52a691817117175b9eb339c898929a894fb8189aba5c7e29c9"
+        }
+      ]
+    },
+    "euthymia-duel-background-v1.png": {
+      "sourceBytes": 1305186,
+      "sourceSha256": "e24bc14f0eb88009e0940804e1229a0b47ae9a75068d88f19c56714c96e23fea",
+      "preview": "euthymia-duel-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14269,
+      "baseSelectedBytes": 14255,
+      "detailFixed13Bytes": 10831,
+      "detailSelectedBytes": 10819,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.8233145254629629,
+          "rgbSha256": "3a219358fdbaf5874a438f9efbc44b34759f4a99d29fa04b43d62e3b3363ecfe"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.7395539460358797,
+          "rgbSha256": "2823c0266cf0de28cf14c636f8958c29b93f8a332a8996fd32ddc5cf18c6cd75"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.6833654333043981,
+          "rgbSha256": "73eb0a8c974ad66c1376d26120b2a1e29803aa26ec2d7413bd3514f287ebb49b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.6386289243344907,
+          "rgbSha256": "8cb329e2168db74413ad1375b89cc601a48b37add3f73d9e94aaedf1c22773df"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.6018450701678241,
+          "rgbSha256": "3f447314f68c227d438b67957952298433174d7f01bae335a96e675d96b56b0d"
+        }
+      ]
+    }
+  }
+}

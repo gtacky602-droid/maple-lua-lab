@@ -8,15 +8,15 @@
   "reportAndRestore": true,
   "viewport390": true,
   "scene": {
-    "key": "thunderField",
-    "file": "thunder-field-background-v1.png",
+    "key": "euthymiaDuel",
+    "file": "euthymia-duel-background-v1.png",
     "state": "ready"
   },
-  "remainingHp": 363,
+  "remainingHp": 370,
   "sameStateCommands": {
-    "png": 78,
-    "standard": 11668,
-    "light": 3450
+    "png": 79,
+    "standard": 13503,
+    "light": 3875
   },
   "errors": []
 }

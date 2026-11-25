@@ -7,21 +7,22 @@
       "sites-hunt-7111"
     ],
     "png": {
+      "flip": false,
+      "w": 242.27848101265823,
+      "anchorX": 0.5,
+      "kind": "boss_sprite",
       "box": [
         25,
         25,
         435,
         395
       ],
-      "x": 480,
-      "kind": "boss_sprite",
-      "anchorX": 0.5,
-      "source": "dvalin-weekly-body-source-v1.png",
-      "flip": false,
       "h": 220,
       "y": 330,
-      "w": 242.27848101265823
+      "x": 480,
+      "source": "dvalin-weekly-body-source-v1.png"
     },
+    "heldRects": [],
     "profiles": {
       "legacy": {
         "sourceRuns": 12636,
@@ -44,21 +45,22 @@
       "mond-road"
     ],
     "png": {
+      "flip": false,
+      "w": 274.1795665634675,
+      "anchorX": 0.5121951219512195,
+      "kind": "boss_sprite",
       "box": [
         25,
         25,
         492,
         323
       ],
-      "x": 480,
-      "kind": "boss_sprite",
-      "anchorX": 0.5121951219512195,
-      "source": "andrius-weekly-normal-source-v1.png",
-      "flip": false,
       "h": 180.0,
       "y": 480,
-      "w": 274.1795665634675
+      "x": 480,
+      "source": "andrius-weekly-normal-source-v1.png"
     },
+    "heldRects": [],
     "profiles": {
       "legacy": {
         "sourceRuns": 13306,
@@ -74,6 +76,153 @@
       }
     }
   },
+  "signora": {
+    "node": "signora-ten-shrine-arena",
+    "hub": "inazuma-town",
+    "approach": [
+      "inazuma-town"
+    ],
+    "png": {
+      "flip": false,
+      "w": 63.71182458888019,
+      "anchorX": 0.5022123893805309,
+      "kind": "boss_sprite",
+      "box": [
+        261,
+        18,
+        678,
+        1277
+      ],
+      "h": 120,
+      "y": 480,
+      "x": 480,
+      "source": "signora-idle-source-v1.png"
+    },
+    "heldRects": [],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 2084,
+        "drawnRuns": 2084
+      },
+      "h48c32": {
+        "sourceRuns": 1230,
+        "drawnRuns": 1230
+      },
+      "h32c16": {
+        "sourceRuns": 544,
+        "drawnRuns": 544
+      }
+    }
+  },
+  "raiden": {
+    "node": "raiden-thunder-echo-arena",
+    "hub": "inazuma-town",
+    "approach": [
+      "inazuma-town"
+    ],
+    "png": {
+      "flip": true,
+      "w": 70.08711111111111,
+      "anchorX": 0.5667613636363636,
+      "kind": "boss_sprite",
+      "box": [
+        216,
+        94,
+        704,
+        1125
+      ],
+      "h": 112,
+      "y": 480,
+      "x": 480,
+      "source": "raiden-weekly-normal-source-v1.png"
+    },
+    "heldRects": [
+      [
+        443.52,
+        427.36,
+        8,
+        8,
+        "#583c8b"
+      ],
+      [
+        440.52,
+        420.36,
+        8,
+        8,
+        "#583c8b"
+      ],
+      [
+        437.52,
+        413.36,
+        8,
+        8,
+        "#583c8b"
+      ],
+      [
+        434.52,
+        406.36,
+        8,
+        8,
+        "#583c8b"
+      ],
+      [
+        431.52,
+        399.36,
+        8,
+        8,
+        "#583c8b"
+      ],
+      [
+        428.52,
+        392.36,
+        8,
+        8,
+        "#f4e9ff"
+      ],
+      [
+        425.52,
+        385.36,
+        8,
+        8,
+        "#f4e9ff"
+      ],
+      [
+        422.52,
+        378.36,
+        8,
+        8,
+        "#f4e9ff"
+      ],
+      [
+        419.52,
+        371.36,
+        8,
+        8,
+        "#f4e9ff"
+      ],
+      [
+        416.52,
+        364.36,
+        8,
+        8,
+        "#f4e9ff"
+      ]
+    ],
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 2355,
+        "drawnRuns": 2355
+      },
+      "h48c32": {
+        "sourceRuns": 1483,
+        "drawnRuns": 1483
+      },
+      "h32c16": {
+        "sourceRuns": 675,
+        "drawnRuns": 675
+      }
+    }
+  },
   "shouki": {
     "node": "shouki-godmaking-arena",
     "hub": "sumeru-hub",
@@ -81,21 +230,22 @@
       "sumeru-hub"
     ],
     "png": {
+      "flip": false,
+      "w": 1392.6417704011064,
+      "anchorX": 0.5,
+      "kind": "boss_sprite",
       "box": [
         87,
         14,
         868,
         723
       ],
-      "x": 480,
-      "kind": "boss_sprite",
-      "anchorX": 0.5,
-      "source": "shouki-idle-source-v1.png",
-      "flip": false,
       "h": 1160,
       "y": 480,
-      "w": 1392.6417704011064
+      "x": 480,
+      "source": "shouki-idle-source-v1.png"
     },
+    "heldRects": [],
     "profiles": {
       "legacy": {
         "sourceRuns": 6224,
