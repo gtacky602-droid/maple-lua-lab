@@ -1,0 +1,587 @@
+{
+  "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+  "itineraries": [
+    {
+      "start": "natlan-hub",
+      "destination": "night-wind-seaward-fork",
+      "stops": [
+        {
+          "previewX": 1380,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "natlan-field",
+          "from": "natlan-hub",
+          "name": "ナタ・岩場の道"
+        },
+        {
+          "previewX": 1380,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "natlan-port",
+          "from": "natlan-field",
+          "name": "ナタ・花翼の集付近の港（仮）"
+        },
+        {
+          "previewX": 530,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-79542",
+          "from": "natlan-port",
+          "name": "クァワカン断崖周辺・西の崖の神像"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-79055",
+          "from": "nat-wp-79542",
+          "name": "クァワカン断崖周辺・西端の岬"
+        },
+        {
+          "previewX": 947,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-79053",
+          "from": "nat-wp-79055",
+          "name": "クァワカン断崖周辺・西の石段"
+        },
+        {
+          "previewX": 1085,
+          "region": "region-06",
+          "previewY": 407,
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "night-wind-seaward-fork",
+          "from": "nat-wp-79053",
+          "hint": "上段の入口・海を望む崖道へ",
+          "name": "謎煙の主の南西・海を望む崖道"
+        }
+      ]
+    },
+    {
+      "start": "night-wind-seaward-fork",
+      "destination": "night-wind-rilai-clearing",
+      "stops": [
+        {
+          "previewX": 450,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "night-wind-rilai-clearing",
+          "from": "night-wind-seaward-fork",
+          "hint": "地上の広場・リライ",
+          "name": "謎煙の主の南西・リライの広場"
+        }
+      ]
+    },
+    {
+      "start": "night-wind-rilai-clearing",
+      "destination": "night-wind-seaward-fork",
+      "stops": [
+        {
+          "previewX": 96,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "night-wind-seaward-fork",
+          "from": "night-wind-rilai-clearing",
+          "hint": "海を望む崖道へ戻る",
+          "name": "謎煙の主の南西・海を望む崖道"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "atocpan-peak-rock-trail",
+      "stops": [
+        {
+          "previewX": 1380,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "natlan-field",
+          "from": "natlan-hub",
+          "name": "ナタ・岩場の道"
+        },
+        {
+          "previewX": 730,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-72429",
+          "from": "natlan-field",
+          "name": "万火のほとぎ周辺・競技場の裏口"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-79051",
+          "from": "nat-wp-72429",
+          "name": "クァワカン断崖周辺・断崖南の道"
+        },
+        {
+          "previewX": 511,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82572",
+          "from": "nat-wp-79051",
+          "name": "アトクパンの大地・森から入る北の道"
+        },
+        {
+          "previewX": 511,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82558",
+          "from": "nat-wp-82572",
+          "name": "アトクパンの大地・北東の細道"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82559",
+          "from": "nat-wp-82558",
+          "name": "アトクパンの大地・東の外輪の棚"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82570",
+          "from": "nat-wp-82559",
+          "name": "アトクパンの大地・北の外輪の分岐"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82571",
+          "from": "nat-wp-82570",
+          "name": "アトクパンの大地・北西の崖先"
+        },
+        {
+          "previewX": 385,
+          "region": "region-06",
+          "previewY": 401,
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-peak-rock-trail",
+          "from": "nat-wp-82571",
+          "hint": "上段の入口・星岩の墜落地の西の山腹へ",
+          "name": "星岩の墜落地の西・山腹の岩道"
+        }
+      ]
+    },
+    {
+      "start": "atocpan-peak-rock-trail",
+      "destination": "atocpan-peak-cave",
+      "stops": [
+        {
+          "previewX": 1420,
+          "region": "region-06",
+          "previewY": 346,
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-peak-cave",
+          "from": "atocpan-peak-rock-trail",
+          "hint": "上段の入口・山腹の岩洞・ピーク",
+          "name": "アトクパンの大地・ピークの岩洞"
+        }
+      ]
+    },
+    {
+      "start": "atocpan-peak-cave",
+      "destination": "atocpan-peak-rock-trail",
+      "stops": [
+        {
+          "previewX": 96,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-peak-rock-trail",
+          "from": "atocpan-peak-cave",
+          "hint": "山腹の岩道へ戻る",
+          "name": "星岩の墜落地の西・山腹の岩道"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "sites-hunt-82577",
+      "stops": [
+        {
+          "previewX": 1380,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "natlan-field",
+          "from": "natlan-hub",
+          "name": "ナタ・岩場の道"
+        },
+        {
+          "previewX": 730,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-72429",
+          "from": "natlan-field",
+          "name": "万火のほとぎ周辺・競技場の裏口"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-79051",
+          "from": "nat-wp-72429",
+          "name": "クァワカン断崖周辺・断崖南の道"
+        },
+        {
+          "previewX": 511,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82572",
+          "from": "nat-wp-79051",
+          "name": "アトクパンの大地・森から入る北の道"
+        },
+        {
+          "previewX": 511,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82558",
+          "from": "nat-wp-82572",
+          "name": "アトクパンの大地・北東の細道"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82559",
+          "from": "nat-wp-82558",
+          "name": "アトクパンの大地・東の外輪の棚"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82570",
+          "from": "nat-wp-82559",
+          "name": "アトクパンの大地・北の外輪の分岐"
+        },
+        {
+          "previewX": 541,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82566",
+          "from": "nat-wp-82570",
+          "name": "アトクパンの大地・北西の岩間"
+        },
+        {
+          "previewX": 729,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82565",
+          "from": "nat-wp-82566",
+          "name": "アトクパンの大地・西岸の柱状岩"
+        },
+        {
+          "previewX": 1382,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82564",
+          "from": "nat-wp-82565",
+          "name": "アトクパンの大地・南岸の崖道"
+        },
+        {
+          "previewX": 398,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "sites-hunt-82577",
+          "from": "nat-wp-82564",
+          "hint": "火山南の征討入口",
+          "name": "火山南の征討入口"
+        }
+      ]
+    },
+    {
+      "start": "sites-hunt-82577",
+      "destination": "atocpan-domain-side-clearing",
+      "stops": [
+        {
+          "previewX": 2645,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-domain-side-clearing",
+          "from": "sites-hunt-82577",
+          "hint": "秘境の脇の草地へ",
+          "name": "火山南・秘境脇の草地"
+        }
+      ]
+    },
+    {
+      "start": "atocpan-domain-side-clearing",
+      "destination": "atocpan-battlegoat-ironclaw-field",
+      "stops": [
+        {
+          "previewX": 900,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-battlegoat-ironclaw-field",
+          "from": "atocpan-domain-side-clearing",
+          "hint": "草地の奥・「戦羊」と「鉄爪」",
+          "name": "火山南・戦羊と鉄爪の広場"
+        }
+      ]
+    },
+    {
+      "start": "atocpan-battlegoat-ironclaw-field",
+      "destination": "atocpan-domain-side-clearing",
+      "stops": [
+        {
+          "previewX": 96,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-domain-side-clearing",
+          "from": "atocpan-battlegoat-ironclaw-field",
+          "hint": "秘境脇の草地へ戻る",
+          "name": "火山南・秘境脇の草地"
+        }
+      ]
+    },
+    {
+      "start": "atocpan-domain-side-clearing",
+      "destination": "nat-wp-82564",
+      "stops": [
+        {
+          "previewX": 96,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-82564",
+          "from": "atocpan-domain-side-clearing",
+          "hint": "南岸の崖道へ戻る",
+          "name": "アトクパンの大地・南岸の崖道"
+        }
+      ]
+    },
+    {
+      "start": "nat-wp-82564",
+      "destination": "atocpan-domain-side-clearing",
+      "stops": [
+        {
+          "previewX": 438,
+          "region": "region-06",
+          "previewY": 410,
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "atocpan-domain-side-clearing",
+          "from": "nat-wp-82564",
+          "hint": "上段の入口・崖道から秘境脇の草地へ",
+          "name": "火山南・秘境脇の草地"
+        }
+      ]
+    },
+    {
+      "start": "natlan-hub",
+      "destination": "zapabay-tenochtzitoc-shallows",
+      "stops": [
+        {
+          "previewX": 1380,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "natlan-field",
+          "from": "natlan-hub",
+          "name": "ナタ・岩場の道"
+        },
+        {
+          "previewX": 1380,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "natlan-port",
+          "from": "natlan-field",
+          "name": "ナタ・花翼の集付近の港（仮）"
+        },
+        {
+          "previewX": 1260,
+          "region": "region-06",
+          "mode": "boat",
+          "label": "舟・寄港",
+          "id": "nat-resort-pier",
+          "from": "natlan-port",
+          "hint": "ナタの北港からリゾートへ・移動に4.5秒",
+          "name": "のびのびリゾート・南の連絡桟橋"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85957",
+          "from": "nat-resort-pier",
+          "name": "のびのびリゾート・南の神像"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85960",
+          "from": "nat-wp-85957",
+          "name": "のびのびリゾート・島の道の分岐"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85962",
+          "from": "nat-wp-85960",
+          "name": "のびのびリゾート・水車のそばの道"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85968",
+          "from": "nat-wp-85962",
+          "name": "のびのびリゾート・中央の浜"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85969",
+          "from": "nat-wp-85968",
+          "name": "のびのびリゾート・西の入江"
+        },
+        {
+          "previewX": 76,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85972",
+          "from": "nat-wp-85969",
+          "name": "のびのびリゾート・西島の桟橋"
+        },
+        {
+          "previewX": 473,
+          "region": "region-06",
+          "previewY": 419,
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "zapabay-tenochtzitoc-shallows",
+          "from": "nat-wp-85972",
+          "hint": "上段の入口・ざぶざぶ湾の浅瀬へ",
+          "name": "ざぶざぶ湾・最後のテノチズトク人の浅瀬"
+        }
+      ]
+    },
+    {
+      "start": "zapabay-tenochtzitoc-shallows",
+      "destination": "nat-wp-85972",
+      "stops": [
+        {
+          "previewX": 96,
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "nat-wp-85972",
+          "from": "zapabay-tenochtzitoc-shallows",
+          "hint": "西島の桟橋へ戻る",
+          "name": "のびのびリゾート・西島の桟橋"
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "quest": "natlan-seaward-signs",
+      "xp": 284000,
+      "mora": 13100
+    },
+    {
+      "quest": "natlan-southern-trail-survey",
+      "xp": 382000,
+      "mora": 17200
+    }
+  ],
+  "battles": [
+    {
+      "node": "night-wind-rilai-clearing",
+      "targets": [
+        "legend-natlan_rilai"
+      ],
+      "xp": 13923,
+      "kills": 1
+    },
+    {
+      "node": "atocpan-peak-cave",
+      "targets": [
+        "legend-natlan_peak"
+      ],
+      "xp": 13923,
+      "kills": 1
+    },
+    {
+      "node": "zapabay-tenochtzitoc-shallows",
+      "targets": [
+        "legend-natlan_last_tenochtzitoc"
+      ],
+      "xp": 13923,
+      "kills": 1
+    }
+  ],
+  "locks": [],
+  "returns": 0,
+  "levelAtStart": 165,
+  "draftBalance": true,
+  "clearsAfterReload": {
+    "legend-natlan_rilai": 1,
+    "legend-natlan_peak": 1,
+    "legend-natlan_battlegoat_ironclaw": 1,
+    "legend-natlan_last_tenochtzitoc": 1
+  },
+  "groupRewards": [
+    {
+      "defeated": "戦羊",
+      "groupHP": 570,
+      "killDelta": 0,
+      "xpDelta": 0,
+      "clears": 0
+    },
+    {
+      "defeated": "鉄爪",
+      "groupHP": 0,
+      "killDelta": 1,
+      "xpDelta": 13923,
+      "clears": 1
+    }
+  ]
+}

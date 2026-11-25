@@ -1,0 +1,134 @@
+{
+  "scope": "M-map structural fixtures: initial visibility, all discoveries, and both sluice survey states",
+  "totals": {
+    "stages": 1528,
+    "physicalGates": 3747,
+    "automaticOrBattleRoutes": 17,
+    "reachableFromMondstadt": 1528,
+    "canReturnToMondstadt": 1528
+  },
+  "regions": {
+    "モンド": {
+      "stages": 68,
+      "gates": 168
+    },
+    "璃月": {
+      "stages": 87,
+      "gates": 242
+    },
+    "航路": {
+      "stages": 6,
+      "gates": 8
+    },
+    "稲妻": {
+      "stages": 99,
+      "gates": 255
+    },
+    "スメール": {
+      "stages": 167,
+      "gates": 437
+    },
+    "フォンテーヌ": {
+      "stages": 160,
+      "gates": 403
+    },
+    "ナタ": {
+      "stages": 176,
+      "gates": 433
+    },
+    "オシカ・ナタ": {
+      "stages": 27,
+      "gates": 64
+    },
+    "ナド・クライ": {
+      "stages": 149,
+      "gates": 364
+    },
+    "スネージナヤ": {
+      "stages": 154,
+      "gates": 389
+    },
+    "ドラゴンスパイン": {
+      "stages": 22,
+      "gates": 52
+    },
+    "沈玉の谷": {
+      "stages": 97,
+      "gates": 222
+    },
+    "淵下宮": {
+      "stages": 29,
+      "gates": 76
+    },
+    "トゥニギの黒淵": {
+      "stages": 33,
+      "gates": 79
+    },
+    "往日の海": {
+      "stages": 26,
+      "gates": 63
+    },
+    "ドーンマンポート": {
+      "stages": 23,
+      "gates": 51
+    },
+    "ナド・クライ特別地域（仮）": {
+      "stages": 12,
+      "gates": 25
+    },
+    "ノヴォキッチェヴ（仮構造）": {
+      "stages": 6,
+      "gates": 15
+    },
+    "翼の峰": {
+      "stages": 2,
+      "gates": 3
+    },
+    "層岩巨淵・地下鉱区": {
+      "stages": 17,
+      "gates": 36
+    },
+    "金リンゴ群島": {
+      "stages": 15,
+      "gates": 30
+    },
+    "ヴェルーリヤ・ミラージュ": {
+      "stages": 14,
+      "gates": 24
+    },
+    "シムランカ": {
+      "stages": 15,
+      "gates": 28
+    },
+    "霜月": {
+      "stages": 39,
+      "gates": 87
+    },
+    "古の聖山": {
+      "stages": 20,
+      "gates": 40
+    },
+    "のびのびリゾート": {
+      "stages": 25,
+      "gates": 62
+    },
+    "空の神殿": {
+      "stages": 22,
+      "gates": 47
+    },
+    "ノストイ地区": {
+      "stages": 8,
+      "gates": 18
+    },
+    "層岩巨淵・地上": {
+      "stages": 10,
+      "gates": 26
+    }
+  },
+  "hiddenInFreshState": 49,
+  "surveyAlternateNodes": [
+    "chassanion-legend-bubble-room",
+    "fon-wp-55765",
+    "morte-tower-sluice"
+  ]
+}

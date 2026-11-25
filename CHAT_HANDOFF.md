@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## ナタの地方伝説20会場とM地図の入口表示
+
+[ナタの地方伝説20会場を見比べる](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=atocpan-battlegoat-ironclaw-field&arena=legend&region=ナタ&measured=1)。リライの草地、戦羊と鉄爪の広場、ピークの岩洞、最後のテノチズトク人の浅瀬と、分岐・登り道2地点にラボ用の仮背景を配置した。6枚とも元PNGと矩形5段階を比較できる。4,096矩形は16,810～18,896バイト、6,144矩形は28,781～31,601バイト。復号器は別セッションのR109と同一。全体で340/1,528地点、地方伝説37/56会場が5段階に対応。[6地点の画像比較](evidence/southern-legend-comparison.png)
+
+M地図の接続先や「現在地からの道順」にある「入口を見る」を押すと、出発地点の仮背景・足場に実際の門の位置を示す。地上の[リライへの分岐](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=night-wind-seaward-fork&to=night-wind-rilai-clearing&gateX=450&gateY=480)と上段の[晨星の石柱](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=night-wind-seaward-fork&to=night-trial-fallen-dawnstar&gateX=1140&gateY=346)を切り替えられる。発見状況に応じて出口一覧が変わるため、行き先と座標を使って同じ門を特定している。
+
+地図用の検査状態で隠し地域を開き、水門依頼の報告前・後を切り替えて、全1,528地点・物理的な出入口3,747件の行き先と座標を照合した。船の自動到着と戦闘内の転送を含む有向グラフ上では、全地点がモンドと往復可能。育成の通し検証ではLv165の保存から46区間を歩き、2件の道標調査の報告と4戦のクリア後に再読込した。戦羊を倒した時点では鉄爪のHPが残り、撃破報酬とクリア数は2体目で一度だけ増えた。[全地点の構造検査](evidence/atlas-gate-previews.json) · [46区間のプレイ記録](evidence/earned-southern-legends.json) · [地図リンクと2体の描画比較](evidence/southern-legend-routes-browser.json)
+
 ## ナタ地上の地方伝説3戦と鍵・電気水晶
 
 [波のジャプーの演奏場](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=tepeakak-sappho-bank)、[コシーホの石広場](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-cocijo-stone-ring)、[バラチコの岩室](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-balachko-inner-cave)を、それぞれ川沿いの草地、湖畔の円形広場、格子奥の洞窟として描いた。コシーホに通じる[電気水晶の岸辺](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-electro-crystal-shore)にも独立した仮背景を追加した。4枚とも5段階で比較できる。ラボと別セッションのR103でMapleCodec.luaのSHA-256が一致した。4,096矩形で17,579～18,941バイト、6,144矩形で29,672～31,472バイト。[4地点の画像比較](evidence/toyac-legend-comparison.png)

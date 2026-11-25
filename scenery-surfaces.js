@@ -26,6 +26,23 @@ function surfaceTile(material, ground) {
       rect('#594167', 13 + i * 3, 7 + i * 3, 4, 3);
       rect('#402e52', 48 - i * 2, 10 + i * 2, 3, 2);
     }
+  } else if (material === 'heather') {
+    rect('#67435c', 0, 0, 64, tile.height);
+    rect('#985585', 0, 0, 64, 7);
+    rect('#c482b3', 0, 0, 64, 2);
+    for (const x of [3, 21, 49]) {
+      rect('#754367', x, 4, 9, 6);
+      rect('#af6c99', x + 3, 2, 5, 3);
+      rect('#51374e', x + 5, 15, 11, 2);
+    }
+  } else if (material === 'wetSand') {
+    rect('#c59169', 0, 0, 64, tile.height);
+    rect('#e4bb8c', 0, 0, 64, 15);
+    rect('#a9c9b2', 0, 0, 64, 3);
+    rect('#e0f1d9', 6, 1, 19, 2);
+    rect('#e7cba0', 36, 5, 12, 2);
+    rect('#d5a97d', 20, 12, 23, 2);
+    rect('#b88561', 45, 25, 7, 2);
   } else if (material === 'sandstone' || material === 'cavern') {
     const cave = material === 'cavern';
     rect(cave ? '#433842' : '#ad7352', 0, 0, 64, tile.height);

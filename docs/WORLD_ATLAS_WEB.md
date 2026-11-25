@@ -1,5 +1,7 @@
 # Luaラボの「旅路の地図」
 
+M地図で目的地を選び、道順の各区間または接続先リストの「入口を見る」を押すと、出発地点の足場と黄色い印が別タブに開く。印の先端が実際の門の座標。比較画面の「出入口の位置」で別の門に切り替えられる。船の自動到着や戦闘内の転送には物理的な門がないため、このリンクは表示されない。
+
 [電気水晶の岸辺](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-electro-crystal-shore)で「破壊済みの電気水晶」にチェックを入れると、その水晶が左右両方で消える。[二つの鍵の洞窟](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=toyac-rainbow-key-cave)では依頼の段階を選ぶと、次の鍵や格子にカメラが移る。どちらも会場リンクから、同じ画質でボスの開幕を見られる。
 
 ナタの黒曜石の柱と試練場は、[夜魂の試練12会場の比較](http://127.0.0.1:9117/map-art.html?node=night-trial-undead&arena=nightTrial&placements=live&compare=background&tier=4096)で見られる。比較画面のリンクを押すと、選んだ画質を保って入口と試練場を切り替える。本編では現地の柱から入場する。

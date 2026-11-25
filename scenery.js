@@ -1,6 +1,12 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ rilaiMistCourt:{file:'rilai-mist-court-background-v1.png',decodedPreview:'rilai-mist-court-native-preview-v1.png',decodedTiers:'rilai-mist-court-native-tiers-v1.webp',surface:'heather',zones:['story:night-wind-rilai-clearing'],note:'謎煙の主の南西・リライの広場のラボ用仮背景'},
+ atocpanTwinMeadow:{file:'atocpan-twin-meadow-background-v1.png',decodedPreview:'atocpan-twin-meadow-native-preview-v1.png',decodedTiers:'atocpan-twin-meadow-native-tiers-v1.webp',surface:'grass',zones:['story:atocpan-battlegoat-ironclaw-field'],note:'火山南・戦羊と鉄爪の広場のラボ用仮背景'},
+ atocpanPeakGrotto:{file:'atocpan-peak-grotto-background-v1.png',decodedPreview:'atocpan-peak-grotto-native-preview-v1.png',decodedTiers:'atocpan-peak-grotto-native-tiers-v1.webp',surface:'cavern',zones:['story:atocpan-peak-cave'],note:'アトクパンの大地・ピークの岩洞のラボ用仮背景'},
+ zapaTidalFlat:{file:'zapa-tidal-flat-background-v1.png',decodedPreview:'zapa-tidal-flat-native-preview-v1.png',decodedTiers:'zapa-tidal-flat-native-tiers-v1.webp',surface:'wetSand',zones:['story:zapabay-tenochtzitoc-shallows'],note:'ざぶざぶ湾・最後のテノチズトク人の浅瀬のラボ用仮背景'},
+ nightWindFork:{file:'night-wind-seaward-fork-background-v1.png',decodedPreview:'night-wind-seaward-fork-native-preview-v1.png',decodedTiers:'night-wind-seaward-fork-native-tiers-v1.webp',surface:'grass',zones:['story:night-wind-seaward-fork'],note:'海を望む崖道の分岐のラボ用仮背景'},
+ atocpanPeakTrail:{file:'atocpan-peak-trail-background-v1.png',decodedPreview:'atocpan-peak-trail-native-preview-v1.png',decodedTiers:'atocpan-peak-trail-native-tiers-v1.webp',surface:'sandstone',zones:['story:atocpan-peak-rock-trail'],note:'山腹の岩道のラボ用仮背景'},
  sapphoReedBank:{file:'sappho-reed-bank-background-v1.png',decodedPreview:'sappho-reed-bank-native-preview-v1.png',decodedTiers:'sappho-reed-bank-native-tiers-v1.webp',surface:'grass',zones:['story:tepeakak-sappho-bank'],note:'テペアカク坂・ジャプーの演奏場のラボ用仮背景'},
  cocijoStoneRing:{file:'cocijo-stone-ring-background-v1.png',decodedPreview:'cocijo-stone-ring-native-preview-v1.png',decodedTiers:'cocijo-stone-ring-native-tiers-v1.webp',surface:'sandstone',zones:['story:toyac-cocijo-stone-ring'],note:'アメヤルコの水域・コシーホの石広場のラボ用仮背景'},
  balachkoGrateChamber:{file:'balachko-grate-chamber-background-v1.png',decodedPreview:'balachko-grate-chamber-native-preview-v1.png',decodedTiers:'balachko-grate-chamber-native-tiers-v1.webp',surface:'cavern',zones:['story:toyac-balachko-inner-cave'],note:'アメヤルコの水域・格子奥の岩室のラボ用仮背景'},

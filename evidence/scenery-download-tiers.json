@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1485,
+  "verifiedModules": 1515,
   "dimensions": [
     512,
     288
@@ -1602,6 +1602,48 @@
       "5632": 27543,
       "6144": 29291
     },
+    "rilai-mist-court-background-v1.png": {
+      "4096": 18261,
+      "4608": 21749,
+      "5120": 25084,
+      "5632": 28402,
+      "6144": 30430
+    },
+    "atocpan-twin-meadow-background-v1.png": {
+      "4096": 18540,
+      "4608": 22130,
+      "5120": 25577,
+      "5632": 29003,
+      "6144": 31045
+    },
+    "atocpan-peak-grotto-background-v1.png": {
+      "4096": 16810,
+      "4608": 20224,
+      "5120": 23491,
+      "5632": 26775,
+      "6144": 28781
+    },
+    "zapa-tidal-flat-background-v1.png": {
+      "4096": 18896,
+      "4608": 22412,
+      "5120": 25811,
+      "5632": 29209,
+      "6144": 31601
+    },
+    "night-wind-seaward-fork-background-v1.png": {
+      "4096": 18296,
+      "4608": 21834,
+      "5120": 25253,
+      "5632": 28657,
+      "6144": 30605
+    },
+    "atocpan-peak-trail-background-v1.png": {
+      "4096": 18161,
+      "4608": 21729,
+      "5120": 25166,
+      "5632": 28588,
+      "6144": 30328
+    },
     "sappho-reed-bank-background-v1.png": {
       "4096": 18941,
       "4608": 22517,
@@ -2089,7 +2131,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 334
+      "verified": 340
     },
     "domainHunts": {
       "total": 124,
@@ -2163,15 +2205,12 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 97,
+      "verified": 101,
       "pending": [
-        "atocpan-battlegoat-ironclaw-field",
-        "atocpan-peak-cave",
         "cineas-legend-chamber",
         "dorn-churldric-cooking-camp",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "night-wind-rilai-clearing",
         "nod-crab-tsar-palace",
         "nod-hiljetta-peninsula-camp",
         "nod-homesick-wolf-lakeland",
@@ -2186,8 +2225,7 @@
         "sne-churin-snow-court",
         "sne-crystal-tree-refuge",
         "sne-furiosa-domain-outlook",
-        "sne-novokichev-ore-yard",
-        "zapabay-tenochtzitoc-shallows"
+        "sne-novokichev-ore-yard"
       ]
     },
     "normalBosses": {
@@ -2197,15 +2235,12 @@
     },
     "localLegends": {
       "totalArenas": 56,
-      "verified": 33,
+      "verified": 37,
       "pending": [
-        "atocpan-battlegoat-ironclaw-field",
-        "atocpan-peak-cave",
         "cineas-legend-chamber",
         "dorn-churldric-cooking-camp",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "night-wind-rilai-clearing",
         "nod-crab-tsar-palace",
         "nod-hiljetta-peninsula-camp",
         "nod-homesick-wolf-lakeland",
@@ -2220,8 +2255,7 @@
         "sne-churin-snow-court",
         "sne-crystal-tree-refuge",
         "sne-furiosa-domain-outlook",
-        "sne-novokichev-ore-yard",
-        "zapabay-tenochtzitoc-shallows"
+        "sne-novokichev-ore-yard"
       ]
     },
     "weeklyBosses": {

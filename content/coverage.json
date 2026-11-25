@@ -11745,6 +11745,9 @@
     "scenery_and_quest_checks": {
       "five_tier_coverage": "evidence/scenery-download-tiers.json",
       "coverage_key": "locationCoverage.localLegends",
+      "all_map_gate_geometry": "evidence/atlas-gate-previews.json",
+      "natlan_overworld_routes": "evidence/earned-southern-legends.json",
+      "natlan_overworld_scenery": "evidence/southern-legend-routes-browser.json",
       "natlan_night_trials": "evidence/earned-night-trials.json",
       "natlan_toyac_encounters": "evidence/earned-toyac-legends.json",
       "natlan_toyac_quest_views": "evidence/toyac-legend-arenas-browser.json"

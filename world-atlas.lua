@@ -215,7 +215,7 @@ return function(C, atlas)
       voyage.kind=='ferry' and ('出航から'..voyage.seconds..'秒で着岸')
       or ('発車から'..voyage.seconds..'秒で到着')) or nil
   local parts={}
-  if edge.y and node.swim then parts[#parts+1]='門と同じ深さまで泳ぐ'
+  if edge.y and (node.swim or node.toyDive) then parts[#parts+1]='門と同じ深さまで泳ぐ'
   elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
   local gate=not automatic_arrival(node,edge) and (parallel_gate_hint(edge,node) or (not edge.windowStart and edge.rideLabel))
   if gate then parts[#parts+1]=gate end
@@ -416,6 +416,9 @@ return function(C, atlas)
     if not s.coop and leg.automaticArrival and leg.from==s.story.node and s.voyage and s.voyage.destination==leg.id then
      leg.secondsRemaining=math.max(0,s.voyage.arrives-s.t)
     end
+    if leg.edge.x and not leg.automaticArrival then
+     leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
+    end
     leg.edge=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason
@@ -569,7 +572,7 @@ return function(C, atlas)
    for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
      local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
-     routes[#routes+1]={pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
+     routes[#routes+1]={previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
        reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),

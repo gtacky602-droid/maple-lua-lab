@@ -1,0 +1,60 @@
+{
+  "origin": "Original local-lab backdrops based on the route and encounter design records.",
+  "sharedPrompt": "Original full-bleed 16:9 side-view pixel art level background in a colorful volcano-and-tribes fantasy land, suitable for a MapleStory-like side-scrolling RPG. Use deliberate clustered 1990s pixel shapes, a restrained palette and broad color fields; clean discernible far, middle, and near silhouettes. Preserve an uninterrupted playable baseline toward the bottom (88% of height). Keep center playable area legible for tiny character silhouettes. No enemies, people, interface, text, lettering, signs with words or frames. Single landscape, never panels.",
+  "scenes": [
+    {
+      "key": "rilaiMistCourt",
+      "node": "night-wind-rilai-clearing",
+      "source": "rilai-mist-court-background-v1.png",
+      "preview": "rilai-mist-court-native-preview-v1.png",
+      "surface": "heather",
+      "note": "謎煙の主の南西・リライの広場のラボ用仮背景",
+      "prompt": "A sheltered purple-grass clearing southwest of a misty highland tribe. Blue dusk sky, distant needle-like mesas, wind-worn mauve boulders at the outer edges; a few hanging woven pennants at the far corner. Open spacious middle ground, no ice or snow."
+    },
+    {
+      "key": "atocpanTwinMeadow",
+      "node": "atocpan-battlegoat-ironclaw-field",
+      "source": "atocpan-twin-meadow-background-v1.png",
+      "preview": "atocpan-twin-meadow-native-preview-v1.png",
+      "surface": "grass",
+      "note": "火山南・戦羊と鉄爪の広場のラボ用仮背景",
+      "prompt": "A broad sunlit southern volcanic meadow, twin dark basalt outcrops at opposite far edges with low ochre and sage brush, big low green-gold open grassy arena in the middle. Volcano rising beyond a red canyon rim, afternoon sunlight. No livestock, no claws, no statues or fighters."
+    },
+    {
+      "key": "atocpanPeakGrotto",
+      "node": "atocpan-peak-cave",
+      "source": "atocpan-peak-grotto-background-v1.png",
+      "preview": "atocpan-peak-grotto-native-preview-v1.png",
+      "surface": "cavern",
+      "note": "アトクパンの大地・ピークの岩洞のラボ用仮背景",
+      "prompt": "A dry high mountainside rock den in columnar basalt. Single angled shaft of pale daylight from an upper cleft on the left, warm reflected copper at the floor, deeper desaturated blue rock at the right, spacious flat cool brown rock fighting floor. No lava lake, torches, buildings or altars."
+    },
+    {
+      "key": "zapaTidalFlat",
+      "node": "zapabay-tenochtzitoc-shallows",
+      "source": "zapa-tidal-flat-background-v1.png",
+      "preview": "zapa-tidal-flat-native-preview-v1.png",
+      "surface": "wetSand",
+      "note": "ざぶざぶ湾・最後のテノチズトク人の浅瀬のラボ用仮背景",
+      "prompt": "A bright tropical resort bay at low tide, broad sandbar and shallow ankle-deep turquoise water. Sheltered green island and palm fringe far away, modest wooden landing pier just on the far left, a single offshore reef and colorful umbrella on a distant beach. Few broad water highlights, warm sandy footing for a ground encounter. No idols or figures."
+    },
+    {
+      "key": "nightWindFork",
+      "node": "night-wind-seaward-fork",
+      "source": "night-wind-seaward-fork-background-v1.png",
+      "preview": "night-wind-seaward-fork-native-preview-v1.png",
+      "surface": "grass",
+      "note": "海を望む崖道の分岐のラボ用仮背景",
+      "prompt": "A high coastal cliff road under cool early-evening light, low pathway opening into a grassy clearing left, stacked natural rock shelves leading up toward a silhouetted headland on the right, distant ocean and purple mesas. Only background terrain; the game places the actual platforms and obelisk separately. No obelisk, sign or marker painted in."
+    },
+    {
+      "key": "atocpanPeakTrail",
+      "node": "atocpan-peak-rock-trail",
+      "source": "atocpan-peak-trail-background-v1.png",
+      "preview": "atocpan-peak-trail-native-preview-v1.png",
+      "surface": "sandstone",
+      "note": "山腹の岩道のラボ用仮背景",
+      "prompt": "A warm late afternoon approach on a high volcanic flank. Broad terraced ochre ledges rise toward a small dark mountainside cave mouth far upper right. Far left looks down into a misty winding canyon with succulents and layered red cliffs. Keep the front uncluttered, actual traversable shelves and route markers are overlaid by the game. No drawn signs."
+    }
+  ]
+}

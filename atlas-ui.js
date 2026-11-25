@@ -153,9 +153,18 @@ export function initAtlas(action, clearKeys) {
    const details = [stop.label, stop.reason, timing, stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
    button.textContent = `${stop.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(stop);
-   li.append(button);
+   li.append(button);appendGateLink(li,stop.from,stop);
    return li;
   }));
+ }
+
+ function appendGateLink(item,from,route){
+  if(route.previewX==null)return;
+  const link=document.createElement('a');
+  link.href='map-art.html?'+new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
+  link.target='_blank';link.rel='noopener';
+  link.textContent='入口を見る';link.setAttribute('aria-label',route.name+'へ向かう入口を見る（別タブ）');
+  item.append(' ',link);
  }
 
  function renderSelection() {
@@ -195,7 +204,7 @@ export function initAtlas(action, clearKeys) {
    const details = [kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.reason].filter(Boolean);
    button.textContent = `${route.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(route);
-   li.append(button);
+   li.append(button);appendGateLink(li,selected.id,route);
    return li;
   });
   routes.replaceChildren(...links);

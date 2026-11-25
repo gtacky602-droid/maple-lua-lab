@@ -1,0 +1,129 @@
+{
+  "stages": [
+    {
+      "node": "night-wind-rilai-clearing",
+      "source": "rilai-mist-court-background-v1.png",
+      "sizes": {
+        "4096": 18261,
+        "4608": 21749,
+        "5120": 25084,
+        "5632": 28402,
+        "6144": 30430
+      }
+    },
+    {
+      "node": "atocpan-battlegoat-ironclaw-field",
+      "source": "atocpan-twin-meadow-background-v1.png",
+      "sizes": {
+        "4096": 18540,
+        "4608": 22130,
+        "5120": 25577,
+        "5632": 29003,
+        "6144": 31045
+      }
+    },
+    {
+      "node": "atocpan-peak-cave",
+      "source": "atocpan-peak-grotto-background-v1.png",
+      "sizes": {
+        "4096": 16810,
+        "4608": 20224,
+        "5120": 23491,
+        "5632": 26775,
+        "6144": 28781
+      }
+    },
+    {
+      "node": "zapabay-tenochtzitoc-shallows",
+      "source": "zapa-tidal-flat-background-v1.png",
+      "sizes": {
+        "4096": 18896,
+        "4608": 22412,
+        "5120": 25811,
+        "5632": 29209,
+        "6144": 31601
+      }
+    },
+    {
+      "node": "night-wind-seaward-fork",
+      "source": "night-wind-seaward-fork-background-v1.png",
+      "sizes": {
+        "4096": 18296,
+        "4608": 21834,
+        "5120": 25253,
+        "5632": 28657,
+        "6144": 30605
+      }
+    },
+    {
+      "node": "atocpan-peak-rock-trail",
+      "source": "atocpan-peak-trail-background-v1.png",
+      "sizes": {
+        "4096": 18161,
+        "4608": 21729,
+        "5120": 25166,
+        "5632": 28588,
+        "6144": 30328
+      }
+    }
+  ],
+  "regionalArenas": [
+    "atocpan-battlegoat-ironclaw-field",
+    "atocpan-peak-cave",
+    "night-trial-atlatl",
+    "night-trial-chimalli",
+    "night-trial-cihuacoatl",
+    "night-trial-fallen-dawnstar",
+    "night-trial-ichcahuipilli",
+    "night-trial-ironbeard",
+    "night-trial-potapo",
+    "night-trial-reji",
+    "night-trial-tlatzacuilotl",
+    "night-trial-tupayo",
+    "night-trial-tupu",
+    "night-trial-undead",
+    "night-wind-rilai-clearing",
+    "tepeakak-sappho-bank",
+    "toyac-balachko-inner-cave",
+    "toyac-cocijo-stone-ring",
+    "witztli-tristars-camp",
+    "zapabay-tenochtzitoc-shallows"
+  ],
+  "testedGates": [
+    {
+      "source": "night-wind-seaward-fork",
+      "to": "night-wind-rilai-clearing",
+      "x": 450,
+      "y": 480,
+      "camera": 0
+    },
+    {
+      "source": "night-wind-seaward-fork",
+      "to": "night-trial-fallen-dawnstar",
+      "x": 1140,
+      "y": 346,
+      "camera": 610
+    },
+    {
+      "source": "atocpan-peak-rock-trail",
+      "to": "atocpan-peak-cave",
+      "x": 1420,
+      "y": 346,
+      "camera": 610
+    }
+  ],
+  "bodyDiffs": {
+    "legacy": {
+      "png": 0,
+      "rect": 0
+    },
+    "h48c32": {
+      "png": 0,
+      "rect": 0
+    },
+    "h32c16": {
+      "png": 0,
+      "rect": 0
+    }
+  }
+}

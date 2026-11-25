@@ -2,6 +2,7 @@ import {measureSpriteFidelity} from './sprite-fidelity.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
+import {setupGatePreview} from './map-gate-preview.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
@@ -335,6 +336,7 @@ try{
  $('colorLimit').oninput=()=>{colorResult.textContent=''};
  $('backgroundTier').onchange=()=>{colorResult.textContent='';render()};
  $('matchSpritePng').onchange=render;
+ const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render);
  const updateDetail=setupSceneryDetail(liveView,query);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  let fidelityKey;
@@ -357,6 +359,7 @@ try{
   if($('matchSpritePng').checked)otherView.set('compare','background');
   if(afterReport(n))otherView.set('phase','after');
   viewLink.href='map-art.html?'+otherView;
+  gatePreview.updateLink(otherView);
   const passage=$('nightTrialPassage'),gate=n.exits.find(e=>e.nightTotem);
   passage.hidden=!(liveView&&gate);
   if(!passage.hidden){
@@ -502,6 +505,7 @@ try{
    if(liveView && !subject.value){
     for(const mark of mechanismScenes[n.id]?.captions??[])paintMechanismMark(ctx,mark,-camera,0,false);
    }
+   gatePreview.draw(ctx,camera);
   }
   updateDetail();
   $('placements').replaceChildren();
@@ -643,6 +647,7 @@ try{
    }
    $('liveSubjectControl').hidden=liveItems.length<2;
   }
+  gatePreview.reset(n,nodes,n.id===openingNode.id);
   render();
  }
  $('questPropStage').onchange=()=>{
