@@ -80,6 +80,30 @@ def lantern_contest(lua,quest,nodes):
         stages.append(dict(label=label,focusX=spec['bossX'],placements=placements))
     return dict(node=cave['id'],motifs=dict(sorted(native(contest.motifs).items())),curtain=curtain,stages=stages)
 
+def festival_courses(lua,graph):
+    node=next(n for n in graph['nodes'] if n.get('ittoGames'))
+    spec=node['ittoGames']
+    context=lua.table()
+    context.ittoGameArt=lua.table_from({k:k for k in ('flag','target','blue','orange')})
+    def stamp(layer,key,x,y,height,*_):
+        commands=layer.draws
+        commands[len(commands)+1]=lua.table_from(dict(kind='prop',key=key,x=x,y=y,height=height))
+    context.drawFieldDisplayArt=stamp
+    games=lua.execute((ROOT/'story-itto-games.lua').read_text('utf8'))(context,None)
+    relay=spec['relay']
+    rounds=[('旗集め',dict(flags={})),
+            ('訓練的',dict(targets=[dict(spot,hp=spec['targetHp']) for spot in spec['targets']])),
+            ('子どもの応援競走',dict(own=dict(x=relay['startX'],points=0),
+                                   other=dict(x=relay['startX'],points=0)))]
+    stages=[]
+    for index,(label,state) in enumerate(rounds,1):
+        layer=lua.table_from(dict(draws=[]),recursive=True)
+        games.drawCourse(layer,lua.table_from(spec,recursive=True),
+                         lua.table_from(dict(state,index=index),recursive=True),0,'sprite','legacy')
+        stages.append(dict(label=label,course=native(layer.draws)))
+    return dict(node=node['id'],stages=stages)
+
+
 def build():
     lua=LuaRuntime(unpack_returned_tuples=True)
     graph=json.loads((ROOT/'content/story-graph.json').read_bytes())
@@ -120,7 +144,7 @@ def build():
     forest_quest=next(q for q in graph['quests'] if q.get('forest'))
     contest_quest=next(q for q in graph['quests'] if q.get('contest'))
     return dict(worksites=props,haul=haul_routes(lua,quest),forest=forest_rooms(lua,forest_quest),
-                contest=lantern_contest(lua,contest_quest,graph['nodes']))
+                contest=lantern_contest(lua,contest_quest,graph['nodes']),festival=festival_courses(lua,graph))
 
 if __name__=='__main__':
     output=ROOT/'content/worksite-props.json'

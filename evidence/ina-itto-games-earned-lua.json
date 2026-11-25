@@ -1,0 +1,42 @@
+{
+  "prerequisite": true,
+  "flagHeightAndPause": true,
+  "partialRoundResultsRestore": true,
+  "multiTargetNormal": true,
+  "trainingIsRewardless": true,
+  "manualRelaySupport": true,
+  "winningAndLosingSameReward": true,
+  "partialReplayDoesNotReplaceRecord": true,
+  "replayTitleRemains": true,
+  "forgedScoreRejected": true,
+  "reward": [
+    106600,
+    1550
+  ],
+  "packing": {
+    "1": {
+      "before": 166400,
+      "after": 89094,
+      "objects": 5,
+      "batches": 1
+    },
+    "2": {
+      "before": 250740,
+      "after": 51025,
+      "objects": 6,
+      "batches": 1
+    },
+    "3": {
+      "before": 98356,
+      "after": 56157,
+      "objects": 2,
+      "batches": 2
+    }
+  },
+  "mapMatchesRuntime": true,
+  "scoreboardAfterRestore": true,
+  "bothTeamsCheer": true,
+  "startLevel": 45,
+  "source": "lantern-earned-start.json",
+  "sha256": "a5489d83ad715f3e623a6384f7c85a687176ce7d33741087afd795fd2143042f"
+}

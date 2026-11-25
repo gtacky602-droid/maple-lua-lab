@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='ina-itto-three-games',town='inazuma-town',field='ina-festival-games';
-const prefix='evidence/ina-itto-games';
+const suffix=process.argv.includes('--earned')?'-earned':'';
+const prefix='evidence/ina-itto-games'+suffix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -89,6 +90,7 @@ async function compareRelay(){
   await menu.selectOption('h32c16');
   await wait(n=>window.lab.frame.commands<n,standard.commands);
   const light=await frame();
+  assert.ok(light.rectBatches?.length===2);
   await shot('relay-light');
   for(const f of [standard,light]){
     assert.equal(f.t,png.t);
@@ -104,18 +106,37 @@ async function compareRelay(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8914/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/ina-itto-games-fixture.json','utf8');
+  const seed=await fs.readFile('work/ina-itto-games'+suffix+'-fixture.json','utf8');
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await load();
   await questButton('受注','active');
   await collect(681,1);
   await gate(828,field);
   const scene=await page.evaluate(async()=>{
-    const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-    await backgroundReady;
+    const {loadScenery,sceneryStatus}=await import('./scenery.js');
+    await loadScenery(window.lab.frame);
     return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(scene,{key:'ittoFestival',file:'ina-itto-games-background-v1.png',state:'ready'});
+  await page.selectOption('#playBackgroundTier','4096');
+  await wait(async()=>{
+    const {sceneryStatus}=await import('./scenery.js');
+    return sceneryStatus(window.lab.frame,'ina-itto-games-native-tiers-v1.webp').state==='ready'&&!document.querySelector('#playBackgroundStatus').textContent;
+  });
+  const track=page.locator('[data-quest="'+quest+'"]').getByRole('button',{name:'この依頼を追跡'});
+  if(await track.count())await track.click();
+  const courseLink=i=>wait(i=>{
+    const link=document.querySelector('#trackedSurveyPoint');
+    return !link.hidden&&new URL(link.href).searchParams.get('round')===String(i);
+  },i);
+  await courseLink(1);
+  await key('KeyM');
+  await wait(()=>window.lab.frame.worldMap);
+  await page.locator('#atlasQuestFocus').click();
+  await page.locator('#atlasQuestPoint').waitFor({state:'visible'});
+  assert.ok((await page.locator('#atlasQuestPoint').getAttribute('href')).includes('round=1'));
+  await page.keyboard.press('Escape');
+  await wait(()=>!window.lab.frame.worldMap);
   await collect(174);
   await round(1);
   await shot('flags');
@@ -135,6 +156,7 @@ try{
   await count(2);
   assert.equal((await frame()).storyIttoGames.record.last[0].player,5);
 
+  await courseLink(2);
   const beforeTargets=await frame();
   await collect(174);
   await round(2);
@@ -145,8 +167,14 @@ try{
   }
   if((await frame()).story.quests[quest].count===2){
     await walk(626);
-    await jump(399);
-    await held('KeyJ',()=>count(3));
+    if((await frame()).storyIttoGames.round===2){
+      // A joined companion can finish the last target while the traveler is jumping.
+      await held('Space',()=>wait(()=>{
+        const f=window.lab.frame,a=f.actors[f.active-1];
+        return f.storyIttoGames?.round!==2||(a.ground&&a.y===399);
+      }));
+    }
+    if((await frame()).storyIttoGames.round===2)await held('KeyJ',()=>count(3));
   }
   const targets=await frame();
   assert.equal(targets.storyIttoGames.record.last[1].player,6);
@@ -156,6 +184,7 @@ try{
 
   await collect(174);
   await round(3);
+  await courseLink(3);
   await walk(308);
   await wait(()=>window.lab.frame.storyIttoGames?.helpReady);
   const commands=await compareRelay();
@@ -170,6 +199,10 @@ try{
   const awards=await frame();
   assert.equal(awards.storyIttoGames.record.best,3);
   assert.equal(awards.storyIttoGames.title,'荒瀧三番勝負・全勝');
+  await walk(838);
+  await wait(()=>window.lab.frame.storyIttoGames?.scoreboard?.scores?.length===3);
+  const scores=(await frame()).storyIttoGames.scoreboard.scores;
+  assert.deepEqual(scores,awards.storyIttoGames.record.last);
   await shot('awards');
   await gate(56,town);
   const before=await frame();
@@ -185,6 +218,9 @@ try{
   await load();
   await gate(828,field);
   assert.equal((await frame()).storyIttoGames.title,awards.storyIttoGames.title);
+  await walk(838);
+  await wait(()=>window.lab.frame.storyIttoGames?.scoreboard);
+  assert.deepEqual((await frame()).storyIttoGames.scoreboard.scores,scores);
   await collect(174);
   await round(1);
   assert.equal((await frame()).storyIttoGames.record.series,1);
@@ -192,7 +228,7 @@ try{
   assert.equal((await frame()).progression.questXp,after.progression.questXp);
   assert.deepEqual(errors,[]);
   const proof={scene,collectedFiveFlags:true,trainingObjectsNoKill:true,assistedAtThreeMarks:true,
-    titleAndReplayAfterReload:true,commands,reward,errors};
+    titleAndReplayAfterReload:true,scoreboardAfterRestore:scores,worldMapCourses:3,backgroundTier:4096,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

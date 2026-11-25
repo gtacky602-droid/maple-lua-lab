@@ -58,7 +58,8 @@ return function(C,canInspect)
     local mark=spec.relay.marks[r.own.points+1]
     if mark and r.own.at and near(s,{x=mark.x,y=spec.relay.playerY}) then
      r.own.points,r.own.at=r.own.points+1,nil
-     s.storyNotice='応援が届きました。次の印へ進みます。'
+     r.own.cheeredAt=s.t-r.start
+     s.storyNotice=r.own.points==#spec.relay.marks and '最後の応援が届きました！' or '応援が届きました。次の印へ進みます。'
     end
    end
    return true
@@ -96,6 +97,7 @@ return function(C,canInspect)
    child.at=child.at or s.t
    if delay and s.t-child.at>=delay[child.points+1] then
     child.points,child.at=child.points+1,nil
+    child.cheeredAt=s.t-s.ittoRound.start
    end
   end
  end
@@ -176,43 +178,32 @@ return function(C,canInspect)
   draws[#draws+1]={kind='text',x=x,y=y,text=caption,size=px or 14,color=color or '#fff2cc'}
  end
 
- local function art(draws,key,x,y,height,mode,profile)
-  C.drawFieldDisplayArt({draws=draws},C.ittoGameArt[key],x,y,height,mode,profile,false)
+ local function art(layer,key,x,y,height,mode,profile)
+  C.drawFieldDisplayArt(layer,C.ittoGameArt[key],x,y,height,mode,profile,false)
  end
 
- local function child(draws,actor,key,y,color,phase,mode,profile)
+ local function child(layer,actor,key,y,color,phase,mode,profile)
   local bob=actor.at and 0 or math.abs(math.sin(phase*18))*4
-  art(draws,key,actor.x,y-bob,65,mode,profile)
-  text(draws,actor.x,y-82,actor.at and '応援待ち' or (key=='blue' and '旅人組' or '一斗組'),14,color)
+  art(layer,key,actor.x,y-bob,65,mode,profile)
+  local player=key=='blue'
+  local caption=player and '旅人組' or '一斗組'
+  if actor.at then
+   caption=player and '旅人組・応援待ち' or '一斗組・応援待ち'
+  elseif actor.cheeredAt and phase-actor.cheeredAt<.85 then
+   caption=player and '旅人「いけー！」' or '一斗「いけいけー！」'
+  end
+  text(layer.draws,actor.x,y-82,caption,14,color)
  end
 
- function games.observe(s,f,draws,spec,state,mode,profile)
-  local r=s.ittoRound
-  local saved=state and state.ittoContest
-  local title=saved and saved.best==3 and '荒瀧三番勝負・全勝' or nil
-  if not r then
-   art(draws,'bell',spec.bell.x,spec.bell.y,53,mode,profile)
-   text(draws,spec.bell.x,spec.bell.y-106,'三番勝負の合図台')
-   art(draws,'prize',spec.prizeX,spec.bell.y,53,mode,profile)
-   local next=nextRound(s,state)
-   if next and not s.paused and near(s,spec.bell) and not f.storyNearbyMilestone then
-    f.storyNearbyMilestone={label=(state.status=='complete' and '再戦・' or '開始・')..labels[next]}
-   end
-   local message=next and tips[next] or '城下の広場に戻って報告できます。'
-   if saved and saved.series>0 then
-    local a,b=wins(saved.last)
-    message='前回 '..a..'勝'..b..'敗 ｜ 完走 '..saved.series..'回'..(title and ' ｜ 称号「'..title..'」' or '')
-   end
-   f.storyIttoGames={message=message,record=saved,title=title,next=next}
-   return
-  end
+ function games.drawCourse(layer,spec,r,phase,mode,profile)
+  local draws=layer.draws
   if r.index==1 then
    for i,spot in ipairs(spec.flags) do
-    if not r.flags[i] then art(draws,'flag',spot.x,spot.y,54,mode,profile) end
+    if not r.flags[i] then art(layer,'flag',spot.x,spot.y,54,mode,profile) end
    end
   elseif r.index==2 then
    for _,target in ipairs(r.targets) do
-    if target.hp>0 then art(draws,'target',target.x,target.y,53,mode,profile) end
+    if target.hp>0 then art(layer,'target',target.x,target.y,53,mode,profile) end
    end
   else
    local relay=spec.relay
@@ -224,8 +215,60 @@ return function(C,canInspect)
    local width=relay.marks[#relay.marks].x-relay.startX+38
    rect(draws,relay.startX-19,relay.rivalY,width,8,'#715247')
    rect(draws,relay.startX-19,relay.rivalY,width,3,'#e5b685')
-   child(draws,r.own,'blue',relay.playerY,'#d5ffec',s.t,mode,profile)
-   child(draws,r.other,'orange',relay.rivalY,'#ffe4bd',s.t,mode,profile)
+   child(layer,r.own,'blue',relay.playerY,'#d5ffec',phase,mode,profile)
+   child(layer,r.other,'orange',relay.rivalY,'#ffe4bd',phase,mode,profile)
+  end
+ end
+
+ function games.observe(s,f,draws,spec,state,mode,profile)
+  local r=s.ittoRound
+  local layer={draws=draws}
+  if mode=='rect' and s.packRectArt then
+   f.rectBatches=f.rectBatches or {}
+   layer.rectIndex,layer.rectBatches={},f.rectBatches
+  end
+  local saved=state and state.ittoContest
+  local title=saved and saved.best==3 and '荒瀧三番勝負・全勝' or nil
+  if not r then
+   art(layer,'bell',spec.bell.x,spec.bell.y,53,mode,profile)
+   text(draws,spec.bell.x,spec.bell.y-106,'三番勝負の合図台')
+   art(layer,'prize',spec.prizeX,spec.bell.y,53,mode,profile)
+   local next=nextRound(s,state)
+   if next and not s.paused and near(s,spec.bell) and not f.storyNearbyMilestone then
+    f.storyNearbyMilestone={label=(state.status=='complete' and '再戦・' or '開始・')..labels[next]}
+   end
+   local message=next and tips[next] or '城下の広場に戻って報告できます。'
+   if saved and saved.series>0 then
+    local a,b=wins(saved.last)
+    message='前回 '..a..'勝'..b..'敗 ｜ 完走 '..saved.series..'回'..(title and ' ｜ 称号「'..title..'」' or '')
+   end
+   local scoreboard
+   if saved and #saved.last>0 then
+    text(draws,spec.prizeX,spec.bell.y-90,'三番勝負の成績',15)
+    if near(s,{x=spec.prizeX,y=spec.bell.y}) then
+     local replay=s.ittoReplay and #s.ittoReplay>0
+     local scores=replay and s.ittoReplay or saved.last
+     scoreboard={heading=replay and '再戦の途中経過' or saved.series==0 and '三番勝負の途中経過' or '前回の三番勝負',scores=scores}
+     local cx=math.min(802,spec.prizeX)
+     rect(draws,cx-146,168,292,145,'#342a3eeb')
+     text(draws,cx,195,scoreboard.heading,18)
+     text(draws,cx-68,218,'競技',13,'#f8dba5')
+     text(draws,cx+46,218,'旅人組',13,'#d5ffec')
+     text(draws,cx+103,218,'一斗組',13,'#ffe4bd')
+     for i,label in ipairs(labels) do
+      local score=scores[i]
+      text(draws,cx-68,222+i*23,label,14)
+      text(draws,cx+46,222+i*23,score and tostring(score.player) or '—',15,'#d5ffec')
+      text(draws,cx+103,222+i*23,score and tostring(score.rival) or '—',15,'#ffe4bd')
+     end
+    end
+   end
+   f.storyIttoGames={message=message,record=saved,title=title,next=next,scoreboard=scoreboard}
+   return
+  end
+  games.drawCourse(layer,spec,r,s.t-r.start,mode,profile)
+  if r.index==3 then
+   local relay=spec.relay
    local mark=relay.marks[r.own.points+1]
    if r.own.at and mark and not s.paused and near(s,{x=mark.x,y=relay.playerY}) then
     f.storyNearbyMilestone={label='止まった子どもを応援する'}

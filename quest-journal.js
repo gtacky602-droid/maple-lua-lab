@@ -185,6 +185,15 @@ export function trackedQuest(f,id,selectedWorksite){
     text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route?' ｜ '+route:'')};
   }
  }
+ const festivalRound=q.itinerary?.[st?.count]?.kind==='festivalGame'?st.count:null;
+ if(festivalRound||(status==='complete'&&st?.ittoContest?.series>0)){
+  const round=f.story.node===q.target&&(f.storyIttoGames?.round??f.storyIttoGames?.next)||festivalRound||1;
+  const params=new URLSearchParams({node:q.target,placements:'live',round,tier:'4096'});
+  const objective=st.ittoContest?.series>0?'景品台で三競技の成績を確認できます。':questObjective(q,f.storyGraph,st);
+  const route=questRoute(f,q,status).text;
+  return {node:q.target,pointUrl:'map-art.html?'+params,pointLabel:'競技広場の配置を見る',
+   text:q.name+' ｜ '+objective+(route?' ｜ '+route:'')};
+ }
  if(status==='complete'&&q.fireworks){
   const design=recordedFirework(q,st);
   if(design)return {node:q.itinerary.at(-1).node,pointUrl:design.url,pointLabel:design.label+'を見比べる',

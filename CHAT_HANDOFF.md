@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 荒瀧天下一の競技広場と得点表
+
+一斗の三番勝負を追跡すると、M地図から競技に合った会場配置を開ける。旗集めは地上と足場に5本、訓練的は上下段に3個ずつ。最終戦では下段の子を旅人、上段の子を一斗が応援する。子どもが印で止まると組名と「応援待ち」が出て、応援が届くとその組の掛け声に変わる。景品台に近づくと競技ごとの両組の得点を読める。途中で再戦を離れても、前回完走した三番勝負の成績が残る。[3競技の比較画像](evidence/itto-course-comparison.png) ／ [子どもの応援競走を開く](map-art.html?node=ina-festival-games&placements=live&round=3&tier=4096)
+
+同じ旗5本・同じ的6個はそれぞれ1組の矩形データを共用する。Lv45の育成済みセーブから測ると、訓練的の開幕1コマは16色の描画用JSONが250,740 Bから51,025 Bに減り、展開すると元の命令列と一致した。会場の元PNG・16色の配置を本編Luaの開幕と照合し、3競技と仮背景5段階の15条件で道具・走者・応援印の画素が一致した。[Lua検証](evidence/ina-itto-games-earned-lua.json) ／ [地図の画素検証](evidence/itto-course-map-pixels.json) ／ [競技と保存後の再訪](evidence/ina-itto-games-earned-browser.json)
+
 ## 早柚の見回り道と木の実のお礼
 
 「最短ルートは、静かなルート」を追跡すると、草むら、石段の洞穴、大木の裏を順に地図から開ける。足元の線が隠れられる範囲、十字が確認点。元PNGと16色の矩形版を並べて見られる。草むらの外からGを押しても隠密の確認点は進まない。見つかった場合は見回り役を退けて続行できる。報告後は近道で木陰へ戻り、木の実のそばのお礼を読み返せる。[三つの隠れ場所を見比べる](evidence/sayu-hideouts-comparison.png) ／ [草むらの地図](map-art.html?placements=live&node=ina-sayu-watchpath&quest=ina-sayu-quiet-route&step=2&tier=4096)

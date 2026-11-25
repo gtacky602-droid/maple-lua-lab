@@ -12,5 +12,28 @@
   "reward": [
     106600,
     1550
-  ]
+  ],
+  "packing": {
+    "1": {
+      "before": 166400,
+      "after": 89094,
+      "objects": 5,
+      "batches": 1
+    },
+    "2": {
+      "before": 250740,
+      "after": 51025,
+      "objects": 6,
+      "batches": 1
+    },
+    "3": {
+      "before": 98356,
+      "after": 56157,
+      "objects": 2,
+      "batches": 2
+    }
+  },
+  "mapMatchesRuntime": true,
+  "scoreboardAfterRestore": true,
+  "bothTeamsCheer": true
 }
