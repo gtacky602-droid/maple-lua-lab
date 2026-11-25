@@ -17,6 +17,7 @@ def measurements():
             if row['node'] in result:
                 raise ValueError('Multiple background measurements for '+row['node'])
             result[row['node']] = {
+                'bundle': prefix+'-native-backgrounds.lua',
                 'bytes': scene['baseSelectedBytes'] + scene['detailSelectedBytes'],
                 'error': {tier['rectangles']: tier['meanAbsoluteRgbErrorToReference']
                           for tier in scene['tiers']},

@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-41694",
+      "key": "sumSandMarket",
+      "note": "市場跡の石段",
+      "source": "sum-sands-market-background-v1.png",
+      "preview": "sum-sands-market-native-preview-v1.png",
+      "prompt": "One original 16:9 side-scrolling fantasy RPG background illustration in clean, deliberately clustered pixel art. A deserted trading post on sandstone steps at the edge of an ochre desert. Two faded indigo awnings tied across ruined stone booths in the upper left, one pale stone arch and a leaning date palm far right, saffron late afternoon sky. Open central band of shadow; no goods on the combat lane. Horizontal side view; large readable silhouettes, limited value steps, sparse hand-placed pixel accents. Avoid dense high frequency texture, text, grain or dither. Keep bottom quarter visually quiet, all gameplay platforms and actors are drawn independently. Environment only; no people, creatures, body-shaped robots, foreground props, UI or writing. Opaque full bleed."
+    },
+    {
+      "node": "sites-hunt-41694-pocket-1",
+      "key": "sumSandBalances",
+      "note": "市場裏の天秤室",
+      "source": "sum-sands-balance-background-v1.png",
+      "preview": "sum-sands-balance-native-preview-v1.png",
+      "prompt": "One original 16:9 side-scrolling fantasy RPG background illustration in clean, deliberately clustered pixel art. An abandoned open-air weighhouse behind a desert market. A gigantic asymmetrical shallow bronze scale hanging from a weathered stone lintel at the upper right with two suspended empty pans, an indigo textile shade at far left. Warm bright sky peeks between the walls, cool turquoise backlight on pale stone. Low wall is simple and empty. Horizontal side view; large readable silhouettes, limited value steps, sparse hand-placed pixel accents. Avoid dense high frequency texture, text, grain or dither. Keep bottom quarter visually quiet, all gameplay platforms and actors are drawn independently. Environment only; no people, creatures, body-shaped robots, foreground props, UI or writing. Opaque full bleed."
+    },
+    {
+      "node": "sites-hunt-41817",
+      "key": "sumSandWindcut",
+      "note": "千尋北の風穴",
+      "source": "sum-sands-windcut-background-v1.png",
+      "preview": "sum-sands-windcut-native-preview-v1.png",
+      "prompt": "One original 16:9 side-scrolling fantasy RPG background illustration in clean, deliberately clustered pixel art. A deep northerly wind tunnel beneath an old desert. Sandstone has been eroded into sweeping large scallops, a steep blue-lit oval wind bore pierces the upper left wall, a thin streak of warm dust crosses mid-distance. Widely spaced wind-carved striations in a limited cool slate and dusty rose palette. No architecture or metal. Horizontal side view; large readable silhouettes, limited value steps, sparse hand-placed pixel accents. Avoid dense high frequency texture, text, grain or dither. Keep bottom quarter visually quiet, all gameplay platforms and actors are drawn independently. Environment only; no people, creatures, body-shaped robots, foreground props, UI or writing. Opaque full bleed."
+    },
+    {
+      "node": "sites-hunt-41817-pocket-1",
+      "key": "sumSandSentry",
+      "note": "風穴奥の守衛詰所",
+      "source": "sum-sands-sentry-background-v1.png",
+      "preview": "sum-sands-sentry-native-preview-v1.png",
+      "prompt": "One original 16:9 side-scrolling fantasy RPG background illustration in clean, deliberately clustered pixel art. A compact abandoned guardian station branching off a desert wind tunnel. A tall rusted empty circular berth embedded into the right rock wall, sand piled softly under it, one narrow angular beam of amber light entering through a hexagonal ceiling break. Pale red-brown stone, teal metal fittings, ochre shadows. Entire place empty. Horizontal side view; large readable silhouettes, limited value steps, sparse hand-placed pixel accents. Avoid dense high frequency texture, text, grain or dither. Keep bottom quarter visually quiet, all gameplay platforms and actors are drawn independently. Environment only; no people, creatures, body-shaped robots, foreground props, UI or writing. Opaque full bleed."
+    },
+    {
+      "node": "sites-hunt-41818",
+      "key": "sumSandEastBasin",
+      "note": "千尋東の外輪盆地",
+      "source": "sum-sands-basin-background-v1.png",
+      "preview": "sum-sands-basin-native-preview-v1.png",
+      "prompt": "One original 16:9 side-scrolling fantasy RPG background illustration in clean, deliberately clustered pixel art. Wide panoramic exterior overlooking the east rim of a desert basin. Sweeping bands of terracotta canyon rock form a giant concentric curve in the distance, small still pool of jade-green water and salt-white shore at lower right, cobalt distant mountains and a very pale dawn sky. Dry, quiet, broad surroundings, no buildings. Horizontal side view; large readable silhouettes, limited value steps, sparse hand-placed pixel accents. Avoid dense high frequency texture, text, grain or dither. Keep bottom quarter visually quiet, all gameplay platforms and actors are drawn independently. Environment only; no people, creatures, body-shaped robots, foreground props, UI or writing. Opaque full bleed."
+    }
+  ]
+}

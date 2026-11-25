@@ -79,6 +79,7 @@ return function(C,config,graph)
  local function entry(q,row)
   local item={id=q.id,kind=q.kind,name=q.name,giver=q.giver,region=config.regions[q.region].label,hub=nodes[q.hub].name,
               goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,material=q.material,
+              targetNodes=(not row or row.count<q.goal) and q.filter.nodes or nil,
               count=row and row.count,claimed=row and row.claimed or false}
   if q.observation then
    item.species={}

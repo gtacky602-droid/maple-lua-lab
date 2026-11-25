@@ -1,0 +1,258 @@
+{
+  "codec": "R64C MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "sum-redsand-well-background-v1.png": {
+      "sourceBytes": 1301176,
+      "sourceSha256": "f1e4208524ee6da74f84dacd4ca8403638c8e788e78a2797098a685df66de983",
+      "preview": "sum-redsand-well-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15397,
+      "baseSelectedBytes": 15379,
+      "detailFixed13Bytes": 11479,
+      "detailSelectedBytes": 11467,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.7513766818576388,
+          "rgbSha256": "9fbcf902fa35b68596b573b1dbd0a14918ef581bf460a3c3f0b37ff0bf189ab5"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.6780847620081019,
+          "rgbSha256": "129907ef05494ad39a07280943d9dcee4508c68190654d9ac72d2fa12aafa74a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.6245275426793981,
+          "rgbSha256": "708c216087af8039fccd1e302cc13e2fc1ce61a2cc476f67f7c9d3dab4c0ccfd"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.5864755135995371,
+          "rgbSha256": "41e3451628a583b596d26dbe9e093cba7b1589e45d5b37de129901fac3d69c3f"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.5528338396990741,
+          "rgbSha256": "8dd8b8a8a306d5917c0f65167c31ef2f6661a5903fa6d279ea94700a2e04c5fb"
+        }
+      ]
+    },
+    "sum-redsand-roost-background-v1.png": {
+      "sourceBytes": 1293445,
+      "sourceSha256": "46220b9397b422fa192f5d0766ad46bedfd9bd047c8ea30fb102bda6a23114e2",
+      "preview": "sum-redsand-roost-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14497,
+      "baseSelectedBytes": 14475,
+      "detailFixed13Bytes": 11125,
+      "detailSelectedBytes": 11111,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.6255221896701388,
+          "rgbSha256": "aca3093d469bd18c0b32e64bb9453b668343bae8fe9e35660e84a1f01a720960"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.5559511537905093,
+          "rgbSha256": "f4220d01138f11c9a0d562a63350ac4afbcbc30a62b380b5d9eb848b3e782811"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.51580810546875,
+          "rgbSha256": "82209f21005d045511f1fc30fc492445d1e1eb3d7dc267cd7f6e270bf9257753"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.4842325846354167,
+          "rgbSha256": "a86f0dd48620a18db41d65055829483b286858c3dcb9c620c1154197959a9dcd"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.4601711697048611,
+          "rgbSha256": "70d3998da149f16f69e6e5e7fc7ae44eec6ba0cd24e29dfc91483a837deded7a"
+        }
+      ]
+    },
+    "sumeru-desert-tomb-approach-background-v1.png": {
+      "sourceBytes": 1973140,
+      "sourceSha256": "5ab3522efbf80369c2c9898f202e61656b5aa5f3fc160141bf09a4cade2c5c4a",
+      "preview": "sumeru-desert-tomb-approach-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17155,
+      "baseSelectedBytes": 17139,
+      "detailFixed13Bytes": 11813,
+      "detailSelectedBytes": 11801,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.648143627025463,
+          "rgbSha256": "b4d4971436739c79ca8774f62d072283de931abda817406030bb1fd08769f8fb"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.3634666160300926,
+          "rgbSha256": "d85b4712949dd2447e26b12b759dd66236438b5242ee6cc568593f439f9883b0"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.159701877170139,
+          "rgbSha256": "913edb96768fa52d38afeffdaa75ab64424abbb3240afb060ecffec96e436266"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.9845513237847223,
+          "rgbSha256": "a864e5a262ec2cc0e4ec3674b5a4c0851f19e891af25f74d105322d4367b0f6f"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.8345743815104165,
+          "rgbSha256": "ec757330f805a0a3e3a77d0bc75b3acfa98259f2dfbada90345050191f9330e8"
+        }
+      ]
+    },
+    "sum-royal-den-background-v1.png": {
+      "sourceBytes": 1461820,
+      "sourceSha256": "b7d72c6053995703ccfc6f11021b7a95b09f552b6437d10aa985fa25b27dddd2",
+      "preview": "sum-royal-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16431,
+      "baseSelectedBytes": 16417,
+      "detailFixed13Bytes": 11701,
+      "detailSelectedBytes": 11689,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.0114904333043984,
+          "rgbSha256": "a820c8a5784e817c271ac19c387047e787217fb71da7dcb1f0a2bb2498e22bc0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.7845933702256944,
+          "rgbSha256": "44ad11b04ffbeef1eed02a5452d30d5a6769f1d831337580e17f51a2a2b4fb29"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.6281828703703705,
+          "rgbSha256": "6e84f7e45345875453d1d7919640a1d719fc4c0979f3b2722c868b219fcbad9f"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.4999593098958333,
+          "rgbSha256": "6696af70ff91e10c5900349f674723d11e046b9f182b5a5fdb468b4cbbc51a38"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.3922051323784723,
+          "rgbSha256": "ec85f979a15aab12cbe741543913a287c19424159de8b65b38ac2f052fd425a3"
+        }
+      ]
+    },
+    "sum-dune-vault-background-v1.png": {
+      "sourceBytes": 1265741,
+      "sourceSha256": "c449b0d616a7718f3f021cc4d5e78c4009973569e34b57b225ce8eb970e4d59b",
+      "preview": "sum-dune-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15083,
+      "baseSelectedBytes": 15067,
+      "detailFixed13Bytes": 11545,
+      "detailSelectedBytes": 11533,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.5764838324652778,
+          "rgbSha256": "24f55370712db151496e45122295d8f88504ee9620843d7f6086b54087d20221"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.5185117368344907,
+          "rgbSha256": "2bad5fdcac5dcccb811ffe00797d63f6b39deeb7a8f337796c0ede3eed728944"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.48618344907407407,
+          "rgbSha256": "e63570f50541a90301d1742d18abc343b5be3ab610e119af7ba5d615ddb7668d"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.4609375,
+          "rgbSha256": "fd3062fe13b44a009be64a8169219757fa9e198ecb42bc6e362d1e35bae71f0a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.44078007450810186,
+          "rgbSha256": "d3a0f02e288ad17addcfbd62772308bc90ddaa83a04c886160ad8df5b33564ef"
+        }
+      ]
+    },
+    "sum-dune-counterweight-background-v1.png": {
+      "sourceBytes": 1293353,
+      "sourceSha256": "e10c988e6c87eaf7e2b52158a03db5576897fbd3c454d482130e16ce579c662b",
+      "preview": "sum-dune-counterweight-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14437,
+      "baseSelectedBytes": 14417,
+      "detailFixed13Bytes": 11171,
+      "detailSelectedBytes": 11161,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.7059552228009259,
+          "rgbSha256": "a6b04a6d0e6cd9527038a8712792a54553709741a55f0180dd8215bd76576aa2"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.6449381510416666,
+          "rgbSha256": "3a7f5951ecb12a46adc8895a7157f7ecc5444ac601b7bcff9e4a1b6d044bbe81"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.6027786820023148,
+          "rgbSha256": "3516949bcb9fe8ba916a6d9f4a6524b23072287706eb4e9974ac31786a95e1fd"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.5699892397280093,
+          "rgbSha256": "51605a2274dd7ef8a9d48a098b35803de0a0adfeb29a29f4d9db869c40a0dcec"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.5415287724247685,
+          "rgbSha256": "af916f43b88a3726a31ee56048d8a5ac1d965e067b09091b9121f506774417fd"
+        }
+      ]
+    }
+  }
+}

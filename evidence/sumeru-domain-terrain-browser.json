@@ -2,8 +2,8 @@
   "red-sand": {
     "stage": "sites-hunt-36703",
     "scenery": {
-      "key": "asimonField",
-      "file": "asimon-field-background-v1.png",
+      "key": "sumRedSandWell",
+      "file": "sum-redsand-well-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -14,6 +14,7 @@
         "sum-wp-36683",
         "sites-hunt-36703-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-36703",
       "next": "sites-hunt-36703-pocket-1"
     },
     "jump": [
@@ -22,8 +23,8 @@
     ],
     "returnHeight": 480,
     "pocketScenery": {
-      "key": "asimonField",
-      "file": "asimon-field-background-v1.png",
+      "key": "sumRedSandRoost",
+      "file": "sum-redsand-roost-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -64,6 +65,7 @@
         "sum-wp-36691",
         "sites-hunt-36704-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-36704",
       "next": "sites-hunt-36704-pocket-1"
     },
     "jump": [
@@ -72,8 +74,8 @@
     ],
     "returnHeight": 397,
     "pocketScenery": {
-      "key": "wenutField",
-      "file": "wenut-field-background-v1.png",
+      "key": "sumRoyalDen",
+      "file": "sum-royal-den-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -102,8 +104,8 @@
   "dunes": {
     "stage": "sites-hunt-36705",
     "scenery": {
-      "key": "asimonField",
-      "file": "asimon-field-background-v1.png",
+      "key": "sumDuneVault",
+      "file": "sum-dune-vault-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -114,6 +116,7 @@
         "sum-wp-36697",
         "sites-hunt-36705-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-36705",
       "next": "sites-hunt-36705-pocket-1"
     },
     "jump": [
@@ -122,8 +125,8 @@
     ],
     "returnHeight": 403,
     "pocketScenery": {
-      "key": "asimonField",
-      "file": "asimon-field-background-v1.png",
+      "key": "sumDuneCounterweight",
+      "file": "sum-dune-counterweight-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -152,8 +155,8 @@
   "east-desert": {
     "stage": "sites-hunt-41694",
     "scenery": {
-      "key": "tunigiExcavation",
-      "file": "tunigi-excavation-background-v1.png",
+      "key": "sumSandMarket",
+      "file": "sum-sands-market-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -164,6 +167,7 @@
         "sum-wp-36680",
         "sites-hunt-41694-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-41694",
       "next": "sites-hunt-41694-pocket-1"
     },
     "jump": [
@@ -172,8 +176,8 @@
     ],
     "returnHeight": 480,
     "pocketScenery": {
-      "key": "asimonField",
-      "file": "asimon-field-background-v1.png",
+      "key": "sumSandBalances",
+      "file": "sum-sands-balance-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -202,8 +206,8 @@
   "north-tunnel": {
     "stage": "sites-hunt-41817",
     "scenery": {
-      "key": "wenutField",
-      "file": "wenut-field-background-v1.png",
+      "key": "sumSandWindcut",
+      "file": "sum-sands-windcut-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -214,6 +218,7 @@
         "sum-wp-41836",
         "sites-hunt-41817-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-41817",
       "next": "sites-hunt-41817-pocket-1"
     },
     "jump": [
@@ -222,8 +227,8 @@
     ],
     "returnHeight": 480,
     "pocketScenery": {
-      "key": "wenutField",
-      "file": "wenut-field-background-v1.png",
+      "key": "sumSandSentry",
+      "file": "sum-sands-sentry-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -252,8 +257,8 @@
   "east-basin": {
     "stage": "sites-hunt-41818",
     "scenery": {
-      "key": "tunigi",
-      "file": "tunigi-background-v1.png",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -263,6 +268,7 @@
       "adjacent": [
         "sum-wp-41839"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-41818",
       "next": "sum-wp-41839"
     },
     "jump": [

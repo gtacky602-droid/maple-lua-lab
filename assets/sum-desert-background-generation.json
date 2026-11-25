@@ -1,0 +1,53 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-36703",
+      "key": "sumRedSandWell",
+      "note": "赤砂の井戸下回廊",
+      "source": "sum-redsand-well-background-v1.png",
+      "preview": "sum-redsand-well-native-preview-v1.png",
+      "prompt": "Create one original wide 16:9 background in restrained 2D pixel art for a side scrolling adventure. An underground gallery under red desert sand. Upper left tall narrow well shaft casting a shaft of cream daylight, horizontal sandstone strata, broken terracotta water channels, large pillars receding toward a distant indigo arch, a few coral red mineral deposits. Dusty terracotta and dark plum with sparse warm accents. Horizontal side-on camera. Crisp hand-placed large pixel clusters, discrete planes of color and clear silhouettes. Use roughly 4 or 5 values per main material; avoid pixel noise, dithering, excessive texture, dense engravings, or high contrast details in the lower quarter. The game overlays its own floor, platforms and sprites. Empty environment only. Absolutely no figures, machines shaped like creatures, foreground characters or monsters, typography, glyphs, logos or interface. Opaque edge to edge original artwork."
+    },
+    {
+      "node": "sites-hunt-36703-pocket-1",
+      "key": "sumRedSandRoost",
+      "note": "飛空ドレイクの格納室",
+      "source": "sum-redsand-roost-background-v1.png",
+      "preview": "sum-redsand-roost-native-preview-v1.png",
+      "prompt": "Create one original wide 16:9 background in restrained 2D pixel art for a side scrolling adventure. Abandoned large cavernous maintenance hangar for aerial machines under the red desert. One empty triangular suspension cradle on a high stone bracket at the far right, rust-colored hoist above it, a hanging length of copper chain, cool blue ambient wall and a thin strip of warm desert light at the ceiling. Clean open visual center. Horizontal side-on camera. Crisp hand-placed large pixel clusters, discrete planes of color and clear silhouettes. Use roughly 4 or 5 values per main material; avoid pixel noise, dithering, excessive texture, dense engravings, or high contrast details in the lower quarter. The game overlays its own floor, platforms and sprites. Empty environment only. Absolutely no figures, machines shaped like creatures, foreground characters or monsters, typography, glyphs, logos or interface. Opaque edge to edge original artwork."
+    },
+    {
+      "node": "sites-hunt-36704",
+      "key": "sumeruDesertTombApproach",
+      "note": "砂丘と王墓を望む参道",
+      "source": "sumeru-desert-tomb-approach-background-v1.png",
+      "preview": "sumeru-desert-tomb-approach-native-preview-v1.png",
+      "existingGeneration": "sumeru-desert-tomb-approach-generation.json"
+    },
+    {
+      "node": "sites-hunt-36704-pocket-1",
+      "key": "sumRoyalDen",
+      "note": "王墓脇の岩棚",
+      "source": "sum-royal-den-background-v1.png",
+      "preview": "sum-royal-den-native-preview-v1.png",
+      "prompt": "Create one original wide 16:9 background in restrained 2D pixel art for a side scrolling adventure. A sheltered rocky hollow above a royal sandstone approach in a sunbaked desert. Greenish gnarled roots push through an old gold-banded retaining wall at left, with two large bleached curved ribs and a softly lit recess at the far right. Dry sand and sage, warm stone, intimate side chamber, sparse traces of an animal den. The occupant is absent. Horizontal side-on camera. Crisp hand-placed large pixel clusters, discrete planes of color and clear silhouettes. Use roughly 4 or 5 values per main material; avoid pixel noise, dithering, excessive texture, dense engravings, or high contrast details in the lower quarter. The game overlays its own floor, platforms and sprites. Empty environment only. Absolutely no figures, machines shaped like creatures, foreground characters or monsters, typography, glyphs, logos or interface. Opaque edge to edge original artwork."
+    },
+    {
+      "node": "sites-hunt-36705",
+      "key": "sumDuneVault",
+      "note": "砂丘の埋没回廊",
+      "source": "sum-dune-vault-background-v1.png",
+      "preview": "sum-dune-vault-native-preview-v1.png",
+      "prompt": "Create one original wide 16:9 background in restrained 2D pixel art for a side scrolling adventure. Under a dune, an enormous half-buried arcade in profile. A wedge of sand entering from a ceiling breach to the left and a single tilted banded column, a turquoise oxidized copper lintel high on the right. A broad dusky red wall between them. Simple rhythmic shapes, monumental calm. Horizontal side-on camera. Crisp hand-placed large pixel clusters, discrete planes of color and clear silhouettes. Use roughly 4 or 5 values per main material; avoid pixel noise, dithering, excessive texture, dense engravings, or high contrast details in the lower quarter. The game overlays its own floor, platforms and sprites. Empty environment only. Absolutely no figures, machines shaped like creatures, foreground characters or monsters, typography, glyphs, logos or interface. Opaque edge to edge original artwork."
+    },
+    {
+      "node": "sites-hunt-36705-pocket-1",
+      "key": "sumDuneCounterweight",
+      "note": "埋没した重力装置室",
+      "source": "sum-dune-counterweight-background-v1.png",
+      "preview": "sum-dune-counterweight-native-preview-v1.png",
+      "prompt": "Create one original wide 16:9 background in restrained 2D pixel art for a side scrolling adventure. Abandoned underground counterweight service room. A pair of huge suspended sandstone counterweights at different heights along the left wall, each on a sober bronze guide track. Three quiet low amber lamps around a dark rectangular empty alcove on the right. Restrained russet and antique bronze with cool gray-blue reflected light. Must be distinct from a hall or palace. Horizontal side-on camera. Crisp hand-placed large pixel clusters, discrete planes of color and clear silhouettes. Use roughly 4 or 5 values per main material; avoid pixel noise, dithering, excessive texture, dense engravings, or high contrast details in the lower quarter. The game overlays its own floor, platforms and sprites. Empty environment only. Absolutely no figures, machines shaped like creatures, foreground characters or monsters, typography, glyphs, logos or interface. Opaque edge to edge original artwork."
+    }
+  ]
+}

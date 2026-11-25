@@ -1,0 +1,74 @@
+{
+  "sites-hunt-36703": {
+    "source": "sum-redsand-well-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "942487fcbd757bbbdfbdd166c80dcc2a217d3be2dc477a7ce2278d7c3748eec4",
+    "tiers": {
+      "4096": "27a194d8d4f6dbed4a357f53a177dca123fb69863137b85ea8e8d2b08865d365",
+      "4608": "d690d876be4e2847d6eb73ebe546b5484c604e964b6ac8ea0c902d17761220dd",
+      "5120": "89c9a4724771ca17d99d559ffa301df1129934c19b88be43a96290901c96ce7f",
+      "5632": "c2ded234e02d368332d561f81e6673fcf86c2af0b7ee7f54c9880c88312735c6",
+      "6144": "93f317eadf949c050284b2bc0a41cc1e7cdcf3386e620c1406c7f294a69917e5"
+    }
+  },
+  "sites-hunt-36703-pocket-1": {
+    "source": "sum-redsand-roost-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "839e1b9e458e2e1180e7f5f2c45c09cafe91a5b8863964e91b226375062d23cf",
+    "tiers": {
+      "4096": "222bf7a86a537b4c2fc149c8adab7a7a0c05f43fc8dd63b0f27862a6a2c1dbb8",
+      "4608": "7dcb942d27b0ef5f1031b74d7cb3b593df69d62fce80f9ddb15eab0b0bdc91a8",
+      "5120": "af118224e1cbc1f30ebd8e8ec75d31ba2d8512821063f70105cb74861e11b15f",
+      "5632": "4ae89a5a8f91a9e00c0633ef9c95fec51c21cf0d6832640b219bcc40b73c9161",
+      "6144": "635c12437a5b40d3275741b76aeb97dc17854a067c3d7858aabef9926d79d6d9"
+    }
+  },
+  "sites-hunt-36704": {
+    "source": "sumeru-desert-tomb-approach-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "7dc3535fe3d7a283a0365ce1150372cf12eb5f6e1f82e2078791148f8517be96",
+    "tiers": {
+      "4096": "66b7e065f5b2543b2ef47e95f39c292a2005998a5e245756a1ce9d7c61c75a46",
+      "4608": "1814c28e58ddd0c3f3252bddaba9fb9451a8af7e722db0a9dde69e2c2eb131eb",
+      "5120": "f470a8326228c0fbda73829e8872e67b9d012378eeb37631ac31d44940b4deff",
+      "5632": "99a294c39c3ee27195d6d3c1d2d5183cf87762c8e0dec4d3c35f3c7c31e4238a",
+      "6144": "2cca6977bfd76ccb0b736be4f0ad5226cbc01c2d74ccff3ac6882ade839749fd"
+    }
+  },
+  "sites-hunt-36704-pocket-1": {
+    "source": "sum-royal-den-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "86982b962efc3a78ae06de8526660c58acb9062801062034a722ac9c653a2d6b",
+    "tiers": {
+      "4096": "3721566a84aefa7051e67f963b2475c3484bd3d522a3187a72765a304167ae5a",
+      "4608": "f809fdb35921e8c55a34e2f54160004336251106c81edfd152066a93b61c7c6f",
+      "5120": "797e8e7029c8ecdacf6bd32e6ce3536cd2fe66313eb6cc89711ad0408c841a77",
+      "5632": "368aa54d2e19b7bd2e8a199675e90177ca2f3acf40d539726f83720161e2423d",
+      "6144": "4334d85452fc080ea5619301c562ff088225a1b5ec31b41e49eec0db06759cb6"
+    }
+  },
+  "sites-hunt-36705": {
+    "source": "sum-dune-vault-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "4029113fe55ec36696b8f3a7f7e266f1c4a9e8132a967a737014692171b3b925",
+    "tiers": {
+      "4096": "146de57dddc2b6d5428e0879b49050308fb6f7238d99213a6662251735abf452",
+      "4608": "de39396fa79e7c41460baf64511d18afc6f519bc4dc3c0343dca2e504b6b717f",
+      "5120": "49399805c08ae992578225e058e0f4473c553db56ab6592c2f1a481a08cc2e7a",
+      "5632": "2e9cd96c2a9fb4723f2bb89f1f315096a52b1c7a46db91113434e0a466969f8a",
+      "6144": "e2e90a49f375c490a033980820f00e19dfe571227e8bfb212a5701bbcef04904"
+    }
+  },
+  "sites-hunt-36705-pocket-1": {
+    "source": "sum-dune-counterweight-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "a48ad263a49a934ec18b50d3e19df532edd07afaf9a9f8cc5ba329485c59d7cd",
+    "tiers": {
+      "4096": "26122932c4c1b2a6ba3f2a5f0be8a77e60c4c780d40c78875922d6af484ade00",
+      "4608": "afa1476d05a75d9f4e8df0c1a0583d267ac4220bccdb458cf4a3e7dd449abcca",
+      "5120": "7957752cbf96cfb26ef9666badc5f978de8d507602dcc606e4c76da6d101a3c1",
+      "5632": "309f440fed92ca1a5f719f5f2e389cafdc48a805415411dc3bf5be6c50f27419",
+      "6144": "80f4925c15be8c21d9754a4c345f69193f1aa1ff43a69fc51b77bb0f03ac29d5"
+    }
+  }
+}

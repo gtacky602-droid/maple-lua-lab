@@ -1,0 +1,19 @@
+{
+  "quest": "daily-sum-elites",
+  "targets": [
+    "sumeru-field",
+    "sum-kaveh-timberyard",
+    "sites-hunt-28751-pocket-1",
+    "sites-hunt-28754-pocket-1",
+    "sites-hunt-28755-pocket-1",
+    "sites-hunt-28757-pocket-1",
+    "sites-hunt-36703-pocket-1",
+    "sites-hunt-36704-pocket-1",
+    "sites-hunt-36705-pocket-1",
+    "sites-hunt-41694-pocket-1",
+    "sites-hunt-41817-pocket-1"
+  ],
+  "selected": "sites-hunt-36704-pocket-1",
+  "download": "sum-royal-den-4096.lua",
+  "returnNode": "sumeru-hub"
+}

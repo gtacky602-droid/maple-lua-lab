@@ -313,7 +313,7 @@ function updateProgression(f){
  $('springCourseStatus').closest('.game').classList.toggle('spring-playing',springActive);
  updateSpringCourse(f.storySpringCourse);
  updateIansanTraining(f.storyIansan);
- dailyBoard.update(f.daily);
+ dailyBoard.update(f.daily,f.storyGraph);
  const diving=Boolean(f.storyToyDive), swimming=Boolean(f.storySwim);
  const waterCombat=f.storySwimCombat, waterCounter=waterCombat?.counter, waterSonar=waterCombat?.sonar, waterReflect=waterCombat?.reflect;
  $('surfControls').hidden=!boarding&&!rally;

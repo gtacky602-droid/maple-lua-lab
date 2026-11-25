@@ -10,7 +10,8 @@ export function initDailyBoard(dispatch){
  const accepted=document.getElementById('dailyActive');
  const previous=document.getElementById('dailyCarry');
  const choices=document.getElementById('dailyChoices');
- let profile,signature='';
+ let profile,signature='',lastGraph;
+ let mapNodes=new Map();
  try{
   const value=localStorage.getItem(storageKey);
   if(/^[0-9a-f]{32}$/.test(value??''))profile=value;
@@ -30,6 +31,20 @@ export function initDailyBoard(dispatch){
   node.append(element('h3',entry.name));
   node.append(element('p',`${kind} ｜ ${entry.giver} ｜ ${entry.region}`));
   node.append(element('p',entry.target));
+  const targets=(entry.targetNodes??[]).map(id=>mapNodes.get(id)).filter(Boolean);
+  if(targets.length){
+   const label=element('label','討伐・調査地点 ');
+   const select=element('select');
+   select.append(new Option('地図で対象地点を見る',''));
+   for(const target of targets)select.append(new Option(`Lv${target.level} ｜ ${target.name}`,target.id));
+   select.onchange=()=>{
+    const id=select.value;
+    select.value='';
+    if(id)dispatch('world_map_focus:'+id);
+   };
+   label.append(select);
+   node.append(label);
+  }
   const unit=entry.material?'個':'';
   if(mode==='offer'){
    node.append(element('p',`${entry.material??'目標'} ${entry.goal}${unit} ｜ ${number.format(entry.xp)} EXP・${number.format(entry.mora)} モラ`));
@@ -66,7 +81,7 @@ export function initDailyBoard(dispatch){
 
  return {
   request:()=>profile?{dailyProfile:profile}:{},
-  update(view){
+  update(view,graph){
    if(view?.profile&&view.profile!==profile){
     profile=view.profile;
     try{localStorage.setItem(storageKey,profile)}catch{}
@@ -74,7 +89,11 @@ export function initDailyBoard(dispatch){
    board.hidden=!view?.period;
    if(board.hidden)return;
    const key=JSON.stringify(view);
-   if(key===signature)return;
+   if(key===signature&&lastGraph===graph)return;
+   if(lastGraph!==graph){
+    lastGraph=graph;
+    mapNodes=new Map((graph?.nodes??[]).map(n=>[n.id,n]));
+   }
    signature=key;
    const used=view.usedSlots, limits=view.limits;
    title.textContent=`日次依頼　主 ${used.main}/${limits.main} ｜ 追加 ${used.extra}/${limits.extra}`;

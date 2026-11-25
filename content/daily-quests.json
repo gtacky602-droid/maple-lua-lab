@@ -327,9 +327,9 @@
       "giver": "放浪者",
       "companion": "wanderer",
       "name": "あれを片づければ、先へ行ける",
-      "intro": "放浪者「雨林の道と資材置き場に大きな奴がいる。通るついでに片づけておこうか。」",
-      "target": "雨林の道・工房の資材置き場の指定精鋭",
-      "filter": {"kind": "elite", "nodes": ["sumeru-field", "sum-kaveh-timberyard"]},
+      "intro": "放浪者「雨林の道と資材置き場に大物がいるよ。遺跡の脇道まで行くなら、そっちのを相手にしてもいい。合わせて三体で十分だ。」",
+      "target": "雨林の道・工房の資材置き場、または雨林や砂漠の指定脇部屋（Lv80）の精鋭",
+      "filter": {"kind": "elite", "nodes": ["sumeru-field", "sum-kaveh-timberyard", "sites-hunt-28751-pocket-1", "sites-hunt-28754-pocket-1", "sites-hunt-28755-pocket-1", "sites-hunt-28757-pocket-1", "sites-hunt-36703-pocket-1", "sites-hunt-36704-pocket-1", "sites-hunt-36705-pocket-1", "sites-hunt-41694-pocket-1", "sites-hunt-41817-pocket-1"]},
       "goal": 3,
       "xp": 11990,
       "mora": 800

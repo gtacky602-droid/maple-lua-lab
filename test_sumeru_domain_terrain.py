@@ -4,12 +4,12 @@ from tools.domain_terrain_test import check_field, nodes, write, write_fixture
 
 # Field id, approach waypoint, first jump x, field scenery, side-room scenery.
 routes = [
-    (36703, 36683, 2380, 'asimonField', 'asimonField'),
-    (36704, 36691, 2380, 'sumeruDesertTombApproach', 'wenutField'),
-    (36705, 36697, 2380, 'asimonField', 'asimonField'),
-    (41694, 36680, 2380, 'tunigiExcavation', 'asimonField'),
-    (41817, 41836, 2380, 'wenutField', 'wenutField'),
-    (41818, 41839, 650, 'tunigi', None),
+    (36703, 36683, 2380, 'sumRedSandWell', 'sumRedSandRoost'),
+    (36704, 36691, 2380, 'sumeruDesertTombApproach', 'sumRoyalDen'),
+    (36705, 36697, 2380, 'sumDuneVault', 'sumDuneCounterweight'),
+    (41694, 36680, 2380, 'sumSandMarket', 'sumSandBalances'),
+    (41817, 41836, 2380, 'sumSandWindcut', 'sumSandSentry'),
+    (41818, 41839, 650, 'sumSandEastBasin', None),
 ]
 hub = 'sumeru-hub'
 write_fixture('sumeru-domain-terrain', 80, hub, [f'sum-wp-{host}' for _, host, *_ in routes])

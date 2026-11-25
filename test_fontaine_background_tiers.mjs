@@ -3,9 +3,13 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const browser = await chromium.launch({channel:'chrome',headless:true,args:['--disable-accelerated-2d-canvas']});
+// The original default remains the Fontaine gallery. An argument checks another scenery batch.
+const groups=process.argv[2]?[process.argv[2]]:['beryl','fon-domain','fon-north'];
+const output=process.argv[2] || 'fontaine';
+if (!/^[a-z0-9-]+$/.test(output)) throw Error('Invalid scenery batch');
 const reports = {};
 try {
-  for (const group of ['beryl','fon-domain','fon-north']) {
+  for (const group of groups) {
     const prefix = group==='beryl' ? 'fon-beryl' : group;
     const manifest = JSON.parse(await fs.readFile('assets/'+prefix+'-background-generation.json','utf8'));
     const report = JSON.parse(await fs.readFile('evidence/'+group+'-background-compression.json','utf8'));
@@ -44,6 +48,9 @@ try {
           await page.waitForFunction(n=>window.mapArt.decodedBackgroundRectangles===n,rectangles);
           const metrics = await page.locator('#backgroundMetrics').innerText();
           assert.ok(metrics.includes(meanAbsoluteRgbErrorToReference.toFixed(2)+' / 255'),metrics);
+          await page.locator('#sceneryDownload').waitFor({state:'visible'});
+          const filename=source.replace('-background-v1.png','-'+rectangles+'.lua');
+          assert.equal(await page.locator('#sceneryDownload').getAttribute('download'),filename);
           const actual = await page.evaluate(async n=>{
             const image = new Image();
             image.src = 'assets/'+window.mapArt.decodedBackgroundFile;
@@ -79,6 +86,6 @@ try {
       } finally { await page.close(); }
     }
   }
-  await fs.writeFile('evidence/fontaine-background-tiers-browser.json',JSON.stringify(reports,null,2)+'\n');
+  await fs.writeFile('evidence/'+output+'-background-tiers-browser.json',JSON.stringify(reports,null,2)+'\n');
   console.log('Checked the five decoded tiers, pixel hashes and fixed placements in '+Object.keys(reports).length+' fields.');
 } finally { await browser.close(); }

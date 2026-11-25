@@ -1,0 +1,62 @@
+{
+  "sites-hunt-41694": {
+    "source": "sum-sands-market-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "5aad2e5ffe5bcc26b7b7aa55397b82b9a870082b17bc0f09b04526b3213ba8de",
+    "tiers": {
+      "4096": "381b0082640bf033b64896d28bc35de4e4dfbe6af7e96c2db6be1c3d45b31bc5",
+      "4608": "a5537e4754677ca88c7cbc207dbb1e9d4f7777aa5a4cc41903f9ffce70f68d78",
+      "5120": "ddf6a068ac46c1961282ee3c992b297ca6006e84dbc74a51e9c8aa1e0e662253",
+      "5632": "eb156f1a4bc25f12958b4f7b27dd8615f9b1350d9c9f1a5f783a2207c9be4202",
+      "6144": "46c91f979d7620e5a561069f178a04c7bfbc71e48fbc668925e16d8d402a6ea0"
+    }
+  },
+  "sites-hunt-41694-pocket-1": {
+    "source": "sum-sands-balance-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "ed361f8885e57b69f44743226cd65d08230c76954522770b3862318fe1590085",
+    "tiers": {
+      "4096": "bd4a3b34468f169f2c7afa41ce694b3de3b2511013cf1454179e4dbc664af904",
+      "4608": "ef271b484c2bad747aca9479f667b948a2ecc4c0f653d05fad1e11981d393092",
+      "5120": "dac8138d24d4cc1e82fa10554fe08888c1697a464b32f53f6ab7a5fd9ebf7790",
+      "5632": "c3580925cda67355492973abaf4d4e3345b3bee57a713770c220fdb70ded6934",
+      "6144": "b86862cc60042483739994fd6e5faf7caab4073f542116d07199ac4a37546c64"
+    }
+  },
+  "sites-hunt-41817": {
+    "source": "sum-sands-windcut-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "cc6719225bca6779eadc643504f63f528e29f6e190e3c86fd860bac4de09ddb7",
+    "tiers": {
+      "4096": "aec4e7b95f6d5d62e276e11085182790f7fbdecf9c56ccbaab44a547f883dcf4",
+      "4608": "f095f2104b44aa2cc2baa88bb7d83d2d07380e3f61b875bfdfbf554910d0478e",
+      "5120": "87b619d97073f84fcb57657407afae4d81925bae6dcb6a59d3759dc3b3a7eb81",
+      "5632": "65258f2bcb22f20c48779ba9029524ba3d8cddd0888eb25062c1f8d4402b0f88",
+      "6144": "da9ccb6d97213c87d8883d5afb85563f8d51c939a1ef61bb8f4a79af2834df6b"
+    }
+  },
+  "sites-hunt-41817-pocket-1": {
+    "source": "sum-sands-sentry-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "6cb6c8e451eeda56fc8d8d9c838d0659d69a253c41546b2ca49468e6520b4bd0",
+    "tiers": {
+      "4096": "c556079818640b3063189492bd1741d148d207e444fcc0f2660e6fff2c0f66f4",
+      "4608": "81ec871690afa23842dac36a7e2f49ebe05f7e10dd882c5b424d71a2b610b5ea",
+      "5120": "55341d6f39a3ef1cdd9cbca9944cbddd1dc3f685e7efec51f3fd1904aba51819",
+      "5632": "c79d66142f136369327ff08528e161cb43d012b1593a745e98b66047eebe9ab1",
+      "6144": "c2d466d57322087f1c4ce2d32fb2b6b273351e06f8a9ce16663abbf238f73557"
+    }
+  },
+  "sites-hunt-41818": {
+    "source": "sum-sands-basin-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "cefde4aa221bb56ff91ead98a4907f517edc0e74510e16c98b8379ae18ba3d67",
+    "tiers": {
+      "4096": "d12e481bf0f49cd75cbef3d420c4dc280dcc5fcdd5a05062392bcc7070d731a7",
+      "4608": "6c5c7f12b481f56f893eb7fec249cd2015b71eb4fba85ea7aaa058851aad086e",
+      "5120": "412f5f84615b9facc1f300350266415eabda7ce62f4b927654b76d73c1df1bf0",
+      "5632": "81a94d52fb51e0926a61639c95a85c770914b6c6f4a5841966568c3d3d950d6c",
+      "6144": "a0ecc4102a983353aabc9789adff7561ee2a73013fdae8b4432e06319cf354d2"
+    }
+  }
+}

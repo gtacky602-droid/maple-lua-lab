@@ -10,12 +10,12 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 79,
-    "exterior_scenery": "asimonField",
+    "exterior_scenery": "sumRedSandWell",
     "arrivals_outside_enemy_contact": 2,
     "pocket": {
       "id": "sites-hunt-36703-pocket-1",
       "level_required": 80,
-      "scenery": "asimonField"
+      "scenery": "sumRedSandRoost"
     }
   },
   "sites-hunt-36704": {
@@ -34,7 +34,7 @@
     "pocket": {
       "id": "sites-hunt-36704-pocket-1",
       "level_required": 80,
-      "scenery": "wenutField"
+      "scenery": "sumRoyalDen"
     }
   },
   "sites-hunt-36705": {
@@ -48,12 +48,12 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 79,
-    "exterior_scenery": "asimonField",
+    "exterior_scenery": "sumDuneVault",
     "arrivals_outside_enemy_contact": 2,
     "pocket": {
       "id": "sites-hunt-36705-pocket-1",
       "level_required": 80,
-      "scenery": "asimonField"
+      "scenery": "sumDuneCounterweight"
     }
   },
   "sites-hunt-41694": {
@@ -67,12 +67,12 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 79,
-    "exterior_scenery": "tunigiExcavation",
+    "exterior_scenery": "sumSandMarket",
     "arrivals_outside_enemy_contact": 2,
     "pocket": {
       "id": "sites-hunt-41694-pocket-1",
       "level_required": 80,
-      "scenery": "asimonField"
+      "scenery": "sumSandBalances"
     }
   },
   "sites-hunt-41817": {
@@ -86,12 +86,12 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 79,
-    "exterior_scenery": "wenutField",
+    "exterior_scenery": "sumSandWindcut",
     "arrivals_outside_enemy_contact": 2,
     "pocket": {
       "id": "sites-hunt-41817-pocket-1",
       "level_required": 80,
-      "scenery": "wenutField"
+      "scenery": "sumSandSentry"
     }
   },
   "sites-hunt-41818": {
@@ -105,7 +105,7 @@
     "upper_route_jumps": 6,
     "round_trips": 1,
     "level_required": 79,
-    "exterior_scenery": "tunigi",
+    "exterior_scenery": "sumSandEastBasin",
     "arrivals_outside_enemy_contact": 1
   }
 }

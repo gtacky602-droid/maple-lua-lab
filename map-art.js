@@ -1,3 +1,4 @@
+import {setupSceneryDownload} from './scenery-export.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
@@ -117,6 +118,7 @@ try{
  }
  $('decodedBackground').onchange=render;
  $('backgroundTier').onchange=render;
+ const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame=sceneFrame(n,camera);
@@ -139,6 +141,7 @@ try{
   const metrics=backgroundMeasurements[n.id];
   $('backgroundMetrics').textContent=decoded&&metrics?
    `元画像との平均色差 ${metrics.error[tier].toFixed(2)} / 255 ｜ Lua格納量（全5段階） ${metrics.bytes.toLocaleString('ja-JP')} B`:'';
+  void updateDownload(decoded&&metrics?.bundle,background.file,tier);
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
