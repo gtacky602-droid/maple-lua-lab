@@ -55,6 +55,25 @@ async function visit(browser, suite, field, errors) {
       map.backgroundComparison = await link.getAttribute('href');
     }
     assert.ok(map.adjacent.includes(field.host) && map.adjacent.includes(destination));
+    if (field.pocketRoles) {
+      assert.equal(await page.locator('#atlasRareLegend').isVisible(),true);
+      map.pockets = {};
+      for (const [id, role, height] of field.pocketRoles) {
+        const button = page.locator('#atlasRoutes button').filter({hasText:nodes[id].name});
+        const label = await button.innerText();
+        assert.ok(label.includes(role === 'rare_pocket' ? '希少遭遇' : '精鋭'));
+        assert.ok(label.includes(height < 480 ? '上の足場の門' : '地上の門'));
+        const route = await page.evaluate(id=>window.lab.frame.worldMap.routes.find(r=>r.id===id),id);
+        assert.equal(route.pocketRole,role);
+        assert.equal(route.entryHeight,height);
+        await button.click();
+        await page.waitForFunction(id => window.lab.frame.worldMap?.selected?.id === id,id);
+        assert.ok((await page.locator('#atlasPlaceLevel').innerText()).includes(role === 'rare_pocket' ? '希少遭遇' : '精鋭'));
+        await page.locator('#atlasCurrent').click();
+        await page.waitForFunction(id => window.lab.frame.worldMap?.selected?.id === id,field.stage);
+        map.pockets[id] = label;
+      }
+    }
     await page.locator('#atlasRoutes button').filter({ hasText: nodes[destination].name }).click();
     await page.waitForFunction(id => {
       const guide = window.lab.frame.worldMap?.guide;

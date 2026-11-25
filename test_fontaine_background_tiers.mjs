@@ -19,8 +19,16 @@ try {
       const errors = [];
       page.on('pageerror',error=>errors.push(error.message));
       try {
-        await page.goto((process.env.LAB_URL || 'http://127.0.0.1:9101/')+'map-art.html?node='+node);
-        await page.waitForFunction(id=>window.mapArt?.node===id && window.mapArt.backgroundState==='ready' && window.mapArt?.decodedBackgroundRectangles===6144,node);
+        const lightweightLink = group === 'ina-west' && node === 'sites-hunt-12791-pocket-2';
+        const query = new URLSearchParams({node});
+        if (lightweightLink) {
+          query.set('tier','4096');
+          query.set('compare','background');
+        }
+        await page.goto((process.env.LAB_URL || 'http://127.0.0.1:9101/')+'map-art.html?'+query);
+        await page.waitForFunction(({id,tier})=>window.mapArt?.node===id && window.mapArt.backgroundState==='ready' &&
+          window.mapArt.decodedBackgroundRectangles===tier,{id:node,tier:lightweightLink ? 4096 : 6144});
+        if (lightweightLink) assert.equal(await page.locator('#matchSpritePng').isChecked(),true);
         if (node==='sites-hunt-50057') {
           await page.locator('#mapNodePicker summary').click();
           await page.locator('#nodeMeasuredFilter').check();
@@ -73,6 +81,9 @@ try {
             return {pixels:await hash(rgb),right:await canvasHash('rect'),left:await canvasHash('png')};
           },rectangles);
           assert.equal(actual.pixels,rgbSha256);
+          if (lightweightLink && rectangles===4096) {
+            await page.locator('main').screenshot({path:'evidence/ina-yashiori-den-4096.png'});
+          }
           if (seen.size===0) reports[node]={source,count:before.count,sourceCanvas:actual.left,tiers:{}};
           assert.equal(actual.left,reports[node].sourceCanvas);
           seen.add(actual.right);
@@ -92,7 +103,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain','ina-narukami'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami','ina-west'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);

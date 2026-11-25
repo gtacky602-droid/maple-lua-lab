@@ -217,6 +217,18 @@ def build():
     hunt_kinds = {row['stage']: 'field' for row in geographic}
     hunt_kinds.update({pocket: 'elite' for row in geographic for pocket in row['pockets']})
     hunt_kinds.update({id: node['huntKind'] for id, node in nodes.items() if 'huntKind' in node})
+    # Match the live occupant to its design record, including rare encounters on elite-layer pins.
+    role_by_spawn = {p['id']: p['combat_role'] for field in all_fields.values()
+                     for p in field.get('optional_pockets', [])}
+    spawns = load('content/enemy-spawns.json')['nodes']
+    pocket_roles = {}
+    for stage, occupants in spawns.items():
+        roles = {role_by_spawn.get(e.get('designSpawn')) for e in occupants}
+        if len(roles) == 1:
+            role = roles.pop()
+            if role in ('rare_pocket', 'optional_elite'):
+                pocket_roles[stage] = role
+                hunt_kinds.setdefault(stage, 'elite')
     hunt_entrances = {row['stage']: row['approach'] for row in geographic}
     hunt_entrances.update({row['stage']: row['host'] for row in hunt_rows})
     for stage, kind in hunt_kinds.items():
@@ -257,6 +269,7 @@ def build():
                            **({'entrancePending': True} if node.get('atlasEntrancePending') else {}),
                            **({'huntLevels': sorted(hunt_levels[node_id])} if node_id in hunt_levels else {}),
                            **({'huntKind': hunt_kinds[node_id]} if node_id in hunt_kinds else {}),
+                           **({'pocketRole': pocket_roles[node_id]} if node_id in pocket_roles else {}),
                            **({'boss': bosses_by_stage[node_id]} if node_id in bosses_by_stage else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})
         # Imported design points missing a runtime assignment are available in the review layer.

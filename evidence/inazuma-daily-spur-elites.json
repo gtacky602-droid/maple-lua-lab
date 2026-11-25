@@ -1,34 +1,39 @@
 {
   "rooms": {
     "sites-hunt-12778-pocket-1": {
-      "normalCombatTicks": 409,
+      "normalCombatTicks": 504,
       "countAfterSaveLoad": 1
     },
     "sites-hunt-12781-pocket-1": {
-      "normalCombatTicks": 500,
+      "normalCombatTicks": 486,
       "countAfterSaveLoad": 2
     },
     "sites-hunt-12784-pocket-1": {
-      "normalCombatTicks": 486,
+      "normalCombatTicks": 430,
       "countAfterSaveLoad": 3
     },
     "sites-hunt-12788-pocket-1": {
-      "normalCombatTicks": 409,
+      "normalCombatTicks": 504,
       "countAfterSaveLoad": 1
     },
     "sites-hunt-12791-pocket-1": {
-      "normalCombatTicks": 500,
+      "normalCombatTicks": 486,
       "countAfterSaveLoad": 2
     },
     "sites-hunt-18667-pocket-1": {
-      "normalCombatTicks": 468,
+      "normalCombatTicks": 414,
       "countAfterSaveLoad": 3
     },
     "sites-hunt-24906-pocket-1": {
-      "normalCombatTicks": 409,
+      "normalCombatTicks": 504,
       "countAfterSaveLoad": 1
     }
   },
   "claimXp": 3300,
-  "claimMora": 520
+  "claimMora": 520,
+  "rareEncounterExcluded": {
+    "node": "sites-hunt-12791-pocket-2",
+    "normalCombatTicks": 405,
+    "questCountAfterKill": 0
+  }
 }

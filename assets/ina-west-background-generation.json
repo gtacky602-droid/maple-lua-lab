@@ -1,0 +1,53 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-12788",
+      "key": "inaTataraFurnace",
+      "note": "たたら砂の炉沿いの作業路",
+      "source": "ina-tatara-furnace-background-v1.png",
+      "preview": "ina-tatara-furnace-native-preview-v1.png",
+      "prompt": "A single original widescreen opaque 16:9 raster backdrop for a colorful Inazuma-inspired side-scrolling RPG with Maple-like pixel art. A side-on industrial approach in an old island ironworks inspired by Tatarasuna in Inazuma. Monumental furnace silhouette at upper left, muted orange furnace light through a low grate, broad timber gantries and iron crucibles, a few jade-green cliff silhouettes across the valley, smoky mauve sky. Orthographic horizontal composition; crisp large connected pixel clusters and stepped edges readable at 512x288, restrained four to five values per material. Sparse low contrast lower third for the game's overlaid sprites and floor. No foreground playable platforms, typography, logos, UI, people or monsters, dithering or pixel noise."
+    },
+    {
+      "node": "sites-hunt-12788-pocket-1",
+      "key": "inaMirrorGallery",
+      "note": "ミラーメイデンの水鏡室",
+      "source": "ina-tatara-mirror-background-v1.png",
+      "preview": "ina-tatara-mirror-native-preview-v1.png",
+      "prompt": "A single original widescreen opaque 16:9 raster backdrop for a colorful Inazuma-inspired side-scrolling RPG with Maple-like pixel art. Empty Fatui observation room cut into the stone beside an Inazuma ironworks; tall angular blue glass panels on a far wall above a reflecting basin, silver metal frames, one folded indigo awning, distant reflected warm glow from the furnace through the left arch. No living occupant or visible reflections of people. Orthographic horizontal composition; crisp large connected pixel clusters and stepped edges readable at 512x288, restrained four to five values per material. Sparse low contrast lower third for the game's overlaid sprites and floor. No foreground playable platforms, typography, logos, UI, people or monsters, dithering or pixel noise."
+    },
+    {
+      "node": "sites-hunt-12791",
+      "key": "inaYashioriRift",
+      "note": "ヤシオリの雷裂きの谷",
+      "source": "ina-yashiori-rift-background-v1.png",
+      "preview": "ina-yashiori-rift-native-preview-v1.png",
+      "prompt": "A single original widescreen opaque 16:9 raster backdrop for a colorful Inazuma-inspired side-scrolling RPG with Maple-like pixel art. Yashiori Island rain-cut gorge in profile. A single zigzag vertical amethyst fissure in dark basalt behind the middle ground, leaning weathered Japanese cedar trunks, dull gold grass ledges and narrow misty violet sky. Distinct layers. No lightning bolts across the center. Orthographic horizontal composition; crisp large connected pixel clusters and stepped edges readable at 512x288, restrained four to five values per material. Sparse low contrast lower third for the game's overlaid sprites and floor. No foreground playable platforms, typography, logos, UI, people or monsters, dithering or pixel noise."
+    },
+    {
+      "node": "sites-hunt-12791-pocket-1",
+      "key": "inaRiftMachineBay",
+      "note": "遺跡殲滅者の岩盤格納室",
+      "source": "ina-yashiori-machine-background-v1.png",
+      "preview": "ina-yashiori-machine-native-preview-v1.png",
+      "prompt": "A single original widescreen opaque 16:9 raster backdrop for a colorful Inazuma-inspired side-scrolling RPG with Maple-like pixel art. An underground maintenance niche beneath an Inazuman basalt gorge. Large broken concentric stone machine socket at the far right, brass braces disappearing under a fallen roof, faint amber core-light behind stone slats, indigo rock planes; no active automaton or animal. Orthographic horizontal composition; crisp large connected pixel clusters and stepped edges readable at 512x288, restrained four to five values per material. Sparse low contrast lower third for the game's overlaid sprites and floor. No foreground playable platforms, typography, logos, UI, people or monsters, dithering or pixel noise."
+    },
+    {
+      "node": "sites-hunt-12791-pocket-2",
+      "key": "inaRiftBoneDen",
+      "note": "聖骸獣の骨のねぐら",
+      "source": "ina-yashiori-den-background-v1.png",
+      "preview": "ina-yashiori-den-native-preview-v1.png",
+      "prompt": "A single original widescreen opaque 16:9 raster backdrop for a colorful Inazuma-inspired side-scrolling RPG with Maple-like pixel art. Sheltered animal den beneath the great serpent bones of Yashiori Island. A massive pale rib sweeps across the upper left, old greenish bone fragments and sparse violet crystal tips frame a shaded recess at right. Earthy mulberry and tan with a little cool moonlight. No animal present. Orthographic horizontal composition; crisp large connected pixel clusters and stepped edges readable at 512x288, restrained four to five values per material. Sparse low contrast lower third for the game's overlaid sprites and floor. No foreground playable platforms, typography, logos, UI, people or monsters, dithering or pixel noise."
+    },
+    {
+      "node": "sites-hunt-12794",
+      "key": "inaSerpentQuarry",
+      "note": "蛇骨鉱坑の岩棚",
+      "source": "ina-serpent-quarry-background-v1.png",
+      "preview": "ina-serpent-quarry-native-preview-v1.png",
+      "prompt": "A single original widescreen opaque 16:9 raster backdrop for a colorful Inazuma-inspired side-scrolling RPG with Maple-like pixel art. Wide Jakotsu Mine side view, terraces of ochre exposed stone below a huge ancient pale serpent spine bending overhead. Abandoned small mining trestle mid-right and still green water at the bottom in the distance, cool blue mist and pale daylight. Quiet open middle. Orthographic horizontal composition; crisp large connected pixel clusters and stepped edges readable at 512x288, restrained four to five values per material. Sparse low contrast lower third for the game's overlaid sprites and floor. No foreground playable platforms, typography, logos, UI, people or monsters, dithering or pixel noise."
+    }
+  ]
+}

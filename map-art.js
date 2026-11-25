@@ -45,7 +45,13 @@ try{
  const [graph,initial,variants]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json')]);
  const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
- const openingNode=nodes.get(new URLSearchParams(location.search).get('node'))??nodes.get('mond-road');
+ const query=new URLSearchParams(location.search);
+ const openingNode=nodes.get(query.get('node'))??nodes.get('mond-road');
+ const requestedTier=query.get('tier');
+ if(Array.from($('backgroundTier').options).some(option=>option.value===requestedTier)){
+  $('backgroundTier').value=requestedTier;
+ }
+ if(query.get('compare')==='background')$('matchSpritePng').checked=true;
  const openingBackground=loadScenery(sceneFrame(openingNode,0));
  const pendingBackgrounds=new Set();
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}

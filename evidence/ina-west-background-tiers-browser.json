@@ -1,0 +1,74 @@
+{
+  "sites-hunt-12788": {
+    "source": "ina-tatara-furnace-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "362d3e87918cd3d4e09887b77233a23031b3d4cc7d86e7aa8dd6686f1d28dc02",
+    "tiers": {
+      "4096": "4609d232eeb1728ed3f1aa05b3ac12102b98ca0fb62624c48e7b0856b391f639",
+      "4608": "13858397840a84c0b7f9a7225ca390b28b427349d19ec85895836d9ee927ce0f",
+      "5120": "baf9868ecab23bdc972d9bf47799bcded9a8022278f9edc7dfc740eccb4602cc",
+      "5632": "ceb3a0e2743529c2b821cdfbf536f3c066cb819721e7219706d5dc22fb91316e",
+      "6144": "315a5348011d8963a93dd5659f564fbe12f3ce8cdaca330a7426b8d6e33159ea"
+    }
+  },
+  "sites-hunt-12788-pocket-1": {
+    "source": "ina-tatara-mirror-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "f6e986c330755ff0e746137eeb49924e7059baaba0082541da0bb3eeabc67808",
+    "tiers": {
+      "4096": "0a6d686dc5c04f820c3318ce2e9bad57ea2ee0cf30ea5be76934b5c3024bd023",
+      "4608": "52d53bfbb7da44f3a80e78d14d1e109c7ab0b55c8fc75eccbe8e1c88428ef1f2",
+      "5120": "fe494c18a55c8011e1e40cd6910d14298480476d2d7d363e14bb3a0c21ef48eb",
+      "5632": "7f0adb5279c232c04d7b8c492761fe338ca506e413837edc7a1633e9d0a65b11",
+      "6144": "942c6ade06087e52ab683f5373b6d81cfce1f23acf43bd119521b588cf641029"
+    }
+  },
+  "sites-hunt-12791": {
+    "source": "ina-yashiori-rift-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "d568d7f3d53fae405a622e5bc962d88a866500b0d5f223c34cc1b1721fc9eb0d",
+    "tiers": {
+      "4096": "1989a2f9918a5b88a9d27ffff61f463f71f29b76d98490787d08f0ea5026160e",
+      "4608": "3b854f394726e9acf43468ab6acab3fdfeb1c89e4d45c362c3cf8bbe70f63230",
+      "5120": "cfaea7f7f39ce2ab39d45c4924ea0d61ec940c7458f71bb3fadb1d514456546a",
+      "5632": "c4065ed3b430446ce85a03df7c613984bed9f93e219f35721ae65c56b08cbe31",
+      "6144": "133b957656615fb734f1d305e64eb54b51636882c3feb3b735b614149e8219b2"
+    }
+  },
+  "sites-hunt-12791-pocket-1": {
+    "source": "ina-yashiori-machine-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "0c1e0fc21b2594c26f1813f93d44ff84defcc4a41865518a533a577fc87d5d62",
+    "tiers": {
+      "4096": "ff55adb2f94e9bb1b8c98434cfcd0b0f25d8ae072da86f0264c6a4238aae4e15",
+      "4608": "0e632e60258b3b93d4b2f04ba9ca7cfd6b0791df572a43f66c8dd619b207fb58",
+      "5120": "bf598c9c5ef47fbc7de40bf5eb40068c5f2482603eb52d5806a36170e1555361",
+      "5632": "efa311b8cb392283436084e2dc025cd0a509a59d4c7201d73caebc8d417741d4",
+      "6144": "0ee5c361d0e5688da69788df89109afa4618b828b980c8f50b3e1355549b95b4"
+    }
+  },
+  "sites-hunt-12791-pocket-2": {
+    "source": "ina-yashiori-den-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "1f2673bad025d9cb2860e664f7889ca23cb95d04c38ba8c918a929c4d78d17e8",
+    "tiers": {
+      "4096": "2fff85c75a66a4740403d0564add8a00253897612939fe636e40c7aa66a96c90",
+      "4608": "a429904efe5a55aa902dba6cfcce05baf923852f7d7e6dcda79614bc62160971",
+      "5120": "42116993268014044046b18150c32e311b7418a94141d71392ffc865c1f49819",
+      "5632": "88a5df0beebeb14b952fc10f0851f7f29a1c1745d4e8f13d8aa076fe9df6910b",
+      "6144": "e4046947d626d2294d1033f8f24989aa622669a4139927b8f568ed8ab5f190de"
+    }
+  },
+  "sites-hunt-12794": {
+    "source": "ina-serpent-quarry-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "ec1795bfb62c01581eb2bbc68db074a690e44003677a9a0a41b51de1e9dd2d9f",
+    "tiers": {
+      "4096": "169b2800b99c1f260e9ee80d423e25560ad0ea70abb6ce7f7b3ade149b04f76b",
+      "4608": "9d0ddeb1ae9d40a3f5a03debc57c31e7a089698793e8104123f077949038decb",
+      "5120": "18eb126c709210b8519b68109dcd87b3fb52f2f1df95df4927734731b395f845",
+      "5632": "0d689f52589e2704c19982305942a0fed5a21c44a6a11b0af43d970aee0ed04f",
+      "6144": "0861f36dd96c4224df30d0f67a2ebe2dbe82487c46f344f55faa67137a8f347d"
+    }
+  }
+}

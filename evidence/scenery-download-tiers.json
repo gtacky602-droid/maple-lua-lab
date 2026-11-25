@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 240,
+  "verifiedModules": 270,
   "dimensions": [
     512,
     288
@@ -124,6 +124,48 @@
       "5120": 23537,
       "5632": 26789,
       "6144": 28437
+    },
+    "ina-tatara-furnace-background-v1.png": {
+      "4096": 16013,
+      "4608": 19281,
+      "5120": 22396,
+      "5632": 25516,
+      "6144": 27288
+    },
+    "ina-tatara-mirror-background-v1.png": {
+      "4096": 16572,
+      "4608": 19928,
+      "5120": 23175,
+      "5632": 26405,
+      "6144": 28411
+    },
+    "ina-yashiori-rift-background-v1.png": {
+      "4096": 16618,
+      "4608": 19962,
+      "5120": 23189,
+      "5632": 26389,
+      "6144": 28279
+    },
+    "ina-yashiori-machine-background-v1.png": {
+      "4096": 15467,
+      "4608": 18757,
+      "5120": 21920,
+      "5632": 25072,
+      "6144": 26514
+    },
+    "ina-yashiori-den-background-v1.png": {
+      "4096": 16355,
+      "4608": 19697,
+      "5120": 22902,
+      "5632": 26092,
+      "6144": 28082
+    },
+    "ina-serpent-quarry-background-v1.png": {
+      "4096": 16645,
+      "4608": 19997,
+      "5120": 23188,
+      "5632": 26364,
+      "6144": 28328
     },
     "natlan-riverside-trial-background-v1.png": {
       "4096": 18555,

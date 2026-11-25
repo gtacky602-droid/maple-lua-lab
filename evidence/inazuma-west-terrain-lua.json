@@ -1,0 +1,60 @@
+{
+  "sites-hunt-12788": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      422,
+      385,
+      366,
+      399
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 59,
+    "exterior_scenery": "inaTataraFurnace",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-12791": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      388,
+      411,
+      374
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 3,
+    "level_required": 59,
+    "exterior_scenery": "inaYashioriRift",
+    "arrivals_outside_enemy_contact": 3
+  },
+  "sites-hunt-12794": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      408,
+      392,
+      367
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 59,
+    "exterior_scenery": "inaSerpentQuarry",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "yashioriAtLevel59": {
+    "routes": {
+      "sites-hunt-12791-pocket-1": [
+        "optional_elite",
+        480,
+        60
+      ],
+      "sites-hunt-12791-pocket-2": [
+        "rare_pocket",
+        380,
+        59
+      ]
+    },
+    "returnedOnShelfY": 380,
+    "rareArt": "fanged-beast"
+  }
+}

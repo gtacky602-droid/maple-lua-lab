@@ -52,6 +52,7 @@
 .atlas-legend [data-marker="seen"] { color: #25605c }
 .atlas-legend [data-marker="new"] { color: #526671 }
 .atlas-legend [data-marker="guide"] { color: #8b590e }
+.atlas-legend [data-marker="rare"] { color: #7872b7 }
 .atlas-legend [data-marker="hunt"] { color: #875038 }
 .atlas-legend [data-marker="boss"] { color: #8b4167 }
 .atlas-itinerary { margin-top: 10px; padding: 7px; border: 1px solid #96845b; border-radius: 5px }

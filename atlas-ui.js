@@ -4,6 +4,11 @@ const groupNames = {
  main: '通常地域', high_level_branch: '高難度地域', hidden_world: '隠し世界', official_layer: '別地図',
 };
 const bossKinds = {normal:'通常ボス', weekly:'週ボス', stygian:'幽境'};
+function huntLabel(place) {
+ if (place.pocketRole === 'rare_pocket') return '任意戦・希少遭遇';
+ if (place.pocketRole === 'optional_elite') return '任意戦・精鋭';
+ return place.huntKind === 'elite' ? '任意戦' : place.huntKind ? '狩場' : '';
+}
 const entries = value => Array.isArray(value) ? value : [];
 
 export function initAtlas(action, clearKeys) {
@@ -16,6 +21,7 @@ export function initAtlas(action, clearKeys) {
  const layer = document.getElementById('atlasLayer');
  const huntLayer = layer.querySelector('option[value="hunt"]');
  const huntLegend = document.getElementById('atlasHuntLegend');
+ const rareLegend = document.getElementById('atlasRareLegend');
  const bossLayer = layer.querySelector('option[value="boss"]');
  const bossLegend = document.getElementById('atlasBossLegend');
  const localLayers = layer.querySelectorAll('option[value="surface"],option[value="below"],option[value="water"],option[value="review"]');
@@ -173,7 +179,7 @@ export function initAtlas(action, clearKeys) {
     selected.boss && selected.boss.name !== selected.name && selected.name,
     selected.boss?.kind === 'stygian' && '受付で難度を選ぶ',
     selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' :
-      selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : '',
+      huntLabel(selected),
     selected.provisional && !selected.entrancePending && '試作区画',
     selected.huntLevels?.length ? '脇道の狩場は' + selected.huntLevels.map(level => 'Lv' + level).join('・') :
       selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
@@ -181,9 +187,10 @@ export function initAtlas(action, clearKeys) {
   const links = entries(view.routes).map(route => {
    const li = document.createElement('li');
    const button = document.createElement('button');
-   const kind = route.huntKind === 'elite' ? '任意戦・' : route.huntKind ? '狩場・' : '';
+   const kind = huntLabel(route);
+   const gate = route.entryHeight != null && (route.entryHeight < 480 ? '上の足場の門' : '地上の門');
    const level = route.level != null && route.reason !== `必要Lv${route.level}` && `Lv${route.level}`;
-   const details = [kind + route.label, level, route.automaticArrival && '到着後に自動で移動', route.hint, route.reason].filter(Boolean);
+   const details = [kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.reason].filter(Boolean);
    button.textContent = `${route.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(route);
    li.append(button);
@@ -251,6 +258,7 @@ export function initAtlas(action, clearKeys) {
   huntLayer.hidden = !view.hasHunts;
   huntLayer.disabled = !view.hasHunts;
   huntLegend.hidden = !view.hasHunts || view.layer === 'boss';
+  rareLegend.hidden = overview || !entries(view.points).some(point => point.pocketRole === 'rare_pocket');
   bossLayer.hidden = bossLayer.disabled = !view.hasBosses;
   bossLegend.hidden = overview || !entries(view.points).some(point => point.boss);
   layer.value = view.layer;

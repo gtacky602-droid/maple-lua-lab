@@ -142,7 +142,7 @@ return function(C, atlas)
 
  local function pin(out,point)
   local color=point.current and '#dc735b' or point.selected and '#ffdf91' or
-    point.mode=='draft' and '#f4d8a4' or point.boss and '#8b4167' or point.huntKind and '#996045' or point.visited and '#397972' or '#526671'
+    point.mode=='draft' and '#f4d8a4' or point.boss and '#8b4167' or point.pocketRole=='rare_pocket' and '#7872b7' or point.huntKind and '#996045' or point.visited and '#397972' or '#526671'
   local size=(point.current or point.selected or point.major or point.boss) and 7 or point.huntKind and 5 or 4
   local x,y=point.x,point.y
   polygon(out,{{x,y-size-2},{x+size+2,y},{x,y+size+2},{x-size-2,y}},'#273f4b')
@@ -503,7 +503,7 @@ return function(C, atlas)
       or map.layer=='hunt' and (p.huntKind or p.huntLevels or p.id==state.node)) then
     local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
       recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
-      huntLevels=p.huntLevels,huntKind=p.huntKind,boss=p.boss,
+      huntLevels=p.huntLevels,huntKind=p.huntKind,pocketRole=p.pocketRole,boss=p.boss,
       current=p.id==state.node,selected=p.id==map.selected,
       waypoint=node.waypoint~=nil,
       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
@@ -568,7 +568,8 @@ return function(C, atlas)
   if selected and nodes[selected.id] then
    for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
-     routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
+     local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
+     routes[#routes+1]={pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
        reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),

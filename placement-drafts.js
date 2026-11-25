@@ -19,7 +19,9 @@ export function liveNodeDraft(input,graph,nodeId,species){
 }
 // Earlier placement drafts stored absolute heights. Shelf order and horizontal spans are unchanged.
 const forestShelfHeights=[480,390,352,394,350];
+const westIslandHeights=[480,408,369,404,378];
 const previousHeights=new Map([
+ ['sites-hunt-12788',westIslandHeights],['sites-hunt-12791',westIslandHeights],['sites-hunt-12794',westIslandHeights],
  ['sites-hunt-12778',[480,398,345,396,348]],
  ['sites-hunt-12781',[480,408,369,404,378]],['sites-hunt-12784',[480,408,369,404,378]],
  ['sites-hunt-28751',forestShelfHeights],['sites-hunt-28754',forestShelfHeights],

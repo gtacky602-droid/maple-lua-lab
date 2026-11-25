@@ -55,6 +55,7 @@ def resume(state):
     return core.restore(lua.table_from(save,recursive=True))
 
 report={}
+rare_result={}
 for start in range(0,len(rooms),3):
     state=core.new(12)
     core.action(state,'story_start')
@@ -65,10 +66,12 @@ for start in range(0,len(rooms),3):
     parent=nodes[rooms[start]]['atlasParent']
     core.enterStoryNode(state,parent)
     assert core.defeatEnemy(state,state.enemies[1],1) and progress(state).count==0
-    if region=='natlan':
-        rare='sites-hunt-73159-pocket-2'
+    if region in ('natlan','inazuma'):
+        rare='sites-hunt-73159-pocket-2' if region=='natlan' else 'sites-hunt-12791-pocket-2'
         core.enterStoryNode(state,rare)
-        assert fight(core,state) and progress(state).count==0
+        ticks=fight(core,state)
+        assert ticks and progress(state).count==0
+        rare_result={'node':rare,'normalCombatTicks':ticks,'questCountAfterKill':0}
     # Wrap a final short group so its three-kill quest can still be claimed.
     group=[rooms[(start+offset)%len(rooms)] for offset in range(3)]
     for index,room in enumerate(group,1):
@@ -86,5 +89,8 @@ for start in range(0,len(rooms),3):
     core.action(state,'daily_claim:'+quest)
     core.dailySettle(state)
     assert (state.daily.paidXp,state.daily.paidMora)==(xp,mora)
-(ROOT/f'evidence/{region}-daily-spur-elites.json').write_text(json.dumps({'rooms':report,'claimXp':xp,'claimMora':mora},indent=2)+'\n','utf8')
+evidence={'rooms':report,'claimXp':xp,'claimMora':mora}
+if rare_result:
+    evidence['rareEncounterExcluded']=rare_result
+(ROOT/f'evidence/{region}-daily-spur-elites.json').write_text(json.dumps(evidence,indent=2)+'\n','utf8')
 print(f'{len(rooms)} room clears with normal attacks, ordinary kill exclusions and saved progress / single claims passed.')

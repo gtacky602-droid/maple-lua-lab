@@ -1,0 +1,174 @@
+{
+  "furnace": {
+    "stage": "sites-hunt-12788",
+    "scenery": {
+      "key": "inaTataraFurnace",
+      "file": "ina-tatara-furnace-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 500.1,
+      "y": 222.6,
+      "adjacent": [
+        "ina-wp-12715",
+        "sites-hunt-12788-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-12788",
+      "next": "sites-hunt-12788-pocket-1"
+    },
+    "jump": [
+      480,
+      422
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "inaMirrorGallery",
+      "file": "ina-tatara-mirror-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "ina-wp-12715",
+        "sites-hunt-12788",
+        "walk"
+      ],
+      [
+        "sites-hunt-12788",
+        "sites-hunt-12788-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-12788-pocket-1",
+        "sites-hunt-12788",
+        "walk"
+      ],
+      [
+        "sites-hunt-12788",
+        "ina-wp-12715",
+        "walk"
+      ]
+    ]
+  },
+  "rift": {
+    "stage": "sites-hunt-12791",
+    "scenery": {
+      "key": "inaYashioriRift",
+      "file": "ina-yashiori-rift-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 433.8,
+      "y": 214.1,
+      "adjacent": [
+        "ina-wp-12749",
+        "sites-hunt-12791-pocket-1",
+        "sites-hunt-12791-pocket-2"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-12791",
+      "pockets": {
+        "sites-hunt-12791-pocket-2": "ヤシオリの秘境周辺・稲妻の聖骸獣の脇部屋 ｜ 任意戦・希少遭遇・徒歩・Lv59・上の足場の門",
+        "sites-hunt-12791-pocket-1": "ヤシオリの秘境周辺・稲妻の遺跡殲滅者の脇部屋 ｜ 任意戦・精鋭・徒歩・Lv60・地上の門"
+      },
+      "next": "sites-hunt-12791-pocket-2"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "returnHeight": 380,
+    "pocketScenery": {
+      "key": "inaRiftBoneDen",
+      "file": "ina-yashiori-den-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "ina-wp-12749",
+        "sites-hunt-12791",
+        "raised"
+      ],
+      [
+        "sites-hunt-12791",
+        "sites-hunt-12791-pocket-2",
+        "raised"
+      ],
+      [
+        "sites-hunt-12791-pocket-2",
+        "sites-hunt-12791",
+        "walk"
+      ],
+      [
+        "sites-hunt-12791",
+        "sites-hunt-12791-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-12791-pocket-1",
+        "sites-hunt-12791",
+        "walk"
+      ],
+      [
+        "sites-hunt-12791",
+        "ina-wp-12749",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "sites-hunt-12791-pocket-2",
+        "returnHeight": 380,
+        "pocketScenery": {
+          "key": "inaRiftBoneDen",
+          "file": "ina-yashiori-den-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-12791-pocket-1",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "inaRiftMachineBay",
+          "file": "ina-yashiori-machine-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "quarry": {
+    "stage": "sites-hunt-12794",
+    "scenery": {
+      "key": "inaSerpentQuarry",
+      "file": "ina-serpent-quarry-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 422.4,
+      "y": 231.8,
+      "adjacent": [
+        "maguu-approach"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-12794",
+      "next": "maguu-approach"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "journeys": [
+      [
+        "maguu-approach",
+        "sites-hunt-12794",
+        "walk"
+      ],
+      [
+        "sites-hunt-12794",
+        "maguu-approach",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}
