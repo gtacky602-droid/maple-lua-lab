@@ -525,21 +525,25 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    parent.count=parent.count+1
   end
  end
+ local function matchesKillStep(state,milestone,enemy)
+  if not enemy then return false end
+  if milestone.enemy==enemy then return true end
+  if state.sweep and state.sweep[enemy] then return false end
+  for _,id in ipairs(milestone.enemies or {}) do if id==enemy then return true end end
+  return false
+ end
  local function recordKill(s,state,milestone,enemy,parent,quest)
+  if not matchesKillStep(state,milestone,enemy) then return end
   if milestone.enemy==enemy then completeMilestone(s,state,milestone,parent,quest);return true end
   local group=milestone.enemies
-  if not group then return end
-  for _,id in ipairs(group) do if id==enemy then
-   local defeated=state.sweep or {}
-   if defeated[enemy] then return end
-   defeated[enemy]=true;state.sweep=defeated
-   local count=0
-   for _,member in ipairs(group) do if defeated[member] then count=count+1 end end
-   if count==#group then
-    state.sweep=nil;completeMilestone(s,state,milestone,parent,quest)
-   else s.storyNotice=(milestone.sweepLabel or '通路の群れを整理中')..' '..count..' / '..#group end
-    return true
-  end end
+  local defeated=state.sweep or {}
+  defeated[enemy]=true;state.sweep=defeated
+  local count=0
+  for _,member in ipairs(group) do if defeated[member] then count=count+1 end end
+  if count==#group then
+   state.sweep=nil;completeMilestone(s,state,milestone,parent,quest)
+  else s.storyNotice=(milestone.sweepLabel or '通路の群れを整理中')..' '..count..' / '..#group end
+  return true
  end
  local function spawnBreakTargets(s,node)
   local quest=node.breakQuest and quests[node.breakQuest]
@@ -750,6 +754,40 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if not q.chapterClearXp or state.count~=q.chapterClearCount then return end
   C.grantExp(s,q.chapterClearXp,'quest')
   s.storyFirstClear={quest=q.id,xp=q.chapterClearXp,untilTime=s.t+7}
+ end
+ local function huntGuides(s,f)
+  local actor=s.actors[s.active]
+  for id,state in pairs(s.story.quests) do
+   local q=quests[id]
+   if state.status=='active' and state.count<q.goal then
+    local step,progress
+    if q.itinerary then step,progress=nextMilestone(s,q) end
+    local atStep=step and step.kind=='kill' and step.node==s.story.node
+    local ordinary=(q.kind=='kill' and q.target==s.story.node) or
+                   (q.sights and not state.sights and q.sights.legacyTarget==s.story.node)
+    local guard=q.recovery and state.recovered and state.count==q.goal-1 and q.recovery.node==s.story.node and q.recovery.guard
+    if atStep or ordinary or guard then
+     local nearest,distance,wait
+     for _,e in ipairs(s.enemies) do
+      if e.spawnId and not e.boss and not e.noRewards and
+         ((atStep and matchesKillStep(progress,step,e.spawnId)) or
+          (ordinary and questKillCounts(q,state,e)) or guard==e.spawnId) then
+       if e.hp>0 then
+        local d=(e.x-actor.x)^2+(e.y-actor.y)^2
+        if not distance or d<distance then nearest,distance=e,d end
+       elseif e.respawn and e.respawn<1e9 then
+        wait=math.min(wait or e.respawn,e.respawn)
+       end
+      end
+     end
+     if nearest or wait then
+      f.storyHunts=f.storyHunts or {}
+      f.storyHunts[id]=nearest and {spawn=nearest.spawnId,name=nearest.storyName,art=nearest.art,
+       x=nearest.x,y=nearest.y} or {wait=math.max(0,math.ceil(wait))}
+     end
+    end
+   end
+  end
  end
  local function progress(s,kind,target,enemy)
   for id,state in pairs(s.story.quests) do local q=quests[id]
@@ -1944,6 +1982,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
+   huntGuides(s,f)
    local phase=n.locationAfterReport
    if phase and completed(s,phase.quest) then
     f.location=phase.name..'（本編試作）'

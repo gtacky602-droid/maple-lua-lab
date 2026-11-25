@@ -1,3 +1,4 @@
+import {huntHint} from './hunt-guide.js';
 import {renderQuestJournal,trackedQuest} from './quest-journal.js';
 import {initEndgameUI} from './endgame-ui.js';
 const updateEndgame=initEndgameUI(action=>window.lab.action(action));
@@ -34,6 +35,12 @@ function renderGrowthPractice(frame){
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
  updateEndgame(f);
+ const hint=document.getElementById('trackedHuntHint');
+ const target=f.storyHunts?.[trackedId];
+ const text=target?huntHint(target,f.actors?.find(a=>a.id===f.active)):'';
+ if(hint.textContent!==text)hint.textContent=text;
+ hint.hidden=!text;
+ hint.dataset.quest=target?trackedId:'';
  let lampSide='';
  if(trackedId && f.storyLocalLight?.mode==='bright'){
   if(lampRoom!==f.story.node){

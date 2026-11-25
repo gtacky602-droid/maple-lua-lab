@@ -114,9 +114,16 @@ class Journey(TrailWalk):
         assert after[0] > before[0] and after[1] > before[1]
         self.reports.append(dict(quest=quest, xp=after[0]-before[0], mora=after[1]-before[1]))
 
-    def fight(self, enemies, before, *, rewarded=True):
+    def fight(self, enemies, before, *, rewarded=True, guided_quest=None):
         controls = self.lua.table(attack=True)
-        for enemy in enemies:
+        remaining = list(enemies)
+        while remaining:
+            if guided_quest:
+                guide = self.frame().storyHunts[guided_quest]
+                enemy = next(e for e in remaining if e.spawnId == guide.spawn)
+            else:
+                enemy = remaining[0]
+            remaining.remove(enemy)
             if enemy.hp > 0:
                 self.approach(max(30, enemy.x-52), enemy.y, enemy.id)
             for _ in range(600):
@@ -220,7 +227,9 @@ def frostmoon():
         before = trip.totals()
         enemies = list(trip.state.enemies.values())
         assert {enemy.spawnId for enemy in enemies} == set(quests[TRIAL]['itinerary'][index-1]['enemies'])
-        trip.fight(enemies, before)
+        trip.fight(enemies, before, guided_quest=TRIAL)
+        guides = trip.frame().storyHunts
+        assert not guides or not guides[TRIAL]
         assert trip.state.story.quests[TRIAL].count == index
         exits_seen.append(choose_test_exit(trip, right=True))
         selected = trip.travel(HALL)[0]

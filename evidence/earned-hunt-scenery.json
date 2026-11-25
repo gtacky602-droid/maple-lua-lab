@@ -1,0 +1,80 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "fields": {
+    "fontaine-field": "fontaine-background-v1.png",
+    "inazuma-road": "inazuma-background-v1.png",
+    "liyue-field": "liyue-background-v1.png",
+    "mond-road": "mondstadt-background.png",
+    "natlan-field": "natlan-background-v1.png",
+    "nod-field": "nodkrai-background-v1.png",
+    "snezhnaya-field": "snezhnaya-background-v1.png",
+    "snow-rail-transfer": "snow-rail-transfer-background-v1.png",
+    "sumeru-field": "sumeru-background-v1.png"
+  },
+  "rasterMatches": 45,
+  "bytesByTier": {
+    "fontaine-background-v1.png": {
+      "4096": 18309,
+      "4608": 21915,
+      "5120": 25378,
+      "5632": 28838,
+      "6144": 30714
+    },
+    "inazuma-background-v1.png": {
+      "4096": 17650,
+      "4608": 21072,
+      "5120": 24361,
+      "5632": 27649,
+      "6144": 29845
+    },
+    "liyue-background-v1.png": {
+      "4096": 18580,
+      "4608": 22048,
+      "5120": 25429,
+      "5632": 28789,
+      "6144": 31117
+    },
+    "mondstadt-background.png": {
+      "4096": 18019,
+      "4608": 21497,
+      "5120": 24830,
+      "5632": 28148,
+      "6144": 30382
+    },
+    "natlan-background-v1.png": {
+      "4096": 18979,
+      "4608": 22581,
+      "5120": 26066,
+      "5632": 29534,
+      "6144": 31490
+    },
+    "nodkrai-background-v1.png": {
+      "4096": 17290,
+      "4608": 20830,
+      "5120": 24209,
+      "5632": 27617,
+      "6144": 29323
+    },
+    "snezhnaya-background-v1.png": {
+      "4096": 15894,
+      "4608": 19184,
+      "5120": 22353,
+      "5632": 25471,
+      "6144": 27315
+    },
+    "snow-rail-transfer-background-v1.png": {
+      "4096": 15715,
+      "4608": 18909,
+      "5120": 22002,
+      "5632": 25102,
+      "6144": 26868
+    },
+    "sumeru-background-v1.png": {
+      "4096": 18809,
+      "4608": 22423,
+      "5120": 25914,
+      "5632": 29390,
+      "6144": 31536
+    }
+  }
+}

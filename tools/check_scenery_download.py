@@ -68,12 +68,12 @@ def location_coverage(sources, root):
     return coverage
 
 
-def check(codec, directory):
+def check_modules(codec, directory, rows):
     lua=LuaRuntime(encoding=None)
     ctx=lua.table()
     lua.execute(codec.read_bytes())(ctx)
     groups={}
-    for i, row in enumerate(json.loads((directory/'files.json').read_text('utf8')), start=1):
+    for i, row in enumerate(rows, start=1):
         raw=(directory/row['file']).read_bytes()
         assert len(raw)==row['bytes']
         scenes=lua.execute(raw)
@@ -101,6 +101,11 @@ def check(codec, directory):
     for costs in groups.values():
         assert list(costs)==[4096,4608,5120,5632,6144]
         assert all(a<b for a,b in zip(costs.values(),list(costs.values())[1:]))
+    return groups
+
+
+def check(codec, directory):
+    groups=check_modules(codec,directory,json.loads((directory/'files.json').read_text('utf8')))
     return {'codecSha256':hashlib.sha256(codec.read_bytes()).hexdigest(),'verifiedModules':sum(map(len,groups.values())),
             'dimensions':[512,288],'fileBytesByRectangles':groups,
             'locationCoverage':location_coverage(groups,Path(__file__).resolve().parents[1])}

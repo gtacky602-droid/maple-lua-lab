@@ -1,0 +1,388 @@
+{
+  "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+  "contracts": [
+    {
+      "field": "mond-road",
+      "cycle": 1,
+      "quests": [
+        "mond-patrol",
+        "mond-contract"
+      ],
+      "guidedSpawns": [
+        "mond-road-1",
+        "mond-road-2",
+        "mond-road-3",
+        "mond-road-4",
+        "mond-road-5",
+        "mond-road-6"
+      ]
+    },
+    {
+      "field": "mond-road",
+      "cycle": 2,
+      "quests": [
+        "mond-contract"
+      ],
+      "guidedSpawns": [
+        "mond-road-1",
+        "mond-road-2",
+        "mond-road-3",
+        "mond-road-4",
+        "mond-road-5",
+        "mond-road-6"
+      ]
+    },
+    {
+      "field": "liyue-field",
+      "cycle": 1,
+      "quests": [
+        "liyue-supply",
+        "liyue-contract"
+      ],
+      "guidedSpawns": [
+        "liyue-field-1",
+        "liyue-field-2",
+        "liyue-field-3",
+        "liyue-field-4",
+        "liyue-field-5",
+        "liyue-field-6"
+      ]
+    },
+    {
+      "field": "liyue-field",
+      "cycle": 2,
+      "quests": [
+        "liyue-contract"
+      ],
+      "guidedSpawns": [
+        "liyue-field-1",
+        "liyue-field-2",
+        "liyue-field-3",
+        "liyue-field-4",
+        "liyue-field-5",
+        "liyue-field-6"
+      ]
+    },
+    {
+      "field": "inazuma-road",
+      "cycle": 1,
+      "quests": [
+        "inazuma-contract"
+      ],
+      "guidedSpawns": [
+        "inazuma-road-1",
+        "inazuma-road-2",
+        "inazuma-road-3",
+        "inazuma-road-4",
+        "inazuma-road-5",
+        "inazuma-road-6"
+      ]
+    },
+    {
+      "field": "inazuma-road",
+      "cycle": 2,
+      "quests": [
+        "inazuma-contract"
+      ],
+      "guidedSpawns": [
+        "inazuma-road-1",
+        "inazuma-road-2",
+        "inazuma-road-3",
+        "inazuma-road-4",
+        "inazuma-road-5",
+        "inazuma-road-6"
+      ]
+    },
+    {
+      "field": "sumeru-field",
+      "cycle": 1,
+      "quests": [
+        "sumeru-contract"
+      ],
+      "guidedSpawns": [
+        "sumeru-field-1",
+        "sumeru-field-2",
+        "sumeru-field-3",
+        "sumeru-field-4",
+        "sumeru-field-5",
+        "sumeru-field-6"
+      ]
+    },
+    {
+      "field": "sumeru-field",
+      "cycle": 2,
+      "quests": [
+        "sumeru-contract"
+      ],
+      "guidedSpawns": [
+        "sumeru-field-1",
+        "sumeru-field-2",
+        "sumeru-field-3",
+        "sumeru-field-4",
+        "sumeru-field-5",
+        "sumeru-field-6"
+      ]
+    },
+    {
+      "field": "fontaine-field",
+      "cycle": 1,
+      "quests": [
+        "emilie-join",
+        "fontaine-contract"
+      ],
+      "guidedSpawns": [
+        "fontaine-field-1",
+        "fontaine-field-2",
+        "fontaine-field-3",
+        "fontaine-field-4",
+        "fontaine-field-5",
+        "fontaine-field-6"
+      ]
+    },
+    {
+      "field": "fontaine-field",
+      "cycle": 2,
+      "quests": [
+        "fontaine-contract"
+      ],
+      "guidedSpawns": [
+        "fontaine-field-1",
+        "fontaine-field-2",
+        "fontaine-field-3",
+        "fontaine-field-4",
+        "fontaine-field-5",
+        "fontaine-field-6"
+      ]
+    },
+    {
+      "field": "natlan-field",
+      "cycle": 1,
+      "quests": [
+        "natlan-contract"
+      ],
+      "guidedSpawns": [
+        "natlan-field-1",
+        "natlan-field-2",
+        "natlan-field-3",
+        "natlan-field-4",
+        "natlan-field-5",
+        "natlan-field-6"
+      ]
+    },
+    {
+      "field": "natlan-field",
+      "cycle": 2,
+      "quests": [
+        "natlan-contract"
+      ],
+      "guidedSpawns": [
+        "natlan-field-1",
+        "natlan-field-2",
+        "natlan-field-3",
+        "natlan-field-4",
+        "natlan-field-5",
+        "natlan-field-6"
+      ]
+    },
+    {
+      "field": "nod-field",
+      "cycle": 1,
+      "quests": [
+        "nod-contract"
+      ],
+      "guidedSpawns": [
+        "nod-field-1",
+        "nod-field-2",
+        "nod-field-3",
+        "nod-field-4",
+        "nod-field-5",
+        "nod-field-6"
+      ]
+    },
+    {
+      "field": "nod-field",
+      "cycle": 2,
+      "quests": [
+        "nod-contract"
+      ],
+      "guidedSpawns": [
+        "nod-field-1",
+        "nod-field-2",
+        "nod-field-3",
+        "nod-field-4",
+        "nod-field-5",
+        "nod-field-6"
+      ]
+    },
+    {
+      "field": "snezhnaya-field",
+      "cycle": 1,
+      "quests": [
+        "snezhnaya-contract"
+      ],
+      "guidedSpawns": [
+        "snezhnaya-field-1",
+        "snezhnaya-field-2",
+        "snezhnaya-field-3",
+        "snezhnaya-field-4",
+        "snezhnaya-field-5",
+        "snezhnaya-field-6"
+      ]
+    },
+    {
+      "field": "snezhnaya-field",
+      "cycle": 2,
+      "quests": [
+        "snezhnaya-contract"
+      ],
+      "guidedSpawns": [
+        "snezhnaya-field-1",
+        "snezhnaya-field-2",
+        "snezhnaya-field-3",
+        "snezhnaya-field-4",
+        "snezhnaya-field-5",
+        "snezhnaya-field-6"
+      ]
+    },
+    {
+      "field": "snow-rail-transfer",
+      "cycle": 1,
+      "quests": [
+        "snow-rail-clear"
+      ],
+      "guidedSpawns": [
+        "snow-rail-cart-1",
+        "snow-rail-cart-2"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "quest": "mond-patrol",
+      "xp": 500,
+      "mora": 200
+    },
+    {
+      "quest": "mond-contract",
+      "xp": 2500,
+      "mora": 200
+    },
+    {
+      "quest": "mond-contract",
+      "xp": 2500,
+      "mora": 200
+    },
+    {
+      "quest": "liyue-supply",
+      "xp": 800,
+      "mora": 300
+    },
+    {
+      "quest": "liyue-contract",
+      "xp": 6500,
+      "mora": 350
+    },
+    {
+      "quest": "liyue-contract",
+      "xp": 6500,
+      "mora": 350
+    },
+    {
+      "quest": "inazuma-contract",
+      "xp": 12000,
+      "mora": 400
+    },
+    {
+      "quest": "inazuma-contract",
+      "xp": 12000,
+      "mora": 400
+    },
+    {
+      "quest": "sumeru-contract",
+      "xp": 20000,
+      "mora": 500
+    },
+    {
+      "quest": "sumeru-contract",
+      "xp": 20000,
+      "mora": 500
+    },
+    {
+      "quest": "emilie-join",
+      "xp": 6000,
+      "mora": 300
+    },
+    {
+      "quest": "fontaine-contract",
+      "xp": 30000,
+      "mora": 500
+    },
+    {
+      "quest": "fontaine-contract",
+      "xp": 30000,
+      "mora": 500
+    },
+    {
+      "quest": "natlan-contract",
+      "xp": 42000,
+      "mora": 500
+    },
+    {
+      "quest": "natlan-contract",
+      "xp": 42000,
+      "mora": 500
+    },
+    {
+      "quest": "nod-contract",
+      "xp": 60000,
+      "mora": 600
+    },
+    {
+      "quest": "nod-contract",
+      "xp": 60000,
+      "mora": 600
+    },
+    {
+      "quest": "snezhnaya-contract",
+      "xp": 80000,
+      "mora": 700
+    },
+    {
+      "quest": "snezhnaya-contract",
+      "xp": 80000,
+      "mora": 700
+    },
+    {
+      "quest": "snow-rail-clear",
+      "xp": 8400,
+      "mora": 460
+    }
+  ],
+  "savedCounts": {
+    "mond-patrol": 6,
+    "mond-contract": 6,
+    "liyue-supply": 1,
+    "liyue-contract": 1,
+    "inazuma-contract": 1,
+    "sumeru-contract": 1,
+    "emilie-join": 1,
+    "fontaine-contract": 1,
+    "natlan-contract": 1,
+    "nod-contract": 1,
+    "snezhnaya-contract": 1,
+    "snow-rail-clear": 1
+  },
+  "observedRespawnSeconds": {
+    "mond-road": 3,
+    "liyue-field": 2,
+    "inazuma-road": 2,
+    "sumeru-field": 2,
+    "fontaine-field": 1,
+    "natlan-field": 2,
+    "nod-field": 2,
+    "snezhnaya-field": 2
+  },
+  "wrongField": "mond-border",
+  "routeLegs": 48,
+  "returns": 0
+}
