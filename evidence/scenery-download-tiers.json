@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1355,
+  "verifiedModules": 1380,
   "dimensions": [
     512,
     288
@@ -1595,6 +1595,41 @@
       "5632": 28173,
       "6144": 30399
     },
+    "farka-dual-court-background-v1.png": {
+      "4096": 15885,
+      "4608": 19141,
+      "5120": 22262,
+      "5632": 25386,
+      "6144": 27188
+    },
+    "wanderer-windcourt-background-v1.png": {
+      "4096": 14931,
+      "4608": 18067,
+      "5120": 21090,
+      "5632": 24088,
+      "6144": 25776
+    },
+    "xbalanque-court-background-v1.png": {
+      "4096": 15992,
+      "4608": 19262,
+      "5120": 22413,
+      "5632": 25555,
+      "6144": 27373
+    },
+    "capitano-court-background-v1.png": {
+      "4096": 17305,
+      "4608": 20643,
+      "5120": 23878,
+      "5632": 27082,
+      "6144": 29186
+    },
+    "beidou-stygian-deck-background-v1.png": {
+      "4096": 16590,
+      "4608": 19928,
+      "5120": 23099,
+      "5632": 26259,
+      "6144": 28253
+    },
     "sum-redsand-well-background-v1.png": {
       "4096": 15485,
       "4608": 18711,
@@ -1907,7 +1942,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 290
+      "verified": 297
     },
     "domainHunts": {
       "total": 124,
@@ -2043,6 +2078,11 @@
     "weeklyBosses": {
       "totalArenas": 18,
       "verified": 18,
+      "pending": []
+    },
+    "stygianBosses": {
+      "totalArenas": 7,
+      "verified": 7,
       "pending": []
     }
   }

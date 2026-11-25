@@ -1,9 +1,9 @@
 import {backgroundMeasurements} from './scenery-measurements.js';
 
 // Navigation only: filters never change the active map or placement draft.
-export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBosses=[],select,getDraft,onChoose}){
+export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBosses=[],stygianBosses=[],select,getDraft,onChoose}){
  const bosses=new Map();
- for(const [type,roster] of [['field',fieldBosses],['weekly',weeklyBosses]]){
+ for(const [type,roster] of [['field',fieldBosses],['weekly',weeklyBosses],['stygian',stygianBosses]]){
   for(const boss of roster){
    for(const id of [boss.node,boss.innerNode].filter(Boolean)){
     const list=bosses.get(id)??[];list.push({type,name:boss.name});bosses.set(id,list);
@@ -20,12 +20,12 @@ export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBo
  const populated=document.createElement('select');populated.id='nodePlacementFilter';
  for(const [value,label] of [['all','すべて'],['placed','配置あり'],['empty','配置なし']]){const o=document.createElement('option');o.value=value;o.textContent=label;populated.append(o)}
  const arena=document.createElement('select');arena.id='nodeArenaFilter';
- for(const [value,label] of [['','すべての地点'],['field','フィールドボス'],['weekly','週ボス']])arena.add(new Option(label,value));
+ for(const [value,label] of [['','すべての地点'],['field','フィールドボス'],['weekly','週ボス'],['stygian','幽境専用戦']])arena.add(new Option(label,value));
  field('会場 ',arena);field('地域 ',region);field('検索 ',search);if(!liveView)field('編集中の案 ',populated);
  const measured=document.createElement('input');measured.type='checkbox';measured.id='nodeMeasuredFilter';
  field('背景を5段階で比較できる地点 ',measured);
  const query=new URLSearchParams(location.search);
- if(['field','weekly'].includes(query.get('arena'))){arena.value=query.get('arena');panel.open=true}
+ if(['field','weekly','stygian'].includes(query.get('arena'))){arena.value=query.get('arena');panel.open=true}
  if(query.get('measured')==='1'){measured.checked=true;panel.open=true}
  const clear=document.createElement('button');clear.type='button';clear.textContent='地点の絞り込みを解除';clear.id='clearNodeSearch';controls.append(clear);
  const status=document.createElement('p');status.id='nodeSearchStatus';status.setAttribute('role','status');

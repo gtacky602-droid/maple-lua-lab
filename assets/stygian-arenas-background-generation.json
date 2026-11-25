@@ -1,0 +1,40 @@
+{
+  "origin": "Five existing lab arenas. The two lunar trials share the previously encoded False Moon Rift backdrop.",
+  "scenes": [
+    {
+      "key": "dualCourt",
+      "node": "mond-stygian-dual-court",
+      "source": "farka-dual-court-background-v1.png",
+      "note": "二刀の鍛錬場のラボ用仮背景",
+      "preview": "farka-dual-court-native-preview-v1.png"
+    },
+    {
+      "key": "windcourt",
+      "node": "sumeru-stygian-windcourt",
+      "source": "wanderer-windcourt-background-v1.png",
+      "note": "風渡りの空中闘場のラボ用仮背景",
+      "preview": "wanderer-windcourt-native-preview-v1.png"
+    },
+    {
+      "key": "solarSparringCourt",
+      "node": "natlan-solar-court",
+      "source": "xbalanque-court-background-v1.png",
+      "note": "烈日の手合わせ場の仮背景",
+      "preview": "xbalanque-court-native-preview-v1.png"
+    },
+    {
+      "key": "frostDrillCourt",
+      "node": "sne-stygian-frost-court",
+      "source": "capitano-court-background-v1.png",
+      "note": "凍天の演武場の仮背景",
+      "preview": "capitano-court-native-preview-v1.png"
+    },
+    {
+      "key": "cruxDuelDeck",
+      "node": "liyue-stygian-deck",
+      "source": "beidou-stygian-deck-background-v1.png",
+      "note": "南十字の試合甲板の仮背景",
+      "preview": "beidou-stygian-deck-native-preview-v1.png"
+    }
+  ]
+}

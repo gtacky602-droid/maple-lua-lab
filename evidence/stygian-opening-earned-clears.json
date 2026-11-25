@@ -1,0 +1,1274 @@
+{
+  "draftBalance": true,
+  "route": "basic",
+  "inputBudgetSeconds": 180,
+  "sources": {
+    "200": {
+      "sha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    }
+  },
+  "encounters": [
+    {
+      "level": 200,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 6.39999999999998,
+      "ticks": 384,
+      "events": [
+        {
+          "id": "stygian:beidou:guard",
+          "count": 1,
+          "value": 0,
+          "tick": 76
+        },
+        {
+          "id": "stygian:beidou:tell:baited",
+          "count": 1,
+          "value": 0,
+          "tick": 77
+        },
+        {
+          "id": "stygian:beidou:baited",
+          "count": 1,
+          "value": 0,
+          "tick": 77
+        },
+        {
+          "id": "stygian:beidou:strike:baited",
+          "count": 1,
+          "value": 0,
+          "tick": 114
+        },
+        {
+          "id": "stygian:beidou:impact:baited",
+          "count": 1,
+          "value": 61,
+          "tick": 121
+        },
+        {
+          "id": "stygian:beidou:tell:wake",
+          "count": 1,
+          "value": 0,
+          "tick": 133
+        },
+        {
+          "id": "stygian:beidou:strike:wake",
+          "count": 1,
+          "value": 0,
+          "tick": 184
+        },
+        {
+          "id": "stygian:beidou:impact:wake",
+          "count": 1,
+          "value": 36,
+          "tick": 191
+        },
+        {
+          "id": "stygian:beidou:recover",
+          "count": 2,
+          "value": 72,
+          "tick": 203
+        },
+        {
+          "id": "stygian:beidou:opening-hit",
+          "count": 17,
+          "value": 138287,
+          "tick": 214
+        },
+        {
+          "id": "stygian:beidou:tell:sweep",
+          "count": 1,
+          "value": 0,
+          "tick": 276
+        },
+        {
+          "id": "stygian:beidou:strike:sweep",
+          "count": 1,
+          "value": 0,
+          "tick": 327
+        },
+        {
+          "id": "stygian:beidou:impact:sweep",
+          "count": 1,
+          "value": 44,
+          "tick": 334
+        }
+      ],
+      "moves": [
+        {
+          "id": "baited",
+          "tick": 77
+        },
+        {
+          "id": "wake",
+          "tick": 133
+        },
+        {
+          "id": "sweep",
+          "tick": 276
+        }
+      ],
+      "hits": 35,
+      "phases": [
+        {
+          "id": "intro",
+          "tick": 0
+        },
+        {
+          "id": "approach",
+          "tick": 75
+        },
+        {
+          "id": "guard",
+          "tick": 76
+        },
+        {
+          "id": "tell",
+          "tick": 77
+        },
+        {
+          "id": "strike",
+          "tick": 114
+        },
+        {
+          "id": "recover",
+          "tick": 203
+        }
+      ],
+      "partyHp": [
+        112330,
+        118920
+      ],
+      "hpRemaining": 0,
+      "damage": 4800000,
+      "maxHp": 4800000,
+      "node": "liyue-stygian-deck",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 30937308,
+        "set": "黄金の劇団",
+        "mora": 6100,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "capitano",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 8.816666666666801,
+      "ticks": 529,
+      "events": [
+        {
+          "id": "stygian:capitano:coat-off",
+          "count": 1,
+          "value": 0,
+          "tick": 60
+        },
+        {
+          "id": "stygian:capitano:CP01",
+          "count": 1,
+          "value": 1,
+          "tick": 120
+        },
+        {
+          "id": "stygian:capitano:CP01:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 132
+        },
+        {
+          "id": "stygian:capitano:CP01:contact",
+          "count": 2,
+          "value": 36,
+          "tick": 156
+        },
+        {
+          "id": "stygian:capitano:CP01:window",
+          "count": 2,
+          "value": 1,
+          "tick": 156
+        },
+        {
+          "id": "stygian:capitano:phase",
+          "count": 2,
+          "value": 2,
+          "tick": 192
+        },
+        {
+          "id": "stygian:capitano:CP05",
+          "count": 1,
+          "value": 2,
+          "tick": 282
+        },
+        {
+          "id": "stygian:capitano:CP05:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 300
+        },
+        {
+          "id": "stygian:capitano:CP05:contact",
+          "count": 1,
+          "value": 43,
+          "tick": 336
+        },
+        {
+          "id": "stygian:capitano:CP05:window",
+          "count": 1,
+          "value": 1,
+          "tick": 336
+        },
+        {
+          "id": "stygian:capitano:CP09",
+          "count": 1,
+          "value": 3,
+          "tick": 528
+        }
+      ],
+      "moves": [
+        {
+          "id": "CP01",
+          "tick": 120
+        },
+        {
+          "id": "CP05",
+          "tick": 282
+        },
+        {
+          "id": "CP09",
+          "tick": 528
+        }
+      ],
+      "hits": 3,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        },
+        {
+          "id": 2,
+          "tick": 192
+        },
+        {
+          "id": 3,
+          "tick": 438
+        }
+      ],
+      "partyHp": [
+        112435,
+        118841
+      ],
+      "hpRemaining": 0,
+      "damage": 5400,
+      "maxHp": 5400,
+      "node": "sne-stygian-frost-court",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 107189496,
+        "set": "黄金の劇団",
+        "mora": 9200,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "xbalanque",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 7.816666666666752,
+      "ticks": 469,
+      "events": [
+        {
+          "id": "stygian:xbalanque:XB01",
+          "count": 1,
+          "value": 1,
+          "tick": 120
+        },
+        {
+          "id": "stygian:xbalanque:XB01:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 132
+        },
+        {
+          "id": "stygian:xbalanque:XB01:contact",
+          "count": 3,
+          "value": 32,
+          "tick": 156
+        },
+        {
+          "id": "stygian:xbalanque:XB01:window",
+          "count": 2,
+          "value": 1,
+          "tick": 156
+        },
+        {
+          "id": "stygian:xbalanque:phase",
+          "count": 2,
+          "value": 2,
+          "tick": 186
+        },
+        {
+          "id": "stygian:xbalanque:XB05",
+          "count": 1,
+          "value": 2,
+          "tick": 276
+        },
+        {
+          "id": "stygian:xbalanque:XB05:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 294
+        },
+        {
+          "id": "stygian:xbalanque:XB05:contact",
+          "count": 2,
+          "value": 53,
+          "tick": 360
+        },
+        {
+          "id": "stygian:xbalanque:XB05:window",
+          "count": 1,
+          "value": 1,
+          "tick": 360
+        },
+        {
+          "id": "stygian:xbalanque:XB06",
+          "count": 1,
+          "value": 3,
+          "tick": 468
+        }
+      ],
+      "moves": [
+        {
+          "id": "XB01",
+          "tick": 120
+        },
+        {
+          "id": "XB05",
+          "tick": 276
+        },
+        {
+          "id": "XB06",
+          "tick": 468
+        }
+      ],
+      "hits": 3,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        },
+        {
+          "id": 2,
+          "tick": 186
+        },
+        {
+          "id": 3,
+          "tick": 378
+        }
+      ],
+      "partyHp": [
+        112386,
+        118835
+      ],
+      "hpRemaining": 0,
+      "damage": 4480,
+      "maxHp": 4480,
+      "node": "natlan-solar-court",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 76177563,
+        "set": "黄金の劇団",
+        "mora": 7950,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "rerir",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 13.200000000000378,
+      "ticks": 792,
+      "events": [
+        {
+          "id": "stygian:rerir:fog-entry",
+          "count": 1,
+          "value": 2,
+          "tick": 71
+        },
+        {
+          "id": "stygian:rerir:RR05:start",
+          "count": 2,
+          "value": 1,
+          "tick": 143
+        },
+        {
+          "id": "stygian:rerir:RR05:lock",
+          "count": 2,
+          "value": 1,
+          "tick": 191
+        },
+        {
+          "id": "stygian:rerir:RR05:lamp",
+          "count": 2,
+          "value": 1,
+          "tick": 228
+        },
+        {
+          "id": "stygian:rerir:RR05:exposed",
+          "count": 2,
+          "value": 1,
+          "tick": 239
+        },
+        {
+          "id": "stygian:rerir:fog-done",
+          "count": 1,
+          "value": 0,
+          "tick": 605
+        },
+        {
+          "id": "stygian:rerir:act-one-ended",
+          "count": 1,
+          "value": 0,
+          "tick": 606
+        },
+        {
+          "id": "stygian:rerir:act-two",
+          "count": 1,
+          "value": 6480,
+          "tick": 695
+        },
+        {
+          "id": "stygian:rerir:RR12:start",
+          "count": 1,
+          "value": 3,
+          "tick": 695
+        }
+      ],
+      "moves": [
+        {
+          "id": "RR05",
+          "tick": 143
+        },
+        {
+          "id": "RR12",
+          "tick": 695
+        }
+      ],
+      "hits": 4,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        },
+        {
+          "id": 2,
+          "tick": 695
+        }
+      ],
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "hpRemaining": 0,
+      "damage": 11980,
+      "maxHp": 6480,
+      "node": "nod-stygian-hunt",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 97224086,
+        "set": "黄金の劇団",
+        "mora": 61700,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "ronova",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 95.08333333332898,
+      "ticks": 5705,
+      "events": [
+        {
+          "id": "stygian:ronova:RN01:start",
+          "count": 1,
+          "value": 1,
+          "tick": 92
+        },
+        {
+          "id": "stygian:ronova:RN01:lock",
+          "count": 1,
+          "value": 506.5,
+          "tick": 116
+        },
+        {
+          "id": "stygian:ronova:RN01:launch",
+          "count": 3,
+          "value": 1,
+          "tick": 152
+        },
+        {
+          "id": "stygian:ronova:RN01:window",
+          "count": 3,
+          "value": 1,
+          "tick": 152
+        },
+        {
+          "id": "stygian:ronova:RN02:start",
+          "count": 1,
+          "value": 2,
+          "tick": 328
+        },
+        {
+          "id": "stygian:ronova:RN02:lock",
+          "count": 1,
+          "value": 506.5,
+          "tick": 352
+        },
+        {
+          "id": "stygian:ronova:RN02:launch",
+          "count": 1,
+          "value": 1,
+          "tick": 394
+        },
+        {
+          "id": "stygian:ronova:RN02:window",
+          "count": 1,
+          "value": 1,
+          "tick": 394
+        },
+        {
+          "id": "stygian:ronova:life-loss",
+          "count": 3,
+          "value": 18,
+          "tick": 401
+        },
+        {
+          "id": "stygian:ronova:RN03:start",
+          "count": 1,
+          "value": 3,
+          "tick": 588
+        },
+        {
+          "id": "stygian:ronova:RN03:lock",
+          "count": 1,
+          "value": 506.5,
+          "tick": 612
+        },
+        {
+          "id": "stygian:ronova:RN03:shadows",
+          "count": 1,
+          "value": 36,
+          "tick": 654
+        },
+        {
+          "id": "stygian:ronova:phase",
+          "count": 3,
+          "value": 2,
+          "tick": 1316
+        },
+        {
+          "id": "stygian:ronova:RN04:start",
+          "count": 1,
+          "value": 4,
+          "tick": 1384
+        },
+        {
+          "id": "stygian:ronova:RN04:lock",
+          "count": 1,
+          "value": 566.0,
+          "tick": 1420
+        },
+        {
+          "id": "stygian:ronova:RN04:window",
+          "count": 1,
+          "value": 1,
+          "tick": 1468
+        },
+        {
+          "id": "stygian:ronova:RN05:start",
+          "count": 1,
+          "value": 5,
+          "tick": 1608
+        },
+        {
+          "id": "stygian:ronova:RN05:lock",
+          "count": 1,
+          "value": 566.0,
+          "tick": 1692
+        },
+        {
+          "id": "stygian:ronova:authority_lethal",
+          "count": 3,
+          "value": 1,
+          "tick": 1740
+        },
+        {
+          "id": "stygian:ronova:RN05:window",
+          "count": 1,
+          "value": 1,
+          "tick": 1740
+        },
+        {
+          "id": "stygian:ronova:RN06:start",
+          "count": 1,
+          "value": 6,
+          "tick": 1886
+        },
+        {
+          "id": "stygian:ronova:RN06:lock",
+          "count": 1,
+          "value": 550.0,
+          "tick": 1916
+        },
+        {
+          "id": "stygian:ronova:RN06:shadows",
+          "count": 1,
+          "value": 0,
+          "tick": 1946
+        },
+        {
+          "id": "stygian:ronova:lamp-spent",
+          "count": 1,
+          "value": 4,
+          "tick": 2594
+        },
+        {
+          "id": "stygian:ronova:RN06:window",
+          "count": 1,
+          "value": 1,
+          "tick": 2594
+        },
+        {
+          "id": "stygian:ronova:returned",
+          "count": 1,
+          "value": 4,
+          "tick": 2714
+        },
+        {
+          "id": "stygian:ronova:protection-ended",
+          "count": 1,
+          "value": 0,
+          "tick": 2727
+        },
+        {
+          "id": "stygian:ronova:RN10:start",
+          "count": 1,
+          "value": 7,
+          "tick": 2884
+        },
+        {
+          "id": "stygian:ronova:RN10:lock",
+          "count": 1,
+          "value": 398.0,
+          "tick": 2902
+        },
+        {
+          "id": "stygian:ronova:RN10:launch",
+          "count": 2,
+          "value": 1,
+          "tick": 2938
+        },
+        {
+          "id": "stygian:ronova:RN10:window",
+          "count": 2,
+          "value": 1,
+          "tick": 2938
+        },
+        {
+          "id": "stygian:ronova:RN07:start",
+          "count": 1,
+          "value": 8,
+          "tick": 3266
+        },
+        {
+          "id": "stygian:ronova:RN07:lock",
+          "count": 1,
+          "value": 545.0,
+          "tick": 3290
+        },
+        {
+          "id": "stygian:ronova:RN07:window",
+          "count": 1,
+          "value": 1,
+          "tick": 3338
+        },
+        {
+          "id": "stygian:ronova:RN11:start",
+          "count": 1,
+          "value": 9,
+          "tick": 3610
+        },
+        {
+          "id": "stygian:ronova:RN11:lock",
+          "count": 1,
+          "value": 545.0,
+          "tick": 3634
+        },
+        {
+          "id": "stygian:ronova:RN11:window",
+          "count": 3,
+          "value": 1,
+          "tick": 3682
+        },
+        {
+          "id": "stygian:ronova:RN12:start",
+          "count": 1,
+          "value": 10,
+          "tick": 3834
+        },
+        {
+          "id": "stygian:ronova:RN12:lock",
+          "count": 1,
+          "value": 545.0,
+          "tick": 3864
+        },
+        {
+          "id": "stygian:ronova:RN12:window",
+          "count": 1,
+          "value": 1,
+          "tick": 4524
+        },
+        {
+          "id": "stygian:ronova:RN09:pose",
+          "count": 2,
+          "value": 0,
+          "tick": 4554
+        },
+        {
+          "id": "stygian:ronova:RN08:start",
+          "count": 1,
+          "value": 11,
+          "tick": 4828
+        },
+        {
+          "id": "stygian:ronova:RN08:lock",
+          "count": 2,
+          "value": 566.0,
+          "tick": 4888
+        },
+        {
+          "id": "stygian:ronova:RN08:launch",
+          "count": 1,
+          "value": 1,
+          "tick": 4948
+        },
+        {
+          "id": "stygian:ronova:RN08:window",
+          "count": 2,
+          "value": 1,
+          "tick": 4948
+        },
+        {
+          "id": "stygian:ronova:RN08:shadows",
+          "count": 1,
+          "value": 36,
+          "tick": 5068
+        }
+      ],
+      "moves": [
+        {
+          "id": "RN01",
+          "tick": 92
+        },
+        {
+          "id": "RN02",
+          "tick": 328
+        },
+        {
+          "id": "RN03",
+          "tick": 588
+        },
+        {
+          "id": "RN04",
+          "tick": 1384
+        },
+        {
+          "id": "RN05",
+          "tick": 1608
+        },
+        {
+          "id": "RN06",
+          "tick": 1886
+        },
+        {
+          "id": "RN10",
+          "tick": 2884
+        },
+        {
+          "id": "RN07",
+          "tick": 3266
+        },
+        {
+          "id": "RN11",
+          "tick": 3610
+        },
+        {
+          "id": "RN12",
+          "tick": 3834
+        },
+        {
+          "id": "RN08",
+          "tick": 4828
+        }
+      ],
+      "hits": 5,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        },
+        {
+          "id": 2,
+          "tick": 1316
+        },
+        {
+          "id": 3,
+          "tick": 3198
+        },
+        {
+          "id": 4,
+          "tick": 4760
+        }
+      ],
+      "partyHp": [
+        112350,
+        0
+      ],
+      "hpRemaining": 0,
+      "damage": 12300,
+      "maxHp": 12300,
+      "node": "sne-stygian-last-gate",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 130289518,
+        "set": "黄金の劇団",
+        "mora": 148300,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "wanderer",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 31.916666666666064,
+      "ticks": 1915,
+      "events": [
+        {
+          "id": "stygian:wanderer:WD01:start",
+          "count": 1,
+          "value": 1,
+          "tick": 84
+        },
+        {
+          "id": "stygian:wanderer:WD01:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 106
+        },
+        {
+          "id": "stygian:wanderer:WD01:contact",
+          "count": 4,
+          "value": 19,
+          "tick": 136
+        },
+        {
+          "id": "stygian:wanderer:WD01:window",
+          "count": 3,
+          "value": 1,
+          "tick": 136
+        },
+        {
+          "id": "stygian:wanderer:WD02:start",
+          "count": 1,
+          "value": 2,
+          "tick": 323
+        },
+        {
+          "id": "stygian:wanderer:WD02:lock",
+          "count": 1,
+          "value": 438.5,
+          "tick": 353
+        },
+        {
+          "id": "stygian:wanderer:WD02:window",
+          "count": 1,
+          "value": 1,
+          "tick": 406
+        },
+        {
+          "id": "stygian:wanderer:phase",
+          "count": 2,
+          "value": 2,
+          "tick": 598
+        },
+        {
+          "id": "stygian:wanderer:WD03:start",
+          "count": 1,
+          "value": 3,
+          "tick": 666
+        },
+        {
+          "id": "stygian:wanderer:WD03:lock",
+          "count": 1,
+          "value": 1,
+          "tick": 702
+        },
+        {
+          "id": "stygian:wanderer:WD03:contact",
+          "count": 2,
+          "value": 31,
+          "tick": 1095
+        },
+        {
+          "id": "stygian:wanderer:WD03:window",
+          "count": 1,
+          "value": 1,
+          "tick": 1095
+        },
+        {
+          "id": "stygian:wanderer:WD06:start",
+          "count": 1,
+          "value": 4,
+          "tick": 1296
+        },
+        {
+          "id": "stygian:wanderer:WD06:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 1336
+        },
+        {
+          "id": "stygian:wanderer:WD06:contact",
+          "count": 3,
+          "value": 50,
+          "tick": 1370
+        },
+        {
+          "id": "stygian:wanderer:WD06:window",
+          "count": 2,
+          "value": 1,
+          "tick": 1370
+        },
+        {
+          "id": "stygian:wanderer:WD06:gate",
+          "count": 1,
+          "value": 480,
+          "tick": 1734
+        }
+      ],
+      "moves": [
+        {
+          "id": "WD01",
+          "tick": 84
+        },
+        {
+          "id": "WD02",
+          "tick": 323
+        },
+        {
+          "id": "WD03",
+          "tick": 666
+        },
+        {
+          "id": "WD06",
+          "tick": 1296
+        }
+      ],
+      "hits": 4,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        },
+        {
+          "id": 2,
+          "tick": 598
+        },
+        {
+          "id": 3,
+          "tick": 1228
+        }
+      ],
+      "partyHp": [
+        112283,
+        118820
+      ],
+      "hpRemaining": 0,
+      "damage": 4850,
+      "maxHp": 4850,
+      "node": "sumeru-stygian-windcourt",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 24723908,
+        "set": "黄金の劇団",
+        "mora": 39200,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "farka",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "elapsed": 31.799999999999443,
+      "ticks": 1908,
+      "events": [
+        {
+          "id": "stygian:farka:FK01",
+          "count": 1,
+          "value": 1,
+          "tick": 92
+        },
+        {
+          "id": "stygian:farka:FK01:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 116
+        },
+        {
+          "id": "stygian:farka:FK01:contact",
+          "count": 5,
+          "value": 15,
+          "tick": 140
+        },
+        {
+          "id": "stygian:farka:FK01:window",
+          "count": 5,
+          "value": 1,
+          "tick": 140
+        },
+        {
+          "id": "stygian:farka:FK02",
+          "count": 1,
+          "value": 2,
+          "tick": 316
+        },
+        {
+          "id": "stygian:farka:FK02:lock",
+          "count": 1,
+          "value": 551.0,
+          "tick": 340
+        },
+        {
+          "id": "stygian:farka:FK02:contact",
+          "count": 1,
+          "value": 25,
+          "tick": 406
+        },
+        {
+          "id": "stygian:farka:FK02:window",
+          "count": 1,
+          "value": 1,
+          "tick": 406
+        },
+        {
+          "id": "stygian:farka:FK02:infuse",
+          "count": 1,
+          "value": 0,
+          "tick": 424
+        },
+        {
+          "id": "stygian:farka:FK06",
+          "count": 1,
+          "value": 3,
+          "tick": 522
+        },
+        {
+          "id": "stygian:farka:phase",
+          "count": 2,
+          "value": 2,
+          "tick": 595
+        },
+        {
+          "id": "stygian:farka:FK03",
+          "count": 1,
+          "value": 4,
+          "tick": 705
+        },
+        {
+          "id": "stygian:farka:FK03:lock",
+          "count": 2,
+          "value": 551.0,
+          "tick": 735
+        },
+        {
+          "id": "stygian:farka:FK03:contact",
+          "count": 2,
+          "value": 34,
+          "tick": 807
+        },
+        {
+          "id": "stygian:farka:FK03:window",
+          "count": 2,
+          "value": 1,
+          "tick": 807
+        },
+        {
+          "id": "stygian:farka:FK04",
+          "count": 1,
+          "value": 5,
+          "tick": 929
+        },
+        {
+          "id": "stygian:farka:FK04:lock",
+          "count": 1,
+          "value": -1,
+          "tick": 947
+        },
+        {
+          "id": "stygian:farka:FK04:window",
+          "count": 2,
+          "value": 1,
+          "tick": 983
+        },
+        {
+          "id": "stygian:farka:FK05",
+          "count": 1,
+          "value": 6,
+          "tick": 1196
+        },
+        {
+          "id": "stygian:farka:FK05:lock",
+          "count": 2,
+          "value": 533.4,
+          "tick": 1238
+        },
+        {
+          "id": "stygian:farka:FK05:contact",
+          "count": 2,
+          "value": 37,
+          "tick": 1301
+        },
+        {
+          "id": "stygian:farka:FK05:window",
+          "count": 4,
+          "value": 1,
+          "tick": 1301
+        },
+        {
+          "id": "stygian:farka:FK07:B",
+          "count": 1,
+          "value": 7,
+          "tick": 1516
+        },
+        {
+          "id": "stygian:farka:FK05:child",
+          "count": 1,
+          "value": 204,
+          "tick": 1720
+        }
+      ],
+      "moves": [
+        {
+          "id": "FK01",
+          "tick": 92
+        },
+        {
+          "id": "FK02",
+          "tick": 316
+        },
+        {
+          "id": "FK06",
+          "tick": 522
+        },
+        {
+          "id": "FK03",
+          "tick": 705
+        },
+        {
+          "id": "FK04",
+          "tick": 929
+        },
+        {
+          "id": "FK05",
+          "tick": 1196
+        },
+        {
+          "id": "FK07",
+          "tick": 1516
+        }
+      ],
+      "hits": 4,
+      "phases": [
+        {
+          "id": 1,
+          "tick": 0
+        },
+        {
+          "id": 2,
+          "tick": 595
+        },
+        {
+          "id": 3,
+          "tick": 1086
+        }
+      ],
+      "partyHp": [
+        112259,
+        118920
+      ],
+      "hpRemaining": 0,
+      "damage": 5520,
+      "maxHp": 5520,
+      "node": "mond-stygian-dual-court",
+      "status": "clear",
+      "award": {
+        "rank": 5,
+        "first": true,
+        "xp": 18258666,
+        "set": "黄金の劇団",
+        "mora": 51300,
+        "bag": true
+      }
+    }
+  ]
+}

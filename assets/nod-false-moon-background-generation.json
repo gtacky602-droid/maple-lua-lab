@@ -11,6 +11,7 @@
     },
     {
       "node": "nod-false-moon-rift",
+      "sharedNodes": ["sne-stygian-last-gate", "nod-stygian-hunt"],
       "key": "falseMoonRift",
       "note": "偽月の異界",
       "source": "false-moon-rift-background-v1.png",

@@ -1,0 +1,499 @@
+{
+  "differentPixels": 0,
+  "loading": {
+    "reusedGalleryFiles": 7,
+    "firstVisitFiles": [
+      "farka-sword-sprites-v1.json",
+      "farka-body-left-sprites-v1.json"
+    ],
+    "repeatRequests": 0
+  },
+  "verified": {
+    "liyue-stygian-deck": {
+      "name": "北斗・反撃読み合い",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 30,
+          "hp": 690
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 58,
+          "hp": 1250
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 103,
+          "hp": 1830
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 165,
+          "hp": 2860
+        }
+      ],
+      "parts": [
+        "北斗"
+      ],
+      "source": "beidou-stygian-deck-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 2042,
+          "fidelity": {
+            "union": 5741,
+            "overlap": 5625,
+            "overlapPercent": 97.97944608953144,
+            "meanRgbError": 16.24
+          }
+        },
+        "h48c32": {
+          "rectangles": 1191,
+          "fidelity": {
+            "union": 5781,
+            "overlap": 5595,
+            "overlapPercent": 96.78256357031655,
+            "meanRgbError": 20.405421507298183
+          }
+        },
+        "h32c16": {
+          "rectangles": 509,
+          "fidelity": {
+            "union": 5801,
+            "overlap": 5526,
+            "overlapPercent": 95.25943802792622,
+            "meanRgbError": 27.890155627940644
+          }
+        }
+      },
+      "exports": {
+        "4096": 16590,
+        "4608": 19928,
+        "5120": 23099,
+        "5632": 26259,
+        "6144": 28253
+      }
+    },
+    "sne-stygian-frost-court": {
+      "name": "隊長・凍天の演武",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 144,
+          "hp": 2430
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 159,
+          "hp": 3250
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 176,
+          "hp": 4150
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 195,
+          "hp": 5400
+        }
+      ],
+      "parts": [
+        "隊長"
+      ],
+      "source": "capitano-court-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 6166,
+          "fidelity": {
+            "union": 10295,
+            "overlap": 10243,
+            "overlapPercent": 99.49490043710539,
+            "meanRgbError": 6.216831006541052
+          }
+        },
+        "h48c32": {
+          "rectangles": 3864,
+          "fidelity": {
+            "union": 10378,
+            "overlap": 10219,
+            "overlapPercent": 98.46791289265755,
+            "meanRgbError": 13.392602015852823
+          }
+        },
+        "h32c16": {
+          "rectangles": 1731,
+          "fidelity": {
+            "union": 10431,
+            "overlap": 10136,
+            "overlapPercent": 97.1718914773272,
+            "meanRgbError": 19.37641410155222
+          }
+        }
+      },
+      "exports": {
+        "4096": 17305,
+        "4608": 20643,
+        "5120": 23878,
+        "5632": 27082,
+        "6144": 29186
+      }
+    },
+    "natlan-solar-court": {
+      "name": "シュバランケ・烈日の手合わせ",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 112,
+          "hp": 1780
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 138,
+          "hp": 2510
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 163,
+          "hp": 3410
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 188,
+          "hp": 4480
+        }
+      ],
+      "parts": [
+        "シュバランケ"
+      ],
+      "source": "xbalanque-court-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 1748,
+          "fidelity": {
+            "union": 2911,
+            "overlap": 2875,
+            "overlapPercent": 98.76331157677774,
+            "meanRgbError": 16.109565217391303
+          }
+        },
+        "h48c32": {
+          "rectangles": 1074,
+          "fidelity": {
+            "union": 2943,
+            "overlap": 2852,
+            "overlapPercent": 96.90791709140333,
+            "meanRgbError": 24.914679756895747
+          }
+        },
+        "h32c16": {
+          "rectangles": 485,
+          "fidelity": {
+            "union": 2947,
+            "overlap": 2833,
+            "overlapPercent": 96.13165931455718,
+            "meanRgbError": 32.98293916931404
+          }
+        }
+      },
+      "exports": {
+        "4096": 15992,
+        "4608": 19262,
+        "5120": 22413,
+        "5632": 25555,
+        "6144": 27373
+      }
+    },
+    "nod-stygian-hunt": {
+      "name": "レリル・霧と月の狩場",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 124,
+          "hp": 2180
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 150,
+          "hp": 3050
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 175,
+          "hp": 4240
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 193,
+          "hp": 5500
+        }
+      ],
+      "parts": [
+        "レリル"
+      ],
+      "source": "false-moon-rift-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 4804,
+          "fidelity": {
+            "union": 8014,
+            "overlap": 7949,
+            "overlapPercent": 99.18891939106564,
+            "meanRgbError": 5.5308424539774395
+          }
+        },
+        "h48c32": {
+          "rectangles": 2970,
+          "fidelity": {
+            "union": 8078,
+            "overlap": 7929,
+            "overlapPercent": 98.15548403070066,
+            "meanRgbError": 12.32551393618363
+          }
+        },
+        "h32c16": {
+          "rectangles": 1248,
+          "fidelity": {
+            "union": 8117,
+            "overlap": 7863,
+            "overlapPercent": 96.87076506098312,
+            "meanRgbError": 18.144601297214802
+          }
+        }
+      },
+      "exports": {
+        "4096": 12294,
+        "4608": 15264,
+        "5120": 18069,
+        "5632": 20811,
+        "6144": 21607
+      }
+    },
+    "sne-stygian-last-gate": {
+      "name": "死の執政・ロノヴァ",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 164,
+          "hp": 5460
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 179,
+          "hp": 7340
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 192,
+          "hp": 9610
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 200,
+          "hp": 12300
+        }
+      ],
+      "parts": [
+        "ロノヴァの翼",
+        "ロノヴァ"
+      ],
+      "source": "false-moon-rift-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 8922,
+          "fidelity": {
+            "union": 14737,
+            "overlap": 14439,
+            "overlapPercent": 97.97787880844133,
+            "meanRgbError": 10.26576171018307
+          }
+        },
+        "h48c32": {
+          "rectangles": 5687,
+          "fidelity": {
+            "union": 14745,
+            "overlap": 14370,
+            "overlapPercent": 97.45676500508647,
+            "meanRgbError": 12.133890048712596
+          }
+        },
+        "h32c16": {
+          "rectangles": 2455,
+          "fidelity": {
+            "union": 14922,
+            "overlap": 14270,
+            "overlapPercent": 95.63061251842916,
+            "meanRgbError": 17.57640738145293
+          }
+        }
+      },
+      "exports": {
+        "4096": 12294,
+        "4608": 15264,
+        "5120": 18069,
+        "5632": 20811,
+        "6144": 21607
+      }
+    },
+    "sumeru-stygian-windcourt": {
+      "name": "放浪者・空中決闘",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 66,
+          "hp": 1550
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 92,
+          "hp": 2340
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 121,
+          "hp": 3380
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 157,
+          "hp": 4850
+        }
+      ],
+      "parts": [
+        "放浪者"
+      ],
+      "source": "wanderer-windcourt-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 1992,
+          "fidelity": {
+            "union": 4692,
+            "overlap": 4508,
+            "overlapPercent": 96.07843137254902,
+            "meanRgbError": 32.85189293108548
+          }
+        },
+        "h48c32": {
+          "rectangles": 1175,
+          "fidelity": {
+            "union": 4737,
+            "overlap": 4492,
+            "overlapPercent": 94.82795017943846,
+            "meanRgbError": 37.24384090234491
+          }
+        },
+        "h32c16": {
+          "rectangles": 560,
+          "fidelity": {
+            "union": 4801,
+            "overlap": 4447,
+            "overlapPercent": 92.62653613830452,
+            "meanRgbError": 48.504010194138374
+          }
+        }
+      },
+      "exports": {
+        "4096": 14931,
+        "4608": 18067,
+        "5120": 21090,
+        "5632": 24088,
+        "6144": 25776
+      }
+    },
+    "mond-stygian-dual-court": {
+      "name": "ファルカ・二刀の鍛錬",
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 12,
+          "hp": 670
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 42,
+          "hp": 1880
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 89,
+          "hp": 3460
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 152,
+          "hp": 5520
+        }
+      ],
+      "parts": [
+        "奥の剣",
+        "ファルカ",
+        "手前の剣"
+      ],
+      "source": "farka-dual-court-background-v1.png",
+      "profiles": {
+        "legacy": {
+          "rectangles": 5664,
+          "fidelity": {
+            "union": 9944,
+            "overlap": 9810,
+            "overlapPercent": 98.65245374094931,
+            "meanRgbError": 11.515970098538906
+          }
+        },
+        "h48c32": {
+          "rectangles": 3571,
+          "fidelity": {
+            "union": 10132,
+            "overlap": 9723,
+            "overlapPercent": 95.96328464271615,
+            "meanRgbError": 25.566937502142686
+          }
+        },
+        "h32c16": {
+          "rectangles": 1503,
+          "fidelity": {
+            "union": 10283,
+            "overlap": 9732,
+            "overlapPercent": 94.6416415442964,
+            "meanRgbError": 35.78041512535964
+          }
+        }
+      },
+      "exports": {
+        "4096": 15885,
+        "4608": 19141,
+        "5120": 22262,
+        "5632": 25386,
+        "6144": 27188
+      }
+    }
+  }
+}

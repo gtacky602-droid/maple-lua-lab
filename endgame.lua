@@ -382,6 +382,10 @@ return function(C,abyss,weekly,matches,controllers)
   s.endgame=data.endgame
   return s
  end
+ function C.observeStygianMatch(f,s,mode,profile)
+  local run=s.endgameRun
+  controllers[run.match].observe(f,s,run,matches[run.match],mode,profile)
+ end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile)
   f.endgame=s.endgame
@@ -410,7 +414,7 @@ return function(C,abyss,weekly,matches,controllers)
     local elapsed=run.shared and run.shared.elapsed or s.t-run.start
     v.remaining=run.rules.limit and math.max(0,run.rules.limit-elapsed) or nil
     v.matchReward=run.reward
-    controllers[run.match].observe(f,s,run,spec,mode,profile)
+    C.observeStygianMatch(f,s,mode,profile)
     if run.shared and not run.launched and run.status=='fighting' then
      v.gathering=math.max(0,math.ceil(run.gatherUntil-s.coop.time))
     end

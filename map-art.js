@@ -6,7 +6,7 @@ import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
-import {loadImageSet} from './sprite-images.js';
+import {loadImageSet,drawCombatRect,omitCombatDraw,combatOpacity} from './sprite-images.js';
 import {spriteBounds,paintSprite} from './sprite-layers.js';
 import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryDefinitions,sceneryStatus,loadScenery} from './scenery.js';
@@ -41,7 +41,41 @@ function paintMechanismMark(ctx,mark,x,y,flip){
   ctx.fillStyle=mark.color;ctx.fillText(mark.text,px,py);ctx.restore();
  }
 }
+// Socket art rotates around the grip; keep the Lua run coordinates before rotating each rectangle.
+function socketBounds(art,bounds,flip){
+ const theta=art.rotation??0,cos=Math.cos(theta),sin=Math.sin(theta);
+ const centerX=(bounds.x+bounds.width/2)*(flip?-1:1),centerY=(.5-art.anchorY)*bounds.height;
+ const width=Math.abs(cos)*bounds.width+Math.abs(sin)*bounds.height;
+ const height=Math.abs(sin)*bounds.width+Math.abs(cos)*bounds.height;
+ return {x:cos*centerX-sin*centerY-width/2,y:sin*centerX+cos*centerY-height/2,width,height};
+}
+function paintSocketLayer(ctx,art,bounds,profile,x,y,flip,cost){
+ const {width:w,height:h}=bounds,top=-h*art.anchorY,theta=art.rotation??0;
+ const box=socketBounds(art,bounds,flip);
+ const visible=x+box.x<ctx.canvas.width+1 && x+box.x+box.width>-1 &&
+  y+box.y<ctx.canvas.height+1 && y+box.y+box.height>-1;
+ if(profile)cost.total+=art.profiles[profile].runs.length;
+ if(!visible)return;
+ if(!profile){
+  ctx.save();ctx.translate(x,y);ctx.rotate(theta);if(flip)ctx.scale(-1,1);
+  ctx.drawImage(art.image,...art.box,bounds.x,top,w,h);ctx.restore();
+  return;
+ }
+ const grid=art.profiles[profile],cos=Math.cos(theta),sin=Math.sin(theta);
+ const sx=w/grid.width,sy=h/grid.height;
+ for(const [col,row,rw,rh,color] of grid.runs){
+  let left=bounds.x+col*sx;
+  if(flip)left=-left-rw*sx;
+  const ry=top+row*sy;
+  drawCombatRect(ctx,{x:x+cos*left-sin*ry,y:y+sin*left+cos*ry,w:rw*sx+.05,h:rh*sy+.05,color,rotation:theta});
+ }
+ cost.visible+=grid.runs.length;cost.standard+=art.profiles.legacy.runs.length;
+}
 function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
+ if(art.anchorY!=null){
+  paintSocketLayer(ctx,art,bounds,profile,x,y,flip,cost);
+  return;
+ }
  const left=x+(flip?-bounds.x-bounds.width:bounds.x),top=y+bounds.y;
  // paintSprite slightly overlaps adjacent rectangle edges. Keep boundary layers until fully clear.
  const visible=left<ctx.canvas.width+1&&left+bounds.width>-1&&top<ctx.canvas.height+1&&top+bounds.height>-1;
@@ -114,12 +148,16 @@ try{
    const option=document.createElement('option');option.value=id;option.textContent=name;$('species').append(option);
   }
  }
+ const galleryFiles=new Map();
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
   const loaded=await Promise.all(gallery.items.map(async item=>{
    const [data,left,rear]=await Promise.all([
     json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile),item.rear&&json('assets/'+item.rear.file)
    ]);
+   galleryFiles.set(item.file,data);
+   if(left)galleryFiles.set(item.leftFile,left);
+   if(rear)galleryFiles.set(item.rear.file,rear);
    const size={h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
    return {item,art:{...data,...size,left:left&&{...left,...size}}};
   }));
@@ -139,8 +177,9 @@ try{
   assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
   $('species').append(new Option(shadow.name,shadow.species));
  }
- const [mechanismScenes,legendScenes,fieldScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json')]);
- const openings={...legendScenes,...fieldScenes};
+ const [mechanismScenes,legendScenes,fieldScenes,stygianScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json')]);
+ const trialScenes={...fieldScenes,...stygianScenes};
+ const openings={...legendScenes,...trialScenes};
  const questNotes=new Map();
  for(const boss of fieldData.fieldBosses){
   const window=boss.storyWindow,scene=fieldScenes[boss.node];
@@ -170,10 +209,11 @@ try{
  }
  // Poses unique to a field encounter are fetched only when someone places or views them.
  const fieldPoseLoads=new Map();
- for(const scene of Object.values(fieldScenes)){
+ for(const scene of Object.values(trialScenes)){
   for(const part of scene.parts){
    if(!part.file || assets[part.species])continue;
-   assets[part.species]={poseFile:part.file,box:part.box,h:part.h,hover:part.hover,displayName:part.name};
+   const cached=galleryFiles.get(part.file);
+   assets[part.species]={...(cached??{poseFile:part.file}),box:part.box,h:part.h,hover:part.hover,displayName:part.name};
    $('species').append(new Option(part.name,part.species));
   }
  }
@@ -220,7 +260,7 @@ try{
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}
  $('node').value=openingNode.id;
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
- const nodePicker=setupMapNodePicker({graph,liveView,fieldBosses:fieldData.fieldBosses,weeklyBosses:weeklyData.weeklyBosses,select:$('node'),getDraft:()=>drafts,onChoose:select});
+ const nodePicker=setupMapNodePicker({graph,liveView,fieldBosses:fieldData.fieldBosses,weeklyBosses:weeklyData.weeklyBosses,stygianBosses:Object.entries(stygianScenes).map(([node,s])=>({node,name:s.name})),select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
  function sceneFrame(n,camera){
   return {camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
@@ -230,7 +270,7 @@ try{
   const original=assets[e.species],art=e.flip&&original.left?original.left:original;
   const boss=arenaPreviews.get(node().id);
   const part=openings[node().id]?.parts.find(p=>p.id===e.id && p.species===e.species);
-  if(part)return {...original,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,behind:part.behind,openingPose:true,mirrorSource:true,rear:null};
+  if(part)return {...original,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,weaponMarks:part.weaponMarks,behind:part.behind,rotation:part.rotation,anchorY:part.anchorY,openingPose:true,mirrorSource:true,rear:null};
   if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
    if(boss.controller==='branchLegend' && boss.openingPose){
     const h=boss.artScale?art.box[3]*boss.artScale:Math.round(boss.artHeight*(boss.poseHeights?.idle??1));
@@ -328,13 +368,15 @@ try{
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
-  $('fidelityControls').hidden=!(liveView && fieldScenes[n.id] && visibleItems.length && !matchedSprites);
+  $('fidelityControls').hidden=!(liveView && trialScenes[n.id] && visibleItems.length && !matchedSprites);
   $('measureSprite').onclick=()=>{
    const result=measureSpriteFidelity((ctx,quality)=>{
     const cost={total:0,visible:0,standard:0};
     for(const e of visibleItems){
      const art=placementArt(e);
-     paintPlacementLayer(ctx,art,spriteBounds(art,art.h),quality,e.x-camera,e.y-art.hover,e.flip,cost);
+     const x=e.x-camera,y=e.y-art.hover;
+     paintPlacementLayer(ctx,art,spriteBounds(art,art.h),quality,x,y,e.flip,cost);
+     if(art.weaponMarks)for(const mark of art.marks)paintMechanismMark(ctx,mark,x,y,e.flip);
     }
    },profile,960,540);
    fidelity.dataset.result=JSON.stringify(result);
@@ -344,6 +386,12 @@ try{
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
+   if(liveView && !subject.value){
+    for(const mark of stygianScenes[n.id]?.stageMarks??[]){
+     if(omitCombatDraw(mark))continue;
+     ctx.save();ctx.globalAlpha=combatOpacity(mark);paintMechanismMark(ctx,mark,-camera,0,false);ctx.restore();
+    }
+   }
    for(const e of visibleItems){
     const a=placementArt(e),flip=e.flip&&(a.mirrorSource||!assets[e.species].left),x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
@@ -381,7 +429,9 @@ try{
      const maxX=rear?Math.max(left+body.width,rear.x+rear.width):left+body.width;
      const top=Math.min(body.y,rear?.y??0);
      ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;
-     ctx.strokeRect(x+minX-3,y+top-3,maxX-minX+6,-top+6);
+     if(a.anchorY!=null){
+      const box=socketBounds(a,body,flip);ctx.strokeRect(x+box.x-3,y+box.y-3,box.width+6,box.height+6);
+     }else ctx.strokeRect(x+minX-3,y+top-3,maxX-minX+6,-top+6);
     }
     if(!liveView || !arenaPreviews.get(n.id)?.openingPose){
      ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
@@ -406,7 +456,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
+   const label=stygianScenes[n.id]?'幽境・4難度に共通する開始時の配置':fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -437,6 +487,15 @@ try{
   colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
+  const rules=$('stygianRules'),duel=stygianScenes[n.id];
+  rules.hidden=!(liveView && duel);
+  const table=rules.querySelector('tbody');table.replaceChildren();
+  if(liveView && duel){
+   for(const mode of duel.modes){
+    const row=table.insertRow();
+    for(const value of [mode.name,mode.level,mode.hp.toLocaleString('ja-JP')])row.insertCell().textContent=value;
+   }
+  }
   $('defenseCompareLink').hidden=n.id!=='apep-oasis-heart-arena';
   camera.max=Math.max(0,n.width-960);
   camera.value=0;
@@ -464,7 +523,8 @@ try{
  function focusSubject(){
   const e=liveItems.find(e=>e.id===subject.value);
   if(e){
-   const art=placementArt(e), bounds=spriteBounds(art,art.h);
+   const art=placementArt(e),body=spriteBounds(art,art.h);
+   const bounds=art.anchorY==null?body:socketBounds(art,body,e.flip);
    const centerX=e.x+bounds.x+bounds.width/2;
    $('camera').value=Math.round(centerX-480);
    $('detailX').value=Math.round(centerX-Number($('camera').value)-40);

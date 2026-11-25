@@ -1,6 +1,7 @@
 export function compareOpeningPixels(page,png,rect,node,camera=0){
  return page.evaluate(async({png,rect,node,camera})=>{
   const {scenery,loadScenery}=await import('./scenery.js');
+  const {drawCombatRect,omitCombatDraw,combatOpacity}=await import('./sprite-images.js');
   const frame={camera,platforms:node.platforms,campaign:{zone:'story:'+node.id},story:{active:true,node:node.id},storyGraph:{nodes:[node]},storyScenery:node.scenery};
   await loadScenery(frame);
   const render=async(id,draws)=>{
@@ -8,14 +9,16 @@ export function compareOpeningPixels(page,png,rect,node,camera=0){
    const ctx=canvas.getContext('2d');scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
    const cache=new Map();
    for(const d of draws){
-    if(d.kind==='rect'){ctx.fillStyle=d.color;ctx.fillRect(d.x,d.y,d.w,d.h)}
+    if(omitCombatDraw(d))continue;
+    ctx.globalAlpha=combatOpacity(d);
+    if(d.kind==='rect'){drawCombatRect(ctx,d)}
     else if(d.kind==='text'){
      ctx.font=`bold ${d.size}px 'Yu Gothic UI',sans-serif`;ctx.textAlign='center';ctx.lineWidth=3;
      ctx.strokeStyle='#2a484868';ctx.strokeText(d.text,d.x,d.y);ctx.fillStyle=d.color;ctx.fillText(d.text,d.x,d.y);
     }else{
      if(!cache.has(d.source)){const img=new Image();img.src='assets/'+d.source;await img.decode();cache.set(d.source,img)}
-     ctx.save();ctx.translate(d.x,d.y);if(d.flip)ctx.scale(-1,1);
-     ctx.drawImage(cache.get(d.source),...d.box,-d.w*(d.anchorX??.5),-d.h,d.w,d.h);ctx.restore();
+     ctx.save();ctx.translate(d.x,d.y);if(d.rotation)ctx.rotate(d.rotation);if(d.flip)ctx.scale(-1,1);
+     ctx.drawImage(cache.get(d.source),...d.box,-d.w*(d.anchorX??.5),-d.h*(d.anchorY??1),d.w,d.h);ctx.restore();
     }
    }
    const expected=ctx.getImageData(0,0,960,540).data;

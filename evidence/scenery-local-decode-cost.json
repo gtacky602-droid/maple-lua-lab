@@ -49,7 +49,8 @@
     "field-arenas-lake-legends-native-backgrounds.lua": "d55e863406cc4ad35b8110d105e534b46e982a047971a2eb1a2462c6344f9f1b",
     "field-arenas-legend-formations-native-backgrounds.lua": "0bd30b33abdabb0619150d5c352ce808b0f9aad6ea1eee7c879989dd9e0aa1f6",
     "field-arenas-icewind-native-backgrounds.lua": "0cfac8097a604a700c1a138ed14529b4937b1a9214709c469f7400ee3664054d",
-    "field-arenas-shared-courts-native-backgrounds.lua": "171fc92600eec4b493dca1cc1235e9390b54e830aec14ac35af7ca98f6287646"
+    "field-arenas-shared-courts-native-backgrounds.lua": "171fc92600eec4b493dca1cc1235e9390b54e830aec14ac35af7ca98f6287646",
+    "stygian-arenas-native-backgrounds.lua": "37368f99cc5e06a779bd8f16b3da9b664700bd7b50a4175dd47f3651327df78b"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -10083,6 +10084,191 @@
         "minDecodeMs": 30.73,
         "maxDecodeMs": 111.54,
         "medianRetainedLuaKiB": 1196.1
+      }
+    },
+    "mond-stygian-dual-court": {
+      "4096": {
+        "fileBytes": 15885,
+        "medianDecodeMs": 17.42,
+        "minDecodeMs": 16.41,
+        "maxDecodeMs": 52.89,
+        "medianRetainedLuaKiB": 782.1
+      },
+      "4608": {
+        "fileBytes": 19141,
+        "medianDecodeMs": 20.41,
+        "minDecodeMs": 18.57,
+        "maxDecodeMs": 27.17,
+        "medianRetainedLuaKiB": 922.8
+      },
+      "5120": {
+        "fileBytes": 22262,
+        "medianDecodeMs": 25.51,
+        "minDecodeMs": 23.5,
+        "maxDecodeMs": 33.58,
+        "medianRetainedLuaKiB": 1002.0
+      },
+      "5632": {
+        "fileBytes": 25386,
+        "medianDecodeMs": 29.45,
+        "minDecodeMs": 23.59,
+        "maxDecodeMs": 141.49,
+        "medianRetainedLuaKiB": 1082.5
+      },
+      "6144": {
+        "fileBytes": 27188,
+        "medianDecodeMs": 27.91,
+        "minDecodeMs": 25.61,
+        "maxDecodeMs": 35.28,
+        "medianRetainedLuaKiB": 1161.9
+      }
+    },
+    "sumeru-stygian-windcourt": {
+      "4096": {
+        "fileBytes": 14931,
+        "medianDecodeMs": 17.19,
+        "minDecodeMs": 15.68,
+        "maxDecodeMs": 18.74,
+        "medianRetainedLuaKiB": 784.8
+      },
+      "4608": {
+        "fileBytes": 18067,
+        "medianDecodeMs": 20.5,
+        "minDecodeMs": 18.49,
+        "maxDecodeMs": 22.2,
+        "medianRetainedLuaKiB": 925.1
+      },
+      "5120": {
+        "fileBytes": 21090,
+        "medianDecodeMs": 24.42,
+        "minDecodeMs": 22.85,
+        "maxDecodeMs": 25.93,
+        "medianRetainedLuaKiB": 1004.6
+      },
+      "5632": {
+        "fileBytes": 24088,
+        "medianDecodeMs": 26.64,
+        "minDecodeMs": 22.31,
+        "maxDecodeMs": 29.68,
+        "medianRetainedLuaKiB": 1085.3
+      },
+      "6144": {
+        "fileBytes": 25776,
+        "medianDecodeMs": 28.51,
+        "minDecodeMs": 27.31,
+        "maxDecodeMs": 40.57,
+        "medianRetainedLuaKiB": 1166.2
+      }
+    },
+    "natlan-solar-court": {
+      "4096": {
+        "fileBytes": 15992,
+        "medianDecodeMs": 18.91,
+        "minDecodeMs": 16.09,
+        "maxDecodeMs": 24.1,
+        "medianRetainedLuaKiB": 780.1
+      },
+      "4608": {
+        "fileBytes": 19262,
+        "medianDecodeMs": 21.73,
+        "minDecodeMs": 18.33,
+        "maxDecodeMs": 25.86,
+        "medianRetainedLuaKiB": 919.5
+      },
+      "5120": {
+        "fileBytes": 22413,
+        "medianDecodeMs": 24.26,
+        "minDecodeMs": 21.77,
+        "maxDecodeMs": 28.4,
+        "medianRetainedLuaKiB": 999.9
+      },
+      "5632": {
+        "fileBytes": 25555,
+        "medianDecodeMs": 27.72,
+        "minDecodeMs": 24.05,
+        "maxDecodeMs": 44.21,
+        "medianRetainedLuaKiB": 1080.3
+      },
+      "6144": {
+        "fileBytes": 27373,
+        "medianDecodeMs": 31.45,
+        "minDecodeMs": 27.26,
+        "maxDecodeMs": 60.43,
+        "medianRetainedLuaKiB": 1164.0
+      }
+    },
+    "sne-stygian-frost-court": {
+      "4096": {
+        "fileBytes": 17305,
+        "medianDecodeMs": 19.79,
+        "minDecodeMs": 16.1,
+        "maxDecodeMs": 70.08,
+        "medianRetainedLuaKiB": 787.3
+      },
+      "4608": {
+        "fileBytes": 20643,
+        "medianDecodeMs": 24.7,
+        "minDecodeMs": 19.76,
+        "maxDecodeMs": 35.06,
+        "medianRetainedLuaKiB": 927.4
+      },
+      "5120": {
+        "fileBytes": 23878,
+        "medianDecodeMs": 25.31,
+        "minDecodeMs": 21.39,
+        "maxDecodeMs": 58.03,
+        "medianRetainedLuaKiB": 1008.6
+      },
+      "5632": {
+        "fileBytes": 27082,
+        "medianDecodeMs": 29.03,
+        "minDecodeMs": 22.55,
+        "maxDecodeMs": 83.69,
+        "medianRetainedLuaKiB": 1089.8
+      },
+      "6144": {
+        "fileBytes": 29186,
+        "medianDecodeMs": 30.71,
+        "minDecodeMs": 24.02,
+        "maxDecodeMs": 31.78,
+        "medianRetainedLuaKiB": 1171.6
+      }
+    },
+    "liyue-stygian-deck": {
+      "4096": {
+        "fileBytes": 16590,
+        "medianDecodeMs": 18.43,
+        "minDecodeMs": 15.85,
+        "maxDecodeMs": 19.33,
+        "medianRetainedLuaKiB": 789.5
+      },
+      "4608": {
+        "fileBytes": 19928,
+        "medianDecodeMs": 20.7,
+        "minDecodeMs": 20.08,
+        "maxDecodeMs": 21.91,
+        "medianRetainedLuaKiB": 931.0
+      },
+      "5120": {
+        "fileBytes": 23099,
+        "medianDecodeMs": 24.64,
+        "minDecodeMs": 20.13,
+        "maxDecodeMs": 31.77,
+        "medianRetainedLuaKiB": 1013.0
+      },
+      "5632": {
+        "fileBytes": 26259,
+        "medianDecodeMs": 24.97,
+        "minDecodeMs": 22.6,
+        "maxDecodeMs": 33.41,
+        "medianRetainedLuaKiB": 1094.0
+      },
+      "6144": {
+        "fileBytes": 28253,
+        "medianDecodeMs": 29.13,
+        "minDecodeMs": 26.07,
+        "maxDecodeMs": 33.52,
+        "medianRetainedLuaKiB": 1175.3
       }
     }
   }
