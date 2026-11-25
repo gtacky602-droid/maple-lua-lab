@@ -293,12 +293,13 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
  const label=document.createElement('label');label.textContent='表示する依頼 ';const select=document.createElement('select');select.id='questFilter';
  for(const [value,text] of Object.entries({relevant:'現在地の依頼＋受注済み',all:'すべて',...labels}))select.add(new Option(text,value));
  const regionNames={MON:'モンド',LIY:'璃月',INA:'稲妻',SUM:'スメール',FON:'フォンテーヌ',NAT:'ナタ',NOD:'ナド・クライ',SNE:'スネージナヤ'};
- const chapters=new Map(),branches=new Map();
+ const chapters=new Map(),branches=new Map(),growth=new Map();
  const hubRegions=new Map(graph.nodes.map(n=>[n.id,n.region]));
  for(const q of graph.quests){
   const chapter=q.designId?.match(/^Q-([A-Z]+)-[MS]\d{2}$/)?.[1];
   const branch=q.designId?.match(/^Q-(B\d{2})-\d{2}$/)?.[1];
   const done=story.quests[q.id]?.status==='complete';
+  if(/^Q-G\d{2}$/.test(q.designId||''))growth.set(q.id,{code:'all',done});
   if(regionNames[chapter])chapters.set(q.id,{code:chapter,name:regionNames[chapter],done});
   if(branch)branches.set(q.id,{code:branch,name:hubRegions.get(q.hub)||q.hub,done});
  }
@@ -323,12 +324,18 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
  }
  const chapterReports=addRegions(chapters,'chapter','地域章の本編・寄り道','全地域章');
  const branchReports=addRegions(branches,'branch','分岐地域の連続依頼','分岐地域');
+ const trained=[...growth.values()].filter(q=>q.done).length;
+ const lessons=document.createElement('optgroup');lessons.label='成長依頼';
+ lessons.append(new Option('全成長依頼　'+trained+' / '+growth.size+'件報告','growth:all'),
+  new Option('成長依頼の未報告（'+(growth.size-trained)+'件）','growth:pending'));
+ select.append(lessons);
  select.value=filter;select.onchange=()=>onFilter(select.value);label.append(select);section.append(label);
  const [kind,selection]=filter.split(':');
- const selected=kind==='chapter'?chapters:kind==='branch'?branches:null;
+ const selected=kind==='chapter'?chapters:kind==='branch'?branches:kind==='growth'?growth:null;
  if(selected){
   const progress=document.createElement('p');progress.id='chapterProgress';
-  progress.textContent=(kind==='chapter'?'地域章の報告　'+chapterReports:'分岐地域の報告　'+branchReports)+' / '+selected.size+'件';
+  const progressLabel={chapter:'地域章の報告　'+chapterReports,branch:'分岐地域の報告　'+branchReports,growth:'成長依頼の報告　'+trained};
+  progress.textContent=progressLabel[kind]+' / '+selected.size+'件';
   section.append(progress);
  }
  let shown=0;

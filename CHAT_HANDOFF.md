@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 成長依頼16件の報告
+
+隠し世界から帰還した時点の5件に11件を追加。装備の比較・強化・継承・刻印は町の見本と比較画面を使用。月と星の実戦課題、深境の入口3部屋、ファルカの隙への攻撃、アンドリアスへの攻撃を達成した。依頼手帳に成長依頼の全件と未報告フィルターを追加した。[Lv200の継続セーブ](evidence/growth-expedition-save.json) ／ [報告記録](evidence/growth-expedition-route.json)
+
 ## 9分岐と3つの隠し世界の遠征
 
 ドーンマンポートの続きから全9分岐の27件を報告。さらに金リンゴ群島、ヴェルーリヤ・ミラージュ、シムランカを入口の手掛かりから発見し、6件を報告してフォンテーヌに帰還した。8地域64件も保存済み。[継続セーブ](evidence/hidden-expedition-save.json) ／ [分岐の行程](evidence/branch-expedition-route.json) ／ [隠し世界の行程](evidence/hidden-expedition-route.json)

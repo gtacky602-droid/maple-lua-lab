@@ -3,6 +3,7 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_growth": {"reported":16,"newReports":11,"save":"evidence/growth-expedition-save.json"},
   "earned_expedition": {"regionalReports":64,"branchReports":27,"hiddenReports":6,"save":"evidence/hidden-expedition-save.json"},
   "regional_chapters_and_harbor": {
     "regions": 8,
