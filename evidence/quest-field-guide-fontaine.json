@@ -1,0 +1,58 @@
+[
+  {
+    "quest": "fontaine-moon-parcel",
+    "node": "fontaine-delivery-quay",
+    "count": 4,
+    "guide": {
+      "y": 480,
+      "x": 1178,
+      "action": "Gでベルを鳴らす",
+      "name": "メカの出発ベル"
+    }
+  },
+  {
+    "quest": "fontaine-moon-parcel",
+    "node": "fontaine-delivery-quay",
+    "count": 4,
+    "guide": {
+      "y": 480,
+      "x": 1178,
+      "action": "近づいて合流",
+      "name": "搬送メカ"
+    }
+  },
+  {
+    "quest": "fontaine-moon-parcel",
+    "node": "fontaine-delivery-quay",
+    "count": 4,
+    "guide": {
+      "y": 480,
+      "x": 1178,
+      "action": "Gでベルを鳴らす",
+      "name": "メカの出発ベル"
+    }
+  },
+  {
+    "quest": "fontaine-moon-parcel",
+    "node": "fontaine-delivery-quay",
+    "count": 5,
+    "guide": null
+  },
+  {
+    "quest": "fontaine-moon-parcel",
+    "node": "fontaine-old-scenery-door",
+    "count": 5,
+    "guide": {
+      "art": "sled-maintenance-cart",
+      "y": 480,
+      "x": 417,
+      "spawn": "fontaine-old-door-patrol-1"
+    }
+  },
+  {
+    "quest": "fontaine-moon-parcel",
+    "node": "fontaine-hub",
+    "count": 7,
+    "guide": null
+  }
+]

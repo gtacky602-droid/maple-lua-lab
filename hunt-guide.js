@@ -4,20 +4,21 @@ export function huntHint(target,actor){
  if(!target)return '';
  if(target.wait!=null)return `狩場の対象は再出現待ち（あと約${target.wait}秒）`;
  const name=target.name||names[target.art]||'狩場の敵';
- if(!actor)return `討伐対象　${name}`;
+ const label=target.action?`${name}　${target.action}`:`討伐対象　${name}`;
+ if(!actor)return label;
  const dx=target.x-actor.x,dy=target.y-actor.y;
  const side=Math.abs(dx)<58?'すぐ近く':dx>0?'右手':'左手';
  const height=Math.abs(dy)<45?'':dy<0?'・上段':'・下段';
- return `討伐対象　${name}（${side}${height}）`;
+ return `${label}（${side}${height}）`;
 }
 
 // Two small brackets at the live target's feet keep its face and attack pose visible.
 export function drawHuntMarker(ctx,frame,quest){
  const target=frame.storyHunts?.[quest];
- if(!target?.spawn || frame.worldMap)return 0;
+ if(!(target?.spawn||target?.action) || frame.worldMap)return 0;
  const x=Math.round(target.x-frame.camera),y=Math.round(target.y);
  if(x<-10||x>ctx.canvas.width+10||y<0||y>=ctx.canvas.height)return 0;
- ctx.save();ctx.fillStyle='#81ffe0';
+ ctx.save();ctx.fillStyle=target.action?'#ffe081':'#81ffe0';
  ctx.fillRect(x-11,y-3,2,5);ctx.fillRect(x-11,y+2,7,2);
  ctx.fillRect(x+9,y-3,2,5);ctx.fillRect(x+4,y+2,7,2);ctx.restore();
  return 4;

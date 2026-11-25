@@ -1,0 +1,76 @@
+[
+  {
+    "quest": "amber-join",
+    "node": "mond-road",
+    "count": 3,
+    "guide": {
+      "x": 335,
+      "action": "Gで回収",
+      "point": "basket",
+      "name": "食料籠",
+      "y": 480
+    }
+  },
+  {
+    "quest": "mond-old-trail",
+    "node": "mond-old-ground",
+    "count": 0,
+    "guide": {
+      "x": 660,
+      "action": "Gで調べる",
+      "point": "wheel-ruts",
+      "name": "車輪跡",
+      "y": 480
+    }
+  },
+  {
+    "quest": "mond-old-trail",
+    "node": "mond-hill",
+    "count": 1,
+    "guide": {
+      "x": 700,
+      "spawn": "mond-hill-1",
+      "art": "hilichurl",
+      "y": 480
+    }
+  },
+  {
+    "quest": "mond-rest-stop",
+    "node": "mond-roadside-rest",
+    "count": 0,
+    "guide": {
+      "x": 350,
+      "spawn": "mond-rest-slime",
+      "art": "hydro-slime",
+      "y": 480
+    }
+  },
+  {
+    "quest": "mond-rest-stop",
+    "node": "mond-roadside-rest",
+    "count": 1,
+    "guide": {
+      "x": 515,
+      "action": "Gで進める",
+      "name": "ベンチ用の板を拾う",
+      "y": 392
+    }
+  },
+  {
+    "quest": "mond-rest-stop",
+    "node": "mond-roadside-rest",
+    "count": 2,
+    "guide": {
+      "x": 750,
+      "action": "Gで進める",
+      "name": "落ち葉を掃除する",
+      "y": 480
+    }
+  },
+  {
+    "quest": "mond-rest-stop",
+    "node": "mond-town",
+    "count": 5,
+    "guide": null
+  }
+]

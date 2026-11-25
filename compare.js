@@ -3,6 +3,11 @@ const lifecycle=sessionLifecycle('maple-compare-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,omitCombatDraw} from './sprite-images.js';
 import {scenery} from './scenery.js';
 const $=id=>document.getElementById(id);
+const split=$('escortSplit');
+split.oninput=()=>{
+ document.querySelector('.escort-wipe').style.setProperty('--split',split.value+'%');
+ split.setAttribute('aria-valuetext',split.value+'パーセント');
+};
 const data=await(await fetch('assets/variants.json')).json(),variants=data.variants;
 const {bossImages,bossAtlas,atlas}=await loadSpriteImages($('state'));
 const names={png:'原画像 PNG',...Object.fromEntries(Object.entries(variants).map(([k,v])=>[k,v.label]))};

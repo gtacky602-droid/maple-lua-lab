@@ -8,6 +8,9 @@ from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
+from tools.quest_guide_test import GuideChecks
+
+guides = GuideChecks('fontaine')
 
 
 def read(path):
@@ -134,17 +137,36 @@ choose(1038, 1)
 assert quest.count == 3
 choose(1038, 2)
 assert quest.count == 4
+guides.expect(frame(),first,name='メカの出発ベル',xy=(1178,480))
+collect(1178)
+near(820)
+tick(90)
+assert frame().storyTheaterCart.phase=='waitingForPlayer'
+guides.expect(frame(),first,name='搬送メカ',xy=(state.theaterCart.x,480))
+assert frame().storyHunts[first].action=='近づいて合流'
+# A reload restarts this trip at its bell, with the completed clue comparison saved.
+cart_save = validate_save(native(core.checkpoint(state)))
+state = core.restore(lua.table_from(cart_save,recursive=True),12)
+trail.state = state
+quest = state.story.quests[first]
+assert state.story.node==hub and quest.count==4
+cross(counter,quay)
+guides.expect(frame(),first,name='メカの出発ベル',xy=(1178,480))
 collect(1178)
 for x in (1270, 1400, 1540, 1650):
     near(x)
     tick(100)
 assert quest.count == 5 and state.theaterShutter is None
+guides.expect(frame(),first,absent=True)
 cross(old_door)
+guides.expect(frame(),first,spawns=['fontaine-old-door-patrol-1','fontaine-old-door-patrol-2'])
 fight(quest, 6, (410, 480))
 cross(loft)
 collect(863, 391)
 cross(hub)
 report(first)
+guides.expect(frame(),first,absent=True)
+guides.save()
 
 second, wings, catwalk, workfloor, store, rehearsal = (
     'fontaine-understage-crew', 'fontaine-stage-wings', 'fontaine-lift-catwalk',

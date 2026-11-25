@@ -1,0 +1,58 @@
+[
+  {
+    "quest": "inazuma-torii-maze",
+    "node": "inazuma-torii-footprints",
+    "count": 0,
+    "guide": null
+  },
+  {
+    "quest": "inazuma-torii-maze",
+    "node": "inazuma-torii-thicket",
+    "count": 3,
+    "guide": {
+      "art": "hilichurl",
+      "x": 420,
+      "y": 480,
+      "spawn": "inazuma-thicket-1"
+    }
+  },
+  {
+    "quest": "inazuma-torii-maze",
+    "node": "inazuma-torii-thicket",
+    "count": 3,
+    "guide": {
+      "art": "pyro-slime",
+      "x": 776.713413533078,
+      "y": 480,
+      "spawn": "inazuma-thicket-2"
+    }
+  },
+  {
+    "quest": "inazuma-torii-maze",
+    "node": "inazuma-torii-thicket",
+    "count": 3,
+    "guide": {
+      "art": "hilichurl",
+      "x": 1146.8839995819453,
+      "y": 480,
+      "spawn": "inazuma-thicket-3"
+    }
+  },
+  {
+    "quest": "inazuma-torii-maze",
+    "node": "inazuma-torii-thicket",
+    "count": 4,
+    "guide": {
+      "name": "化け狸",
+      "x": 1280,
+      "y": 480,
+      "action": "Gで話す"
+    }
+  },
+  {
+    "quest": "inazuma-torii-maze",
+    "node": "inazuma-port",
+    "count": 5,
+    "guide": null
+  }
+]

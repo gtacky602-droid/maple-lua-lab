@@ -7,6 +7,9 @@ import sys
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
+from tools.quest_guide_test import GuideChecks
+
+guides = GuideChecks('liyue')
 
 
 def read(path):
@@ -108,12 +111,25 @@ act('world_map_close')
 
 delivery = 'liyue-market-delivery'
 q = accept(delivery)
+(work/'earned-delivery-start.json').write_text(json.dumps(validate_save(native(core.checkpoint(state)))),encoding='utf8')
 for item, x in [('pot', 245), ('vessel', 615)]:
     near(x)
+    guides.expect(frame(),delivery,point=item,xy=(x,480))
     act(f'story_deliver:{delivery}:{item}')
     assert q.delivery.delivered[item]
 trail.cross('liyue-loading-yard')
+guides.expect(frame(),delivery,spawns=['liyue-loading-yard-1'])
 fight(432, lambda: q.delivery.guardCleared)
+guides.expect(frame(),delivery,point='wheel',xy=(735,380))
+# Reopen the earned save between the defeat and the pickup.
+mid_delivery = validate_save(native(core.checkpoint(state)))
+(work/'earned-wheel-recovery.json').write_text(json.dumps(mid_delivery),encoding='utf8')
+state = core.restore(lua.table_from(mid_delivery,recursive=True),12)
+trail.state = state
+q = state.story.quests[delivery]
+assert q.delivery.guardCleared and not q.delivery.recovered
+trail.cross('liyue-loading-yard')
+guides.expect(frame(),delivery,point='wheel',xy=(735,380))
 near(735, 380)
 assert frame().storyNearbyParcel.name == '車輪の荷箱'
 act('story_collect')
@@ -130,8 +146,10 @@ assert frame().storyNearbyClue.id == 'cart-ruts'
 act('story_collect')
 trail.cross(post)
 near(385)
+guides.expect(frame(),caravan,point='caravan')
 assert frame().storyNearbyClue.id == 'caravan'
 act('story_collect')
+guides.expect(frame(),caravan,spawns=['liyue-quarry-post-1'])
 fight(870, lambda: q.count == 3)
 trail.cross(port)
 report(caravan)
@@ -144,13 +162,16 @@ jump(389, 1380)
 jump(305, 1420)
 trail.cross(storage)
 near(380)
+guides.expect(frame(),market,point='cart-latch')
 jump(397, 400)
 near(490, 397)
 jump(312, 520)
 near(658, 312)
 assert frame().storyNearbyClue.id == 'cart-latch'
 act('story_collect')
+guides.expect(frame(),market,absent=True)
 wait(lambda: q.count == 1)
+guides.expect(frame(),market,spawns=['liyue-quarry-storage-keeper'])
 near(1025)
 jump(411, 1025)
 near(1148, 411)
@@ -161,6 +182,7 @@ before = state.progression.questXp
 fight(1250, lambda: q.count == 2)
 assert state.progression.questXp - before == 73057
 near(1030)
+guides.expect(frame(),market,point='market-switch')
 assert frame().storyNearbyClue.id == 'market-switch'
 act('story_collect')
 wait(lambda: q.count == 3)
@@ -170,8 +192,10 @@ report(market)
 crew = 'beidou-join'
 q = accept(crew)
 trail.cross('liyue-crux-wharf')
+guides.expect(frame(),crew,spawns=['liyue-crux-pier'])
 near(315)
 defeat('liyue-crux-pier')
+guides.expect(frame(),crew,point='pier')
 act('story_collect')
 near(975, 382)
 defeat('liyue-crux-ledge')
@@ -181,6 +205,7 @@ wait(lambda: trail.actor.y == 480 and trail.actor.ground)
 near(690)
 defeat('liyue-crux-rocks')
 act('story_collect')
+guides.expect(frame(),crew,spawns=['liyue-crux-return'])
 fight(260, lambda: q.count == 4)
 trail.cross(port)
 report(crew)
@@ -190,25 +215,31 @@ book = 'liyue-book-rescue'
 q = accept(book)
 trail.cross(field)
 near(530)
+guides.expect(frame(),book,point='proof-sheet')
 assert frame().storyNearbyBook.id == 'proof-sheet'
 act('story_collect')
 near(820, 350)
+guides.expect(frame(),book,absent=True)
 assert frame().storyNearbyBook.id == 'forked-tree'
 act('story_collect')
 near(1120, 390)
 assert frame().storyNearbyBook.id == 'stone-arch'
 act('story_collect')
 trail.cross('liyue-book-camp')
+guides.expect(frame(),book,spawns=['liyue-book-scout-1','liyue-book-scout-2','liyue-book-scout-3'])
 fight(415, lambda: q.book.defeated['liyue-book-scout-1'])
 fight(1030, lambda: q.book.defeated['liyue-book-scout-3'])
 near(840, 392)
 defeat('liyue-book-scout-2')
 near(1250)
+guides.expect(frame(),book,point='print-crate')
 assert frame().storyNearbyBook.id == 'print-crate'
 act('story_collect')
 trail.cross(field)
 trail.cross(port)
 report(book)
+guides.expect(frame(),book,absent=True)
+guides.save()
 
 shortcut = 'liyue-hauling-shortcut'
 q = accept(shortcut)

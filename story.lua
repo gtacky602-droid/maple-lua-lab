@@ -755,6 +755,73 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   C.grantExp(s,q.chapterClearXp,'quest')
   s.storyFirstClear={quest=q.id,xp=q.chapterClearXp,untilTime=s.t+7}
  end
+ -- Resolve only the next actionable object in the current room. Puzzle answers stay hidden.
+ local function fieldTask(s,q,state)
+  local node,count=s.story.node,state.count
+  if node~=q.target and node~=q.hub and not q.trail and not q.recovery and not q.book then return end
+  if not (q.delivery or q.rail or q.trail or q.book or q.rest or q.forest or q.cargo) then return end
+  local actor=s.actors[s.active]
+  local target,distance,wait
+  local function offer(x,y,id,name,action,enemy)
+   local d=(actor.x-x)^2+(actor.y-y)^2
+   if distance and distance<=d then return end
+   distance=d
+   target={x=x,y=y,point=id,name=name,action=action}
+   if enemy then target.spawn=enemy.spawnId;target.art=enemy.art end
+  end
+  local function point(item,action)
+   if item then offer(item.x,item.y,item.id,item.name or item.label,action or 'Gで調べる') end
+  end
+  local function guard(id)
+   for _,e in ipairs(s.enemies) do
+    if e.spawnId==id then
+     if e.hp>0 then offer(e.x,e.y,nil,e.storyName,nil,e);return true end
+     if e.respawn and e.respawn<1e9 then wait=math.min(wait or e.respawn,e.respawn) end
+     break
+    end
+   end
+  end
+  if q.cargo and state.recovered then
+   local room=q.recovery and q.recovery.node or q.target
+   if room==node and (q.recovery or count==q.goal-1) then
+    for _,item in ipairs(q.cargo) do
+     if not state.recovered[item.id] and not (item.guard and guard(item.guard)) then point(item,'Gで回収') end
+    end
+   end
+  elseif q.delivery then
+   local spec,progress=q.delivery,state.delivery
+   if node==q.target and not progress.recovered then
+    if progress.guardCleared then point(spec.cache,'Gで回収') else guard(spec.cache.guard) end
+   elseif node==q.hub then
+    for _,parcel in ipairs(spec.packages) do
+     if delivery.carried(q,progress,parcel) then
+      offer(parcel.x,parcel.y,parcel.id,parcel.stall,'店先で荷札を選ぶ')
+     end
+    end
+   end
+  elseif q.trail then
+   if count==0 then
+    for _,clue in ipairs(q.trail.clues) do if clue.node==node then point(clue) end end
+   elseif node==q.target then
+    if q.trail.meeting and count==1 then point(q.trail.meeting,'Gで話す') else guard(q.trail.guard) end
+   end
+  elseif q.book and count==0 and node==q.book.proof.node then point(q.book.proof)
+  elseif node==q.target then
+   if q.rail and not s.railTrip then
+    if count==1 then guard(q.rail.guard) else point(count==0 and q.rail.release or q.rail.dispatch,'Gで操作') end
+   elseif q.rest or q.book or q.forest then
+    local spec=q.rest or q.book or q.forest
+    local group=state.rest or state.book or state.forest
+    local battle=q.rest and count==0 or q.book and count==2 or q.forest and count==3
+    if battle then
+     for _,id in ipairs(spec.guards) do if not group.defeated[id] then guard(id) end end
+    elseif q.rest then point(({spec.planks,spec.leaves,spec.bench,spec.chair})[count],'Gで進める')
+    elseif q.book and count==3 then point(spec.cache,'Gで回収')
+    elseif q.forest and count==4 then offer(spec.guest.x,spec.guest.y,nil,'化け狸','Gで話す') end
+   end
+  end
+  return target or (wait and {wait=math.ceil(math.max(0,wait))})
+ end
  local function huntGuides(s,f)
   local actor=s.actors[s.active]
   for id,state in pairs(s.story.quests) do
@@ -766,7 +833,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local ordinary=(q.kind=='kill' and q.target==s.story.node) or
                    (q.sights and not state.sights and q.sights.legacyTarget==s.story.node)
     local guard=q.recovery and state.recovered and state.count==q.goal-1 and q.recovery.node==s.story.node and q.recovery.guard
-    if atStep or ordinary or guard then
+    local task=fieldTask(s,q,state)
+    if step and step.followCart and step.node==s.story.node then
+     task=theater.cartGuide(s,step)
+    end
+    if task then
+     f.storyHunts=f.storyHunts or {}
+     f.storyHunts[id]=task
+    elseif atStep or ordinary or guard then
      local nearest,distance,wait
      for _,e in ipairs(s.enemies) do
       if e.spawnId and not e.boss and not e.noRewards and

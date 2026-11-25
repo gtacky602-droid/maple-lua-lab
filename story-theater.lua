@@ -321,6 +321,12 @@ return function(C)
   if extra and show then drawRehearsed(s,f,draws,extra,elapsed,mode,profile) end
  end
 
+ local function movingCartPhase(s,cart)
+  if cart.delay>0 then return 'starting' end
+  if math.abs(s.actors[s.active].x-cart.x)>cart.spec.leash then return 'waitingForPlayer' end
+  return 'following'
+ end
+
  function theater.frame(s,f,draws,stage,mode,profile,canInspect)
   if not stage then return end
   local count=stageCount(s,stage.quest)
@@ -383,9 +389,7 @@ return function(C)
   local x=phase=='parked' and route.stop or route.start
   if cart then
    x=cart.x
-   if cart.delay>0 then phase='starting'
-   elseif math.abs(s.actors[s.active].x-x)>route.leash then phase='waitingForPlayer'
-   else phase='following' end
+   phase=movingCartPhase(s,cart)
   end
   f.storyTheaterCart={x=x,phase=phase}
   x=x-s.camera
@@ -394,6 +398,14 @@ return function(C)
   if phase=='starting' or phase=='waitingForPlayer' then
    label(draws,phase=='starting' and '出発のベル' or 'メカに近づく',x,route.y-route.height-12,'#ffdfa0')
   end
+ end
+
+ function theater.cartGuide(s,step)
+  local cart=s.theaterCart
+  if not cart then return {x=step.x,y=step.y,name=step.name,action='Gでベルを鳴らす'} end
+  local phase=movingCartPhase(s,cart)
+  local action=phase=='starting' and '出発を待つ' or phase=='waitingForPlayer' and '近づいて合流' or 'そばについて行く'
+  return {x=cart.x,y=cart.spec.y,name='搬送メカ',action=action}
  end
 
  return theater

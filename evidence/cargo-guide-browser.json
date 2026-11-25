@@ -1,0 +1,23 @@
+{
+  "quest": "liyue-market-delivery",
+  "mode": "h32c16",
+  "background": 4096,
+  "checks": [
+    {
+      "label": "討伐対象",
+      "color": "129,255,224,255",
+      "observed": "討伐対象　ヒルチャール（右手）"
+    },
+    {
+      "label": "車輪の荷箱",
+      "color": "255,224,129,255",
+      "observed": "車輪の荷箱　Gで回収（右手・上段）"
+    },
+    {
+      "label": "荷車の修理屋",
+      "color": "255,224,129,255",
+      "observed": "荷車の修理屋　店先で荷札を選ぶ（すぐ近く）"
+    }
+  ],
+  "errors": []
+}

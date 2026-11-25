@@ -5,5 +5,14 @@
 <div class="summary"><strong id="reduction">—</strong><span id="state">接続中</span><button id="export">比較データを保存</button></div>
 <p class="note">Lua時間は描画指示を作る処理、Canvas時間はブラウザが描く処理。各表示は直近60サンプルの中央値です。通信とJSON変換は含みません。左右2画面を描いているため、単独プレイのFPS測定ではありません。</p>
 <section class="inspect"><div class="title"><h2>顔・輪郭・装飾を拡大して確認</h2><label>素材 <select id="asset"><option value="1">旅人・待機</option><option value="2">旅人・旧走行ポーズ</option><option value="3">アンバー・待機</option><option value="4">アンバー・射撃</option><option value="5">水スライム</option><option value="6">水スライム・跳躍</option><option value="7">炎スライム</option><option value="8">足場</option></select></label><label>拡大 <select id="zoom"><option value="1">実表示サイズ</option><option value="3" selected>3倍</option></select></label></div><div class="portraits"><article><b>原画像 PNG</b><canvas id="original" width="440" height="320"></canvas><p>同じ表示寸法の参照画像</p></article><article><b id="labelA">A</b><canvas id="portraitA" width="440" height="320"></canvas><p id="detailA"></p></article><article><b id="labelB">B</b><canvas id="portraitB" width="440" height="320"></canvas><p id="detailB"></p></article></div></section>
+<section id="escort-comparison" class="inspect">
+ <h2>フォンテーヌの搬送メカを見比べる</h2>
+ <p>メカが旅人を待つ場面。背景は両側とも4,096矩形から復号した同じ絵です。境界を動かすと、車輪の縁や旅人の衣装を同じ位置で比べられます。</p>
+ <div class="escort-wipe">
+  <img src="evidence/parcel-escort-guide-h32c16.png" loading="lazy" width="1178" height="663" alt="16色にした旅人と搬送メカ">
+  <img class="escort-source" src="evidence/parcel-escort-guide-sprite.png" loading="lazy" width="1178" height="663" alt="同じ時刻と画角のPNGスプライト">
+ </div>
+ <label class="escort-slider">左：元PNG<input id="escortSplit" type="range" min="0" max="100" value="50" aria-label="元PNGの表示割合" aria-valuetext="50パーセント"><span>右：16色</span></label>
+</section>
 <section class="catalog"><h2>初期場面での比較結果</h2><p>旅人＋アンバー＋敵20体。行を押すとB側へ反映します。pxはキャラの高さ、敵はその半分です。16／32色はキャラごとの総色数で、同じキャラの2ポーズは共通パレットです。</p><div class="tablewrap"><table><thead><tr><th>設定</th><th>場面の描画指示</th><th>従来比</th><th>Lua中央値</th><th>Lua p95</th><th>素材8セルのJSON</th></tr></thead><tbody id="table"></tbody></table></div></section>
 <p class="note">色の細部を減らす処理にディザリングは使っていません。低解像度化では顔や髪の輪郭も変わります。原画像と従来版は保持しています。元画像自体の輪郭の色残りや、連続アニメーションの品質は別の課題です。幻境実機のUI部品数・FPSは未検証です。</p></main><script type="module" src="compare.js"></script></html>

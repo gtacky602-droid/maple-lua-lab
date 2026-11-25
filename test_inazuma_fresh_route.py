@@ -8,6 +8,9 @@ from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
+from tools.quest_guide_test import GuideChecks
+
+guides = GuideChecks('inazuma')
 
 
 def read(path):
@@ -131,17 +134,22 @@ prints, statues, water, thicket = ('inazuma-torii-footprints', 'inazuma-torii-st
 cross_all(road, town, clearing, prints)
 near(1240)
 act('story_nearby_portal')
+guides.expect(frame(),maze,absent=True)
 assert state.story.node == prints and q.forest.looped
 for count, x, stage in [(1, 485, statues), (2, 855, water), (3, 485, thicket)]:
     collect(x)
     assert q.count == count
     trail.cross(stage)
 for i, x in enumerate((420, 785, 1130), 1):
+    guides.expect(frame(),maze,spawns=['inazuma-thicket-'+str(n) for n in range(i,4)])
     fight(x, lambda: q.forest.defeated['inazuma-thicket-' + str(i)])
 assert q.count == 4
+guides.expect(frame(),maze,name='化け狸',xy=(1280,480))
 collect(1280)
 cross_all(shore, town, road, port)
 report(maze)
+guides.expect(frame(),maze,absent=True)
+guides.save()
 
 contest, cave, cape = 'inazuma-lantern-contest', 'inazuma-sea-cave', 'inazuma-shiomi-cape'
 q = accept(contest)

@@ -6,6 +6,9 @@ from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
+from tools.quest_guide_test import GuideChecks
+
+guides = GuideChecks('mondstadt')
 
 
 graph = json.loads((ROOT / 'content/story-graph.json').read_text(encoding='utf8'))
@@ -97,6 +100,8 @@ for x in (500, 835, 1080):
     if main.count >= 3:
         break
 assert main.count == 3
+near(335)
+guides.expect(core.frame(state),'amber-join',point='basket',xy=(335,480))
 collect(335)
 collect(650, 390)
 collect(975)
@@ -109,9 +114,11 @@ main = accept('mond-old-trail')
 trail.cross('mond-road')
 trail.cross('mond-old-road')
 trail.cross('mond-old-ground')
+guides.expect(core.frame(state),'mond-old-trail',point='wheel-ruts')
 collect(660)
 assert main.inspected['wheel-ruts']
 trail.cross('mond-hill')
+guides.expect(core.frame(state),'mond-old-trail',spawns=['mond-hill-1'])
 fight(662, lambda: main.count == 2)
 trail.cross('mond-road')
 trail.cross('mond-town')
@@ -134,15 +141,20 @@ checkpoint('lv16-save')
 rest = accept('mond-rest-stop')
 trail.cross('mond-road')
 trail.cross('mond-roadside-rest')
+guides.expect(core.frame(state),'mond-rest-stop',spawns=['mond-rest-slime','mond-rest-hilichurl'])
 fight(315, lambda: rest.rest and rest.rest.defeated['mond-rest-slime'])
 fight(758, lambda: rest.rest.defeated['mond-rest-hilichurl'])
+guides.expect(core.frame(state),'mond-rest-stop',xy=(515,392))
 collect(515, 392)
+guides.expect(core.frame(state),'mond-rest-stop',xy=(750,480))
 collect(750)
 collect(925)
 collect(1050)
 trail.cross('mond-road')
 trail.cross('mond-town')
 report('mond-rest-stop')
+guides.expect(core.frame(state),'mond-rest-stop',absent=True)
+guides.save()
 
 cave = accept('mond-bennett-cave')
 trail.cross('mond-road')

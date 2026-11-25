@@ -1,0 +1,209 @@
+[
+  {
+    "quest": "liyue-market-delivery",
+    "node": "liyue-harbor",
+    "count": 0,
+    "guide": {
+      "name": "料理屋",
+      "x": 245,
+      "y": 480,
+      "action": "店先で荷札を選ぶ",
+      "point": "pot"
+    }
+  },
+  {
+    "quest": "liyue-market-delivery",
+    "node": "liyue-harbor",
+    "count": 1,
+    "guide": {
+      "name": "器の店",
+      "x": 615,
+      "y": 480,
+      "action": "店先で荷札を選ぶ",
+      "point": "vessel"
+    }
+  },
+  {
+    "quest": "liyue-market-delivery",
+    "node": "liyue-loading-yard",
+    "count": 2,
+    "guide": {
+      "x": 470,
+      "y": 480,
+      "spawn": "liyue-loading-yard-1",
+      "art": "hilichurl"
+    }
+  },
+  {
+    "quest": "liyue-market-delivery",
+    "node": "liyue-loading-yard",
+    "count": 2,
+    "guide": {
+      "name": "車輪の荷箱",
+      "x": 735,
+      "y": 380,
+      "action": "Gで回収",
+      "point": "wheel"
+    }
+  },
+  {
+    "quest": "liyue-market-delivery",
+    "node": "liyue-loading-yard",
+    "count": 2,
+    "guide": {
+      "name": "車輪の荷箱",
+      "x": 735,
+      "y": 380,
+      "action": "Gで回収",
+      "point": "wheel"
+    }
+  },
+  {
+    "quest": "liyue-caravan-search",
+    "node": "liyue-quarry-post",
+    "count": 1,
+    "guide": {
+      "name": "詰所の商隊",
+      "x": 385,
+      "y": 480,
+      "action": "Gで話す",
+      "point": "caravan"
+    }
+  },
+  {
+    "quest": "liyue-caravan-search",
+    "node": "liyue-quarry-post",
+    "count": 2,
+    "guide": {
+      "name": "詰所の見張り",
+      "x": 924.1176866515195,
+      "y": 480,
+      "spawn": "liyue-quarry-post-1",
+      "art": "hilichurl"
+    }
+  },
+  {
+    "quest": "liyue-market-opening",
+    "node": "liyue-quarry-storage",
+    "count": 0,
+    "guide": {
+      "name": "荷車の留め具を外す",
+      "x": 658,
+      "y": 312,
+      "action": "Gで操作",
+      "point": "cart-latch"
+    }
+  },
+  {
+    "quest": "liyue-market-opening",
+    "node": "liyue-quarry-storage",
+    "count": 0,
+    "guide": null
+  },
+  {
+    "quest": "liyue-market-opening",
+    "node": "liyue-quarry-storage",
+    "count": 1,
+    "guide": {
+      "name": "石切り場の番人",
+      "x": 1295,
+      "y": 480,
+      "spawn": "liyue-quarry-storage-keeper",
+      "art": "ruin-guard"
+    }
+  },
+  {
+    "quest": "liyue-market-opening",
+    "node": "liyue-quarry-storage",
+    "count": 2,
+    "guide": {
+      "name": "荷車を港へ送り出す",
+      "x": 1030,
+      "y": 480,
+      "action": "Gで操作",
+      "point": "market-switch"
+    }
+  },
+  {
+    "quest": "beidou-join",
+    "node": "liyue-crux-wharf",
+    "count": 0,
+    "guide": {
+      "x": 335,
+      "y": 480,
+      "spawn": "liyue-crux-pier",
+      "art": "hydro-slime"
+    }
+  },
+  {
+    "quest": "beidou-join",
+    "node": "liyue-crux-wharf",
+    "count": 0,
+    "guide": {
+      "name": "桟橋の樽",
+      "x": 315,
+      "y": 480,
+      "action": "Gで回収",
+      "point": "pier"
+    }
+  },
+  {
+    "quest": "beidou-join",
+    "node": "liyue-crux-wharf",
+    "count": 3,
+    "guide": {
+      "name": "桟橋を塞ぐヒルチャール",
+      "x": 260,
+      "spawn": "liyue-crux-return",
+      "art": "hilichurl",
+      "y": 480
+    }
+  },
+  {
+    "quest": "liyue-book-rescue",
+    "node": "liyue-field",
+    "count": 0,
+    "guide": {
+      "name": "落ちた試し刷り",
+      "x": 530,
+      "y": 480,
+      "action": "Gで調べる",
+      "point": "proof-sheet"
+    }
+  },
+  {
+    "quest": "liyue-book-rescue",
+    "node": "liyue-field",
+    "count": 1,
+    "guide": null
+  },
+  {
+    "quest": "liyue-book-rescue",
+    "node": "liyue-book-camp",
+    "count": 2,
+    "guide": {
+      "x": 420,
+      "y": 480,
+      "spawn": "liyue-book-scout-1",
+      "art": "treasure-scout"
+    }
+  },
+  {
+    "quest": "liyue-book-rescue",
+    "node": "liyue-book-camp",
+    "count": 3,
+    "guide": {
+      "name": "新刊と版木の箱",
+      "x": 1250,
+      "y": 480,
+      "action": "Gで回収",
+      "point": "print-crate"
+    }
+  },
+  {
+    "quest": "liyue-book-rescue",
+    "node": "liyue-harbor",
+    "count": 4,
+    "guide": null
+  }
+]

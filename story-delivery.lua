@@ -17,7 +17,7 @@ local function stall(s,q)
  end
 end
 
-local function carried(q,state,package)
+function D.carried(q,state,package)
  return not state.delivered[package.id] and (package.id~=q.delivery.cache.id or state.recovered)
 end
 
@@ -40,7 +40,7 @@ function D.deliver(s,q,state,id)
  if not destination then s.storyNotice='届け先の店先まで移動してください。';return end
  if state.delivered[destination.id] then return end
  for _,package in ipairs(q.delivery.packages) do
-  if package.id==id and carried(q,state,package) then
+  if package.id==id and D.carried(q,state,package) then
    if package.id~=destination.id then reject(s,destination,'荷札と届け先をもう一度確かめてください。');return end
    state.delivered[id]=true
    s.storyDeliveryNotice=nil
@@ -84,7 +84,7 @@ function D.observe(s,f,boxes,q,state)
    local options={}
    if not state.delivered[destination.id] then
     for _,package in ipairs(q.delivery.packages) do
-     if carried(q,state,package) then options[#options+1]={id=package.id,label=package.label} end
+     if D.carried(q,state,package) then options[#options+1]={id=package.id,label=package.label} end
     end
    end
    local notice=s.storyDeliveryNotice

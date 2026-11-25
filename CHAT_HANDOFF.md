@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## 配達・荷物回収・搬送メカの追跡
+
+[搬送メカの元PNGと16色を重ねて比較](http://127.0.0.1:9117/compare.html#escort-comparison)。育成済みLv80からフォンテーヌの依頼を受け、搬送メカが旅人を待っているところで一時停止した。境界を左右に動かすと、同じ背景・時刻・位置で車輪や旅人の服の細部を見比べられる。背景は4,096矩形から復号したラボ用の仮画像。[4描画設定の計測](evidence/parcel-escort-guide-browser.json)
+
+依頼手帳の「この依頼を追跡」で、対象の魔物には水色、荷物・届け先・同行するメカには黄色の印が出る。璃月の仮置き場では見張りを退けたら上段の車輪の荷箱に印が移り、港へ戻ると修理屋を案内する。フォンテーヌでは出発ベルから移動中のメカに印が移る。置いていかれたときは合流地点を示し、旧搬入口が開いたら次の警備メカを案内する。[車輪の回収画面](evidence/liyue-wheel-guide-light.png) ／ [配達の操作記録](evidence/cargo-guide-browser.json)
+
+Lv1から続く冒険の4地域・10依頼で、案内の切替と非表示を38か所確認。見張りの討伐直後に保存した璃月の配達では車輪の回収から、搬送中に保存したフォンテーヌでは調査済みの手掛かりを保って出発ベルから再開した。[モンド](evidence/quest-field-guide-mondstadt.json) ／ [璃月](evidence/quest-field-guide-liyue.json) ／ [稲妻](evidence/quest-field-guide-inazuma.json) ／ [フォンテーヌ](evidence/quest-field-guide-fontaine.json)
+
 ## 狩場の討伐対象と再出現の案内
 
 [モンド南街道の背景を比較](http://127.0.0.1:9117/map-art.html?placements=live&node=mond-road&compare=background&tier=4096)。冒険では依頼手帳の「この依頼を追跡」を選ぶと、狩場で数に入る一番近い敵の足元に水色の印が出る。すべて倒すと次の出現までの秒数が出る。印は矩形4個で、背景や敵画像に焼き込まない。

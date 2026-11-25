@@ -28,7 +28,8 @@ export function questRoute(f,q,status){
  if(status==='active'&&q.delivery){
   const state=f.story.quests?.[q.id]?.delivery;
   const cache=q.delivery.cache.id;
-  if(q.delivery.packages.some(p=>!state?.delivered[p.id]&&(p.id!==cache||state?.recovered)))target=q.hub;
+  const canRecover=f.story.node===q.target && !state?.recovered;
+  if(!canRecover && q.delivery.packages.some(p=>!state?.delivered[p.id]&&(p.id!==cache||state?.recovered)))target=q.hub;
  }
  const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
  const ingredients=status==='active'&&q.cooking?.ingredients.filter(item=>!f.story.quests?.[q.id]?.cooking.gathered[item.id]);
