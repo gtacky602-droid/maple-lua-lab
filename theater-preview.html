@@ -25,7 +25,7 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <main><header><label>冒険の記録 <select id="record"><option value="5">Lv100・展示5点</option><option value="3">Lv92・展示3点</option></select></label><a href="./">ローカルラボへ</a></header>
 <section id="theaterProgramme" aria-labelledby="programmeHeading" hidden></section><p id="loadMessage" role="status">展示記録を読み込み中…</p>
 <section id="stageComparison" aria-labelledby="stageTitle"><h2 id="stageTitle">同じ場面で見比べる</h2>
-<label>場所 <select id="stage"><option value="fontaine-exhibits-frame">フォンテーヌ・公演記念展示（5点）</option><option value="natlan-podium-frame">ナタ・夕映えの表彰台</option><option value="nod-moon-bloom-frame">ナド・クライ・月花の見晴らし席</option><option value="snez-snow-match-frame">スネージナヤ・雪合戦広場</option></select></label>
+<label>場所 <select id="stage"><option value="fontaine-exhibits-frame">フォンテーヌ・公演記念展示（5点）</option><option value="natlan-podium-frame">ナタ・夕映えの表彰台</option><option value="nod-moon-bloom-frame">ナド・クライ・月花の見晴らし席</option><option value="snez-snow-match-frame">スネージナヤ・雪合戦広場</option><option value="spine-shelter-frame">ドラゴンスパイン・峰下の観測板</option></select></label>
 <label>比較する画質 <select id="compareColors"><option value="16">軽量・16色</option><option value="32">中間・32色</option></select></label>
 <figure tabindex="0" aria-label="拡大する位置。クリック、タップ、または矢印キーで移動"><img id="stageSource" width="960" height="540" alt="同じ場面の元絵"><img id="stage16" width="960" height="540" alt="元絵との差分を重ねた16色版"><span id="cropCursor" aria-hidden="true"></span></figure>
 <label>元絵<input type="range" id="stageSplit" min="0" max="100" value="50" aria-label="元絵を表示する割合"><span id="splitLabel">16色</span></label>
@@ -35,7 +35,7 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <div id="pixelLoupe"><div><p>元絵</p><canvas id="cropSource" width="96" height="72" aria-label="選んだ範囲の元絵"></canvas></div><div><p id="cropLabel">16色</p><canvas id="crop16" width="96" height="72" aria-label="選んだ範囲の16色版"></canvas></div></div>
 <p id="cropMeasurement" role="status"></p></details>
 <p><a id="backgroundCompare" href="map-art.html">この場所の仮背景を5段階のLua圧縮で比較する</a></p></section>
-<p><a href="evidence/dornman-after-chapters-save.json" download>地域章64件とドーンマンポート3件を終えたLv200のセーブをダウンロード</a></p>
+<p><a href="evidence/dornman-after-chapters-save.json" download>ドーンマンポートで再開（分岐3件報告）</a> ／ <a href="evidence/branch-expedition-save.json" download>9分岐地域を終えたLv200のセーブをダウンロード</a> ／ <a href="evidence/hidden-expedition-save.json" download>隠し世界3つから帰還したセーブ</a></p>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -48,7 +48,8 @@ const measurements={
  'fontaine-exhibits-frame':['fontaine-theater-packing','5'],
  'natlan-podium-frame':['natlan-festival-packing','natlan-sunset-rostrum'],
  'nod-moon-bloom-frame':['nod-harbor-packing','nod-bloom-grove'],
- 'snez-snow-match-frame':['regional-chapters-packing','snow-match']
+ 'snez-snow-match-frame':['regional-chapters-packing','snow-match'],
+ 'spine-shelter-frame':['spine-shelter-packing','4']
 };
 const colors=document.getElementById("compareColors");
 async function showPacketSize(name,tier){
@@ -101,7 +102,7 @@ figure.onkeydown=e=>{
 };
 async function updateComparison(resetPoint){
  const name=stage.value,status=document.getElementById('pixelComparison');
- const has32=name==='nod-moon-bloom-frame'||name==='snez-snow-match-frame';
+ const has32=['nod-moon-bloom-frame','snez-snow-match-frame','spine-shelter-frame'].includes(name);
  colors.options[1].disabled=!has32;
  if(!has32)colors.value='16';
  const tier=colors.value;
@@ -112,7 +113,7 @@ async function updateComparison(resetPoint){
  for(const id of ['cropSource','crop16']){const c=document.getElementById(id);c.getContext('2d').clearRect(0,0,c.width,c.height)}
  document.getElementById('cropMeasurement').textContent='';
  const node={'fontaine-exhibits-frame':'fontaine-grand-stage','natlan-podium-frame':'natlan-sunset-rostrum',
-  'nod-moon-bloom-frame':'nod-bloom-grove','snez-snow-match-frame':'sne-snow-match'}[name];
+  'nod-moon-bloom-frame':'nod-bloom-grove','snez-snow-match-frame':'sne-snow-match','spine-shelter-frame':'spine-shelter'}[name];
  document.getElementById('backgroundCompare').href='map-art.html?'+new URLSearchParams({node,placements:'live',compare:'background',tier:'4096'});
  showPacketSize(name,tier);
  const original=document.getElementById('stageSource'),light=document.getElementById('stage16');

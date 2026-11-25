@@ -254,6 +254,36 @@ function prerequisiteText(q,graph,level){
  const previous=graph.quests.find(quest=>quest.id===(q.requires??q.opensAfter));
  return `先に「${previous?.name??q.requires??q.opensAfter}」を${q.requires?'報告':'受注'}する`;
 }
+function expeditionStops(quest,state,graph,button){
+ const marks=(quest.itinerary||[]).slice(0,state?.count||0);
+ if(!marks.length)return null;
+ const section=document.createElement('details');
+ section.className='expeditionStops';
+ const caption=document.createElement('summary');
+ caption.textContent='遠征の足跡（記録'+marks.length+'件）';
+ section.append(caption);
+ let lastNode,list;
+ for(const mark of marks){
+  if(mark.node!==lastNode){
+   const node=graph.nodes.find(n=>n.id===mark.node);
+   const group=document.createElement('div'),place=document.createElement('strong');
+   place.textContent=node?.name??mark.node;
+   group.append(place);
+   if(node){
+    group.append(button('地図で見る','world_map_focus:'+node.id));
+    const view=document.createElement('a');
+    view.href='map-art.html?'+new URLSearchParams({node:node.id,placements:'live',compare:'background',tier:'4096'});
+    view.textContent='風景を見比べる';view.target='_blank';view.rel='noopener';
+    group.append(view);
+   }
+   list=document.createElement('ul');group.append(list);section.append(group);lastNode=mark.node;
+  }
+  const item=document.createElement('li');
+  item.textContent=mark.completedLabel||mark.action||mark.objective||mark.name;
+  list.append(item);
+ }
+ return section;
+}
 export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack}){
  const {story,storyGraph:graph}=f,section=document.createElement('section');section.id='questJournal';section.style.width='100%';
  const heading=document.createElement('h2');heading.textContent='依頼手帳';section.append(heading);
@@ -308,7 +338,7 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
    const record=selected.get(q.id);
    if(!record||(selection==='pending'?record.done:record.code!==selection))continue;
   }else if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
-  shown++;const row=document.createElement('p');row.dataset.quest=q.id;row.dataset.status=status;
+  shown++;const row=document.createElement(kind==='branch'&&selection!=='pending'?'div':'p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
   const payout=status==='complete'&&!q.repeatable?'':` ｜ 仮報酬 ${rewardNumber.format(q.xp)}EXP / ${rewardNumber.format(q.mora)}モラ`;
   const firstClear=q.chapterClearXp&&(st?.count??0)<q.chapterClearCount
@@ -317,6 +347,10 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear}${weapon} `;
   if(selected&&status!=='complete'){
    row.append(button('受注・報告場所を地図で見る','world_map_focus:'+q.hub));
+  }
+  if(kind==='branch'&&selection!=='pending'){
+   const stops=expeditionStops(q,st,graph,button);
+   if(stops)row.append(stops);
   }
   if(q.fireworks&&status==='complete'){
    const design=recordedFirework(q,st);

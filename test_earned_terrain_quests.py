@@ -4,7 +4,7 @@ import json
 import sys
 
 from runtime import ROOT
-from test_earned_branch_quests import Journey, lua, quests
+from test_earned_branch_quests import Journey, quests
 
 
 BOSSES = {
@@ -18,8 +18,9 @@ def interact(trip, x, y=480, action='story_collect'):
     trip.act(action)
 
 
-def start(quest, origin, file='lv165-save.json'):
-    trip = Journey(file)
+def start(quest, origin, file='lv165-save.json', *, trip=None):
+    if trip is None:
+        trip = Journey(file)
     trip.warp(origin)
     trip.travel(quests[quest]['hub'])
     assert trip.state.story.quests[quest] is None
@@ -33,16 +34,18 @@ def finish(trip, quest):
     return legs
 
 
-def battle(trip, quest, index):
+def battle(trip, quest, index, before=None):
+    if before is None:
+        before=trip.totals()
     mark = quests[quest]['itinerary'][index - 1]
     if boss := mark.get('boss'):
         slot = trip.state.fieldSlots[boss]
-        trip.fight([slot.enemy], trip.totals(), rewarded=not BOSSES[boss].get('questRewardsOnly'))
+        trip.fight([slot.enemy], before, rewarded=not BOSSES[boss].get('questRewardsOnly'))
         assert slot.phase == 'respawn'
     else:
         targets = mark.get('enemies') or [mark['enemy']]
         enemies = {e.spawnId: e for e in trip.state.enemies.values()}
-        trip.fight([enemies[id] for id in targets], trip.totals())
+        trip.fight([enemies[id] for id in targets], before, allow_collateral=True)
     assert trip.state.story.quests[quest].count == index
 
 
@@ -52,11 +55,11 @@ def verify_reports(trip, *ids):
     return trip.proof() | {'restoredReports': ids}
 
 
-def enkanomiya():
+def enkanomiya(trip=None):
     camp = 'enkanomiya-camp'
     shelf, room, gallery = 'enkan-guide-shelf', 'enkan-lamp-chamber', 'enkan-route-gallery'
     first, second, third = 'enkan-safety-leaflet', 'enkan-shadow-crossing', 'enkan-coverless-log'
-    trip = start(first, 'inazuma-town')
+    trip = start(first, 'inazuma-town', trip=trip)
     trip.confirm_lock(room, '報告')
     trip.travel(shelf)
     for index in (1, 2, 3):
@@ -88,11 +91,11 @@ def enkanomiya():
     return verify_reports(trip, first, second, third)
 
 
-def tunigi():
+def tunigi(trip=None):
     camp, shelf, shop = 'tunigi-camp', 'tunigi-vent-shelf', 'tunigi-baffle-workshop'
     shelter, passage, vault = 'tunigi-return-shelter', 'tunigi-elite-passage', 'tunigi-fragment-vault'
     first, second, third = 'tunigi-vent-record', 'tunigi-return-design', 'tunigi-fragment-return'
-    trip = start(first, 'sumeru-hub')
+    trip = start(first, 'sumeru-hub', trip=trip)
     trip.confirm_lock(shop, '報告')
     trip.travel(shelf)
     battle(trip, first, 1)
@@ -134,13 +137,15 @@ def tunigi():
     return verify_reports(trip, first, second, third)
 
 
-def bygone():
+def bygone(trip=None):
     camp, chamber, hall = 'bygone-camp', 'bygone-resonance-chamber', 'bygone-inscribed-hall'
     gallery, archive = 'bygone-listening-gallery', 'bygone-bell-archive'
     first, second, third = 'bygone-stone-rubbings', 'bygone-lit-passage', 'bygone-sound-book'
-    trip = start(first, 'fontaine-hub')
-    (ROOT / 'work/earned-bygone-camp.json').write_text(
-        json.dumps(trip.snapshot(), ensure_ascii=False)+'\n', encoding='utf8')
+    standalone = trip is None
+    trip = start(first, 'fontaine-hub', trip=trip)
+    if standalone:
+        (ROOT / 'work/earned-bygone-camp.json').write_text(
+            json.dumps(trip.snapshot(), ensure_ascii=False)+'\n', encoding='utf8')
     trip.confirm_lock(hall, '報告')
     shallows, channel, ruin, pier = 'bygone-wp-68600', 'bygone-wp-68599', 'fon-wp-68345', 'fon-wp-68341'
     out = trip.travel(shallows)[0]
@@ -179,10 +184,10 @@ def bygone():
     return verify_reports(trip, first, second, third)
 
 
-def novo():
+def novo(trip=None):
     camp, works, passage, vault = 'novokichev-camp', 'novo-frozen-works', 'novo-drift-passage', 'novo-ice-vault'
     first, second, third = 'novo-expedition-ready', 'novo-equipment-route', 'novo-return-report'
-    trip = start(first, 'snezhnaya-hub', 'lv200-save.json')
+    trip = start(first, 'snezhnaya-hub', 'lv200-save.json', trip=trip)
     trip.confirm_lock(works, '報告')
     interact(trip, 450, action='story_expedition_trial')
     trip.mark(first, 1)
@@ -190,11 +195,12 @@ def novo():
     trip.act('story_accept:' + second)
     trip.travel(works)
     trip.mark(second, 1)
+    before_climb=trip.totals()
     trip.approach(620, 388, '巻き上げ機の中段')
     trip.act('jump')
-    trip.tick(14, lua.table(jump=True, right=True))
+    trip.tick(14, trip.lua.table(jump=True, right=True))
     trip.approach(705, 294, '巻き上げ機の上段')
-    battle(trip, second, 2)
+    battle(trip, second, 2, before_climb)
     trip.mark(second, 3)
     trip.restore()
     assert trip.state.story.node == camp and trip.state.story.quests[second].count == 3

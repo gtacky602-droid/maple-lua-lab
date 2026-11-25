@@ -119,6 +119,18 @@
 #furinaRehearsal .active-cue{color:#fbf1bf;border-color:#e9c680;background:#426755}
 #groupPhoto{padding:14px 18px;background:#23423f;color:#edf2df}
 
+#questJournal div[data-quest]{margin:1em 0}
+.expeditionStops{margin:.5em 0;padding:.4em .75em;border-left:2px solid #779799}
+.expeditionStops summary{cursor:pointer;color:#c7e8e1}
+.expeditionStops div{padding:.5em 0}.expeditionStops button,.expeditionStops a{margin-left:.65em}
+.expeditionStops ul{margin:.4em 0;padding-left:1.4em}
+#frostPrints{max-width:760px;margin:16px auto;padding:16px clamp(12px,3vw,24px);background:#e3dfcc;color:#303e47}
+#frostPrints header,#frostPrints footer{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+#frostPrints h2{font:600 22px Georgia,serif;margin:0}
+#frostPrints figure{margin:12px 0}
+#frostPrints canvas{display:block;background:#a8bbc1;width:100%;height:auto;image-rendering:pixelated}
+#frostPrints figcaption{margin:.6em 0;line-height:1.55}
+#frostPrints button,#frostPrints select{color:#fff5df;background:#314b56}
 #harborBook{padding:16px 20px;background:#25373d;color:#ede9d4}
 #harborBook header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 #harborBook h2{font:600 22px Georgia,serif;color:#f4d6a1;margin:0}
@@ -386,6 +398,12 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
 <div id="fieldSwimHelp" hidden>WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG</div>
 <div id="diveHelp" hidden><span>WASD・方向キーで泳ぐ ｜ Gで調べる ｜ Fで浮上</span> <button id="diveReset" type="button" data-action="story_dive_reset">回収灯へ戻る</button></div>
 <div id="iansanRun" hidden aria-label="訓練の計測"></div>
+<section id="frostPrints" hidden aria-labelledby="frostTitle">
+ <header><h2 id="frostTitle">峰下の観測板</h2><label>観測の一枚 <select id="frostSheet"></select></label></header>
+ <figure><canvas width="640" height="360" aria-label="観測地点の風景と霜筋の拡大図"></canvas><figcaption></figcaption></figure>
+ <footer><label>仮背景 <select id="frostInk"><option value="0">元絵</option><option value="4096">4,096矩形</option><option value="4608">4,608矩形</option><option value="5120">5,120矩形</option><option value="5632">5,632矩形</option><option value="6144">6,144矩形</option></select></label>
+ <button type="button">観測地点を地図で見る</button></footer>
+</section>
 <section id="harborBook" hidden aria-labelledby="harborBookTitle">
  <header><h2 id="harborBookTitle">港の旅日誌</h2><label>記録をめくる <select id="harborPage"></select></label></header>
  <article><canvas width="200" height="138" id="harborDrawing" role="img" aria-label="旅日誌の挿絵"></canvas>

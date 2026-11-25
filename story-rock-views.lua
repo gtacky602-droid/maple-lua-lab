@@ -56,5 +56,56 @@ return function(canInspect)
   if step and step.shadowChoice then f.storyNearbyMilestone={label='ここから見える切れ目を確かめる'} end
  end
 
+ -- All three rubbings share the same silhouette. Only the frost-line ink changes.
+ local outcrop={{-23,-30,46,30,1},{-17,-39,34,27,2}}
+ for stripe=-1,1 do
+  for step=0,3 do outcrop[#outcrop+1]={stripe*9+step,-30-step*2,4,2,3} end
+ end
+ local ink={faint='#8199af',partial='#536e91',clear='#24456c'}
+ function views.drawOutcrop(draws,x,y,angle)
+  local palette={'#68869b','#b9d8e3',ink[angle]}
+  for _,r in ipairs(outcrop) do
+   draws[#draws+1]={kind='rect',x=x+r[1],y=y+r[2],w=r[3],h=r[4],color=palette[r[5]]}
+  end
+ end
+
+ function views.shelter(C,s,f,layer,first,ridge,mode,profile)
+  local desk=ridge.itinerary[3]
+  local x,y=desk.x-s.camera,desk.y
+  if x < -145 or x > 1105 then return end
+  local drawings=layer.draws
+  local function rect(left,top,w,h,color)
+   drawings[#drawings+1]={kind='rect',x=x+left,y=y+top,w=w,h=h,color=color}
+  end
+  rect(-80,-111,160,68,'#44383b')
+  rect(-76,-107,152,60,'#856751')
+  for _,dx in ipairs({-69,61}) do rect(dx,-45,8,45,'#513f3b') end
+  local entries={}
+  local function mount(q,index)
+   local state=s.story.quests[q.id]
+   if not state or state.count<index then return end
+   local point=q.itinerary[index]
+   local color=ink[point.outcrop]
+   local px=-69+#entries*35
+   rect(px,-100,31,43,'#dfd4b9')
+   rect(px+2,-97,27,31,'#adc0be')
+   for stripe=0,2 do
+    rect(px+4+stripe*8,-79,4,3,color)
+    rect(px+7+stripe*8,-82,4,3,color)
+   end
+   rect(px+13,-103,5,7,'#6a5443')
+   entries[#entries+1]={title=point.name,node=point.node,x=point.x,y=point.y,ink=color,caption=point.notice}
+  end
+  for i=2,4 do mount(first,i) end
+  local final=s.story.quests[ridge.id]
+  if final and final.count>=3 then mount(ridge,2) end
+  for _,dx in ipairs({-94,94}) do
+   C.drawFieldDisplayArt(layer,C.patrolArt.lantern,x+dx,y-46,43,mode,profile,false)
+  end
+  if #entries>0 and canInspect(s.actors[s.active],desk) then
+   f.storyFrostPrints={entries=entries,shape=outcrop,stone='#68869b',snow='#b9d8e3'}
+  end
+ end
+
  return views
 end

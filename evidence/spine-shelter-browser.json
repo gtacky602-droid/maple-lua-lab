@@ -1,0 +1,26 @@
+{
+  "proof": [
+    {
+      "prints": 3,
+      "tiers": 6,
+      "sourceHashes": [
+        "d9acd388b0ae9292d6e167df887669124ff6e59a99f26cd80a79466d4738a947",
+        "26bff38a32ef9751e32b735a4936285120ba6f1d1f231d76ed2231c07538957d",
+        "407e23301201710d2b19f19a572ce08469edd230f1757fb41dc63866b0356739"
+      ]
+    },
+    {
+      "prints": 4,
+      "tiers": 6,
+      "sourceHashes": [
+        "d9acd388b0ae9292d6e167df887669124ff6e59a99f26cd80a79466d4738a947",
+        "26bff38a32ef9751e32b735a4936285120ba6f1d1f231d76ed2231c07538957d",
+        "407e23301201710d2b19f19a572ce08469edd230f1757fb41dc63866b0356739",
+        "3d0fcc2d38a7520012b23972446332f83323461cbce0111a461b99d2e39d97c1"
+      ]
+    }
+  ],
+  "branchReports": 27,
+  "regions": 9,
+  "errors": []
+}

@@ -1,0 +1,42 @@
+{
+  "3": {
+    "legacy": {
+      "before": 519203,
+      "after": 384665,
+      "stamps": 2,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 343027,
+      "after": 278514,
+      "stamps": 2,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 127734,
+      "after": 94113,
+      "stamps": 2,
+      "batches": 1
+    }
+  },
+  "4": {
+    "legacy": {
+      "before": 519996,
+      "after": 385458,
+      "stamps": 2,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 343820,
+      "after": 279307,
+      "stamps": 2,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 128527,
+      "after": 94906,
+      "stamps": 2,
+      "batches": 1
+    }
+  }
+}

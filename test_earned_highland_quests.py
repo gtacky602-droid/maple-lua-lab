@@ -8,11 +8,11 @@ from test_earned_branch_quests import Journey, quests
 from test_earned_terrain_quests import battle, finish, start, verify_reports
 
 
-def dragonspine():
+def dragonspine(trip=None, *, on_shelter=None):
     camp = 'dragonspine-camp'
     shelf, notch, lee, shelter = 'spine-observation-shelf', 'spine-wind-notch', 'spine-lee-walk', 'spine-shelter'
     first, second, third = 'spine-noon-pattern', 'spine-wind-route', 'spine-ridge-record'
-    trip = start(first, 'mond-town')
+    trip = start(first, 'mond-town', trip=trip)
     trip.travel(shelf)
     battle(trip, first, 1)
     for index in (2, 3, 4):
@@ -27,6 +27,8 @@ def dragonspine():
     route = trip.travel(shelter)
     assert route[0]['mode'] == 'lift' and '風が止むまで待つ' in route[0]['hint']
     trip.mark(second, 2)
+    if on_shelter:
+        on_shelter(trip.snapshot())
     finish(trip, second)
 
     trip.travel(notch)
@@ -42,11 +44,11 @@ def dragonspine():
     return verify_reports(trip, first, second, third)
 
 
-def chenyu():
+def chenyu(trip=None):
     camp, terrace, road = 'chenyu-camp', 'chenyu-tea-terraces', 'chenyu-cart-road'
     lift, pavilion = 'chenyu-tea-lift', 'chenyu-tea-pavilion'
     first, second, third = 'chenyu-tea-delivery', 'chenyu-loading-landing', 'chenyu-tea-with-friends'
-    trip = start(first, 'liyue-harbor')
+    trip = start(first, 'liyue-harbor', trip=trip)
     trip.confirm_lock(lift, '報告')
     trip.travel(terrace)
     for index in (1, 2, 3):
@@ -83,12 +85,13 @@ def chenyu():
     return verify_reports(trip, first, second, third)
 
 
-def ochkanatlan():
+def ochkanatlan(trip=None):
     port, ferry, dock, nod_port = 'natlan-port', 'natlan-voyage', 'ochkanatlan-dock', 'nod-port'
     steps, court, kiln = 'ochka-tide-stairs', 'ochka-patched-court', 'ochka-sifting-kiln'
     first, second, third = 'ochka-stopover-survey', 'ochka-wall-marks', 'ochka-sifter-clear'
-    def survey(file, level):
-        trip = Journey(file)
+    standalone = trip is None
+
+    def survey(trip, level):
         assert trip.state.progression.level == level
         trip.warp('natlan-hub')
         trip.travel(port)
@@ -103,20 +106,23 @@ def ochkanatlan():
         finish(trip, first)
         return trip
 
-    low = survey('lv180-save.json', 180)
-    assert low.state.progression.level < 182
-    gate = low.guide(court)
-    assert gate['status'] == 'blocked' and gate['requiredLevel'] == 182
-    low_proof = verify_reports(low, first) | {'requiredLevelForCourt': gate['requiredLevel']}
-
-    trip = survey('lv200-save.json', 200)
+    low_proof = None
+    if standalone:
+        low = survey(Journey('lv180-save.json'), 180)
+        assert low.state.progression.level < 182
+        gate = low.guide(court)
+        assert gate['status'] == 'blocked' and gate['requiredLevel'] == 182
+        low_proof = verify_reports(low, first) | {'requiredLevelForCourt': gate['requiredLevel']}
+        trip = Journey('lv200-save.json')
+    trip = survey(trip, 200)
 
     trip.act('story_accept:' + second)
     trip.travel(court)
     trip.mark(second, 1)
     battle(trip, second, 2)
-    (ROOT / 'work/earned-ochka-carrier-checkpoint.json').write_text(
-        json.dumps(trip.snapshot(), ensure_ascii=False)+'\n', encoding='utf8')
+    if standalone:
+        (ROOT / 'work/earned-ochka-carrier-checkpoint.json').write_text(
+            json.dumps(trip.snapshot(), ensure_ascii=False)+'\n', encoding='utf8')
     trip.restore()
     assert trip.state.story.node == dock and trip.state.story.quests[second].count == 2
     trip.travel(court)
@@ -149,11 +155,11 @@ def ochkanatlan():
     }
 
 
-def moonlit():
+def moonlit(trip=None):
     town, camp = 'nod-town', 'nod-special-camp'
     water, garden, rim = 'nod-reflector-shore', 'nod-reflection-garden', 'nod-quiet-rim'
     first, second, third = 'nod-light-path', 'nod-light-record', 'nod-rim-return'
-    trip = start(first, town, 'lv200-save.json')
+    trip = start(first, town, 'lv200-save.json', trip=trip)
     trip.travel(water)
     for index, turns in enumerate((2, 3, 1), start=1):
         mark = quests[first]['itinerary'][index - 1]

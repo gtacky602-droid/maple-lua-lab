@@ -2023,16 +2023,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    movingPlatforms.rescue(s,node.riverCrossing)
   end
  end
- local function drawOutcrop(draws,x,y,angle)
-  local shade=({faint='#8199af',partial='#536e91',clear='#24456c'})[angle]
-  draws[#draws+1]={kind='rect',x=x-23,y=y-30,w=46,h=30,color='#68869b'}
-  draws[#draws+1]={kind='rect',x=x-17,y=y-39,w=34,h=27,color='#b9d8e3'}
-  for i=-1,1 do
-   for z=0,3 do
-    draws[#draws+1]={kind='rect',x=x+i*9+z,y=y-30-z*2,w=4,h=2,color=shade}
-   end
-  end
- end
+ local drawOutcrop=rockViews.drawOutcrop
  local function drawSpiritEcho(draws,x,y,t)
   y=y+math.sin(t*5+x*.026)*4
   draws[#draws+1]={kind='rect',x=x-9,y=y-8,w=18,h=16,color='#6ce7b7',opacity=.36}
@@ -2481,6 +2472,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.resonance then
     local quest=quests[n.resonance.quest]
     resonance.observe(s,f,markers,n.resonance,s.story.quests[quest.id],nextMilestone(s,quest))
+   end
+   if n.id=='spine-shelter' then
+    local layer=markerLayer(s,f,markers,mode)
+    rockViews.shelter(C,s,f,layer,quests['spine-noon-pattern'],quests['spine-ridge-record'],mode,profile)
+    if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
    end
    if n.rockViews then
     rockViews.observe(s,f,markers,n.rockViews,nextMilestone(s,quests[n.rockViews.quest]))

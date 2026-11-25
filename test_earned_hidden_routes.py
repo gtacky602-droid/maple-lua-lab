@@ -1,5 +1,6 @@
 """Walk, fight and report quests in hidden worlds on an earned adventure save."""
 
+import argparse
 from hashlib import sha256
 import json
 
@@ -17,8 +18,12 @@ nodes = {n['id']: n for n in graph['nodes']}
 quests = {q['id']: q for q in graph['quests']}
 exits = {n['id']: n['exits'] for n in graph['nodes']}
 edges = {(id, edge['to']): edge for id, gates in exits.items() for edge in gates}
-lua, core = runtime(draft_balance=True)
-source = (ROOT / 'work/cap-fresh-route-draft/lv200-save.json').read_bytes()
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--after-branches',action='store_true',help='Continue the expedition with all 27 branch reports')
+after_branches=parser.parse_args().after_branches
+lua, core = runtime(draft_balance=not after_branches)
+seed='evidence/branch-expedition-save.json' if after_branches else 'work/cap-fresh-route-draft/lv200-save.json'
+source = (ROOT / seed).read_bytes()
 saved = validate_save(json.loads(source))
 assert saved['progression']['level'] == 200 and not saved['story']['discovered']
 state = core.restore(lua.table_from(saved, recursive=True), 12)
@@ -203,7 +208,8 @@ marker(side, 6)
 travel('golden-hub')
 marker(side, 7)
 report(side)
-(ROOT / 'work/earned-golden-atlas-checkpoint.json').write_text(
+golden_save='work/earned-branch-expedition/golden.json' if after_branches else 'work/earned-golden-atlas-checkpoint.json'
+(ROOT / golden_save).write_text(
     json.dumps(save(), ensure_ascii=False) + '\n', encoding='utf8')
 for part in ('04', '06', '07'):
     optional_fight('sites-gaa-' + part, 'sites-gaa-' + part + '-side-arena')
@@ -289,6 +295,18 @@ assert all(restored.story.quests[entry['quest']].status == 'complete' for entry 
 proof = dict(sourceSha256=sha256(source).hexdigest(), level=state.progression.level,
              trips=trips, crossings=len(walk.crossings), reports=reports, battles=battles, locks=locks,
              resumedAt=restored.story.node, returns=state.returns)
+if after_branches:
+    final=validate_save(native(core.checkpoint(restored)))
+    completed={id:record for id,record in saved['story']['quests'].items() if record['status']=='complete'}
+    assert all(final['story']['quests'][id]==record for id,record in completed.items())
+    hidden={q['id'] for q in quests.values() if q.get('designId','').startswith('Q-H')}
+    assert len(hidden)==6 and {row['quest'] for row in reports}==hidden
+    assert restored.returns==0
+    (ROOT/'evidence/hidden-expedition-save.json').write_bytes((json.dumps(final,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
+    proof['sourceSha256']=sha256(source.replace(b'\r\n',b'\n')).hexdigest()
+    (ROOT/'evidence/hidden-expedition-route.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n','utf8')
+    print('Returned from three hidden worlds:',len(reports),'reports,',len(battles),'battles',flush=True)
+    raise SystemExit(0)
 (ROOT / 'evidence/earned-hidden-routes-lua.json').write_text(
     json.dumps(proof, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
 print('Earned hidden routes:', len(trips), 'atlas itineraries,', len(reports), 'quest reports,',

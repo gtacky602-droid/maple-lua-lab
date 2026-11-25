@@ -116,7 +116,7 @@ class Journey(TrailWalk):
         assert after[0] > before[0] and after[1] > before[1]
         self.reports.append(dict(quest=quest, xp=after[0]-before[0], mora=after[1]-before[1]))
 
-    def fight(self, enemies, before, *, rewarded=True, guided_quest=None):
+    def fight(self, enemies, before, *, rewarded=True, guided_quest=None, allow_collateral=False):
         controls = self.lua.table(attack=True)
         remaining = list(enemies)
         while remaining:
@@ -131,13 +131,19 @@ class Journey(TrailWalk):
             for _ in range(600):
                 if enemy.hp <= 0:
                     break
-                self.tick(1, controls)
+                dx=enemy.x-self.actor.x
+                if self.actor.dir*dx<0:
+                    self.tick(1,self.inputs['right' if dx>0 else 'left'])
+                else:
+                    self.tick(1, controls)
             assert enemy.hp <= 0, (enemy.id, enemy.hp, self.actor.x, self.actor.dir)
-        assert self.state.kills-before[0] == len(enemies)
+        kills = self.state.kills-before[0]
+        assert all(e.hp <= 0 for e in enemies)
+        assert kills >= len(enemies) if allow_collateral else kills == len(enemies)
         xp = self.state.progression.killXp-before[1]
         assert (xp > 0 if rewarded else xp == 0) and self.state.returns == before[2]
         self.battles.append(dict(node=self.state.story.node, targets=[e.spawnId or e.fieldBoss for e in enemies],
-                                 xp=xp, kills=len(enemies)))
+                                 xp=xp, kills=kills))
 
     def totals(self):
         return self.state.kills, self.state.progression.killXp, self.state.returns
