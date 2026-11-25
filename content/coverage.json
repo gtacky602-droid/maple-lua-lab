@@ -3,6 +3,18 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "sumeru_observatory_revisits": {
+    "completedMain": 3,
+    "completedSide": 5,
+    "sheets": 5,
+    "regionalNotes": 5,
+    "reachedFontaineLevel": 80,
+    "afterAllEightLevel": 81,
+    "route": "evidence/sumeru-after-revisits.json",
+    "save": "evidence/sumeru-revisit-save.json",
+    "lua": "evidence/sumeru-revisits-lua.json",
+    "browser": "evidence/sumeru-observatory-browser.json"
+  },
   "inazuma_chapter_revisits": {
     "earnedLevel": 60,
     "completedMain": 3,

@@ -1,0 +1,24 @@
+{
+  "chapterAndSideReports": 8,
+  "discoveryCards": 3,
+  "fontaineEntryConfirmed": true,
+  "inazumaRecordsPreserved": true,
+  "level": 81,
+  "partyWipes": 0,
+  "quests": [
+    "sumeru-leaf-crossing",
+    "sumeru-forest-levels",
+    "sumeru-observatory-map",
+    "sum-wanderer-observation",
+    "sum-fungus-visitors",
+    "sum-collei-guide",
+    "sum-kaveh-model",
+    "sum-nahida-map"
+  ],
+  "readingRoomStorage": 8,
+  "tones": [
+    349,
+    440,
+    392
+  ]
+}

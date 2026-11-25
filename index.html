@@ -388,7 +388,12 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
  <button type="button" data-action="story_spring_close">閉じる</button>
 </section>
 <div id="surfControls" hidden aria-label="水遊びの操作"><span id="surfStatus" role="status"></span> <button id="surfHit" type="button" data-action="story_surf_hit" hidden>J：ボールを打ち返す</button><div data-surf-touch><button data-hold="left" aria-label="左へ移動">←</button><button data-hold="right" aria-label="右へ移動">→</button><button id="surfJump" type="button" data-action="jump">ジャンプ</button></div></div>
-<div id="surveyMap" hidden style="padding:10px 18px;background:#173a3b"><p id="surveyMapCaption" style="margin:0 0 8px"></p><canvas id="surveyMapCanvas" width="420" height="132" aria-hidden="true" style="width:min(100%,420px);aspect-ratio:420/132"></canvas></div>
+<div id="surveyMap" hidden style="padding:10px 18px;background:#173a3b">
+ <label id="surveySheets" hidden>観測所の調査図 <select id="surveySheet"></select></label>
+ <p id="surveyMapCaption" style="margin:0 0 8px"></p>
+ <canvas id="surveyMapCanvas" width="420" height="132" aria-hidden="true" style="width:min(100%,420px);aspect-ratio:420/132"></canvas>
+ <section id="surveyFieldNotes" hidden><h3>調査図の書き込み</h3><ul></ul></section>
+</div>
 <section id="readingModel" hidden aria-label="閲覧室の模型" style="padding:12px 18px;background:#193b39">
  <div class="model-layout">
   <canvas id="readingModelCanvas" width="690" height="306" aria-hidden="true" style="width:min(100%,690px);aspect-ratio:690/306"></canvas>

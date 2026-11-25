@@ -4,7 +4,7 @@ import json
 import subprocess
 import sys
 
-from experience import LEVELS
+from experience import LEVELS, RUNTIME_EXP
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
@@ -15,10 +15,13 @@ def read(path):
 
 
 hub = 'sumeru-hub'
-work = ROOT / 'work' / 'sumeru-fresh-route'
+after_revisits = '--after-revisits' in sys.argv
+work = ROOT/'work'/('sumeru-revisits-route' if after_revisits else 'sumeru-fresh-route')
 work.mkdir(parents=True, exist_ok=True)
-subprocess.run([sys.executable, str(ROOT / 'test_inazuma_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-checkpoint = validate_save(read('work/inazuma-fresh-route/sumeru-save.json'))
+predecessor = 'test_inazuma_revisits.py' if after_revisits else 'test_inazuma_fresh_route.py'
+subprocess.run([sys.executable, str(ROOT/predecessor)], stdout=subprocess.DEVNULL, check=True)
+source = 'epilogue-sumeru.json' if after_revisits else 'sumeru-save.json'
+checkpoint = validate_save(read('work/inazuma-fresh-route/'+source))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 60
 
 graph = read('content/story-graph.json')
@@ -235,6 +238,7 @@ for stage, parent, threshold in ((forest, fork, 74), (bank_hunt, lookout, 79), (
             recovery_trips += 1
         cross(stage)
         before_kills, before_xp, before_time = state.kills, state.progression.killXp, state.t
+        before_total = state.progression.total
         act('auto')
         for _ in range(4500):
             core.step(state, 1 / 60, trail.idle)
@@ -243,7 +247,13 @@ for stage, parent, threshold in ((forest, fork, 74), (bank_hunt, lookout, 79), (
         act('auto')
         kills = state.kills - before_kills
         xp = state.progression.killXp - before_xp
-        assert kills > 0 and xp == kills * exp_per_enemy and state.returns == 0, (stage, trail.actor.hp, kills, xp)
+        # One hit may defeat several enemies on the tick that reaches the return level.
+        # Kills after the level-up use the +5 level-gap factor immediately.
+        gap_start = LEVELS[nodes[stage]['level']+4]['maple_reference_total_exp_to_reach']
+        full = min(kills, max(0, (gap_start-before_total+exp_per_enemy-1)//exp_per_enemy))
+        reduced_exp = int(exp_per_enemy*RUNTIME_EXP['gap']['player_higher_by_5_to_10']+.5)
+        assert xp == full*exp_per_enemy+(kills-full)*reduced_exp and state.returns == 0, (stage, trail.actor.hp, kills, xp)
+        assert kills>0 or trail.actor.hp<65, (stage, 'no progress at safe HP')
         sorties.append(dict(stage=stage, kills=kills, xp=xp, seconds=round(state.t - before_time, 2)))
         cross(parent)
     assert state.progression.level == threshold, (stage, threshold, state.progression.level)
@@ -276,4 +286,10 @@ assert restored.story.quests[next_quest].status == 'active'
 result = dict(route=milestones, completedQuests=quests, hunts=sorties, recoveryTrips=recovery_trips,
               partyWipes=state.returns, savedAndRestored=True, firstFontaineQuestAvailable=next_quest,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
-(ROOT / 'evidence/sumeru-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
+if after_revisits:
+    for id, progress in checkpoint['story']['quests'].items():
+        if id.startswith(('ina-','inazuma-')) or id=='ayaka-join':
+            assert saved['story']['quests'][id]==progress
+    result.update(source=source,inazumaRecordsPreserved=True)
+filename = 'sumeru-after-revisits.json' if after_revisits else 'sumeru-fresh-route.json'
+(ROOT/'evidence'/filename).write_text(json.dumps(result, indent=2)+'\n', encoding='utf8')

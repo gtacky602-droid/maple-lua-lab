@@ -752,7 +752,7 @@ function hud(f,calls,renderMs){
  }
  airflowAudio.update(f);
  updateRockView(f.storyRockView);
- updateSurveyMap(f.storySurveyMap);
+ updateSurveyMap(f.storySurveyMap,f);
  updateReadingModel(f.storyKavehModel);
  updateDiscoveryMap(f.storyDiscoveryMap);
  updateFurinaRehearsal(f.storyFurinaRehearsal);
