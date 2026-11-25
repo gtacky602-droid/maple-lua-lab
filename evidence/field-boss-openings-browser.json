@@ -1,0 +1,207 @@
+{
+  "entranceTiers": 5,
+  "differentPixels": 0,
+  "verified": {
+    "aeonblight-field-chamber": {
+      "tick": 26,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 8195,
+        "h48c32": 5179,
+        "h32c16": 2271
+      }
+    },
+    "atocpan-overseer-ruin": {
+      "tick": 59,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 8227,
+        "h48c32": 5181,
+        "h32c16": 2280
+      }
+    },
+    "baptist-field-sanctuary": {
+      "tick": 35,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 19,
+      "profiles": {
+        "legacy": 6044,
+        "h48c32": 3796,
+        "h32c16": 1734
+      }
+    },
+    "icewind-coppelia-field": {
+      "tick": 38,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [
+        "風",
+        "氷"
+      ],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 6645,
+        "h48c32": 4048,
+        "h32c16": 1829
+      }
+    },
+    "icewind-coppelius-field": {
+      "tick": 10,
+      "phase": "available",
+      "swimming": false,
+      "actors": 2,
+      "labels": [
+        "氷",
+        "風"
+      ],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 6645,
+        "h48c32": 4048,
+        "h32c16": 1829
+      }
+    },
+    "legatus-field-hall": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 9413,
+        "h48c32": 5857,
+        "h32c16": 2647
+      }
+    },
+    "maguu-field-dojo": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 4295,
+        "h48c32": 2564,
+        "h32c16": 1135
+      }
+    },
+    "nod-gecko-depths": {
+      "tick": 66,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 9736,
+        "h48c32": 6170,
+        "h32c16": 2845
+      }
+    },
+    "nod-moonfly-hollow": {
+      "tick": 60,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 6452,
+        "h48c32": 4095,
+        "h32c16": 1847
+      }
+    },
+    "papilla-field-hollow": {
+      "tick": 52,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 7089,
+        "h48c32": 4396,
+        "h32c16": 1979
+      }
+    },
+    "qucusaur-field-cavern": {
+      "tick": 45,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 9599,
+        "h48c32": 6176,
+        "h32c16": 2642
+      }
+    },
+    "seahorse-field-cavern": {
+      "tick": 40,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 8422,
+        "h48c32": 5406,
+        "h32c16": 2461
+      }
+    },
+    "suanni-field-sanctum": {
+      "tick": 44,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 7678,
+        "h48c32": 4946,
+        "h32c16": 2257
+      }
+    },
+    "tulpa-field-grotto": {
+      "tick": 43,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 9888,
+        "h48c32": 6597,
+        "h32c16": 2989
+      }
+    },
+    "yumka-field-ravine": {
+      "tick": 53,
+      "phase": "available",
+      "swimming": false,
+      "actors": 1,
+      "labels": [],
+      "hpBarRectangles": 0,
+      "profiles": {
+        "legacy": 6431,
+        "h48c32": 4323,
+        "h32c16": 1914
+      }
+    }
+  }
+}

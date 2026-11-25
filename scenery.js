@@ -108,8 +108,8 @@ export const sceneryDefinitions={
  gateCourt:{file:'gate-court-background-v1.png',decodedPreview:'gate-court-native-preview-v1.png',decodedTiers:'gate-court-native-tiers-v1.webp',zones:['story:mond-gate-chess-court'],note:'扉の対局の仮背景'},
  tulpaField:{file:'tulpa-field-background-v1.png',decodedPreview:'tulpa-field-native-preview-v1.png',decodedTiers:'tulpa-field-native-tiers-v1.webp',zones:['story:tulpa-field-grotto'],note:'潮影の洞と星海の仮背景'},
  narwhalInner:{file:'narwhal-inner-background-v1.png',decodedPreview:'narwhal-inner-native-preview-v1.png',decodedTiers:'narwhal-inner-native-tiers-v1.webp',zones:['story:narwhal-inner-echo'],note:'腹中の仮背景'},
- icewindField:{file:'icewind-field-background-v1.png',zones:['story:icewind-promenade','story:icewind-coppelia-field','story:icewind-coppelius-field'],note:'氷風組曲の舞台の仮背景'},
- legatusField:{file:'legatus-field-background-v1.png',zones:['story:nostoi-castle-approach','story:legatus-field-hall'],note:'色褪せた城の仮背景'},
+ icewindField:{file:'icewind-field-background-v1.png',decodedPreview:'icewind-field-native-preview-v1.png',decodedTiers:'icewind-field-native-tiers-v1.webp',zones:['story:icewind-promenade','story:icewind-coppelia-field','story:icewind-coppelius-field'],note:'氷風組曲の舞台の仮背景'},
+ legatusField:{file:'legatus-field-background-v1.png',decodedPreview:'legatus-field-native-preview-v1.png',decodedTiers:'legatus-field-native-tiers-v1.webp',zones:['story:nostoi-castle-approach','story:legatus-field-hall'],note:'色褪せた城の仮背景'},
  suanniField:{file:'suanni-field-background-v1.png',decodedPreview:'suanni-field-native-preview-v1.png',decodedTiers:'suanni-field-native-tiers-v1.webp',zones:['story:suanni-field-sanctum'],note:'懸練山の石庭の仮背景'},
  qucusaurField:{file:'qucusaur-field-background-v1.png',decodedPreview:'qucusaur-field-native-preview-v1.png',decodedTiers:'qucusaur-field-native-tiers-v1.webp',zones:['story:qucusaur-field-cavern'],note:'金焔の岩窟の仮背景'},
  yumkaField:{file:'yumka-field-background-v1.png',decodedPreview:'yumka-field-native-preview-v1.png',decodedTiers:'yumka-field-native-tiers-v1.webp',zones:['story:yumka-field-ravine'],note:'山王の峡谷の仮背景'},
@@ -294,7 +294,7 @@ export const sceneryDefinitions={
  toriiforest:{file:'inazuma-torii-forest-background-v1.png',zones:['story:inazuma-torii-footprints','story:inazuma-torii-statues','story:inazuma-torii-reflections','story:inazuma-torii-thicket'],note:'鎮守の森の色と鳥居を参照した共通の仮背景'},
  liyuequarry:{file:'liyue-quarry-background-v1.png',zones:['story:liyue-river-trail','story:liyue-cliff-planks','story:liyue-quarry-post','story:liyue-quarry-storage','story:liyue-book-camp'],note:'川沿い・桟道・石切り場・宝盗団の拠点で共用する仮背景'},
  mondrestored:{file:'mond-restored-road-background-v1.png',zones:['story:mond-restored-road'],clearedZones:['story:mond-watchtower'],note:'見張り討伐後の街道の仮画像'},
- mondhill:{file:'mond-hill-background-v1.png',region:null,zones:['story:mond-hill','story:mond-watchtower','story:anemo-field-basin'],note:'見張り台と赤い旗の試作構図'},
+ mondhill:{file:'mond-hill-background-v1.png',decodedPreview:'mond-hill-native-preview-v1.png',decodedTiers:'mond-hill-native-tiers-v1.webp',region:null,zones:['story:mond-hill','story:mond-watchtower','story:anemo-field-basin'],note:'見張り台と赤い旗の試作構図'},
  chasm:{file:'chasm-background-v1.png',region:'層岩巨淵・地下鉱区',zones:[],note:'岩層や青い光を参照したラボ仮背景（坑道と足場は試作）'},
  wingspan:{file:'wingspan-background-v1.png',region:'翼の峰',zones:[],note:'巨龍の公式紹介を参照したラボ仮背景（地形・入口は試作）'},
  novokichev:{file:'novokichev-background-v1.png',region:'ノヴォキッチェヴ（仮構造）',zones:[],note:'地下探索路の仮画像（市街地・最深部の採用未確定）'},
@@ -307,7 +307,7 @@ export const sceneryDefinitions={
  goldenDock:{file:'golden-dock-background-v1.png',zones:['story:golden-mainland-coast'],note:'小舟の桟橋の仮背景'},
  goldenGrotto:{file:'golden-grotto-background-v1.png',zones:['story:golden-shadow-grotto','story:golden-tide-pocket'],note:'小洞窟と小浜の仮背景'},
  golden:{file:'golden-background-v1.png',region:'金リンゴ群島',zones:[]},
- tunigiExcavation:{file:'tunigi-excavation-background-v1.png',zones:['story:tunigi-vent-shelf','story:tunigi-baffle-workshop','story:tunigi-elite-passage','story:tunigi-fragment-vault','story:tunigi-return-shelter']},
+ tunigiExcavation:{file:'tunigi-excavation-background-v1.png',decodedPreview:'tunigi-excavation-native-preview-v1.png',decodedTiers:'tunigi-excavation-native-tiers-v1.webp',zones:['story:tunigi-vent-shelf','story:tunigi-baffle-workshop','story:tunigi-elite-passage','story:tunigi-fragment-vault','story:tunigi-return-shelter']},
  tunigi:{file:'tunigi-background-v1.png',region:'トゥニギの黒淵',zones:[]},
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},
  bygoneResonance:{file:'bygone-resonance-background-v1.png',zones:['story:bygone-resonance-chamber','story:bygone-inscribed-hall','story:bygone-listening-gallery'],note:'共鳴石と記録室の仮背景'},
@@ -325,7 +325,7 @@ export const sceneryDefinitions={
  nodMoonShallows:{file:'nod-moon-shallows-background-v1.png',zones:['story:nod-moon-shallows','story:nod-tide-rocks','story:nod-lantern-shore','story:nod-box-inlet','story:nod-detour-shore','story:nod-appraisal-yard','story:nod-rumor-ledge','story:nod-tide-scrapyard'],note:'浅瀬と海岸のラボ用仮背景'},
  nodMoonWood:{file:'nod-moon-wood-background-v1.png',zones:['story:nod-lull-wood','story:nod-spruce-clearing','story:nod-bloom-gate','story:nod-bloom-trail','story:nod-forest-outer'],note:'木陰と林の外周のラボ用仮背景'},
  nodBloomGrove:{file:'nod-moon-bloom-background-v1.png',zones:['story:nod-bloom-grove'],note:'月花の観賞区画のラボ用仮背景'},
- nodMoonCave:{file:'nod-moon-cave-background-v1.png',zones:['story:nod-moon-cave-mouth','story:nod-moon-crab-arena'],note:'月渡りの岩窟口と月殻の広間のラボ用仮背景'},
+ nodMoonCave:{file:'nod-moon-cave-background-v1.png',decodedPreview:'nod-moon-cave-native-preview-v1.png',decodedTiers:'nod-moon-cave-native-tiers-v1.webp',zones:['story:nod-moon-cave-mouth','story:nod-moon-crab-arena'],note:'月渡りの岩窟口と月殻の広間のラボ用仮背景'},
  nodMoonVault:{file:'nod-moon-vault-background-v1.png',zones:['story:nod-moon-vault'],note:'探検家の貯蔵所のラボ用仮背景'},
  nodNightStalls:{file:'nod-night-stalls-background-v1.png',zones:['story:nod-night-stalls','story:nod-rumor-quay'],note:'夜店と波止場のラボ用仮背景'},
  nodFarSea:{file:'nod-far-sea-background-v1.png',zones:['story:nod-far-sea-bench'],note:'沖を眺める腰掛けのラボ用仮背景'},
@@ -363,7 +363,7 @@ export const sceneryDefinitions={
  fontaineMagicWings:{file:'fon-lyney-magic-wings-background-v1.png',zones:['story:fon-magic-wings'],note:'小劇場の舞台裏の仮背景'},
  fontaineMagicSeats:{file:'fon-lyney-magic-seats-background-v1.png',zones:['story:fon-magic-seats'],note:'小劇場の客席の仮背景'},
  fontaineRehearsal:{file:'fontaine-rehearsal-background-v1.png',zones:['story:fontaine-rehearsal-room']},
- fontaineGrandStage:{file:'fontaine-grand-stage-background-v1.png',zones:[
+ fontaineGrandStage:{file:'fontaine-grand-stage-background-v1.png',decodedPreview:'fontaine-grand-stage-native-preview-v1.png',decodedTiers:'fontaine-grand-stage-native-tiers-v1.webp',zones:[
   'story:fontaine-scenery-booth','story:fontaine-grand-stage-approach','story:fontaine-grand-stage'
  ]},
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
@@ -372,7 +372,7 @@ export const sceneryDefinitions={
   'story:natlan-high-trial-steps','story:natlan-high-trial-field','story:natlan-quarry-road'
  ]},
  natlanRaceSummit:{file:'natlan-race-summit-background-v1.png',zones:['story:natlan-flag-summit','story:natlan-duel-entry']},
- natlanSunset:{file:'natlan-sunset-arena-background-v1.png',zones:[
+ natlanSunset:{file:'natlan-sunset-arena-background-v1.png',decodedPreview:'natlan-sunset-arena-native-preview-v1.png',decodedTiers:'natlan-sunset-arena-native-tiers-v1.webp',zones:[
   'story:natlan-sunset-review','story:natlan-sunset-arena','story:natlan-sunset-rostrum'
  ]},
  natlanRiverTrial:{file:'natlan-riverside-trial-background-v1.png',zones:['story:natlan-river-float-run','story:natlan-river-turn-basin','story:natlan-riverside-range']},
@@ -389,7 +389,7 @@ export const sceneryDefinitions={
  sumeruKavehWorkshop:{file:'sum-kaveh-room-workshop-background-v1.png',zones:['story:sum-kaveh-workshop'],note:'樹上の模型工房の仮背景'},
  sumeruKavehRoom:{file:'sum-kaveh-room-room-background-v1.png',zones:['story:sum-kaveh-reading-room'],note:'木漏れ日の閲覧室の仮背景'},
  sumeruNahidaGlade:{file:'sum-nahida-map-glade-background-v1.png',zones:['story:sum-nahida-dew-glade'],note:'朝露のくぼみの仮背景'},
- sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
+ sumeruCanopy:{file:'sumeru-canopy-background-v1.png',decodedPreview:'sumeru-canopy-native-preview-v1.png',decodedTiers:'sumeru-canopy-native-tiers-v1.webp',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
 const backgrounds=new Map();

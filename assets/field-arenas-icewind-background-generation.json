@@ -1,0 +1,16 @@
+{
+  "origin": "Both Icewind Suite performances and their foyer use the same lab stage raster.",
+  "scenes": [
+    {
+      "node": "icewind-coppelia-field",
+      "sharedNodes": [
+        "icewind-coppelius-field",
+        "icewind-promenade"
+      ],
+      "key": "icewindField",
+      "note": "フォンテーヌ・氷風組曲の舞台",
+      "source": "icewind-field-background-v1.png",
+      "preview": "icewind-field-native-preview-v1.png"
+    }
+  ]
+}

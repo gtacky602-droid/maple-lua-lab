@@ -17,9 +17,9 @@ def location_coverage(sources, root):
         for row in json.loads(path.read_text('utf8')).get('scenes', []):
             if row.get('source') not in sources or not row.get('node'):
                 continue
-            node = row['node']
-            assert node in nodes and node not in assigned, (path.name, node)
-            assigned[node] = row['source']
+            for node in [row['node'], *row.get('sharedNodes', [])]:
+                assert node in nodes and node not in assigned, (path.name, node)
+                assigned[node] = row['source']
     assert set(assigned.values()) == set(sources)
     coverage = {'allStages': {'total': len(nodes), 'verified': len(assigned)}}
     for category, prefix in [('domainHunts', 'sites-hunt-'), ('branchHunts', 'branch-hunt-')]:

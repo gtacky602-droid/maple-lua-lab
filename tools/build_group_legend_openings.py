@@ -12,13 +12,14 @@ def read(name):
     return json.loads((ROOT / name).read_bytes())
 
 
-def capture(lua, core, boss, node, gallery, work):
+def capture(lua, core, boss, node, gallery, work, styles=None):
     state = core.new(12)
     core.action(state, 'story_start')
     core.enterStoryNode(state, node['id'])
     swimming = boss['controller'] == 'waterLegend'
     assert bool(state.storySwimming) == swimming, node['id']
-    styles = boss.get('members') or [boss] + ([boss['partner']] if boss.get('partner') else [])
+    if styles is None:
+        styles = boss.get('members') or [boss] + ([boss['partner']] if boss.get('partner') else [])
     slot = state.fieldSlots[boss['id']]
     forward = lua.table_from({'right': True})
     for tick in range(1, 360):
@@ -47,7 +48,7 @@ def capture(lua, core, boss, node, gallery, work):
     parts = []
     for style, i, stop in zip(styles, indices, [*indices[1:], len(png)], strict=True):
         draw = png[i]
-        file = f"{style['art']}-field-idle-sprites-v{boss.get('artRevision', 1)}.json"
+        file = style.get('file') or f"{style['art']}-field-idle-sprites-v{boss.get('artRevision', 1)}.json"
         asset = read('assets/' + file)
         assert (draw['source'], draw['box']) == (asset['source'], asset['box'])
         x = draw['x'] + camera
@@ -56,7 +57,8 @@ def capture(lua, core, boss, node, gallery, work):
         name = style.get('memberName') or style.get('name') or gallery[file]['name']
         if boss.get('partner') and not swimming:
             name = gallery[file]['name'].split('（')[0]
-        part = dict(id=boss['id'] if style is boss else 'boss-' + str(style['entity']),
+        part_id = style.get('placementId') or (boss['id'] if style is boss else 'boss-' + str(style['entity']))
+        part = dict(id=part_id,
                     species='boss-' + gallery[file]['id'], name=name,
                     x=x, y=ground['y'], hover=ground['y'] - draw['y'], h=draw['h'],
                     anchorX=draw['anchorX'], flip=draw['flip'])

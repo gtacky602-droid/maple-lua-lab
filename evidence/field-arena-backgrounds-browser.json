@@ -1,8 +1,53 @@
 {
-  "fieldPickerCount": 56,
+  "fieldPickerCount": 65,
   "atlasEntry": "ruin-serpent-field-pit",
-  "sceneCount": 53,
-  "verifiedTiers": 265,
+  "sharedLocations": {
+    "icewind-field-background-v1.png": [
+      "icewind-coppelia-field",
+      "icewind-coppelius-field",
+      "icewind-promenade"
+    ],
+    "legatus-field-background-v1.png": [
+      "legatus-field-hall",
+      "nostoi-castle-approach"
+    ],
+    "mond-hill-background-v1.png": [
+      "anemo-field-basin",
+      "mond-hill",
+      "mond-watchtower"
+    ],
+    "tunigi-excavation-background-v1.png": [
+      "tunigi-fragment-vault",
+      "tunigi-vent-shelf",
+      "tunigi-baffle-workshop",
+      "tunigi-elite-passage",
+      "tunigi-return-shelter"
+    ],
+    "nod-moon-cave-background-v1.png": [
+      "nod-moon-crab-arena",
+      "nod-moon-cave-mouth"
+    ],
+    "fontaine-grand-stage-background-v1.png": [
+      "fontaine-grand-stage",
+      "fontaine-scenery-booth",
+      "fontaine-grand-stage-approach"
+    ],
+    "natlan-sunset-arena-background-v1.png": [
+      "natlan-sunset-arena",
+      "natlan-sunset-review",
+      "natlan-sunset-rostrum"
+    ],
+    "sumeru-canopy-background-v1.png": [
+      "sumeru-observatory-terrace",
+      "sumeru-canopy-junction",
+      "sumeru-branch-run",
+      "sumeru-observation-stop",
+      "sumeru-observatory-approach",
+      "sumeru-sky-observatory"
+    ]
+  },
+  "sceneCount": 62,
+  "verifiedTiers": 310,
   "scenes": {
     "ruin-serpent-field-pit": {
       "source": "ruin-serpent-field-background-v1.png",
@@ -201,6 +246,56 @@
         "6144": {
           "bytes": 24705,
           "pixelHash": "df1d3e82af65161f16ac05894d08575b1337df5fe7fc37fd3971669bb2831861"
+        }
+      }
+    },
+    "icewind-coppelia-field": {
+      "source": "icewind-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16856,
+          "pixelHash": "759e7c3dabfe19f22ead87f550abe3690e02e1fa028690d65cac8c72629c67b3"
+        },
+        "4608": {
+          "bytes": 20224,
+          "pixelHash": "ddcac0a686ad95752eae6dab78855630efded369998797591006281287404cfe"
+        },
+        "5120": {
+          "bytes": 23457,
+          "pixelHash": "ecf86ce47e8f0f0055a6f5afc3cd8f2587d00517dcefba80e4c861c0150e1a76"
+        },
+        "5632": {
+          "bytes": 26695,
+          "pixelHash": "b8c6f7dbb3e816d60388aed5420aeb74dbf569ac706facf4f669c4a89f1a3a11"
+        },
+        "6144": {
+          "bytes": 28785,
+          "pixelHash": "01567e3ce8ae57d2c0f5757a8759d45a177e051b899e0b954e176ae4b3340d8a"
+        }
+      }
+    },
+    "icewind-coppelius-field": {
+      "source": "icewind-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16856,
+          "pixelHash": "759e7c3dabfe19f22ead87f550abe3690e02e1fa028690d65cac8c72629c67b3"
+        },
+        "4608": {
+          "bytes": 20224,
+          "pixelHash": "ddcac0a686ad95752eae6dab78855630efded369998797591006281287404cfe"
+        },
+        "5120": {
+          "bytes": 23457,
+          "pixelHash": "ecf86ce47e8f0f0055a6f5afc3cd8f2587d00517dcefba80e4c861c0150e1a76"
+        },
+        "5632": {
+          "bytes": 26695,
+          "pixelHash": "b8c6f7dbb3e816d60388aed5420aeb74dbf569ac706facf4f669c4a89f1a3a11"
+        },
+        "6144": {
+          "bytes": 28785,
+          "pixelHash": "01567e3ce8ae57d2c0f5757a8759d45a177e051b899e0b954e176ae4b3340d8a"
         }
       }
     },
@@ -1001,6 +1096,181 @@
         "6144": {
           "bytes": 29448,
           "pixelHash": "9a74d1a96b0600bb2a52404909961be205cce53788307ad14595f118a34f4f0e"
+        }
+      }
+    },
+    "legatus-field-hall": {
+      "source": "legatus-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16058,
+          "pixelHash": "b90087f4b0dd024a1868df8a80e0054ef3fa0c924c8d5263563f22e15e0a0338"
+        },
+        "4608": {
+          "bytes": 19366,
+          "pixelHash": "a32769e0201f279f519d8b0ec42a53cbd8619e74adb10e3baa65cfd7f9d8153d"
+        },
+        "5120": {
+          "bytes": 22547,
+          "pixelHash": "581b0136dc8c70594091800abb0fdaba1b77da4b7ec1f3764f57229565a8b008"
+        },
+        "5632": {
+          "bytes": 25747,
+          "pixelHash": "1b83ddac23bdf2b7292951d5cfe294c179cab833509154c27eeedc08ebace145"
+        },
+        "6144": {
+          "bytes": 27707,
+          "pixelHash": "7f70bcc2e5698b0f64f1a4afc7023b684d06833a093df218a9d8dd06f7428e0f"
+        }
+      }
+    },
+    "anemo-field-basin": {
+      "source": "mond-hill-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18550,
+          "pixelHash": "ba5e68635cae4aeabd91d57f061fddafa235cb7b291a8820183ebc761fc1fabd"
+        },
+        "4608": {
+          "bytes": 22044,
+          "pixelHash": "aab598bbb5618492a12614aee3b6483a1d759e937a9debdf9c35bb051c1fbe2c"
+        },
+        "5120": {
+          "bytes": 25413,
+          "pixelHash": "4d7eb82e957651afdbf86f8406ac2ea6bf0d3ae80ba72055c4dd3615e7c59374"
+        },
+        "5632": {
+          "bytes": 28769,
+          "pixelHash": "504687cba2b91b01d9ed7be3eabc8a8d8746d8c3d4728ba68ef3a5b53cd8f16b"
+        },
+        "6144": {
+          "bytes": 31045,
+          "pixelHash": "d04af2439133d27cc06bd493fec443441a6abc8f896fba03ebc57f244c92cabc"
+        }
+      }
+    },
+    "tunigi-fragment-vault": {
+      "source": "tunigi-excavation-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16148,
+          "pixelHash": "091f7cb079c193911919245b4e08458ae6bb605e6c2873ffec9e497e05a48f65"
+        },
+        "4608": {
+          "bytes": 19496,
+          "pixelHash": "de66afa03088b504280711d92cff16004e7222028ca42a538a989233d57cf6ea"
+        },
+        "5120": {
+          "bytes": 22697,
+          "pixelHash": "b127ec27d7873b3b315f17cd1b94e3dceae086f8421c699aa10c915a2959e62a"
+        },
+        "5632": {
+          "bytes": 25889,
+          "pixelHash": "c68bcc192d5770ef899fdc7fcb60b899d682b20734cc8b588b9eed63868ce291"
+        },
+        "6144": {
+          "bytes": 27695,
+          "pixelHash": "9909be946e51af84f239d2b6bd952f05e0953f0203c90d1e4adc66c03d4a896d"
+        }
+      }
+    },
+    "nod-moon-crab-arena": {
+      "source": "nod-moon-cave-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15856,
+          "pixelHash": "66020706715d580932491a3856c1ca0893df161db3b51439c1baa305d6727c9a"
+        },
+        "4608": {
+          "bytes": 19174,
+          "pixelHash": "418c559dfb7c59f2333fa6f2ef9048d23c17edd801d16b10f69ad5c0f0b4f737"
+        },
+        "5120": {
+          "bytes": 22381,
+          "pixelHash": "41dfa3bc2338a2a708e548ee7b03a500ee12ab29a6aab9a9e90d44f975420d98"
+        },
+        "5632": {
+          "bytes": 25571,
+          "pixelHash": "7a80690821af2c14c66460e3eded0eaa77774967f9bc97421a8d3b1bb50310fb"
+        },
+        "6144": {
+          "bytes": 27455,
+          "pixelHash": "72a212ff13c76bc9898a82a81dd95bc2c6c61b4a05932b31b953a6a1fa9162bf"
+        }
+      }
+    },
+    "fontaine-grand-stage": {
+      "source": "fontaine-grand-stage-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18317,
+          "pixelHash": "de88b40606a7181cdb75809bad8f0330dbd29bd2620aced7b1fc98dc0bba89fb"
+        },
+        "4608": {
+          "bytes": 21727,
+          "pixelHash": "3173eb7791bf4fdd816e94223ddcd57545b28639849a27b5b0cb5d859266e294"
+        },
+        "5120": {
+          "bytes": 25038,
+          "pixelHash": "319f423b5d76df156a60d78fca17b783f5e539e9bb30ecab9438f1373b576bfc"
+        },
+        "5632": {
+          "bytes": 28304,
+          "pixelHash": "78d7f85f1da9a70f43aed659d0489dc4075d761c0a514201f8e9a57d7d0c5077"
+        },
+        "6144": {
+          "bytes": 30146,
+          "pixelHash": "473cd51e5037fc8ab83d80070faa2f1fa3b9e4d880a9a98b0a9689c875aea93a"
+        }
+      }
+    },
+    "natlan-sunset-arena": {
+      "source": "natlan-sunset-arena-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18482,
+          "pixelHash": "fd9a51f740f2ebe00db8616ed5cbb3192de527ef563d2c2c57b985c9cfbb208f"
+        },
+        "4608": {
+          "bytes": 22046,
+          "pixelHash": "585698509dc65fec2a1e91668d3c3acb72a5ec7be4daa6f672d358eb0a0e5344"
+        },
+        "5120": {
+          "bytes": 25499,
+          "pixelHash": "9c62a7a2af50fcb5d370000145a33e0208a62ca034c99faaebcd7e4033d158ba"
+        },
+        "5632": {
+          "bytes": 28939,
+          "pixelHash": "298ab7bd94d0da622ff47334bb97b9668764e8a88e8dfd975575d0d1cbf32d1b"
+        },
+        "6144": {
+          "bytes": 30935,
+          "pixelHash": "abd4f33fd605c7ef1a39e8cdcad1a2966b2c4142c1d1ad3db17f81cfd33d8b7d"
+        }
+      }
+    },
+    "sumeru-observatory-terrace": {
+      "source": "sumeru-canopy-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18866,
+          "pixelHash": "bb16f13b9eb2e74f966829b4486378320b62553af19ace8f7817a73e0d8a684c"
+        },
+        "4608": {
+          "bytes": 22484,
+          "pixelHash": "77a75defe316f1a3b6e7b836e084a5d2c131d63784068832f18d5cd0253b7374"
+        },
+        "5120": {
+          "bytes": 25979,
+          "pixelHash": "2f721572da5968dbbb99b954b94af629d2142582062bcb7bd926850e5e3f3da3"
+        },
+        "5632": {
+          "bytes": 29467,
+          "pixelHash": "d696bfda0c16a4886d8d5048e5c24edc8b99e1ab121ea06b46fc50bbee6b7156"
+        },
+        "6144": {
+          "bytes": 31561,
+          "pixelHash": "4aa65ed07d4220663a69de12178ddaad4e78b07a7f6d91ebdf856024eea7b019"
         }
       }
     },

@@ -33,11 +33,13 @@ async function play([id,door]){
  }
 
  async function gate(x,node){
-  await walk(x);
-  await page.waitForFunction(node=>{
-   const p=window.lab.frame.storyNearbyPortal;
-   return p?.to===node&&p.available;
-  },node);
+  for(let attempt=0;attempt<6;attempt++){
+   const nearby=(await frame()).storyNearbyPortal;
+   if(nearby?.to===node&&nearby.available)break;
+   await walk(x);
+  }
+  const portal=(await frame()).storyNearbyPortal;
+  assert.ok(portal?.to===node&&portal.available,'Expected gate to '+node+' near '+x);
   await page.keyboard.press('KeyF');
   await page.waitForFunction(node=>window.lab.frame.story.node===node,node);
  }
@@ -58,8 +60,8 @@ async function play([id,door]){
   await gate(580,entrance);
   await gate(door,arena);
   const scenery=await page.evaluate(async()=>{
-   const {sceneryStatus,backgroundReady}=await import('./scenery.js');
-   await backgroundReady;
+   const {sceneryStatus,loadScenery}=await import('./scenery.js');
+   await loadScenery(window.lab.frame);
    return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(scenery,{key:'icewindField',file:'icewind-field-background-v1.png',state:'ready'});

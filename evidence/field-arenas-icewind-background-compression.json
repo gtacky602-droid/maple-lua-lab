@@ -1,0 +1,48 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "icewind-field-background-v1.png": {
+      "sourceBytes": 1892570,
+      "sourceSha256": "34e8ccb8633e32e8652347d6991303767663b7a7999d7611eac5e9806ca7e1b3",
+      "preview": "icewind-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16769,
+      "baseSelectedBytes": 16753,
+      "detailFixed13Bytes": 11943,
+      "detailSelectedBytes": 11931,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.685978642216435,
+          "rgbSha256": "759e7c3dabfe19f22ead87f550abe3690e02e1fa028690d65cac8c72629c67b3"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.297309027777778,
+          "rgbSha256": "ddcac0a686ad95752eae6dab78855630efded369998797591006281287404cfe"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.0107851381655095,
+          "rgbSha256": "ecf86ce47e8f0f0055a6f5afc3cd8f2587d00517dcefba80e4c861c0150e1a76"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.7665993019386574,
+          "rgbSha256": "b8c6f7dbb3e816d60388aed5420aeb74dbf569ac706facf4f669c4a89f1a3a11"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.5497956452546298,
+          "rgbSha256": "01567e3ce8ae57d2c0f5757a8759d45a177e051b899e0b954e176ae4b3340d8a"
+        }
+      ]
+    }
+  }
+}

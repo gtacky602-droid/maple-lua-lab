@@ -1,0 +1,85 @@
+{
+  "origin": "Existing lab backgrounds shared by the arena and its approach.",
+  "scenes": [
+    {
+      "node": "legatus-field-hall",
+      "sharedNodes": [
+        "nostoi-castle-approach"
+      ],
+      "key": "legatusField",
+      "note": "ノストイ地区・色褪せた城の展示広間",
+      "source": "legatus-field-background-v1.png",
+      "preview": "legatus-field-native-preview-v1.png"
+    },
+    {
+      "node": "anemo-field-basin",
+      "sharedNodes": [
+        "mond-hill",
+        "mond-watchtower"
+      ],
+      "key": "mondhill",
+      "note": "モンド・風鳴りの広場",
+      "source": "mond-hill-background-v1.png",
+      "preview": "mond-hill-native-preview-v1.png"
+    },
+    {
+      "node": "tunigi-fragment-vault",
+      "sharedNodes": [
+        "tunigi-vent-shelf",
+        "tunigi-baffle-workshop",
+        "tunigi-elite-passage",
+        "tunigi-return-shelter"
+      ],
+      "key": "tunigiExcavation",
+      "note": "風礫の記録庫",
+      "source": "tunigi-excavation-background-v1.png",
+      "preview": "tunigi-excavation-native-preview-v1.png"
+    },
+    {
+      "node": "nod-moon-crab-arena",
+      "sharedNodes": [
+        "nod-moon-cave-mouth"
+      ],
+      "key": "nodMoonCave",
+      "note": "ナド・クライ・月殻の広間",
+      "source": "nod-moon-cave-background-v1.png",
+      "preview": "nod-moon-cave-native-preview-v1.png"
+    },
+    {
+      "node": "fontaine-grand-stage",
+      "sharedNodes": [
+        "fontaine-scenery-booth",
+        "fontaine-grand-stage-approach"
+      ],
+      "key": "fontaineGrandStage",
+      "note": "グラン・フィナーレの主舞台",
+      "source": "fontaine-grand-stage-background-v1.png",
+      "preview": "fontaine-grand-stage-native-preview-v1.png"
+    },
+    {
+      "node": "natlan-sunset-arena",
+      "sharedNodes": [
+        "natlan-sunset-review",
+        "natlan-sunset-rostrum"
+      ],
+      "key": "natlanSunset",
+      "note": "夕映えの模擬戦会場",
+      "source": "natlan-sunset-arena-background-v1.png",
+      "preview": "natlan-sunset-arena-native-preview-v1.png"
+    },
+    {
+      "node": "sumeru-observatory-terrace",
+      "sharedNodes": [
+        "sumeru-canopy-junction",
+        "sumeru-branch-run",
+        "sumeru-observation-stop",
+        "sumeru-observatory-approach",
+        "sumeru-sky-observatory"
+      ],
+      "key": "sumeruCanopy",
+      "note": "枝傘の止まり台",
+      "source": "sumeru-canopy-background-v1.png",
+      "preview": "sumeru-canopy-native-preview-v1.png"
+    }
+  ]
+}

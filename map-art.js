@@ -138,8 +138,9 @@ try{
   assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
   $('species').append(new Option(shadow.name,shadow.species));
  }
- const [mechanismScenes,legendScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json')]);
- for(const [node,scene] of Object.entries(legendScenes)){
+ const [mechanismScenes,legendScenes,fieldScenes]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json')]);
+ const openings={...legendScenes,...fieldScenes};
+ for(const [node,scene] of Object.entries(openings)){
   arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
  }
  const mechanismFiles=new Map();
@@ -198,7 +199,7 @@ try{
  function placementArt(e){
   const original=assets[e.species],art=e.flip&&original.left?original.left:original;
   const boss=arenaPreviews.get(node().id);
-  const part=legendScenes[node().id]?.parts.find(p=>p.id===e.id && p.species===e.species);
+  const part=openings[node().id]?.parts.find(p=>p.id===e.id && p.species===e.species);
   if(part)return {...original,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,openingPose:true,mirrorSource:true};
   if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
    if(boss.controller==='branchLegend' && boss.openingPose){
@@ -279,7 +280,7 @@ try{
   const cost={total:0,visible:0,standard:0};
   const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
-   e=>legendScenes[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
+   e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
    for(const e of visibleItems){
     const a=placementArt(e),flip=e.flip&&(a.mirrorSource||!assets[e.species].left),x=e.x-camera,y=e.y-a.hover;
@@ -339,7 +340,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
+   const label=fieldScenes[n.id]?(fieldScenes[n.id].parts.length>1?'演目開始時の主役と相方':'本編で最初に見えるボスの位置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -377,7 +378,7 @@ try{
    liveItems=[];liveError='';
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
-    const openingBoss=liveItems.length>0 && (legendScenes[n.id] || liveItems[0].id===arenaPreviews.get(n.id)?.id);
+    const openingBoss=liveItems.length>0 && (openings[n.id] || liveItems[0].id===arenaPreviews.get(n.id)?.id);
     if(liveItems.length && (openingBoss || !liveItems.some(e=>e.x>=0 && e.x<960))){
      const focusX=openingBoss?(liveItems[0].x+liveItems.at(-1).x)/2:liveItems[0].x;
      camera.value=Math.min(Number(camera.max),Math.max(0,focusX-480));
@@ -385,7 +386,7 @@ try{
    }catch(error){liveError='本編配置を表示できません：'+error.message}
    subject.replaceChildren(new Option('全員を表示',''));
    const names=new Map((liveSource.nodes[n.id]??[]).map(e=>[e.id,e.name]));
-   for(const p of legendScenes[n.id]?.parts??[])names.set(p.id,p.name);
+   for(const p of openings[n.id]?.parts??[])names.set(p.id,p.name);
    for(const e of liveItems){
     const name=names.get(e.id)||assets[e.species]?.displayName||layouts[e.species]?.name||e.species;
     subject.add(new Option(name+'（'+e.x+', '+e.y+'）',e.id));

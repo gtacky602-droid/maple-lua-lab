@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1315,
+  "verifiedModules": 1355,
   "dimensions": [
     512,
     288
@@ -566,6 +566,13 @@
       "5632": 23099,
       "6144": 24705
     },
+    "icewind-field-background-v1.png": {
+      "4096": 16856,
+      "4608": 20224,
+      "5120": 23457,
+      "5632": 26695,
+      "6144": 28785
+    },
     "wolflord-field-background-v1.png": {
       "4096": 14615,
       "4608": 17829,
@@ -789,6 +796,55 @@
       "5120": 24180,
       "5632": 27440,
       "6144": 29448
+    },
+    "legatus-field-background-v1.png": {
+      "4096": 16058,
+      "4608": 19366,
+      "5120": 22547,
+      "5632": 25747,
+      "6144": 27707
+    },
+    "mond-hill-background-v1.png": {
+      "4096": 18550,
+      "4608": 22044,
+      "5120": 25413,
+      "5632": 28769,
+      "6144": 31045
+    },
+    "tunigi-excavation-background-v1.png": {
+      "4096": 16148,
+      "4608": 19496,
+      "5120": 22697,
+      "5632": 25889,
+      "6144": 27695
+    },
+    "nod-moon-cave-background-v1.png": {
+      "4096": 15856,
+      "4608": 19174,
+      "5120": 22381,
+      "5632": 25571,
+      "6144": 27455
+    },
+    "fontaine-grand-stage-background-v1.png": {
+      "4096": 18317,
+      "4608": 21727,
+      "5120": 25038,
+      "5632": 28304,
+      "6144": 30146
+    },
+    "natlan-sunset-arena-background-v1.png": {
+      "4096": 18482,
+      "4608": 22046,
+      "5120": 25499,
+      "5632": 28939,
+      "6144": 30935
+    },
+    "sumeru-canopy-background-v1.png": {
+      "4096": 18866,
+      "4608": 22484,
+      "5120": 25979,
+      "5632": 29467,
+      "6144": 31561
     },
     "flugel-field-background-v1.png": {
       "4096": 15035,
@@ -1851,7 +1907,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 263
+      "verified": 290
     },
     "domainHunts": {
       "total": 124,
@@ -1925,9 +1981,8 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 56,
+      "verified": 65,
       "pending": [
-        "anemo-field-basin",
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
         "chenyu-boulder-gully",
@@ -1938,17 +1993,12 @@
         "enkan-tablet-hollow",
         "erinnyes-corrouge-cleft",
         "fading-veteran-legend-wreck",
-        "fontaine-grand-stage",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
         "gravity-device-legend-terrace",
-        "icewind-coppelia-field",
-        "icewind-coppelius-field",
         "iron-viscount-legend-pool",
-        "legatus-field-hall",
         "liam-legend-pond",
         "luachra-legend-shelf",
-        "natlan-sunset-arena",
         "night-trial-atlatl",
         "night-trial-chimalli",
         "night-trial-cihuacoatl",
@@ -1966,7 +2016,6 @@
         "nod-hiljetta-peninsula-camp",
         "nod-homesick-wolf-lakeland",
         "nod-mandragora-cliff-foot",
-        "nod-moon-crab-arena",
         "nod-quiet-rim",
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
@@ -1983,12 +2032,10 @@
         "sne-furiosa-domain-outlook",
         "sne-novokichev-ore-yard",
         "sumeru-jadeplume-grove",
-        "sumeru-observatory-terrace",
         "swords-of-the-gorge-legend-rift",
         "tepeakak-sappho-bank",
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
-        "tunigi-fragment-vault",
         "yseut-legend-court",
         "zapabay-tenochtzitoc-shallows"
       ]

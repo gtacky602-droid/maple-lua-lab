@@ -1,0 +1,443 @@
+{
+  "aeonblight-field-chamber": {
+    "parts": [
+      {
+        "anchorX": 0.25653742110009015,
+        "flip": false,
+        "h": 144,
+        "hover": 0,
+        "id": "boss-24030301",
+        "name": "兆載永劫ドレイク",
+        "species": "boss-aeonblight",
+        "x": 800,
+        "y": 480
+      }
+    ]
+  },
+  "atocpan-overseer-ruin": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": true,
+        "h": 172,
+        "hover": 22,
+        "id": "boss-24090501",
+        "name": "秘源機兵・統御デバイス",
+        "species": "boss-overseer",
+        "x": 915,
+        "y": 480
+      }
+    ]
+  },
+  "baptist-field-sanctuary": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": true,
+        "h": 146,
+        "hover": 22,
+        "id": "boss-22100501",
+        "marks": [
+          {
+            "color": "#2a1736",
+            "h": 18,
+            "kind": "rect",
+            "w": 18,
+            "x": 14,
+            "y": -161
+          },
+          {
+            "color": "#ffab72",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 4.8,
+            "x": 19.400000000000045,
+            "y": -158.0
+          },
+          {
+            "color": "#ffab72",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 7.199999999999999,
+            "x": 17.000000000000046,
+            "y": -155.60000000000002
+          },
+          {
+            "color": "#ffab72",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 9.6,
+            "x": 17.00000000000002,
+            "y": -153.2
+          },
+          {
+            "color": "#ffab72",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 12.0,
+            "x": 17.0,
+            "y": -150.8
+          },
+          {
+            "color": "#ffab72",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 7.199999999999999,
+            "x": 19.400000000000023,
+            "y": -148.39999999999998
+          },
+          {
+            "color": "#2a1736",
+            "h": 18,
+            "kind": "rect",
+            "w": 18,
+            "x": -9,
+            "y": -161
+          },
+          {
+            "color": "#aae8ff",
+            "h": 12.0,
+            "kind": "rect",
+            "w": 2.4,
+            "x": -1.1999999999999544,
+            "y": -158.0
+          },
+          {
+            "color": "#aae8ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 12.0,
+            "x": -6.0,
+            "y": -153.2
+          },
+          {
+            "color": "#aae8ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 2.4,
+            "x": 1.2000000000000228,
+            "y": -155.60000000000002
+          },
+          {
+            "color": "#aae8ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 2.4,
+            "x": -3.6000000000000454,
+            "y": -155.60000000000002
+          },
+          {
+            "color": "#aae8ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 2.4,
+            "x": 1.2000000000000228,
+            "y": -150.8
+          },
+          {
+            "color": "#aae8ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 2.4,
+            "x": -3.6000000000000454,
+            "y": -150.8
+          },
+          {
+            "color": "#2a1736",
+            "h": 18,
+            "kind": "rect",
+            "w": 18,
+            "x": -32,
+            "y": -161
+          },
+          {
+            "color": "#d3a4ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 4.8,
+            "x": -29.000000000000046,
+            "y": -158.0
+          },
+          {
+            "color": "#d3a4ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 4.8,
+            "x": -26.599999999999955,
+            "y": -155.60000000000002
+          },
+          {
+            "color": "#d3a4ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 7.199999999999999,
+            "x": -26.599999999999977,
+            "y": -153.2
+          },
+          {
+            "color": "#d3a4ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 2.4,
+            "x": -24.199999999999953,
+            "y": -150.8
+          },
+          {
+            "color": "#d3a4ff",
+            "h": 2.4,
+            "kind": "rect",
+            "w": 2.4,
+            "x": -21.799999999999976,
+            "y": -148.39999999999998
+          }
+        ],
+        "name": "深罪の浸礼者",
+        "species": "boss-baptist",
+        "x": 830,
+        "y": 480
+      }
+    ]
+  },
+  "icewind-coppelia-field": {
+    "parts": [
+      {
+        "anchorX": 0.5048701298701299,
+        "flip": true,
+        "h": 118,
+        "hover": 9,
+        "id": "icewind-coppelia",
+        "marks": [
+          {
+            "color": "#b0f5cd",
+            "kind": "text",
+            "size": 14,
+            "text": "風",
+            "x": 0,
+            "y": -133
+          }
+        ],
+        "name": "主役・コッペリア",
+        "species": "boss-coppelia",
+        "x": 840,
+        "y": 480
+      },
+      {
+        "anchorX": 0.4,
+        "flip": false,
+        "h": 130,
+        "hover": 0,
+        "id": "boss--24070301",
+        "marks": [
+          {
+            "color": "#addefe",
+            "kind": "text",
+            "size": 14,
+            "text": "氷",
+            "x": 0,
+            "y": -142
+          }
+        ],
+        "name": "相方・コペリウス",
+        "species": "boss-coppelius",
+        "x": 1040,
+        "y": 480
+      }
+    ]
+  },
+  "icewind-coppelius-field": {
+    "parts": [
+      {
+        "anchorX": 0.4,
+        "flip": false,
+        "h": 130,
+        "hover": 0,
+        "id": "icewind-coppelius",
+        "marks": [
+          {
+            "color": "#addefe",
+            "kind": "text",
+            "size": 14,
+            "text": "氷",
+            "x": 0,
+            "y": -142
+          }
+        ],
+        "name": "主役・コペリウス",
+        "species": "boss-coppelius",
+        "x": 940,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5048701298701299,
+        "flip": true,
+        "h": 118,
+        "hover": 9,
+        "id": "boss--24070301",
+        "marks": [
+          {
+            "color": "#b0f5cd",
+            "kind": "text",
+            "size": 14,
+            "text": "風",
+            "x": 0,
+            "y": -133
+          }
+        ],
+        "name": "相方・コッペリア",
+        "species": "boss-coppelia",
+        "x": 745,
+        "y": 480
+      }
+    ]
+  },
+  "legatus-field-hall": {
+    "parts": [
+      {
+        "anchorX": 0.5919220055710307,
+        "flip": false,
+        "h": 155,
+        "hover": 0,
+        "id": "boss-26140101",
+        "name": "魔像レガトゥス",
+        "species": "boss-legatus",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "maguu-field-dojo": {
+    "parts": [
+      {
+        "anchorX": 0.6404,
+        "flip": false,
+        "h": 150,
+        "hover": 0,
+        "id": "boss-25090101",
+        "name": "魔偶剣鬼",
+        "species": "boss-maguu",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "nod-gecko-depths": {
+    "parts": [
+      {
+        "anchorX": 0.43167098445595853,
+        "flip": false,
+        "h": 170,
+        "hover": 0,
+        "id": "boss-26302101",
+        "name": "集光の月ヤモリ",
+        "species": "boss-moongecko",
+        "x": 940,
+        "y": 480
+      }
+    ]
+  },
+  "nod-moonfly-hollow": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": true,
+        "h": 160,
+        "hover": 36,
+        "id": "boss-26301101",
+        "name": "集光の幻月蝶",
+        "species": "boss-moonfly",
+        "x": 920,
+        "y": 480
+      }
+    ]
+  },
+  "papilla-field-hollow": {
+    "parts": [
+      {
+        "anchorX": 0.5197152245345017,
+        "flip": true,
+        "h": 172,
+        "hover": 0,
+        "id": "boss-22120101",
+        "name": "深遠なるミミックパピラ・I型",
+        "species": "boss-papilla",
+        "x": 890,
+        "y": 480
+      }
+    ]
+  },
+  "qucusaur-field-cavern": {
+    "parts": [
+      {
+        "anchorX": 0.5858237547892721,
+        "flip": false,
+        "h": 156,
+        "hover": 0,
+        "id": "boss-26230301",
+        "name": "暴君・金焔のクク竜",
+        "species": "boss-qucusaur",
+        "x": 865,
+        "y": 480
+      }
+    ]
+  },
+  "seahorse-field-cavern": {
+    "parts": [
+      {
+        "anchorX": 0.28,
+        "flip": false,
+        "h": 145,
+        "hover": 12,
+        "id": "boss-26180101",
+        "name": "千年真珠の海駿",
+        "species": "boss-seahorse",
+        "x": 850,
+        "y": 480
+      }
+    ]
+  },
+  "suanni-field-sanctum": {
+    "parts": [
+      {
+        "anchorX": 0.2701818181818182,
+        "flip": false,
+        "h": 154,
+        "hover": 0,
+        "id": "boss-26190101",
+        "name": "山隠れの猊獣",
+        "species": "boss-suanni",
+        "x": 863,
+        "y": 480
+      }
+    ]
+  },
+  "tulpa-field-grotto": {
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "flip": true,
+        "h": 155,
+        "hover": 0,
+        "id": "boss-20051201",
+        "name": "水形タルパ",
+        "species": "boss-tulpa",
+        "x": 860,
+        "y": 480
+      }
+    ]
+  },
+  "yumka-field-ravine": {
+    "parts": [
+      {
+        "anchorX": 0.39790337283500454,
+        "flip": false,
+        "h": 162,
+        "hover": 0,
+        "id": "boss-26220301",
+        "name": "山の王・貪食のユムカ竜",
+        "species": "boss-yumka",
+        "x": 895,
+        "y": 480
+      }
+    ]
+  }
+}

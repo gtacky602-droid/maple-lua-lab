@@ -1,0 +1,300 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "legatus-field-background-v1.png": {
+      "sourceBytes": 2196999,
+      "sourceSha256": "001112375f4b0e6a16a7c6d9de0b724141a6d098db8d767febd69c43a010caa4",
+      "preview": "legatus-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15969,
+      "baseSelectedBytes": 15955,
+      "detailFixed13Bytes": 11665,
+      "detailSelectedBytes": 11651,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.413311993634259,
+          "rgbSha256": "b90087f4b0dd024a1868df8a80e0054ef3fa0c924c8d5263563f22e15e0a0338"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.169334129050926,
+          "rgbSha256": "a32769e0201f279f519d8b0ec42a53cbd8619e74adb10e3baa65cfd7f9d8153d"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.9857177734375,
+          "rgbSha256": "581b0136dc8c70594091800abb0fdaba1b77da4b7ec1f3764f57229565a8b008"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.8338939525462963,
+          "rgbSha256": "1b83ddac23bdf2b7292951d5cfe294c179cab833509154c27eeedc08ebace145"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.6996912073206016,
+          "rgbSha256": "7f70bcc2e5698b0f64f1a4afc7023b684d06833a093df218a9d8dd06f7428e0f"
+        }
+      ]
+    },
+    "mond-hill-background-v1.png": {
+      "sourceBytes": 2562966,
+      "sourceSha256": "7833f558dba0b99a2c6a6ca0684f8ebc6a9a72e5302136f37e2974e4651c08b1",
+      "preview": "mond-hill-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18465,
+      "baseSelectedBytes": 18451,
+      "detailFixed13Bytes": 12507,
+      "detailSelectedBytes": 12497,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.81325050636574,
+          "rgbSha256": "ba5e68635cae4aeabd91d57f061fddafa235cb7b291a8820183ebc761fc1fabd"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.216252079716435,
+          "rgbSha256": "aab598bbb5618492a12614aee3b6483a1d759e937a9debdf9c35bb051c1fbe2c"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.754423918547453,
+          "rgbSha256": "4d7eb82e957651afdbf86f8406ac2ea6bf0d3ae80ba72055c4dd3615e7c59374"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.369841399016203,
+          "rgbSha256": "504687cba2b91b01d9ed7be3eabc8a8d8746d8c3d4728ba68ef3a5b53cd8f16b"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.023586697048611,
+          "rgbSha256": "d04af2439133d27cc06bd493fec443441a6abc8f896fba03ebc57f244c92cabc"
+        }
+      ]
+    },
+    "tunigi-excavation-background-v1.png": {
+      "sourceBytes": 2529846,
+      "sourceSha256": "b6d964c0705d976607bfbc48a31d060c342ff3a850980157015608f60955a860",
+      "preview": "tunigi-excavation-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16057,
+      "baseSelectedBytes": 16041,
+      "detailFixed13Bytes": 11561,
+      "detailSelectedBytes": 11549,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.17546703197338,
+          "rgbSha256": "091f7cb079c193911919245b4e08458ae6bb605e6c2873ffec9e497e05a48f65"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.859275535300926,
+          "rgbSha256": "de66afa03088b504280711d92cff16004e7222028ca42a538a989233d57cf6ea"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.616111472800926,
+          "rgbSha256": "b127ec27d7873b3b315f17cd1b94e3dceae086f8421c699aa10c915a2959e62a"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.40276195384838,
+          "rgbSha256": "c68bcc192d5770ef899fdc7fcb60b899d682b20734cc8b588b9eed63868ce291"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.2200746889467595,
+          "rgbSha256": "9909be946e51af84f239d2b6bd952f05e0953f0203c90d1e4adc66c03d4a896d"
+        }
+      ]
+    },
+    "nod-moon-cave-background-v1.png": {
+      "sourceBytes": 2128011,
+      "sourceSha256": "bd36dee5c9c912e7fc5864994b6a02ca43426e1bbe5d977ff7e832a0ab9930ed",
+      "preview": "nod-moon-cave-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15767,
+      "baseSelectedBytes": 15753,
+      "detailFixed13Bytes": 11613,
+      "detailSelectedBytes": 11601,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.095583315248843,
+          "rgbSha256": "66020706715d580932491a3856c1ca0893df161db3b51439c1baa305d6727c9a"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.7885810004340277,
+          "rgbSha256": "418c559dfb7c59f2333fa6f2ef9048d23c17edd801d16b10f69ad5c0f0b4f737"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.5640236183449074,
+          "rgbSha256": "41dfa3bc2338a2a708e548ee7b03a500ee12ab29a6aab9a9e90d44f975420d98"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.37371826171875,
+          "rgbSha256": "7a80690821af2c14c66460e3eded0eaa77774967f9bc97421a8d3b1bb50310fb"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.207964861834491,
+          "rgbSha256": "72a212ff13c76bc9898a82a81dd95bc2c6c61b4a05932b31b953a6a1fa9162bf"
+        }
+      ]
+    },
+    "fontaine-grand-stage-background-v1.png": {
+      "sourceBytes": 2422692,
+      "sourceSha256": "d9dcf4df79823470dc7ae14e7d83cd8c134587553f544148bd08d68e54cb5b20",
+      "preview": "fontaine-grand-stage-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18219,
+      "baseSelectedBytes": 18207,
+      "detailFixed13Bytes": 11839,
+      "detailSelectedBytes": 11831,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.695671929253472,
+          "rgbSha256": "de88b40606a7181cdb75809bad8f0330dbd29bd2620aced7b1fc98dc0bba89fb"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.234004267939815,
+          "rgbSha256": "3173eb7791bf4fdd816e94223ddcd57545b28639849a27b5b0cb5d859266e294"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.886693883825232,
+          "rgbSha256": "319f423b5d76df156a60d78fca17b783f5e539e9bb30ecab9438f1373b576bfc"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.595829716435185,
+          "rgbSha256": "78d7f85f1da9a70f43aed659d0489dc4075d761c0a514201f8e9a57d7d0c5077"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.327360930266203,
+          "rgbSha256": "473cd51e5037fc8ab83d80070faa2f1fa3b9e4d880a9a98b0a9689c875aea93a"
+        }
+      ]
+    },
+    "natlan-sunset-arena-background-v1.png": {
+      "sourceBytes": 2781039,
+      "sourceSha256": "c7cdd76081c1f67af2191f3c04da6c16062239e79757cab3e6d82308a82077dc",
+      "preview": "natlan-sunset-arena-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18387,
+      "baseSelectedBytes": 18373,
+      "detailFixed13Bytes": 12469,
+      "detailSelectedBytes": 12455,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 9.370081018518519,
+          "rgbSha256": "fd9a51f740f2ebe00db8616ed5cbb3192de527ef563d2c2c57b985c9cfbb208f"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.863703974971065,
+          "rgbSha256": "585698509dc65fec2a1e91668d3c3acb72a5ec7be4daa6f672d358eb0a0e5344"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 8.454117386429399,
+          "rgbSha256": "9c62a7a2af50fcb5d370000145a33e0208a62ca034c99faaebcd7e4033d158ba"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 8.110032823350695,
+          "rgbSha256": "298ab7bd94d0da622ff47334bb97b9668764e8a88e8dfd975575d0d1cbf32d1b"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.798477737991898,
+          "rgbSha256": "abd4f33fd605c7ef1a39e8cdcad1a2966b2c4142c1d1ad3db17f81cfd33d8b7d"
+        }
+      ]
+    },
+    "sumeru-canopy-background-v1.png": {
+      "sourceBytes": 3054198,
+      "sourceSha256": "6d0cae4ad6e056051310d625684117aa6a1dad5bc93c076d9c694eaaeabc9f02",
+      "preview": "sumeru-canopy-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18777,
+      "baseSelectedBytes": 18763,
+      "detailFixed13Bytes": 12709,
+      "detailSelectedBytes": 12697,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 15.313521773726851,
+          "rgbSha256": "bb16f13b9eb2e74f966829b4486378320b62553af19ace8f7817a73e0d8a684c"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 14.438856336805555,
+          "rgbSha256": "77a75defe316f1a3b6e7b836e084a5d2c131d63784068832f18d5cd0253b7374"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 13.73647732204861,
+          "rgbSha256": "2f721572da5968dbbb99b954b94af629d2142582062bcb7bd926850e5e3f3da3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 13.131103515625,
+          "rgbSha256": "d696bfda0c16a4886d8d5048e5c24edc8b99e1ab121ea06b46fc50bbee6b7156"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 12.58099365234375,
+          "rgbSha256": "4aa65ed07d4220663a69de12178ddaad4e78b07a7f6d91ebdf856024eea7b019"
+        }
+      ]
+    }
+  }
+}

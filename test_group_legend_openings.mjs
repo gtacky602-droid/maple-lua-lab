@@ -5,9 +5,11 @@ import {compareOpeningPixels} from './tools/browser_opening_pixels.mjs';
 
 const read=async path=>JSON.parse(await fs.readFile(path,'utf8'));
 const graph=await read('content/story-graph.json');
-const scenes=await read('content/group-legend-openings.json');
+const field=process.argv.includes('--field');
+const group=field?'field-boss-openings':'group-legend-openings';
+const scenes=await read('content/'+group+'.json');
 const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
-const shots=new Set(['fairy-knight-twins-legend-court','chassanion-legend-bubble-room','witztli-tristars-camp']);
+const shots=field?new Set(['icewind-coppelia-field','icewind-coppelius-field']):new Set(['fairy-knight-twins-legend-court','chassanion-legend-bubble-room','witztli-tristars-camp']);
 try{
  const page=await browser.newPage({viewport:{width:1440,height:920}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -17,14 +19,18 @@ try{
  await page.keyboard.press('KeyM');
  await page.locator('#atlasWorld').click();
  await page.locator('#atlasLayer').selectOption('boss');
- const choices=await page.waitForFunction(()=>window.lab.frame.worldMap?.bosses?.filter(b=>b.boss.kind==='legend').map(b=>({node:b.id,preview:b.boss.placementPreview})));
- const legends=await choices.jsonValue();
- assert.equal(legends.length,56);
- assert.ok(legends.every(b=>b.preview));
+ let legendLinks;
+ if(!field){
+  const choices=await page.waitForFunction(()=>window.lab.frame.worldMap?.bosses?.filter(b=>b.boss.kind==='legend').map(b=>({node:b.id,preview:b.boss.placementPreview})));
+  const legends=await choices.jsonValue();
+  assert.equal(legends.length,56);
+  assert.ok(legends.every(b=>b.preview));
+  legendLinks=legends.length;
+ }
  const verified={},gallery=[];
  for(const [id,scene] of Object.entries(scenes)){
   const node=graph.nodes.find(n=>n.id===id);
-  const refs=await read('work/group-legend-openings/'+id+'.json');
+  const refs=await read('work/'+group+'/'+id+'.json');
   if(await page.locator('#atlasWorld').isEnabled()){
    await page.locator('#atlasWorld').click();
    await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='world');
@@ -53,6 +59,11 @@ try{
    assert.deepEqual(diff,{png:0,rect:0},id+' '+profile+' '+JSON.stringify(diff));
    profiles[profile]=refs[profile].filter(d=>d.kind==='rect').length;
   }
+  if(field && shots.has(id)){
+   const lead=id==='icewind-coppelia-field'?'風':'氷';
+   assert.deepEqual(refs.png.filter(d=>d.kind==='text').map(d=>d.text),[lead,lead==='風'?'氷':'風']);
+   assert.equal(await viewer.locator('#liveSubject option').nth(1).textContent().then(s=>s.includes('主役')),true);
+  }
   assert.ok(initial.visuals.every((v,i)=>v.source===plot[i].source&&Math.abs(v.y-plot[i].y)<1e-8&&v.height===plot[i].h));
   if(scene.parts.length>1){
    for(const p of scene.parts){
@@ -66,16 +77,26 @@ try{
    await decoded.check();await viewer.selectOption('#backgroundTier','4096');
    await viewer.waitForFunction(()=>window.mapArt.decodedBackgroundRectangles===4096);
    const canvas=await viewer.locator('#rect').evaluate(c=>c.toDataURL('image/png'));
-   await fs.writeFile('evidence/'+id+'-formation.png',Buffer.from(canvas.split(',')[1],'base64'));
+   if(!field)await fs.writeFile('evidence/'+id+'-formation.png',Buffer.from(canvas.split(',')[1],'base64'));
    gallery.push({name:id,images:[await viewer.locator('#png').evaluate(c=>c.toDataURL()),canvas]});
   }
   verified[id]={tick:refs.tick,phase:refs.phase,swimming:refs.swimming,actors:plot.length,
    labels:refs.png.filter(d=>d.kind==='text').map(d=>d.text),hpBarRectangles:refs.png.filter(d=>d.kind==='rect').length,profiles};
   await viewer.close();
  }
+ if(field){
+  await page.goto(new URL('map-art.html?node=icewind-promenade&tier=4096',page.url()).href);
+  await page.waitForFunction(()=>window.mapArt?.node==='icewind-promenade'&&window.mapArt.backgroundState==='ready');
+  await page.locator('#decodedBackground').check();
+  for(const n of [4096,4608,5120,5632,6144]){
+   await page.selectOption('#backgroundTier',String(n));
+   await page.waitForFunction(n=>window.mapArt.decodedBackgroundRectangles===n,n);
+   await page.locator('#sceneryDownload[download="icewind-field-'+n+'.lua"]').waitFor();
+  }
+ }
  assert.deepEqual(errors,[]);
  const image=await page.evaluate(async rows=>{
-  const names={'fairy-knight-twins-legend-court':'双生妖精の騎士','chassanion-legend-bubble-room':'シャサニョン','witztli-tristars-camp':'異色三連星'};
+  const names={'icewind-coppelia-field':'コッペリアの葬送','icewind-coppelius-field':'コペリウスの劫罰','fairy-knight-twins-legend-court':'双生妖精の騎士','chassanion-legend-bubble-room':'シャサニョン','witztli-tristars-camp':'異色三連星'};
   const c=document.createElement('canvas');c.width=1000;c.height=32+rows.length*230;
   const ctx=c.getContext('2d');ctx.fillStyle='#18282f';ctx.fillRect(0,0,c.width,c.height);
   ctx.fillStyle='#fff4e3';ctx.font='bold 17px "Yu Gothic UI",sans-serif';
@@ -90,7 +111,7 @@ try{
   }
   return c.toDataURL();
  },[...shots].map(id=>gallery.find(row=>row.name===id)));
- await fs.writeFile('evidence/legend-formations-comparison.png',Buffer.from(image.split(',')[1],'base64'));
- await fs.writeFile('evidence/group-legend-openings-browser.json',JSON.stringify({legendLinks:legends.length,differentPixels:0,verified},null,2)+'\n');
- console.log(Object.keys(verified).length+' rooms with groups or underwater legends match all four renderings.');
+ await fs.writeFile('evidence/'+(field?'icewind-duet':'legend-formations')+'-comparison.png',Buffer.from(image.split(',')[1],'base64'));
+ await fs.writeFile('evidence/'+group+'-browser.json',JSON.stringify({...(field?{entranceTiers:5}:{legendLinks}),differentPixels:0,verified},null,2)+'\n');
+ console.log(Object.keys(verified).length+' arenas match all four renderings.');
 }finally{await browser.close()}

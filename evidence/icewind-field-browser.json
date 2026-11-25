@@ -4,13 +4,13 @@
     "icewind-coppelia": {
       "play": {
         "win": true,
-        "seconds": 45.87,
+        "seconds": 45.75,
         "moves": [
           "FIC01",
           "FIC02",
           "FIC03"
         ],
-        "hp": 82,
+        "hp": 102,
         "returns": 0
       },
       "scenery": {
@@ -23,9 +23,9 @@
         "cryo"
       ],
       "sameSceneCommands": {
-        "png": 39,
-        "standard": 11605,
-        "light": 3067
+        "png": 33,
+        "standard": 11599,
+        "light": 3061
       },
       "savedRespawn": true,
       "variantQuestIsolation": true,
@@ -38,13 +38,13 @@
     "icewind-coppelius": {
       "play": {
         "win": true,
-        "seconds": 48.17,
+        "seconds": 47.2,
         "moves": [
           "FIP01",
           "FIP02",
           "FIP03"
         ],
-        "hp": 89,
+        "hp": 55,
         "returns": 0
       },
       "scenery": {
@@ -57,9 +57,9 @@
         "anemo"
       ],
       "sameSceneCommands": {
-        "png": 44,
-        "standard": 11261,
-        "light": 3027
+        "png": 37,
+        "standard": 11254,
+        "light": 3020
       },
       "savedRespawn": true,
       "variantQuestIsolation": true,

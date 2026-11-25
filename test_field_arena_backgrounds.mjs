@@ -4,13 +4,19 @@ import {chromium} from 'playwright';
 
 const read=async path=>JSON.parse(await fs.readFile(path,'utf8'));
 const assets=(await fs.readdir('assets')).filter(name=>name.startsWith('field-arenas-')&&name.endsWith('-background-generation.json'));
-const scenes=[];
+const field=(await read('content/field-boss-spawns.json')).fieldBosses;
+const arenaNodes=new Set(field.flatMap(b=>[b.node,b.innerNode]).filter(Boolean));
+const scenes=[],shared=[];
 for(const file of assets){
  const manifest=await read('assets/'+file);
  const report=await read('evidence/'+file.replace('-generation','-compression'));
- for(const row of manifest.scenes)scenes.push({...row,tiers:report.scenes[row.source].tiers});
+ for(const row of manifest.scenes){
+  if(row.sharedNodes?.length)shared.push(row);
+  for(const node of [row.node,...(row.sharedNodes??[])]){
+   if(arenaNodes.has(node))scenes.push({...row,node,tiers:report.scenes[row.source].tiers});
+  }
+ }
 }
-const field=(await read('content/field-boss-spawns.json')).fieldBosses;
 const weekly=(await read('content/weekly-boss-spawns.json')).weeklyBosses;
 const exported=(await read('evidence/scenery-download-tiers.json')).fileBytesByRectangles;
 const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
@@ -76,8 +82,29 @@ try{
   }
   results[s.node]={source:s.source,tiers};
  }
+ await page.locator('#clearNodeSearch').click();
+ const sharedLocations={};
+ for(const row of shared){
+  const aliases=[row.node,...row.sharedNodes];
+  for(const id of aliases){
+   await page.selectOption('#node',id);
+   await page.waitForFunction(id=>window.mapArt?.node===id&&window.mapArt.backgroundState==='ready',id);
+   assert.equal(await page.evaluate(()=>window.mapArt.backgroundFile),row.source,id);
+   await page.locator('#decodedBackground').check();
+   await page.selectOption('#backgroundTier','4096');
+   await page.waitForFunction(()=>window.mapArt.decodedBackgroundRectangles===4096);
+   const name=row.source.replace('-background-v1.png','-4096.lua');
+   await page.locator('#sceneryDownload[download="'+name+'"]').waitFor();
+   const sharedMetrics=await page.evaluate(async([node,source])=>{
+    const {backgroundMeasurements:m}=await import('./scenery-measurements.js');
+    return Boolean(m[node]?.decode) && m[node]===m[source];
+   },[id,row.node]);
+   assert.ok(sharedMetrics,id);
+  }
+  sharedLocations[row.source]=aliases;
+ }
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/field-arena-backgrounds-browser.json',JSON.stringify({fieldPickerCount:expected.length,
-  atlasEntry:entry,sceneCount:scenes.length,verifiedTiers:scenes.reduce((n,s)=>n+s.tiers.length,0),scenes:results},null,2)+'\n');
+  atlasEntry:entry,sharedLocations,sceneCount:scenes.length,verifiedTiers:scenes.reduce((n,s)=>n+s.tiers.length,0),scenes:results},null,2)+'\n');
  console.log(scenes.length+' field arenas: every tier, export filename, pixel hash and filtered map selection passed.');
 }finally{await browser.close()}
