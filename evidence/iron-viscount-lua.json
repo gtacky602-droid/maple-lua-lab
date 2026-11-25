@@ -16,9 +16,9 @@
   "retreatClearsGuardChargeAndKeepsExitDepth": true,
   "reentryAtFullBossHealth": true,
   "pausedRectangles": {
-    "legacy": 5280,
-    "h48c32": 3261,
-    "h32c16": 1488
+    "legacy": 5274,
+    "h48c32": 3255,
+    "h32c16": 1482
   },
   "soloClear": {
     "seconds": 28.02,

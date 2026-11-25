@@ -11,6 +11,7 @@
     },
     {
       "node": "bygone-bell-archive",
+      "sharedNodes": ["morte-tower-sluice"],
       "key": "bygoneBellArchive",
       "note": "潮鐘の記録室",
       "source": "bygone-resonance-background-v1.png",

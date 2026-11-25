@@ -2,7 +2,7 @@ export function compareOpeningPixels(page,png,rect,node,camera=0){
  return page.evaluate(async({png,rect,node,camera})=>{
   const {scenery,loadScenery}=await import('./scenery.js');
   const {drawCombatRect,omitCombatDraw,combatOpacity}=await import('./sprite-images.js');
-  const frame={camera,platforms:node.platforms,campaign:{zone:'story:'+node.id},story:{active:true,node:node.id},storyGraph:{nodes:[node]},storyScenery:node.scenery};
+  const frame={camera,platforms:node.platforms,storySwim:Boolean(node.swim),campaign:{zone:'story:'+node.id},story:{active:true,node:node.id},storyGraph:{nodes:[node]}};
   await loadScenery(frame);
   const render=async(id,draws)=>{
    const canvas=document.createElement('canvas');canvas.width=960;canvas.height=540;

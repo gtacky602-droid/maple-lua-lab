@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "sites-hunt-50067",
+      "sharedNodes": ["luachra-legend-shelf"],
       "kind": "reef",
       "key": "fontaineSunkenReef",
       "source": "fon-domain-reef-background-v1.png",

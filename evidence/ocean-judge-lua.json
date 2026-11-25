@@ -4,9 +4,9 @@
   "directionAndDepthTested": true,
   "directionalBurstWithCooldown": true,
   "pausedFrameDrawCommands": {
-    "legacy": 5145,
-    "h48c32": 3111,
-    "h32c16": 1381
+    "legacy": 5139,
+    "h48c32": 3105,
+    "h32c16": 1375
   },
   "attackChecks": {
     "FW11": [

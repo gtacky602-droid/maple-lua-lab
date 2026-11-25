@@ -1,0 +1,286 @@
+{
+  "results": [
+    {
+      "node": "ocean-judge-legend-pool",
+      "name": "オーシャン巡回法官",
+      "afterReport": false,
+      "source": "fon-freminet-dive-shallows-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 9671,
+          "overlap": 9252,
+          "overlapPercent": 95.66745941474511,
+          "meanRgbError": 11.802349041648652
+        },
+        "standardRectangles": 3982,
+        "lightRectangles": 1076
+      },
+      "tiers": {
+        "4096": 17609,
+        "4608": 21131,
+        "5120": 24536,
+        "5632": 27924,
+        "6144": 29670
+      }
+    },
+    {
+      "node": "iron-viscount-legend-pool",
+      "name": "鉄皮の子爵",
+      "afterReport": false,
+      "source": "iron-viscount-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 9115,
+          "overlap": 8728,
+          "overlapPercent": 95.75425123422929,
+          "meanRgbError": 13.440230675221509
+        },
+        "standardRectangles": 3730,
+        "lightRectangles": 1009
+      },
+      "tiers": {
+        "4096": 17600,
+        "4608": 21026,
+        "5120": 24335,
+        "5632": 27639,
+        "6144": 29867
+      }
+    },
+    {
+      "node": "fairy-knight-twins-legend-court",
+      "name": "双生妖精の騎士",
+      "afterReport": false,
+      "source": "fairy-channel-background-v1.png",
+      "openingParts": 2,
+      "sprite": {
+        "shape": {
+          "union": 10607,
+          "overlap": 10140,
+          "overlapPercent": 95.59724710097106,
+          "meanRgbError": 9.88007889546351
+        },
+        "standardRectangles": 3528,
+        "lightRectangles": 1088
+      },
+      "tiers": {
+        "4096": 18210,
+        "4608": 21818,
+        "5120": 25289,
+        "5632": 28757,
+        "6144": 30575
+      }
+    },
+    {
+      "node": "swords-of-the-gorge-legend-rift",
+      "name": "深谷の剣",
+      "afterReport": false,
+      "source": "gorge-swords-background-v1.png",
+      "openingParts": 2,
+      "sprite": {
+        "shape": {
+          "union": 10062,
+          "overlap": 9574,
+          "overlapPercent": 95.15006956867423,
+          "meanRgbError": 11.237796810807048
+        },
+        "standardRectangles": 3900,
+        "lightRectangles": 1066
+      },
+      "tiers": {
+        "4096": 17545,
+        "4608": 21053,
+        "5120": 24460,
+        "5632": 27832,
+        "6144": 29420
+      }
+    },
+    {
+      "node": "fading-veteran-legend-wreck",
+      "name": "消えゆく老兵",
+      "afterReport": false,
+      "source": "veteran-wreck-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 10805,
+          "overlap": 10538,
+          "overlapPercent": 97.52892179546507,
+          "meanRgbError": 7.069842474852913
+        },
+        "standardRectangles": 3162,
+        "lightRectangles": 897
+      },
+      "tiers": {
+        "4096": 17088,
+        "4608": 20470,
+        "5120": 23719,
+        "5632": 26953,
+        "6144": 28963
+      }
+    },
+    {
+      "node": "dobharcu-legend-garden",
+      "name": "隠者の王・ドアーチュ",
+      "afterReport": false,
+      "source": "hidden-watergarden-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 10989,
+          "overlap": 10709,
+          "overlapPercent": 97.45199745199746,
+          "meanRgbError": 7.353970180844772
+        },
+        "standardRectangles": 2684,
+        "lightRectangles": 922
+      },
+      "tiers": {
+        "4096": 18279,
+        "4608": 21859,
+        "5120": 25360,
+        "5632": 28804,
+        "6144": 30772
+      }
+    },
+    {
+      "node": "luachra-legend-shelf",
+      "name": "極彩色のルケア",
+      "afterReport": false,
+      "source": "fon-domain-reef-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 5677,
+          "overlap": 5386,
+          "overlapPercent": 94.87405319711115,
+          "meanRgbError": 13.389095185047655
+        },
+        "standardRectangles": 2476,
+        "lightRectangles": 657
+      },
+      "tiers": {
+        "4096": 17800,
+        "4608": 21338,
+        "5120": 24761,
+        "5632": 28165,
+        "6144": 29919
+      }
+    },
+    {
+      "node": "chassanion-legend-bubble-room",
+      "name": "シャサニョン",
+      "afterReport": false,
+      "source": "morte-bubble-room-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 6151,
+          "overlap": 5751,
+          "overlapPercent": 93.49699235896603,
+          "meanRgbError": 15.397612009505593
+        },
+        "standardRectangles": 3255,
+        "lightRectangles": 911
+      },
+      "tiers": {
+        "4096": 16854,
+        "4608": 20246,
+        "5120": 23527,
+        "5632": 26787,
+        "6144": 28897
+      }
+    },
+    {
+      "node": "erinnyes-corrouge-cleft",
+      "name": "魔剣クルージュ",
+      "afterReport": false,
+      "source": "corrouge-root-cleft-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 2958,
+          "overlap": 2662,
+          "overlapPercent": 89.99323867478026,
+          "meanRgbError": 21.99060856498873
+        },
+        "standardRectangles": 1421,
+        "lightRectangles": 361
+      },
+      "tiers": {
+        "4096": 16856,
+        "4608": 20230,
+        "5120": 23487,
+        "5632": 26697,
+        "6144": 28699
+      }
+    },
+    {
+      "node": "chassanion-legend-bubble-room",
+      "name": "イプシシマスの塔・下層の泡室",
+      "afterReport": true,
+      "source": "bygone-resonance-background-v1.png",
+      "openingParts": 1,
+      "sprite": {
+        "shape": {
+          "union": 6151,
+          "overlap": 5751,
+          "overlapPercent": 93.49699235896603,
+          "meanRgbError": 15.397612009505593
+        },
+        "standardRectangles": 3255,
+        "lightRectangles": 911
+      },
+      "tiers": {
+        "4096": 16557,
+        "4608": 20029,
+        "5120": 23380,
+        "5632": 26732,
+        "6144": 28358
+      }
+    },
+    {
+      "node": "iron-viscount-thermal-gallery",
+      "name": "ベリル地下・排熱水洞",
+      "afterReport": false,
+      "source": "iron-viscount-background-v1.png",
+      "openingParts": 0,
+      "tiers": {
+        "4096": 17600,
+        "4608": 21026,
+        "5120": 24335,
+        "5632": 27639,
+        "6144": 29867
+      }
+    },
+    {
+      "node": "erinnyes-root-waterway",
+      "name": "エリニュスの根・地下水脈",
+      "afterReport": false,
+      "source": "corrouge-root-cleft-background-v1.png",
+      "openingParts": 0,
+      "tiers": {
+        "4096": 16856,
+        "4608": 20230,
+        "5120": 23487,
+        "5632": 26697,
+        "6144": 28699
+      }
+    },
+    {
+      "node": "morte-tower-sluice",
+      "name": "モルテ・塔の圧力室",
+      "afterReport": false,
+      "source": "bygone-resonance-background-v1.png",
+      "openingParts": 0,
+      "tiers": {
+        "4096": 16557,
+        "4608": 20029,
+        "5120": 23380,
+        "5632": 26732,
+        "6144": 28358
+      }
+    }
+  ]
+}

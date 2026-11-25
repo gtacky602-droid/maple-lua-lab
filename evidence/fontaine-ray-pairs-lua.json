@@ -27,9 +27,9 @@
     "retreatAtEntryDepth": true,
     "reentryResetBoth": true,
     "drawCommands": {
-      "legacy": 5232,
-      "h48c32": 3252,
-      "h32c16": 1556
+      "legacy": 5226,
+      "h48c32": 3246,
+      "h32c16": 1550
     },
     "soloClear": {
       "seconds": 67.85,
@@ -67,9 +67,9 @@
     "retreatAtEntryDepth": true,
     "reentryResetBoth": true,
     "drawCommands": {
-      "legacy": 5604,
-      "h48c32": 3512,
-      "h32c16": 1534
+      "legacy": 5598,
+      "h48c32": 3506,
+      "h32c16": 1528
     },
     "soloClear": {
       "seconds": 72.98,

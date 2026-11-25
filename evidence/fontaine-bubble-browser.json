@@ -4,18 +4,19 @@
   "keyboardReturnsMovingBubble": true,
   "surveySteps": 4,
   "reportMovesGateAndBackground": true,
+  "atlasComparisonFollowsReport": true,
   "towerRetreat": true,
   "sameFrameLightPreview": true,
   "counts": {
     "luachra": {
-      "png": 22,
-      "legacy": 5801,
-      "h32c16": 1515
+      "png": 16,
+      "legacy": 5795,
+      "h32c16": 1509
     },
     "chassanion": {
-      "png": 18,
-      "legacy": 6568,
-      "h32c16": 1726
+      "png": 12,
+      "legacy": 6562,
+      "h32c16": 1720
     }
   },
   "errors": []

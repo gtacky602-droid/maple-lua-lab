@@ -7,7 +7,7 @@ export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBo
   for(const boss of roster){
    const subtype=type==='field'?(boss.id.startsWith('legend-')?'legend':'normal'):null;
    for(const id of [boss.node,boss.innerNode].filter(Boolean)){
-    const list=bosses.get(id)??[];list.push({type,subtype,name:boss.name});bosses.set(id,list);
+    const list=bosses.get(id)??[];list.push({type,subtype,waterLegend:boss.controller==='waterLegend',name:boss.name});bosses.set(id,list);
    }
   }
  }
@@ -21,7 +21,7 @@ export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBo
  const populated=document.createElement('select');populated.id='nodePlacementFilter';
  for(const [value,label] of [['all','すべて'],['placed','配置あり'],['empty','配置なし']]){const o=document.createElement('option');o.value=value;o.textContent=label;populated.append(o)}
  const arena=document.createElement('select');arena.id='nodeArenaFilter';
- for(const [value,label] of [['','すべての地点'],['field','全フィールドボス'],['normal','通常ボス'],['legend','地方伝説'],['weekly','週ボス'],['stygian','幽境専用戦']])arena.add(new Option(label,value));
+ for(const [value,label] of [['','すべての地点'],['field','全フィールドボス'],['normal','通常ボス'],['legend','地方伝説'],['waterLegend','水中の地方伝説'],['weekly','週ボス'],['stygian','幽境専用戦']])arena.add(new Option(label,value));
  field('会場 ',arena);field('地域 ',region);field('検索 ',search);if(!liveView)field('編集中の案 ',populated);
  const measured=document.createElement('input');measured.type='checkbox';measured.id='nodeMeasuredFilter';
  field('背景を5段階で比較できる地点 ',measured);
@@ -37,7 +37,7 @@ export function setupMapNodePicker({graph,liveView=false,fieldBosses=[],weeklyBo
  function update(){
   const drafts=getDraft(),terms=normalize(search.value).trim().split(/\s+/).filter(Boolean);
   const count=n=>drafts.nodes[n.id]?.length??0;
-  const matches=graph.nodes.filter(n=>(!arena.value||bosses.get(n.id)?.some(b=>b.type===arena.value||b.subtype===arena.value))&&(!measured.checked||Object.hasOwn(backgroundMeasurements,n.id))&&(!region.value||n.region===region.value)&&terms.every(t=>normalize([n.name,n.region,n.id,...(bosses.get(n.id)??[]).map(b=>b.name)].join(' ')).includes(t))&&(populated.value==='all'||(populated.value==='placed'?count(n)>0:count(n)===0)));
+  const matches=graph.nodes.filter(n=>(!arena.value||bosses.get(n.id)?.some(b=>b.type===arena.value||b.subtype===arena.value||(arena.value==='waterLegend'&&b.waterLegend)))&&(!measured.checked||Object.hasOwn(backgroundMeasurements,n.id))&&(!region.value||n.region===region.value)&&terms.every(t=>normalize([n.name,n.region,n.id,...(bosses.get(n.id)??[]).map(b=>b.name)].join(' ')).includes(t))&&(populated.value==='all'||(populated.value==='placed'?count(n)>0:count(n)===0)));
   const active=graph.nodes.find(n=>n.id===select.value),placed=graph.nodes.filter(n=>count(n)>0).length;
   status.textContent=`${matches.length} / ${graph.nodes.length}地点${liveView?'':` ／ 配置あり ${placed}地点`} ／ 表示中：${active?.name??''}${matches.some(n=>n.id===select.value)?'':'（絞り込み対象外）'}`;
   list.replaceChildren();

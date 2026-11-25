@@ -652,6 +652,10 @@ return function(C, atlas)
     end
    end
   end
+  local phase=result.selected and nodes[result.selected.id] and nodes[result.selected.id].locationAfterReport
+  if phase and s.story.quests[phase.quest] and s.story.quests[phase.quest].status=='complete' then
+   result.selected.afterReport=true
+  end
   for _,p in ipairs(bosses) do
    if nodes[p.id] and (not region or places[p.id]==region.id) then result.hasBosses=true;break end
   end

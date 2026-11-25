@@ -66,6 +66,10 @@ M地図で行き先を選ぶと、渡し舟、昇降機、水路、位相門な�
 
 ## ボスの場所を探す
 
+「会場」の「水中の地方伝説」にはフォンテーヌの9戦が並ぶ。泳げる地点では地上用の足場を背景に重ねず、水中を移動する敵と海底の位置関係をそのまま見られる。舞台の観察には「背景だけを比較」、キャラの輪郭と色の観察にはドット絵の設定と測定ボタンを使う。シャサニョンには「会場の時期」があり、調査報告後は塔の下層の背景に変わる。[水中の9戦を開く](http://127.0.0.1:9117/map-art.html?arena=waterLegend&measured=1&node=fading-veteran-legend-wreck&placements=live&compare=background&tier=4096)
+
+再検証は `python tools/build_group_legend_openings.py` の後、ラボを起動して `node test_water_legend_arenas.mjs` を実行する。既存の6本のLua試験（`test_ocean_judge.py`、`test_iron_viscount.py`、`test_fontaine_ray_pairs.py`、`test_fontaine_echo.py`、`test_fontaine_bubbles.py`、`test_fontaine_corrouge.py`）で全9戦の水中操作と討伐を検証できる。
+
 通常ボス64会場の背景はすべて5段階で比較できる。「会場」で「通常ボス」または「地方伝説」を選ぶと該当する会場だけが並ぶ。「この地点で進む依頼」は、その地点に行程があるときに表示される。番号は依頼全体の中での順番。選んだ地点で開幕ポーズと背景を見ながら討伐や調査の順番を確認できる。[今回追加した5会場の比較](../evidence/field-final-arenas-comparison.png) · [元画像と生成指示](../assets/field-final-arenas-background-generation.json)
 
 検証するには `python tools/capture_normal_arena_frames.py` で通常ボス入場時のLuaフレームを保存し、ラボを起動して `node test_field_final_arenas.mjs` を実行する。4地方の依頼は `python test_earned_terrain_quests.py enkanomiya novo` と `python test_earned_highland_quests.py chenyu moonlit` で操作から再現できる。後者の2コマンドは既存の育成済みセーブを使う。

@@ -1,0 +1,62 @@
+{
+  "origin": "Five original ImageGen lab backdrops and one existing open-lake backdrop.",
+  "sharedPrompt": "One original 16:9 widescreen landscape environment painting for a 2D side-scrolling underwater fantasy RPG set in the Fontaine region. The camera is wholly submerged, horizontal side view. Layered, deliberate pixel-art clusters, soft depth with broad grouped value shapes and sparse sharply pixelated accents. Strong asymmetrical composition, legible when reduced to 512x288; spare, quiet central open water for a swimming character. Seabed at the bottom edge, no horizontal artificial platform. No creatures, humans, lettering, logos, UI or interface. No decorative frame.",
+  "scenes": [
+    {
+      "node": "iron-viscount-legend-pool",
+      "key": "viscountThermalPool",
+      "source": "iron-viscount-background-v1.png",
+      "preview": "iron-viscount-native-preview-v1.png",
+      "note": "ベリル地下・鉄皮の子爵の水洞の仮背景",
+      "prompt": "A flooded geothermal cave deep beneath Beryl. Black rounded basalt ceiling with rusty-orange mineral bands, three mineral chimneys to the left, streams of tiny silvery bubbles rising into deep teal water. Warm amber fissures in the rocky back wall and cyan mineral reflections; no flames under water.",
+      "sharedNodes": [
+        "iron-viscount-thermal-gallery"
+      ]
+    },
+    {
+      "node": "swords-of-the-gorge-legend-rift",
+      "key": "thalattaRift",
+      "source": "gorge-swords-background-v1.png",
+      "preview": "gorge-swords-native-preview-v1.png",
+      "note": "タラッタ海底谷・深谷の剣の割れ目の仮背景",
+      "prompt": "Looking sideways into a dramatic narrow submarine limestone rift. Tall sheer cobalt walls twist away in stepped vertical shelves, inward-leaning rock spurs silhouette against a slim vertical ribbon of bright cyan light; dark navy at the base. No ruins or wreck."
+    },
+    {
+      "node": "fading-veteran-legend-wreck",
+      "key": "eltonWreck",
+      "source": "veteran-wreck-background-v1.png",
+      "preview": "veteran-wreck-native-preview-v1.png",
+      "note": "エルトン海溝・老兵の沈船跡の仮背景",
+      "prompt": "An unmistakable decaying wooden sailing shipwreck on the floor of the Elton Trench, its curved prow on the left, ribs of the hull, broken mast leaning into the hazy open sea, a half-buried anchor on the lower left. Muted warm rust against deep green-blue water, a pale beam from above."
+    },
+    {
+      "node": "dobharcu-legend-garden",
+      "key": "dobharcuGarden",
+      "source": "hidden-watergarden-background-v1.png",
+      "preview": "hidden-watergarden-native-preview-v1.png",
+      "note": "希望の道・隠者の水庭の仮背景",
+      "prompt": "A secluded luminous green underwater garden at Chemin de l’Espoir. Layered thickets of ribbon-shaped eelgrass and broad pond fronds, an arc of natural pale limestone around a sheltered central pool, shafts of jade light. Plants cluster mostly low and at the edges. No masonry, arches or buildings."
+    },
+    {
+      "node": "erinnyes-corrouge-cleft",
+      "key": "erinnyesRootCleft",
+      "source": "corrouge-root-cleft-background-v1.png",
+      "preview": "corrouge-root-cleft-native-preview-v1.png",
+      "note": "エリニュスの根・クルージュの割れ目の仮背景",
+      "prompt": "A flooded cleft far beneath an ancient Erinnyes tree. Pale thick branching roots emerge from fractured dark slate, winding like tangled fingers across the upper left and far right; smaller hanging roots in mauve and dim teal water. A slanted lavender light shaft brings the background into silhouette. No boat or ruins.",
+      "sharedNodes": [
+        "erinnyes-root-waterway"
+      ]
+    },
+    {
+      "node": "ocean-judge-legend-pool",
+      "key": "fontaineToyShallows",
+      "source": "fon-freminet-dive-shallows-background-v1.png",
+      "preview": "fon-freminet-dive-shallows-native-preview-v1.png",
+      "sharedNodes": [
+        "fon-toy-shallows"
+      ],
+      "note": "中央湖の開けた水底と浅瀬の試験区画で既存の背景を共用"
+    }
+  ]
+}

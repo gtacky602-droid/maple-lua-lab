@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1405,
+  "verifiedModules": 1435,
   "dimensions": [
     512,
     288
@@ -1035,6 +1035,48 @@
       "5632": 27285,
       "6144": 29479
     },
+    "iron-viscount-background-v1.png": {
+      "4096": 17600,
+      "4608": 21026,
+      "5120": 24335,
+      "5632": 27639,
+      "6144": 29867
+    },
+    "gorge-swords-background-v1.png": {
+      "4096": 17545,
+      "4608": 21053,
+      "5120": 24460,
+      "5632": 27832,
+      "6144": 29420
+    },
+    "veteran-wreck-background-v1.png": {
+      "4096": 17088,
+      "4608": 20470,
+      "5120": 23719,
+      "5632": 26953,
+      "6144": 28963
+    },
+    "hidden-watergarden-background-v1.png": {
+      "4096": 18279,
+      "4608": 21859,
+      "5120": 25360,
+      "5632": 28804,
+      "6144": 30772
+    },
+    "corrouge-root-cleft-background-v1.png": {
+      "4096": 16856,
+      "4608": 20230,
+      "5120": 23487,
+      "5632": 26697,
+      "6144": 28699
+    },
+    "fon-freminet-dive-shallows-background-v1.png": {
+      "4096": 17609,
+      "4608": 21131,
+      "5120": 24536,
+      "5632": 27924,
+      "6144": 29670
+    },
     "ina-suigetsu-pool-background-v1.png": {
       "4096": 18234,
       "4608": 21814,
@@ -1977,7 +2019,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 302
+      "verified": 313
     },
     "domainHunts": {
       "total": 124,
@@ -2051,22 +2093,17 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 70,
+      "verified": 77,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
         "cineas-legend-chamber",
         "deianeira-legend-lab",
-        "dobharcu-legend-garden",
         "dorn-churldric-cooking-camp",
-        "erinnyes-corrouge-cleft",
-        "fading-veteran-legend-wreck",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
         "gravity-device-legend-terrace",
-        "iron-viscount-legend-pool",
         "liam-legend-pond",
-        "luachra-legend-shelf",
         "night-trial-atlatl",
         "night-trial-chimalli",
         "night-trial-cihuacoatl",
@@ -2086,7 +2123,6 @@
         "nod-mandragora-cliff-foot",
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
-        "ocean-judge-legend-pool",
         "ochka-bronzelock-island-court",
         "rocky-legend-ledge",
         "sacred-mountain-east-isle-dais",
@@ -2097,7 +2133,6 @@
         "sne-crystal-tree-refuge",
         "sne-furiosa-domain-outlook",
         "sne-novokichev-ore-yard",
-        "swords-of-the-gorge-legend-rift",
         "tepeakak-sappho-bank",
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
@@ -2112,22 +2147,17 @@
     },
     "localLegends": {
       "totalArenas": 56,
-      "verified": 6,
+      "verified": 13,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
         "cineas-legend-chamber",
         "deianeira-legend-lab",
-        "dobharcu-legend-garden",
         "dorn-churldric-cooking-camp",
-        "erinnyes-corrouge-cleft",
-        "fading-veteran-legend-wreck",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
         "gravity-device-legend-terrace",
-        "iron-viscount-legend-pool",
         "liam-legend-pond",
-        "luachra-legend-shelf",
         "night-trial-atlatl",
         "night-trial-chimalli",
         "night-trial-cihuacoatl",
@@ -2147,7 +2177,6 @@
         "nod-mandragora-cliff-foot",
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
-        "ocean-judge-legend-pool",
         "ochka-bronzelock-island-court",
         "rocky-legend-ledge",
         "sacred-mountain-east-isle-dais",
@@ -2158,7 +2187,6 @@
         "sne-crystal-tree-refuge",
         "sne-furiosa-domain-outlook",
         "sne-novokichev-ore-yard",
-        "swords-of-the-gorge-legend-rift",
         "tepeakak-sappho-bank",
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",

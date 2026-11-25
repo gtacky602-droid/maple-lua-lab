@@ -1,6 +1,11 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ erinnyesRootCleft:{file:'corrouge-root-cleft-background-v1.png',decodedPreview:'corrouge-root-cleft-native-preview-v1.png',decodedTiers:'corrouge-root-cleft-native-tiers-v1.webp',zones:['story:erinnyes-corrouge-cleft','story:erinnyes-root-waterway'],note:'エリニュスの根・クルージュの割れ目の仮背景'},
+ dobharcuGarden:{file:'hidden-watergarden-background-v1.png',decodedPreview:'hidden-watergarden-native-preview-v1.png',decodedTiers:'hidden-watergarden-native-tiers-v1.webp',zones:['story:dobharcu-legend-garden'],note:'希望の道・隠者の水庭の仮背景'},
+ eltonWreck:{file:'veteran-wreck-background-v1.png',decodedPreview:'veteran-wreck-native-preview-v1.png',decodedTiers:'veteran-wreck-native-tiers-v1.webp',zones:['story:fading-veteran-legend-wreck'],note:'エルトン海溝・老兵の沈船跡の仮背景'},
+ thalattaRift:{file:'gorge-swords-background-v1.png',decodedPreview:'gorge-swords-native-preview-v1.png',decodedTiers:'gorge-swords-native-tiers-v1.webp',zones:['story:swords-of-the-gorge-legend-rift'],note:'タラッタ海底谷・深谷の剣の割れ目の仮背景'},
+ viscountThermalPool:{file:'iron-viscount-background-v1.png',decodedPreview:'iron-viscount-native-preview-v1.png',decodedTiers:'iron-viscount-native-tiers-v1.webp',zones:['story:iron-viscount-legend-pool','story:iron-viscount-thermal-gallery'],note:'ベリル地下・鉄皮の子爵の水洞の仮背景'},
  jadeplumeGrove:{file:'jadeplume-grove-background-v1.png',decodedPreview:'jadeplume-grove-native-preview-v1.png',decodedTiers:'jadeplume-grove-native-tiers-v1.webp',surface:'grass',zones:['story:sumeru-jadeplume-grove'],note:'菌傘の谷のラボ用仮背景'},
  chenyuBoulderGully:{file:'chenyu-boulder-gully-background-v1.png',decodedPreview:'chenyu-boulder-gully-native-preview-v1.png',decodedTiers:'chenyu-boulder-gully-native-tiers-v1.webp',surface:'grass',zones:['story:chenyu-boulder-gully'],note:'段丘の岩陰のラボ用仮背景'},
  enkanTabletHollow:{file:'enkan-tablet-hollow-background-v1.png',decodedPreview:'enkan-tablet-hollow-native-preview-v1.png',decodedTiers:'enkan-tablet-hollow-native-tiers-v1.webp',surface:'stone',zones:['story:enkan-tablet-hollow'],note:'石版裏の窪みのラボ用仮背景'},
@@ -315,7 +320,7 @@ export const sceneryDefinitions={
  tunigiExcavation:{file:'tunigi-excavation-background-v1.png',decodedPreview:'tunigi-excavation-native-preview-v1.png',decodedTiers:'tunigi-excavation-native-tiers-v1.webp',zones:['story:tunigi-vent-shelf','story:tunigi-baffle-workshop','story:tunigi-elite-passage','story:tunigi-fragment-vault','story:tunigi-return-shelter']},
  tunigi:{file:'tunigi-background-v1.png',region:'トゥニギの黒淵',zones:[]},
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},
- bygoneResonance:{file:'bygone-resonance-background-v1.png',zones:['story:bygone-resonance-chamber','story:bygone-inscribed-hall','story:bygone-listening-gallery'],note:'共鳴石と記録室の仮背景'},
+ bygoneResonance:{file:'bygone-resonance-background-v1.png',decodedPreview:'bygone-resonance-native-preview-v1.png',decodedTiers:'bygone-resonance-native-tiers-v1.webp',measurementNode:'bygone-bell-archive',zones:['story:bygone-resonance-chamber','story:bygone-inscribed-hall','story:bygone-listening-gallery'],note:'共鳴石と記録室の仮背景'},
  bygone:{file:'bygone-background-v1.png',region:'往日の海',zones:[]},
  enkanLampDark:{file:'enkan-lamp-chamber-dark-v1.png',region:null,zones:['story:enkan-lamp-chamber','story:nod-wp-88169','story:frost-wp-99311'],lightMode:'dark',note:'消灯した灯室の仮背景'},
  enkanLamp:{file:'enkan-lamp-chamber-background-v1.png',region:null,zones:['story:enkan-lamp-chamber','story:enkan-route-gallery'],note:'局所の灯室と小間の仮背景'},
@@ -347,7 +352,7 @@ export const sceneryDefinitions={
  fontaineNorthTidegate:{file:'fon-north-tidegate-background-v1.png',decodedPreview:'fon-north-tidegate-native-preview-v1.png',decodedTiers:'fon-north-tidegate-native-tiers-v1.webp',zones:['story:sites-hunt-68347-pocket-1'],note:'浜の水門の仮背景'},
  fontaineNorthStorehouse:{file:'fon-north-storehouse-background-v1.png',decodedPreview:'fon-north-storehouse-native-preview-v1.png',decodedTiers:'fon-north-storehouse-native-tiers-v1.webp',zones:['story:sites-hunt-68347-pocket-2'],note:'北岸の倉庫の仮背景'},
  fontaineNorthLantern:{file:'fon-north-lantern-background-v1.png',decodedPreview:'fon-north-lantern-native-preview-v1.png',decodedTiers:'fon-north-lantern-native-tiers-v1.webp',zones:['story:sites-hunt-68347-pocket-3'],note:'灯台の地下機関室の仮背景'},
- fontaineSunkenReef:{file:'fon-domain-reef-background-v1.png',decodedPreview:'fon-domain-reef-native-preview-v1.png',decodedTiers:'fon-domain-reef-native-tiers-v1.webp',zones:['story:sites-hunt-50067'],note:'海中の石灰棚と沈んだアーチの仮背景'},
+ fontaineSunkenReef:{file:'fon-domain-reef-background-v1.png',decodedPreview:'fon-domain-reef-native-preview-v1.png',decodedTiers:'fon-domain-reef-native-tiers-v1.webp',zones:['story:sites-hunt-50067','story:luachra-legend-shelf'],note:'海中の石灰棚と沈んだアーチの仮背景'},
  fontaineSunkenSeal:{file:'fon-domain-seal-background-v1.png',decodedPreview:'fon-domain-seal-native-preview-v1.png',decodedTiers:'fon-domain-seal-native-tiers-v1.webp',zones:['story:sites-hunt-56792'],note:'海中に沈んだ青銅の征討門の仮背景'},
  fontaineMorteDrain:{file:'fon-domain-drain-background-v1.png',decodedPreview:'fon-domain-drain-native-preview-v1.png',decodedTiers:'fon-domain-drain-native-tiers-v1.webp',zones:['story:sites-hunt-63738'],note:'モルテの排水路と圧力塔の仮背景'},
  fontaineMorteValve:{file:'fon-domain-valve-background-v1.png',decodedPreview:'fon-domain-valve-native-preview-v1.png',decodedTiers:'fon-domain-valve-native-tiers-v1.webp',zones:['story:sites-hunt-63738-pocket-1'],note:'氷霜の従者がいる排水弁室の仮背景'},
@@ -364,7 +369,7 @@ export const sceneryDefinitions={
  natlanSurfRun:{file:'nat-mualani-surf-run-background-v1.png',zones:['story:natlan-surf-run'],note:'水しぶきの練習瀬の仮背景'},
  natlanSurfCove:{file:'nat-mualani-surf-cove-background-v1.png',zones:['story:natlan-surf-cove'],note:'コホラ竜の入り江の仮背景'},
  natlanCharmTrail:{file:'nat-kachina-charms-trail-background-v1.png',zones:['story:natlan-charm-trail'],note:'彩石の採集路の仮背景'},
- fontaineToyShallows:{file:'fon-freminet-dive-shallows-background-v1.png',zones:['story:fon-toy-shallows'],note:'浅瀬の試験区画の仮背景'},
+ fontaineToyShallows:{file:'fon-freminet-dive-shallows-background-v1.png',decodedPreview:'fon-freminet-dive-shallows-native-preview-v1.png',decodedTiers:'fon-freminet-dive-shallows-native-tiers-v1.webp',zones:['story:ocean-judge-legend-pool','story:fon-toy-shallows'],note:'浅瀬の試験区画の仮背景'},
  fontaineMagicWings:{file:'fon-lyney-magic-wings-background-v1.png',zones:['story:fon-magic-wings'],note:'小劇場の舞台裏の仮背景'},
  fontaineMagicSeats:{file:'fon-lyney-magic-seats-background-v1.png',zones:['story:fon-magic-seats'],note:'小劇場の客席の仮背景'},
  fontaineRehearsal:{file:'fontaine-rehearsal-background-v1.png',zones:['story:fontaine-rehearsal-room']},
@@ -453,12 +458,12 @@ for(const [key,definition] of Object.entries(sceneryDefinitions)){
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
  const location=zone==='town'&&frame.story?.active?'story:'+frame.story.node:zone;
+ if(frame.story?.active && (zone==='town'||zone?.startsWith('story:')) && frame.storyScenery && Object.hasOwn(sceneryDefinitions,frame.storyScenery))return frame.storyScenery;
  const rules=rulesByLocation.get(location);
  if(rules)for(const rule of rules){
   if((!rule.lightMode||frame.storyLocalLight?.mode===rule.lightMode)&&(!rule.requiresClear||frame.storyCleared))return rule.key;
  }
  if(frame.story?.active&&(zone==='town'||zone?.startsWith('story:'))){
-  if(frame.storyScenery&&Object.hasOwn(sceneryDefinitions,frame.storyScenery))return frame.storyScenery;
   const node=frame.storyGraph?.nodes?.find(n=>n.id===frame.story.node);
   if(node?.scenery&&Object.hasOwn(sceneryDefinitions,node.scenery))return node.scenery;
   return sceneryByRegion.get(node?.region)??'mondstadt';
@@ -535,7 +540,7 @@ export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
   ctx.fillStyle=pit;ctx.fillRect(0,480,forge.left-camera,60);
  }
  drawDecorations(ctx,frame,camera);
- for(const p of frame.platforms||[]){
+ for(const p of frame.storySwim?[]:frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
   if(sceneryDefinitions[key].surface){

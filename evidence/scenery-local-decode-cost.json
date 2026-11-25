@@ -51,7 +51,8 @@
     "field-arenas-icewind-native-backgrounds.lua": "0cfac8097a604a700c1a138ed14529b4937b1a9214709c469f7400ee3664054d",
     "field-arenas-shared-courts-native-backgrounds.lua": "171fc92600eec4b493dca1cc1235e9390b54e830aec14ac35af7ca98f6287646",
     "stygian-arenas-native-backgrounds.lua": "37368f99cc5e06a779bd8f16b3da9b664700bd7b50a4175dd47f3651327df78b",
-    "field-final-arenas-native-backgrounds.lua": "1434d2d9eba78084f7209d05889fc6023fa26d79f808f116e433f296d27542f2"
+    "field-final-arenas-native-backgrounds.lua": "1434d2d9eba78084f7209d05889fc6023fa26d79f808f116e433f296d27542f2",
+    "fontaine-water-legends-native-backgrounds.lua": "8add559573e652547295ed20320501b31955f9fab624317d0a60ca270c822fc9"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -10455,6 +10456,228 @@
         "minDecodeMs": 28.14,
         "maxDecodeMs": 43.75,
         "medianRetainedLuaKiB": 1189.7
+      }
+    },
+    "iron-viscount-legend-pool": {
+      "4096": {
+        "fileBytes": 17600,
+        "medianDecodeMs": 19.31,
+        "minDecodeMs": 17.37,
+        "maxDecodeMs": 28.21,
+        "medianRetainedLuaKiB": 794.5
+      },
+      "4608": {
+        "fileBytes": 21026,
+        "medianDecodeMs": 25.6,
+        "minDecodeMs": 21.03,
+        "maxDecodeMs": 70.47,
+        "medianRetainedLuaKiB": 937.2
+      },
+      "5120": {
+        "fileBytes": 24335,
+        "medianDecodeMs": 34.0,
+        "minDecodeMs": 26.01,
+        "maxDecodeMs": 116.45,
+        "medianRetainedLuaKiB": 1020.7
+      },
+      "5632": {
+        "fileBytes": 27639,
+        "medianDecodeMs": 32.04,
+        "minDecodeMs": 26.58,
+        "maxDecodeMs": 67.76,
+        "medianRetainedLuaKiB": 1103.9
+      },
+      "6144": {
+        "fileBytes": 29867,
+        "medianDecodeMs": 33.32,
+        "minDecodeMs": 29.55,
+        "maxDecodeMs": 40.3,
+        "medianRetainedLuaKiB": 1191.3
+      }
+    },
+    "swords-of-the-gorge-legend-rift": {
+      "4096": {
+        "fileBytes": 17545,
+        "medianDecodeMs": 19.63,
+        "minDecodeMs": 18.0,
+        "maxDecodeMs": 37.64,
+        "medianRetainedLuaKiB": 792.9
+      },
+      "4608": {
+        "fileBytes": 21053,
+        "medianDecodeMs": 23.01,
+        "minDecodeMs": 21.26,
+        "maxDecodeMs": 29.22,
+        "medianRetainedLuaKiB": 935.7
+      },
+      "5120": {
+        "fileBytes": 24460,
+        "medianDecodeMs": 27.9,
+        "minDecodeMs": 25.53,
+        "maxDecodeMs": 33.05,
+        "medianRetainedLuaKiB": 1017.8
+      },
+      "5632": {
+        "fileBytes": 27832,
+        "medianDecodeMs": 30.99,
+        "minDecodeMs": 26.96,
+        "maxDecodeMs": 45.6,
+        "medianRetainedLuaKiB": 1100.5
+      },
+      "6144": {
+        "fileBytes": 29420,
+        "medianDecodeMs": 35.11,
+        "minDecodeMs": 31.96,
+        "maxDecodeMs": 43.64,
+        "medianRetainedLuaKiB": 1183.0
+      }
+    },
+    "fading-veteran-legend-wreck": {
+      "4096": {
+        "fileBytes": 17088,
+        "medianDecodeMs": 19.84,
+        "minDecodeMs": 15.9,
+        "maxDecodeMs": 22.54,
+        "medianRetainedLuaKiB": 793.6
+      },
+      "4608": {
+        "fileBytes": 20470,
+        "medianDecodeMs": 22.92,
+        "minDecodeMs": 18.37,
+        "maxDecodeMs": 29.37,
+        "medianRetainedLuaKiB": 936.7
+      },
+      "5120": {
+        "fileBytes": 23719,
+        "medianDecodeMs": 24.48,
+        "minDecodeMs": 22.38,
+        "maxDecodeMs": 28.74,
+        "medianRetainedLuaKiB": 1019.2
+      },
+      "5632": {
+        "fileBytes": 26953,
+        "medianDecodeMs": 30.59,
+        "minDecodeMs": 25.12,
+        "maxDecodeMs": 42.73,
+        "medianRetainedLuaKiB": 1102.2
+      },
+      "6144": {
+        "fileBytes": 28963,
+        "medianDecodeMs": 30.86,
+        "minDecodeMs": 28.48,
+        "maxDecodeMs": 39.1,
+        "medianRetainedLuaKiB": 1185.6
+      }
+    },
+    "dobharcu-legend-garden": {
+      "4096": {
+        "fileBytes": 18279,
+        "medianDecodeMs": 21.17,
+        "minDecodeMs": 18.28,
+        "maxDecodeMs": 32.02,
+        "medianRetainedLuaKiB": 796.9
+      },
+      "4608": {
+        "fileBytes": 21859,
+        "medianDecodeMs": 22.69,
+        "minDecodeMs": 20.54,
+        "maxDecodeMs": 55.41,
+        "medianRetainedLuaKiB": 940.7
+      },
+      "5120": {
+        "fileBytes": 25360,
+        "medianDecodeMs": 26.81,
+        "minDecodeMs": 23.92,
+        "maxDecodeMs": 49.12,
+        "medianRetainedLuaKiB": 1024.6
+      },
+      "5632": {
+        "fileBytes": 28804,
+        "medianDecodeMs": 29.81,
+        "minDecodeMs": 26.65,
+        "maxDecodeMs": 44.28,
+        "medianRetainedLuaKiB": 1108.6
+      },
+      "6144": {
+        "fileBytes": 30772,
+        "medianDecodeMs": 32.33,
+        "minDecodeMs": 29.05,
+        "maxDecodeMs": 61.66,
+        "medianRetainedLuaKiB": 1196.5
+      }
+    },
+    "erinnyes-corrouge-cleft": {
+      "4096": {
+        "fileBytes": 16856,
+        "medianDecodeMs": 19.71,
+        "minDecodeMs": 16.23,
+        "maxDecodeMs": 23.8,
+        "medianRetainedLuaKiB": 795.1
+      },
+      "4608": {
+        "fileBytes": 20230,
+        "medianDecodeMs": 22.16,
+        "minDecodeMs": 18.51,
+        "maxDecodeMs": 39.96,
+        "medianRetainedLuaKiB": 937.9
+      },
+      "5120": {
+        "fileBytes": 23487,
+        "medianDecodeMs": 27.09,
+        "minDecodeMs": 22.06,
+        "maxDecodeMs": 29.96,
+        "medianRetainedLuaKiB": 1021.5
+      },
+      "5632": {
+        "fileBytes": 26697,
+        "medianDecodeMs": 27.93,
+        "minDecodeMs": 26.78,
+        "maxDecodeMs": 33.79,
+        "medianRetainedLuaKiB": 1104.9
+      },
+      "6144": {
+        "fileBytes": 28699,
+        "medianDecodeMs": 29.99,
+        "minDecodeMs": 28.45,
+        "maxDecodeMs": 84.09,
+        "medianRetainedLuaKiB": 1188.1
+      }
+    },
+    "ocean-judge-legend-pool": {
+      "4096": {
+        "fileBytes": 17609,
+        "medianDecodeMs": 19.66,
+        "minDecodeMs": 16.81,
+        "maxDecodeMs": 62.81,
+        "medianRetainedLuaKiB": 796.3
+      },
+      "4608": {
+        "fileBytes": 21131,
+        "medianDecodeMs": 23.39,
+        "minDecodeMs": 19.57,
+        "maxDecodeMs": 54.04,
+        "medianRetainedLuaKiB": 939.6
+      },
+      "5120": {
+        "fileBytes": 24536,
+        "medianDecodeMs": 26.25,
+        "minDecodeMs": 21.47,
+        "maxDecodeMs": 30.38,
+        "medianRetainedLuaKiB": 1023.1
+      },
+      "5632": {
+        "fileBytes": 27924,
+        "medianDecodeMs": 27.9,
+        "minDecodeMs": 26.27,
+        "maxDecodeMs": 40.02,
+        "medianRetainedLuaKiB": 1106.7
+      },
+      "6144": {
+        "fileBytes": 29670,
+        "medianDecodeMs": 28.41,
+        "minDecodeMs": 26.58,
+        "maxDecodeMs": 32.38,
+        "medianRetainedLuaKiB": 1194.5
       }
     }
   }

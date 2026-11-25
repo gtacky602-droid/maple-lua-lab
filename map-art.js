@@ -271,8 +271,11 @@ try{
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
  const nodePicker=setupMapNodePicker({graph,liveView,fieldBosses:fieldData.fieldBosses,weeklyBosses:weeklyData.weeklyBosses,stygianBosses:Object.entries(stygianScenes).map(([node,s])=>({node,name:s.name})),select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
+ function afterReport(n){return $('sceneryPhase').value==='after'?n.locationAfterReport:null}
+ function sceneMeasures(n){return backgroundMeasurements[sceneryDefinitions[afterReport(n)?.scenery]?.measurementNode??n.id]}
+ $('sceneryPhase').onchange=()=>{colorResult.textContent='';render()};
  function sceneFrame(n,camera){
-  return {camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  return {camera,platforms:n.platforms,storySwim:Boolean(n.swim),storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
  }
  function placements(){return drafts.nodes[node().id]??[]}
  function placementArt(e){
@@ -302,7 +305,7 @@ try{
  const colorResult=$('colorResult');
  if(location.hash==='#sceneryBudget')$('sceneryBudget').querySelector('details').open=true;
  function fitBackground(){
-  const error=backgroundMeasurements[node().id]?.error;
+  const error=sceneMeasures(node())?.error;
   if(!error || !$('decodedBackground').checked)return;
   const limit=$('colorLimit').valueAsNumber;
   const tiers=Array.from($('backgroundTier').options,option=>Number(option.value));
@@ -337,6 +340,7 @@ try{
   const otherView=new URLSearchParams({node:n.id,tier:$('backgroundTier').value});
   if(!liveView)otherView.set('placements','live');
   if($('matchSpritePng').checked)otherView.set('compare','background');
+  if(afterReport(n))otherView.set('phase','after');
   viewLink.href='map-art.html?'+otherView;
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
@@ -355,7 +359,7 @@ try{
   $('comparisonViewLabel').textContent=decoded?'復号した背景':matchedSprites?'元PNG':'矩形版';
   $('decodedBackgroundStatus').textContent=decoded?tier.toLocaleString('ja-JP')+'矩形を復号':preview?.state==='loading'?'読み込み中':
    preview?.state==='error'?'読み込みに失敗しました':'';
-  const metrics=backgroundMeasurements[n.id];
+  const metrics=sceneMeasures(n);
   $('sceneryBudget').hidden=!(definition.decodedTiers && metrics?.error && $('decodedBackground').checked);
   $('backgroundMetrics').textContent=decoded&&metrics?
    `元画像との平均色差 ${metrics.error[tier].toFixed(2)} / 255 ｜ Lua格納量（全5段階） ${metrics.bytes.toLocaleString('ja-JP')} B`:'';
@@ -367,7 +371,7 @@ try{
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
-  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
+  $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};
@@ -377,7 +381,7 @@ try{
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
-  $('fidelityControls').hidden=!(liveView && trialScenes[n.id] && visibleItems.length && !matchedSprites);
+  $('fidelityControls').hidden=!(liveView && openings[n.id] && visibleItems.length && !matchedSprites);
   $('measureSprite').onclick=()=>{
    const result=measureSpriteFidelity((ctx,quality)=>{
     const cost={total:0,visible:0,standard:0};
@@ -496,6 +500,8 @@ try{
   colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
+  $('sceneryPhaseControl').hidden=!n.locationAfterReport;
+  $('sceneryPhase').value=n.id===openingNode.id && n.locationAfterReport && query.get('phase')==='after'?'after':'before';
   const questPanel=$('localQuestSteps'),steps=stepsByNode.get(n.id);
   questPanel.hidden=!(liveView && steps);
   const questList=questPanel.querySelector('div');

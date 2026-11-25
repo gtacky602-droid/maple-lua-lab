@@ -164,7 +164,7 @@ export function initAtlas(action, clearKeys) {
   compare.hidden = !measured && !selected?.boss?.placementPreview;
   compare.textContent = measured ? 'この地点の背景を比較（別タブ）' : 'この地点のドット絵を比較（別タブ）';
   if (compare.hidden) compare.removeAttribute('href');
-  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id) + '&placements=live' + (measured ? '&compare=background' : '');
+  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id) + '&placements=live' + (measured ? '&compare=background' : '') + (selected.afterReport ? '&phase=after' : '');
   const area = view.options.find(item => item.id === view.region);
   title.textContent = selected?.boss?.name ?? selected?.name ?? area?.name ?? 'テイワット全域';
   level.textContent = selected?.mode === 'draft' ? [

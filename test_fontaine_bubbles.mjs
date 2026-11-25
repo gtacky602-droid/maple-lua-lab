@@ -35,6 +35,20 @@ async function atlasPath(stage,ids){
  await page.locator('#atlasField').selectOption(stage);
  await page.waitForFunction(ids=>JSON.stringify(Object.values(window.lab.frame.worldMap?.guide?.stops??{}).map(p=>p.id))===
   JSON.stringify(ids),ids);
+ if(stage===chStage){
+  const reported=ids.includes(tower);
+  const href=page.locator('#atlasBackgroundCompare');
+  await page.waitForFunction(({stage,reported})=>{
+   const u=new URL(document.getElementById('atlasBackgroundCompare').href);
+   return u.searchParams.get('node')===stage&&(u.searchParams.get('phase')==='after')===reported;
+  },{stage,reported});
+  const [viewer]=await Promise.all([page.waitForEvent('popup'),href.click()]);
+  const expected=reported?'bygone-resonance-background-v1.png':'morte-bubble-room-background-v1.png';
+  await viewer.waitForFunction(f=>window.mapArt?.backgroundFile===f&&window.mapArt.backgroundState==='ready',expected);
+  assert.equal(await viewer.locator('#sceneryPhase').inputValue(),reported?'after':'before');
+  await viewer.close();
+  await page.bringToFront();
+ }
  await page.keyboard.press('Escape');
  await atlas.waitFor({state:'hidden'});
 }
@@ -96,7 +110,7 @@ try{
  await drive.warp(chHost);
  await atlasPath(chStage,[chStage]);
  await drive.cross(chStage);
- assert.equal((await background()).key,'fontaineToyShallows');
+ assert.equal((await background()).key,'morteBubbleChamber');
  await drive.walk(645);
  await page.waitForFunction(()=>{
   const reflect=window.lab.frame.storySwimCombat?.reflect;
@@ -154,18 +168,22 @@ try{
  const gallery=new URL('bosses-art.html?q=シャサニョン',root);
  await page.goto(gallery.href);
  await page.waitForFunction(()=>window.charactersGallery?.ready,null,{timeout:60000});
- assert.equal(await page.locator('#cards article:not([hidden])').count(),1);
- await page.locator('#assetSearch').fill('極彩色のルケア');
- assert.equal(await page.locator('#cards article:not([hidden]) canvas').count(),2);
+ for(const [name,ids] of [
+  ['シャサニョン',['legend-chassanion','legend-hat-jellyfish-shared']],
+  ['極彩色のルケア',['legend-cherubic-sea-hare-shared','legend-luachra']]
+ ]){
+  await page.locator('#assetSearch').fill(name);
+  for(const id of ids)assert.equal(await page.locator('#cards article[data-id="'+id+'"]:not([hidden]) canvas').count(),2);
+ }
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/fontaine-bubble-browser.json',JSON.stringify({
   bothRoutesFromAtlas:true,luachraMovesThroughWarnedDepth:true,keyboardReturnsMovingBubble:true,
-  surveySteps:quest.itinerary.length,reportMovesGateAndBackground:true,towerRetreat:true,
+  surveySteps:quest.itinerary.length,reportMovesGateAndBackground:true,atlasComparisonFollowsReport:true,towerRetreat:true,
   sameFrameLightPreview:true,counts:{luachra:luCounts,chassanion:chCounts},errors
  },null,2)+'\n');
  console.log('Chrome verified both battles, reflected bubble and the tower survey route change.');
 }catch(error){
- console.error({frame:await read(),node:await drive.node(),actor:await drive.actor()});
+ console.error({url:page.url(),frame:await read()});
  throw error;
 }finally{
  await browser.close();
