@@ -1,0 +1,90 @@
+{
+  "stage": "sites-hunt-12778",
+  "results": {
+    "4096": {
+      "file": "ina-araumi-cistern-native-tiers-v1.webp",
+      "coords": [
+        0,
+        0,
+        512,
+        288,
+        0,
+        0,
+        1160,
+        540
+      ]
+    },
+    "4608": {
+      "file": "ina-araumi-cistern-native-tiers-v1.webp",
+      "coords": [
+        512,
+        0,
+        512,
+        288,
+        0,
+        0,
+        1160,
+        540
+      ]
+    },
+    "5120": {
+      "file": "ina-araumi-cistern-native-tiers-v1.webp",
+      "coords": [
+        0,
+        288,
+        512,
+        288,
+        0,
+        0,
+        1160,
+        540
+      ]
+    },
+    "5632": {
+      "file": "ina-araumi-cistern-native-tiers-v1.webp",
+      "coords": [
+        512,
+        288,
+        512,
+        288,
+        0,
+        0,
+        1160,
+        540
+      ]
+    },
+    "6144": {
+      "file": "ina-araumi-cistern-native-preview-v1.png",
+      "coords": [
+        0,
+        0,
+        1160,
+        540
+      ]
+    }
+  },
+  "moved": {
+    "file": "ina-araumi-cistern-native-tiers-v1.webp",
+    "coords": [
+      0,
+      0,
+      512,
+      288,
+      -73.64583333333333,
+      0,
+      1160,
+      540
+    ]
+  },
+  "fallback": {
+    "file": "ina-thunder-vault-background-v1.png",
+    "coords": [
+      0,
+      0,
+      1160,
+      540
+    ]
+  },
+  "returnStage": "sites-hunt-12778",
+  "characterMode": "sprite"
+}

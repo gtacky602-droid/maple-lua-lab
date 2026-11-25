@@ -1,4 +1,5 @@
 """Publish measured Lua payload sizes and color errors for the placement preview."""
+import hashlib
 import json
 from pathlib import Path
 
@@ -7,11 +8,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def measurements():
     result = {}
+    bench_path = ROOT / 'evidence/scenery-local-decode-cost.json'
+    bench = json.loads(bench_path.read_text('utf8')) if bench_path.exists() else {}
     for report in sorted((ROOT / 'evidence').glob('*-background-compression.json')):
-        scenes = json.loads(report.read_text(encoding='utf8'))['scenes']
+        data = json.loads(report.read_text(encoding='utf8'))
+        scenes = data['scenes']
         prefix = report.name.removesuffix('-background-compression.json')
         prefix = 'fon-beryl' if prefix == 'beryl' else prefix
         manifest = ROOT / 'assets' / f'{prefix}-background-generation.json'
+        bundle = ROOT / 'assets' / (prefix+'-native-backgrounds.lua')
+        has_benchmark = (bench.get('codecSha256') == data['codecSha256'] and
+                         bench.get('bundleSha256',{}).get(bundle.name) == hashlib.sha256(bundle.read_bytes()).hexdigest())
         for row in json.loads(manifest.read_text(encoding='utf8'))['scenes']:
             scene = scenes[row['source']]
             if row['node'] in result:
@@ -22,6 +29,12 @@ def measurements():
                 'error': {tier['rectangles']: tier['meanAbsoluteRgbErrorToReference']
                           for tier in scene['tiers']},
             }
+            costs = bench.get('scenes',{}).get(row['node']) if has_benchmark else None
+            if costs:
+                result[row['node']]['decode'] = {
+                    tier: {'ms': values['medianDecodeMs'], 'kib': values['medianRetainedLuaKiB']}
+                    for tier, values in costs.items()
+                }
     return result
 
 

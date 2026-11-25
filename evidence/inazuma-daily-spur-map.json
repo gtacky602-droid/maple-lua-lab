@@ -1,0 +1,17 @@
+{
+  "quest": "daily-ina-trial",
+  "targets": [
+    "inazuma-road",
+    "inazuma-shore-hunt",
+    "sites-hunt-12778-pocket-1",
+    "sites-hunt-12781-pocket-1",
+    "sites-hunt-12784-pocket-1",
+    "sites-hunt-12788-pocket-1",
+    "sites-hunt-12791-pocket-1",
+    "sites-hunt-18667-pocket-1",
+    "sites-hunt-24906-pocket-1"
+  ],
+  "selected": "sites-hunt-12778-pocket-1",
+  "download": "ina-thunder-vault-4096.lua",
+  "returnNode": "inazuma-town"
+}

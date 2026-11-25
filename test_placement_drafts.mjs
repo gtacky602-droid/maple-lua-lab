@@ -14,11 +14,12 @@ for(const [name,change] of [
  ['node limit',d=>d.nodes['mond-road']=Array.from({length:129},(_,i)=>({...d.nodes['mond-road'][0],id:'e'+i}))],
  ['total limit',d=>{d.nodes={};for(const n of graph.nodes.slice(0,9))d.nodes[n.id]=Array.from({length:128},(_,i)=>({id:'e'+i,species:'hilichurl',x:n.platforms[0].x,y:n.platforms[0].y,flip:false}))}]
 ]){const d=structuredClone(draft);change(d);assert.throws(()=>validate(d,graph,species),undefined,name);checks.push(name)}
-const previousForestRows = [
+const previousShelfRows = [
+ ['sites-hunt-12778',398,417],['sites-hunt-12781',408,422],['sites-hunt-12784',408,397],
  ['sites-hunt-28751',390,413],['sites-hunt-28754',390,366],
  ['sites-hunt-28755',390,345],['sites-hunt-28757',398,382],
 ];
-for (const [id,y,newY] of previousForestRows) {
+for (const [id,y,newY] of previousShelfRows) {
  const placement = {id:'kept',species:'hilichurl',x:700,y,flip:true};
  const saved = {version:1,nodes:{[id]:[placement]}};
  const migrated = validate(saved,graph,species);

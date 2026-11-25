@@ -1,0 +1,47 @@
+{
+  "sites-hunt-12778": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      385,
+      405,
+      371
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 59,
+    "exterior_scenery": "inaAraumiCistern",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-12778-pocket-1"
+  },
+  "sites-hunt-12781": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      422,
+      399,
+      374,
+      347
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 59,
+    "exterior_scenery": "inaYougouStair",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-12781-pocket-1"
+  },
+  "sites-hunt-12784": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      421,
+      405,
+      381,
+      397
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 59,
+    "exterior_scenery": "inaByakkoMeadow",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-12784-pocket-1"
+  }
+}

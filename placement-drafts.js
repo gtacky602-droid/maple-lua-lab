@@ -17,9 +17,11 @@ export function liveNodeDraft(input,graph,nodeId,species){
  });
  return validatePlacementDraft({version:1,nodes:{[nodeId]:converted}},graph,species).nodes[nodeId];
 }
-// Earlier rainforest drafts stored absolute heights. Shelf order and horizontal spans are unchanged.
+// Earlier placement drafts stored absolute heights. Shelf order and horizontal spans are unchanged.
 const forestShelfHeights=[480,390,352,394,350];
 const previousHeights=new Map([
+ ['sites-hunt-12778',[480,398,345,396,348]],
+ ['sites-hunt-12781',[480,408,369,404,378]],['sites-hunt-12784',[480,408,369,404,378]],
  ['sites-hunt-28751',forestShelfHeights],['sites-hunt-28754',forestShelfHeights],
  ['sites-hunt-28755',forestShelfHeights],['sites-hunt-28757',[480,398,345,396,348]],
 ]);

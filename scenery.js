@@ -63,6 +63,12 @@ export const sceneryDefinitions={
  baptistField:{file:'baptist-field-background-v1.png',zones:['story:baptist-field-sanctuary'],note:'三環の祭場の仮背景'},
  wenutField:{file:'wenut-field-background-v1.png',zones:['story:wenut-field-cavern'],note:'風蝕の砂洞の仮背景'},
  asimonField:{file:'asimon-field-background-v1.png',zones:['story:asimon-field-ruins'],note:'砂鏡の遺構の仮背景'},
+ inaAraumiCistern:{file:'ina-araumi-cistern-background-v1.png',decodedPreview:'ina-araumi-cistern-native-preview-v1.png',decodedTiers:'ina-araumi-cistern-native-tiers-v1.webp',zones:['story:sites-hunt-12778'],note:'荒海地下の排水廊の仮背景'},
+ inaThunderVault:{file:'ina-thunder-vault-background-v1.png',decodedPreview:'ina-thunder-vault-native-preview-v1.png',decodedTiers:'ina-thunder-vault-native-tiers-v1.webp',zones:['story:sites-hunt-12778-pocket-1'],note:'雷兜の王の石室の仮背景'},
+ inaYougouStair:{file:'ina-yougou-stair-background-v1.png',decodedPreview:'ina-yougou-stair-native-preview-v1.png',decodedTiers:'ina-yougou-stair-native-tiers-v1.webp',zones:['story:sites-hunt-12781'],note:'影向山の杉の参道の仮背景'},
+ inaRuinWorkshop:{file:'ina-ruin-workshop-background-v1.png',decodedPreview:'ina-ruin-workshop-native-preview-v1.png',decodedTiers:'ina-ruin-workshop-native-tiers-v1.webp',zones:['story:sites-hunt-12781-pocket-1'],note:'遺跡殲滅者の地下格納室の仮背景'},
+ inaByakkoMeadow:{file:'ina-byakko-meadow-background-v1.png',decodedPreview:'ina-byakko-meadow-native-preview-v1.png',decodedTiers:'ina-byakko-meadow-native-tiers-v1.webp',zones:['story:sites-hunt-12784'],note:'白狐の野の分かれ道の仮背景'},
+ inaThunderaxeCamp:{file:'ina-thunderaxe-camp-background-v1.png',decodedPreview:'ina-thunderaxe-camp-native-preview-v1.png',decodedTiers:'ina-thunderaxe-camp-native-tiers-v1.webp',zones:['story:sites-hunt-12784-pocket-1'],note:'雷斧の暴徒の野営地の仮背景'},
  natEastRiver:{file:'natlan-riverside-trial-background-v1.png',decodedPreview:'natlan-riverside-trial-native-preview-v1.png',decodedTiers:'natlan-riverside-trial-native-tiers-v1.webp',zones:['story:sites-hunt-73159'],note:'東の川沿いの段丘の仮背景'},
  natWestKeysTrail:{file:'nat-kachina-charms-trail-background-v1.png',decodedPreview:'nat-kachina-charms-trail-native-preview-v1.png',decodedTiers:'nat-kachina-charms-trail-native-tiers-v1.webp',zones:['story:sites-hunt-73160'],note:'源泉北の彩石の道の仮背景'},
  natNorthCliff:{file:'natlan-race-ridge-background-v1.png',decodedPreview:'natlan-race-ridge-native-preview-v1.png',decodedTiers:'natlan-race-ridge-native-tiers-v1.webp',zones:['story:sites-hunt-81383'],note:'クァワカン南の断崖の仮背景'},
@@ -307,9 +313,32 @@ function drawDecorations(ctx,frame,camera){
   ctx.restore();
  }
 }
-export function scenery(ctx,frame,previewFile,tierTile){
+// Keep the game on the source picture until this location's measured raster is ready.
+export function drawPlayScenery(ctx,frame,tier){
+ const key=sceneryKey(frame),definition=sceneryDefinitions[key];
+ let file,tile,message='';
+ if(tier){
+  if(!definition.decodedTiers){
+   message='この地点は元PNGを表示';
+  }else{
+   const highest=tier===6144;
+   const preview=highest?definition.decodedPreview:definition.decodedTiers;
+   const state=backgroundFor(preview).state;
+   if(state==='ready'){
+    file=preview;
+    tile=highest?undefined:(tier-4096)/512;
+   }else{
+    message=state==='error'?'復号画像を読み込めず元PNGを表示':'復号画像を読み込み中';
+   }
+  }
+ }
+ scenery(ctx,frame,file,tile,key);
+ return message;
+}
+
+export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
  ctx.save();ctx.imageSmoothingEnabled=!previewFile;
- const key=sceneryKey(frame),{image:background,state}=backgroundFor(previewFile??sceneryDefinitions[key].file);
+ const {image:background,state}=backgroundFor(previewFile??sceneryDefinitions[key].file);
  if(state==='ready'){
   // The temporary image has only 200px of overscan. Stop its parallax at
   // either image edge even when the playable map extends farther.
@@ -318,8 +347,8 @@ export function scenery(ctx,frame,previewFile,tierTile){
   else ctx.drawImage(background,(tierTile%2)*512,Math.floor(tierTile/2)*288,512,288,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
- const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const stone=['natCentralPath','natFallsCavern','natErodedKiln','natSpringKeyCave','natSpiritAlcove','sumServiceBay','sumMossGate','sumSentinelCourt','seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','narwhalInner','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','fontaineNorthHeadland','fontaineNorthTidegate','fontaineNorthLantern','fontaineMorteDrain','fontaineMorteValve','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
+ const inazuma=['inaYougouStair','inaByakkoMeadow','inaThunderaxeCamp'].includes(key)||key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
+ const stone=['inaAraumiCistern','inaThunderVault','inaRuinWorkshop','natCentralPath','natFallsCavern','natErodedKiln','natSpringKeyCave','natSpiritAlcove','sumServiceBay','sumMossGate','sumSentinelCourt','seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','narwhalInner','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','fontaineNorthHeadland','fontaineNorthTidegate','fontaineNorthLantern','fontaineMorteDrain','fontaineMorteValve','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['sumSandMarket','sumSandBalances','sumSandWindcut','sumSandSentry','sumSandEastBasin','sumRedSandWell','sumRedSandRoost','sumRoyalDen','sumDuneVault','sumDuneCounterweight','asimonField','sumeruDesertTombApproach','wenutField','emperorField','lavaDragonField','tunigiExcavation'].includes(key);
  const bygone=['bygone','bygoneResonance','fontaineSunkenReef','fontaineSunkenSeal'].includes(key);
  const golden=key==='golden'||key==='goldenDock';

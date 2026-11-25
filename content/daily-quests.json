@@ -262,9 +262,9 @@
       "level": 40,
       "giver": "荒瀧一斗",
       "name": "今日の腕試し！",
-      "intro": "一斗「街道と浜を仕切ってる野伏がいるってよ。今日の腕試しはそいつらだ！」",
-      "target": "海辺の街道・潮風の浜の指定精鋭",
-      "filter": {"kind": "elite", "nodes": ["inazuma-road", "inazuma-shore-hunt"]},
+      "intro": "一斗「街道と浜の野伏、それから秘境の奥の大物だ。合わせて3体、腕試しといこうぜ！」",
+      "target": "街道・浜の野伏、または秘境の脇部屋の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["inazuma-road", "inazuma-shore-hunt", "sites-hunt-12778-pocket-1", "sites-hunt-12781-pocket-1", "sites-hunt-12784-pocket-1", "sites-hunt-12788-pocket-1", "sites-hunt-12791-pocket-1", "sites-hunt-18667-pocket-1", "sites-hunt-24906-pocket-1"]},
       "goal": 3,
       "xp": 3300,
       "mora": 520

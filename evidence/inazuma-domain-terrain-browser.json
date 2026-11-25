@@ -1,0 +1,156 @@
+{
+  "araumi": {
+    "stage": "sites-hunt-12778",
+    "scenery": {
+      "key": "inaAraumiCistern",
+      "file": "ina-araumi-cistern-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 597.2,
+      "y": 90.7,
+      "adjacent": [
+        "ina-wp-47990",
+        "sites-hunt-12778-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-12778",
+      "next": "sites-hunt-12778-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "inaThunderVault",
+      "file": "ina-thunder-vault-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "ina-wp-47990",
+        "sites-hunt-12778",
+        "walk"
+      ],
+      [
+        "sites-hunt-12778",
+        "sites-hunt-12778-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-12778-pocket-1",
+        "sites-hunt-12778",
+        "walk"
+      ],
+      [
+        "sites-hunt-12778",
+        "ina-wp-47990",
+        "walk"
+      ]
+    ]
+  },
+  "yougou": {
+    "stage": "sites-hunt-12781",
+    "scenery": {
+      "key": "inaYougouStair",
+      "file": "ina-yougou-stair-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 592.2,
+      "y": 107.4,
+      "adjacent": [
+        "ina-wp-12733",
+        "sites-hunt-12781-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-12781",
+      "next": "sites-hunt-12781-pocket-1"
+    },
+    "jump": [
+      480,
+      422
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "inaRuinWorkshop",
+      "file": "ina-ruin-workshop-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "ina-wp-12733",
+        "sites-hunt-12781",
+        "walk"
+      ],
+      [
+        "sites-hunt-12781",
+        "sites-hunt-12781-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-12781-pocket-1",
+        "sites-hunt-12781",
+        "walk"
+      ],
+      [
+        "sites-hunt-12781",
+        "ina-wp-12733",
+        "walk"
+      ]
+    ]
+  },
+  "byakko": {
+    "stage": "sites-hunt-12784",
+    "scenery": {
+      "key": "inaByakkoMeadow",
+      "file": "ina-byakko-meadow-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-03",
+      "x": 555.4,
+      "y": 170.2,
+      "adjacent": [
+        "ina-wp-12725",
+        "sites-hunt-12784-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-12784",
+      "next": "sites-hunt-12784-pocket-1"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "inaThunderaxeCamp",
+      "file": "ina-thunderaxe-camp-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "ina-wp-12725",
+        "sites-hunt-12784",
+        "walk"
+      ],
+      [
+        "sites-hunt-12784",
+        "sites-hunt-12784-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-12784-pocket-1",
+        "sites-hunt-12784",
+        "walk"
+      ],
+      [
+        "sites-hunt-12784",
+        "ina-wp-12725",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

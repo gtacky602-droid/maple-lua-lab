@@ -1,0 +1,258 @@
+{
+  "codec": "R64C MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "ina-araumi-cistern-background-v1.png": {
+      "sourceBytes": 1383357,
+      "sourceSha256": "6e569a4baf6a8cbd79f3100b82f7974807954c25742729cb4d3744fbde7e2d5d",
+      "preview": "ina-araumi-cistern-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16321,
+      "baseSelectedBytes": 16305,
+      "detailFixed13Bytes": 11519,
+      "detailSelectedBytes": 11509,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.5891452365451388,
+          "rgbSha256": "916616c3813826c1c8e96e501592680310b22471aedfa0b1abcd31d7af5b14b0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.42767333984375,
+          "rgbSha256": "42ec35c26074c26c4734979fd6656bc661d8ef42bad43dbd1c092717315c908d"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.3125836407696758,
+          "rgbSha256": "20b009e6afa59d69dd920b21b245ef6faf7503e48d25cc7f2dcade50b62bae95"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2163018120659723,
+          "rgbSha256": "a150bdcf53aec376a471520f50839610433222469e42c1a5777b6ae47909ce17"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.1376885308159723,
+          "rgbSha256": "a2ad09a6af3b593fdbc4a39af9a2717e50d27f05a35e762663ca84014f880828"
+        }
+      ]
+    },
+    "ina-thunder-vault-background-v1.png": {
+      "sourceBytes": 1399895,
+      "sourceSha256": "596a9f91e6734ffa427930244bf31e82410b3377f910120991191c6fe45805d4",
+      "preview": "ina-thunder-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16623,
+      "baseSelectedBytes": 16605,
+      "detailFixed13Bytes": 11721,
+      "detailSelectedBytes": 11707,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.7703021014178242,
+          "rgbSha256": "1ac9c8166e092015ce8a545c617b452500aae7126522566640f8547add501715"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.5304248951099537,
+          "rgbSha256": "947ff0b551e766633a98aa7780f73d7ef10f90c4202f26c767d533cddf37dd5c"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.3807599103009258,
+          "rgbSha256": "111794ad5701899ab954dbf596a1888b9f59e1dbd801282e724600ca3c15244b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2678900824652777,
+          "rgbSha256": "668d5bded5e381a7461c796d692c0e3932e02b7c8258ca868566dcb4bd742b4c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.1776439525462963,
+          "rgbSha256": "4b7b8ef3109e729f28a101a580d7a1ed981b5ea5f0776604a11b687c4d907a21"
+        }
+      ]
+    },
+    "ina-yougou-stair-background-v1.png": {
+      "sourceBytes": 1365244,
+      "sourceSha256": "51b7eeef99ba1dbb4a3c9b18b44c4a71e6299b4bd5f6ca918f3d0cc7f32346a5",
+      "preview": "ina-yougou-stair-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16081,
+      "baseSelectedBytes": 16065,
+      "detailFixed13Bytes": 11425,
+      "detailSelectedBytes": 11415,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.611988208912037,
+          "rgbSha256": "de77c1b369d9a8686ba82c83f9f48a27b810f2b78715587c47112d662b8c79bb"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.4187147352430556,
+          "rgbSha256": "ca961ac17e9c77049f97a497f10a4ab63cb8e2e4fb79922e67c58b9daad0fea7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.2784242983217593,
+          "rgbSha256": "3f77c6d7982d657b873ac75cc3265d2c05be592186349fbeebcb717f84478dc3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.1695895724826388,
+          "rgbSha256": "a923fad7ed1366e97cf55b593cb2fd0656424f5115554830d197447c9dc4ef50"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.0805234555844907,
+          "rgbSha256": "d1ac1422ef74fc1c7df224b8eebee2c6a414f1aeb345de163ce5e46c9c813ae8"
+        }
+      ]
+    },
+    "ina-ruin-workshop-background-v1.png": {
+      "sourceBytes": 1299840,
+      "sourceSha256": "0dcce210b62bb689e46d77ec4817162e956a40e0bad075be3ffe723012de0c09",
+      "preview": "ina-ruin-workshop-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15389,
+      "baseSelectedBytes": 15375,
+      "detailFixed13Bytes": 11153,
+      "detailSelectedBytes": 11143,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 0.9149079499421297,
+          "rgbSha256": "8b5b0655a9603bafa6ad3248ab880abf6b393baafe3a2468c07f807aa36f145e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 0.8172652633101852,
+          "rgbSha256": "118badfc3970ea1573d992f45da18dc4ceb84c1e859b1612286f56488cf79233"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 0.7501062463831019,
+          "rgbSha256": "c7be0c697b40eb601734a5da641601417e9ace47c6d5d344c2afeb873f2bb5ce"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 0.6979053638599537,
+          "rgbSha256": "ddc848245f3414acac228f4253bdf85d1a9e837fae2a88ba7846d30c00892415"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 0.6547987196180556,
+          "rgbSha256": "b8643d83ef6f146bac7b9f1608dd89b56705fbc5c964cd6a188772964be522ba"
+        }
+      ]
+    },
+    "ina-byakko-meadow-background-v1.png": {
+      "sourceBytes": 1419392,
+      "sourceSha256": "a4f873422fc719cc013181f23071a727a54c246bbf7ef0da67fbeee04c656691",
+      "preview": "ina-byakko-meadow-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17465,
+      "baseSelectedBytes": 17447,
+      "detailFixed13Bytes": 11813,
+      "detailSelectedBytes": 11801,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.9830774377893519,
+          "rgbSha256": "4171cbdc68e22cc92565c2b3ea8ec415064ce68ecdeb31585d5c7a33f7f84918"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.758495189525463,
+          "rgbSha256": "e4edfad0ade19be091434a2e943fe8b1e3f0943d8bb93166d4a3a9e45a565868"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.6008345992476851,
+          "rgbSha256": "e47dec55c9815773fb7e50e92b92ad2778a75b7308d9b0522936f761f06763ee"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.4764404296875,
+          "rgbSha256": "8b9ab2bf3115218c205607609abb2aca79d2003e0b4f48069246f04d58eca540"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.3688444914641205,
+          "rgbSha256": "988884d6e38f459f3c1ff545a6b3b2951f7de0fe7652185b42c7e8352f48835b"
+        }
+      ]
+    },
+    "ina-thunderaxe-camp-background-v1.png": {
+      "sourceBytes": 1419620,
+      "sourceSha256": "83280d9896198136df353e7af1954cce844cc891062bceae54f411eac1a75c83",
+      "preview": "ina-thunderaxe-camp-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16729,
+      "baseSelectedBytes": 16713,
+      "detailFixed13Bytes": 11627,
+      "detailSelectedBytes": 11617,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.8701601381655093,
+          "rgbSha256": "b6b564357c7e2ab3d8effc193d74f860d2e28ce354eb4cedb8baf6494f91d36b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.6338229709201388,
+          "rgbSha256": "fe3ff5aea7d9da85b66cff9bb5c0f143d5faba530a00ee29ec23a6b55c641937"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.4807648835358795,
+          "rgbSha256": "a893ba9df2bd83f81d565af589ce6546e25de62320d8778deca2a4e97566780e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.3572704173900463,
+          "rgbSha256": "25586d2c827e841de86af4f67cd696b65b24381216155856ee290eb5e1ac23a1"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.2600278501157407,
+          "rgbSha256": "32077959b25745d3ffbbe64ced98a5eb9c699ff8f447f0ec375dc2caa609769b"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-12778",
+      "key": "inaAraumiCistern",
+      "note": "荒海地下の排水廊",
+      "source": "ina-araumi-cistern-background-v1.png",
+      "preview": "ina-araumi-cistern-native-preview-v1.png",
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. Underground flooded ruins below Araumi on Narukami Island. Massive square mossy stone piers, broken stone watercourse with a shallow still teal reflection, high slatted opening beneath tree roots at far left casting strips of moonlight, a dark circular mechanical door far to the right. A quiet sunken passage. Indigo shadow and oxidized jade. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+    },
+    {
+      "node": "sites-hunt-12778-pocket-1",
+      "key": "inaThunderVault",
+      "note": "雷兜の王の石室",
+      "source": "ina-thunder-vault-background-v1.png",
+      "preview": "ina-thunder-vault-native-preview-v1.png",
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. An empty secluded cave off flooded Inazuman ruins occupied by a thunder lawachurl, the monster absent. A broad broken column with violet mineral veins on the left, purple electro crystals embedded in the back wall, crooked wooden shelter and thick braided rope tied to a post far right. Big spare shapes and a few warm ochre accents. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+    },
+    {
+      "node": "sites-hunt-12781",
+      "key": "inaYougouStair",
+      "note": "影向山の杉の参道",
+      "source": "ina-yougou-stair-background-v1.png",
+      "preview": "ina-yougou-stair-native-preview-v1.png",
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. A mountain path beneath Mt Yougou. Straight dark cedars at the left, a small vermilion torii and mossy stone lantern in the middle distance at right, pale mauve mountain ridgelines and irregular bands of cloud beyond, sparse cherry blossoms high up. Misty cool morning, side view of ascending terraces far back. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+    },
+    {
+      "node": "sites-hunt-12781-pocket-1",
+      "key": "inaRuinWorkshop",
+      "note": "遺跡殲滅者の地下格納室",
+      "source": "ina-ruin-workshop-background-v1.png",
+      "preview": "ina-ruin-workshop-native-preview-v1.png",
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. A silent Inazuman ruin machine bay beneath a cedar mountain. Empty low circular mechanism socket and two tall angular bronze struts deep against the wall at right. A large carved angular slate arch on left, pale copper traces, fine roots only at the ceiling, deep muted cyan and amber. No robot, machine creatures or shrine buildings. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+    },
+    {
+      "node": "sites-hunt-12784",
+      "key": "inaByakkoMeadow",
+      "note": "白狐の野の分かれ道",
+      "source": "ina-byakko-meadow-background-v1.png",
+      "preview": "ina-byakko-meadow-native-preview-v1.png",
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. Byakko Plain on Narukami Island, late summer dusk. Flat Japanese grassland with big silver pampas plumes grouped at the outer edges, distant pink cherry crowns, farm path curving toward a lone red gate, a blue mountain silhouette behind it. Golden cream and indigo. Wide side-on clearing. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+    },
+    {
+      "node": "sites-hunt-12784-pocket-1",
+      "key": "inaThunderaxeCamp",
+      "note": "雷斧の暴徒の野営地",
+      "source": "ina-thunderaxe-camp-background-v1.png",
+      "preview": "ina-thunderaxe-camp-native-preview-v1.png",
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. Unoccupied rough hilichurl camp in a shallow grassy ravine off Byakko Plain at dusk. Broad faded violet cloth stretched between forked driftwood poles to the left, one massive old wooden target to the right, small dark firepit and pampas on the horizon, storm light behind clouds, dark indigo and straw gold. No figures or weapons in foreground. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+    }
+  ]
+}

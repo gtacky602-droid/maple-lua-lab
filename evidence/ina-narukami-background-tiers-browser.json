@@ -1,0 +1,74 @@
+{
+  "sites-hunt-12778": {
+    "source": "ina-araumi-cistern-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "9b970e260cde9a25aede537d89587dd40cdc047f7f97ad7dfdd97e3ec9b63abb",
+    "tiers": {
+      "4096": "f4a8980a8647e7afba63c246944b5499237e417f6da02de69b512c16d6f40992",
+      "4608": "b853cb4125b50101ce54e9315418a2f6005a71ce217d59b07385b1719e80bc44",
+      "5120": "450ab83aa6011d9c90e3069c1df556bf95200c68b440a2ab23a6c507b5071d16",
+      "5632": "dc52e44bf7e13271ed8ecc27f21d5675737d633a1e87ab6cb4b207c8c330b81c",
+      "6144": "edf8fd6e45a232d552e362829310db92d1b57202a62d515ec830d3d78560b2be"
+    }
+  },
+  "sites-hunt-12778-pocket-1": {
+    "source": "ina-thunder-vault-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "56c2cead6410408e70121f66e70fd705ab29bec8e59ab9d6b9380b50caca085a",
+    "tiers": {
+      "4096": "f20147bd347a2ad85fea14fb643934638a75d62b8ea8d502a9f15e950e0eabd1",
+      "4608": "d98248ebe2dcae13525061a241eff045af331ce0094b78367d44c8fc8929d5ce",
+      "5120": "7bc4341fc7cf50d59e11ff1f212a8647fa651d5c7126ebedd71583c19efcc667",
+      "5632": "ddc94187c629eff191155e3952019eb81a56941db4dc223e5086c92a78e50717",
+      "6144": "018ef8ff3316d9baf4d83a7434d55e780d9e3c799025474038be56517172cdd2"
+    }
+  },
+  "sites-hunt-12781": {
+    "source": "ina-yougou-stair-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "3a8172a31712acec43168d040cca66d227420f821c94240627c828b59f2f3593",
+    "tiers": {
+      "4096": "38346dd89b8ff25029b389c2bbd5ce0a43f5023bdce16cc32c1f3f18d5aa1f6b",
+      "4608": "271221040e1ee68fe51998a5de92b0a830c9184bcf570c8b111cd751db2d05fa",
+      "5120": "260b9f843a5c30b46bd580a218279b7a21dcf365b127e44377fc979cf6bf7004",
+      "5632": "bea97770418d24bc42d1fbbccc57a2be9aa7f438937f987d8cf8776a2c5c9b7b",
+      "6144": "4175f91ca60a86219a676954cf32479384c72708b2428103bf690b0cf8ac68d4"
+    }
+  },
+  "sites-hunt-12781-pocket-1": {
+    "source": "ina-ruin-workshop-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "1948a84b260cb220480434837b4fe4e890ced05bbf35248492b679ea0b033c13",
+    "tiers": {
+      "4096": "bff96aa96df352670c9dfe7dc0ab13b7871b524bb260138d5e63f5d41c878d4b",
+      "4608": "52563b593c8ab08f7cf3db64fe0b1d35c7ceaefc9bd7b11a0e6beab28548827d",
+      "5120": "f3598c352bde3c944eb6412620cfcc3453020784e5869f79eb7abeac65c017fe",
+      "5632": "6108bf91d4e261b480378fe6f83b0e6eb149cc985eb7a16c21e47c7177830a05",
+      "6144": "14c93eddc7a017944ffe15fc290a0087ec470b683747221fd63b82c739078722"
+    }
+  },
+  "sites-hunt-12784": {
+    "source": "ina-byakko-meadow-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "88465c5b3616dc08719820f7521e4d3976a39a3ac344d3871b6e1632ef23761c",
+    "tiers": {
+      "4096": "b5178e3eef04ffe2510971aa2e5f3aa9ba786928e0918ffdb8bc4ae07eec2d1f",
+      "4608": "c01de7ad7e0f48da186f22abcc9601a602a8f6fe627d0e6d30e302f6778f09a5",
+      "5120": "49affa80e38f74a405cdfa9a8f48aad1be7d2aeb9a247deaeff3bf14444174a9",
+      "5632": "cd19f2e423d2ac08d2998a12b8c72aacb7750ad488f06c01a635c390286f3dba",
+      "6144": "ec06a739ffa548e495874023dac66dfe510f9baf6c4a1172b6fa0b96cff7cdc1"
+    }
+  },
+  "sites-hunt-12784-pocket-1": {
+    "source": "ina-thunderaxe-camp-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "823d19ca5adfd955f21993d4c144465e489a9088864368d2d3480701a52dbd4e",
+    "tiers": {
+      "4096": "74aaf30c53e683576f93a74d024126f5991017e34609fbf7497cfdbe2467c5b1",
+      "4608": "968a69826a69f4ad9dee0009a4e26a68600c3d88a12b3a376e84d17442817a0c",
+      "5120": "c3a285f64caf0c1693466e283f0bff7ffcbc739a7528b904805eaf00b80a3002",
+      "5632": "21042ade91dffc8f1b831ada10ee7a5d16f90ff5c59ca2eadee53c066411258e",
+      "6144": "665d43ae2bbf65a848622d09df6e70bac2dd7eb9bf1629516d4684e8d9882493"
+    }
+  }
+}

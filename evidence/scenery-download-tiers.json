@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 210,
+  "verifiedModules": 240,
   "dimensions": [
     512,
     288
@@ -82,6 +82,48 @@
       "5120": 24027,
       "5632": 27285,
       "6144": 29479
+    },
+    "ina-araumi-cistern-background-v1.png": {
+      "4096": 16413,
+      "4608": 19801,
+      "5120": 23076,
+      "5632": 26342,
+      "6144": 27920
+    },
+    "ina-thunder-vault-background-v1.png": {
+      "4096": 16712,
+      "4608": 20040,
+      "5120": 23229,
+      "5632": 26419,
+      "6144": 28417
+    },
+    "ina-yougou-stair-background-v1.png": {
+      "4096": 16171,
+      "4608": 19417,
+      "5120": 22550,
+      "5632": 25678,
+      "6144": 27584
+    },
+    "ina-ruin-workshop-background-v1.png": {
+      "4096": 15482,
+      "4608": 18808,
+      "5120": 22017,
+      "5632": 25219,
+      "6144": 26623
+    },
+    "ina-byakko-meadow-background-v1.png": {
+      "4096": 17554,
+      "4608": 21056,
+      "5120": 24423,
+      "5632": 27763,
+      "6144": 29353
+    },
+    "ina-thunderaxe-camp-background-v1.png": {
+      "4096": 16822,
+      "4608": 20250,
+      "5120": 23537,
+      "5632": 26789,
+      "6144": 28437
     },
     "natlan-riverside-trial-background-v1.png": {
       "4096": 18555,

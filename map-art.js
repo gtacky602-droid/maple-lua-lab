@@ -143,6 +143,8 @@ try{
   const metrics=backgroundMeasurements[n.id];
   $('backgroundMetrics').textContent=decoded&&metrics?
    `元画像との平均色差 ${metrics.error[tier].toFixed(2)} / 255 ｜ Lua格納量（全5段階） ${metrics.bytes.toLocaleString('ja-JP')} B`:'';
+  const costSample=decoded && metrics?.decode?.[tier];
+  $('decodeCost').textContent=costSample?`Lua 5.3事前計測　復号 ${costSample.ms.toFixed(2)} ms ／ 保持メモリ +${costSample.kib.toLocaleString('ja-JP')} KiB`:'';
   $('sceneryCodec').hidden=!(decoded&&metrics?.bundle);
   void updateDownload(decoded&&metrics?.bundle,background.file,tier);
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));

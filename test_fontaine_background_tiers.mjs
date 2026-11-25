@@ -43,6 +43,7 @@ try {
           await page.locator('#clearSelection').click();
         }
         const before = await page.evaluate(()=>window.mapArt);
+        const decodeStats = await page.evaluate(async id=>(await import('./scenery-measurements.js')).backgroundMeasurements[id]?.decode,node);
         assert.equal(before.backgroundFile,source);
         const seen = new Set();
         for (const {rectangles,rgbSha256,meanAbsoluteRgbErrorToReference} of report.scenes[source].tiers) {
@@ -50,6 +51,10 @@ try {
           await page.waitForFunction(n=>window.mapArt.decodedBackgroundRectangles===n,rectangles);
           const metrics = await page.locator('#backgroundMetrics').innerText();
           assert.ok(metrics.includes(meanAbsoluteRgbErrorToReference.toFixed(2)+' / 255'),metrics);
+          if (decodeStats) {
+            const sample=decodeStats[rectangles], label=await page.locator('#decodeCost').innerText();
+            assert.ok(label.includes(sample.ms.toFixed(2)+' ms') && label.includes(sample.kib.toLocaleString('ja-JP')+' KiB'));
+          }
           await page.locator('#sceneryDownload').waitFor({state:'visible'});
           const filename=source.replace('-background-v1.png','-'+rectangles+'.lua');
           assert.equal(await page.locator('#sceneryDownload').getAttribute('download'),filename);
@@ -87,7 +92,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);
