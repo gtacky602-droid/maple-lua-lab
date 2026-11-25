@@ -90,9 +90,15 @@ M地図の「狩場・任意戦」には、狩場と脇部屋に加えて入口�
 
 フォンテーヌのベリルの秘境周辺と水門脇の脇部屋に、石造水路と水車室の仮背景を追加した。配置比較を開くと、同じ画角で左は元PNG、右はLuaで6,144矩形を復号した512×288の画像になる。チェックを外すと両側に元の背景が出る。本編は元PNGで表示する。Luaでは入江の北岸から地図で探し、二つの入口を通って北岸に戻るところまで確認した。 [ベリル沿岸の比較](../evidence/beryl-coast-scene-comparison.png) · [水門の比較](../evidence/beryl-sluice-scene-comparison.png) · [入場と帰路](../evidence/beryl-background-lua-route.json)
 
-海中の秘境周辺（石灰棚）、海中の征討入口（青銅扉）、モルテ側の秘境周辺（排水路）、氷霜の従者の脇部屋（弁室）にも専用の仮背景がある。ベリルの2地点を含む6地点では、配置比較の「背景の描画量」で右の背景を4,096〜6,144矩形まで512刻みで切り替えられる。「この地点の本編配置を読み込む」で左右に同じ敵が出る。足場・カメラ・敵の軽量設定を固定して、背景だけの違いを見られる。 [海中の石灰棚](../evidence/fon-domain-reef-comparison.png) · [征討の青銅扉](../evidence/fon-domain-seal-comparison.png) · [モルテの排水路](../evidence/fon-domain-drain-comparison.png) · [弁室](../evidence/fon-domain-valve-comparison.png)
+海中の秘境周辺（石灰棚）、海中の征討入口（青銅扉）、モルテ側の秘境周辺（排水路）、氷霜の従者の脇部屋（弁室）にも専用の仮背景がある。これらの地点では、配置比較の「背景の描画量」で右の背景を4,096〜6,144矩形まで512刻みで切り替えられる。「この地点の本編配置を読み込む」で左右に同じ敵が出る。足場・カメラ・敵の軽量設定を固定して、背景だけの違いを見られる。 [海中の石灰棚](../evidence/fon-domain-reef-comparison.png) · [征討の青銅扉](../evidence/fon-domain-seal-comparison.png) · [モルテの排水路](../evidence/fon-domain-drain-comparison.png) · [弁室](../evidence/fon-domain-valve-comparison.png)
 
 新規4枚のLua文字列は従来の固定幅で115,950バイト、R61Cの可変幅を併用すると115,846バイト。5段階の復号画素は両方式で一致した。元PNGの512×288換算に対するRGBの平均絶対誤差（0〜255）は4,096矩形で1.90〜4.36、6,144矩形で1.29〜3.29。比較用の画像は `tools/render_scenery_tiers.py <MapleCodec.lua> <背景のLuaファイル> <出力先>` で再生成できる。新規4枚のデータは `assets/fon-domain-native-backgrounds.lua` に収録。 [4枚の計測](../evidence/fon-domain-background-compression.json) · [6地点のブラウザ確認](../evidence/fontaine-background-tiers-browser.json)
+
+廷北の庭園水路、北岸の灯台岬、その先の浜の水門・倉庫・灯台の機関室にも専用背景がある。これでフォンテーヌのこの6狩場と脇部屋5室すべてが5段階の比較に対応した。M地図で対象地点を選び「この地点の背景を比較（別タブ）」を開く。配置比較の地点検索でも「背景を5段階で比較できる地点」を使える。平均色差は元画像を512×288にそろえた後、RGB各成分の差の絶対値を全画素で平均した値。Lua格納量は土台と全段階の細部を合わせた文字列のサイズ。[廷北の比較](../evidence/fon-north-terrace-comparison.png) · [北岸の比較](../evidence/fon-north-headland-comparison.png) · [5枚の計測](../evidence/fon-north-background-compression.json)
+
+浜の水門とベリルの水門脇の濁水粉砕の幻霊には、通常個体用に登録したニニアン共用の一つ目の絵を使う。モルテの脇部屋の氷霜の従者はイゾルトと同じ待機絵。堅盾重甲ヤドカニとファデュイの炎銃・氷銃も登録済みの種別に合わせた。北岸の倉庫のデットエージェントと灯台下の蛍術師は代用絵で、専用絵は未制作。[水門の幻霊](../evidence/fon-north-tidegate-comparison.png) · [8地点・5種のLua描画](../evidence/sites-family-art-lua.json)
+
+ナタの中央の秘境周辺では大霊の化身の脇部屋を出ると主役がX250、同行者がX210に着地する。地上の巡回範囲の左端はX432。門と帰着地点を同じ位置に移し、脇部屋から出た直後に敵と重なる問題を修正した。[帰路のChrome試走](../evidence/natlan-central-return-terrain-browser.json)
 
 4,096矩形の土台と2,048矩形の細部を別々に圧縮した。R61C方式では短くなるブロックだけを採用し、2枚の圧縮済みLua文字列は57,942から57,898バイトになった。4,096〜6,144矩形の5段階で、固定幅と可変幅をLuaで復号した画像を照合した1,474,560画素はすべて一致した。矩形化で元PNGに生じる色差は測定値に残した。 [容量と画素の照合](../evidence/beryl-background-compression.json) · [移植用Luaデータ](../assets/fon-beryl-native-backgrounds.lua) · [仮背景の生成記録](../assets/fon-beryl-background-generation.json)
 

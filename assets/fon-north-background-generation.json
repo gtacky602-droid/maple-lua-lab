@@ -1,0 +1,51 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-50057",
+      "kind": "terrace",
+      "key": "fontaineCourtTerrace",
+      "note": "廷北の庭園水路",
+      "source": "fon-north-terrace-background-v1.png",
+      "preview": "fon-north-terrace-native-preview-v1.png",
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. A rising hillside immediately north of a French-inspired fantasy capital. Airy spring morning, large ivory aqueduct curving into distant pale blue city roofs, 3 cypress-lined limestone terraces on the left, roadside water channel below. Fresh sage, warm stone and cobalt slates; spacious and outdoor. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition."
+    },
+    {
+      "node": "sites-hunt-68347",
+      "kind": "headland",
+      "key": "fontaineNorthHeadland",
+      "note": "北岸の灯台岬",
+      "source": "fon-north-headland-background-v1.png",
+      "preview": "fon-north-headland-native-preview-v1.png",
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Windy northern headland beside a trial gate. Weathered ivory lighthouse capped in dark copper near the right edge above folded cliffs, an old timber warehouse and sea gate grouped at the left, a distant sweeping slate-blue sea and pale amber evening horizon. Strong memorable silhouette, room connections readable as distant landmarks. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition."
+    },
+    {
+      "node": "sites-hunt-68347-pocket-1",
+      "kind": "tidegate",
+      "key": "fontaineNorthTidegate",
+      "note": "浜の水門",
+      "source": "fon-north-tidegate-background-v1.png",
+      "preview": "fon-north-tidegate-native-preview-v1.png",
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Inside a tidal sluice beside a northern beach. Low vaulted chamber with a huge sunken wooden radial gate across left-center, dark green tidal water, broad tidal marks on cream stone, thin cyan daylight slipping through a side opening. The middle and lower middle are quiet and pale enough for a dark watery enemy to read. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition."
+    },
+    {
+      "node": "sites-hunt-68347-pocket-2",
+      "kind": "storehouse",
+      "key": "fontaineNorthStorehouse",
+      "note": "北岸の倉庫",
+      "source": "fon-north-storehouse-background-v1.png",
+      "preview": "fon-north-storehouse-native-preview-v1.png",
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Interior of a coastal freight warehouse. High dark blue sloping timber roof, a pulley and one broad cargo net hanging on the left, copper-banded chests at the far right and warm late sun coming through a high shutter. Big empty desaturated ochre wall behind the central combat lane; quiet and separated from props, no central enemy or crate. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition."
+    },
+    {
+      "node": "sites-hunt-68347-pocket-3",
+      "kind": "lantern",
+      "key": "fontaineNorthLantern",
+      "note": "灯台の地下機関室",
+      "source": "fon-north-lantern-background-v1.png",
+      "preview": "fon-north-lantern-native-preview-v1.png",
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. A lighthouse service vault BELOW a maritime beacon. An immense, old amber glass lens resting in a brass servicing cradle on the right, one dark cable loop, indigo masonry broken by soft violet-grey daylight from a high circular window at left. Understated pale blue central wall behind a lone purple mage, no figures or foreground obstacles. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition.",
+      "edit": "Remove the entire purple-robed figure and its shadow from the middle and fill that exact area with continuous blue stone wall, baseboard and floor matching their neighboring pixels. The finished lighthouse maintenance room must be completely empty of people and creatures. Preserve the current beautiful architecture, full landscape framing, separate golden lens, window and clean pixel art. Deliver the full empty background."
+    }
+  ]
+}

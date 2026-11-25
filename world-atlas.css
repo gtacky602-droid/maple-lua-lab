@@ -61,6 +61,7 @@
  color: var(--atlas-ink); background: #324950; padding: 14px 13px;
  border-left: 1px solid #ae956d; min-width: 0;
 }
+.atlas-info a { color: #ace8de; font-size: 13px }
 .atlas-info h3 { margin: 8px 0 3px; font-size: 16px; line-height: 1.45 }
 .atlas-info p { margin: 4px 0 8px; font-size: 12px; color: var(--atlas-muted) }
 .atlas-info input { min-height: 38px; font: inherit; padding: 8px }

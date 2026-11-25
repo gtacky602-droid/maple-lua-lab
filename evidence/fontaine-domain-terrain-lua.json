@@ -28,7 +28,7 @@
     "upper_route_jumps": 6,
     "round_trips": 1,
     "level_required": 99,
-    "exterior_scenery": "fontaineDelivery",
+    "exterior_scenery": "fontaineCourtTerrace",
     "arrivals_outside_enemy_contact": 1,
     "side_rooms": {},
     "waterway_seconds": null
@@ -94,7 +94,7 @@
     "upper_route_jumps": 6,
     "round_trips": 4,
     "level_required": 99,
-    "exterior_scenery": "coastalLookout",
+    "exterior_scenery": "fontaineNorthHeadland",
     "arrivals_outside_enemy_contact": 4,
     "side_rooms": {
       "sites-hunt-68347-pocket-1": 100,

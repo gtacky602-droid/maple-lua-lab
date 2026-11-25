@@ -1,3 +1,4 @@
+import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
@@ -135,6 +136,9 @@ try{
   $('comparisonViewLabel').textContent=decoded?'復号した背景':'矩形版';
   $('decodedBackgroundStatus').textContent=decoded?tier.toLocaleString('ja-JP')+'矩形を復号':preview?.state==='loading'?'読み込み中':
    preview?.state==='error'?'読み込みに失敗しました':'';
+  const metrics=backgroundMeasurements[n.id];
+  $('backgroundMetrics').textContent=decoded&&metrics?
+   `元画像との平均色差 ${metrics.error[tier].toFixed(2)} / 255 ｜ Lua格納量（全5段階） ${metrics.bytes.toLocaleString('ja-JP')} B`:'';
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':

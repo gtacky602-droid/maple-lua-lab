@@ -2,25 +2,25 @@
   "sites-hunt-50034": {
     "source": "fon-beryl-coast-background-v1.png",
     "count": 48,
-    "sourceCanvas": "a93fc259fd197c890beae4ccb2ddf7f706ab371de863faa240335ad4e8c462ba",
+    "sourceCanvas": "1dfd0e153fd315ef463ed074c26faa236140660636266cb5cf43984e9a0ca760",
     "tiers": {
-      "4096": "7c95cc70bd8df98992b21688507cd3cb49ea9329146cb876d379c56349d2f238",
-      "4608": "8adab412d08ead4307e7df71e4ef0eab6835c2ff57f1ba59fe9c71cb642ea4bb",
-      "5120": "3f1fb0cc527466e2d16914345b713d351967e56f0d06f390662192584c8b2f25",
-      "5632": "0a5b5f9f14c0018ca92d4194096885e8cc4006be45a030929039b0e408a8e5f8",
-      "6144": "7f426e5a9689244448dcc39e66ccefea7f4d6bcc881ba4e2004d0a3529d41baf"
+      "4096": "4511429adcd3a5a723231d93403459d8053aff2aa8a043f5e062341635d4546a",
+      "4608": "a83c71f5c0cdae2c59df071b7c25de9eb49ae6f889579373102b568b7cc5b692",
+      "5120": "9ffec09bec7e8c0c081dc13448de9f8982f1f80a8b7c4422aa8dbe02cb1c0aad",
+      "5632": "021ff09fd861e372fbff4d3ba722dca6db215d3d7ff3fd9e33c909dc382018ba",
+      "6144": "c0b1fedb68f95018120f5c784e96d60a43729b2c4771976c04076398430ba866"
     }
   },
   "sites-hunt-50034-pocket-1": {
     "source": "fon-beryl-sluice-background-v1.png",
     "count": 1,
-    "sourceCanvas": "fba75a029972315fa94accc9bfbf8b03e7ca36bc0ea5dffd4f1038501e69b325",
+    "sourceCanvas": "40b0764b97b65ef65107d1f71a0b2aa418765ea89b2c727fba1ef56bec048e92",
     "tiers": {
-      "4096": "2df491197779a6a3b41deb218721fe950c388ac113a1df16204a3f0fb02a9134",
-      "4608": "1cbeb2be6824e0ddfb3f5ea32489a9e191ffceae8dad4c9db6319ae6f67eac74",
-      "5120": "c5e6a03b554c9ad7391286665ba7fbde7acc37142649bae769fcbdd2cd10ef79",
-      "5632": "58ceb2f36ab7efd5d474d0f1ff8fe63edaec07945dc4536159971f97106bcce7",
-      "6144": "eaa3b7202d960273d7b4101fb6527eb8278c4ef003264838c8c0a90cd009371f"
+      "4096": "5051bb747f258ac34c97349495258c7ae152ffeb08bb38a1c2b8ec38bd856a7e",
+      "4608": "2220dd3795a4b6c751a7dd64549251e487c46ebf1246d19c3c99eb870c3fb3c8",
+      "5120": "ac6c6eff115398d3ff27dad77ce9af7e80af7e978b6b800890db353b5d8e668f",
+      "5632": "c577a88f64751c4deee502873c265e1ac6fb102890747ff8eb35d64db0256c57",
+      "6144": "9621f9b4d10f785a83459730cdcc74f6f5f4729ac4bdf06cd0d7eb844f1bb8ff"
     }
   },
   "sites-hunt-50067": {
@@ -62,13 +62,73 @@
   "sites-hunt-63738-pocket-1": {
     "source": "fon-domain-valve-background-v1.png",
     "count": 1,
-    "sourceCanvas": "09707aaf9be6fe8b4f4af20817126a2a6238ba14839a827b0e31efc8e4ebaa97",
+    "sourceCanvas": "b13827c7140d8ee11c013710093b3704e906eb0ee0395ec2b97a9d16c9b7986c",
     "tiers": {
-      "4096": "f5e57b0095a60268c1f599994acacbef857e637f77a7d79e594232b294ac530a",
-      "4608": "b66974f82b39d8f963673d92fb2ace5d15ea3dc11a4c3461f413a86f31ab1844",
-      "5120": "971f3d63f4912925da7b816d5a08791a531ad5e85b9aaa534bf762b744821cc3",
-      "5632": "1653aa0ebcf06c667b639207b12804b3d25cca93a2423b7237d947c4c9724e07",
-      "6144": "b25f948187cbe7e6f5745cdd15f7d82802518755c2c5324b68ac92f90d324a2b"
+      "4096": "fa7ff9d1a7f7ac3bd5e8f500b8f87ed80d96578a14aad74a48261ebd7d2cabaf",
+      "4608": "cdd7bedf65f2b867ac8a97ac499c85f6d2dc7cc86ddc1504e7e213d6fe3d9572",
+      "5120": "502943a2c2024ac70644f07981c0d7b9eb337efb26c01c8b1245ab3d27a24bf4",
+      "5632": "b2c74381373371aad3b3502bc759544fac94c81852ef7ef31388d163ab73e4e4",
+      "6144": "b15e4fbee5598fe3711a3de46540d53640efbf22c3e261f5f798496212654091"
+    }
+  },
+  "sites-hunt-50057": {
+    "source": "fon-north-terrace-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "8dfaf4299efb6f3d85cf7055aa0ac662f95c482237ad3873c05a2048f1f57362",
+    "tiers": {
+      "4096": "4b1bd5adf80d964ac5a1224eae62682e315e479d341ad84d88af1c2271f3eb3e",
+      "4608": "c293c2e415252725abb5f7d282d8411f7a9bf38eb155024fe728594f69eeb1fe",
+      "5120": "6c3a6591d9622a8097b1c1f3cea646f0ea75052eb8e7874f8aa9749a8cb780d8",
+      "5632": "36272a7ea0cc45776bbf45b503c1c28da511afdb7a9f87c21a4f5dc39e244b41",
+      "6144": "c92e1f4ccc9e443b78f6d185cf18ee44eeaaec3534c4ddc284098dc13104a020"
+    }
+  },
+  "sites-hunt-68347": {
+    "source": "fon-north-headland-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "9f2584faa164ae20bc4c4c6f77bc7c62dbebd10cc140d1133e0a17eb1a6f8894",
+    "tiers": {
+      "4096": "5899dbdaf9f9095393d2774fbcdba9a55ab42e9eef0f87233dc666c7b1505087",
+      "4608": "1c3161ff35480bcf3785452ba3011bb30810650a970f3c7ad87446061f5cc504",
+      "5120": "065c2f3f15fc1e8e643437ba84057df47753697a9215ed0eb19da1b0da99e57a",
+      "5632": "bf45138f039881af4fae52fed72d9438f09ad641a3a690ff65922dac7b6f0eff",
+      "6144": "b9f1f188717e1b4a351fc82090035907a2c4c6216f7280bdfda4bc6a4ab85218"
+    }
+  },
+  "sites-hunt-68347-pocket-1": {
+    "source": "fon-north-tidegate-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "a9978629a26f8590de699a07cb2432450f63ac3ca2b96ba42c3b102b45bb1082",
+    "tiers": {
+      "4096": "16dc3094d941f1ab4c7fa4fbda47b1e87ddc4ae93b17fa7ddb8e8dc1fd1c88e9",
+      "4608": "7d5c8b9d00b996affdc2d70e5fdf5f5d48d8bf59291e1477a3e280da03e1ed84",
+      "5120": "b3e59fdbce02d5eb7cfa0b759422e9f700bbd87427839c25f36c183f7a7d0ce3",
+      "5632": "6b84269eb0220a06aa0d00cdda04d41fb50a4bd75ad4c41824388574bb5170c0",
+      "6144": "4a3b595fca18d65dd1a137f447bfbe6daa276e7777b788301273d86ad450cce4"
+    }
+  },
+  "sites-hunt-68347-pocket-2": {
+    "source": "fon-north-storehouse-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "774124b1c476633ef8a566cfbad52abcf6e24cb4d6855e56e754c3db940a8505",
+    "tiers": {
+      "4096": "af4edce6d90c87d98b132504d9a61309bbc0a67284acdaecd86c94e40cc5df3e",
+      "4608": "13e79e9899a034273f90c6293f45a6c555fa15c8f8673de05e6d64439d6289c9",
+      "5120": "36746312a11507ebd234b4f64f09518a0d652425d2038510c34da0e083e06df8",
+      "5632": "aa0d264831d0381f97d5c76d88426281522f909c70b4752ddb7eaa7d0b79b936",
+      "6144": "393033f4fccf4d8d4dddd9068f1e7d2bdc1832ce9c8b2fc4f755acb3f85281dd"
+    }
+  },
+  "sites-hunt-68347-pocket-3": {
+    "source": "fon-north-lantern-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "1609e5abccac488ac9221959884df52a97bc83efbf4e9aa640d06b06691d985b",
+    "tiers": {
+      "4096": "a1f6cb6b13ba152b0ad80ff90d7387c110be4d67589c65ec40d9df4d0997efa9",
+      "4608": "3b6a2e0396c3e9c7cc6ec55585d8f3eb93578f26b750007821950bd73f7f8379",
+      "5120": "0d6d72ad6f7c71efae7a2abc86e617b41c5379dd6a488f9c837693adce94615c",
+      "5632": "de32ca4f14e891b6259972f7e3148ac18bac748723a74a1a3a05c8d54171a2ce",
+      "6144": "8abe247c081a5273d195f3f2dd8f8486308541e33ec4901649120f95041c43bd"
     }
   }
 }

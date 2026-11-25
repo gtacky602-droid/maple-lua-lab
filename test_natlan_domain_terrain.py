@@ -13,7 +13,7 @@ for name, level, pair in [('natlan-domain-terrain', 119, (east, west)),
                           ('natlan-western-domain-terrain', 120, (cliff, shore, centre))]:
     write_fixture(name, level, 'natlan-hub', [approaches[stage] for stage in pair])
 result = {stage: check_field(stage, host, 'natlan-hub', 119, scenery[stage], first_shelf_x[stage],
-                             check_arrivals=stage != centre, raised_gate=stage == west)
+                             raised_gate=stage == west)
           for stage, host in approaches.items()}
 write('evidence/natlan-domain-terrain-lua.json', result)
 print('Four redesigned approaches and the existing central approach passed traversal and spawn checks.')

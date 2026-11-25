@@ -52,7 +52,7 @@ def jump_across(walk, src, dest, direction):
     raise AssertionError('Did not land on the adjacent shelf')
 
 
-def check_field(stage, host, hub, level, scenery, first_x, *, check_arrivals=True, raised_gate=False, population_count=48):
+def check_field(stage, host, hub, level, scenery, first_x, *, raised_gate=False, population_count=48):
     state = start(level - 1, [host], hub)
     core.action(state, 'story_fast:' + host)
     assert state.story.node == host
@@ -81,13 +81,12 @@ def check_field(stage, host, hub, level, scenery, first_x, *, check_arrivals=Tru
         assert enemy.x == spawn['x'] and enemy.y == shelf['y']
         assert shelf['x'] + 24 <= enemy.x <= shelf['x'] + shelf['w'] - 24
         assert margin < enemy.x < floor['w'] - margin
-        if check_arrivals:
-            for exit in exits[stage]:
-                arrival = gates[exit['to'], stage]
-                y = arrival.get('arrivalY', 480)
-                # Both party slots land outside the contact reach of the whole patrol.
-                for x in (arrival['arrivalX'], arrival['arrivalX'] - 40):
-                    assert abs(enemy.y - y) >= 45 or x <= enemy.patrolMin - 60 or x >= enemy.patrolMax + 60
+        for exit in exits[stage]:
+            arrival = gates[exit['to'], stage]
+            y = arrival.get('arrivalY', 480)
+            # Both party slots land outside the contact reach of the whole patrol.
+            for x in (arrival['arrivalX'], arrival['arrivalX'] - 40):
+                assert abs(enemy.y - y) >= 45 or x <= enemy.patrolMin - 60 or x >= enemy.patrolMax + 60
 
     from_left = entry['arrivalX'] < floor['w'] / 2
     shelves = platforms[1:5] if from_left else platforms[4:0:-1]
@@ -125,8 +124,7 @@ def check_field(stage, host, hub, level, scenery, first_x, *, check_arrivals=Tru
     result = dict(population=len(population), shelf_heights_from_entrance=[p['y'] for p in shelves],
                   upper_route_jumps=6, round_trips=len(exits[stage]), level_required=level,
                   exterior_scenery=scenery)
-    if check_arrivals:
-        result['arrivals_outside_enemy_contact'] = len(exits[stage])
+    result['arrivals_outside_enemy_contact'] = len(exits[stage])
     return result
 
 

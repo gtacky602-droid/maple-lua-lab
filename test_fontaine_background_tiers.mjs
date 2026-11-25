@@ -5,7 +5,7 @@ import {chromium} from 'playwright';
 const browser = await chromium.launch({channel:'chrome',headless:true,args:['--disable-accelerated-2d-canvas']});
 const reports = {};
 try {
-  for (const group of ['beryl','fon-domain']) {
+  for (const group of ['beryl','fon-domain','fon-north']) {
     const prefix = group==='beryl' ? 'fon-beryl' : group;
     const manifest = JSON.parse(await fs.readFile('assets/'+prefix+'-background-generation.json','utf8'));
     const report = JSON.parse(await fs.readFile('evidence/'+group+'-background-compression.json','utf8'));
@@ -16,6 +16,19 @@ try {
       try {
         await page.goto((process.env.LAB_URL || 'http://127.0.0.1:9101/')+'map-art.html?node='+node);
         await page.waitForFunction(id=>window.mapArt?.node===id && window.mapArt.backgroundState==='ready' && window.mapArt?.decodedBackgroundRectangles===6144,node);
+        if (node==='sites-hunt-50057') {
+          await page.locator('#mapNodePicker summary').click();
+          await page.locator('#nodeMeasuredFilter').check();
+          const listed=await page.locator('#nodeSearchResults [data-node]').evaluateAll(
+            buttons=>buttons.map(button=>button.dataset.node));
+          const measuredNodes=await page.evaluate(async()=>Object.keys((await import('./scenery-measurements.js')).backgroundMeasurements));
+          assert.deepEqual(listed.sort(),measuredNodes.sort());
+          assert.ok(listed.includes('sites-hunt-68347-pocket-3'));
+          await page.locator('#nodeSearch').fill('灯台');
+          await page.locator('#clearNodeSearch').click();
+          assert.equal(await page.locator('#nodeMeasuredFilter').isChecked(),false);
+          await page.locator('#mapNodePicker summary').click();
+        }
         await page.locator('#loadLive').click();
         await page.waitForFunction(()=>window.mapArt.count>0 && window.mapArt.diff?.unchanged===window.mapArt.count);
         if (await page.locator('#placements button').count()===1) {
@@ -26,9 +39,11 @@ try {
         const before = await page.evaluate(()=>window.mapArt);
         assert.equal(before.backgroundFile,source);
         const seen = new Set();
-        for (const {rectangles,rgbSha256} of report.scenes[source].tiers) {
+        for (const {rectangles,rgbSha256,meanAbsoluteRgbErrorToReference} of report.scenes[source].tiers) {
           await page.selectOption('#backgroundTier',String(rectangles));
           await page.waitForFunction(n=>window.mapArt.decodedBackgroundRectangles===n,rectangles);
+          const metrics = await page.locator('#backgroundMetrics').innerText();
+          assert.ok(metrics.includes(meanAbsoluteRgbErrorToReference.toFixed(2)+' / 255'),metrics);
           const actual = await page.evaluate(async n=>{
             const image = new Image();
             image.src = 'assets/'+window.mapArt.decodedBackgroundFile;
@@ -57,9 +72,10 @@ try {
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);
         assert.deepEqual(errors,[]);
-        if (group==='fon-domain') {
-          await page.locator('main').screenshot({path:'evidence/'+source.replace('-background-v1.png','-comparison.png')});
-        }
+        const picture=group==='beryl'
+          ? source.replace('fon-beryl-','beryl-').replace('-background-v1.png','-scene-comparison.png')
+          : source.replace('-background-v1.png','-comparison.png');
+        await page.locator('main').screenshot({path:'evidence/'+picture});
       } finally { await page.close(); }
     }
   }

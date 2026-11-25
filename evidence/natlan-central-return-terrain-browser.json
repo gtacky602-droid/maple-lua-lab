@@ -1,0 +1,48 @@
+{
+  "central": {
+    "stage": "sites-hunt-73161",
+    "scenery": {
+      "key": "ochkaCliff",
+      "file": "ochka-cliff-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-06",
+      "x": 667.6,
+      "y": 308.2,
+      "adjacent": [
+        "nat-wp-72445",
+        "sites-hunt-73161-pocket-1"
+      ],
+      "next": "sites-hunt-73161-pocket-1"
+    },
+    "jump": [
+      480,
+      348
+    ],
+    "returnHeight": 480,
+    "journeys": [
+      [
+        "nat-wp-72445",
+        "sites-hunt-73161",
+        "walk"
+      ],
+      [
+        "sites-hunt-73161",
+        "sites-hunt-73161-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-73161-pocket-1",
+        "sites-hunt-73161",
+        "walk"
+      ],
+      [
+        "sites-hunt-73161",
+        "nat-wp-72445",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

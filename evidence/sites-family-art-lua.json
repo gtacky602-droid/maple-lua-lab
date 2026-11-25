@@ -1,0 +1,61 @@
+{
+  "placed": {
+    "fatui-skirmisher-cryogunner": 8,
+    "sternshield-crab": 72,
+    "tainted-water-splitting-phantasm": 3,
+    "fatui-frost-operative": 1,
+    "fatui-skirmisher-pyroslinger": 8
+  },
+  "rendered": {
+    "fatui-skirmisher-cryogunner": {
+      "source": "natlan-first-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3207,
+        "h48c32": 2006,
+        "h32c16": 951
+      }
+    },
+    "sternshield-crab": {
+      "source": "sternshield-crab-idle-source-v1.png",
+      "rectangles": {
+        "legacy": 2809,
+        "h48c32": 1827,
+        "h32c16": 942
+      }
+    },
+    "tainted-water-splitting-phantasm": {
+      "source": "fontaine-lake-legend-poses-source-v6.png",
+      "rectangles": {
+        "legacy": 425,
+        "h48c32": 291,
+        "h32c16": 224
+      }
+    },
+    "fatui-frost-operative": {
+      "source": "fatui-frost-operative-shared-idle-source-v2.png",
+      "rectangles": {
+        "legacy": 1618,
+        "h48c32": 971,
+        "h32c16": 540
+      }
+    },
+    "fatui-skirmisher-pyroslinger": {
+      "source": "natlan-first-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2817,
+        "h48c32": 1636,
+        "h32c16": 792
+      }
+    }
+  },
+  "nodes": [
+    "sites-hunt-7218",
+    "sites-hunt-50034",
+    "sites-hunt-50034-pocket-1",
+    "sites-hunt-63738-pocket-1",
+    "sites-hunt-68346",
+    "sites-hunt-68346-pocket-1",
+    "sites-hunt-68347",
+    "sites-hunt-68347-pocket-1"
+  ]
+}

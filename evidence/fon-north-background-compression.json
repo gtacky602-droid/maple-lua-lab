@@ -1,0 +1,216 @@
+{
+  "codec": "R63C MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "fon-north-terrace-background-v1.png": {
+      "sourceBytes": 2098943,
+      "sourceSha256": "71646cf89314df31ebd772be197ce74bc389db90186f8b1fb19b7cb2decfb596",
+      "preview": "fon-north-terrace-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18379,
+      "baseSelectedBytes": 18361,
+      "detailFixed13Bytes": 12417,
+      "detailSelectedBytes": 12409,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.207969382957176,
+          "rgbSha256": "ad4b4739d668a7b497950400fe0a9ee399f10a17815259ae2c5924747a9cf6c6"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.570549858940972,
+          "rgbSha256": "c6349e0626081fe67fd9a6102eaaabe2595da73dda79cf72e038ca14448dd14a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.073859320746528,
+          "rgbSha256": "6fe9803c66cd60515ff37958fe4b9bbed593c03d58e3fc8af6a61e71857ce744"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.644373010706018,
+          "rgbSha256": "3349754cbd8167488e2055a84e12272adb141340a4bc85c807748b9d0bf7cca8"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.279538755063657,
+          "rgbSha256": "c3435bae663d73bc423193b90447c71c75183bec6bc7ca771f7a22897e47fdff"
+        }
+      ]
+    },
+    "fon-north-headland-background-v1.png": {
+      "sourceBytes": 1723491,
+      "sourceSha256": "6100c389346faf3ded19d7039a63992a916b10bb3994c948acd55015c684145b",
+      "preview": "fon-north-headland-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17057,
+      "baseSelectedBytes": 17041,
+      "detailFixed13Bytes": 11841,
+      "detailSelectedBytes": 11831,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.611683033130787,
+          "rgbSha256": "f3df50c82c94ccfe9dc3faf418775511f6a53139ed2f20ab71074ff2208a604b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.261212384259259,
+          "rgbSha256": "4f1b3c06fe82a4d114abfc343b72fda2e5e66ead9aecafd632cbb18322120eb6"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.0142980504918984,
+          "rgbSha256": "90ad767e1aec4a172fa2ac429ae18e69c31a280b1f9d8291e293c9735cffdae5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.8060054072627314,
+          "rgbSha256": "1cf8d33e28435e3628bd7396a5c9c84e678e8b6d86b873060d9aa2b40512d274"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.6287932219328702,
+          "rgbSha256": "1fac957d53f95ca6ecb0ede886c844b5bf891bbec12e95e4999cf21a328b2619"
+        }
+      ]
+    },
+    "fon-north-tidegate-background-v1.png": {
+      "sourceBytes": 1719768,
+      "sourceSha256": "97d20ef5ceec91fd4c98f73ce7b0fb00b79867c28f70ff3cab3c2f95d631d955",
+      "preview": "fon-north-tidegate-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16175,
+      "baseSelectedBytes": 16163,
+      "detailFixed13Bytes": 11551,
+      "detailSelectedBytes": 11539,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.3833866825810186,
+          "rgbSha256": "a5b5f4de054123e9c22fd516d27667709bcd6f3c313e2cdf332f397babc1e107"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.07635498046875,
+          "rgbSha256": "0e047d74a3de01baeb40a1eb96626bc954dce0306fb6956d1ecc7534085a5d65"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.8566962348090277,
+          "rgbSha256": "a500dbbf9f2caff78f649122bf03de0c747c97851b3e356525d1c92b5f463f7d"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.6697794596354165,
+          "rgbSha256": "f2488c3ce97e93243b9281efc1ebaeb8d858a4f28c3b969fe61312157c7629f0"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.5046974464699074,
+          "rgbSha256": "601b7421995e5f2c027b03d7c8a34acd5cfa9092ebe887db1a2e7bc93faf3080"
+        }
+      ]
+    },
+    "fon-north-storehouse-background-v1.png": {
+      "sourceBytes": 1685981,
+      "sourceSha256": "ebe5951bb2c1070e282d7526cb1e14606c5df0afc2ecfc44a76242c563489866",
+      "preview": "fon-north-storehouse-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17279,
+      "baseSelectedBytes": 17267,
+      "detailFixed13Bytes": 11817,
+      "detailSelectedBytes": 11805,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.6049601236979165,
+          "rgbSha256": "d7f86eb1c571f3a81d649c10015cf574c85d2e27abd9b1069e3351d90eaf19f0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.3683403862847223,
+          "rgbSha256": "f3aee9182d84974f5c77173f4a13189831c474c01097ff8800448bf26b238e54"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.1947270146122686,
+          "rgbSha256": "aa85b045cc2b56fedfebeed2bd62c48ff8262ec9885174bc27c8edda9021c072"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.047672978153935,
+          "rgbSha256": "0688c6f12feb20331b52fcf3aae43e6f402f7114c3a26a20d4b1f683c3e092c3"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.9321967230902777,
+          "rgbSha256": "1479c40307c941d39c845a416281662763cfde72e2a351ac7c354b5fa1a8d619"
+        }
+      ]
+    },
+    "fon-north-lantern-background-v1.png": {
+      "sourceBytes": 1865343,
+      "sourceSha256": "fc144af8c5d5b2423b75a835a7815aa51aded163d1b76ad4f47c6b83a02df765",
+      "preview": "fon-north-lantern-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17311,
+      "baseSelectedBytes": 17297,
+      "detailFixed13Bytes": 12091,
+      "detailSelectedBytes": 12077,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.077433268229167,
+          "rgbSha256": "a88ac22e372978633c48baffad5f9b0dce73c5ef3d0c6d2d1bbd2f350e5dbfc3"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.6730211046006946,
+          "rgbSha256": "ffec5c93c205dc52bbdc947ed0a45f311cd10b042248c3e94c29f140bb8da1af"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.3794646086516202,
+          "rgbSha256": "1648a42bdcc9bbc4938db1f53d77b2bf6d846a6c24e7b036640774862995648a"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1465906213831016,
+          "rgbSha256": "8b324fefa0789b0b67ba3cd4eb6859ca6b36a08bb1cc0797e958ad73c500521d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.9530730070891202,
+          "rgbSha256": "1df346e96792f7c188441a963c85482867f917312760e2999cfad209b2c884bf"
+        }
+      ]
+    }
+  }
+}

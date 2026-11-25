@@ -14,6 +14,7 @@
         "fon-wp-50035",
         "sites-hunt-50034-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-50034",
       "next": "sites-hunt-50034-pocket-1"
     },
     "jump": [
@@ -52,8 +53,8 @@
   "north-quay": {
     "stage": "sites-hunt-50057",
     "scenery": {
-      "key": "fontaineDelivery",
-      "file": "fontaine-delivery-quay-background-v1.png",
+      "key": "fontaineCourtTerrace",
+      "file": "fon-north-terrace-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -63,6 +64,7 @@
       "adjacent": [
         "fon-wp-50056"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-50057",
       "next": "fon-wp-50056"
     },
     "jump": [
@@ -96,6 +98,7 @@
       "adjacent": [
         "fon-wp-50075"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-50067",
       "next": "fon-wp-50075"
     },
     "jump": [
@@ -129,6 +132,7 @@
       "adjacent": [
         "fon-wp-50066"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-56792",
       "next": "fon-wp-50066"
     },
     "jump": [
@@ -163,6 +167,7 @@
         "fon-wp-55763",
         "sites-hunt-63738-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-63738",
       "next": "sites-hunt-63738-pocket-1"
     },
     "jump": [
@@ -201,8 +206,8 @@
   "north-cliff": {
     "stage": "sites-hunt-68347",
     "scenery": {
-      "key": "coastalLookout",
-      "file": "coastal-lookout-background-v1.png",
+      "key": "fontaineNorthHeadland",
+      "file": "fon-north-headland-background-v1.png",
       "state": "ready"
     },
     "atlas": {
@@ -215,6 +220,7 @@
         "sites-hunt-68347-pocket-2",
         "sites-hunt-68347-pocket-3"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-68347",
       "next": "sites-hunt-68347-pocket-1"
     },
     "jump": [
@@ -223,8 +229,8 @@
     ],
     "returnHeight": 480,
     "pocketScenery": {
-      "key": "goldenGrotto",
-      "file": "golden-grotto-background-v1.png",
+      "key": "fontaineNorthTidegate",
+      "file": "fon-north-tidegate-background-v1.png",
       "state": "ready"
     },
     "journeys": [
@@ -274,8 +280,8 @@
         "id": "sites-hunt-68347-pocket-1",
         "returnHeight": 480,
         "pocketScenery": {
-          "key": "goldenGrotto",
-          "file": "golden-grotto-background-v1.png",
+          "key": "fontaineNorthTidegate",
+          "file": "fon-north-tidegate-background-v1.png",
           "state": "ready"
         }
       },
@@ -283,8 +289,8 @@
         "id": "sites-hunt-68347-pocket-2",
         "returnHeight": 480,
         "pocketScenery": {
-          "key": "fontaineUnderstage",
-          "file": "fontaine-understage-background-v1.png",
+          "key": "fontaineNorthStorehouse",
+          "file": "fon-north-storehouse-background-v1.png",
           "state": "ready"
         }
       },
@@ -292,8 +298,8 @@
         "id": "sites-hunt-68347-pocket-3",
         "returnHeight": 480,
         "pocketScenery": {
-          "key": "tideCalibration",
-          "file": "tide-calibration-background-v1.png",
+          "key": "fontaineNorthLantern",
+          "file": "fon-north-lantern-background-v1.png",
           "state": "ready"
         }
       }

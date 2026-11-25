@@ -66,6 +66,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 119,
-    "exterior_scenery": "ochkaCliff"
+    "exterior_scenery": "ochkaCliff",
+    "arrivals_outside_enemy_contact": 2
   }
 }

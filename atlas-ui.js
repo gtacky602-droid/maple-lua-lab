@@ -1,3 +1,5 @@
+import {backgroundMeasurements} from './scenery-measurements.js';
+
 const groupNames = {
  main: '通常地域', high_level_branch: '高難度地域', hidden_world: '隠し世界', official_layer: '別地図',
 };
@@ -22,6 +24,7 @@ export function initAtlas(action, clearKeys) {
  const field = document.getElementById('atlasField');
  const title = document.getElementById('atlasPlaceName');
  const level = document.getElementById('atlasPlaceLevel');
+ const compare = document.getElementById('atlasBackgroundCompare');
  const routes = document.getElementById('atlasRoutes');
  const itinerary = document.getElementById('atlasItinerary');
  const itineraryTitle = document.getElementById('atlasItineraryTitle');
@@ -151,6 +154,9 @@ export function initAtlas(action, clearKeys) {
 
  function renderSelection() {
   const selected = view.selected;
+  compare.hidden = !Object.hasOwn(backgroundMeasurements, selected?.id);
+  if (compare.hidden) compare.removeAttribute('href');
+  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id);
   const area = view.options.find(item => item.id === view.region);
   title.textContent = selected?.boss?.name ?? selected?.name ?? area?.name ?? 'テイワット全域';
   level.textContent = selected?.mode === 'draft' ? [

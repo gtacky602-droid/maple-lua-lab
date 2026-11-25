@@ -4,11 +4,11 @@ from tools.domain_terrain_test import check_field, nodes, write, write_fixture
 
 routes = [
     (50034, 50035, 2280, 'fontaineBerylCoast', 48),
-    (50057, 50056, 2280, 'fontaineDelivery', 48),
+    (50057, 50056, 2280, 'fontaineCourtTerrace', 48),
     (50067, 50075, 700, 'fontaineSunkenReef', 18),
     (56792, 50066, 2280, 'fontaineSunkenSeal', 18),
     (63738, 55763, 2280, 'fontaineMorteDrain', 48),
-    (68347, 53867, 2280, 'coastalLookout', 48),
+    (68347, 53867, 2280, 'fontaineNorthHeadland', 48),
 ]
 hub = 'fontaine-hub'
 write_fixture('fontaine-domain-terrain', 100, hub, [f'fon-wp-{waypoint}' for _, waypoint, *_ in routes])

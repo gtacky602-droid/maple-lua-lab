@@ -48,6 +48,12 @@ async function visit(browser, suite, field, errors) {
       const { x, y } = view.points.find(p => p.current);
       return { region: view.region, x, y, adjacent: view.routes.map(r => r.id) };
     });
+    if (suite.compareBackgrounds) {
+      const link = page.locator('#atlasBackgroundCompare');
+      assert.equal(await link.isVisible(),true);
+      assert.equal(await link.getAttribute('href'),'map-art.html?node='+field.stage);
+      map.backgroundComparison = await link.getAttribute('href');
+    }
     assert.ok(map.adjacent.includes(field.host) && map.adjacent.includes(destination));
     await page.locator('#atlasRoutes button').filter({ hasText: nodes[destination].name }).click();
     await page.waitForFunction(id => {
