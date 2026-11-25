@@ -40,8 +40,8 @@ return function(C)
   if a.hp<=0 or math.abs(a.y-480)>=34 then return end
   local spec=q.contest
   local stage=phase(s,state)
-  if s.story.node==spec.cape and stage==4 and math.abs(a.x-spec.overlookX)<58 then
-   return 'overlook','海と町の灯りを眺める'
+  if s.story.node==spec.cape and state.count>=4 and math.abs(a.x-spec.overlookX)<58 then
+   return 'overlook',s.contestVista and '眺望を閉じる' or '海と町の灯りを眺める'
   end
   if s.story.node~=q.target then return end
   if math.abs(a.x-spec.hostX)<55 then
@@ -59,8 +59,11 @@ return function(C)
   local item=nearby(s,q,state)
   if not item then return false end
   if item=='overlook' then
-   state.count=5
-   s.storyNotice='綾華「海に町の灯りが映っています。親分が見せたかったのは、この景色だったのですね。」'
+   s.contestVista=not s.contestVista
+   if state.count==4 then
+    state.count=5
+    s.storyNotice='綾華「海に町の灯りが映っています。親分が見せたかったのは、この景色だったのですね。」'
+   end
   elseif item=='replay' then
    s.storyNotice='親分が飛び跳ねて、再戦を受けてくれました。'
    s.contestReplay=1
@@ -79,6 +82,10 @@ return function(C)
  end
 
  function contest.step(s,q,state)
+  if s.contestVista then
+   local a=s.actors[s.active]
+   if s.story.node~=q.contest.cape or math.abs(a.x-q.contest.overlookX)>=58 or math.abs(a.y-480)>=34 or a.hp<=0 then s.contestVista=nil end
+  end
   if not state or s.paused or s.story.node~=q.target then return end
   local stage=phase(s,state)
   local enemy=s.enemies[1]
@@ -97,25 +104,56 @@ return function(C)
   boxes[#boxes+1]={kind='rect',x=math.floor(x),y=math.floor(y),w=w,h=h,color=color}
  end
 
- local function lantern(boxes,x,y,k)
-  local function pixel(dx,dy,w,h,color) rect(boxes,x+dx*k,y+dy*k,w*k,h*k,color) end
-  pixel(-31,-6,62,6,'#292132')
-  pixel(-26,-15,52,9,'#634050')
-  pixel(-22,-53,44,38,'#351f36')
-  pixel(-18,-49,36,29,'#de8755')
-  pixel(-14,-47,28,23,'#ffc775')
-  pixel(-9,-42,5,8,'#392536')
-  pixel(4,-42,5,8,'#392536')
-  pixel(-3,-33,6,3,'#795041')
-  pixel(-20,-22,40,6,'#9d4b46')
-  pixel(-33,-58,66,6,'#35293b')
-  pixel(-28,-64,56,7,'#635067')
-  pixel(-22,-69,44,5,'#8b666c')
-  pixel(-8,-74,16,5,'#a27d6e')
-  pixel(-4,-78,8,5,'#bb956a')
+ -- Motifs are grounded at the bottom centre. The field and comparison use the same runs.
+ contest.motifs={
+  lantern={
+   {-31,-6,62,6,'#292132'},{-26,-15,52,9,'#634050'},{-23,-53,46,38,'#351f36'},
+   {-19,-50,38,32,'#de8755'},{-15,-48,30,25,'#ffc775'},{-18,-44,3,17,'#efab68'},
+   {-3,-47,6,8,'#ffe5a0'},{-13,-41,10,4,'#925052'},{3,-41,10,4,'#925052'},
+   {-9,-40,5,7,'#392536'},{4,-40,5,7,'#392536'},{-3,-33,6,3,'#795041'},
+   {-20,-22,40,6,'#9d4b46'},{-14,-20,28,2,'#f4c67e'},{-33,-58,66,6,'#35293b'},
+   {-28,-64,56,7,'#635067'},{-22,-69,44,5,'#8b666c'},{-8,-74,16,5,'#a27d6e'},
+   {-4,-78,8,5,'#bb956a'},{-32,-61,7,4,'#bc936d'},{25,-61,7,4,'#bc936d'},
+   {-27,-51,2,15,'#a95550'},{25,-51,2,15,'#a95550'},{-29,-37,6,6,'#cf7359'},{23,-37,6,6,'#cf7359'},
+   {-23,-63,15,2,'#a07a7b'},{6,-57,19,2,'#897282'},
+   {-17,-49,2,25,'#b55e48'},{14,-49,2,25,'#ad5b49'},{-13,-26,25,1,'#eaab64'},
+   {-20,-12,40,2,'#95675e'},{-23,-4,46,1,'#715160'},
+   {0,-78,12,3,'#63764f'},{4,-82,12,5,'#91aa69'},{11,-84,8,4,'#b4c987'}
+  },
+  split={{8,-49,3,7,'#67434a'},{5,-44,4,4,'#67434a'},{3,-41,3,4,'#67434a'}},
+  water={{-52,-14,104,14,'#317286'},{-44,-11,88,2,'#80a4a5'},
+   {-21,-8,42,6,'#9e656b'},{-16,-7,32,3,'#cf9279'},{-29,-3,16,1,'#86b9b8'},
+   {-48,-6,10,2,'#629da6'},{19,-10,17,1,'#9fc7c0'},{-7,-6,4,2,'#785866'},
+   {4,-6,4,2,'#785866'},{-17,-3,31,1,'#82ada9'}},
+  tail={{21,-5,17,4,'#422a4c'},{34,-8,8,6,'#422a4c'},{39,-12,8,7,'#684856'},
+   {42,-15,7,6,'#d8af8a'},{38,-7,5,2,'#8e6967'},{29,-4,8,1,'#79a9af'}},
+  curtain={{-19,-90,38,90,'#243b35'}}
+ }
+ for i=0,6 do
+  local leaves=contest.motifs.curtain
+  leaves[#leaves+1]={-16+i%2*4,-87+12*i,15,10,'#4b6951'}
+  leaves[#leaves+1]={2-i%2*4,-85+12*i,14,9,'#607451'}
+ end
+
+ function contest.arrange(spec,stage,bossX,gateX,emit)
+  if gateX then emit('curtain',gateX,480,1) end
+  if stage==2 then
+   for i,x in ipairs(spec.decoys) do
+    emit('lantern',x,464,1)
+    emit('water',x,480,1)
+    if i==spec.answer then emit('tail',x,480,1) end
+   end
+  elseif stage==0 or stage==1 or stage==3 then
+   local scale=stage==3 and 1.4 or 1.65
+   emit('lantern',bossX,480,scale)
+   if stage==3 then emit('split',bossX,480,scale) end
+  end
  end
 
  local function sign(boxes,x)
+  rect(boxes,x+3,454,13,6,'#674452')
+  rect(boxes,x+13,450,6,8,'#96675b')
+  rect(boxes,x+16,447,5,5,'#dab68a')
   rect(boxes,x-3,446,6,34,'#674442')
   rect(boxes,x-28,431,45,18,'#4e3742')
   rect(boxes,x+17,435,10,10,'#765053')
@@ -123,14 +161,7 @@ return function(C)
   rect(boxes,x-18,438,29,3,'#6e4953')
  end
 
- local function leafCurtain(boxes,x)
-  rect(boxes,x-19,390,38,90,'#243b35')
-  for i=0,6 do
-   local y=393+12*i
-   rect(boxes,x-16+i%2*4,y,15,10,'#4b6951')
-   rect(boxes,x+2-i%2*4,y+2,14,9,'#607451')
-  end
- end
+
 
  function contest.observe(s,f,boxes,node,q,state,mode,profile)
   if not state then return end
@@ -142,30 +173,27 @@ return function(C)
   if s.story.node==spec.cape then
    sign(boxes,spec.overlookX-c)
    C.drawDanukiArt({draws=boxes},spec.overlookX+88-c,480,mode,profile)
-   f.storyContest={stage=stage,message='潮見の岬 ｜ 海と町の灯り'}
+   f.storyContest={stage=stage,vista=s.contestVista,message='潮見の岬 ｜ 海と町の灯り'}
    return
   end
   if s.story.node~=q.target then return end
+  local gateX
   if state.count<4 then
    for _,edge in ipairs(node.exits) do
-    if edge.to==spec.cape then leafCurtain(boxes,edge.x-c);break end
+    if edge.to==spec.cape then gateX=edge.x;break end
    end
   end
+  local enemy=s.enemies[1]
+  contest.arrange(spec,stage,enemy and enemy.x or spec.bossX,gateX,function(key,wx,y,scale)
+   local x=wx-c
+   for _,r in ipairs(contest.motifs[key]) do
+    rect(boxes,x+r[1]*scale,y+r[2]*scale,r[3]*scale,r[4]*scale,r[5])
+   end
+  end)
   local message=messages[stage] or (state.status=='complete' and '海への道は開いています。親分に再戦を申し込めます。'
    or '離島の綾華に勝負と岬のことを報告しましょう。')
   if stage==2 then
-   for i,worldX in ipairs(spec.decoys) do
-    local x=worldX-c
-    lantern(boxes,x,464,1)
-    rect(boxes,x-52,466,104,14,'#317286')
-    rect(boxes,x-44,469,88,2,'#80a4a5')
-    rect(boxes,x-21,472,42,6,'#9e656b')
-    if i==spec.answer then
-     rect(boxes,x+22,475,18,4,'#422a4c')
-     rect(boxes,x+36,471,8,6,'#422a4c')
-     rect(boxes,x+40,467,8,6,'#d8af8a')
-    end
-   end
+
    local flash=s.contestFlash
    if flash and s.t-flash.at<1.8 then
     message='紙吹雪が舞いました。ほかの灯籠を調べられます。'
@@ -179,7 +207,7 @@ return function(C)
    local e=s.enemies[1]
    if e then
     local x=e.x-c
-    lantern(boxes,x,480,stage==1 and 1.65 or 1.4)
+
     if e.warning>0 then
      rect(boxes,x-59,411,10,6,'#cee489')
      rect(boxes,x+49,399,10,6,'#cee489')
@@ -188,7 +216,7 @@ return function(C)
    end
   else
    C.drawDanukiArt({draws=boxes},spec.hostX-c,480,mode,profile)
-   if stage==0 then lantern(boxes,spec.bossX-c,480,1.65) else sign(boxes,1190-c) end
+   if stage~=0 then sign(boxes,1190-c) end
   end
   f.storyContest={stage=stage,replay=s.contestReplay~=nil,message=message}
  end

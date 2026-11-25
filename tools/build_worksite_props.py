@@ -61,7 +61,24 @@ def forest_rooms(lua,quest):
         rooms[room['node']]=stages
         notes.append(dict(node=room['node'],kind=room['kind'],x=forest.revealX(data)))
     offsets=[forest.offset(beat) for beat in range(forest.beats)]
-    return dict(motifs=native(forest.motifs),rooms=rooms,offsets=offsets,notes=notes)
+    return dict(motifs=dict(sorted(native(forest.motifs).items())),rooms=rooms,offsets=offsets,notes=notes)
+
+def lantern_contest(lua,quest,nodes):
+    contest=lua.execute((ROOT/'story-contest.lua').read_text('utf8'))(lua.table())
+    spec=quest['contest']
+    cave=next(n for n in nodes if n['id']==quest['target'])
+    gate=next(e for e in cave['exits'] if e['to']==spec['cape'])
+    stages=[]
+    for phase,label in [(1,'化け術の外殻'),(2,'水面に並ぶ三つの影'),(3,'残りの化け力')]:
+        placements=[]
+        contest.arrange(lua.table_from(spec,recursive=True),phase,spec['bossX'],gate['x'],
+                        lambda key,x,y,k: placements.append([key,x,y,k]))
+        assert placements[0][0]=='curtain'
+        if stages:
+            assert curtain==placements[0]
+        curtain=placements.pop(0)
+        stages.append(dict(label=label,focusX=spec['bossX'],placements=placements))
+    return dict(node=cave['id'],motifs=dict(sorted(native(contest.motifs).items())),curtain=curtain,stages=stages)
 
 def build():
     lua=LuaRuntime(unpack_returned_tuples=True)
@@ -101,7 +118,9 @@ def build():
         props[q['id']]=art
     quest=next(q for q in graph['quests'] if q['kind']=='construction')
     forest_quest=next(q for q in graph['quests'] if q.get('forest'))
-    return dict(worksites=props,haul=haul_routes(lua,quest),forest=forest_rooms(lua,forest_quest))
+    contest_quest=next(q for q in graph['quests'] if q.get('contest'))
+    return dict(worksites=props,haul=haul_routes(lua,quest),forest=forest_rooms(lua,forest_quest),
+                contest=lantern_contest(lua,contest_quest,graph['nodes']))
 
 if __name__=='__main__':
     output=ROOT/'content/worksite-props.json'

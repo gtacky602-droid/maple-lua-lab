@@ -442,6 +442,9 @@ function hud(f,calls,renderMs){
  updateConstruction(f.storyConstruction);
  updateSights(f);
  updateLanternNote(f.storyLanternNote,f.storySightNote,f.story?.quests?.['inazuma-torii-maze']);
+ const vista=$('capeVista');
+ vista.hidden=!f.storyContest?.vista||Boolean(f.worldMap);
+ if(!vista.hidden&&!vista.querySelector('img').hasAttribute('src'))vista.querySelector('img').src='assets/inazuma-shiomi-cape-background-v1.png';
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
  const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyWandererSurvey?.message??f.storyObservationVisitors?.message??f.storyColleiGuide?.message??f.storyKavehRoom?.message??f.storyNahidaDiscovery?.message??f.storyEmilieScent?.message??f.storyNaviaPhoto?.message??f.storyIansan?.message??f.storySpringCourse?.message??f.storyKinichHunt?.message??f.storySurf?.message??f.storyToyDive?.message??f.storyDiveExhibit?.message??f.storyLyneyMagic?.message??f.storyFurinaFinale?.message??(!f.storyFurinaRehearsal?.open?f.storyFurinaRehearsal?.message:undefined)??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;

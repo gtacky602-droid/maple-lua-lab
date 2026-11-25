@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {questRoute,questRouteText} from './quest-route.js';
+import {trackedQuest} from './quest-journal.js';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const q=graph.quests.find(q=>q.id==='mond-patrol'),frame={story:{active:true,node:'mond-town'},storyGraph:graph,progression:{level:1}};
 assert.match(questRouteText(frame,q,'unaccepted'),/拠点にいます/);
@@ -50,6 +51,11 @@ const contestFrame={story:{active:true,node:contest.target,quests:{[contest.id]:
 assert.match(questRouteText(contestFrame,contest,'active'),/目的地に到着/);
 contestFrame.story.quests[contest.id].count=4;
 assert.match(questRouteText(contestFrame,contest,'active'),/次は 稲妻・潮見の岬/);
+contestFrame.story.quests[contest.id]={status:'complete',count:5};
+contestFrame.storyContest={stage:2,replay:true};
+const rematch=trackedQuest(contestFrame,contest.id);
+assert.match(rematch.text,/再戦中.*水面/);
+assert.match(rematch.pointUrl,/contest=2&replay=1/);
 const sights=graph.quests.find(q=>q.sights);
 const sightState={status:'active',count:2,sights:{seen:{sakura:true,slope:true}}};
 const sightFrame={story:{active:true,node:sights.hub,quests:{[sights.id]:sightState}},

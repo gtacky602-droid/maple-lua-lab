@@ -1,0 +1,216 @@
+{
+  "packing": "3場面の絵と配置を個別に保存：6,220 B ／ 図柄を共用：2,195 B（JSON）。",
+  "gateAfterReplay": true,
+  "checks": [
+    {
+      "phase": 1,
+      "tier": 4096,
+      "rematch": false,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 4096,
+      "rematch": true,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 4608,
+      "rematch": false,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 4608,
+      "rematch": true,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 5120,
+      "rematch": false,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 5120,
+      "rematch": true,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 5632,
+      "rematch": false,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 5632,
+      "rematch": true,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 6144,
+      "rematch": false,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 1,
+      "tier": 6144,
+      "rematch": true,
+      "calls": 35,
+      "pixels": 9126
+    },
+    {
+      "phase": 2,
+      "tier": 4096,
+      "rematch": false,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 4096,
+      "rematch": true,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 4608,
+      "rematch": false,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 4608,
+      "rematch": true,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 5120,
+      "rematch": false,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 5120,
+      "rematch": true,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 5632,
+      "rematch": false,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 5632,
+      "rematch": true,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 6144,
+      "rematch": false,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 2,
+      "tier": 6144,
+      "rematch": true,
+      "calls": 141,
+      "pixels": 15943
+    },
+    {
+      "phase": 3,
+      "tier": 4096,
+      "rematch": false,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 4096,
+      "rematch": true,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 4608,
+      "rematch": false,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 4608,
+      "rematch": true,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 5120,
+      "rematch": false,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 5120,
+      "rematch": true,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 5632,
+      "rematch": false,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 5632,
+      "rematch": true,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 6144,
+      "rematch": false,
+      "calls": 38,
+      "pixels": 6555
+    },
+    {
+      "phase": 3,
+      "tier": 6144,
+      "rematch": true,
+      "calls": 38,
+      "pixels": 6555
+    }
+  ]
+}

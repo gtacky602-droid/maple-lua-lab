@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 千化け大灯籠と潮見の岬
+
+海辺の洞穴の創作ボス。化け術の外殻、水面に並ぶ三つの影、残りの化け力の3場面で、頭の葉・屋根の飾り・房を含めて同じ灯籠の絵を使う。終盤のひび、池と映り込むしっぽは別の小さな図柄。M地図で追跡中の依頼を開くと、その時点の姿を確認できる。再戦では開通済みの岬への出口も比較できる。[三つの影を元背景と4,096矩形で比較](http://127.0.0.1:9117/map-art.html?node=inazuma-sea-cave&placements=live&contest=2&compare=background&tier=4096) ／ [3場面の見比べ](evidence/inazuma-lantern-comparison.png)
+
+初回の勝負後は、岬の道標でGを押すと夕暮れの海と町の灯りを眺められる。Gか「眺望を閉じる」で戻る。報告後も同じ場所で眺められる。Lv40の離島到着から進めたセーブで、誤答後の再調査、勝利、岬、報告を確認。[育成記録](evidence/earned-lantern-contest.json) ／ [岬の眺望](evidence/inazuma-cape-vista.png) ／ [背景5段階・初回と再戦の検査](evidence/lantern-comparison-checks.json)
+
 ## 三つ灯籠の広場の見比べ
 
 化け狸の森では鳥居を一度くぐると広場の様子が変わる。依頼手帳またはM地図の「広場の様子を見る」で現在の段階を開ける。石像の部屋で開くと直前の動きから始まり、スライダーを動かすと元背景と圧縮背景が同じコマを表示する。正解した手掛かりは順にみちくさ帳へ入り、海岸への近道が開いた後も読み返せる。[石像の動きを見比べる](http://127.0.0.1:9117/map-art.html?node=inazuma-torii-statues&placements=live&forest=search&beat=15&compare=background&tier=4096) ／ [3部屋の比較画像](evidence/inazuma-torii-clues.png)

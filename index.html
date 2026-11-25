@@ -180,10 +180,14 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
 #forestSketches div{display:flex;flex-wrap:wrap;gap:12px}
 #forestSketches canvas{width:132px;height:78px;image-rendering:pixelated;margin-bottom:4px}
 #forestSketches a{font-size:13px}
+#capeVista{position:absolute;inset:0 0 auto;width:100%;aspect-ratio:16/9;z-index:4;margin:0;pointer-events:none;background:#192533}
+#capeVista img{width:100%;height:100%;display:block;object-fit:cover}
+#capeVista figcaption{position:absolute;bottom:12px;right:12px;background:#172d31e8;color:#fff2cb;padding:5px 8px;border-radius:5px}
+#capeVista button{pointer-events:auto}
 </style>
 <main><header><div><div class="eyebrow">TEYVAT · 2D ADVENTURE LAB</div><h1>風の狩場</h1><p>3D背景を想定した画像と、Luaで動く2Dの旅人・アンバー。</p></div><span class="badge">Lua 5.3 / ローカル試作 A</span></header>
 <p id="fieldBalance" class="note" hidden></p>
-<div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
+<div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><figure id="capeVista" hidden><img alt="夕暮れの海に町の灯りが映る潮見の岬"><figcaption>潮見の岬 <button type="button" data-action="story_collect">眺望を閉じる</button></figcaption></figure><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
 <section id="growthTrialHud" class="note" aria-label="光界の練習" hidden>
  <p id="growthTrialHelp" role="status"></p>
  <button data-action="normal">通常攻撃 J</button>

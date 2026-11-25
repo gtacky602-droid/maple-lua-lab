@@ -9,5 +9,13 @@
   "report_and_restore": true,
   "replay_entry": true,
   "viewport_390": true,
+  "mapReflectionLink": true,
+  "replayReflectionLink": true,
+  "replayVictoryXp": 0,
+  "permanentOverlook": true,
+  "panorama": {
+    "width": 1138,
+    "height": 640.125
+  },
   "errors": []
 }

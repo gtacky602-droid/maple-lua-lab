@@ -1,0 +1,28 @@
+{
+  "receivedAt": "inazuma-port",
+  "phases": [
+    {
+      "stage": 1,
+      "rectangles": 50
+    },
+    {
+      "stage": 2,
+      "rectangles": 156
+    },
+    {
+      "stage": 3,
+      "rectangles": 53
+    }
+  ],
+  "wrongChoices": 2,
+  "cape": "inazuma-shiomi-cape",
+  "report": {
+    "id": "inazuma-lantern-contest",
+    "seconds": 161.18,
+    "level": 52,
+    "total": 1418719,
+    "questXp": 1285779,
+    "killXp": 132940,
+    "kills": 1189
+  }
+}

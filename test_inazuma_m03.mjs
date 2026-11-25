@@ -79,7 +79,7 @@ try{
  await page.goto(root);
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-                     await fs.readFile('work/inazuma-m03-fixture.json','utf8'));
+                     await fs.readFile(process.env.CONTEST_SAVE||'work/inazuma-m03-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await current(port);
  await quest.getByRole('button',{name:'受注',exact:true}).click();
@@ -91,6 +91,17 @@ try{
  await inspect(440,'親分に勝負を申し込む');
  await phase(1);
  await fight(2);
+ await page.keyboard.press('KeyM');
+ await page.locator('#atlasQuestFocus').click();
+ const link=page.locator('#atlasQuestPoint');
+ await link.waitFor();
+ const [preview]=await Promise.all([page.waitForEvent('popup'),link.click()]);
+ await preview.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===4096);
+ assert.equal(await preview.locator('#questPropStage').inputValue(),'1');
+ assert.equal(await preview.locator('#contestPreview input').isChecked(),false);
+ await preview.close();
+ await page.keyboard.press('Escape');
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
  await inspect(760,'中央の灯籠を調べる');
  await page.waitForFunction(()=>window.lab.frame.storyContest?.message.includes('紙吹雪'));
  await progress(2);
@@ -107,6 +118,14 @@ try{
  await through(cape);
  await inspect(675,'海と町の灯りを眺める');
  await progress(5);
+ const vista=page.locator('#capeVista');
+ await vista.waitFor();
+ await page.waitForFunction(()=>document.querySelector('#capeVista img').naturalWidth>0);
+ const playfield=await canvas.boundingBox(),panorama=await vista.boundingBox();
+ for(const key of ['x','y','width','height'])assert.ok(Math.abs(playfield[key]-panorama[key])<1,key);
+ await vista.screenshot({path:'evidence/inazuma-cape-vista.png'});
+ await vista.getByRole('button').click();
+ await vista.waitFor({state:'hidden'});
  await page.waitForFunction(()=>document.querySelector('#trackedQuestText').textContent.includes('報告待ち 5/5'));
  await page.locator('.game').screenshot({path:'evidence/inazuma-m03-cape.png'});
  await walk(110);
@@ -132,12 +151,28 @@ try{
  await inspect(440,'親分に再戦を申し込む');
  await phase(1);
  assert.equal((await frame()).storyContest.replay,true);
+ const beforeReplay=await frame();
+ await fight(2);
+ await page.waitForFunction(()=>document.querySelector('#trackedSurveyPoint').href.includes('contest=2')&&
+  document.querySelector('#trackedSurveyPoint').href.includes('replay=1'));
+ await inspect(960,'右の灯籠を調べる');
+ await fight(5);
+ assert.equal((await frame()).progression.questXp,beforeReplay.progression.questXp);
+ await walk(1320);
+ await through(cape);
+ await inspect(675,'海と町の灯りを眺める');
+ await page.locator('#capeVista').waitFor();
+ assert.equal((await frame()).story.quests[qid].cycles,1);
+ await page.locator('#capeVista button').click();
+ await page.locator('#capeVista').waitFor({state:'hidden'});
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/inazuma-m03-browser.json',JSON.stringify({
   browser:'Chrome', actual_controls:true, first_and_final_battle:true, reflection_retry:true, leaf_curtain_reveal:true,
-  cape_visit:true, first_clear_xp:335632, report_and_restore:true, replay_entry:true, viewport_390:true, errors
+  cape_visit:true, first_clear_xp:335632, report_and_restore:true, replay_entry:true, viewport_390:true,
+  mapReflectionLink:true,replayReflectionLink:true,replayVictoryXp:0,permanentOverlook:true,
+  panorama:{width:panorama.width,height:panorama.height},errors
  },null,2)+'\n');
  console.log('Inazuma M03 Chrome battles, reflection, cape, report and rematch entry passed');
 }catch(error){

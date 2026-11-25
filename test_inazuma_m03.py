@@ -165,12 +165,18 @@ assert (s.kills,s.mora,s.progression.questXp)==(kills,mora,xp)
 walk(1320)
 through(cape)
 assert s.story.quests[qid].status=='complete'
+walk(675)
+interact('海と町')
+assert core.frame(s).storyContest.vista
+interact('眺望を閉じる')
+assert not core.frame(s).storyContest.vista
+assert (s.kills,s.mora,s.progression.questXp)==(kills,mora,xp)
 
 evidence = {
     'requires_M02':True, 'cave_and_cape_gates':True, 'first_and_final_battle':True,
     'wrong_answers_retry':True, 'observation_has_no_combat_targets':True,
     'observation_survives_restore':True, 'cape_visit_and_revisit':True,
-    'replay_without_repeat_rewards':True, 'first_clear_xp':335632, 'one_time_reward':{'xp':383670,'mora':550},
+    'permanent_overlook':True, 'replay_without_repeat_rewards':True, 'first_clear_xp':335632, 'one_time_reward':{'xp':383670,'mora':550},
 }
 (ROOT/'evidence/inazuma-m03-lua.json').write_text(json.dumps(evidence, indent=2)+'\n', encoding='utf8')
 print('Inazuma M03 battles, reflection, checkpoint, scenic exit and rewardless rematch passed')

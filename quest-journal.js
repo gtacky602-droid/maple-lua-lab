@@ -163,6 +163,20 @@ export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ if(q.contest){
+  const replay=status==='complete';
+  const rematch=replay&&f.storyContest?.replay;
+  const phase=replay?(rematch?f.storyContest.stage:1):st?.count;
+  if((status==='active'||replay)&&phase>=1&&phase<=3){
+   const params=new URLSearchParams({node:q.target,placements:'live',compare:'background',tier:'4096',contest:phase});
+   if(replay)params.set('replay','1');
+   const objective=rematch?questObjective(q,f.storyGraph,{status:'active',count:phase}):
+    replay?'海辺の洞穴で親分に再戦を申し込めます。':questObjective(q,f.storyGraph,st);
+   const route=replay?'':questRoute(f,q,status).text;
+   return {node:q.target,pointUrl:'map-art.html?'+params,pointLabel:phase===2?'水面の三つの影を見比べる':'大灯籠の姿を見る',
+    text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route?' ｜ '+route:'')};
+  }
+ }
  if(status==='complete'&&st.sights?.favorite){
   const point=worksitePoint(q,st.sights.favorite,q.target);
   if(point)return {node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'絵図に残した景色を見る',

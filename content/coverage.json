@@ -8161,6 +8161,7 @@
       "browser_ferry_evidence": "evidence/earned-atlas-ferry-browser.json"
     }
   },
+  "inazuma_lantern_contest_art": {"phases": 3, "panorama": "evidence/inazuma-cape-vista.png", "field": "evidence/earned-lantern-contest.json", "preview": "evidence/lantern-comparison-checks.json", "browser": "evidence/inazuma-m03-browser.json"},
   "inazuma_torii_clues": {"rooms": 3, "motifs": 7, "statuePhases": 60, "size": "evidence/torii-layout-size.json", "earned": "evidence/torii-earned-route.json", "preview": "evidence/torii-preview-pixels.json", "browser": "evidence/inazuma-m02-browser.json"},
   "inazuma_sightbook": {"places": 4, "propRectangles": 63, "earnedChoices": "evidence/earned-sightbook.json", "field": "evidence/quest-field-guide-inazuma-sightbook.json", "preview": "evidence/sightbook-preview-pixels.json", "browser": "evidence/inazuma-s01-browser.json"},
   "liyue_worksite_guides": {"quests": 3, "points": 9, "propRectangles": 74, "haulRoutes": 2, "cartRectangles": 9, "lua": "evidence/earned-worksites.json", "market": "evidence/quest-field-guide-liyue-market-worksites.json", "browser": "evidence/earned-worksites-browser.json"},

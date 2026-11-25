@@ -188,11 +188,29 @@ assert q.status=='complete' and q.cycles==1
 guides.save()
 
 contest, cave, cape = 'inazuma-lantern-contest', 'inazuma-sea-cave', 'inazuma-shiomi-cape'
+(work/'lantern-earned-start.json').write_text(json.dumps(validate_save(native(core.checkpoint(state)))),encoding='utf8')
+art=read('content/worksite-props.json')['contest']
+def check_lantern_art(stage):
+    from math import floor
+    f=frame()
+    assert f.storyContest.stage==stage
+    shapes=[art['curtain'],*art['stages'][stage-1]['placements']]
+    expected=[(floor(x-f.camera+dx*k),floor(y+dy*k),w*k,h*k,color)
+              for name,x,y,k in shapes for dx,dy,w,h,color in art['motifs'][name]]
+    draws=[(r.x,r.y,r.w,r.h,r.color) for r in f.draws.values() if r.kind=='rect']
+    assert any(draws[i:i+len(expected)]==expected for i in range(len(draws))),stage
+    return dict(stage=stage,rectangles=len(expected))
 q = accept(contest)
 cross_all(road, town, shore, cave)
 collect(440)
+contest_art=[check_lantern_art(1)]
 fight(716, lambda: frame().storyContest.stage == 2)
+contest_art.append(check_lantern_art(2))
+for decoy in (560,760):
+    collect(decoy)
+    assert q.count==2 and '紙吹雪' in frame().storyContest.message
 collect(960)
+contest_art.append(check_lantern_art(3))
 assert frame().storyContest.stage == 3
 before = state.progression.questXp
 fight(716, lambda: frame().storyContest.stage == 4)
@@ -201,6 +219,9 @@ trail.cross(cape)
 collect(675)
 cross_all(cave, shore, town, road, port)
 report(contest)
+(ROOT/'evidence/earned-lantern-contest.json').write_text(json.dumps(dict(
+    receivedAt=port,phases=contest_art,wrongChoices=2,cape=cape,report=milestones[-1]
+),ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 
 ayaka = 'ayaka-join'
 q = accept(ayaka)

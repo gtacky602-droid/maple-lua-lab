@@ -1,6 +1,7 @@
 import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
 import {drawSurveyPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
 import {forestPreview} from './forest-preview.js';
+import {lanternPreview} from './lantern-preview.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
@@ -182,6 +183,8 @@ try{
  }
  const [mechanismScenes,legendScenes,fieldScenes,stygianScenes,questPreviews,worksiteArt]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json'),json('content/toyac-quest-previews.json'),json('content/worksite-props.json')]);
  const forest=forestPreview($('forestPreview'),worksiteArt.forest,render);
+ const contest=lanternPreview($('contestPreview'),worksiteArt.contest,render);
+ questPreviews[worksiteArt.contest.node]={stages:worksiteArt.contest.stages.map(stage=>({...stage,visible:[]}))};
  for(const [node,route] of Object.entries(worksiteArt.haul.routes)){
   questPreviews[node]={stages:route.stops.map(stop=>({label:stop.label,focusX:stop.x,cart:stop,visible:[]})),
    fixed:route.fixed,load:[...route.deck,...worksiteArt.haul.cart]};
@@ -414,6 +417,7 @@ try{
   const forestRects=forest.rectangles(camera,960);
   const questPreview=liveView&&questPreviews[n.id];
   const stage=questPreview?.stages?.[Number($('questPropStage').value)];
+  const contestRects=contest.rectangles(stage,camera);
   if(stage){
    if(n.breakTargets)$('crystalPreview').querySelector('output').textContent='残り '+stage.visible.length+' / '+n.breakTargets.length;
    const gate=n.exits.find(e=>e.requires&&legendNames.has(e.to));
@@ -599,6 +603,9 @@ try{
      ctx.fillStyle='#e2e8c6';ctx.fillRect(x-3,c.y-13,6,6);
     }
    }
+   for(const [x,y,w,h,color] of contestRects){
+    ctx.fillStyle=color;ctx.fillRect(x,y,w,h);
+   }
    for(const [x,y,w,h,color] of forestRects){
     ctx.fillStyle=color;ctx.fillRect(x,y,w,h);
    }
@@ -716,6 +723,7 @@ try{
   camera.max=Math.max(0,n.width-960);
   camera.value=0;
   forest.reset(liveView?n.id:null,n===openingNode?query:null);
+  contest.reset(liveView?n.id:null,n===openingNode?query:null);
   if(liveView&&worksiteArt.forest.rooms[n.id])camera.value=Math.round(Number(camera.max)/2);
   const preview=liveView&&questPreviews[n.id],stageSelect=$('questPropStage');
   $('questPropPreview').hidden=!preview;
@@ -742,8 +750,10 @@ try{
   }
   if(preview){
    for(const [index,stage] of preview.stages.entries())stageSelect.add(new Option(stage.label,String(index)));
-   stageSelect.value='0';
-   camera.value=preview.stages[0].focusX-480;
+   const phase=n===openingNode&&n.id===worksiteArt.contest.node?Number(query.get('contest')):0;
+   const index=Number.isInteger(phase)&&phase>=1&&phase<=3?phase-1:0;
+   stageSelect.value=String(index);
+   camera.value=preview.stages[index].focusX-480;
   }
   if(liveView){
    liveItems=[];liveError='';

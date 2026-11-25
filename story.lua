@@ -1093,6 +1093,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.forestFeedback=nil
   s.contestReplay=nil
   s.contestFlash=nil
+  s.contestVista=nil
   s.storyFirstClear=nil
   s.sightNotice=nil
   s.restNotice=nil
