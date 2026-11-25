@@ -18,11 +18,15 @@ def read(path):
 
 
 hub = 'fontaine-hub'
-work = ROOT / 'work' / 'fontaine-fresh-route'
+after_revisits = '--after-revisits' in sys.argv
+work = ROOT / 'work' / ('fontaine-revisits-route' if after_revisits else 'fontaine-fresh-route')
 work.mkdir(parents=True, exist_ok=True)
-subprocess.run([sys.executable, str(ROOT / 'test_sumeru_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-checkpoint = validate_save(read('work/sumeru-fresh-route/fontaine-save.json'))
-assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 80
+if after_revisits:
+    checkpoint = validate_save(read('evidence/sumeru-revisit-save.json'))
+else:
+    subprocess.run([sys.executable, str(ROOT / 'test_sumeru_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
+    checkpoint = validate_save(read('work/sumeru-fresh-route/fontaine-save.json'))
+assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == (81 if after_revisits else 80)
 
 graph = read('content/story-graph.json')
 nodes = {node['id']: node for node in graph['nodes']}
@@ -166,7 +170,8 @@ collect(863, 391)
 cross(hub)
 report(first)
 guides.expect(frame(),first,absent=True)
-guides.save()
+if not after_revisits:
+    guides.save()
 
 second, wings, catwalk, workfloor, store, rehearsal = (
     'fontaine-understage-crew', 'fontaine-stage-wings', 'fontaine-lift-catwalk',
@@ -273,6 +278,58 @@ act('story_photo_publish:candid')
 cross(hub)
 report(navia)
 
+lyney, freminet = 'fon-lyney-magic', 'fon-freminet-dive'
+if after_revisits:
+    partial = validate_save(native(core.checkpoint(state)))
+    (work/'three-exhibits.json').write_text(json.dumps(partial, ensure_ascii=False), encoding='utf8')
+    quest = accept(lyney)
+    magic, seats = 'fon-magic-wings', 'fon-magic-seats'
+    cross(rehearsal, magic)
+    collect(219)
+    collect(553, 392)
+    cross(seats)
+    collect(424)
+    cross(magic)
+    collect(819)
+    tick(100)
+    collect(1303)
+    collect(1179)
+    tick(68)
+    act('story_collect')
+    tick(211)
+    cross(seats)
+    collect(424)
+    tick(211)
+    cross(hub)
+    report(lyney)
+    assert quest.storyChoice == 'light'
+
+    quest = accept(freminet)
+    collect(477)
+    party = (state.active, state.companion)
+    cross('fon-toy-shallows')
+
+    def swim(x, y):
+        for axis, goal, low, high in [('y', y, 'up', 'down'), ('x', x, 'left', 'right')]:
+            for _ in range(600):
+                delta = goal - trail.actor[axis]
+                if abs(delta) < 3:
+                    break
+                tick(1, trail.inputs[low if delta < 0 else high])
+            else:
+                raise AssertionError((axis, goal, trail.actor.x, trail.actor.y))
+
+    for x, y in [(291,216), (525,368), (715,261), (1082,437), (1354,304)]:
+        swim(x,y)
+        if x == 1354:
+            tick(300)
+        act('story_collect')
+    assert quest.storyChoice == 'coral' and quest.count == 6
+    swim(1547,250)
+    act('story_nearby_portal')
+    assert state.story.node == hub and (state.active,state.companion) == party
+    report(freminet)
+
 field, natlan_entry, natlan = 'fontaine-field', 'natlan-entry', 'natlan-hub'
 cross(field)
 near(1380)
@@ -353,7 +410,7 @@ saved = validate_save(native(core.checkpoint(state)))
 restored = core.restore(lua.table_from(saved, recursive=True), 12)
 assert restored.story.node == natlan and restored.progression.level == 100
 assert restored.progression.total == state.progression.total
-quests = (first, second, third, furina, emilie, navia)
+quests = (first, second, third, furina, emilie, navia) + ((lyney, freminet) if after_revisits else ())
 assert all(restored.story.quests[id].status == 'complete' and restored.story.quests[id].cycles == 1 for id in quests)
 next_quest = 'natlan-ridge-flag'
 core.action(restored, 'story_accept:' + next_quest)
@@ -364,4 +421,10 @@ result = dict(route=milestones, completedQuests=quests, hunts=hunting, recoveryT
               partyWipes=state.returns, noWorkfloorWallInStoreroom=True, savedAndRestored=True,
               firstNatlanQuestAvailable=next_quest,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
-(ROOT / 'evidence/fontaine-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
+if after_revisits:
+    for key, record in checkpoint['story']['quests'].items():
+        if record['status'] == 'complete':
+            assert saved['story']['quests'][key] == record
+    (ROOT/'evidence/fontaine-revisit-save.json').write_text(json.dumps(saved, ensure_ascii=False)+'\n', encoding='utf8')
+filename = 'fontaine-after-revisits.json' if after_revisits else 'fontaine-fresh-route.json'
+(ROOT/'evidence'/filename).write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

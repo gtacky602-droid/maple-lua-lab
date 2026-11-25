@@ -3,6 +3,22 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "fontaine_theater_revisits": {
+    "completedMain": 3,
+    "completedSide": 5,
+    "arrivalLevel": 81,
+    "natlanLevel": 100,
+    "exhibits": 5,
+    "save": "evidence/fontaine-revisit-save.json",
+    "route": "evidence/fontaine-after-revisits.json",
+    "drawingPackets": "evidence/fontaine-theater-packing.json",
+    "preview": "theater-preview.html",
+    "continuedToNodKraiLevel": 120,
+    "natlanMainReported": 3,
+    "natlanSidesReported": 3,
+    "nodKraiSave": "evidence/natlan-after-fontaine-save.json",
+    "browser": "evidence/fontaine-theater-browser.json"
+  },
   "sumeru_observatory_revisits": {
     "completedMain": 3,
     "completedSide": 5,

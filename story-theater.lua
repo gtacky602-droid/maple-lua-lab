@@ -153,7 +153,8 @@ return function(C)
   box(draws,x,curtain.y+h-6,curtain.w,6,'#d1a169')
  end
 
- local function drawFlats(s,draws,flats,count,mode,profile)
+ local function drawFlats(s,layer,flats,count,mode,profile)
+  local draws=layer.draws
   local x=flats.x-s.camera
   if x< -226 or x>1160 then return end
   local y=flats.y
@@ -171,16 +172,17 @@ return function(C)
   local passed=s.theaterFlatsAt and s.t-s.theaterFlatsAt
   local progress=changed and (passed and math.min(1,passed/.85) or 1) or 0
   if progress<1 then
-   for i=-1,1 do C.drawFieldDisplayArt({draws=draws},C.stageWaveArt,x+i*103-340*progress,y,108,mode,profile,false) end
+   for i=-1,1 do C.drawFieldDisplayArt(layer,C.stageWaveArt,x+i*103-340*progress,y,108,mode,profile,false) end
   end
  end
 
- local function drawWave(s,f,draws,wave,count,mode,profile)
+ local function drawWave(s,f,layer,wave,count,mode,profile)
+  local draws=layer.draws
   local up=count>=wave.raiseAt
   f.storyTheaterWave={raised=up,x=wave.x}
   local x=wave.x-s.camera
   if x< -70 or x>1030 then return end
-  if up then C.drawFieldDisplayArt({draws=draws},C.stageWaveArt,x,wave.y,wave.height,mode,profile,false)
+  if up then C.drawFieldDisplayArt(layer,C.stageWaveArt,x,wave.y,wave.height,mode,profile,false)
   else
    box(draws,x-54,wave.y-14,108,14,'#3a575f')
    box(draws,x-50,wave.y-14,100,4,'#66a192')
@@ -244,7 +246,8 @@ return function(C)
   return true
  end
 
- local function drawRehearsed(s,f,draws,extra,elapsed,mode,profile)
+ local function drawRehearsed(s,f,layer,extra,elapsed,mode,profile)
+  local draws=layer.draws
   local light=elapsed>=0
   local wave=elapsed>=extra.waveDelay
   local bow=elapsed>=extra.bowDelay
@@ -255,10 +258,10 @@ return function(C)
     local w=20+band*17
     box(draws,spotX+band*9-w/2,y-57-band*16,w,16,'#ffe1a031')
    end
-   C.drawFieldDisplayArt({draws=draws},C.furinaCueArt.lamp,spotX,y,72,mode,profile,false)
+   C.drawFieldDisplayArt(layer,C.furinaCueArt.lamp,spotX,y,72,mode,profile,false)
   end
   if wave and waveX>=-125 and waveX<=1085 then
-   C.drawFieldDisplayArt({draws=draws},C.stageWaveArt,waveX,y,122,mode,profile,false)
+   C.drawFieldDisplayArt(layer,C.stageWaveArt,waveX,y,122,mode,profile,false)
   end
   if bow and waveX>=0 and waveX<=960 then
    label(draws,'拍手は、裏方のみんなへ',waveX,y-169,'#fff1b9')
@@ -271,14 +274,15 @@ return function(C)
       or 'フリーナ「この静けさも、舞台の一部なんだ。」'}
  end
 
- local function drawFinale(s,f,draws,finale,count,mode,profile)
+ local function drawFinale(s,f,layer,finale,count,mode,profile)
+  local draws=layer.draws
   local show=count>=finale.performedAt
   local stopped=count>=finale.stoppedAt
   local exposed=count>=finale.exposedAt
   local x=finale.x-s.camera
   local y=finale.y
   if exposed and x>=-110 and x<=1070 then
-   C.drawFieldDisplayArt({draws=draws},C.grandFinaleArt,x,y,finale.height,mode,profile,false)
+   C.drawFieldDisplayArt(layer,C.grandFinaleArt,x,y,finale.height,mode,profile,false)
    box(draws,x-27,y-93,54,34,'#3c4c59')
    box(draws,x-21,y-87,42,22,'#193946')
    box(draws,x-12,y-80,24,8,stopped and '#6e9e9a' or '#f2ad7c')
@@ -318,7 +322,7 @@ return function(C)
    box(draws,x-215,110,430,5,'#d8af71')
    for i=-4,4 do box(draws,x+49*i,115,18,7,'#f6cf81') end
   end
-  if extra and show then drawRehearsed(s,f,draws,extra,elapsed,mode,profile) end
+  if extra and show then drawRehearsed(s,f,layer,extra,elapsed,mode,profile) end
  end
 
  local function movingCartPhase(s,cart)
@@ -327,7 +331,79 @@ return function(C)
   return 'following'
  end
 
- function theater.frame(s,f,draws,stage,mode,profile,canInspect)
+ local programmeDesk={x=350,y=480}
+ function theater.atProgramme(s,node,canInspect)
+  local stage=node.theater
+  local chapter=stage and stage.finale and s.story.quests[stage.quest]
+  return chapter and chapter.status=='complete' and canInspect(s.actors[s.active],programmeDesk)
+ end
+
+ local exhibits={
+  {'fon-furina-cues','フリーナ','終幕の合図灯','fontaine-rehearsal-room','稽古場'},
+  {'fon-lyney-magic','リネとリネット','今夜の奇術','fon-magic-seats','客席'},
+  {'fon-navia-photo','ナヴィア','水路の集合写真','fon-photo-terrace','写真掲示板'},
+  {'fon-freminet-dive','フレミネ','初航海の潜航玩具','fon-toy-shallows','試験区画'},
+  {'fon-emilie-scent','エミリエ','旅の記念小瓶','fon-emilie-atelier','調香台'},
+ }
+
+ local function chosenOption(q,state)
+  for _,step in ipairs(q.itinerary) do
+   for _,option in ipairs(step.choices or {}) do
+    if option.id==state.storyChoice then return option end
+   end
+  end
+ end
+
+ local function exhibit(q,state)
+  if q.id=='fon-furina-cues' then
+   return C.furinaCueArt.lamp,'ひと言のあと、一拍待つ。幕と照明を合わせてから波を送る。','fon-furina-cues-lamp'
+  elseif q.id=='fon-lyney-magic' then
+   local option=chosenOption(q,state)
+   return state.storyChoice=='curtain' and C.furinaCueArt.curtain or C.lyneyMagicArt.birds,
+          option and option.name or '客席から見る小さな奇術',
+          state.storyChoice=='curtain' and 'fon-furina-cues-curtain' or 'fon-lyney-magic-birds'
+  elseif q.id=='fon-navia-photo' then
+   local posted=state.groupPhoto and state.groupPhoto.posted
+   for _,print in ipairs(q.groupPhoto.prints) do
+    if print.id==posted then return C.naviaPhotoArt.board,print.label,'fon-navia-photo-board' end
+   end
+   return C.naviaPhotoArt.board,'水路で働く仲間の一枚','fon-navia-photo-board'
+  elseif q.id=='fon-freminet-dive' then
+   local marker=q.toyRoute.markers[state.storyChoice]
+   return C.freminetDiveArt.toy,marker and '帰り道の目印は「'..marker.name..'」。' or '浅瀬から帰った試作艇','fon-freminet-dive-toy'
+  end
+  local option=chosenOption(q,state)
+  return C.emilieScentArt[state.storyChoice or 'trial'],option and option.name..'。'..option.scentMemo or '旅の記念小瓶',
+         'fon-emilie-scent-'..(state.storyChoice or 'trial')
+ end
+
+ local function drawProgramme(s,f,layer,mode,profile,canInspect,quests)
+  local x=programmeDesk.x-s.camera
+  if x< -226 or x>1186 then return end
+  local draws=layer.draws
+  box(draws,x-178,455,356,7,'#c6a06a')
+  box(draws,x-175,462,350,8,'#654b49')
+  box(draws,x-166,470,8,10,'#80574a')
+  box(draws,x+158,470,8,10,'#80574a')
+  label(draws,'公演記念展示',x,366,'#ffe8ab')
+  local near=canInspect(s.actors[s.active],programmeDesk)
+  local entries=near and {} or nil
+  for i,item in ipairs(exhibits) do
+   local state=s.story.quests[item[1]]
+   if state and state.status=='complete' then
+    local art,detail,asset=exhibit(quests[item[1]],state)
+    C.drawFieldDisplayArt(layer,art,x+(i-3)*70,455,47,mode,profile,false)
+    if near then
+     entries[#entries+1]={author=item[2],title=item[3],detail=detail,node=item[4],place=item[5],
+                          asset=asset}
+    end
+   end
+  end
+  if near then f.storyTheaterProgramme={entries=entries} end
+ end
+
+ local function drawStage(s,f,layer,stage,mode,profile,canInspect,quests)
+  local draws=layer.draws
   if not stage then return end
   local count=stageCount(s,stage.quest)
   local shutter=stage.shutter
@@ -340,7 +416,7 @@ return function(C)
    local x=moon.x-s.camera
    if x>=-40 and x<=1000 then drawMoon(draws,x,moon.y,s.t) end
   end
-  if stage.flats then drawFlats(s,draws,stage.flats,count,mode,profile) end
+  if stage.flats then drawFlats(s,layer,stage.flats,count,mode,profile) end
   if stage.curtain then
    local curtain=stage.curtain
    local x=curtain.x-s.camera
@@ -348,19 +424,21 @@ return function(C)
       (s.theaterCurtainAt and math.min(1,(s.t-s.theaterCurtainAt)/.7) or 1) or 0
    if x>=-curtain.w and x<=960 then drawCurtain(draws,x,curtain,progress) end
   end
-  if stage.wave then drawWave(s,f,draws,stage.wave,count,mode,profile) end
+  if stage.wave then drawWave(s,f,layer,stage.wave,count,mode,profile) end
   if stage.arrangement then
    local plan=layout(s,stage)
    f.storyStageLayout=plan
    if plan=='cover' then
-    drawWave(s,f,draws,stage.arrangement.wave,count,mode,profile)
+    drawWave(s,f,layer,stage.arrangement.wave,count,mode,profile)
    end
   end
   if stage.emitter then drawEmitter(s,draws,stage.emitter,count) end
   if stage.staff then drawStaff(s,draws,stage,count,mode,profile) end
   if stage.finale then
    local finale=stage.finale
-   drawFinale(s,f,draws,finale,count,mode,profile)
+   drawFinale(s,f,layer,finale,count,mode,profile)
+   local chapter=s.story.quests[stage.quest]
+   if chapter and chapter.status=='complete' then drawProgramme(s,f,layer,mode,profile,canInspect,quests) end
    local extra=rehearsed(s,finale)
    if extra and count>=finale.performedAt then
     local console=extra.console
@@ -394,10 +472,20 @@ return function(C)
   f.storyTheaterCart={x=x,phase=phase}
   x=x-s.camera
   if x< -95 or x>1055 then return end
-  C.drawFieldDisplayArt({draws=draws},C.parcelMekaArt,x,route.y,route.height,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.parcelMekaArt,x,route.y,route.height,mode,profile,false)
   if phase=='starting' or phase=='waitingForPlayer' then
    label(draws,phase=='starting' and '出発のベル' or 'メカに近づく',x,route.y-route.height-12,'#ffdfa0')
   end
+ end
+
+ function theater.frame(s,f,draws,stage,mode,profile,canInspect,quests)
+  if not stage then return end
+  local layer={draws=draws}
+  if s.packRectArt and mode=='rect' then
+   layer.rectIndex,layer.rectBatches={},f.rectBatches or {}
+  end
+  drawStage(s,f,layer,stage,mode,profile,canInspect,quests)
+  if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
  end
 
  function theater.cartGuide(s,step)

@@ -1,0 +1,20 @@
+{
+  "earnedLevels": [
+    92,
+    100
+  ],
+  "exhibits": [
+    3,
+    5
+  ],
+  "compared": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "postedPhoto": "candid",
+  "packedLiveFrame": true,
+  "mobileWidth": 390,
+  "atlas": "fon-magic-seats",
+  "errors": []
+}

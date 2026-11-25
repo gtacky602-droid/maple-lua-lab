@@ -1,0 +1,151 @@
+{
+  "route": [
+    {
+      "id": "fontaine-moon-parcel",
+      "seconds": 37.95,
+      "level": 83,
+      "total": 12253450,
+      "questXp": 6307766,
+      "killXp": 5945684,
+      "kills": 5862
+    },
+    {
+      "id": "fontaine-understage-crew",
+      "seconds": 72.65,
+      "level": 85,
+      "total": 14178848,
+      "questXp": 8229712,
+      "killXp": 5949136,
+      "kills": 5864
+    },
+    {
+      "id": "fon-furina-cues",
+      "seconds": 86.13,
+      "level": 85,
+      "total": 14788969,
+      "questXp": 8839833,
+      "killXp": 5949136,
+      "kills": 5864
+    },
+    {
+      "id": "fontaine-grand-finale",
+      "seconds": 125.08,
+      "level": 91,
+      "total": 21363465,
+      "questXp": 15411223,
+      "killXp": 5952242,
+      "kills": 5867
+    },
+    {
+      "id": "fon-emilie-scent",
+      "seconds": 157.05,
+      "level": 91,
+      "total": 21836778,
+      "questXp": 15876683,
+      "killXp": 5960095,
+      "kills": 5868
+    },
+    {
+      "id": "fon-navia-photo",
+      "seconds": 170.53,
+      "level": 92,
+      "total": 22636521,
+      "questXp": 16676426,
+      "killXp": 5960095,
+      "kills": 5868
+    },
+    {
+      "id": "fon-lyney-magic",
+      "seconds": 211.9,
+      "level": 92,
+      "total": 23665362,
+      "questXp": 17705267,
+      "killXp": 5960095,
+      "kills": 5868
+    },
+    {
+      "id": "fon-freminet-dive",
+      "seconds": 230.98,
+      "level": 93,
+      "total": 24988930,
+      "questXp": 19028835,
+      "killXp": 5960095,
+      "kills": 5868
+    },
+    {
+      "id": "lv95",
+      "seconds": 922.4,
+      "level": 95,
+      "total": 27148462,
+      "questXp": 19028835,
+      "killXp": 8119627,
+      "kills": 6472
+    },
+    {
+      "id": "lv99",
+      "seconds": 2696.18,
+      "level": 99,
+      "total": 35248081,
+      "questXp": 19028835,
+      "killXp": 16219246,
+      "kills": 8221
+    },
+    {
+      "id": "lv100",
+      "seconds": 3002.25,
+      "level": 100,
+      "total": 37613010,
+      "questXp": 19028835,
+      "killXp": 18584175,
+      "kills": 8618
+    },
+    {
+      "id": "natlan-hub",
+      "seconds": 3025.87,
+      "level": 100,
+      "total": 37630242,
+      "questXp": 19028835,
+      "killXp": 18601407,
+      "kills": 8625
+    }
+  ],
+  "completedQuests": [
+    "fontaine-moon-parcel",
+    "fontaine-understage-crew",
+    "fontaine-grand-finale",
+    "fon-furina-cues",
+    "fon-emilie-scent",
+    "fon-navia-photo",
+    "fon-lyney-magic",
+    "fon-freminet-dive"
+  ],
+  "hunts": [
+    {
+      "stage": "fontaine-beryl-bank",
+      "sorties": 11,
+      "kills": 571,
+      "xp": 2055600,
+      "seconds": 622.98
+    },
+    {
+      "stage": "fontaine-beryl-foothills",
+      "sorties": 44,
+      "kills": 1665,
+      "xp": 7710615,
+      "seconds": 1580.12
+    },
+    {
+      "stage": "sites-hunt-50034",
+      "sorties": 7,
+      "kills": 380,
+      "xp": 2263660,
+      "seconds": 256.83
+    }
+  ],
+  "recoveryTrips": 59,
+  "partyWipes": 0,
+  "noWorkfloorWallInStoreroom": true,
+  "savedAndRestored": true,
+  "firstNatlanQuestAvailable": "natlan-ridge-flag",
+  "scope": "Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting."
+}

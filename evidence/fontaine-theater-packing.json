@@ -1,0 +1,82 @@
+{
+  "3": {
+    "legacy": {
+      "before": 2330952,
+      "after": 754026,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h48c32": {
+      "before": 1564881,
+      "after": 494570,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h32c16": {
+      "before": 666115,
+      "after": 191323,
+      "stamps": 4,
+      "batches": 4
+    }
+  },
+  "5": {
+    "legacy": {
+      "before": 2993596,
+      "after": 872650,
+      "stamps": 6,
+      "batches": 6
+    },
+    "h48c32": {
+      "before": 1969505,
+      "after": 566700,
+      "stamps": 6,
+      "batches": 6
+    },
+    "h32c16": {
+      "before": 838504,
+      "after": 222037,
+      "stamps": 6,
+      "batches": 6
+    }
+  },
+  "grand-stage": {
+    "legacy": {
+      "before": 2486602,
+      "after": 1041372,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 1670839,
+      "after": 669085,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 699795,
+      "after": 260331,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "stage-wings": {
+    "legacy": {
+      "before": 1597661,
+      "after": 417221,
+      "stamps": 3,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 998887,
+      "after": 293021,
+      "stamps": 3,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 376356,
+      "after": 104589,
+      "stamps": 3,
+      "batches": 1
+    }
+  }
+}

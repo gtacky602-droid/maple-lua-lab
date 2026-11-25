@@ -1304,7 +1304,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local photoCommand,photoId=key:match('^story_photo_(%a+):(%a+)$')
   photoCommand=photoCommand or key:match('^story_photo_(%a+)$')
   if photoCommand then
-   local id=s.story.active and nodes[s.story.node].groupPhotoQuest
+   local node=s.story.active and nodes[s.story.node]
+   if node and theater.atProgramme(s,node,canInspect) then
+    local record=s.story.quests['fon-navia-photo']
+    if photoCommand=='close' then s.photoPanel=nil
+    elseif photoCommand=='print' and not s.paused and record and record.status=='complete'
+       and record.groupPhoto and record.groupPhoto.posted then s.photoPanel='read' end
+    return
+   end
+   local id=node and node.groupPhotoQuest
    if id then
     local state=s.story.quests[id]
     local milestone=naviaPhoto.action(s,quests[id],state,photoCommand,photoId)
@@ -2269,10 +2277,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
    end
-   theater.frame(s,f,markers,n.theater,mode,profile,canInspect)
+   theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)
    if n.furinaRehearsal then
     local q=quests[n.furinaRehearsal]
     furinaCues.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
+   end
+   if f.storyTheaterProgramme and s.photoPanel=='read' then
+    local id='fon-navia-photo'
+    f.storyNaviaPhoto=naviaPhoto.postedView(quests[id],s.story.quests[id])
    end
    if n.groupPhotoQuest then
     local q=quests[n.groupPhotoQuest]

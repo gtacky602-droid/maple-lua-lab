@@ -1,0 +1,70 @@
+{
+  "3": [
+    {
+      "author": "フリーナ",
+      "title": "終幕の合図灯",
+      "asset": "fon-furina-cues-lamp",
+      "detail": "ひと言のあと、一拍待つ。幕と照明を合わせてから波を送る。",
+      "place": "稽古場",
+      "node": "fontaine-rehearsal-room"
+    },
+    {
+      "author": "ナヴィア",
+      "title": "水路の集合写真",
+      "asset": "fon-navia-photo-board",
+      "detail": "菓子を囲む休憩写真",
+      "place": "写真掲示板",
+      "node": "fon-photo-terrace"
+    },
+    {
+      "author": "エミリエ",
+      "title": "旅の記念小瓶",
+      "asset": "fon-emilie-scent-amber",
+      "detail": "木のぬくもり。木の扉を思わせる温かさと、乾いた葉の落ち着く香り。",
+      "place": "調香台",
+      "node": "fon-emilie-atelier"
+    }
+  ],
+  "5": [
+    {
+      "author": "フリーナ",
+      "title": "終幕の合図灯",
+      "asset": "fon-furina-cues-lamp",
+      "detail": "ひと言のあと、一拍待つ。幕と照明を合わせてから波を送る。",
+      "place": "稽古場",
+      "node": "fontaine-rehearsal-room"
+    },
+    {
+      "author": "リネとリネット",
+      "title": "今夜の奇術",
+      "asset": "fon-lyney-magic-birds",
+      "detail": "逆光の影絵",
+      "place": "客席",
+      "node": "fon-magic-seats"
+    },
+    {
+      "author": "ナヴィア",
+      "title": "水路の集合写真",
+      "asset": "fon-navia-photo-board",
+      "detail": "菓子を囲む休憩写真",
+      "place": "写真掲示板",
+      "node": "fon-photo-terrace"
+    },
+    {
+      "author": "フレミネ",
+      "title": "初航海の潜航玩具",
+      "asset": "fon-freminet-dive-toy",
+      "detail": "帰り道の目印は「珊瑚のくぼみ」。",
+      "place": "試験区画",
+      "node": "fon-toy-shallows"
+    },
+    {
+      "author": "エミリエ",
+      "title": "旅の記念小瓶",
+      "asset": "fon-emilie-scent-amber",
+      "detail": "木のぬくもり。木の扉を思わせる温かさと、乾いた葉の落ち着く香り。",
+      "place": "調香台",
+      "node": "fon-emilie-atelier"
+    }
+  ]
+}

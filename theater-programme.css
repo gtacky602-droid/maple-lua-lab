@@ -1,0 +1,7 @@
+#theaterProgramme{padding:16px 20px;background:#312d38;color:#fff2d8}
+#programmeHeading{font:600 20px Georgia,serif;color:#f5d298;margin:0 0 8px}
+#programmeExhibits{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;margin-top:12px}
+#programmeExhibits article{border-top:2px solid #ac8a5f;padding-top:8px;min-width:0}
+#programmeExhibits h3,#programmeExhibits p{margin:5px 0}
+#programmeExhibits small{color:#dbc096}
+#programmeExhibits canvas{display:block;width:100%;max-width:220px;height:auto;aspect-ratio:200/74;image-rendering:pixelated}

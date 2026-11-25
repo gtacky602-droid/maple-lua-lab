@@ -21,17 +21,21 @@ def read(path):
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--draft-gear', choices=('carried', 'empty', 'empty-late-refresh'),
                     help='Use the existing Lv100 checkpoint; start with carried gear or an empty bag')
+parser.add_argument('--after-revisits', action='store_true', help='Continue the earned eight-quest Fontaine adventure')
 args = parser.parse_args()
+if args.after_revisits and args.draft_gear:
+    parser.error('The earned revisits route uses the carried inventory and standard balance')
 draft = args.draft_gear is not None
 empty_start = args.draft_gear in ('empty', 'empty-late-refresh')
 
 hub = 'natlan-hub'
-suffix = f'-draft-{args.draft_gear}' if draft else ''
+suffix = '-after-revisits' if args.after_revisits else f'-draft-{args.draft_gear}' if draft else ''
 work = ROOT / 'work' / ('natlan-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-if not draft:
+if not draft and not args.after_revisits:
     subprocess.run([sys.executable, str(ROOT / 'test_fontaine_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-source = (ROOT / 'work/fontaine-fresh-route/natlan-save.json').read_bytes()
+source_file = 'evidence/fontaine-revisit-save.json' if args.after_revisits else 'work/fontaine-fresh-route/natlan-save.json'
+source = (ROOT/source_file).read_bytes()
 checkpoint = validate_save(json.loads(source))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 100
 if empty_start:
@@ -155,10 +159,10 @@ def equipment_snapshot():
                 sword=core.equippedWeapon(state, 'traveler'))
 
 
-if draft:
+if draft or args.after_revisits:
     act('weapon_equip:traveler:SW05')
     assert core.equippedWeapon(state, 'traveler') == 'SW05'
-    if args.draft_gear == 'carried':
+    if args.draft_gear == 'carried' or args.after_revisits:
         act('artifact_fill_basics')
         assert equipment_snapshot()['wornArtifacts'] == 2
     arrival_equipment = equipment_snapshot()
@@ -530,4 +534,10 @@ if draft:
                   artifactRecovery=recovered_gear, gearUpdates=gear_updates)
     assert restored.story.quests[wall_quest].status == 'complete'
     assert core.equippedWeapon(restored, 'traveler') == 'SW06'
+if args.after_revisits:
+    for key, record in checkpoint['story']['quests'].items():
+        if record['status']=='complete':
+            assert saved['story']['quests'][key]==record
+    result['sourceSha256'] = sha256(source).hexdigest()
+    (ROOT/'evidence/natlan-after-fontaine-save.json').write_text(json.dumps(saved,ensure_ascii=False)+'\n','utf8')
 (ROOT / 'evidence' / f'natlan-fresh-route{suffix}.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

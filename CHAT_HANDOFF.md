@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## フォンテーヌの公演記念展示
+
+大劇場の左手に記念品の棚を置いた。本編の報告後に開き、番外の依頼を終えるごとに飾りが増える。稽古の合図灯、選んだ奇術、水路の写真掲示板、潜航玩具、調合した小瓶の元絵とLua矩形版を左右で比べられる。掲示した集合写真もその場で開ける。[展示棚](evidence/fontaine-theater-exhibits.png) ／ [劇場で開いた集合写真](evidence/fontaine-theater-posted-photo.png)
+
+スメールからのLv81セーブで本編3件とサブ5件を報告し、Lv100でナタへ到着。展示3点と5点のセーブでブラウザー操作を確認した。5点を収めた同じ画面の16色描画用JSONは838,504 Bから222,037 Bに減った。4場面×3画質で矩形を展開し、全命令を照合した。[継続用セーブ](evidence/fontaine-revisit-save.json) ／ [育成記録](evidence/fontaine-after-revisits.json) ／ [描画量の計測](evidence/fontaine-theater-packing.json) ／ [展示棚の操作](evidence/fontaine-theater-browser.json)
+
+[セーブを読み込まず展示を比較する](theater-preview.html)。同じ冒険でナタの本編3件とカチーナ・ムアラニ・キィニチの依頼も報告した。Lv120で船に乗りナド・クライに到着。現地で最初の宝探し依頼の受注を確認した。[ナタの進行記録](evidence/natlan-fresh-route-after-revisits.json) ／ [ナド・クライ到着セーブ](evidence/natlan-after-fontaine-save.json)
+
 ## 空の観測所に集まる調査図
 
 スメールの空の観測所で上段の記録台に立つと、歩いたルートの調査図をめくれる。川を渡る葉の橋、根道、枝道との合流点、観測所までの全体図に加え、放浪者の依頼を終えると樹上の観測標識の図も並ぶ。ティナリの観測音、コレイの雨宿り場所、カーヴェの模型で選んだ窓、ナヒーダと掲示した発見は、対応する依頼を報告するたびに書き込みが増える。各書き込みから現地に地図の印を合わせられる。[記録台の画面](evidence/sumeru-observatory-notes.png)

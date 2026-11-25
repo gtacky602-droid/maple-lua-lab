@@ -121,6 +121,14 @@ return function(C,canInspect)
   return out
  end
 
+ function photo.postedView(q,state)
+  local record=state and state.groupPhoto
+  if not record or not record.posted then return end
+  local spec=q.groupPhoto
+  return {panel='read',posted=record.posted,prints=spec.prints,
+          preview={[record.posted]=shot(spec,record,record.posted)}}
+ end
+
  local function label(draws,s,x,y,text)
   x=x-s.camera
   if x>=-70 and x<=1030 then draws[#draws+1]={kind='text',x=x,y=y,text=text,size=14,color='#fff0b9'} end
