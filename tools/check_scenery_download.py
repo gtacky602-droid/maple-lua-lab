@@ -14,15 +14,17 @@ def location_coverage(sources, root):
     graph = json.loads((root / 'content/story-graph.json').read_text('utf8'))
     nodes = {n['id']: n for n in graph['nodes']}
     assigned = {}
+    phases = {}
     for path in sorted((root / 'assets').glob('*-background-generation.json')):
         for row in json.loads(path.read_text('utf8')).get('scenes', []):
             if row.get('source') not in sources or not row.get('node'):
                 continue
+            bindings = phases.setdefault(row['phase'], {}) if row.get('phase') else assigned
             for node in [row['node'], *row.get('sharedNodes', [])]:
-                assert node in nodes and node not in assigned, (path.name, node)
-                assigned[node] = row['source']
-    assert set(assigned.values()) == set(sources)
-    coverage = {'allStages': {'total': len(nodes), 'verified': len(assigned)}}
+                assert node in nodes and node not in bindings, (path.name, node)
+                bindings[node] = row['source']
+    assert set(assigned.values()).union(*(group.values() for group in phases.values())) == set(sources)
+    coverage = {'allStages': {'total': len(nodes), 'verified': len(assigned)}, 'phaseBindings': phases}
     uses = Counter(assigned.values())
     coverage['sceneryReuse'] = {
         'distinctPaintings': len(uses),

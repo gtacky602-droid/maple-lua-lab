@@ -1,4 +1,5 @@
 import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
+import {drawSurveyPoint,surveyPoint,surveyPointUrl} from './survey-point.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
@@ -182,12 +183,25 @@ try{
  const trialScenes={...fieldScenes,...stygianScenes};
  const openings={...legendScenes,...trialScenes};
  const stepsByNode=new Map();
+ let selectedSurveyPoint=null;
+ function focusSurveyPoint(point){
+  selectedSurveyPoint=point;
+  const marker=$('surveyPointNote');
+  marker.hidden=!point;
+  if(point){
+   $('camera').value=point.x-480;
+   marker.dataset.quest=point.quest;marker.dataset.step=point.step;
+   marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`;
+  }
+ }
  for(const quest of graph.quests){
   for(const [index,step] of (quest.itinerary??[]).entries()){
-   if(!stepsByNode.has(step.node))stepsByNode.set(step.node,new Map());
-   const quests=stepsByNode.get(step.node);
-   if(!quests.has(quest))quests.set(quest,[]);
-   quests.get(quest).push({number:index+1,objective:step.objective});
+   for(const nodeId of new Set([step.node,...(step.alternatives??[]).map(p=>p.node)])){
+    if(!stepsByNode.has(nodeId))stepsByNode.set(nodeId,new Map());
+    const quests=stepsByNode.get(nodeId);
+    if(!quests.has(quest))quests.set(quest,[]);
+    quests.get(quest).push({number:index+1,objective:step.objective,point:surveyPoint(quest,index,nodeId)});
+   }
   }
  }
  const questGates=new Map(),questsById=new Map(graph.quests.map(q=>[q.id,q]));
@@ -282,10 +296,12 @@ try{
  const nodePicker=setupMapNodePicker({graph,liveView,fieldBosses:fieldData.fieldBosses,weeklyBosses:weeklyData.weeklyBosses,stygianBosses:Object.entries(stygianScenes).map(([node,s])=>({node,name:s.name})),select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
  function afterReport(n){return $('sceneryPhase').value==='after'?n.locationAfterReport:null}
- function sceneMeasures(n){return backgroundMeasurements[sceneryDefinitions[afterReport(n)?.scenery]?.measurementNode??n.id]}
+ function darkRoom(n){return Boolean(n.localLight && $('lampMode').value==='dark')}
+ function sceneMeasures(n){return backgroundMeasurements[darkRoom(n)?n.id+'#dark':sceneryDefinitions[afterReport(n)?.scenery]?.measurementNode??n.id]}
  $('sceneryPhase').onchange=()=>{colorResult.textContent='';render()};
  function sceneFrame(n,camera){
-  return {camera,platforms:n.platforms,storySwim:Boolean(n.swim),storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  const dark=darkRoom(n);
+  return {camera,platforms:dark?[...n.platforms,n.localLight.bridge]:n.platforms,storySwim:Boolean(n.swim),storyLocalLight:n.localLight?{mode:dark?'dark':'bright'}:undefined,storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
  }
  function placements(){return drafts.nodes[node().id]??[]}
  function previewCandidate(e){return liveView && $('candidateIdle').checked && idleCandidates.has(e.id)}
@@ -336,13 +352,14 @@ try{
  $('colorLimit').oninput=()=>{colorResult.textContent=''};
  $('backgroundTier').onchange=()=>{colorResult.textContent='';render()};
  $('matchSpritePng').onchange=render;
- const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render);
+ const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render,()=>{$('lampMode').value='dark'});
  const updateDetail=setupSceneryDetail(liveView,query);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  let fidelityKey,profileTableKey;
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera);
+  if(n.localLight)$('lampNote').textContent=darkRoom(n)?'消灯中。影の足場を渡ると上段の門へ進めます。':'点灯中。操作盤のそばでGを押すと、影の足場と門が現れます。';
   const missing=[...new Set(items.map(e=>assets[e.species]).filter(a=>a.poseFile&&!a.image))];
   if(missing.length){
    $('fidelityControls').hidden=true;
@@ -358,6 +375,7 @@ try{
   if(!liveView)otherView.set('placements','live');
   if($('matchSpritePng').checked)otherView.set('compare','background');
   if(afterReport(n))otherView.set('phase','after');
+  if(darkRoom(n))otherView.set('light','dark');
   viewLink.href='map-art.html?'+otherView;
   gatePreview.updateLink(otherView);
   const passage=$('nightTrialPassage'),gate=n.exits.find(e=>e.nightTotem);
@@ -529,7 +547,22 @@ try{
    if(liveView && !subject.value){
     for(const mark of mechanismScenes[n.id]?.captions??[])paintMechanismMark(ctx,mark,-camera,0,false);
    }
-   gatePreview.draw(ctx,camera);
+   if(n.localLight){
+    if(!darkRoom(n)){
+     const bridge=n.localLight.bridge;
+     ctx.fillStyle='#13243266';
+     for(let i=0;i<9;i++)ctx.fillRect(bridge.x-camera+i*41,bridge.y+9+i*3,42,58-i*3);
+    }
+    for(const c of n.localLight.controls){
+     if(c.darkOnly&&!darkRoom(n))continue;
+     const x=c.x-camera;
+     ctx.fillStyle='#425061';ctx.fillRect(x-12,c.y-30,24,30);
+     ctx.fillStyle=darkRoom(n)?'#7fc4d7':'#fff2b4';ctx.fillRect(x-6,c.y-29,12,12);
+     ctx.fillStyle='#e2e8c6';ctx.fillRect(x-3,c.y-13,6,6);
+    }
+   }
+   gatePreview.draw(ctx,camera,darkRoom(n));
+   if(selectedSurveyPoint)drawSurveyPoint(ctx,selectedSurveyPoint,camera);
   }
   updateDetail();
   $('placements').replaceChildren();
@@ -577,6 +610,8 @@ try{
   colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
+  $('lampPreview').hidden=!n.localLight;
+  $('lampMode').value=n.localLight && n.id===openingNode.id && query.get('light')==='dark'?'dark':'bright';
   $('sceneryPhaseControl').hidden=!n.locationAfterReport;
   $('sceneryPhase').value=n.id===openingNode.id && n.locationAfterReport && query.get('phase')==='after'?'after':'before';
   const candidateAvailable=liveView && openings[n.id]?.parts.some(part=>idleCandidates.has(part.id));
@@ -605,9 +640,17 @@ try{
    for(const [quest,entries] of steps){
     const title=document.createElement('strong'),list=document.createElement('ol');
     title.textContent=quest.name;
-    for(const {number,objective} of entries){
+    for(const {number,objective,point} of entries){
      const item=document.createElement('li');
      item.value=number;item.textContent=objective;list.append(item);
+     if(point){
+      const link=document.createElement('a');link.href=surveyPointUrl(point);link.textContent='調査位置を見る';
+      link.onclick=e=>{
+       if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+       e.preventDefault();focusSurveyPoint(point);render();
+      };
+      item.append(' ',link);
+     }
     }
     questList.append(title,list);
    }
@@ -672,8 +715,16 @@ try{
    $('liveSubjectControl').hidden=liveItems.length<2;
   }
   gatePreview.reset(n,nodes,n.id===openingNode.id);
+  if(gatePreview.darkGate() && query.get('light')!=='bright')$('lampMode').value='dark';
+  focusSurveyPoint(liveView && n===openingNode && query.has('step')?
+   surveyPoint(questsById.get(query.get('quest')),Number(query.get('step'))-1,n.id):null);
   render();
  }
+ $('lampMode').onchange=()=>{colorResult.textContent='';render()};
+ $('lampConsole').onclick=()=>{
+  const control=node().localLight.controls.find(c=>!c.darkOnly);
+  $('camera').value=control.x-480;render();
+ };
  $('questPropStage').onchange=()=>{
   const stage=questPreviews[node().id].stages[Number($('questPropStage').value)];
   $('camera').value=stage.focusX-480;

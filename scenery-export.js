@@ -86,7 +86,7 @@ export async function buildSceneryExport(file,source,tier) {
   const moduleBlob=(data,n)=>new Blob([header,data,'",count='+n+'},\n}\n'],{type:'text/plain'});
   const blob=moduleBlob(details,count);
   const fullBytes=count===scene.count?blob.size:moduleBlob(scene.details,scene.count).size;
-  const stem=source.replace(/-background(?:-v1)?\.png$/,'');
+  const stem=source.replace(/(?:-background)?(?:-v1)?\.png$/,'');
   return {blob,name:stem+'-'+tier+'.lua',fullBytes,maxTier:4096+scene.count};
 }
 

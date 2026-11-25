@@ -6,6 +6,10 @@ import platform
 import statistics
 import time
 from pathlib import Path
+if __package__:
+    from .scenery_locations import measurement_key
+else:
+    from scenery_locations import measurement_key
 
 from lupa.lua53 import LuaRuntime
 
@@ -36,14 +40,14 @@ def measure(codec, module, expected):
 def benchmark(codec, manifests, downloads, repetitions):
     scenes = [scene for manifest in manifests
               for scene in json.loads(manifest.read_text(encoding='utf8'))['scenes']]
-    if len({row['node'] for row in scenes}) != len(scenes):
+    if len({measurement_key(row) for row in scenes}) != len(scenes):
         raise ValueError('Duplicate location across input manifests')
     files = {}
     for scene in scenes:
         stem = scene['source'].removesuffix('.png').removesuffix('-v1').removesuffix('-background')
         for tier in TIERS:
             path = downloads / f'{stem}-{tier}.lua'
-            files[scene['node'], tier] = path.read_bytes()
+            files[measurement_key(scene), tier] = path.read_bytes()
     samples = {key: [] for key in files}
     # Alternate traversal order to reduce systematic timing effects across tiers.
     for repeat in range(repetitions):

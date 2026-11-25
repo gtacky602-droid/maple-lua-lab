@@ -8161,6 +8161,7 @@
       "browser_ferry_evidence": "evidence/earned-atlas-ferry-browser.json"
     }
   },
+  "earned_survey_route_checks": {"travelAndInspect": 37, "visit": 24, "restored": 61, "legs": 590, "lua": "evidence/earned-survey-itineraries.json", "browser": "evidence/survey-points-and-lamps-browser.json"},
   "earned_branch_quest_checks": {
     "dornman_level": 180,
     "frostmoon_level": 200,

@@ -2,6 +2,10 @@
 import hashlib
 import json
 from pathlib import Path
+if __package__:
+    from .scenery_locations import measurement_key
+else:
+    from scenery_locations import measurement_key
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,26 +26,28 @@ def measurements():
                          bench.get('bundleSha256',{}).get(bundle.name) == hashlib.sha256(bundle.read_bytes()).hexdigest())
         for row in json.loads(manifest.read_text(encoding='utf8'))['scenes']:
             scene = scenes[row['source']]
-            if row['node'] in result or row['node'] in aliases:
-                raise ValueError('Multiple background measurements for '+row['node'])
-            result[row['node']] = {
+            key = measurement_key(row)
+            if key in result or key in aliases:
+                raise ValueError('Multiple background measurements for '+key)
+            result[key] = {
                 'bundle': prefix+'-native-backgrounds.lua',
                 'bytes': scene['baseSelectedBytes'] + scene['detailSelectedBytes'],
                 'error': {tier['rectangles']: tier['meanAbsoluteRgbErrorToReference']
                           for tier in scene['tiers']},
             }
             if row.get('sharedNodes'):
-                result[row['node']]['locations'] = 1 + len(row['sharedNodes'])
-            costs = bench.get('scenes',{}).get(row['node']) if has_benchmark else None
+                result[key]['locations'] = 1 + len(row['sharedNodes'])
+            costs = bench.get('scenes',{}).get(key) if has_benchmark else None
             if costs:
-                result[row['node']]['decode'] = {
+                result[key]['decode'] = {
                     tier: {'ms': values['medianDecodeMs'], 'kib': values['medianRetainedLuaKiB']}
                     for tier, values in costs.items()
                 }
             for node in row.get('sharedNodes', []):
+                node = measurement_key(row,node)
                 if node in result or node in aliases:
                     raise ValueError('Multiple background measurements for '+node)
-                aliases[node] = row['node']
+                aliases[node] = key
     return result, aliases
 
 

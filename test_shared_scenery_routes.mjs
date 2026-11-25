@@ -12,6 +12,7 @@ for(const path of (await fs.readdir('evidence')).filter(n=>n.endsWith('-backgrou
   const encoded=(await read('evidence/'+path)).scenes;
   const {scenes}=await read('assets/'+bundle+'-background-generation.json');
   for(const row of scenes){
+    if(row.phase)continue;
     const ids=[row.node,...row.sharedNodes??[]];
     assert.ok(!seen.has(row.source));seen.add(row.source);
     const tiles=encoded[row.source].tiers;

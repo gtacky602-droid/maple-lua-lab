@@ -1,0 +1,48 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "enkan-lamp-chamber-dark-v1.png": {
+      "sourceBytes": 2054578,
+      "sourceSha256": "1589150a9296f42823f561535a6bc71cbe355e9d982ac2635fd807da997391d5",
+      "preview": "enkan-lamp-chamber-dark-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14739,
+      "baseSelectedBytes": 14725,
+      "detailFixed13Bytes": 10799,
+      "detailSelectedBytes": 10789,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.4956122504340277,
+          "rgbSha256": "7fcbafdf6c705c7b0bbc96685c3c78ac06efebf835b33f4ca94386a997375214"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.264564796730324,
+          "rgbSha256": "05a35d616a1bdf2bb1e29b118e4212773c69f417a4b99d48ab2bc869df603765"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.086726435908565,
+          "rgbSha256": "b740410bfecf685cc809d4437af0667c1686d588a4adde20e4acc37dff98c82e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.936794704861111,
+          "rgbSha256": "1dc0466ca659d195320092b9d1a3fb82cae41fb8a8e81475a53352c0e40a21a7"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.808360912181713,
+          "rgbSha256": "d0c8c50bea53026c2c95b9b6f8a6f3e531646d193717e701baa7fc50e10a9da1"
+        }
+      ]
+    }
+  }
+}

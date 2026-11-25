@@ -187,6 +187,7 @@ cross(hub)
 report(wanderer)
 
 quay_quest = 'sum-mapped-north-quay'
+(work / 'pre-quay-save.json').write_text(json.dumps(validate_save(native(core.checkpoint(state))), ensure_ascii=False)+'\n', encoding='utf8')
 quest = accept(quay_quest)
 river, fork, statue, quay = 'sum-wp-28740', 'sum-wp-28741', 'sum-wp-28701', 'sum-wp-69098'
 cross(river, fork, statue, quay)

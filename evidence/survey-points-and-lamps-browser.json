@@ -1,0 +1,57 @@
+{
+  "rooms": [
+    {
+      "node": "enkan-lamp-chamber",
+      "exit": "enkan-route-gallery",
+      "bridge": {
+        "x": 548,
+        "y": 390,
+        "w": 374,
+        "shadowBridge": true
+      },
+      "console": {
+        "x": 224,
+        "y": 480
+      },
+      "tiers": 5
+    },
+    {
+      "node": "nod-wp-88169",
+      "exit": "nod-wp-88170",
+      "bridge": {
+        "x": 1304,
+        "y": 363,
+        "w": 130
+      },
+      "console": {
+        "x": 500,
+        "y": 480
+      },
+      "tiers": 5
+    },
+    {
+      "node": "frost-wp-99311",
+      "exit": "frost-wp-99312",
+      "bridge": {
+        "x": 1304,
+        "y": 363,
+        "w": 130
+      },
+      "console": {
+        "x": 500,
+        "y": 480
+      },
+      "tiers": 5
+    }
+  ],
+  "trackedPoint": {
+    "quest": "nod-mapped-paha-shadow",
+    "step": 2,
+    "node": "nod-wp-88169",
+    "x": 791,
+    "y": 480,
+    "name": "灯室の床の印"
+  },
+  "points": 59,
+  "quests": 37
+}

@@ -23,6 +23,14 @@ export function setupSceneryDetail(liveView, query) {
       if (subject) params.set('subject', subject);
       if (document.getElementById('matchSpritePng').checked) params.set('compare','background');
       if (!document.getElementById('decodedBackground').checked) params.set('background','original');
+      if (!document.getElementById('lampPreview').hidden) params.set('light',document.getElementById('lampMode').value);
+      if (!document.getElementById('sceneryPhaseControl').hidden) params.set('phase',document.getElementById('sceneryPhase').value);
+      const gate=document.querySelector('#gatePreview select').selectedOptions[0];
+      if(gate?.dataset.to)for(const key of ['to','gateX','gateY'])params.set(key,gate.dataset[key]);
+      const marker=document.getElementById('surveyPointNote');
+      if(!marker.hidden){
+        params.set('quest',marker.dataset.quest);params.set('step',marker.dataset.step);
+      }
       link.href = '?' + params + '#sceneryDetail';
     }
     for (const wrapper of sources) {

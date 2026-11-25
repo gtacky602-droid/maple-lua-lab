@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 2090,
+  "verifiedModules": 2095,
   "dimensions": [
     512,
     288
@@ -1882,6 +1882,13 @@
       "5632": 27730,
       "6144": 29856
     },
+    "enkan-lamp-chamber-dark-v1.png": {
+      "4096": 14827,
+      "4608": 18017,
+      "5120": 21076,
+      "5632": 24104,
+      "6144": 25614
+    },
     "bygone-background-v1.png": {
       "4096": 16455,
       "4608": 19783,
@@ -2937,6 +2944,13 @@
     "allStages": {
       "total": 1528,
       "verified": 1528
+    },
+    "phaseBindings": {
+      "dark": {
+        "enkan-lamp-chamber": "enkan-lamp-chamber-dark-v1.png",
+        "nod-wp-88169": "enkan-lamp-chamber-dark-v1.png",
+        "frost-wp-99311": "enkan-lamp-chamber-dark-v1.png"
+      }
     },
     "sceneryReuse": {
       "distinctPaintings": 418,

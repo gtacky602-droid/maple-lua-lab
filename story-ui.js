@@ -8,8 +8,10 @@ try{trackedId=localStorage.getItem(trackingKey)}catch{}
 function trackQuest(id){trackedId=id;try{if(id)localStorage.setItem(trackingKey,id);else localStorage.removeItem(trackingKey)}catch{}previous='';update()}
 document.getElementById('clearTrackedQuest').onclick=()=>trackQuest(null);
 const questMap=document.getElementById('trackedQuestMap');
+const surveyLink=document.getElementById('trackedSurveyPoint');
 questMap.onclick=()=>{if(questMap.dataset.node)window.lab.action('world_map_focus:'+questMap.dataset.node)};
 const panel=document.getElementById('storyPanel');let previous='';
+let lampRoom, lampControlX;
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
 const practiceGuides={
  SK58:'攻撃で共通ゲージを60までため、Qで光界解放。近い標的にJで強化通常攻撃を当てます。',
@@ -32,11 +34,23 @@ function renderGrowthPractice(frame){
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
  updateEndgame(f);
- const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ let lampSide='';
+ if(trackedId && f.storyLocalLight?.mode==='bright'){
+  if(lampRoom!==f.story.node){
+   lampRoom=f.story.node;
+   lampControlX=f.storyGraph.nodes.find(n=>n.id===lampRoom)?.localLight?.controls.find(c=>!c.darkOnly)?.x;
+  }
+  const dx=lampControlX-f.actors.find(a=>a.id===f.active)?.x;
+  lampSide=dx<=-54?'left':dx>=54?'right':'near';
+ }
+ const signature=JSON.stringify([lampSide,f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
  questMap.hidden=!guide.node||Boolean(f.growthTrial);
  questMap.dataset.node=guide.node??'';
+ surveyLink.hidden=!guide.pointUrl||Boolean(f.growthTrial);
+ if(!surveyLink.hidden)surveyLink.href=guide.pointUrl;
+ else surveyLink.removeAttribute('href');
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
  if(f.bossJourney){const notice=document.createElement('p');notice.textContent=f.bossJourney.name+'・本編挑戦'+(f.bossJourney.defeated?'／討伐済み':'');panel.append(notice,button('挑戦入口へ戻る','world_boss_return'));}
  if(!f.story.active)return;

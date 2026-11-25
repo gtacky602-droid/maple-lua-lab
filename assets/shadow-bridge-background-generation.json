@@ -1,0 +1,15 @@
+{
+  "origin": "Existing local-lab lamp chamber plate after switching the room to darkness.",
+  "scenes": [
+    {
+      "node": "enkan-lamp-chamber",
+      "phase": "dark",
+      "sharedNodes": [
+        "nod-wp-88169",
+        "frost-wp-99311"
+      ],
+      "source": "enkan-lamp-chamber-dark-v1.png",
+      "preview": "enkan-lamp-chamber-dark-native-preview-v1.png"
+    }
+  ]
+}

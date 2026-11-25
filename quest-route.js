@@ -56,7 +56,7 @@ export function questRoute(f,q,status){
  function connections(node){
   const exits=node.exits??[];
   const ride=node.voyage;
-  return ride?.kind==='trolley'?[...exits,{to:ride.destination,trolleyArrival:true}]:exits;
+  return ride && !exits.some(e=>e.to===ride.destination)?[...exits,{to:ride.destination}]:exits;
  }
  if(arrival&&(!nodes.has(arrival.node)||!connections(nodes.get(arrival.from)).some(edge=>edge.to===arrival.node&&gateOpen(edge))))
   return {text:'指定された出発地点の門から通れる経路がありません。'};
@@ -84,9 +84,19 @@ export function questRoute(f,q,status){
  const next=nodes.get(path[1]),edge=connections(nodes.get(from)).find(e=>e.to===next.id&&gateOpen(e));
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
+ const vehicle=nodes.get(from).voyage;
+ const automatic=vehicle?.destination===edge.to;
+ const needsDark=edge.darkOnly && f.storyLocalLight?.mode!=='dark';
  if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
  const actor=f.actors?.find(a=>a.id===f.active);
- if(actor&&Number.isFinite(actor.x)&&Number.isFinite(actor.y)&&Number.isFinite(edge.x)){
+ if(needsDark){
+  const control=nodes.get(from).localLight?.controls.find(c=>!c.darkOnly);
+  if(control && actor){
+   const dx=control.x-actor.x;
+   const direction=Math.abs(dx)<54?'近く':dx>0?'右手':'左手';
+   notes.push(`${direction}の操作盤でGを押して消灯してください`);
+  }else notes.push('室内の操作盤でGを押して消灯してください');
+ }else if(!automatic&&actor&&Number.isFinite(actor.x)&&Number.isFinite(actor.y)&&Number.isFinite(edge.x)){
   const dx=edge.x-actor.x;
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
   else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
@@ -107,15 +117,12 @@ export function questRoute(f,q,status){
   else if(elapsed+1e-8<edge.windowStart)notes.push(`寄港まで約${Math.ceil(edge.windowStart-elapsed)}秒`);
   else if(elapsed+1e-8>=edge.windowEnd)notes.push('寄港時間を過ぎています。出発港へ戻り、再乗船してください');
   else notes.push(`寄港中：下船できる残り時間は約${Math.ceil(edge.windowEnd-elapsed)}秒`);
- }else if(edge.trolleyArrival){
-  notes.push(`乗ったまま次の地点へ着きます（約${Math.ceil(f.voyage?.seconds??0)}秒）`);
- }else if(edge.requiresArrival){
+ }else if(automatic){
   const seconds=f.voyage?.seconds;
-  if(f.voyage?.kind==='train')notes.push(`列車は到着後に自動で下車します（約${Math.ceil(seconds)}秒）`);
-  else if(Number.isFinite(seconds)&&seconds<=0)notes.push('船は到着しています。下船する門へ進んでください');
-  else notes.push(`船の到着を待ちます${Number.isFinite(seconds)?`（約${Math.ceil(seconds)}秒）`:''}`);
+  const name=vehicle.kind==='train'?'列車':vehicle.kind==='trolley'?'トロッコ':'船';
+  notes.push(`${name}に乗ったまま${next.name}へ。到着すると自動で降ります${Number.isFinite(seconds)&&seconds>0?`（あと約${Math.ceil(seconds)}秒）`:''}`);
  }
- else if(edge.darkOnly)notes.push('室内の操作盤で灯りを消すと、この門が現れます');
+ else if(edge.darkOnly)notes.push(needsDark?'消灯すると影の足場と門が現れます':'消灯中。影の足場へ跳び、上段の門を通ってください');
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);

@@ -1,0 +1,6844 @@
+{
+  "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+  "levelAtStart": 200,
+  "draftBalance": true,
+  "cases": {
+    "sne-mapped-track-walk": {
+      "objectives": 5,
+      "hub": "snezhnaya-hub",
+      "routes": [
+        {
+          "start": "snezhnaya-hub",
+          "destination": "snezhnaya-field",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スネージナヤ・凍った街道",
+              "from": "snezhnaya-hub",
+              "id": "snezhnaya-field",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "snezhnaya-field",
+          "destination": "sne-wp-100663",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "雪の町と白虹峠・線路の高架下",
+              "from": "snezhnaya-field",
+              "id": "sne-wp-100663",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1135
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100663",
+          "destination": "white-pass-woods",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "白虹峠・樹林の道",
+              "from": "sne-wp-100663",
+              "id": "white-pass-woods",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 77
+            }
+          ]
+        },
+        {
+          "start": "white-pass-woods",
+          "destination": "white-pass-station",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "雪原の終着駅",
+              "from": "white-pass-woods",
+              "id": "white-pass-station",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 55
+            }
+          ]
+        },
+        {
+          "start": "white-pass-station",
+          "destination": "snezhnaya-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スネージナヤ・雪の町",
+              "from": "white-pass-station",
+              "id": "snezhnaya-hub",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 52
+            }
+          ]
+        }
+      ]
+    },
+    "sne-mapped-four-tower-floors": {
+      "objectives": 7,
+      "hub": "snezhnaya-hub",
+      "routes": [
+        {
+          "start": "snezhnaya-hub",
+          "destination": "sne-wp-100680",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "雪の町と白虹峠・町東の市場",
+              "from": "snezhnaya-hub",
+              "id": "sne-wp-100674",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewY": 350,
+              "hint": "上段の入口",
+              "previewX": 335
+            },
+            {
+              "mode": "walk",
+              "name": "雪の町と白虹峠・町東の線路口",
+              "from": "sne-wp-100674",
+              "id": "sne-wp-100679",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1403
+            },
+            {
+              "mode": "walk",
+              "name": "北の氷塔・北へ延びる線路",
+              "from": "sne-wp-100679",
+              "id": "sne-wp-100680",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1028
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100680",
+          "destination": "sne-wp-100681",
+          "stops": [
+            {
+              "mode": "wind",
+              "name": "北の氷塔・氷塔の麓",
+              "from": "sne-wp-100680",
+              "id": "sne-wp-100681",
+              "label": "吹雪待ち",
+              "region": "region-08",
+              "previewY": 373,
+              "hint": "上段の入口・風が止むまで待つ",
+              "previewX": 1443
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100681",
+          "destination": "sne-wp-100691",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・下の層",
+              "from": "sne-wp-100681",
+              "id": "sne-wp-100691",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の麓から下の層へ・移動に2.5秒",
+              "previewX": 1443
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100691",
+          "destination": "sne-wp-100692",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・中の層",
+              "from": "sne-wp-100691",
+              "id": "sne-wp-100692",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の下の層から中の層へ・移動に2.5秒",
+              "previewX": 1373
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100692",
+          "destination": "sne-wp-100693",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・上の層",
+              "from": "sne-wp-100692",
+              "id": "sne-wp-100693",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の中の層から上の層へ・移動に2.5秒",
+              "previewX": 1373
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100693",
+          "destination": "sne-wp-100694",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・最上の層",
+              "from": "sne-wp-100693",
+              "id": "sne-wp-100694",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の上の層から最上の層へ・移動に2.5秒",
+              "previewX": 77
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-100694",
+          "destination": "snezhnaya-hub",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・上の層",
+              "from": "sne-wp-100694",
+              "id": "sne-wp-100693",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の上の層から最上の層へ・移動に2.5秒",
+              "previewX": 77
+            },
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・中の層",
+              "from": "sne-wp-100693",
+              "id": "sne-wp-100692",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の中の層から上の層へ・移動に2.5秒",
+              "previewX": 1373
+            },
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔・下の層",
+              "from": "sne-wp-100692",
+              "id": "sne-wp-100691",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の下の層から中の層へ・移動に2.5秒",
+              "previewX": 77
+            },
+            {
+              "mode": "lift",
+              "name": "北の氷塔・氷塔の麓",
+              "from": "sne-wp-100691",
+              "id": "sne-wp-100681",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "氷塔の麓から下の層へ・移動に2.5秒",
+              "previewX": 77
+            },
+            {
+              "mode": "walk",
+              "name": "北の氷塔・北へ延びる線路",
+              "from": "sne-wp-100681",
+              "id": "sne-wp-100680",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 77
+            },
+            {
+              "mode": "walk",
+              "name": "雪の町と白虹峠・町東の線路口",
+              "from": "sne-wp-100680",
+              "id": "sne-wp-100679",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 77
+            },
+            {
+              "mode": "walk",
+              "name": "雪の町と白虹峠・町東の市場",
+              "from": "sne-wp-100679",
+              "id": "sne-wp-100674",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 77
+            },
+            {
+              "mode": "walk",
+              "name": "スネージナヤ・雪の町",
+              "from": "sne-wp-100674",
+              "id": "snezhnaya-hub",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 519
+            }
+          ]
+        }
+      ]
+    },
+    "sne-mapped-works-wire": {
+      "objectives": 5,
+      "hub": "novokichev-camp",
+      "routes": [
+        {
+          "start": "novokichev-camp",
+          "destination": "sne-wp-106204",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東部の雪原と工業区・東の工区の貨物口",
+              "from": "novokichev-camp",
+              "id": "sne-wp-106204",
+              "label": "徒歩",
+              "region": "branch-09",
+              "previewX": 797
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106204",
+          "destination": "sne-wp-106200",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "東部の雪原と工業区・東の工区・地下の旧線入口",
+              "from": "sne-wp-106204",
+              "id": "sne-wp-106200",
+              "label": "昇降機",
+              "region": "branch-09",
+              "hint": "貨物口から地下の旧線へ・移動に2.5秒",
+              "previewX": 552
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106200",
+          "destination": "sne-wp-106201",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東部の雪原と工業区・東の工区・地下の旧線の奥",
+              "from": "sne-wp-106200",
+              "id": "sne-wp-106201",
+              "label": "徒歩",
+              "region": "branch-09",
+              "previewX": 77
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106201",
+          "destination": "sne-wp-106200",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東部の雪原と工業区・東の工区・地下の旧線入口",
+              "from": "sne-wp-106201",
+              "id": "sne-wp-106200",
+              "label": "徒歩",
+              "region": "branch-09",
+              "previewX": 1503
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106200",
+          "destination": "novokichev-camp",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "東部の雪原と工業区・東の工区の貨物口",
+              "from": "sne-wp-106200",
+              "id": "sne-wp-106204",
+              "label": "昇降機",
+              "region": "branch-09",
+              "hint": "貨物口から地下の旧線へ・移動に2.5秒",
+              "previewX": 1503
+            },
+            {
+              "mode": "walk",
+              "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+              "from": "sne-wp-106204",
+              "id": "novokichev-camp",
+              "label": "徒歩",
+              "region": "branch-09",
+              "previewX": 1503
+            }
+          ]
+        }
+      ]
+    },
+    "sne-mapped-east-wall": {
+      "objectives": 6,
+      "hub": "sne-east-camp",
+      "routes": [
+        {
+          "start": "sne-east-camp",
+          "destination": "sne-wp-106215",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東端の城壁・城壁沿いの道",
+              "from": "sne-east-camp",
+              "id": "sne-wp-106215",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1403
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106215",
+          "destination": "sne-wp-106216",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東端の城壁・東門の階段",
+              "from": "sne-wp-106215",
+              "id": "sne-wp-106216",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 740
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106216",
+          "destination": "sne-wp-106219",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東端の城壁・東門の見張り台",
+              "from": "sne-wp-106216",
+              "id": "sne-wp-106219",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewY": 368,
+              "hint": "上段の入口",
+              "previewX": 1443
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106219",
+          "destination": "sne-wp-106218",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "東端の城壁・門の下の回廊・東側",
+              "from": "sne-wp-106219",
+              "id": "sne-wp-106218",
+              "label": "昇降機",
+              "region": "region-08",
+              "previewY": 375,
+              "hint": "上段の入口・東門の下の回廊へ・移動に2.5秒",
+              "previewX": 1443
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106218",
+          "destination": "sne-wp-106217",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "東端の城壁・門の下の回廊・西側",
+              "from": "sne-wp-106218",
+              "id": "sne-wp-106217",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 77
+            }
+          ]
+        },
+        {
+          "start": "sne-wp-106217",
+          "destination": "sne-east-camp",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "東端の城壁・壁の下の見張り室",
+              "from": "sne-wp-106217",
+              "id": "sne-wp-106213",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "回廊から見張り室へ・移動に2.5秒",
+              "previewX": 77
+            },
+            {
+              "mode": "lift",
+              "name": "東端の城壁・城壁の手前の坂",
+              "from": "sne-wp-106213",
+              "id": "sne-wp-106212",
+              "label": "昇降機",
+              "region": "region-08",
+              "hint": "壁の下の見張り室へ・移動に2.5秒",
+              "previewX": 77
+            },
+            {
+              "mode": "walk",
+              "name": "東端の城壁・東の町の広場",
+              "from": "sne-wp-106212",
+              "id": "sne-east-camp",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1403
+            }
+          ]
+        }
+      ]
+    },
+    "nod-mapped-harbor-lamp": {
+      "objectives": 6,
+      "hub": "nod-port",
+      "routes": [
+        {
+          "start": "nod-port",
+          "destination": "nod-field",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナド・クライ・月明かりの道",
+              "from": "nod-port",
+              "id": "nod-field",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "nod-field",
+          "destination": "nod-town",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナド・クライ・町の広場",
+              "from": "nod-field",
+              "id": "nod-town",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "nod-town",
+          "destination": "nod-wp-88128",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "レンポ島・町北の神像",
+              "from": "nod-town",
+              "id": "nod-wp-88128",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewY": 340,
+              "hint": "上段の入口",
+              "previewX": 530
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88128",
+          "destination": "nod-wp-88147",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "レンポ島・灯台へ向かう坂",
+              "from": "nod-wp-88128",
+              "id": "nod-wp-88147",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88147",
+          "destination": "nod-wp-88148",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "レンポ島・東の灯台下",
+              "from": "nod-wp-88147",
+              "id": "nod-wp-88148",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88148",
+          "destination": "nod-port",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "レンポ島・灯台へ向かう坂",
+              "from": "nod-wp-88148",
+              "id": "nod-wp-88147",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・町の北の林縁",
+              "from": "nod-wp-88147",
+              "id": "nod-wp-88145",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・南西の坂道",
+              "from": "nod-wp-88145",
+              "id": "nod-wp-88140",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・南西の波止場",
+              "from": "nod-wp-88140",
+              "id": "nod-wp-88139",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "ナド・クライ・到着港",
+              "from": "nod-wp-88139",
+              "id": "nod-port",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1362
+            }
+          ]
+        }
+      ]
+    },
+    "nod-mapped-paha-shadow": {
+      "objectives": 5,
+      "hub": "nod-town",
+      "routes": [
+        {
+          "start": "nod-town",
+          "destination": "nod-wp-88162",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "レンポ島・町北の神像",
+              "from": "nod-town",
+              "id": "nod-wp-88128",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewY": 340,
+              "hint": "上段の入口",
+              "previewX": 530
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・灯台へ向かう坂",
+              "from": "nod-wp-88128",
+              "id": "nod-wp-88147",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1372
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・東の灯台下",
+              "from": "nod-wp-88147",
+              "id": "nod-wp-88148",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1372
+            },
+            {
+              "mode": "boat",
+              "name": "レンポ島・東沖の岬",
+              "from": "nod-wp-88148",
+              "id": "nod-wp-88154",
+              "label": "舟・寄港",
+              "region": "region-07",
+              "hint": "東沖の岬への小舟・移動に2.8秒",
+              "previewX": 1362
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・北岬東の道",
+              "from": "nod-wp-88154",
+              "id": "nod-wp-88155",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1362
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・北岬の桟橋",
+              "from": "nod-wp-88155",
+              "id": "nod-wp-88157",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 724
+            },
+            {
+              "mode": "boat",
+              "name": "パハ島周辺・南の連絡桟橋",
+              "from": "nod-wp-88157",
+              "id": "nod-wp-88160",
+              "label": "舟・寄港",
+              "region": "region-07",
+              "hint": "北岬からパハ島への連絡船・移動に3.7秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "パハ島周辺・南の荷揚げ路",
+              "from": "nod-wp-88160",
+              "id": "nod-wp-88161",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "パハ島周辺・西の支柱の岸",
+              "from": "nod-wp-88161",
+              "id": "nod-wp-88162",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88162",
+          "destination": "nod-wp-88169",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "パハ島周辺・西の支柱の灯室",
+              "from": "nod-wp-88162",
+              "id": "nod-wp-88169",
+              "label": "昇降機",
+              "region": "region-07",
+              "hint": "西の支柱の灯室に降りる昇降機・移動に2.5秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88169",
+          "destination": "nod-wp-88170",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "パハ島周辺・西翼奥の通路",
+              "from": "nod-wp-88169",
+              "id": "nod-wp-88170",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewY": 363,
+              "hint": "上段の入口・灯りを消して足場を出す",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88170",
+          "destination": "nod-wp-88169",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "パハ島周辺・西の支柱の灯室",
+              "from": "nod-wp-88170",
+              "id": "nod-wp-88169",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-88169",
+          "destination": "nod-town",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "パハ島周辺・西の支柱の岸",
+              "from": "nod-wp-88169",
+              "id": "nod-wp-88162",
+              "label": "昇降機",
+              "region": "region-07",
+              "hint": "西の支柱の灯室に降りる昇降機・移動に2.5秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "パハ島周辺・南の荷揚げ路",
+              "from": "nod-wp-88162",
+              "id": "nod-wp-88161",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 933
+            },
+            {
+              "mode": "walk",
+              "name": "パハ島周辺・南の連絡桟橋",
+              "from": "nod-wp-88161",
+              "id": "nod-wp-88160",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 724
+            },
+            {
+              "mode": "boat",
+              "name": "レンポ島・北岬の桟橋",
+              "from": "nod-wp-88160",
+              "id": "nod-wp-88157",
+              "label": "舟・寄港",
+              "region": "region-07",
+              "hint": "北岬からパハ島への連絡船・移動に3.7秒",
+              "previewX": 1362
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・北岬東の道",
+              "from": "nod-wp-88157",
+              "id": "nod-wp-88155",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1362
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・東沖の岬",
+              "from": "nod-wp-88155",
+              "id": "nod-wp-88154",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1372
+            },
+            {
+              "mode": "boat",
+              "name": "レンポ島・東の灯台下",
+              "from": "nod-wp-88154",
+              "id": "nod-wp-88148",
+              "label": "舟・寄港",
+              "region": "region-07",
+              "hint": "東沖の岬への小舟・移動に2.8秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・灯台へ向かう坂",
+              "from": "nod-wp-88148",
+              "id": "nod-wp-88147",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "レンポ島・町北の神像",
+              "from": "nod-wp-88147",
+              "id": "nod-wp-88128",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 508
+            },
+            {
+              "mode": "walk",
+              "name": "ナド・クライ・町の広場",
+              "from": "nod-wp-88128",
+              "id": "nod-town",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 940
+            }
+          ]
+        }
+      ]
+    },
+    "nod-mapped-north-bay": {
+      "objectives": 6,
+      "hub": "nod-north-harbor",
+      "routes": [
+        {
+          "start": "nod-north-harbor",
+          "destination": "nod-wp-92868",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "北部沿岸・南の渡り橋",
+              "from": "nod-north-harbor",
+              "id": "nod-wp-92868",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-92868",
+          "destination": "nod-wp-92870",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "北部沿岸・松の斜面",
+              "from": "nod-wp-92868",
+              "id": "nod-wp-92870",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 940
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-92870",
+          "destination": "nod-wp-92871",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "北部沿岸・東の岩の道",
+              "from": "nod-wp-92870",
+              "id": "nod-wp-92871",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 940
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-92871",
+          "destination": "nod-wp-92873",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "北部沿岸・湾を見下ろす棚",
+              "from": "nod-wp-92871",
+              "id": "nod-wp-92873",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewY": 372,
+              "hint": "上段の入口",
+              "previewX": 724
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-92873",
+          "destination": "nod-wp-92895",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北部沿岸・東の湾の下層",
+              "from": "nod-wp-92873",
+              "id": "nod-wp-92895",
+              "label": "昇降機",
+              "region": "region-07",
+              "hint": "湾の下層への昇降機・移動に2.5秒",
+              "previewX": 1048
+            }
+          ]
+        },
+        {
+          "start": "nod-wp-92895",
+          "destination": "nod-north-harbor",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "北部沿岸・湾を見下ろす棚",
+              "from": "nod-wp-92895",
+              "id": "nod-wp-92873",
+              "label": "昇降機",
+              "region": "region-07",
+              "hint": "湾の下層への昇降機・移動に2.5秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "北部沿岸・東の岩の道",
+              "from": "nod-wp-92873",
+              "id": "nod-wp-92871",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 724
+            },
+            {
+              "mode": "walk",
+              "name": "北部沿岸・松の斜面",
+              "from": "nod-wp-92871",
+              "id": "nod-wp-92870",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "北部沿岸・南の渡り橋",
+              "from": "nod-wp-92870",
+              "id": "nod-wp-92868",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 508
+            },
+            {
+              "mode": "walk",
+              "name": "北部沿岸・南の港の神像",
+              "from": "nod-wp-92868",
+              "id": "nod-north-harbor",
+              "label": "徒歩",
+              "region": "region-07",
+              "previewX": 508
+            }
+          ]
+        }
+      ]
+    },
+    "nod-mapped-frostmoon-shadow": {
+      "objectives": 5,
+      "hub": "frostmoon-camp",
+      "routes": [
+        {
+          "start": "frostmoon-camp",
+          "destination": "frost-wp-99308",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "霜月・南東の台地",
+              "from": "frostmoon-camp",
+              "id": "frost-wp-99282",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 1422
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・潮色の道の南端",
+              "from": "frost-wp-99282",
+              "id": "frost-wp-99284",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・赤い丘の南棚",
+              "from": "frost-wp-99284",
+              "id": "frost-wp-99285",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 749
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・赤い丘の中央",
+              "from": "frost-wp-99285",
+              "id": "frost-wp-99288",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 749
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・赤い丘の北棚",
+              "from": "frost-wp-99288",
+              "id": "frost-wp-99291",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 412
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・青い円原の南端",
+              "from": "frost-wp-99291",
+              "id": "frost-wp-99293",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "青い円原へ向かう昇降機・移動に2.5秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・青い円原の中央",
+              "from": "frost-wp-99293",
+              "id": "frost-wp-99294",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・青い円原の北棚",
+              "from": "frost-wp-99294",
+              "id": "frost-wp-99297",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・青い円原の西棚",
+              "from": "frost-wp-99297",
+              "id": "frost-wp-99298",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・西の長い回廊の入口",
+              "from": "frost-wp-99298",
+              "id": "frost-wp-99308",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "西の長い回廊へ向かう昇降機・移動に2.8秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "frost-wp-99308",
+          "destination": "frost-wp-99309",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "霜月・西の回廊の第一層",
+              "from": "frost-wp-99308",
+              "id": "frost-wp-99309",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "previewY": 373,
+              "hint": "上段の入口・回廊の第一層へ入る昇降機・移動に2.5秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "frost-wp-99309",
+          "destination": "frost-wp-99311",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "霜月・西の回廊の第二層の灯室",
+              "from": "frost-wp-99309",
+              "id": "frost-wp-99311",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "第一層と第二層の昇降機・移動に2.5秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "frost-wp-99311",
+          "destination": "frost-wp-99312",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "霜月・西の回廊の第二層の奥",
+              "from": "frost-wp-99311",
+              "id": "frost-wp-99312",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewY": 363,
+              "hint": "上段の入口・灯りを消して足場を出す",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "frost-wp-99312",
+          "destination": "frost-wp-99311",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "霜月・西の回廊の第二層の灯室",
+              "from": "frost-wp-99312",
+              "id": "frost-wp-99311",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "frost-wp-99311",
+          "destination": "frostmoon-camp",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "霜月・西の回廊の第一層",
+              "from": "frost-wp-99311",
+              "id": "frost-wp-99309",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "第一層と第二層の昇降機・移動に2.5秒",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・西の長い回廊の入口",
+              "from": "frost-wp-99309",
+              "id": "frost-wp-99308",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "回廊の第一層へ入る昇降機・移動に2.5秒",
+              "previewX": 1372
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・青い円原の西棚",
+              "from": "frost-wp-99308",
+              "id": "frost-wp-99298",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "西の長い回廊へ向かう昇降機・移動に2.8秒",
+              "previewX": 1422
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・青い円原の北棚",
+              "from": "frost-wp-99298",
+              "id": "frost-wp-99297",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 749
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・青い円原の中央",
+              "from": "frost-wp-99297",
+              "id": "frost-wp-99294",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 749
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・青い円原の南端",
+              "from": "frost-wp-99294",
+              "id": "frost-wp-99293",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 749
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・赤い丘の北棚",
+              "from": "frost-wp-99293",
+              "id": "frost-wp-99291",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "青い円原へ向かう昇降機・移動に2.5秒",
+              "previewX": 1422
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・赤い丘の中央",
+              "from": "frost-wp-99291",
+              "id": "frost-wp-99288",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 749
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・赤い丘の南棚",
+              "from": "frost-wp-99288",
+              "id": "frost-wp-99285",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 1086
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・潮色の道の南端",
+              "from": "frost-wp-99285",
+              "id": "frost-wp-99284",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 1086
+            },
+            {
+              "mode": "lift",
+              "name": "霜月・南東の台地",
+              "from": "frost-wp-99284",
+              "id": "frost-wp-99282",
+              "label": "昇降機",
+              "region": "official-area-15",
+              "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+              "previewX": 1422
+            },
+            {
+              "mode": "walk",
+              "name": "霜月・南東の入口拠点",
+              "from": "frost-wp-99282",
+              "id": "frostmoon-camp",
+              "label": "徒歩",
+              "region": "official-area-15",
+              "previewX": 1362
+            }
+          ]
+        }
+      ]
+    },
+    "nat-mapped-valley-trail": {
+      "objectives": 4,
+      "hub": "natlan-hub",
+      "routes": [
+        {
+          "start": "natlan-hub",
+          "destination": "nat-wp-72432",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・北の地ならし場",
+              "from": "natlan-hub",
+              "id": "nat-wp-72432",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewY": 340,
+              "hint": "上段の入口",
+              "previewX": 495
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-72432",
+          "destination": "nat-wp-72435",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・西の岩棚",
+              "from": "nat-wp-72432",
+              "id": "nat-wp-72435",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1472
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-72435",
+          "destination": "nat-wp-72434",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・岩の窪地",
+              "from": "nat-wp-72435",
+              "id": "nat-wp-72434",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewY": 370,
+              "hint": "上段の入口",
+              "previewX": 1472
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-72434",
+          "destination": "natlan-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・西の岩棚",
+              "from": "nat-wp-72434",
+              "id": "nat-wp-72435",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・北の地ならし場",
+              "from": "nat-wp-72435",
+              "id": "nat-wp-72432",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "ナタ・谷の集落",
+              "from": "nat-wp-72432",
+              "id": "natlan-hub",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1123
+            }
+          ]
+        }
+      ]
+    },
+    "nat-mapped-ochka-supplies": {
+      "objectives": 5,
+      "hub": "ochkanatlan-dock",
+      "routes": [
+        {
+          "start": "ochkanatlan-dock",
+          "destination": "ochkanatlan-ruins",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・遺構の道",
+              "from": "ochkanatlan-dock",
+              "id": "ochkanatlan-ruins",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "ochkanatlan-ruins",
+          "destination": "nat-wp-79546",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・東翼の渡り廊下",
+              "from": "ochkanatlan-ruins",
+              "id": "nat-wp-79546",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 600
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-79546",
+          "destination": "nat-wp-79549",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・北の傾いた外壁",
+              "from": "nat-wp-79546",
+              "id": "nat-wp-79549",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-79549",
+          "destination": "nat-wp-79295",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・北端の崩れ桟橋",
+              "from": "nat-wp-79549",
+              "id": "nat-wp-79295",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewY": 370,
+              "hint": "上段の入口",
+              "previewX": 729
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-79295",
+          "destination": "ochkanatlan-dock",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・北の傾いた外壁",
+              "from": "nat-wp-79295",
+              "id": "nat-wp-79549",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・東翼の渡り廊下",
+              "from": "nat-wp-79549",
+              "id": "nat-wp-79546",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・遺構の道",
+              "from": "nat-wp-79546",
+              "id": "ochkanatlan-ruins",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 337
+            },
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・寄港地",
+              "from": "ochkanatlan-ruins",
+              "id": "ochkanatlan-dock",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "nat-mapped-mountain-layers": {
+      "objectives": 7,
+      "hub": "nat-mountain-camp",
+      "routes": [
+        {
+          "start": "nat-mountain-camp",
+          "destination": "nat-wp-84108",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "古の聖山・南の石段",
+              "from": "nat-mountain-camp",
+              "id": "nat-wp-84104",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 1472
+            },
+            {
+              "mode": "lift",
+              "name": "古の聖山・西の岩山の裾",
+              "from": "nat-wp-84104",
+              "id": "nat-wp-84105",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "西の山への渡り台・移動に2.3秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "古の聖山・西の火道",
+              "from": "nat-wp-84105",
+              "id": "nat-wp-84106",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "古の聖山・西の山口",
+              "from": "nat-wp-84106",
+              "id": "nat-wp-84108",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-84108",
+          "destination": "nat-wp-84112",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "古の聖山・西の山の第一層",
+              "from": "nat-wp-84108",
+              "id": "nat-wp-84112",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "西の山の第一層の昇降機・移動に2秒",
+              "previewX": 774
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-84112",
+          "destination": "nat-wp-84114",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "古の聖山・中央の石室",
+              "from": "nat-wp-84112",
+              "id": "nat-wp-84114",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 1272
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-84114",
+          "destination": "nat-wp-84120",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "古の聖山・中央の第二層",
+              "from": "nat-wp-84114",
+              "id": "nat-wp-84120",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "中央の第二層への昇降機・移動に2秒",
+              "previewX": 475
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-84120",
+          "destination": "nat-wp-84121",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "古の聖山・中央の第三層",
+              "from": "nat-wp-84120",
+              "id": "nat-wp-84121",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "中央の第三層への昇降機・移動に2秒",
+              "previewX": 1272
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-84121",
+          "destination": "nat-mountain-camp",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "古の聖山・中央の第二層",
+              "from": "nat-wp-84121",
+              "id": "nat-wp-84120",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "中央の第三層への昇降機・移動に2秒",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "古の聖山・中央の石室",
+              "from": "nat-wp-84120",
+              "id": "nat-wp-84114",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "中央の第二層への昇降機・移動に2秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "古の聖山・西の山の第一層",
+              "from": "nat-wp-84114",
+              "id": "nat-wp-84112",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "古の聖山・西の山口",
+              "from": "nat-wp-84112",
+              "id": "nat-wp-84108",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "西の山の第一層の昇降機・移動に2秒",
+              "previewX": 674
+            },
+            {
+              "mode": "walk",
+              "name": "古の聖山・西の火道",
+              "from": "nat-wp-84108",
+              "id": "nat-wp-84106",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "古の聖山・西の岩山の裾",
+              "from": "nat-wp-84106",
+              "id": "nat-wp-84105",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 1472
+            },
+            {
+              "mode": "lift",
+              "name": "古の聖山・南の石段",
+              "from": "nat-wp-84105",
+              "id": "nat-wp-84104",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "hint": "西の山への渡り台・移動に2.3秒",
+              "previewX": 1472
+            },
+            {
+              "mode": "walk",
+              "name": "古の聖山・南の入口拠点",
+              "from": "nat-wp-84104",
+              "id": "nat-mountain-camp",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "previewX": 1472
+            }
+          ]
+        }
+      ]
+    },
+    "nat-mapped-sky-lift": {
+      "objectives": 7,
+      "hub": "nat-sky-camp",
+      "routes": [
+        {
+          "start": "nat-sky-camp",
+          "destination": "nat-wp-96375",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "空の神殿・西の浮き庭",
+              "from": "nat-sky-camp",
+              "id": "nat-wp-96366",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 754
+            },
+            {
+              "mode": "walk",
+              "name": "空の神殿・南の渡り台",
+              "from": "nat-wp-96366",
+              "id": "nat-wp-96367",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 1432
+            },
+            {
+              "mode": "walk",
+              "name": "空の神殿・神殿西の連絡段",
+              "from": "nat-wp-96367",
+              "id": "nat-wp-96373",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 754
+            },
+            {
+              "mode": "walk",
+              "name": "空の神殿・中央の昇降台",
+              "from": "nat-wp-96373",
+              "id": "nat-wp-96375",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewY": 365,
+              "hint": "上段の入口",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96375",
+          "destination": "nat-wp-96376",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "空の神殿・雲上の上段通路",
+              "from": "nat-wp-96375",
+              "id": "nat-wp-96376",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "hint": "雲上の上段通路へ動く昇降機・移動に2.3秒",
+              "previewX": 760
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96376",
+          "destination": "nat-wp-96378",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "空の神殿・北の広場",
+              "from": "nat-wp-96376",
+              "id": "nat-wp-96378",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 1432
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96378",
+          "destination": "nat-wp-96377",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "空の神殿・北端の展望棚",
+              "from": "nat-wp-96378",
+              "id": "nat-wp-96377",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 754
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96377",
+          "destination": "nat-wp-96378",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "空の神殿・北の広場",
+              "from": "nat-wp-96377",
+              "id": "nat-wp-96378",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96378",
+          "destination": "nat-wp-96376",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "空の神殿・雲上の上段通路",
+              "from": "nat-wp-96378",
+              "id": "nat-wp-96376",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96376",
+          "destination": "nat-wp-96375",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "空の神殿・中央の昇降台",
+              "from": "nat-wp-96376",
+              "id": "nat-wp-96375",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "previewY": 300,
+              "hint": "上段の入口・雲上の上段通路へ動く昇降機・移動に2.3秒",
+              "previewX": 760
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-96375",
+          "destination": "nat-sky-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "空の神殿・神殿西の連絡段",
+              "from": "nat-wp-96375",
+              "id": "nat-wp-96373",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "空の神殿・南の渡り台",
+              "from": "nat-wp-96373",
+              "id": "nat-wp-96367",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 528
+            },
+            {
+              "mode": "walk",
+              "name": "空の神殿・西の浮き庭",
+              "from": "nat-wp-96367",
+              "id": "nat-wp-96366",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "空の神殿・西の入口拠点",
+              "from": "nat-wp-96366",
+              "id": "nat-sky-camp",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "previewX": 76
+            }
+          ]
+        }
+      ]
+    },
+    "nat-mapped-resort-canal": {
+      "objectives": 7,
+      "hub": "nat-resort-pier",
+      "routes": [
+        {
+          "start": "nat-resort-pier",
+          "destination": "nat-wp-85957",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・南の神像",
+              "from": "nat-resort-pier",
+              "id": "nat-wp-85957",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-85957",
+          "destination": "nat-wp-85960",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・島の道の分岐",
+              "from": "nat-wp-85957",
+              "id": "nat-wp-85960",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-85960",
+          "destination": "nat-wp-85962",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・水車のそばの道",
+              "from": "nat-wp-85960",
+              "id": "nat-wp-85962",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-85962",
+          "destination": "nat-wp-85968",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・中央の浜",
+              "from": "nat-wp-85962",
+              "id": "nat-wp-85968",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-85968",
+          "destination": "nat-wp-85966",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・運河東の橋",
+              "from": "nat-wp-85968",
+              "id": "nat-wp-85966",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 704
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-85966",
+          "destination": "nat-wp-85967",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・北の運河の岸",
+              "from": "nat-wp-85966",
+              "id": "nat-wp-85967",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "nat-wp-85967",
+          "destination": "nat-resort-pier",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・運河東の橋",
+              "from": "nat-wp-85967",
+              "id": "nat-wp-85966",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1332
+            },
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・東の草地",
+              "from": "nat-wp-85966",
+              "id": "nat-wp-85964",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1332
+            },
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・島の道の分岐",
+              "from": "nat-wp-85964",
+              "id": "nat-wp-85960",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 704
+            },
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・南の神像",
+              "from": "nat-wp-85960",
+              "id": "nat-wp-85957",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1332
+            },
+            {
+              "mode": "walk",
+              "name": "のびのびリゾート・南の連絡桟橋",
+              "from": "nat-wp-85957",
+              "id": "nat-resort-pier",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1332
+            }
+          ]
+        }
+      ]
+    },
+    "fon-mapped-depth-samples": {
+      "objectives": 6,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fontaine-field",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水路沿い",
+              "from": "fontaine-hub",
+              "id": "fontaine-field",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "fontaine-field",
+          "destination": "fon-wp-50064",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ湖・中央湖の浅い標識",
+              "from": "fontaine-field",
+              "id": "fon-wp-50064",
+              "label": "水路",
+              "region": "region-05",
+              "hint": "水路沿いからの潜水口・移動に2.4秒",
+              "previewX": 625
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-50064",
+          "destination": "fon-wp-50065",
+          "stops": [
+            {
+              "mode": "swim",
+              "name": "フォンテーヌ湖・中央湖の深い標識",
+              "from": "fon-wp-50064",
+              "id": "fon-wp-50065",
+              "label": "遊泳",
+              "region": "region-05",
+              "previewY": 230,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-50065",
+          "destination": "fon-wp-50064",
+          "stops": [
+            {
+              "mode": "swim",
+              "name": "フォンテーヌ湖・中央湖の浅い標識",
+              "from": "fon-wp-50065",
+              "id": "fon-wp-50064",
+              "label": "遊泳",
+              "region": "region-05",
+              "previewY": 382,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 400
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-50064",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ・水路沿い",
+              "from": "fon-wp-50064",
+              "id": "fontaine-field",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 345,
+              "hint": "門と同じ深さまで泳ぐ・水路沿いからの潜水口・移動に2.4秒",
+              "previewX": 724
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fontaine-field",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "fon-mapped-north-lock": {
+      "objectives": 6,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fon-wp-53867",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ廷・市街北のテラス",
+              "from": "fontaine-hub",
+              "id": "fon-wp-50050",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewY": 340,
+              "hint": "上段の入口",
+              "previewX": 315
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ廷・市外北の坂",
+              "from": "fon-wp-50050",
+              "id": "fon-wp-50056",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1362
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ北部・北の入口の神像",
+              "from": "fon-wp-50056",
+              "id": "fon-wp-53867",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 719
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-53867",
+          "destination": "fon-wp-53850",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ北部・北の水門の第一層",
+              "from": "fon-wp-53867",
+              "id": "fon-wp-53850",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "水門第一層の昇降機・移動に1.8秒",
+              "previewX": 498
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-53850",
+          "destination": "fon-wp-53849",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ北部・北の水門の第二層",
+              "from": "fon-wp-53850",
+              "id": "fon-wp-53849",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "水門第二層の昇降機・移動に1.8秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-53849",
+          "destination": "fon-wp-53850",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ北部・北の水門の第一層",
+              "from": "fon-wp-53849",
+              "id": "fon-wp-53850",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "水門第二層の昇降機・移動に1.8秒",
+              "previewX": 1272
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-53850",
+          "destination": "fon-wp-53867",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ北部・北の入口の神像",
+              "from": "fon-wp-53850",
+              "id": "fon-wp-53867",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "水門第一層の昇降機・移動に1.8秒",
+              "previewX": 674
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-53867",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ廷・市外北の坂",
+              "from": "fon-wp-53867",
+              "id": "fon-wp-50056",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 920
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ廷・市街北のテラス",
+              "from": "fon-wp-50056",
+              "id": "fon-wp-50050",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1362
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fon-wp-50050",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 719
+            }
+          ]
+        }
+      ]
+    },
+    "fon-hidden-lab-access": {
+      "objectives": 3,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fon-wp-55770",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fontaine-hub",
+              "id": "fontaine-entry",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 60
+            },
+            {
+              "mode": "boat",
+              "name": "フォンテーヌ南部・水路橋南の岸",
+              "from": "fontaine-entry",
+              "id": "fon-wp-50046",
+              "label": "舟・寄港",
+              "region": "region-05",
+              "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+              "previewX": 700
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路東の尾根",
+              "from": "fon-wp-50046",
+              "id": "fon-wp-50045",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾西の水路脇",
+              "from": "fon-wp-50045",
+              "id": "fon-wp-55763",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾南西の岩礁",
+              "from": "fon-wp-55763",
+              "id": "fon-wp-55762",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・南の連絡島",
+              "from": "fon-wp-55762",
+              "id": "fon-wp-55771",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾東の岬",
+              "from": "fon-wp-55771",
+              "id": "fon-wp-55770",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55770",
+          "destination": "fon-wp-55768",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ湖・東の島の水洞",
+              "from": "fon-wp-55770",
+              "id": "fon-wp-55768",
+              "label": "水路",
+              "region": "region-05",
+              "hint": "島の水洞口・移動に2.4秒",
+              "previewX": 920
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55768",
+          "destination": "fon-wp-55770",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ東部・湾東の岬",
+              "from": "fon-wp-55768",
+              "id": "fon-wp-55770",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 248,
+              "hint": "門と同じ深さまで泳ぐ・島の水洞口・移動に2.4秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55770",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・南の連絡島",
+              "from": "fon-wp-55770",
+              "id": "fon-wp-55771",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 498
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾南西の岩礁",
+              "from": "fon-wp-55771",
+              "id": "fon-wp-55762",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾西の水路脇",
+              "from": "fon-wp-55762",
+              "id": "fon-wp-55763",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路東の尾根",
+              "from": "fon-wp-55763",
+              "id": "fon-wp-50045",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路橋南の岸",
+              "from": "fon-wp-50045",
+              "id": "fon-wp-50046",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "boat",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fon-wp-50046",
+              "id": "fontaine-entry",
+              "label": "舟・寄港",
+              "region": "region-05",
+              "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fontaine-entry",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "fon-beryl-thermal-vents": {
+      "objectives": 6,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fon-wp-50044",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fontaine-hub",
+              "id": "fontaine-entry",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・入江の北岸",
+              "from": "fontaine-entry",
+              "id": "fon-wp-50035",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 360
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・西南の山道",
+              "from": "fon-wp-50035",
+              "id": "fon-wp-50036",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 709
+            },
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ南部・斜面の暗がり",
+              "from": "fon-wp-50036",
+              "id": "fon-wp-50043",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "斜面裏の昇降機・移動に1.8秒",
+              "previewX": 709
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・地下の見張り棚",
+              "from": "fon-wp-50043",
+              "id": "fon-wp-50044",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1272
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-50044",
+          "destination": "iron-viscount-thermal-gallery",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "ベリル地下・排熱水洞",
+              "from": "fon-wp-50044",
+              "id": "iron-viscount-thermal-gallery",
+              "label": "水路",
+              "region": "region-05",
+              "hint": "排熱門から水洞へ・移動に1.8秒",
+              "previewX": 1090
+            }
+          ]
+        },
+        {
+          "start": "iron-viscount-thermal-gallery",
+          "destination": "fon-wp-50044",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ南部・地下の見張り棚",
+              "from": "iron-viscount-thermal-gallery",
+              "id": "fon-wp-50044",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 360,
+              "hint": "門と同じ深さまで泳ぐ・見張り棚へ戻る・移動に1.8秒",
+              "previewX": 78
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-50044",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・斜面の暗がり",
+              "from": "fon-wp-50044",
+              "id": "fon-wp-50043",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ南部・西南の山道",
+              "from": "fon-wp-50043",
+              "id": "fon-wp-50036",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "斜面裏の昇降機・移動に1.8秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・入江の北岸",
+              "from": "fon-wp-50036",
+              "id": "fon-wp-50035",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fon-wp-50035",
+              "id": "fontaine-entry",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fontaine-entry",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "fon-mapped-bygone-current": {
+      "objectives": 5,
+      "hub": "bygone-camp",
+      "routes": [
+        {
+          "start": "bygone-camp",
+          "destination": "bygone-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "往日の海・探索路",
+              "from": "bygone-camp",
+              "id": "bygone-depth",
+              "label": "徒歩",
+              "region": "branch-05",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "bygone-depth",
+          "destination": "bygone-wp-68604",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "往日の海・西海の峡谷口",
+              "from": "bygone-depth",
+              "id": "bygone-wp-68604",
+              "label": "水路",
+              "region": "branch-05",
+              "hint": "洞口から西海へ潜る水路・移動に2.4秒",
+              "previewX": 1088
+            }
+          ]
+        },
+        {
+          "start": "bygone-wp-68604",
+          "destination": "bygone-wp-68605",
+          "stops": [
+            {
+              "mode": "swim",
+              "name": "往日の海・東海の低い石橋",
+              "from": "bygone-wp-68604",
+              "id": "bygone-wp-68605",
+              "label": "遊泳",
+              "region": "branch-05",
+              "previewY": 245,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "bygone-wp-68605",
+          "destination": "bygone-wp-68604",
+          "stops": [
+            {
+              "mode": "swim",
+              "name": "往日の海・西海の峡谷口",
+              "from": "bygone-wp-68605",
+              "id": "bygone-wp-68604",
+              "label": "遊泳",
+              "region": "branch-05",
+              "previewY": 390,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "bygone-wp-68604",
+          "destination": "bygone-camp",
+          "stops": [
+            {
+              "mode": "swim",
+              "name": "往日の海・西側の珊瑚の池",
+              "from": "bygone-wp-68604",
+              "id": "bygone-wp-68615",
+              "label": "遊泳",
+              "region": "branch-05",
+              "previewY": 248,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 76
+            },
+            {
+              "mode": "water",
+              "name": "往日の海・入口拠点",
+              "from": "bygone-wp-68615",
+              "id": "bygone-camp",
+              "label": "水路",
+              "region": "branch-05",
+              "previewY": 419,
+              "hint": "門と同じ深さまで泳ぐ・珊瑚の池へ潜る水路・移動に2.4秒",
+              "previewX": 76
+            }
+          ]
+        }
+      ]
+    },
+    "fon-mapped-nostoi-record": {
+      "objectives": 6,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "nostoi-castle-approach",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ノストイ地区・色褪せた城の入口",
+              "from": "fontaine-hub",
+              "id": "nostoi-castle-approach",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 820
+            }
+          ]
+        },
+        {
+          "start": "nostoi-castle-approach",
+          "destination": "fon-wp-68341",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ノストイ地区・島南の古い桟橋",
+              "from": "nostoi-castle-approach",
+              "id": "fon-wp-68341",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 920
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-68341",
+          "destination": "fon-wp-68345",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "ノストイ地区・海へ続く第一層",
+              "from": "fon-wp-68341",
+              "id": "fon-wp-68345",
+              "label": "水路",
+              "region": "region-05",
+              "hint": "島南から遺構に潜る水路・移動に2.4秒",
+              "previewX": 1342
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-68345",
+          "destination": "fon-wp-68342",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "ノストイ地区・深い遺構の北室",
+              "from": "fon-wp-68345",
+              "id": "fon-wp-68342",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 362,
+              "hint": "門と同じ深さまで泳ぐ・遺構下層へ続く水路・移動に2.4秒",
+              "previewX": 724
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-68342",
+          "destination": "fon-wp-68343",
+          "stops": [
+            {
+              "mode": "swim",
+              "name": "ノストイ地区・深い遺構の南室",
+              "from": "fon-wp-68342",
+              "id": "fon-wp-68343",
+              "label": "遊泳",
+              "region": "region-05",
+              "previewY": 419,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-68343",
+          "destination": "fon-wp-68344",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "ノストイ地区・遺構の下層の記録棚",
+              "from": "fon-wp-68343",
+              "id": "fon-wp-68344",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 248,
+              "hint": "門と同じ深さまで泳ぐ・記録棚の下層へ潜る水路・移動に2.4秒",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-68344",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "ノストイ地区・深い遺構の南室",
+              "from": "fon-wp-68344",
+              "id": "fon-wp-68343",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 248,
+              "hint": "門と同じ深さまで泳ぐ・記録棚の下層へ潜る水路・移動に2.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "swim",
+              "name": "ノストイ地区・深い遺構の北室",
+              "from": "fon-wp-68343",
+              "id": "fon-wp-68342",
+              "label": "遊泳",
+              "region": "region-05",
+              "previewY": 419,
+              "hint": "門と同じ深さまで泳ぐ",
+              "previewX": 76
+            },
+            {
+              "mode": "water",
+              "name": "ノストイ地区・海へ続く第一層",
+              "from": "fon-wp-68342",
+              "id": "fon-wp-68345",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 362,
+              "hint": "門と同じ深さまで泳ぐ・遺構下層へ続く水路・移動に2.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "water",
+              "name": "ノストイ地区・島南の古い桟橋",
+              "from": "fon-wp-68345",
+              "id": "fon-wp-68341",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 305,
+              "hint": "門と同じ深さまで泳ぐ・遺構から島南の桟橋へ浮上・移動に2.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "ノストイ地区・色褪せた城の入口",
+              "from": "fon-wp-68341",
+              "id": "nostoi-castle-approach",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 709
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "nostoi-castle-approach",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 65
+            }
+          ]
+        }
+      ]
+    },
+    "sum-mapped-twin-shaft": {
+      "objectives": 6,
+      "hub": "sumeru-hub",
+      "routes": [
+        {
+          "start": "sumeru-hub",
+          "destination": "sum-wp-32451",
+          "stops": [
+            {
+              "mode": "boat",
+              "name": "スメールの森林・大樹の対岸",
+              "from": "sumeru-hub",
+              "id": "sum-wp-28740",
+              "label": "舟・寄港",
+              "region": "region-04",
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "previewX": 1123
+            },
+            {
+              "mode": "walk",
+              "name": "スメールの森林・西の湖の東岸",
+              "from": "sum-wp-28740",
+              "id": "sum-wp-28743",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "スメールの森林・古木の西の坂",
+              "from": "sum-wp-28743",
+              "id": "sum-wp-28708",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "失われた苗畑・枯れた根元の神像",
+              "from": "sum-wp-28708",
+              "id": "sum-wp-32451",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32451",
+          "destination": "sum-wp-32452",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "失われた苗畑・苗畑の浅層回廊",
+              "from": "sum-wp-32451",
+              "id": "sum-wp-32452",
+              "label": "昇降機",
+              "region": "region-04",
+              "hint": "苗畑浅層の昇降機・移動に1.8秒",
+              "previewX": 973
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32452",
+          "destination": "sum-wp-28709",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "失われた苗畑・苗畑の深層の根室",
+              "from": "sum-wp-32452",
+              "id": "sum-wp-28709",
+              "label": "昇降機",
+              "region": "region-04",
+              "hint": "苗畑深層の昇降機・移動に1.8秒",
+              "previewX": 1412
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28709",
+          "destination": "sum-wp-32452",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "失われた苗畑・苗畑の浅層回廊",
+              "from": "sum-wp-28709",
+              "id": "sum-wp-32452",
+              "label": "昇降機",
+              "region": "region-04",
+              "hint": "苗畑深層の昇降機・移動に1.8秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32452",
+          "destination": "sum-wp-32451",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "失われた苗畑・枯れた根元の神像",
+              "from": "sum-wp-32452",
+              "id": "sum-wp-32451",
+              "label": "昇降機",
+              "region": "region-04",
+              "hint": "苗畑浅層の昇降機・移動に1.8秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32451",
+          "destination": "sumeru-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメールの森林・古木の西の坂",
+              "from": "sum-wp-32451",
+              "id": "sum-wp-28708",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1422
+            },
+            {
+              "mode": "walk",
+              "name": "スメールの森林・西の湖の東岸",
+              "from": "sum-wp-28708",
+              "id": "sum-wp-28743",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1392
+            },
+            {
+              "mode": "walk",
+              "name": "スメールの森林・大樹の対岸",
+              "from": "sum-wp-28743",
+              "id": "sum-wp-28740",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1342
+            },
+            {
+              "mode": "boat",
+              "name": "スメール・樹陰の広場",
+              "from": "sum-wp-28740",
+              "id": "sumeru-hub",
+              "label": "舟・寄港",
+              "region": "region-04",
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "previewX": 1342
+            }
+          ]
+        }
+      ]
+    },
+    "sum-mapped-desert-wind": {
+      "objectives": 4,
+      "hub": "tunigi-camp",
+      "routes": [
+        {
+          "start": "tunigi-camp",
+          "destination": "sum-wp-41835",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・西の段丘",
+              "from": "tunigi-camp",
+              "id": "sum-wp-46517",
+              "label": "徒歩",
+              "region": "branch-04",
+              "previewX": 420
+            },
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・砂の切れ目の細道",
+              "from": "sum-wp-46517",
+              "id": "sum-wp-46516",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1422
+            },
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・峡谷南の斜面",
+              "from": "sum-wp-46516",
+              "id": "sum-wp-46515",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 749
+            },
+            {
+              "mode": "walk",
+              "name": "ハドラマヴェス砂漠・北端の広い道",
+              "from": "sum-wp-46515",
+              "id": "sum-wp-41834",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1372
+            },
+            {
+              "mode": "walk",
+              "name": "ハドラマヴェス砂漠・北の風よけ",
+              "from": "sum-wp-41834",
+              "id": "sum-wp-41835",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1422
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-41835",
+          "destination": "sum-wp-41838",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ハドラマヴェス砂漠・東の風待ち棚",
+              "from": "sum-wp-41835",
+              "id": "sum-wp-41838",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1372
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-41838",
+          "destination": "sum-wp-41836",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "ハドラマヴェス砂漠・風穴の下の石床",
+              "from": "sum-wp-41838",
+              "id": "sum-wp-41836",
+              "label": "昇降機",
+              "region": "region-04",
+              "previewY": 370,
+              "hint": "上段の入口・風が収まると動く昇降機・風が止むまで待つ・移動に1.8秒",
+              "previewX": 973
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-41836",
+          "destination": "sum-wp-41838",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "ハドラマヴェス砂漠・東の風待ち棚",
+              "from": "sum-wp-41836",
+              "id": "sum-wp-41838",
+              "label": "昇降機",
+              "region": "region-04",
+              "hint": "風が収まると動く昇降機・移動に1.8秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-41838",
+          "destination": "tunigi-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ハドラマヴェス砂漠・北の風よけ",
+              "from": "sum-wp-41838",
+              "id": "sum-wp-41835",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "ハドラマヴェス砂漠・北端の広い道",
+              "from": "sum-wp-41835",
+              "id": "sum-wp-41834",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 940
+            },
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・峡谷南の斜面",
+              "from": "sum-wp-41834",
+              "id": "sum-wp-46515",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "wind",
+              "name": "砂漠北西部・砂の切れ目の細道",
+              "from": "sum-wp-46515",
+              "id": "sum-wp-46516",
+              "label": "吹雪待ち",
+              "region": "region-04",
+              "hint": "風が止むまで待つ",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・西の段丘",
+              "from": "sum-wp-46516",
+              "id": "sum-wp-46517",
+              "label": "徒歩",
+              "region": "branch-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "トゥニギの黒淵・入口拠点",
+              "from": "sum-wp-46517",
+              "id": "tunigi-camp",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 973
+            }
+          ]
+        }
+      ]
+    },
+    "sum-mapped-tunigi-water": {
+      "objectives": 7,
+      "hub": "tunigi-camp",
+      "routes": [
+        {
+          "start": "tunigi-camp",
+          "destination": "tunigi-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "トゥニギの黒淵・探索路",
+              "from": "tunigi-camp",
+              "id": "tunigi-depth",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "tunigi-depth",
+          "destination": "sum-wp-46523",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "砂漠北西部・谷口の観測洞",
+              "from": "tunigi-depth",
+              "id": "sum-wp-46523",
+              "label": "昇降機",
+              "region": "branch-04",
+              "previewY": 380,
+              "hint": "上段の入口・観測洞へ向かう昇降機・移動に1.8秒",
+              "previewX": 250
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-46523",
+          "destination": "tunigi-depth",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "トゥニギの黒淵・探索路",
+              "from": "sum-wp-46523",
+              "id": "tunigi-depth",
+              "label": "昇降機",
+              "region": "region-04",
+              "hint": "観測洞へ向かう昇降機・移動に1.8秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "tunigi-depth",
+          "destination": "sum-wp-46525",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・二つの泉の分岐",
+              "from": "tunigi-depth",
+              "id": "sum-wp-46525",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1317
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-46525",
+          "destination": "sum-wp-46514",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・泉を見下ろす神像",
+              "from": "sum-wp-46525",
+              "id": "sum-wp-46514",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 709
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-46514",
+          "destination": "tunigi-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "砂漠北西部・二つの泉の分岐",
+              "from": "sum-wp-46514",
+              "id": "sum-wp-46525",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "トゥニギの黒淵・探索路",
+              "from": "sum-wp-46525",
+              "id": "tunigi-depth",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "トゥニギの黒淵・入口拠点",
+              "from": "tunigi-depth",
+              "id": "tunigi-camp",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "ina-mapped-seirai-ferry": {
+      "objectives": 5,
+      "hub": "inazuma-town",
+      "routes": [
+        {
+          "start": "inazuma-town",
+          "destination": "ina-wp-12722",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "鳴神島・離島・城南の船着き場",
+              "from": "inazuma-town",
+              "id": "ina-wp-12722",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewY": 340,
+              "hint": "上段の入口",
+              "previewX": 735
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-12722",
+          "destination": "ina-wp-16014",
+          "stops": [
+            {
+              "mode": "boat",
+              "name": "セイライ島・北西の船着き場",
+              "from": "ina-wp-12722",
+              "id": "ina-wp-16014",
+              "label": "舟・寄港",
+              "region": "region-03",
+              "hint": "城南とセイライの連絡船・移動に4.2秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-16014",
+          "destination": "ina-wp-16026",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "セイライ島・北西の斜面の分岐",
+              "from": "ina-wp-16014",
+              "id": "ina-wp-16026",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-16026",
+          "destination": "ina-wp-16022",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "セイライ島・海峡の神像",
+              "from": "ina-wp-16026",
+              "id": "ina-wp-16022",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 1352
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-16022",
+          "destination": "inazuma-town",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "セイライ島・北西の斜面の分岐",
+              "from": "ina-wp-16022",
+              "id": "ina-wp-16026",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 320
+            },
+            {
+              "mode": "walk",
+              "name": "セイライ島・北西の船着き場",
+              "from": "ina-wp-16026",
+              "id": "ina-wp-16014",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 76
+            },
+            {
+              "mode": "boat",
+              "name": "鳴神島・離島・城南の船着き場",
+              "from": "ina-wp-16014",
+              "id": "ina-wp-12722",
+              "label": "舟・寄港",
+              "region": "region-03",
+              "hint": "城南とセイライの連絡船・移動に4.2秒",
+              "previewX": 1312
+            },
+            {
+              "mode": "walk",
+              "name": "稲妻・城下の広場",
+              "from": "ina-wp-12722",
+              "id": "inazuma-town",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 1312
+            }
+          ]
+        }
+      ]
+    },
+    "ina-mapped-undersea-floor": {
+      "objectives": 5,
+      "hub": "inazuma-port",
+      "routes": [
+        {
+          "start": "inazuma-port",
+          "destination": "inazuma-road",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "稲妻・海辺の街道",
+              "from": "inazuma-port",
+              "id": "inazuma-road",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "inazuma-road",
+          "destination": "ina-wp-12729",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "鳴神島・離島・離島へ続く浅瀬",
+              "from": "inazuma-road",
+              "id": "ina-wp-12729",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 640
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-12729",
+          "destination": "ina-wp-12735",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "鳴神島・離島・北の崖沿いの入口",
+              "from": "ina-wp-12729",
+              "id": "ina-wp-12735",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 1262
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-12735",
+          "destination": "ina-wp-47990",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "鳴神島・離島・北沖の地下石室",
+              "from": "ina-wp-12735",
+              "id": "ina-wp-47990",
+              "label": "昇降機",
+              "region": "region-03",
+              "hint": "北沖の地下石室への昇降機・移動に2.1秒",
+              "previewX": 1200
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-47990",
+          "destination": "ina-wp-12735",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "鳴神島・離島・北の崖沿いの入口",
+              "from": "ina-wp-47990",
+              "id": "ina-wp-12735",
+              "label": "昇降機",
+              "region": "region-03",
+              "hint": "北沖の地下石室への昇降機・移動に2.1秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "ina-wp-12735",
+          "destination": "inazuma-port",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "鳴神島・離島・離島へ続く浅瀬",
+              "from": "ina-wp-12735",
+              "id": "ina-wp-12729",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "稲妻・海辺の街道",
+              "from": "ina-wp-12729",
+              "id": "inazuma-road",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "稲妻・離島の波止場",
+              "from": "inazuma-road",
+              "id": "inazuma-port",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "ina-mapped-enkan-beacons": {
+      "objectives": 5,
+      "hub": "enkanomiya-camp",
+      "routes": [
+        {
+          "start": "enkanomiya-camp",
+          "destination": "enkan-wp-21579",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "淵下宮・探索路",
+              "from": "enkanomiya-camp",
+              "id": "enkanomiya-depth",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・洞門の外縁",
+              "from": "enkanomiya-depth",
+              "id": "enkan-wp-21573",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 690
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・西の浮石の停留所",
+              "from": "enkan-wp-21573",
+              "id": "enkan-wp-21574",
+              "label": "昇降機",
+              "region": "branch-03",
+              "previewY": 360,
+              "hint": "上段の入口・洞門横の浮石・移動に2.2秒",
+              "previewX": 1442
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・西島の下段回廊",
+              "from": "enkan-wp-21574",
+              "id": "enkan-wp-21576",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 1422
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・大塔西の回廊",
+              "from": "enkan-wp-21576",
+              "id": "enkan-wp-21579",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "大塔西へ動く浮石・移動に2.6秒",
+              "previewX": 1422
+            }
+          ]
+        },
+        {
+          "start": "enkan-wp-21579",
+          "destination": "enkan-wp-21580",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "淵下宮・中央の石灯広場",
+              "from": "enkan-wp-21579",
+              "id": "enkan-wp-21580",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 886
+            }
+          ]
+        },
+        {
+          "start": "enkan-wp-21580",
+          "destination": "enkan-wp-21593",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "淵下宮・大塔西の回廊",
+              "from": "enkan-wp-21580",
+              "id": "enkan-wp-21579",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・西島の下段回廊",
+              "from": "enkan-wp-21579",
+              "id": "enkan-wp-21576",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "大塔西へ動く浮石・移動に2.6秒",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・北西の外礁灯",
+              "from": "enkan-wp-21576",
+              "id": "enkan-wp-21593",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "北西の外礁へ動く浮石・移動に3.2秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "enkan-wp-21593",
+          "destination": "enkan-wp-21594",
+          "stops": [
+            {
+              "mode": "phase",
+              "name": "淵下宮・西島の北の石庭",
+              "from": "enkan-wp-21593",
+              "id": "enkan-wp-21577",
+              "label": "位相門",
+              "region": "branch-03",
+              "hint": "島の高台へ戻る位相門・移動に1.6秒",
+              "previewX": 1120
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・大塔北の外回り",
+              "from": "enkan-wp-21577",
+              "id": "enkan-wp-21578",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "大塔北へ動く浮石・移動に2.4秒",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・大塔東の渡り台",
+              "from": "enkan-wp-21578",
+              "id": "enkan-wp-21581",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 1422
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・東島の西の乗り場",
+              "from": "enkan-wp-21581",
+              "id": "enkan-wp-21590",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "東島へ動く浮石・移動に2.4秒",
+              "previewX": 1422
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・東島の南の観測段",
+              "from": "enkan-wp-21590",
+              "id": "enkan-wp-21588",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 1422
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・北東の外礁灯",
+              "from": "enkan-wp-21588",
+              "id": "enkan-wp-21594",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "北東の外礁へ動く浮石・移動に3.4秒",
+              "previewX": 1442
+            }
+          ]
+        },
+        {
+          "start": "enkan-wp-21594",
+          "destination": "enkan-wp-21592",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "淵下宮・東島の南の観測段",
+              "from": "enkan-wp-21594",
+              "id": "enkan-wp-21588",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "北東の外礁へ動く浮石・移動に3.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・東島の西の乗り場",
+              "from": "enkan-wp-21588",
+              "id": "enkan-wp-21590",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・大塔東の渡り台",
+              "from": "enkan-wp-21590",
+              "id": "enkan-wp-21581",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "東島へ動く浮石・移動に2.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・中央の石灯広場",
+              "from": "enkan-wp-21581",
+              "id": "enkan-wp-21580",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・大塔南の石段",
+              "from": "enkan-wp-21580",
+              "id": "enkan-wp-21582",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 886
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・南の遺構の上段",
+              "from": "enkan-wp-21582",
+              "id": "enkan-wp-21583",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・南の遺構の突端",
+              "from": "enkan-wp-21583",
+              "id": "enkan-wp-21584",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・南端の外礁灯",
+              "from": "enkan-wp-21584",
+              "id": "enkan-wp-21592",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "南端の外礁へ動く浮石・移動に3.5秒",
+              "previewX": 1442
+            }
+          ]
+        },
+        {
+          "start": "enkan-wp-21592",
+          "destination": "enkanomiya-camp",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "淵下宮・南の遺構の突端",
+              "from": "enkan-wp-21592",
+              "id": "enkan-wp-21584",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "南端の外礁へ動く浮石・移動に3.5秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・南の遺構の上段",
+              "from": "enkan-wp-21584",
+              "id": "enkan-wp-21583",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 320
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・大塔南の石段",
+              "from": "enkan-wp-21583",
+              "id": "enkan-wp-21582",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・中央の石灯広場",
+              "from": "enkan-wp-21582",
+              "id": "enkan-wp-21580",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 916
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・大塔西の回廊",
+              "from": "enkan-wp-21580",
+              "id": "enkan-wp-21579",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・西島の下段回廊",
+              "from": "enkan-wp-21579",
+              "id": "enkan-wp-21576",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "大塔西へ動く浮石・移動に2.6秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・西の浮石の停留所",
+              "from": "enkan-wp-21576",
+              "id": "enkan-wp-21574",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 320
+            },
+            {
+              "mode": "lift",
+              "name": "淵下宮・洞門の外縁",
+              "from": "enkan-wp-21574",
+              "id": "enkan-wp-21573",
+              "label": "昇降機",
+              "region": "branch-03",
+              "hint": "洞門横の浮石・移動に2.2秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・探索路",
+              "from": "enkan-wp-21573",
+              "id": "enkanomiya-depth",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "淵下宮・入口拠点",
+              "from": "enkanomiya-depth",
+              "id": "enkanomiya-camp",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "liyue-mapped-east-shore": {
+      "objectives": 5,
+      "hub": "liyue-harbor",
+      "routes": [
+        {
+          "start": "liyue-harbor",
+          "destination": "liyue-wp-104",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・港東の荷揚げ波止場",
+              "from": "liyue-harbor",
+              "id": "liyue-wp-104",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 485
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-104",
+          "destination": "liyue-wp-94",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・港北の街道",
+              "from": "liyue-wp-104",
+              "id": "liyue-wp-94",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 1312
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-94",
+          "destination": "liyue-wp-97",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・街道脇の神像",
+              "from": "liyue-wp-94",
+              "id": "liyue-wp-97",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 1070
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-97",
+          "destination": "liyue-wp-100",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・東岸の岩浜",
+              "from": "liyue-wp-97",
+              "id": "liyue-wp-100",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 1342
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-100",
+          "destination": "liyue-harbor",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・岩間の狩場",
+              "from": "liyue-wp-100",
+              "id": "liyue-field",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "璃月・港の広場",
+              "from": "liyue-field",
+              "id": "liyue-harbor",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "liyue-mapped-hidden-cave": {
+      "objectives": 7,
+      "hub": "chenyu-camp",
+      "routes": [
+        {
+          "start": "chenyu-camp",
+          "destination": "liyue-wp-64825",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・谷の入口の神像",
+              "from": "chenyu-camp",
+              "id": "liyue-wp-64825",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 665
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-64825",
+          "destination": "liyue-wp-64843",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・東の茶の道",
+              "from": "liyue-wp-64825",
+              "id": "liyue-wp-64843",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 851
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-64843",
+          "destination": "liyue-wp-64841",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・谷北の尾根道",
+              "from": "liyue-wp-64843",
+              "id": "liyue-wp-64841",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-64841",
+          "destination": "liyue-wp-64839",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・見晴らし岩の北尾根",
+              "from": "liyue-wp-64841",
+              "id": "liyue-wp-64839",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-64839",
+          "destination": "liyue-wp-66979",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "沈玉の谷・北尾根の隠れ石窟",
+              "from": "liyue-wp-64839",
+              "id": "liyue-wp-66979",
+              "label": "昇降機",
+              "region": "branch-02",
+              "previewY": 365,
+              "hint": "上段の入口・尾根の石窟へ降りる昇降機・移動に2.2秒",
+              "previewX": 851
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-66979",
+          "destination": "liyue-wp-64839",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "沈玉の谷・見晴らし岩の北尾根",
+              "from": "liyue-wp-66979",
+              "id": "liyue-wp-64839",
+              "label": "昇降機",
+              "region": "branch-02",
+              "hint": "尾根の石窟へ降りる昇降機・移動に2.2秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-64839",
+          "destination": "chenyu-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・谷北の尾根道",
+              "from": "liyue-wp-64839",
+              "id": "liyue-wp-64841",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 1292
+            },
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・谷東の川沿い",
+              "from": "liyue-wp-64841",
+              "id": "liyue-wp-64842",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 851
+            },
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・谷の入口の神像",
+              "from": "liyue-wp-64842",
+              "id": "liyue-wp-64825",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 1442
+            },
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・入口拠点",
+              "from": "liyue-wp-64825",
+              "id": "chenyu-camp",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 1292
+            }
+          ]
+        }
+      ]
+    },
+    "liyue-mapped-chasm-shaft": {
+      "objectives": 8,
+      "hub": "chasm-camp",
+      "routes": [
+        {
+          "start": "chasm-camp",
+          "destination": "liyue-wp-24912",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "層岩巨淵・地上・坑口の搬入口",
+              "from": "chasm-camp",
+              "id": "liyue-wp-24912",
+              "label": "昇降機",
+              "region": "region-02",
+              "hint": "坑口の昇降機・移動に2.8秒",
+              "previewX": 650
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-24912",
+          "destination": "liyue-wp-24910",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地上・採掘場東の作業口",
+              "from": "liyue-wp-24912",
+              "id": "liyue-wp-24910",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 1402
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-24910",
+          "destination": "liyue-wp-24909",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地上・採掘場の北回廊",
+              "from": "liyue-wp-24910",
+              "id": "liyue-wp-24909",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 906
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-24909",
+          "destination": "liyue-wp-24908",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地上・採掘場西の神像",
+              "from": "liyue-wp-24909",
+              "id": "liyue-wp-24908",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-24908",
+          "destination": "liyue-wp-28732",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地上・採掘場西の岩棚",
+              "from": "liyue-wp-24908",
+              "id": "liyue-wp-28732",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-28732",
+          "destination": "liyue-wp-24912",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地上・坑口の搬入口",
+              "from": "liyue-wp-28732",
+              "id": "liyue-wp-24912",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewY": 368,
+              "hint": "上段の入口",
+              "previewX": 851
+            }
+          ]
+        },
+        {
+          "start": "liyue-wp-24912",
+          "destination": "chasm-camp",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "層岩巨淵・地下の調査拠点",
+              "from": "liyue-wp-24912",
+              "id": "chasm-camp",
+              "label": "昇降機",
+              "region": "official-area-6",
+              "hint": "坑口の昇降機・移動に2.8秒",
+              "previewX": 650
+            }
+          ]
+        }
+      ]
+    },
+    "mond-mapped-lakeside": {
+      "objectives": 5,
+      "hub": "mond-town",
+      "routes": [
+        {
+          "start": "mond-town",
+          "destination": "mond-road",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "モンド・南の街道",
+              "from": "mond-town",
+              "id": "mond-road",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "mond-road",
+          "destination": "mond-wp-13",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "モンド・大樹の東原と神像",
+              "from": "mond-road",
+              "id": "mond-wp-13",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 240
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-13",
+          "destination": "mond-wp-7",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "モンド・東丘の石畳",
+              "from": "mond-wp-13",
+              "id": "mond-wp-7",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 905
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-7",
+          "destination": "mond-wp-12",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "モンド・北の湖と神像",
+              "from": "mond-wp-7",
+              "id": "mond-wp-12",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 1006
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-12",
+          "destination": "mond-town",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "囁きの森・湖への小道",
+              "from": "mond-wp-12",
+              "id": "sites-corridor-mond-forest",
+              "label": "徒歩",
+              "region": "region-01",
+              "hint": "湖岸から森の斜面へ",
+              "previewX": 285
+            },
+            {
+              "mode": "walk",
+              "name": "モンド・南の街道",
+              "from": "sites-corridor-mond-forest",
+              "id": "mond-road",
+              "label": "徒歩",
+              "region": "region-01",
+              "hint": "モンド・南の街道へ戻る",
+              "previewX": 96
+            },
+            {
+              "mode": "walk",
+              "name": "モンド・城門広場",
+              "from": "mond-road",
+              "id": "mond-town",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "mond-mapped-snowline": {
+      "objectives": 4,
+      "hub": "dragonspine-camp",
+      "routes": [
+        {
+          "start": "dragonspine-camp",
+          "destination": "mond-wp-6601",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・北東の谷戸",
+              "from": "dragonspine-camp",
+              "id": "mond-wp-6601",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 500
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-6601",
+          "destination": "mond-wp-6537",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・峰下の雪原と神像",
+              "from": "mond-wp-6601",
+              "id": "mond-wp-6537",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 1136
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-6537",
+          "destination": "mond-wp-6603",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・峰の東稜",
+              "from": "mond-wp-6537",
+              "id": "mond-wp-6603",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 1142
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-6603",
+          "destination": "dragonspine-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・峰下の雪原と神像",
+              "from": "mond-wp-6603",
+              "id": "mond-wp-6537",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 1372
+            },
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・北東の谷戸",
+              "from": "mond-wp-6537",
+              "id": "mond-wp-6601",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・入口拠点",
+              "from": "mond-wp-6601",
+              "id": "dragonspine-camp",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 1372
+            }
+          ]
+        }
+      ]
+    },
+    "mond-mapped-islet": {
+      "objectives": 4,
+      "hub": "dornman-camp",
+      "routes": [
+        {
+          "start": "dornman-camp",
+          "destination": "mond-wp-95797",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドーンマンポート・港東の桟橋",
+              "from": "dornman-camp",
+              "id": "mond-wp-95797",
+              "label": "徒歩",
+              "region": "branch-06",
+              "previewX": 810
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-95797",
+          "destination": "mond-wp-95799",
+          "stops": [
+            {
+              "mode": "boat",
+              "name": "ドーンマンポート・沖の小島の船着き場",
+              "from": "mond-wp-95797",
+              "id": "mond-wp-95799",
+              "label": "舟・寄港",
+              "region": "branch-06",
+              "hint": "沖の小島へ向かう小舟・移動に3秒",
+              "previewX": 1292
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-95799",
+          "destination": "mond-wp-95797",
+          "stops": [
+            {
+              "mode": "boat",
+              "name": "ドーンマンポート・港東の桟橋",
+              "from": "mond-wp-95799",
+              "id": "mond-wp-95797",
+              "label": "舟・寄港",
+              "region": "branch-06",
+              "hint": "沖の小島へ向かう小舟・移動に3秒",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "mond-wp-95797",
+          "destination": "dornman-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドーンマンポート・入口拠点",
+              "from": "mond-wp-95797",
+              "id": "dornman-camp",
+              "label": "徒歩",
+              "region": "branch-06",
+              "previewX": 76
+            }
+          ]
+        }
+      ]
+    },
+    "veluriyam-trolley-lookout": {
+      "objectives": 4,
+      "hub": "veluriyam-hub",
+      "routes": [
+        {
+          "start": "veluriyam-hub",
+          "destination": "veluriyam-petal-stop",
+          "stops": [
+            {
+              "mode": "rail",
+              "name": "花棚へ向かうトロッコ",
+              "from": "veluriyam-hub",
+              "id": "veluriyam-trolley-out",
+              "label": "鉄道",
+              "region": "hidden-02",
+              "hint": "花棚行きのトロッコ",
+              "previewX": 1181
+            },
+            {
+              "mode": "rail",
+              "name": "花棚の停留所",
+              "from": "veluriyam-trolley-out",
+              "id": "veluriyam-petal-stop",
+              "label": "鉄道",
+              "region": "hidden-02",
+              "hint": "出発から1.8〜6.3秒の間に途中下車",
+              "previewX": 160
+            }
+          ]
+        },
+        {
+          "start": "veluriyam-petal-stop",
+          "destination": "veluriyam-petal-lookout",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "花びら越しの展望台",
+              "from": "veluriyam-petal-stop",
+              "id": "veluriyam-petal-lookout",
+              "label": "徒歩",
+              "region": "hidden-02",
+              "previewY": 390,
+              "hint": "上段の入口・花棚の細道",
+              "previewX": 834
+            }
+          ]
+        },
+        {
+          "start": "veluriyam-petal-lookout",
+          "destination": "veluriyam-trolley-back",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "花棚の停留所",
+              "from": "veluriyam-petal-lookout",
+              "id": "veluriyam-petal-stop",
+              "label": "徒歩",
+              "region": "hidden-02",
+              "previewX": 62
+            },
+            {
+              "mode": "rail",
+              "name": "広場へ戻るトロッコ",
+              "from": "veluriyam-petal-stop",
+              "id": "veluriyam-trolley-back",
+              "label": "鉄道",
+              "region": "hidden-02",
+              "hint": "広場行きの戻り便・乗り直してから2秒で到着",
+              "previewX": 172
+            }
+          ]
+        },
+        {
+          "start": "veluriyam-trolley-back",
+          "destination": "veluriyam-hub",
+          "stops": [
+            {
+              "mode": "rail",
+              "name": "ヴェルーリヤ・ミラージュ・入口広場",
+              "from": "veluriyam-trolley-back",
+              "automaticArrival": true,
+              "id": "veluriyam-hub",
+              "label": "鉄道",
+              "region": "hidden-02",
+              "hint": "発車から8.4秒で到着",
+              "secondsRemaining": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    "fon-morte-sluice-survey": {
+      "objectives": 4,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fon-wp-55765",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fontaine-hub",
+              "id": "fontaine-entry",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 60
+            },
+            {
+              "mode": "boat",
+              "name": "フォンテーヌ南部・水路橋南の岸",
+              "from": "fontaine-entry",
+              "id": "fon-wp-50046",
+              "label": "舟・寄港",
+              "region": "region-05",
+              "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+              "previewX": 700
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路東の尾根",
+              "from": "fon-wp-50046",
+              "id": "fon-wp-50045",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾西の水路脇",
+              "from": "fon-wp-50045",
+              "id": "fon-wp-55763",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾南西の岩礁",
+              "from": "fon-wp-55763",
+              "id": "fon-wp-55762",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "water",
+              "name": "フォンテーヌ湖・湾の南の沈水溝",
+              "from": "fon-wp-55762",
+              "id": "fon-wp-55765",
+              "label": "水路",
+              "region": "region-05",
+              "hint": "南西の岩礁からの潜水口・移動に2.4秒",
+              "previewX": 709
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55765",
+          "destination": "morte-tower-sluice",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "モルテ・塔の圧力室",
+              "from": "fon-wp-55765",
+              "id": "morte-tower-sluice",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 402,
+              "hint": "門と同じ深さまで泳ぐ・塔の圧力室へ・移動に1.7秒",
+              "previewX": 1030
+            }
+          ]
+        },
+        {
+          "start": "morte-tower-sluice",
+          "destination": "fon-wp-55765",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ湖・湾の南の沈水溝",
+              "from": "morte-tower-sluice",
+              "id": "fon-wp-55765",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 365,
+              "hint": "門と同じ深さまで泳ぐ・湾の沈水溝へ・移動に1.7秒",
+              "previewX": 88
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55765",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ東部・湾南西の岩礁",
+              "from": "fon-wp-55765",
+              "id": "fon-wp-55762",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 305,
+              "hint": "門と同じ深さまで泳ぐ・南西の岩礁からの潜水口・移動に2.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・湾西の水路脇",
+              "from": "fon-wp-55762",
+              "id": "fon-wp-55763",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路東の尾根",
+              "from": "fon-wp-55763",
+              "id": "fon-wp-50045",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路橋南の岸",
+              "from": "fon-wp-50045",
+              "id": "fon-wp-50046",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "boat",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fon-wp-50046",
+              "id": "fontaine-entry",
+              "label": "舟・寄港",
+              "region": "region-05",
+              "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fontaine-entry",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "fon-erinnyes-root-water-survey": {
+      "objectives": 5,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fon-wp-55784",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fontaine-hub",
+              "id": "fontaine-entry",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 60
+            },
+            {
+              "mode": "boat",
+              "name": "フォンテーヌ南部・水路橋南の岸",
+              "from": "fontaine-entry",
+              "id": "fon-wp-50046",
+              "label": "舟・寄港",
+              "region": "region-05",
+              "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+              "previewX": 700
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路東の尾根",
+              "from": "fon-wp-50046",
+              "id": "fon-wp-50045",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・橋の南の高台",
+              "from": "fon-wp-50045",
+              "id": "fon-wp-55773",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 920
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・砂利の舟置き場",
+              "from": "fon-wp-55773",
+              "id": "fon-wp-55775",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・東岸の南道",
+              "from": "fon-wp-55775",
+              "id": "fon-wp-55774",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・東の工房の裏道",
+              "from": "fon-wp-55774",
+              "id": "fon-wp-55776",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1342
+            },
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ東部・工房の地下入口",
+              "from": "fon-wp-55776",
+              "id": "fon-wp-55784",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "工房地下の昇降機・移動に1.8秒",
+              "previewX": 498
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55784",
+          "destination": "erinnyes-root-waterway",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "エリニュスの根・地下水脈",
+              "from": "fon-wp-55784",
+              "id": "erinnyes-root-waterway",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 480,
+              "hint": "エリニュスの根の水脈へ・移動に1.9秒",
+              "previewX": 1120
+            }
+          ]
+        },
+        {
+          "start": "erinnyes-root-waterway",
+          "destination": "fon-wp-55784",
+          "stops": [
+            {
+              "mode": "water",
+              "name": "フォンテーヌ東部・工房の地下入口",
+              "from": "erinnyes-root-waterway",
+              "id": "fon-wp-55784",
+              "label": "水路",
+              "region": "region-05",
+              "previewY": 360,
+              "hint": "門と同じ深さまで泳ぐ・工房の地下入口へ戻る・移動に1.9秒",
+              "previewX": 86
+            }
+          ]
+        },
+        {
+          "start": "fon-wp-55784",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "lift",
+              "name": "フォンテーヌ東部・東の工房の裏道",
+              "from": "fon-wp-55784",
+              "id": "fon-wp-55776",
+              "label": "昇降機",
+              "region": "region-05",
+              "hint": "工房地下の昇降機・移動に1.8秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・東岸の南道",
+              "from": "fon-wp-55776",
+              "id": "fon-wp-55774",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 920
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・砂利の舟置き場",
+              "from": "fon-wp-55774",
+              "id": "fon-wp-55775",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ東部・橋の南の高台",
+              "from": "fon-wp-55775",
+              "id": "fon-wp-55773",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路東の尾根",
+              "from": "fon-wp-55773",
+              "id": "fon-wp-50045",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ南部・水路橋南の岸",
+              "from": "fon-wp-50045",
+              "id": "fon-wp-50046",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 76
+            },
+            {
+              "mode": "boat",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fon-wp-50046",
+              "id": "fontaine-entry",
+              "label": "舟・寄港",
+              "region": "region-05",
+              "hint": "港口と水路橋を結ぶ連絡船・移動に3.4秒",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fontaine-entry",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "natlan-rainbow-cave-keys": {
+      "objectives": 4,
+      "hub": "natlan-hub",
+      "routes": [
+        {
+          "start": "natlan-hub",
+          "destination": "sites-hunt-73160",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナタ・岩場の道",
+              "from": "natlan-hub",
+              "id": "natlan-field",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・競技場の裏口",
+              "from": "natlan-field",
+              "id": "nat-wp-72429",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 730
+            },
+            {
+              "mode": "walk",
+              "name": "アトクパンの大地・東の森の門",
+              "from": "nat-wp-72429",
+              "id": "nat-wp-82575",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 729
+            },
+            {
+              "mode": "walk",
+              "name": "トヤック源泉地・湾西の細道",
+              "from": "nat-wp-82575",
+              "id": "nat-wp-72421",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "トヤック源泉地・源泉北の岩径",
+              "from": "nat-wp-72421",
+              "id": "nat-wp-72422",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 704
+            },
+            {
+              "mode": "walk",
+              "name": "南西の秘境周辺",
+              "from": "nat-wp-72422",
+              "id": "sites-hunt-73160",
+              "label": "徒歩",
+              "region": "region-06",
+              "hint": "南西の秘境入口",
+              "previewX": 398
+            }
+          ]
+        },
+        {
+          "start": "sites-hunt-73160",
+          "destination": "toyac-rainbow-key-cave",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "アメヤルコの水域・二つの鍵の洞窟",
+              "from": "sites-hunt-73160",
+              "id": "toyac-rainbow-key-cave",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewY": 406,
+              "hint": "上段の入口・岩棚から二つの鍵の洞窟へ",
+              "previewX": 2480
+            }
+          ]
+        },
+        {
+          "start": "toyac-rainbow-key-cave",
+          "destination": "natlan-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "南西の秘境周辺",
+              "from": "toyac-rainbow-key-cave",
+              "id": "sites-hunt-73160",
+              "label": "徒歩",
+              "region": "region-06",
+              "hint": "南西の秘境周辺へ戻る",
+              "previewX": 88
+            },
+            {
+              "mode": "walk",
+              "name": "トヤック源泉地・源泉北の岩径",
+              "from": "sites-hunt-73160",
+              "id": "nat-wp-72422",
+              "label": "徒歩",
+              "region": "region-06",
+              "hint": "トヤック源泉地・源泉北の岩径へ戻る",
+              "previewX": 2788
+            },
+            {
+              "mode": "walk",
+              "name": "トヤック源泉地・湾西の細道",
+              "from": "nat-wp-72422",
+              "id": "nat-wp-72421",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "アトクパンの大地・東の森の門",
+              "from": "nat-wp-72421",
+              "id": "nat-wp-82575",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・競技場の裏口",
+              "from": "nat-wp-82575",
+              "id": "nat-wp-72429",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 729
+            },
+            {
+              "mode": "walk",
+              "name": "ナタ・岩場の道",
+              "from": "nat-wp-72429",
+              "id": "natlan-field",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "ナタ・谷の集落",
+              "from": "natlan-field",
+              "id": "natlan-hub",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "mond-border-check": {
+      "objectives": 1,
+      "hub": "mond-town",
+      "routes": [
+        {
+          "start": "mond-town",
+          "destination": "mond-border",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "モンド・南の街道",
+              "from": "mond-town",
+              "id": "mond-road",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "モンド・国境の道",
+              "from": "mond-road",
+              "id": "mond-border",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "mond-border",
+          "destination": "mond-town",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "モンド・南の街道",
+              "from": "mond-border",
+              "id": "mond-road",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "モンド・城門広場",
+              "from": "mond-road",
+              "id": "mond-town",
+              "label": "徒歩",
+              "region": "region-01",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "liyue-entry-check": {
+      "objectives": 1,
+      "hub": "liyue-harbor",
+      "routes": [
+        {
+          "start": "liyue-harbor",
+          "destination": "liyue-entry",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・北の入口",
+              "from": "liyue-harbor",
+              "id": "liyue-entry",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 60
+            }
+          ]
+        },
+        {
+          "start": "liyue-entry",
+          "destination": "liyue-harbor",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "璃月・港の広場",
+              "from": "liyue-entry",
+              "id": "liyue-harbor",
+              "label": "徒歩",
+              "region": "region-02",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "inazuma-delivery": {
+      "objectives": 1,
+      "hub": "inazuma-port",
+      "routes": [
+        {
+          "start": "inazuma-port",
+          "destination": "inazuma-town",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "稲妻・海辺の街道",
+              "from": "inazuma-port",
+              "id": "inazuma-road",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "稲妻・城下の広場",
+              "from": "inazuma-road",
+              "id": "inazuma-town",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "inazuma-town",
+          "destination": "inazuma-port",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "稲妻・海辺の街道",
+              "from": "inazuma-town",
+              "id": "inazuma-road",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "稲妻・離島の波止場",
+              "from": "inazuma-road",
+              "id": "inazuma-port",
+              "label": "徒歩",
+              "region": "region-03",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "sumeru-entry-check": {
+      "objectives": 1,
+      "hub": "sumeru-hub",
+      "routes": [
+        {
+          "start": "sumeru-hub",
+          "destination": "sumeru-entry",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメール・地域の入口",
+              "from": "sumeru-hub",
+              "id": "sumeru-entry",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 60
+            }
+          ]
+        },
+        {
+          "start": "sumeru-entry",
+          "destination": "sumeru-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメール・樹陰の広場",
+              "from": "sumeru-entry",
+              "id": "sumeru-hub",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "fontaine-entry-check": {
+      "objectives": 1,
+      "hub": "fontaine-hub",
+      "routes": [
+        {
+          "start": "fontaine-hub",
+          "destination": "fontaine-entry",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・地域の入口",
+              "from": "fontaine-hub",
+              "id": "fontaine-entry",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 60
+            }
+          ]
+        },
+        {
+          "start": "fontaine-entry",
+          "destination": "fontaine-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "フォンテーヌ・水辺の広場",
+              "from": "fontaine-entry",
+              "id": "fontaine-hub",
+              "label": "徒歩",
+              "region": "region-05",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "natlan-entry-check": {
+      "objectives": 1,
+      "hub": "natlan-hub",
+      "routes": [
+        {
+          "start": "natlan-hub",
+          "destination": "natlan-entry",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナタ・地域の入口",
+              "from": "natlan-hub",
+              "id": "natlan-entry",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 60
+            }
+          ]
+        },
+        {
+          "start": "natlan-entry",
+          "destination": "natlan-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナタ・谷の集落",
+              "from": "natlan-entry",
+              "id": "natlan-hub",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "ochkanatlan-survey": {
+      "objectives": 1,
+      "hub": "ochkanatlan-dock",
+      "routes": [
+        {
+          "start": "ochkanatlan-dock",
+          "destination": "ochkanatlan-ruins",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・遺構の道",
+              "from": "ochkanatlan-dock",
+              "id": "ochkanatlan-ruins",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "ochkanatlan-ruins",
+          "destination": "ochkanatlan-dock",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "オシカ・ナタ・寄港地",
+              "from": "ochkanatlan-ruins",
+              "id": "ochkanatlan-dock",
+              "label": "徒歩",
+              "region": "branch-07",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "snezhnaya-entry-check": {
+      "objectives": 1,
+      "hub": "snezhnaya-hub",
+      "routes": [
+        {
+          "start": "snezhnaya-hub",
+          "destination": "snezhnaya-entry",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スネージナヤ・雪原の入口",
+              "from": "snezhnaya-hub",
+              "id": "snezhnaya-entry",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 60
+            }
+          ]
+        },
+        {
+          "start": "snezhnaya-entry",
+          "destination": "snezhnaya-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スネージナヤ・雪の町",
+              "from": "snezhnaya-entry",
+              "id": "snezhnaya-hub",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    },
+    "dragonspine-survey": {
+      "objectives": 1,
+      "hub": "dragonspine-camp",
+      "routes": [
+        {
+          "start": "dragonspine-camp",
+          "destination": "dragonspine-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・探索路",
+              "from": "dragonspine-camp",
+              "id": "dragonspine-depth",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "dragonspine-depth",
+          "destination": "dragonspine-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドラゴンスパイン・入口拠点",
+              "from": "dragonspine-depth",
+              "id": "dragonspine-camp",
+              "label": "徒歩",
+              "region": "branch-01",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "chenyu-survey": {
+      "objectives": 1,
+      "hub": "chenyu-camp",
+      "routes": [
+        {
+          "start": "chenyu-camp",
+          "destination": "chenyu-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・探索路",
+              "from": "chenyu-camp",
+              "id": "chenyu-depth",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "chenyu-depth",
+          "destination": "chenyu-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "沈玉の谷・入口拠点",
+              "from": "chenyu-depth",
+              "id": "chenyu-camp",
+              "label": "徒歩",
+              "region": "branch-02",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "enkanomiya-survey": {
+      "objectives": 1,
+      "hub": "enkanomiya-camp",
+      "routes": [
+        {
+          "start": "enkanomiya-camp",
+          "destination": "enkanomiya-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "淵下宮・探索路",
+              "from": "enkanomiya-camp",
+              "id": "enkanomiya-depth",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "enkanomiya-depth",
+          "destination": "enkanomiya-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "淵下宮・入口拠点",
+              "from": "enkanomiya-depth",
+              "id": "enkanomiya-camp",
+              "label": "徒歩",
+              "region": "branch-03",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "tunigi-survey": {
+      "objectives": 1,
+      "hub": "tunigi-camp",
+      "routes": [
+        {
+          "start": "tunigi-camp",
+          "destination": "tunigi-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "トゥニギの黒淵・探索路",
+              "from": "tunigi-camp",
+              "id": "tunigi-depth",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "tunigi-depth",
+          "destination": "tunigi-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "トゥニギの黒淵・入口拠点",
+              "from": "tunigi-depth",
+              "id": "tunigi-camp",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "bygone-survey": {
+      "objectives": 1,
+      "hub": "bygone-camp",
+      "routes": [
+        {
+          "start": "bygone-camp",
+          "destination": "bygone-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "往日の海・探索路",
+              "from": "bygone-camp",
+              "id": "bygone-depth",
+              "label": "徒歩",
+              "region": "branch-05",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "bygone-depth",
+          "destination": "bygone-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "往日の海・入口拠点",
+              "from": "bygone-depth",
+              "id": "bygone-camp",
+              "label": "徒歩",
+              "region": "branch-05",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "dornman-survey": {
+      "objectives": 1,
+      "hub": "dornman-camp",
+      "routes": [
+        {
+          "start": "dornman-camp",
+          "destination": "dornman-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドーンマンポート・探索路",
+              "from": "dornman-camp",
+              "id": "dornman-depth",
+              "label": "徒歩",
+              "region": "branch-06",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "dornman-depth",
+          "destination": "dornman-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ドーンマンポート・入口拠点",
+              "from": "dornman-depth",
+              "id": "dornman-camp",
+              "label": "徒歩",
+              "region": "branch-06",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "nod-special-survey": {
+      "objectives": 1,
+      "hub": "nod-special-camp",
+      "routes": [
+        {
+          "start": "nod-special-camp",
+          "destination": "nod-special-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナド・クライ特別地域（仮）・探索路",
+              "from": "nod-special-camp",
+              "id": "nod-special-depth",
+              "label": "徒歩",
+              "region": "branch-08",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "nod-special-depth",
+          "destination": "nod-special-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナド・クライ特別地域（仮）・入口拠点",
+              "from": "nod-special-depth",
+              "id": "nod-special-camp",
+              "label": "徒歩",
+              "region": "branch-08",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "novokichev-survey": {
+      "objectives": 1,
+      "hub": "novokichev-camp",
+      "routes": [
+        {
+          "start": "novokichev-camp",
+          "destination": "novokichev-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ノヴォキッチェヴ（仮構造）・探索路",
+              "from": "novokichev-camp",
+              "id": "novokichev-depth",
+              "label": "徒歩",
+              "region": "branch-09",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "novokichev-depth",
+          "destination": "novokichev-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+              "from": "novokichev-depth",
+              "id": "novokichev-camp",
+              "label": "徒歩",
+              "region": "branch-09",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "wingspan-survey": {
+      "objectives": 1,
+      "hub": "wingspan-camp",
+      "routes": [
+        {
+          "start": "wingspan-camp",
+          "destination": "wingspan-lookout",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "翼の峰・峡谷の展望路",
+              "from": "wingspan-camp",
+              "id": "wingspan-lookout",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 1220
+            }
+          ]
+        },
+        {
+          "start": "wingspan-lookout",
+          "destination": "wingspan-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "翼の峰・入口拠点",
+              "from": "wingspan-lookout",
+              "id": "wingspan-camp",
+              "label": "徒歩",
+              "region": "region-08",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "chasm-survey": {
+      "objectives": 1,
+      "hub": "chasm-camp",
+      "routes": [
+        {
+          "start": "chasm-camp",
+          "destination": "chasm-depth",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-camp",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1220
+            }
+          ]
+        },
+        {
+          "start": "chasm-depth",
+          "destination": "chasm-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の調査拠点",
+              "from": "chasm-depth",
+              "id": "chasm-camp",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "chasm-wetland-survey": {
+      "objectives": 1,
+      "hub": "chasm-camp",
+      "routes": [
+        {
+          "start": "chasm-camp",
+          "destination": "chasm-wp-25270",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-camp",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1220
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・臨時本坑の東側",
+              "from": "chasm-depth",
+              "id": "chasm-wp-25266",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1860
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・鉱区へ続く連絡坑",
+              "from": "chasm-wp-25266",
+              "id": "chasm-wp-25267",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下湿原の水路",
+              "from": "chasm-wp-25267",
+              "id": "chasm-wp-25270",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 750
+            }
+          ]
+        },
+        {
+          "start": "chasm-wp-25270",
+          "destination": "chasm-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・鉱区へ続く連絡坑",
+              "from": "chasm-wp-25270",
+              "id": "chasm-wp-25267",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・臨時本坑の東側",
+              "from": "chasm-wp-25267",
+              "id": "chasm-wp-25266",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-wp-25266",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の調査拠点",
+              "from": "chasm-depth",
+              "id": "chasm-camp",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "chasm-stonehall-survey": {
+      "objectives": 1,
+      "hub": "chasm-camp",
+      "routes": [
+        {
+          "start": "chasm-camp",
+          "destination": "chasm-wp-25275",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-camp",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1220
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・臨時本坑の東側",
+              "from": "chasm-depth",
+              "id": "chasm-wp-25266",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1860
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・鉱区へ続く連絡坑",
+              "from": "chasm-wp-25266",
+              "id": "chasm-wp-25267",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下湿原の水路",
+              "from": "chasm-wp-25267",
+              "id": "chasm-wp-25270",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 750
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・無名遺跡の足場",
+              "from": "chasm-wp-25270",
+              "id": "chasm-wp-26463",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1540
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・嶮しき石堂の岩棚",
+              "from": "chasm-wp-26463",
+              "id": "chasm-wp-25276",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1700
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・石堂南の坑道",
+              "from": "chasm-wp-25276",
+              "id": "chasm-wp-25275",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1040
+            }
+          ]
+        },
+        {
+          "start": "chasm-wp-25275",
+          "destination": "chasm-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・嶮しき石堂の岩棚",
+              "from": "chasm-wp-25275",
+              "id": "chasm-wp-25276",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・無名遺跡の足場",
+              "from": "chasm-wp-25276",
+              "id": "chasm-wp-26463",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下湿原の水路",
+              "from": "chasm-wp-26463",
+              "id": "chasm-wp-25270",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・鉱区へ続く連絡坑",
+              "from": "chasm-wp-25270",
+              "id": "chasm-wp-25267",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・臨時本坑の東側",
+              "from": "chasm-wp-25267",
+              "id": "chasm-wp-25266",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-wp-25266",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の調査拠点",
+              "from": "chasm-depth",
+              "id": "chasm-camp",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "chasm-west-survey": {
+      "objectives": 1,
+      "hub": "chasm-camp",
+      "routes": [
+        {
+          "start": "chasm-camp",
+          "destination": "chasm-wp-25272",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-camp",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1220
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・臨時本坑の東側",
+              "from": "chasm-depth",
+              "id": "chasm-wp-25266",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1860
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・鉱区へ続く連絡坑",
+              "from": "chasm-wp-25266",
+              "id": "chasm-wp-25267",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下湿原の水路",
+              "from": "chasm-wp-25267",
+              "id": "chasm-wp-25270",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 750
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・無名遺跡の足場",
+              "from": "chasm-wp-25270",
+              "id": "chasm-wp-26463",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1540
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・蛍光隘路の西側",
+              "from": "chasm-wp-26463",
+              "id": "chasm-wp-25271",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 590
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・西の連絡坑",
+              "from": "chasm-wp-25271",
+              "id": "chasm-wp-25273",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・西の行き止まり",
+              "from": "chasm-wp-25273",
+              "id": "chasm-wp-25272",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            }
+          ]
+        },
+        {
+          "start": "chasm-wp-25272",
+          "destination": "chasm-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・西の連絡坑",
+              "from": "chasm-wp-25272",
+              "id": "chasm-wp-25273",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・蛍光隘路の西側",
+              "from": "chasm-wp-25273",
+              "id": "chasm-wp-25271",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1380
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・無名遺跡の足場",
+              "from": "chasm-wp-25271",
+              "id": "chasm-wp-26463",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 1540
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下湿原の水路",
+              "from": "chasm-wp-26463",
+              "id": "chasm-wp-25270",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・鉱区へ続く連絡坑",
+              "from": "chasm-wp-25270",
+              "id": "chasm-wp-25267",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・臨時本坑の東側",
+              "from": "chasm-wp-25267",
+              "id": "chasm-wp-25266",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の坑道",
+              "from": "chasm-wp-25266",
+              "id": "chasm-depth",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "層岩巨淵・地下の調査拠点",
+              "from": "chasm-depth",
+              "id": "chasm-camp",
+              "label": "徒歩",
+              "region": "official-area-6",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "golden-explore": {
+      "objectives": 1,
+      "hub": "golden-hub",
+      "routes": [
+        {
+          "start": "golden-hub",
+          "destination": "golden-play",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "金リンゴ群島・探索ステージ",
+              "from": "golden-hub",
+              "id": "golden-play",
+              "label": "徒歩",
+              "region": "hidden-01",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "golden-play",
+          "destination": "golden-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "金リンゴ群島・入口広場",
+              "from": "golden-play",
+              "id": "golden-hub",
+              "label": "徒歩",
+              "region": "hidden-01",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "veluriyam-explore": {
+      "objectives": 1,
+      "hub": "veluriyam-hub",
+      "routes": [
+        {
+          "start": "veluriyam-hub",
+          "destination": "veluriyam-play",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ヴェルーリヤ・ミラージュ・探索ステージ",
+              "from": "veluriyam-hub",
+              "id": "veluriyam-play",
+              "label": "徒歩",
+              "region": "hidden-02",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "veluriyam-play",
+          "destination": "veluriyam-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ヴェルーリヤ・ミラージュ・入口広場",
+              "from": "veluriyam-play",
+              "id": "veluriyam-hub",
+              "label": "徒歩",
+              "region": "hidden-02",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    },
+    "simulanka-explore": {
+      "objectives": 1,
+      "hub": "simulanka-hub",
+      "routes": [
+        {
+          "start": "simulanka-hub",
+          "destination": "simulanka-play",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "シムランカ・探索ステージ",
+              "from": "simulanka-hub",
+              "id": "simulanka-play",
+              "label": "徒歩",
+              "region": "hidden-03",
+              "previewX": 1380
+            }
+          ]
+        },
+        {
+          "start": "simulanka-play",
+          "destination": "simulanka-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "シムランカ・入口広場",
+              "from": "simulanka-play",
+              "id": "simulanka-hub",
+              "label": "徒歩",
+              "region": "hidden-03",
+              "previewX": 60
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "earlierEarnedSaves": {
+    "sum-mapped-north-quay": {
+      "source": "sumeru-fresh-route/pre-quay-save.json",
+      "sha256": "520bfe6f5649e762e4cd278850b04c69d870b502e6494d45d968b4497b74ee4c",
+      "levelAtStart": 69,
+      "reportReward": {
+        "quest": "sum-mapped-north-quay",
+        "xp": 46200,
+        "mora": 5700
+      },
+      "objectives": 5,
+      "hub": "sumeru-hub",
+      "routes": [
+        {
+          "start": "sumeru-hub",
+          "destination": "sum-wp-28740",
+          "stops": [
+            {
+              "mode": "boat",
+              "name": "スメールの森林・大樹の対岸",
+              "from": "sumeru-hub",
+              "id": "sum-wp-28740",
+              "label": "舟・寄港",
+              "region": "region-04",
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "previewX": 1123
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28740",
+          "destination": "sum-wp-28741",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメールの森林・森林北の分岐",
+              "from": "sum-wp-28740",
+              "id": "sum-wp-28741",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 920
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28741",
+          "destination": "sum-wp-28701",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメールの森林・北の森の神像",
+              "from": "sum-wp-28741",
+              "id": "sum-wp-28701",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28701",
+          "destination": "sum-wp-69098",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメールの森林・バイダ港の船着き場",
+              "from": "sum-wp-28701",
+              "id": "sum-wp-69098",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 734
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-69098",
+          "destination": "sumeru-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "スメールの森林・北の森の神像",
+              "from": "sum-wp-69098",
+              "id": "sum-wp-28701",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "スメールの森林・森林北の分岐",
+              "from": "sum-wp-28701",
+              "id": "sum-wp-28741",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 1392
+            },
+            {
+              "mode": "walk",
+              "name": "スメールの森林・大樹の対岸",
+              "from": "sum-wp-28741",
+              "id": "sum-wp-28740",
+              "label": "徒歩",
+              "region": "region-04",
+              "previewX": 953
+            },
+            {
+              "mode": "boat",
+              "name": "スメール・樹陰の広場",
+              "from": "sum-wp-28740",
+              "id": "sumeru-hub",
+              "label": "舟・寄港",
+              "region": "region-04",
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "previewX": 1342
+            }
+          ]
+        }
+      ]
+    },
+    "natlan-ancient-excavation-wall": {
+      "source": "cap-fresh-route/lv165-save.json",
+      "sha256": "1fb8df659c8e2b9845472d13412f317d97ace3e1718247430229ac542d336693",
+      "levelAtStart": 165,
+      "reportReward": {
+        "quest": "natlan-ancient-excavation-wall",
+        "xp": 312000,
+        "mora": 14200
+      },
+      "objectives": 3,
+      "hub": "natlan-hub",
+      "routes": [
+        {
+          "start": "natlan-hub",
+          "destination": "tepeacac-waterfall-wall",
+          "stops": [
+            {
+              "mode": "walk",
+              "name": "ナタ・地域の入口",
+              "from": "natlan-hub",
+              "id": "natlan-entry",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 60
+            },
+            {
+              "mode": "walk",
+              "name": "テケメカンの谷・東の岩尾根",
+              "from": "natlan-entry",
+              "id": "nat-wp-72413",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 340
+            },
+            {
+              "mode": "walk",
+              "name": "テケメカンの谷・東の谷へ入る坂",
+              "from": "nat-wp-72413",
+              "id": "nat-wp-72414",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 76
+            },
+            {
+              "mode": "walk",
+              "name": "テペアカク坂・滝裏の燃素洞",
+              "from": "nat-wp-72414",
+              "id": "tepeacac-waterfall-wall",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewY": 408,
+              "hint": "上段の入口・上段から滝の裏へ",
+              "previewX": 1302
+            }
+          ]
+        },
+        {
+          "start": "tepeacac-waterfall-wall",
+          "destination": "ancient-excavation-upper-ledge",
+          "stops": [
+            {
+              "mode": "wall",
+              "name": "古の採掘場・壁の上の足場",
+              "from": "tepeacac-waterfall-wall",
+              "id": "ancient-excavation-upper-ledge",
+              "label": "壁伝い",
+              "region": "region-06",
+              "hint": "燃素洞の壁を伝う・移動に2.6秒",
+              "previewX": 496
+            }
+          ]
+        },
+        {
+          "start": "ancient-excavation-upper-ledge",
+          "destination": "natlan-hub",
+          "stops": [
+            {
+              "mode": "wall",
+              "name": "テペアカク坂・滝裏の燃素洞",
+              "from": "ancient-excavation-upper-ledge",
+              "id": "tepeacac-waterfall-wall",
+              "label": "壁伝い",
+              "region": "region-06",
+              "previewY": 272,
+              "hint": "上段の入口・壁伝いに滝裏へ戻る・移動に2.6秒",
+              "previewX": 1106
+            },
+            {
+              "mode": "walk",
+              "name": "テケメカンの谷・東の谷へ入る坂",
+              "from": "tepeacac-waterfall-wall",
+              "id": "nat-wp-72414",
+              "label": "徒歩",
+              "region": "region-06",
+              "hint": "滝の上から東の谷へ戻る",
+              "previewX": 86
+            },
+            {
+              "mode": "walk",
+              "name": "テケメカンの谷・東の岩尾根",
+              "from": "nat-wp-72414",
+              "id": "nat-wp-72413",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1472
+            },
+            {
+              "mode": "walk",
+              "name": "ナタ・地域の入口",
+              "from": "nat-wp-72413",
+              "id": "natlan-entry",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1382
+            },
+            {
+              "mode": "walk",
+              "name": "ナタ・谷の集落",
+              "from": "natlan-entry",
+              "id": "natlan-hub",
+              "label": "徒歩",
+              "region": "region-06",
+              "previewX": 1380
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": {
+    "travelAndInspect": 37,
+    "visit": 24
+  },
+  "reportRewards": [
+    {
+      "quest": "sne-mapped-track-walk",
+      "xp": 1120000,
+      "mora": 31900
+    },
+    {
+      "quest": "sne-mapped-four-tower-floors",
+      "xp": 1320000,
+      "mora": 35700
+    },
+    {
+      "quest": "sne-mapped-works-wire",
+      "xp": 1360000,
+      "mora": 36900
+    },
+    {
+      "quest": "sne-mapped-east-wall",
+      "xp": 1470000,
+      "mora": 39000
+    },
+    {
+      "quest": "nod-mapped-harbor-lamp",
+      "xp": 734000,
+      "mora": 24500
+    },
+    {
+      "quest": "nod-mapped-paha-shadow",
+      "xp": 812000,
+      "mora": 26000
+    },
+    {
+      "quest": "nod-mapped-north-bay",
+      "xp": 915000,
+      "mora": 27900
+    },
+    {
+      "quest": "nod-mapped-frostmoon-shadow",
+      "xp": 1078000,
+      "mora": 31400
+    },
+    {
+      "quest": "nat-mapped-valley-trail",
+      "xp": 365000,
+      "mora": 15500
+    },
+    {
+      "quest": "nat-mapped-ochka-supplies",
+      "xp": 719000,
+      "mora": 23800
+    },
+    {
+      "quest": "nat-mapped-mountain-layers",
+      "xp": 766000,
+      "mora": 25100
+    },
+    {
+      "quest": "nat-mapped-sky-lift",
+      "xp": 938000,
+      "mora": 28600
+    },
+    {
+      "quest": "nat-mapped-resort-canal",
+      "xp": 515000,
+      "mora": 19700
+    },
+    {
+      "quest": "fon-mapped-depth-samples",
+      "xp": 112000,
+      "mora": 11200
+    },
+    {
+      "quest": "fon-mapped-north-lock",
+      "xp": 145000,
+      "mora": 13500
+    },
+    {
+      "quest": "fon-hidden-lab-access",
+      "xp": 162000,
+      "mora": 13600
+    },
+    {
+      "quest": "fon-beryl-thermal-vents",
+      "xp": 172000,
+      "mora": 13900
+    },
+    {
+      "quest": "fon-mapped-bygone-current",
+      "xp": 168000,
+      "mora": 13900
+    },
+    {
+      "quest": "fon-mapped-nostoi-record",
+      "xp": 205000,
+      "mora": 15800
+    },
+    {
+      "quest": "sum-mapped-twin-shaft",
+      "xp": 56400,
+      "mora": 6500
+    },
+    {
+      "quest": "sum-mapped-desert-wind",
+      "xp": 80400,
+      "mora": 8400
+    },
+    {
+      "quest": "sum-mapped-tunigi-water",
+      "xp": 67000,
+      "mora": 7600
+    },
+    {
+      "quest": "ina-mapped-seirai-ferry",
+      "xp": 23500,
+      "mora": 3200
+    },
+    {
+      "quest": "ina-mapped-undersea-floor",
+      "xp": 25900,
+      "mora": 3500
+    },
+    {
+      "quest": "ina-mapped-enkan-beacons",
+      "xp": 38500,
+      "mora": 4900
+    },
+    {
+      "quest": "liyue-mapped-east-shore",
+      "xp": 6700,
+      "mora": 1800
+    },
+    {
+      "quest": "liyue-mapped-hidden-cave",
+      "xp": 11200,
+      "mora": 2200
+    },
+    {
+      "quest": "liyue-mapped-chasm-shaft",
+      "xp": 17600,
+      "mora": 2900
+    },
+    {
+      "quest": "mond-mapped-lakeside",
+      "xp": 1040,
+      "mora": 550
+    },
+    {
+      "quest": "mond-mapped-snowline",
+      "xp": 22400,
+      "mora": 3400
+    },
+    {
+      "quest": "mond-mapped-islet",
+      "xp": 1250000,
+      "mora": 15500
+    },
+    {
+      "quest": "veluriyam-bottle-ticket",
+      "xp": 13400,
+      "mora": 510
+    },
+    {
+      "quest": "veluriyam-trolley-lookout",
+      "xp": 18100,
+      "mora": 680
+    },
+    {
+      "quest": "fon-morte-sluice-survey",
+      "xp": 165000,
+      "mora": 12750
+    },
+    {
+      "quest": "fon-erinnyes-root-water-survey",
+      "xp": 176000,
+      "mora": 14350
+    },
+    {
+      "quest": "natlan-rainbow-cave-keys",
+      "xp": 590000,
+      "mora": 19500
+    },
+    {
+      "quest": "mond-border-check",
+      "xp": 250,
+      "mora": 100
+    },
+    {
+      "quest": "liyue-entry-check",
+      "xp": 400,
+      "mora": 150
+    },
+    {
+      "quest": "inazuma-delivery",
+      "xp": 1500,
+      "mora": 200
+    },
+    {
+      "quest": "sumeru-entry-check",
+      "xp": 2000,
+      "mora": 200
+    },
+    {
+      "quest": "fontaine-entry-check",
+      "xp": 3000,
+      "mora": 200
+    },
+    {
+      "quest": "natlan-entry-check",
+      "xp": 4200,
+      "mora": 200
+    },
+    {
+      "quest": "ochkanatlan-survey",
+      "xp": 5000,
+      "mora": 300
+    },
+    {
+      "quest": "snezhnaya-entry-check",
+      "xp": 8000,
+      "mora": 300
+    },
+    {
+      "quest": "dragonspine-survey",
+      "xp": 1300,
+      "mora": 230
+    },
+    {
+      "quest": "chenyu-survey",
+      "xp": 1800,
+      "mora": 280
+    },
+    {
+      "quest": "enkanomiya-survey",
+      "xp": 2000,
+      "mora": 300
+    },
+    {
+      "quest": "tunigi-survey",
+      "xp": 2300,
+      "mora": 330
+    },
+    {
+      "quest": "bygone-survey",
+      "xp": 3500,
+      "mora": 450
+    },
+    {
+      "quest": "dornman-survey",
+      "xp": 4000,
+      "mora": 500
+    },
+    {
+      "quest": "nod-special-survey",
+      "xp": 5000,
+      "mora": 600
+    },
+    {
+      "quest": "novokichev-survey",
+      "xp": 6000,
+      "mora": 700
+    },
+    {
+      "quest": "wingspan-survey",
+      "xp": 6000,
+      "mora": 700
+    },
+    {
+      "quest": "chasm-survey",
+      "xp": 1100,
+      "mora": 300
+    },
+    {
+      "quest": "chasm-wetland-survey",
+      "xp": 1400,
+      "mora": 350
+    },
+    {
+      "quest": "chasm-stonehall-survey",
+      "xp": 1800,
+      "mora": 450
+    },
+    {
+      "quest": "chasm-west-survey",
+      "xp": 2000,
+      "mora": 500
+    },
+    {
+      "quest": "golden-little-boat",
+      "xp": 220,
+      "mora": 120
+    },
+    {
+      "quest": "golden-explore",
+      "xp": 1000,
+      "mora": 300
+    },
+    {
+      "quest": "veluriyam-explore",
+      "xp": 2000,
+      "mora": 300
+    },
+    {
+      "quest": "simulanka-open-page",
+      "xp": 25500,
+      "mora": 790
+    },
+    {
+      "quest": "simulanka-explore",
+      "xp": 3000,
+      "mora": 300
+    }
+  ],
+  "level200Legs": 572,
+  "allPhysicalOrTransportLegs": 590,
+  "restoredReports": 61
+}

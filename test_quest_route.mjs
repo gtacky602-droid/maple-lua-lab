@@ -15,8 +15,8 @@ frame.story.node='natlan-voyage';frame.voyage={elapsed:20,seconds:70};const visi
 assert.match(questRouteText(frame,visit,'active'),/寄港まで約10秒/);
 frame.voyage.elapsed=30;assert.match(questRouteText(frame,visit,'active'),/寄港中.*20秒/);
 frame.voyage.elapsed=50;assert.match(questRouteText(frame,visit,'active'),/寄港時間を過ぎ/);
-assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/船の到着を待ちます/);
-frame.voyage.seconds=0;assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/船は到着しています/);
+assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/船に乗ったまま.*自動で降ります/);
+frame.voyage.seconds=0;assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/到着すると自動で降ります/);
 assert.doesNotMatch(questRouteText(frame,{...visit,target:'nod-port'},'active'),/到着を待ちます/);
 frame.voyage.seconds=.01;assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/約1秒/);
 frame.paused=true;assert.match(questRouteText(frame,visit,'active'),/一時停止中/);
@@ -71,7 +71,7 @@ const trolley={story:{active:true,node:'veluriyam-trolley-out',quests:{[lookout.
  voyage:{kind:'trolley',elapsed:2,seconds:6.4}};
 assert.match(questRouteText(trolley,lookout,'active'),/花棚の停留所.*F：途中下車する.*停車中/);
 trolley.story.node='veluriyam-trolley-back';trolley.story.quests[lookout.id].count=2;
-assert.match(questRouteText(trolley,lookout,'active'),/入口広場.*乗ったまま次の地点へ着きます/);
+assert.match(questRouteText(trolley,lookout,'active'),/入口広場.*トロッコに乗ったまま.*自動で降ります/);
 const ridge=graph.quests.find(q=>q.id==='natlan-ridge-flag');
 const race={story:{active:true,node:'natlan-flag-ledges',quests:{[ridge.id]:{count:1}}},
  storyGraph:graph,progression:{level:100}};

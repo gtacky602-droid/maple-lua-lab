@@ -80,7 +80,8 @@
     "shared-scenes-tunigi-native-backgrounds.lua": "552702478b60e530ec288f6f37c0374b62e8dbbc92b599f56853e092d16dfcfe",
     "shared-scenes-veluriyam-native-backgrounds.lua": "1287ec9673fdabdab8fd3f8f6db9ae18448a7c0087ec9179a611f3888dd7a589",
     "shared-scenes-voyage-native-backgrounds.lua": "1c34515d80c007c0cf1b0e3e263c0905bc342d28d898b1ae282e94136c8e6f47",
-    "shared-scenes-wingspan-native-backgrounds.lua": "9f5221ca8fd85c419444fbb935367f885c5e9198139f90bedf555e85af4a8773"
+    "shared-scenes-wingspan-native-backgrounds.lua": "9f5221ca8fd85c419444fbb935367f885c5e9198139f90bedf555e85af4a8773",
+    "shadow-bridge-native-backgrounds.lua": "55764d2ea8b3c17cb51c8b7f5e657022fc4350d2b9f6bb83b61b0fcde965a2cc"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -15553,6 +15554,43 @@
         "minDecodeMs": 25.47,
         "maxDecodeMs": 67.64,
         "medianRetainedLuaKiB": 1124.1
+      }
+    },
+    "enkan-lamp-chamber#dark": {
+      "4096": {
+        "fileBytes": 14827,
+        "medianDecodeMs": 17.46,
+        "minDecodeMs": 15.86,
+        "maxDecodeMs": 26.49,
+        "medianRetainedLuaKiB": 700.0
+      },
+      "4608": {
+        "fileBytes": 18017,
+        "medianDecodeMs": 22.98,
+        "minDecodeMs": 20.74,
+        "maxDecodeMs": 32.97,
+        "medianRetainedLuaKiB": 833.2
+      },
+      "5120": {
+        "fileBytes": 21076,
+        "medianDecodeMs": 25.29,
+        "minDecodeMs": 22.56,
+        "maxDecodeMs": 54.75,
+        "medianRetainedLuaKiB": 905.2
+      },
+      "5632": {
+        "fileBytes": 24104,
+        "medianDecodeMs": 27.67,
+        "minDecodeMs": 25.61,
+        "maxDecodeMs": 48.1,
+        "medianRetainedLuaKiB": 977.5
+      },
+      "6144": {
+        "fileBytes": 25614,
+        "medianDecodeMs": 30.45,
+        "minDecodeMs": 26.44,
+        "maxDecodeMs": 47.16,
+        "medianRetainedLuaKiB": 1054.3
       }
     }
   }
