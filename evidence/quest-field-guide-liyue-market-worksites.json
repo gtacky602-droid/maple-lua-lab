@@ -1,0 +1,120 @@
+[
+  {
+    "quest": "liyue-hauling-shortcut",
+    "node": "liyue-harbor",
+    "count": 0,
+    "guide": {
+      "name": "屋根伝いの近道",
+      "action": "Gで調査",
+      "node": "liyue-harbor",
+      "x": 855,
+      "point": "roof",
+      "y": 300
+    },
+    "checkedPropRectangles": 8
+  },
+  {
+    "quest": "liyue-hauling-shortcut",
+    "node": "liyue-harbor",
+    "count": 1,
+    "guide": {
+      "name": "平らな遠回り",
+      "action": "Gで調査",
+      "node": "liyue-harbor",
+      "x": 1300,
+      "point": "detour",
+      "y": 480
+    },
+    "checkedPropRectangles": 7
+  },
+  {
+    "quest": "liyue-hauling-shortcut",
+    "node": "liyue-quarry-post",
+    "count": 2,
+    "guide": {
+      "name": "古い荷揚げ用の昇降台",
+      "action": "Gで調査",
+      "node": "liyue-quarry-post",
+      "x": 1535,
+      "point": "old-lift",
+      "y": 480
+    },
+    "checkedPropRectangles": 11
+  },
+  {
+    "quest": "liyue-hauling-shortcut",
+    "node": "liyue-harbor",
+    "count": 3,
+    "guide": {
+      "action": "施工案を選ぶ",
+      "y": 480,
+      "x": 875,
+      "name": "刻晴の施工案",
+      "point": "work-plan"
+    }
+  },
+  {
+    "quest": "liyue-hauling-shortcut",
+    "node": "liyue-harbor",
+    "count": 4,
+    "guide": {
+      "action": "Gで片付ける",
+      "y": 480,
+      "x": 170,
+      "name": "工事現場"
+    }
+  },
+  {
+    "quest": "liyue-harbor-meal",
+    "node": "liyue-river-trail",
+    "count": 0,
+    "guide": {
+      "name": "川魚",
+      "action": "Gで採集",
+      "node": "liyue-river-trail",
+      "x": 365,
+      "point": "fish",
+      "y": 480
+    },
+    "checkedPropRectangles": 9
+  },
+  {
+    "quest": "liyue-harbor-meal",
+    "node": "liyue-cliff-planks",
+    "count": 1,
+    "guide": {
+      "name": "山の香草",
+      "action": "Gで採集",
+      "node": "liyue-cliff-planks",
+      "x": 560,
+      "point": "herb",
+      "y": 305
+    },
+    "checkedPropRectangles": 8
+  },
+  {
+    "quest": "liyue-harbor-meal",
+    "node": "liyue-field",
+    "count": 2,
+    "guide": {
+      "name": "木陰のキノコ",
+      "action": "Gで採集",
+      "node": "liyue-field",
+      "x": 270,
+      "point": "mushroom",
+      "y": 480
+    },
+    "checkedPropRectangles": 7
+  },
+  {
+    "quest": "liyue-harbor-meal",
+    "node": "liyue-harbor",
+    "count": 3,
+    "guide": {
+      "action": "味を選んで試作",
+      "y": 480,
+      "x": 925,
+      "name": "香菱の屋台"
+    }
+  }
+]

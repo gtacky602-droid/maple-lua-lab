@@ -1,5 +1,11 @@
 const names={'hilichurl':'ヒルチャール','hydro-slime':'水スライム','cryo-slime':'氷スライム','pyro-slime':'炎スライム','nobushi':'野伏','ruin-guard':'遺跡守衛','treasure-scout':'宝盗団・斥候'};
 
+export function fieldGuide(frame,quest,pointId){
+ const selected=pointId&&frame.storyWorksites?.[quest]?.find(point=>point.point===pointId);
+ if(selected)return selected.node===frame.story.node?selected:undefined;
+ return frame.storyHunts?.[quest];
+}
+
 export function huntHint(target,actor){
  if(!target)return '';
  if(target.wait!=null)return `狩場の対象は再出現待ち（あと約${target.wait}秒）`;
@@ -13,8 +19,8 @@ export function huntHint(target,actor){
 }
 
 // Two small brackets at the live target's feet keep its face and attack pose visible.
-export function drawHuntMarker(ctx,frame,quest){
- const target=frame.storyHunts?.[quest];
+export function drawHuntMarker(ctx,frame,quest,pointId){
+ const target=fieldGuide(frame,quest,pointId);
  if(!(target?.spawn||target?.action) || frame.worldMap)return 0;
  const x=Math.round(target.x-frame.camera),y=Math.round(target.y);
  if(x<-10||x>ctx.canvas.width+10||y<0||y>=ctx.canvas.height)return 0;

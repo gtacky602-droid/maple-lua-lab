@@ -460,7 +460,7 @@
  <p id="storySightNote" hidden></p>
 </details>
 <p id="storyForest" hidden style="margin:0;padding:10px 18px;background:#173a3b"></p>
-<div id="trackedQuest" hidden style="padding:10px 18px;background:#173a3b;overflow-wrap:anywhere"><span id="trackedQuestText"></span> <strong id="trackedHuntHint" hidden></strong> <button id="trackedQuestMap" hidden>目的地を地図で見る</button> <a id="trackedSurveyPoint" target="_blank" rel="noopener" hidden>調査位置を見る</a> <button id="clearTrackedQuest">追跡を解除</button></div>
+<div id="trackedQuest" hidden style="padding:10px 18px;background:#173a3b;overflow-wrap:anywhere"><span id="trackedQuestText"></span> <strong id="trackedHuntHint" hidden></strong> <label id="trackedWorksiteLabel" hidden>次に向かう場所 <select id="trackedWorksite"></select></label> <button id="trackedQuestMap" hidden>目的地を地図で見る</button> <a id="trackedSurveyPoint" target="_blank" rel="noopener" hidden>調査位置を見る</a> <button id="clearTrackedQuest">追跡を解除</button></div>
 <div class="bottom"><div class="gauge">光界・共通ゲージ <span id="gaugeText">60 / 100</span><div class="bar"><i id="gaugeBar"></i></div><small>本編の光界解放は七元素とLv160</small></div><div class="skills"><button class="skill" data-action="normal"><kbd>J</kbd><span>通常攻撃</span><em id="cd-normal"></em></button><button class="skill" data-action="skill1"><kbd>K</kbd><span id="name1">旋風斬り</span><em id="cd-skill1"></em></button><button class="skill" data-action="skill2"><kbd>L</kbd><span id="name2">竜巻</span><em id="cd-skill2"></em></button><button class="skill" data-action="light"><kbd>Q</kbd><span>光界解放</span><em id="cd-light"></em></button><button class="skill" data-action="swap"><kbd>E</kbd><span>操作交代</span></button><button class="skill" data-action="dodge"><kbd>SHIFT</kbd><span>回避</span></button></div>
 <div id="snowMatchControls" hidden><button id="snowMatchThrow" class="skill" data-action="normal"><kbd>J</kbd><span>雪玉を投げる</span></button> <button class="skill" data-action="jump"><kbd>Space</kbd><span>ジャンプ</span></button></div>
 </div></div>
@@ -528,6 +528,7 @@
   <div class="atlas-tools">
     <button id="atlasWorld" type="button">全体図</button>
     <button id="atlasCurrent" type="button">現在地へ</button>
+    <button id="atlasQuestFocus" type="button" hidden>追跡中の依頼へ</button>
     <label>地域<select id="atlasRegion"></select></label>
     <label>表示<select id="atlasLayer">
       <option value="all">すべての階層</option><option value="surface">地上</option>
@@ -546,6 +547,7 @@
       <h3 id="atlasPlaceName"></h3>
       <p id="atlasPlaceLevel"></p>
       <a id="atlasBackgroundCompare" target="_blank" rel="noopener" hidden>この地点の背景を比較（別タブ）</a>
+      <a id="atlasQuestPoint" target="_blank" rel="noopener" hidden>追跡中の調査位置を見る</a>
       <details id="atlasItinerary" class="atlas-itinerary" hidden>
         <summary id="atlasItineraryTitle">現在地からの道順</summary>
         <p id="atlasItineraryNote"></p>

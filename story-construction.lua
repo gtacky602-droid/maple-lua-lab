@@ -10,7 +10,7 @@ return function(drawCart)
   for _,plan in ipairs(spec.plans) do if plan.id==id then return plan end end
  end
 
- local function sites(s,q,state)
+ function H.sites(s,q,state)
   local spec=q.construction
   local found={}
   if state.status~='active' then return found end
@@ -30,7 +30,7 @@ return function(drawCart)
  end
 
  function H.nearby(s,q,state)
-  for _,item in ipairs(sites(s,q,state)) do if near(s,item) then return item end end
+  for _,item in ipairs(H.sites(s,q,state)) do if near(s,item) then return item end end
  end
 
  function H.interact(s,q,state,item)
@@ -76,7 +76,19 @@ return function(drawCart)
    rect(draws,x-20,y-7,5,7,'#6c4f3d')
    rect(draws,x+15,y-7,5,7,'#6c4f3d')
    rect(draws,x-2,y-17,4,10,'#f6cd80')
-  elseif item.id=='old-lift' then liftShaft(draws,x,y-72,y)
+   rect(draws,x-19,y-15,11,3,'#d6ae71')
+   rect(draws,x+5,y-15,13,3,'#d6ae71')
+   rect(draws,x-3,y-31,4,15,'#624b40')
+   rect(draws,x+1,y-31,12,6,'#b75b49')
+  elseif item.id=='old-lift' then
+   liftShaft(draws,x,y-72,y)
+   rect(draws,x-12,y-70,24,9,'#5d6562')
+   rect(draws,x-6,y-73,12,15,'#798581')
+   rect(draws,x-3,y-68,6,6,'#d1ad71')
+   rect(draws,x+10,y-62,3,33,'#d0af76')
+   rect(draws,x+6,y-29,11,16,'#545e59')
+   rect(draws,x-21,y-18,42,6,'#ad8152')
+   rect(draws,x-18,y-12,36,4,'#66503b')
   elseif item.id=='work-plan' then
    rect(draws,x-22,y-27,44,27,'#835c40')
    rect(draws,x-17,y-36,34,9,'#efdbb0')
@@ -88,13 +100,17 @@ return function(drawCart)
    rect(draws,x-24,y-20,48,20,'#6b4935')
    rect(draws,x-21,y-17,42,13,'#b88859')
    rect(draws,x-8,y-35,25,15,'#c18a53')
+   rect(draws,x-8,y-35,25,3,'#e3bc7b')
+   rect(draws,x+3,y-35,4,15,'#89764f')
+   rect(draws,x-17,y-18,4,17,'#d0ae72')
+   rect(draws,x+13,y-18,4,17,'#d0ae72')
   end
  end
 
  function H.observe(s,f,draws,q,state)
   local spec=q.construction
   local item=H.nearby(s,q,state)
-  for _,site in ipairs(sites(s,q,state)) do surveyProp(draws,site.x-s.camera,site.y,site,state.count) end
+  for _,site in ipairs(H.sites(s,q,state)) do surveyProp(draws,site.x-s.camera,site.y,site,state.count) end
   if item and not s.paused and not s.lift then
    local label=state.count==4 and '作業場所を片付ける' or state.count==5 and '資材を職人に渡す' or item.name..'を調べる'
    f.storyNearbyConstruction={label=label}

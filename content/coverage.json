@@ -8161,6 +8161,7 @@
       "browser_ferry_evidence": "evidence/earned-atlas-ferry-browser.json"
     }
   },
+  "liyue_worksite_guides": {"quests": 3, "points": 9, "propRectangles": 74, "haulRoutes": 2, "cartRectangles": 9, "lua": "evidence/earned-worksites.json", "market": "evidence/quest-field-guide-liyue-market-worksites.json", "browser": "evidence/earned-worksites-browser.json"},
   "earned_field_guides": {"quests": 10, "regions": 4, "samples": 38, "delivery": "evidence/cargo-guide-browser.json", "escort": "evidence/parcel-escort-guide-browser.json"},
   "earned_hunt_checks": {"contracts": 12, "fields": 9, "reports": 20, "legs": 48, "lua": "evidence/earned-hunt-contracts.json", "browser": "evidence/earned-hunts-browser.json"},
   "earned_survey_route_checks": {"travelAndInspect": 37, "visit": 24, "restored": 61, "legs": 590, "lua": "evidence/earned-survey-itineraries.json", "browser": "evidence/survey-points-and-lamps-browser.json"},

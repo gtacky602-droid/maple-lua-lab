@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## 璃月の採集と調査、開通後の荷車道
+
+[桟道の山の香草を元背景と4,096矩形で比較](http://127.0.0.1:9117/map-art.html?placements=live&node=liyue-cliff-planks&quest=liyue-harbor-meal&worksite=herb&compare=background&tier=4096)。料理・石板・建設の依頼を追跡すると、手帳の「次に向かう場所」で未調査の候補を選べる。M地図の「追跡中の依頼へ」でその地点を表示し、「調査位置を見る」で足場の高さと目印を確認できる。同じ港内の屋根と地上も個別に選べる。調べ終えた候補は一覧から消える。[9地点の見比べ](evidence/liyue-worksites-comparison.png)
+
+川魚の籠・香草・キノコ、職人の印3種、施工候補3か所を、冒険と同じLuaの矩形で比較画面に重ねた。9点に使う矩形は合計74個で、背景の各段階で同じ形を使う。育成セーブから石板の誤答・部分解答の復元・模型の回収、開市前後の香菱の屋台での試作、刻晴の2案の施工と報告を確認した。[Luaの進行記録](evidence/earned-worksites.json) ／ [開市後の採集と地上路](evidence/quest-field-guide-liyue-market-worksites.json)
+
+施工後は手帳やM地図から開通した道を見られる。背景比較では荷車を3つの位置に切り替えられる。荷車の絵は9矩形の1台を共用し、Luaで求めた座標に配置する。[地上の荷車道](http://127.0.0.1:9117/map-art.html?node=liyue-cart-road&placements=live&compare=background&tier=4096) ／ [港の荷揚げ台](http://127.0.0.1:9117/map-art.html?node=liyue-cart-lift&placements=live&compare=background&tier=4096) ／ [画素と案内の検査記録](evidence/earned-worksites-browser.json)
+
 ## 配達・荷物回収・搬送メカの追跡
 
 [搬送メカの元PNGと16色を重ねて比較](http://127.0.0.1:9117/compare.html#escort-comparison)。育成済みLv80からフォンテーヌの依頼を受け、搬送メカが旅人を待っているところで一時停止した。境界を左右に動かすと、同じ背景・時刻・位置で車輪や旅人の服の細部を見比べられる。背景は4,096矩形から復号したラボ用の仮画像。[4描画設定の計測](evidence/parcel-escort-guide-browser.json)

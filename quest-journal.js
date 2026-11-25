@@ -1,5 +1,5 @@
 import {questRoute,questTargetNode} from './quest-route.js';
-import {surveyPoint,surveyPointUrl} from './survey-point.js';
+import {surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
@@ -159,13 +159,24 @@ export function questObjective(q,graph,state,growth={}){
  }
  return q.kind==='visit'?`${place}を訪れる`:q.kind==='kill'?`${place}で敵を${q.goal}体倒す`:`${place}の本編入口から挑戦し、ボスを討伐する`;
 }
-export function trackedQuest(f,id){
+export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ if(status==='complete'&&q.construction){
+  const plan=q.construction.plans.find(p=>p.id===st.construction?.plan);
+  const opened=f.storyGraph.nodes.find(n=>n.id===plan?.route);
+  if(opened){
+   const params=new URLSearchParams({node:opened.id,placements:'live',compare:'background',tier:'4096'});
+   return {node:opened.id,pointUrl:'map-art.html?'+params,pointLabel:'開通した道の荷車を見る',
+    text:`${q.name} ｜ 報告済み ｜ ${hub}から「${opened.name}」を通って狩場へ行けます。`};
+  }
+ }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth);
- const route=status==='locked'?{text:''}:questRoute(f,q,status);
- const point=status==='active' && surveyPoint(q,st.count,route.node);
+ const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ const local=f.storyHunts?.[id];
+ const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));
+ const point=status==='active' && (worksitePoint(q,site?.point,route.node)??surveyPoint(q,st.count,route.node));
  return {node:route.node,pointUrl:point?surveyPointUrl(point):undefined,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
 }
 export function trackedQuestText(f,id){return trackedQuest(f,id).text}

@@ -1,5 +1,5 @@
 import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
-import {drawSurveyPoint,surveyPoint,surveyPointUrl} from './survey-point.js';
+import {drawSurveyPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
@@ -179,7 +179,11 @@ try{
   assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
   $('species').append(new Option(shadow.name,shadow.species));
  }
- const [mechanismScenes,legendScenes,fieldScenes,stygianScenes,questPreviews]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json'),json('content/toyac-quest-previews.json')]);
+ const [mechanismScenes,legendScenes,fieldScenes,stygianScenes,questPreviews,worksiteArt]=await Promise.all([json('content/weekly-opening-parts.json'),json('content/group-legend-openings.json'),json('content/field-boss-openings.json'),json('content/stygian-openings.json'),json('content/toyac-quest-previews.json'),json('content/worksite-props.json')]);
+ for(const [node,route] of Object.entries(worksiteArt.haul.routes)){
+  questPreviews[node]={stages:route.stops.map(stop=>({label:stop.label,focusX:stop.x,cart:stop,visible:[]})),
+   fixed:route.fixed,load:[...route.deck,...worksiteArt.haul.cart]};
+ }
  const trialScenes={...fieldScenes,...stygianScenes};
  const openings={...legendScenes,...trialScenes};
  const stepsByNode=new Map();
@@ -190,11 +194,17 @@ try{
   marker.hidden=!point;
   if(point){
    $('camera').value=point.x-480;
-   marker.dataset.quest=point.quest;marker.dataset.step=point.step;
+   marker.dataset.quest=point.quest;marker.dataset.step=point.step??'';marker.dataset.worksite=point.worksite??'';
    marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`;
   }
  }
  for(const quest of graph.quests){
+  for(const site of worksitePoints(quest)){
+   if(!stepsByNode.has(site.node))stepsByNode.set(site.node,new Map());
+   const quests=stepsByNode.get(site.node);
+   if(!quests.has(quest))quests.set(quest,[]);
+   quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node)});
+  }
   for(const [index,step] of (quest.itinerary??[]).entries()){
    for(const nodeId of new Set([step.node,...(step.alternatives??[]).map(p=>p.node)])){
     if(!stepsByNode.has(nodeId))stepsByNode.set(nodeId,new Map());
@@ -489,6 +499,14 @@ try{
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
    if(stage){
+    if(stage.cart){
+     for(const [x,y,w,h,color] of questPreview.fixed){
+      ctx.fillStyle=color;ctx.fillRect(x-camera,y,w,h);
+     }
+     for(const [dx,dy,w,h,color] of questPreview.load){
+      ctx.fillStyle=color;ctx.fillRect(stage.cart.x+dx-camera,stage.cart.y+dy,w,h);
+     }
+    }
     for(const id of stage.visible){
      for(const mark of questPreview.props[id])paintMechanismMark(ctx,mark,-camera,0,false);
     }
@@ -562,7 +580,13 @@ try{
     }
    }
    gatePreview.draw(ctx,camera,darkRoom(n));
-   if(selectedSurveyPoint)drawSurveyPoint(ctx,selectedSurveyPoint,camera);
+   if(selectedSurveyPoint){
+    const point=selectedSurveyPoint;
+    for(const [dx,dy,w,h,color] of worksiteArt.worksites[point.quest]?.[point.worksite]??[]){
+     ctx.fillStyle=color;ctx.fillRect(point.x-camera+dx,point.y+dy,w,h);
+    }
+    drawSurveyPoint(ctx,point,camera);
+   }
   }
   updateDetail();
   $('placements').replaceChildren();
@@ -638,11 +662,12 @@ try{
   questList.replaceChildren();
   if(liveView && steps){
    for(const [quest,entries] of steps){
-    const title=document.createElement('strong'),list=document.createElement('ol');
+    const title=document.createElement('strong'),list=document.createElement(entries[0].number?'ol':'ul');
     title.textContent=quest.name;
     for(const {number,objective,point} of entries){
      const item=document.createElement('li');
-     item.value=number;item.textContent=objective;list.append(item);
+     if(number)item.value=number;
+     item.textContent=objective;list.append(item);
      if(point){
       const link=document.createElement('a');link.href=surveyPointUrl(point);link.textContent='調査位置を見る';
       link.onclick=e=>{
@@ -716,8 +741,13 @@ try{
   }
   gatePreview.reset(n,nodes,n.id===openingNode.id);
   if(gatePreview.darkGate() && query.get('light')!=='bright')$('lampMode').value='dark';
-  focusSurveyPoint(liveView && n===openingNode && query.has('step')?
-   surveyPoint(questsById.get(query.get('quest')),Number(query.get('step'))-1,n.id):null);
+  let point=null;
+  if(liveView && n===openingNode){
+   const quest=questsById.get(query.get('quest'));
+   point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
+    surveyPoint(quest,Number(query.get('step'))-1,n.id);
+  }
+  focusSurveyPoint(point);
   render();
  }
  $('lampMode').onchange=()=>{colorResult.textContent='';render()};

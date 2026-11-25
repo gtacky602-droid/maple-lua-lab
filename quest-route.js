@@ -4,7 +4,7 @@ export function questTargetNode(q,graph){
  return graph.nodes.find(n=>n.challenge===q.target)?.id??graph.bossNodes?.[q.target];
 }
 
-export function questRoute(f,q,status){
+export function questRoute(f,q,status,preferredNode){
  if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return {text:''};
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
@@ -38,7 +38,8 @@ export function questRoute(f,q,status){
  const unfinished=ingredients?.length?ingredients:marks?.length?marks:surveys?.length?surveys:lookingForClues?q.trail.clues:null;
  const destinations=arrival?[arrival.from]:branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
   :unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
- const targets=new Set(destinations.filter(id=>nodes.has(id)));
+ const candidates=unfinished?.some(item=>item.node===preferredNode)?[preferredNode]:destinations;
+ const targets=new Set(candidates.filter(id=>nodes.has(id)));
  if(!targets.size)return {text:'目的地は未公開または未登録です。'};
  const from=f.story.node;if(!nodes.has(from))return {text:''};
  if(targets.has(from)&&!arrival)return {node:from,text:status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。'};

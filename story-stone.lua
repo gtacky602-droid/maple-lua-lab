@@ -115,7 +115,15 @@ local function drawSite(draws,item,x,y,opened)
   elseif item.id=='paving-mark' then
    rect(draws,x-24,y-22,48,22,'#7b7668')
    rect(draws,x-24,y-4,48,3,'#59594f')
-  else rect(draws,x-20,y-42,40,42,'#7b7668') end
+   rect(draws,x-22,y-20,18,3,'#aaa38a')
+   rect(draws,x+8,y-13,16,2,'#5b5a51')
+  else
+   rect(draws,x-22,y-37,44,37,'#68695e')
+   rect(draws,x-18,y-44,32,42,'#88877a')
+   rect(draws,x-18,y-44,25,4,'#b1a994')
+   rect(draws,x+12,y-35,5,26,'#737568')
+   rect(draws,x-12,y-32,16,2,'#6d6b60')
+  end
   symbol(draws,x,y)
  end
 end

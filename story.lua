@@ -822,6 +822,45 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   return target or (wait and {wait=math.ceil(math.max(0,wait))})
  end
+ local function worksiteGuide(s,f,q,state)
+  local sites,done,action
+  if q.cooking then
+   sites,done,action=q.cooking.ingredients,state.cooking.gathered,'Gで採集'
+  elseif q.stone then
+   sites,done,action=q.stone.marks,state.stone.marked,'Gで調べる'
+  elseif q.construction then
+   sites,done,action=q.construction.surveys,state.construction.surveyed,'Gで調査'
+  else return end
+  local actor=s.actors[s.active]
+  if state.count<#sites then
+   local pending,nearest,distance={}
+   for _,item in ipairs(sites) do
+    if not done[item.id] then
+     local point={node=item.node,x=item.x,y=item.y,point=item.id,name=item.name,action=action}
+     pending[#pending+1]=point
+     if item.node==s.story.node then
+      local d=(actor.x-item.x)^2+(actor.y-item.y)^2
+      if not distance or d<distance then nearest,distance=point,d end
+     end
+    end
+   end
+   f.storyWorksites=f.storyWorksites or {}
+   f.storyWorksites[q.id]=pending
+   return nearest
+  end
+  local item,name
+  if q.cooking and s.story.node==q.hub then
+   item,name,action=cooking.stall(s,q),'香菱の屋台','味を選んで試作'
+  elseif q.stone and s.story.node==q.target then
+   if state.count==#sites then item,action=q.stone.mural,'壁画を見て石板を押す'
+   else item,action=q.stone.model,'Gで模型を拾う' end
+  elseif q.construction then
+   item=construction.sites(s,q,state)[1]
+   if state.count==#sites then action='施工案を選ぶ'
+   else name='工事現場';action=state.count==4 and 'Gで片付ける' or 'Gで資材を渡す' end
+  end
+  if item then return {x=item.x,y=item.y,point=item.id,name=name or item.name,action=action} end
+ end
  local function huntGuides(s,f)
   local actor=s.actors[s.active]
   for id,state in pairs(s.story.quests) do
@@ -833,7 +872,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local ordinary=(q.kind=='kill' and q.target==s.story.node) or
                    (q.sights and not state.sights and q.sights.legacyTarget==s.story.node)
     local guard=q.recovery and state.recovered and state.count==q.goal-1 and q.recovery.node==s.story.node and q.recovery.guard
-    local task=fieldTask(s,q,state)
+    local task=worksiteGuide(s,f,q,state) or fieldTask(s,q,state)
     if step and step.followCart and step.node==s.story.node then
      task=theater.cartGuide(s,step)
     end

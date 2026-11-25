@@ -1,0 +1,205 @@
+{
+  "stoneAndMeal": {
+    "source": "326ce4a3a30883798c35abe506897d29a85f3a792838bf030fe56f91c72758f6",
+    "reports": [
+      {
+        "quest": "liyue-harbor-meal",
+        "xp": 7931,
+        "mora": 180
+      },
+      {
+        "quest": "liyue-stone-marks",
+        "xp": 16443,
+        "mora": 240
+      }
+    ],
+    "returns": 0
+  },
+  "lift": {
+    "source": "266493b278827e6e9ba340fe589342e77afcf54907284356dd13baf7a4ea14fd",
+    "reports": [
+      {
+        "quest": "liyue-hauling-shortcut",
+        "xp": 28412,
+        "mora": 240
+      }
+    ],
+    "opened": "liyue-cart-lift",
+    "destination": "liyue-field",
+    "returns": 0
+  },
+  "samples": [
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-river-trail",
+      "count": 0,
+      "guide": {
+        "point": "cut-wall",
+        "name": "川沿いの壁の彫り跡",
+        "y": 480,
+        "x": 1250,
+        "action": "Gで調べる",
+        "node": "liyue-river-trail"
+      },
+      "checkedPropRectangles": 9
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "node": "liyue-river-trail",
+      "count": 0,
+      "guide": {
+        "point": "fish",
+        "name": "川魚",
+        "y": 480,
+        "x": 365,
+        "action": "Gで採集",
+        "node": "liyue-river-trail"
+      },
+      "checkedPropRectangles": 9
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "node": "liyue-cliff-planks",
+      "count": 1,
+      "guide": {
+        "point": "herb",
+        "name": "山の香草",
+        "y": 305,
+        "x": 560,
+        "action": "Gで採集",
+        "node": "liyue-cliff-planks"
+      },
+      "checkedPropRectangles": 8
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-cliff-planks",
+      "count": 1,
+      "guide": {
+        "point": "tool-mark",
+        "name": "桟道の道具の印",
+        "y": 305,
+        "x": 905,
+        "action": "Gで調べる",
+        "node": "liyue-cliff-planks"
+      },
+      "checkedPropRectangles": 7
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "node": "liyue-field",
+      "count": 2,
+      "guide": {
+        "point": "mushroom",
+        "name": "木陰のキノコ",
+        "y": 480,
+        "x": 270,
+        "action": "Gで採集",
+        "node": "liyue-field"
+      },
+      "checkedPropRectangles": 7
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "node": "liyue-harbor",
+      "count": 3,
+      "guide": {
+        "name": "香菱の屋台",
+        "y": 480,
+        "x": 245,
+        "action": "味を選んで試作"
+      }
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-quarry-post",
+      "count": 2,
+      "guide": {
+        "point": "paving-mark",
+        "name": "詰所の石畳の印",
+        "y": 480,
+        "x": 420,
+        "action": "Gで調べる",
+        "node": "liyue-quarry-post"
+      },
+      "checkedPropRectangles": 8
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-craftsmen-overlook",
+      "count": 3,
+      "guide": {
+        "point": "craft-mural",
+        "name": "職人の壁画",
+        "y": 397,
+        "x": 488,
+        "action": "壁画を見て石板を押す"
+      }
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-craftsmen-overlook",
+      "count": 4,
+      "guide": {
+        "point": "overlook-model",
+        "name": "展望所の建物模型",
+        "y": 231,
+        "x": 980,
+        "action": "Gで模型を拾う"
+      }
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-craftsmen-overlook",
+      "count": 4,
+      "guide": {
+        "point": "overlook-model",
+        "name": "展望所の建物模型",
+        "y": 231,
+        "x": 980,
+        "action": "Gで模型を拾う"
+      }
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "node": "liyue-harbor",
+      "count": 5,
+      "guide": null
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "node": "liyue-harbor",
+      "count": 4,
+      "guide": null
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "node": "liyue-harbor",
+      "count": 3,
+      "guide": {
+        "point": "work-plan",
+        "name": "刻晴の施工案",
+        "y": 480,
+        "x": 875,
+        "action": "施工案を選ぶ"
+      }
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "node": "liyue-harbor",
+      "count": 4,
+      "guide": null
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "node": "liyue-quarry-post",
+      "count": 4,
+      "guide": {
+        "name": "工事現場",
+        "y": 480,
+        "x": 1535,
+        "action": "Gで片付ける"
+      }
+    }
+  ]
+}

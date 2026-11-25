@@ -1,0 +1,129 @@
+{
+  "results": [
+    {
+      "quest": "liyue-harbor-meal",
+      "id": "fish",
+      "node": "liyue-river-trail",
+      "x": 365,
+      "y": 480,
+      "pixelsPerLayer": 472
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "id": "herb",
+      "node": "liyue-cliff-planks",
+      "x": 560,
+      "y": 305,
+      "pixelsPerLayer": 372
+    },
+    {
+      "quest": "liyue-harbor-meal",
+      "id": "mushroom",
+      "node": "liyue-field",
+      "x": 270,
+      "y": 480,
+      "pixelsPerLayer": 380
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "id": "cut-wall",
+      "node": "liyue-river-trail",
+      "x": 1250,
+      "y": 480,
+      "pixelsPerLayer": 1552
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "id": "tool-mark",
+      "node": "liyue-cliff-planks",
+      "x": 905,
+      "y": 305,
+      "pixelsPerLayer": 406
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "id": "paving-mark",
+      "node": "liyue-quarry-post",
+      "x": 420,
+      "y": 480,
+      "pixelsPerLayer": 756
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "roof",
+      "node": "liyue-harbor",
+      "x": 855,
+      "y": 300,
+      "pixelsPerLayer": 366
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "detour",
+      "node": "liyue-harbor",
+      "x": 1300,
+      "y": 480,
+      "pixelsPerLayer": 1035
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "old-lift",
+      "node": "liyue-quarry-post",
+      "x": 1535,
+      "y": 480,
+      "pixelsPerLayer": 2126
+    }
+  ],
+  "haulChecks": [
+    {
+      "node": "liyue-cart-road",
+      "label": "港を出た荷車",
+      "time": 1,
+      "x": 60,
+      "y": 480
+    },
+    {
+      "node": "liyue-cart-road",
+      "label": "荷車道の中ほど",
+      "time": 4,
+      "x": 420,
+      "y": 480
+    },
+    {
+      "node": "liyue-cart-road",
+      "label": "狩場へ向かう荷車",
+      "time": 7.5,
+      "x": 840,
+      "y": 480
+    },
+    {
+      "node": "liyue-cart-lift",
+      "label": "荷台に積み込む",
+      "time": 0,
+      "x": 180,
+      "y": 480
+    },
+    {
+      "node": "liyue-cart-lift",
+      "label": "荷車を吊り上げる",
+      "time": 0.5,
+      "x": 180,
+      "y": 415
+    },
+    {
+      "node": "liyue-cart-lift",
+      "label": "上段の荷下ろし場",
+      "time": 4,
+      "x": 303,
+      "y": 350
+    }
+  ],
+  "selectedSiteRestored": true,
+  "sameRoomAlternatives": true,
+  "mapFocus": true,
+  "finishedOptionsRemoved": true,
+  "completedShortcutLinks": [
+    "liyue-cart-road",
+    "liyue-cart-lift"
+  ],
+  "errors": []
+}

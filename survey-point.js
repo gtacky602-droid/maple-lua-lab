@@ -8,8 +8,21 @@ export function surveyPoint(quest,index,node){
  return {quest:quest.id,step:index+1,node,x:point.x,y:point.y??480,name:point.name??step.name??step.objective};
 }
 
+export function worksitePoints(quest){
+ return quest?.cooking?.ingredients??quest?.construction?.surveys??quest?.stone?.marks??[];
+}
+export function worksitePoint(quest,id,node){
+ const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);
+ return item?{quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name}:null;
+}
+
 export function surveyPointUrl(point){
- const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest,step:String(point.step)});
+ const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest});
+ if(point.worksite){
+  params.set('worksite',point.worksite);
+  params.set('compare','background');
+  params.set('tier','4096');
+ }else params.set('step',String(point.step));
  return 'map-art.html?'+params;
 }
 

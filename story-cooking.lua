@@ -10,14 +10,14 @@ local function near(s,item)
  return a.hp>0 and math.abs(a.x-item.x)<55 and math.abs(a.y-item.y)<34
 end
 
-local function stall(s,q)
+function M.stall(s,q)
  local market=q.cooking.marketStall
  local progress=s.story.quests[market.quest]
  return progress and progress.count>=market.count and market or q.cooking.stall
 end
 
 local function nearStall(s,q)
- return s.story.node==q.hub and near(s,stall(s,q))
+ return s.story.node==q.hub and near(s,M.stall(s,q))
 end
 
 local function flavorById(q,id)
@@ -73,18 +73,32 @@ end
 
 local function drawIngredient(boxes,item,x,y)
  if item.id=='fish' then
-  rect(boxes,x-15,y-6,30,4,'#428688')
-  rect(boxes,x-11,y-13,16,7,'#b8dfe1')
-  rect(boxes,x+6,y-16,5,10,'#7cb7bf')
-  rect(boxes,x-9,y-12,2,2,'#203b4e')
+  rect(boxes,x-20,y-9,36,7,'#885b39')
+  rect(boxes,x-22,y-11,40,4,'#ddad68')
+  rect(boxes,x-15,y-21,24,11,'#397782')
+  rect(boxes,x-18,y-18,29,6,'#8bc5cb')
+  rect(boxes,x-12,y-13,19,3,'#dfebd3')
+  rect(boxes,x+10,y-18,5,5,'#45878b')
+  rect(boxes,x+15,y-23,5,14,'#70b8b7')
+  rect(boxes,x-14,y-18,3,3,'#223c46')
+  rect(boxes,x-3,y-24,8,3,'#5f9fa3')
  elseif item.id=='herb' then
-  rect(boxes,x-2,y-19,4,19,'#52613b')
-  rect(boxes,x-12,y-13,11,5,'#90b969')
-  rect(boxes,x+2,y-21,10,6,'#bad884')
+  rect(boxes,x-3,y-30,5,29,'#506039')
+  rect(boxes,x-13,y-22,12,7,'#5b8b56')
+  rect(boxes,x-17,y-25,8,6,'#a7c783')
+  rect(boxes,x+1,y-25,11,7,'#719f63')
+  rect(boxes,x+8,y-29,8,6,'#c9d994')
+  rect(boxes,x-2,y-34,5,7,'#d5ca8c')
+  rect(boxes,x-6,y-37,12,4,'#e9dbab')
+  rect(boxes,x-8,y-10,10,4,'#779854')
  else
-  rect(boxes,x-2,y-13,4,13,'#caad86')
-  rect(boxes,x-10,y-17,20,7,'#9a6349')
-  rect(boxes,x-6,y-20,12,4,'#c87b54')
+  rect(boxes,x-5,y-16,10,15,'#947557')
+  rect(boxes,x-3,y-16,6,13,'#e4d2a7')
+  rect(boxes,x-15,y-20,30,6,'#754b3e')
+  rect(boxes,x-12,y-25,24,7,'#ad6647')
+  rect(boxes,x-7,y-29,15,5,'#cf8755')
+  rect(boxes,x-8,y-24,6,3,'#edd4a1')
+  rect(boxes,x+5,y-21,4,3,'#e5bd85')
  end
 end
 
@@ -101,7 +115,7 @@ function M.observe(s,f,boxes,q,state)
  end
  local flavor=flavorById(q,stock.flavor)
  if flavor and s.story.node==q.hub then
-  local item=stall(s,q)
+  local item=M.stall(s,q)
   local x,y=item.x-s.camera,item.y
   rect(boxes,x+32,y-43,5,43,'#5a412e')
   rect(boxes,x+35,y-43,26,18,flavor.color)

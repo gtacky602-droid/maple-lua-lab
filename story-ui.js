@@ -1,4 +1,4 @@
-import {huntHint} from './hunt-guide.js';
+import {fieldGuide,huntHint} from './hunt-guide.js';
 import {renderQuestJournal,trackedQuest} from './quest-journal.js';
 import {initEndgameUI} from './endgame-ui.js';
 const updateEndgame=initEndgameUI(action=>window.lab.action(action));
@@ -8,9 +8,43 @@ const trackingKey='maple-lua-lab-tracked-quest';
 try{trackedId=localStorage.getItem(trackingKey)}catch{}
 function trackQuest(id){trackedId=id;try{if(id)localStorage.setItem(trackingKey,id);else localStorage.removeItem(trackingKey)}catch{}previous='';update()}
 document.getElementById('clearTrackedQuest').onclick=()=>trackQuest(null);
+const worksite=document.getElementById('trackedWorksite');
+const worksiteLabel=document.getElementById('trackedWorksiteLabel');
+let preferredWorksite='',worksiteSignature='';
+const worksiteKey=trackingKey+'-worksite';
+try{preferredWorksite=localStorage.getItem(worksiteKey)||''}catch{}
+worksite.onchange=()=>{
+ preferredWorksite=worksite.value?trackedId+'/'+worksite.value:'';
+ try{localStorage.setItem(worksiteKey,preferredWorksite)}catch{}
+ previous='';update();
+};
+function updateWorksites(frame){
+ const choices=frame.storyWorksites?.[trackedId]||[];
+ const signature=JSON.stringify([trackedId,choices.map(p=>p.point)]);
+ if(signature!==worksiteSignature){
+  worksiteSignature=signature;
+  worksite.replaceChildren(new Option('近い地点から',''));
+  for(const point of choices)worksite.add(new Option(point.name,point.point));
+ }
+ const selected=choices.find(p=>trackedId+'/'+p.point===preferredWorksite);
+ worksite.value=selected?.point||'';
+ worksiteLabel.hidden=choices.length<2;
+ return selected;
+}
 const questMap=document.getElementById('trackedQuestMap');
 const surveyLink=document.getElementById('trackedSurveyPoint');
 questMap.onclick=()=>{if(questMap.dataset.node)window.lab.action('world_map_focus:'+questMap.dataset.node)};
+const atlasFocus=document.getElementById('atlasQuestFocus');
+const atlasPoint=document.getElementById('atlasQuestPoint');
+atlasFocus.onclick=questMap.onclick;
+function syncAtlasPoint(frame){
+ atlasPoint.hidden=surveyLink.hidden || !frame.worldMap?.selected || frame.worldMap.selected.id!==questMap.dataset.node;
+ if(atlasPoint.hidden)atlasPoint.removeAttribute('href');
+ else{
+  atlasPoint.href=surveyLink.href;
+  atlasPoint.textContent=surveyLink.textContent;
+ }
+}
 const panel=document.getElementById('storyPanel');let previous='';
 let lampRoom, lampControlX;
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
@@ -36,7 +70,9 @@ function update(){
  const f=window.lab?.frame;if(!f?.story)return;
  updateEndgame(f);
  const hint=document.getElementById('trackedHuntHint');
- const target=f.storyHunts?.[trackedId];
+ if(f.worldMap)syncAtlasPoint(f);
+ const selected=updateWorksites(f);
+ const target=fieldGuide(f,trackedId,selected?.point);
  const text=target?huntHint(target,f.actors?.find(a=>a.id===f.active)):'';
  if(hint.textContent!==text)hint.textContent=text;
  hint.hidden=!text;
@@ -50,14 +86,17 @@ function update(){
   const dx=lampControlX-f.actors.find(a=>a.id===f.active)?.x;
   lampSide=dx<=-54?'left':dx>=54?'right':'near';
  }
- const signature=JSON.stringify([lampSide,f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([lampSide,target?.point,f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
- const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
+ const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
  questMap.hidden=!guide.node||Boolean(f.growthTrial);
  questMap.dataset.node=guide.node??'';
+ surveyLink.textContent=guide.pointLabel||'調査位置を見る';
  surveyLink.hidden=!guide.pointUrl||Boolean(f.growthTrial);
  if(!surveyLink.hidden)surveyLink.href=guide.pointUrl;
  else surveyLink.removeAttribute('href');
+ atlasFocus.hidden=questMap.hidden;
+ syncAtlasPoint(f);
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
  if(f.bossJourney){const notice=document.createElement('p');notice.textContent=f.bossJourney.name+'・本編挑戦'+(f.bossJourney.defeated?'／討伐済み':'');panel.append(notice,button('挑戦入口へ戻る','world_boss_return'));}
  if(!f.story.active)return;
