@@ -1,0 +1,37 @@
+{
+  "summit": {
+    "stage": "sites-hunt-7164",
+    "scenery": {
+      "key": "spineSummitSteps",
+      "file": "spine-summit-steps-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-01",
+      "x": 424.6,
+      "y": 336.1,
+      "adjacent": [
+        "mond-wp-6609"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7164&placements=live&compare=background",
+      "next": "mond-wp-6609"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "journeys": [
+      [
+        "mond-wp-6609",
+        "sites-hunt-7164",
+        "raised"
+      ],
+      [
+        "sites-hunt-7164",
+        "mond-wp-6609",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 565,
+  "verifiedModules": 655,
   "dimensions": [
     512,
     288
@@ -19,6 +19,41 @@
       "5120": 22990,
       "5632": 26188,
       "6144": 28120
+    },
+    "chasm-quarry-ledge-background-v1.png": {
+      "4096": 17465,
+      "4608": 20859,
+      "5120": 24132,
+      "5632": 27390,
+      "6144": 29458
+    },
+    "chasm-geode-den-background-v1.png": {
+      "4096": 17784,
+      "4608": 21320,
+      "5120": 24719,
+      "5632": 28111,
+      "6144": 29913
+    },
+    "nostoi-island-pier-background-v1.png": {
+      "4096": 18059,
+      "4608": 21479,
+      "5120": 24766,
+      "5632": 28064,
+      "6144": 30246
+    },
+    "nostoi-tidal-vault-background-v1.png": {
+      "4096": 17427,
+      "4608": 20843,
+      "5120": 24156,
+      "5632": 27454,
+      "6144": 29596
+    },
+    "spine-summit-steps-background-v1.png": {
+      "4096": 17591,
+      "4608": 21023,
+      "5120": 24318,
+      "5632": 27608,
+      "6144": 29752
     },
     "fon-domain-reef-background-v1.png": {
       "4096": 17800,
@@ -762,6 +797,41 @@
       "5632": 28666,
       "6144": 30664
     },
+    "sum-east-grove-background-v1.png": {
+      "4096": 18359,
+      "4608": 21835,
+      "5120": 25188,
+      "5632": 28530,
+      "6144": 30746
+    },
+    "sum-north-bough-background-v1.png": {
+      "4096": 18438,
+      "4608": 21906,
+      "5120": 25263,
+      "5632": 28627,
+      "6144": 30527
+    },
+    "sum-south-ravine-background-v1.png": {
+      "4096": 16859,
+      "4608": 20229,
+      "5120": 23496,
+      "5632": 26726,
+      "6144": 28624
+    },
+    "sum-city-water-gate-background-v1.png": {
+      "4096": 18336,
+      "4608": 21790,
+      "5120": 25143,
+      "5632": 28485,
+      "6144": 30735
+    },
+    "sum-root-ruins-background-v1.png": {
+      "4096": 16967,
+      "4608": 20311,
+      "5120": 23526,
+      "5632": 26722,
+      "6144": 28632
+    },
     "sum-sands-market-background-v1.png": {
       "4096": 17309,
       "4608": 20745,
@@ -796,16 +866,72 @@
       "5120": 23275,
       "5632": 26579,
       "6144": 28059
+    },
+    "tun-north-pass-background-v1.png": {
+      "4096": 15535,
+      "4608": 18805,
+      "5120": 21934,
+      "5632": 25040,
+      "6144": 26728
+    },
+    "tun-north-seep-background-v1.png": {
+      "4096": 16683,
+      "4608": 20057,
+      "5120": 23306,
+      "5632": 26514,
+      "6144": 28516
+    },
+    "tun-flower-terrace-background-v1.png": {
+      "4096": 18449,
+      "4608": 21977,
+      "5120": 25406,
+      "5632": 28818,
+      "6144": 30652
+    },
+    "tun-ember-alcove-background-v1.png": {
+      "4096": 17363,
+      "4608": 20799,
+      "5120": 24114,
+      "5632": 27404,
+      "6144": 29158
+    },
+    "tun-blue-cut-background-v1.png": {
+      "4096": 17051,
+      "4608": 20449,
+      "5120": 23722,
+      "5632": 26954,
+      "6144": 28342
+    },
+    "tun-dry-cistern-background-v1.png": {
+      "4096": 18420,
+      "4608": 21888,
+      "5120": 25261,
+      "5632": 28603,
+      "6144": 30879
+    },
+    "tun-south-incline-background-v1.png": {
+      "4096": 17080,
+      "4608": 20448,
+      "5120": 23655,
+      "5632": 26875,
+      "6144": 28939
+    },
+    "tun-ash-fissure-background-v1.png": {
+      "4096": 15888,
+      "4608": 19144,
+      "5120": 22249,
+      "5632": 25335,
+      "6144": 27219
     }
   },
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 113
+      "verified": 131
     },
     "domainHunts": {
       "total": 124,
-      "verified": 106,
+      "verified": 124,
       "byRegion": {
         "モンド": {
           "total": 16,
@@ -817,7 +943,7 @@
         },
         "層岩巨淵・地上": {
           "total": 2,
-          "verified": 0
+          "verified": 2
         },
         "稲妻": {
           "total": 19,
@@ -825,11 +951,11 @@
         },
         "スメール": {
           "total": 24,
-          "verified": 19
+          "verified": 24
         },
         "トゥニギの黒淵": {
           "total": 8,
-          "verified": 0
+          "verified": 8
         },
         "フォンテーヌ": {
           "total": 11,
@@ -837,7 +963,7 @@
         },
         "ノストイ地区": {
           "total": 2,
-          "verified": 0
+          "verified": 2
         },
         "ナタ": {
           "total": 9,
@@ -853,29 +979,10 @@
         },
         "ドラゴンスパイン": {
           "total": 1,
-          "verified": 0
+          "verified": 1
         }
       },
-      "pending": [
-        "sites-hunt-24907",
-        "sites-hunt-24907-pocket-1",
-        "sites-hunt-28752",
-        "sites-hunt-28753",
-        "sites-hunt-28756",
-        "sites-hunt-41009",
-        "sites-hunt-46531",
-        "sites-hunt-46531-pocket-1",
-        "sites-hunt-46532",
-        "sites-hunt-46532-pocket-1",
-        "sites-hunt-46533",
-        "sites-hunt-46533-pocket-1",
-        "sites-hunt-46534",
-        "sites-hunt-46534-pocket-1",
-        "sites-hunt-98499",
-        "sites-hunt-68346",
-        "sites-hunt-68346-pocket-1",
-        "sites-hunt-7164"
-      ]
+      "pending": []
     },
     "branchHunts": {
       "total": 62,

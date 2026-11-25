@@ -1,0 +1,216 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "chasm-quarry-ledge-background-v1.png": {
+      "sourceBytes": 1853601,
+      "sourceSha256": "9fe22c7e1f2d8ac955a67500df13890c452ff43effd7182d0d210e94535329da",
+      "preview": "chasm-quarry-ledge-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17373,
+      "baseSelectedBytes": 17357,
+      "detailFixed13Bytes": 12007,
+      "detailSelectedBytes": 11995,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.829295970775463,
+          "rgbSha256": "c29bca31c110b68c89230cd3cff03570e643f8610e66d7199f7243462ad7e716"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.431620279947917,
+          "rgbSha256": "71abdb885fd9debdc533863611ab4cb69289f9ca83f0df134a90c3cac4cf8ba1"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.137340404369213,
+          "rgbSha256": "e645b47a8fefb330fcf3beeffba24438c4b4b60aba4c5121255731f66316610a"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.8900056061921298,
+          "rgbSha256": "c412dc32bf1c5e318545009b8e41503518a6fc64826162d470ed9d2cf8907b1e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.6698450159143516,
+          "rgbSha256": "d6e6097b2540f78837ef86777e77fa19eb90e5348ca9b0654432d58d453ac7f0"
+        }
+      ]
+    },
+    "chasm-geode-den-background-v1.png": {
+      "sourceBytes": 1793201,
+      "sourceSha256": "6b1660503190c1640244fde74a78312c11a4b3f4199b704cacda3df985cc9427",
+      "preview": "chasm-geode-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17693,
+      "baseSelectedBytes": 17679,
+      "detailFixed13Bytes": 12141,
+      "detailSelectedBytes": 12131,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.68365478515625,
+          "rgbSha256": "4e2125da4c8fc83d60e31829adc4e784b5dba895e76af47e0037e30cee6a890b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.364391185619213,
+          "rgbSha256": "f204259a79ae63fa0b60182fac2ed5d0881866e2bac1c9d7e21a9bb782787ec7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.129249855324074,
+          "rgbSha256": "c046ee8fda0a790a8321ec23e6c58b3a17d5da8b0eb857b44332753c741bedb3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.9354270652488426,
+          "rgbSha256": "123611c59b09aa3b44d5388d3042dfeb7f2736027633928e305ff41c01d65a2e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.7648835358796298,
+          "rgbSha256": "0cf913704c52698966a5a321e1898af8cf111abc0509b87bc9d166fa4c2b9b17"
+        }
+      ]
+    },
+    "nostoi-island-pier-background-v1.png": {
+      "sourceBytes": 2059207,
+      "sourceSha256": "40d1ba2b257cbd6c7198edf50299518e347a9279a895b34d8c328ccb05af6b77",
+      "preview": "nostoi-island-pier-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17967,
+      "baseSelectedBytes": 17951,
+      "detailFixed13Bytes": 12203,
+      "detailSelectedBytes": 12189,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.290068449797453,
+          "rgbSha256": "4cf24b6b4eec202658772a930c7e39d14c311f8dfcf0ace0f42d001aeba51376"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.701465747974537,
+          "rgbSha256": "b6b6ac759a0004ea40edf00f2808e8044bcf49f2dfd8d960b5970790ec93b618"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.247214988425926,
+          "rgbSha256": "8c7c07e83b849740fb94ca09fb29a4691e0fb5c360583c2578d8f032beec5fc4"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.853771068431713,
+          "rgbSha256": "1c127146e960621906b624a4a8d8e296167bc5304dafb65b1215a1e66111decb"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.5277890805844905,
+          "rgbSha256": "2d399711ca535220532505d9ef6ee95a4b24ae5bf26afc06b6638cc2946cc4de"
+        }
+      ]
+    },
+    "nostoi-tidal-vault-background-v1.png": {
+      "sourceBytes": 1976770,
+      "sourceSha256": "02cd359cd1c691bff7a6e3fca09dac59dbd8adc71d75eecf5b512fda8a4d038c",
+      "preview": "nostoi-tidal-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17337,
+      "baseSelectedBytes": 17319,
+      "detailFixed13Bytes": 12181,
+      "detailSelectedBytes": 12171,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.770372178819445,
+          "rgbSha256": "e79f6237d362c53b792569cbf65ee35a358668b8916e79f39cedcf39ad8aebf1"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.3337831850405095,
+          "rgbSha256": "bc40735bc27e5fe6d33d2f83094a4c7da1f1f8a02783737e91deb447de70cb00"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.986472800925926,
+          "rgbSha256": "265d831f243eb2fe94b428667a8b5461329525166cc3132f6c70a0e21a9db8fa"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.7121401186342595,
+          "rgbSha256": "60852cef3724a9e20e856d37839ef07f6db7a5a886b95179187146aaa7263139"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.4614438657407405,
+          "rgbSha256": "a5efa605f98d5f977ac5ee7e4ad3c3ba4d2fe549af5b9348c84919b1ddb16ffd"
+        }
+      ]
+    },
+    "spine-summit-steps-background-v1.png": {
+      "sourceBytes": 1875222,
+      "sourceSha256": "93b73c80a0ea03a373bac963ac839ecca2c21ca788f658e498a7082133de3be6",
+      "preview": "spine-summit-steps-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17497,
+      "baseSelectedBytes": 17483,
+      "detailFixed13Bytes": 12175,
+      "detailSelectedBytes": 12163,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.042394567418982,
+          "rgbSha256": "422f3f7fd9b46d3c0d9425ba79ee3b59ee4f58e4009133227455b12b7f76aa3e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.491048177083333,
+          "rgbSha256": "857168ffe25883287e0b9975e100feec6a09373ecb20c1aa10acb5d2a57446f4"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.079259801793982,
+          "rgbSha256": "9d59764159fd3cf6e372e986174852e6bee1f2a20f33db433741e2ea5d9a2595"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.715223524305555,
+          "rgbSha256": "83b2368e5b98896ad371cdb425f05fb9c969d8c9f2e13ddec54db8bfe26c4880"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.424800166377315,
+          "rgbSha256": "e790bb75c69d3e621ada36b1b808da4ee80a1286f4792cd6f3e1529c74b8a705"
+        }
+      ]
+    }
+  }
+}

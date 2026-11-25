@@ -1,0 +1,173 @@
+{
+  "sumEastGrove": {
+    "stage": "sites-hunt-28752",
+    "scenery": {
+      "key": "sumEastGrove",
+      "file": "sum-east-grove-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 636.1,
+      "y": 223.6,
+      "adjacent": [
+        "sumeru-entry"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28752&placements=live&compare=background",
+      "next": "sumeru-entry"
+    },
+    "jump": [
+      480,
+      416
+    ],
+    "journeys": [
+      [
+        "sumeru-entry",
+        "sites-hunt-28752",
+        "raised"
+      ],
+      [
+        "sites-hunt-28752",
+        "sumeru-entry",
+        "walk"
+      ]
+    ]
+  },
+  "sumNorthBough": {
+    "stage": "sites-hunt-28753",
+    "scenery": {
+      "key": "sumNorthBough",
+      "file": "sum-north-bough-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 569.2,
+      "y": 184.7,
+      "adjacent": [
+        "sum-wp-28741"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28753&placements=live&compare=background",
+      "next": "sum-wp-28741"
+    },
+    "jump": [
+      480,
+      399
+    ],
+    "journeys": [
+      [
+        "sum-wp-28741",
+        "sites-hunt-28753",
+        "raised"
+      ],
+      [
+        "sites-hunt-28753",
+        "sum-wp-28741",
+        "walk"
+      ]
+    ]
+  },
+  "sumSouthRavine": {
+    "stage": "sites-hunt-28756",
+    "scenery": {
+      "key": "sumSouthRavine",
+      "file": "sum-south-ravine-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 550.8,
+      "y": 329.7,
+      "adjacent": [
+        "sum-wp-28718"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28756&placements=live&compare=background",
+      "next": "sum-wp-28718"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "journeys": [
+      [
+        "sum-wp-28718",
+        "sites-hunt-28756",
+        "walk"
+      ],
+      [
+        "sites-hunt-28756",
+        "sum-wp-28718",
+        "walk"
+      ]
+    ]
+  },
+  "sumCityWaterGate": {
+    "stage": "sites-hunt-41009",
+    "scenery": {
+      "key": "sumCityWaterGate",
+      "file": "sum-city-water-gate-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 608,
+      "y": 220,
+      "adjacent": [
+        "sum-wp-28734"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-41009&placements=live&compare=background",
+      "next": "sum-wp-28734"
+    },
+    "jump": [
+      480,
+      409
+    ],
+    "journeys": [
+      [
+        "sum-wp-28734",
+        "sites-hunt-41009",
+        "walk"
+      ],
+      [
+        "sites-hunt-41009",
+        "sum-wp-28734",
+        "walk"
+      ]
+    ]
+  },
+  "sumRootRuins": {
+    "stage": "sites-hunt-98499",
+    "scenery": {
+      "key": "sumRootRuins",
+      "file": "sum-root-ruins-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 577,
+      "y": 158.6,
+      "adjacent": [
+        "sum-wp-28744"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-98499&placements=live&compare=background",
+      "next": "sum-wp-28744"
+    },
+    "jump": [
+      480,
+      412
+    ],
+    "journeys": [
+      [
+        "sum-wp-28744",
+        "sites-hunt-98499",
+        "walk"
+      ],
+      [
+        "sites-hunt-98499",
+        "sum-wp-28744",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

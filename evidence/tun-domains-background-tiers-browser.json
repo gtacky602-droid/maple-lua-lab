@@ -1,0 +1,98 @@
+{
+  "sites-hunt-46531": {
+    "source": "tun-north-pass-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "fe66477d6267dfa20ada702db026b974d8ddbe5f2f0905b81c1fc56811a0cdc9",
+    "tiers": {
+      "4096": "08652cc1d34369cee785b32e028d213b2490c03e14dfbeddb111f473917f9fce",
+      "4608": "892e3a5d256a83f3039281c04ec00b5882de5d8cb37b1e15caf117aa1599d05b",
+      "5120": "73a114d7d0e6e0b5651e34be65f85029e48805192854f8e9ee8579380e621104",
+      "5632": "19f51af33dd9e9c806adb7dde2897236bc1c09e993cbf515b930a305782eb087",
+      "6144": "7877ced9a8729858b6499c4dc69c90ea43331375c19632c5b004a33ebdd287f0"
+    }
+  },
+  "sites-hunt-46531-pocket-1": {
+    "source": "tun-north-seep-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "65aa120e33cf39d174f7fb4ec96d8851c924c6548a80a468dee41c755f2de0d9",
+    "tiers": {
+      "4096": "e21134a4a931b475aa93563e645fc7dab0134321dabba520e0d3edd4749010fe",
+      "4608": "9a907ef96c31adce96a303aa5ef3f36f8a2af4a8e0bb26c3e6bc907e47b65114",
+      "5120": "e3e17aa0c53af19807a26ec4d5b7201b524ae78b8b9b864fcf01fc1b234b13e3",
+      "5632": "3e7a897790dbdee0f4f3ede850270d1d2bc6fa9e14925be38a774fd7ed4b5625",
+      "6144": "cbe983c8195111c7f3520dad2dd2d29a0b71dc12c082cbbf6ff54819313ffed9"
+    }
+  },
+  "sites-hunt-46532": {
+    "source": "tun-flower-terrace-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "a874cd5b7b50dab63f7051edc1c9d4a39e46ae69c5426b487947ecd7a9604ffb",
+    "tiers": {
+      "4096": "2ec8fe0a6558cfa75c568bd0457181444af2f7447aa4dd751fb2f70d099bc340",
+      "4608": "f8c6fc9f060a184e0b8f1d830738eda1968448178a94c667f562e9307e08b823",
+      "5120": "3d3933c7ea2a0b1c5970e8c041230d8c8860e21dd3f1fc1725920a9744d3c0ba",
+      "5632": "06437bcb129eb49fd2e3f9fd0552a3bab7e1f22f06e1eb4cfc2a560941a69e72",
+      "6144": "b904eaa24def5d60f035a5af87a9892ab3f1686a5a6a8c6d20bf1ef73d140570"
+    }
+  },
+  "sites-hunt-46532-pocket-1": {
+    "source": "tun-ember-alcove-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "49c37e613d27b4f2d838b61d381edafb5f98f12d1ad35e77440a10efb3c66a33",
+    "tiers": {
+      "4096": "236d74cd168668ed43d3e28ffe4537068b1633cda4ab7fb2cf167554dda431a9",
+      "4608": "6dc9a08e0541157100f50b89d65d0f34c341887c7b981cb28f2199e260ee70cf",
+      "5120": "525198ad739574c414965ceeacfff85cc224ab9ee054d3dbad588f13b2c559b6",
+      "5632": "de10318351a36fa885edb3b9ff299e49a469beee56d7747f56d2b7afa26fcfcb",
+      "6144": "987bd9370a5daa9df3b80ccc53ba36a68fcfde5bd78f78205043118c724ce75c"
+    }
+  },
+  "sites-hunt-46533": {
+    "source": "tun-blue-cut-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "040e01104f1e9848caf1d51b4737d62e2f598687e076a1a2f5239bc108293ac8",
+    "tiers": {
+      "4096": "cc47221f205c571781f3f93516e55389609abaf1fd4fcb598c84bd468c3a74bf",
+      "4608": "891fba2ee3fe60e67eebe6592a1092fb83804d0ecc42c6581b086c2117d59db7",
+      "5120": "7f04c163d352e9e67abce09067cc09648a1978df3cbb81ddeb591c0a724fb1ef",
+      "5632": "f16df2cceb73e633ecf8ff2b823b90d2f0c24bdbe9e57a2c7fae3d85ed8a44ab",
+      "6144": "42bdd44c44bc0de8443cc18037bd925295ada5b7966eb61864e0c8c79714a6b4"
+    }
+  },
+  "sites-hunt-46533-pocket-1": {
+    "source": "tun-dry-cistern-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "89e3a6ca7bc3a3c08aa0afff04057be734435b1c7108c01a296f825c9f9e6c7d",
+    "tiers": {
+      "4096": "2de71a282b6754455d84694d66ae2eeec32cd8f6eefc8fe82a287c977bce63ea",
+      "4608": "09fe96371bffcb83d6d636e1daff69118712ced78cc6261d05c8884b2bda45f5",
+      "5120": "7533712deb165750e9f86baeefcbf1c0213bd9e1285e44d1e53926914e4acaae",
+      "5632": "c934274db0e62ac6092b8bd59ed4a2344d91e8d83ba8ced7fbc85d78f15f44ac",
+      "6144": "6516ceb70fd21db1dea48ad61db129306774d94fa687c155c0e254f2ad686c9c"
+    }
+  },
+  "sites-hunt-46534": {
+    "source": "tun-south-incline-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "6ec011897ebacb83cde7ea57a34fb94e1f49aa0fd0e1ab667360fdfc89aba30e",
+    "tiers": {
+      "4096": "a0ca9d0a1843dcd020584ebdec74ef761263f42c132b6daf0564ecde4e78115d",
+      "4608": "11e923809e2ffd08dba361b9992b70f10b32c2d6a073720c093c0589caea0619",
+      "5120": "0670ec7598210a4d62a78b0a3845e77f0e31ad9b61737315f41a33d1d852cdeb",
+      "5632": "5077ac730dd11efe87ccb907593bbbbc0b07f91c789e48fc37c12b4ab151103e",
+      "6144": "650e290a5c77ba8e5e5452a8d107f1f84d512d0adec6c7181d8762783ea29284"
+    }
+  },
+  "sites-hunt-46534-pocket-1": {
+    "source": "tun-ash-fissure-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "11842dd8f3894a2d2b817202dfc4f1d1840169ed7597289ebb8870282b63d4e3",
+    "tiers": {
+      "4096": "624e2d32c645bb50a83d6387a5e90454afa00d4d064798dc472a815f096ee69c",
+      "4608": "c3df447d93ab3a8ae3832b01e5ac58cfb4bf50fed6622b3b9f36fd276c9459d1",
+      "5120": "48ca5777553ca69f27bf2808a962e9a3f56526258927074f4654a5912b8a2100",
+      "5632": "438357349f9f9f4e570a2f2836f193feda9067c0ba328c213a67347e8b1e3efd",
+      "6144": "cde334bb05b07e97ade5a565a44336cc34ba740cf92f3b81bfbd2dd489cfcb7c"
+    }
+  }
+}

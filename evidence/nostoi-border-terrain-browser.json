@@ -1,0 +1,54 @@
+{
+  "pier": {
+    "stage": "sites-hunt-68346",
+    "scenery": {
+      "key": "nostoiIslandPier",
+      "file": "nostoi-island-pier-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 433.7,
+      "y": 426.6,
+      "adjacent": [
+        "fon-wp-68341",
+        "sites-hunt-68346-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-68346&placements=live&compare=background",
+      "next": "sites-hunt-68346-pocket-1"
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "nostoiTidalVault",
+      "file": "nostoi-tidal-vault-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "fon-wp-68341",
+        "sites-hunt-68346",
+        "walk"
+      ],
+      [
+        "sites-hunt-68346",
+        "sites-hunt-68346-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-68346-pocket-1",
+        "sites-hunt-68346",
+        "walk"
+      ],
+      [
+        "sites-hunt-68346",
+        "fon-wp-68341",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

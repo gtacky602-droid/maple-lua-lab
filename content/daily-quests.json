@@ -11,7 +11,7 @@
     },
     "liyue": {
       "label": "璃月",
-      "includeRegions": ["璃月", "沈玉の谷", "層岩巨淵・地下鉱区"]
+      "includeRegions": ["璃月", "沈玉の谷", "層岩巨淵・地上", "層岩巨淵・地下鉱区"]
     },
     "inazuma": {
       "label": "稲妻",
@@ -23,7 +23,7 @@
     },
     "fontaine": {
       "label": "フォンテーヌ",
-      "includeRegions": ["フォンテーヌ", "往日の海"]
+      "includeRegions": ["フォンテーヌ", "ノストイ地区", "往日の海"]
     },
     "natlan": {
       "label": "ナタ",
@@ -328,8 +328,8 @@
       "companion": "wanderer",
       "name": "あれを片づければ、先へ行ける",
       "intro": "放浪者「雨林の道と資材置き場に大物がいるよ。遺跡の脇道まで行くなら、そっちのを相手にしてもいい。合わせて三体で十分だ。」",
-      "target": "雨林の道・工房の資材置き場、または雨林や砂漠の指定脇部屋（Lv80）の精鋭",
-      "filter": {"kind": "elite", "nodes": ["sumeru-field", "sum-kaveh-timberyard", "sites-hunt-28751-pocket-1", "sites-hunt-28754-pocket-1", "sites-hunt-28755-pocket-1", "sites-hunt-28757-pocket-1", "sites-hunt-36703-pocket-1", "sites-hunt-36704-pocket-1", "sites-hunt-36705-pocket-1", "sites-hunt-41694-pocket-1", "sites-hunt-41817-pocket-1"]},
+      "target": "雨林の道・工房の資材置き場、または雨林・砂漠・トゥニギの指定脇部屋（Lv80）の精鋭",
+      "filter": {"kind": "elite", "nodes": ["sumeru-field", "sum-kaveh-timberyard", "sites-hunt-28751-pocket-1", "sites-hunt-28754-pocket-1", "sites-hunt-28755-pocket-1", "sites-hunt-28757-pocket-1", "sites-hunt-36703-pocket-1", "sites-hunt-36704-pocket-1", "sites-hunt-36705-pocket-1", "sites-hunt-41694-pocket-1", "sites-hunt-41817-pocket-1", "sites-hunt-46531-pocket-1", "sites-hunt-46532-pocket-1", "sites-hunt-46533-pocket-1", "sites-hunt-46534-pocket-1"]},
       "goal": 3,
       "xp": 11990,
       "mora": 800
@@ -445,9 +445,9 @@
       "level": 80,
       "giver": "フレミネ",
       "name": "潜る前の安全確認",
-      "intro": "フレミネ「装備を水辺まで運ぶから、陸にいる大きなヤドカニとメカを先に片づけたいんだ。」",
-      "target": "水路沿いの重甲ヤドカニ・郊外の搬入口の指定精鋭メカ",
-      "filter": {"kind": "elite", "nodes": ["fontaine-field", "fontaine-outskirts-loading"]},
+      "intro": "フレミネ「装備を水辺まで運びたいんだ。水路沿いか搬入口、遠くなら秘境の脇道で、陸にいる大物を三体お願いできる？」",
+      "target": "水路沿い・搬入口の指定精鋭、またはベリル・モルテ・ノストイ・北岸の陸上精鋭（Lv100）",
+      "filter": {"kind": "elite", "nodes": ["fontaine-field", "fontaine-outskirts-loading", "sites-hunt-50034-pocket-1", "sites-hunt-63738-pocket-1", "sites-hunt-68346-pocket-1", "sites-hunt-68347-pocket-1"]},
       "goal": 3,
       "xp": 25890,
       "mora": 1400

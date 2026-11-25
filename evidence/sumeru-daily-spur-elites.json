@@ -35,6 +35,22 @@
     "sites-hunt-41817-pocket-1": {
       "normalCombatTicks": 528,
       "countAfterSaveLoad": 3
+    },
+    "sites-hunt-46531-pocket-1": {
+      "normalCombatTicks": 433,
+      "countAfterSaveLoad": 1
+    },
+    "sites-hunt-46532-pocket-1": {
+      "normalCombatTicks": 553,
+      "countAfterSaveLoad": 2
+    },
+    "sites-hunt-46533-pocket-1": {
+      "normalCombatTicks": 528,
+      "countAfterSaveLoad": 3
+    },
+    "sites-hunt-46534-pocket-1": {
+      "normalCombatTicks": 433,
+      "countAfterSaveLoad": 1
     }
   },
   "claimXp": 11990,

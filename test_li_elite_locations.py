@@ -24,10 +24,10 @@ for node in nodes.values():
 assert set(shown) == set(found), (set(shown) ^ set(found))
 assert [nodes[id]['level'] for id in shown] == sorted(nodes[id]['level'] for id in shown)
 row = next(q for q in state.daily.ledger.activeSlots.values() if q.id == quest)
-for count, id in enumerate(['sites-hunt-7114-pocket-1', 'sites-hunt-7121-pocket-1'], 1):
+for count, id in enumerate(['sites-hunt-7114-pocket-1', 'sites-hunt-7121-pocket-1', 'sites-hunt-24907-pocket-1'], 1):
     core.enterStoryNode(state, id)
     enemy = next(e for e in state.enemies.values() if e.spawnId == found[id])
     assert core.defeatEnemy(state, enemy, 1) and row.count == count
 assert 'sites-hunt-7114' not in shown and 'sites-hunt-18048-pocket-2' not in shown
 write('evidence/li-north-elite-locations.json', {'quest':quest,'locations':found,'verifiedKills':row.count})
-print(f'{len(shown)} eligible map locations, both northern elite kills counted.')
+print(f'{len(shown)} eligible map locations, the northern and Chasm surface elite kills counted.')

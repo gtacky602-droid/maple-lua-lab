@@ -1,1 +1,3 @@
 assets/MapleCodec.lua text eol=lf
+assets/*-native-backgrounds.lua text eol=lf
+evidence/*-background-compression.json text eol=lf

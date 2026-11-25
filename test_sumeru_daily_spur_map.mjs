@@ -4,12 +4,13 @@ import {chromium} from 'playwright';
 
 const region=process.argv[2] || 'sumeru';
 const settings={
+ fontaine:['fontaine-hub','nostoi-border-terrain-fixture.json','daily-fon-land-elites',6,'sites-hunt-68346-pocket-1'],
  snezhnaya:['snezhnaya-hub','sne-domains-terrain-fixture.json','daily-sne-elites',4,'sites-hunt-100705-pocket-1'],
  'nod-krai':['nod-town','nod-islands-terrain-fixture.json','daily-nod-rumored-elites',6,'sites-hunt-88122-pocket-1'],
- liyue:['liyue-harbor','li-north-terrain-fixture.json','daily-liyue-relics',35,'sites-hunt-7114-pocket-1'],
+ liyue:['liyue-harbor','li-north-terrain-fixture.json','daily-liyue-relics',36,'sites-hunt-7114-pocket-1'],
  'mond-slimes':['mond-town','mond-temples-terrain-fixture.json','daily-mond-slimes',17,'sites-hunt-7206'],
  mondstadt:['mond-town','mond-ruins-terrain-fixture.json','daily-mond-elites',9,'sites-hunt-7111-pocket-1'],
- sumeru:['sumeru-hub','sumeru-domain-terrain-fixture.json','daily-sum-elites',11,'sites-hunt-36704-pocket-1'],
+ sumeru:['sumeru-hub','sumeru-domain-terrain-fixture.json','daily-sum-elites',15,'sites-hunt-46533-pocket-1'],
  natlan:['natlan-hub','natlan-eastern-rooms-fixture.json','daily-nat-elite-hunt',6,'sites-hunt-73159-pocket-1'],
  inazuma:['inazuma-town','inazuma-domain-terrain-fixture.json','daily-ina-trial',9,'sites-hunt-12778-pocket-1'],
 };

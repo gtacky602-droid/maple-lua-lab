@@ -1,0 +1,18 @@
+{
+  "sum-frontier": {
+    "filesCompared": 12,
+    "bundleSha256": "91fb558b85a44c3dcd1d610ddb7f70c348b50cf4e4ca041c08eb3788f7dea73a"
+  },
+  "tun-domains": {
+    "filesCompared": 18,
+    "bundleSha256": "9d39e8bbec79761f01ea02a54916df851c1921b7ab385990db44e7da478aba6a"
+  },
+  "border-domains": {
+    "filesCompared": 12,
+    "bundleSha256": "99fdeeed15230de56ca0a1fdb01c6d6e79b8bfa00f58ba4ec0569b1e4abcba6e"
+  },
+  "nod-false-moon": {
+    "filesCompared": 6,
+    "bundleSha256": "c294037d91208d4c7d600d86c9d8691ee10bce661438bacc093c24104e641da0"
+  }
+}

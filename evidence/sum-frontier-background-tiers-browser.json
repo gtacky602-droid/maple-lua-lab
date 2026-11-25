@@ -1,0 +1,62 @@
+{
+  "sites-hunt-28752": {
+    "source": "sum-east-grove-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "3ec616e446b410630895bd878d9635068910aa96eca9e404626149a1c944dc63",
+    "tiers": {
+      "4096": "be055f5a8beb801ba742a4fbc59ed85a74b156060031c20d8014f9a705435263",
+      "4608": "53729146c5bacfab076c8c204be0c4a31711600971506da983e7f74e57cf334e",
+      "5120": "ba6b45f2791cae62dc2ebe037c6c8292fcff221247e4634d2a617cb778c49a26",
+      "5632": "b6b8ae45b50a9f9d3f103b59445ac2e55d703505bcc0cc050e31475e9142156d",
+      "6144": "07b7c7bdcc305f094dc369dccddf9e6419ef54baaa7fdd5c22268c401b3bfb0f"
+    }
+  },
+  "sites-hunt-28753": {
+    "source": "sum-north-bough-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "90ce102df1ef4250f32a245091aa3fe4c71996d7a8483f0207c47e8abcec2fab",
+    "tiers": {
+      "4096": "0dc0d060af4e7379576c444b18d8662f2a541c96c75711eaf03697da263799b7",
+      "4608": "cb3045296e7d35dc392325c8e1b149893fb729ae75f988970733ddb7cf5a410f",
+      "5120": "a05584da20b38537a3373d1186aa2ab13eb5ba9859a4f5ecd7dd78ecd2418a88",
+      "5632": "f30089345d90827f1b45bccf5067a33e23a0026e7b46e1b4e7de12a541ff30c0",
+      "6144": "dbeff616cb036b5f06e09fc489205c92c40ab14300f2c33862061378464624c2"
+    }
+  },
+  "sites-hunt-28756": {
+    "source": "sum-south-ravine-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "608ec7db23231cef547adbcd0302f2f1a75232cfc6d5e6abcb5b7c8b1aa131ac",
+    "tiers": {
+      "4096": "3d0db117133b0ba69a4602f02e1ec19a3d9f0e9199e80b1665f238c961130657",
+      "4608": "f2b308e9748729aa805c2c324448a7dab67127e9e8349eb664d4395fe4f60fdd",
+      "5120": "12bb2e837ea852d30433b7fe1a026010088fa23f1ce5400c2c2c19e5cc651c91",
+      "5632": "b3f4b68dfd02603da827873bb1682451781f42e077d6e762af19a03a65977f65",
+      "6144": "3e1527143c95faa54d6566830a6af5b82a82de8dfe64d654c3c210e44af85aa8"
+    }
+  },
+  "sites-hunt-41009": {
+    "source": "sum-city-water-gate-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "1e7cc6fb052e4c4b3a99c4a9753c4a3c4606c998fd609e04d77ea88542fc1804",
+    "tiers": {
+      "4096": "a4917b6ba463a8ff6622cbf69b8a2e58e27261c7129691687b84fc2a77187160",
+      "4608": "f87bee83f4bbce46e5339d4ee7530e239a3e06f85695510fa9b9f71edbe36e61",
+      "5120": "fdca6558b7582e811412a44470fdb2d2f38d6faa3efd23a733ef5aabf65f9763",
+      "5632": "b618d46e8996bbde06cdddeaac23c8b8aac969055a19e2d2268982515f2bc888",
+      "6144": "a7d6cd736068564396fd0469d7451d2cda741f36d77c51e79a59de19a3aa54b5"
+    }
+  },
+  "sites-hunt-98499": {
+    "source": "sum-root-ruins-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "94c4aa79071696d418b60619283018b5a590e64e530aaf3dd710b3b739c51322",
+    "tiers": {
+      "4096": "2f36621aa0074fb861db14d7fac839922fc89d446ab3e1596b9f6b451ddfc436",
+      "4608": "81737b8d0b5274c64bcade25b8c8667919d53049e25afe45542091a67e262c9a",
+      "5120": "d4dd3b083f4524bf5953770b055d756dbcadd27b1e050c988b161aaaebfd49c2",
+      "5632": "366b7fbda803c053e40ab8de95e759fd16cd0c0f8747ace67c7797b7113e1f6e",
+      "6144": "8ae5f7025d384b006d6313e2d5a5422f7d729708a73e98479650b706748958db"
+    }
+  }
+}

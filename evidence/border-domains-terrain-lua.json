@@ -1,0 +1,44 @@
+{
+  "sites-hunt-24907": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      416,
+      383,
+      359,
+      381
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "chasmQuarryLedge",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-68346": {
+    "population": 32,
+    "shelf_heights_from_entrance": [
+      419,
+      396,
+      369,
+      392
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 99,
+    "exterior_scenery": "nostoiIslandPier",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7164": {
+    "population": 36,
+    "shelf_heights_from_entrance": [
+      417,
+      382,
+      352,
+      328
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 60,
+    "exterior_scenery": "spineSummitSteps",
+    "arrivals_outside_enemy_contact": 1
+  }
+}

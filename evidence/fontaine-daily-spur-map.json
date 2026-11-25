@@ -1,0 +1,14 @@
+{
+  "quest": "daily-fon-land-elites",
+  "targets": [
+    "fontaine-field",
+    "fontaine-outskirts-loading",
+    "sites-hunt-50034-pocket-1",
+    "sites-hunt-63738-pocket-1",
+    "sites-hunt-68346-pocket-1",
+    "sites-hunt-68347-pocket-1"
+  ],
+  "selected": "sites-hunt-68346-pocket-1",
+  "download": "nostoi-tidal-vault-4096.lua",
+  "returnNode": "fontaine-hub"
+}

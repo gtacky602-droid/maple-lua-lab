@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-28752",
+      "key": "sumEastGrove",
+      "note": "東の森の石門",
+      "source": "sum-east-grove-background-v1.png",
+      "preview": "sum-east-grove-native-preview-v1.png",
+      "prompt": "A sunlit eastern rainforest trail with a split tree framing one timeworn sandstone gateway. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-28753",
+      "key": "sumNorthBough",
+      "note": "北森の枝道",
+      "source": "sum-north-bough-background-v1.png",
+      "preview": "sum-north-bough-native-preview-v1.png",
+      "prompt": "An immense forked fig canopy with a bridge of roots over a blue shadowed forest trail. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-28756",
+      "key": "sumSouthRavine",
+      "note": "南の谷の水棚",
+      "source": "sum-south-ravine-background-v1.png",
+      "preview": "sum-south-ravine-native-preview-v1.png",
+      "prompt": "A deep southern rain ravine, a split cascade spilling down terraced mossy cliffs. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-41009",
+      "key": "sumCityWaterGate",
+      "note": "都市東の征討入口",
+      "source": "sum-city-water-gate-background-v1.png",
+      "preview": "sum-city-water-gate-native-preview-v1.png",
+      "prompt": "A carved circular ceremonial door by a shallow aqueduct east of the rainforest city, turquoise and old brass. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-98499",
+      "key": "sumRootRuins",
+      "note": "北岸の根に沈む跡地",
+      "source": "sum-root-ruins-background-v1.png",
+      "preview": "sum-root-ruins-native-preview-v1.png",
+      "prompt": "A ruined observatory submerged amid great branching roots along a quiet dark forest watercourse, green glass skylight. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    }
+  ]
+}

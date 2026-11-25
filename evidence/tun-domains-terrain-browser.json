@@ -1,0 +1,207 @@
+{
+  "tunNorthPass": {
+    "stage": "sites-hunt-46531",
+    "scenery": {
+      "key": "tunNorthPass",
+      "file": "tun-north-pass-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 308.4,
+      "y": 99.5,
+      "adjacent": [
+        "sum-wp-46524",
+        "sites-hunt-46531-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-46531&placements=live&compare=background",
+      "next": "sites-hunt-46531-pocket-1"
+    },
+    "jump": [
+      480,
+      413
+    ],
+    "returnHeight": 392,
+    "pocketScenery": {
+      "key": "tunNorthSeep",
+      "file": "tun-north-seep-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-46524",
+        "sites-hunt-46531",
+        "raised"
+      ],
+      [
+        "sites-hunt-46531",
+        "sites-hunt-46531-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-46531-pocket-1",
+        "sites-hunt-46531",
+        "walk"
+      ],
+      [
+        "sites-hunt-46531",
+        "sum-wp-46524",
+        "walk"
+      ]
+    ]
+  },
+  "tunFlowerTerrace": {
+    "stage": "sites-hunt-46532",
+    "scenery": {
+      "key": "tunFlowerTerrace",
+      "file": "tun-flower-terrace-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 359.4,
+      "y": 144.2,
+      "adjacent": [
+        "sum-wp-46527",
+        "sites-hunt-46532-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-46532&placements=live&compare=background",
+      "next": "sites-hunt-46532-pocket-1"
+    },
+    "jump": [
+      480,
+      412
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "tunEmberAlcove",
+      "file": "tun-ember-alcove-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-46527",
+        "sites-hunt-46532",
+        "walk"
+      ],
+      [
+        "sites-hunt-46532",
+        "sites-hunt-46532-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-46532-pocket-1",
+        "sites-hunt-46532",
+        "walk"
+      ],
+      [
+        "sites-hunt-46532",
+        "sum-wp-46527",
+        "walk"
+      ]
+    ]
+  },
+  "tunBlueCut": {
+    "stage": "sites-hunt-46533",
+    "scenery": {
+      "key": "tunBlueCut",
+      "file": "tun-blue-cut-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 316.3,
+      "y": 182.7,
+      "adjacent": [
+        "sum-wp-46516",
+        "sites-hunt-46533-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-46533&placements=live&compare=background",
+      "next": "sites-hunt-46533-pocket-1"
+    },
+    "jump": [
+      480,
+      423
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "tunDryCistern",
+      "file": "tun-dry-cistern-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-46516",
+        "sites-hunt-46533",
+        "walk"
+      ],
+      [
+        "sites-hunt-46533",
+        "sites-hunt-46533-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-46533-pocket-1",
+        "sites-hunt-46533",
+        "walk"
+      ],
+      [
+        "sites-hunt-46533",
+        "sum-wp-46516",
+        "walk"
+      ]
+    ]
+  },
+  "tunSouthIncline": {
+    "stage": "sites-hunt-46534",
+    "scenery": {
+      "key": "tunSouthIncline",
+      "file": "tun-south-incline-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 341.2,
+      "y": 193.7,
+      "adjacent": [
+        "sum-wp-46515",
+        "sites-hunt-46534-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-46534&placements=live&compare=background",
+      "next": "sites-hunt-46534-pocket-1"
+    },
+    "jump": [
+      480,
+      400
+    ],
+    "returnHeight": 393,
+    "pocketScenery": {
+      "key": "tunAshFissure",
+      "file": "tun-ash-fissure-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-46515",
+        "sites-hunt-46534",
+        "walk"
+      ],
+      [
+        "sites-hunt-46534",
+        "sites-hunt-46534-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-46534-pocket-1",
+        "sites-hunt-46534",
+        "walk"
+      ],
+      [
+        "sites-hunt-46534",
+        "sum-wp-46515",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

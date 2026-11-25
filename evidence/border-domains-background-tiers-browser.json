@@ -1,0 +1,62 @@
+{
+  "sites-hunt-24907": {
+    "source": "chasm-quarry-ledge-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "10a3d655d70544645945f6886c08baae8f5798eece205556ccf084c61b311f23",
+    "tiers": {
+      "4096": "db29201dd7e4f6d7a6c3b551a8b3ceaa7331d370a3a29aeb62d669e66158cd4e",
+      "4608": "defef2a9bc630be07dbd4a32d1f2e61e3181841e367e6c317928b54271781214",
+      "5120": "72d726001208f7b57cf30097bc596d4bf8bc4b810c18171b4e2bcf188fdca1a8",
+      "5632": "93e641d4993b1a4957e29e34f6e091b0c2b08b33dd37dc47cefb78dc5055c9c8",
+      "6144": "81b83c7a180e2717f1e5f1b36cc85e6c9746554f51bba4ac59e488d3a9de81c7"
+    }
+  },
+  "sites-hunt-24907-pocket-1": {
+    "source": "chasm-geode-den-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "7cbf3dee5a04a38ecf6936898b541db62e2d0cabb747b11c8c34db14dddbac43",
+    "tiers": {
+      "4096": "75176b1e5c06896b7d88eed6d212a9c33b90e0249143f740132e3e8919acf53f",
+      "4608": "01f3d8cb350665cd97ce81447c12eb0f79550a180bd64f437d75762325224eec",
+      "5120": "37d9f9d0f49ac797d78e27b6c3af9ebad48bf230b41dc33db4a382022058f301",
+      "5632": "97e1eefd6bbfa6942135a153765c2e6f62b364fc41bd33bfe9b63ca4850ee22f",
+      "6144": "dfdde834f77aa6eb5618494ae3550c7bacfd8bcfe8c4e52b03c64da7a117647e"
+    }
+  },
+  "sites-hunt-68346": {
+    "source": "nostoi-island-pier-background-v1.png",
+    "count": 32,
+    "sourceCanvas": "d3ddfddff530182be51e9b50aa2766ae4b56c890af2c9a7ee95a7617089f404c",
+    "tiers": {
+      "4096": "464e3cab2be708ba74f8c490960a7b2f91f73b92a5723360c12a639f68aa46c4",
+      "4608": "fc993e8950fbfd83a3101a44a79e8b12729dab3e149cb2486e0dbba3e6efe8a0",
+      "5120": "3a4ca372d90cfc99ea65926308823884caa4e9e8720b3dccec0f6006d5efe884",
+      "5632": "66a9275d85e0b2444aaf236123655dfdc5a2f1e78d830b8f72980d4bed5feeed",
+      "6144": "1166be84db1cbefd81202192eaf414daed517bb4fcc8f0e92c85215f42949b51"
+    }
+  },
+  "sites-hunt-68346-pocket-1": {
+    "source": "nostoi-tidal-vault-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "146ad24d2bfda1abdaf5cc512f27bd05ac887dfe679e633d6c4a11f97ec63ca4",
+    "tiers": {
+      "4096": "c2c4eb92a2a851f4aa967143b0c1c6596459305c61b2cccaf32d136a8e600ff2",
+      "4608": "2698c385f539019e65b9e90c6700b7d96a008097e63a34fa92d83d17e3c73871",
+      "5120": "1f24419fc5239d99443f82ff3ea381ddc161155e4b37e11d2015162f7acf4294",
+      "5632": "9a398f89620272c9eaa9045fa946ca9ae743944676ae686a6f43843474e00866",
+      "6144": "4a9d743dce08ff8f868fdf6d8eed00188fbb3f4b4eec2a6a0b7cc58fa1ce5359"
+    }
+  },
+  "sites-hunt-7164": {
+    "source": "spine-summit-steps-background-v1.png",
+    "count": 36,
+    "sourceCanvas": "1c6240c8b0aa24c8d402d97788312218311d9e5a2ec94c31e6070878a9b6c2df",
+    "tiers": {
+      "4096": "4d99fee3c75686e514f19aaa83d60bf34d309849f3c4cad59c6ad8844a9e7db1",
+      "4608": "0ee471af569ec01cc839fd362818900b547e692d64d61a28bd404d1170df2f82",
+      "5120": "193f1b2e4cf088668e4dd784361f46aedfded0de3dae036425304f5d1facd422",
+      "5632": "fe10d568a656408dd6cb4e092351e674184239936df4aaecddfb0e677e513c1d",
+      "6144": "d7e4a7fa592a34e5d21fdae622b85b8b1f1b6caaafa956afcb191ec05291dd93"
+    }
+  }
+}

@@ -17,7 +17,10 @@
     "li-weekly-native-backgrounds.lua": "36a9095726147c041611c4ec207f132038de7c171f82fc1c929a15e7c2f68714",
     "nod-islands-native-backgrounds.lua": "cc026b24d2883b2c73ad2922f2f42ce7c5a80f89a12721dcf07a63a47f0292c4",
     "nod-false-moon-native-backgrounds.lua": "c294037d91208d4c7d600d86c9d8691ee10bce661438bacc093c24104e641da0",
-    "sne-domains-native-backgrounds.lua": "d4455c1b54b3b569d3465f0614b3d39d61f134d36bf5be830560fa3f9fc75803"
+    "sne-domains-native-backgrounds.lua": "d4455c1b54b3b569d3465f0614b3d39d61f134d36bf5be830560fa3f9fc75803",
+    "sum-frontier-native-backgrounds.lua": "91fb558b85a44c3dcd1d610ddb7f70c348b50cf4e4ca041c08eb3788f7dea73a",
+    "tun-domains-native-backgrounds.lua": "9d39e8bbec79761f01ea02a54916df851c1921b7ab385990db44e7da478aba6a",
+    "border-domains-native-backgrounds.lua": "99fdeeed15230de56ca0a1fdb01c6d6e79b8bfa00f58ba4ec0569b1e4abcba6e"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -4205,6 +4208,672 @@
         "minDecodeMs": 19.88,
         "maxDecodeMs": 25.15,
         "medianRetainedLuaKiB": 1191.1
+      }
+    },
+    "sites-hunt-28752": {
+      "4096": {
+        "fileBytes": 18359,
+        "medianDecodeMs": 10.74,
+        "minDecodeMs": 9.41,
+        "maxDecodeMs": 16.0,
+        "medianRetainedLuaKiB": 795.4
+      },
+      "4608": {
+        "fileBytes": 21835,
+        "medianDecodeMs": 12.57,
+        "minDecodeMs": 10.98,
+        "maxDecodeMs": 16.92,
+        "medianRetainedLuaKiB": 938.9
+      },
+      "5120": {
+        "fileBytes": 25188,
+        "medianDecodeMs": 15.65,
+        "minDecodeMs": 13.44,
+        "maxDecodeMs": 20.74,
+        "medianRetainedLuaKiB": 1022.0
+      },
+      "5632": {
+        "fileBytes": 28530,
+        "medianDecodeMs": 17.6,
+        "minDecodeMs": 14.61,
+        "maxDecodeMs": 23.95,
+        "medianRetainedLuaKiB": 1105.5
+      },
+      "6144": {
+        "fileBytes": 30746,
+        "medianDecodeMs": 17.26,
+        "minDecodeMs": 14.92,
+        "maxDecodeMs": 31.68,
+        "medianRetainedLuaKiB": 1193.4
+      }
+    },
+    "sites-hunt-28753": {
+      "4096": {
+        "fileBytes": 18438,
+        "medianDecodeMs": 10.46,
+        "minDecodeMs": 8.95,
+        "maxDecodeMs": 40.59,
+        "medianRetainedLuaKiB": 793.6
+      },
+      "4608": {
+        "fileBytes": 21906,
+        "medianDecodeMs": 13.03,
+        "minDecodeMs": 10.67,
+        "maxDecodeMs": 30.91,
+        "medianRetainedLuaKiB": 936.7
+      },
+      "5120": {
+        "fileBytes": 25263,
+        "medianDecodeMs": 14.37,
+        "minDecodeMs": 12.43,
+        "maxDecodeMs": 16.73,
+        "medianRetainedLuaKiB": 1019.3
+      },
+      "5632": {
+        "fileBytes": 28627,
+        "medianDecodeMs": 16.86,
+        "minDecodeMs": 14.41,
+        "maxDecodeMs": 18.72,
+        "medianRetainedLuaKiB": 1102.1
+      },
+      "6144": {
+        "fileBytes": 30527,
+        "medianDecodeMs": 17.29,
+        "minDecodeMs": 15.28,
+        "maxDecodeMs": 19.59,
+        "medianRetainedLuaKiB": 1189.1
+      }
+    },
+    "sites-hunt-28756": {
+      "4096": {
+        "fileBytes": 16859,
+        "medianDecodeMs": 10.88,
+        "minDecodeMs": 9.1,
+        "maxDecodeMs": 12.74,
+        "medianRetainedLuaKiB": 789.3
+      },
+      "4608": {
+        "fileBytes": 20229,
+        "medianDecodeMs": 13.55,
+        "minDecodeMs": 10.94,
+        "maxDecodeMs": 15.65,
+        "medianRetainedLuaKiB": 931.1
+      },
+      "5120": {
+        "fileBytes": 23496,
+        "medianDecodeMs": 15.93,
+        "minDecodeMs": 13.16,
+        "maxDecodeMs": 22.46,
+        "medianRetainedLuaKiB": 1013.0
+      },
+      "5632": {
+        "fileBytes": 26726,
+        "medianDecodeMs": 16.52,
+        "minDecodeMs": 15.18,
+        "maxDecodeMs": 18.47,
+        "medianRetainedLuaKiB": 1095.0
+      },
+      "6144": {
+        "fileBytes": 28624,
+        "medianDecodeMs": 16.22,
+        "minDecodeMs": 14.57,
+        "maxDecodeMs": 19.79,
+        "medianRetainedLuaKiB": 1176.8
+      }
+    },
+    "sites-hunt-41009": {
+      "4096": {
+        "fileBytes": 18336,
+        "medianDecodeMs": 10.57,
+        "minDecodeMs": 9.6,
+        "maxDecodeMs": 75.85,
+        "medianRetainedLuaKiB": 795.3
+      },
+      "4608": {
+        "fileBytes": 21790,
+        "medianDecodeMs": 13.92,
+        "minDecodeMs": 11.29,
+        "maxDecodeMs": 31.64,
+        "medianRetainedLuaKiB": 938.0
+      },
+      "5120": {
+        "fileBytes": 25143,
+        "medianDecodeMs": 14.82,
+        "minDecodeMs": 13.04,
+        "maxDecodeMs": 23.62,
+        "medianRetainedLuaKiB": 1021.4
+      },
+      "5632": {
+        "fileBytes": 28485,
+        "medianDecodeMs": 17.99,
+        "minDecodeMs": 14.33,
+        "maxDecodeMs": 23.75,
+        "medianRetainedLuaKiB": 1104.9
+      },
+      "6144": {
+        "fileBytes": 30735,
+        "medianDecodeMs": 17.2,
+        "minDecodeMs": 15.17,
+        "maxDecodeMs": 27.73,
+        "medianRetainedLuaKiB": 1188.1
+      }
+    },
+    "sites-hunt-98499": {
+      "4096": {
+        "fileBytes": 16967,
+        "medianDecodeMs": 11.95,
+        "minDecodeMs": 9.12,
+        "maxDecodeMs": 14.84,
+        "medianRetainedLuaKiB": 743.2
+      },
+      "4608": {
+        "fileBytes": 20311,
+        "medianDecodeMs": 14.02,
+        "minDecodeMs": 10.79,
+        "maxDecodeMs": 17.96,
+        "medianRetainedLuaKiB": 915.8
+      },
+      "5120": {
+        "fileBytes": 23526,
+        "medianDecodeMs": 13.17,
+        "minDecodeMs": 12.62,
+        "maxDecodeMs": 19.37,
+        "medianRetainedLuaKiB": 996.0
+      },
+      "5632": {
+        "fileBytes": 26722,
+        "medianDecodeMs": 15.46,
+        "minDecodeMs": 14.53,
+        "maxDecodeMs": 23.19,
+        "medianRetainedLuaKiB": 1076.0
+      },
+      "6144": {
+        "fileBytes": 28632,
+        "medianDecodeMs": 17.4,
+        "minDecodeMs": 15.11,
+        "maxDecodeMs": 24.32,
+        "medianRetainedLuaKiB": 1160.2
+      }
+    },
+    "sites-hunt-46531": {
+      "4096": {
+        "fileBytes": 15535,
+        "medianDecodeMs": 10.74,
+        "minDecodeMs": 8.93,
+        "maxDecodeMs": 13.58,
+        "medianRetainedLuaKiB": 742.1
+      },
+      "4608": {
+        "fileBytes": 18805,
+        "medianDecodeMs": 13.07,
+        "minDecodeMs": 10.93,
+        "maxDecodeMs": 14.36,
+        "medianRetainedLuaKiB": 911.8
+      },
+      "5120": {
+        "fileBytes": 21934,
+        "medianDecodeMs": 15.51,
+        "minDecodeMs": 12.43,
+        "maxDecodeMs": 18.26,
+        "medianRetainedLuaKiB": 990.3
+      },
+      "5632": {
+        "fileBytes": 25040,
+        "medianDecodeMs": 16.24,
+        "minDecodeMs": 13.71,
+        "maxDecodeMs": 20.5,
+        "medianRetainedLuaKiB": 1068.9
+      },
+      "6144": {
+        "fileBytes": 26728,
+        "medianDecodeMs": 16.38,
+        "minDecodeMs": 15.01,
+        "maxDecodeMs": 21.19,
+        "medianRetainedLuaKiB": 1146.6
+      }
+    },
+    "sites-hunt-46531-pocket-1": {
+      "4096": {
+        "fileBytes": 16683,
+        "medianDecodeMs": 11.31,
+        "minDecodeMs": 9.13,
+        "maxDecodeMs": 13.98,
+        "medianRetainedLuaKiB": 792.9
+      },
+      "4608": {
+        "fileBytes": 20057,
+        "medianDecodeMs": 11.18,
+        "minDecodeMs": 10.57,
+        "maxDecodeMs": 14.07,
+        "medianRetainedLuaKiB": 935.5
+      },
+      "5120": {
+        "fileBytes": 23306,
+        "medianDecodeMs": 14.61,
+        "minDecodeMs": 13.25,
+        "maxDecodeMs": 21.32,
+        "medianRetainedLuaKiB": 1018.2
+      },
+      "5632": {
+        "fileBytes": 26514,
+        "medianDecodeMs": 16.85,
+        "minDecodeMs": 14.41,
+        "maxDecodeMs": 20.81,
+        "medianRetainedLuaKiB": 1100.5
+      },
+      "6144": {
+        "fileBytes": 28516,
+        "medianDecodeMs": 18.77,
+        "minDecodeMs": 16.22,
+        "maxDecodeMs": 26.53,
+        "medianRetainedLuaKiB": 1183.2
+      }
+    },
+    "sites-hunt-46532": {
+      "4096": {
+        "fileBytes": 18449,
+        "medianDecodeMs": 11.96,
+        "minDecodeMs": 9.67,
+        "maxDecodeMs": 15.98,
+        "medianRetainedLuaKiB": 796.4
+      },
+      "4608": {
+        "fileBytes": 21977,
+        "medianDecodeMs": 14.07,
+        "minDecodeMs": 11.77,
+        "maxDecodeMs": 16.83,
+        "medianRetainedLuaKiB": 940.0
+      },
+      "5120": {
+        "fileBytes": 25406,
+        "medianDecodeMs": 14.72,
+        "minDecodeMs": 12.92,
+        "maxDecodeMs": 19.52,
+        "medianRetainedLuaKiB": 1023.3
+      },
+      "5632": {
+        "fileBytes": 28818,
+        "medianDecodeMs": 15.4,
+        "minDecodeMs": 14.31,
+        "maxDecodeMs": 23.21,
+        "medianRetainedLuaKiB": 1106.9
+      },
+      "6144": {
+        "fileBytes": 30652,
+        "medianDecodeMs": 16.43,
+        "minDecodeMs": 14.81,
+        "maxDecodeMs": 26.62,
+        "medianRetainedLuaKiB": 1195.3
+      }
+    },
+    "sites-hunt-46532-pocket-1": {
+      "4096": {
+        "fileBytes": 17363,
+        "medianDecodeMs": 11.25,
+        "minDecodeMs": 8.64,
+        "maxDecodeMs": 14.91,
+        "medianRetainedLuaKiB": 795.3
+      },
+      "4608": {
+        "fileBytes": 20799,
+        "medianDecodeMs": 12.84,
+        "minDecodeMs": 10.8,
+        "maxDecodeMs": 17.38,
+        "medianRetainedLuaKiB": 938.5
+      },
+      "5120": {
+        "fileBytes": 24114,
+        "medianDecodeMs": 14.03,
+        "minDecodeMs": 12.67,
+        "maxDecodeMs": 18.2,
+        "medianRetainedLuaKiB": 1021.3
+      },
+      "5632": {
+        "fileBytes": 27404,
+        "medianDecodeMs": 16.24,
+        "minDecodeMs": 13.25,
+        "maxDecodeMs": 28.34,
+        "medianRetainedLuaKiB": 1104.6
+      },
+      "6144": {
+        "fileBytes": 29158,
+        "medianDecodeMs": 16.01,
+        "minDecodeMs": 14.16,
+        "maxDecodeMs": 23.99,
+        "medianRetainedLuaKiB": 1192.5
+      }
+    },
+    "sites-hunt-46533": {
+      "4096": {
+        "fileBytes": 17051,
+        "medianDecodeMs": 11.83,
+        "minDecodeMs": 9.16,
+        "maxDecodeMs": 14.56,
+        "medianRetainedLuaKiB": 786.5
+      },
+      "4608": {
+        "fileBytes": 20449,
+        "medianDecodeMs": 15.08,
+        "minDecodeMs": 12.02,
+        "maxDecodeMs": 19.22,
+        "medianRetainedLuaKiB": 926.7
+      },
+      "5120": {
+        "fileBytes": 23722,
+        "medianDecodeMs": 15.9,
+        "minDecodeMs": 12.43,
+        "maxDecodeMs": 22.35,
+        "medianRetainedLuaKiB": 1008.2
+      },
+      "5632": {
+        "fileBytes": 26954,
+        "medianDecodeMs": 17.27,
+        "minDecodeMs": 13.69,
+        "maxDecodeMs": 32.48,
+        "medianRetainedLuaKiB": 1089.3
+      },
+      "6144": {
+        "fileBytes": 28342,
+        "medianDecodeMs": 18.37,
+        "minDecodeMs": 16.15,
+        "maxDecodeMs": 28.63,
+        "medianRetainedLuaKiB": 1174.6
+      }
+    },
+    "sites-hunt-46533-pocket-1": {
+      "4096": {
+        "fileBytes": 18420,
+        "medianDecodeMs": 13.65,
+        "minDecodeMs": 9.87,
+        "maxDecodeMs": 16.91,
+        "medianRetainedLuaKiB": 794.9
+      },
+      "4608": {
+        "fileBytes": 21888,
+        "medianDecodeMs": 14.87,
+        "minDecodeMs": 13.19,
+        "maxDecodeMs": 18.12,
+        "medianRetainedLuaKiB": 938.4
+      },
+      "5120": {
+        "fileBytes": 25261,
+        "medianDecodeMs": 17.35,
+        "minDecodeMs": 13.62,
+        "maxDecodeMs": 22.1,
+        "medianRetainedLuaKiB": 1021.3
+      },
+      "5632": {
+        "fileBytes": 28603,
+        "medianDecodeMs": 20.6,
+        "minDecodeMs": 16.16,
+        "maxDecodeMs": 26.38,
+        "medianRetainedLuaKiB": 1104.7
+      },
+      "6144": {
+        "fileBytes": 30879,
+        "medianDecodeMs": 20.52,
+        "minDecodeMs": 15.78,
+        "maxDecodeMs": 25.73,
+        "medianRetainedLuaKiB": 1192.6
+      }
+    },
+    "sites-hunt-46534": {
+      "4096": {
+        "fileBytes": 17080,
+        "medianDecodeMs": 12.06,
+        "minDecodeMs": 9.27,
+        "maxDecodeMs": 15.49,
+        "medianRetainedLuaKiB": 782.4
+      },
+      "4608": {
+        "fileBytes": 20448,
+        "medianDecodeMs": 12.95,
+        "minDecodeMs": 10.68,
+        "maxDecodeMs": 19.2,
+        "medianRetainedLuaKiB": 921.8
+      },
+      "5120": {
+        "fileBytes": 23655,
+        "medianDecodeMs": 15.21,
+        "minDecodeMs": 12.57,
+        "maxDecodeMs": 20.57,
+        "medianRetainedLuaKiB": 1002.2
+      },
+      "5632": {
+        "fileBytes": 26875,
+        "medianDecodeMs": 16.43,
+        "minDecodeMs": 14.57,
+        "maxDecodeMs": 24.37,
+        "medianRetainedLuaKiB": 1082.2
+      },
+      "6144": {
+        "fileBytes": 28939,
+        "medianDecodeMs": 18.45,
+        "minDecodeMs": 16.78,
+        "maxDecodeMs": 30.87,
+        "medianRetainedLuaKiB": 1162.3
+      }
+    },
+    "sites-hunt-46534-pocket-1": {
+      "4096": {
+        "fileBytes": 15888,
+        "medianDecodeMs": 10.6,
+        "minDecodeMs": 8.76,
+        "maxDecodeMs": 17.87,
+        "medianRetainedLuaKiB": 739.2
+      },
+      "4608": {
+        "fileBytes": 19144,
+        "medianDecodeMs": 15.38,
+        "minDecodeMs": 11.24,
+        "maxDecodeMs": 22.18,
+        "medianRetainedLuaKiB": 909.4
+      },
+      "5120": {
+        "fileBytes": 22249,
+        "medianDecodeMs": 15.39,
+        "minDecodeMs": 11.79,
+        "maxDecodeMs": 23.9,
+        "medianRetainedLuaKiB": 987.7
+      },
+      "5632": {
+        "fileBytes": 25335,
+        "medianDecodeMs": 20.58,
+        "minDecodeMs": 14.09,
+        "maxDecodeMs": 23.75,
+        "medianRetainedLuaKiB": 1065.9
+      },
+      "6144": {
+        "fileBytes": 27219,
+        "medianDecodeMs": 18.6,
+        "minDecodeMs": 16.11,
+        "maxDecodeMs": 28.45,
+        "medianRetainedLuaKiB": 1148.3
+      }
+    },
+    "sites-hunt-24907": {
+      "4096": {
+        "fileBytes": 17465,
+        "medianDecodeMs": 12.08,
+        "minDecodeMs": 9.41,
+        "maxDecodeMs": 17.92,
+        "medianRetainedLuaKiB": 795.3
+      },
+      "4608": {
+        "fileBytes": 20859,
+        "medianDecodeMs": 12.75,
+        "minDecodeMs": 11.3,
+        "maxDecodeMs": 21.1,
+        "medianRetainedLuaKiB": 938.0
+      },
+      "5120": {
+        "fileBytes": 24132,
+        "medianDecodeMs": 17.7,
+        "minDecodeMs": 12.9,
+        "maxDecodeMs": 21.84,
+        "medianRetainedLuaKiB": 1021.3
+      },
+      "5632": {
+        "fileBytes": 27390,
+        "medianDecodeMs": 20.09,
+        "minDecodeMs": 14.18,
+        "maxDecodeMs": 24.89,
+        "medianRetainedLuaKiB": 1104.3
+      },
+      "6144": {
+        "fileBytes": 29458,
+        "medianDecodeMs": 19.05,
+        "minDecodeMs": 15.92,
+        "maxDecodeMs": 25.83,
+        "medianRetainedLuaKiB": 1187.5
+      }
+    },
+    "sites-hunt-24907-pocket-1": {
+      "4096": {
+        "fileBytes": 17784,
+        "medianDecodeMs": 13.15,
+        "minDecodeMs": 9.03,
+        "maxDecodeMs": 16.24,
+        "medianRetainedLuaKiB": 795.4
+      },
+      "4608": {
+        "fileBytes": 21320,
+        "medianDecodeMs": 14.44,
+        "minDecodeMs": 12.52,
+        "maxDecodeMs": 20.08,
+        "medianRetainedLuaKiB": 938.1
+      },
+      "5120": {
+        "fileBytes": 24719,
+        "medianDecodeMs": 14.98,
+        "minDecodeMs": 12.29,
+        "maxDecodeMs": 25.25,
+        "medianRetainedLuaKiB": 1021.2
+      },
+      "5632": {
+        "fileBytes": 28111,
+        "medianDecodeMs": 16.44,
+        "minDecodeMs": 13.92,
+        "maxDecodeMs": 49.16,
+        "medianRetainedLuaKiB": 1104.3
+      },
+      "6144": {
+        "fileBytes": 29913,
+        "medianDecodeMs": 17.96,
+        "minDecodeMs": 15.22,
+        "maxDecodeMs": 74.62,
+        "medianRetainedLuaKiB": 1191.8
+      }
+    },
+    "sites-hunt-68346": {
+      "4096": {
+        "fileBytes": 18059,
+        "medianDecodeMs": 10.17,
+        "minDecodeMs": 9.19,
+        "maxDecodeMs": 16.44,
+        "medianRetainedLuaKiB": 795.8
+      },
+      "4608": {
+        "fileBytes": 21479,
+        "medianDecodeMs": 12.7,
+        "minDecodeMs": 11.25,
+        "maxDecodeMs": 20.16,
+        "medianRetainedLuaKiB": 943.5
+      },
+      "5120": {
+        "fileBytes": 24766,
+        "medianDecodeMs": 15.32,
+        "minDecodeMs": 13.73,
+        "maxDecodeMs": 23.65,
+        "medianRetainedLuaKiB": 1027.0
+      },
+      "5632": {
+        "fileBytes": 28064,
+        "medianDecodeMs": 16.42,
+        "minDecodeMs": 14.74,
+        "maxDecodeMs": 25.04,
+        "medianRetainedLuaKiB": 1109.8
+      },
+      "6144": {
+        "fileBytes": 30246,
+        "medianDecodeMs": 19.87,
+        "minDecodeMs": 15.9,
+        "maxDecodeMs": 26.2,
+        "medianRetainedLuaKiB": 1193.4
+      }
+    },
+    "sites-hunt-68346-pocket-1": {
+      "4096": {
+        "fileBytes": 17427,
+        "medianDecodeMs": 10.41,
+        "minDecodeMs": 9.18,
+        "maxDecodeMs": 17.72,
+        "medianRetainedLuaKiB": 794.7
+      },
+      "4608": {
+        "fileBytes": 20843,
+        "medianDecodeMs": 12.65,
+        "minDecodeMs": 11.34,
+        "maxDecodeMs": 19.26,
+        "medianRetainedLuaKiB": 937.5
+      },
+      "5120": {
+        "fileBytes": 24156,
+        "medianDecodeMs": 13.94,
+        "minDecodeMs": 12.55,
+        "maxDecodeMs": 20.5,
+        "medianRetainedLuaKiB": 1020.7
+      },
+      "5632": {
+        "fileBytes": 27454,
+        "medianDecodeMs": 16.95,
+        "minDecodeMs": 14.93,
+        "maxDecodeMs": 23.23,
+        "medianRetainedLuaKiB": 1104.3
+      },
+      "6144": {
+        "fileBytes": 29596,
+        "medianDecodeMs": 18.72,
+        "minDecodeMs": 15.21,
+        "maxDecodeMs": 24.41,
+        "medianRetainedLuaKiB": 1191.7
+      }
+    },
+    "sites-hunt-7164": {
+      "4096": {
+        "fileBytes": 17591,
+        "medianDecodeMs": 11.01,
+        "minDecodeMs": 9.08,
+        "maxDecodeMs": 14.76,
+        "medianRetainedLuaKiB": 791.8
+      },
+      "4608": {
+        "fileBytes": 21023,
+        "medianDecodeMs": 13.44,
+        "minDecodeMs": 10.91,
+        "maxDecodeMs": 18.1,
+        "medianRetainedLuaKiB": 934.2
+      },
+      "5120": {
+        "fileBytes": 24318,
+        "medianDecodeMs": 15.09,
+        "minDecodeMs": 12.38,
+        "maxDecodeMs": 24.09,
+        "medianRetainedLuaKiB": 1016.6
+      },
+      "5632": {
+        "fileBytes": 27608,
+        "medianDecodeMs": 19.73,
+        "minDecodeMs": 13.95,
+        "maxDecodeMs": 64.28,
+        "medianRetainedLuaKiB": 1098.7
+      },
+      "6144": {
+        "fileBytes": 29752,
+        "medianDecodeMs": 24.46,
+        "minDecodeMs": 16.47,
+        "maxDecodeMs": 42.45,
+        "medianRetainedLuaKiB": 1181.4
       }
     }
   }

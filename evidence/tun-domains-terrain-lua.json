@@ -1,0 +1,74 @@
+{
+  "sites-hunt-46531": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      413,
+      378,
+      349,
+      375
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "tunNorthPass",
+    "arrivals_outside_enemy_contact": 2,
+    "eliteRoom": {
+      "id": "sites-hunt-46531-pocket-1",
+      "returnY": 392
+    }
+  },
+  "sites-hunt-46532": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      412,
+      386,
+      366,
+      392
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "tunFlowerTerrace",
+    "arrivals_outside_enemy_contact": 2,
+    "eliteRoom": {
+      "id": "sites-hunt-46532-pocket-1",
+      "returnY": 480
+    }
+  },
+  "sites-hunt-46533": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      423,
+      392,
+      352,
+      384
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "tunBlueCut",
+    "arrivals_outside_enemy_contact": 2,
+    "eliteRoom": {
+      "id": "sites-hunt-46533-pocket-1",
+      "returnY": 480
+    }
+  },
+  "sites-hunt-46534": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      400,
+      366,
+      389,
+      420
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "tunSouthIncline",
+    "arrivals_outside_enemy_contact": 2,
+    "eliteRoom": {
+      "id": "sites-hunt-46534-pocket-1",
+      "returnY": 393
+    }
+  }
+}

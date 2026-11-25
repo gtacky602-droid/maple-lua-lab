@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-24907",
+      "key": "chasmQuarryLedge",
+      "note": "採掘場の北の段丘",
+      "source": "chasm-quarry-ledge-background-v1.png",
+      "preview": "chasm-quarry-ledge-native-preview-v1.png",
+      "prompt": "A high open cast quarry, stepped salmon colored cliffs and tilted ochre stone strata with distant wooden extraction cranes in dusty light, a green Liyue mountain skyline. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-24907-pocket-1",
+      "key": "chasmGeodeDen",
+      "note": "岩柱の晶洞",
+      "source": "chasm-geode-den-background-v1.png",
+      "preview": "chasm-geode-den-native-preview-v1.png",
+      "prompt": "Interior of a sheltered ochre quarry geode pocket with large squared amber crystal pillars rooted in split stone and a distant warm shaft of sunlight. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-68346",
+      "key": "nostoiIslandPier",
+      "note": "島南の石桟橋",
+      "source": "nostoi-island-pier-background-v1.png",
+      "preview": "nostoi-island-pier-native-preview-v1.png",
+      "prompt": "A small Mediterranean coastal island south harbour at dawn, a broken pale limestone pier, turquoise wavelets and a distant bell tower against olive hills. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-68346-pocket-1",
+      "key": "nostoiTidalVault",
+      "note": "桟橋の潮だまり",
+      "source": "nostoi-tidal-vault-background-v1.png",
+      "preview": "nostoi-tidal-vault-native-preview-v1.png",
+      "prompt": "A vaulted limestone sea cave underneath an old island pier, spears of jade sunlight from sea arches, mineral pools and dark submerged wharf pilings. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-7164",
+      "key": "spineSummitSteps",
+      "note": "フィンドニールの頂上・雪の石段",
+      "source": "spine-summit-steps-background-v1.png",
+      "preview": "spine-summit-steps-native-preview-v1.png",
+      "prompt": "Mountain summit on a frozen fantasy alpine island, a flight of ice-encrusted stone steps with broken frost-blue ceremonial pillars, long drifts, luminous cold sky and distant peaks. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    }
+  ]
+}

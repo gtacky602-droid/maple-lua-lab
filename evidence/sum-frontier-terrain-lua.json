@@ -1,0 +1,72 @@
+{
+  "sites-hunt-28752": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      416,
+      380,
+      352,
+      389
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 79,
+    "exterior_scenery": "sumEastGrove",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-28753": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      399,
+      359,
+      333,
+      368
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 79,
+    "exterior_scenery": "sumNorthBough",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-28756": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      403,
+      384,
+      361
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 79,
+    "exterior_scenery": "sumSouthRavine",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-41009": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      409,
+      373,
+      389,
+      404
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 79,
+    "exterior_scenery": "sumCityWaterGate",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-98499": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      412,
+      373,
+      395,
+      416
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 79,
+    "exterior_scenery": "sumRootRuins",
+    "arrivals_outside_enemy_contact": 1
+  }
+}

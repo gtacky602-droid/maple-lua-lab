@@ -1,0 +1,69 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-46531",
+      "key": "tunNorthPass",
+      "note": "北の灰晶坂",
+      "source": "tun-north-pass-background-v1.png",
+      "preview": "tun-north-pass-native-preview-v1.png",
+      "prompt": "Northwestern desert pass enclosed by leaning gray crystal spires and dark mineral strata against a pale morning sky. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46531-pocket-1",
+      "key": "tunNorthSeep",
+      "note": "灰晶の湧水洞",
+      "source": "tun-north-seep-background-v1.png",
+      "preview": "tun-north-seep-native-preview-v1.png",
+      "prompt": "A sheltered blue seep within a hollow of gray desert crystal, one shaft of sunlight, dry red rock above. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46532",
+      "key": "tunFlowerTerrace",
+      "note": "花海の泉辺",
+      "source": "tun-flower-terrace-background-v1.png",
+      "preview": "tun-flower-terrace-native-preview-v1.png",
+      "prompt": "Sunlit desert oasis full of coral and white flower banks, a gigantic glowing tree across shallow water. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46532-pocket-1",
+      "key": "tunEmberAlcove",
+      "note": "花海の炭焼き跡",
+      "source": "tun-ember-alcove-background-v1.png",
+      "preview": "tun-ember-alcove-native-preview-v1.png",
+      "prompt": "A sheltered sandstone alcove above flower fields, remains of a round red-clay charcoal kiln, copper twilight. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46533",
+      "key": "tunBlueCut",
+      "note": "蒼漠の風食廊",
+      "source": "tun-blue-cut-background-v1.png",
+      "preview": "tun-blue-cut-native-preview-v1.png",
+      "prompt": "Austere indigo desert mesas and a long wind-carved eye-shaped opening between layered red sandstone escarpments. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46533-pocket-1",
+      "key": "tunDryCistern",
+      "note": "蒼漠の地下水槽",
+      "source": "tun-dry-cistern-background-v1.png",
+      "preview": "tun-dry-cistern-native-preview-v1.png",
+      "prompt": "A sunken turquoise cistern under cracked desert sandstone arches with a dangling rope and deep blue water. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46534",
+      "key": "tunSouthIncline",
+      "note": "蒼漠南の赤い斜面",
+      "source": "tun-south-incline-background-v1.png",
+      "preview": "tun-south-incline-native-preview-v1.png",
+      "prompt": "Broad scarlet sandstone terraces dropping into a southern desert canyon, pale gold dusty sky and distant basalt needles. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    },
+    {
+      "node": "sites-hunt-46534-pocket-1",
+      "key": "tunAshFissure",
+      "note": "南峡谷の灰の洞",
+      "source": "tun-ash-fissure-background-v1.png",
+      "preview": "tun-ash-fissure-native-preview-v1.png",
+      "prompt": "Dark basalt cave cut by one glowing red-orange geological fissure, soot-dark walls, dry red sandstone above the entrance. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+    }
+  ]
+}

@@ -10,34 +10,40 @@ def read(file):
 
 lua,core=runtime()
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('region', nargs='?', choices=['sumeru','natlan','inazuma','mondstadt'], default='sumeru')
+parser.add_argument('region', nargs='?', choices=['sumeru','natlan','inazuma','mondstadt','fontaine'], default='sumeru')
 region=parser.parse_args().region
-if region=='mondstadt':
-    quest,design_id,region_name='daily-mond-elites','Q-MON-D03','モンド'
+if region=='fontaine':
+    quest,design_id='daily-fon-land-elites','Q-FON-D05'
+    level,xp,mora=100,25890,1400
+    original={'fontaine-field','fontaine-outskirts-loading'}
+elif region=='mondstadt':
+    quest,design_id='daily-mond-elites','Q-MON-D03'
     level,xp,mora=18,280,220
     original={'mond-border','mond-old-ground','mond-watchtower'}
 elif region=='inazuma':
-    quest,design_id,region_name='daily-ina-trial','Q-INA-D04','稲妻'
+    quest,design_id='daily-ina-trial','Q-INA-D04'
     level,xp,mora=60,3300,520
     original={'inazuma-road','inazuma-shore-hunt'}
 elif region=='natlan':
-    quest,design_id,region_name='daily-nat-elite-hunt','Q-NAT-D04','ナタ'
+    quest,design_id='daily-nat-elite-hunt','Q-NAT-D04'
     level,xp,mora=120,63720,1880
     original={'natlan-field','natlan-quarry-road','natlan-riverside-range'}
 else:
-    quest,design_id,region_name='daily-sum-elites','Q-SUM-D03','スメール'
+    quest,design_id='daily-sum-elites','Q-SUM-D03'
     level,xp,mora=80,11990,800
     original={'sumeru-field','sum-kaveh-timberyard'}
 hub={'mondstadt':'mond-town','inazuma':'inazuma-town'}.get(region,region+'-hub')
 design=next(row for row in read('design/world/quest-bindings.json')['bindings'] if row['design_quest_id']==design_id)
 nodes={n['id']:n for n in read('content/story-graph.json')['nodes']}
 spawns=read('content/enemy-spawns.json')['nodes']
-rooms=[n['id'] for n in nodes.values() if n['region']==region_name
+daily=read('content/daily-quests.json')
+eligible_regions=daily['regions'][region]['includeRegions']
+rooms=[n['id'] for n in nodes.values() if n['region'] in eligible_regions
        and nodes.get(n.get('atlasParent'),{}).get('designField') in design['design_field_refs']
        and any(e.get('dailyElite') and not e.get('dailyExclude') for e in spawns.get(n['id'],[]))]
-config=next(q for q in read('content/daily-quests.json')['quests'] if q['id']==quest)
+config=next(q for q in daily['quests'] if q['id']==quest)
 assert set(config['filter']['nodes'])==original.union(rooms)
-assert len(rooms)=={'mondstadt':6,'inazuma':7,'natlan':3,'sumeru':9}[region]
+assert len(rooms)=={'mondstadt':6,'inazuma':7,'natlan':3,'sumeru':13,'fontaine':4}[region]
 
 fight=lua.eval("""function(C,s)
  local target=s.enemies[1]
@@ -63,7 +69,7 @@ rare_result={}
 for start in range(0,len(rooms),3):
     state=core.new(12)
     core.action(state,'story_start')
-    core.dailyBind(state,'47e2b06f7ae34a4da029360fb7514087',20803,None)
+    core.dailyBind(state,'54430774ef7c4e43bfc0a8095844aa27' if region=='fontaine' else '47e2b06f7ae34a4da029360fb7514087',20804 if region=='fontaine' else 20803,None)
     core.grantExp(state,LEVELS[level-1]['maple_reference_total_exp_to_reach'],'quest')
     core.enterStoryNode(state,hub)
     core.action(state,'daily_accept:'+quest)

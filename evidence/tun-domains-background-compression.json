@@ -1,0 +1,342 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "tun-north-pass-background-v1.png": {
+      "sourceBytes": 1685284,
+      "sourceSha256": "5ac3a5fee7b57a1c744250db42e22d0c0476b7188f2b50f6893139c08f772b71",
+      "preview": "tun-north-pass-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15447,
+      "baseSelectedBytes": 15431,
+      "detailFixed13Bytes": 11205,
+      "detailSelectedBytes": 11195,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.1764842845775463,
+          "rgbSha256": "114d63d0033475f99d687e0e8204611a37bf140991501751ff42c424c23fed5e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.853061252170139,
+          "rgbSha256": "fa80001939e60e4c842e1e35ea10e477bb9584fc559b15385e42a70a7b88d769"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.6211073133680554,
+          "rgbSha256": "249fb79d823ec32bf6a99c876b55b433cbdd2ce91abdfb1d145bf82ea241539d"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.4293913664641202,
+          "rgbSha256": "4e55ea72e33b28e68eb9e7b48777c524218c68205363328534c65f2b977774e8"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.2709870515046298,
+          "rgbSha256": "ee1065c983025f0b5713ff6bf5c1bf201c61da22a27d23aed81be1f9f80bd225"
+        }
+      ]
+    },
+    "tun-north-seep-background-v1.png": {
+      "sourceBytes": 1777482,
+      "sourceSha256": "0a20a898dde164d7c2dbb3cdd162e5820dd3dffe45c4896cece3f0b99b9719dd",
+      "preview": "tun-north-seep-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16595,
+      "baseSelectedBytes": 16579,
+      "detailFixed13Bytes": 11849,
+      "detailSelectedBytes": 11835,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.069541648582176,
+          "rgbSha256": "9ffbd2f8586978517a7da1917be379da6ce5dace6894c8767e75162cae50078a"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.691688820167824,
+          "rgbSha256": "c428823314136bb872c65b16f3a477d1f7ca7851f8b5855cfed4d9bafa415d8d"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.4136669017650463,
+          "rgbSha256": "c7f21d4ffe906f3f4ff260046dd3662b4bbd4ac092578f7e6a3d853ac4731925"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1877509223090277,
+          "rgbSha256": "80bf420175a5c63ed52f8a9082933ffb13f6c117224f9df1b922e76ac998165d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.9945610894097223,
+          "rgbSha256": "1668a4ca3b75a6cd2edad977a20ea9bc03ba0357755e2282048b99c659b7f9b3"
+        }
+      ]
+    },
+    "tun-flower-terrace-background-v1.png": {
+      "sourceBytes": 2205364,
+      "sourceSha256": "8f81222f2b3741ca508e7a7c246d446603ba814c4c4306f6af2689ac4ee4630b",
+      "preview": "tun-flower-terrace-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18357,
+      "baseSelectedBytes": 18341,
+      "detailFixed13Bytes": 12217,
+      "detailSelectedBytes": 12205,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.087793420862269,
+          "rgbSha256": "82cb6b6e434eff9694354845650acdca6503cb4c6085c5d7aed168c849a5ac2b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.529538755063657,
+          "rgbSha256": "ca3ee74bcb1eca382574e1f9401fa468269356a9ced8ee1ea2325f3f98384662"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.072593406394676,
+          "rgbSha256": "9e359a0defeedbfac3b55f1b4fa7726b0de131808c7a8d7949b89bb918c82f40"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.676000524450232,
+          "rgbSha256": "ce2d28c879f31c050869cb824ae80301cfcb21147e4eb0985014ed4ea571a0af"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.3280029296875,
+          "rgbSha256": "7eff5efd4031006c2494dfaabcf5f27a4d2421947c270eb425141b57740fb12c"
+        }
+      ]
+    },
+    "tun-ember-alcove-background-v1.png": {
+      "sourceBytes": 1758660,
+      "sourceSha256": "3bc259075fb83afdb698ce5c9aa99725375dd944e0fbdbd82d62ebe5504193a7",
+      "preview": "tun-ember-alcove-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17271,
+      "baseSelectedBytes": 17257,
+      "detailFixed13Bytes": 11811,
+      "detailSelectedBytes": 11797,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.5714518229166665,
+          "rgbSha256": "7b52cbb9594ce92a4ccef87197f71e51d3636821b2fcc48599a8a951eeb0fc09"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.2866459599247686,
+          "rgbSha256": "ca516db663c2f5d22117f948b712b74c7a9a84c7b4bed0cc6667a1135a7386e3"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.060757107204861,
+          "rgbSha256": "999316dc79406f6b9bc3480c883ce2980907d7d0e517a0232d0d9292af1500e5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.8780540183738426,
+          "rgbSha256": "0ab439a399aac1d71cba50d135437963e16280c9a9fdb0807406c3391aafa4fd"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.7131438078703702,
+          "rgbSha256": "f01812ce2cc4b9666f5d811a75687ad9ed888db5b0aef149d69ba8a9b914b3fb"
+        }
+      ]
+    },
+    "tun-blue-cut-background-v1.png": {
+      "sourceBytes": 1510046,
+      "sourceSha256": "161783a7d241d84a36f0605d78155a54d1ad79418b708e562f32af87441825fe",
+      "preview": "tun-blue-cut-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16965,
+      "baseSelectedBytes": 16949,
+      "detailFixed13Bytes": 11301,
+      "detailSelectedBytes": 11293,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.0889892578125,
+          "rgbSha256": "77e1c54e05851df6e90b4ff98c99e995a3ca06bb410e4d83e84e0d6f8d6d4c80"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.8980260778356481,
+          "rgbSha256": "cc6ffb2c11365d5edfd3e7822bf68f27fad5983a076d59bf4e714be10a3dc542"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.7490889937789351,
+          "rgbSha256": "3e05bd2467641dd2857b607c35f8b94f49edf0c29ab6a7887c9cbc476053a5e5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.6281060112847223,
+          "rgbSha256": "560b4945566912307b7651e4f458af731e6404ce7cab4ee4379d64e8119a189d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.5254200122974537,
+          "rgbSha256": "bf83dced66edfea0fa980a1c2c02ba146a10a38568f549dbc98e4d3c4144db24"
+        }
+      ]
+    },
+    "tun-dry-cistern-background-v1.png": {
+      "sourceBytes": 1878965,
+      "sourceSha256": "09c407d4d27426a8f244d5157388c0237b79113c4e94f97bd21e89dbd400c1eb",
+      "preview": "tun-dry-cistern-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18333,
+      "baseSelectedBytes": 18315,
+      "detailFixed13Bytes": 12469,
+      "detailSelectedBytes": 12461,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.303003381799768,
+          "rgbSha256": "2d2da852d8818031fc5e5ea4a38ec4ac1786b54ff38f940c6ab85713fcee1256"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.831264919704861,
+          "rgbSha256": "aa7b62a97f33c230bf3166a0121c3c038fed424038477345e0c0334e8e0f9887"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.485188802083333,
+          "rgbSha256": "80e2ad50fb3e5ca460f95e30334471dc6c4951d491c252eee5025838c4c2adf7"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.193565086082176,
+          "rgbSha256": "f70fe6ae56bdcabcb19f2b931ae9fedd72176f1a10969151d02d8371527cfe56"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.9491667570891202,
+          "rgbSha256": "7a8eb9f64377a3bcf105b1b352abdf3ec872379f29ace90f2fb3a652262af3c0"
+        }
+      ]
+    },
+    "tun-south-incline-background-v1.png": {
+      "sourceBytes": 1519379,
+      "sourceSha256": "b2c68350057e4455d406469d48ddef4745039150e04cadb9cc848b5548fe7c6e",
+      "preview": "tun-south-incline-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16987,
+      "baseSelectedBytes": 16973,
+      "detailFixed13Bytes": 11875,
+      "detailSelectedBytes": 11861,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.332065158420139,
+          "rgbSha256": "3809cd24af08fa54e0924cd747988aff4617f9b27dff2b950009ab425b093346"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.0970707646122686,
+          "rgbSha256": "ac108d43a0e80a6c4110d369c157d583abff55b2a9c75c6c0b1b6592a186c45e"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.9352575231481481,
+          "rgbSha256": "c9f3c67d50219a4f3f64a2586828522b1d66d8962cab350fbc0af176e1f1037f"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.8006885669849537,
+          "rgbSha256": "cc1a06733be6b64e8f3b17af24f1248eb3633a71c6417716e75f05d0f891a35f"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.6909473560474537,
+          "rgbSha256": "a4fd7354f7a81a2c286a9c078a323f142d1e0fcdf17e899a6cd5ffd2d5278407"
+        }
+      ]
+    },
+    "tun-ash-fissure-background-v1.png": {
+      "sourceBytes": 1501067,
+      "sourceSha256": "d60657d9e9422447bcc1e7207cf7732320910143b7e0c9001309c67e3dbbe8e8",
+      "preview": "tun-ash-fissure-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15799,
+      "baseSelectedBytes": 15783,
+      "detailFixed13Bytes": 11345,
+      "detailSelectedBytes": 11333,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.8477783203125,
+          "rgbSha256": "351ac813a2c4bd95e1a8738cca347b295f2e3440940ba623ec400bd0b61e6af1"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.6734551323784723,
+          "rgbSha256": "004dd50354eae7d8f9c4aa74cd52e922db7eb2d30f4f11b22182c3c27e3c8d35"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.549427173755787,
+          "rgbSha256": "0706dfcaa85d6ba6a9a554ad5f29af160658b5e0385b9e9ece28cf617200b9d7"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.452747486255787,
+          "rgbSha256": "54d1951721f82b52d4479ad04a1bc3cc20b02c62575a95583dbe7d2588272756"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.365478515625,
+          "rgbSha256": "f90977da7afce70c7132530feff314ed6c212ce4c992b9d1703a2f33813897ae"
+        }
+      ]
+    }
+  }
+}

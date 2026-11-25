@@ -1,22 +1,16 @@
 """Build five portable scenery tiers and verify their pixels with the lab's Lua decoder."""
 import argparse
-import base64
 import hashlib
 import json
 from pathlib import Path
 import struct
-import zlib
 
 import numpy as np
 from lupa.lua53 import LuaRuntime
 from PIL import Image
 
-from fit_background_detail import compare
-from pack_native_13bit import encode
-from pack_patch_planes import smallest
-from pack_scenery_patches import pack
-from pack_variable91 import convert_literals
-from plan_scenery_patches import paint
+from scenery_encoding import convert_literals, encode, pack_filtered, pack_rows
+from scenery_fitting import fit_base, paint
 
 ROOT = Path(__file__).resolve().parents[1]
 TIERS = (4096, 4608, 5120, 5632, 6144)
@@ -40,23 +34,14 @@ def decode(codec, base, details):
     return tiers
 
 
-def encode_scene(scene, codec, work, assets):
+def encode_scene(scene, codec, assets):
     source = assets / scene['source']
-    compare(source, work)
-    stem = source.stem
-    packed = base64.b85decode((work / (stem+'.b85')).read_bytes()[1:])
-    inflater = zlib.decompressobj(-15)
-    inflater.decompress(packed)
-    assert inflater.eof
-    base = encode(packed[:len(packed) - len(inflater.unused_data)])
-    with Image.open(work / (stem+'-reference.png')) as im:
-        reference = np.array(im)
-    with Image.open(work / (stem+'-after.png')) as im:
-        fitted = np.array(im)
+    reference, fitted, stream = fit_base(source)
+    base = encode(stream)
     refined, patches = paint(reference, fitted)
     assert len(patches) == TIERS[-1] - TIERS[0]
     raw = b''.join(struct.pack('<HHBBBBB', *rect) for rect in patches)
-    details = smallest(raw, pack(raw, allow_partial=True))
+    details = min((pack_rows(raw), pack_filtered(raw)), key=len)
     selected = [convert_literals(b'"'+block+b'"')[1:-1] for block in (base, details)]
     fixed = decode(codec, base, details)
     tiers = decode(codec, *selected)
@@ -91,19 +76,18 @@ def encode_scene(scene, codec, work, assets):
 def build(batch):
     assets = ROOT / 'assets'
     scenes = json.loads((assets / f'{batch}-background-generation.json').read_text('utf8'))['scenes']
-    work = ROOT / 'work' / (batch+'-background-fit')
-    work.mkdir(parents=True, exist_ok=True)
     codec = (assets / 'MapleCodec.lua').read_bytes()
     report = {'codec':'MapleCodec.lua with the R61C variable-width reader',
               'codecSha256': hashlib.sha256(codec).hexdigest(), 'scenes': {}}
     records = []
     for scene in scenes:
-        record, measures = encode_scene(scene, codec, work, assets)
+        record, measures = encode_scene(scene, codec, assets)
         records.append(record)
         report['scenes'][scene['source']] = measures
         print(scene['source'], flush=True)
     (assets / f'{batch}-native-backgrounds.lua').write_bytes(b'return {\n'+b''.join(records)+b'}\n')
-    (ROOT / 'evidence' / f'{batch}-background-compression.json').write_text(json.dumps(report, indent=2)+'\n','utf8')
+    (ROOT / 'evidence' / f'{batch}-background-compression.json').write_text(
+        json.dumps(report, indent=2) + '\n', encoding='utf8', newline='\n')
 
 
 if __name__ == '__main__':
