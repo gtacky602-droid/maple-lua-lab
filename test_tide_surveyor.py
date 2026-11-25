@@ -2,6 +2,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_weekly_test import check_original_weekly_replay
 
 lua, core = runtime()
 arena = 'tide-calibration-hall'
@@ -140,37 +141,48 @@ for _ in range(2):
 assert (restored.progression.questXp-xp,restored.mora-mora)==(1800,420)
 
 # Ordinary attacks can finish all three stages with physical movement and no healing.
+def fight(state, slot):
+    hero=state.actors[1]
+    state.actors[2].hp=0
+    hero.inv=0
+    started=state.t
+    moves=set()
+    for _ in range(150*60):
+        if slot.phase=='respawn':
+            break
+        dest=410
+        jump=not hero.ground
+        cast=slot.cast
+        if cast:
+            moves.add(cast.move.id)
+            for area in cast.zones.values():
+                if not area.at-44<=cast.tick<area.untilTick:
+                    continue
+                if area.top>=430 and area.right-area.left>240:
+                    if hero.ground and cast.tick>=area.at-13:
+                        core.action(state,'jump')
+                    jump=True
+                elif area.left-16<dest<area.right+16 and hero.y>area.top:
+                    dest=min([x for x in [area.left-30,area.right+30] if 20<x<940],
+                        key=lambda x:abs(x-hero.x))
+        dx=dest-hero.x
+        aim=480-hero.x
+        turn=abs(aim)>5 and aim*hero.dir<0
+        right=dx>7 or abs(dx)<=7 and turn and aim>0
+        left=dx<-7 or abs(dx)<=7 and turn and aim<0
+        ticks(state,right=right,left=left,jump=jump,attack=abs(aim)<112 and not turn)
+        assert state.returns==0
+    else:
+        raise AssertionError((slot.primary.hp,hero.hp,moves))
+    assert slot.stage==3 and moves==set(spec['moves']) and hero.hp==140
+    return dict(seconds=round(state.t-started,2),hp=hero.hp,moves=sorted(moves))
+
+
 state,slot,hero=trial()
-moves=set()
-for _ in range(150*60):
-    if slot.phase=='respawn':
-        break
-    dest=410
-    jump=not hero.ground
-    cast=slot.cast
-    if cast:
-        moves.add(cast.move.id)
-        for area in cast.zones.values():
-            if not area.at-44<=cast.tick<area.untilTick:
-                continue
-            if area.top>=430 and area.right-area.left>240:
-                if hero.ground and cast.tick>=area.at-13:
-                    core.action(state,'jump')
-                jump=True
-            elif area.left-16<dest<area.right+16 and hero.y>area.top:
-                dest=min([x for x in [area.left-30,area.right+30] if 20<x<940],
-                    key=lambda x:abs(x-hero.x))
-    dx=dest-hero.x
-    aim=480-hero.x
-    turn=abs(aim)>5 and aim*hero.dir<0
-    right=dx>7 or abs(dx)<=7 and turn and aim>0
-    left=dx<-7 or abs(dx)<=7 and turn and aim<0
-    ticks(state,right=right,left=left,jump=jump,attack=abs(aim)<112 and not turn)
-    assert state.returns==0
-else:
-    raise AssertionError((slot.primary.hp,hero.hp,moves))
-assert slot.stage==3 and moves==set(spec['moves']) and hero.hp==140
-result={'soloSeconds':round(state.t,2),'remainingHp':hero.hp,'movesSeen':sorted(moves),
+battle=fight(state,slot)
+replay=check_original_weekly_replay(lua,core,state,spec,quest,(1800,420),fight)
+result={'soloSeconds':battle['seconds'],'remainingHp':battle['hp'],'movesSeen':battle['moves'],
+    'replayAfterReport':replay,
     'fixedTelegraphs':True,'groundedCleanse':True,'feedbackBonus':12,'invulnerableHitPreservesMark':True,
     'floorWaveJump':True,'threeStageFlow':True,'reportRewardOnce':True,'defeatedCheckpoint':True}
 (ROOT/'evidence/tide-surveyor-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')

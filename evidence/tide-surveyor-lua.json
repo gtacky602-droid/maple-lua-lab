@@ -12,6 +12,32 @@
     "TS08",
     "TS09"
   ],
+  "replayAfterReport": {
+    "arena": "tide-calibration-hall",
+    "fixedLevel": 30,
+    "savedCooldownTicks": 3499,
+    "portalCooldownPauses": true,
+    "reportXp": 1800,
+    "reportMora": 420,
+    "replayKillXp": 17700,
+    "replayKillMora": 340,
+    "restoredClears": 2,
+    "battle": {
+      "seconds": 61.43,
+      "hp": 140,
+      "moves": [
+        "TS01",
+        "TS02",
+        "TS03",
+        "TS04",
+        "TS05",
+        "TS06",
+        "TS07",
+        "TS08",
+        "TS09"
+      ]
+    }
+  },
   "fixedTelegraphs": true,
   "groundedCleanse": true,
   "feedbackBonus": 12,

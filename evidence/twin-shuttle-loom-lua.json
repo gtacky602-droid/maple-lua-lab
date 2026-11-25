@@ -10,6 +10,27 @@
   "defeatAndReportOnce": true,
   "unfinishedCheckpointRestarts": true,
   "separateWeeklySlotsInOneSave": true,
+  "replayAfterReport": {
+    "arena": "buried-weaving-room",
+    "fixedLevel": 34,
+    "savedCooldownTicks": 3492,
+    "portalCooldownPauses": true,
+    "reportXp": 2100,
+    "reportMora": 450,
+    "replayKillXp": 17700,
+    "replayKillMora": 360,
+    "restoredClears": 2,
+    "battle": {
+      "seconds": 29.28,
+      "hp": 121,
+      "exposures": 2,
+      "patternIds": [
+        "LW01",
+        "LW02",
+        "LW04"
+      ]
+    }
+  },
   "respawnGeneration": 2,
   "solo": {
     "seconds": 29.28,

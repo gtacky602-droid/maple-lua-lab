@@ -2,6 +2,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_weekly_test import check_original_weekly_replay
 
 lua, core = runtime()
 arena = 'buried-weaving-room'
@@ -150,47 +151,58 @@ step(restored,save['weeklyBosses'][boss_id]['waitTicks'])
 assert restored.weeklySlots[boss_id].generation==2
 
 # Full normal-attack route. Keyboard movement stays inside the physical arena.
+def fight(state, slot):
+    player=state.actors[1]
+    state.actors[2].hp=0
+    player.inv=0
+    started=state.t
+    kills_before=state.kills
+    seen_moves=set()
+    for _ in range(170*60):
+        if slot.phase=='respawn':
+            break
+        target=slot.primary
+        if not slot.openUntil:
+            target=next((part for part in slot.shuttles.values() if part.hp>0),slot.primary)
+        dest=max(25,target.x-57)
+        jump=not player.ground
+        cast=slot.cast
+        if cast:
+            seen_moves.add(cast.move.id)
+            for area in cast.zones.values():
+                if area.sourceIndex and slot.shuttles[area.sourceIndex].hp<=0:
+                    continue
+                if not area.at-48<=cast.tick<area.untilTick:
+                    continue
+                if area.top>=422 and area.right-area.left>=170:
+                    if cast.tick>=area.at-15 and player.ground and area.left-12<player.x<area.right+12:
+                        core.action(state,'jump')
+                    jump=jump or cast.tick>=area.at-15
+                elif area.top<400 and player.y>area.top and player.y-50<area.bottom:
+                    if area.left-16<dest<area.right+16:
+                        dest=min([area.left-24,area.right+24],key=lambda x:abs(x-player.x))
+        dx=dest-player.x
+        aim=target.x-player.x
+        turn=abs(aim)>5 and aim*player.dir<0
+        step(state,left=dx<-8 or abs(dx)<=8 and turn and aim<0,right=dx>8 or abs(dx)<=8 and turn and aim>0,
+             attack=abs(aim)<110 and not turn,jump=jump)
+        assert state.returns==0,(seen_moves,state.t,slot.primary.hp,player.hp,slot.cycle)
+    else:
+        raise AssertionError((state.t,slot.primary.hp,player.hp,slot.cycle))
+    assert slot.cycle>=2 and state.kills==kills_before+1
+    return dict(seconds=round(state.t-started,2),hp=player.hp,exposures=slot.cycle,patternIds=sorted(seen_moves))
+
+
 state,slot,player=trial()
-seen_moves=set()
-for _ in range(170*60):
-    if slot.phase=='respawn':
-        break
-    target=slot.primary
-    if not slot.openUntil:
-        target=next((part for part in slot.shuttles.values() if part.hp>0),slot.primary)
-    dest=max(25,target.x-57)
-    jump=not player.ground
-    cast=slot.cast
-    if cast:
-        seen_moves.add(cast.move.id)
-        for area in cast.zones.values():
-            if area.sourceIndex and slot.shuttles[area.sourceIndex].hp<=0:
-                continue
-            if not area.at-48<=cast.tick<area.untilTick:
-                continue
-            if area.top>=422 and area.right-area.left>=170:
-                if cast.tick>=area.at-15 and player.ground and area.left-12<player.x<area.right+12:
-                    core.action(state,'jump')
-                jump=jump or cast.tick>=area.at-15
-            elif area.top<400 and player.y>area.top and player.y-50<area.bottom:
-                if area.left-16<dest<area.right+16:
-                    dest=min([area.left-24,area.right+24],key=lambda x:abs(x-player.x))
-    dx=dest-player.x
-    aim=target.x-player.x
-    turn=abs(aim)>5 and aim*player.dir<0
-    step(state,left=dx<-8 or abs(dx)<=8 and turn and aim<0,right=dx>8 or abs(dx)<=8 and turn and aim>0,
-         attack=abs(aim)<110 and not turn,jump=jump)
-    assert state.returns==0,(seen_moves,state.t,slot.primary.hp,player.hp,slot.cycle)
-else:
-    raise AssertionError((state.t,slot.primary.hp,player.hp,slot.cycle))
-assert slot.cycle>=2 and state.kills==1
+battle=fight(state,slot)
+replay=check_original_weekly_replay(lua,core,state,spec,quest,(2100,450),fight)
 data={'closedBodyIgnoresHits':True,'independentShuttles':True,
       'brokenSourceCancelsOnlyItsLine':True,'noPartRewards':True,'openedTicks':spec['openTicks'],
       'upperAndLowerPatterns':True,'fixedColumnAndFloorJump':True,
       'rebuildPreservesBodyHp':True,'defeatAndReportOnce':True,'unfinishedCheckpointRestarts':True,
       'separateWeeklySlotsInOneSave':True,
-      'respawnGeneration':2,'solo':{'seconds':round(state.t,2),'hp':player.hp,
-      'exposures':slot.cycle,'patternIds':sorted(seen_moves)}}
+      'replayAfterReport':replay,
+      'respawnGeneration':2,'solo':battle}
 (ROOT/'evidence/twin-shuttle-loom-lua.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/twin-shuttle-loom-fixture.json').write_text(json.dumps(validate_save(native(core.checkpoint(fixture())))),encoding='utf8')
 print(data)

@@ -8115,6 +8115,14 @@
     "encounter_difficulty_pairs_tested": 56,
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json",
+    "original_fixed_encounters": {
+      "tested": 2,
+      "lua_evidence": {
+        "original-tide-surveyor": "evidence/tide-surveyor-lua.json",
+        "original-twin-shuttle-loom": "evidence/twin-shuttle-loom-lua.json"
+      },
+      "browser_evidence": "evidence/original-weekly-portal-browser.json"
+    },
     "draft_hp_encounters": [
       "boss-29020101", "boss-29040101", "boss-29060201", "boss-29090101",
       "boss-29091101", "boss-29130201"

@@ -725,6 +725,12 @@ function hud(f,calls,renderMs){
   const status=automatic?'着岸後に自動で移動':portal.available?'移動できます':portal.reason;
   const wind=portal.wind?` ｜ ${portal.wind.calm?'風が止んでいます　残り':'風が止むまで'} ${Math.ceil(portal.wind.seconds)}秒`:'';
   $('nearbyPortalText').textContent=`行き先：${portal.name} ｜ ${status}${wind}`;
+  const cooldown=$('nearbyPortalCooldown');
+  cooldown.hidden=!portal.weeklyRespawnSeconds;
+  if(!cooldown.hidden){
+   const remaining=`ボスの再出現まで ${Math.ceil(portal.weeklyRespawnSeconds)}秒`;
+   if(cooldown.textContent!==remaining)cooldown.textContent=remaining;
+  }
   go.hidden=automatic;
   go.disabled=!portal.available;
   go.textContent=portal.ferryStop?'F：途中下船する':portal.ferryReboard?'F：再乗船する':portal.ferryBoard?'F：乗船する':

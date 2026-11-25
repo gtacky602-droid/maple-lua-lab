@@ -327,6 +327,10 @@ return function(C,configs,controllers)
   local f=frame(s,mode,profile);local slot,spec=C.currentWeeklyBoss(s)
   local portal=f.storyNearbyPortal
   local target=portal and byNode[portal.to]
+  if target and target.node==portal.to and not target.modes then
+   local stored=s.weeklySlots and s.weeklySlots[target.id]
+   if stored and stored.waitUntil then portal.weeklyRespawnSeconds=wait(s.t,stored)/60 end
+  end
   if target and target.node==portal.to and target.modes and not slot then
    local stored=s.weeklySlots and s.weeklySlots[target.id]
    local remaining=stored and wait(s.t,stored)/60 or 0

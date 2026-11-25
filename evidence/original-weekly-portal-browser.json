@@ -1,0 +1,31 @@
+{
+  "fixtureCooldownSeconds": 20,
+  "cases": {
+    "original-tide-surveyor": {
+      "arena": "tide-calibration-hall",
+      "viewport": {
+        "width": 1160,
+        "height": 1000
+      },
+      "pausedLabel": "ボスの再出現まで 16秒",
+      "screenshot": "original-weekly-portal-desktop.png",
+      "replayHp": 650,
+      "rankedDeskHidden": true,
+      "enteredWithF": true,
+      "errors": []
+    },
+    "original-twin-shuttle-loom": {
+      "arena": "buried-weaving-room",
+      "viewport": {
+        "width": 412,
+        "height": 915
+      },
+      "pausedLabel": "ボスの再出現まで 15秒",
+      "screenshot": "original-weekly-portal-narrow.png",
+      "replayHp": 250,
+      "rankedDeskHidden": true,
+      "enteredWithF": true,
+      "errors": []
+    }
+  }
+}
