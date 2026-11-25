@@ -43,8 +43,8 @@ function viewportSummary(cost,profile){
 }
 
 try{
- const [graph,initial,variants,weeklyData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),json('content/weekly-boss-spawns.json')]);
- const arenaPreviews=new Map(weeklyData.weeklyBosses.filter(b=>b.mapIdleArt).map(b=>[b.node,b]));
+ const [graph,initial,variants,weeklyData,fieldData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),json('content/weekly-boss-spawns.json'),json('content/field-boss-spawns.json')]);
+ const arenaPreviews=new Map([...weeklyData.weeklyBosses,...fieldData.fieldBosses].filter(b=>b.mapIdleArt).map(b=>[b.node,b]));
  const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const query=new URLSearchParams(location.search);
@@ -129,7 +129,11 @@ try{
   return {camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
  }
  function placements(){return drafts.nodes[node().id]??[]}
- function placementArt(e){const art=assets[e.species];return e.flip&&art.left?art.left:art}
+ function placementArt(e){
+  const original=assets[e.species],art=e.flip&&original.left?original.left:original;
+  const boss=arenaPreviews.get(node().id);
+  return boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt ? {...art,h:boss.artHeight} : art;
+ }
  function loadComparisonImage(frame,status,previewFile){
   if(status.state!=='loading'||pendingBackgrounds.has(status.file))return;
   pendingBackgrounds.add(status.file);
@@ -181,7 +185,7 @@ try{
   const cost={total:0,visible:0,standard:0};
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
    for(const e of items){
-    const a=placementArt(e),flip=e.flip&&a===assets[e.species],x=e.x-camera,y=e.y-a.hover;
+    const a=placementArt(e),flip=e.flip&&!assets[e.species].left,x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
     const quality=mode==='png'||matchedSprites?null:profile;
     if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
@@ -204,7 +208,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=boss?.innerNode===n.id?'異界の影の出現位置':boss?'開戦時のボス位置・待機絵で比較':'本編の敵配置 '+items.length+'体';
+   const label=boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -240,7 +244,8 @@ try{
    liveItems=[];liveError='';
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
-    if(liveItems.length && !liveItems.some(e=>e.x>=0 && e.x<960)){
+    const openingBoss=liveItems.length===1 && liveItems[0].id===arenaPreviews.get(n.id)?.id;
+    if(liveItems.length && (openingBoss || !liveItems.some(e=>e.x>=0 && e.x<960))){
      camera.value=Math.min(Number(camera.max),Math.max(0,liveItems[0].x-480));
     }
    }catch(error){liveError='本編配置を表示できません：'+error.message}
@@ -251,7 +256,7 @@ try{
  $('clearSelection').onclick=()=>{selected=null;$('editMode').value='add';render()};
  $('focusSelected').onclick=()=>{
   const e=placements().find(e=>e.id===selected);if(!e)return;
-  const a=placementArt(e),width=a.h*a.box[2]/a.box[3],flip=e.flip&&a===assets[e.species];
+  const a=placementArt(e),width=a.h*a.box[2]/a.box[3],flip=e.flip&&!assets[e.species].left;
   const center=e.x+width*(.5-(a.anchorX??.5))*(flip?-1:1);
   $('camera').value=Math.round(Math.max(0,Math.min(Math.max(0,node().width-960),center-480)));
   render();$('png').scrollIntoView({block:'center',behavior:'instant'});

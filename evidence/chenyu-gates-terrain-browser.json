@@ -1,0 +1,161 @@
+{
+  "tea": {
+    "stage": "branch-hunt-64825",
+    "scenery": {
+      "key": "chenyuGateTeaBanks",
+      "file": "chenyu-gate-tea-banks-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 612,
+      "y": 181.6,
+      "adjacent": [
+        "liyue-wp-64825",
+        "branch-hunt-64825-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64825&placements=live&compare=background",
+      "next": "branch-hunt-64825-pocket-1"
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 398,
+    "pocketScenery": {
+      "key": "chenyuGateReedPool",
+      "file": "chenyu-gate-reed-pool-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64825",
+        "branch-hunt-64825",
+        "walk"
+      ],
+      [
+        "branch-hunt-64825",
+        "branch-hunt-64825-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64825-pocket-1",
+        "branch-hunt-64825",
+        "walk"
+      ],
+      [
+        "branch-hunt-64825",
+        "liyue-wp-64825",
+        "walk"
+      ]
+    ]
+  },
+  "limestone": {
+    "stage": "branch-hunt-64824",
+    "scenery": {
+      "key": "chenyuSouthLimestone",
+      "file": "chenyu-south-limestone-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-02",
+      "x": 406.9,
+      "y": 272.8,
+      "adjacent": [
+        "liyue-wp-64824",
+        "branch-hunt-64824-pocket-1",
+        "branch-hunt-64824-pocket-2",
+        "branch-hunt-64824-pocket-3"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-64824&placements=live&compare=background",
+      "pockets": {
+        "branch-hunt-64824-pocket-1": "沈玉の谷の玄文獣・脇部屋 ｜ 任意戦・精鋭・徒歩・Lv86・上の足場の門",
+        "branch-hunt-64824-pocket-2": "沈玉の谷の遺跡守衛・脇部屋 ｜ 任意戦・希少遭遇・徒歩・Lv84・上の足場の門",
+        "branch-hunt-64824-pocket-3": "沈玉の谷の遺跡機兵・脇部屋 ｜ 任意戦・希少遭遇・徒歩・Lv84・地上の門"
+      },
+      "next": "branch-hunt-64824-pocket-1"
+    },
+    "jump": [
+      480,
+      401
+    ],
+    "returnHeight": 410,
+    "pocketScenery": {
+      "key": "chenyuBeastBamboo",
+      "file": "chenyu-beast-bamboo-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-64824",
+        "branch-hunt-64824",
+        "walk"
+      ],
+      [
+        "branch-hunt-64824",
+        "branch-hunt-64824-pocket-1",
+        "raised"
+      ],
+      [
+        "branch-hunt-64824-pocket-1",
+        "branch-hunt-64824",
+        "walk"
+      ],
+      [
+        "branch-hunt-64824",
+        "branch-hunt-64824-pocket-2",
+        "raised"
+      ],
+      [
+        "branch-hunt-64824-pocket-2",
+        "branch-hunt-64824",
+        "walk"
+      ],
+      [
+        "branch-hunt-64824",
+        "branch-hunt-64824-pocket-3",
+        "raised"
+      ],
+      [
+        "branch-hunt-64824-pocket-3",
+        "branch-hunt-64824",
+        "walk"
+      ],
+      [
+        "branch-hunt-64824",
+        "liyue-wp-64824",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "branch-hunt-64824-pocket-1",
+        "returnHeight": 410,
+        "pocketScenery": {
+          "key": "chenyuBeastBamboo",
+          "file": "chenyu-beast-bamboo-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "branch-hunt-64824-pocket-2",
+        "returnHeight": 392,
+        "pocketScenery": {
+          "key": "chenyuGuardianSluice",
+          "file": "chenyu-guardian-sluice-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "branch-hunt-64824-pocket-3",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "chenyuSentinelKiln",
+          "file": "chenyu-sentinel-kiln-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,53 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "branch-hunt-64825",
+      "key": "chenyuGateTeaBanks",
+      "note": "谷口の茶畑",
+      "source": "chenyu-gate-tea-banks-background-v1.png",
+      "preview": "chenyu-gate-tea-banks-native-preview-v1.png",
+      "prompt": "Spring foothills at the entrance to a Chinese tea valley, ribbons of low green tea bushes, blue-gray karst cliffs emerging through mist and a singular wooden roofed rest pavilion at left, clear side elevation. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-64825-pocket-1",
+      "key": "chenyuGateReedPool",
+      "note": "谷口の葦の淵",
+      "source": "chenyu-gate-reed-pool-background-v1.png",
+      "preview": "chenyu-gate-reed-pool-native-preview-v1.png",
+      "prompt": "An intimate sheltered rocky pool beneath a small Chinese stone bridge, river reeds and hanging willow leaves, cool green water glowing under the shaded arch, wet stones and a flat dry bank. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-64824",
+      "key": "chenyuSouthLimestone",
+      "note": "南の神像の石灰棚",
+      "source": "chenyu-south-limestone-background-v1.png",
+      "preview": "chenyu-south-limestone-native-preview-v1.png",
+      "prompt": "Golden afternoon on three sweeping limestone terraces in a southern Chinese karst tea valley, distant sharp jade hills and an ancient weathered jade standing stone on the ridge, sunlit river through the middle distance. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-64824-pocket-1",
+      "key": "chenyuBeastBamboo",
+      "note": "玄文獣の竹林",
+      "source": "chenyu-beast-bamboo-background-v1.png",
+      "preview": "chenyu-beast-bamboo-native-preview-v1.png",
+      "prompt": "A green bamboo thicket opening on to a broad rocky clearing, one huge twisted pine root, luminous jade light through mist and a few clear silhouettes of bamboo stems. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-64824-pocket-2",
+      "key": "chenyuGuardianSluice",
+      "note": "遺跡守衛の古い堰",
+      "source": "chenyu-guardian-sluice-background-v1.png",
+      "preview": "chenyu-guardian-sluice-native-preview-v1.png",
+      "prompt": "An abandoned stone irrigation weir in a Chinese mountain valley, a large broken wooden waterwheel and mossy stone spillway in afternoon ochre and olive light, broad dry ledges. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-64824-pocket-3",
+      "key": "chenyuSentinelKiln",
+      "note": "遺跡機兵の窯跡",
+      "source": "chenyu-sentinel-kiln-background-v1.png",
+      "preview": "chenyu-sentinel-kiln-native-preview-v1.png",
+      "prompt": "An ancient abandoned terracotta kiln embedded in a hillside in a Chinese jade valley, twin dark vaulted firing mouths and stacks of broken ceramic pipes, warm red clay under a cool turquoise sky. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    }
+  ]
+}

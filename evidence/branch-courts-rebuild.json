@@ -1,0 +1,14 @@
+{
+  "bygone-hunts": {
+    "filesCompared": 8,
+    "bundleSha256": "c84cc562c53786a465ecec558991dfca0875f671a019f0324c1a2ffe7bbc9f40"
+  },
+  "chenyu-gates": {
+    "filesCompared": 14,
+    "bundleSha256": "8a9b30e339fcc9a83e2297458afef5c7e38543be1dd4affa28930b83d8405a8d"
+  },
+  "branch-boss-courts": {
+    "filesCompared": 6,
+    "bundleSha256": "afd5724f93f68f4d61b9293aea417c59334d510d2e7eece5c3c588f8eb6048cf"
+  }
+}

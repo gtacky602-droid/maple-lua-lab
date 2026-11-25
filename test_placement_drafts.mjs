@@ -15,6 +15,23 @@ for(const [name,change] of [
  ['total limit',d=>{d.nodes={};for(const n of graph.nodes.slice(0,9))d.nodes[n.id]=Array.from({length:128},(_,i)=>({id:'e'+i,species:'hilichurl',x:n.platforms[0].x,y:n.platforms[0].y,flip:false}))}]
 ]){const d=structuredClone(draft);change(d);assert.throws(()=>validate(d,graph,species),undefined,name);checks.push(name)}
 const previousShelfRows = [
+ ['branch-hunt-64824',393,401],
+ ['branch-hunt-64825',419,419],
+ ['branch-hunt-68600',408,415],
+ ['branch-hunt-68603',408,424],
+ ['branch-hunt-68607',408,407],
+ ['sites-hunt-28752',390,416],
+ ['sites-hunt-28753',390,399],
+ ['sites-hunt-28756',390,361],
+ ['sites-hunt-41009',390,404],
+ ['sites-hunt-98499',398,412],
+ ['sites-hunt-46531',390,375],
+ ['sites-hunt-46532',423,412],
+ ['sites-hunt-46533',423,423],
+ ['sites-hunt-46534',423,400],
+ ['sites-hunt-24907',403,381],
+ ['sites-hunt-68346',408,419],
+ ['sites-hunt-7164',407,417],
  ['sites-hunt-100705',407,381],['sites-hunt-100706',407,423],['sites-hunt-100707',398,379],
  ['sites-hunt-88121',396,382],
  ['sites-hunt-88122',396,372],
@@ -52,5 +69,8 @@ for (const [id,y,newY] of previousShelfRows) {
  placement.x=200;
  assert.throws(()=>validate(saved,graph,species));
 }
+const oldCoralDraft = x=>({version:1,nodes:{'branch-hunt-68600':[{id:'ledge',species:'hilichurl',x,y:408,flip:false}]}});
+assert.equal(validate(oldCoralDraft(923),graph,species).nodes['branch-hunt-68600'][0].y,415);
+assert.throws(()=>validate(oldCoralDraft(950),graph,species));
 const extra=structuredClone(draft);extra.nodes['mond-road'][0].html='<script>';assert.equal(validate(extra,graph,species).nodes['mond-road'][0].html,undefined);
 await fs.writeFile('evidence/placement-drafts-test.json',JSON.stringify({roundtrip:true,rejected:checks,unknownFieldsDiscarded:true},null,2));console.log('Draft roundtrip and 12 invalid data cases passed');

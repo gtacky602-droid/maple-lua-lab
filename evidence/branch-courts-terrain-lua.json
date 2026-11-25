@@ -1,0 +1,138 @@
+{
+  "branch-hunt-68600": {
+    "population": 2,
+    "shelf_heights_from_entrance": [
+      415,
+      382,
+      403,
+      369
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 142,
+    "exterior_scenery": "bygoneCoralGallery",
+    "arrivals_outside_enemy_contact": 1,
+    "roundTrip": [
+      {
+        "node": "bygone-wp-68600",
+        "swimming": true,
+        "arrivalY": 305
+      },
+      {
+        "node": "branch-hunt-68600",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "bygone-wp-68600",
+        "swimming": true,
+        "arrivalY": 360
+      },
+      {
+        "node": "bygone-camp",
+        "swimming": false,
+        "arrivalY": 480
+      }
+    ]
+  },
+  "branch-hunt-68603": {
+    "population": 2,
+    "shelf_heights_from_entrance": [
+      424,
+      391,
+      350,
+      374
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 151,
+    "exterior_scenery": "bygoneSiltChamber",
+    "arrivals_outside_enemy_contact": 1,
+    "roundTrip": [
+      {
+        "node": "bygone-wp-68603",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "branch-hunt-68603",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "bygone-wp-68603",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "bygone-depth",
+        "swimming": false,
+        "arrivalY": 480
+      }
+    ]
+  },
+  "branch-hunt-68607": {
+    "population": 2,
+    "shelf_heights_from_entrance": [
+      407,
+      368,
+      393,
+      419
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 148,
+    "exterior_scenery": "bygoneSouthSeal",
+    "arrivals_outside_enemy_contact": 1,
+    "roundTrip": [
+      {
+        "node": "bygone-wp-68607",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "branch-hunt-68607",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "bygone-wp-68607",
+        "swimming": false,
+        "arrivalY": 480
+      },
+      {
+        "node": "bygone-wp-68611",
+        "swimming": true,
+        "arrivalY": 248
+      }
+    ]
+  },
+  "branch-hunt-64825": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      390,
+      366,
+      398
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 75,
+    "exterior_scenery": "chenyuGateTeaBanks",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "branch-hunt-64824": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      401,
+      362,
+      385,
+      410
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 4,
+    "level_required": 84,
+    "exterior_scenery": "chenyuSouthLimestone",
+    "arrivals_outside_enemy_contact": 4
+  }
+}

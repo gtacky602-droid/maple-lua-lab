@@ -2,17 +2,17 @@ export const MAX_DRAFT_BYTES=512*1024;
 export const MAX_NODE_PLACEMENTS=128;
 export const MAX_TOTAL_PLACEMENTS=1024;
 // Convert authored spawn support indices to the visual editor's grounded coordinates.
-export function liveNodeDraft(input,graph,nodeId,species,weekly){
+export function liveNodeDraft(input,graph,nodeId,species,boss){
  const node=graph.nodes.find(n=>n.id===nodeId);
  if(!node||input?.version!==1||!input.nodes||Array.isArray(input.nodes))throw Error('本編配置の形式が不正です。');
  const items=input.nodes[nodeId];
- if(weekly && items===undefined){
+ if(boss && items===undefined){
   let actors;
-  if(weekly.node===nodeId && weekly.mapIdleArt){
-   actors=[{id:weekly.id,species:weekly.mapIdleArt,x:weekly.center,y:weekly.floorY,flip:false}];
-  }else if(weekly.innerNode===nodeId && weekly.rift?.shadowArt){
-   actors=weekly.rift.pointsU.map((u,i)=>({id:'boss-'+(weekly.entity+11+i),species:weekly.rift.shadowArt.species,
-    x:weekly.board.left+weekly.board.unit*u,y:weekly.floorY,flip:false}));
+  if(boss.node===nodeId && boss.mapIdleArt){
+   actors=[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:false}];
+  }else if(boss.innerNode===nodeId && boss.rift?.shadowArt){
+   actors=boss.rift.pointsU.map((u,i)=>({id:'boss-'+(boss.entity+11+i),species:boss.rift.shadowArt.species,
+    x:boss.board.left+boss.board.unit*u,y:boss.floorY,flip:false}));
   }
   if(actors)return validatePlacementDraft({version:1,nodes:{[nodeId]:actors}},graph,species).nodes[nodeId];
  }
@@ -27,14 +27,39 @@ export function liveNodeDraft(input,graph,nodeId,species,weekly){
  });
  return validatePlacementDraft({version:1,nodes:{[nodeId]:converted}},graph,species).nodes[nodeId];
 }
-// Earlier placement drafts stored absolute heights. Shelf order and horizontal spans are unchanged.
+// These hunting ledges also grew sideways. Migrate only coordinates on the former ledge.
+const formerSeaSpans=[[0,2880],[475,923],[1060,1674],[1900,2410]];
+const formerHuntSpans=new Map([
+ ['branch-hunt-64824',[[0,2880],[517,956],[1118,1683],[1984,2363]]],
+ ['branch-hunt-64825',[[0,2880],[482,914],[1040,1695],[1944,2370]]],
+ ['branch-hunt-68600',formerSeaSpans],['branch-hunt-68603',formerSeaSpans],['branch-hunt-68607',formerSeaSpans],
+]);
+// Drafts store absolute heights. The support index identifies the corresponding new ledge.
 const forestShelfHeights=[480,390,352,394,350];
 const westIslandHeights=[480,408,369,404,378];
 const mondRuinsHeights=[480,397,358,404,360];
 const liyueNorthHeights=[480,403,360,389,345];
 const nodIslandHeights=[480,396,356,395,361];
 const snowDomainHeights=[480,407,366,409,365];
+const seaCourtHeights=[480,408,362,401];
 const previousHeights=new Map([
+ ['branch-hunt-64824',[480,393,353,397]],
+ ['branch-hunt-64825',[480,419,392,413]],
+ ['branch-hunt-68600',seaCourtHeights],
+ ['branch-hunt-68603',seaCourtHeights],
+ ['branch-hunt-68607',seaCourtHeights],
+ ['sites-hunt-28752',forestShelfHeights],
+ ['sites-hunt-28753',forestShelfHeights],
+ ['sites-hunt-28756',forestShelfHeights],
+ ['sites-hunt-41009',forestShelfHeights],
+ ['sites-hunt-98499',[480,398,345,396,348]],
+ ['sites-hunt-46531',forestShelfHeights],
+ ['sites-hunt-46532',[480,423,386,353,406]],
+ ['sites-hunt-46533',[480,423,386,353,406]],
+ ['sites-hunt-46534',[480,423,386,353,406]],
+ ['sites-hunt-24907',[480,403,360,389,345]],
+ ['sites-hunt-68346',[480,408,369,404,378]],
+ ['sites-hunt-7164',[480,407,366,409,365]],
  ['sites-hunt-100705',snowDomainHeights],['sites-hunt-100706',snowDomainHeights],
  ['sites-hunt-100707',[480,398,345,396,348]],
  ['sites-hunt-88121',nodIslandHeights],['sites-hunt-88122',nodIslandHeights],['sites-hunt-88123',nodIslandHeights],['sites-hunt-92859',nodIslandHeights],
@@ -76,8 +101,10 @@ export function validatePlacementDraft(input,graph,species){
    if(!Number.isFinite(e.x)||!Number.isFinite(e.y)||e.x<0||e.x>node.width||typeof e.flip!=='boolean')throw Error(`${id}: 座標または向きが不正です。`);
    const oldHeights=previousHeights.get(id);
    const spansX=p=>e.x>=p.x&&e.x<=p.x+p.w;
+   const oldSpans=formerHuntSpans.get(id);
+   const wasOnShelf=i=>!oldSpans || (oldSpans[i] && e.x>=oldSpans[i][0] && e.x<=oldSpans[i][1]);
    const support=node.platforms.find(p=>p.y===e.y&&spansX(p))
-    ?? (oldHeights && node.platforms.find((p,i)=>oldHeights[i]===e.y&&spansX(p)));
+    ?? (oldHeights && node.platforms.find((p,i)=>oldHeights[i]===e.y&&spansX(p)&&wasOnShelf(i)));
    if(!support)throw Error(`${id}: 足場に接地していない個体があります。`);
    return {id:e.id,species:e.species,x:e.x,y:support.y,flip:e.flip};
   });

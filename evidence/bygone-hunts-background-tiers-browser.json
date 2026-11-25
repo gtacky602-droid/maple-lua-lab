@@ -1,0 +1,38 @@
+{
+  "branch-hunt-68600": {
+    "source": "bygone-coral-gallery-background-v1.png",
+    "count": 2,
+    "sourceCanvas": "4bc7ad7856cc397231a09108f0b5050934e74dd5700aff843cab86e5cc2bd80e",
+    "tiers": {
+      "4096": "74f0503dcb407c6fbc1f4a80883e2553f57e7a20492275b09f0f45aa63c10e7f",
+      "4608": "86fc1676e81be2e268e29e09f2c1e13060c46aaf189e05063e22dab5befe6113",
+      "5120": "ba79fcbe6e7f3d6aded6c137264b3c9d1e6210002a7bf1cba42c8ecded9b1d98",
+      "5632": "bc2110f3df8d1db9819954d7c0784da28bc000df2b68c7733322ba0c9b0f1d5b",
+      "6144": "66ce00f22f0e76afbb1b312d21f880460a8d08da0f7fedf9154d84a163f74f5c"
+    }
+  },
+  "branch-hunt-68603": {
+    "source": "bygone-silt-chamber-background-v1.png",
+    "count": 2,
+    "sourceCanvas": "db331a7389eb154bba65188b9d8980d3e4e9f11902d8c7ab70564826e520e0fb",
+    "tiers": {
+      "4096": "c83632271fd584af4728ed0a99ac972c2e1d3fbd6a09bd413558de175cdf1f03",
+      "4608": "881a661cd89d18c6959588b28e29f74b20bb852f895bc1a197f4f33f51f17162",
+      "5120": "36f4133f2858ad217d55bd52560b0a28b501b53db6baea0a14a9981fa2a0f1b7",
+      "5632": "8d1e902608dd7379bcff384aea3b7f9734dafbb8a8919235ca9a95356ebb6df3",
+      "6144": "0a9bcd23c0137d99116dab9eaaac4db82a2366c9eb5713079bd21c2715e221cb"
+    }
+  },
+  "branch-hunt-68607": {
+    "source": "bygone-south-seal-background-v1.png",
+    "count": 2,
+    "sourceCanvas": "03c6b775276c55e1545ba0f3ca2e7213bcf8a5162718f02e750b66768ed9f743",
+    "tiers": {
+      "4096": "132fea707c300cb5af4234b0f1727c49ce1075889fe9de42b2408f00ad273a07",
+      "4608": "dd61ce5fc07b940427abd2691d47f9775427c009cf5c1c367426eff4e7e21299",
+      "5120": "be64c92493312092f78702ec63e715776f143954061bad19cf67047b2a267e1f",
+      "5632": "c9ff33d44f94d4c7d76c58195fa5cb50db296744be19e9e497f4506d0aefe2dd",
+      "6144": "dccf362e37f78066eda1d1ea5340c86760d0b6d6b189888c60a33943c15d52ef"
+    }
+  }
+}

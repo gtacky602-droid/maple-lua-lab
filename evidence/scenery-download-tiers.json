@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 655,
+  "verifiedModules": 710,
   "dimensions": [
     512,
     288
@@ -54,6 +54,83 @@
       "5120": 24318,
       "5632": 27608,
       "6144": 29752
+    },
+    "suanni-field-background-v1.png": {
+      "4096": 16455,
+      "4608": 19807,
+      "5120": 23018,
+      "5632": 26234,
+      "6144": 28180
+    },
+    "bygone-resonance-background-v1.png": {
+      "4096": 16557,
+      "4608": 20029,
+      "5120": 23380,
+      "5632": 26732,
+      "6144": 28358
+    },
+    "bygone-coral-gallery-background-v1.png": {
+      "4096": 18207,
+      "4608": 21671,
+      "5120": 25004,
+      "5632": 28352,
+      "6144": 30552
+    },
+    "bygone-silt-chamber-background-v1.png": {
+      "4096": 16884,
+      "4608": 20274,
+      "5120": 23543,
+      "5632": 26767,
+      "6144": 28835
+    },
+    "bygone-south-seal-background-v1.png": {
+      "4096": 17680,
+      "4608": 21134,
+      "5120": 24467,
+      "5632": 27771,
+      "6144": 29711
+    },
+    "chenyu-gate-tea-banks-background-v1.png": {
+      "4096": 17648,
+      "4608": 21004,
+      "5120": 24275,
+      "5632": 27503,
+      "6144": 29687
+    },
+    "chenyu-gate-reed-pool-background-v1.png": {
+      "4096": 17678,
+      "4608": 21102,
+      "5120": 24417,
+      "5632": 27731,
+      "6144": 29803
+    },
+    "chenyu-south-limestone-background-v1.png": {
+      "4096": 17889,
+      "4608": 21329,
+      "5120": 24634,
+      "5632": 27938,
+      "6144": 30154
+    },
+    "chenyu-beast-bamboo-background-v1.png": {
+      "4096": 17332,
+      "4608": 20756,
+      "5120": 24049,
+      "5632": 27329,
+      "6144": 29375
+    },
+    "chenyu-guardian-sluice-background-v1.png": {
+      "4096": 17305,
+      "4608": 20723,
+      "5120": 24006,
+      "5632": 27280,
+      "6144": 29346
+    },
+    "chenyu-sentinel-kiln-background-v1.png": {
+      "4096": 17755,
+      "4608": 21191,
+      "5120": 24506,
+      "5632": 27790,
+      "6144": 29898
     },
     "fon-domain-reef-background-v1.png": {
       "4096": 17800,
@@ -927,7 +1004,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 131
+      "verified": 142
     },
     "domainHunts": {
       "total": 124,
@@ -986,24 +1063,18 @@
     },
     "branchHunts": {
       "total": 62,
-      "verified": 0,
+      "verified": 9,
       "byRegion": {
         "沈玉の谷": {
           "total": 59,
-          "verified": 0
+          "verified": 6
         },
         "往日の海": {
           "total": 3,
-          "verified": 0
+          "verified": 3
         }
       },
       "pending": [
-        "branch-hunt-64824",
-        "branch-hunt-64824-pocket-1",
-        "branch-hunt-64824-pocket-2",
-        "branch-hunt-64824-pocket-3",
-        "branch-hunt-64825",
-        "branch-hunt-64825-pocket-1",
         "branch-hunt-64826",
         "branch-hunt-64826-pocket-1",
         "branch-hunt-64827",
@@ -1056,10 +1127,7 @@
         "branch-hunt-66770",
         "branch-hunt-66770-pocket-1",
         "branch-hunt-66979",
-        "branch-hunt-66979-pocket-1",
-        "branch-hunt-68600",
-        "branch-hunt-68603",
-        "branch-hunt-68607"
+        "branch-hunt-66979-pocket-1"
       ]
     }
   }

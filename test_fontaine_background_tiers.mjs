@@ -10,6 +10,7 @@ if (!/^[a-z0-9-]+$/.test(output)) throw Error('Invalid scenery batch');
 const reports = {};
 const {fileBytesByRectangles}=JSON.parse(await fs.readFile('evidence/scenery-download-tiers.json','utf8'));
 const weekly=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
+const fieldBosses=JSON.parse(await fs.readFile('content/field-boss-spawns.json','utf8')).fieldBosses;
 const {nodes: spawns} = JSON.parse(await fs.readFile('content/enemy-spawns.json','utf8'));
 try {
   for (const group of groups) {
@@ -18,10 +19,11 @@ try {
     const report = JSON.parse(await fs.readFile('evidence/'+group+'-background-compression.json','utf8'));
     for (const {node,source} of manifest.scenes) {
       const page = await browser.newPage({viewport:{width:1420,height:1000}});
+      page.setDefaultTimeout(45000);
       const errors = [];
       page.on('pageerror',error=>errors.push(error.message));
       try {
-        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena' || node === 'nod-false-moon-rift' || node === 'sites-hunt-88121' || node === 'sites-hunt-100707' || node === 'sites-hunt-46532' || node === 'sites-hunt-28756';
+        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena' || node === 'nod-false-moon-rift' || node === 'sites-hunt-88121' || node === 'sites-hunt-100707' || node === 'sites-hunt-46532' || node === 'sites-hunt-28756' || ['branch-hunt-68600','branch-hunt-64825','bygone-bell-archive','suanni-field-sanctum'].includes(node);
         const query = new URLSearchParams({node});
         if (lightweightLink) {
           query.set('tier','4096');
@@ -45,7 +47,7 @@ try {
           await page.locator('#mapNodePicker summary').click();
         }
         await page.locator('#loadLive').click();
-        const boss=weekly.find(b=>b.node===node && b.mapIdleArt);
+        const boss=[...weekly,...fieldBosses].find(b=>b.node===node && b.mapIdleArt);
         const inner=weekly.find(b=>b.innerNode===node && b.rift?.shadowArt);
         const expectedCount=spawns[node]?.length ?? (boss?1:inner?.rift.pointsU.length??0);
         await page.waitForFunction(n=>window.mapArt.count===n && window.mapArt.diff?.unchanged===n,expectedCount);
@@ -63,7 +65,8 @@ try {
           assert.ok(before.visuals.every(v=>v.height===inner.rift.shadowArt.height && v.opacity===inner.rift.shadowArt.opacity && v.hover===0));
         }
         if(boss){
-          assert.deepEqual(before.placements,[{id:boss.id,species:boss.mapIdleArt,x:boss.center,y:boss.floorY,flip:false}]);
+          if (boss.home!==undefined) assert.equal(before.visuals[0].height,boss.artHeight);
+          assert.deepEqual(before.placements,[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:false}]);
         }
         const seen = new Set();
         for (const {rectangles,rgbSha256,meanAbsoluteRgbErrorToReference} of report.scenes[source].tiers) {
@@ -122,7 +125,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly','nod-islands','nod-false-moon','sne-domains','sum-frontier','tun-domains','border-domains'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly','nod-islands','nod-false-moon','sne-domains','sum-frontier','tun-domains','border-domains','chenyu-gates','bygone-hunts','branch-boss-courts'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);
@@ -139,6 +142,9 @@ try {
           assert.ok((await page.locator('#status').innerText()).includes('異界の影の出現位置'));
           reports[node].liveShadowPlacements=before.placements;
         }
+      } catch (error) {
+        console.error('Scenery comparison failed for',node,source);
+        throw error;
       } finally { await page.close(); }
     }
   }

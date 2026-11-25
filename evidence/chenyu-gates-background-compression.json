@@ -1,0 +1,258 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "chenyu-gate-tea-banks-background-v1.png": {
+      "sourceBytes": 1615398,
+      "sourceSha256": "57156a718e402ef2be9aea311fc924fdb1c84bdc00d78c26c37825333b8f30cb",
+      "preview": "chenyu-gate-tea-banks-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17551,
+      "baseSelectedBytes": 17537,
+      "detailFixed13Bytes": 12053,
+      "detailSelectedBytes": 12041,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.189145688657407,
+          "rgbSha256": "49a2a67dc5c37aa1b1c4b0fee42a47ab5ea75ffb8d467e9b53a1fcd043514e43"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.7498530635127314,
+          "rgbSha256": "594c608aadc0ded2a953beaa4f886a2e1949ee82b6e432c2fcd9f829f40a8882"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.4237377025462963,
+          "rgbSha256": "575eaa94be7365b3d4134a4f2fcdba1cbf5e29087b6e4c58663ba57730c66709"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1677833839699074,
+          "rgbSha256": "e967e51545c9ed1b241054176efa506430eaf653aa85200d7e15e6862ebda171"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.9501953125,
+          "rgbSha256": "0b22d60110d9d7973b9d8cdb3b7cdf821f59130fa4d13eb8e5237e61f1f53a2e"
+        }
+      ]
+    },
+    "chenyu-gate-reed-pool-background-v1.png": {
+      "sourceBytes": 1671666,
+      "sourceSha256": "1238269703b2a1efe229c4041b5a7e73e08bb0cd9fa060baa1f8536a705b5efe",
+      "preview": "chenyu-gate-reed-pool-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17579,
+      "baseSelectedBytes": 17567,
+      "detailFixed13Bytes": 12137,
+      "detailSelectedBytes": 12127,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.756098994502315,
+          "rgbSha256": "a98c659daa61c76463c6f1bd8d55277231b7d652afb48eac31f5cfa13003a0b6"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.134308991608797,
+          "rgbSha256": "652c8774e82274bcc156f93aac384fd669211da51c9164d304709ff33dd85479"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.651676884403935,
+          "rgbSha256": "5a3ce2137e68161744b883f76c32cee5535f21b308db22534df662cc8de8da61"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.258816189236111,
+          "rgbSha256": "27e93cab4a7ac567ba95b29ae5e63a17e06bdbca16c80a770467f771cd7b0480"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.9284215856481484,
+          "rgbSha256": "c9b4ce72f6833745158525b4e5c596c049ffcf9f0aeb1a618154ebffb8e434d9"
+        }
+      ]
+    },
+    "chenyu-south-limestone-background-v1.png": {
+      "sourceBytes": 1726310,
+      "sourceSha256": "35934d0cf73405cfe55323280a40fc22eec23afe378c6dd106b63af0a3e6e5b7",
+      "preview": "chenyu-south-limestone-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17791,
+      "baseSelectedBytes": 17777,
+      "detailFixed13Bytes": 12281,
+      "detailSelectedBytes": 12267,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.757217972366898,
+          "rgbSha256": "d15b8e1ed835d40537181e5a574da7e787644a567b7e4b9e8d07ab5edc3fc66e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.273530183015047,
+          "rgbSha256": "734f3ca4a99e0092f9a2a065708e001381f0ab842d0373a9a16486515c852a60"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.918805157696759,
+          "rgbSha256": "37730bb60e9c9a6e8968e57f0149956246d3a8418b7f27dbaa1ca0bce4b9dff8"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.635882342303241,
+          "rgbSha256": "7a184627b24648647e7ada10549c8f28042b5674878c01bd0e84e45438714142"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.394192165798611,
+          "rgbSha256": "a4e237a9f1c60acb9a4e5316bddd52020aa2aa83082219dcb24322918cdc3bc2"
+        }
+      ]
+    },
+    "chenyu-beast-bamboo-background-v1.png": {
+      "sourceBytes": 1647109,
+      "sourceSha256": "dc8aa4b4d2a2d3588139379cb5f72d1b875bec6448db76784585d4f2915a9204",
+      "preview": "chenyu-beast-bamboo-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17239,
+      "baseSelectedBytes": 17223,
+      "detailFixed13Bytes": 12057,
+      "detailSelectedBytes": 12045,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.966380931712963,
+          "rgbSha256": "030de5c0ffb4c9055c41d7f3b58adb323568c1f254191cc60b6a23a8c5fef175"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.360349301938657,
+          "rgbSha256": "fc0f7eed827ea621a86debf0e6a00d770560c8f349eeb89ee56b3f6d1385980a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.9130881980613426,
+          "rgbSha256": "5431deb006e76b350167fb5846cb1a683a0e2a19073e21339f568698df99f6f1"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.5745827003761574,
+          "rgbSha256": "a5242dae775bb2cef1567bcc229991733543095f87fc743308024a68ef6322f4"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.283779568142361,
+          "rgbSha256": "3a42ec2cf0d5920909e0e3e180a78087b8d955f94a6b4aa1f30d796648c23e90"
+        }
+      ]
+    },
+    "chenyu-guardian-sluice-background-v1.png": {
+      "sourceBytes": 1858886,
+      "sourceSha256": "e768b4e88e39dce5fc49a211bbe29f3db571f38ea71f006cf45ea922b1570097",
+      "preview": "chenyu-guardian-sluice-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17205,
+      "baseSelectedBytes": 17193,
+      "detailFixed13Bytes": 12057,
+      "detailSelectedBytes": 12043,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.324318214699074,
+          "rgbSha256": "7e5610fa8b1e5ff76f12bfd0cc65e3a964fbd1c8729825d69d7520a8c3083a3e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.732442220052083,
+          "rgbSha256": "a4e3bc9c9f4268fb95f9e816d121dcaaa054f4661a78176beaec31aaf0ae42e9"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.270600495515047,
+          "rgbSha256": "67245f4d4acf598a66ceba8b11091efe681e364314406d62d99446e2e0e6f116"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.887039749710648,
+          "rgbSha256": "a4c421afa01fd2033d5f0b95e6d51bffb58e9beb9c5b335d0f8127238d67189a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.5794858579282405,
+          "rgbSha256": "8130c91c9ae051adcf267c7da283737d6f07c791aeb8355d61cc91b92ec5f586"
+        }
+      ]
+    },
+    "chenyu-sentinel-kiln-background-v1.png": {
+      "sourceBytes": 1653704,
+      "sourceSha256": "7c591c3cf2aad3738a19f1e7ee14c4cff3bc97601c5834b0dd4d5627c77e9664",
+      "preview": "chenyu-sentinel-kiln-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17659,
+      "baseSelectedBytes": 17645,
+      "detailFixed13Bytes": 12155,
+      "detailSelectedBytes": 12145,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.093917281539352,
+          "rgbSha256": "255c24ce839aad8bee0d46358c87f9e7714d88cf511539d7e3a876b9afaf8b07"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.7003106011284723,
+          "rgbSha256": "a334d6f506003d4460e3827bebc59898b2ed7690ef7f1df8f915e4359e4e6c85"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.41619873046875,
+          "rgbSha256": "1c8a23665a13a611d11f942d73b4d64b4eabfa1c121b80d008640f9e7d1bef00"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1730504918981484,
+          "rgbSha256": "6f9cef64668a0b6a1263162c3a35d7da000ad3c67305cf74b2726d7348604154"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.9683770073784723,
+          "rgbSha256": "287c88ad3432145af6d74ceca705d296378c4519854f9bd06a89cb28e3a0f270"
+        }
+      ]
+    }
+  }
+}

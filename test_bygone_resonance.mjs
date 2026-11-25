@@ -210,7 +210,7 @@ try{
     await backgroundReady;
     return sceneryStatus(window.lab.frame);
   });
-  assert.deepEqual(background,{key:'bygoneResonance',file:'bygone-resonance-background-v1.png',state:'ready'});
+  assert.deepEqual(background,{key:'bygoneBellArchive',file:'bygone-resonance-background-v1.png',state:'ready'});
   await wait(()=>Object.values(window.lab.frame.fieldBoss?.zones??{}).some(zone=>!zone.active));
   const commands=await compare();
   const battle=await observeRuinAttacks(page,['BG01','BG02']);

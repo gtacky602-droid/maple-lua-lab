@@ -1,0 +1,105 @@
+{
+  "coral": {
+    "stage": "branch-hunt-68600",
+    "scenery": {
+      "key": "bygoneCoralGallery",
+      "file": "bygone-coral-gallery-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-05",
+      "x": 177.5,
+      "y": 347.3,
+      "adjacent": [
+        "bygone-wp-68600"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-68600&placements=live&compare=background",
+      "next": "bygone-wp-68600"
+    },
+    "jump": [
+      480,
+      415
+    ],
+    "journeys": [
+      [
+        "bygone-wp-68600",
+        "branch-hunt-68600",
+        "waterway"
+      ],
+      [
+        "branch-hunt-68600",
+        "bygone-wp-68600",
+        "waterway"
+      ]
+    ]
+  },
+  "silt": {
+    "stage": "branch-hunt-68603",
+    "scenery": {
+      "key": "bygoneSiltChamber",
+      "file": "bygone-silt-chamber-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-05",
+      "x": 222.9,
+      "y": 117.1,
+      "adjacent": [
+        "bygone-wp-68603"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-68603&placements=live&compare=background",
+      "next": "bygone-wp-68603"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "journeys": [
+      [
+        "bygone-wp-68603",
+        "branch-hunt-68603",
+        "walk"
+      ],
+      [
+        "branch-hunt-68603",
+        "bygone-wp-68603",
+        "walk"
+      ]
+    ]
+  },
+  "seal": {
+    "stage": "branch-hunt-68607",
+    "scenery": {
+      "key": "bygoneSouthSeal",
+      "file": "bygone-south-seal-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "branch-05",
+      "x": 585.2,
+      "y": 362,
+      "adjacent": [
+        "bygone-wp-68607"
+      ],
+      "backgroundComparison": "map-art.html?node=branch-hunt-68607&placements=live&compare=background",
+      "next": "bygone-wp-68607"
+    },
+    "jump": [
+      480,
+      407
+    ],
+    "journeys": [
+      [
+        "bygone-wp-68607",
+        "branch-hunt-68607",
+        "walk"
+      ],
+      [
+        "branch-hunt-68607",
+        "bygone-wp-68607",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

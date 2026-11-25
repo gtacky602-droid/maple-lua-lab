@@ -1,0 +1,29 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "branch-hunt-68600",
+      "key": "bygoneCoralGallery",
+      "note": "珊瑚水路の乾いた回廊",
+      "source": "bygone-coral-gallery-background-v1.png",
+      "preview": "bygone-coral-gallery-native-preview-v1.png",
+      "prompt": "Dry raised limestone gallery at the edge of a shallow sunken coral channel. Large cutaway Romanesque arcade on the left, turquoise water visible beyond the rear balustrade, brilliant red fan coral framing a pale shaft of sunlight. Dry broad foreground. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-68603",
+      "key": "bygoneSiltChamber",
+      "note": "西の沈殿物の石室",
+      "source": "bygone-silt-chamber-background-v1.png",
+      "preview": "bygone-silt-chamber-native-preview-v1.png",
+      "prompt": "A dry ancient Roman-style stone chamber beneath the sea, horizontal gold and ivory mineral deposits, weighted brass lift cage silhouetted high at the left, cobalt stone shadows, warm sedimentary ribs in the rock. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    },
+    {
+      "node": "branch-hunt-68607",
+      "key": "bygoneSouthSeal",
+      "note": "南岸の密閉室",
+      "source": "bygone-south-seal-background-v1.png",
+      "preview": "bygone-south-seal-native-preview-v1.png",
+      "prompt": "Air-filled southern seal chamber. Deep peacock blue stone rotunda, heavy circular brass flood-door at left, a small luminous round window full of blue water, faint reflections and pale dry worn marble floor. Original fantasy pixel landscape for a horizontal side-scrolling 2D RPG, wide 16:9. Compose in clean large pixel clusters, 3-4 flat values per material to retain landmarks under a 4096 rectangle budget, minimal dithering or fine noise, dark quiet lower quarter. No actors, creatures, interface, lettering, logos, superimposed platforms or frames."
+    }
+  ]
+}

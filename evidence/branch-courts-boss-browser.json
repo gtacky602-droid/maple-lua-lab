@@ -1,0 +1,44 @@
+{
+  "suanni-field-sanctum": {
+    "quest": "suanni-commission",
+    "live": {
+      "id": "boss-26190101",
+      "x": 863,
+      "y": 480,
+      "source": "suanni-idle-source-v1.png",
+      "height": 154,
+      "flip": false,
+      "scene": {
+        "file": "suanni-field-native-tiers-v1.webp",
+        "tile": [
+          0,
+          0,
+          512,
+          288
+        ]
+      }
+    },
+    "label": "開戦時のボス位置・待機絵で比較 ｜ キャラは元PNGで表示"
+  },
+  "bygone-bell-archive": {
+    "quest": "bygone-sound-book",
+    "live": {
+      "id": "original-bellgate",
+      "x": 937,
+      "y": 480,
+      "source": "bellgate-source-v1.png",
+      "height": 152,
+      "flip": false,
+      "scene": {
+        "file": "bygone-resonance-native-tiers-v1.webp",
+        "tile": [
+          0,
+          0,
+          512,
+          288
+        ]
+      }
+    },
+    "label": "依頼戦・再戦が開いた時のボス位置 ｜ キャラは元PNGで表示"
+  }
+}

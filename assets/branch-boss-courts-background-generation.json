@@ -1,0 +1,21 @@
+{
+  "generator": "Existing lab backgrounds",
+  "scenes": [
+    {
+      "node": "suanni-field-sanctum",
+      "key": "suanniField",
+      "note": "懸練山の石庭",
+      "source": "suanni-field-background-v1.png",
+      "preview": "suanni-field-native-preview-v1.png",
+      "provenance": "既存のラボ仮背景を使用"
+    },
+    {
+      "node": "bygone-bell-archive",
+      "key": "bygoneBellArchive",
+      "note": "潮鐘の記録室",
+      "source": "bygone-resonance-background-v1.png",
+      "preview": "bygone-resonance-native-preview-v1.png",
+      "provenance": "既存のラボ仮背景を使用"
+    }
+  ]
+}

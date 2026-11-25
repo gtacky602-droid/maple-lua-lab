@@ -1,0 +1,74 @@
+{
+  "branch-hunt-64825": {
+    "source": "chenyu-gate-tea-banks-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "cf3a90f1793b6f04c03686edbad53a3e807aba55785d7aca25e8bb62f2c9ddcb",
+    "tiers": {
+      "4096": "625f7af88ccbd0f5f576918e2bb791a635ea1b3245ef1a6731b343b172bc9994",
+      "4608": "22b5acb35b759655c0300e6a18ca86ef91c525a3bdd832e5da5b38bc42dc58a2",
+      "5120": "472049adedb90eb895cb86d8510b01064d9a2fc408c74a7f7a255921f107305e",
+      "5632": "5860053582c95f75391e85dfd75c4ff8ccaeeae6cb04414808a4c347b70733d4",
+      "6144": "659109bce7eb52bed960fd4817edf4ba43468470da92f7e901ea990533e2f8fe"
+    }
+  },
+  "branch-hunt-64825-pocket-1": {
+    "source": "chenyu-gate-reed-pool-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "e95c7b05f0fe4e0b3abf9a788e873ecfb34a38ffc4ef5f7229c95f59d566de1c",
+    "tiers": {
+      "4096": "2a2f5109b77cdae422f927a8863f1b80599bea955f958a0ee85b005d3a3e0f5c",
+      "4608": "6a1a54a5ff2e02a75110862cd17302d807511366c78053980e9ea10abc8d58fa",
+      "5120": "088b5e8273c4ba973b5d10bda063e0b2dca42070dd9ea696f9535a67bdfb1a96",
+      "5632": "c195c232e0da7ac8aa753a2adeda00260a2e336eb2631339df55526c82650e14",
+      "6144": "07787d1f780be168ccbb1fc84c5f819b323a209897c94035a0ae18a90d204760"
+    }
+  },
+  "branch-hunt-64824": {
+    "source": "chenyu-south-limestone-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "d85836820ecfcded9d00ddc243d50752a498d19cee3b1f6784d9ff0f51ad79f3",
+    "tiers": {
+      "4096": "32dd5f4e39a5d36e8ebb6beb5948db9dcea2e3b3bb05b1322b69209aed265efe",
+      "4608": "b27709d577351135253883b26d83f8ad59fe1dbd01ed2507582d91353b3cc550",
+      "5120": "0a5b0663c506ea826886bd0148aa1c97175f920baf63e469726d83e2f149131d",
+      "5632": "993ae5d64dc68978ef24075689e2d7d02336fab70de1388cacd5a9fed2df9a53",
+      "6144": "4f185f3fa954db37fd89cd41051f93a2694b4d2780588077a34f5f4342f7cc0b"
+    }
+  },
+  "branch-hunt-64824-pocket-1": {
+    "source": "chenyu-beast-bamboo-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "0d2a8b6be554dca2e633a83850acb3203b5242abb42e67e3864ef5157f888eae",
+    "tiers": {
+      "4096": "adf12107dbf34603f5a1536d6f760daae202b32f4e08e75347ce1f98bb597715",
+      "4608": "8ab0e1c2eb62cc58cac3775565192314e19aeca1b4cc03759d983a2c93e05c4a",
+      "5120": "14b164aa0a57691024707d9e5019444ba9449975add6c87465c4bbc499ba5710",
+      "5632": "ec012afaffc8af6b89b0032ef0f7cf5aa0417e8f26f28a8e643f3d69ebd862ad",
+      "6144": "362885ce44f13938fe0c5fb48d17773d20c6a654274f731c9dd19d5245d060ce"
+    }
+  },
+  "branch-hunt-64824-pocket-2": {
+    "source": "chenyu-guardian-sluice-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "68324eb1605e1d671cebe9a07a3d7e2f5dba8ec743f1a0a8157f82f8f9af9477",
+    "tiers": {
+      "4096": "db06617b7925918eed4f82923530b47213512a09cd8dd5a1ccdd7f7bef25d449",
+      "4608": "d0227ec879a0e84a510d70520762838537ed62ccd716ee308a3a643b4e8dd173",
+      "5120": "e7b099973c9459c3aa4a793264ffa31d4c42081e3ed0d4389929f83380ad1b67",
+      "5632": "e8f528fe38ee177d8d33adc61c916889fb86db18ea238d572357531c30316d2a",
+      "6144": "d83c462fc279b4863363cc85ee75663ef58718f9571ddb018a70788b9f07e4d2"
+    }
+  },
+  "branch-hunt-64824-pocket-3": {
+    "source": "chenyu-sentinel-kiln-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "8a5a222d933757b26f9aaf2a44eae41cc15ff45c1f50d7992ada6e67172c8e4d",
+    "tiers": {
+      "4096": "5038821ee404415f72c7ee948627fc225634201fd1460caff56190171905ae8d",
+      "4608": "84b89b114b90d5c12bf05db85cde3d9db4fa141d50252c70f7ca74e3328dd278",
+      "5120": "7fc87e7b0af156aaae34beee59d182b24cca2ae6e8a650ca7db8247ae050fcac",
+      "5632": "2b2c03e4a582caac4db2f0b3d8f6dbcf7406b4ccd7736811fe9de4b77c236fc9",
+      "6144": "fc76750c82d9825b836510a40270f33411c456e8a85b0c5cc292d4c16a900c2b"
+    }
+  }
+}

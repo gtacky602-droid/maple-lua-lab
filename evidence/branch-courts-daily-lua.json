@@ -1,0 +1,47 @@
+{
+  "branch-hunt-68600": {
+    "placement": "branch-hunt-68600-1",
+    "daily-fon-patrol": 1,
+    "daily-fon-land-elites": 0
+  },
+  "branch-hunt-68603": {
+    "placement": "branch-hunt-68603-1",
+    "daily-fon-patrol": 1,
+    "daily-fon-land-elites": 0
+  },
+  "branch-hunt-68607": {
+    "placement": "branch-hunt-68607-1",
+    "daily-fon-patrol": 1,
+    "daily-fon-land-elites": 0
+  },
+  "branch-hunt-64825": {
+    "placement": "branch-hunt-64825-1",
+    "daily-liyue-cargo": 1,
+    "daily-liyue-relics": 0
+  },
+  "branch-hunt-64825-pocket-1": {
+    "placement": "branch-hunt-64825-pocket-1-1",
+    "daily-liyue-cargo": 1,
+    "daily-liyue-relics": 1
+  },
+  "branch-hunt-64824": {
+    "placement": "branch-hunt-64824-1",
+    "daily-liyue-cargo": 1,
+    "daily-liyue-relics": 0
+  },
+  "branch-hunt-64824-pocket-1": {
+    "placement": "branch-hunt-64824-pocket-1-1",
+    "daily-liyue-cargo": 1,
+    "daily-liyue-relics": 1
+  },
+  "branch-hunt-64824-pocket-2": {
+    "placement": "branch-hunt-64824-pocket-2-1",
+    "daily-liyue-cargo": 0,
+    "daily-liyue-relics": 0
+  },
+  "branch-hunt-64824-pocket-3": {
+    "placement": "branch-hunt-64824-pocket-3-1",
+    "daily-liyue-cargo": 0,
+    "daily-liyue-relics": 0
+  }
+}
