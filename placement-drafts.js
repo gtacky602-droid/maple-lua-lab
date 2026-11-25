@@ -22,6 +22,12 @@ const forestShelfHeights=[480,390,352,394,350];
 const westIslandHeights=[480,408,369,404,378];
 const mondRuinsHeights=[480,397,358,404,360];
 const previousHeights=new Map([
+ ['sites-hunt-7149',mondRuinsHeights],
+ ['sites-hunt-7157',mondRuinsHeights],
+ ['sites-hunt-7186',mondRuinsHeights],
+ ['sites-hunt-7201',mondRuinsHeights],
+ ['sites-hunt-7206',mondRuinsHeights],
+ ['sites-hunt-7210',mondRuinsHeights],
  ['sites-hunt-7092',mondRuinsHeights],['sites-hunt-7111',mondRuinsHeights],['sites-hunt-7137',mondRuinsHeights],
  ['sites-hunt-15949',[480,398,345,396,348]],['sites-hunt-17223',westIslandHeights],
  ['sites-hunt-18667',westIslandHeights],['sites-hunt-20369',westIslandHeights],['sites-hunt-24906',westIslandHeights],

@@ -4,6 +4,7 @@ import {chromium} from 'playwright';
 
 const region=process.argv[2] || 'sumeru';
 const settings={
+ 'mond-slimes':['mond-town','mond-temples-terrain-fixture.json','daily-mond-slimes',17,'sites-hunt-7206'],
  mondstadt:['mond-town','mond-ruins-terrain-fixture.json','daily-mond-elites',9,'sites-hunt-7111-pocket-1'],
  sumeru:['sumeru-hub','sumeru-domain-terrain-fixture.json','daily-sum-elites',11,'sites-hunt-36704-pocket-1'],
  natlan:['natlan-hub','natlan-eastern-rooms-fixture.json','daily-nat-elite-hunt',6,'sites-hunt-73159-pocket-1'],
@@ -33,6 +34,8 @@ try {
  const link=page.locator('#atlasBackgroundCompare');
  const [comparison]=await Promise.all([page.waitForEvent('popup'),link.click()]);
  await comparison.waitForFunction(room=>window.mapArt?.node===room && window.mapArt.decodedBackgroundRectangles===6144,room);
+ assert.equal(await comparison.evaluate(()=>window.mapArt.liveView),true);
+ assert.equal(await comparison.locator('#matchSpritePng').isChecked(),true);
  await comparison.selectOption('#backgroundTier','4096');
  const actual=await comparison.locator('#sceneryDownload[download$="-4096.lua"]').getAttribute('download');
  await comparison.close();
@@ -42,5 +45,5 @@ try {
  assert.ok(await card('active').isVisible());
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/'+region+'-daily-spur-map.json',JSON.stringify({quest:id,targets,selected:room,download:actual,returnNode:hub},null,2)+'\n');
- console.log('Opened the selected elite room on the atlas from the daily card, compared its art and returned to the board.');
+ console.log('Opened the selected quest location on the atlas from the daily card, compared its art and returned to the board.');
 } finally {await browser.close();}

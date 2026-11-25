@@ -19,7 +19,7 @@ try {
       const errors = [];
       page.on('pageerror',error=>errors.push(error.message));
       try {
-        const lightweightLink = group === 'ina-west' && node === 'sites-hunt-12791-pocket-2';
+        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201';
         const query = new URLSearchParams({node});
         if (lightweightLink) {
           query.set('tier','4096');
@@ -82,7 +82,7 @@ try {
           },rectangles);
           assert.equal(actual.pixels,rgbSha256);
           if (lightweightLink && rectangles===4096) {
-            await page.locator('main').screenshot({path:'evidence/ina-yashiori-den-4096.png'});
+            await page.locator('main').screenshot({path:'evidence/'+source.replace('-background-v1.png','-4096.png')});
           }
           if (seen.size===0) reports[node]={source,count:before.count,sourceCanvas:actual.left,tiers:{}};
           assert.equal(actual.left,reports[node].sourceCanvas);
@@ -103,7 +103,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);

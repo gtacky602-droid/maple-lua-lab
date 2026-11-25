@@ -1,0 +1,77 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-7149",
+      "key": "mondFrostRavine",
+      "note": "忘却の峡谷・霜の谷口",
+      "source": "mond-frost-ravine-background-v1.png",
+      "preview": "mond-frost-ravine-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Forsaken Rift in Mondstadt. A narrow cold ravine below wooded cliffs, a monumental half-buried stone doorway, sheer blue frost on the shadowed mountain. Subdued teal slate and late winter silver-blue. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7149-pocket-1",
+      "key": "mondAgentHideout",
+      "note": "霜の谷・密偵の隠れ家",
+      "source": "mond-agent-hideout-background-v1.png",
+      "preview": "mond-agent-hideout-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. A hidden Fatui field hideout under a Mondstadt rock overhang. A low crimson fabric awning, one black brass-bound chest, a single dim ember lantern, thin frost on the masonry. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7157",
+      "key": "mondFalconTemple",
+      "note": "西風の鷹・風見の丘",
+      "source": "mond-falcon-temple-background-v1.png",
+      "preview": "mond-falcon-temple-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Temple of the Falcon: inviting sunlit meadow, an old pale stone falcon relief with long spread wings above a narrow stone entrance. Sloping green hills, amber bushes, blue sky with white birds far away. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7186",
+      "key": "mondLionTemple",
+      "note": "南風の獅子・石門の谷",
+      "source": "mond-lion-temple-background-v1.png",
+      "preview": "mond-lion-temple-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Temple of the Lion approach: two sturdy weathered limestone pillars flanking the distant domain entrance, one eroded lion head carved in profile on a buttress. Warm ochre cliffs, summer grass in the canyon, strong afternoon shadow. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7201",
+      "key": "mondSummerCourt",
+      "note": "仲夏の庭園・花影の庭",
+      "source": "mond-summer-court-background-v1.png",
+      "preview": "mond-summer-court-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Midsummer Courtyard: sun-warmed terraced garden in eastern Mondstadt, a circular window behind a ruined pale stone arcade, masses of white and golden flowers. Strong grouped shapes under softly glowing foliage. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7206",
+      "key": "mondWolfTemple",
+      "note": "北風の狼・北向きの石廊",
+      "source": "mond-wolf-temple-background-v1.png",
+      "preview": "mond-wolf-temple-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Temple of the Wolf in eastern Mondstadt: a narrow stone path between tall green ash trees leads to a cool north-facing doorway in a rock wall; carved wolf-head keystone, bands of silvery daylight, dark green shrub masses. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7206-pocket-1",
+      "key": "mondFloodedAlcove",
+      "note": "狼の神殿・水脈の石室",
+      "source": "mond-flooded-alcove-background-v1.png",
+      "preview": "mond-flooded-alcove-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. A secluded water-spring chamber in an ancient Mondstadt stone temple: broad low ribbed vault, calm turquoise reflection, one cracked moonlit fountain basin, algae around the lowest stones. A cool luminous recess on the right. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7210",
+      "key": "mondEagleCape",
+      "note": "鷹の門・海風の岬",
+      "source": "mond-eagle-cape-background-v1.png",
+      "preview": "mond-eagle-cape-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Eagle’s Gate near Cape Oath: a windswept promontory with tiny distant stone spires, vast ocean and distant sea stacks, a single broken stone eagle relief under a bent pine on a high bluff, copper light along the horizon. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    },
+    {
+      "node": "sites-hunt-7210-pocket-1",
+      "key": "mondWindBasin",
+      "note": "岬・風の窪地",
+      "source": "mond-wind-basin-background-v1.png",
+      "preview": "mond-wind-basin-native-preview-v1.png",
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. A bowl-shaped hollow in the cliffs of Cape Oath: a low circle of worn stone menhirs, a twisting arc of drifting pale leaves high above, softly glowing mint air. Open sky visible through a single natural rock arch. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+    }
+  ]
+}

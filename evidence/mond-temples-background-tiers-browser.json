@@ -1,0 +1,110 @@
+{
+  "sites-hunt-7149": {
+    "source": "mond-frost-ravine-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "515d6785f7f5831f6884b3a46f0ef3f9a6f22d58525078123a0dec0a05209859",
+    "tiers": {
+      "4096": "fed2d3997cc267b085377f6774a82313b74d23edef92df163eb19437a40b4ce6",
+      "4608": "711644d8bde618069e4abc11ca64ed7378b3484ae5b71d59aa91cde7650b1083",
+      "5120": "903d2fb4b7ccbb9db5385451cf1331ba268ac44b74d08370952196e68f2d6313",
+      "5632": "e578fadbd8eceda2e95fe84a4ddee782e582cd60e129af7fe8fc6a5f268c5dbf",
+      "6144": "545dda2274ced6ab278cf81f73ff0b35e2312d8f675b39f287f9b53efa736335"
+    }
+  },
+  "sites-hunt-7149-pocket-1": {
+    "source": "mond-agent-hideout-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "33064740e3fc747ac18f9154ab0ba1469e3e04bbd645ab823493c52336cf1a55",
+    "tiers": {
+      "4096": "db27ed10194f35a361741acfe5233e28fbcdb594e42f9ece561d7fec5c4a05bc",
+      "4608": "947b4fcbeb6068c7114a94389cb07d7bace47f54d0db69a5b256b66b8714741b",
+      "5120": "0683982ca5129ff7e2bf45c3f7f7335555f1d0e47a30f323978e95271433d3a0",
+      "5632": "edf3c2c7b2ff4c43bc169b8cbade2feb2deaa4c014e9f6d77c8eb25f9bc198c4",
+      "6144": "0142b24a4cc191a0af5e6d7ff71a04023a7bebe4d73cd9a293221ad6de96f080"
+    }
+  },
+  "sites-hunt-7157": {
+    "source": "mond-falcon-temple-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "dc46425215a294fd283938ba3a0c2184b17679e23e19a1590bfcdbdb503a4a96",
+    "tiers": {
+      "4096": "d5d5ed87561139cc68bb41ef8b33a88ede0752329f89901737ad629c83a69538",
+      "4608": "d876cda9ebf496f5554799586005d5ae0356f54535fd80e26e895829f1ac1ecb",
+      "5120": "0db3d4159d9988edd12204e3280ba8f741660065abb6bd1efd58737c1a3b8fec",
+      "5632": "eff9deb0e9078b6a313e0461d840e3ace8e02adfea1652516abc2c4ba3fbd34b",
+      "6144": "1f0c1afc06a7b8e17d430fa22d2034956bcfbb3b5f9d5d3c8b100983204ad953"
+    }
+  },
+  "sites-hunt-7186": {
+    "source": "mond-lion-temple-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "644ed4c448487ad294c1d318d717cbb67fe6ed8d7ed903a9bd7a41c4fd8c9c15",
+    "tiers": {
+      "4096": "fc917c1769bf0f8175fa15e6cbfa05bc3770ad0ac8da0d427978b7fb61648e11",
+      "4608": "5c4398ceef0794724262a01ed59afad51961ce5560e8378444d521b5ef6f5807",
+      "5120": "7d4ae18d4c515fd36274f738fade832688fd7bb696b9e6f6ec449d7e1b0546e8",
+      "5632": "81becb15905f3f004c4b5d3688492fa6d44d73ad77f0f3ef09ac91c570f66dfd",
+      "6144": "2e7b1c3d35f076346ca421849789e185cb8f639dc751a35bbd4ae0706cc67d92"
+    }
+  },
+  "sites-hunt-7201": {
+    "source": "mond-summer-court-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "31bd46d170715d04381cce311fcd48cf13678c166bcac0e2c8c7d08ab6edf20f",
+    "tiers": {
+      "4096": "7467628b91cbd92903ca5b452b2911348808f70331f02a5f549e596602ca289a",
+      "4608": "22260578f3993f0fc01c669e385655b9db3a356855071272c669d393c6a365de",
+      "5120": "83a28bca76330ba3f93755fe40ee9a67491b9bb0d8541a9f59024afe4f9586b8",
+      "5632": "38632551caeb92797d3dd69c181670ee85ee75153b2e9aa8040c27561b1c4c39",
+      "6144": "9f0df580d13013e07ba76154510f77b84aed6e6b6ffdb5a9a0197909e93bb5ad"
+    }
+  },
+  "sites-hunt-7206": {
+    "source": "mond-wolf-temple-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "b3e331d9e9d4e947a35dc0562957feef5f0bb9ad45c091d78082a46818bd9749",
+    "tiers": {
+      "4096": "e702d1bf320abe2db40bcf68efb8de6711cb0916d6ff1b2a31f24dca654a1b85",
+      "4608": "feb54d0badaf84e821c2e22544b13d816d89c3cf328ee8af053d9f98c5116712",
+      "5120": "df5d9b6026d766ba8a88ef08fd4db65efed14898d33cc4ee135367fc51abd8df",
+      "5632": "8bc300d8e45e7b7ed7b2593e96cbd135e68ecb44e475b9d3335851abc8aebab0",
+      "6144": "a37f3a4b4fb9fcf6da4b7eb40908baad1903e4da8dac8a5322380d16d16f4928"
+    }
+  },
+  "sites-hunt-7206-pocket-1": {
+    "source": "mond-flooded-alcove-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "d2f45da2e3f8f365cde5aca2cef71ae8a5672ba1a13b819ac7f41646170090a2",
+    "tiers": {
+      "4096": "64aa3ceca8a297bab69b48039801c6f917ca9308abcc35a411e4977c26f0358a",
+      "4608": "a2e89a49e624073305723333eec2ef11e203482a3c813247fdbb87ea4ba4a668",
+      "5120": "e69ae13a7242d0a97ee42fc970e17d22c15a88a6cbbf529761c2bbdbf403ecfe",
+      "5632": "77be793c9eff32b4a57e41c01768e608d26fa2a21b3472343a6d0f144ffb1dae",
+      "6144": "fcf571b3351ce5f49bd4d2d336c81311585f9ee7b99e6efe09d16cc635ffecaa"
+    }
+  },
+  "sites-hunt-7210": {
+    "source": "mond-eagle-cape-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "70d92309f7fe1f31f7293c36cb2a08cdfeb5b40fb050545566cb145e20eabb53",
+    "tiers": {
+      "4096": "9bfc8f577b1507c3d2723c6a4b4561fd3382828d407094e88b542ff7de2e59f2",
+      "4608": "375e05c6eab745cef888b5ec6f6313e7447449a5545d793a957831155b88692b",
+      "5120": "def6380b1f16fcbae7e3a4dcc16a2ab42c3c5cea19eaaa6dd113bf3d7038bcd2",
+      "5632": "1381188268089c4a37f268d85a709a2a28999cd320e7b7d432ffbcf014e95671",
+      "6144": "866a2f6cef8070eaedd9e1681fa8720c2208350a927ce83e14a379e7045ad669"
+    }
+  },
+  "sites-hunt-7210-pocket-1": {
+    "source": "mond-wind-basin-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "ea9fccbb413255b8eeaced7b91cff58163193af6c7b28ed4c81ae30f6c80039e",
+    "tiers": {
+      "4096": "8963806f76544a05066aceb085e9a1750a1ffedc17286f120c00cd6342eba20e",
+      "4608": "2f3bbf746afd7850e3de9b114bab832bba7631a91407fbed87af744a953356ce",
+      "5120": "f8d9e1133ec9787e8e4dcee1b422b631d26ae524b2095affcf434d89068bd0f7",
+      "5632": "4e4b9348498c42cde2254f8eb7a7994a63f550f65885a50d17a786af394afb60",
+      "6144": "c92e3321d474faadc6b9d283062eaa40b12dc4736b9a4295ee548e2b68257b3e"
+    }
+  }
+}

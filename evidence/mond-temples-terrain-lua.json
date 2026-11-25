@@ -1,0 +1,90 @@
+{
+  "sites-hunt-7149": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      421,
+      405,
+      383,
+      365
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 13,
+    "exterior_scenery": "mondFrostRavine",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7157": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      389,
+      405,
+      372
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 13,
+    "exterior_scenery": "mondFalconTemple",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-7186": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      405,
+      382,
+      367
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 13,
+    "exterior_scenery": "mondLionTemple",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-7201": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      392,
+      408,
+      384
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 13,
+    "exterior_scenery": "mondSummerCourt",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-7206": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      422,
+      398,
+      375,
+      391
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 13,
+    "exterior_scenery": "mondWolfTemple",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7210": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      383,
+      400,
+      381
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 14,
+    "exterior_scenery": "mondEagleCape",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "coverage": {
+    "huntFields": 9,
+    "sideRooms": 7
+  }
+}

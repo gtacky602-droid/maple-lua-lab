@@ -1,0 +1,25 @@
+{
+  "quest": "daily-mond-slimes",
+  "targets": [
+    "dornman-depth",
+    "dragonspine-depth",
+    "mond-bennett-depth",
+    "mond-border",
+    "mond-hill",
+    "mond-old-ground",
+    "mond-road",
+    "mond-roadside-rest",
+    "mond-watchtower",
+    "sites-hunt-7092",
+    "sites-hunt-7137",
+    "sites-hunt-7157",
+    "sites-hunt-7186",
+    "sites-hunt-7201",
+    "sites-hunt-7206",
+    "sites-hunt-7111",
+    "sites-hunt-7210"
+  ],
+  "selected": "sites-hunt-7206",
+  "download": "mond-wolf-temple-4096.lua",
+  "returnNode": "mond-town"
+}

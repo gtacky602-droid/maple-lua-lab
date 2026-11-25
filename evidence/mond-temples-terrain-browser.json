@@ -1,0 +1,258 @@
+{
+  "rift": {
+    "stage": "sites-hunt-7149",
+    "scenery": {
+      "key": "mondFrostRavine",
+      "file": "mond-frost-ravine-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 464.8,
+      "y": 361.1,
+      "adjacent": [
+        "mond-wp-14",
+        "sites-hunt-7149-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7149&placements=live&compare=background",
+      "next": "sites-hunt-7149-pocket-1"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "mondAgentHideout",
+      "file": "mond-agent-hideout-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "mond-wp-14",
+        "sites-hunt-7149",
+        "walk"
+      ],
+      [
+        "sites-hunt-7149",
+        "sites-hunt-7149-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7149-pocket-1",
+        "sites-hunt-7149",
+        "walk"
+      ],
+      [
+        "sites-hunt-7149",
+        "mond-wp-14",
+        "walk"
+      ]
+    ]
+  },
+  "falcon": {
+    "stage": "sites-hunt-7157",
+    "scenery": {
+      "key": "mondFalconTemple",
+      "file": "mond-falcon-temple-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 533.6,
+      "y": 245.4,
+      "adjacent": [
+        "mond-road"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7157&placements=live&compare=background",
+      "next": "mond-road"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "journeys": [
+      [
+        "mond-road",
+        "sites-hunt-7157",
+        "raised"
+      ],
+      [
+        "sites-hunt-7157",
+        "mond-road",
+        "walk"
+      ]
+    ]
+  },
+  "lion": {
+    "stage": "sites-hunt-7186",
+    "scenery": {
+      "key": "mondLionTemple",
+      "file": "mond-lion-temple-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 598,
+      "y": 360.2,
+      "adjacent": [
+        "mond-wp-18"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7186&placements=live&compare=background",
+      "next": "mond-wp-18"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "journeys": [
+      [
+        "mond-wp-18",
+        "sites-hunt-7186",
+        "walk"
+      ],
+      [
+        "sites-hunt-7186",
+        "mond-wp-18",
+        "walk"
+      ]
+    ]
+  },
+  "court": {
+    "stage": "sites-hunt-7201",
+    "scenery": {
+      "key": "mondSummerCourt",
+      "file": "mond-summer-court-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 628.3,
+      "y": 158.5,
+      "adjacent": [
+        "mond-wp-7"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7201&placements=live&compare=background",
+      "next": "mond-wp-7"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "journeys": [
+      [
+        "mond-wp-7",
+        "sites-hunt-7201",
+        "walk"
+      ],
+      [
+        "sites-hunt-7201",
+        "mond-wp-7",
+        "walk"
+      ]
+    ]
+  },
+  "wolf": {
+    "stage": "sites-hunt-7206",
+    "scenery": {
+      "key": "mondWolfTemple",
+      "file": "mond-wolf-temple-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 646.8,
+      "y": 238.7,
+      "adjacent": [
+        "mond-wp-7",
+        "sites-hunt-7206-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7206&placements=live&compare=background",
+      "next": "sites-hunt-7206-pocket-1"
+    },
+    "jump": [
+      480,
+      422
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "mondFloodedAlcove",
+      "file": "mond-flooded-alcove-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "mond-wp-7",
+        "sites-hunt-7206",
+        "walk"
+      ],
+      [
+        "sites-hunt-7206",
+        "sites-hunt-7206-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7206-pocket-1",
+        "sites-hunt-7206",
+        "walk"
+      ],
+      [
+        "sites-hunt-7206",
+        "mond-wp-7",
+        "walk"
+      ]
+    ]
+  },
+  "cape": {
+    "stage": "sites-hunt-7210",
+    "scenery": {
+      "key": "mondEagleCape",
+      "file": "mond-eagle-cape-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-01",
+      "x": 704.4,
+      "y": 442.5,
+      "adjacent": [
+        "mond-wp-17",
+        "sites-hunt-7210-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7210&placements=live&compare=background",
+      "next": "sites-hunt-7210-pocket-1"
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 387,
+    "pocketScenery": {
+      "key": "mondWindBasin",
+      "file": "mond-wind-basin-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "mond-wp-17",
+        "sites-hunt-7210",
+        "walk"
+      ],
+      [
+        "sites-hunt-7210",
+        "sites-hunt-7210-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-7210-pocket-1",
+        "sites-hunt-7210",
+        "walk"
+      ],
+      [
+        "sites-hunt-7210",
+        "mond-wp-17",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

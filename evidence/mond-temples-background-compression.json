@@ -1,0 +1,384 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "mond-frost-ravine-background-v1.png": {
+      "sourceBytes": 1775403,
+      "sourceSha256": "ae519a7a0e7a34520aa95992f88e079922d85de8660cd108e9295ce26d3902c2",
+      "preview": "mond-frost-ravine-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15999,
+      "baseSelectedBytes": 15983,
+      "detailFixed13Bytes": 11403,
+      "detailSelectedBytes": 11393,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.958762839988426,
+          "rgbSha256": "6cb82abae4b372bbf17e15f50ff97827692add7d9a834944125c2fb7903e43f3"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.291784215856482,
+          "rgbSha256": "3ec93c26dd86e0fdd76ba5fc8c3766ef90d91f269b2e8e9984f9ea7399b08900"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.797691062644676,
+          "rgbSha256": "a45fc002bedb38160cb660086e4ee5e5e746cbc7362a3628c3b34ba9a02ce376"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.393220124421297,
+          "rgbSha256": "6afbb217e02b1afb17ccf4e684ce7573333defad3544fda53e932ab01ec50a2c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.050801595052083,
+          "rgbSha256": "4b1129b1c838faf6958ef243a98acccca5ed447fc65d97d3b89cf2d0f514a544"
+        }
+      ]
+    },
+    "mond-agent-hideout-background-v1.png": {
+      "sourceBytes": 1562389,
+      "sourceSha256": "7163fd03aa13af7a6df4c025f3af6b09929293c7ec0090811b6dc3d90f8020b4",
+      "preview": "mond-agent-hideout-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16585,
+      "baseSelectedBytes": 16567,
+      "detailFixed13Bytes": 11823,
+      "detailSelectedBytes": 11811,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.3969862196180554,
+          "rgbSha256": "4c873b0f4d442cb523618cf16bf2cdfbf77bdd8d4b4df2fe310b58ada5f6e0cb"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.9874267578125,
+          "rgbSha256": "31758b886e7cd84e4b96aa8dd3a6d9c45bc8b68b293952738d2dbfa100fcaeb4"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.7102299442997686,
+          "rgbSha256": "180fd1e1fc966a2688b2e9d09153928d674ba7cc33f57968ef7ff016b20cbd57"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.486911349826389,
+          "rgbSha256": "fa4e36b034fcbabcaa8f34f6c96aa431115ba0bf6dae6fbb54e06f5de468dbc4"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.2960272894965277,
+          "rgbSha256": "ea9dc8b765a7d5a0ba91aac3942053ceb4c562de0009f365e93927e103abefd7"
+        }
+      ]
+    },
+    "mond-falcon-temple-background-v1.png": {
+      "sourceBytes": 1690983,
+      "sourceSha256": "a3a45bdba8325f6955e00a626f25f2ddb5f7f20f28987fb8b6aad7555fec2051",
+      "preview": "mond-falcon-temple-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17979,
+      "baseSelectedBytes": 17961,
+      "detailFixed13Bytes": 12255,
+      "detailSelectedBytes": 12245,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.844685872395833,
+          "rgbSha256": "21e2ef43134b42870e450fb78ecb4fe23802b05bbfd7bd72e4a632b69785b418"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.364192256221065,
+          "rgbSha256": "ff8047a34cb7efab8507f9913f8f9e64713591103d305b3ca7b19ce3bee544ec"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.9966272424768516,
+          "rgbSha256": "ae8542ec8fc7abc810cf462cf2283fab871da66760030e1aea741523174e1146"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.707359031394676,
+          "rgbSha256": "491c9155ff991e36b60790312c428573524c39cdaf0a3283bd4f74d7bef893dd"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.440472638165509,
+          "rgbSha256": "f87f8f4847b7e9f262e33623c621781986840ad9786bbeffd67a41155724c390"
+        }
+      ]
+    },
+    "mond-lion-temple-background-v1.png": {
+      "sourceBytes": 1779104,
+      "sourceSha256": "d9709f8b481ceeee19d0e014c7f3e1c39257baae884a8fd446b8b3dc85a89f6d",
+      "preview": "mond-lion-temple-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18261,
+      "baseSelectedBytes": 18245,
+      "detailFixed13Bytes": 12393,
+      "detailSelectedBytes": 12379,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.385116012008102,
+          "rgbSha256": "a0fac8ddf532371285c15c4b065c0df0a1b96a6c7ed9d58f4893eb16b3c493fb"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.876193576388889,
+          "rgbSha256": "ee851d9a44630d08d38a0af1469c31ed59737b5870e9f04f4cfdcd09f59eeddf"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.48352955005787,
+          "rgbSha256": "23fdf6722549152b147a83e86fab356f9bcc3b35166e8cc84b08dad12895b773"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.152669270833333,
+          "rgbSha256": "46d6c9404df52951f9b7e73a92d09fdd6c8d14eee0c642d05b9f0e4d40447e42"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.862727412471065,
+          "rgbSha256": "3ca4282c4953de225de6029a0418b5eb075d046819a678a5c623931a11b7d13f"
+        }
+      ]
+    },
+    "mond-summer-court-background-v1.png": {
+      "sourceBytes": 1774980,
+      "sourceSha256": "0346d98cc2058cbd51718e815ca5677fbc8336f1490f1524fe40e886bf4a45a4",
+      "preview": "mond-summer-court-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18833,
+      "baseSelectedBytes": 18819,
+      "detailFixed13Bytes": 12479,
+      "detailSelectedBytes": 12469,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.198287398726852,
+          "rgbSha256": "0cf9f8e55df8252290e445f933dc56f5f1d1ecda47e9161e70660c2b1a5183ac"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.486791540075232,
+          "rgbSha256": "cca1c52df8f005360b0bf509343bc32fbcba62322cf071340bccda9f36d23d21"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.937834563078703,
+          "rgbSha256": "e0c10fa7e8ec66e4e91ca27e01ccd2d11555d5f283e2d94709439e6c3bdc8a73"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.486497667100695,
+          "rgbSha256": "60fe940e29e87049199a00abb49bebeea1df953627070f204fb06ea4c432fba9"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.08588550708912,
+          "rgbSha256": "1989b4b83fa6ce2eda1df4c5b53ed4051ec2d4605d27bad377c4d7cefbf37f8f"
+        }
+      ]
+    },
+    "mond-wolf-temple-background-v1.png": {
+      "sourceBytes": 1635109,
+      "sourceSha256": "156000913132ecc2673e2e1d86f78c342ebbb7812c77122d0727430f416da870",
+      "preview": "mond-wolf-temple-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17461,
+      "baseSelectedBytes": 17445,
+      "detailFixed13Bytes": 12085,
+      "detailSelectedBytes": 12073,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.231578685619213,
+          "rgbSha256": "f291ee5314f5f5d097a0cc966da6417a5265f06b2f6d47e086c23e82d540e60a"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.7780467845775463,
+          "rgbSha256": "a2237c849b838a7309bdb113d5601814c40ba0b757c84b87410d7823d03ff407"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.436069064670139,
+          "rgbSha256": "86acccfea86ed7495cfd90dd4d87cbec8d876178cc0232ebd3ddeed1ce16bdab"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.147533275462963,
+          "rgbSha256": "9ec467c01ff2997b12b10f5bed09d8c635f6b18890d8e1aa155edbf12b102ed1"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.9223881474247686,
+          "rgbSha256": "0016f9724eaf866f55de21ec728e7ef6ae07c9c3c0c005ccc22eb27950575bc5"
+        }
+      ]
+    },
+    "mond-flooded-alcove-background-v1.png": {
+      "sourceBytes": 1627967,
+      "sourceSha256": "d6a25ca251ee91e9f8fef538451a533609cfaa63677578376b092731979f13b3",
+      "preview": "mond-flooded-alcove-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17415,
+      "baseSelectedBytes": 17399,
+      "detailFixed13Bytes": 12203,
+      "detailSelectedBytes": 12191,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.413712112991898,
+          "rgbSha256": "ff33daf99fef7d84f4fb9a8a3de0fe119616f9fedea78302687ccd8aeef8915c"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.9486603913483798,
+          "rgbSha256": "a14f61b9ed3fa99378544e676eb9501b9e3634c45a9bbcb4916909c40af39e81"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.601596408420139,
+          "rgbSha256": "7eb50048b96d650c7faea37f0c690f73d9bdd2ae025896dc62fdbaba498b1133"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.3196569372106484,
+          "rgbSha256": "bb54330a4d9c786ab0dd140183d860b28eb9d611bcc63e2433527d6d87775ea9"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.080005787037037,
+          "rgbSha256": "392de9855c8217376f933ec39c43094ac7aaa8bd70f642871c6eee8b5640012f"
+        }
+      ]
+    },
+    "mond-eagle-cape-background-v1.png": {
+      "sourceBytes": 1670975,
+      "sourceSha256": "f05c9daab24b8fa1e299f523b0824ec8d0b0192c37f1e60ef79ccbde8e5835b9",
+      "preview": "mond-eagle-cape-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17617,
+      "baseSelectedBytes": 17601,
+      "detailFixed13Bytes": 12203,
+      "detailSelectedBytes": 12195,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.4934375904224537,
+          "rgbSha256": "090c3b5a212247ffe85b4e83c1e5b3e73637bf6dd6f814e38e6dfae88e357b00"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.1506031177662037,
+          "rgbSha256": "f383427239b74fc8d1d756f7e2060043c56fd9971394e07f36ecfb5e62b33b9d"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.895191333912037,
+          "rgbSha256": "8640c1b559fbfcde951e0cf610bea67eabc59e0c95b9b5fb58c07785c678ed13"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.6809669777199074,
+          "rgbSha256": "17f5ffad8996db00ef029636f1a018a1f12ec6f7e496418ce1b4c41d4299045b"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.5070710358796298,
+          "rgbSha256": "3108fe471d860956533b0e2010c65d383267b9f4ae2d7f471216450f5578734d"
+        }
+      ]
+    },
+    "mond-wind-basin-background-v1.png": {
+      "sourceBytes": 1626264,
+      "sourceSha256": "ec10159c52cb40446ce89c0e4750b9bf946df8b59c87c8d3dd932ea30b9b2944",
+      "preview": "mond-wind-basin-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18043,
+      "baseSelectedBytes": 18031,
+      "detailFixed13Bytes": 12223,
+      "detailSelectedBytes": 12209,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.7027045355902777,
+          "rgbSha256": "5accb282125859301ea74c5bb8fd1f1fc3aeb71308a88aa29a3a02f269723530"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.3066202799479165,
+          "rgbSha256": "2924d80747f6f04efc1225fa4c7b8657be9cd041a77419a9c6a9aaa8eb251b19"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.0181206597222223,
+          "rgbSha256": "d44656f73a0c1980aaa223f3dd60f361e17c8cc2bcbd430ec7dc972cd655db16"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.7811731409143516,
+          "rgbSha256": "47ed51d234a078682ea7af65eb0a9182c5be52091a6e584358813f82a8bf4454"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.589466236255787,
+          "rgbSha256": "920cdffda937bab9a314bd0f6de4434a4d1d2c6cd4e610fb477f64f4e087860c"
+        }
+      ]
+    }
+  }
+}

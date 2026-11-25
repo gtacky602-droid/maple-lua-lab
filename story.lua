@@ -788,14 +788,47 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   return defeated
  end
+ local function entryPopulation(s,n,railState,routeState)
+  local stageQuest=quests[n.clearedBy]
+  local stageState=clearState(s,n)
+  local phase=railState and railState.count or 0
+  if routeState and routeState.stealthEncounter=='engaged' then phase=routeState.count end
+  if n.returnBox and stageState and stageState.count==n.returnBox.chaseAt+1 then phase=1 end
+  if n.spawnAt and stageState and stageState.count==n.spawnAt then phase=1 end
+  if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
+  local group=stageState and (stageState.book or stageState.forest or stageState.rest)
+  local defeated=group and group.defeated
+  if stageState and stageQuest.itinerary then
+   local itinerary=stageQuest.itinerary
+   if n.clearPath then
+    for _,path in ipairs(stageQuest.paths) do if path.id==n.clearPath then itinerary=path.steps;break end end
+   end
+   defeated=defeatedMilestones(itinerary,stageState,n.id)
+  end
+  return phase,stageState and stageState.recovered,defeated
+ end
+ local function placementActive(p,phase,recovered,defeated)
+  return not (defeated and defeated[p.id]) and (not p.questPhase or p.questPhase==phase)
+     and not (p.cargo and recovered and recovered[p.cargo])
+ end
+ function C.hasStoryTargetOnEntry(s,id,candidates)
+  local n=nodes[id]
+  if not n or n.hub or n.peaceful or cleared(s,n) then return false end
+  local _,railState=railQuest(s,n)
+  local route=n.stealthRoute
+  local phase,recovered,defeated=entryPopulation(s,n,railState,route and s.story.quests[route.quest])
+  for _,p in ipairs(candidates) do
+   if placementActive(p,phase,recovered,defeated) then return true end
+  end
+  return false
+ end
  local function spawnEnemies(s,n,phase,recovered,defeated)
   s.enemies={}
   if not n.hub and not n.peaceful and not cleared(s,n) then
    local placements=assert(C.enemySpawns and C.enemySpawns[n.id],'Missing story enemy placements: '..n.id)
    local fresh=C.new(math.max(12,math.ceil(#placements/3)))
    for i,placement in ipairs(placements) do
-    if not (defeated and defeated[placement.id]) and (not placement.questPhase or placement.questPhase==phase) and
-       not (placement.cargo and recovered and recovered[placement.cargo]) then
+    if placementActive(placement,phase,recovered,defeated) then
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
@@ -911,26 +944,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
-  local stageQuest=quests[n.clearedBy]
-  local stageState=clearState(s,n)
   local route=n.stealthRoute
   local routeState=route and s.story.quests[route.quest]
   stealth.enter(s,route,routeState)
-  local phase=railState and railState.count or 0
-  if routeState and routeState.stealthEncounter=='engaged' then phase=routeState.count end
-  if n.returnBox and stageState and stageState.count==n.returnBox.chaseAt+1 then phase=1 end
-  if n.spawnAt and stageState and stageState.count==n.spawnAt then phase=1 end
-  if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
-  local group=stageState and (stageState.book or stageState.forest or stageState.rest)
-  local defeated=group and group.defeated
-  if stageState and stageQuest.itinerary then
-   local itinerary=stageQuest.itinerary
-   if n.clearPath then
-    for _,path in ipairs(stageQuest.paths) do if path.id==n.clearPath then itinerary=path.steps;break end end
-   end
-   defeated=defeatedMilestones(itinerary,stageState,id)
-  end
-  spawnEnemies(s,n,phase,stageState and stageState.recovered,defeated)
+  spawnEnemies(s,n,entryPopulation(s,n,railState,routeState))
   spawnBreakTargets(s,n)
   local huntQuest=n.kinichQuest and quests[n.kinichQuest]
   kinichAmbush.enter(s,huntQuest,huntQuest and s.story.quests[huntQuest.id])

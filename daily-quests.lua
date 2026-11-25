@@ -76,10 +76,51 @@ return function(C,config,graph)
   return true
  end
 
- local function entry(q,row)
+ local function eligible(q,node,placement)
+  local region=config.regions[q.region]
+  if not includes(region.includeRegions,node.region) or includes(region.excludeNodes,node.id) then return false end
+  local filter=q.filter
+  if filter.nodes and not includes(filter.nodes,node.id) then return false end
+  if filter.art and not includes(filter.art,placement.dailySpecies or placement.art) then return false end
+  if filter.kind=='elite' then return placement.dailyElite==true end
+  if filter.kind=='species' then return observedNames[q.id][placement.art]~=nil end
+  return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
+ end
+
+ -- Some species-based dispatches accept kills anywhere in their region.
+ -- Resolve matching spawns once, then expose only currently revealed map locations.
+ local speciesLocations={}
+ local function targetNodes(s,q)
+  if q.filter.nodes or q.filter.kind~='art' then return q.filter.nodes end
+  local locations=speciesLocations[q.id]
+  if not locations then
+   locations={}
+   for _,node in ipairs(graph.nodes) do
+    local candidates={}
+    for _,p in ipairs(C.enemySpawns[node.id] or {}) do
+     if not p.dailyExclude and eligible(q,node,p) then candidates[#candidates+1]=p end
+    end
+    if #candidates>0 then locations[#locations+1]={id=node.id,placements=candidates} end
+   end
+   table.sort(locations,function(a,b)
+    if nodes[a.id].level~=nodes[b.id].level then return nodes[a.id].level<nodes[b.id].level end
+    return a.id<b.id
+   end)
+   speciesLocations[q.id]=locations
+  end
+  local visible={}
+  for _,place in ipairs(locations) do
+   if C.atlasNodeVisible(s,place.id) and C.hasStoryTargetOnEntry(s,place.id,place.placements) then
+    visible[#visible+1]=place.id
+   end
+  end
+  return visible
+ end
+
+ local function entry(s,q,row)
   local item={id=q.id,kind=q.kind,name=q.name,giver=q.giver,region=config.regions[q.region].label,hub=nodes[q.hub].name,
               goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,material=q.material,
-              targetNodes=(not row or row.count<q.goal) and q.filter.nodes or nil,
+              targetNodes=(not row or row.count<q.goal) and targetNodes(s,q) or nil,
               count=row and row.count,claimed=row and row.claimed or false}
   if q.observation then
    item.species={}
@@ -113,17 +154,6 @@ return function(C,config,graph)
   ledger.earnedXp=ledger.earnedXp+q.xp
   ledger.earnedMora=ledger.earnedMora+q.mora
   s.dailyNotice=q.giver..'「お疲れさま。今日もありがとう。」'
- end
-
- local function eligible(q,node,placement)
-  local region=config.regions[q.region]
-  if not includes(region.includeRegions,node.region) or includes(region.excludeNodes,node.id) then return false end
-  local filter=q.filter
-  if filter.nodes and not includes(filter.nodes,node.id) then return false end
-  if filter.art and not includes(filter.art,placement.dailySpecies or placement.art) then return false end
-  if filter.kind=='elite' then return placement.dailyElite==true end
-  if filter.kind=='species' then return observedNames[q.id][placement.art]~=nil end
-  return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
  end
 
  local function placementIn(node,e)
@@ -209,7 +239,7 @@ return function(C,config,graph)
   local function list(rows,out)
    for _,row in ipairs(rows) do
     local q=quests[row.id]
-    local item=entry(q,row)
+    local item=entry(s,q,row)
     item.canClaim=not s.paused and s.story.node==q.hub and not row.claimed and row.count==q.goal
     out[#out+1]=item
    end
@@ -218,7 +248,7 @@ return function(C,config,graph)
   list(ledger.carrySlots,visible.carrySlots)
   for _,q in ipairs(config.quests) do
    if q.hub==s.story.node and not find(ledger.activeSlots,q.id) then
-    local item=entry(q)
+    local item=entry(s,q)
     local accept,reason=canAccept(s,q,visible.usedSlots)
     item.accept,item.reason=accept and not s.paused,reason
     item.companion=q.companion and q.companion==(s.companion or 'amber')
