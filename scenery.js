@@ -53,7 +53,7 @@ export const sceneryDefinitions={
  steamStablingDepot:{file:'steam-stabling-depot-background-v1.png',zones:['story:steam-stabling-depot'],note:'蒸気留置庫の仮背景'},
  clothService:{file:'cloth-service-walk-background-v1.png',zones:['story:cloth-service-walk'],note:'作業路の仮背景'},
  threadlineRelay:{file:'threadline-relay-background-v1.png',zones:['story:threadline-relay'],note:'配電室の仮背景'},
- buriedWeaving:{file:'buried-weaving-background-v1.png',zones:['story:buried-weaving-room','story:childe-golden-house-arena'],note:'織房の仮背景'},
+ buriedWeaving:{file:'buried-weaving-background-v1.png',zones:['story:buried-weaving-room'],note:'織房の仮背景'},
  tideCalibration:{file:'tide-calibration-background-v1.png',zones:['story:tide-calibration-hall'],note:'潮位較正室の仮背景'},
  andriusWeekly:{file:'andrius-weekly-background-v1.png',zones:['story:andrius-wolf-ring'],note:'狼の領の仮背景'},
  dvalinWeekly:{file:'dvalin-weekly-background-v1.png',zones:['story:dvalin-sky-arena'],note:'風龍の空域の仮背景'},
@@ -63,6 +63,21 @@ export const sceneryDefinitions={
  baptistField:{file:'baptist-field-background-v1.png',zones:['story:baptist-field-sanctuary'],note:'三環の祭場の仮背景'},
  wenutField:{file:'wenut-field-background-v1.png',zones:['story:wenut-field-cavern'],note:'風蝕の砂洞の仮背景'},
  asimonField:{file:'asimon-field-background-v1.png',zones:['story:asimon-field-ruins'],note:'砂鏡の遺構の仮背景'},
+ liyueMingyunAdit:{file:'li-mingyun-adit-background-v1.png',decodedPreview:'li-mingyun-adit-native-preview-v1.png',decodedTiers:'li-mingyun-adit-native-tiers-v1.webp',zones:['story:sites-hunt-7173'],note:'明蘊の鉱山道の仮背景'},
+ liyueStonehelmPit:{file:'li-stonehelm-pit-background-v1.png',decodedPreview:'li-stonehelm-pit-native-preview-v1.png',decodedTiers:'li-stonehelm-pit-native-tiers-v1.webp',zones:['story:sites-hunt-7173-pocket-1'],note:'岩兜の王の採石場の仮背景'},
+ liyueGuiliRuins:{file:'li-guili-ruins-background-v1.png',decodedPreview:'li-guili-ruins-native-preview-v1.png',decodedTiers:'li-guili-ruins-native-tiers-v1.webp',zones:['story:sites-hunt-7190'],note:'帰離原の石道の仮背景'},
+ liyueSentinelYard:{file:'li-sentinel-yard-background-v1.png',decodedPreview:'li-sentinel-yard-native-preview-v1.png',decodedTiers:'li-sentinel-yard-native-tiers-v1.webp',zones:['story:sites-hunt-7190-pocket-1'],note:'遺跡守衛の中庭の仮背景'},
+ liyueGuyunShoal:{file:'li-guyun-shoal-background-v1.png',decodedPreview:'li-guyun-shoal-native-preview-v1.png',decodedTiers:'li-guyun-shoal-native-tiers-v1.webp',zones:['story:sites-hunt-7215'],note:'孤雲閣の潮の岩棚の仮背景'},
+ liyueEmberGrotto:{file:'li-ember-grotto-background-v1.png',decodedPreview:'li-ember-grotto-native-preview-v1.png',decodedTiers:'li-ember-grotto-native-tiers-v1.webp',zones:['story:sites-hunt-7215-pocket-1'],note:'孤雲閣の潮食洞の仮背景'},
+ liyueGoldenApproach:{file:'li-golden-approach-background-v1.png',decodedPreview:'li-golden-approach-native-preview-v1.png',decodedTiers:'li-golden-approach-native-tiers-v1.webp',zones:['story:sites-hunt-7218'],note:'港南の黄金屋への道の仮背景'},
+ liyueTianhengPass:{file:'li-tianheng-pass-background-v1.png',decodedPreview:'li-tianheng-pass-native-preview-v1.png',decodedTiers:'li-tianheng-pass-native-tiers-v1.webp',zones:['story:sites-hunt-7220'],note:'天衡の山道の仮背景'},
+ liyueCinderShrine:{file:'li-cinder-shrine-background-v1.png',decodedPreview:'li-cinder-shrine-native-preview-v1.png',decodedTiers:'li-cinder-shrine-native-tiers-v1.webp',zones:['story:sites-hunt-7220-pocket-1'],note:'天衡の石祠の仮背景'},
+ liyueLuhuaTerraces:{file:'li-luhua-terraces-background-v1.png',decodedPreview:'li-luhua-terraces-native-preview-v1.png',decodedTiers:'li-luhua-terraces-native-tiers-v1.webp',zones:['story:sites-hunt-9778'],note:'漉華の段池の仮背景'},
+ liyueDragonQueller:{file:'li-dragon-queller-background-v1.png',decodedPreview:'li-dragon-queller-native-preview-v1.png',decodedTiers:'li-dragon-queller-native-tiers-v1.webp',zones:['story:sites-hunt-18048'],note:'伏龍の古樹道の仮背景'},
+ liyueRootSeal:{file:'li-root-seal-background-v1.png',decodedPreview:'li-root-seal-native-preview-v1.png',decodedTiers:'li-root-seal-native-tiers-v1.webp',zones:['story:sites-hunt-18048-pocket-1'],note:'伏龍の根元の封印室の仮背景'},
+ liyueFungalHollow:{file:'li-fungal-hollow-background-v1.png',decodedPreview:'li-fungal-hollow-native-preview-v1.png',decodedTiers:'li-fungal-hollow-native-tiers-v1.webp',zones:['story:sites-hunt-18048-pocket-2'],note:'伏龍の木の菌床の仮背景'},
+ liyueGoldenVault:{file:'li-golden-vault-background-v1.png',decodedPreview:'li-golden-vault-native-preview-v1.png',decodedTiers:'li-golden-vault-native-tiers-v1.webp',zones:['story:childe-golden-house-arena'],note:'黄金屋・公子の再現戦の仮背景'},
+ liyueSealedCavern:{file:'li-sealed-cavern-background-v1.png',decodedPreview:'li-sealed-cavern-native-preview-v1.png',decodedTiers:'li-sealed-cavern-native-tiers-v1.webp',zones:['story:azhdaha-dragon-seal-arena'],note:'若陀龍王の封印洞の仮背景'},
  liyueAocangRidge:{file:'li-aocang-ridge-background-v1.png',decodedPreview:'li-aocang-ridge-native-preview-v1.png',decodedTiers:'li-aocang-ridge-native-tiers-v1.webp',zones:['story:sites-hunt-7114'],note:'奥蔵の北・山際の岩棚の仮背景'},
  liyueGeovishapDen:{file:'li-geovishap-den-background-v1.png',decodedPreview:'li-geovishap-den-native-preview-v1.png',decodedTiers:'li-geovishap-den-native-tiers-v1.webp',zones:['story:sites-hunt-7114-pocket-1'],note:'岩ヴィシャップの晶洞の仮背景'},
  liyueJueyunPool:{file:'li-jueyun-pool-background-v1.png',decodedPreview:'li-jueyun-pool-native-preview-v1.png',decodedTiers:'li-jueyun-pool-native-tiers-v1.webp',zones:['story:sites-hunt-7116'],note:'絶雲の池畔・水鏡の段の仮背景'},
@@ -168,7 +183,7 @@ export const sceneryDefinitions={
  teaCrossroads:{file:'ina-tea-case-crossroads-background-v1.png',zones:['story:ina-tea-crossroads'],note:'昼の木陰の分かれ道の仮背景'},
  teaLanding:{file:'ina-tea-case-landing-background-v1.png',zones:['story:ina-tea-landing'],note:'夕方の船着き場の仮背景'},
  toriiforest:{file:'inazuma-torii-forest-background-v1.png',zones:['story:inazuma-torii-footprints','story:inazuma-torii-statues','story:inazuma-torii-reflections','story:inazuma-torii-thicket'],note:'鎮守の森の色と鳥居を参照した共通の仮背景'},
- liyuequarry:{file:'liyue-quarry-background-v1.png',zones:['story:liyue-river-trail','story:liyue-cliff-planks','story:liyue-quarry-post','story:liyue-quarry-storage','story:liyue-book-camp','story:azhdaha-dragon-seal-arena'],note:'川沿い・桟道・石切り場・宝盗団の拠点で共用する仮背景'},
+ liyuequarry:{file:'liyue-quarry-background-v1.png',zones:['story:liyue-river-trail','story:liyue-cliff-planks','story:liyue-quarry-post','story:liyue-quarry-storage','story:liyue-book-camp'],note:'川沿い・桟道・石切り場・宝盗団の拠点で共用する仮背景'},
  mondrestored:{file:'mond-restored-road-background-v1.png',zones:['story:mond-restored-road'],clearedZones:['story:mond-watchtower'],note:'見張り討伐後の街道の仮画像'},
  mondhill:{file:'mond-hill-background-v1.png',region:null,zones:['story:mond-hill','story:mond-watchtower','story:anemo-field-basin'],note:'見張り台と赤い旗の試作構図'},
  chasm:{file:'chasm-background-v1.png',region:'層岩巨淵・地下鉱区',zones:[],note:'岩層や青い光を参照したラボ仮背景（坑道と足場は試作）'},
@@ -347,7 +362,7 @@ function drawDecorations(ctx,frame,camera){
   ctx.restore();
  }
 }
-// Keep the game on the source picture until this location's measured raster is ready.
+// Reuse a resident source while switching tiers. On a new map, fetch only the chosen raster.
 export function drawPlayScenery(ctx,frame,tier){
  const key=sceneryKey(frame),definition=sceneryDefinitions[key];
  let file,tile,message='';
@@ -363,6 +378,7 @@ export function drawPlayScenery(ctx,frame,tier){
     tile=highest?undefined:(tier-4096)/512;
    }else{
     message=state==='error'?'復号画像を読み込めず元PNGを表示':'復号画像を読み込み中';
+    if(state==='loading' && backgrounds.get(definition.file)?.state!=='ready')file=preview;
    }
   }
  }
@@ -382,7 +398,7 @@ export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=['inaCastleKeep','inaFogIslet','inaSeiraiCrags','inaSacredRoots','inaYashioriRift','inaRiftBoneDen','inaSerpentQuarry','inaYougouStair','inaByakkoMeadow','inaThunderaxeCamp'].includes(key)||key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const stone=['liyueAocangRidge','liyueGeovishapDen','mondFrostRavine','mondAgentHideout','mondWolfTemple','mondFloodedAlcove','mondWindBasin','mondBrokenSpire','mondRiftBurrow','inaSuigetsuPool','inaTideChamber','inaMirrorSanctum','inaTataraFurnace','inaMirrorGallery','inaRiftMachineBay','inaAraumiCistern','inaThunderVault','inaRuinWorkshop','natCentralPath','natFallsCavern','natErodedKiln','natSpringKeyCave','natSpiritAlcove','sumServiceBay','sumMossGate','sumSentinelCourt','seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','narwhalInner','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','fontaineNorthHeadland','fontaineNorthTidegate','fontaineNorthLantern','fontaineMorteDrain','fontaineMorteValve','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
+ const stone=['liyueMingyunAdit','liyueStonehelmPit','liyueSentinelYard','liyueEmberGrotto','liyueCinderShrine','liyueRootSeal','liyueGoldenVault','liyueSealedCavern','liyueAocangRidge','liyueGeovishapDen','mondFrostRavine','mondAgentHideout','mondWolfTemple','mondFloodedAlcove','mondWindBasin','mondBrokenSpire','mondRiftBurrow','inaSuigetsuPool','inaTideChamber','inaMirrorSanctum','inaTataraFurnace','inaMirrorGallery','inaRiftMachineBay','inaAraumiCistern','inaThunderVault','inaRuinWorkshop','natCentralPath','natFallsCavern','natErodedKiln','natSpringKeyCave','natSpiritAlcove','sumServiceBay','sumMossGate','sumSentinelCourt','seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','narwhalInner','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','fontaineNorthHeadland','fontaineNorthTidegate','fontaineNorthLantern','fontaineMorteDrain','fontaineMorteValve','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['sumSandMarket','sumSandBalances','sumSandWindcut','sumSandSentry','sumSandEastBasin','sumRedSandWell','sumRedSandRoost','sumRoyalDen','sumDuneVault','sumDuneCounterweight','asimonField','sumeruDesertTombApproach','wenutField','emperorField','lavaDragonField','tunigiExcavation'].includes(key);
  const bygone=['bygone','bygoneResonance','fontaineSunkenReef','fontaineSunkenSeal'].includes(key);
  const golden=key==='golden'||key==='goldenDock';

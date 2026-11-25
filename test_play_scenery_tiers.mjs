@@ -8,7 +8,11 @@ const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
 const browser=await chromium.launch({channel:'chrome',headless:true});
 try {
  const page=await browser.newPage({viewport:{width:1220,height:900}});
- const errors=[];
+ const errors=[],backgroundRequests=[];
+ page.on('request',req=>{
+  const file=new URL(req.url()).pathname.split('/').pop();
+  if(file.startsWith('ina-araumi-cistern-') || file.startsWith('ina-thunder-vault-'))backgroundRequests.push(file);
+ });
  page.on('pageerror',error=>errors.push(error.message));
  await page.addInitScript(()=>{
   const draw=CanvasRenderingContext2D.prototype.drawImage;
@@ -48,6 +52,8 @@ try {
   results[n]=await expectDraw(file,n===6144?null:[(index%2)*512,Math.floor(index/2)*288,512,288]);
  }
  await tier.selectOption('4096');
+ assert.ok(!backgroundRequests.includes(prefix+'-background-v1.png'));
+ const initialTierRequests=[...backgroundRequests];
  await drive.walk(1120);
  const moved=await expectDraw(prefix+'-native-tiers-v1.webp',[0,0,512,288]);
  assert.ok(moved.coords[4]<results[4096].coords[4]);
@@ -64,6 +70,6 @@ try {
  await expectDraw(prefix+'-background-v1.png');
  assert.equal(await page.locator('#renderMode').inputValue(),originalCharacterMode);
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/play-scenery-tiers.json',JSON.stringify({stage:'sites-hunt-12778',results,moved,fallback,returnStage:await drive.node(),characterMode:originalCharacterMode},null,2)+'\n');
+ await fs.writeFile('evidence/play-scenery-tiers.json',JSON.stringify({stage:'sites-hunt-12778',results,moved,fallback,initialTierRequests,backgroundRequests,returnStage:await drive.node(),characterMode:originalCharacterMode},null,2)+'\n');
  console.log('Five actual adventure canvas draws, scrolling, fallback, return and original art passed.');
 } finally {await browser.close();}

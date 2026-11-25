@@ -1,0 +1,26 @@
+{
+  "childe-golden-house-arena": {
+    "source": "li-golden-vault-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "f4e667556946901016a8b92bdaacaa3a3d9f87dffc6021c69c4352b1d281f689",
+    "tiers": {
+      "4096": "55948f7e302fd9ca57e0b117655622b1f598fdac82fe0ce27f789730ee5e8402",
+      "4608": "ceb4d8391fbb321dae467258109eab72a6611e66d370a5aef7476b51a3bf2fdd",
+      "5120": "16c30ad3b7cbf2b9e41b0590d7aac731472a2c2715d23aaa66c06fd2b0af876f",
+      "5632": "9462ddd2254d6e8f9751f791124ef6ac781d3bf6256dc9ef1cccb0155728a6d3",
+      "6144": "dafeb53ad1486073cd9092ff5fcaf4b5d04df4bebf61fe08ca6b0f0f2d8837b8"
+    }
+  },
+  "azhdaha-dragon-seal-arena": {
+    "source": "li-sealed-cavern-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "73cc55ba8ad071b24833cec471e582f5d675d52b0d5aa7f669c3e9e46fad271b",
+    "tiers": {
+      "4096": "b8228e61498874f7d0d1a4a6ab4de8a7f14178ff910e4d0e60ef750c4edf1ca4",
+      "4608": "73fddabd6dd8da88c68e32e0a9cead64e77121cdd4af7737069db44ce94b444e",
+      "5120": "c1f504ce7dfb3a22a9bcb52af254d8064ba0a0a6426165a1bbc6ec828f0a65a9",
+      "5632": "f95ec6fc689b0705937c07c8fe00bf6740127cdcaf5126021e5eca8bd6446c31",
+      "6144": "927189d8909eff89d3a7b22601dff1edf9d4598ce08593c72a9f3b2e9b3f42c6"
+    }
+  }
+}

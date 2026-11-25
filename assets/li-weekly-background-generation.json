@@ -1,0 +1,21 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "childe-golden-house-arena",
+      "source": "li-golden-vault-background-v1.png",
+      "preview": "li-golden-vault-native-preview-v1.png",
+      "key": "liyueGoldenVault",
+      "note": "黄金屋・公子の再現戦",
+      "prompt": "A lavish but empty interior of a ceremonial treasury in Liyue. Symmetrical lacquered red columns and gold brackets framing a monumental round golden coin relief at the back, dark jade floor, warm shafts of window light, no exterior horizon. Original landscape 16:9 side-scrolling pixel RPG arena backdrop inspired by Chinese fantasy. Bold carefully composed clusters and limited palette, distinct planes readable at 512x288, dark quiet foreground, no characters, no monsters, no UI, no text."
+    },
+    {
+      "node": "azhdaha-dragon-seal-arena",
+      "source": "li-sealed-cavern-background-v1.png",
+      "preview": "li-sealed-cavern-native-preview-v1.png",
+      "key": "liyueSealedCavern",
+      "note": "若陀龍王の封印洞",
+      "prompt": "Vast subterranean cavern beneath the Dragon-Queller tree. Thick fossil roots curl through broad layered ochre rock walls and around an ancient amber stone tablet. Cool mineral light in the deep distance. Broad open ground for a giant boss. Original landscape 16:9 side-scrolling pixel RPG arena backdrop inspired by Chinese fantasy. Bold carefully composed clusters and limited palette, distinct planes readable at 512x288, dark quiet foreground, no characters, no monsters, no UI, no text."
+    }
+  ]
+}

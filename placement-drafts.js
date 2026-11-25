@@ -2,10 +2,14 @@ export const MAX_DRAFT_BYTES=512*1024;
 export const MAX_NODE_PLACEMENTS=128;
 export const MAX_TOTAL_PLACEMENTS=1024;
 // Convert authored spawn support indices to the visual editor's grounded coordinates.
-export function liveNodeDraft(input,graph,nodeId,species){
+export function liveNodeDraft(input,graph,nodeId,species,weekly){
  const node=graph.nodes.find(n=>n.id===nodeId);
  if(!node||input?.version!==1||!input.nodes||Array.isArray(input.nodes))throw Error('本編配置の形式が不正です。');
  const items=input.nodes[nodeId];
+ if(weekly?.node===nodeId && weekly.mapIdleArt && items===undefined){
+  const boss={id:weekly.id,species:weekly.mapIdleArt,x:weekly.center,y:weekly.floorY,flip:false};
+  return validatePlacementDraft({version:1,nodes:{[nodeId]:[boss]}},graph,species).nodes[nodeId];
+ }
  if(items===undefined&&!node.hub&&!node.peaceful)throw Error('この戦闘地点の本編配置がありません。');
  if(items!==undefined&&!Array.isArray(items))throw Error('本編配置の個体一覧が不正です。');
  const aliases={'hydro-slime':'hydro-slime-reference','pyro-slime':'pyro-slime-reference'};
@@ -23,6 +27,13 @@ const westIslandHeights=[480,408,369,404,378];
 const mondRuinsHeights=[480,397,358,404,360];
 const liyueNorthHeights=[480,403,360,389,345];
 const previousHeights=new Map([
+ ['sites-hunt-7173',liyueNorthHeights],
+ ['sites-hunt-7190',liyueNorthHeights],
+ ['sites-hunt-7215',liyueNorthHeights],
+ ['sites-hunt-7218',liyueNorthHeights],
+ ['sites-hunt-7220',liyueNorthHeights],
+ ['sites-hunt-9778',liyueNorthHeights],
+ ['sites-hunt-18048',liyueNorthHeights],
  ['sites-hunt-7114',liyueNorthHeights],['sites-hunt-7116',liyueNorthHeights],['sites-hunt-7121',liyueNorthHeights],
  ['sites-hunt-7149',mondRuinsHeights],
  ['sites-hunt-7157',mondRuinsHeights],

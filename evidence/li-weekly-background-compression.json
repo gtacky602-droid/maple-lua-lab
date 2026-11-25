@@ -1,0 +1,90 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "li-golden-vault-background-v1.png": {
+      "sourceBytes": 1935369,
+      "sourceSha256": "6c4a4fc08a8826df3ac8cdd391ba901f6e3f110003d207b53f67047da10bdd64",
+      "preview": "li-golden-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18293,
+      "baseSelectedBytes": 18277,
+      "detailFixed13Bytes": 12163,
+      "detailSelectedBytes": 12155,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.907251428674768,
+          "rgbSha256": "696ec2d565d7ba99e199f41d75c041f08d992236ed2d51d1bfb659e7aa2a2540"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.421018247251157,
+          "rgbSha256": "9807ff6e1847d8bbe6ac7b852137019f935801d7df2521a541dd9368a92ad5c3"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.044422290943287,
+          "rgbSha256": "847bc51f7dc6bff2a99279587f7056bf472b89cf2d3893dedcc40fb3f32277a3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.727100513599537,
+          "rgbSha256": "43a4093ceb4866a4f0324ae36734a3fb3914731b33316a805106eff136f22408"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.432449905960648,
+          "rgbSha256": "4d462aa7c871e669034c1e030fea76bc59f2e311727f519a2cef34a2cede5b49"
+        }
+      ]
+    },
+    "li-sealed-cavern-background-v1.png": {
+      "sourceBytes": 2345834,
+      "sourceSha256": "38867d10d12608585ef4e1aac35ae43abee5de284a39bf17d3b5eb887eac731d",
+      "preview": "li-sealed-cavern-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17663,
+      "baseSelectedBytes": 17651,
+      "detailFixed13Bytes": 12219,
+      "detailSelectedBytes": 12211,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.94140625,
+          "rgbSha256": "dbb899e0ea5fc2f2c0c38861664293e37ca02914488a04b02cdcbdb3287cedf0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.435605649594907,
+          "rgbSha256": "ef6d09e1a1d2de5618aaa8806ccb541a95785201750dccd621d06fb70719a45f"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.048118308738426,
+          "rgbSha256": "36e9ad6bbaa1758221048543dbf02f5f0cf712c874fe4f91d9e4c8db5d3997d8"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.721039948640047,
+          "rgbSha256": "9b239478ffc137c1f45a15d5c092a5440dd4bae305eb6011897bdf4511c868d0"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.432280363859953,
+          "rgbSha256": "e3b94c14070263833e4bb0dd4961d057a011580755a66accab4d822aa3a8d629"
+        }
+      ]
+    }
+  }
+}

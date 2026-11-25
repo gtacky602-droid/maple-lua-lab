@@ -80,6 +80,16 @@ async function visit(browser, suite, field, errors) {
       return guide?.status === 'ready' && guide.stops.length === 1 && guide.stops[0].id === id;
     }, destination);
     map.next = await page.evaluate(() => window.lab.frame.worldMap.guide.stops[0].id);
+    if (field.weeklyPreview) {
+      const [preview] = await Promise.all([page.waitForEvent('popup'), page.locator('#atlasBackgroundCompare').click()]);
+      try {
+        await preview.waitForFunction(id=>window.mapArt?.liveView && window.mapArt.node===id && window.mapArt.count===1,destination);
+        const [boss] = await preview.evaluate(()=>window.mapArt.placements);
+        assert.equal(boss.species,field.weeklyPreview);
+        assert.ok((await preview.locator('#status').innerText()).includes('開戦時のボス位置'));
+        map.openingPose = boss;
+      } finally { await preview.close(); }
+    }
     await page.keyboard.press('Escape');
     await atlas.waitFor({ state: 'hidden' });
 

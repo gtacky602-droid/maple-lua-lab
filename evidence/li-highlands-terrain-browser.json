@@ -1,0 +1,412 @@
+{
+  "adit": {
+    "stage": "sites-hunt-7173",
+    "scenery": {
+      "key": "liyueMingyunAdit",
+      "file": "li-mingyun-adit-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 580.3,
+      "y": 203.4,
+      "adjacent": [
+        "liyue-wp-35",
+        "sites-hunt-7173-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7173&placements=live&compare=background",
+      "next": "sites-hunt-7173-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 390,
+    "pocketScenery": {
+      "key": "liyueStonehelmPit",
+      "file": "li-stonehelm-pit-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-35",
+        "sites-hunt-7173",
+        "raised"
+      ],
+      [
+        "sites-hunt-7173",
+        "sites-hunt-7173-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-7173-pocket-1",
+        "sites-hunt-7173",
+        "walk"
+      ],
+      [
+        "sites-hunt-7173",
+        "liyue-wp-35",
+        "walk"
+      ]
+    ]
+  },
+  "ruins": {
+    "stage": "sites-hunt-7190",
+    "scenery": {
+      "key": "liyueGuiliRuins",
+      "file": "li-guili-ruins-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 498.1,
+      "y": 250.1,
+      "adjacent": [
+        "liyue-field",
+        "sites-hunt-7190-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7190&placements=live&compare=background",
+      "next": "sites-hunt-7190-pocket-1"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "liyueSentinelYard",
+      "file": "li-sentinel-yard-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-field",
+        "sites-hunt-7190",
+        "raised"
+      ],
+      [
+        "sites-hunt-7190",
+        "sites-hunt-7190-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7190-pocket-1",
+        "sites-hunt-7190",
+        "walk"
+      ],
+      [
+        "sites-hunt-7190",
+        "liyue-field",
+        "walk"
+      ]
+    ]
+  },
+  "island": {
+    "stage": "sites-hunt-7215",
+    "scenery": {
+      "key": "liyueGuyunShoal",
+      "file": "li-guyun-shoal-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 657.1,
+      "y": 343.3,
+      "adjacent": [
+        "geo-approach",
+        "sites-hunt-7215-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7215&placements=live&compare=background",
+      "next": "sites-hunt-7215-pocket-1"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "liyueEmberGrotto",
+      "file": "li-ember-grotto-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "geo-approach",
+        "sites-hunt-7215",
+        "boat"
+      ],
+      [
+        "sites-hunt-7215",
+        "sites-hunt-7215-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7215-pocket-1",
+        "sites-hunt-7215",
+        "walk"
+      ],
+      [
+        "sites-hunt-7215",
+        "geo-approach",
+        "boat"
+      ]
+    ]
+  },
+  "vault": {
+    "stage": "sites-hunt-7218",
+    "scenery": {
+      "key": "liyueGoldenApproach",
+      "file": "li-golden-approach-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 487.4,
+      "y": 429,
+      "adjacent": [
+        "liyue-wp-104",
+        "childe-golden-house-arena"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7218&placements=live&compare=background",
+      "next": "childe-golden-house-arena",
+      "openingPose": {
+        "id": "boss-29030101",
+        "species": "boss-childe",
+        "x": 480,
+        "y": 480,
+        "flip": false
+      }
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 394,
+    "pocketScenery": {
+      "key": "liyueGoldenVault",
+      "file": "li-golden-vault-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-104",
+        "sites-hunt-7218",
+        "walk"
+      ],
+      [
+        "sites-hunt-7218",
+        "childe-golden-house-arena",
+        "raised"
+      ],
+      [
+        "childe-golden-house-arena",
+        "sites-hunt-7218",
+        "raised"
+      ],
+      [
+        "sites-hunt-7218",
+        "liyue-wp-104",
+        "walk"
+      ]
+    ]
+  },
+  "pass": {
+    "stage": "sites-hunt-7220",
+    "scenery": {
+      "key": "liyueTianhengPass",
+      "file": "li-tianheng-pass-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 399.8,
+      "y": 383.2,
+      "adjacent": [
+        "liyue-wp-105",
+        "sites-hunt-7220-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-7220&placements=live&compare=background",
+      "next": "sites-hunt-7220-pocket-1"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "returnHeight": 394,
+    "pocketScenery": {
+      "key": "liyueCinderShrine",
+      "file": "li-cinder-shrine-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-105",
+        "sites-hunt-7220",
+        "raised"
+      ],
+      [
+        "sites-hunt-7220",
+        "sites-hunt-7220-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-7220-pocket-1",
+        "sites-hunt-7220",
+        "walk"
+      ],
+      [
+        "sites-hunt-7220",
+        "liyue-wp-105",
+        "walk"
+      ]
+    ]
+  },
+  "terraces": {
+    "stage": "sites-hunt-9778",
+    "scenery": {
+      "key": "liyueLuhuaTerraces",
+      "file": "li-luhua-terraces-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 449.9,
+      "y": 289.2,
+      "adjacent": [
+        "primo-approach"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-9778&placements=live&compare=background",
+      "next": "primo-approach"
+    },
+    "jump": [
+      480,
+      423
+    ],
+    "journeys": [
+      [
+        "primo-approach",
+        "sites-hunt-9778",
+        "walk"
+      ],
+      [
+        "sites-hunt-9778",
+        "primo-approach",
+        "walk"
+      ]
+    ]
+  },
+  "roots": {
+    "stage": "sites-hunt-18048",
+    "scenery": {
+      "key": "liyueDragonQueller",
+      "file": "li-dragon-queller-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-02",
+      "x": 278.5,
+      "y": 217.4,
+      "adjacent": [
+        "liyue-wp-45",
+        "sites-hunt-18048-pocket-1",
+        "sites-hunt-18048-pocket-2",
+        "azhdaha-dragon-seal-arena"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-18048&placements=live&compare=background",
+      "pockets": {
+        "sites-hunt-18048-pocket-2": "伏龍の木の跡地周辺・璃月のキノコンの脇部屋 ｜ 任意戦・希少遭遇・徒歩・Lv38・上の足場の門",
+        "sites-hunt-18048-pocket-1": "伏龍の木の跡地周辺・璃月のアビスの魔術師・炎の脇部屋 ｜ 任意戦・精鋭・徒歩・Lv40・地上の門"
+      },
+      "next": "azhdaha-dragon-seal-arena",
+      "openingPose": {
+        "id": "boss-29040101",
+        "species": "boss-azhdaha",
+        "x": 528,
+        "y": 480,
+        "flip": false
+      }
+    },
+    "jump": [
+      480,
+      419
+    ],
+    "returnHeight": 391,
+    "pocketScenery": {
+      "key": "liyueSealedCavern",
+      "file": "li-sealed-cavern-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "liyue-wp-45",
+        "sites-hunt-18048",
+        "walk"
+      ],
+      [
+        "sites-hunt-18048",
+        "azhdaha-dragon-seal-arena",
+        "raised"
+      ],
+      [
+        "azhdaha-dragon-seal-arena",
+        "sites-hunt-18048",
+        "raised"
+      ],
+      [
+        "sites-hunt-18048",
+        "sites-hunt-18048-pocket-2",
+        "raised"
+      ],
+      [
+        "sites-hunt-18048-pocket-2",
+        "sites-hunt-18048",
+        "walk"
+      ],
+      [
+        "sites-hunt-18048",
+        "sites-hunt-18048-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-18048-pocket-1",
+        "sites-hunt-18048",
+        "walk"
+      ],
+      [
+        "sites-hunt-18048",
+        "liyue-wp-45",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "azhdaha-dragon-seal-arena",
+        "returnHeight": 391,
+        "pocketScenery": {
+          "key": "liyueSealedCavern",
+          "file": "li-sealed-cavern-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-18048-pocket-2",
+        "returnHeight": 389,
+        "pocketScenery": {
+          "key": "liyueFungalHollow",
+          "file": "li-fungal-hollow-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-18048-pocket-1",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "liyueRootSeal",
+          "file": "li-root-seal-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "errors": []
+}

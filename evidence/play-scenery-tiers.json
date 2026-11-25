@@ -85,6 +85,18 @@
       540
     ]
   },
+  "initialTierRequests": [
+    "ina-araumi-cistern-native-tiers-v1.webp",
+    "ina-araumi-cistern-native-preview-v1.png"
+  ],
+  "backgroundRequests": [
+    "ina-araumi-cistern-native-tiers-v1.webp",
+    "ina-araumi-cistern-native-preview-v1.png",
+    "ina-thunder-vault-native-tiers-v1.webp",
+    "ina-thunder-vault-background-v1.png",
+    "ina-thunder-vault-native-preview-v1.png",
+    "ina-araumi-cistern-background-v1.png"
+  ],
   "returnStage": "sites-hunt-12778",
   "characterMode": "sprite"
 }

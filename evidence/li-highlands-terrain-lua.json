@@ -1,0 +1,137 @@
+{
+  "sites-hunt-7173": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      383,
+      355,
+      382
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "liyueMingyunAdit",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7190": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      400,
+      412,
+      383
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "liyueGuiliRuins",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7215": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      401,
+      420,
+      396
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 39,
+    "exterior_scenery": "liyueGuyunShoal",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7218": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      388,
+      369,
+      383
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "liyueGoldenApproach",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-7220": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      378,
+      397,
+      379
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 38,
+    "exterior_scenery": "liyueTianhengPass",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-9778": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      423,
+      388,
+      416,
+      390
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 38,
+    "exterior_scenery": "liyueLuhuaTerraces",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "sites-hunt-18048": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      419,
+      387,
+      363,
+      380
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 4,
+    "level_required": 38,
+    "exterior_scenery": "liyueDragonQueller",
+    "arrivals_outside_enemy_contact": 4
+  },
+  "weeklyEntrances": {
+    "childe-golden-house-arena": {
+      "boss": "boss-29030101",
+      "harborLevel": 28,
+      "waypoint": "liyue-wp-104",
+      "waypointLevel": 28,
+      "waypointReturnY": 404,
+      "huntReturnRequires": 38,
+      "comparisonAnchor": [
+        480,
+        480
+      ],
+      "art": "boss-childe"
+    },
+    "azhdaha-dragon-seal-arena": {
+      "boss": "boss-29040101",
+      "harborLevel": 32,
+      "waypoint": "liyue-wp-45",
+      "waypointLevel": 32,
+      "waypointReturnY": 371,
+      "huntReturnRequires": 38,
+      "comparisonAnchor": [
+        528,
+        480
+      ],
+      "art": "boss-azhdaha"
+    }
+  },
+  "ancientRootAt38": {
+    "eliteRequires": 40,
+    "rareGuardian": "璃月のキノコン",
+    "returnedToY": 389
+  },
+  "coverage": {
+    "fields": 10,
+    "rooms": 8
+  }
+}

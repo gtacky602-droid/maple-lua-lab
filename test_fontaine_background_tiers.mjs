@@ -8,6 +8,7 @@ const groups=process.argv[2]?[process.argv[2]]:['beryl','fon-domain','fon-north'
 const output=process.argv[2] || 'fontaine';
 if (!/^[a-z0-9-]+$/.test(output)) throw Error('Invalid scenery batch');
 const reports = {};
+const weekly=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
 const {nodes: spawns} = JSON.parse(await fs.readFile('content/enemy-spawns.json','utf8'));
 try {
   for (const group of groups) {
@@ -19,7 +20,7 @@ try {
       const errors = [];
       page.on('pageerror',error=>errors.push(error.message));
       try {
-        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116';
+        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena';
         const query = new URLSearchParams({node});
         if (lightweightLink) {
           query.set('tier','4096');
@@ -43,7 +44,8 @@ try {
           await page.locator('#mapNodePicker summary').click();
         }
         await page.locator('#loadLive').click();
-        const expectedCount=spawns[node]?.length ?? 0;
+        const boss=weekly.find(b=>b.node===node && b.mapIdleArt);
+        const expectedCount=spawns[node]?.length ?? (boss?1:0);
         await page.waitForFunction(n=>window.mapArt.count===n && window.mapArt.diff?.unchanged===n,expectedCount);
         if (await page.locator('#placements button').count()===1) {
           await page.locator('#placements button').click();
@@ -53,6 +55,9 @@ try {
         const before = await page.evaluate(()=>window.mapArt);
         const decodeStats = await page.evaluate(async id=>(await import('./scenery-measurements.js')).backgroundMeasurements[id]?.decode,node);
         assert.equal(before.backgroundFile,source);
+        if(boss){
+          assert.deepEqual(before.placements,[{id:boss.id,species:boss.mapIdleArt,x:boss.center,y:boss.floorY,flip:false}]);
+        }
         const seen = new Set();
         for (const {rectangles,rgbSha256,meanAbsoluteRgbErrorToReference} of report.scenes[source].tiers) {
           await page.selectOption('#backgroundTier',String(rectangles));
@@ -103,7 +108,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);

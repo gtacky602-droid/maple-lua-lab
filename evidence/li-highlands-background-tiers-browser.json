@@ -1,0 +1,158 @@
+{
+  "sites-hunt-7173": {
+    "source": "li-mingyun-adit-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "e56ffe1fa8be8fad674eab020b2b28665380bc09ff7befdc6a3704ea1fb3a9d3",
+    "tiers": {
+      "4096": "3e6452710f28bf45ef6f04ef15f07e3bb71fc9b7a89951ab7e783d5daedb7ef4",
+      "4608": "97c646122ae2dc24f04b15f164b861ad32b49fc9eb4000384b190b74dbc6d5fc",
+      "5120": "0ff3205da5f2f627cd201b5347967244d8c951800888c4aa24db8c90d599a8d4",
+      "5632": "82df388b191587c8fa1c2d0eb63262263b9d6d37526dc1b258be187e112deee7",
+      "6144": "33d9836e1911f2c3649038ac7ebe5214508345beb92191a807f08c08b8ec6eeb"
+    }
+  },
+  "sites-hunt-7173-pocket-1": {
+    "source": "li-stonehelm-pit-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "cb69f549ebab530a145f8064ffce7c2d16e3b433009dc75d2d18ec5291006e15",
+    "tiers": {
+      "4096": "0fcbbce23c729d01b188286336dcf64fcd3562c85fd30699881985a3a010067d",
+      "4608": "a1db945585d74fb947834bdce8cc46ff5345d5b3019c7ccf448b12c022eba07f",
+      "5120": "b8ed6dc6c0dda64c334decde136cba0ab6a40ac50fa89e287e6c8eb88f6e00a3",
+      "5632": "17520434e089fbea54a0b9c2ebb49b21d8391d0a4a12da00fcd12ac141d5389e",
+      "6144": "366d10b8406e19e672c3012aa0772dc52fbab3d92acde4ba2cb8046b30233316"
+    }
+  },
+  "sites-hunt-7190": {
+    "source": "li-guili-ruins-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "1f969e54521a0390407b232170b0369a91fb5bb4688101aad5bcd92275c7e747",
+    "tiers": {
+      "4096": "8440b0184fbb98b631ed347e0e1b54e95cd8c328f564b514e3cbf8eaa88f4556",
+      "4608": "d3e25c14003c3cce6f4bafbba30c2e5313993085474b2826bce38e596581e66f",
+      "5120": "54898fb9561d1ae4256e419b87816ddf7bda813d07d6dfa449e9f99a61f4da50",
+      "5632": "cd9b52131aaa8fff9736afe0cdc82ff999d73dab3103ab4ff3f07f05a2cda3f6",
+      "6144": "f41d386adbafaa3a48d6c94755ef1cd42ef4683174f835f6efbcf81dd2aaee6f"
+    }
+  },
+  "sites-hunt-7190-pocket-1": {
+    "source": "li-sentinel-yard-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "91e040b8dffdc3f26d23483be99286048456d5a03cde9e4b13ff4a0e75820276",
+    "tiers": {
+      "4096": "82f2af19fa757a9eb9b0c1ba1120ea9e48f3136b78f80f5361744fde5b4f5310",
+      "4608": "29e1cbedfc36add2cfac7b9e39ead80556ad9bf550385b4045b3a721f8db30aa",
+      "5120": "ae25cdb6cb3eb58ea1e615a5018e15c94cf4e0c26af36afed6cc2d792b1ba34f",
+      "5632": "3cc9d2dc6484f6c9f733f5c46a707cca895126774f221ed0d0e605f95c2a4e9b",
+      "6144": "9acb90dbabe4506799c13edec70d6a8e94d87901f7fb25c360f5349d5dea03db"
+    }
+  },
+  "sites-hunt-7215": {
+    "source": "li-guyun-shoal-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "706109bf9a3af0231f51ad325cb5280a4e13d4ccc9094afc3278ab06d7a62bdc",
+    "tiers": {
+      "4096": "dfe8c49b5e6a6bb42851aa0b7ab54ebf260ff929858e5a2a0ced2725d3f1f854",
+      "4608": "1d189a02d689069f0f83c642a00cf5421af57f532d46214cd2a7710d0c59e77c",
+      "5120": "bf6987ee2e932429fc2529c201a45b5af28907cbbecadf5e184a28c9045b384d",
+      "5632": "778b41c32d68293908af72dc341f59f7a598865668fbbeb473cd76a47fd79e1f",
+      "6144": "e2afa17f721960ec528a34334c0501892e077e2b89b815b06f828e43a586703c"
+    }
+  },
+  "sites-hunt-7215-pocket-1": {
+    "source": "li-ember-grotto-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "bc42bc60c2025c97942c2d5b38aab255586330c5e9cf3008b2f5ddf4b58d50fa",
+    "tiers": {
+      "4096": "eddf27b3d88e1001b66c487cc3c4d00533064bedc982e406891ea87dacbf38a7",
+      "4608": "66d385b965066577c26284d3411eea2fce1219539909f9efe48ce2313f35a2d3",
+      "5120": "e853dc85dc062352c4d895979d1d1ae785f774e9271c80f606d2e969c4ddca8d",
+      "5632": "ad4e51709f422f4768c8660c65a413bd0bbee20ffb4d1b74cc6bb4cc9c69938a",
+      "6144": "f95a22f527dbc7de98016a78e1f4b1e409cbdc55e8a04613b46da40abd0cdf0b"
+    }
+  },
+  "sites-hunt-7218": {
+    "source": "li-golden-approach-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "4fa42dc5914f095e55ea237e6962c5ea2f0b49ee4e81af4d73cf889af5ec624b",
+    "tiers": {
+      "4096": "8ffcf4f8d5d794345c7e09e4028581c00c5fa635b1ef420ea7d03bc4453a9a6b",
+      "4608": "15571c3f954e273ad4f946937e52fd173ec6f246fa7853d2742a160ce07aa67e",
+      "5120": "88b46a900d59f96518270facf3475da5ee6bb766d19a782a48f04a55247f3169",
+      "5632": "e2c4343b8406b69f6886819212c332d68261f9b3d44006f1c0515c8c86499600",
+      "6144": "581a2d51545719ffff7fee4b42bff8fcd184d7140f7e39cf3d3391f617a9227d"
+    }
+  },
+  "sites-hunt-7220": {
+    "source": "li-tianheng-pass-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "51bf8682a0d5741d7d32a0e06aa194c510918a2d6e1e92132dbec6f5a824ab95",
+    "tiers": {
+      "4096": "87a694ddf1e935b28d9bdb0a60f3bfb0184547348a727a629cd1363b0c1f4c38",
+      "4608": "4cc32061a1e4f00b492a0f7cd8116d82dda503098978ad9e3365d79e07109cc4",
+      "5120": "72644f0d20215c66b1a1fa52186fa68d35fc2662aa3e7a1254eae42e87315bc8",
+      "5632": "06bd98d85d5614795f0f116cd974859e5b867bb14d364dd60086453594c2771b",
+      "6144": "792ec336b1d0f31919b32c13558ec431296503d73b06372737450949a93d9ade"
+    }
+  },
+  "sites-hunt-7220-pocket-1": {
+    "source": "li-cinder-shrine-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "d63b235e82ff3200e14178628450b52ef3b62541f89c8e8970e155afc3132248",
+    "tiers": {
+      "4096": "54fd851b30f12f2602b01789049501a9257a644f5f7a65a6f7318e31787a6ca8",
+      "4608": "71f51cdc6ea000aa76e95598e853f0b8c6abd3031dff688d9f4b641e5384b724",
+      "5120": "be7f0eddf4831cee2eaf216ff9ffd75ee60c9777b952dfa3d5bc86499f1cd7c4",
+      "5632": "ac455e31abb334a2146b81a36d4662f4b122777796b000cd90395166b36be3cf",
+      "6144": "c5398cf5c643eccd2cf3d9e96c21c83e3815edf724e1710a057bed75c14c5185"
+    }
+  },
+  "sites-hunt-9778": {
+    "source": "li-luhua-terraces-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "f460acfd628f97aa1c994e2d7b38c507f09e26ceb09660c4e2a97ca8f97e508e",
+    "tiers": {
+      "4096": "cc68786e3d70cf5030bc88b365648302b2e9e008912be08e99aee32c2806adc1",
+      "4608": "ab4857dc084841d96e2dc3ed21dabf1c0f783cf1d3c1305b65d1e10a082b49c3",
+      "5120": "276f81d0a90fb300895366e98362452411ee21c3b41fe6d6be6697a8ef94fe10",
+      "5632": "e1c4068f61067fb6674e16097f7ec97e3b8156d9bcca2afdcb1dc54b8d45bfa9",
+      "6144": "42a31732cdcf674af394dbbb0e2a5a8b19f4200ae85195a92d1b7490fb78a2bb"
+    }
+  },
+  "sites-hunt-18048": {
+    "source": "li-dragon-queller-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "62fbd89cc76c6f62e5ff2bbfe8d5d36f4a27a750d37473a2674b81a9d418dcbf",
+    "tiers": {
+      "4096": "0fbfb5629049322cc4f5729e25d9b8907427e8f1b3cec1f12a968c9a8a47de8f",
+      "4608": "5db85e62ae1dcfc2dcada8c3258e87d2aee96a9c655b6a2f4641550be564477e",
+      "5120": "f2862962d9f4f6229cc3510c63ef669cec53dca3bf8269d13e3930cb7843213c",
+      "5632": "34fe7d2f7d798b9f167e3b038d7966a76ee4775b0b224abbcf939cec4e151ecb",
+      "6144": "e878bb9c932bef431e7365aab7ca942c90c585c1406b901487c222aa311620cd"
+    }
+  },
+  "sites-hunt-18048-pocket-1": {
+    "source": "li-root-seal-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "2055d91b01c1ba4829fe7363955f8fa5d8999e5bbc1f7e41fbd78b32778c5945",
+    "tiers": {
+      "4096": "010c51717a6b0d5c261d090ec8ec09d349769e804d3f4b632b406ac95a95c713",
+      "4608": "79bb540daa8f2760de9604949b12fd27e13de1a68ddffc9177dd3b22dac43a42",
+      "5120": "132683c8cc1bf4f7e2fdc61061d50d6350a1ca616a81b3038529fd98a00252ee",
+      "5632": "f583c57bfb98e3b6f4105db7c69f00d42c86b9fe26eb3605d91bac3857ae6f0c",
+      "6144": "cf7e3869491b8eab4324518c28bc5abf747a98a8f3bddb3f4b3d357a3901a0ff"
+    }
+  },
+  "sites-hunt-18048-pocket-2": {
+    "source": "li-fungal-hollow-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "a98093d5635fda0da98318e111879ec477029e0fca11ec3e6600f7b44afa1c1b",
+    "tiers": {
+      "4096": "d072bc54370ad29113b45a4249c47074789a163ee489945299fa9c478ebcd638",
+      "4608": "f500326b507ec26a0406046bd4fddc83a6a2d71b4decbe7829e48bccee6e2acb",
+      "5120": "060f6701c5190869fb2d800861168a3ce3007725279490aca92765e841b3c2c0",
+      "5632": "d02c4872d036cf50e2d8bdd7ca6fff056d684d233a20fa0613a868cfaf4c1706",
+      "6144": "d8761dd7592de6b1c6ac4466936fbc4d4108d65d56b1389c798746436a8ae5dc"
+    }
+  }
+}

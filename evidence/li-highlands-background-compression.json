@@ -1,0 +1,552 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "li-mingyun-adit-background-v1.png": {
+      "sourceBytes": 2488049,
+      "sourceSha256": "860bb5c18a69d7d45ec74a8f49aa5906124551de68ba16abe5ac7ba14d6ea04c",
+      "preview": "li-mingyun-adit-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18305,
+      "baseSelectedBytes": 18289,
+      "detailFixed13Bytes": 12539,
+      "detailSelectedBytes": 12531,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 10.978203667534721,
+          "rgbSha256": "2add8c689b57e4388f5124b154e71630b75b2ae8ce8f6bed45f0d7942a9b736d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 10.261271158854166,
+          "rgbSha256": "b9ef28d13548943f3a5bef7f3d84ae261fc627d92e0ea0c7018894d8071d86c6"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 9.68961814597801,
+          "rgbSha256": "519343127f256921e4b4a441c5638fb826b173950d16fbeb2e74a0f7d8bcf98b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 9.195000542534721,
+          "rgbSha256": "19697f5d0f0311f5cd0c79f141111cc30d079a58d1e088eccc85dc6d20fd1f91"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 8.746762876157407,
+          "rgbSha256": "524519eef22da0ff3890cba7b04d3e4d9ffd0227143d592afe4a3984d1b7fb13"
+        }
+      ]
+    },
+    "li-stonehelm-pit-background-v1.png": {
+      "sourceBytes": 2159149,
+      "sourceSha256": "82af9ad16a3337ada7450e5e38015e3c43593210b21a9220c295742f194b45c9",
+      "preview": "li-stonehelm-pit-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18215,
+      "baseSelectedBytes": 18201,
+      "detailFixed13Bytes": 12491,
+      "detailSelectedBytes": 12481,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.911650481047453,
+          "rgbSha256": "2279afb0ae95a2b52866191354a73c4a0a82e353e9bc4ab9f58e04444893eeca"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.2911196108217595,
+          "rgbSha256": "802a75eb9c8fbd6dce1439cf6d4228d6899bbad1676535cb96216193fe383839"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.826933684172453,
+          "rgbSha256": "03be2013bf1a45ef28d7a01f59ce8da8304e8fe980f5632db8fba45e0076eadc"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.436197916666667,
+          "rgbSha256": "54b72b9974edaefd833c6b0bd73a8859b0b8e260b6b3086ff07b5cac5919af35"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.102188675491898,
+          "rgbSha256": "4a77e03e35f14acc4e3572f875b4928e7682f1c9095f4b22fb23a8cb1b2664cb"
+        }
+      ]
+    },
+    "li-guili-ruins-background-v1.png": {
+      "sourceBytes": 2492081,
+      "sourceSha256": "59525f21a2f7f671cd40451e4f05ea236b43bba84071a50e897ad91c2f2666cc",
+      "preview": "li-guili-ruins-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18877,
+      "baseSelectedBytes": 18863,
+      "detailFixed13Bytes": 12557,
+      "detailSelectedBytes": 12549,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 9.935863353587964,
+          "rgbSha256": "a1a63e1ed5c148739fa49e6fd8e02628cbefd6ec48448a63c9a681d634b3b477"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 9.282841435185185,
+          "rgbSha256": "1f66b0189dcb46a99460d140a2e7025199fd5519abd1c594dfe63465aba6df61"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 8.764119466145834,
+          "rgbSha256": "04a012a59c46879594f43eb4856a43aeba64fbef7a3765ad4c409f9330c2d09b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 8.319849084924769,
+          "rgbSha256": "5d5a92c2c0afed12be8b39a51a43b737991c7584da93b81ca3a305e47ea0bb23"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.910843460648148,
+          "rgbSha256": "69b66b448e251385495a324647eda33cd89a997693bb0c35ed897eedd59a5e41"
+        }
+      ]
+    },
+    "li-sentinel-yard-background-v1.png": {
+      "sourceBytes": 2312644,
+      "sourceSha256": "d03c4c0d2b6ec89d2ace730d9c174edc092ae1c69fb10c319eaf98549fc250fe",
+      "preview": "li-sentinel-yard-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17637,
+      "baseSelectedBytes": 17623,
+      "detailFixed13Bytes": 12251,
+      "detailSelectedBytes": 12241,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.372214988425926,
+          "rgbSha256": "a47a475380c3a77b1c02ee1c6d1a08703c25c3b9a36a31a4ebfd0422c1a36942"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.885036892361111,
+          "rgbSha256": "364fa29a6e68d494a770d4dcc23189c0b0a27863527882298e4b834678e3661a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.496719925491898,
+          "rgbSha256": "58b90ab7e8a6c5de1d5c066f5a17651dd2a97853c02f082d01b553eeef957100"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.161648220486111,
+          "rgbSha256": "550fbff345c46d9a9c7de75fcf1755674a8d9e7ab23e6d790fe99ff8dc1c4198"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.872956452546297,
+          "rgbSha256": "6c8f1f2c7d4cc52a1d77d431487ac1f50b5405b6ea6e2fddef6adb224180bac5"
+        }
+      ]
+    },
+    "li-guyun-shoal-background-v1.png": {
+      "sourceBytes": 2167234,
+      "sourceSha256": "b0c683f7490668fe36d4bee63a22174d4df3e243a9441929b0747e3f843b0ef6",
+      "preview": "li-guyun-shoal-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18485,
+      "baseSelectedBytes": 18469,
+      "detailFixed13Bytes": 12583,
+      "detailSelectedBytes": 12571,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.324560094762731,
+          "rgbSha256": "26b7c6d5f58ed9e572745fa4d1e82d76b49799f0e990f762506bf63487116fd8"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.675571017795139,
+          "rgbSha256": "8f49b432a8fa1d0221bf3b0eaa0f587775497eab91db876219f6702aaeb3a050"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.161474157262732,
+          "rgbSha256": "618eeea2eedbf809e57b8b2dcb23923050b783f29cabe060fd0f9e8034050606"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.720718948929398,
+          "rgbSha256": "2179926be24150cae5a497a91a869c4a762bfefdf53d463af048e2d426e71966"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.3519716616030095,
+          "rgbSha256": "77e045a1ebc47c0949bb0b6a423d1f0e567052d8a5bd1b5e783ff84b9d4cb23f"
+        }
+      ]
+    },
+    "li-ember-grotto-background-v1.png": {
+      "sourceBytes": 1961103,
+      "sourceSha256": "bb2be4f21c7de7c30d1ddf6f55078f001d00d3719ab827d77e191ee57e0e9fdd",
+      "preview": "li-ember-grotto-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17957,
+      "baseSelectedBytes": 17943,
+      "detailFixed13Bytes": 12341,
+      "detailSelectedBytes": 12325,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.475671838831018,
+          "rgbSha256": "f38c13a9a698bfb001a47cf292b411ad0c3fe3ece42a23c3402459759637e3ec"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.99498607494213,
+          "rgbSha256": "7c97147f998e0a365b9fef88bca44c9cfaaca631d9daa4ac5b134f2ac650ba34"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.642055935329861,
+          "rgbSha256": "1c17cdddfa10c2a0fb65711f16618e42ebcd7a2b4eea2e1a7c1227cd5bb2fe19"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.3362607602719905,
+          "rgbSha256": "661a30d11888ce425f268727de3eff3839bc2b32465b98ca6a0043c443ab5413"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.078233506944445,
+          "rgbSha256": "c268b5c8ca1c9c66cf10ec53bff02380837c2317fce8ecbfd24751e451ee8474"
+        }
+      ]
+    },
+    "li-golden-approach-background-v1.png": {
+      "sourceBytes": 2437589,
+      "sourceSha256": "c778a9e8844846006e5a602e61a961196ac5715a0f539ce3a7737647d38b1bd0",
+      "preview": "li-golden-approach-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18003,
+      "baseSelectedBytes": 17989,
+      "detailFixed13Bytes": 12459,
+      "detailSelectedBytes": 12451,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 9.637401439525464,
+          "rgbSha256": "9c7242165375438ee219e3eafa8589cb89195c5c4c70c1c3b7d83cafd784c405"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.984510633680555,
+          "rgbSha256": "7af8ce6a149703e0ebc5490a432d9708fbe2d0571806047ff235b12141a62ab0"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 8.47819236472801,
+          "rgbSha256": "9213cbc70368a35c020efdff1858c5f9df0729cff79ac656176c47baeac5acea"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 8.032233344184029,
+          "rgbSha256": "32832692683167893a4abddd4eb612ec7c113982458fb5f29022c83276476856"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.641472710503472,
+          "rgbSha256": "ed6f71a322620b1f88017c5b0008da1c268cc4412d915d7a7dc0c2f7af5b73c6"
+        }
+      ]
+    },
+    "li-tianheng-pass-background-v1.png": {
+      "sourceBytes": 2409961,
+      "sourceSha256": "a7969527d707b0698432d8f2fc6471d4e3281f97a0e5952e1515199de3ddffc5",
+      "preview": "li-tianheng-pass-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18473,
+      "baseSelectedBytes": 18461,
+      "detailFixed13Bytes": 12557,
+      "detailSelectedBytes": 12545,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 9.516687463831019,
+          "rgbSha256": "789b2f10ae336230dde7f1669982ca6e1f460cb76d5809318642f0862c4a8e30"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.85757107204861,
+          "rgbSha256": "75133f38580ee324f8ceb8af4affebd06ddafd5d3c40a19b6ffc1f4a4e8cab83"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 8.31515163845486,
+          "rgbSha256": "d80b113fd26b0498581e88fc57bd0da024d32af4dcc863daa3eeaf59bafd1c13"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.8705263491030095,
+          "rgbSha256": "d616e38e271d9929fb1f546bcf653c40815d90704f3bcc110e6e8461a20a1d20"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.479695638020833,
+          "rgbSha256": "5e495c6172c34d99f558ed434850d7b7f4f122d8495e3968c74ea4d806078331"
+        }
+      ]
+    },
+    "li-cinder-shrine-background-v1.png": {
+      "sourceBytes": 2220193,
+      "sourceSha256": "a73780b956a755a482be8f5f97f810058615f176f7ed742d949725a5e5c27770",
+      "preview": "li-cinder-shrine-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17697,
+      "baseSelectedBytes": 17683,
+      "detailFixed13Bytes": 12211,
+      "detailSelectedBytes": 12203,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.224855776186343,
+          "rgbSha256": "dc3bd2a15d259cf429ba52fec7a07ff6fc2318bee7c3efd7014e3ed4759b4e15"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.692970558449074,
+          "rgbSha256": "6e64a68ea49a4a12d04b7abd311e16573db1514820adff0057a2400a0b0f2878"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.289182309751157,
+          "rgbSha256": "1def9ae25c8736d49b8ad8df3f04726aad5777acf2c12211015d265ff77167e0"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.945642541956018,
+          "rgbSha256": "a1dc521935f00781c37e26fc219459263b7893012a70caf6ff44cafb3f12e3a4"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.653722692418982,
+          "rgbSha256": "1c9b2a6cb288a302c1d558c3d8de9a18a9be5f59cc499f9a9d8fce7bb85f4d37"
+        }
+      ]
+    },
+    "li-luhua-terraces-background-v1.png": {
+      "sourceBytes": 2341846,
+      "sourceSha256": "cfc2c9c34fe5b0e42f76bfa99fbc531d22c806989b0a53bbfde47d92ebe67920",
+      "preview": "li-luhua-terraces-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18511,
+      "baseSelectedBytes": 18493,
+      "detailFixed13Bytes": 12501,
+      "detailSelectedBytes": 12489,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 10.247022840711805,
+          "rgbSha256": "37c9007523a53d86fdab1fc8b89c7db7575c7a0dee4c1bddc737072579654754"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 9.490846987123843,
+          "rgbSha256": "09fb46dea1ca0117fefd18dda000190d9bfcbeea3921f067b9d9ae0235926b98"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 8.89835838035301,
+          "rgbSha256": "3a647f8590f055bd7ab665aec01185eae80e41dabb4a0830140f6380e6567a6f"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 8.38344093605324,
+          "rgbSha256": "f1c94eba2e4dc2cde0e7b05ae28e88e57004c50674283c3ecfcdc869c569a5a3"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.95111988208912,
+          "rgbSha256": "542256486c9b912b823d920c8b9bcc7f0efa297c4823d1700064b5c0ec514465"
+        }
+      ]
+    },
+    "li-dragon-queller-background-v1.png": {
+      "sourceBytes": 2420748,
+      "sourceSha256": "5ee4b485ec1865d70d74ad7ac11d271319d254c8e428e743742fa9034d0201e6",
+      "preview": "li-dragon-queller-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18197,
+      "baseSelectedBytes": 18185,
+      "detailFixed13Bytes": 12385,
+      "detailSelectedBytes": 12373,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 9.255594889322916,
+          "rgbSha256": "4000d807b4e8d5d15e33107e91483faba869b32b28932820d67e97df19f4e4fd"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.608950014467593,
+          "rgbSha256": "4040ec06aec7edda4712c317fa033b46291175e6ea097648b20c41f7e3d3957c"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 8.107756438078704,
+          "rgbSha256": "6626dff23d305003f9192e683f4dee0a2be2cea9c9d41cd93f56e436ad33744b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.670615867332176,
+          "rgbSha256": "290e88555657e16bc920ed58d59525070189125dc3d8553f98034b3cd9502aef"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.288054289641203,
+          "rgbSha256": "9b5abcce41f92dda3a686b07ecbb934566cedc67ed2102d5bda5ab584b46e70a"
+        }
+      ]
+    },
+    "li-root-seal-background-v1.png": {
+      "sourceBytes": 2286015,
+      "sourceSha256": "d948ee921c3ab96935cc0a1dcf3c98c59ced942ecd7ef511ad3684ae07072919",
+      "preview": "li-root-seal-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17779,
+      "baseSelectedBytes": 17765,
+      "detailFixed13Bytes": 12297,
+      "detailSelectedBytes": 12285,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.584366409866898,
+          "rgbSha256": "0c739206c686af14f842c099317826e680b78354655f1f6e1e5b45f782fdb453"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.974602593315972,
+          "rgbSha256": "841f69a79cd31f9b8d17d2b66ce7b0d115b15dbcdb8bada55298baf1adf591e1"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.546515570746528,
+          "rgbSha256": "7d1b22cb6374c12392c59d984ca6e1a7f84705bd7571c0bde13453d8d9202446"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.167326750578703,
+          "rgbSha256": "78b9707d892e02fcdfdfdce0d256f9dbbe9be3768643bee322bf7928f743757e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.847721806278935,
+          "rgbSha256": "4f56b902f71fbbbec7f73ae03f567e0b5c83a7c6e66b41fe1f601eb5378d88cc"
+        }
+      ]
+    },
+    "li-fungal-hollow-background-v1.png": {
+      "sourceBytes": 2099154,
+      "sourceSha256": "12350187fcb4d0d7b0666300ec03c4f1fb1c0b538c319f702d37b29a5c6babb2",
+      "preview": "li-fungal-hollow-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18591,
+      "baseSelectedBytes": 18575,
+      "detailFixed13Bytes": 12581,
+      "detailSelectedBytes": 12571,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.728526927806714,
+          "rgbSha256": "8efaa25dafd9c5bded94ced315c3d5d35f257fd6b1f62e9aa118262d6a687c35"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.048735441984954,
+          "rgbSha256": "e8602b2ce0f0249d8a87262a14d92670025462d8650811aabc05cf994412a334"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.485331217447917,
+          "rgbSha256": "1cd9f4a8670919f985e0a7fbffd68055503701addffb0f6265c6ce5c25cd510d"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.028889973958333,
+          "rgbSha256": "c751e7b2087ebca65fad147ccccd2540fd7b16370bb06613b016fc3769d25479"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.644058792679398,
+          "rgbSha256": "b05f6d3acd18fa1362bafa922a5caae75ab51bf1ebf1f7c34c71d1c2e69779d5"
+        }
+      ]
+    }
+  }
+}

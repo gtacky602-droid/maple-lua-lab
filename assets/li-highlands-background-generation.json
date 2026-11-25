@@ -1,0 +1,109 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-7173",
+      "source": "li-mingyun-adit-background-v1.png",
+      "preview": "li-mingyun-adit-native-preview-v1.png",
+      "key": "liyueMingyunAdit",
+      "note": "明蘊の鉱山道",
+      "prompt": "Autumn hillside of a retired Chinese mining hamlet. At the far right an old timber-framed adit under an ochre escarpment. Ochre and iron-red foliage, a mossy rail track and quiet slate shadows. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7173-pocket-1",
+      "source": "li-stonehelm-pit-background-v1.png",
+      "preview": "li-stonehelm-pit-native-preview-v1.png",
+      "key": "liyueStonehelmPit",
+      "note": "岩兜の王の採石場",
+      "prompt": "A high open-pit stone quarry carved in geometric buff-gold sandstone, one squat lifting crane and ancient timber braces, very large broken slabs framing an empty arena. Noon. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7190",
+      "source": "li-guili-ruins-background-v1.png",
+      "preview": "li-guili-ruins-native-preview-v1.png",
+      "key": "liyueGuiliRuins",
+      "note": "帰離原の石道",
+      "prompt": "Sweeping sunlit autumn grasslands, fragmented hypostyle ruins and an ancient paved road, dry umber pillars draped in ivy, mountains on an open blue horizon. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7190-pocket-1",
+      "source": "li-sentinel-yard-background-v1.png",
+      "preview": "li-sentinel-yard-native-preview-v1.png",
+      "key": "liyueSentinelYard",
+      "note": "遺跡守衛の中庭",
+      "prompt": "An abandoned mechanism courtyard in the same grasslands, monumental carved stone lintels lying on the ground, dormant empty machine socket, moss and copper patina, low raking light. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7215",
+      "source": "li-guyun-shoal-background-v1.png",
+      "preview": "li-guyun-shoal-native-preview-v1.png",
+      "key": "liyueGuyunShoal",
+      "note": "孤雲閣の潮の岩棚",
+      "prompt": "Marine archipelago with colossal jagged stone spears rising from deep turquoise sea, bright white waves on a pale granite shore, a distant Chinese junk sail, hot summer sky. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7215-pocket-1",
+      "source": "li-ember-grotto-background-v1.png",
+      "preview": "li-ember-grotto-native-preview-v1.png",
+      "key": "liyueEmberGrotto",
+      "note": "孤雲閣の潮食洞",
+      "prompt": "Low coastal cave opening frames a blue strip of sea and a distant basalt spear; a small amber brazier illuminates the right wall of dark marine rock, mineral bands, no lava. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7218",
+      "source": "li-golden-approach-background-v1.png",
+      "preview": "li-golden-approach-native-preview-v1.png",
+      "key": "liyueGoldenApproach",
+      "note": "港南の黄金屋への道",
+      "prompt": "On a southern harbor mountain trail, immense traditional Chinese treasury eaves and a golden circular relief behind red lacquer pillars, mossy steps and distant port in morning mist. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7220",
+      "source": "li-tianheng-pass-background-v1.png",
+      "preview": "li-tianheng-pass-native-preview-v1.png",
+      "key": "liyueTianhengPass",
+      "note": "天衡の山道",
+      "prompt": "A high winding pass of Mount Tianheng, bold pale cliffs on left, ochre pines and a stone lantern, far below on the right a tiny cluster of red harbour roofs and blue water. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-7220-pocket-1",
+      "source": "li-cinder-shrine-background-v1.png",
+      "preview": "li-cinder-shrine-native-preview-v1.png",
+      "key": "liyueCinderShrine",
+      "note": "天衡の石祠",
+      "prompt": "A secluded mountain recess, roofless worn stone shrine inside a crevice; scorched amber vines, glowing braziers dimly illuminating cold limestone, plum dusk. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-9778",
+      "source": "li-luhua-terraces-background-v1.png",
+      "preview": "li-luhua-terraces-native-preview-v1.png",
+      "key": "liyueLuhuaTerraces",
+      "note": "漉華の段池",
+      "prompt": "Distinct turquoise terraced travertine pools and pale cream limestone rims, high red maples, layered lavender mountains, small remnants of an aqueduct across the water. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-18048",
+      "source": "li-dragon-queller-background-v1.png",
+      "preview": "li-dragon-queller-native-preview-v1.png",
+      "key": "liyueDragonQueller",
+      "note": "伏龍の古樹道",
+      "prompt": "A vast ancient saffron-leaved tree crowns a terraced mountain clearing. Gigantic exposed roots and tawny rock arches, amber evening light and an old stone seal under its trunk. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-18048-pocket-1",
+      "source": "li-root-seal-background-v1.png",
+      "preview": "li-root-seal-native-preview-v1.png",
+      "key": "liyueRootSeal",
+      "note": "伏龍の根元の封印室",
+      "prompt": "A cavern beneath an enormous ancient tree, interlocked dark roots around a stone seal with worn abstract geometric carving. Warm red light in the right-hand alcove, empty ground. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    },
+    {
+      "node": "sites-hunt-18048-pocket-2",
+      "source": "li-fungal-hollow-background-v1.png",
+      "preview": "li-fungal-hollow-native-preview-v1.png",
+      "key": "liyueFungalHollow",
+      "note": "伏龍の木の菌床",
+      "prompt": "Small dew-lit hollow inside the base of an immense tree; layered shelves of small cream fungi on deep purple bark, reflected mint-green light and soft distant golden foliage. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+    }
+  ]
+}
