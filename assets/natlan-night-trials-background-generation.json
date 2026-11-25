@@ -1,0 +1,27 @@
+{
+  "origin": "Original ImageGen lab backdrop. The twelve night-totem arenas share one fighting floor in this prototype.",
+  "scenes": [
+    {
+      "key": "nightKingdomTrial",
+      "node": "night-trial-undead",
+      "sharedNodes": [
+        "night-trial-chimalli",
+        "night-trial-tlatzacuilotl",
+        "night-trial-ichcahuipilli",
+        "night-trial-atlatl",
+        "night-trial-cihuacoatl",
+        "night-trial-fallen-dawnstar",
+        "night-trial-ironbeard",
+        "night-trial-potapo",
+        "night-trial-tupayo",
+        "night-trial-reji",
+        "night-trial-tupu"
+      ],
+      "source": "night-kingdom-trial-background-v1.png",
+      "preview": "night-kingdom-trial-native-preview-v1.png",
+      "surface": "violetSlate",
+      "note": "ナタ・夜魂の試練12会場で共用するラボ用仮背景",
+      "prompt": "Create a 16:9 landscape pixel-art background for a side-scrolling Japanese 2D RPG, an original interpretation of a trial inside Natlan's Night Kingdom. Grand cavernous inverted dark obsidian pillars receding into a luminous indigo and violet distance, subtle star-speckled spirit sea, a tiny distant warm ember horizon accent. Middle foreground is an enormous flat ceremonial obsidian arena disk seen almost side-on. Surface top aligns around 76% height, smoothly extends beyond both edges, with restrained angular purple and cyan carvings along its shallow near edge. Stage center empty, silhouettes clearly legible. Compose 3 clear planes, hand-placed clustered square pixels, restrained broad color shapes, few individual luminous cracks, avoid confetti. Atmospheric and beautiful old console adventure landscape, no blur, no gradients made of noise, no busy dithering. Full bleed single scene, no characters, creatures, weapons, gates, lettering, frames, interface or watermarks."
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "encounters": [
+    {
+      "node": "night-trial-atlatl",
+      "entrance": "ancient-excavation-upper-ledge",
+      "name": "アトラトの祝福",
+      "visuals": [
+        {
+          "id": "legend-natlan_atlatl",
+          "source": "natlan-cliff-trial-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 122
+        }
+      ]
+    },
+    {
+      "node": "night-trial-chimalli",
+      "entrance": "temple-northwest-totem-ravine",
+      "name": "シェマリの陰",
+      "visuals": [
+        {
+          "id": "legend-natlan_chimalli",
+          "source": "natlan-night-trial-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 113
+        }
+      ]
+    },
+    {
+      "node": "night-trial-cihuacoatl",
+      "entrance": "canopy-square-plateau",
+      "name": "神骨の蛇姫",
+      "visuals": [
+        {
+          "id": "legend-natlan_cihuacoatl",
+          "source": "natlan-cliff-trial-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 112
+        }
+      ]
+    },
+    {
+      "node": "night-trial-fallen-dawnstar",
+      "entrance": "night-wind-seaward-fork",
+      "name": "墜落せし晨星の霊",
+      "visuals": [
+        {
+          "id": "legend-natlan_fallen_dawnstar",
+          "source": "natlan-northwest-legend-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 105
+        }
+      ]
+    },
+    {
+      "node": "night-trial-ichcahuipilli",
+      "entrance": "witztli-sealed-stone-bank",
+      "name": "イチカウイピリの庇護",
+      "visuals": [
+        {
+          "id": "legend-natlan_ichcahuipilli",
+          "source": "natlan-north-trial-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 122
+        }
+      ]
+    },
+    {
+      "node": "night-trial-ironbeard",
+      "entrance": "flower-feather-smiths-ridge",
+      "name": "鉄髭",
+      "visuals": [
+        {
+          "id": "legend-natlan_ironbeard",
+          "source": "natlan-northwest-legend-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 115
+        }
+      ]
+    },
+    {
+      "node": "night-trial-potapo",
+      "entrance": "stadium-west-waterfall-foot",
+      "name": "ポタポの応援",
+      "visuals": [
+        {
+          "id": "legend-natlan_potapo",
+          "source": "natlan-wayob-duo-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 120
+        }
+      ]
+    },
+    {
+      "node": "night-trial-reji",
+      "entrance": "tetenanco-seaward-foot",
+      "name": "レジ",
+      "visuals": [
+        {
+          "id": "legend-natlan_reji",
+          "source": "natlan-atocpan-totem-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 112
+        }
+      ]
+    },
+    {
+      "node": "night-trial-tlatzacuilotl",
+      "entrance": "sulfurous-totem-cave",
+      "name": "トゥラカルワスクアウィトゥル",
+      "visuals": [
+        {
+          "id": "legend-natlan_tlatzacuilotl",
+          "source": "natlan-north-trial-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 113
+        }
+      ]
+    },
+    {
+      "node": "night-trial-tupayo",
+      "entrance": "flower-feather-statue-back-cliff",
+      "name": "トゥパヨの協力",
+      "visuals": [
+        {
+          "id": "legend-natlan_tupayo",
+          "source": "natlan-wayob-duo-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 123
+        }
+      ]
+    },
+    {
+      "node": "night-trial-tupu",
+      "entrance": "collective-eastern-headland",
+      "name": "トゥプの繁栄",
+      "visuals": [
+        {
+          "id": "legend-natlan_tupu",
+          "source": "natlan-atocpan-totem-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 123
+        }
+      ]
+    },
+    {
+      "node": "night-trial-undead",
+      "entrance": "temple-east-totem-pond",
+      "name": "アンデッド",
+      "visuals": [
+        {
+          "id": "legend-natlan_undead",
+          "source": "natlan-night-trial-poses-source-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 85
+        }
+      ]
+    }
+  ],
+  "shaByTier": {
+    "4096": "1f284180940a8117b573c5a5a74af2ee0636eaad9265dd88e0167c3e35902122",
+    "4608": "c35deba52b5d30215ea1ec6b8b4c616ac6161dab10ae764e2e766b1ccd1866e6",
+    "5120": "0d0ed53f15ba69d0fd4e70a5c3896cba7873d4a9a97d13f80036fcc11c5a9ef2",
+    "5632": "f0eb4f7da3337975a38243c9c586dfe48ad0d0a3b2f2e66eb8ff38cd75c11ff7",
+    "6144": "805f88522a1f6be02a51d71533aba015a51d6842dcd7535d86b2bbbed1ee6098"
+  },
+  "verifiedStageTierPairs": 60
+}

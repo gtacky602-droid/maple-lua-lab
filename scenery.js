@@ -1,6 +1,7 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ nightKingdomTrial:{file:'night-kingdom-trial-background-v1.png',decodedPreview:'night-kingdom-trial-native-preview-v1.png',decodedTiers:'night-kingdom-trial-native-tiers-v1.webp',surface:'violetSlate',zones:['story:night-trial-undead','story:night-trial-chimalli','story:night-trial-tlatzacuilotl','story:night-trial-ichcahuipilli','story:night-trial-atlatl','story:night-trial-cihuacoatl','story:night-trial-fallen-dawnstar','story:night-trial-ironbeard','story:night-trial-potapo','story:night-trial-tupayo','story:night-trial-reji','story:night-trial-tupu'],note:'ナタ・夜魂の試練12会場で共用するラボ用仮背景'},
  yseutDrill:{file:'yseut-drill-background-v1.png',decodedPreview:'yseut-drill-native-preview-v1.png',decodedTiers:'yseut-drill-native-tiers-v1.webp',surface:'grass',zones:['story:yseut-legend-court'],note:'西の丘・巡視の訓練場のラボ用仮背景'},
  gravityTestTerrace:{file:'gravity-test-terrace-background-v1.png',decodedPreview:'gravity-test-terrace-native-preview-v1.png',decodedTiers:'gravity-test-terrace-native-tiers-v1.webp',surface:'stone',zones:['story:gravity-device-legend-terrace'],note:'北の岩道・力場試験の台地のラボ用仮背景'},
  rockyFallsLedge:{file:'rocky-falls-ledge-background-v1.png',decodedPreview:'rocky-falls-ledge-native-preview-v1.png',decodedTiers:'rocky-falls-ledge-native-tiers-v1.webp',surface:'stone',zones:['story:rocky-legend-ledge'],note:'東の滝・岩棚の練武場のラボ用仮背景'},

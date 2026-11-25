@@ -195,7 +195,7 @@ try{
    const quest=questsById.get(gate.requires?.quest);
    if(!quest)continue;
    if(!questGates.has(gate.to))questGates.set(gate.to,[]);
-   questGates.get(gate.to).push({from,quest});
+   questGates.get(gate.to).push({from,quest,rule:gate.requires});
   }
  }
  const questNotes=new Map();
@@ -357,6 +357,16 @@ try{
   if($('matchSpritePng').checked)otherView.set('compare','background');
   if(afterReport(n))otherView.set('phase','after');
   viewLink.href='map-art.html?'+otherView;
+  const passage=$('nightTrialPassage'),gate=n.exits.find(e=>e.nightTotem);
+  passage.hidden=!(liveView&&gate);
+  if(!passage.hidden){
+   const link=passage.querySelector('a'),destination=nodes.get(gate.to);
+   const params=new URLSearchParams({node:gate.to,placements:'live',tier:$('backgroundTier').value});
+   if($('matchSpritePng').checked)params.set('compare','background');
+   if(gate.nightTotem==='enter')params.set('arena','nightTrial');
+   link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
+   link.href='map-art.html?'+params;
+  }
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
   loadComparisonImage(frame,background);
@@ -522,11 +532,15 @@ try{
   $('candidateIdle').checked=Boolean(candidateAvailable && n.id===openingNode.id && query.get('idle')==='candidate');
   const access=$('legendAccess'),accessList=access.querySelector('ul');
   accessList.replaceChildren();
-  if(liveView && legendNames.has(n.id)){
-   for(const {from,quest} of questGates.get(n.id)??[]){
+  if(liveView && (legendNames.has(n.id)||n.exits.some(e=>e.nightTotem==='enter'))){
+   for(const {from,quest,rule} of questGates.get(n.id)??[]){
     const item=document.createElement('li'),link=document.createElement('a');
     link.href='map-art.html?'+new URLSearchParams({node:from.id,placements:'live'});
-    link.textContent=from.name;item.append(link,'から入るには、依頼「'+quest.name+'」を報告（受注Lv'+quest.level+'）。');
+    link.textContent=from.name;
+    const condition=rule.count!=null
+     ? 'から入るには、依頼「'+quest.name+'」を進めます。'+(rule.unavailableNotice??'目標を'+rule.count+'件達成してください。')
+     : 'から入るには、依頼「'+quest.name+'」を報告（受注Lv'+quest.level+'）。';
+    item.append(link,condition);
     accessList.append(item);
    }
   }

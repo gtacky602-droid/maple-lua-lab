@@ -227,6 +227,7 @@ export const backgroundMeasurements = {
   "sites-hunt-73161-pocket-1": {"bundle": "nat-domain-native-backgrounds.lua", "bytes": 28748, "error": {"4096": 1.7784062138310186, "4608": 1.5827184606481481, "5120": 1.4461489076967593, "5632": 1.3445524992766205, "6144": 1.2588229709201388}, "decode": {"4096": {"ms": 9.17, "kib": 780.4}, "4608": {"ms": 10.98, "kib": 920.9}, "5120": {"ms": 12.4, "kib": 1001.9}, "5632": {"ms": 13.67, "kib": 1083.0}, "6144": {"ms": 14.62, "kib": 1167.8}}},
   "sites-hunt-81383-pocket-1": {"bundle": "nat-domain-native-backgrounds.lua", "bytes": 29916, "error": {"4096": 1.9714491102430556, "4608": 1.7344292534722223, "5120": 1.5805799696180556, "5632": 1.4558489764178242, "6144": 1.3510900426793981}, "decode": {"4096": {"ms": 9.5, "kib": 788.0}, "4608": {"ms": 11.8, "kib": 929.5}, "5120": {"ms": 12.3, "kib": 1010.9}, "5632": {"ms": 13.77, "kib": 1092.8}, "6144": {"ms": 14.97, "kib": 1178.8}}},
   "atocpan-domain-side-clearing": {"bundle": "nat-domain-native-backgrounds.lua", "bytes": 31084, "error": {"4096": 3.625872576678241, "4608": 3.265652126736111, "5120": 2.986594871238426, "5632": 2.7636311848958335, "6144": 2.5725075050636574}, "decode": {"4096": {"ms": 9.54, "kib": 791.7}, "4608": {"ms": 11.68, "kib": 934.5}, "5120": {"ms": 12.17, "kib": 1017.4}, "5632": {"ms": 15.04, "kib": 1100.4}, "6144": {"ms": 16.8, "kib": 1187.1}}},
+  "night-trial-undead": {"bundle": "natlan-night-trials-native-backgrounds.lua", "bytes": 29184, "error": {"4096": 2.609996654369213, "4608": 2.3328269675925926, "5120": 2.1384526005497686, "5632": 1.977245189525463, "6144": 1.8475070529513888}, "decode": {"4096": {"ms": 18.83, "kib": 787.1}, "4608": {"ms": 24.2, "kib": 928.3}, "5120": {"ms": 27.91, "kib": 1009.4}, "5632": {"ms": 29.71, "kib": 1090.9}, "6144": {"ms": 32.69, "kib": 1172.6}}},
   "nod-false-moon-court": {"bundle": "nod-false-moon-native-backgrounds.lua", "bytes": 23950, "error": {"4096": 1.7535988136574074, "4608": 1.6088279441550926, "5120": 1.5066234447337963, "5632": 1.4243028428819444, "6144": 1.3527854636863426}, "decode": {"4096": {"ms": 9.63, "kib": 711.7}, "4608": {"ms": 12.07, "kib": 843.3}, "5120": {"ms": 14.99, "kib": 916.5}, "5632": {"ms": 15.02, "kib": 989.1}, "6144": {"ms": 15.63, "kib": 1061.9}}},
   "nod-false-moon-rift": {"bundle": "nod-false-moon-native-backgrounds.lua", "bytes": 21504, "error": {"4096": 0.5250764069733797, "4608": 0.47291621455439814, "5120": 0.44132939091435186, "5632": 0.4179642288773148, "6144": 0.39869972511574076}, "decode": {"4096": {"ms": 9.18, "kib": 690.3}, "4608": {"ms": 11.57, "kib": 819.6}, "5120": {"ms": 13.75, "kib": 889.4}, "5632": {"ms": 13.97, "kib": 959.5}, "6144": {"ms": 14.18, "kib": 1029.1}}},
   "sites-hunt-88121": {"bundle": "nod-islands-native-backgrounds.lua", "bytes": 30344, "error": {"4096": 8.28455494068287, "4608": 7.604939778645833, "5120": 7.082447193287037, "5632": 6.62560130931713, "6144": 6.244303385416667}, "decode": {"4096": {"ms": 11.64, "kib": 794.9}, "4608": {"ms": 15.39, "kib": 937.5}, "5120": {"ms": 14.9, "kib": 1020.7}, "5632": {"ms": 19.49, "kib": 1104.1}, "6144": {"ms": 20.51, "kib": 1187.1}}},
@@ -317,5 +318,16 @@ backgroundMeasurements["luachra-legend-shelf"] = backgroundMeasurements["sites-h
 backgroundMeasurements["iron-viscount-thermal-gallery"] = backgroundMeasurements["iron-viscount-legend-pool"];
 backgroundMeasurements["erinnyes-root-waterway"] = backgroundMeasurements["erinnyes-corrouge-cleft"];
 backgroundMeasurements["fon-toy-shallows"] = backgroundMeasurements["ocean-judge-legend-pool"];
+backgroundMeasurements["night-trial-chimalli"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-tlatzacuilotl"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-ichcahuipilli"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-atlatl"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-cihuacoatl"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-fallen-dawnstar"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-ironbeard"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-potapo"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-tupayo"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-reji"] = backgroundMeasurements["night-trial-undead"];
+backgroundMeasurements["night-trial-tupu"] = backgroundMeasurements["night-trial-undead"];
 backgroundMeasurements["sne-stygian-last-gate"] = backgroundMeasurements["nod-false-moon-rift"];
 backgroundMeasurements["nod-stygian-hunt"] = backgroundMeasurements["nod-false-moon-rift"];

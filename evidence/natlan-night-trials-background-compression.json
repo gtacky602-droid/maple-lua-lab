@@ -1,0 +1,48 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "night-kingdom-trial-background-v1.png": {
+      "sourceBytes": 553755,
+      "sourceSha256": "bd993576f3022a2c823e23f4726a3c532131145d56e01b924738d91a20512d58",
+      "preview": "night-kingdom-trial-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17231,
+      "baseSelectedBytes": 17211,
+      "detailFixed13Bytes": 11985,
+      "detailSelectedBytes": 11973,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.609996654369213,
+          "rgbSha256": "685c6ec8aa722fe3fec7aa71e5e68cbe85aebe7e50c8968983fe99b2bfdde698"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.3328269675925926,
+          "rgbSha256": "f5dadfabd4f63a01358e305c8ea3cbcbb672ec58c6bcd5901542974304608f15"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.1384526005497686,
+          "rgbSha256": "fb8f9e328ccb278630766c81a9ac71289168da0b17d628da1b0ce15729851365"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.977245189525463,
+          "rgbSha256": "7a4516dd210433e493a885e85edff2c72610dd6a1ef160fca5721da88caeab89"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.8475070529513888,
+          "rgbSha256": "896b22183b3550012a04a9ec69172c2c50630a8263109e0ec9287b472bbad1e5"
+        }
+      ]
+    }
+  }
+}

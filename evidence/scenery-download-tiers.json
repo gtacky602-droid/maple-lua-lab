@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1460,
+  "verifiedModules": 1465,
   "dimensions": [
     512,
     288
@@ -1595,6 +1595,13 @@
       "5632": 29279,
       "6144": 31193
     },
+    "night-kingdom-trial-background-v1.png": {
+      "4096": 17320,
+      "4608": 20820,
+      "5120": 24187,
+      "5632": 27543,
+      "6144": 29291
+    },
     "false-moon-court-background-v1.png": {
       "4096": 13711,
       "4608": 16773,
@@ -2054,7 +2061,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 318
+      "verified": 330
     },
     "domainHunts": {
       "total": 124,
@@ -2128,7 +2135,7 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 82,
+      "verified": 94,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
@@ -2136,18 +2143,6 @@
         "dorn-churldric-cooking-camp",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "night-trial-atlatl",
-        "night-trial-chimalli",
-        "night-trial-cihuacoatl",
-        "night-trial-fallen-dawnstar",
-        "night-trial-ichcahuipilli",
-        "night-trial-ironbeard",
-        "night-trial-potapo",
-        "night-trial-reji",
-        "night-trial-tlatzacuilotl",
-        "night-trial-tupayo",
-        "night-trial-tupu",
-        "night-trial-undead",
         "night-wind-rilai-clearing",
         "nod-crab-tsar-palace",
         "nod-hiljetta-peninsula-camp",
@@ -2177,7 +2172,7 @@
     },
     "localLegends": {
       "totalArenas": 56,
-      "verified": 18,
+      "verified": 30,
       "pending": [
         "atocpan-battlegoat-ironclaw-field",
         "atocpan-peak-cave",
@@ -2185,18 +2180,6 @@
         "dorn-churldric-cooking-camp",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "night-trial-atlatl",
-        "night-trial-chimalli",
-        "night-trial-cihuacoatl",
-        "night-trial-fallen-dawnstar",
-        "night-trial-ichcahuipilli",
-        "night-trial-ironbeard",
-        "night-trial-potapo",
-        "night-trial-reji",
-        "night-trial-tlatzacuilotl",
-        "night-trial-tupayo",
-        "night-trial-tupu",
-        "night-trial-undead",
         "night-wind-rilai-clearing",
         "nod-crab-tsar-palace",
         "nod-hiljetta-peninsula-camp",

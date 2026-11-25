@@ -53,7 +53,8 @@
     "stygian-arenas-native-backgrounds.lua": "37368f99cc5e06a779bd8f16b3da9b664700bd7b50a4175dd47f3651327df78b",
     "field-final-arenas-native-backgrounds.lua": "1434d2d9eba78084f7209d05889fc6023fa26d79f808f116e433f296d27542f2",
     "fontaine-water-legends-native-backgrounds.lua": "8add559573e652547295ed20320501b31955f9fab624317d0a60ca270c822fc9",
-    "fontaine-land-legends-native-backgrounds.lua": "efdb57b0322d644469331a3a815c04b81b01888878058e14486738fc5faffb48"
+    "fontaine-land-legends-native-backgrounds.lua": "efdb57b0322d644469331a3a815c04b81b01888878058e14486738fc5faffb48",
+    "natlan-night-trials-native-backgrounds.lua": "805f88522a1f6be02a51d71533aba015a51d6842dcd7535d86b2bbbed1ee6098"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -10864,6 +10865,43 @@
         "minDecodeMs": 27.64,
         "maxDecodeMs": 41.23,
         "medianRetainedLuaKiB": 1194.6
+      }
+    },
+    "night-trial-undead": {
+      "4096": {
+        "fileBytes": 17320,
+        "medianDecodeMs": 18.83,
+        "minDecodeMs": 18.32,
+        "maxDecodeMs": 23.16,
+        "medianRetainedLuaKiB": 787.1
+      },
+      "4608": {
+        "fileBytes": 20820,
+        "medianDecodeMs": 24.2,
+        "minDecodeMs": 20.1,
+        "maxDecodeMs": 27.07,
+        "medianRetainedLuaKiB": 928.3
+      },
+      "5120": {
+        "fileBytes": 24187,
+        "medianDecodeMs": 27.91,
+        "minDecodeMs": 26.45,
+        "maxDecodeMs": 39.16,
+        "medianRetainedLuaKiB": 1009.4
+      },
+      "5632": {
+        "fileBytes": 27543,
+        "medianDecodeMs": 29.71,
+        "minDecodeMs": 26.07,
+        "maxDecodeMs": 32.79,
+        "medianRetainedLuaKiB": 1090.9
+      },
+      "6144": {
+        "fileBytes": 29291,
+        "medianDecodeMs": 32.69,
+        "minDecodeMs": 30.04,
+        "maxDecodeMs": 40.13,
+        "medianRetainedLuaKiB": 1172.6
       }
     }
   }
