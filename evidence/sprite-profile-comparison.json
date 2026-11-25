@@ -1,0 +1,1125 @@
+{
+  "scope": "On-screen body rectangles and opening-pose mask/color comparison to PNG; the camera is centered on the default subject group.",
+  "arenas": {
+    "atocpan-battlegoat-ironclaw-field": [
+      {
+        "profile": "legacy",
+        "rectangles": 3622,
+        "overlap": "100.0%",
+        "error": "2.92 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2172,
+        "overlap": "96.9%",
+        "error": "11.31 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 940,
+        "overlap": "93.3%",
+        "error": "17.90 / 255"
+      }
+    ],
+    "atocpan-peak-cave": [
+      {
+        "profile": "legacy",
+        "rectangles": 5720,
+        "overlap": "100.0%",
+        "error": "4.47 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 3565,
+        "overlap": "98.3%",
+        "error": "11.04 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1679,
+        "overlap": "96.1%",
+        "error": "16.18 / 255"
+      }
+    ],
+    "chassanion-legend-bubble-room": [
+      {
+        "profile": "legacy",
+        "rectangles": 3255,
+        "overlap": "100.0%",
+        "error": "2.95 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2029,
+        "overlap": "96.8%",
+        "error": "9.11 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 911,
+        "overlap": "93.5%",
+        "error": "15.40 / 255"
+      }
+    ],
+    "chizhang-legend-terrace": [
+      {
+        "profile": "legacy",
+        "rectangles": 10012,
+        "overlap": "100.0%",
+        "error": "0.57 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 6191,
+        "overlap": "98.1%",
+        "error": "7.98 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 3005,
+        "overlap": "96.3%",
+        "error": "16.72 / 255"
+      }
+    ],
+    "cineas-legend-chamber": [
+      {
+        "profile": "legacy",
+        "rectangles": 5273,
+        "overlap": "99.6%",
+        "error": "5.71 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 3170,
+        "overlap": "97.5%",
+        "error": "9.18 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1497,
+        "overlap": "96.8%",
+        "error": "16.13 / 255"
+      }
+    ],
+    "deianeira-legend-lab": [
+      {
+        "profile": "legacy",
+        "rectangles": 3692,
+        "overlap": "99.5%",
+        "error": "9.15 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2281,
+        "overlap": "96.1%",
+        "error": "16.19 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1012,
+        "overlap": "94.7%",
+        "error": "23.53 / 255"
+      }
+    ],
+    "dobharcu-legend-garden": [
+      {
+        "profile": "legacy",
+        "rectangles": 2684,
+        "overlap": "100.0%",
+        "error": "0.05 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1746,
+        "overlap": "98.9%",
+        "error": "3.93 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 922,
+        "overlap": "97.5%",
+        "error": "7.35 / 255"
+      }
+    ],
+    "dorn-churldric-cooking-camp": [
+      {
+        "profile": "legacy",
+        "rectangles": 3577,
+        "overlap": "100.0%",
+        "error": "4.38 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2176,
+        "overlap": "94.4%",
+        "error": "16.65 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 985,
+        "overlap": "88.8%",
+        "error": "26.83 / 255"
+      }
+    ],
+    "erinnyes-corrouge-cleft": [
+      {
+        "profile": "legacy",
+        "rectangles": 1421,
+        "overlap": "100.0%",
+        "error": "4.10 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 896,
+        "overlap": "95.3%",
+        "error": "13.75 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 361,
+        "overlap": "90.0%",
+        "error": "21.99 / 255"
+      }
+    ],
+    "fading-veteran-legend-wreck": [
+      {
+        "profile": "legacy",
+        "rectangles": 3162,
+        "overlap": "100.0%",
+        "error": "0.06 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1977,
+        "overlap": "98.7%",
+        "error": "4.12 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 897,
+        "overlap": "97.5%",
+        "error": "7.07 / 255"
+      }
+    ],
+    "fairy-knight-twins-legend-court": [
+      {
+        "profile": "legacy",
+        "rectangles": 3528,
+        "overlap": "100.0%",
+        "error": "0.07 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2234,
+        "overlap": "97.8%",
+        "error": "5.94 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1088,
+        "overlap": "95.6%",
+        "error": "9.88 / 255"
+      }
+    ],
+    "frost-mushteshir-inner-chamber": [
+      {
+        "profile": "legacy",
+        "rectangles": 3431,
+        "overlap": "100.0%",
+        "error": "5.39 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2090,
+        "overlap": "97.4%",
+        "error": "15.26 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1014,
+        "overlap": "94.4%",
+        "error": "22.77 / 255"
+      }
+    ],
+    "frost-prism-slime-basin": [
+      {
+        "profile": "legacy",
+        "rectangles": 1553,
+        "overlap": "100.0%",
+        "error": "6.23 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 993,
+        "overlap": "98.5%",
+        "error": "15.07 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 473,
+        "overlap": "96.4%",
+        "error": "23.83 / 255"
+      }
+    ],
+    "gravity-device-legend-terrace": [
+      {
+        "profile": "legacy",
+        "rectangles": 3734,
+        "overlap": "99.7%",
+        "error": "7.12 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2216,
+        "overlap": "98.1%",
+        "error": "11.80 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 975,
+        "overlap": "97.5%",
+        "error": "17.32 / 255"
+      }
+    ],
+    "iron-viscount-legend-pool": [
+      {
+        "profile": "legacy",
+        "rectangles": 3730,
+        "overlap": "99.5%",
+        "error": "6.15 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2228,
+        "overlap": "97.2%",
+        "error": "8.73 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1009,
+        "overlap": "95.8%",
+        "error": "13.44 / 255"
+      }
+    ],
+    "liam-legend-pond": [
+      {
+        "profile": "legacy",
+        "rectangles": 3277,
+        "overlap": "100.0%",
+        "error": "2.43 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1899,
+        "overlap": "97.8%",
+        "error": "11.00 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 868,
+        "overlap": "95.1%",
+        "error": "19.01 / 255"
+      }
+    ],
+    "luachra-legend-shelf": [
+      {
+        "profile": "legacy",
+        "rectangles": 2476,
+        "overlap": "100.0%",
+        "error": "4.19 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1525,
+        "overlap": "97.0%",
+        "error": "9.07 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 657,
+        "overlap": "94.9%",
+        "error": "13.39 / 255"
+      }
+    ],
+    "night-trial-atlatl": [
+      {
+        "profile": "legacy",
+        "rectangles": 3052,
+        "overlap": "100.0%",
+        "error": "2.75 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1849,
+        "overlap": "97.5%",
+        "error": "12.61 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 765,
+        "overlap": "94.2%",
+        "error": "20.24 / 255"
+      }
+    ],
+    "night-trial-chimalli": [
+      {
+        "profile": "legacy",
+        "rectangles": 2247,
+        "overlap": "100.0%",
+        "error": "4.34 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1427,
+        "overlap": "95.8%",
+        "error": "13.29 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 694,
+        "overlap": "91.7%",
+        "error": "20.83 / 255"
+      }
+    ],
+    "night-trial-cihuacoatl": [
+      {
+        "profile": "legacy",
+        "rectangles": 2697,
+        "overlap": "100.0%",
+        "error": "3.53 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1585,
+        "overlap": "96.8%",
+        "error": "23.38 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 688,
+        "overlap": "94.3%",
+        "error": "33.44 / 255"
+      }
+    ],
+    "night-trial-fallen-dawnstar": [
+      {
+        "profile": "legacy",
+        "rectangles": 3230,
+        "overlap": "100.0%",
+        "error": "3.62 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1881,
+        "overlap": "97.1%",
+        "error": "13.72 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 864,
+        "overlap": "95.8%",
+        "error": "20.51 / 255"
+      }
+    ],
+    "night-trial-ichcahuipilli": [
+      {
+        "profile": "legacy",
+        "rectangles": 1914,
+        "overlap": "100.0%",
+        "error": "4.20 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1140,
+        "overlap": "94.0%",
+        "error": "18.55 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 531,
+        "overlap": "88.7%",
+        "error": "28.63 / 255"
+      }
+    ],
+    "night-trial-ironbeard": [
+      {
+        "profile": "legacy",
+        "rectangles": 2728,
+        "overlap": "100.0%",
+        "error": "3.35 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1703,
+        "overlap": "98.5%",
+        "error": "14.03 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 809,
+        "overlap": "96.3%",
+        "error": "21.16 / 255"
+      }
+    ],
+    "night-trial-potapo": [
+      {
+        "profile": "legacy",
+        "rectangles": 889,
+        "overlap": "100.0%",
+        "error": "5.54 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 548,
+        "overlap": "94.3%",
+        "error": "24.80 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 244,
+        "overlap": "88.2%",
+        "error": "38.65 / 255"
+      }
+    ],
+    "night-trial-reji": [
+      {
+        "profile": "legacy",
+        "rectangles": 2823,
+        "overlap": "100.0%",
+        "error": "4.31 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1700,
+        "overlap": "96.2%",
+        "error": "24.07 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 836,
+        "overlap": "92.3%",
+        "error": "35.22 / 255"
+      }
+    ],
+    "night-trial-tlatzacuilotl": [
+      {
+        "profile": "legacy",
+        "rectangles": 3450,
+        "overlap": "100.0%",
+        "error": "3.70 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2162,
+        "overlap": "97.6%",
+        "error": "17.55 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1052,
+        "overlap": "95.9%",
+        "error": "26.21 / 255"
+      }
+    ],
+    "night-trial-tupayo": [
+      {
+        "profile": "legacy",
+        "rectangles": 1461,
+        "overlap": "100.0%",
+        "error": "4.17 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 980,
+        "overlap": "96.6%",
+        "error": "11.00 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 479,
+        "overlap": "91.9%",
+        "error": "16.34 / 255"
+      }
+    ],
+    "night-trial-tupu": [
+      {
+        "profile": "legacy",
+        "rectangles": 1967,
+        "overlap": "100.0%",
+        "error": "2.49 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1185,
+        "overlap": "95.6%",
+        "error": "15.88 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 547,
+        "overlap": "91.0%",
+        "error": "23.06 / 255"
+      }
+    ],
+    "night-trial-undead": [
+      {
+        "profile": "legacy",
+        "rectangles": 2166,
+        "overlap": "100.0%",
+        "error": "3.07 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1452,
+        "overlap": "98.2%",
+        "error": "4.66 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 686,
+        "overlap": "96.8%",
+        "error": "7.35 / 255"
+      }
+    ],
+    "night-wind-rilai-clearing": [
+      {
+        "profile": "legacy",
+        "rectangles": 2592,
+        "overlap": "100.0%",
+        "error": "8.46 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1615,
+        "overlap": "97.4%",
+        "error": "25.13 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 753,
+        "overlap": "93.5%",
+        "error": "36.44 / 255"
+      }
+    ],
+    "ninianne-legend-bank": [
+      {
+        "profile": "legacy",
+        "rectangles": 425,
+        "overlap": "100.0%",
+        "error": "0.01 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 291,
+        "overlap": "98.8%",
+        "error": "1.67 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 224,
+        "overlap": "96.9%",
+        "error": "1.86 / 255"
+      }
+    ],
+    "nod-crab-tsar-palace": [
+      {
+        "profile": "legacy",
+        "rectangles": 4013,
+        "overlap": "100.0%",
+        "error": "3.86 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2337,
+        "overlap": "97.8%",
+        "error": "14.82 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 945,
+        "overlap": "95.7%",
+        "error": "21.95 / 255"
+      }
+    ],
+    "nod-hiljetta-peninsula-camp": [
+      {
+        "profile": "legacy",
+        "rectangles": 2318,
+        "overlap": "100.0%",
+        "error": "3.19 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1337,
+        "overlap": "97.9%",
+        "error": "10.80 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 610,
+        "overlap": "95.1%",
+        "error": "18.72 / 255"
+      }
+    ],
+    "nod-homesick-wolf-lakeland": [
+      {
+        "profile": "legacy",
+        "rectangles": 3920,
+        "overlap": "100.0%",
+        "error": "2.78 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2435,
+        "overlap": "96.6%",
+        "error": "10.25 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1078,
+        "overlap": "94.9%",
+        "error": "14.76 / 255"
+      }
+    ],
+    "nod-mandragora-cliff-foot": [
+      {
+        "profile": "legacy",
+        "rectangles": 1583,
+        "overlap": "100.0%",
+        "error": "2.98 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 920,
+        "overlap": "97.9%",
+        "error": "9.80 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 382,
+        "overlap": "96.5%",
+        "error": "15.22 / 255"
+      }
+    ],
+    "nod-raskolnikov-upper-ring": [
+      {
+        "profile": "legacy",
+        "rectangles": 2964,
+        "overlap": "100.0%",
+        "error": "4.24 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1758,
+        "overlap": "98.1%",
+        "error": "15.88 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 779,
+        "overlap": "95.5%",
+        "error": "24.29 / 255"
+      }
+    ],
+    "nod-sigurd-grave-court": [
+      {
+        "profile": "legacy",
+        "rectangles": 2263,
+        "overlap": "100.0%",
+        "error": "3.78 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1411,
+        "overlap": "96.5%",
+        "error": "16.37 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 641,
+        "overlap": "91.6%",
+        "error": "27.20 / 255"
+      }
+    ],
+    "ocean-judge-legend-pool": [
+      {
+        "profile": "legacy",
+        "rectangles": 3982,
+        "overlap": "99.4%",
+        "error": "5.49 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2425,
+        "overlap": "97.1%",
+        "error": "8.05 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1076,
+        "overlap": "95.7%",
+        "error": "11.80 / 255"
+      }
+    ],
+    "ochka-bronzelock-island-court": [
+      {
+        "profile": "legacy",
+        "rectangles": 6701,
+        "overlap": "100.0%",
+        "error": "3.73 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 3975,
+        "overlap": "98.0%",
+        "error": "11.14 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1711,
+        "overlap": "96.4%",
+        "error": "16.35 / 255"
+      }
+    ],
+    "rocky-legend-ledge": [
+      {
+        "profile": "legacy",
+        "rectangles": 3403,
+        "overlap": "99.4%",
+        "error": "6.21 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2009,
+        "overlap": "97.7%",
+        "error": "9.71 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 940,
+        "overlap": "96.4%",
+        "error": "13.61 / 255"
+      }
+    ],
+    "sacred-mountain-east-isle-dais": [
+      {
+        "profile": "legacy",
+        "rectangles": 4567,
+        "overlap": "100.0%",
+        "error": "3.02 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2881,
+        "overlap": "98.5%",
+        "error": "7.87 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1281,
+        "overlap": "96.9%",
+        "error": "12.82 / 255"
+      }
+    ],
+    "sky-maha-pavilion-court": [
+      {
+        "profile": "legacy",
+        "rectangles": 2040,
+        "overlap": "100.0%",
+        "error": "4.17 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1232,
+        "overlap": "97.3%",
+        "error": "12.31 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 513,
+        "overlap": "94.6%",
+        "error": "18.71 / 255"
+      }
+    ],
+    "sne-ancient-mouse-den": [
+      {
+        "profile": "legacy",
+        "rectangles": 1848,
+        "overlap": "100.0%",
+        "error": "4.42 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1109,
+        "overlap": "97.4%",
+        "error": "13.48 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 542,
+        "overlap": "94.8%",
+        "error": "21.62 / 255"
+      }
+    ],
+    "sne-bandersnatch-ice-cavern": [
+      {
+        "profile": "legacy",
+        "rectangles": 3205,
+        "overlap": "100.0%",
+        "error": "5.81 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1984,
+        "overlap": "97.9%",
+        "error": "19.26 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1014,
+        "overlap": "95.8%",
+        "error": "29.39 / 255"
+      }
+    ],
+    "sne-churin-snow-court": [
+      {
+        "profile": "legacy",
+        "rectangles": 1175,
+        "overlap": "100.0%",
+        "error": "5.11 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 677,
+        "overlap": "96.0%",
+        "error": "24.70 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 340,
+        "overlap": "91.7%",
+        "error": "37.53 / 255"
+      }
+    ],
+    "sne-crystal-tree-refuge": [
+      {
+        "profile": "legacy",
+        "rectangles": 2408,
+        "overlap": "100.0%",
+        "error": "3.71 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1408,
+        "overlap": "91.5%",
+        "error": "15.17 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 652,
+        "overlap": "83.3%",
+        "error": "23.05 / 255"
+      }
+    ],
+    "sne-furiosa-domain-outlook": [
+      {
+        "profile": "legacy",
+        "rectangles": 2901,
+        "overlap": "100.0%",
+        "error": "7.31 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1731,
+        "overlap": "94.7%",
+        "error": "23.83 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 810,
+        "overlap": "89.4%",
+        "error": "34.61 / 255"
+      }
+    ],
+    "sne-novokichev-ore-yard": [
+      {
+        "profile": "legacy",
+        "rectangles": 8170,
+        "overlap": "100.0%",
+        "error": "6.52 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 4931,
+        "overlap": "97.4%",
+        "error": "20.36 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 2245,
+        "overlap": "94.6%",
+        "error": "31.86 / 255"
+      }
+    ],
+    "swords-of-the-gorge-legend-rift": [
+      {
+        "profile": "legacy",
+        "rectangles": 3900,
+        "overlap": "100.0%",
+        "error": "0.14 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2494,
+        "overlap": "97.5%",
+        "error": "5.90 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1066,
+        "overlap": "95.2%",
+        "error": "11.24 / 255"
+      }
+    ],
+    "tepeakak-sappho-bank": [
+      {
+        "profile": "legacy",
+        "rectangles": 2960,
+        "overlap": "100.0%",
+        "error": "4.40 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1854,
+        "overlap": "97.0%",
+        "error": "21.69 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 797,
+        "overlap": "93.5%",
+        "error": "33.28 / 255"
+      }
+    ],
+    "toyac-balachko-inner-cave": [
+      {
+        "profile": "legacy",
+        "rectangles": 3336,
+        "overlap": "100.0%",
+        "error": "3.52 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1998,
+        "overlap": "97.3%",
+        "error": "14.74 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 951,
+        "overlap": "94.1%",
+        "error": "22.09 / 255"
+      }
+    ],
+    "toyac-cocijo-stone-ring": [
+      {
+        "profile": "legacy",
+        "rectangles": 3771,
+        "overlap": "100.0%",
+        "error": "4.24 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2332,
+        "overlap": "99.1%",
+        "error": "10.78 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1114,
+        "overlap": "97.7%",
+        "error": "18.69 / 255"
+      }
+    ],
+    "vivianne-legend-bank": [
+      {
+        "profile": "legacy",
+        "rectangles": 384,
+        "overlap": "99.1%",
+        "error": "1.81 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 274,
+        "overlap": "96.1%",
+        "error": "2.55 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 191,
+        "overlap": "94.5%",
+        "error": "3.60 / 255"
+      }
+    ],
+    "witztli-tristars-camp": [
+      {
+        "profile": "legacy",
+        "rectangles": 9438,
+        "overlap": "100.0%",
+        "error": "4.50 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 5811,
+        "overlap": "97.7%",
+        "error": "18.78 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 2668,
+        "overlap": "95.2%",
+        "error": "29.41 / 255"
+      }
+    ],
+    "yseut-legend-court": [
+      {
+        "profile": "legacy",
+        "rectangles": 4046,
+        "overlap": "100.0%",
+        "error": "1.59 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2398,
+        "overlap": "98.3%",
+        "error": "13.75 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1046,
+        "overlap": "96.6%",
+        "error": "22.50 / 255"
+      }
+    ],
+    "zapabay-tenochtzitoc-shallows": [
+      {
+        "profile": "legacy",
+        "rectangles": 2831,
+        "overlap": "100.0%",
+        "error": "7.07 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1770,
+        "overlap": "98.5%",
+        "error": "15.92 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 851,
+        "overlap": "96.9%",
+        "error": "25.99 / 255"
+      }
+    ]
+  }
+}

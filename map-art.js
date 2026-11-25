@@ -1,4 +1,4 @@
-import {measureSpriteFidelity} from './sprite-fidelity.js';
+import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
@@ -339,7 +339,7 @@ try{
  const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render);
  const updateDetail=setupSceneryDetail(liveView,query);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
- let fidelityKey;
+ let fidelityKey,profileTableKey;
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera);
@@ -425,13 +425,13 @@ try{
   const cost={total:0,visible:0,standard:0};
   const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
   const fidelity=$('spriteFidelity');
-  const currentKey=[n.id,camera,profile,subject.value,matchedSprites,$('candidateIdle').checked].join('/');
+  const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked].join('/');
+  const currentKey=poseKey+'/'+profile;
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
   $('fidelityControls').hidden=!(liveView && openings[n.id] && visibleItems.length && !matchedSprites);
-  $('measureSprite').onclick=()=>{
-   const result=measureSpriteFidelity((ctx,quality)=>{
+  function paintMeasuredActors(ctx,quality){
     const cost={total:0,visible:0,standard:0};
     for(const e of visibleItems){
      const art=placementArt(e);
@@ -439,10 +439,33 @@ try{
      paintPlacementLayer(ctx,art,spriteBounds(art,art.h),quality,x,y,e.flip,cost);
      if(art.weaponMarks)for(const mark of art.marks)paintMechanismMark(ctx,mark,x,y,e.flip);
     }
-   },profile,960,540);
+    return cost.visible;
+  }
+  $('measureSprite').onclick=()=>{
+   const result=measureSpriteFidelity(paintMeasuredActors,profile,960,540);
    fidelity.dataset.result=JSON.stringify(result);
    fidelity.textContent=result.union?'形の重なり '+result.overlapPercent.toFixed(1)+'% ／ 平均色差 '+
     (result.meanRgbError===null?'対象画素なし':result.meanRgbError.toFixed(2)+' / 255'):'この画角にはボスが映っていません。';
+  };
+  const table=$('spriteProfileTable');
+  if(profileTableKey!==poseKey){table.hidden=true;table.tBodies[0].replaceChildren();profileTableKey=poseKey}
+  for(const button of table.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.value===profile));
+  $('compareSpriteProfiles').onclick=()=>{
+   const options=Array.from($('profile').options);
+   const rows=measureSpriteProfiles(paintMeasuredActors,options.map(o=>o.value),960,540);
+   const body=table.tBodies[0];body.replaceChildren();
+   for(const [i,result] of rows.entries()){
+    const tr=body.insertRow(),button=document.createElement('button');
+    button.type='button';button.value=result.profile;button.textContent=options[i].textContent;
+    button.setAttribute('aria-pressed',String(result.profile===profile));
+    button.onclick=()=>{$('profile').value=result.profile;render()};
+    tr.insertCell().append(button);
+    tr.insertCell().textContent=result.rectangles.toLocaleString('ja-JP');
+    const {overlapPercent,meanRgbError}=result.fidelity;
+    tr.insertCell().textContent=overlapPercent==null?'—':overlapPercent.toFixed(1)+'%';
+    tr.insertCell().textContent=meanRgbError==null?'—':meanRgbError.toFixed(2)+' / 255';
+   }
+   table.hidden=false;
   };
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));

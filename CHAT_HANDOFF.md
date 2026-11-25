@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## ボスのドット絵を同じ画角で比較
+
+[ニニアンの開幕を比較](http://127.0.0.1:9117/map-art.html?node=ninianne-legend-bank&placements=live&profile=h48c32#fidelityControls)。矩形版の「3設定をまとめて比べる」で、本体の矩形数、元PNGとの形の重なり、平均色差を同時に表示する。設定名を押すと、画角を保ったままその設定のドット絵に切り替わる。カメラや対象を変えると前の測定表は閉じる。
+
+地方伝説56会場・168設定で検査した。ニニアンの矩形数は標準425、32色291、16色224。元PNGとの形の重なりは100.0%、98.8%、96.9%。ヴィヴィアンは384、274、191矩形で、それぞれ99.1%、96.1%、94.5%。[二体の比較画像](evidence/ninianne-vivianne-profile-comparison.png) ／ [56会場の測定](evidence/sprite-profile-comparison.json)
+
 ## 全1,528地点で仮背景の圧縮を比較できる
 
 [モンドの街で元PNGと4,096矩形を見比べる](http://127.0.0.1:9117/map-art.html?node=mond-town&placements=live&compare=background&tier=4096)。M地図で地点を選ぶと、その場所の背景、足場、敵配置で5段階の表示を試せる。複数地点で共用する背景には地点数を表示する。本番は3D配置。ラボ用仮背景418枚のうち94枚は地形や道筋が違う複数地点で使っている。
