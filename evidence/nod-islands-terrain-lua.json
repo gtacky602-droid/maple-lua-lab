@@ -1,0 +1,89 @@
+{
+  "sites-hunt-88121": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      423,
+      384,
+      407,
+      382
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 140,
+    "exterior_scenery": "nodHiisiBridge",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-88122": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      418,
+      375,
+      391,
+      372
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 140,
+    "exterior_scenery": "nodLempoTerrace",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-88123": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      424,
+      403,
+      417,
+      391
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 140,
+    "exterior_scenery": "nodPahaShore",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-92859": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      421,
+      388,
+      355,
+      374
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 140,
+    "exterior_scenery": "nodNorthPass",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-92860": {
+    "population": 3,
+    "shelf_heights_from_entrance": [
+      418,
+      381,
+      357,
+      389
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 140,
+    "exterior_scenery": "nodFaultGate",
+    "arrivals_outside_enemy_contact": 1
+  },
+  "rumoredElites": {
+    "targetNodes": [
+      "nod-tide-scrapyard",
+      "nod-forest-outer",
+      "sites-hunt-88121-pocket-1",
+      "sites-hunt-88122-pocket-1",
+      "sites-hunt-88123-pocket-1",
+      "sites-hunt-92859-pocket-1"
+    ],
+    "verifiedRooms": [
+      "sites-hunt-88121-pocket-1",
+      "sites-hunt-88122-pocket-1",
+      "sites-hunt-88123-pocket-1",
+      "sites-hunt-92859-pocket-1"
+    ],
+    "heavyPatrolExcluded": true
+  }
+}

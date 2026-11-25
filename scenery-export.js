@@ -82,8 +82,11 @@ export async function buildSceneryExport(file,source,tier) {
     const fixed=pack(compressed,false),variable=pack(compressed,true);
     details=variable.length<fixed.length?variable:fixed;
   }
-  const blob=new Blob(['return {\n["'+source+'"]={base={512,288,"treeBits","'+scene.base+'"},details="'+details+'",count='+count+'},\n}\n'],{type:'text/plain'});
-  return {blob,name:source.replace('-background-v1.png','-'+tier+'.lua')};
+  const header=new Blob(['return {\n["'+source+'"]={base={512,288,"treeBits","'+scene.base+'"},details="']);
+  const moduleBlob=(data,n)=>new Blob([header,data,'",count='+n+'},\n}\n'],{type:'text/plain'});
+  const blob=moduleBlob(details,count);
+  const fullBytes=count===scene.count?blob.size:moduleBlob(scene.details,scene.count).size;
+  return {blob,name:source.replace('-background-v1.png','-'+tier+'.lua'),fullBytes,maxTier:4096+scene.count};
 }
 
 export function setupSceneryDownload(link,status) {
@@ -102,10 +105,15 @@ export function setupSceneryDownload(link,status) {
     status.textContent='書き出し容量を計測中';
     try {
       if (!cache.has(key)) cache.set(key,buildSceneryExport(file,source,tier));
-      const {blob,name}=await cache.get(key);
+      const {blob,name,fullBytes,maxTier}=await cache.get(key);
       if (ticket!==serial) return;
       url=URL.createObjectURL(blob);link.href=url;link.download=name;link.hidden=false;
-      status.textContent='選択段階のLuaファイル '+blob.size.toLocaleString('ja-JP')+' B';
+      const label='選択段階のLuaファイル '+blob.size.toLocaleString('ja-JP')+' B';
+      const delta=fullBytes-blob.size;
+      const difference=Math.abs(delta).toLocaleString('ja-JP')+' B（'+(100*Math.abs(delta)/fullBytes).toFixed(1)+'%）';
+      const baseline=maxTier.toLocaleString('ja-JP')+'矩形';
+      status.textContent=tier===maxTier?label+' ｜ 比較基準 '+baseline:
+        label+' ｜ '+baseline+'比 '+difference+(delta<0?'増':'減');
     } catch (error) {
       cache.delete(key);
       if (ticket===serial) status.textContent='書き出し準備に失敗しました：'+error.message;

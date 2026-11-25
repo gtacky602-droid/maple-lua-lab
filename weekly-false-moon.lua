@@ -466,7 +466,7 @@ return function(C,M)
    v.shadows[#v.shadows+1]={x=shadow.x,hp=shadow.hp,max=shadow.maxhp,id=shadow.id}
    if shadow.hp>0 then
     rear(shadow.x-18,y-3,36,3,M.ice)
-    C.drawFieldDisplayArt(back,art,shadow.x-s.camera,y,128,mode,profile,false,nil,nil,.64)
+    C.drawFieldDisplayArt(back,art,shadow.x-s.camera,y,spec.rift.shadowArt.height,mode,profile,false,nil,nil,spec.rift.shadowArt.opacity)
     local glow=({M.ice,M.violet,M.water})[i]
     rear(shadow.x-5,y-140,10,9,glow);rear(shadow.x-3,y-144,6,17,glow)
    end

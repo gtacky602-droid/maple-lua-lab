@@ -6,9 +6,15 @@ export function liveNodeDraft(input,graph,nodeId,species,weekly){
  const node=graph.nodes.find(n=>n.id===nodeId);
  if(!node||input?.version!==1||!input.nodes||Array.isArray(input.nodes))throw Error('本編配置の形式が不正です。');
  const items=input.nodes[nodeId];
- if(weekly?.node===nodeId && weekly.mapIdleArt && items===undefined){
-  const boss={id:weekly.id,species:weekly.mapIdleArt,x:weekly.center,y:weekly.floorY,flip:false};
-  return validatePlacementDraft({version:1,nodes:{[nodeId]:[boss]}},graph,species).nodes[nodeId];
+ if(weekly && items===undefined){
+  let actors;
+  if(weekly.node===nodeId && weekly.mapIdleArt){
+   actors=[{id:weekly.id,species:weekly.mapIdleArt,x:weekly.center,y:weekly.floorY,flip:false}];
+  }else if(weekly.innerNode===nodeId && weekly.rift?.shadowArt){
+   actors=weekly.rift.pointsU.map((u,i)=>({id:'boss-'+(weekly.entity+11+i),species:weekly.rift.shadowArt.species,
+    x:weekly.board.left+weekly.board.unit*u,y:weekly.floorY,flip:false}));
+  }
+  if(actors)return validatePlacementDraft({version:1,nodes:{[nodeId]:actors}},graph,species).nodes[nodeId];
  }
  if(items===undefined&&!node.hub&&!node.peaceful)throw Error('この戦闘地点の本編配置がありません。');
  if(items!==undefined&&!Array.isArray(items))throw Error('本編配置の個体一覧が不正です。');
@@ -26,7 +32,10 @@ const forestShelfHeights=[480,390,352,394,350];
 const westIslandHeights=[480,408,369,404,378];
 const mondRuinsHeights=[480,397,358,404,360];
 const liyueNorthHeights=[480,403,360,389,345];
+const nodIslandHeights=[480,396,356,395,361];
 const previousHeights=new Map([
+ ['sites-hunt-88121',nodIslandHeights],['sites-hunt-88122',nodIslandHeights],['sites-hunt-88123',nodIslandHeights],['sites-hunt-92859',nodIslandHeights],
+ ['sites-hunt-92860',[480,398,345,396,348]],
  ['sites-hunt-7173',liyueNorthHeights],
  ['sites-hunt-7190',liyueNorthHeights],
  ['sites-hunt-7215',liyueNorthHeights],

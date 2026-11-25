@@ -4796,6 +4796,7 @@
       "id": "boss-29130201",
       "entity": 29130201,
       "controller": "false_moon",
+      "mapIdleArt": "boss-false-moon-weekly",
       "node": "nod-false-moon-court",
       "innerNode": "nod-false-moon-rift",
       "atlasTransfer": {
@@ -4846,6 +4847,7 @@
         "shadowFirst": 132,
         "shadowPeriod": 180,
         "shadowWarn": 72,
+        "shadowArt": {"species": "boss-false-moon-shadow", "name": "偽月の異界の影", "height": 128, "opacity": 0.64},
         "pointsU": [
           2,
           5,

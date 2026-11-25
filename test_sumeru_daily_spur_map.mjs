@@ -4,6 +4,7 @@ import {chromium} from 'playwright';
 
 const region=process.argv[2] || 'sumeru';
 const settings={
+ 'nod-krai':['nod-town','nod-islands-terrain-fixture.json','daily-nod-rumored-elites',6,'sites-hunt-88122-pocket-1'],
  liyue:['liyue-harbor','li-north-terrain-fixture.json','daily-liyue-relics',35,'sites-hunt-7114-pocket-1'],
  'mond-slimes':['mond-town','mond-temples-terrain-fixture.json','daily-mond-slimes',17,'sites-hunt-7206'],
  mondstadt:['mond-town','mond-ruins-terrain-fixture.json','daily-mond-elites',9,'sites-hunt-7111-pocket-1'],

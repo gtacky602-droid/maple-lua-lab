@@ -26,6 +26,7 @@ function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
  }
  if(!visible)return;
  ctx.save();
+ ctx.globalAlpha*=art.opacity??1;
  ctx.translate(x,y);
  if(flip)ctx.scale(-1,1);
  paintSprite(ctx,art,art.image,bounds,profile);
@@ -83,6 +84,13 @@ try{
   }));
   for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
+ }
+ for(const boss of weeklyData.weeklyBosses){
+  const shadow=boss.rift?.shadowArt;
+  if(!shadow)continue;
+  arenaPreviews.set(boss.innerNode,boss);
+  assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
+  $('species').append(new Option(shadow.name,shadow.species));
  }
  setupPlacementPicker($('species'));
  const imageArt=Object.values(assets).flatMap(data=>[data,data.left,data.rear].filter(Boolean));
@@ -195,7 +203,8 @@ try{
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
-   const label=arenaPreviews.has(n.id)?'開戦時のボス位置・待機絵で比較':'本編の敵配置 '+items.length+'体';
+   const boss=arenaPreviews.get(n.id);
+   const label=boss?.innerNode===n.id?'異界の影の出現位置':boss?'開戦時のボス位置・待機絵で比較':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -208,7 +217,7 @@ try{
   const visuals=items.map(e=>{
    const a=placementArt(e),y=e.y-a.hover;
    const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
-   return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(rear&&{rear})};
+   return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(a.opacity!==undefined && {opacity:a.opacity}),...(rear&&{rear})};
   });
   window.mapArt={diff,dirty,liveView,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file,requestedDecodedBackground:preview?.file,decodedBackgroundFile:decoded,decodedBackgroundRectangles:decoded?tier:undefined};
  }

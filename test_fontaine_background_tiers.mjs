@@ -8,6 +8,7 @@ const groups=process.argv[2]?[process.argv[2]]:['beryl','fon-domain','fon-north'
 const output=process.argv[2] || 'fontaine';
 if (!/^[a-z0-9-]+$/.test(output)) throw Error('Invalid scenery batch');
 const reports = {};
+const {fileBytesByRectangles}=JSON.parse(await fs.readFile('evidence/scenery-download-tiers.json','utf8'));
 const weekly=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
 const {nodes: spawns} = JSON.parse(await fs.readFile('content/enemy-spawns.json','utf8'));
 try {
@@ -20,7 +21,7 @@ try {
       const errors = [];
       page.on('pageerror',error=>errors.push(error.message));
       try {
-        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena';
+        const lightweightLink = node === 'sites-hunt-12791-pocket-2' || node === 'sites-hunt-7201' || node === 'sites-hunt-7116' || node === 'sites-hunt-7215' || node === 'azhdaha-dragon-seal-arena' || node === 'nod-false-moon-rift' || node === 'sites-hunt-88121';
         const query = new URLSearchParams({node});
         if (lightweightLink) {
           query.set('tier','4096');
@@ -45,7 +46,8 @@ try {
         }
         await page.locator('#loadLive').click();
         const boss=weekly.find(b=>b.node===node && b.mapIdleArt);
-        const expectedCount=spawns[node]?.length ?? (boss?1:0);
+        const inner=weekly.find(b=>b.innerNode===node && b.rift?.shadowArt);
+        const expectedCount=spawns[node]?.length ?? (boss?1:inner?.rift.pointsU.length??0);
         await page.waitForFunction(n=>window.mapArt.count===n && window.mapArt.diff?.unchanged===n,expectedCount);
         if (await page.locator('#placements button').count()===1) {
           await page.locator('#placements button').click();
@@ -55,6 +57,11 @@ try {
         const before = await page.evaluate(()=>window.mapArt);
         const decodeStats = await page.evaluate(async id=>(await import('./scenery-measurements.js')).backgroundMeasurements[id]?.decode,node);
         assert.equal(before.backgroundFile,source);
+        if(inner){
+          const live=JSON.parse(await fs.readFile('evidence/false-moon-weekly-lua.json','utf8')).riftShadowPlacements;
+          assert.deepEqual(before.placements.map(p=>[p.id,p.x,p.y]),live);
+          assert.ok(before.visuals.every(v=>v.height===inner.rift.shadowArt.height && v.opacity===inner.rift.shadowArt.opacity && v.hover===0));
+        }
         if(boss){
           assert.deepEqual(before.placements,[{id:boss.id,species:boss.mapIdleArt,x:boss.center,y:boss.floorY,flip:false}]);
         }
@@ -71,6 +78,13 @@ try {
           await page.locator('#sceneryDownload').waitFor({state:'visible'});
           const filename=source.replace('-background-v1.png','-'+rectangles+'.lua');
           assert.equal(await page.locator('#sceneryDownload').getAttribute('download'),filename);
+          const sizes=fileBytesByRectangles[source];
+          const saved=sizes[6144]-sizes[rectangles];
+          const exportLabel=await page.locator('#sceneryExportStatus').innerText();
+          assert.ok(exportLabel.includes(sizes[rectangles].toLocaleString('ja-JP')+' B'),exportLabel);
+          const compared=rectangles===6144?'比較基準 6,144矩形':
+            '6,144矩形比 '+saved.toLocaleString('ja-JP')+' B（'+(100*saved/sizes[6144]).toFixed(1)+'%）減';
+          assert.ok(exportLabel.includes(compared),exportLabel);
           const actual = await page.evaluate(async n=>{
             const image = new Image();
             image.src = 'assets/'+window.mapArt.decodedBackgroundFile;
@@ -108,7 +122,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly'].includes(group)) await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain','ina-narukami','ina-west','ina-islands','mond-ruins','mond-temples','li-north','li-highlands','li-weekly','nod-islands','nod-false-moon'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);
@@ -117,6 +131,14 @@ try {
           ? source.replace('fon-beryl-','beryl-').replace('-background-v1.png','-scene-comparison.png')
           : source.replace('-background-v1.png','-comparison.png');
         await page.locator('main').screenshot({path:'evidence/'+picture});
+        if(inner){
+          const liveLink=await page.locator('#placementViewLink').getAttribute('href');
+          await page.goto(new URL(liveLink,page.url()).href);
+          await page.waitForFunction(()=>window.mapArt?.liveView && window.mapArt.count===3);
+          assert.deepEqual(await page.evaluate(()=>window.mapArt.placements),before.placements);
+          assert.ok((await page.locator('#status').innerText()).includes('異界の影の出現位置'));
+          reports[node].liveShadowPlacements=before.placements;
+        }
       } finally { await page.close(); }
     }
   }

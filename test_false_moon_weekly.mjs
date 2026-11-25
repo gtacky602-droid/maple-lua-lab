@@ -18,16 +18,26 @@ async function capture(name){
  await fs.writeFile(prefix+'-'+name+'.png',Buffer.from(bytes,'base64'));
  return bytes;
 }
-async function scene(){
- return page.evaluate(async()=>{
-  const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-  await backgroundReady;
-  return sceneryStatus(window.lab.frame);
- });
+async function scene(file){
+ await wait(file=>window.moonSceneryDraw?.file===file,file);
+ return page.evaluate(async file=>{
+  const {sceneryStatus}=await import('./scenery.js');
+  return {...sceneryStatus(window.lab.frame,file),tile:window.moonSceneryDraw.tile};
+ },file);
 }
 const mode=m=>page.evaluate(m=>{window.moonMode=m},m);
 
 try{
+ await page.addInitScript(()=>{
+  const draw=CanvasRenderingContext2D.prototype.drawImage;
+  CanvasRenderingContext2D.prototype.drawImage=function(image,...args){
+   const result=draw.call(this,image,...args);
+   if(this.canvas.id==='game' && image.src && args.length===8 && args[6]===1160 && args[7]===540){
+    window.moonSceneryDraw={file:new URL(image.src).pathname.split('/').pop(),tile:args.slice(0,4)};
+   }
+   return result;
+  };
+ });
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8953/');
  await wait(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
@@ -37,6 +47,7 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
+ await page.locator('#playBackgroundTier').selectOption('4096');
  const atlasEntry=await checkWeeklyAtlas(page,inner,[outer,inner],'戦闘中に移動');
  await canvas.click();
  const toward=(await frame()).actors[0].x<210?'KeyD':'KeyA';
@@ -45,7 +56,8 @@ try{
  finally{await page.keyboard.up(toward);}
  await page.keyboard.press('KeyF');
  await wait(n=>window.lab.frame.story.node===n,outer);
- const court=await scene();
+ const court=await scene('false-moon-court-native-tiers-v1.webp');
+ assert.deepEqual(court.tile,[0,0,512,288]);
  assert.deepEqual([court.key,court.state],['falseMoonCourt','ready']);
  await wait(()=>window.lab.frame.weeklyBoss?.falseMoon.rule?.state==='rule');
  const unbroken=await frame();
@@ -120,7 +132,8 @@ try{
  await page.locator('#weeklyFalseMoonUse').click();
  await wait(n=>window.lab.frame.story.node===n,inner);
  const atlasReturn=await checkWeeklyAtlas(page,outer,[outer],'戦闘中に帰還',prefix+'-atlas-return.png');
- const other=await scene();
+ const other=await scene('false-moon-rift-native-tiers-v1.webp');
+ assert.deepEqual(other.tile,[0,0,512,288]);
  assert.deepEqual([other.key,other.state],['falseMoonRift','ready']);
  await mode('wait');
  await wait(()=>window.lab.frame.weeklyBoss?.falseMoon.card==='WM15');

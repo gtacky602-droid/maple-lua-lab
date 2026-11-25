@@ -179,6 +179,8 @@ step(s,1)
 assert s.story.node==inner and w.epoch==1 and a.hp==100 and s.gauge==34 and 8<a.cd.skill2<9
 step(s,90)
 assert w.cast.key=='WM15' and len(w.shadows)==3 and w.primary.invulnerable
+rift_shadow_placements=[['boss-'+str(e.id),e.x,e.y] for e in w.shadows.values()]
+assert [p[1] for p in rift_shadow_placements]==[216,480,744]
 normal(s,w.shadows[1])
 assert w.innerCount==1 and s.kills==0
 place(a,858)
@@ -262,7 +264,7 @@ core.action(s,'story_report:'+quest)
 restored=core.restore(lua.table_from(save(),recursive=True))
 assert restored.story.quests[quest].status=='complete' and restored.weeklySlots[uid].primary.hp==0
 
-proof={'manifest_cards':cards,'rule_window':[120,420],'old_dash_and_normal_excluded':True,
+proof={'riftShadowPlacements':rift_shadow_placements,'manifest_cards':cards,'rule_window':[120,420],'old_dash_and_normal_excluded':True,
        'old_macro_root_excluded_new_root_detected':True,'boundary_420_allows_movement':True,
        'buffered_old_jump_excluded_fresh_jump_detected':True,
        'logical_facing_only':True,'owner_only_sentence_after_swap':True,'cover_contains_actor':True,

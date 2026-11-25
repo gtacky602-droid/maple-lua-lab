@@ -574,9 +574,9 @@
       "level": 120,
       "giver": "ネフェル",
       "name": "噂の強敵、確かめてきて",
-      "intro": "ネフェル「部品置き場の機兵と林の牙獣、どちらも見かけた人がいるそうよ。」",
-      "target": "月浜の部品置き場・トウヒ林の外周の指定精鋭",
-      "filter": {"kind": "elite", "nodes": ["nod-tide-scrapyard", "nod-forest-outer"]},
+      "intro": "ネフェル「部品置き場と林だけじゃないわ。島の脇道でも、強敵を見たって話が来てるの。」",
+      "target": "月浜・トウヒ林の指定精鋭、または島と北部高地の精鋭部屋",
+      "filter": {"kind": "elite", "nodes": ["nod-tide-scrapyard", "nod-forest-outer", "sites-hunt-88121-pocket-1", "sites-hunt-88122-pocket-1", "sites-hunt-88123-pocket-1", "sites-hunt-92859-pocket-1"]},
       "goal": 3,
       "xp": 139230,
       "mora": 2380

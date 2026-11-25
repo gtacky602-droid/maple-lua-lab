@@ -1,0 +1,110 @@
+{
+  "sites-hunt-88121": {
+    "source": "nod-hiisi-bridge-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "a159d36d885b370049c380f5b9475a92b97a5b989adabcd7f78827e0b1d23d22",
+    "tiers": {
+      "4096": "36577f229b826aca59ad3fa5fa14b9fbbfcaa1b469add04b4e5ecadfb87fcd50",
+      "4608": "f3d9323e33e1287ddcc961d56ed88d78728df96d70fc8a25e6768083d68726a1",
+      "5120": "d3c0c27bd5757b041e3c97aebf476afaf5054992657c38b60275c4578d2f9233",
+      "5632": "7c65c19fd509373f81311aff879817129398456d825f34979a748d028c94ddeb",
+      "6144": "f2995e27c72dc94cb7baf5beac4df7d9be898052e2a728fea4b8aef8be942285"
+    }
+  },
+  "sites-hunt-88121-pocket-1": {
+    "source": "nod-reed-den-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "68ce57482c78d7f6278f40ced1a7eb9de01791ff22691352dcaaf30717d99f8b",
+    "tiers": {
+      "4096": "670a97b35b9960095e5d306302cd7c8ac9033067737e52ce310aefba02b9c842",
+      "4608": "ac5965cf9e88686e6c7ebf23c6b4668d2530528465e56becd82e8e993c475bae",
+      "5120": "567f211f55c14ea9ea6ac0d3f88968fcb0d2c4ae270b285051710066d587bbba",
+      "5632": "7de7409fae341c0fe8e8baa833e2b773a02117e5b4fd0b4c9350a7469cab70c0",
+      "6144": "efefbee30e36b72cc06f5287c8c77d537988df7e78652bbafb15429a7eb24543"
+    }
+  },
+  "sites-hunt-88122": {
+    "source": "nod-lempo-terrace-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "23cba230b1a3a53460c84735afd94270f4f9e8666cc411023e7d94ab7d2e3e62",
+    "tiers": {
+      "4096": "c3f6d055be88a0c65c3936d6a4ac384a1ebd026d6fc31e96983a4c4bd2a6be12",
+      "4608": "0603949ab6cd4b4bea8cb50d29f363ed187a4279db8f9913950ed4f7991b49d1",
+      "5120": "dd896021be3620ceec2586edfe91fc4eb0943052e86be54a88ab9f3496fcddb7",
+      "5632": "997e018321197a58f025646ff5ea416e0a723de00c559d80d868e792e3490a33",
+      "6144": "eb48b3f121e7dd97e3012e7fad77bb7b92d8590f1edacc3dfd9a4496a0e29a3c"
+    }
+  },
+  "sites-hunt-88122-pocket-1": {
+    "source": "nod-frost-kiln-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "050bd0106e4a1d2402df94cc5cf6eae8f3cd49c13cd31b529f00e9d7fdf9a260",
+    "tiers": {
+      "4096": "283c92b279cab6563441b8e5c65f8afdca0edb2802cfc12c8bb3be28838dda91",
+      "4608": "a129cefbf0c173abaf0750cf6ce27a86d2a538eae0d6c75f06d414073e3dbc1f",
+      "5120": "a996c30fd161eb2acd3425e54c2bc89546e9142cfa6143a14035012bcf3948e5",
+      "5632": "7d87c3d888d7a6248157af0ea87d3192c843726e03befefb7637fcd7811b2178",
+      "6144": "c331f91d63cb12471453565690a2202e508e61523fdb822094fd025760947bb6"
+    }
+  },
+  "sites-hunt-88123": {
+    "source": "nod-paha-shore-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "5329395402debd72358a0480f6977d899de5b371fbc660c2fd982a0a6edce2d6",
+    "tiers": {
+      "4096": "8d91b0690a8e4f9ce7f6b94e4b9fc7c2a4b00847ea0f44037c7d3affd9cb3981",
+      "4608": "24f73f504ffd38711f5f6e98781ab98a5ac4ffe58af6794e4e40dc581d3ba946",
+      "5120": "fcaf6fb77633def36e827a05c4324a2cab6f819b8e07d8bda2cc92acbef72ae2",
+      "5632": "47ba22859d17c1ffc5147784b4af4824a50fdc4e1a55a590b854e369b89bf5bf",
+      "6144": "ac69dcb31e6bc822ff7d59398b2d636f31916f5525534bae676289b28d9e94d2"
+    }
+  },
+  "sites-hunt-88123-pocket-1": {
+    "source": "nod-surf-hollow-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "d6be48fb5a1d35101051eefdd94859febd865def5c44e21d26859e1b022cb68b",
+    "tiers": {
+      "4096": "fba3aea27ee2667b0db0710fb7674d9a080bd098355099f41407134f12819a42",
+      "4608": "db80276222791cfbe852b415a0fba68986c3c371bd3fa46a0d04c0763fd7b606",
+      "5120": "c1fbb0513eede9eb9448c52a6177717e72a442e4890ca090d3f16b1be4c9abef",
+      "5632": "4e6c40ebfab3760dc7ad91b48ec14a115678f2a196094e7bd1bba57df91940f3",
+      "6144": "275f76a510bd5e45080bf421fdedf9e2f99f54d79377419467ae5477fcadd5b6"
+    }
+  },
+  "sites-hunt-92859": {
+    "source": "nod-north-pass-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "eaaf75ca489e6f6e45f103d7705c269f1ca74714363d8bb705d6db0b20395063",
+    "tiers": {
+      "4096": "6de28cb1385c56036c67b6cab7388e7c46c339397eb6a1d1a503e6f2258132df",
+      "4608": "60e76842a2e7b7116f31cc1452097a2c8a67c73c66a26a4007c0e908d74e21e2",
+      "5120": "75fa305c60b9262fc97d71cd5aabc5c1e859f993fd529ef5a0e8941b54300a8f",
+      "5632": "bfa925ac9c350422e8e5942a3c6055628d5ef3c335043a0feaee62496bcdb70d",
+      "6144": "17fb63e1635de9e63bf706afdb5759ef861ea2c759d65b3d0e958a46ce236868"
+    }
+  },
+  "sites-hunt-92859-pocket-1": {
+    "source": "nod-wind-shelter-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "74681783cf50da5987141b5031b2a110268146603d89dea909b8891146ec57e9",
+    "tiers": {
+      "4096": "927085933a69e858b2972a933d3ff6f9e0afe963db2414f0509e323eaf11f35c",
+      "4608": "dd3306b118ae6114fc66e3a24464c8f91584ad2473a344e0e3366f265bf3b33b",
+      "5120": "e189aa125791ee2957f545af2bc9adab7c0b6578d099a51db8bfe55450f97337",
+      "5632": "7a665ae0a3702329519beec9ed518ca2eb9fe512b6d4c6d081a268697f7cbb98",
+      "6144": "c53c67d91d0cc4857176b7f30d24d6c6ca5ce214825097ab17094fb92c3a87f4"
+    }
+  },
+  "sites-hunt-92860": {
+    "source": "nod-fault-gate-background-v1.png",
+    "count": 3,
+    "sourceCanvas": "483c5791621e0c7ea845b71c83e49ba6646da5fb435545b4eb158f9bd32dc1ef",
+    "tiers": {
+      "4096": "6d2689c4349b545fa982b9876ffc1ac7896cc06d51b92c27cbf0928e99beaacc",
+      "4608": "c52d73dfd9b496d4deb88d9a4c2262361d70a35232ac366ef5853432f0fda349",
+      "5120": "bbadbecf7390e57e5454e8f2d3917ca33be2387a12d109c9e94ab472ff123cfd",
+      "5632": "670ef15ac76c11313511e22c3b2b2bb45bf3dafbd85e384db759030309d6d153",
+      "6144": "4d2dd429b9c6a166ce9d08e14e91b5df94c5e6af9cda40c54530007ef87de4fd"
+    }
+  }
+}

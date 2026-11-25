@@ -1,0 +1,77 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-88121",
+      "key": "nodHiisiBridge",
+      "note": "ヒーシ島の渡り橋",
+      "source": "nod-hiisi-bridge-background-v1.png",
+      "preview": "nod-hiisi-bridge-native-preview-v1.png",
+      "prompt": "The weathered timber bridge of Hiisi island above a northern tidal marsh, silver birches leaning in the breeze, remnants of a wooden moon observatory and pale green moonlight on dark blue water. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-88121-pocket-1",
+      "key": "nodReedDen",
+      "note": "ヒーシ島の葦の巣穴",
+      "source": "nod-reed-den-background-v1.png",
+      "preview": "nod-reed-den-native-preview-v1.png",
+      "prompt": "A sheltered cave beneath the bridge bank opening onto blue marsh, bowing reeds and claw marks on peat, moonlight reflected in a shallow pool, interior shadow in deep green. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-88122",
+      "key": "nodLempoTerrace",
+      "note": "レンポ島の工房を望む高台",
+      "source": "nod-lempo-terrace-background-v1.png",
+      "preview": "nod-lempo-terrace-native-preview-v1.png",
+      "prompt": "An elevated path above a northern harbor workshop town on Lempo island. Slender brick chimneys, copper roofing and amber window light, blue spruce silhouette and a peach evening sky. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-88122-pocket-1",
+      "key": "nodFrostKiln",
+      "note": "霜夜の氷晶窟",
+      "source": "nod-frost-kiln-background-v1.png",
+      "preview": "nod-frost-kiln-native-preview-v1.png",
+      "prompt": "A naturally frozen rock vault near a disused stone workshop furnace, a few large luminous jagged ice crystals surrounding a dark open middle, pale moonlit cyan against slate. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-88123",
+      "key": "nodPahaShore",
+      "note": "パハ島の石浜",
+      "source": "nod-paha-shore-background-v1.png",
+      "preview": "nod-paha-shore-native-preview-v1.png",
+      "prompt": "A moon-shaped arc of pale shingle on a windswept northern island, stepped basalt at sea level and a distant white beacon against an overcast blue-gray sky. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-88123-pocket-1",
+      "key": "nodSurfHollow",
+      "note": "パハ島の潮穴",
+      "source": "nod-surf-hollow-background-v1.png",
+      "preview": "nod-surf-hollow-native-preview-v1.png",
+      "prompt": "Inside a sea-carved basalt hollow, a band of foaming seawater through a low stone arch, bleached driftwood washed into a deep dark recess, magenta dusk outside. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-92859",
+      "key": "nodNorthPass",
+      "note": "北部高地の峠",
+      "source": "nod-north-pass-background-v1.png",
+      "preview": "nod-north-pass-native-preview-v1.png",
+      "prompt": "A northern alpine pass at dawn, long diagonals of pale shale and snow, a dark timber waymarker with no lettering, amber cloud band and distant layered peaks. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-92859-pocket-1",
+      "key": "nodWindShelter",
+      "note": "北部高地の風穴",
+      "source": "nod-wind-shelter-background-v1.png",
+      "preview": "nod-wind-shelter-native-preview-v1.png",
+      "prompt": "Wind-scoured passage under a massive inclined slab of slate, powder snow gathered around dark stone pillars, blue-white light entering from the high right edge. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    },
+    {
+      "node": "sites-hunt-92860",
+      "key": "nodFaultGate",
+      "note": "北の断層の征討入口",
+      "source": "nod-fault-gate-background-v1.png",
+      "preview": "nod-fault-gate-native-preview-v1.png",
+      "prompt": "Subterranean northern rift fortress approach. Two broken stone towers on opposite sides of an abyss, a dormant circular opening cut into the wall, pale violet moonlit mineral veins and black stone; large calm lower zone. Original panoramic 16:9 side-scrolling pixel art scenery inspired by Nod-Krai. Carefully grouped color planes, bold edges and deliberate stepped detail, easy to read at 512x288 and easy to compress to 4096 rectangles. Side view, broad atmospheric depth and an unobtrusive lower quarter. No characters, monsters, UI, letters, borders or floating gameplay platforms."
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "hiisi": {
+    "stage": "sites-hunt-88121",
+    "scenery": {
+      "key": "nodHiisiBridge",
+      "file": "nod-hiisi-bridge-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-07",
+      "x": 368.7,
+      "y": 402.4,
+      "adjacent": [
+        "nod-wp-88133",
+        "sites-hunt-88121-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-88121&placements=live&compare=background",
+      "next": "sites-hunt-88121-pocket-1"
+    },
+    "jump": [
+      480,
+      423
+    ],
+    "returnHeight": 390,
+    "pocketScenery": {
+      "key": "nodReedDen",
+      "file": "nod-reed-den-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "nod-wp-88133",
+        "sites-hunt-88121",
+        "raised"
+      ],
+      [
+        "sites-hunt-88121",
+        "sites-hunt-88121-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-88121-pocket-1",
+        "sites-hunt-88121",
+        "walk"
+      ],
+      [
+        "sites-hunt-88121",
+        "nod-wp-88133",
+        "walk"
+      ]
+    ]
+  },
+  "lempo": {
+    "stage": "sites-hunt-88122",
+    "scenery": {
+      "key": "nodLempoTerrace",
+      "file": "nod-lempo-terrace-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-07",
+      "x": 434.6,
+      "y": 411.3,
+      "adjacent": [
+        "nod-wp-88144",
+        "sites-hunt-88122-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-88122&placements=live&compare=background",
+      "next": "sites-hunt-88122-pocket-1"
+    },
+    "jump": [
+      480,
+      418
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "nodFrostKiln",
+      "file": "nod-frost-kiln-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "nod-wp-88144",
+        "sites-hunt-88122",
+        "raised"
+      ],
+      [
+        "sites-hunt-88122",
+        "sites-hunt-88122-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-88122-pocket-1",
+        "sites-hunt-88122",
+        "walk"
+      ],
+      [
+        "sites-hunt-88122",
+        "nod-wp-88144",
+        "walk"
+      ]
+    ]
+  },
+  "paha": {
+    "stage": "sites-hunt-88123",
+    "scenery": {
+      "key": "nodPahaShore",
+      "file": "nod-paha-shore-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-07",
+      "x": 480.5,
+      "y": 308.5,
+      "adjacent": [
+        "nod-wp-88129",
+        "sites-hunt-88123-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-88123&placements=live&compare=background",
+      "next": "sites-hunt-88123-pocket-1"
+    },
+    "jump": [
+      480,
+      424
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "nodSurfHollow",
+      "file": "nod-surf-hollow-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "nod-wp-88129",
+        "sites-hunt-88123",
+        "raised"
+      ],
+      [
+        "sites-hunt-88123",
+        "sites-hunt-88123-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-88123-pocket-1",
+        "sites-hunt-88123",
+        "walk"
+      ],
+      [
+        "sites-hunt-88123",
+        "nod-wp-88129",
+        "walk"
+      ]
+    ]
+  },
+  "highlands": {
+    "stage": "sites-hunt-92859",
+    "scenery": {
+      "key": "nodNorthPass",
+      "file": "nod-north-pass-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-07",
+      "x": 429.1,
+      "y": 92.2,
+      "adjacent": [
+        "nod-wp-92885",
+        "sites-hunt-92859-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-92859&placements=live&compare=background",
+      "next": "sites-hunt-92859-pocket-1"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "returnHeight": 395,
+    "pocketScenery": {
+      "key": "nodWindShelter",
+      "file": "nod-wind-shelter-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "nod-wp-92885",
+        "sites-hunt-92859",
+        "walk"
+      ],
+      [
+        "sites-hunt-92859",
+        "sites-hunt-92859-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-92859-pocket-1",
+        "sites-hunt-92859",
+        "walk"
+      ],
+      [
+        "sites-hunt-92859",
+        "nod-wp-92885",
+        "walk"
+      ]
+    ]
+  },
+  "fault": {
+    "stage": "sites-hunt-92860",
+    "scenery": {
+      "key": "nodFaultGate",
+      "file": "nod-fault-gate-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-07",
+      "x": 469.2,
+      "y": 57.5,
+      "adjacent": [
+        "nod-wp-92892"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-92860&placements=live&compare=background",
+      "next": "nod-wp-92892"
+    },
+    "jump": [
+      480,
+      418
+    ],
+    "journeys": [
+      [
+        "nod-wp-92892",
+        "sites-hunt-92860",
+        "walk"
+      ],
+      [
+        "sites-hunt-92860",
+        "nod-wp-92892",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

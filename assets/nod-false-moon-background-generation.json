@@ -1,0 +1,21 @@
+{
+  "sourceManifest": "false-moon-weekly-generation-v1.json",
+  "scenes": [
+    {
+      "node": "nod-false-moon-court",
+      "key": "falseMoonCourt",
+      "note": "偽月の外界",
+      "source": "false-moon-court-background-v1.png",
+      "preview": "false-moon-court-native-preview-v1.png",
+      "direction": "Slate-blue survey station with suspended brass ring and clear lower half"
+    },
+    {
+      "node": "nod-false-moon-rift",
+      "key": "falseMoonRift",
+      "note": "偽月の異界",
+      "source": "false-moon-rift-background-v1.png",
+      "preview": "false-moon-rift-native-preview-v1.png",
+      "direction": "Burgundy interspace with three faint moons, distant planes and restrained contrast"
+    }
+  ]
+}

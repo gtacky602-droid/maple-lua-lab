@@ -1,0 +1,384 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "nod-hiisi-bridge-background-v1.png": {
+      "sourceBytes": 2085774,
+      "sourceSha256": "6ea8ee58ff80770b65de50b574e841953d5f222b693a3d0009fb61b65aef0d77",
+      "preview": "nod-hiisi-bridge-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18031,
+      "baseSelectedBytes": 18017,
+      "detailFixed13Bytes": 12339,
+      "detailSelectedBytes": 12327,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.28455494068287,
+          "rgbSha256": "4f74c73c9ed8270ef38e1d2489674c44e32c909ecbcee906628a8b3142541b06"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.604939778645833,
+          "rgbSha256": "bdc6e34598b6b27e38666ed2b5bfa05196679a639eadcef82e2d3b50d7fb830e"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.082447193287037,
+          "rgbSha256": "53eb566ff65a3b39fe3c0b51d36eec0176e038ca331887843056a662bf52d397"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.62560130931713,
+          "rgbSha256": "6464d8ebcb4fe66d396d7e06162543edbf2f71a7ffab0e9ff13448cf096f2454"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.244303385416667,
+          "rgbSha256": "2c16c98f2b6351fb3e9dac60f6ffd9aca923a0a52c4e6c7181176f06c8750dc8"
+        }
+      ]
+    },
+    "nod-reed-den-background-v1.png": {
+      "sourceBytes": 1819390,
+      "sourceSha256": "7d31b3443e4a13f6c1c065356b29abeab365250fd8417e5b75671281e371f2ce",
+      "preview": "nod-reed-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17485,
+      "baseSelectedBytes": 17467,
+      "detailFixed13Bytes": 12121,
+      "detailSelectedBytes": 12109,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.03697826244213,
+          "rgbSha256": "7d2692ac1f397774b519ea7b3faafa0a081723aedaa5cbaadb382fba127b70c4"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.514885796440972,
+          "rgbSha256": "e0e97e323293a91b5d5cdbed573ad2ec27e321490ae401e35a615218534094f9"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.107024016203703,
+          "rgbSha256": "cdea921cad18007b3ef61d7da87964408c193f646a7afe6abca252820360cde7"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.768482349537037,
+          "rgbSha256": "2e0883f4dfacda0361615cca2114ca80bb89ea280123262a7147b311f5f87467"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.472724066840278,
+          "rgbSha256": "3820513cfee0d3110d90dd7ace917c4d4396bb17c0aaab93e296b7c5ebb50fc6"
+        }
+      ]
+    },
+    "nod-lempo-terrace-background-v1.png": {
+      "sourceBytes": 1958625,
+      "sourceSha256": "2e0250ec7001d018aa7695f2527b834e6c911b602d0ccf331b35773f7baef22d",
+      "preview": "nod-lempo-terrace-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17975,
+      "baseSelectedBytes": 17961,
+      "detailFixed13Bytes": 12251,
+      "detailSelectedBytes": 12241,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.762509946469907,
+          "rgbSha256": "a4b34788bc54bf6ac3b74d0c5d37590e295b877f72607ab58995b0a247b2ed41"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.168027524594907,
+          "rgbSha256": "139cb6c02ee5698c55a76581a92a3957fe0ece04e0d512a34135cdb398e46648"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.710546422887732,
+          "rgbSha256": "6aa1aeb0e538f4c7da11b48d009b60f8c0ae7e94537ef2dcf5cdfdcfa9888a9b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.312800654658565,
+          "rgbSha256": "85e4fca28c1a2078d504e860400bffa0b80ce392d87b2af0121e8bbe24d834ca"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.993026168258102,
+          "rgbSha256": "372d4c004e98ec9331ca0bc33673762b1dcae531717ba072e0745bf6202f922d"
+        }
+      ]
+    },
+    "nod-frost-kiln-background-v1.png": {
+      "sourceBytes": 2121633,
+      "sourceSha256": "0ba4ff031e4021aa4ccf8c4bd33363b71c997903e973d4db3febb959c5b5bb8b",
+      "preview": "nod-frost-kiln-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16907,
+      "baseSelectedBytes": 16889,
+      "detailFixed13Bytes": 11941,
+      "detailSelectedBytes": 11923,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.746179651331018,
+          "rgbSha256": "ea7069f5d22533a5383d4022c60e8c643d4412305837c040230ed4f8ac9758b5"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.031121148003472,
+          "rgbSha256": "b1a417fc7b2f39ccd43b5690953a0194445cd1163fa63a7194ecb8c28b7ac1a7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.495598687065972,
+          "rgbSha256": "11efae058ec63ffe359f8dad2dae30bd5973dc6e2dc422034f08e36d0f325024"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.061399106626157,
+          "rgbSha256": "277a1b99f36e544c7e65d750ab8ce60b7fbcedae282292273c53d678c17e80d9"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.6730776186342595,
+          "rgbSha256": "9ad7f4a0c780b96ec86b11ca2114555b4fb73e82e23272e678f40be68f177171"
+        }
+      ]
+    },
+    "nod-paha-shore-background-v1.png": {
+      "sourceBytes": 1876019,
+      "sourceSha256": "f58029a08e6752fc6941e3dc1c964acf8457640b95fb49c7716af1b62fa190b0",
+      "preview": "nod-paha-shore-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16459,
+      "baseSelectedBytes": 16447,
+      "detailFixed13Bytes": 11707,
+      "detailSelectedBytes": 11697,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.422962330005787,
+          "rgbSha256": "e4f70cc7765f4cd9d3215933c3200ee2f86fbed17d0a588744b87d4695b04842"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.908051667390047,
+          "rgbSha256": "e6e0280b2d652da91b9992b232b3ca36162f8fd4ff4c666e67192f1212847fc2"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.537590874565972,
+          "rgbSha256": "f3b5efbe84077ce8a67b4ae3582b2052ca910769b6a4169aa65b049aa11daf31"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.220992476851852,
+          "rgbSha256": "74f33314fbd191407a6b68b906140e0958c75e93604e6296ec3bf6cd3b4ce175"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.9551233362268516,
+          "rgbSha256": "b7360b4bf14e9ff63cb9bdb450dcd7e7ef42a4660138d5e87473510db3e5a076"
+        }
+      ]
+    },
+    "nod-surf-hollow-background-v1.png": {
+      "sourceBytes": 1816038,
+      "sourceSha256": "115bb13de5ee3b90a28d7e7d4be3a242bee75fdaa292b4551f9ff6db19a89051",
+      "preview": "nod-surf-hollow-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17237,
+      "baseSelectedBytes": 17225,
+      "detailFixed13Bytes": 12123,
+      "detailSelectedBytes": 12111,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.63702392578125,
+          "rgbSha256": "c9c7f406133b47d5715b5c2dfd0c54c7d0e6c3c8a280d1342969cb0e1cd0c50d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.088473849826389,
+          "rgbSha256": "add6f9679d118a19106328ccb835d5cedbfadaa2a8998fb8242c81599e91b350"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.6706113462094905,
+          "rgbSha256": "75cf5fd986b3a3ad1ddf7e2e7cb04dcd8c345d34e6e9528384b4120f5156e6e8"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.329836244936343,
+          "rgbSha256": "ecd097547f676f61142f7b61334dbfab877e697334388509039d6dd3eb1d545a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.031471535011574,
+          "rgbSha256": "81fcf9f400f8c77470a9ec659ae3b75fa805daaf5acfe0b3a82aa3623b46e085"
+        }
+      ]
+    },
+    "nod-north-pass-background-v1.png": {
+      "sourceBytes": 1910626,
+      "sourceSha256": "8f7cd7b277018c5937e4f44b08c845581bab3174706fd39b67d3f35e8728a67e",
+      "preview": "nod-north-pass-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17601,
+      "baseSelectedBytes": 17589,
+      "detailFixed13Bytes": 12163,
+      "detailSelectedBytes": 12155,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.883275915075232,
+          "rgbSha256": "a54f6e75d7205fd874de95273f3046db5d84892e738bb1a936eb320460b1cc97"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.299079047309028,
+          "rgbSha256": "1199e66a0703a17afc73eb13f1431d0efbafac5b2580332c8b15708f6377ba7b"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.86542652271412,
+          "rgbSha256": "ef0b078980baeffedc8dbd916803166af664507156e9e0ce8511b195e423aea2"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.527382179542824,
+          "rgbSha256": "7b115274086bd47f445c202e2ae5a692bb6648bf9a8ee18aa90a2227c48f5416"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.226964879918982,
+          "rgbSha256": "ef56ef24080fc76f4e9a144aa889b1571275266cab90f21c070914026ee67dd4"
+        }
+      ]
+    },
+    "nod-wind-shelter-background-v1.png": {
+      "sourceBytes": 1714868,
+      "sourceSha256": "2c3ea3a1ab2ce73f0f5b9dce46b87accd1680abe68099d05b67d4fc92a148dcb",
+      "preview": "nod-wind-shelter-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16101,
+      "baseSelectedBytes": 16081,
+      "detailFixed13Bytes": 11453,
+      "detailSelectedBytes": 11443,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.3476404260706016,
+          "rgbSha256": "7b53712d7d65d720a05be25fa88bf0a8ce84ba8dd851c45af6565bf831d42d77"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.942950213396991,
+          "rgbSha256": "fa2f7d2d8c230f06185ff703d0bfcd12e5460060a0956ffe071e1fe40242a164"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.652072482638889,
+          "rgbSha256": "3202e60e56f0ab67827ae0690e2f9954e2bcc973e7aee397497223295d66d515"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.430530689380787,
+          "rgbSha256": "66241b35dd14fa071143a6a3e38b0631466bd62b0dc5a2e637b7543a4f1cb594"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.249866626880787,
+          "rgbSha256": "48ef2ed7ed5a15d67a5736a1ba79f75071e6c1b8649f651a1e1f359dc79f41a6"
+        }
+      ]
+    },
+    "nod-fault-gate-background-v1.png": {
+      "sourceBytes": 1704486,
+      "sourceSha256": "cb402d0f9c010b6e2c892de1cdf722bb84acda199af90f43ccd3e44ebed4189e",
+      "preview": "nod-fault-gate-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16627,
+      "baseSelectedBytes": 16611,
+      "detailFixed13Bytes": 11389,
+      "detailSelectedBytes": 11377,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.1328916196469905,
+          "rgbSha256": "68d8cc0776df440ceedb2baba56232c53d49528b48e4ae9cd49624629f4c0b28"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.6590485749421298,
+          "rgbSha256": "32551260142cee7215e0526f6529c54c7d7df374c23dd812e4e4906c903dc2d7"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.2998973705150463,
+          "rgbSha256": "203920a9f0e918d6709af677e0c3b6328c787d609ba5c8c556484f1e8022268e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.0174040617766202,
+          "rgbSha256": "2078c9ecf52239e52dccbf8d059400a1fd49cfa44750f70178c654cac00149e3"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.7887550636574074,
+          "rgbSha256": "4ddab6ed10fd15d25369156975282a5662e5694a3663c677b48baede54d71b97"
+        }
+      ]
+    }
+  }
+}

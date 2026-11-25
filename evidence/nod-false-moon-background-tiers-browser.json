@@ -1,0 +1,49 @@
+{
+  "nod-false-moon-court": {
+    "source": "false-moon-court-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "ec2c0acd734bd0e0cbf90342414f3e9c5af73e1daae5389d94d6db6ef1daa1c5",
+    "tiers": {
+      "4096": "b3397ff9fa334bb0ad41619f2b4f414ba75ff4446f494b94f523a704c67d6faf",
+      "4608": "c51409067628278874f9ca4200464509ee7c33eb76bb450b665abb83ba1626aa",
+      "5120": "c3276be82837eca81bc43d6c28b14c1194912b170424cfcc5196d7106cbe1bad",
+      "5632": "e8deac87ff7ab6fc06576f7c6dbb86306cdb6d1740b8710d55b50661f2521813",
+      "6144": "8007d07b57bbd6054384077927090383c5839f9d13bd800f53eaedf98310708b"
+    }
+  },
+  "nod-false-moon-rift": {
+    "source": "false-moon-rift-background-v1.png",
+    "count": 3,
+    "sourceCanvas": "da08f04be1e6095b1497012bd1dd67b6fcdfcb9e84c15570ab49fa514060247b",
+    "tiers": {
+      "4096": "bf4b0e9a3b825395143333152da0de4f57071375e6627fa13dc4312918b5f14a",
+      "4608": "c9c5a422632b9e3fc3879d5997ea44a7014883c17addb191057d0a5f74ec52dd",
+      "5120": "b500342ae1aebcbc16fb8d56527df85d1e72d4d7e72fed3e9cc2ba47177644a8",
+      "5632": "b5c9ba9310f4e6cbe661080aa865f0e7668f5de3e6497558a24586227a64f13d",
+      "6144": "754db2fe2bddd29b4954cb9a5dda5f8f7a6d2cf81498232db8b3aa88e21d0c1b"
+    },
+    "liveShadowPlacements": [
+      {
+        "id": "boss-29130212",
+        "species": "boss-false-moon-shadow",
+        "x": 216,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "boss-29130213",
+        "species": "boss-false-moon-shadow",
+        "x": 480,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "boss-29130214",
+        "species": "boss-false-moon-shadow",
+        "x": 744,
+        "y": 480,
+        "flip": false
+      }
+    ]
+  }
+}

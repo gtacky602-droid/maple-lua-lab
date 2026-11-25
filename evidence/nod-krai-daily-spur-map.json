@@ -1,0 +1,14 @@
+{
+  "quest": "daily-nod-rumored-elites",
+  "targets": [
+    "nod-tide-scrapyard",
+    "nod-forest-outer",
+    "sites-hunt-88121-pocket-1",
+    "sites-hunt-88122-pocket-1",
+    "sites-hunt-88123-pocket-1",
+    "sites-hunt-92859-pocket-1"
+  ],
+  "selected": "sites-hunt-88122-pocket-1",
+  "download": "nod-frost-kiln-4096.lua",
+  "returnNode": "nod-town"
+}
