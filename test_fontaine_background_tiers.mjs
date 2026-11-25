@@ -8,6 +8,7 @@ const groups=process.argv[2]?[process.argv[2]]:['beryl','fon-domain','fon-north'
 const output=process.argv[2] || 'fontaine';
 if (!/^[a-z0-9-]+$/.test(output)) throw Error('Invalid scenery batch');
 const reports = {};
+const {nodes: spawns} = JSON.parse(await fs.readFile('content/enemy-spawns.json','utf8'));
 try {
   for (const group of groups) {
     const prefix = group==='beryl' ? 'fon-beryl' : group;
@@ -34,7 +35,8 @@ try {
           await page.locator('#mapNodePicker summary').click();
         }
         await page.locator('#loadLive').click();
-        await page.waitForFunction(()=>window.mapArt.count>0 && window.mapArt.diff?.unchanged===window.mapArt.count);
+        const expectedCount=spawns[node]?.length ?? 0;
+        await page.waitForFunction(n=>window.mapArt.count===n && window.mapArt.diff?.unchanged===n,expectedCount);
         if (await page.locator('#placements button').count()===1) {
           await page.locator('#placements button').click();
           await page.locator('#focusSelected').click();
@@ -85,7 +87,7 @@ try {
         await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
         assert.equal(await sameCanvases(),false);
         // Retain original combined comparison captures for existing batches.
-        if (group !== 'sum-forest') await page.locator('#matchSpritePng').uncheck();
+        if (!['sum-forest','nat-domain'].includes(group)) await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);

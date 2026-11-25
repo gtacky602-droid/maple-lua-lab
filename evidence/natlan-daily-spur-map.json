@@ -1,0 +1,14 @@
+{
+  "quest": "daily-nat-elite-hunt",
+  "targets": [
+    "natlan-field",
+    "natlan-quarry-road",
+    "natlan-riverside-range",
+    "sites-hunt-73159-pocket-1",
+    "sites-hunt-73161-pocket-1",
+    "sites-hunt-81383-pocket-1"
+  ],
+  "selected": "sites-hunt-73159-pocket-1",
+  "download": "nat-eroded-kiln-4096.lua",
+  "returnNode": "natlan-hub"
+}

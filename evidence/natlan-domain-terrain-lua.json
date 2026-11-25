@@ -10,7 +10,7 @@
     "upper_route_jumps": 6,
     "round_trips": 4,
     "level_required": 119,
-    "exterior_scenery": "natlanRiverTrial",
+    "exterior_scenery": "natEastRiver",
     "arrivals_outside_enemy_contact": 4
   },
   "sites-hunt-73160": {
@@ -24,7 +24,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 119,
-    "exterior_scenery": "natlanCharmTrail",
+    "exterior_scenery": "natWestKeysTrail",
     "arrivals_outside_enemy_contact": 2
   },
   "sites-hunt-81383": {
@@ -38,7 +38,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 119,
-    "exterior_scenery": "natlanRaceRidge",
+    "exterior_scenery": "natNorthCliff",
     "arrivals_outside_enemy_contact": 2
   },
   "sites-hunt-82577": {
@@ -52,7 +52,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 119,
-    "exterior_scenery": "natlanSurfCove",
+    "exterior_scenery": "natVolcanicShore",
     "arrivals_outside_enemy_contact": 2
   },
   "sites-hunt-73161": {
@@ -66,7 +66,7 @@
     "upper_route_jumps": 6,
     "round_trips": 2,
     "level_required": 119,
-    "exterior_scenery": "ochkaCliff",
+    "exterior_scenery": "natCentralPath",
     "arrivals_outside_enemy_contact": 2
   }
 }

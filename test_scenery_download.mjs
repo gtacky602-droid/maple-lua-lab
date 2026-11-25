@@ -17,6 +17,10 @@ try {
   const downloaded=out+'/'+download.suggestedFilename();
   await download.saveAs(downloaded);
   const saved=await fs.readFile(downloaded,'utf8');
+  const [codecFile]=await Promise.all([page.waitForEvent('download'),page.locator('#sceneryCodec').click()]);
+  assert.equal(codecFile.suggestedFilename(),'MapleCodec.lua');
+  await codecFile.saveAs(out+'/MapleCodec.lua');
+  assert.deepEqual(await fs.readFile(out+'/MapleCodec.lua'),await fs.readFile('assets/MapleCodec.lua'));
   const rows=[];
   for (const name of (await fs.readdir('evidence')).filter(n=>n.endsWith('-background-compression.json'))) {
     const report=JSON.parse(await fs.readFile('evidence/'+name,'utf8'));

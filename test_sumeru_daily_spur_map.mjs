@@ -2,6 +2,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
+const region=process.argv[2] || 'sumeru';
+assert.ok(['sumeru','natlan'].includes(region));
+const natlan=region==='natlan', hub=region+'-hub';
+const fixture=natlan?'natlan-eastern-rooms-fixture.json':'sumeru-domain-terrain-fixture.json';
 const browser=await chromium.launch({channel:'chrome',headless:true});
 try {
  const page=await browser.newPage({viewport:{width:1240,height:900}});
@@ -9,18 +13,18 @@ try {
  page.on('pageerror',error=>errors.push(error.message));
  await page.goto(process.env.LAB_URL || 'http://127.0.0.1:9101/');
  await page.waitForFunction(()=>window.lab?.frame);
- await page.locator('#importSave').setInputFiles('work/sumeru-domain-terrain-fixture.json');
- await page.waitForFunction(()=>window.lab?.frame.story?.node==='sumeru-hub');
+ await page.locator('#importSave').setInputFiles('work/'+fixture);
+ await page.waitForFunction(id=>window.lab?.frame.story?.node===id,hub);
  const board=page.locator('#dailyBoard');
  if(!await board.evaluate(e=>e.open))await board.locator('summary').click();
- const id='daily-sum-elites';
+ const id=natlan?'daily-nat-elite-hunt':'daily-sum-elites';
  const card=mode=>page.locator('[data-daily-id="'+id+'"][data-daily-mode="'+mode+'"]');
  await card('offer').getByRole('button').click();
  const select=card('active').locator('select');
  await select.waitFor();
  const targets=await select.locator('option').evaluateAll(opts=>opts.map(o=>o.value).filter(Boolean));
- assert.equal(targets.length,11);
- const room='sites-hunt-36704-pocket-1';
+ assert.equal(targets.length,natlan?6:11);
+ const room=natlan?'sites-hunt-73159-pocket-1':'sites-hunt-36704-pocket-1';
  await select.selectOption(room);
  await page.waitForFunction(room=>window.lab.frame.worldMap?.selected?.id===room,room);
  const link=page.locator('#atlasBackgroundCompare');
@@ -31,9 +35,9 @@ try {
  await comparison.close();
  await page.keyboard.press('Escape');
  await page.locator('#worldAtlas').waitFor({state:'hidden'});
- assert.equal(await page.evaluate(()=>window.lab.frame.story.node),'sumeru-hub');
+ assert.equal(await page.evaluate(()=>window.lab.frame.story.node),hub);
  assert.ok(await card('active').isVisible());
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/sumeru-daily-spur-map.json',JSON.stringify({quest:id,targets,selected:room,download:actual,returnNode:'sumeru-hub'},null,2)+'\n');
+ await fs.writeFile('evidence/'+region+'-daily-spur-map.json',JSON.stringify({quest:id,targets,selected:room,download:actual,returnNode:hub},null,2)+'\n');
  console.log('Opened the selected elite room on the atlas from the daily card, compared its art and returned to the board.');
 } finally {await browser.close();}

@@ -1,0 +1,18 @@
+{
+  "rooms": {
+    "sites-hunt-73159-pocket-1": {
+      "normalCombatTicks": 663,
+      "countAfterSaveLoad": 1
+    },
+    "sites-hunt-73161-pocket-1": {
+      "normalCombatTicks": 568,
+      "countAfterSaveLoad": 2
+    },
+    "sites-hunt-81383-pocket-1": {
+      "normalCombatTicks": 617,
+      "countAfterSaveLoad": 3
+    }
+  },
+  "claimXp": 63720,
+  "claimMora": 1880
+}

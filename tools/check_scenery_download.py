@@ -45,7 +45,7 @@ def check(codec, directory):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('codec',type=Path)
+    parser.add_argument('codec',type=Path,nargs='?',default=Path(__file__).resolve().parents[1]/'assets/MapleCodec.lua')
     parser.add_argument('--directory',type=Path,default=Path('work/scenery-download-check'))
     args=parser.parse_args()
     report=check(args.codec,args.directory)

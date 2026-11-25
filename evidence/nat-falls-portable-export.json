@@ -1,0 +1,28 @@
+{
+  "runtime": "Lua 5.3 via Lupa",
+  "codecBytes": 35260,
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "source": "nat-falls-cavern-background-v1.png",
+  "tiers": {
+    "4096": {
+      "fileBytes": 17913,
+      "rgbSha256": "d98b19fb1be9dcd9f48eaa1d9d92aca40b836d15c0a116582e44c1c369ae8db9"
+    },
+    "4608": {
+      "fileBytes": 21367,
+      "rgbSha256": "52259824c7f5ba285b6ea50d6bd453b6add5b39f178d4651e260d5502fc457ff"
+    },
+    "5120": {
+      "fileBytes": 24712,
+      "rgbSha256": "d7d5fb90f181b051620ebba04b34bb3755392f8b861a067c6bcd996179fba4b6"
+    },
+    "5632": {
+      "fileBytes": 28016,
+      "rgbSha256": "0417ef4ecf04b85c52c73ebe03ef6d67828ccf12d0769a6b6995c737842c431b"
+    },
+    "6144": {
+      "fileBytes": 30284,
+      "rgbSha256": "83f6d930bdfc9a010515322690ccaeb83d913dd0e4def3623c49c6079063565c"
+    }
+  }
+}

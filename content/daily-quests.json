@@ -510,9 +510,9 @@
       "level": 100,
       "giver": "キィニチ",
       "name": "今日の狩りの依頼",
-      "intro": "キィニチ「岩場と川辺に手強い相手がいる。近づけば見分けがつく。」",
-      "target": "岩場の道・赤岩の採掘路・川沿いの浅瀬道の指定精鋭",
-      "filter": {"kind": "elite", "nodes": ["natlan-field", "natlan-quarry-road", "natlan-riverside-range"]},
+      "intro": "キィニチ「岩場と川沿いで精鋭を3体狩ってくれ。Lv120なら、東・中央・北西の秘境の奥にもいる。」",
+      "target": "岩場・採掘路・浅瀬道、または秘境の脇部屋の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["natlan-field", "natlan-quarry-road", "natlan-riverside-range", "sites-hunt-73159-pocket-1", "sites-hunt-73161-pocket-1", "sites-hunt-81383-pocket-1"]},
       "goal": 3,
       "xp": 63720,
       "mora": 1880

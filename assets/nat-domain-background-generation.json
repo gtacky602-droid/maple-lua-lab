@@ -1,0 +1,101 @@
+{
+  "generator": "Built-in imagegen; five existing lab backgrounds reused",
+  "scenes": [
+    {
+      "node": "sites-hunt-73159",
+      "key": "natEastRiver",
+      "note": "東の川沿いの段丘",
+      "source": "natlan-riverside-trial-background-v1.png",
+      "preview": "natlan-riverside-trial-native-preview-v1.png",
+      "existing": true
+    },
+    {
+      "node": "sites-hunt-73160",
+      "key": "natWestKeysTrail",
+      "note": "源泉北の彩石の道",
+      "source": "nat-kachina-charms-trail-background-v1.png",
+      "preview": "nat-kachina-charms-trail-native-preview-v1.png",
+      "existing": true
+    },
+    {
+      "node": "sites-hunt-81383",
+      "key": "natNorthCliff",
+      "note": "クァワカン南の断崖",
+      "source": "natlan-race-ridge-background-v1.png",
+      "preview": "natlan-race-ridge-native-preview-v1.png",
+      "existing": true
+    },
+    {
+      "node": "sites-hunt-82577",
+      "key": "natVolcanicShore",
+      "note": "アトクパンの海辺",
+      "source": "nat-mualani-surf-cove-background-v1.png",
+      "preview": "nat-mualani-surf-cove-native-preview-v1.png",
+      "existing": true
+    },
+    {
+      "node": "sites-hunt-73161",
+      "key": "natCentralPath",
+      "note": "中央の岩壁の細道",
+      "source": "ochka-cliff-background-v1.png",
+      "preview": "ochka-cliff-native-preview-v1.png",
+      "existing": true
+    },
+    {
+      "node": "tepeacac-waterfall-wall",
+      "key": "natFallsCavern",
+      "note": "滝裏の燃素洞",
+      "source": "nat-falls-cavern-background-v1.png",
+      "preview": "nat-falls-cavern-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. A side chamber behind a great turquoise waterfall in Natlan. A broad curtain of falling cyan water seen from inside at the far left, a sheltered ochre basalt arch, natural warm phlogiston fissure at right, sparse ferns, sunny daylight reflected into the grotto. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    },
+    {
+      "node": "sites-hunt-73159-pocket-1",
+      "key": "natErodedKiln",
+      "note": "蝕土者の焼けた岩室",
+      "source": "nat-eroded-kiln-background-v1.png",
+      "preview": "nat-eroded-kiln-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. An empty rocky pocket inside the riverside volcanic plateau, huge eroded basalt columns with broken scalloped strata to the left, glowing orange lava veins in a distant grotto, dry golden dust and sparse red lichen. No statues or living things. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    },
+    {
+      "node": "sites-hunt-73159-pocket-2",
+      "key": "natCicinCamp",
+      "note": "蛍術師の観測野営地",
+      "source": "nat-cicin-camp-background-v1.png",
+      "preview": "nat-cicin-camp-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. A secluded Fatui survey camp in the shadow of a volcanic canyon, one angular indigo field tent, empty crates and a single hanging violet-glass lantern, distant late afternoon river light beyond on the left. No symbols or characters. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    },
+    {
+      "node": "toyac-rainbow-key-cave",
+      "key": "natSpringKeyCave",
+      "note": "二つの鍵の洞窟",
+      "source": "nat-spring-key-background-v1.png",
+      "preview": "nat-spring-key-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. Inside a tropical hot spring cave beneath Natlan, paired stone key recesses beside a closed ancient stone arch deep in the right wall, small turquoise reflecting pools, softly iridescent mineral bands on the far left and basalt shelves. No symbols or letters. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    },
+    {
+      "node": "sites-hunt-73161-pocket-1",
+      "key": "natSpiritAlcove",
+      "note": "大霊の化身の祭壇",
+      "source": "nat-spirit-alcove-background-v1.png",
+      "preview": "nat-spirit-alcove-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. An unoccupied old rock altar deep in a red ochre cliffside enclave. Three worn fan-shaped standing stones far right, broad muted turquoise inset on back wall, warm amber light enters from high left, simple layered horizontal rock. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    },
+    {
+      "node": "sites-hunt-81383-pocket-1",
+      "key": "natRangerShelter",
+      "note": "断崖下のレンジャーの寝床",
+      "source": "nat-ranger-shelter-background-v1.png",
+      "preview": "nat-ranger-shelter-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. An unoccupied rough camp sheltered under a broad overhanging amber cliff. Wind-bent woven reed windbreak, modest bone and wood tripod at the side, folded red cloth, distant hazy layered blue mesas, quiet central combat area. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    },
+    {
+      "node": "atocpan-domain-side-clearing",
+      "key": "natSouthernClearing",
+      "note": "火山南の秘境脇の草地",
+      "source": "nat-southern-clearing-background-v1.png",
+      "preview": "nat-southern-clearing-native-preview-v1.png",
+      "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. A sunlit grassy clearing near the southern ocean cliffs of a volcanic land, broad low golden grass and red wildflowers at sides, an old low stone arch in the middle distance with a glimpse of blue sea, a prominent dark volcano on horizon. Quiet pastoral arena approach. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
+    }
+  ]
+}

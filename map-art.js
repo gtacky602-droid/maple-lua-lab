@@ -143,6 +143,7 @@ try{
   const metrics=backgroundMeasurements[n.id];
   $('backgroundMetrics').textContent=decoded&&metrics?
    `元画像との平均色差 ${metrics.error[tier].toFixed(2)} / 255 ｜ Lua格納量（全5段階） ${metrics.bytes.toLocaleString('ja-JP')} B`:'';
+  $('sceneryCodec').hidden=!(decoded&&metrics?.bundle);
   void updateDownload(decoded&&metrics?.bundle,background.file,tier);
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':

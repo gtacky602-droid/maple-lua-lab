@@ -1,0 +1,146 @@
+{
+  "sites-hunt-73159": {
+    "source": "natlan-riverside-trial-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "f770baadb20ac134c986158f045b10cdbc66d35a5e09872d758bbf69309325f2",
+    "tiers": {
+      "4096": "791f8273c311b55d9b8f06fddf7355e512ebc82547d2d1245d41907618bb40af",
+      "4608": "234cfa9a5fa0ddd60e71eebec522647b7c5c1d3561d81fca1f7657ae4fb3ea31",
+      "5120": "105c7361d548641aa098f96823e9b822c7d3c060cc5fa49267a122f0a497e68e",
+      "5632": "c83d35fb5cd83d35117a8abccb0a7dba01fd1493fc2d0e221bfaa43225da387f",
+      "6144": "f3e2f24641adc0d437dec64ee81047157e70a836391c972e885b39b4f7fc9b7b"
+    }
+  },
+  "sites-hunt-73160": {
+    "source": "nat-kachina-charms-trail-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "19b20778d9763c227e534b4b791fbb51195c8e9cf732e7d3a19482e1676093ef",
+    "tiers": {
+      "4096": "4b961b3e4c0c0113bb80ebda7efbfed1d5fbbd34fd30122072d90afee282040c",
+      "4608": "7b9fc79a2f62b00f714276db6520002052feb89e3b76f7c9c79ec6da3c7eebe6",
+      "5120": "0ddf24d3d71b4e572b2b453a70b0273c374e9659956e9dd33506b265400baa2b",
+      "5632": "dd0897836dc62a264b168b73150b32fc201a23a07996093f5546638ccc9a9ead",
+      "6144": "fdf1f7dcfde06d9a3ecdfe17f2566536e7c79963491c44b9e24b2a23f68805aa"
+    }
+  },
+  "sites-hunt-81383": {
+    "source": "natlan-race-ridge-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "7ecfeb10816f4fcc6d3fe8c993bb3d7030cb9fdafec4472b8f253958904f0c17",
+    "tiers": {
+      "4096": "6f1088efa528ab3fb3ce29798359285fadd1ac440f58232ca06e564b050c6ef0",
+      "4608": "7419e7ffdd3e9926b87099b2a31ecc1e1463175f22c3c511a35fc32bb3145b13",
+      "5120": "ae27cb8a5bd10296749ff29fe0a62f9f805689894b594aa545e798388f4ce0f1",
+      "5632": "c9b048319e1a932cd41a042bb5ae7add8ecda8931a4d088eb693f03171b213fa",
+      "6144": "9e52ace4430c6ced93cb24ed21541b67f6804210b194ea5c03ecec6c8c4a2993"
+    }
+  },
+  "sites-hunt-82577": {
+    "source": "nat-mualani-surf-cove-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "e6ec963bc31e768d9d171f981d49a51434e08fbbd323c4c7b63d7b9d5c3c051f",
+    "tiers": {
+      "4096": "7e4e5ec3aa9862550e43df7327fff3b09a069b09f1ab3990b85c27e057262d98",
+      "4608": "48a36a046e582dce84c65a5ebc7e947e0292c183fe127d1ecb3636df524f5a88",
+      "5120": "948eebb57271f44c53996946610bc808040e137d5d4e7e410e8c3366f85cc20f",
+      "5632": "45f7418ac132c7f332d61a074b21a133a3230243d43f52db2c5f97ca4ae2e202",
+      "6144": "59cc833532db43d4fd48958ab7ecb4cdb3101247ded8bf68eb45d4639f40f183"
+    }
+  },
+  "sites-hunt-73161": {
+    "source": "ochka-cliff-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "0fe3ac535b312950369b9631cb7c401e8b35e6352d9a244fb52bded786823c56",
+    "tiers": {
+      "4096": "e9308042dbfc5b37147604858f9a0ff016763f31d76c547dd713bd500153c86d",
+      "4608": "733c56c7a2d53096d3d6e2fc83c95fcd7fe7c864ce380226fdf03757794b3093",
+      "5120": "9f917013fbcc75b400d96c22ee227c3c427bb33294c7e00831e2cb1467c5dad5",
+      "5632": "864d2d27b287ed81ddb006cfbbde2cd714d27e42f95082dcb87929c6cbb0296b",
+      "6144": "97b9c2324fc35e08fb3337f08dfd2367241b9c8f9ec1a51ad7d3678140f29d2a"
+    }
+  },
+  "tepeacac-waterfall-wall": {
+    "source": "nat-falls-cavern-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "3a7b8d1193588ca63f7b42e878356ffb8109bbfdac5cbececddc7227b8ac637a",
+    "tiers": {
+      "4096": "2ba37eb4c1129a7f507084b52e85fe8c74dce229aac7edac2ba5df95eafa700b",
+      "4608": "fd96e6fb408250f38d6716e2e2a6e02219098e0f68a55cdbf56a369075f5566e",
+      "5120": "528aff4ea466b46db721b3036d735cd270cdb6fbfecacc0832f5a109370c69fb",
+      "5632": "964c8b850eeb46b4e90e9e59b845bbda243e7ae1d7996b04e78fefb76bb98c57",
+      "6144": "cdfbf7a04332d85b7225a8768de02aedca9e7b2773182f2a1b8b966fb07ed469"
+    }
+  },
+  "sites-hunt-73159-pocket-1": {
+    "source": "nat-eroded-kiln-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "2eca074b34a315cc09655485fc3b81c1976046d5f10b5aeb55682d1f82c2c9c1",
+    "tiers": {
+      "4096": "ed45180b92b81d43b8165f12e380b5cc863992cb135be51b4b8aa4ef5823adf5",
+      "4608": "55af6eba50c6f978a192a9d4d64b54fa0d46764d077d4ebfad2f6904a55b8c64",
+      "5120": "595808e84212f6783aecbc75482a3dbe2c2d5eaf23fde845b05a9e6cd1754da0",
+      "5632": "e86cc5af0c7af4b5dd61a7a75f9838c5aef40802bb1cf22458d5276339b86a39",
+      "6144": "0991354db8aaeba176e7ea8b4885291d6173f1abb69831cb88802fbb0929242e"
+    }
+  },
+  "sites-hunt-73159-pocket-2": {
+    "source": "nat-cicin-camp-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "398676ce14046a5a7d49d73d6a2064783168f9c66f068652386fe151c26c4232",
+    "tiers": {
+      "4096": "79ad47859dda55f60e808f621413763464717db5ecffbd0bd7b388011f4bf094",
+      "4608": "05584e19dc41517f8a0b8e443abede7463652685909b312bdf1ca0aa41228a30",
+      "5120": "f355997416669557fa65ed6968a897b71b4d2903ff4ece756eb4c2ebfc4f4873",
+      "5632": "1d22362e55ca2983a2dae8fa185af88e90379b28d50c1c6c9b99fb2d8c885b2e",
+      "6144": "3321cf7c82938c3dc3c19b6060bc342a6e3990830798b33c970ce2aec367c2c0"
+    }
+  },
+  "toyac-rainbow-key-cave": {
+    "source": "nat-spring-key-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "5e9415da0e9cda347854b0aa32a557fb5a9e0ecc8905f287a2aaa3731cd7147a",
+    "tiers": {
+      "4096": "347bb5ac2c05c1685725ecdd79d446551d3fb9763302c26e1a2e984fe7e48b19",
+      "4608": "9a8c42de0825a384cde815f6b8e91ab9d50ac9d245b60ec9a67cfa65839c5beb",
+      "5120": "9257f764746966d3d2ca6bf026a7284a652bdb6386d7e90fdf661e68b43aaa45",
+      "5632": "88a71039053feba4ca15a653f7c261664091d6ca8f29a8466f0c3a9918700141",
+      "6144": "7b27aa94c18d4cb3595fa984ecc0d654092bce3cead678dc5d8a6e060137301e"
+    }
+  },
+  "sites-hunt-73161-pocket-1": {
+    "source": "nat-spirit-alcove-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "bfff65adef4e40db1d12bf875d8fe649f5fcaf3389cbf59ba8aed009836d3084",
+    "tiers": {
+      "4096": "eb247dd5065d24011ba3076728e16ee2aa0283e49fadebf1b3cd819eb5e80982",
+      "4608": "09cdf49f330222b2f4d5bbb702165a7c71ef8a9e8e1fd18c1f897a6ad19d038b",
+      "5120": "3beb11263ffd355a4fdf6bf31047515065aa8f629017254decbbc13e58bf50e1",
+      "5632": "ccf2a884f5984f8e2a062e14528658d38bb05973eadebe9196957df7c21d575b",
+      "6144": "c7029fa1e9c505225ee3bfc0ce1c07fb18c0b32afd9d8fbd3502cb01056cb155"
+    }
+  },
+  "sites-hunt-81383-pocket-1": {
+    "source": "nat-ranger-shelter-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "72ddf51a9d3776af0cbd7b7f211e639803091dc05e006143647f407d00d6ebf5",
+    "tiers": {
+      "4096": "e82139e5096f5e4b3e3855ecd28cff5300489a759d1ddb9ccc1d51db595ace66",
+      "4608": "f2e234c0e52074e459f1e9adc28a34ef27129d35d6b5a1b3e485ee7ede8aac61",
+      "5120": "c16e6ec114a0837bdd71aba533dd8c90554b1827d88d92a2054d27ce92f54abd",
+      "5632": "5198cd71c8b1cd7a4ace93aca351278ff0e2f24665fbb0d33644d6e19ac45870",
+      "6144": "cf34b2d473d7861a342b00ea653a612bd49724ce328d2c7c3e750090c07be245"
+    }
+  },
+  "atocpan-domain-side-clearing": {
+    "source": "nat-southern-clearing-background-v1.png",
+    "count": 0,
+    "sourceCanvas": "f64f71b309933675e26d1e445078fd3955e32053e164edcc8ec60cacf567e546",
+    "tiers": {
+      "4096": "7f95de50ed88c6bccf98befd69b8e1c778e4c091d71a202ec5177b4d7007593b",
+      "4608": "8632ee0f78fcd35ee5376bbf7720b37fc247e08c3ecc56109f363ef7c79dff4d",
+      "5120": "87edd5bd61e2275c09754220dad94bba49ff13dba03db050e89363f2b34b5f5c",
+      "5632": "ba7c50eabaa5e1d94531e92707adca99888b2899d3e30ade9efb90cdca989448",
+      "6144": "bdf5ad6731fd42ce15d8f5dff01a76d54651f7961e6cbaf601dca64b36a0136c"
+    }
+  }
+}

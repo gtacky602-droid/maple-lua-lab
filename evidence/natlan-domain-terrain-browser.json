@@ -2,7 +2,7 @@
   "waterfall": {
     "stage": "sites-hunt-73159",
     "scenery": {
-      "key": "natlanRiverTrial",
+      "key": "natEastRiver",
       "file": "natlan-riverside-trial-background-v1.png",
       "state": "ready"
     },
@@ -16,6 +16,7 @@
         "sites-hunt-73159-pocket-1",
         "sites-hunt-73159-pocket-2"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-73159",
       "next": "tepeacac-waterfall-wall"
     },
     "jump": [
@@ -23,6 +24,11 @@
       421
     ],
     "returnHeight": 480,
+    "pocketScenery": {
+      "key": "natFallsCavern",
+      "file": "nat-falls-cavern-background-v1.png",
+      "state": "ready"
+    },
     "journeys": [
       [
         "nat-wp-72414",
@@ -41,15 +47,64 @@
       ],
       [
         "sites-hunt-73159",
+        "sites-hunt-73159-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-73159-pocket-1",
+        "sites-hunt-73159",
+        "walk"
+      ],
+      [
+        "sites-hunt-73159",
+        "sites-hunt-73159-pocket-2",
+        "raised"
+      ],
+      [
+        "sites-hunt-73159-pocket-2",
+        "sites-hunt-73159",
+        "walk"
+      ],
+      [
+        "sites-hunt-73159",
         "nat-wp-72414",
         "walk"
       ]
+    ],
+    "detours": [
+      {
+        "id": "tepeacac-waterfall-wall",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "natFallsCavern",
+          "file": "nat-falls-cavern-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-73159-pocket-1",
+        "returnHeight": 389,
+        "pocketScenery": {
+          "key": "natErodedKiln",
+          "file": "nat-eroded-kiln-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-73159-pocket-2",
+        "returnHeight": 389,
+        "pocketScenery": {
+          "key": "natCicinCamp",
+          "file": "nat-cicin-camp-background-v1.png",
+          "state": "ready"
+        }
+      }
     ]
   },
   "cave": {
     "stage": "sites-hunt-73160",
     "scenery": {
-      "key": "natlanCharmTrail",
+      "key": "natWestKeysTrail",
       "file": "nat-kachina-charms-trail-background-v1.png",
       "state": "ready"
     },
@@ -61,6 +116,7 @@
         "toyac-rainbow-key-cave",
         "nat-wp-72422"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-73160",
       "next": "toyac-rainbow-key-cave"
     },
     "jump": [
@@ -68,6 +124,11 @@
       406
     ],
     "returnHeight": 406,
+    "pocketScenery": {
+      "key": "natSpringKeyCave",
+      "file": "nat-spring-key-background-v1.png",
+      "state": "ready"
+    },
     "journeys": [
       [
         "nat-wp-72422",
@@ -94,7 +155,7 @@
   "cliff": {
     "stage": "sites-hunt-81383",
     "scenery": {
-      "key": "natlanRaceRidge",
+      "key": "natNorthCliff",
       "file": "natlan-race-ridge-background-v1.png",
       "state": "ready"
     },
@@ -106,6 +167,7 @@
         "nat-wp-79051",
         "sites-hunt-81383-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-81383",
       "next": "sites-hunt-81383-pocket-1"
     },
     "jump": [
@@ -113,6 +175,11 @@
       394
     ],
     "returnHeight": 396,
+    "pocketScenery": {
+      "key": "natRangerShelter",
+      "file": "nat-ranger-shelter-background-v1.png",
+      "state": "ready"
+    },
     "journeys": [
       [
         "nat-wp-79051",
@@ -139,7 +206,7 @@
   "shore": {
     "stage": "sites-hunt-82577",
     "scenery": {
-      "key": "natlanSurfCove",
+      "key": "natVolcanicShore",
       "file": "nat-mualani-surf-cove-background-v1.png",
       "state": "ready"
     },
@@ -151,6 +218,7 @@
         "nat-wp-82564",
         "atocpan-domain-side-clearing"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-82577",
       "next": "atocpan-domain-side-clearing"
     },
     "jump": [
@@ -158,6 +226,11 @@
       434
     ],
     "returnHeight": 480,
+    "pocketScenery": {
+      "key": "natSouthernClearing",
+      "file": "nat-southern-clearing-background-v1.png",
+      "state": "ready"
+    },
     "journeys": [
       [
         "nat-wp-82564",
@@ -185,7 +258,7 @@
     "stage": "sites-hunt-73161",
     "existingTerrain": true,
     "scenery": {
-      "key": "ochkaCliff",
+      "key": "natCentralPath",
       "file": "ochka-cliff-background-v1.png",
       "state": "ready"
     },
@@ -197,6 +270,7 @@
         "nat-wp-72445",
         "sites-hunt-73161-pocket-1"
       ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-73161",
       "next": "sites-hunt-73161-pocket-1"
     },
     "jump": [
@@ -204,6 +278,11 @@
       348
     ],
     "returnHeight": 480,
+    "pocketScenery": {
+      "key": "natSpiritAlcove",
+      "file": "nat-spirit-alcove-background-v1.png",
+      "state": "ready"
+    },
     "journeys": [
       [
         "nat-wp-72445",
