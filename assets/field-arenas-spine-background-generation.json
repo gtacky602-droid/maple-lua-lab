@@ -1,0 +1,19 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "cryo-hypostasis-field-basin",
+      "key": "cryoHypostasisField",
+      "note": "ドラゴンスパイン・霜輪の窪地",
+      "source": "cryo-hypostasis-field-background-v1.png",
+      "preview": "cryo-hypostasis-field-native-preview-v1.png"
+    },
+    {
+      "node": "spine-trace-ridge",
+      "key": "spineRidge",
+      "note": "霜紋の稜線",
+      "source": "spine-ridge-background-v1.png",
+      "preview": "spine-ridge-native-preview-v1.png"
+    }
+  ]
+}

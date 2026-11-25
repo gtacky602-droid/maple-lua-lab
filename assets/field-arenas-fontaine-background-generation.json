@@ -1,0 +1,33 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "tulpa-field-grotto",
+      "key": "tulpaField",
+      "note": "フォンテーヌ・潮影の洞",
+      "source": "tulpa-field-background-v1.png",
+      "preview": "tulpa-field-native-preview-v1.png"
+    },
+    {
+      "node": "field-generator-field-chamber",
+      "key": "generatorField",
+      "note": "フォンテーヌ・重力試験室",
+      "source": "field-generator-field-background-v1.png",
+      "preview": "field-generator-field-native-preview-v1.png"
+    },
+    {
+      "node": "seahorse-field-cavern",
+      "key": "seahorseField",
+      "note": "フォンテーヌ・真珠珊瑚の洞",
+      "source": "seahorse-field-background-v1.png",
+      "preview": "seahorse-field-native-preview-v1.png"
+    },
+    {
+      "node": "emperor-field-cove",
+      "key": "emperorField",
+      "note": "フォンテーヌ・熔殻の洞",
+      "source": "emperor-field-background-v1.png",
+      "preview": "emperor-field-native-preview-v1.png"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "oceanid-field-background-v1.png": {
+      "sourceBytes": 1719861,
+      "sourceSha256": "0eff4738b6aabc20622a89cdfa70a4ce6b867333fe4b551209e46e6b392f4cba",
+      "preview": "oceanid-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14433,
+      "baseSelectedBytes": 14419,
+      "detailFixed13Bytes": 10915,
+      "detailSelectedBytes": 10905,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.9500687210648149,
+          "rgbSha256": "e95732ac0a269c876ab0b38c105c55e460180beab0a2c03ca71c2c63a3300830"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.8172652633101851,
+          "rgbSha256": "d9ddfc281c0a51b9c725d646119fb817d8f3556e39a773f03a2429b1609c3da8"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.7156507703993056,
+          "rgbSha256": "b1ba5fc4e2a6ea805ea0284735f12883ce21d2f361f23679e0d34c304373f1b2"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.6343451605902777,
+          "rgbSha256": "8254b9ab85fa28c948186bd579d4e02f11712b8ef4b8d95609ce6f9a464d86f8"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.5644169560185186,
+          "rgbSha256": "9577ae4925f39842c65ccbdbfa4cd9d9be83d0ff843ac61206acccf350cca3fa"
+        }
+      ]
+    },
+    "primo-geovishap-field-background-v1.png": {
+      "sourceBytes": 2212564,
+      "sourceSha256": "0b22075baaf87b5fba2faac2fcf5a472029ae2a7b1bc958dd7ed4de917a84559",
+      "preview": "primo-geovishap-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15183,
+      "baseSelectedBytes": 15167,
+      "detailFixed13Bytes": 11337,
+      "detailSelectedBytes": 11325,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.292625144675926,
+          "rgbSha256": "cc759b87981fa0459a51d20a7562b31c8ce65d2dc859dda86f8a03ed7db39b84"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.014444986979167,
+          "rgbSha256": "581c07175fa28d41a5891edf0bad57267d8c566ac1382140750b183cb998817b"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.792747214988426,
+          "rgbSha256": "22832c029fb7b3072c01f2c131a085ce59c1a4ab925ba5fe04c6256cd92952c0"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.6155463324652777,
+          "rgbSha256": "25f9d910b1a50f38b2090e345f9c23f9dad3d83d7a2661686a7f571f2fbbc2a6"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.457424587673611,
+          "rgbSha256": "04fc81574249f52bf3e74a0b983011385f5ada2d8e12140b5288943b6b6b7109"
+        }
+      ]
+    },
+    "geo-hypostasis-field-background-v1.png": {
+      "sourceBytes": 2291072,
+      "sourceSha256": "1e88b178c54d2979ca3f9fbbc2d731a32b6f1a2e23c204ae43c3f933d7e2be7c",
+      "preview": "geo-hypostasis-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17833,
+      "baseSelectedBytes": 17821,
+      "detailFixed13Bytes": 12177,
+      "detailSelectedBytes": 12165,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.604078504774305,
+          "rgbSha256": "3e9554aba21be92c1afc1fe44135fbde134ad021c00a4a34248c0ff937782c5d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.173979582609953,
+          "rgbSha256": "979f0adb8febe5be23920a9a0e56ea28ebf867cceed5ee5a7ac505a35f7e950b"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.845043041087963,
+          "rgbSha256": "ca4939260079c4ef6555917f19e4a43d4459bf63eb858d6bd7d772bcf76599a5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.5601377133969905,
+          "rgbSha256": "37439434ab1d9439bcaad7be507073b35b3fb05a9f2aed5599186a809f677507"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.3137998227719905,
+          "rgbSha256": "f20b1b5e4d16e27b73819000237023e81871e19f17ee8a40eae45e104a9a168d"
+        }
+      ]
+    },
+    "pyro-regisvine-field-background-v1.png": {
+      "sourceBytes": 2150916,
+      "sourceSha256": "cc70e06d069d7cb23aba2871f12f0487adc18fd8e0e4742eb11856774c570555",
+      "preview": "pyro-regisvine-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14843,
+      "baseSelectedBytes": 14827,
+      "detailFixed13Bytes": 11037,
+      "detailSelectedBytes": 11027,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.6437287507233798,
+          "rgbSha256": "52a64f14fee58e692fe71c5857da6c0ab2997d9fe35b817cccaae00411ae37e3"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.4152538158275463,
+          "rgbSha256": "2d99773815fd518c3c52f41a5e2ffd12de1df075a648ad7d5e99d2c2162039a2"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.2351661964699074,
+          "rgbSha256": "72e18206d942690de24247a8dd28dfcba3955c61d0b8266998c78908d765dfa5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.0886207863136574,
+          "rgbSha256": "06d2aa33a490c4965faa21e47e2e4a33b983e9ffe16a675b360db8a3a1168428"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.959872775607639,
+          "rgbSha256": "085dc31cbec9c86e583056669589fbf0a1f0d174bd74962a09fe0559645da656"
+        }
+      ]
+    }
+  }
+}

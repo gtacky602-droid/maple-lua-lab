@@ -1,0 +1,40 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "flugel-tundra-basin",
+      "key": "flugelField",
+      "note": "スネージナヤ・古獣の氷原の西谷",
+      "source": "flugel-field-background-v1.png",
+      "preview": "flugel-field-native-preview-v1.png"
+    },
+    {
+      "node": "drifting-snow-court",
+      "key": "driftingSnowField",
+      "note": "スネージナヤ・氷冠の雪庭",
+      "source": "drifting-snow-field-background-v1.png",
+      "preview": "drifting-snow-field-native-preview-v1.png"
+    },
+    {
+      "node": "immortal-construct-root-hollow",
+      "key": "immortalConstructField",
+      "note": "スネージナヤ・赤葉の根洞",
+      "source": "immortal-construct-field-background-v1.png",
+      "preview": "immortal-construct-field-native-preview-v1.png"
+    },
+    {
+      "node": "white-rainbow-basin",
+      "key": "whiteRainbowBasin",
+      "note": "白虹の高原",
+      "source": "white-rainbow-background-v1.png",
+      "preview": "white-rainbow-native-preview-v1.png"
+    },
+    {
+      "node": "steam-stabling-depot",
+      "key": "steamStablingDepot",
+      "note": "蒸気留置庫",
+      "source": "steam-stabling-depot-background-v1.png",
+      "preview": "steam-stabling-depot-native-preview-v1.png"
+    }
+  ]
+}

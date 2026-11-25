@@ -1,0 +1,166 @@
+{
+  "buried-weaving-room": {
+    "parts": [
+      {
+        "id": "original-twin-shuttle-loom",
+        "species": "loom-body",
+        "x": 480,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "boss-99000003",
+        "species": "loom-shuttle-left",
+        "x": 298,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "boss-99000004",
+        "species": "loom-shuttle-right",
+        "x": 662,
+        "y": 480,
+        "flip": false
+      }
+    ],
+    "profiles": {
+      "legacy": {
+        "rectangles": 10760,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "rectangles": 6965,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "rectangles": 2964,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "tide-calibration-hall": {
+    "parts": [
+      {
+        "id": "calibration-pad-left",
+        "species": "calibration-pad-left",
+        "x": 160,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "calibration-pad-right",
+        "species": "calibration-pad-right",
+        "x": 800,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "original-tide-surveyor",
+        "species": "surveyor-meter",
+        "x": 480,
+        "y": 480,
+        "flip": false
+      }
+    ],
+    "profiles": {
+      "legacy": {
+        "rectangles": 3635,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "rectangles": 2347,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "rectangles": 1004,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "mond-gate-chess-court": {
+    "parts": [
+      {
+        "id": "boss-29122001",
+        "species": "gate-king-piece",
+        "x": 198.4,
+        "y": 480,
+        "flip": false
+      }
+    ],
+    "profiles": {
+      "legacy": {
+        "rectangles": 8,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "rectangles": 8,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "rectangles": 8,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "narwhal-inner-echo": {
+    "parts": [
+      {
+        "id": "boss-29090110",
+        "species": "narwhal-inner-phantom",
+        "x": 480,
+        "y": 480,
+        "flip": true
+      }
+    ],
+    "profiles": {
+      "legacy": {
+        "rectangles": 4450,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "rectangles": 2753,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "rectangles": 1349,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  }
+}

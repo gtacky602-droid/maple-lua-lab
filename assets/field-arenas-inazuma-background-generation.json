@@ -1,0 +1,47 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "wolflord-field-ruins",
+      "key": "wolflordField",
+      "note": "稲妻・鶴観の霧浜遺跡",
+      "source": "wolflord-field-background-v1.png",
+      "preview": "wolflord-field-native-preview-v1.png"
+    },
+    {
+      "node": "hydro-hypostasis-field-cove",
+      "key": "hydroHypostasisField",
+      "note": "稲妻・潮紋の洞",
+      "source": "hydro-hypostasis-field-background-v1.png",
+      "preview": "hydro-hypostasis-field-native-preview-v1.png"
+    },
+    {
+      "node": "pyro-hypostasis-field-terrace",
+      "key": "pyroHypostasisField",
+      "note": "稲妻・燎火の石浜",
+      "source": "pyro-hypostasis-field-background-v1.png",
+      "preview": "pyro-hypostasis-field-native-preview-v1.png"
+    },
+    {
+      "node": "thunder-field-crest",
+      "key": "thunderField",
+      "note": "稲妻・雷鳴の岩峰",
+      "source": "thunder-field-background-v1.png",
+      "preview": "thunder-field-native-preview-v1.png"
+    },
+    {
+      "node": "array-field-court",
+      "key": "arrayField",
+      "note": "稲妻・機巧の石庭",
+      "source": "array-field-background-v1.png",
+      "preview": "array-field-native-preview-v1.png"
+    },
+    {
+      "node": "maguu-field-dojo",
+      "key": "maguuField",
+      "note": "稲妻・剣鬼の古庭",
+      "source": "maguu-field-background-v1.png",
+      "preview": "maguu-field-native-preview-v1.png"
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "buried-weaving-room": {
+    "captions": [
+      {
+        "color": "#ffd083",
+        "kind": "text",
+        "size": 14,
+        "text": "左右の杼を壊すと芯が開く",
+        "x": 480,
+        "y": 65
+      }
+    ],
+    "parts": [
+      {
+        "anchorX": 0.5,
+        "file": "twin-shuttle-loom-closed-sprites-v1.json",
+        "flip": false,
+        "h": 150,
+        "id": "original-twin-shuttle-loom",
+        "name": "織機の本体",
+        "species": "loom-body",
+        "x": 480,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "file": "twin-shuttle-loom-shuttle-sprites-v1.json",
+        "flip": false,
+        "h": 70,
+        "id": "boss-99000003",
+        "marks": [
+          {
+            "color": "#ffd083",
+            "kind": "text",
+            "size": 12,
+            "text": "左の杼",
+            "x": 0,
+            "y": -84
+          }
+        ],
+        "name": "左の杼",
+        "species": "loom-shuttle-left",
+        "x": 298,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5,
+        "file": "twin-shuttle-loom-shuttle-sprites-v1.json",
+        "flip": false,
+        "h": 70,
+        "id": "boss-99000004",
+        "marks": [
+          {
+            "color": "#ffd083",
+            "kind": "text",
+            "size": 12,
+            "text": "右の杼",
+            "x": 0,
+            "y": -84
+          }
+        ],
+        "name": "右の杼",
+        "species": "loom-shuttle-right",
+        "x": 662,
+        "y": 480
+      }
+    ]
+  },
+  "mond-gate-chess-court": {
+    "captions": [],
+    "parts": [
+      {
+        "box": [
+          0,
+          0,
+          88.0,
+          134
+        ],
+        "flip": false,
+        "h": 134,
+        "id": "boss-29122001",
+        "marks": [
+          {
+            "color": "#542438",
+            "h": 9,
+            "kind": "rect",
+            "w": 88,
+            "x": -44.0,
+            "y": -9
+          },
+          {
+            "color": "#e7bd77",
+            "h": 4,
+            "kind": "rect",
+            "w": 82,
+            "x": -41.0,
+            "y": -12
+          },
+          {
+            "color": "#542438",
+            "h": 96,
+            "kind": "rect",
+            "w": 58.080000000000005,
+            "x": -29.039999999999992,
+            "y": -105
+          },
+          {
+            "color": "#a23b50",
+            "h": 90,
+            "kind": "rect",
+            "w": 25.08,
+            "x": -13.199999999999989,
+            "y": -102
+          },
+          {
+            "color": "#e7bd77",
+            "h": 7,
+            "kind": "rect",
+            "w": 66.0,
+            "x": -33.0,
+            "y": -109
+          },
+          {
+            "color": "#a23b50",
+            "h": 15,
+            "kind": "rect",
+            "w": 52.8,
+            "x": -26.400000000000006,
+            "y": -122
+          },
+          {
+            "color": "#e7bd77",
+            "h": 24,
+            "kind": "rect",
+            "w": 14,
+            "x": -7.0,
+            "y": -134
+          },
+          {
+            "color": "#e7bd77",
+            "h": 8,
+            "kind": "rect",
+            "w": 36,
+            "x": -18.0,
+            "y": -126
+          }
+        ],
+        "name": "駒王",
+        "species": "gate-king-piece",
+        "x": 198.4,
+        "y": 480
+      }
+    ]
+  },
+  "narwhal-inner-echo": {
+    "captions": [],
+    "parts": [
+      {
+        "anchorX": 0.37372013651877134,
+        "file": "narwhal-phantom-idle-sprites-v1.json",
+        "flip": true,
+        "h": 140,
+        "id": "boss-29090110",
+        "name": "黒い幻影",
+        "species": "narwhal-inner-phantom",
+        "x": 480,
+        "y": 480
+      }
+    ]
+  },
+  "tide-calibration-hall": {
+    "captions": [
+      {
+        "color": "#b5ffe9",
+        "kind": "text",
+        "size": 14,
+        "text": "測距",
+        "x": 480,
+        "y": 65
+      }
+    ],
+    "parts": [
+      {
+        "box": [
+          0,
+          0,
+          62,
+          18
+        ],
+        "flip": false,
+        "h": 18,
+        "id": "calibration-pad-left",
+        "marks": [
+          {
+            "color": "#b5ffe9",
+            "h": 5,
+            "kind": "rect",
+            "w": 62,
+            "x": -31,
+            "y": -6
+          },
+          {
+            "color": "#b5ffe9",
+            "kind": "text",
+            "size": 12,
+            "text": "印を解除",
+            "x": 0,
+            "y": -18
+          }
+        ],
+        "name": "左の解除床",
+        "species": "calibration-pad-left",
+        "x": 160,
+        "y": 480
+      },
+      {
+        "box": [
+          0,
+          0,
+          62,
+          18
+        ],
+        "flip": false,
+        "h": 18,
+        "id": "calibration-pad-right",
+        "marks": [
+          {
+            "color": "#b5ffe9",
+            "h": 5,
+            "kind": "rect",
+            "w": 62,
+            "x": -31,
+            "y": -6
+          },
+          {
+            "color": "#b5ffe9",
+            "kind": "text",
+            "size": 12,
+            "text": "印を解除",
+            "x": 0,
+            "y": -18
+          }
+        ],
+        "name": "右の解除床",
+        "species": "calibration-pad-right",
+        "x": 800,
+        "y": 480
+      },
+      {
+        "anchorX": 0.5737704918032787,
+        "file": "tide-surveyor-meter-sprites-v1.json",
+        "flip": false,
+        "h": 116,
+        "id": "original-tide-surveyor",
+        "name": "測距機構",
+        "species": "surveyor-meter",
+        "x": 480,
+        "y": 480
+      }
+    ]
+  }
+}

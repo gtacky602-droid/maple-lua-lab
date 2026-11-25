@@ -1,0 +1,48 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "ruin-serpent-field-background-v1.png": {
+      "sourceBytes": 2061298,
+      "sourceSha256": "019fe85f2a91f03728160a36ddd99e11a4ee6bc673c77ebe07a0e8eb645d52df",
+      "preview": "ruin-serpent-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14449,
+      "baseSelectedBytes": 14439,
+      "detailFixed13Bytes": 10895,
+      "detailSelectedBytes": 10885,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.0128693757233798,
+          "rgbSha256": "c77c86f069664a2c43e7e542351909fc647df2c103d0a2f9baa93960736a2211"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.800159595630787,
+          "rgbSha256": "b17b5cef77dc4ecdc3156a881d081f85b51009ae253fc2c3122fc5ce2cdd809b"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.6437061451099537,
+          "rgbSha256": "96b8145ab63357e45c9e1bf7b970e70da02cd0cee123deb53c0c06df4e3f842b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.513622142650463,
+          "rgbSha256": "be580fde724fdbd5fc2c49ed8ebc16ddb6076229370e4c30855fc624fa05312a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.399615252459491,
+          "rgbSha256": "5dcb5edad4e030097afb81ef2d3c55b7a5bfb9cd63ff9ae619afc4a6147054d9"
+        }
+      ]
+    }
+  }
+}

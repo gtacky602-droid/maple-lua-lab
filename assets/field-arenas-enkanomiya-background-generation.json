@@ -1,0 +1,12 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "bathysmal-field-sanctum",
+      "key": "bathysmalField",
+      "note": "淵下宮・双影の石庭",
+      "source": "bathysmal-field-background-v1.png",
+      "preview": "bathysmal-field-native-preview-v1.png"
+    }
+  ]
+}

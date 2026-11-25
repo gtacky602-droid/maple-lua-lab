@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1050,
+  "verifiedModules": 1290,
   "dimensions": [
     512,
     288
@@ -509,6 +509,342 @@
       "5120": 25144,
       "5632": 28526,
       "6144": 30794
+    },
+    "ruin-serpent-field-background-v1.png": {
+      "4096": 14547,
+      "4608": 17769,
+      "5120": 20840,
+      "5632": 23886,
+      "6144": 25430
+    },
+    "fallen-vigil-field-background-v1.png": {
+      "4096": 16497,
+      "4608": 19841,
+      "5120": 23034,
+      "5632": 26226,
+      "6144": 28152
+    },
+    "windward-works-background-v1.png": {
+      "4096": 17997,
+      "4608": 21447,
+      "5120": 24776,
+      "5632": 28092,
+      "6144": 30150
+    },
+    "bathysmal-field-background-v1.png": {
+      "4096": 13646,
+      "4608": 16768,
+      "5120": 19747,
+      "5632": 22727,
+      "6144": 24121
+    },
+    "tulpa-field-background-v1.png": {
+      "4096": 14814,
+      "4608": 18080,
+      "5120": 21237,
+      "5632": 24383,
+      "6144": 25607
+    },
+    "field-generator-field-background-v1.png": {
+      "4096": 14460,
+      "4608": 17582,
+      "5120": 20617,
+      "5632": 23607,
+      "6144": 25307
+    },
+    "seahorse-field-background-v1.png": {
+      "4096": 16807,
+      "4608": 20333,
+      "5120": 23720,
+      "5632": 27104,
+      "6144": 28644
+    },
+    "emperor-field-background-v1.png": {
+      "4096": 13808,
+      "4608": 16974,
+      "5120": 20031,
+      "5632": 23099,
+      "6144": 24705
+    },
+    "wolflord-field-background-v1.png": {
+      "4096": 14615,
+      "4608": 17829,
+      "5120": 20904,
+      "5632": 23994,
+      "6144": 25636
+    },
+    "hydro-hypostasis-field-background-v1.png": {
+      "4096": 14801,
+      "4608": 18035,
+      "5120": 21132,
+      "5632": 24224,
+      "6144": 25904
+    },
+    "pyro-hypostasis-field-background-v1.png": {
+      "4096": 14414,
+      "4608": 17538,
+      "5120": 20563,
+      "5632": 23575,
+      "6144": 25101
+    },
+    "thunder-field-background-v1.png": {
+      "4096": 13230,
+      "4608": 16260,
+      "5120": 19177,
+      "5632": 22061,
+      "6144": 23277
+    },
+    "array-field-background-v1.png": {
+      "4096": 14344,
+      "4608": 17522,
+      "5120": 20547,
+      "5632": 23581,
+      "6144": 25167
+    },
+    "maguu-field-background-v1.png": {
+      "4096": 13494,
+      "4608": 16586,
+      "5120": 19515,
+      "5632": 22425,
+      "6144": 23843
+    },
+    "oceanid-field-background-v1.png": {
+      "4096": 14522,
+      "4608": 17734,
+      "5120": 20789,
+      "5632": 23825,
+      "6144": 25425
+    },
+    "primo-geovishap-field-background-v1.png": {
+      "4096": 15278,
+      "4608": 18554,
+      "5120": 21697,
+      "5632": 24839,
+      "6144": 26601
+    },
+    "geo-hypostasis-field-background-v1.png": {
+      "4096": 17931,
+      "4608": 21311,
+      "5120": 24600,
+      "5632": 27876,
+      "6144": 30094
+    },
+    "pyro-regisvine-field-background-v1.png": {
+      "4096": 14937,
+      "4608": 18163,
+      "5120": 21274,
+      "5632": 24374,
+      "6144": 25962
+    },
+    "electro-hypostasis-field-background-v1.png": {
+      "4096": 15737,
+      "4608": 19025,
+      "5120": 22174,
+      "5632": 25312,
+      "6144": 27158
+    },
+    "cryo-regisvine-field-background-v1.png": {
+      "4096": 14419,
+      "4608": 17597,
+      "5120": 20644,
+      "5632": 23658,
+      "6144": 25208
+    },
+    "qucusaur-field-background-v1.png": {
+      "4096": 16303,
+      "4608": 19601,
+      "5120": 22778,
+      "5632": 25964,
+      "6144": 27826
+    },
+    "yumka-field-background-v1.png": {
+      "4096": 17538,
+      "4608": 20972,
+      "5120": 24279,
+      "5632": 27605,
+      "6144": 29509
+    },
+    "config-device-field-background-v1.png": {
+      "4096": 16814,
+      "4608": 20214,
+      "5120": 23475,
+      "5632": 26735,
+      "6144": 28853
+    },
+    "papilla-field-background-v1.png": {
+      "4096": 14226,
+      "4608": 17430,
+      "5120": 20499,
+      "5632": 23559,
+      "6144": 25087
+    },
+    "lava-dragon-field-background-v1.png": {
+      "4096": 15824,
+      "4608": 19118,
+      "5120": 22271,
+      "5632": 25423,
+      "6144": 27163
+    },
+    "overseer-field-background-v1.png": {
+      "4096": 14099,
+      "4608": 17287,
+      "5120": 20346,
+      "5632": 23356,
+      "6144": 24768
+    },
+    "spiritspeaker-field-background-v1.png": {
+      "4096": 14634,
+      "4608": 17828,
+      "5120": 20869,
+      "5632": 23883,
+      "6144": 25403
+    },
+    "knuckle-duckle-field-background-v1.png": {
+      "4096": 17607,
+      "4608": 21021,
+      "5120": 24324,
+      "5632": 27600,
+      "6144": 29724
+    },
+    "battleship-field-background-v1.png": {
+      "4096": 15723,
+      "4608": 18975,
+      "5120": 22118,
+      "5632": 25270,
+      "6144": 27124
+    },
+    "frostnight-herra-field-background-v1.png": {
+      "4096": 15703,
+      "4608": 18987,
+      "5120": 22146,
+      "5632": 25260,
+      "6144": 27066
+    },
+    "whisperer-nightmares-field-background-v1.png": {
+      "4096": 13997,
+      "4608": 17123,
+      "5120": 20082,
+      "5632": 23032,
+      "6144": 24478
+    },
+    "moonfly-field-background-v1.png": {
+      "4096": 16732,
+      "4608": 20238,
+      "5120": 23599,
+      "5632": 26943,
+      "6144": 28431
+    },
+    "moongecko-field-background-v1.png": {
+      "4096": 14660,
+      "4608": 17872,
+      "5120": 20945,
+      "5632": 24017,
+      "6144": 25611
+    },
+    "wavebinder-field-background-v1.png": {
+      "4096": 13949,
+      "4608": 17111,
+      "5120": 20152,
+      "5632": 23182,
+      "6144": 24708
+    },
+    "ochka-kiln-background-v1.png": {
+      "4096": 17521,
+      "4608": 20913,
+      "5120": 24180,
+      "5632": 27440,
+      "6144": 29448
+    },
+    "flugel-field-background-v1.png": {
+      "4096": 15035,
+      "4608": 18283,
+      "5120": 21392,
+      "5632": 24482,
+      "6144": 25958
+    },
+    "drifting-snow-field-background-v1.png": {
+      "4096": 14302,
+      "4608": 17486,
+      "5120": 20557,
+      "5632": 23581,
+      "6144": 25069
+    },
+    "immortal-construct-field-background-v1.png": {
+      "4096": 14607,
+      "4608": 17829,
+      "5120": 20892,
+      "5632": 23976,
+      "6144": 25528
+    },
+    "white-rainbow-background-v1.png": {
+      "4096": 16758,
+      "4608": 20018,
+      "5120": 23141,
+      "5632": 26263,
+      "6144": 28245
+    },
+    "steam-stabling-depot-background-v1.png": {
+      "4096": 16629,
+      "4608": 19955,
+      "5120": 23154,
+      "5632": 26334,
+      "6144": 28316
+    },
+    "cryo-hypostasis-field-background-v1.png": {
+      "4096": 14840,
+      "4608": 18048,
+      "5120": 21123,
+      "5632": 24189,
+      "6144": 25733
+    },
+    "spine-ridge-background-v1.png": {
+      "4096": 14724,
+      "4608": 17946,
+      "5120": 20993,
+      "5632": 24021,
+      "6144": 25519
+    },
+    "baptist-field-background-v1.png": {
+      "4096": 13776,
+      "4608": 16790,
+      "5120": 19663,
+      "5632": 22511,
+      "6144": 23553
+    },
+    "wenut-field-background-v1.png": {
+      "4096": 15558,
+      "4608": 18866,
+      "5120": 22025,
+      "5632": 25199,
+      "6144": 27043
+    },
+    "asimon-field-background-v1.png": {
+      "4096": 16099,
+      "4608": 19395,
+      "5120": 22584,
+      "5632": 25774,
+      "6144": 27506
+    },
+    "dendro-hypostasis-field-background-v1.png": {
+      "4096": 13948,
+      "4608": 17054,
+      "5120": 20007,
+      "5632": 22957,
+      "6144": 24341
+    },
+    "aeonblight-field-background-v1.png": {
+      "4096": 13953,
+      "4608": 17041,
+      "5120": 19958,
+      "5632": 22904,
+      "6144": 24222
+    },
+    "electro-regisvine-field-background-v1.png": {
+      "4096": 13820,
+      "4608": 16996,
+      "5120": 20029,
+      "5632": 23053,
+      "6144": 24473
     },
     "fon-domain-reef-background-v1.png": {
       "4096": 17800,
@@ -1480,7 +1816,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 210
+      "verified": 258
     },
     "domainHunts": {
       "total": 124,
@@ -1554,53 +1890,31 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 3,
+      "verified": 51,
       "pending": [
-        "aeonblight-field-chamber",
         "anemo-field-basin",
-        "array-field-court",
-        "asimon-field-ruins",
         "atocpan-battlegoat-ironclaw-field",
-        "atocpan-lava-field",
-        "atocpan-overseer-ruin",
         "atocpan-peak-cave",
-        "baptist-field-sanctuary",
-        "bathysmal-field-sanctum",
         "chassanion-legend-bubble-room",
         "chenyu-boulder-gully",
         "cineas-legend-chamber",
-        "config-device-field-workshop",
-        "cryo-field-grove",
-        "cryo-hypostasis-field-basin",
         "deianeira-legend-lab",
-        "dendro-hypostasis-field-den",
         "dobharcu-legend-garden",
         "dorn-churldric-cooking-camp",
-        "dornman-windworks",
-        "drifting-snow-court",
-        "electro-field-shelf",
-        "electro-regisvine-field-cave",
-        "emperor-field-cove",
         "enkan-tablet-hollow",
         "erinnyes-corrouge-cleft",
         "fading-veteran-legend-wreck",
         "fairy-knight-twins-legend-court",
-        "field-generator-field-chamber",
-        "flugel-tundra-basin",
         "fontaine-grand-stage",
         "frost-mushteshir-inner-chamber",
         "frost-prism-slime-basin",
-        "geo-field-court",
         "gravity-device-legend-terrace",
-        "hydro-hypostasis-field-cove",
         "icewind-coppelia-field",
         "icewind-coppelius-field",
-        "immortal-construct-root-hollow",
         "iron-viscount-legend-pool",
         "legatus-field-hall",
         "liam-legend-pond",
         "luachra-legend-shelf",
-        "maguu-field-dojo",
         "natlan-sunset-arena",
         "night-trial-atlatl",
         "night-trial-chimalli",
@@ -1616,34 +1930,19 @@
         "night-trial-undead",
         "night-wind-rilai-clearing",
         "ninianne-legend-bank",
-        "nod-battleship-depot",
         "nod-crab-tsar-palace",
-        "nod-duckle-workyard",
-        "nod-gecko-depths",
-        "nod-herra-terrace",
         "nod-hiljetta-peninsula-camp",
         "nod-homesick-wolf-lakeland",
         "nod-mandragora-cliff-foot",
         "nod-moon-crab-arena",
-        "nod-moonfly-hollow",
-        "nod-nightmare-shore",
         "nod-quiet-rim",
         "nod-raskolnikov-upper-ring",
         "nod-sigurd-grave-court",
         "novo-ice-vault",
         "ocean-judge-legend-pool",
-        "oceanid-field-reservoir",
         "ochka-bronzelock-island-court",
-        "ochka-sifting-kiln",
-        "papilla-field-hollow",
-        "primo-field-vault",
-        "pyro-field-grotto",
-        "pyro-hypostasis-field-terrace",
-        "qucusaur-field-cavern",
         "rocky-legend-ledge",
-        "ruin-serpent-field-pit",
         "sacred-mountain-east-isle-dais",
-        "seahorse-field-cavern",
         "sky-maha-pavilion-court",
         "sne-ancient-mouse-den",
         "sne-bandersnatch-ice-cavern",
@@ -1651,27 +1950,16 @@
         "sne-crystal-tree-refuge",
         "sne-furiosa-domain-outlook",
         "sne-novokichev-ore-yard",
-        "spine-trace-ridge",
-        "spiritspeaker-field-grotto",
-        "steam-stabling-depot",
         "sumeru-jadeplume-grove",
         "sumeru-observatory-terrace",
         "swords-of-the-gorge-legend-rift",
         "tepeakak-sappho-bank",
-        "thunder-field-crest",
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
-        "tulpa-field-grotto",
         "tunigi-fragment-vault",
         "vivianne-legend-bank",
-        "wavebinder-tide-cavern",
-        "wenut-field-cavern",
-        "white-rainbow-basin",
-        "windrest-vigil-court",
         "witztli-tristars-camp",
-        "wolflord-field-ruins",
         "yseut-legend-court",
-        "yumka-field-ravine",
         "zapabay-tenochtzitoc-shallows"
       ]
     },

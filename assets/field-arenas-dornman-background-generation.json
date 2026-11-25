@@ -1,0 +1,19 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "windrest-vigil-court",
+      "key": "vigilField",
+      "note": "ドーンマンポート・風息山の石庭",
+      "source": "fallen-vigil-field-background-v1.png",
+      "preview": "fallen-vigil-field-native-preview-v1.png"
+    },
+    {
+      "node": "dornman-windworks",
+      "key": "windwardWorks",
+      "note": "潮風の機関室",
+      "source": "windward-works-background-v1.png",
+      "preview": "windward-works-native-preview-v1.png"
+    }
+  ]
+}

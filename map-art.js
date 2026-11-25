@@ -29,6 +29,16 @@ function openingRects(ctx,grid,bounds,x,y,flip,clip,paint){
  }
  return count;
 }
+function paintMechanismMark(ctx,mark,x,y,flip){
+ const px=x+(flip?-(mark.x+(mark.w??0)):mark.x),py=y+mark.y;
+ if(mark.kind==='rect'){
+  ctx.fillStyle=mark.color;ctx.fillRect(px,py,mark.w,mark.h);
+ }else{
+  ctx.save();ctx.font=`bold ${mark.size}px 'Yu Gothic UI',sans-serif`;ctx.textAlign='center';
+  ctx.lineWidth=3;ctx.strokeStyle='#2a484868';ctx.strokeText(mark.text,px,py);
+  ctx.fillStyle=mark.color;ctx.fillText(mark.text,px,py);ctx.restore();
+ }
+}
 function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
  const left=x+(flip?-bounds.x-bounds.width:bounds.x),top=y+bounds.y;
  // paintSprite slightly overlaps adjacent rectangle edges. Keep boundary layers until fully clear.
@@ -127,9 +137,25 @@ try{
   assets[shadow.species]={...assets[boss.mapIdleArt],h:shadow.height,hover:0,opacity:shadow.opacity};
   $('species').append(new Option(shadow.name,shadow.species));
  }
+ const mechanismScenes=await json('content/weekly-opening-parts.json');
+ const mechanismFiles=new Map();
+ for(const [node,scene] of Object.entries(mechanismScenes)){
+  arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
+  for(const part of scene.parts){
+   if(part.file && !mechanismFiles.has(part.file))mechanismFiles.set(part.file,json('assets/'+part.file));
+  }
+ }
+ for(const scene of Object.values(mechanismScenes)){
+  for(const part of scene.parts){
+   const data=part.file?await mechanismFiles.get(part.file):{box:part.box};
+   assets[part.species]={...data,h:part.h,hover:0,anchorX:part.anchorX??.5,openingPose:true,
+    marks:part.marks,displayName:part.name};
+   $('species').append(new Option(part.name,part.species));
+  }
+ }
  setupPlacementPicker($('species'));
  const imageArt=Object.values(assets).flatMap(data=>[data,data.left,data.rear].filter(Boolean));
- const images=await loadImageSet(imageArt.map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
+ const images=await loadImageSet(imageArt.map(data=>data.source).filter(Boolean),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
  for(const data of imageArt)data.image=images[data.source];
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  let storedRaw=null;
@@ -157,8 +183,7 @@ try{
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}
  $('node').value=openingNode.id;
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
- const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
- $('mapNodePicker').hidden=liveView;
+ const nodePicker=setupMapNodePicker({graph,liveView,fieldBosses:fieldData.fieldBosses,weeklyBosses:weeklyData.weeklyBosses,select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
  function sceneFrame(n,camera){
   return {camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
@@ -245,7 +270,17 @@ try{
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
     const quality=mode==='png'||matchedSprites?null:profile;
     if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
-    paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
+    if(a.image)paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
+    for(const mark of a.marks??[]){
+     paintMechanismMark(ctx,mark,x,y,flip);
+     if(quality && mark.kind==='rect'){
+      cost.total++;
+      const left=x+(flip?-mark.x-mark.w:mark.x);
+      if(left+mark.w>0 && left<ctx.canvas.width && y+mark.y+mark.h>0 && y+mark.y<ctx.canvas.height){
+       cost.visible++;cost.standard++;
+      }
+     }
+    }
     if(a.heldArt){
      const {gripX,gripY,rects}=a.heldArt,dir=flip?-1:1;
      const handX=x+dir*a.h*gripX,handY=y-a.h*gripY;
@@ -269,6 +304,9 @@ try{
      ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
     }
    }
+   if(liveView && !subject.value){
+    for(const mark of mechanismScenes[n.id]?.captions??[])paintMechanismMark(ctx,mark,-camera,0,false);
+   }
   }
   updateDetail();
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
@@ -278,7 +316,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
+   const label=boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    $('status').textContent=liveError||(label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
@@ -287,7 +325,7 @@ try{
   const describe=e=>`${e.species} (${e.x}, ${e.y}) ${e.flip?'反転':'元の向き'}`;
   const line=text=>{const li=document.createElement('li');li.textContent=text;$('diffDetails').append(li)};
   if(diff){for(const e of diff.added)line(`追加 ${e.id}：${describe(e)}`);for(const e of diff.removed)line(`削除 ${e.id}：${describe(e)}`);for(const e of diff.changed){const names={species:'敵種',x:'横位置',y:'足場の高さ',flip:'向き'};line(`変更 ${e.id}［${e.fields.map(k=>names[k]).join('・')}］：${describe(e.before)} → ${describe(e.after)}`)}}
-  nodePicker.update();positionEditor.update();
+  nodePicker.update(renderedDraft);positionEditor.update();
   const visuals=items.map(e=>{
    const a=placementArt(e),y=e.y-a.hover;
    const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
@@ -325,7 +363,7 @@ try{
    subject.replaceChildren(new Option('全員を表示',''));
    const names=new Map((liveSource.nodes[n.id]??[]).map(e=>[e.id,e.name]));
    for(const e of liveItems){
-    const name=names.get(e.id)||layouts[e.species]?.name||e.species;
+    const name=names.get(e.id)||assets[e.species]?.displayName||layouts[e.species]?.name||e.species;
     subject.add(new Option(name+'（'+e.x+', '+e.y+'）',e.id));
    }
    $('liveSubjectControl').hidden=liveItems.length<2;

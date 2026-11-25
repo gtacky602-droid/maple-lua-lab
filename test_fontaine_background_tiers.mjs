@@ -11,6 +11,7 @@ const reports = {};
 const {fileBytesByRectangles}=JSON.parse(await fs.readFile('evidence/scenery-download-tiers.json','utf8'));
 const weekly=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
 const fieldBosses=JSON.parse(await fs.readFile('content/field-boss-spawns.json','utf8')).fieldBosses;
+const components=JSON.parse(await fs.readFile('content/weekly-opening-parts.json','utf8'));
 const {nodes: spawns} = JSON.parse(await fs.readFile('content/enemy-spawns.json','utf8'));
 try {
   for (const group of groups) {
@@ -49,7 +50,7 @@ try {
         await page.locator('#loadLive').click();
         const boss=[...weekly,...fieldBosses].find(b=>b.node===node && b.mapIdleArt);
         const inner=weekly.find(b=>b.innerNode===node && b.rift?.shadowArt);
-        const expectedCount=spawns[node]?.length ?? (boss?(boss.partner?.mapIdleArt?2:1):inner?.rift.pointsU.length??0);
+        const expectedCount=spawns[node]?.length ?? components[node]?.parts.length ?? (boss?(boss.partner?.mapIdleArt?2:1):inner?.rift.pointsU.length??0);
         await page.waitForFunction(n=>window.mapArt.count===n && window.mapArt.diff?.unchanged===n,expectedCount);
         if (await page.locator('#placements button').count()===1) {
           await page.locator('#placements button').click();

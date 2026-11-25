@@ -1,0 +1,12 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "ochka-sifting-kiln",
+      "key": "ochkaKiln",
+      "note": "焚き口の選鉱室",
+      "source": "ochka-kiln-background-v1.png",
+      "preview": "ochka-kiln-native-preview-v1.png"
+    }
+  ]
+}

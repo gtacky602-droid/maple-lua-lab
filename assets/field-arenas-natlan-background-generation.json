@@ -1,0 +1,54 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "qucusaur-field-cavern",
+      "key": "qucusaurField",
+      "note": "ナタ・金焔の岩窟",
+      "source": "qucusaur-field-background-v1.png",
+      "preview": "qucusaur-field-native-preview-v1.png"
+    },
+    {
+      "node": "yumka-field-ravine",
+      "key": "yumkaField",
+      "note": "ナタ・山王の峡谷",
+      "source": "yumka-field-background-v1.png",
+      "preview": "yumka-field-native-preview-v1.png"
+    },
+    {
+      "node": "config-device-field-workshop",
+      "key": "configDeviceField",
+      "note": "ナタ・秘源の機構室",
+      "source": "config-device-field-background-v1.png",
+      "preview": "config-device-field-native-preview-v1.png"
+    },
+    {
+      "node": "papilla-field-hollow",
+      "key": "papillaField",
+      "note": "ナタ・紫影の石窟",
+      "source": "papilla-field-background-v1.png",
+      "preview": "papilla-field-native-preview-v1.png"
+    },
+    {
+      "node": "atocpan-lava-field",
+      "key": "lavaDragonField",
+      "note": "ナタ・アトクパンの溶岩棚",
+      "source": "lava-dragon-field-background-v1.png",
+      "preview": "lava-dragon-field-native-preview-v1.png"
+    },
+    {
+      "node": "atocpan-overseer-ruin",
+      "key": "overseerField",
+      "note": "ナタ・統御の遺構",
+      "source": "overseer-field-background-v1.png",
+      "preview": "overseer-field-native-preview-v1.png"
+    },
+    {
+      "node": "spiritspeaker-field-grotto",
+      "key": "spiritspeakerField",
+      "note": "ナタ・謎煙の修練窟",
+      "source": "spiritspeaker-field-background-v1.png",
+      "preview": "spiritspeaker-field-native-preview-v1.png"
+    }
+  ]
+}

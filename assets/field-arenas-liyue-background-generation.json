@@ -1,0 +1,33 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "oceanid-field-reservoir",
+      "key": "oceanidField",
+      "note": "璃月・軽策の水鏡",
+      "source": "oceanid-field-background-v1.png",
+      "preview": "oceanid-field-native-preview-v1.png"
+    },
+    {
+      "node": "primo-field-vault",
+      "key": "primoField",
+      "note": "璃月・伏竜の石窟",
+      "source": "primo-geovishap-field-background-v1.png",
+      "preview": "primo-geovishap-field-native-preview-v1.png"
+    },
+    {
+      "node": "geo-field-court",
+      "key": "geoField",
+      "note": "璃月・層石の円庭",
+      "source": "geo-hypostasis-field-background-v1.png",
+      "preview": "geo-hypostasis-field-native-preview-v1.png"
+    },
+    {
+      "node": "pyro-field-grotto",
+      "key": "pyroField",
+      "note": "璃月・燠火の岩窟",
+      "source": "pyro-regisvine-field-background-v1.png",
+      "preview": "pyro-regisvine-field-native-preview-v1.png"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "wolflord-field-background-v1.png": {
+      "sourceBytes": 2004126,
+      "sourceSha256": "666d7372a2d5516341630f64f4d2333fe5189c49107e528f86da883e971c98e7",
+      "preview": "wolflord-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14525,
+      "baseSelectedBytes": 14511,
+      "detailFixed13Bytes": 11033,
+      "detailSelectedBytes": 11023,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.293484157986111,
+          "rgbSha256": "1bb28d83d763b274acb4c7e69b5b68b891e59aae4df9292faff33b81b06029f7"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.0490247938368054,
+          "rgbSha256": "328192de5d89f70ce75941046652c90f9759aee6cdc775f12c040033308ef96a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.8626776801215277,
+          "rgbSha256": "2728d3ef36c4e87233533f41b6756a3c9e5ebd6a2c74233d921ec3ec509fb373"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.710101092303241,
+          "rgbSha256": "ea6f5f68ef97db1ee545da46c6cdece9ba4c1340f2db797e08fed633b5bd7b01"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.58038330078125,
+          "rgbSha256": "3db34474dd85ecdf4142da71a734e9b7e42497504da59fe846e0206d164a6f79"
+        }
+      ]
+    },
+    "hydro-hypostasis-field-background-v1.png": {
+      "sourceBytes": 1994177,
+      "sourceSha256": "d86a0320f7b7a4d089d7dd1104f391c6b3cba5ac8da65630fe7a2f643229dc81",
+      "preview": "hydro-hypostasis-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14699,
+      "baseSelectedBytes": 14689,
+      "detailFixed13Bytes": 11115,
+      "detailSelectedBytes": 11105,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.4853877314814814,
+          "rgbSha256": "3da3108f0546c3694d841d574b29189dac6999c1fa8b6ea46a60fe24383f3b76"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.3040974934895835,
+          "rgbSha256": "787fdbc7b1c9354105393925a11859efecddf1692da657b936fb9b56c876e446"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.169528537326389,
+          "rgbSha256": "02cf79664f30e2d1b57a80a753301720fdd77a513c7c9f8422999998d67026fe"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.0549858940972223,
+          "rgbSha256": "bdae1136d199d86ff192bf2a0704cb00bef01d73a45e50059210492826429e65"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.9549741391782407,
+          "rgbSha256": "64d78a02109e39ab42b2edfc2b9b4c1d0a26cd3be152f4cc4dc265117bb69246"
+        }
+      ]
+    },
+    "pyro-hypostasis-field-background-v1.png": {
+      "sourceBytes": 1930062,
+      "sourceSha256": "2a54a23247fea267031488b0970b36ba23129f4da9ddd83fa93a91e612833edf",
+      "preview": "pyro-hypostasis-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14313,
+      "baseSelectedBytes": 14303,
+      "detailFixed13Bytes": 10701,
+      "detailSelectedBytes": 10689,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.9242011176215277,
+          "rgbSha256": "f05582ddcc351722f1fc0bf1bbfe195507fd5955b01670f20163b52b0d2cd855"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.7139259620949074,
+          "rgbSha256": "a53ed789689f4cc822fb71db9c1951143d9d2b51d85562eaf0cb76acb878aa24"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.558955439814815,
+          "rgbSha256": "dd94ce29c9d26189a6158c2b23d2e527eaf473a89e0cd0c51e63e296d7dbf881"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.418224193431713,
+          "rgbSha256": "a501f23a76918cacdd673b90a5761fab3322f7ddc76367f5b86dd1c9163e8703"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.3008671513310186,
+          "rgbSha256": "b929d982be3cc0bdc2c28ec3894e6745b72c5d0714530ed373bbd2533eeffa5a"
+        }
+      ]
+    },
+    "thunder-field-background-v1.png": {
+      "sourceBytes": 1594306,
+      "sourceSha256": "28945334ee064fc5a1d53cade8f79d9d5ef5259ffa2a2eca4b7a637f20af73c1",
+      "preview": "thunder-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 13137,
+      "baseSelectedBytes": 13127,
+      "detailFixed13Bytes": 10059,
+      "detailSelectedBytes": 10049,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.499400951244213,
+          "rgbSha256": "54545932886530e8f865661bfb56f4c9d983e86e67004efdb37931d6fc646ac5"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.3713537145543981,
+          "rgbSha256": "d3309816ff1b0f81166a057c48b1fbb9ce2ff59d6e4f7202dec823f0c720df18"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.2770792643229167,
+          "rgbSha256": "398c2fe50ee1c7b95a42702f7b52f0eeccdc427555d3085bfdd0ba63444dd293"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2009865089699074,
+          "rgbSha256": "9566999aeb0ea0d9969be700720612f49cd8650355bfc036ea22763ac2a392cb"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.137867115162037,
+          "rgbSha256": "14a1d9d8cd36817cf959d677455065fe0969e1c5a43a1b6c6274899212456036"
+        }
+      ]
+    },
+    "array-field-background-v1.png": {
+      "sourceBytes": 1777927,
+      "sourceSha256": "e16ba3414e6db210179ac75fbfa4fd4a572370351e8ed9c7a3a558dc8128bb6c",
+      "preview": "array-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14255,
+      "baseSelectedBytes": 14243,
+      "detailFixed13Bytes": 10837,
+      "detailSelectedBytes": 10825,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.6991418909143519,
+          "rgbSha256": "ebf037f75413479b311dba316c3a65b426c9f7225a7d592f41152d027f0b3ff2"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.5855305989583333,
+          "rgbSha256": "39284182291b6bbb48903414b1114643ce473ac3171f360587f0f36c4bd3f8dd"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.4962858977141205,
+          "rgbSha256": "5abd67ea6309fb39b4f964c46bde0e02b8277ca758c8f88179a9bb1cbffbc873"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.4243955258969907,
+          "rgbSha256": "597cef82c6ae36cbdb038fe9007a5652fab110fd530f9bfc46f156d3aa5cb3e3"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.3589952256944444,
+          "rgbSha256": "64b98047edd2f59c782d3a75a83ac280c771d13fe32e72be3983f00fcb327682"
+        }
+      ]
+    },
+    "maguu-field-background-v1.png": {
+      "sourceBytes": 1650294,
+      "sourceSha256": "b47a6b20f46aa5dbb28ea3cb625c9ad8b10abcd990273a9e3f705f5197bf3fce",
+      "preview": "maguu-field-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 13405,
+      "baseSelectedBytes": 13393,
+      "detailFixed13Bytes": 10363,
+      "detailSelectedBytes": 10351,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.4107259114583333,
+          "rgbSha256": "978ed4d6446a6234e538ab3a395deaf108f859d9a749d877aaabe3d96a6e8e88"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.3060596607349537,
+          "rgbSha256": "b271986cf741b6cc053dd43ead8ff428781c066b831e4f021f5ccb460bf512e6"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.2310203269675926,
+          "rgbSha256": "352c80995868359f4b6a84e84c2dda8e82dc7ad21b0d4c157127fe3ba2f63c42"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.1681608977141205,
+          "rgbSha256": "4ada8b8c008522a8eb23abf50f8854855cbb76ceeefdef0b6ea6f82b46d37c4e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.1148432978877314,
+          "rgbSha256": "9256a8afea3970e5cf9df6e037618bf93441bc1cb4c3ca46c3b13e73262fa3e4"
+        }
+      ]
+    }
+  }
+}

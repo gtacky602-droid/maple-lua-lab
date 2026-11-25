@@ -1,0 +1,1208 @@
+{
+  "fieldPickerCount": 51,
+  "atlasEntry": "ruin-serpent-field-pit",
+  "sceneCount": 48,
+  "verifiedTiers": 240,
+  "scenes": {
+    "ruin-serpent-field-pit": {
+      "source": "ruin-serpent-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14547,
+          "pixelHash": "c77c86f069664a2c43e7e542351909fc647df2c103d0a2f9baa93960736a2211"
+        },
+        "4608": {
+          "bytes": 17769,
+          "pixelHash": "b17b5cef77dc4ecdc3156a881d081f85b51009ae253fc2c3122fc5ce2cdd809b"
+        },
+        "5120": {
+          "bytes": 20840,
+          "pixelHash": "96b8145ab63357e45c9e1bf7b970e70da02cd0cee123deb53c0c06df4e3f842b"
+        },
+        "5632": {
+          "bytes": 23886,
+          "pixelHash": "be580fde724fdbd5fc2c49ed8ebc16ddb6076229370e4c30855fc624fa05312a"
+        },
+        "6144": {
+          "bytes": 25430,
+          "pixelHash": "5dcb5edad4e030097afb81ef2d3c55b7a5bfb9cd63ff9ae619afc4a6147054d9"
+        }
+      }
+    },
+    "windrest-vigil-court": {
+      "source": "fallen-vigil-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16497,
+          "pixelHash": "2caf2e525a9c85b3c09d7a1e54282b53c11ace4e77d720bf2a86434123e4a808"
+        },
+        "4608": {
+          "bytes": 19841,
+          "pixelHash": "616a576118a2526652a5833e72cef03af21595e63fb8c10698fff25dd9831db4"
+        },
+        "5120": {
+          "bytes": 23034,
+          "pixelHash": "f516477df4ab4fcbc0de84f51acb24f6365daeb184c1334ecf4b293d81e36ead"
+        },
+        "5632": {
+          "bytes": 26226,
+          "pixelHash": "26e9a4a1732853ada111e5fae48a2bbf9728f746b319063a2355e65e0e7fcd64"
+        },
+        "6144": {
+          "bytes": 28152,
+          "pixelHash": "d508344463c7cd3243f9e0fe22475dd5e9dc3f025db2bf6f6dd7d944637361bc"
+        }
+      }
+    },
+    "dornman-windworks": {
+      "source": "windward-works-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 17997,
+          "pixelHash": "b3892ceceb55faf63e5c8f973bba610ac0e998fab1b2969874db3b21d83d6bdf"
+        },
+        "4608": {
+          "bytes": 21447,
+          "pixelHash": "6083a5559825bfc6ab66b833f472d6e9ea6f65625cd89671084311a0b49e9d63"
+        },
+        "5120": {
+          "bytes": 24776,
+          "pixelHash": "198d3988165d932054c8c575a765395fddcfaee9d82864e4f54a7a78f6dafe79"
+        },
+        "5632": {
+          "bytes": 28092,
+          "pixelHash": "3309ffa309367b63186ed438692e61f090a5c163e61d0d28fac1eee9810a5e60"
+        },
+        "6144": {
+          "bytes": 30150,
+          "pixelHash": "c795f27da8a6c83f84a708134e1e9b232384dd8a2b0107b67ea6ea07aa149b12"
+        }
+      }
+    },
+    "bathysmal-field-sanctum": {
+      "source": "bathysmal-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13646,
+          "pixelHash": "9013a0c1c853095380ae7d751679c92962421e961a57fba3915d52679a3693de"
+        },
+        "4608": {
+          "bytes": 16768,
+          "pixelHash": "acdbf1c4a61fc020ed2909dfe7b9903f833fe2344946cf643eb1f378226b47a2"
+        },
+        "5120": {
+          "bytes": 19747,
+          "pixelHash": "76f98c67365e769fa7f205a94f7a753885e28417ac25a31a2ff5ba01c7d326ed"
+        },
+        "5632": {
+          "bytes": 22727,
+          "pixelHash": "0b8d103a9e5d2f97c63bfd58f585aa71d608cba19e88857be172c559e6ac064e"
+        },
+        "6144": {
+          "bytes": 24121,
+          "pixelHash": "dd8c198b57b109dc84920722f2303f72674a7d91db1514b7befe20de953b49d8"
+        }
+      }
+    },
+    "tulpa-field-grotto": {
+      "source": "tulpa-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14814,
+          "pixelHash": "c5e6c37466d0025e0d99aa1aa4a238b9ddbae0631cfbddcf5c22553cd14137a1"
+        },
+        "4608": {
+          "bytes": 18080,
+          "pixelHash": "478334522b85f3bdd10f251588e63dca8506beb5bd19d71045efc382bfd56cdd"
+        },
+        "5120": {
+          "bytes": 21237,
+          "pixelHash": "3a96fcbcc0dc5d9c614334139fb22db72b17e33b43b266397b4e90d4f5748b7d"
+        },
+        "5632": {
+          "bytes": 24383,
+          "pixelHash": "39ae5675df91a20c5a643a496b036f0b8585d0849c10e64e4984e12f7a9b96d1"
+        },
+        "6144": {
+          "bytes": 25607,
+          "pixelHash": "b1356851ce8f1c904917c14e26a79fc1ef905c02cabc9978802ab21c5e07acc6"
+        }
+      }
+    },
+    "field-generator-field-chamber": {
+      "source": "field-generator-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14460,
+          "pixelHash": "2ca7f843d29a2495bc9a6878e53cd705f7f607a2ef9eeeb047a53d66ad848ebe"
+        },
+        "4608": {
+          "bytes": 17582,
+          "pixelHash": "81f5ccc475d02033985415791137475d442eb6310a2635f8a53f0fd353f7de67"
+        },
+        "5120": {
+          "bytes": 20617,
+          "pixelHash": "8de366497389389bdbfb41354781e3417e2ad411ea2f5a1ccda5cdf3eac63b35"
+        },
+        "5632": {
+          "bytes": 23607,
+          "pixelHash": "7533f8003ce402d542c6cb67374bdcacf0b6a6bd7e1399fa73b3bdef8e623885"
+        },
+        "6144": {
+          "bytes": 25307,
+          "pixelHash": "419b976eb4705bd419b02917a801e0def3258731b4cb92602ee3341c9e41543d"
+        }
+      }
+    },
+    "seahorse-field-cavern": {
+      "source": "seahorse-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16807,
+          "pixelHash": "7dbdfb8ac2e3a159a0555b64abe316601609a48d8812b5829ed5ab29da678e20"
+        },
+        "4608": {
+          "bytes": 20333,
+          "pixelHash": "888f57024bfa32b0d6e472b76133e4c7fc8c8f1630475818de24e1ffda15c0d0"
+        },
+        "5120": {
+          "bytes": 23720,
+          "pixelHash": "8a31a9c12a115b9af87e3956124232a1f61f8d518701e1d92e035a814b52b8bb"
+        },
+        "5632": {
+          "bytes": 27104,
+          "pixelHash": "d9d37e086394c039409d707cb78ffbfb32194969e8d0996431d40d269d66a1c3"
+        },
+        "6144": {
+          "bytes": 28644,
+          "pixelHash": "3a6e858c9e3844b644a106aa84a9703a2b9cd3a8cff930f5ed40e8d8547ed765"
+        }
+      }
+    },
+    "emperor-field-cove": {
+      "source": "emperor-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13808,
+          "pixelHash": "835a5d3d79a94be6bc0153891e0a5f547a93d71b65c45737d4242e448c012838"
+        },
+        "4608": {
+          "bytes": 16974,
+          "pixelHash": "667883ce57f94a4bdee04fee725aab8ebe421995dd678605986eb0ad2c027bf1"
+        },
+        "5120": {
+          "bytes": 20031,
+          "pixelHash": "00b0f68fc753cb6c9b86ba958a302d2c1537322ee9017d24f1ac19fcdb496a42"
+        },
+        "5632": {
+          "bytes": 23099,
+          "pixelHash": "5abc6ad8e6bcd97e090712900f8858817beb5b33111038463d2ef10189a484ff"
+        },
+        "6144": {
+          "bytes": 24705,
+          "pixelHash": "df1d3e82af65161f16ac05894d08575b1337df5fe7fc37fd3971669bb2831861"
+        }
+      }
+    },
+    "wolflord-field-ruins": {
+      "source": "wolflord-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14615,
+          "pixelHash": "1bb28d83d763b274acb4c7e69b5b68b891e59aae4df9292faff33b81b06029f7"
+        },
+        "4608": {
+          "bytes": 17829,
+          "pixelHash": "328192de5d89f70ce75941046652c90f9759aee6cdc775f12c040033308ef96a"
+        },
+        "5120": {
+          "bytes": 20904,
+          "pixelHash": "2728d3ef36c4e87233533f41b6756a3c9e5ebd6a2c74233d921ec3ec509fb373"
+        },
+        "5632": {
+          "bytes": 23994,
+          "pixelHash": "ea6f5f68ef97db1ee545da46c6cdece9ba4c1340f2db797e08fed633b5bd7b01"
+        },
+        "6144": {
+          "bytes": 25636,
+          "pixelHash": "3db34474dd85ecdf4142da71a734e9b7e42497504da59fe846e0206d164a6f79"
+        }
+      }
+    },
+    "hydro-hypostasis-field-cove": {
+      "source": "hydro-hypostasis-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14801,
+          "pixelHash": "3da3108f0546c3694d841d574b29189dac6999c1fa8b6ea46a60fe24383f3b76"
+        },
+        "4608": {
+          "bytes": 18035,
+          "pixelHash": "787fdbc7b1c9354105393925a11859efecddf1692da657b936fb9b56c876e446"
+        },
+        "5120": {
+          "bytes": 21132,
+          "pixelHash": "02cf79664f30e2d1b57a80a753301720fdd77a513c7c9f8422999998d67026fe"
+        },
+        "5632": {
+          "bytes": 24224,
+          "pixelHash": "bdae1136d199d86ff192bf2a0704cb00bef01d73a45e50059210492826429e65"
+        },
+        "6144": {
+          "bytes": 25904,
+          "pixelHash": "64d78a02109e39ab42b2edfc2b9b4c1d0a26cd3be152f4cc4dc265117bb69246"
+        }
+      }
+    },
+    "pyro-hypostasis-field-terrace": {
+      "source": "pyro-hypostasis-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14414,
+          "pixelHash": "f05582ddcc351722f1fc0bf1bbfe195507fd5955b01670f20163b52b0d2cd855"
+        },
+        "4608": {
+          "bytes": 17538,
+          "pixelHash": "a53ed789689f4cc822fb71db9c1951143d9d2b51d85562eaf0cb76acb878aa24"
+        },
+        "5120": {
+          "bytes": 20563,
+          "pixelHash": "dd94ce29c9d26189a6158c2b23d2e527eaf473a89e0cd0c51e63e296d7dbf881"
+        },
+        "5632": {
+          "bytes": 23575,
+          "pixelHash": "a501f23a76918cacdd673b90a5761fab3322f7ddc76367f5b86dd1c9163e8703"
+        },
+        "6144": {
+          "bytes": 25101,
+          "pixelHash": "b929d982be3cc0bdc2c28ec3894e6745b72c5d0714530ed373bbd2533eeffa5a"
+        }
+      }
+    },
+    "thunder-field-crest": {
+      "source": "thunder-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13230,
+          "pixelHash": "54545932886530e8f865661bfb56f4c9d983e86e67004efdb37931d6fc646ac5"
+        },
+        "4608": {
+          "bytes": 16260,
+          "pixelHash": "d3309816ff1b0f81166a057c48b1fbb9ce2ff59d6e4f7202dec823f0c720df18"
+        },
+        "5120": {
+          "bytes": 19177,
+          "pixelHash": "398c2fe50ee1c7b95a42702f7b52f0eeccdc427555d3085bfdd0ba63444dd293"
+        },
+        "5632": {
+          "bytes": 22061,
+          "pixelHash": "9566999aeb0ea0d9969be700720612f49cd8650355bfc036ea22763ac2a392cb"
+        },
+        "6144": {
+          "bytes": 23277,
+          "pixelHash": "14a1d9d8cd36817cf959d677455065fe0969e1c5a43a1b6c6274899212456036"
+        }
+      }
+    },
+    "array-field-court": {
+      "source": "array-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14344,
+          "pixelHash": "ebf037f75413479b311dba316c3a65b426c9f7225a7d592f41152d027f0b3ff2"
+        },
+        "4608": {
+          "bytes": 17522,
+          "pixelHash": "39284182291b6bbb48903414b1114643ce473ac3171f360587f0f36c4bd3f8dd"
+        },
+        "5120": {
+          "bytes": 20547,
+          "pixelHash": "5abd67ea6309fb39b4f964c46bde0e02b8277ca758c8f88179a9bb1cbffbc873"
+        },
+        "5632": {
+          "bytes": 23581,
+          "pixelHash": "597cef82c6ae36cbdb038fe9007a5652fab110fd530f9bfc46f156d3aa5cb3e3"
+        },
+        "6144": {
+          "bytes": 25167,
+          "pixelHash": "64b98047edd2f59c782d3a75a83ac280c771d13fe32e72be3983f00fcb327682"
+        }
+      }
+    },
+    "maguu-field-dojo": {
+      "source": "maguu-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13494,
+          "pixelHash": "978ed4d6446a6234e538ab3a395deaf108f859d9a749d877aaabe3d96a6e8e88"
+        },
+        "4608": {
+          "bytes": 16586,
+          "pixelHash": "b271986cf741b6cc053dd43ead8ff428781c066b831e4f021f5ccb460bf512e6"
+        },
+        "5120": {
+          "bytes": 19515,
+          "pixelHash": "352c80995868359f4b6a84e84c2dda8e82dc7ad21b0d4c157127fe3ba2f63c42"
+        },
+        "5632": {
+          "bytes": 22425,
+          "pixelHash": "4ada8b8c008522a8eb23abf50f8854855cbb76ceeefdef0b6ea6f82b46d37c4e"
+        },
+        "6144": {
+          "bytes": 23843,
+          "pixelHash": "9256a8afea3970e5cf9df6e037618bf93441bc1cb4c3ca46c3b13e73262fa3e4"
+        }
+      }
+    },
+    "oceanid-field-reservoir": {
+      "source": "oceanid-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14522,
+          "pixelHash": "e95732ac0a269c876ab0b38c105c55e460180beab0a2c03ca71c2c63a3300830"
+        },
+        "4608": {
+          "bytes": 17734,
+          "pixelHash": "d9ddfc281c0a51b9c725d646119fb817d8f3556e39a773f03a2429b1609c3da8"
+        },
+        "5120": {
+          "bytes": 20789,
+          "pixelHash": "b1ba5fc4e2a6ea805ea0284735f12883ce21d2f361f23679e0d34c304373f1b2"
+        },
+        "5632": {
+          "bytes": 23825,
+          "pixelHash": "8254b9ab85fa28c948186bd579d4e02f11712b8ef4b8d95609ce6f9a464d86f8"
+        },
+        "6144": {
+          "bytes": 25425,
+          "pixelHash": "9577ae4925f39842c65ccbdbfa4cd9d9be83d0ff843ac61206acccf350cca3fa"
+        }
+      }
+    },
+    "primo-field-vault": {
+      "source": "primo-geovishap-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15278,
+          "pixelHash": "cc759b87981fa0459a51d20a7562b31c8ce65d2dc859dda86f8a03ed7db39b84"
+        },
+        "4608": {
+          "bytes": 18554,
+          "pixelHash": "581c07175fa28d41a5891edf0bad57267d8c566ac1382140750b183cb998817b"
+        },
+        "5120": {
+          "bytes": 21697,
+          "pixelHash": "22832c029fb7b3072c01f2c131a085ce59c1a4ab925ba5fe04c6256cd92952c0"
+        },
+        "5632": {
+          "bytes": 24839,
+          "pixelHash": "25f9d910b1a50f38b2090e345f9c23f9dad3d83d7a2661686a7f571f2fbbc2a6"
+        },
+        "6144": {
+          "bytes": 26601,
+          "pixelHash": "04fc81574249f52bf3e74a0b983011385f5ada2d8e12140b5288943b6b6b7109"
+        }
+      }
+    },
+    "geo-field-court": {
+      "source": "geo-hypostasis-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 17931,
+          "pixelHash": "3e9554aba21be92c1afc1fe44135fbde134ad021c00a4a34248c0ff937782c5d"
+        },
+        "4608": {
+          "bytes": 21311,
+          "pixelHash": "979f0adb8febe5be23920a9a0e56ea28ebf867cceed5ee5a7ac505a35f7e950b"
+        },
+        "5120": {
+          "bytes": 24600,
+          "pixelHash": "ca4939260079c4ef6555917f19e4a43d4459bf63eb858d6bd7d772bcf76599a5"
+        },
+        "5632": {
+          "bytes": 27876,
+          "pixelHash": "37439434ab1d9439bcaad7be507073b35b3fb05a9f2aed5599186a809f677507"
+        },
+        "6144": {
+          "bytes": 30094,
+          "pixelHash": "f20b1b5e4d16e27b73819000237023e81871e19f17ee8a40eae45e104a9a168d"
+        }
+      }
+    },
+    "pyro-field-grotto": {
+      "source": "pyro-regisvine-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14937,
+          "pixelHash": "52a64f14fee58e692fe71c5857da6c0ab2997d9fe35b817cccaae00411ae37e3"
+        },
+        "4608": {
+          "bytes": 18163,
+          "pixelHash": "2d99773815fd518c3c52f41a5e2ffd12de1df075a648ad7d5e99d2c2162039a2"
+        },
+        "5120": {
+          "bytes": 21274,
+          "pixelHash": "72e18206d942690de24247a8dd28dfcba3955c61d0b8266998c78908d765dfa5"
+        },
+        "5632": {
+          "bytes": 24374,
+          "pixelHash": "06d2aa33a490c4965faa21e47e2e4a33b983e9ffe16a675b360db8a3a1168428"
+        },
+        "6144": {
+          "bytes": 25962,
+          "pixelHash": "085dc31cbec9c86e583056669589fbf0a1f0d174bd74962a09fe0559645da656"
+        }
+      }
+    },
+    "electro-field-shelf": {
+      "source": "electro-hypostasis-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15737,
+          "pixelHash": "b34019701de25e7bc36e715b2e40a3937323511ec5408827e3c2462673b77b3f"
+        },
+        "4608": {
+          "bytes": 19025,
+          "pixelHash": "dfa4209894730ba66abdf8248d6efec044bf04d7e5d2ccde74f2aede45a09d3d"
+        },
+        "5120": {
+          "bytes": 22174,
+          "pixelHash": "fb537e940e81db68d65fdd4c9a50bb006f22708a42927618a0755b78c3c88518"
+        },
+        "5632": {
+          "bytes": 25312,
+          "pixelHash": "c0ffeec63b5c61b7e21a067dd0cb409e438644e54999c416e958c3563af1acda"
+        },
+        "6144": {
+          "bytes": 27158,
+          "pixelHash": "4fd8563f771e2c73e4d2af36f77a17f81c8c67f777d5f04ff26276514f6e797e"
+        }
+      }
+    },
+    "cryo-field-grove": {
+      "source": "cryo-regisvine-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14419,
+          "pixelHash": "8d2f0d3f2fbd44fb388d60072da3d964c71c3ba4f01a9cfc9b7dc9d480eab6e9"
+        },
+        "4608": {
+          "bytes": 17597,
+          "pixelHash": "a551a6a0c2de33fb5a6c416e8abcc9fb6e5d7081d24fe1c0afb677acaf2dee6d"
+        },
+        "5120": {
+          "bytes": 20644,
+          "pixelHash": "4cfbddb0443fac0e2c9c4b998d296c01e32768edda79b9d806ac1d0d407c2454"
+        },
+        "5632": {
+          "bytes": 23658,
+          "pixelHash": "412737e9083b8cb814e3ed4a7be682a6b06a61d61aa92e8ce0e3c6438232432f"
+        },
+        "6144": {
+          "bytes": 25208,
+          "pixelHash": "f2b9e05f16d763b2e564b5ad18cad01e5ba19e403724b9b8341004e1f746f4f1"
+        }
+      }
+    },
+    "qucusaur-field-cavern": {
+      "source": "qucusaur-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16303,
+          "pixelHash": "921206beae7414179f510dd407503bc64f393065538776acab40e71fabde8b6a"
+        },
+        "4608": {
+          "bytes": 19601,
+          "pixelHash": "d1139dc209d93a08f30e1cdc58bf6d0c52f50e6a2bd188b8027eaddd4f6a0c03"
+        },
+        "5120": {
+          "bytes": 22778,
+          "pixelHash": "4e0cc4beb23d62915768e567f40fcec633745b0e75384186f2fddcd77d8e51f8"
+        },
+        "5632": {
+          "bytes": 25964,
+          "pixelHash": "dec729c60c841fbf3d3e388cafab5d0117e8d18e26fe8eddc9b446d4fcc63a13"
+        },
+        "6144": {
+          "bytes": 27826,
+          "pixelHash": "01ec992697c575caac674d63aebf1b106dd3f9c71f1155658d3294ccddf6f707"
+        }
+      }
+    },
+    "yumka-field-ravine": {
+      "source": "yumka-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 17538,
+          "pixelHash": "c95ba0704aafbb206cdd899f2185fe4934faa3d64ad470ef91796f740ecc9117"
+        },
+        "4608": {
+          "bytes": 20972,
+          "pixelHash": "e9907cffd26dab5489e84b0345bd567b6e896c9cb719e49d30d65a55587206dd"
+        },
+        "5120": {
+          "bytes": 24279,
+          "pixelHash": "81c21af03fad4d57623034d965c89d5509628edbec0b26088be75d7f2d6ef2c3"
+        },
+        "5632": {
+          "bytes": 27605,
+          "pixelHash": "b0cc6e1e46acb17dfe7779f6a5154af6440a800805ebf015392d26f547b22dcc"
+        },
+        "6144": {
+          "bytes": 29509,
+          "pixelHash": "fdfd1acddc65d3dbe500a1be55f67fb9347a0710c8fc8a8fa1d5deda4298c713"
+        }
+      }
+    },
+    "config-device-field-workshop": {
+      "source": "config-device-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16814,
+          "pixelHash": "e7c9d3663a22b0623b270edda292dfa9dcc21a355311b06499c536daa1b9b7c3"
+        },
+        "4608": {
+          "bytes": 20214,
+          "pixelHash": "3d9a618ff1e989f3fe21f8f9b43937727b9a9a9074045633a53c4643cd96a28c"
+        },
+        "5120": {
+          "bytes": 23475,
+          "pixelHash": "00a4c9345562c297680bec43d1922222238126ec93217a9114063e234abf06ae"
+        },
+        "5632": {
+          "bytes": 26735,
+          "pixelHash": "283a5ae3d99cfc728c3bce2bcd129b029b976e9a5950fbb8a6323eb3da970c87"
+        },
+        "6144": {
+          "bytes": 28853,
+          "pixelHash": "faa6ded1575e7b3bf68d6831ce9db5b1099cfc61e88a702c8d182dc72ec2d799"
+        }
+      }
+    },
+    "papilla-field-hollow": {
+      "source": "papilla-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14226,
+          "pixelHash": "22aae562b86725af3518a99bf2eaaef7c88a68fd92014d152c67dcbde2edfb29"
+        },
+        "4608": {
+          "bytes": 17430,
+          "pixelHash": "e158ee59a9f1f7bb2cf99814b9774d2d6e9c87d2e5375efd383997661347edba"
+        },
+        "5120": {
+          "bytes": 20499,
+          "pixelHash": "181662388bd2aff3002ba9b3529c4558b957d3bcc2e6a6b6a36e433e5f6a1773"
+        },
+        "5632": {
+          "bytes": 23559,
+          "pixelHash": "66ba8660c3536e679d4fe2713350b31dd2177795e563b386b65ea62fe7129ac0"
+        },
+        "6144": {
+          "bytes": 25087,
+          "pixelHash": "7ba764ea4eaceae8685a2c9b5f9e099b625a4fabafa35c8694d05de9cad84dcb"
+        }
+      }
+    },
+    "atocpan-lava-field": {
+      "source": "lava-dragon-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15824,
+          "pixelHash": "ec1d2ec70d03464060d754588d536a5ca996a65aeb89bbdcb347f90a7dc8b22d"
+        },
+        "4608": {
+          "bytes": 19118,
+          "pixelHash": "8612801bf9ce124708a0337430d21385153f1edb5f37d1a315c6b44af501d92e"
+        },
+        "5120": {
+          "bytes": 22271,
+          "pixelHash": "85645a8e585c13940f3b4f9a7f27c2869c6daeec321182967678e6d6a1fa89b1"
+        },
+        "5632": {
+          "bytes": 25423,
+          "pixelHash": "b767e7c935a35509ec45d2839b380732cfde3ac6107e438cea54bca59e7ab954"
+        },
+        "6144": {
+          "bytes": 27163,
+          "pixelHash": "0c6096a4747c3d8ac3c251be0f658f7a00f233e39760dc8990d5bad14c3d168f"
+        }
+      }
+    },
+    "atocpan-overseer-ruin": {
+      "source": "overseer-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14099,
+          "pixelHash": "67a4e239751595dc4897e8f1bb4f0dbdc90f3582f9a9a070da70d1f732f345ee"
+        },
+        "4608": {
+          "bytes": 17287,
+          "pixelHash": "e495cf18d9d8ce5915e7535779e04d17f17c608019285fc30cd732881be56a8b"
+        },
+        "5120": {
+          "bytes": 20346,
+          "pixelHash": "b619e58630717431c5a640a42c8d7929907da09472683e05676ee79db3c585f5"
+        },
+        "5632": {
+          "bytes": 23356,
+          "pixelHash": "5cc216b42cddf4376ccbb63d2c836c8caf5491002066ad9510e1418623599aa5"
+        },
+        "6144": {
+          "bytes": 24768,
+          "pixelHash": "d260253d0db77fb664bb4612ce1f5842af049abb45e2de29c3fb99ab8daa9d7e"
+        }
+      }
+    },
+    "spiritspeaker-field-grotto": {
+      "source": "spiritspeaker-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14634,
+          "pixelHash": "cfda7afa5590d9fdcefeb0bd545bb56a98c83bb3362e5c63aada108dfb31db64"
+        },
+        "4608": {
+          "bytes": 17828,
+          "pixelHash": "17b14fcef56adedbd84008ea9fbc23f625a0aef8018c2fcf259eb2839ea26e2e"
+        },
+        "5120": {
+          "bytes": 20869,
+          "pixelHash": "4303df2d50e067da1415bf805ec3ef63e381dfb9156707e09625a4a68238799e"
+        },
+        "5632": {
+          "bytes": 23883,
+          "pixelHash": "fc01e3989def678d38065ab3d6d51ea9c7c1a9cff298c63773423ab485a9790a"
+        },
+        "6144": {
+          "bytes": 25403,
+          "pixelHash": "e710691fec27fe649811e8ff868a5fabfe0fdb66c4d851235e008a56559d2628"
+        }
+      }
+    },
+    "nod-duckle-workyard": {
+      "source": "knuckle-duckle-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 17607,
+          "pixelHash": "08d6b3b1b476e8161f906e3478a1e0a8e5dcac7848f76bb00fe2fc81de639b34"
+        },
+        "4608": {
+          "bytes": 21021,
+          "pixelHash": "b883b9efde76438cc38a9fa9d3f548fc638d9451cb6bd3db548ffe20da6a817e"
+        },
+        "5120": {
+          "bytes": 24324,
+          "pixelHash": "615e0e7d40d274df9cdb6ec0b95b1743ace0997bdfdd7de4cd1ec62f3b0885ad"
+        },
+        "5632": {
+          "bytes": 27600,
+          "pixelHash": "705a0c305537e438de329ccb8d4cee2a1f27b69e63ab203a495b0bb26bd81235"
+        },
+        "6144": {
+          "bytes": 29724,
+          "pixelHash": "228ffa9395fe65228712397f2819d2570e384a58ebe3d49855c4a78835a60cba"
+        }
+      }
+    },
+    "nod-battleship-depot": {
+      "source": "battleship-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15723,
+          "pixelHash": "f35dcd4fe4c9412e7d1e70ff0bf7488c46006ea95d102b327e0d31fcffea4f1d"
+        },
+        "4608": {
+          "bytes": 18975,
+          "pixelHash": "40824af2891a59caded106b9404b9dfac08c27091d1028998eb460e93c5245ed"
+        },
+        "5120": {
+          "bytes": 22118,
+          "pixelHash": "0ae7323e14d6dd0f296647f04fba96f1d7ac686a811f5236ba7bb222d423c474"
+        },
+        "5632": {
+          "bytes": 25270,
+          "pixelHash": "0e38020f297c706fce539b99365f8e2ce56d1fff1be5514dc84b2a21646ef69c"
+        },
+        "6144": {
+          "bytes": 27124,
+          "pixelHash": "d879680c8b573e094920da6708f526b0149016965c7ad6e756c5a6e7ce87513f"
+        }
+      }
+    },
+    "nod-herra-terrace": {
+      "source": "frostnight-herra-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15703,
+          "pixelHash": "8fea882207fda1188aa535486d590b4c85a65aa55a48254c6c8d3d951193d418"
+        },
+        "4608": {
+          "bytes": 18987,
+          "pixelHash": "db4ce64380d56dbc6fa7e6d1bef6e516dd1e0d3b9e1fbc6d7d4789fb66327232"
+        },
+        "5120": {
+          "bytes": 22146,
+          "pixelHash": "987c8314f87e49f74809d03a528f075bbb15a0c81ebc13c78fb9c31a4ce9d2dc"
+        },
+        "5632": {
+          "bytes": 25260,
+          "pixelHash": "7b61166f8f584c699160abebaed1da2ba8e998204ce84922303f46db616ac044"
+        },
+        "6144": {
+          "bytes": 27066,
+          "pixelHash": "f4de47e2a797552d3c1639da390c4a150acad34d83b231883f0f590717423247"
+        }
+      }
+    },
+    "nod-nightmare-shore": {
+      "source": "whisperer-nightmares-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13997,
+          "pixelHash": "88072994dc5f7aa2153c51a602903700be58d95ecb799a9c1dfc1bb2e84a5070"
+        },
+        "4608": {
+          "bytes": 17123,
+          "pixelHash": "b53a9ece1da7139c258d017c02993c518c8afda60bfe2eb8717239ca13c635bb"
+        },
+        "5120": {
+          "bytes": 20082,
+          "pixelHash": "3e868738aa8e31c064b90546c73df5a1cc218b9bc8898a90405dcad653b7120a"
+        },
+        "5632": {
+          "bytes": 23032,
+          "pixelHash": "325d0e360dfb18c5a6a17875943c0e6182bb26b0db9145d8307b69a21df5a171"
+        },
+        "6144": {
+          "bytes": 24478,
+          "pixelHash": "5756556a6cf6c93ef15ccb0d58961b4c5e4f20e545bc5637b8e33db113b74f53"
+        }
+      }
+    },
+    "nod-moonfly-hollow": {
+      "source": "moonfly-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16732,
+          "pixelHash": "c4f6726523d6b7f43152971702bcf780212f7ae7a4139ea6fed670171f23c145"
+        },
+        "4608": {
+          "bytes": 20238,
+          "pixelHash": "64622be56587502dbe5953c09b18134e38aa5324828d9b25e97cdf3950f87ebc"
+        },
+        "5120": {
+          "bytes": 23599,
+          "pixelHash": "abc2c419b79a4e926d7f41ac03a812279f932278547757388a79f3b28a870864"
+        },
+        "5632": {
+          "bytes": 26943,
+          "pixelHash": "06d3ba14def9e21a1bc6971c7bf9880ce8918a19253da93d3cc645c956872255"
+        },
+        "6144": {
+          "bytes": 28431,
+          "pixelHash": "bea671b2eb9e894bd518573203e60b662d859f90e0ab364c1b89f4856ed27439"
+        }
+      }
+    },
+    "nod-gecko-depths": {
+      "source": "moongecko-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14660,
+          "pixelHash": "8ab4408f5de18fda945d48f92cb24329cab1d21db819740ba1a449f46a074ff3"
+        },
+        "4608": {
+          "bytes": 17872,
+          "pixelHash": "178406488bbb464da3b640b34ab40cc3da034479f5c79ba1b4ce0f258cca1f66"
+        },
+        "5120": {
+          "bytes": 20945,
+          "pixelHash": "e9b3223053c091a8622f937e6751f2b87cd02c280fe6e467497e1b5493bbd967"
+        },
+        "5632": {
+          "bytes": 24017,
+          "pixelHash": "c424fdbdfbe7f9cc66a04786cb287e351c721670c4a874f729c74239201891d7"
+        },
+        "6144": {
+          "bytes": 25611,
+          "pixelHash": "1727da5f957afe5e78dba86dd3f0e8a6379dd59e8d69a2dd6c2355ddb84c45ed"
+        }
+      }
+    },
+    "wavebinder-tide-cavern": {
+      "source": "wavebinder-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13949,
+          "pixelHash": "bfca747dc3f6f0fa7edd4fd0c5d8dfccc0ba80b61bfc14924918a60c244051a7"
+        },
+        "4608": {
+          "bytes": 17111,
+          "pixelHash": "46cecc1d7549075501e946c9a7295770ed22acb9208575e67fdb225007c34f62"
+        },
+        "5120": {
+          "bytes": 20152,
+          "pixelHash": "1aebf11288f35573ca28a7d0e52d0e3c08a848df73d3646abd41100ecadd331b"
+        },
+        "5632": {
+          "bytes": 23182,
+          "pixelHash": "4f0b25bf75e40439bb5a82672c19c7c576f96fd63ed106b18d7590257a503235"
+        },
+        "6144": {
+          "bytes": 24708,
+          "pixelHash": "db7a48bab6a6d446fe32c8282b728cb5eb5137f261cd44dddbf5743278c12ff5"
+        }
+      }
+    },
+    "ochka-sifting-kiln": {
+      "source": "ochka-kiln-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 17521,
+          "pixelHash": "79e42e8d9687355a91ec9b912b5e73233efad7d1c3073ce5f11edff35fa55d64"
+        },
+        "4608": {
+          "bytes": 20913,
+          "pixelHash": "c7e7eea57496884764aa6dfbeeb103de0eeccc922abf009097542e42dcc092d2"
+        },
+        "5120": {
+          "bytes": 24180,
+          "pixelHash": "015816f757ac0087444082b9bee09d1aedc84dc56b1f8d7b592e1d864431e82d"
+        },
+        "5632": {
+          "bytes": 27440,
+          "pixelHash": "89e4d75cd11a521fc0ec7ff140cc7cd6811eb52ca56f3f080d0178a1c1e9243e"
+        },
+        "6144": {
+          "bytes": 29448,
+          "pixelHash": "9a74d1a96b0600bb2a52404909961be205cce53788307ad14595f118a34f4f0e"
+        }
+      }
+    },
+    "flugel-tundra-basin": {
+      "source": "flugel-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15035,
+          "pixelHash": "2ec8c0320215cdc7506ac47149044d6bf5dff3a59c6b382dcb504eecaf6d7037"
+        },
+        "4608": {
+          "bytes": 18283,
+          "pixelHash": "9554eee7d85249c4ad0f72fbe79fb46cbac53bbcf431f1076cf8fc318382cff7"
+        },
+        "5120": {
+          "bytes": 21392,
+          "pixelHash": "374d79563dc8ebd62d2c7de7768fa08cd574c634e43e87712ced2db45fecd862"
+        },
+        "5632": {
+          "bytes": 24482,
+          "pixelHash": "d676bff6bd7a0b71bf7494c8de09bf3dc24d32373098a4182cd29f228888b401"
+        },
+        "6144": {
+          "bytes": 25958,
+          "pixelHash": "468ec683cdadfb963237044323acd9c20529d42e23ab903c39b9a2428769d2d8"
+        }
+      }
+    },
+    "drifting-snow-court": {
+      "source": "drifting-snow-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14302,
+          "pixelHash": "7f6a105339dcf453529f1a53d35c0791090721c3d4a685c63022ccf98f1cdf0f"
+        },
+        "4608": {
+          "bytes": 17486,
+          "pixelHash": "e3c8f278d01c7270d445d11a72a168b5ba223ae4eb68063b96059de805ef1763"
+        },
+        "5120": {
+          "bytes": 20557,
+          "pixelHash": "8dc0b7ddfc42095bb96ab70e426a1a4caa1c7789b9bfacb00d9c2673615e883d"
+        },
+        "5632": {
+          "bytes": 23581,
+          "pixelHash": "db9fe9bbfa551a8b4a385c3418aeecacaa0dd060b25ef7f2e7f31df08e683423"
+        },
+        "6144": {
+          "bytes": 25069,
+          "pixelHash": "35e3130fb0ebb200dfac99bf3c33b4147ad51b709764fc042b404c567556e019"
+        }
+      }
+    },
+    "immortal-construct-root-hollow": {
+      "source": "immortal-construct-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14607,
+          "pixelHash": "440a1de4c190b66272af38fed4774bec5ba518a6a8ed01b2dc79a71085bd8278"
+        },
+        "4608": {
+          "bytes": 17829,
+          "pixelHash": "40ee644c367c92ebd83dc82fd86c34a9b705990aae786c8d64ff5329c696559e"
+        },
+        "5120": {
+          "bytes": 20892,
+          "pixelHash": "05f7f9867ff586eade7a2309a5f885bc329da702b266bbc48dd11c67fc9d09a8"
+        },
+        "5632": {
+          "bytes": 23976,
+          "pixelHash": "cc43c8f89312a464f31fd386b02c5265d0ae688037fcc8799f8bdfc204273bc1"
+        },
+        "6144": {
+          "bytes": 25528,
+          "pixelHash": "651a48e9b047a89fcabcf2d3a0c179913b727752133ee833c46da0114c96ad0e"
+        }
+      }
+    },
+    "white-rainbow-basin": {
+      "source": "white-rainbow-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16758,
+          "pixelHash": "2cac52e0b0920e4c765f11988e7a4bfdfb8af9f8406806f753b2f8d6630809d9"
+        },
+        "4608": {
+          "bytes": 20018,
+          "pixelHash": "ce3bfa8ec9a1a9b5fdc32b963ce09aa5281034b2b7fc1ad4440ab15e0094ff91"
+        },
+        "5120": {
+          "bytes": 23141,
+          "pixelHash": "82783caa5e80afceb57300e6994ef60c9b27f37e8c8dbe6851cedb2f1cd621a0"
+        },
+        "5632": {
+          "bytes": 26263,
+          "pixelHash": "8a19aed43732a9ec495fe263489a724704c1f49d8ff4e21a480c068293e501b8"
+        },
+        "6144": {
+          "bytes": 28245,
+          "pixelHash": "77b9d0c596cfca8db8b0186539de6755e6033caa654f80f1ff8e521291beebdc"
+        }
+      }
+    },
+    "steam-stabling-depot": {
+      "source": "steam-stabling-depot-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16629,
+          "pixelHash": "6b7231c452c375813ae753d572480ec9f54e8e825dcdb96c320b80f70971c7a9"
+        },
+        "4608": {
+          "bytes": 19955,
+          "pixelHash": "a508a586fe9068f702b87a348e5765fa0577f769b299882fafbe4480aa820ee0"
+        },
+        "5120": {
+          "bytes": 23154,
+          "pixelHash": "4913e33e89c48e849382fc55faed1ff462fb452c92af25ac1eff4ff9a39e3bcc"
+        },
+        "5632": {
+          "bytes": 26334,
+          "pixelHash": "3ae820a17e146cc3a395b88e054970c5ad5b85679c1a0a53839c97278c8b857b"
+        },
+        "6144": {
+          "bytes": 28316,
+          "pixelHash": "613cf6bdff735c50216f99a9d8c54b316a996c62fe11ea516e454cd29b2ece74"
+        }
+      }
+    },
+    "cryo-hypostasis-field-basin": {
+      "source": "cryo-hypostasis-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14840,
+          "pixelHash": "66f116bf10bd2f110d62c43e7868d36f3ca648f3b779623b559e9275e1b3a6d9"
+        },
+        "4608": {
+          "bytes": 18048,
+          "pixelHash": "739b171fda3a3905a742c04debd5e38026d818a24506fadbf51827d343be0237"
+        },
+        "5120": {
+          "bytes": 21123,
+          "pixelHash": "67d8967be121830fe82531e017f92aaf471ca8306c0bdbaa40d8011ae34844d3"
+        },
+        "5632": {
+          "bytes": 24189,
+          "pixelHash": "564d1b8f2585551654ee98a7d207e2bf34bc6895dd9d5566efb804ffa025e3c4"
+        },
+        "6144": {
+          "bytes": 25733,
+          "pixelHash": "736fa7af1775c272dd9abb44336a4b035688d64af68a0086c9d0764eb50ece46"
+        }
+      }
+    },
+    "spine-trace-ridge": {
+      "source": "spine-ridge-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 14724,
+          "pixelHash": "1eacb2566c1ccf477586600a806c152a1b6e424194543694200307b6f36e9c24"
+        },
+        "4608": {
+          "bytes": 17946,
+          "pixelHash": "a54720424643075c8dabe8e4012c7fab1c10ce2b0721d7ebd9e0acd2456512f1"
+        },
+        "5120": {
+          "bytes": 20993,
+          "pixelHash": "6167c0a3e2c642c09aff87528f7434c8309b7b98a5ef20e0238d06a685a89a4e"
+        },
+        "5632": {
+          "bytes": 24021,
+          "pixelHash": "960c42b3b64a6be8f3c967ae433a6e16b8467604817fde5ac7d096000adfbff4"
+        },
+        "6144": {
+          "bytes": 25519,
+          "pixelHash": "591945eca7fbd0b91bcc68a216b7318531eda6d0e6396938aeabf4d994a987df"
+        }
+      }
+    },
+    "baptist-field-sanctuary": {
+      "source": "baptist-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13776,
+          "pixelHash": "9a4e4c19371570f87105f3330e4153fe9edbb01d5b154e59baa1eb9ea4e751a9"
+        },
+        "4608": {
+          "bytes": 16790,
+          "pixelHash": "2aac387b437d2c23e3ffaa7e72753257023c3f6cdbceaa97650baac652dd37dc"
+        },
+        "5120": {
+          "bytes": 19663,
+          "pixelHash": "d51dfcc2afa02188997ff0645951006eda63863ed710c66317e97323f9dbafc5"
+        },
+        "5632": {
+          "bytes": 22511,
+          "pixelHash": "6380c2d54420cc042fcb7045da5f9c5e2d409d8289fe14bffdcfa226b8985767"
+        },
+        "6144": {
+          "bytes": 23553,
+          "pixelHash": "767265e687fb40bed052450a13ef30278c47d74308b992817a07ab94befe0547"
+        }
+      }
+    },
+    "wenut-field-cavern": {
+      "source": "wenut-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 15558,
+          "pixelHash": "44940ec28945df4110d86b6819bd5d49ac73e1443ff382908721e70a04b82465"
+        },
+        "4608": {
+          "bytes": 18866,
+          "pixelHash": "264794960cd564ddba08d4f40be96fcb37afb5712dc12370b806c1917239e997"
+        },
+        "5120": {
+          "bytes": 22025,
+          "pixelHash": "03123dff42a2c2ae56c5661a435f8a39cc1ae7392e52a61f2aab35904acb50fc"
+        },
+        "5632": {
+          "bytes": 25199,
+          "pixelHash": "15c8c6a8fda9102dd75870527bfab287903cf24b575ee9761752b5308215d8e1"
+        },
+        "6144": {
+          "bytes": 27043,
+          "pixelHash": "6d77019b6d2bda3e2c0f2c892d833803a8ac436e0642b3950642858fbc81dd4b"
+        }
+      }
+    },
+    "asimon-field-ruins": {
+      "source": "asimon-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 16099,
+          "pixelHash": "a5cfddc1c52d84df58b07c94e9662eade45cd51a3e21fede015cc88ed7388d87"
+        },
+        "4608": {
+          "bytes": 19395,
+          "pixelHash": "128cd16adda7df83c7f22749e7fc3cf0e2f7a288748e0e2be0bac369731e3102"
+        },
+        "5120": {
+          "bytes": 22584,
+          "pixelHash": "b26a634fab6179edc76ab53ec4e9b0ca5f0c9e8e12906e061758823615613f41"
+        },
+        "5632": {
+          "bytes": 25774,
+          "pixelHash": "31b78a8d9ffc8025bcff6c28975eac3a2c6e80e83b8c76ee05f6661cf95be423"
+        },
+        "6144": {
+          "bytes": 27506,
+          "pixelHash": "d2b3b6d8b150030b1320f2a838b92a05e4bf0daae00ae7bbafc5c21316bb93cc"
+        }
+      }
+    },
+    "dendro-hypostasis-field-den": {
+      "source": "dendro-hypostasis-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13948,
+          "pixelHash": "70f34209817aad4c24c10793ba03062f3f6e7fad7510bbf6f871326241b31310"
+        },
+        "4608": {
+          "bytes": 17054,
+          "pixelHash": "996a0519901a8805767e46c26eb14670355dafa11a0c72432348b9ff0361b1e8"
+        },
+        "5120": {
+          "bytes": 20007,
+          "pixelHash": "64b61b020e661fa1468c2eef2f7662c6172922f35580833fb95ab27147c4eaaa"
+        },
+        "5632": {
+          "bytes": 22957,
+          "pixelHash": "033bc067a046a1a346cc0077c7816901229429ef6390de88714374f4190833a0"
+        },
+        "6144": {
+          "bytes": 24341,
+          "pixelHash": "bf789d60000a80a573439b3b281cce27d6401eecbe298b740e1d4493e6a64048"
+        }
+      }
+    },
+    "aeonblight-field-chamber": {
+      "source": "aeonblight-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13953,
+          "pixelHash": "815059f8c7418e0625b48fc8ff514056682a00ee5b5a8e2e190f675c02161935"
+        },
+        "4608": {
+          "bytes": 17041,
+          "pixelHash": "a90027e56bd2310e27933a1f1e65b3114d3278a4c647ee2acdc78874a7a5e256"
+        },
+        "5120": {
+          "bytes": 19958,
+          "pixelHash": "f63983446d618d8c318a763e49df46a762b8fb3a8a70968b31b774ff5dbe5327"
+        },
+        "5632": {
+          "bytes": 22904,
+          "pixelHash": "566055060d151e364d37e948b32e9e84ceafb5a69611a570b8288262a4bfe252"
+        },
+        "6144": {
+          "bytes": 24222,
+          "pixelHash": "e60e68404afce762d1b5ca6a086f16d1b471d8af1d2613e7d65ee85311a1c7a0"
+        }
+      }
+    },
+    "electro-regisvine-field-cave": {
+      "source": "electro-regisvine-field-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 13820,
+          "pixelHash": "2b6b247f944c66fa42b3703b07e5448e5c8bfe6fd2ac4cf8e110ddc2b21656a9"
+        },
+        "4608": {
+          "bytes": 16996,
+          "pixelHash": "66961ac1e40cfea4679df0312cd0f2b0398aec13302121fab9a670e2743cf70c"
+        },
+        "5120": {
+          "bytes": 20029,
+          "pixelHash": "6d540bea0f732a042b494293a937a87b5b43400aa10236a54858cecd9cbdfe08"
+        },
+        "5632": {
+          "bytes": 23053,
+          "pixelHash": "1b50927c956571e884fd85e98d831eba37df5bb226c15aca31f2cbedd72be536"
+        },
+        "6144": {
+          "bytes": 24473,
+          "pixelHash": "5c0d00cf8576f340f662ad5888a99df225d340984c58abd8ebfda7a21ffecbe5"
+        }
+      }
+    }
+  }
+}

@@ -164,6 +164,10 @@ M地図から背景比較を開くと、その地点の本編の敵配置を表�
 
 19地点の背景Luaの合計は333,179 B（4,096矩形）から559,628 B（6,144矩形）。複数の背景を並行して作れるようにし、4プロセスで作った背景を1プロセスで再生成した。全40ファイルの内容が一致した。[画像の生成指示](../assets/chenyu-south-background-generation.json) · [各段階の表示](../evidence/chenyu-south-background-tiers-browser.json) · [再生成](../evidence/chenyu-south-rebuild.json)
 
+フィールドボス48会場で、同じ512×288の原画を4,096、4,608、5,120、5,632、6,144矩形で比較できる。48会場合計の背景Luaは最軽量で729,677 B、最高精細で1,262,197 B。元絵に対するRGB各成分の平均絶対誤差は0～255の尺度で3.29と2.60だった。会場・地域・ボス名で絞り込んでから、背景を拡大すると個々の地形の輪郭を見比べられる。[48会場の最軽量版](../evidence/field-arenas-4096-gallery.webp) · [240段階の表示検査](../evidence/field-arena-backgrounds-browser.json)
+
+織房・潮位較正室・扉の対局・鯨の腹中では、Luaの戦闘コントローラから取得した開幕の本体・付属物・表示を個別に比較できる。織房では中央の本体と左右の杼を合わせて標準10,760矩形、16色では2,964矩形。再検証するときは `python tools/build_weekly_mechanisms.py` で照合用のLua描画命令を書き出し、ラボを起動して `node test_weekly_mechanisms.mjs` を実行する。[比較画像](../evidence/weekly-mechanisms-gallery.png) · [4会場の画素照合](../evidence/weekly-mechanism-placements.json)
+
 週ボス配置表の18会場すべてに、4,096～6,144矩形の5段階を用意した。アペプの地下聖所、呑星の鯨の星海、召使の凶月、源焔の炉は専用の仮原画を新しく作った。鯨の腹中、左道の結合格子、扉の再現盤、織房、潮位較正室には既存の原画を使った。元画像と復号画像を並べ、気に入った段階のLuaをその場で書き出せる。[9会場の4,096矩形版](../evidence/weekly-arenas-4096-gallery.png) · [45段階の画素照合](../evidence/weekly-arenas-background-tiers-browser.json) · [原画・生成指示](../assets/weekly-arenas-background-generation.json)
 
 稲妻の御前試合場では淑女の氷形態が床に立ち、鳴神追憶では変身前の雷電が左を向いて薙刀を持つ。薙刀は手の位置を基準にした10個の矩形で、Lua戦闘とM地図が同じ配置データを読む。背景だけを比較するには「キャラは両方とも元PNG」を選び、ドット絵も比較するには解除する。御前試合場は4,096矩形で16,156 B、鳴神追憶は14,358 B。どちらも5段階から選んでLuaを書き出せる。[背景の5段階](../evidence/inazuma-weekly-background-tiers-browser.json) · [原画の生成指示](../assets/inazuma-weekly-background-generation.json)

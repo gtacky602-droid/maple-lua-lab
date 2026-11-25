@@ -1,0 +1,12 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "wavebinder-tide-cavern",
+      "key": "wavebinderField",
+      "note": "ノヴォキッチェヴ・西港の潮洞（仮配置）",
+      "source": "wavebinder-field-background-v1.png",
+      "preview": "wavebinder-field-native-preview-v1.png"
+    }
+  ]
+}

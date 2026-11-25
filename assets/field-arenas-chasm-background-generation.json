@@ -1,0 +1,12 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "ruin-serpent-field-pit",
+      "key": "ruinSerpentField",
+      "note": "層岩巨淵・巨蛇岩穴の掘削場",
+      "source": "ruin-serpent-field-background-v1.png",
+      "preview": "ruin-serpent-field-native-preview-v1.png"
+    }
+  ]
+}

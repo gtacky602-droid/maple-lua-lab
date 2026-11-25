@@ -1,0 +1,48 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "ochka-kiln-background-v1.png": {
+      "sourceBytes": 2562317,
+      "sourceSha256": "49b647266cc4b56b92958c28edf9a7b280a0d102aa51fe4d3396aeb5e433d3d1",
+      "preview": "ochka-kiln-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17435,
+      "baseSelectedBytes": 17421,
+      "detailFixed13Bytes": 11937,
+      "detailSelectedBytes": 11929,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.679990415219907,
+          "rgbSha256": "79e42e8d9687355a91ec9b912b5e73233efad7d1c3073ce5f11edff35fa55d64"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.274791576244213,
+          "rgbSha256": "c7e7eea57496884764aa6dfbeeb103de0eeccc922abf009097542e42dcc092d2"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.964118109809028,
+          "rgbSha256": "015816f757ac0087444082b9bee09d1aedc84dc56b1f8d7b592e1d864431e82d"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.696508336950232,
+          "rgbSha256": "89e4d75cd11a521fc0ec7ff140cc7cd6811eb52ca56f3f080d0178a1c1e9243e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.457377115885417,
+          "rgbSha256": "9a74d1a96b0600bb2a52404909961be205cce53788307ad14595f118a34f4f0e"
+        }
+      ]
+    }
+  }
+}

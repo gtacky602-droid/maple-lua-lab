@@ -1,0 +1,47 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "baptist-field-sanctuary",
+      "key": "baptistField",
+      "note": "スメール・三環の祭場",
+      "source": "baptist-field-background-v1.png",
+      "preview": "baptist-field-native-preview-v1.png"
+    },
+    {
+      "node": "wenut-field-cavern",
+      "key": "wenutField",
+      "note": "スメール・風蝕の砂洞",
+      "source": "wenut-field-background-v1.png",
+      "preview": "wenut-field-native-preview-v1.png"
+    },
+    {
+      "node": "asimon-field-ruins",
+      "key": "asimonField",
+      "note": "スメール・砂鏡の遺構",
+      "source": "asimon-field-background-v1.png",
+      "preview": "asimon-field-native-preview-v1.png"
+    },
+    {
+      "node": "dendro-hypostasis-field-den",
+      "key": "dendroHypostasisField",
+      "note": "スメール・枯蔓の洞",
+      "source": "dendro-hypostasis-field-background-v1.png",
+      "preview": "dendro-hypostasis-field-native-preview-v1.png"
+    },
+    {
+      "node": "aeonblight-field-chamber",
+      "key": "aeonblightField",
+      "note": "スメール・機翼の間",
+      "source": "aeonblight-field-background-v1.png",
+      "preview": "aeonblight-field-native-preview-v1.png"
+    },
+    {
+      "node": "electro-regisvine-field-cave",
+      "key": "electroVineField",
+      "note": "スメール・紫脈の石窟",
+      "source": "electro-regisvine-field-background-v1.png",
+      "preview": "electro-regisvine-field-native-preview-v1.png"
+    }
+  ]
+}

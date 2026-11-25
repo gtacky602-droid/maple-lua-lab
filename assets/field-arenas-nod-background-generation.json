@@ -1,0 +1,47 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "nod-duckle-workyard",
+      "key": "duckleField",
+      "note": "ナド・クライ・工房裏の試運転場",
+      "source": "knuckle-duckle-field-background-v1.png",
+      "preview": "knuckle-duckle-field-native-preview-v1.png"
+    },
+    {
+      "node": "nod-battleship-depot",
+      "key": "battleshipField",
+      "note": "ナド・クライ・陸巡艦の整備庫",
+      "source": "battleship-field-background-v1.png",
+      "preview": "battleship-field-native-preview-v1.png"
+    },
+    {
+      "node": "nod-herra-terrace",
+      "key": "herraField",
+      "note": "ナド・クライ・霜夜の石壇",
+      "source": "frostnight-herra-field-background-v1.png",
+      "preview": "frostnight-herra-field-native-preview-v1.png"
+    },
+    {
+      "node": "nod-nightmare-shore",
+      "key": "nightmareField",
+      "note": "ナド・クライ・煙雲の山の昏き浜",
+      "source": "whisperer-nightmares-field-background-v1.png",
+      "preview": "whisperer-nightmares-field-native-preview-v1.png"
+    },
+    {
+      "node": "nod-moonfly-hollow",
+      "key": "moonflyField",
+      "note": "ナド・クライ・幻月蝶の岩窟",
+      "source": "moonfly-field-background-v1.png",
+      "preview": "moonfly-field-native-preview-v1.png"
+    },
+    {
+      "node": "nod-gecko-depths",
+      "key": "moongeckoField",
+      "note": "ナド・クライ・波追いの峠の月石洞",
+      "source": "moongecko-field-background-v1.png",
+      "preview": "moongecko-field-native-preview-v1.png"
+    }
+  ]
+}

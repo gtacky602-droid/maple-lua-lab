@@ -1,0 +1,19 @@
+{
+  "origin": "Existing lab arena rasters retained at original resolution.",
+  "scenes": [
+    {
+      "node": "electro-field-shelf",
+      "key": "electroField",
+      "note": "モンド・雷紋の岩棚",
+      "source": "electro-hypostasis-field-background-v1.png",
+      "preview": "electro-hypostasis-field-native-preview-v1.png"
+    },
+    {
+      "node": "cryo-field-grove",
+      "key": "cryoField",
+      "note": "モンド・霜花の洞窟",
+      "source": "cryo-regisvine-field-background-v1.png",
+      "preview": "cryo-regisvine-field-native-preview-v1.png"
+    }
+  ]
+}

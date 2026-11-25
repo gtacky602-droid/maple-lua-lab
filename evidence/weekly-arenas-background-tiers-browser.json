@@ -49,14 +49,14 @@
   },
   "narwhal-inner-echo": {
     "source": "narwhal-inner-background-v1.png",
-    "count": 0,
-    "sourceCanvas": "f9e3f8f62e59dd3b764611821dfa928a616a091f29a50843d0c5955b01c371f0",
+    "count": 1,
+    "sourceCanvas": "57a10c218fde7b4864131dc41e033d15585c615c4d5c3acbd8fd83223d4b60b9",
     "tiers": {
-      "4096": "840df7b24adfe7683510fb1d56073db0c9c372bf251211a7fd9255380cc189ec",
-      "4608": "12ce0f0708fb7c44dc35eb03149cf247a413a9af2340a6d2b7b90a9f918ac681",
-      "5120": "e0fee53a9fa6233321707ba35f33a63796bcb37b8070b16452c2ddb66718cbe0",
-      "5632": "aab55f0bc5601b5ad2762823de3bc4d43eb8dff149b02f82afe05f405812f82c",
-      "6144": "62173d19afb92764d666580fa9d2e6e1acf2ebd1f97e29dac39937627ff0e1d8"
+      "4096": "1a7dc38113d461693e24e2b4d4a6708c58eac4a6546edf937d9a3f5ae7dc351d",
+      "4608": "02c5abd7ea0fae3e2cb94e588ba5a11f8b24c61f4e9d3daa725145fbfc07318e",
+      "5120": "f97106a9d54da94c6c3a010fcc33ab9d7e7087168ac5dbfd9e5ad113f862432f",
+      "5632": "c30e536335b3b00ee8d8ffc12e1c0cce09644c78fbae694ab7a2f06d29b2866a",
+      "6144": "9a73f4e2f10f3fb65b423c8066a21d63c45c23179aef15986a63f5d8fb62ea2c"
     }
   },
   "sumeru-heretic-lattice": {
@@ -73,38 +73,38 @@
   },
   "mond-gate-chess-court": {
     "source": "gate-court-background-v1.png",
-    "count": 0,
-    "sourceCanvas": "1cf5b9c609f39f493f5704e6a2d589369066ee2754b9bbe1e72d527a9c6f8d73",
+    "count": 1,
+    "sourceCanvas": "5096f50ca23d81241f1610d6fa965941eb37f2f086c4df44c8ee1c31629b0866",
     "tiers": {
-      "4096": "79d0306b0624bc9e14bd2f8cac0653a636d5b9c2d1d3feb96d57ee837e5a543e",
-      "4608": "a268879a84ced5f5fb59e94ed1ae07ba7299745b2bd9d97c8ddebac283481e1d",
-      "5120": "7befb87c66883a036596685c2f796b044331098e8819e729133c207ce6b5f7fd",
-      "5632": "31df3d2b4dc428fe09812127640c6c415029c496e65eb4069dab9c17576aa875",
-      "6144": "5c154dfc7ccaf44aadf4d28a827b942e0ca91f513701d0b0f7d66c9857e8f25a"
+      "4096": "57fd53f4ed0a98ca1b95c7452a4f0cd4e5998bdcd9a17a4e4e1049432c727261",
+      "4608": "e2a8f0ab4c4b5c91929e6fda6d9410b52766fa5b4be820fd2383e6de0caa2f92",
+      "5120": "435ee0eeb79ad30814f000e5db5c8f53ed8f3df01787a4facc7f3c36f4fe856d",
+      "5632": "46a192a6588aedbc724608a26713656f14a8084533fd9929d1d662c48e7831d2",
+      "6144": "25bbefa9f508ffb9fe17cae824601c9966bc9c8fb7ce0e9f38aca53cd5e6b1a0"
     }
   },
   "buried-weaving-room": {
     "source": "buried-weaving-background-v1.png",
-    "count": 0,
-    "sourceCanvas": "08cd71b7a9cfb9193184a808f2f466d833dba771461a136c80f31f91c0c9edca",
+    "count": 3,
+    "sourceCanvas": "62bed9bd391abd7bcac45e5dc2e14cd0942dcd5eee61ca384a4e82c78b2b2681",
     "tiers": {
-      "4096": "9586010be2eda6ff406704714cb35c7cb91ba2a662524a6faabff575ee02807e",
-      "4608": "1047ca81fbec4bc63df1c1229553775fbfdd10d0e9cdce6c7b9ce1c7e74f52bc",
-      "5120": "1fd66881acd14e4080b27410ea7f710d7b0fd0ed66127ee3b3bb2c93c91c42f0",
-      "5632": "fd77babbf330cd973353a2b5d455f81b030b0c1bc990790456fa2e538cae2b33",
-      "6144": "34df661e8a5524dfa4ec5e3b0411a79c6fa9424f5132b1a54a06c50f951c8744"
+      "4096": "7833323e569d209cc86fe556d624d7ff3e8eed41344011bfc090faa07fcbe94f",
+      "4608": "2358ec930b2567154798c8a12bcc016ab11bba5908f701f153a098430658b256",
+      "5120": "005601e14cf903e0a52ca733ddee03c900195a0077de54be7825c186013754fa",
+      "5632": "34b893d88858f4eada2d5441fd8bc2e8453f66d6d4857bf24eb4334858fbbdbd",
+      "6144": "effb7d2f91982f7d49c6b25f058f105242ceb729c3ee6775a67e75b7fde2745a"
     }
   },
   "tide-calibration-hall": {
     "source": "tide-calibration-background-v1.png",
-    "count": 0,
-    "sourceCanvas": "1f90082a469c26d593a1944642f7abc19841a0c2f60660a14b236018f7ab1ccb",
+    "count": 3,
+    "sourceCanvas": "7dcabe8aeb6f5916ceb4b60dd5cbbe250067c85a41354b73eea2352972cc94c5",
     "tiers": {
-      "4096": "901facab4acbcf3b683afbc0964e1874e98e13bbe40f0dc4c6c5c1045665756b",
-      "4608": "a486a3fe7c875d994f2577dbeba5ff77b8858eaa0b63aca0b4a5a38b39d60cdd",
-      "5120": "52020504f46ab613079b4f62f58f9549f37dd427c8a16571cb38df28c1748c7c",
-      "5632": "04d719e2630b39e09fef1a2e179c41632fe2e56e3ab02373642d5a592384be6b",
-      "6144": "81bb6414f4529e2a40d4e4597cf562031383a83ff375b7d810ee28450c92368f"
+      "4096": "d4d9e81497a6281eb2cdca974585b2f9c553e79354f4684f9d8a304a4d8ecb21",
+      "4608": "fd761a16c8ddda95e59ff095d5d3074cbdbe5312570a83d28096ced6ae7aa6ad",
+      "5120": "5e23c5b76ab6abc020b67f6b739d7275a780df65435d10e36e65ff7945c44622",
+      "5632": "c7f393631924725172a3f338a8fd7184e217ae43be06662d13937ade48519358",
+      "6144": "3955a2ae3a9b63ecb0886fb2c1cca8c7b245d2797ebe7cdfa8e35406ead61629"
     }
   }
 }

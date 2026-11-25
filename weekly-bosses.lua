@@ -323,6 +323,12 @@ return function(C,configs,controllers)
   end
   return s
  end
+ function C.captureWeeklyScenery(s,mode,profile)
+  local slot,spec=C.currentWeeklyBoss(s)
+  local f={draws={},weeklyBoss={}}
+  if slot then controllers[spec.controller].observe(f,s,slot,spec,mode,profile) end
+  return f
+ end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);local slot,spec=C.currentWeeklyBoss(s)
   local portal=f.storyNearbyPortal

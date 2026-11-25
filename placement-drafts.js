@@ -8,7 +8,9 @@ export function liveNodeDraft(input,graph,nodeId,species,boss){
  const items=input.nodes[nodeId];
  if(boss && items===undefined){
   let actors;
-  if(boss.node===nodeId && boss.mapIdleArt){
+  if(boss.openingParts){
+   actors=boss.openingParts.map(({id,species,x,y,flip})=>({id,species,x,y,flip}));
+  }else if(boss.node===nodeId && boss.mapIdleArt){
    actors=[{id:boss.id,species:boss.mapIdleArt,x:boss.home??boss.center,y:boss.floorY,flip:boss.openingPose?.flip??false}];
    if(boss.partner?.mapIdleArt){
     actors.push({id:'boss-'+boss.partner.entity,species:boss.partner.mapIdleArt,
