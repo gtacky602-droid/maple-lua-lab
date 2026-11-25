@@ -88,6 +88,10 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 M地図の「狩場・任意戦」には、狩場と脇部屋に加えて入口側の地点も出る。璃月・港東の荷揚げ波止場を選ぶと、採石斜面のLv34と港南の征討入口のLv38が並ぶ。行き先を選ぶと、必要Lvと途中の門を確認できる。 [港東の二つの狩場](../evidence/world-hunt-multiple-entrances.png)
 
+フォンテーヌのベリルの秘境周辺と水門脇の脇部屋に、石造水路と水車室の仮背景を追加した。配置比較を開くと、同じ画角で左は元PNG、右はLuaで6,144矩形を復号した512×288の画像になる。チェックを外すと両側に元の背景が出る。本編は元PNGで表示する。Luaでは入江の北岸から地図で探し、二つの入口を通って北岸に戻るところまで確認した。 [ベリル沿岸の比較](../evidence/beryl-coast-scene-comparison.png) · [水門の比較](../evidence/beryl-sluice-scene-comparison.png) · [入場と帰路](../evidence/beryl-background-lua-route.json)
+
+4,096矩形の土台と2,048矩形の細部を別々に圧縮した。R61C方式では短くなるブロックだけを採用し、2枚の圧縮済みLua文字列は57,942から57,898バイトになった。4,096〜6,144矩形の5段階で、固定幅と可変幅をLuaで復号した画像を照合した1,474,560画素はすべて一致した。矩形化で元PNGに生じる色差は測定値に残した。 [容量と画素の照合](../evidence/beryl-background-compression.json) · [移植用Luaデータ](../assets/fon-beryl-native-backgrounds.lua) · [仮背景の生成記録](../assets/fon-beryl-background-generation.json)
+
 Sites由来の追加狩場103か所と脇部屋83か所をLuaで往復し、計372方向の通行と全186地点の訪問の保存復元を確認した。手前の地点より必要Lvが高い167地点は、1Lv手前で地図に条件が出て現地で入場が止まることを確認。試験は地域ごとの開始地点とレベルを用意し、移動中の被弾を抑えて実施した。 [地点IDごとの実移動記録](../evidence/world-hunt-routes-lua.json)
 
 ChromeではLv36で港東からLv34の採石斜面へ往復し、Lv38の入口には地図上で通行条件が出ることを確認した。モンドの脇部屋では、Lv14で現地の門が開かず、Lv15で地図の経路を往復して訪問を保存できた。 `python -X utf8 test_world_hunt_routes.py` で試験の記録とセーブを作り、ラボ起動中に `node test_world_hunt_routes.mjs` で再現できる。 [脇部屋のLv条件](../evidence/world-hunt-pocket-level-gate.png) · [Chromeの記録](../evidence/world-hunt-routes-browser.json)

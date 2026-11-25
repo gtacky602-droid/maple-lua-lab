@@ -1,0 +1,19 @@
+{
+  "host": "fon-wp-50035",
+  "level": 100,
+  "route": [
+    "sites-hunt-50034",
+    "sites-hunt-50034-pocket-1"
+  ],
+  "returnedTo": "fon-wp-50035",
+  "placement": {
+    "sites-hunt-50034": {
+      "background": "fontaineBerylCoast",
+      "enemies": 48
+    },
+    "sites-hunt-50034-pocket-1": {
+      "background": "fontaineBerylSluice",
+      "enemies": 1
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cases": {
+    "sites-hunt-50034": {
+      "source": "fon-beryl-coast-background-v1.png",
+      "decoded": "fon-beryl-coast-native-preview-v1.png",
+      "placeCount": 48,
+      "samePlacementAndCamera": true,
+      "comparisonRestoredAfterToggle": true,
+      "errors": [],
+      "screenshot": "beryl-coast-scene-comparison.png",
+      "leftSha256": "95e9be70e31747de5278e48d832c71a5094f8ee47800568af1fb354014bcda49",
+      "rightSha256": "60c211b89d84ef1db223d5c9beae5a92c1080d415807024f829c2c8e7aee64a2"
+    },
+    "sites-hunt-50034-pocket-1": {
+      "source": "fon-beryl-sluice-background-v1.png",
+      "decoded": "fon-beryl-sluice-native-preview-v1.png",
+      "placeCount": 1,
+      "samePlacementAndCamera": true,
+      "comparisonRestoredAfterToggle": true,
+      "errors": [],
+      "screenshot": "beryl-sluice-scene-comparison.png",
+      "leftSha256": "6f4100c8e875a8d456bfeb90b3cc6922b8eb4c976279b4321309dc45c1130d9b",
+      "rightSha256": "adbab33f660fbb14176a02092d121bc2038afa29b003d6ea0acd83d5c8ef401c"
+    }
+  }
+}

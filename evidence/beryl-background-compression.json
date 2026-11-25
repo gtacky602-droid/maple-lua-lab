@@ -1,0 +1,90 @@
+{
+  "codec": "R62C MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "fon-beryl-coast-background-v1.png": {
+      "sourceBytes": 1773615,
+      "sourceSha256": "86aa4a1c6aa7791254df6b7f7d75aa7675f6cdc147f01c0d8f0f936e347dc236",
+      "preview": "fon-beryl-coast-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17755,
+      "baseSelectedBytes": 17743,
+      "detailFixed13Bytes": 12147,
+      "detailSelectedBytes": 12139,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.421427408854167,
+          "rgbSha256": "2a52917d36152afef7537ee7817dd14caf18b07814c5f5f52424f285f3b93be0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.006435818142361,
+          "rgbSha256": "4361874e7b79fddf38392ef2ca271ce58320aadb183c1fbb2426c135cc4a3266"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.697543674045139,
+          "rgbSha256": "295ec677b9a8ff79d47839ed7be24d643f73c2efe53dbd7ba337758a8b78587d"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.4444986979166665,
+          "rgbSha256": "7542b861116b24f112eaf2a865bbed5e0da5b0b08697c7cad94626b4b18c7737"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.2229817708333335,
+          "rgbSha256": "983f0c04782b541888c01979279178a563830e2af7839ba6141a50ef5820d27b"
+        }
+      ]
+    },
+    "fon-beryl-sluice-background-v1.png": {
+      "sourceBytes": 1527623,
+      "sourceSha256": "ac169bd5f25e43a86ccb2145a2e6935f89353ffcdea363f115990ef50c94d679",
+      "preview": "fon-beryl-sluice-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16371,
+      "baseSelectedBytes": 16357,
+      "detailFixed13Bytes": 11669,
+      "detailSelectedBytes": 11659,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.3154839409722223,
+          "rgbSha256": "507f736fab760dfa33b555d40eee275e768dfb700bf4251dfdd7548ddec61ce6"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.085559986255787,
+          "rgbSha256": "5c693f7d51d8dd91fc0b501a914a89bd6e7c0d62fd7c9e38440e86a1b5299491"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.9316993995949074,
+          "rgbSha256": "3e0603c769721fe40f5a16b6986d2ab9479dd68acbeb8068ee648015b6eb0bfb"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.8060167100694444,
+          "rgbSha256": "27c9fe972d5529297f3f78818fb0d061f41a74f85317d410b3218d1b62db22c9"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.692432544849537,
+          "rgbSha256": "b4c33f216551b0d3bcafed88e94c75cb3f8d32f332035fae7b28806b55ee0b40"
+        }
+      ]
+    }
+  }
+}

@@ -106,25 +106,36 @@ try{
  }
  function placements(){return drafts.nodes[node().id]??[]}
  function placementArt(e){const art=assets[e.species];return e.flip&&art.left?art.left:art}
+ function loadComparisonImage(frame,status,previewFile){
+  if(status.state!=='loading'||pendingBackgrounds.has(status.file))return;
+  pendingBackgrounds.add(status.file);
+  void loadScenery(frame,previewFile).then(()=>{
+   pendingBackgrounds.delete(status.file);
+   if(window.mapArt?.backgroundFile===status.file||window.mapArt?.requestedDecodedBackground===status.file)render();
+  });
+ }
+ $('decodedBackground').onchange=render;
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame=sceneFrame(n,camera);
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
-  if(background.state==='loading'&&!pendingBackgrounds.has(background.file)){
-   pendingBackgrounds.add(background.file);
-   void loadScenery(frame).then(()=>{
-    pendingBackgrounds.delete(background.file);
-    if(window.mapArt?.backgroundFile===background.file)render();
-   });
-  }
+  loadComparisonImage(frame,background);
+  const previewFile=sceneryDefinitions[background.key].decodedPreview;
+  $('decodedBackgroundControl').hidden=!previewFile;
+  const preview=previewFile&&$('decodedBackground').checked?sceneryStatus(frame,previewFile):null;
+  if(preview)loadComparisonImage(frame,preview,previewFile);
+  const decoded=preview?.state==='ready'?previewFile:undefined;
+  $('comparisonViewLabel').textContent=decoded?'復号した背景':'矩形版';
+  $('decodedBackgroundStatus').textContent=decoded?'6,144矩形を復号':preview?.state==='loading'?'読み込み中':
+   preview?.state==='error'?'読み込みに失敗しました':'';
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   const cost={total:0,visible:0,standard:0};
-  for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
+  for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined);ctx.imageSmoothingEnabled=false;
    for(const e of items){
     const a=placementArt(e),flip=e.flip&&a===assets[e.species],x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
@@ -144,7 +155,7 @@ try{
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  $('viewportCost').textContent=viewportSummary(cost,profile);
+  $('viewportCost').textContent=decoded&&!cost.standard?'':viewportSummary(cost,profile);
   $('status').textContent=`配置${items.length}体 ／ 矩形${cost.total.toLocaleString('ja-JP')}個（配置全体の合計） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
@@ -158,7 +169,7 @@ try{
    const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
    return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(rear&&{rear})};
   });
-  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
+  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file,requestedDecodedBackground:preview?.file,decodedBackgroundFile:decoded};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
  function restoreHistory(from,to){

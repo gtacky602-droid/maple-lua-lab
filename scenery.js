@@ -143,6 +143,8 @@ export const sceneryDefinitions={
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu','story:signora-ten-shrine-arena']},
  fontaineScentAtelier:{file:'fon-emilie-scent-atelier-background-v1.png',zones:['story:fon-emilie-atelier'],note:'水辺の調香工房の仮背景'},
  fontaineScentShore:{file:'fon-emilie-scent-shore-background-v1.png',zones:['story:fon-emilie-scent-shore'],note:'香り草の船着き場の仮背景'},
+ fontaineBerylCoast:{file:'fon-beryl-coast-background-v1.png',decodedPreview:'fon-beryl-coast-native-preview-v1.png',zones:['story:sites-hunt-50034'],note:'石造水路が見えるベリル沿岸の仮背景'},
+ fontaineBerylSluice:{file:'fon-beryl-sluice-background-v1.png',decodedPreview:'fon-beryl-sluice-native-preview-v1.png',zones:['story:sites-hunt-50034-pocket-1'],note:'ベリルの水門脇の仮背景'},
  fontainePhotoTerrace:{file:'fon-navia-photo-terrace-background-v1.png',zones:['story:fon-photo-terrace'],note:'並木の写真広場の仮背景'},
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay','story:fontaine-outskirts-loading']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
@@ -244,12 +246,12 @@ export function sceneryKey(frame){
  }
  return 'mondstadt';
 }
-export function sceneryStatus(frame){
- const key=sceneryKey(frame),file=sceneryDefinitions[key].file;
+export function sceneryStatus(frame,previewFile){
+ const key=sceneryKey(frame),file=previewFile??sceneryDefinitions[key].file;
  return {key,file,state:backgrounds.get(file)?.state??'loading'};
 }
-export function loadScenery(frame){
- return backgroundFor(sceneryDefinitions[sceneryKey(frame)].file).ready;
+export function loadScenery(frame,previewFile){
+ return backgroundFor(previewFile??sceneryDefinitions[sceneryKey(frame)].file).ready;
 }
 function drawDecorations(ctx,frame,camera){
  const node=frame.story?.node,placements=decorations.get(node);
@@ -266,9 +268,9 @@ function drawDecorations(ctx,frame,camera){
   ctx.restore();
  }
 }
-export function scenery(ctx,frame){
- ctx.save();ctx.imageSmoothingEnabled=true;
- const key=sceneryKey(frame),{image:background,state}=backgroundFor(sceneryDefinitions[key].file);
+export function scenery(ctx,frame,previewFile){
+ ctx.save();ctx.imageSmoothingEnabled=!previewFile;
+ const key=sceneryKey(frame),{image:background,state}=backgroundFor(previewFile??sceneryDefinitions[key].file);
  if(state==='ready'){
   // The temporary image has only 200px of overscan. Stop its parallax at
   // either image edge even when the playable map extends farther.
