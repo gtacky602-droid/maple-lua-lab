@@ -24,6 +24,7 @@
     },
     {
       "node": "white-rainbow-basin",
+      "sharedNodes": ["sne-wp-100650", "sne-wp-100652", "sne-wp-100654", "sne-wp-100658", "sne-wp-100670", "sne-wp-100677", "sne-wp-100678", "sne-wp-106202", "sne-wp-106210", "sne-wp-106211", "sne-wp-106216", "sne-wp-106219", "sne-wp-107298", "sites-corridor-snow-ravine", "sne-obsession-scar-upper-trail"],
       "key": "whiteRainbowBasin",
       "note": "白虹の高原",
       "source": "white-rainbow-background-v1.png",
@@ -31,6 +32,7 @@
     },
     {
       "node": "steam-stabling-depot",
+      "sharedNodes": ["white-pass-station"],
       "key": "steamStablingDepot",
       "note": "蒸気留置庫",
       "source": "steam-stabling-depot-background-v1.png",

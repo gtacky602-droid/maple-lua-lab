@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "nod-false-moon-court",
+      "sharedNodes": ["frostmoon-camp", "frost-wp-99284", "frost-wp-99285", "frost-wp-99286", "frost-wp-99287", "frost-wp-99288", "frost-wp-99289", "frost-wp-99290", "frost-wp-99291", "frost-wp-99293", "frost-wp-99294", "frost-wp-99295", "frost-wp-99296", "frost-wp-99297", "frost-wp-99298", "frost-wp-99299", "frost-wp-99308", "frost-wujian-south-trail"],
       "key": "falseMoonCourt",
       "note": "偽月の外界",
       "source": "false-moon-court-background-v1.png",

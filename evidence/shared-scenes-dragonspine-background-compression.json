@@ -1,0 +1,47 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "dragonspine-background-v1.png": {
+      "sourceBytes": 2297603,
+      "sourceSha256": "9f6f3f2d02d09212fffcad3d97158605daafc7d7d75b54c0689fe1f78ded8b83",
+      "preview": "dragonspine-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15499,
+      "baseSelectedBytes": 15485,
+      "detailFixed13Bytes": 11223,
+      "detailSelectedBytes": 11213,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.837696216724537,
+          "rgbSha256": "f62a9c90d7d7454a65d16291b28dccdc473989c2b5c01d76173f0239d0d22862"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.33899830005787,
+          "rgbSha256": "8ea9a9ce10532223ec2cf4495c4452a550af01d5d08bae993efe2da828347dc0"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.9500913266782405,
+          "rgbSha256": "55b5e59d56d5a30b7ae5f067ae427f424e945de63aad1c839d7fa142bc781433"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.638461642795139,
+          "rgbSha256": "e243cd167b2a30d53973e57ebf8e5d5dde3d13f9132e73f182bc7c487e569c0d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.375707555700232,
+          "rgbSha256": "876ccd884ea6e6d4e5aedc77947078e888622da583962ef0aaf23cfdfae286f4"
+        }
+      ]
+    }
+  }
+}

@@ -36,7 +36,8 @@ try{
   assert.equal(await page.isVisible('#sceneryBudget'),false);
   await page.check('#decodedBackground');
   await page.selectOption('#node','mond-road');
-  assert.equal(await page.isVisible('#sceneryBudget'),false);
+  await page.waitForFunction(()=>window.mapArt?.node==='mond-road' && window.mapArt.decodedBackgroundRectangles>0);
+  assert.equal(await page.isVisible('#sceneryBudget'),true);
   await page.goto(base+'map-art.html?node='+node+'&placements=live&compare=background&colorLimit=2.2#sceneryBudget');
   await page.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===5120);
   assert.equal(await page.locator('#colorLimit').inputValue(),'2.2');

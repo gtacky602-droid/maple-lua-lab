@@ -1,0 +1,24 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "ナド・クライ特別地域（仮）",
+  "scenes": [
+    {
+      "key": "nodspecial",
+      "node": "nod-special-camp",
+      "sharedNodes": [
+        "nod-special-depth",
+        "nod-reflector-shore",
+        "nod-reflection-garden",
+        "sites-nsp-02",
+        "sites-nsp-03",
+        "sites-nsp-04",
+        "sites-nsp-05",
+        "sites-nsp-06",
+        "sites-nsp-07",
+        "sites-nsp-08"
+      ],
+      "source": "nodspecial-background-v1.png",
+      "preview": "nodspecial-native-preview-v1.png"
+    }
+  ]
+}

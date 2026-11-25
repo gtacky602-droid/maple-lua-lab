@@ -1,0 +1,19 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "航路",
+  "scenes": [
+    {
+      "key": "voyage",
+      "node": "liyue-ferry",
+      "sharedNodes": [
+        "natlan-voyage",
+        "liyue-ferry-return",
+        "natlan-voyage-return",
+        "chenyu-ferry-fontaine",
+        "fontaine-ferry-chenyu"
+      ],
+      "source": "voyage-background-v1.png",
+      "preview": "voyage-native-preview-v1.png"
+    }
+  ]
+}

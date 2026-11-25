@@ -1,0 +1,162 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "スネージナヤ",
+  "scenes": [
+    {
+      "key": "snezhnaya",
+      "node": "snezhnaya-entry",
+      "sharedNodes": [
+        "snezhnaya-hub",
+        "snezhnaya-field",
+        "sne-wp-100642",
+        "sne-wp-100653",
+        "sne-wp-100655",
+        "sne-wp-100656",
+        "sne-wp-100657",
+        "sne-wp-100659",
+        "sne-wp-100666",
+        "sne-wp-100667",
+        "sne-wp-100668",
+        "sne-wp-100671",
+        "sne-wp-100672",
+        "sne-wp-100673",
+        "sne-wp-100674",
+        "sne-wp-100675",
+        "sne-wp-100676",
+        "sne-wp-100697",
+        "sne-wp-100699",
+        "sne-wp-100703",
+        "sne-wp-105872",
+        "sne-north-works",
+        "sne-wp-106193",
+        "sne-wp-106194",
+        "sne-wp-106208",
+        "sne-wp-106212",
+        "sne-east-camp",
+        "sne-wp-106215",
+        "sites-northern-fault-pass"
+      ],
+      "source": "snezhnaya-background-v1.png",
+      "preview": "snezhnaya-native-preview-v1.png"
+    },
+    {
+      "key": "snowRailTransfer",
+      "node": "snow-rail-transfer",
+      "sharedNodes": [
+        "sne-wp-100643",
+        "sne-wp-100663",
+        "sne-wp-100669",
+        "sne-wp-100679",
+        "sne-wp-106182",
+        "sne-wp-106183",
+        "sne-wp-106184",
+        "sne-wp-106185",
+        "sne-wp-106186",
+        "sne-wp-106190",
+        "sne-wp-106191",
+        "sne-wp-106192",
+        "sne-wp-106200",
+        "sne-wp-106201",
+        "sne-wp-106204",
+        "sne-wp-106206",
+        "sne-wp-106207",
+        "sne-wp-106220",
+        "sne-novokichev-lantern-alley"
+      ],
+      "source": "snow-rail-transfer-background-v1.png",
+      "preview": "snow-rail-transfer-native-preview-v1.png"
+    },
+    {
+      "key": "whitePassCoach",
+      "node": "white-pass-coach",
+      "sharedNodes": [],
+      "source": "white-pass-coach-background-v1.png",
+      "preview": "white-pass-coach-native-preview-v1.png"
+    },
+    {
+      "key": "auroraGlass",
+      "node": "aurora-ice-cut",
+      "sharedNodes": [
+        "aurora-ice-shelf",
+        "sne-wp-100645",
+        "sne-wp-100680",
+        "sne-wp-100681",
+        "sne-wp-100682",
+        "sne-wp-100683",
+        "sne-wp-100684",
+        "sne-wp-100689",
+        "sne-wp-100690",
+        "sne-wp-100691",
+        "sne-wp-100692",
+        "sne-wp-100693",
+        "sne-wp-100694",
+        "sne-wp-100695",
+        "sne-wp-100698",
+        "sne-wp-100700",
+        "sne-wp-100701",
+        "sne-wp-100702",
+        "sne-wp-100704",
+        "sne-wp-105012",
+        "sne-svetloredovka-ice-passage"
+      ],
+      "source": "aurora-glass-background-v1.png",
+      "preview": "aurora-glass-native-preview-v1.png"
+    },
+    {
+      "key": "thermalRavine",
+      "node": "aurora-steam-channel",
+      "sharedNodes": [
+        "aurora-mineral-terraces"
+      ],
+      "source": "thermal-ravine-background-v1.png",
+      "preview": "thermal-ravine-native-preview-v1.png"
+    },
+    {
+      "key": "dawnVein",
+      "node": "dawn-vein-mine",
+      "sharedNodes": [
+        "dawn-vein-deep",
+        "sne-crystal-prism-gallery"
+      ],
+      "source": "dawn-vein-background-v1.png",
+      "preview": "dawn-vein-native-preview-v1.png"
+    },
+    {
+      "key": "dawnGlass",
+      "node": "dawn-glass-ridge",
+      "sharedNodes": [
+        "dawn-glass-divide",
+        "dawn-crystal-field"
+      ],
+      "source": "dawn-glass-background-v1.png",
+      "preview": "dawn-glass-native-preview-v1.png"
+    },
+    {
+      "key": "sneSurveyShed",
+      "node": "sne-survey-shed",
+      "sharedNodes": [],
+      "source": "sne-survey-shed-background-v1.png",
+      "preview": "sne-survey-shed-native-preview-v1.png"
+    },
+    {
+      "key": "sneSurveyRidge",
+      "node": "sne-survey-outskirts",
+      "sharedNodes": [
+        "sne-survey-ridge"
+      ],
+      "source": "sne-survey-ridge-background-v1.png",
+      "preview": "sne-survey-ridge-native-preview-v1.png"
+    },
+    {
+      "key": "sneSnowMatch",
+      "node": "sne-snow-match",
+      "sharedNodes": [
+        "sne-churin-snow-square",
+        "sne-churin-apprentice-bout",
+        "sne-churin-bragin-bout"
+      ],
+      "source": "sne-snow-match-background-v1.png",
+      "preview": "sne-snow-match-native-preview-v1.png"
+    }
+  ]
+}

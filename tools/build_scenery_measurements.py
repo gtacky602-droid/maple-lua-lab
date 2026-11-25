@@ -30,6 +30,8 @@ def measurements():
                 'error': {tier['rectangles']: tier['meanAbsoluteRgbErrorToReference']
                           for tier in scene['tiers']},
             }
+            if row.get('sharedNodes'):
+                result[row['node']]['locations'] = 1 + len(row['sharedNodes'])
             costs = bench.get('scenes',{}).get(row['node']) if has_benchmark else None
             if costs:
                 result[row['node']]['decode'] = {

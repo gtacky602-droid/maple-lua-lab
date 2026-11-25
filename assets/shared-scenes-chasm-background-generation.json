@@ -1,0 +1,38 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "層岩巨淵・地下鉱区",
+  "scenes": [
+    {
+      "key": "chasm",
+      "node": "chasm-camp",
+      "sharedNodes": [
+        "chasm-depth",
+        "chasm-wp-25264",
+        "chasm-wp-25266",
+        "chasm-wp-25267",
+        "chasm-wp-25268",
+        "chasm-wp-25269",
+        "chasm-wp-25270",
+        "chasm-wp-25271",
+        "chasm-wp-25272",
+        "chasm-wp-25273",
+        "chasm-wp-25274",
+        "chasm-wp-25275",
+        "chasm-wp-25276",
+        "chasm-wp-25277",
+        "chasm-wp-26463",
+        "liyue-wp-24908",
+        "liyue-wp-24909",
+        "liyue-wp-24910",
+        "liyue-wp-24911",
+        "liyue-wp-24912",
+        "liyue-wp-28732",
+        "liyue-wp-64832",
+        "liyue-wp-64849",
+        "liyue-wp-66979"
+      ],
+      "source": "chasm-background-v1.png",
+      "preview": "chasm-native-preview-v1.png"
+    }
+  ]
+}

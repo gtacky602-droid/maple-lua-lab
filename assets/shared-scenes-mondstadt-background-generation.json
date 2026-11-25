@@ -1,0 +1,92 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "モンド",
+  "scenes": [
+    {
+      "key": "mondstadt",
+      "node": "mond-town",
+      "sharedNodes": [
+        "mond-road",
+        "mond-old-road",
+        "mond-old-canopy",
+        "mond-old-ground",
+        "mond-border",
+        "anemo-approach",
+        "cryo-approach",
+        "electro-approach"
+      ],
+      "source": "mondstadt-background.png",
+      "preview": "mondstadt-native-preview-v1.png"
+    },
+    {
+      "key": "mondOrchard",
+      "node": "mond-library-orchard",
+      "sharedNodes": [],
+      "source": "mond-return-box-background-v1.png",
+      "preview": "mond-return-box-native-preview-v1.png"
+    },
+    {
+      "key": "mondNightHill",
+      "node": "mond-night-hill",
+      "sharedNodes": [],
+      "source": "mond-night-banner-background-v1.png",
+      "preview": "mond-night-banner-native-preview-v1.png"
+    },
+    {
+      "key": "mondroof",
+      "node": "mond-roof-route",
+      "sharedNodes": [
+        "mond-wp-55"
+      ],
+      "source": "mond-rooftops-background-v1.png",
+      "preview": "mond-rooftops-native-preview-v1.png"
+    },
+    {
+      "key": "mondlookout",
+      "node": "mond-windmill-lookout",
+      "sharedNodes": [
+        "mond-wp-8",
+        "mond-wp-12",
+        "mond-wp-20",
+        "mond-wp-22"
+      ],
+      "source": "mond-windmill-lookout-background-v1.png",
+      "preview": "mond-windmill-lookout-native-preview-v1.png"
+    },
+    {
+      "key": "mondrest",
+      "node": "mond-roadside-rest",
+      "sharedNodes": [
+        "mond-wp-13",
+        "mond-wp-14",
+        "mond-wp-19"
+      ],
+      "source": "mond-roadside-rest-background-v1.png",
+      "preview": "mond-roadside-rest-native-preview-v1.png"
+    },
+    {
+      "key": "windsplit",
+      "node": "mond-bennett-ledge",
+      "sharedNodes": [
+        "mond-bennett-depth",
+        "ridge-watch-domain"
+      ],
+      "source": "mond-windsplit-cave-background-v1.png",
+      "preview": "mond-windsplit-cave-native-preview-v1.png"
+    },
+    {
+      "key": "mondrestored",
+      "node": "mond-restored-road",
+      "sharedNodes": [],
+      "source": "mond-restored-road-background-v1.png",
+      "preview": "mond-restored-road-native-preview-v1.png"
+    },
+    {
+      "key": "goldenDock",
+      "node": "golden-mainland-coast",
+      "sharedNodes": [],
+      "source": "golden-dock-background-v1.png",
+      "preview": "golden-dock-native-preview-v1.png"
+    }
+  ]
+}

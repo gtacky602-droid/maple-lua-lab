@@ -1,0 +1,299 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "natlan-background-v1.png": {
+      "sourceBytes": 2786663,
+      "sourceSha256": "334e1a0e99d17c8a14e540b8eadc1c7a93474965f4d7d2e44bf885f625ac667b",
+      "preview": "natlan-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18897,
+      "baseSelectedBytes": 18883,
+      "detailFixed13Bytes": 12523,
+      "detailSelectedBytes": 12513,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 11.286758987991899,
+          "rgbSha256": "59dd6d6770f0bcea933e3870e3bf43b812b6e1f18e6d4743007c19470c4e58f4"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 10.613172743055555,
+          "rgbSha256": "6142879c7b81b81ce6c592b54d3833b0b7da4092c36359bcb7f1a39495a8c704"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 10.098831741898149,
+          "rgbSha256": "0bed4aa0e3c04a9fff597ce4a786b8674b2e5b654f3ddd33c64ca7c632458c02"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 9.657120316116899,
+          "rgbSha256": "7c23084052efd3932ec148cb1193cfb3fab4ed5dfbeec02b4f880a3a2c976f67"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 9.27337646484375,
+          "rgbSha256": "7fdf5283556286b1f0534217da61de947d09427abf1fbf69b5c247a6cbb994c4"
+        }
+      ]
+    },
+    "nat-iansan-training-course-background-v1.png": {
+      "sourceBytes": 2585619,
+      "sourceSha256": "17bedb2e9fae59a6395ba75b63c01f116a3b5d6b28f69cfb7691a026d1809a84",
+      "preview": "nat-iansan-training-course-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18213,
+      "baseSelectedBytes": 18203,
+      "detailFixed13Bytes": 12315,
+      "detailSelectedBytes": 12307,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 7.689708568431713,
+          "rgbSha256": "6e3524aa6f5d0763b42607dfee462e6687d034b9727be8de4e9b4cd15137c2ab"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.266325774016203,
+          "rgbSha256": "5ee3d2551efd3600fae2cca5384280ffdff74050da839d0af1ce5c331b312e98"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 6.933399341724537,
+          "rgbSha256": "a4af5024d2776acd1a581a82a48b77a461664fae22174ccc6649087f9de3d93f"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.641194661458333,
+          "rgbSha256": "498ed345a5e7684045fd914c1eccb9bd77ce098cc4bb028018f79dd7f9752051"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.395216200086805,
+          "rgbSha256": "69ec32eb77ef91f385eed6b8236aabb8d7bc40eb7a6223e169b8bb658765cb73"
+        }
+      ]
+    },
+    "nat-xilonen-course-workshop-background-v1.png": {
+      "sourceBytes": 2616300,
+      "sourceSha256": "1672086f0016d7ad372f120fd35af7ce04783d55a04c0c32c553ef8ba381da26",
+      "preview": "nat-xilonen-course-workshop-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18709,
+      "baseSelectedBytes": 18695,
+      "detailFixed13Bytes": 12601,
+      "detailSelectedBytes": 12589,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.794279875578704,
+          "rgbSha256": "351705db347e72c00eb12301f4dfdf2897aa5fcecc04c9ddd458cb49f2fe6e92"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 8.28443287037037,
+          "rgbSha256": "dfcc2f7ccf8119f271dd00e784ce82a009ff3e7ac947ea3e4c95f74ea0deaaef"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.885335286458333,
+          "rgbSha256": "c18894f6a487785858c6afd94fd6356a2ea01e32e9e3abe3b0f18288d3ed7d00"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.53349925853588,
+          "rgbSha256": "6a6143de026e7e73eba9ec8b48134177ca55ebbcb450c7d7986d1300c2aa9831"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.225658275462963,
+          "rgbSha256": "754ff3f0284b82efee0339149bb9dc9a646979e3aed27e5af14e9557cdde2a85"
+        }
+      ]
+    },
+    "nat-xilonen-course-course-background-v1.png": {
+      "sourceBytes": 1928238,
+      "sourceSha256": "ba1a93e5c13ba4d31acf7e09cf0d3b9b00d354b4cfe2664f0a8747e36ba75991",
+      "preview": "nat-xilonen-course-course-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16969,
+      "baseSelectedBytes": 16955,
+      "detailFixed13Bytes": 11761,
+      "detailSelectedBytes": 11747,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.225590458622685,
+          "rgbSha256": "36201acd2b19d38b5f739e747f4a663e43ceeed3643659de42c32800c5fb9874"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.027088306568287,
+          "rgbSha256": "51c7b09c982f6ee80d68abd038ef2c27f37a4129cf18e4d9bec5d9d4f119b5da"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.868785716869213,
+          "rgbSha256": "d6309d4faca5f34e36c5176fa6654659527f493009d11cb93004caacbc0c6276"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.7277764214409723,
+          "rgbSha256": "e22ff651d2e5c69210db62ffa0de0d64451d53cd8051457389d09c620a79777a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.60302734375,
+          "rgbSha256": "fbf497e089c7dcdc3dedc1510020277a881a1d146e59ec459353884efefaa3e5"
+        }
+      ]
+    },
+    "nat-kinich-ambush-trail-background-v1.png": {
+      "sourceBytes": 2728290,
+      "sourceSha256": "6826cac9a73960e5f5de3570c9b94e310c4b15f023cc8b59a3d32909c98ccf18",
+      "preview": "nat-kinich-ambush-trail-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18161,
+      "baseSelectedBytes": 18147,
+      "detailFixed13Bytes": 12437,
+      "detailSelectedBytes": 12427,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.380086263020834,
+          "rgbSha256": "f40d3e24d8e6c7cbe52022cea371444796920526da4d278587dcbd463456700b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.9462099428530095,
+          "rgbSha256": "f17dd4e3930d7580948cb66c861cb02f8f89afdbd1c89d80144e60a1d06107fc"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.595759639033565,
+          "rgbSha256": "8e84d43ea81124a36abd3278fff3e0a7eb57e0ec5c0a96193958b73900414a1e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 7.296384458188657,
+          "rgbSha256": "1d6895c5c7917f2619c036ee294fbfa68270ef6cbdb9f49d58b4678f7574e60e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 7.038379810474537,
+          "rgbSha256": "3d0eaf8ae59188ee4752c86caecdb6220b7000c6811f41ec161e7d81b570f42d"
+        }
+      ]
+    },
+    "nat-mualani-surf-run-background-v1.png": {
+      "sourceBytes": 2616518,
+      "sourceSha256": "96e488a94491afedf56d127c1022f1178e67dfac93d7359bb6dd65b2d7355d2f",
+      "preview": "nat-mualani-surf-run-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18435,
+      "baseSelectedBytes": 18425,
+      "detailFixed13Bytes": 12625,
+      "detailSelectedBytes": 12615,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 10.36846019603588,
+          "rgbSha256": "f4b197f9150f1e4e16a91e55e6bc237f429c15ca38daba3a4fde60f0c985256f"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 9.819887514467593,
+          "rgbSha256": "2f4cb6ca24ed29b5d77f66d2a95247fe231ef12a02c803301aa6891bd91f0e94"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 9.39057300708912,
+          "rgbSha256": "466f0b2540ffe711471f86a4110d3ac5635b2403579ccd10695fbc7652cdcd5c"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 9.02352566189236,
+          "rgbSha256": "eb7abc949c1f36c637f53024c5f4ffb5a0d48a06453b08387fa22ee761eba39a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 8.702433268229166,
+          "rgbSha256": "9b0dc91694a10e17f91ef3516523090fe05af30286b414469e876e4d1de3579e"
+        }
+      ]
+    },
+    "natlan-race-summit-background-v1.png": {
+      "sourceBytes": 2850908,
+      "sourceSha256": "acf3121412d4b2fc7d79f4a12bb13162612dcd4a2feb3c5398083c40bd13b77e",
+      "preview": "natlan-race-summit-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18529,
+      "baseSelectedBytes": 18519,
+      "detailFixed13Bytes": 12489,
+      "detailSelectedBytes": 12479,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 10.94113498263889,
+          "rgbSha256": "859b513bfbea2b39ded2e9b0cfce9c999152bc9016d99fd1fec145306505f02b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 10.367063169126157,
+          "rgbSha256": "36e625ec236e81f55d8f449cb0d648e75e470274f6ecfd1ebef6e149ead6fbdb"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 9.903919361255786,
+          "rgbSha256": "c5c72381579f415ca54f8cba840f13ba3d027a67a1d1b0a065ec1cc2bb4f5b96"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 9.504396791811343,
+          "rgbSha256": "0f49654984bce709cdd5f5b24f0cad024bb03d7ff6db5a7817895b751741a2ec"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 9.145984790943286,
+          "rgbSha256": "ae3906eee2ea078e54f619f669cfb4bdb72c83419ce47f84ed5a91313e98111a"
+        }
+      ]
+    }
+  }
+}

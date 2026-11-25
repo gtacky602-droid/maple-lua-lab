@@ -11745,6 +11745,7 @@
     "scenery_and_quest_checks": {
       "five_tier_coverage": "evidence/scenery-download-tiers.json",
       "coverage_key": "locationCoverage.localLegends",
+      "all_stage_background_bindings": "evidence/shared-scenery-browser.json",
       "legend_arena_scenery": "evidence/remaining-legend-scenery-browser.json",
       "island_lake_sea_routes": "evidence/earned-island-legends.json",
       "all_map_gate_geometry": "evidence/atlas-gate-previews.json",

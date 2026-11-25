@@ -1,0 +1,38 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "ドーンマンポート",
+  "scenes": [
+    {
+      "key": "dornman",
+      "node": "dornman-camp",
+      "sharedNodes": [
+        "dornman-depth",
+        "mond-wp-95793",
+        "mond-wp-95794",
+        "mond-wp-95797",
+        "mond-wp-95799",
+        "mond-wp-95801",
+        "sites-windcrown-waterfall",
+        "dorn-shieldrol-lake-trail"
+      ],
+      "source": "dornman-background-v1.png",
+      "preview": "dornman-native-preview-v1.png"
+    },
+    {
+      "key": "coastalLookout",
+      "node": "dornman-wind-stairs",
+      "sharedNodes": [
+        "dornman-flag-trestle",
+        "mond-wp-95782",
+        "mond-wp-95792",
+        "mond-wp-95795",
+        "mond-wp-95798",
+        "mond-wp-95800",
+        "mond-wp-95802",
+        "sites-lookout-98500"
+      ],
+      "source": "coastal-lookout-background-v1.png",
+      "preview": "coastal-lookout-native-preview-v1.png"
+    }
+  ]
+}

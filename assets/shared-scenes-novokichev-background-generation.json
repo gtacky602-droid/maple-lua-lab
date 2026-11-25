@@ -1,0 +1,32 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "ノヴォキッチェヴ（仮構造）",
+  "scenes": [
+    {
+      "key": "novokichev",
+      "node": "novokichev-camp",
+      "sharedNodes": [
+        "novokichev-depth",
+        "novo-frozen-works",
+        "novo-drift-passage",
+        "sne-wp-106180",
+        "sne-wp-106187",
+        "sne-wp-106188",
+        "sne-wp-106189",
+        "sne-wp-106195",
+        "sne-wp-106196",
+        "sne-wp-106197",
+        "sne-wp-106198",
+        "sne-wp-106199",
+        "sne-wp-106209",
+        "sne-wp-106213",
+        "sne-wp-106217",
+        "sne-wp-106218",
+        "sites-corridor-snow-mine",
+        "sne-crystal-mining-junction"
+      ],
+      "source": "novokichev-background-v1.png",
+      "preview": "novokichev-native-preview-v1.png"
+    }
+  ]
+}

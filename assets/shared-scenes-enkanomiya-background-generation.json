@@ -1,0 +1,49 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "淵下宮",
+  "scenes": [
+    {
+      "key": "enkanomiya",
+      "node": "enkanomiya-camp",
+      "sharedNodes": [
+        "enkanomiya-depth",
+        "enkan-guide-shelf",
+        "enkan-wp-21573",
+        "enkan-wp-21574",
+        "enkan-wp-21575",
+        "enkan-wp-21576",
+        "enkan-wp-21577",
+        "enkan-wp-21578",
+        "enkan-wp-21579",
+        "enkan-wp-21581",
+        "enkan-wp-21582",
+        "enkan-wp-21583",
+        "enkan-wp-21584",
+        "enkan-wp-21585",
+        "enkan-wp-21586",
+        "enkan-wp-21587",
+        "enkan-wp-21588",
+        "enkan-wp-21589",
+        "enkan-wp-21590",
+        "enkan-wp-21591"
+      ],
+      "source": "enkanomiya-background-v1.png",
+      "preview": "enkanomiya-native-preview-v1.png"
+    },
+    {
+      "key": "enkanLamp",
+      "node": "enkan-lamp-chamber",
+      "sharedNodes": [
+        "enkan-route-gallery",
+        "nod-wp-88169",
+        "frost-wp-99311",
+        "enkan-wp-21580",
+        "enkan-wp-21592",
+        "enkan-wp-21593",
+        "enkan-wp-21594"
+      ],
+      "source": "enkan-lamp-chamber-background-v1.png",
+      "preview": "enkan-lamp-chamber-native-preview-v1.png"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "トゥニギの黒淵",
+  "scenes": [
+    {
+      "key": "tunigi",
+      "node": "tunigi-camp",
+      "sharedNodes": [
+        "tunigi-depth",
+        "sum-wp-46514",
+        "sum-wp-46515",
+        "sum-wp-46516",
+        "sum-wp-46517",
+        "sum-wp-46518",
+        "sum-wp-46521",
+        "sum-wp-46524",
+        "sum-wp-46525",
+        "sum-wp-46526",
+        "sum-wp-46527",
+        "sum-wp-50032"
+      ],
+      "source": "tunigi-background-v1.png",
+      "preview": "tunigi-native-preview-v1.png"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "routes": 1528,
+  "afterReport": 1,
+  "newTileChecks": 480,
+  "distinctPaintings": 418,
+  "newlyCompressedPaintings": 96,
+  "examples": [
+    {
+      "node": "mond-town",
+      "tier": 4096,
+      "name": "mondstadt-4096.lua",
+      "bytes": 18019
+    },
+    {
+      "node": "mond-town",
+      "tier": 6144,
+      "name": "mondstadt-6144.lua",
+      "bytes": 30382
+    },
+    {
+      "node": "liyue-harbor",
+      "tier": 4096,
+      "name": "liyue-4096.lua",
+      "bytes": 18580
+    },
+    {
+      "node": "liyue-harbor",
+      "tier": 6144,
+      "name": "liyue-6144.lua",
+      "bytes": 31117
+    },
+    {
+      "node": "natlan-hub",
+      "tier": 4096,
+      "name": "natlan-4096.lua",
+      "bytes": 18979
+    },
+    {
+      "node": "natlan-hub",
+      "tier": 6144,
+      "name": "natlan-6144.lua",
+      "bytes": 31490
+    },
+    {
+      "node": "fontaine-hub",
+      "tier": 4096,
+      "name": "fontaine-4096.lua",
+      "bytes": 18309
+    },
+    {
+      "node": "fontaine-hub",
+      "tier": 6144,
+      "name": "fontaine-6144.lua",
+      "bytes": 30714
+    }
+  ]
+}

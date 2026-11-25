@@ -11,7 +11,7 @@
     },
     {
       "node": "bygone-bell-archive",
-      "sharedNodes": ["morte-tower-sluice"],
+      "sharedNodes": ["morte-tower-sluice", "bygone-resonance-chamber", "bygone-inscribed-hall", "bygone-listening-gallery", "bygone-wp-68603", "bygone-wp-68607", "bygone-wp-68610", "bygone-wp-68613", "bygone-wp-68614"],
       "key": "bygoneBellArchive",
       "note": "潮鐘の記録室",
       "source": "bygone-resonance-background-v1.png",

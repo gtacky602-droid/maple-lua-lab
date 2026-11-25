@@ -1,0 +1,47 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "ochkanatlan-background-v1.png": {
+      "sourceBytes": 2006399,
+      "sourceSha256": "8dccab9bd1b5d9cede483cef64c5a4fbff2a784b889f1483bc568ee43657bad1",
+      "preview": "ochkanatlan-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15373,
+      "baseSelectedBytes": 15359,
+      "detailFixed13Bytes": 11279,
+      "detailSelectedBytes": 11271,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.8191618742766202,
+          "rgbSha256": "81a96bf2359a2d68db95686d830e640041ec1b3635fcda065c0054763aae024e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.5367182978877314,
+          "rgbSha256": "347c3365a9b38c4604855a31a8efdcc845995f9dfbc5d6bfbe8de84eb4082b67"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.317317256221065,
+          "rgbSha256": "6f83bb73259b50df4a4a04fc8bf3fdd9092495e7b2e0a29014225770e3039521"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1348854347511574,
+          "rgbSha256": "2824c4cd467ca1976932deb7af692109b5d296c287b57d47e44b3f5217e5a843"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.983043529369213,
+          "rgbSha256": "6be08ae50eba016b5c4a804633ec60e0275ecdedf4f4666cc7029fb4789c5698"
+        }
+      ]
+    }
+  }
+}

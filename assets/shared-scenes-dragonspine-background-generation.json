@@ -1,0 +1,27 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "ドラゴンスパイン",
+  "scenes": [
+    {
+      "key": "dragonspine",
+      "node": "dragonspine-camp",
+      "sharedNodes": [
+        "dragonspine-depth",
+        "spine-observation-shelf",
+        "spine-wind-notch",
+        "spine-lee-walk",
+        "spine-shelter",
+        "mond-wp-6537",
+        "mond-wp-6594",
+        "mond-wp-6599",
+        "mond-wp-6603",
+        "mond-wp-6604",
+        "mond-wp-6606",
+        "mond-wp-6609",
+        "sites-dragonspine-south-foothill"
+      ],
+      "source": "dragonspine-background-v1.png",
+      "preview": "dragonspine-native-preview-v1.png"
+    }
+  ]
+}

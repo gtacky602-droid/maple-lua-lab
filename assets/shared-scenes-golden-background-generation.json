@@ -1,0 +1,35 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "金リンゴ群島",
+  "scenes": [
+    {
+      "key": "golden",
+      "node": "golden-hub",
+      "sharedNodes": [
+        "golden-play",
+        "golden-shadow-lookouts",
+        "sites-gaa-02",
+        "sites-gaa-03",
+        "sites-gaa-04",
+        "sites-gaa-05",
+        "sites-gaa-06",
+        "sites-gaa-07"
+      ],
+      "source": "golden-background-v1.png",
+      "preview": "golden-native-preview-v1.png"
+    },
+    {
+      "key": "goldenGrotto",
+      "node": "golden-shadow-grotto",
+      "sharedNodes": [
+        "golden-tide-pocket",
+        "sites-gaa-08",
+        "sites-gaa-04-side-arena",
+        "sites-gaa-06-side-arena",
+        "sites-gaa-07-side-arena"
+      ],
+      "source": "golden-grotto-background-v1.png",
+      "preview": "golden-grotto-native-preview-v1.png"
+    }
+  ]
+}

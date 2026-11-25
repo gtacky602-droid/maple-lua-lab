@@ -1,0 +1,148 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "スメール",
+  "scenes": [
+    {
+      "key": "sumeru",
+      "node": "sumeru-entry",
+      "sharedNodes": [
+        "sumeru-hub",
+        "sumeru-field",
+        "sum-kaveh-timberyard",
+        "veluriyam-bottle-yard",
+        "sum-wp-28699",
+        "sum-wp-28700",
+        "sum-wp-28701",
+        "sum-wp-28702",
+        "sum-wp-28703",
+        "sum-wp-28704",
+        "sum-wp-28708",
+        "sum-wp-28715",
+        "sum-wp-28719",
+        "sum-wp-28725",
+        "sum-wp-28737",
+        "sum-wp-28741",
+        "sum-wp-28747",
+        "sum-wp-28748",
+        "sites-sumeru-terrace-road",
+        "sites-sumeru-north-bridge"
+      ],
+      "source": "sumeru-background-v1.png",
+      "preview": "sumeru-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruObservationTrail",
+      "node": "sum-wanderer-trail",
+      "sharedNodes": [],
+      "source": "sum-wanderer-sign-trail-background-v1.png",
+      "preview": "sum-wanderer-sign-trail-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "node": "sum-wanderer-hollow",
+      "sharedNodes": [
+        "sum-wp-28705",
+        "sum-wp-28717",
+        "sum-wp-28723",
+        "sum-wp-28724",
+        "sum-wp-28742",
+        "sum-wp-28744",
+        "sum-wp-28750"
+      ],
+      "source": "sum-wanderer-sign-hollow-background-v1.png",
+      "preview": "sum-wanderer-sign-hollow-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruVisitorsMeadow",
+      "node": "sum-visitors-meadow",
+      "sharedNodes": [],
+      "source": "sum-fungus-visitors-meadow-background-v1.png",
+      "preview": "sum-fungus-visitors-meadow-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "node": "sum-visitors-terrace",
+      "sharedNodes": [],
+      "source": "sum-fungus-visitors-terrace-background-v1.png",
+      "preview": "sum-fungus-visitors-terrace-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "node": "sum-visitors-store",
+      "sharedNodes": [],
+      "source": "sum-fungus-visitors-store-background-v1.png",
+      "preview": "sum-fungus-visitors-store-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruColleiTrail",
+      "node": "sum-collei-trail",
+      "sharedNodes": [],
+      "source": "sum-collei-guide-trail-background-v1.png",
+      "preview": "sum-collei-guide-trail-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruColleiRain",
+      "node": "sum-collei-rainfork",
+      "sharedNodes": [],
+      "source": "sum-collei-guide-rain-background-v1.png",
+      "preview": "sum-collei-guide-rain-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruColleiWelcome",
+      "node": "sum-collei-welcome",
+      "sharedNodes": [],
+      "source": "sum-collei-guide-welcome-background-v1.png",
+      "preview": "sum-collei-guide-welcome-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruKavehWorkshop",
+      "node": "sum-kaveh-workshop",
+      "sharedNodes": [],
+      "source": "sum-kaveh-room-workshop-background-v1.png",
+      "preview": "sum-kaveh-room-workshop-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruKavehRoom",
+      "node": "sum-kaveh-reading-room",
+      "sharedNodes": [],
+      "source": "sum-kaveh-room-room-background-v1.png",
+      "preview": "sum-kaveh-room-room-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruRiverside",
+      "node": "sumeru-river-roots",
+      "sharedNodes": [
+        "sumeru-river-bank",
+        "sumeru-root-slope",
+        "sum-wp-28707",
+        "sum-wp-28713",
+        "sum-wp-28714",
+        "sum-wp-28718",
+        "sum-wp-28720",
+        "sum-wp-28721",
+        "sum-wp-28726",
+        "sum-wp-28727",
+        "sum-wp-28728",
+        "sum-wp-28731",
+        "sum-wp-28734",
+        "sum-wp-28735",
+        "sum-wp-28736",
+        "sum-wp-28740",
+        "sum-wp-28743",
+        "sum-wp-28745",
+        "sumeru-north-bank-terraces",
+        "sum-wp-69098",
+        "sites-corridor-sumeru-bridge"
+      ],
+      "source": "sumeru-riverside-background-v1.png",
+      "preview": "sumeru-riverside-native-preview-v1.png"
+    },
+    {
+      "key": "sumeruNahidaGlade",
+      "node": "sum-nahida-dew-glade",
+      "sharedNodes": [],
+      "source": "sum-nahida-map-glade-background-v1.png",
+      "preview": "sum-nahida-map-glade-native-preview-v1.png"
+    }
+  ]
+}

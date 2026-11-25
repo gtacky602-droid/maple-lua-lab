@@ -414,11 +414,12 @@ try{
   $('decodeCost').textContent=costSample?`Lua 5.3事前計測　復号 ${costSample.ms.toFixed(2)} ms ／ 保持メモリ +${costSample.kib.toLocaleString('ja-JP')} KiB`:'';
   $('sceneryCodec').hidden=!(decoded&&metrics?.bundle);
   void updateDownload(decoded&&metrics?.bundle,background.file,tier);
-  const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
+  const mapped=background.key!=='mondstadt'||n.region==='モンド'||n.scenery==='mondstadt',valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
+  if(metrics?.locations && !afterReport(n)) $('context').append(` この仮背景は${metrics.locations}地点で共用しています。`);
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};

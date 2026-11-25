@@ -1,0 +1,47 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "tunigi-background-v1.png": {
+      "sourceBytes": 1991945,
+      "sourceSha256": "29946e3954d78aec87280be294a9fa6dca85ed98d8fbd89cd9a0c5e5b380cd8c",
+      "preview": "tunigi-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16063,
+      "baseSelectedBytes": 16051,
+      "detailFixed13Bytes": 11371,
+      "detailSelectedBytes": 11361,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.1716376410590277,
+          "rgbSha256": "49afad6deb89d752cf84958b6896a7134f590ef72ab09ed6419fbe2bf8e0c69f"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.9610460069444446,
+          "rgbSha256": "cc8345f745eed0232c8d1cf0ef07219ee7017736e79235973c7382c1f6bd319a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.7852783203125,
+          "rgbSha256": "d7cca49e03155538eebd9af33025f6f6fd1a9932d4f9af8cbac7aa6b578e81cd"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.6408216688368054,
+          "rgbSha256": "0986c0ac3ee0ef74808e54f271e266b8eb7f6ee6d3d08ef1b4de4f58bf4a82ab"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.520602756076389,
+          "rgbSha256": "9f88c56269faee7c446b172c101d6bd65ef945706a97cdd57ee934ce5ea69ea7"
+        }
+      ]
+    }
+  }
+}

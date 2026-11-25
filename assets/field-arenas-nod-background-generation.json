@@ -10,6 +10,7 @@
     },
     {
       "node": "nod-battleship-depot",
+      "sharedNodes": ["nod-bureau-upper-lift-station"],
       "key": "battleshipField",
       "note": "ナド・クライ・陸巡艦の整備庫",
       "source": "battleship-field-background-v1.png",

@@ -1,0 +1,163 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "フォンテーヌ",
+  "scenes": [
+    {
+      "key": "fontaine",
+      "node": "fontaine-entry",
+      "sharedNodes": [
+        "fontaine-hub",
+        "fontaine-field",
+        "simulanka-book-room",
+        "fontaine-stage-watch",
+        "fon-wp-50035",
+        "fontaine-beryl-bank",
+        "fon-wp-50036",
+        "fontaine-beryl-foothills",
+        "fon-wp-50037",
+        "fon-wp-50038",
+        "fon-wp-50039",
+        "fon-wp-50040",
+        "fon-wp-50041",
+        "fon-wp-50042",
+        "fon-wp-50045",
+        "fon-wp-50046",
+        "fon-wp-50047",
+        "fon-wp-50048",
+        "fon-wp-53852",
+        "fon-wp-53853",
+        "fon-wp-53854",
+        "fon-wp-53855",
+        "fon-wp-53856",
+        "fon-wp-53857",
+        "fon-wp-53858",
+        "fon-wp-53859",
+        "fon-wp-53860",
+        "fon-wp-53861",
+        "fon-wp-53862",
+        "fon-wp-53863",
+        "fon-wp-53867",
+        "fon-wp-53868",
+        "fon-wp-53870",
+        "fon-wp-55760",
+        "fon-wp-55761",
+        "fon-wp-55762",
+        "fon-wp-55763",
+        "fon-wp-55769",
+        "fon-wp-55770",
+        "fon-wp-55771",
+        "fon-wp-55772",
+        "fon-wp-55773",
+        "fon-wp-55774",
+        "fon-wp-55775",
+        "fon-wp-55776",
+        "fon-wp-55777",
+        "fon-wp-55778",
+        "fon-wp-55779",
+        "fon-wp-55780",
+        "fon-wp-55781",
+        "fon-wp-55782",
+        "fon-wp-55783",
+        "fon-wp-68340",
+        "fon-wp-68341",
+        "sites-corridor-beryl-ledge",
+        "sites-lumidouce-landing"
+      ],
+      "source": "fontaine-background-v1.png",
+      "preview": "fontaine-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineDelivery",
+      "node": "fontaine-outskirts-loading",
+      "sharedNodes": [
+        "fontaine-parcel-counter",
+        "fontaine-delivery-quay",
+        "fon-wp-50050",
+        "fon-wp-50052",
+        "fon-wp-50053",
+        "fon-wp-50056",
+        "fon-wp-50058",
+        "fon-wp-50077"
+      ],
+      "source": "fontaine-delivery-quay-background-v1.png",
+      "preview": "fontaine-delivery-quay-native-preview-v1.png"
+    },
+    {
+      "key": "fontainePhotoTerrace",
+      "node": "fon-photo-terrace",
+      "sharedNodes": [],
+      "source": "fon-navia-photo-terrace-background-v1.png",
+      "preview": "fon-navia-photo-terrace-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineScentAtelier",
+      "node": "fon-emilie-atelier",
+      "sharedNodes": [],
+      "source": "fon-emilie-scent-atelier-background-v1.png",
+      "preview": "fon-emilie-scent-atelier-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineScentShore",
+      "node": "fon-emilie-scent-shore",
+      "sharedNodes": [],
+      "source": "fon-emilie-scent-shore-background-v1.png",
+      "preview": "fon-emilie-scent-shore-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineBackstage",
+      "node": "fontaine-old-scenery-door",
+      "sharedNodes": [
+        "fontaine-moon-fly-loft",
+        "fontaine-stage-wings",
+        "fontaine-lift-catwalk"
+      ],
+      "source": "fontaine-backstage-background-v1.png",
+      "preview": "fontaine-backstage-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineUnderstage",
+      "node": "fontaine-understage-workfloor",
+      "sharedNodes": [
+        "fontaine-parcel-storeroom",
+        "fon-wp-50043",
+        "fon-wp-50044",
+        "fon-wp-50059",
+        "fon-wp-50060",
+        "fon-wp-50061",
+        "fon-wp-51964",
+        "fon-wp-52029",
+        "fon-wp-53849",
+        "fon-wp-53850",
+        "fon-wp-53851",
+        "fon-wp-53869",
+        "fon-wp-53871",
+        "fon-wp-55764",
+        "fon-wp-55784",
+        "fon-wp-55785"
+      ],
+      "source": "fontaine-understage-background-v1.png",
+      "preview": "fontaine-understage-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineRehearsal",
+      "node": "fontaine-rehearsal-room",
+      "sharedNodes": [],
+      "source": "fontaine-rehearsal-background-v1.png",
+      "preview": "fontaine-rehearsal-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineMagicWings",
+      "node": "fon-magic-wings",
+      "sharedNodes": [],
+      "source": "fon-lyney-magic-wings-background-v1.png",
+      "preview": "fon-lyney-magic-wings-native-preview-v1.png"
+    },
+    {
+      "key": "fontaineMagicSeats",
+      "node": "fon-magic-seats",
+      "sharedNodes": [],
+      "source": "fon-lyney-magic-seats-background-v1.png",
+      "preview": "fon-lyney-magic-seats-native-preview-v1.png"
+    }
+  ]
+}

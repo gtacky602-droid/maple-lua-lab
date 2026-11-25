@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+from collections import Counter
 from pathlib import Path
 
 from lupa.lua53 import LuaRuntime
@@ -9,7 +10,7 @@ from PIL import Image, ImageDraw
 
 
 def location_coverage(sources, root):
-    """Count stage-specific five-tier bindings separately from shared lab backdrops."""
+    """Count five-tier map bindings and the underlying paintings checked by the decoder."""
     graph = json.loads((root / 'content/story-graph.json').read_text('utf8'))
     nodes = {n['id']: n for n in graph['nodes']}
     assigned = {}
@@ -22,6 +23,20 @@ def location_coverage(sources, root):
                 assigned[node] = row['source']
     assert set(assigned.values()) == set(sources)
     coverage = {'allStages': {'total': len(nodes), 'verified': len(assigned)}}
+    uses = Counter(assigned.values())
+    coverage['sceneryReuse'] = {
+        'distinctPaintings': len(uses),
+        'singleStagePaintings': sum(n == 1 for n in uses.values()),
+        'sharedPaintings': sum(n > 1 for n in uses.values()),
+        'stagesUsingSharedPaintings': sum(n for n in uses.values() if n > 1),
+        'bytesByTier': {
+            tier: {
+                'oneModulePerPainting': sum(sources[source][tier] for source in uses),
+                'oneModulePerStage': sum(sources[source][tier] * n for source, n in uses.items()),
+            }
+            for tier in (4096, 4608, 5120, 5632, 6144)
+        },
+    }
     for category, prefix in [('domainHunts', 'sites-hunt-'), ('branchHunts', 'branch-hunt-')]:
         ids = [node for node in nodes if node.startswith(prefix)]
         pending = [node for node in ids if node not in assigned]

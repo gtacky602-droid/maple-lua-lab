@@ -1,0 +1,15 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "翼の峰",
+  "scenes": [
+    {
+      "key": "wingspan",
+      "node": "wingspan-camp",
+      "sharedNodes": [
+        "wingspan-lookout"
+      ],
+      "source": "wingspan-background-v1.png",
+      "preview": "wingspan-native-preview-v1.png"
+    }
+  ]
+}

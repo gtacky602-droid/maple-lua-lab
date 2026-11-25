@@ -53,9 +53,7 @@
       "key": "fontaineToyShallows",
       "source": "fon-freminet-dive-shallows-background-v1.png",
       "preview": "fon-freminet-dive-shallows-native-preview-v1.png",
-      "sharedNodes": [
-        "fon-toy-shallows"
-      ],
+      "sharedNodes": ["fon-toy-shallows", "fon-wp-50062", "fon-wp-50063", "fon-wp-50064", "fon-wp-50065", "fon-wp-50066", "fon-wp-50068", "fon-wp-50069", "fon-wp-50070", "fon-wp-50071", "fon-wp-50072", "fon-wp-50073", "fon-wp-53864", "fon-wp-53865", "fon-wp-53866", "fon-wp-55765", "fon-wp-55766", "fon-wp-55767"],
       "note": "中央湖の開けた水底と浅瀬の試験区画で既存の背景を共用"
     }
   ]

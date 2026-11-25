@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "qucusaur-field-cavern",
+      "sharedNodes": ["sulfurous-resonant-basin", "sulfurous-totem-cave", "ancient-excavation-upper-ledge"],
       "key": "qucusaurField",
       "note": "ナタ・金焔の岩窟",
       "source": "qucusaur-field-background-v1.png",

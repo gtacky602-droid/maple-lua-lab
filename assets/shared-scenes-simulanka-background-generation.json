@@ -1,0 +1,35 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "シムランカ",
+  "scenes": [
+    {
+      "key": "simulanka",
+      "node": "simulanka-hub",
+      "sharedNodes": [
+        "simulanka-play",
+        "sites-sim-02",
+        "sites-sim-04",
+        "sites-sim-05",
+        "sites-sim-06"
+      ],
+      "source": "simulanka-background-v1.png",
+      "preview": "simulanka-native-preview-v1.png"
+    },
+    {
+      "key": "paperValley",
+      "node": "simulanka-fold-valley",
+      "sharedNodes": [
+        "simulanka-lantern-perch",
+        "sites-sim-03",
+        "sites-sim-07",
+        "sites-sim-08",
+        "sites-star-rail-out",
+        "sites-star-rail-in",
+        "sites-sim-06-side-arena",
+        "sites-sim-08-side-arena"
+      ],
+      "source": "paper-valley-background-v1.png",
+      "preview": "paper-valley-native-preview-v1.png"
+    }
+  ]
+}

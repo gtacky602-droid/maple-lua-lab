@@ -1,5 +1,18 @@
 {
   "stage": "sites-hunt-12778",
+  "sharedTown": {
+    "file": "inazuma-castle-town-native-tiers-v1.webp",
+    "coords": [
+      0,
+      0,
+      512,
+      288,
+      0,
+      0,
+      1160,
+      540
+    ]
+  },
   "results": {
     "4096": {
       "file": "ina-araumi-cistern-native-tiers-v1.webp",

@@ -1,0 +1,34 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "ヴェルーリヤ・ミラージュ",
+  "scenes": [
+    {
+      "key": "veluriyam",
+      "node": "veluriyam-hub",
+      "sharedNodes": [
+        "veluriyam-play",
+        "sites-vlm-02",
+        "sites-vlm-05",
+        "sites-vlm-07",
+        "sites-vlm-08"
+      ],
+      "source": "veluriyam-background-v1.png",
+      "preview": "veluriyam-native-preview-v1.png"
+    },
+    {
+      "key": "mirageTrack",
+      "node": "veluriyam-trolley-out",
+      "sharedNodes": [
+        "veluriyam-petal-stop",
+        "veluriyam-rail-end",
+        "veluriyam-petal-lookout",
+        "veluriyam-trolley-back",
+        "sites-vlm-06",
+        "sites-mirage-fair-out",
+        "sites-mirage-fair-in"
+      ],
+      "source": "mirage-track-background-v1.png",
+      "preview": "mirage-track-native-preview-v1.png"
+    }
+  ]
+}

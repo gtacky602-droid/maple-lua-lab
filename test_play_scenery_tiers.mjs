@@ -33,7 +33,7 @@ try {
  const originalCharacterMode=await page.locator('#renderMode').inputValue();
  assert.equal(await tier.inputValue(),'0');
  await tier.selectOption('4096');
- await page.waitForFunction(()=>document.querySelector('#playBackgroundStatus').textContent.includes('この地点は元PNG'));
+ const sharedTown=await expectDraw('inazuma-castle-town-native-tiers-v1.webp',[0,0,512,288]);
  await drive.warp('ina-wp-47990');
  await drive.cross('sites-hunt-12778');
  async function expectDraw(file,source){
@@ -70,6 +70,6 @@ try {
  await expectDraw(prefix+'-background-v1.png');
  assert.equal(await page.locator('#renderMode').inputValue(),originalCharacterMode);
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/play-scenery-tiers.json',JSON.stringify({stage:'sites-hunt-12778',results,moved,fallback,initialTierRequests,backgroundRequests,returnStage:await drive.node(),characterMode:originalCharacterMode},null,2)+'\n');
+ await fs.writeFile('evidence/play-scenery-tiers.json',JSON.stringify({stage:'sites-hunt-12778',sharedTown,results,moved,fallback,initialTierRequests,backgroundRequests,returnStage:await drive.node(),characterMode:originalCharacterMode},null,2)+'\n');
  console.log('Five actual adventure canvas draws, scrolling, fallback, return and original art passed.');
 } finally {await browser.close();}

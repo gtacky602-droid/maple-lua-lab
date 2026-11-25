@@ -1,0 +1,47 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "voyage-background-v1.png": {
+      "sourceBytes": 1600279,
+      "sourceSha256": "acb6250121122c2504abb58988f935c267c2d0addc310fd86a9f38d49bb1c68b",
+      "preview": "voyage-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17083,
+      "baseSelectedBytes": 17071,
+      "detailFixed13Bytes": 11391,
+      "detailSelectedBytes": 11377,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.6251220703125,
+          "rgbSha256": "01ae297fdc0facaa4cc968afc9df976218306a890845bdad153b75d5be49281a"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.3669230143229165,
+          "rgbSha256": "b146bd80020103d4c35e5a349bad39eee688862341acc412d7056f2ebf043e10"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.1835417570891202,
+          "rgbSha256": "60a3cbe83986134eb0a6d66e5ab1a92887eb32c50f7fa43bd22881f84130f44e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.033863208912037,
+          "rgbSha256": "f7c4b58f4adce14895c3cdaf95114e8692ea2bddc8ae4e6c9e5d47aedb1891cd"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.9123083043981481,
+          "rgbSha256": "0d5d903a4a1fcab8312395558f775ddf1fe3ec6ba173473a7585faf0c5c23afa"
+        }
+      ]
+    }
+  }
+}

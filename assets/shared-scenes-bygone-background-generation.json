@@ -1,0 +1,36 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "往日の海",
+  "scenes": [
+    {
+      "key": "bygone",
+      "node": "bygone-camp",
+      "sharedNodes": [
+        "bygone-depth",
+        "bygone-waterway-pier",
+        "fon-wp-50074",
+        "fon-wp-50075",
+        "fon-wp-50076",
+        "fon-wp-53848",
+        "fon-wp-55768",
+        "fon-wp-56363",
+        "fon-wp-68342",
+        "fon-wp-68343",
+        "fon-wp-68344",
+        "fon-wp-68345",
+        "bygone-wp-68599",
+        "bygone-wp-68600",
+        "bygone-wp-68604",
+        "bygone-wp-68605",
+        "bygone-wp-68606",
+        "bygone-wp-68608",
+        "bygone-wp-68609",
+        "bygone-wp-68611",
+        "bygone-wp-68612",
+        "bygone-wp-68615"
+      ],
+      "source": "bygone-background-v1.png",
+      "preview": "bygone-native-preview-v1.png"
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## 全1,528地点で仮背景の圧縮を比較できる
+
+[モンドの街で元PNGと4,096矩形を見比べる](http://127.0.0.1:9117/map-art.html?node=mond-town&placements=live&compare=background&tier=4096)。M地図で地点を選ぶと、その場所の背景、足場、敵配置で5段階の表示を試せる。複数地点で共用する背景には地点数を表示する。本番は3D配置。ラボ用仮背景418枚のうち94枚は地形や道筋が違う複数地点で使っている。
+
+既存の背景96枚を追加で符号化した。全地点の初期背景、依頼報告による背景差し替え1件、追加480設定のブラウザー復号画像を照合した。全2,090本の配布Luaを独立して復号し、512×288のRGBが段階ごとの参照画像と一致した。[全地点の検査](evidence/shared-scenery-browser.json) ／ [容量と再利用の内訳](evidence/scenery-download-tiers.json)
+
+4,096矩形の配布Luaをすべて揃える場合、同じ背景を地点ごとに複製すると26,117,085バイト、1枚ずつ持つと7,166,709バイトになる。重複分は72.6%。共通復号器、キャラクター、足場、描画時メモリーはこの比較の対象外。
+
 ## 地方伝説56会場の背景と島・湖の攻略経路
 
 [地方伝説の背景を見比べる](http://127.0.0.1:9117/map-art.html?node=ochka-bronzelock-island-court&placements=live&arena=legend&measured=1&compare=background&tier=4096)。絞り込みに全56会場が並ぶ。新しく追加した19会場では元PNG、4,096～6,144矩形の5段階、同じ位置の拡大、選んだ段階のLua書き出しを使える。[19会場の比較画像](evidence/remaining-legend-comparison.png)

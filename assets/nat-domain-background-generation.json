@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "sites-hunt-73159",
+      "sharedNodes": ["natlan-riverside-range", "natlan-river-float-run", "natlan-river-turn-basin", "nat-wp-72418", "nat-wp-72419", "nat-wp-72420", "nat-wp-72421", "nat-wp-72423", "nat-wp-72456", "nat-wp-72758", "nat-wp-79482", "nat-wp-82563", "nat-wp-82576", "nat-wp-85349", "nat-wp-85957", "nat-resort-pier", "nat-wp-85959", "nat-wp-85960", "nat-wp-85961", "nat-wp-85962", "nat-wp-85963", "nat-wp-85964", "nat-wp-85965", "nat-wp-85966", "nat-wp-85967", "nat-wp-85968", "nat-wp-85969", "nat-wp-85970", "nat-wp-85971", "nat-wp-85972", "nat-wp-85973", "nat-wp-85974", "nat-wp-85975", "nat-wp-85976", "nat-wp-85977", "nat-wp-85978", "nat-wp-85979", "nat-wp-85980", "nat-wp-85981", "sites-toyac-tide-landing", "temple-east-totem-pond", "witztli-sealed-stone-bank", "witztli-crystal-niche", "stadium-west-waterfall-foot", "collective-eastern-headland"],
       "key": "natEastRiver",
       "note": "東の川沿いの段丘",
       "source": "natlan-riverside-trial-background-v1.png",
@@ -11,6 +12,7 @@
     },
     {
       "node": "sites-hunt-73160",
+      "sharedNodes": ["natlan-charm-trail"],
       "key": "natWestKeysTrail",
       "note": "源泉北の彩石の道",
       "source": "nat-kachina-charms-trail-background-v1.png",
@@ -19,6 +21,7 @@
     },
     {
       "node": "sites-hunt-81383",
+      "sharedNodes": ["natlan-quarry-road", "natlan-flag-slope", "natlan-flag-ledges", "natlan-flag-cleft", "natlan-high-trial-steps", "natlan-high-trial-field", "nat-wp-72414", "natlan-east-valley-rocks", "nat-wp-72426", "nat-wp-72432", "nat-wp-72435", "nat-wp-72436", "nat-wp-72438", "nat-wp-79050", "nat-wp-79054", "nat-wp-79058", "nat-wp-82560", "nat-wp-82561", "nat-wp-82570", "nat-wp-82571", "witztli-loose-ledge", "canopy-square-plateau", "flower-feather-smiths-ridge", "flower-feather-statue-back-cliff", "tetenanco-seaward-foot"],
       "key": "natNorthCliff",
       "note": "クァワカン南の断崖",
       "source": "natlan-race-ridge-background-v1.png",
@@ -27,6 +30,7 @@
     },
     {
       "node": "sites-hunt-82577",
+      "sharedNodes": ["natlan-surf-cove"],
       "key": "natVolcanicShore",
       "note": "アトクパンの海辺",
       "source": "nat-mualani-surf-cove-background-v1.png",
@@ -35,6 +39,7 @@
     },
     {
       "node": "sites-hunt-73161",
+      "sharedNodes": ["ochka-tide-stairs", "ochka-patched-court", "nat-wp-72425", "nat-wp-72441", "nat-wp-72442", "nat-wp-72443", "nat-wp-72444", "nat-wp-72445", "nat-wp-72446", "nat-wp-72447", "nat-wp-72448", "nat-wp-72449", "nat-wp-72450", "nat-wp-72451", "nat-wp-72452", "nat-wp-72454", "nat-wp-72455", "nat-wp-77772", "nat-wp-79543", "nat-wp-79544", "nat-wp-81381", "nat-wp-82567", "nat-wp-82568", "nat-wp-82569", "nat-wp-82573", "nat-wp-82574", "sites-corridor-natlan-cliff", "sites-corridor-natlan-tunnel", "temple-northwest-totem-ravine", "witztli-root-hollow", "ochka-bronzelock-device-shore"],
       "key": "natCentralPath",
       "note": "中央の岩壁の細道",
       "source": "ochka-cliff-background-v1.png",

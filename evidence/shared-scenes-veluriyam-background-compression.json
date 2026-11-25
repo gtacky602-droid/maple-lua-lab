@@ -1,0 +1,89 @@
+{
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "veluriyam-background-v1.png": {
+      "sourceBytes": 2341539,
+      "sourceSha256": "20d07637b1049f85ad468f7110e8bed65865acff0db4323c556b3152cd0f5d8e",
+      "preview": "veluriyam-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17413,
+      "baseSelectedBytes": 17397,
+      "detailFixed13Bytes": 12163,
+      "detailSelectedBytes": 12153,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.853574399594907,
+          "rgbSha256": "1514fca5fcb3f1db23c599a35ae18f24f23b296f3f8ffb276ab89f8df037ac1d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.487410933883102,
+          "rgbSha256": "9d39d2cc84e0078f0d968abbc70de46de3095d190100b959539fcc6e321006ca"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.209095142505787,
+          "rgbSha256": "1e992d93f49317bdad7ece1047e55c7a4bee572aec024247aafa06016e4b3a42"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.966616030092593,
+          "rgbSha256": "d088e9338f95dca9dca023eb2bb94ff094a51dd257c2a11bae8db9b3de5989e9"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.741267451533565,
+          "rgbSha256": "df24fcac1ceaa35aad9b3bd5ba07464e2ed62bbb2c84230fe16ae2c08aec95e1"
+        }
+      ]
+    },
+    "mirage-track-background-v1.png": {
+      "sourceBytes": 2853448,
+      "sourceSha256": "88423f11f24dbb91afda772c423894713c752e0b67aa3e032eae601d50c431bd",
+      "preview": "mirage-track-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18191,
+      "baseSelectedBytes": 18179,
+      "detailFixed13Bytes": 12353,
+      "detailSelectedBytes": 12345,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 10.778682002314815,
+          "rgbSha256": "93131f8180e0ba589bdc05abb094009dee1c9d89cfca91e43a69e25bddb4f478"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 10.245856391059029,
+          "rgbSha256": "02554d5943670edc599d0f0b00449dd075107f18545b7a5beca420392b24ee95"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 9.800469292534721,
+          "rgbSha256": "c0e9145b3d44e69c90eb519c71f4ca87a405dd1bc0bfde9d2ea4744f42d35be6"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 9.420699508101851,
+          "rgbSha256": "45446c1b5f80f3d0e9e726c3304d7633ee5aa8d7b687a1f3dee8d633412b2c94"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 9.084633156105324,
+          "rgbSha256": "3a343a8189a74d32546dd3ef15c380b6bfa585c7495be9428269ec3384068a49"
+        }
+      ]
+    }
+  }
+}

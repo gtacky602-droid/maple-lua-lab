@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "wolflord-field-ruins",
+      "sharedNodes": ["ina-wp-18586", "ina-wp-18587", "ina-wp-18589", "ina-wp-18593", "ina-wp-18599", "ina-wp-18601"],
       "key": "wolflordField",
       "note": "稲妻・鶴観の霧浜遺跡",
       "source": "wolflord-field-background-v1.png",
@@ -10,6 +11,7 @@
     },
     {
       "node": "hydro-hypostasis-field-cove",
+      "sharedNodes": ["ina-wp-15938", "ina-wp-15942", "ina-wp-15944"],
       "key": "hydroHypostasisField",
       "note": "稲妻・潮紋の洞",
       "source": "hydro-hypostasis-field-background-v1.png",
@@ -24,6 +26,7 @@
     },
     {
       "node": "thunder-field-crest",
+      "sharedNodes": ["ina-wp-16020", "ina-wp-16024", "ina-wp-16027", "ina-wp-16030"],
       "key": "thunderField",
       "note": "稲妻・雷鳴の岩峰",
       "source": "thunder-field-background-v1.png",

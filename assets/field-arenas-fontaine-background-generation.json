@@ -24,6 +24,7 @@
     },
     {
       "node": "emperor-field-cove",
+      "sharedNodes": ["sky-sand-pavilion-walk"],
       "key": "emperorField",
       "note": "フォンテーヌ・熔殻の洞",
       "source": "emperor-field-background-v1.png",

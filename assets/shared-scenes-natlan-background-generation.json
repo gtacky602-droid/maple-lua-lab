@@ -1,0 +1,121 @@
+{
+  "origin": "Existing local-lab placeholder paintings shared by the listed stages. Source artwork is preserved.",
+  "region": "ナタ",
+  "scenes": [
+    {
+      "key": "natlan",
+      "node": "natlan-entry",
+      "sharedNodes": [
+        "natlan-hub",
+        "natlan-field",
+        "natlan-port",
+        "natlan-flag-staging",
+        "nat-wp-72413",
+        "nat-wp-72415",
+        "nat-wp-72416",
+        "nat-wp-72417",
+        "nat-wp-72422",
+        "nat-wp-72424",
+        "nat-wp-72427",
+        "nat-wp-72428",
+        "nat-wp-72429",
+        "nat-wp-72433",
+        "nat-wp-72434",
+        "nat-wp-72437",
+        "nat-wp-72439",
+        "nat-wp-72440",
+        "natlan-terrace-red-clay",
+        "nat-wp-72453",
+        "nat-wp-72759",
+        "nat-wp-72760",
+        "nat-wp-72761",
+        "nat-wp-79051",
+        "nat-wp-79052",
+        "nat-wp-79053",
+        "nat-wp-79055",
+        "nat-wp-79056",
+        "nat-wp-79057",
+        "nat-wp-79060",
+        "nat-wp-79387",
+        "nat-wp-79542",
+        "nat-wp-79545",
+        "nat-wp-82557",
+        "nat-wp-82558",
+        "nat-wp-82559",
+        "nat-wp-82562",
+        "nat-wp-82564",
+        "nat-wp-82565",
+        "nat-wp-82566",
+        "nat-wp-82572",
+        "nat-wp-82575",
+        "sites-west-desert-border"
+      ],
+      "source": "natlan-background-v1.png",
+      "preview": "natlan-native-preview-v1.png"
+    },
+    {
+      "key": "natlanIansanTraining",
+      "node": "natlan-iansan-training",
+      "sharedNodes": [],
+      "source": "nat-iansan-training-course-background-v1.png",
+      "preview": "nat-iansan-training-course-native-preview-v1.png"
+    },
+    {
+      "key": "natlanXilonenLab",
+      "node": "natlan-xilonen-workshop",
+      "sharedNodes": [],
+      "source": "nat-xilonen-course-workshop-background-v1.png",
+      "preview": "nat-xilonen-course-workshop-native-preview-v1.png"
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "node": "natlan-xilonen-course",
+      "sharedNodes": [],
+      "source": "nat-xilonen-course-course-background-v1.png",
+      "preview": "nat-xilonen-course-course-native-preview-v1.png"
+    },
+    {
+      "key": "natlanKinichHunt",
+      "node": "natlan-kinich-hunt",
+      "sharedNodes": [],
+      "source": "nat-kinich-ambush-trail-background-v1.png",
+      "preview": "nat-kinich-ambush-trail-native-preview-v1.png"
+    },
+    {
+      "key": "natlanSurfRun",
+      "node": "natlan-surf-run",
+      "sharedNodes": [],
+      "source": "nat-mualani-surf-run-background-v1.png",
+      "preview": "nat-mualani-surf-run-native-preview-v1.png"
+    },
+    {
+      "key": "natlanRaceSummit",
+      "node": "natlan-flag-summit",
+      "sharedNodes": [
+        "natlan-duel-entry",
+        "nat-sky-camp",
+        "nat-wp-96366",
+        "nat-wp-96367",
+        "nat-wp-96368",
+        "nat-wp-96369",
+        "nat-wp-96370",
+        "nat-wp-96371",
+        "nat-wp-96372",
+        "nat-wp-96373",
+        "nat-wp-96374",
+        "nat-wp-96375",
+        "nat-wp-96376",
+        "nat-wp-96377",
+        "nat-wp-96378",
+        "nat-wp-96379",
+        "nat-wp-96380",
+        "nat-wp-96381",
+        "nat-wp-96382",
+        "nat-wp-96383",
+        "nat-wp-96384"
+      ],
+      "source": "natlan-race-summit-background-v1.png",
+      "preview": "natlan-race-summit-native-preview-v1.png"
+    }
+  ]
+}

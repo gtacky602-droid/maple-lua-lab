@@ -40,7 +40,7 @@ def benchmark(codec, manifests, downloads, repetitions):
         raise ValueError('Duplicate location across input manifests')
     files = {}
     for scene in scenes:
-        stem = scene['source'].removesuffix('-background-v1.png')
+        stem = scene['source'].removesuffix('.png').removesuffix('-v1').removesuffix('-background')
         for tier in TIERS:
             path = downloads / f'{stem}-{tier}.lua'
             files[scene['node'], tier] = path.read_bytes()

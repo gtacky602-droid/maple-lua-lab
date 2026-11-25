@@ -10,6 +10,7 @@
     },
     {
       "node": "dornman-windworks",
+      "sharedNodes": ["mond-wp-95803", "windcrown-domain"],
       "key": "windwardWorks",
       "note": "潮風の機関室",
       "source": "windward-works-background-v1.png",

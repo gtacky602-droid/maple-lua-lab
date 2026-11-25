@@ -60,6 +60,7 @@
     },
     {
       "node": "buried-weaving-room",
+      "sharedNodes": ["sum-wp-28709", "sum-wp-32452"],
       "key": "buriedWeaving",
       "note": "埋もれた織房",
       "source": "buried-weaving-background-v1.png",

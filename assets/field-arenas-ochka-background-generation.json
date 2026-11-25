@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "ochka-sifting-kiln",
+      "sharedNodes": ["nat-mountain-camp", "nat-wp-84104", "nat-wp-84105", "nat-wp-84106", "nat-wp-84107", "nat-wp-84108", "nat-wp-84109", "nat-wp-84110", "nat-wp-84111", "nat-wp-84112", "nat-wp-84113", "nat-wp-84114", "nat-wp-84115", "nat-wp-84116", "nat-wp-84117", "nat-wp-84118", "nat-wp-84119", "nat-wp-84120", "nat-wp-84121"],
       "key": "ochkaKiln",
       "note": "焚き口の選鉱室",
       "source": "ochka-kiln-background-v1.png",
