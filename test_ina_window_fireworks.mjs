@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='ina-window-fireworks',town='inazuma-town',lookouts='ina-firework-lookouts',beach='ina-firework-beach';
-const prefix='evidence/ina-fireworks';
+const suffix=process.argv.includes('--earned')?'-earned':'';
+const prefix='evidence/ina-fireworks'+suffix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -119,7 +120,7 @@ async function load(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8912/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/ina-fireworks-fixture.json','utf8');
+  const seed=await fs.readFile('work/ina-fireworks'+suffix+'-fixture.json','utf8');
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await load();
   await questButton('受注','active');
@@ -150,16 +151,18 @@ try{
   await choices.waitFor({state:'visible'});
   assert.equal(await page.locator('#fireworkColor option').count(),3);
   assert.equal(await page.locator('#fireworkShape option').count(),3);
-  await page.locator('#fireworkColor').selectOption('sunset');
+  await page.locator('#fireworkColor').selectOption('wisteria');
   await page.locator('#fireworkShape').selectOption('fan');
-  await wait(()=>window.lab.frame.storyFireworkDesign?.color==='sunset'&&window.lab.frame.storyFireworkDesign?.shape==='fan');
+  await wait(()=>window.lab.frame.storyFireworkDesign?.color==='wisteria'&&window.lab.frame.storyFireworkDesign?.shape==='fan');
   await page.locator('#nearbyCargoGo').click();
   await phase('window');
   const commands=await compareWindow();
   await phase('rise');
   await wait(()=>window.lab.frame.storyFireworkStatus?.progress>=0.41);
   const burst=(await frame()).storyFireworkStatus;
-  assert.deepEqual(burst.design,{color:'sunset',shape:'fan'});
+  assert.deepEqual(burst.design,{color:'wisteria',shape:'fan'});
+  const packed=(await frame()).draws.find(draw=>draw.kind==='firework_sparks');
+  assert.ok(packed?.points.length>=3&&packed.styles.length>0);
   await shot('burst');
   await count(5);
   await gate(896,town);
@@ -174,6 +177,14 @@ try{
   await page.reload();
   await wait(()=>window.lab?.frame);
   await load();
+  const recorded=page.locator('[data-quest="'+quest+'"] a[href^="firework-preview.html"]');
+  const savedUrl=new URL(await recorded.getAttribute('href'),page.url());
+  assert.equal(savedUrl.searchParams.get('color'),burst.design.color);
+  assert.equal(savedUrl.searchParams.get('shape'),burst.design.shape);
+  const album=await browser.newPage();
+  await album.goto(savedUrl.href);
+  await album.waitForFunction(()=>document.querySelector('#result')?.dataset.sample==='wisteria/fan/40/0');
+  await album.close();
   await gate(266,beach);
   await walk(475);
   assert.equal(await choices.isVisible(),false);
@@ -185,7 +196,7 @@ try{
   assert.equal((await frame()).progression.questXp,after.progression.questXp);
   assert.deepEqual(errors,[]);
   const proof={lookoutScene,beachScene,readings,realJumps:true,independentColorAndShape:true,
-    windowRiseBurst:true,replayAfterReload:true,commands,reward,errors};
+    windowRiseBurst:true,replayAfterReload:true,savedComparison:savedUrl.search,packedBurstStyles:packed.styles.length,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

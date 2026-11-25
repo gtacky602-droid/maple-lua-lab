@@ -159,6 +159,14 @@ export function questObjective(q,graph,state,growth={}){
  }
  return q.kind==='visit'?`${place}を訪れる`:q.kind==='kill'?`${place}で敵を${q.goal}体倒す`:`${place}の本編入口から挑戦し、ボスを討伐する`;
 }
+function recordedFirework(q,state){
+ const design=state.fireworkDesign;
+ if(!design)return null;
+ const color=q.fireworks.colors.find(row=>row.id===design.color);
+ const shape=q.fireworks.shapes.find(row=>row.id===design.shape);
+ if(!color||!shape)return null;
+ return {label:color.label+'・'+shape.label,url:'firework-preview.html?'+new URLSearchParams({color:color.id,shape:shape.id})};
+}
 export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
@@ -176,6 +184,11 @@ export function trackedQuest(f,id,selectedWorksite){
    return {node:q.target,pointUrl:'map-art.html?'+params,pointLabel:phase===2?'水面の三つの影を見比べる':'大灯籠の姿を見る',
     text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route?' ｜ '+route:'')};
   }
+ }
+ if(status==='complete'&&q.fireworks){
+  const design=recordedFirework(q,st);
+  if(design)return {node:q.itinerary.at(-1).node,pointUrl:design.url,pointLabel:design.label+'を見比べる',
+   text:q.name+' ｜ '+design.label+'を記録。海辺の打ち上げ台でGを押すと、家族の窓辺からもう一度見られます。'};
  }
  if(status==='complete'&&st.sights?.favorite){
   const point=worksitePoint(q,st.sights.favorite,q.target);
@@ -239,6 +252,15 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
    ?` ｜ 章ボス初回勝利 ${rewardNumber.format(q.chapterClearXp)}EXP`:'';
   const weapon=q.weaponReward?` ｜ ${status==='complete'?'受取済み':'初回報酬'}：${q.weaponReward}`:'';
   row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear}${weapon} `;
+  if(q.fireworks&&status==='complete'){
+   const design=recordedFirework(q,st);
+   if(design){
+    const link=document.createElement('a');
+    link.href=design.url;link.target='_blank';link.rel='noopener';
+    link.textContent='記録した花火を見る（'+design.label+'）';
+    row.append(link);
+   }
+  }
   if(q.bonusLesson&&status!=='locked'){
    const exercises=q.bonusLesson.filter(lesson=>f.progression?.level>=lesson.level);
    if(exercises.length){

@@ -1,0 +1,37 @@
+{
+  "prerequisite": true,
+  "surveyStatuses": [
+    "partial",
+    "blocked",
+    "clear"
+  ],
+  "peacefulMaps": true,
+  "allNinePreviews": true,
+  "windowRiseBurst": true,
+  "pauseAndDraftResume": true,
+  "invalidSelectionRejected": true,
+  "onceOnlyReward": true,
+  "savedDesignReplay": true,
+  "reward": [
+    57595,
+    850
+  ],
+  "matchingRectangles": {
+    "previews": [
+      108,
+      108,
+      108,
+      108,
+      108,
+      108,
+      164,
+      164,
+      164
+    ],
+    "rise": 16,
+    "burst": 164
+  },
+  "startLevel": 42,
+  "source": "forest-earned-start.json",
+  "sha256": "dc7a02f01ff8b9325485bf2e0fbf5a8b5d10380a14a0df2977a46ad77ee3a756"
+}

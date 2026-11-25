@@ -5,6 +5,7 @@ from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 from runtime import ROOT, runtime, native
 from farka_idle import render_farka_idle
+from firework_preview import firework_comparison
 from savegame import validate_save
 from daily_store import DailyStore, period_at, valid_profile
 from ranking_store import COOKIE, RankingStore, default_path, week_start
@@ -117,7 +118,7 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json(503, {'error': 'ランキングの記録に接続できません'})
 
     def do_POST(self):
-        if self.path not in ('/api/frame','/api/release','/api/farka-idle'): self.send_error(404); return
+        if self.path not in ('/api/frame','/api/release','/api/farka-idle','/api/firework-preview'): self.send_error(404); return
         if self.headers.get('Origin') not in (None, f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
             self.send_error(403); return
         try:
@@ -128,6 +129,8 @@ class Handler(SimpleHTTPRequestHandler):
             if not isinstance(req,dict): raise ValueError('request must be an object')
             if size > MAX_REQUEST_BYTES and 'restore' not in req:
                 raise ValueError('invalid request size')
+            if self.path=='/api/firework-preview':
+                self.send_json(200,firework_comparison(req));return
             if self.path=='/api/farka-idle':
                 self.send_json(200,render_farka_idle(req));return
             owner=req.get('owner')
@@ -260,10 +263,12 @@ class Handler(SimpleHTTPRequestHandler):
                         env['rank_seen'] = score
                 mode = 'rect' if req.get('render')=='rect' else 'sprite'
                 state.packRectArt = req.get('packRectArt') is True
+                state.packFireworks = req.get('packFireworks') is True
                 try:
                     frame = core.frame(state, mode, req.get('profile'))
                 finally:
                     state.packRectArt = None
+                    state.packFireworks = None
                 coop_view = coop.view(env)
                 elapsed=(time.perf_counter()-started)*1000
                 # Scope the graph revision to this runtime so a reset or restore cannot reuse a stale graph.
@@ -277,6 +282,9 @@ class Handler(SimpleHTTPRequestHandler):
                 if batches := out.get('rectBatches'):
                     out['commands'] += sum(len(batches[draw['batch']-1]) - 1
                                            for draw in out['draws'] if draw['kind'] == 'rect_runs')
+                if req.get('packFireworks') is True and (frame.storyFireworkStatus or frame.storyFireworkDesign):
+                    out['commands'] += sum(2 * (len(d['points']) // 3) - 1 for d in out['draws']
+                                           if d['kind'] == 'firework_sparks')
                 out['coop'] = coop_view
                 if accepts_revision:
                     out['storyGraphRevision'] = graph_revision

@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 宵宮の花火を同じコマで見比べる
+
+「遠くの人にも、届く一発」で、火花の外側の光と芯に同じ中心座標を使い、色と大きさをまとめて送る。海の青・夕焼けの橙・藤の紫と、輪・菊・扇を選べる。比較画面で開き具合を止めると、同じ仮背景の上で元の矩形描画と並べて見られる。夕焼け色の扇が40%開いたコマは、火花部分のJSONが16,673 Bから1,093 Bになり、画素差はゼロ。海辺にはラボの既存の背景画像と5段階の復号画像を使う。[比較画面](firework-preview.html) ／ [比較画像](evidence/firework-packing-comparison.png) ／ [54条件の測定結果](evidence/firework-packing-pixels.json)
+
+Lv42の育成済みデータから、松・崖・海岸の三つの高台を歩き、最後の海岸で窓から花火全体が見えることを確認した。報告後は手帳に残った色と形から比較画面を開ける。ゲーム内の演出は海辺の打ち上げ台で再観賞できる。[進行と保存](evidence/ina-fireworks-earned-lua.json) ／ [ブラウザでの再訪](evidence/ina-fireworks-earned-browser.json)
+
 ## 千化け大灯籠と潮見の岬
 
 海辺の洞穴の創作ボス。化け術の外殻、水面に並ぶ三つの影、残りの化け力の3場面で、頭の葉・屋根の飾り・房を含めて同じ灯籠の絵を使う。終盤のひび、池と映り込むしっぽは別の小さな図柄。M地図で追跡中の依頼を開くと、その時点の姿を確認できる。再戦では開通済みの岬への出口も比較できる。[三つの影を元背景と4,096矩形で比較](http://127.0.0.1:9117/map-art.html?node=inazuma-sea-cave&placements=live&contest=2&compare=background&tier=4096) ／ [3場面の見比べ](evidence/inazuma-lantern-comparison.png)

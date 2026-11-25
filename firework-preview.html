@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>宵宮の花火を見比べる ｜ Luaラボ</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#14192a;color:#fff3d7;font:16px/1.65 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:clamp(16px,4vw,48px)}a{color:#a5dfed}h1{font-size:clamp(23px,4vw,38px);margin:.4em 0}.settings,.pair{display:flex;gap:1.2em;flex-wrap:wrap}.settings{align-items:center;margin:1.2em 0}label{display:inline-flex;align-items:center;gap:.5em}select{font:inherit;padding:.3em;background:#252e43;color:inherit;border:1px solid #8592a7;border-radius:5px}input{accent-color:#ffc185}figure{flex:1 1 290px;min-width:0;margin:0}canvas{width:100%;display:block;background:#19233a;image-rendering:pixelated}figcaption{margin-bottom:.35em}output{font-variant-numeric:tabular-nums}#result{display:block;margin-top:.8em}
+</style><main><a href="./">冒険ラボへ戻る</a><h1>宵宮の花火を見比べる</h1>
+<div class="settings"><label>色 <select id="color"></select></label><label>形 <select id="shape"></select></label><label>海辺の仮背景 <select id="tier"><option value="0">元PNG</option><option value="4096">4,096矩形</option><option value="4608">4,608矩形</option><option value="5120">5,120矩形</option><option value="5632">5,632矩形</option><option value="6144">6,144矩形</option></select></label><label>開き具合 <input id="beat" type="range" min="0" max="100" value="40"> <output id="progress">40%</output></label></div>
+<div class="pair"><figure><figcaption>元の矩形描画</figcaption><canvas id="reference" width="480" height="300"></canvas></figure><figure><figcaption>火花の色と大きさを共用</figcaption><canvas id="packed" width="480" height="300"></canvas></figure></div>
+<output id="result" role="status">花火を読み込み中…</output></main><script type="module" src="firework-preview.js"></script></html>

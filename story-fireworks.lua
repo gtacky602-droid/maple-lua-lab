@@ -102,12 +102,36 @@ return function(C,canInspect)
   if #reads>0 then f.storyFireworkStatus={message=table.concat(reads,'　／　')} end
  end
 
+ -- Keep the particle centers in draw order. Glow and core share one style.
+ local function sparkLayer(draws,paint,packed)
+  if not packed then return draws end
+  local batch={kind='firework_sparks',glow=paint.glow,bright=paint.bright,styles={},points={}}
+  draws[#draws+1]=batch
+  return {batch=batch,styleIndex={}}
+ end
+
  local function spark(draws,x,y,size,paint,alpha)
+  if draws.batch then
+   local batch=draws.batch
+   local byAlpha=draws.styleIndex[size]
+   if not byAlpha then byAlpha={};draws.styleIndex[size]=byAlpha end
+   local style=byAlpha[alpha]
+   if not style then
+    style=#batch.styles+1
+    batch.styles[style]={size,alpha}
+    byAlpha[alpha]=style
+   end
+   local points=batch.points
+   local i=#points
+   points[i+1],points[i+2],points[i+3]=x,y,style
+   return
+  end
   rect(draws,x-size,y-size,size*2,size*2,paint.glow,alpha*.55)
   rect(draws,x-size/2,y-size/2,size,size,paint.bright,alpha)
  end
 
- local function burst(draws,x,y,radius,shape,paint,alpha)
+ local function burst(draws,x,y,radius,shape,paint,alpha,packed)
+  draws=sparkLayer(draws,paint,packed)
   for i=0,35 do
    local angle=i/36*math.pi*2
    local length=radius
@@ -149,7 +173,7 @@ return function(C,canInspect)
     if state.count<q.goal then
      f.storyFireworkDesign={colors=spec.colors,shapes=spec.shapes,color=choice.color,shape=choice.shape}
      rect(draws,563,39,164,111,'#131c37dd')
-     burst(draws,645,105,31,choice.shape,paint,1)
+     burst(draws,645,105,31,choice.shape,paint,1,s.packFireworks)
      text(draws,645,59,cue,13)
     end
    end
@@ -164,6 +188,7 @@ return function(C,canInspect)
    f.storyFireworkStatus={phase='window',message='窓辺の家族',design=choice}
   elseif time<spec.windowSeconds+spec.riseSeconds then
    local p=(time-spec.windowSeconds)/spec.riseSeconds
+   draws=sparkLayer(draws,paint,s.packFireworks)
    for i=0,7 do
     local t=math.max(0,p-i*.037)
     spark(draws,x+(480-x)*t,y-45+(151-y+45)*t,5-i*.35,paint,1-i/9)
@@ -171,10 +196,14 @@ return function(C,canInspect)
    f.storyFireworkStatus={phase='rise',message='海辺から、光が上がっていく。',design=choice}
   else
    local p=(time-spec.windowSeconds-spec.riseSeconds)/spec.burstSeconds
-   local radius=28+96*(1-(1-p)^2)
-   burst(draws,480,169+15*p*p,radius,choice.shape,paint,math.max(.04,(1-p)^.65))
+   fireworks.bloom(draws,p,choice.shape,paint,s.packFireworks)
    f.storyFireworkStatus={phase='burst',message=cue,design=choice,progress=p}
   end
+ end
+
+ function fireworks.bloom(draws,p,shape,paint,packed)
+  local radius=28+96*(1-(1-p)^2)
+  burst(draws,480,169+15*p*p,radius,shape,paint,math.max(.04,(1-p)^.65),packed)
  end
 
  return fireworks

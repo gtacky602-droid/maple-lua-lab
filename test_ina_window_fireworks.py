@@ -1,5 +1,7 @@
 from copy import deepcopy
 import json
+import sys
+from hashlib import sha256
 
 from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
@@ -56,6 +58,26 @@ def select(s, field, id):
     core.action(s, f"story_firework_select:{field}:{id}")
 
 
+def check_packing(s):
+    reference = native(frame(s).draws)
+    s.packFireworks = True
+    try:
+        commands = native(frame(s).draws)
+    finally:
+        s.packFireworks = None
+    batch, = [d for d in commands if d['kind'] == 'firework_sparks']
+    restored = []
+    for x, y, index in zip(*[iter(batch['points'])]*3, strict=True):
+        size, alpha = batch['styles'][index - 1]
+        for half, opacity, color in ((size, alpha * .55, batch['glow']),
+                                     (size / 2, alpha, batch['bright'])):
+            restored.append(dict(kind='rect', x=x-half, y=y-half, w=half*2, h=half*2,
+                                 color=color, opacity=opacity))
+    offset = commands.index(batch)
+    assert commands[:offset] + restored + commands[offset+1:] == reference
+    return len(restored)
+
+
 def phase(s):
     return frame(s).storyFireworkStatus.phase
 
@@ -71,6 +93,14 @@ s.story.quests["inazuma-moving-lantern"] = lua.table_from({
     "lantern":{"inspected":{"box-leaf":True,"stone-shadow":True,"eaten-nuts":True}},
 }, recursive=True)
 s.story.visited["inazuma-port"] = True
+earned = '--earned' in sys.argv
+if earned:
+    source = ROOT / 'work/inazuma-fresh-route/forest-earned-start.json'
+    raw = source.read_bytes()
+    s = load(validate_save(json.loads(raw)))
+    assert s.story.quests["inazuma-moving-lantern"].status == "complete" and not state(s)
+    core.action(s, "story_fast:"+town)
+    assert s.story.node == town
 fixture = checkpoint(s)
 core.action(s, "story_accept:"+quest)
 gate(s, 755, look, False)
@@ -100,11 +130,13 @@ assert not state(s).fireworkDesign
 move(s, 475)
 definition = next(row for row in core.frame(s).storyGraph.quests.values() if row.id == quest)
 patterns = set()
+packed_previews = []
 for shape in definition.fireworks.shapes.values():
     select(s,"shape",shape.id)
     previews = []
     for color in definition.fireworks.colors.values():
         select(s,"color",color.id)
+        packed_previews.append(check_packing(s))
         preview = frame(s)
         assert preview.storyFireworkDesign.color == color.id and preview.storyFireworkDesign.shape == shape.id
         previews.append(tuple((draw.x,draw.y) for draw in preview.draws.values()
@@ -122,11 +154,14 @@ core.action(s,"pause")
 tick(s,140,right=True,attack=True)
 assert phase(s) == "window" and s.actors[1].x == 475 and state(s).count == 4
 core.action(s,"pause")
+hits_before_show = s.hits
 tick(s,108,right=True,attack=True)
-assert phase(s) == "rise" and not s.hits
+assert phase(s) == "rise" and s.hits == hits_before_show
+packed_rise = check_packing(s)
 tick(s,60)
 assert phase(s) == "burst"
 assert native(frame(s).storyFireworkStatus.design) == {"color":"wisteria","shape":"fan"}
+packed_burst = check_packing(s)
 draft = checkpoint(s)
 bad = deepcopy(draft)
 bad["story"]["quests"][quest]["fireworkDesign"]["shape"]="illegal"
@@ -173,8 +208,12 @@ result = {
     "prerequisite":True, "surveyStatuses":surveys, "peacefulMaps":True,
     "allNinePreviews":True, "windowRiseBurst":True, "pauseAndDraftResume":True, "invalidSelectionRejected":True,
     "onceOnlyReward":True, "savedDesignReplay":True, "reward":reward,
+    "matchingRectangles":dict(previews=packed_previews,rise=packed_rise,burst=packed_burst),
 }
-(ROOT/"evidence/ina-fireworks-lua.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf8")
+suffix = "-earned" if earned else ""
+if earned:
+    result.update(startLevel=fixture["progression"]["level"], source=source.name, sha256=sha256(raw).hexdigest())
+(ROOT/f"evidence/ina-fireworks{suffix}-lua.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf8")
 (ROOT/"work").mkdir(exist_ok=True)
-(ROOT/"work/ina-fireworks-fixture.json").write_text(json.dumps(fixture),encoding="utf8")
+(ROOT/f"work/ina-fireworks{suffix}-fixture.json").write_text(json.dumps(fixture),encoding="utf8")
 print(result)

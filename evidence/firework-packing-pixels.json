@@ -1,0 +1,380 @@
+[
+  {
+    "color": "sea",
+    "shape": "ring",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　9,319 → 652 B（93.0%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "ring",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　10,669 → 698 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "ring",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　10,719 → 693 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "ring",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　10,643 → 689 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "ring",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　10,639 → 688 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "ring",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　10,031 → 648 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "chrysanthemum",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　9,319 → 652 B（93.0%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "chrysanthemum",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　10,669 → 698 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "chrysanthemum",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　10,731 → 697 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "chrysanthemum",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　10,655 → 696 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "chrysanthemum",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　10,653 → 693 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "chrysanthemum",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　10,041 → 655 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "fan",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　14,845 → 994 B（93.3%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "fan",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　16,683 → 1,110 B（93.3%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "fan",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　16,673 → 1,093 B（93.4%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "fan",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　16,604 → 1,087 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "fan",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　16,630 → 1,088 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sea",
+    "shape": "fan",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　15,398 → 987 B（93.6%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "ring",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　9,319 → 652 B（93.0%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "ring",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　10,669 → 698 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "ring",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　10,719 → 693 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "ring",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　10,643 → 689 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "ring",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　10,639 → 688 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "ring",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　10,031 → 648 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "chrysanthemum",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　9,319 → 652 B（93.0%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "chrysanthemum",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　10,669 → 698 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "chrysanthemum",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　10,731 → 697 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "chrysanthemum",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　10,655 → 696 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "chrysanthemum",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　10,653 → 693 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "chrysanthemum",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　10,041 → 655 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "fan",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　14,845 → 994 B（93.3%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "fan",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　16,683 → 1,110 B（93.3%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "fan",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　16,673 → 1,093 B（93.4%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "fan",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　16,604 → 1,087 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "fan",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　16,630 → 1,088 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "sunset",
+    "shape": "fan",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　15,398 → 987 B（93.6%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "ring",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　9,319 → 652 B（93.0%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "ring",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　10,669 → 698 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "ring",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　10,719 → 693 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "ring",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　10,643 → 689 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "ring",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　10,639 → 688 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "ring",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　10,031 → 648 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "chrysanthemum",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　9,319 → 652 B（93.0%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "chrysanthemum",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　10,669 → 698 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "chrysanthemum",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　10,731 → 697 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "chrysanthemum",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　10,655 → 696 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "chrysanthemum",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　10,653 → 693 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "chrysanthemum",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　10,041 → 655 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "fan",
+    "beat": 0,
+    "tier": 0,
+    "measurement": "花火1コマのJSON（空白除く）　14,845 → 994 B（93.3%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "fan",
+    "beat": 20,
+    "tier": 4096,
+    "measurement": "花火1コマのJSON（空白除く）　16,683 → 1,110 B（93.3%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "fan",
+    "beat": 40,
+    "tier": 4608,
+    "measurement": "花火1コマのJSON（空白除く）　16,673 → 1,093 B（93.4%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "fan",
+    "beat": 60,
+    "tier": 5120,
+    "measurement": "花火1コマのJSON（空白除く）　16,604 → 1,087 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "fan",
+    "beat": 80,
+    "tier": 5632,
+    "measurement": "花火1コマのJSON（空白除く）　16,630 → 1,088 B（93.5%削減）　画素差 0 ／ 144,000"
+  },
+  {
+    "color": "wisteria",
+    "shape": "fan",
+    "beat": 100,
+    "tier": 6144,
+    "measurement": "花火1コマのJSON（空白除く）　15,398 → 987 B（93.6%削減）　画素差 0 ／ 144,000"
+  }
+]
