@@ -1,0 +1,62 @@
+{
+  "sites-hunt-28751": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      413,
+      370,
+      386,
+      354
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "sumFungalGrove",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-28751-pocket-1"
+  },
+  "sites-hunt-28754": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      408,
+      360,
+      382,
+      366
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "sumFieldStation",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-28754-pocket-1"
+  },
+  "sites-hunt-28755": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      417,
+      390,
+      364,
+      345
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "sumMossGate",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-28755-pocket-1"
+  },
+  "sites-hunt-28757": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      395,
+      360,
+      402,
+      382
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "sumFernRavine",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": "sites-hunt-28757-pocket-1"
+  }
+}

@@ -17,6 +17,12 @@ export function liveNodeDraft(input,graph,nodeId,species){
  });
  return validatePlacementDraft({version:1,nodes:{[nodeId]:converted}},graph,species).nodes[nodeId];
 }
+// Earlier rainforest drafts stored absolute heights. Shelf order and horizontal spans are unchanged.
+const forestShelfHeights=[480,390,352,394,350];
+const previousHeights=new Map([
+ ['sites-hunt-28751',forestShelfHeights],['sites-hunt-28754',forestShelfHeights],
+ ['sites-hunt-28755',forestShelfHeights],['sites-hunt-28757',[480,398,345,396,348]],
+]);
 export function validatePlacementDraft(input,graph,species){
  const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
  if(!object(input)||input.version!==1||!object(input.nodes))throw Error('対応する配置案JSON（version 1）を選んでください。');
@@ -29,8 +35,12 @@ export function validatePlacementDraft(input,graph,species){
    if(!object(e)||typeof e.id!=='string'||!/^[a-zA-Z0-9_-]{1,80}$/.test(e.id)||ids.has(e.id))throw Error(`${id}: 個体IDが不正または重複しています。`);ids.add(e.id);
    if(!allowed.has(e.species))throw Error(`${id}: 未対応の敵種です。`);
    if(!Number.isFinite(e.x)||!Number.isFinite(e.y)||e.x<0||e.x>node.width||typeof e.flip!=='boolean')throw Error(`${id}: 座標または向きが不正です。`);
-   if(!node.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w))throw Error(`${id}: 足場に接地していない個体があります。`);
-   return {id:e.id,species:e.species,x:e.x,y:e.y,flip:e.flip};
+   const oldHeights=previousHeights.get(id);
+   const spansX=p=>e.x>=p.x&&e.x<=p.x+p.w;
+   const support=node.platforms.find(p=>p.y===e.y&&spansX(p))
+    ?? (oldHeights && node.platforms.find((p,i)=>oldHeights[i]===e.y&&spansX(p)));
+   if(!support)throw Error(`${id}: 足場に接地していない個体があります。`);
+   return {id:e.id,species:e.species,x:e.x,y:support.y,flip:e.flip};
   });
  }
  return {version:1,status:'visual-only draft; not canonical spawn geography or live combat placement',nodes};

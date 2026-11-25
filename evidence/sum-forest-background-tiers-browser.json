@@ -1,0 +1,98 @@
+{
+  "sites-hunt-28751": {
+    "source": "sum-grove-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "9fecf06e6c53ff2ab3b1008d640aca6a714b7ab40ce95e890a30c755281639e0",
+    "tiers": {
+      "4096": "03e1b3352302677b579857e53386793daac01f521f8f8f58e42a5edd29b29faf",
+      "4608": "e2f8e929071c5810b8162955eb6cd2743d33e0c0497b368cab126a0b9589ba90",
+      "5120": "3cc1fbd2e12450577672784f83c6aeed495796da10a9c315add1ebbcb3721f7e",
+      "5632": "580c72cf61562f6c3e92b9f6d7f82799f70fc7850308384786b9de2563f34dee",
+      "6144": "23b16605253527936312402a717088b3abbf44c5ddaa14a674060a3189a760bc"
+    }
+  },
+  "sites-hunt-28751-pocket-1": {
+    "source": "sum-spore-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "9aef40e88b1b49cb8238bc990eea4bd10ee02807754ab6b06ad372aaca12dc04",
+    "tiers": {
+      "4096": "c5004fee751ef1ceacfea7dae7e47827e4525311f270e35ae983708548f3cdf8",
+      "4608": "75e1e3f0d574bde8572b7db4a2c83f456a91c679649712aebddf9129256e8e82",
+      "5120": "7beb8e1fd2520b4d8dd4102e7e16bd7e36d74919fdf1729e16124c59c54939aa",
+      "5632": "b42bd4f33dbc3f2a22a964afc6cec74cb37717dbc5401b769440be3bba468f37",
+      "6144": "910b016f0fede4b5ee3004fbf098284ec8beab4860c9f569900c746a8d693c13"
+    }
+  },
+  "sites-hunt-28754": {
+    "source": "sum-station-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "6e76d1a6dd703067b9a880e7d6589e97fd9da0c235eb32b451d2a27a5682b18a",
+    "tiers": {
+      "4096": "50eb57d80bd8a09a22b18ae40c28312fe3127639e961427f73e101d864ad76bd",
+      "4608": "ac27f9066c998dc061f8953d4ffcca9db110dc2317391ae9ba5a9143dd988ee8",
+      "5120": "421e53c73faed69a0a65bdfaa21ce33b8087c66b05a10628cb05ad388dfd5348",
+      "5632": "aa113723a9f0754df1678c3b7f5751019aa711aaddea85368a6d73580411d9d4",
+      "6144": "39cf658ac307851cffb037b8629c9566f2dae92560ba5d225190885a5b60caf2"
+    }
+  },
+  "sites-hunt-28754-pocket-1": {
+    "source": "sum-service-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "84e3a1a206514f0347ff9f93744b4f64c41053ee0a1fdd90a9bd2da72d257df8",
+    "tiers": {
+      "4096": "43a42f44772e8ec372b1a1b30e34dda218f6b8b98d2bdf5816bbc312f8fceb06",
+      "4608": "934a63986cd9976e668245ea165b8bbb485a8393b63d826185123afa17125f5d",
+      "5120": "9f0745d84cbba857739a021988e94af5581e782afd0116bf4b35e187c536e8e9",
+      "5632": "2ba0b683ea35ca3dfd0843fa6859936f6c07fb1c844c828c11107b6f2d03a485",
+      "6144": "bdefe5060017f2cf9d570e1200d2bbe6edfe60cacc8a870a3542082cdbc1381a"
+    }
+  },
+  "sites-hunt-28755": {
+    "source": "sum-mossgate-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "9df892c2171f3a963ceb90f89ce56cd8ffd45e686f7842d782ac1ad09466e989",
+    "tiers": {
+      "4096": "7bacf816c5fcc98849236372935ec1559069b4f6d68e11d3ceb3c9bbce2d5afa",
+      "4608": "3d9edf54bcdb5145e6ae288dae90d426bad4d868e228109b119ab333598257cd",
+      "5120": "d265dd02ebac811027c31e36c32384a6cacc1fb9d38f7ed0dc617d03d90efdf2",
+      "5632": "893e08263c632e3c38c67c1919b3bfba7dad7acd0bd211c3760788d9065658d2",
+      "6144": "6a3b8b1de1d51148e13495937b34364d0321c3f33b77aad96bbceceb581b603f"
+    }
+  },
+  "sites-hunt-28755-pocket-1": {
+    "source": "sum-court-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "ab30e6aaca2787a5eb00afdda8e97e03323f7e6efe46ae559dd3c55e852bcfaa",
+    "tiers": {
+      "4096": "60395f0bd9fb61b7eaed8f3b64bb2df25c1f7e2db3d0ed3b85f195d6124fb45c",
+      "4608": "847e6c1ad98f606f9eaabc4b776f11b21c82bd361b9e2f174e2a0166b48f28d0",
+      "5120": "cf2499e9edc3f2f1ebe03e3a087241cabbe91ed2787476ce215a517ace34aa93",
+      "5632": "e4d685b37e626f9df6c8ea92f0c0abcb13e71cfdb94ce7b74d306df270fd058d",
+      "6144": "731eafd4edd5bd18a876bb7f19b936705e9c1454a9ddd5dbd21976bc8c069913"
+    }
+  },
+  "sites-hunt-28757": {
+    "source": "sum-ravine-background-v1.png",
+    "count": 48,
+    "sourceCanvas": "227f82a54c2b005c9f4641fd7890a05bc3a07ff0f79c69864f2e2b6497d0e7b3",
+    "tiers": {
+      "4096": "577ce68fac1143d5d6bcd17b091f41f6df641f67e0af64b9c141171320d26d1d",
+      "4608": "f8f89b2094f62d03ef46dbb6259fef7e90269a6b19b01c19bf5257b1dcb0a45f",
+      "5120": "ee99698daf393f5bf431e5afda116c6f40d0113952e8d74ef5a5f55e23cde6e6",
+      "5632": "04ecc737fcceb21aeb3f128a52cffba13fe9cbc777c62829094494926bfb601d",
+      "6144": "e27967970203650e39736f9768017943b0874c64034d5aba56504ae16196d52e"
+    }
+  },
+  "sites-hunt-28757-pocket-1": {
+    "source": "sum-aviary-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "8d09140085f6fa69e2fdc8044f7339bac04905a4635fea6550a2bf3140756a1a",
+    "tiers": {
+      "4096": "19d80fe9fd4fe016da947ebf3727c19956c801ea8a4111706a876feb747c25cc",
+      "4608": "072767c0808aeef8574afaaba514bb92fb1df03e7bfea174ba04df04520e819c",
+      "5120": "78207cc6cd3c13289fff7a3f337d54472a65801458807c9188da36dbe09b7189",
+      "5632": "243cf3e5d5bd0bc725b4b8d86ee16bc915746d555bbb01556f30cddbc3fa8247",
+      "6144": "7af76f5b69ec405cbc493ded2c1b0c9c702e864813db625706a6d9031d0cebee"
+    }
+  }
+}

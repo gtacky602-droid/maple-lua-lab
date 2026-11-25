@@ -118,6 +118,7 @@ try{
  }
  $('decodedBackground').onchange=render;
  $('backgroundTier').onchange=render;
+ $('matchSpritePng').onchange=render;
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
@@ -135,7 +136,8 @@ try{
   const preview=previewFile&&$('decodedBackground').checked?sceneryStatus(frame,previewFile):null;
   if(preview)loadComparisonImage(frame,preview,previewFile);
   const decoded=preview?.state==='ready'?previewFile:undefined;
-  $('comparisonViewLabel').textContent=decoded?'復号した背景':'矩形版';
+  const matchedSprites=Boolean(previewFile && $('matchSpritePng').checked);
+  $('comparisonViewLabel').textContent=decoded?'復号した背景':matchedSprites?'元PNG':'矩形版';
   $('decodedBackgroundStatus').textContent=decoded?tier.toLocaleString('ja-JP')+'矩形を復号':preview?.state==='loading'?'読み込み中':
    preview?.state==='error'?'読み込みに失敗しました':'';
   const metrics=backgroundMeasurements[n.id];
@@ -152,7 +154,7 @@ try{
    for(const e of items){
     const a=placementArt(e),flip=e.flip&&a===assets[e.species],x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
-    const quality=mode==='png'?null:profile;
+    const quality=mode==='png'||matchedSprites?null:profile;
     if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
     paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
     if(e.id===selected){
@@ -168,8 +170,9 @@ try{
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  $('viewportCost').textContent=decoded&&!cost.standard?'':viewportSummary(cost,profile);
-  $('status').textContent=`配置${items.length}体 ／ 矩形${cost.total.toLocaleString('ja-JP')}個（配置全体の合計） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
+  $('viewportCost').textContent=matchedSprites?'キャラは左右とも元PNG':decoded&&!cost.standard?'':viewportSummary(cost,profile);
+  const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
+  $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
   $('diffDetails').replaceChildren();

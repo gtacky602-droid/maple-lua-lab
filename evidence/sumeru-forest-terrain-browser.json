@@ -1,0 +1,207 @@
+{
+  "mushrooms": {
+    "stage": "sites-hunt-28751",
+    "scenery": {
+      "key": "sumFungalGrove",
+      "file": "sum-grove-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 637.7,
+      "y": 136.9,
+      "adjacent": [
+        "sum-wp-28749",
+        "sites-hunt-28751-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28751",
+      "next": "sites-hunt-28751-pocket-1"
+    },
+    "jump": [
+      480,
+      413
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "sumSporeHollow",
+      "file": "sum-spore-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-28749",
+        "sites-hunt-28751",
+        "walk"
+      ],
+      [
+        "sites-hunt-28751",
+        "sites-hunt-28751-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-28751-pocket-1",
+        "sites-hunt-28751",
+        "walk"
+      ],
+      [
+        "sites-hunt-28751",
+        "sum-wp-28749",
+        "walk"
+      ]
+    ]
+  },
+  "station": {
+    "stage": "sites-hunt-28754",
+    "scenery": {
+      "key": "sumFieldStation",
+      "file": "sum-station-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 541.3,
+      "y": 245.1,
+      "adjacent": [
+        "sum-wp-28729",
+        "sites-hunt-28754-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28754",
+      "next": "sites-hunt-28754-pocket-1"
+    },
+    "jump": [
+      480,
+      408
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "sumServiceBay",
+      "file": "sum-service-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-28729",
+        "sites-hunt-28754",
+        "raised"
+      ],
+      [
+        "sites-hunt-28754",
+        "sites-hunt-28754-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-28754-pocket-1",
+        "sites-hunt-28754",
+        "walk"
+      ],
+      [
+        "sites-hunt-28754",
+        "sum-wp-28729",
+        "walk"
+      ]
+    ]
+  },
+  "mountain": {
+    "stage": "sites-hunt-28755",
+    "scenery": {
+      "key": "sumMossGate",
+      "file": "sum-mossgate-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 572.8,
+      "y": 297.7,
+      "adjacent": [
+        "sum-wp-28726",
+        "sites-hunt-28755-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28755",
+      "next": "sites-hunt-28755-pocket-1"
+    },
+    "jump": [
+      480,
+      417
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "sumSentinelCourt",
+      "file": "sum-court-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-28726",
+        "sites-hunt-28755",
+        "raised"
+      ],
+      [
+        "sites-hunt-28755",
+        "sites-hunt-28755-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-28755-pocket-1",
+        "sites-hunt-28755",
+        "walk"
+      ],
+      [
+        "sites-hunt-28755",
+        "sum-wp-28726",
+        "walk"
+      ]
+    ]
+  },
+  "ravine": {
+    "stage": "sites-hunt-28757",
+    "scenery": {
+      "key": "sumFernRavine",
+      "file": "sum-ravine-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 530.9,
+      "y": 322.2,
+      "adjacent": [
+        "sum-wp-28717",
+        "sites-hunt-28757-pocket-1"
+      ],
+      "backgroundComparison": "map-art.html?node=sites-hunt-28757",
+      "next": "sites-hunt-28757-pocket-1"
+    },
+    "jump": [
+      480,
+      395
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "sumCanopyHangar",
+      "file": "sum-aviary-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-28717",
+        "sites-hunt-28757",
+        "walk"
+      ],
+      [
+        "sites-hunt-28757",
+        "sites-hunt-28757-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-28757-pocket-1",
+        "sites-hunt-28757",
+        "walk"
+      ],
+      [
+        "sites-hunt-28757",
+        "sum-wp-28717",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

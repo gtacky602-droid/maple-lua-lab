@@ -74,7 +74,18 @@ try {
         assert.equal(seen.size,5);
         await page.locator('#decodedBackground').uncheck();
         assert.equal(await page.locator('#backgroundTier').isDisabled(),true);
+        await page.locator('#matchSpritePng').check();
+        const sameCanvases = () => page.evaluate(() => {
+          const read = id => document.getElementById(id).getContext('2d').getImageData(0,0,960,540).data;
+          const left = read('png'), right = read('rect');
+          return left.every((value,i) => value === right[i]);
+        });
+        assert.equal(await sameCanvases(),true);
         await page.locator('#decodedBackground').check();
+        await page.waitForFunction(() => window.mapArt.decodedBackgroundRectangles === 6144);
+        assert.equal(await sameCanvases(),false);
+        // Retain original combined comparison captures for existing batches.
+        if (group !== 'sum-forest') await page.locator('#matchSpritePng').uncheck();
         const after = await page.evaluate(()=>window.mapArt);
         assert.equal(after.camera,before.camera);
         assert.deepEqual(after.placements,before.placements);

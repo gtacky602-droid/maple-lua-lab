@@ -1,0 +1,69 @@
+{
+  "generator": "Built-in imagegen",
+  "scenes": [
+    {
+      "node": "sites-hunt-28751",
+      "key": "sumFungalGrove",
+      "note": "茸林の傘茸群生地",
+      "source": "sum-grove-background-v1.png",
+      "preview": "sum-grove-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. Sunlit mushroom forest with one towering apricot umbrella cap to the left, overlapping smaller cool teal caps in profile to the right and a pale fern gully through the middle. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28751-pocket-1",
+      "key": "sumSporeHollow",
+      "note": "炎の魔術師の菌床洞",
+      "source": "sum-spore-background-v1.png",
+      "preview": "sum-spore-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. Cavern under the same giant mushrooms; the underside gills arc across the upper left, a burnt orange ring of charred shelf fungi deep in the right recess, dark plum stone. No flames in foreground. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28754",
+      "key": "sumFieldStation",
+      "note": "雨林の観測小屋",
+      "source": "sum-station-background-v1.png",
+      "preview": "sum-station-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. Rainforest observation station seen broadside, warm ochre research pavilion on wooden stilts, folded green awnings, wide satin-leaf plants and a turquoise morning sky. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28754-pocket-1",
+      "key": "sumServiceBay",
+      "note": "遺跡機兵の整備室",
+      "source": "sum-service-background-v1.png",
+      "preview": "sum-service-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. Quiet underground maintenance annex of a rainforest research station, one dormant empty cradle for machinery, oversize brass cog and missing links on a mint tiled wall; loose cables and moss. No robot. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28755",
+      "key": "sumMossGate",
+      "note": "山腹の苔むした遺跡門",
+      "source": "sum-mossgate-background-v1.png",
+      "preview": "sum-mossgate-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. A weathered angular stone gateway built into a mountainside at right, massive leaning mossy keystone, layered turquoise mountain ridges and bamboo shapes at left; late afternoon. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28755-pocket-1",
+      "key": "sumSentinelCourt",
+      "note": "遺跡守衛の石庭",
+      "source": "sum-court-background-v1.png",
+      "preview": "sum-court-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. Roofless sunken stone court with a crumbling circular seal set into the rear wall and one massive square pillar on the far left. Cool ivy, muted green stone, copper light entering from above. No sentinel. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28757",
+      "key": "sumFernRavine",
+      "note": "南西のシダの谷",
+      "source": "sum-ravine-background-v1.png",
+      "preview": "sum-ravine-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. Southwestern rain forest ravine, a big single bent tree fern opening over a distant braided creek, small ochre footbridge way back on the left and layered forest in blue-green. Shaded canopy. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    },
+    {
+      "node": "sites-hunt-28757-pocket-1",
+      "key": "sumCanopyHangar",
+      "note": "飛空ドレイクの樹冠格納庫",
+      "source": "sum-aviary-background-v1.png",
+      "preview": "sum-aviary-native-preview-v1.png",
+      "prompt": "One original horizontal 16:9 pixel art background for a Maple-like 2D sidescroller set in a humid fantasy rainforest. An abandoned aerial dock intertwined with tree roots in a high jungle hollow, empty copper mooring hoops to the right, pale light through a high opening at left, no animal or machine. Wide horizontal side-on camera, drawn with deliberate large pixel clusters, clean stepped contours, limited material colors, rich yet calm readable silhouettes. Keep central lower third quiet for game sprites. Background only, no foreground floor strips or platforms, no characters, monsters, text, logos, UI, dithering, or simulated CRT. Opaque panorama."
+    }
+  ]
+}
