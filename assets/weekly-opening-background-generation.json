@@ -1,0 +1,33 @@
+{
+  "generator": "OpenAI ImageGen",
+  "prompt": "Original widescreen 16:9 side-scrolling fantasy RPG BACKGROUND ONLY, composed as if at 160 by 90 pixels with a restrained palette of 12 flat matte colors. Crisp deliberate pixel clusters, broad atmospheric bands and strong stepped silhouettes, minimal grain or gradients. Quiet playable space from side to side in lower third. View straight across a side-view stage, not top down. No characters, monsters, statues depicting bosses, UI, lettering, sprites or floating platforms. ",
+  "scenes": [
+    {
+      "node": "shouki-godmaking-arena",
+      "key": "godmakingHall",
+      "note": "スメール・造神工房",
+      "surface": "stone",
+      "prompt": "A colossal abandoned subterranean Sumeru godmaking workshop, with great violet bronze ring mechanisms sunk into the architecture at BOTH sides, jade-green conduits, a charcoal indigo wall and a thin muted amber line of floor light. A broad empty central floor. Keep center low contrast so an enormous purple mechanical torso can be composited by the game. No mechs or bodies.",
+      "source": "godmaking-hall-background-v1.png",
+      "preview": "godmaking-hall-native-preview-v1.png"
+    },
+    {
+      "node": "dvalin-sky-arena",
+      "key": "dvalinWeekly",
+      "note": "風龍の空域",
+      "surface": "stone",
+      "source": "dvalin-weekly-background-v1.png",
+      "preview": "dvalin-weekly-native-preview-v1.png",
+      "origin": "Existing lab background, preserved at its original resolution"
+    },
+    {
+      "node": "andrius-wolf-ring",
+      "key": "andriusWeekly",
+      "note": "奔狼領の試練場",
+      "surface": "stone",
+      "source": "andrius-weekly-background-v1.png",
+      "preview": "andrius-weekly-native-preview-v1.png",
+      "origin": "Existing lab background, preserved at its original resolution"
+    }
+  ]
+}

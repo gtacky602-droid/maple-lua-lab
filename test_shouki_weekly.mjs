@@ -43,7 +43,7 @@ try{
   await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['sumeruCanopy','ready']);
+ assert.deepEqual([scene.key,scene.state],['godmakingHall','ready']);
  const opening=await frame();
  assert.deepEqual(opening.weeklyBoss.phaseHp.map(v=>v.max),[590,1040]);
  const upperParts=opening.draws.filter(d=>d.source==='shouki-idle-source-v1.png');

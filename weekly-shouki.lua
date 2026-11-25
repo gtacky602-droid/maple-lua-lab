@@ -10,7 +10,7 @@ return function(C)
   local name,t,y=w.stage,w.stageTick,spec.floorY
   if name=='p1' or name=='overload' or name=='rise' and t<120 then
    -- The crop ends at the waist. Meet the platform so the torso rises from the floor.
-   return 'upper',y,name=='overload' and t>=60 and 720 or 1160
+   return 'upper',y,name=='overload' and t>=60 and 720 or spec.artHeight
   end
   if name=='trial' then return 'full',y-83,630 end
   if name=='collapse' and t>=60 then return 'full',y,600 end
@@ -590,7 +590,7 @@ return function(C)
   end
   local y=spec.floorY
   -- Put the oversized machine behind the party and its combat cues.
-  local bodyFrame={draws={}}
+  local bodyFrame={draws={},clipToViewport=upper and spec.openingPose.clipToViewport}
   C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
   table.move(f.draws,1,#f.draws,#bodyFrame.draws+1,bodyFrame.draws)
   f.draws=bodyFrame.draws

@@ -1,0 +1,38 @@
+{
+  "shouki-godmaking-arena": {
+    "source": "godmaking-hall-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "7817a5cdb7666e32faac4f6cdaa08338e4436aedcf66e7dc0ce9b7579c3bfeb3",
+    "tiers": {
+      "4096": "3823ab0b50f7f7519bdadb5552e47d4d9924f536c9fc75dc0c223dab0c252d10",
+      "4608": "542bf3561d3c3bf52176f287c7581b53d51e2e1a11a7a63bea6097a6183dec15",
+      "5120": "c23f2c9ba1bbf98fbafbfd20065e359db6d5dbb3cc462765b7ab512f870ac6a6",
+      "5632": "5c625fa0a4b7b4ca3211a4de0389eef6b01facef569055ad45e2a45d9b5be875",
+      "6144": "4afa443fa00d5f586a68adb46e67cd122e54da83c5c87c5b3694ca973657ad7e"
+    }
+  },
+  "dvalin-sky-arena": {
+    "source": "dvalin-weekly-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "585e0da3d348b0e396143c92186c4fc28ec2bdd3f11ae4ce5ad00becdaa7427f",
+    "tiers": {
+      "4096": "62c9ca1bf2c76a6814912bb3d1b8bcdd551e420dbb4c319f0c96b6f1db656fbf",
+      "4608": "2824ebbf31b887b7c1ea0a952e7552c92266cc65b15b941af7a481bcc1923e0b",
+      "5120": "af312cc53551813f15815b614d2cc8559c7a8ed0a6e05224ee784a5cbde3cfed",
+      "5632": "110cb3e15c0530d9b45cc72067bfed88095bcaf394f5b91e47b133a9842928ce",
+      "6144": "ca4daf3b479406353f5d27e36da63aff48a8fdbb5f2a20c88e51569fae22d6da"
+    }
+  },
+  "andrius-wolf-ring": {
+    "source": "andrius-weekly-background-v1.png",
+    "count": 1,
+    "sourceCanvas": "a8f4a27833a5195157e0ec3a017d41c355cbe0933afbb9dc9cb7733a776a284b",
+    "tiers": {
+      "4096": "73bb0c603dc93b8cfe3865ee601b613a7634a59fec80e10e29702d73995f49a6",
+      "4608": "762940c63f56dcafda751d5d5d4754226542924e0b4f02ec79e458e02ad1f531",
+      "5120": "489d509f16d77450fa4cf126b799a1de8f8e49e7d6bde158ffad52b6bbea7125",
+      "5632": "fdbf2bfbedbe09a4cc3d1218a3495bdb8976422db5e3ee005eec43be6b28b8de",
+      "6144": "10c86400fad31e87592b9d7681fecdc241992ebd648d62e6222e349c465d5af7"
+    }
+  }
+}

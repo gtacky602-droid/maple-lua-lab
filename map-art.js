@@ -13,6 +13,22 @@ const DRAFT_KEY='maple-lua-lab.map-draft.v1';
 const $=id=>document.getElementById(id),assets={},histories={},redos={},baselines={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 
+// The live Lua renderer submits rectangles in stage coordinates. Keep its operation order
+// so fractional edges land on the same pixels as the combat frame.
+function openingRects(ctx,grid,bounds,x,y,flip,clip,paint){
+ const left=x+(flip?-bounds.x-bounds.width:bounds.x);
+ const top=y+bounds.y;
+ let count=0;
+ for(const [column,row,w,h,color] of grid.runs){
+  const rx=left+(flip?grid.width-column-w:column)*bounds.width/grid.width;
+  const ry=top+row*bounds.height/grid.height;
+  const rw=w*bounds.width/grid.width+.05,rh=h*bounds.height/grid.height+.05;
+  if(clip && (rx>=ctx.canvas.width+1 || rx+rw<=-1 || ry>=ctx.canvas.height+1 || ry+rh<=-1))continue;
+  if(paint){ctx.fillStyle=color;ctx.fillRect(rx,ry,rw,rh)}
+  count++;
+ }
+ return count;
+}
 function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
  const left=x+(flip?-bounds.x-bounds.width:bounds.x),top=y+bounds.y;
  // paintSprite slightly overlaps adjacent rectangle edges. Keep boundary layers until fully clear.
@@ -21,6 +37,14 @@ function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
   const runs=art.profiles[profile].runs.length;
   cost.total+=runs;
   if(visible){
+   if(art.openingPose){
+    const emitted=openingRects(ctx,art.profiles[profile],bounds,x,y,flip,art.clipToViewport,true);
+    cost.visible+=emitted;
+    let standard=art.profiles.legacy.runs.length;
+    if(art.clipToViewport)standard=profile==='legacy'?emitted:openingRects(ctx,art.profiles.legacy,bounds,x,y,flip,true,false);
+    cost.standard+=standard;
+    return;
+   }
    cost.visible+=runs;
    cost.standard+=art.profiles.legacy.runs.length;
   }
@@ -90,6 +114,12 @@ try{
   $('species').append(group);
  }
  for(const boss of weeklyData.weeklyBosses){
+  const pose=boss.openingPose;
+  if(pose){
+   const data=await json('assets/'+pose.file);
+   assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,clipToViewport:pose.clipToViewport};
+   $('species').append(new Option(boss.name+'（開戦時）',boss.mapIdleArt));
+  }
   const shadow=boss.rift?.shadowArt;
   if(!shadow)continue;
   arenaPreviews.set(boss.innerNode,boss);
@@ -223,7 +253,9 @@ try{
      ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;
      ctx.strokeRect(x+minX-3,y+top-3,maxX-minX+6,-top+6);
     }
-    ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
+    if(!liveView || !arenaPreviews.get(n.id)?.openingPose){
+     ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
+    }
    }
   }
   updateDetail();

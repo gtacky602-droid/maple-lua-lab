@@ -1,0 +1,114 @@
+{
+  "dvalin": {
+    "node": "dvalin-sky-arena",
+    "hub": "mond-town",
+    "approach": [
+      "mond-wp-24",
+      "sites-hunt-7111"
+    ],
+    "png": {
+      "box": [
+        25,
+        25,
+        435,
+        395
+      ],
+      "x": 480,
+      "kind": "boss_sprite",
+      "anchorX": 0.5,
+      "source": "dvalin-weekly-body-source-v1.png",
+      "flip": false,
+      "h": 220,
+      "y": 330,
+      "w": 242.27848101265823
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 12636,
+        "drawnRuns": 12636
+      },
+      "h48c32": {
+        "sourceRuns": 7915,
+        "drawnRuns": 7915
+      },
+      "h32c16": {
+        "sourceRuns": 3472,
+        "drawnRuns": 3472
+      }
+    }
+  },
+  "andrius": {
+    "node": "andrius-wolf-ring",
+    "hub": "mond-town",
+    "approach": [
+      "mond-road"
+    ],
+    "png": {
+      "box": [
+        25,
+        25,
+        492,
+        323
+      ],
+      "x": 480,
+      "kind": "boss_sprite",
+      "anchorX": 0.5121951219512195,
+      "source": "andrius-weekly-normal-source-v1.png",
+      "flip": false,
+      "h": 180.0,
+      "y": 480,
+      "w": 274.1795665634675
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 13306,
+        "drawnRuns": 13306
+      },
+      "h48c32": {
+        "sourceRuns": 8248,
+        "drawnRuns": 8248
+      },
+      "h32c16": {
+        "sourceRuns": 3644,
+        "drawnRuns": 3644
+      }
+    }
+  },
+  "shouki": {
+    "node": "shouki-godmaking-arena",
+    "hub": "sumeru-hub",
+    "approach": [
+      "sumeru-hub"
+    ],
+    "png": {
+      "box": [
+        87,
+        14,
+        868,
+        723
+      ],
+      "x": 480,
+      "kind": "boss_sprite",
+      "anchorX": 0.5,
+      "source": "shouki-idle-source-v1.png",
+      "flip": false,
+      "h": 1160,
+      "y": 480,
+      "w": 1392.6417704011064
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 6224,
+        "drawnRuns": 3061
+      },
+      "h48c32": {
+        "sourceRuns": 3741,
+        "drawnRuns": 1851
+      },
+      "h32c16": {
+        "sourceRuns": 2125,
+        "drawnRuns": 1392
+      }
+    }
+  }
+}

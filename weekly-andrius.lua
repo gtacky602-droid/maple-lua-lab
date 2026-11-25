@@ -304,7 +304,7 @@ return function(C)
   if e.hp<=0 then return end
   local layer={draws={}};local pose=c and recovery(c) and 'ready' or w.pose or 'ready';local variant=w.awakened and 'awake' or 'normal'
   if variant=='normal' and (pose=='rise' or pose=='howl')then pose='ready' end
-  local height=180
+  local height=spec.artHeight
   if c and c.move.kind=='interlude' and e.y==320 then height=110 end
   C.drawAndriusWeeklyArt(layer,e.x-s.camera,e.y,variant..'-'..pose,height,mode,profile,e.dir>0)
   if c then

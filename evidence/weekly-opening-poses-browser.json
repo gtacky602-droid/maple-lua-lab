@@ -1,0 +1,152 @@
+{
+  "dvalin": {
+    "node": "dvalin-sky-arena",
+    "background": {
+      "key": "dvalinWeekly",
+      "file": "dvalin-weekly-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "kind": "boss_sprite",
+      "y": 330,
+      "w": 242.27848101265823,
+      "x": 480,
+      "box": [
+        25,
+        25,
+        435,
+        395
+      ],
+      "source": "dvalin-weekly-body-source-v1.png",
+      "h": 220,
+      "anchorX": 0.5,
+      "flip": false
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 12636,
+        "drawnRuns": 12636,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 7915,
+        "drawnRuns": 7915,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 3472,
+        "drawnRuns": 3472,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "andrius": {
+    "node": "andrius-wolf-ring",
+    "background": {
+      "key": "andriusWeekly",
+      "file": "andrius-weekly-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "kind": "boss_sprite",
+      "box": [
+        25,
+        25,
+        492,
+        323
+      ],
+      "source": "andrius-weekly-normal-source-v1.png",
+      "h": 180,
+      "flip": false,
+      "y": 480,
+      "w": 274.1795665634675,
+      "x": 480,
+      "anchorX": 0.5121951219512195
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 13306,
+        "drawnRuns": 13306,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 8248,
+        "drawnRuns": 8248,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 3644,
+        "drawnRuns": 3644,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "shouki": {
+    "node": "shouki-godmaking-arena",
+    "background": {
+      "key": "godmakingHall",
+      "file": "godmaking-hall-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "box": [
+        87,
+        14,
+        868,
+        723
+      ],
+      "flip": false,
+      "kind": "boss_sprite",
+      "anchorX": 0.5,
+      "y": 480,
+      "source": "shouki-idle-source-v1.png",
+      "h": 1160,
+      "x": 480,
+      "w": 1392.6417704011064
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 6224,
+        "drawnRuns": 3061,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 3741,
+        "drawnRuns": 1851,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 2125,
+        "drawnRuns": 1392,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  }
+}

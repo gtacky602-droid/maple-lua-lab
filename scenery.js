@@ -1,6 +1,7 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ godmakingHall:{file:'godmaking-hall-background-v1.png',decodedPreview:'godmaking-hall-native-preview-v1.png',decodedTiers:'godmaking-hall-native-tiers-v1.webp',surface:'stone',zones:['story:shouki-godmaking-arena'],note:'スメール・造神工房の仮背景'},
  chenyuDepthTrail:{file:'chenyu-depth-trail-background-v1.png',decodedPreview:'chenyu-depth-trail-native-preview-v1.png',decodedTiers:'chenyu-depth-trail-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64845'],note:'探索路の仮背景'},
  chenyuFernDen:{file:'chenyu-fern-den-background-v1.png',decodedPreview:'chenyu-fern-den-native-preview-v1.png',decodedTiers:'chenyu-fern-den-native-tiers-v1.webp',surface:'grass',zones:['story:branch-hunt-64845-pocket-1'],note:'探索路・玄文獣の蕨穴の仮背景'},
  chenyuFoothillTurn:{file:'chenyu-foothill-turn-background-v1.png',decodedPreview:'chenyu-foothill-turn-native-preview-v1.png',decodedTiers:'chenyu-foothill-turn-native-tiers-v1.webp',surface:'stone',zones:['story:branch-hunt-64846'],note:'山裾の曲がり道の仮背景'},
@@ -138,8 +139,8 @@ export const sceneryDefinitions={
  threadlineRelay:{file:'threadline-relay-background-v1.png',zones:['story:threadline-relay'],note:'配電室の仮背景'},
  buriedWeaving:{file:'buried-weaving-background-v1.png',zones:['story:buried-weaving-room'],note:'織房の仮背景'},
  tideCalibration:{file:'tide-calibration-background-v1.png',zones:['story:tide-calibration-hall'],note:'潮位較正室の仮背景'},
- andriusWeekly:{file:'andrius-weekly-background-v1.png',zones:['story:andrius-wolf-ring'],note:'狼の領の仮背景'},
- dvalinWeekly:{file:'dvalin-weekly-background-v1.png',zones:['story:dvalin-sky-arena'],note:'風龍の空域の仮背景'},
+ andriusWeekly:{file:'andrius-weekly-background-v1.png',decodedPreview:'andrius-weekly-native-preview-v1.png',decodedTiers:'andrius-weekly-native-tiers-v1.webp',surface:'stone',zones:['story:andrius-wolf-ring'],note:'奔狼領の試練場の仮背景'},
+ dvalinWeekly:{file:'dvalin-weekly-background-v1.png',decodedPreview:'dvalin-weekly-native-preview-v1.png',decodedTiers:'dvalin-weekly-native-tiers-v1.webp',surface:'stone',zones:['story:dvalin-sky-arena'],note:'風龍の空域の仮背景'},
  generatorField:{file:'field-generator-field-background-v1.png',zones:['story:field-generator-field-chamber'],note:'重力試験室の仮背景'},
  seahorseField:{file:'seahorse-field-background-v1.png',zones:['story:seahorse-field-cavern'],note:'真珠珊瑚の洞の仮背景'},
  emperorField:{file:'emperor-field-background-v1.png',zones:['story:emperor-field-cove'],note:'熔殻の洞の仮背景'},
@@ -377,7 +378,7 @@ export const sceneryDefinitions={
  sumeruKavehWorkshop:{file:'sum-kaveh-room-workshop-background-v1.png',zones:['story:sum-kaveh-workshop'],note:'樹上の模型工房の仮背景'},
  sumeruKavehRoom:{file:'sum-kaveh-room-room-background-v1.png',zones:['story:sum-kaveh-reading-room'],note:'木漏れ日の閲覧室の仮背景'},
  sumeruNahidaGlade:{file:'sum-nahida-map-glade-background-v1.png',zones:['story:sum-nahida-dew-glade'],note:'朝露のくぼみの仮背景'},
- sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:shouki-godmaking-arena','story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
+ sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
 const backgrounds=new Map();

@@ -28,7 +28,8 @@
     "chenyu-lake-native-backgrounds.lua": "d766104a9cf818bcda3770c7f7c88ab9d2f2f226ba7247f84b5fd501ce00ee1b",
     "chenyu-post-native-backgrounds.lua": "371188c222967b1b1e51ca8a3c2efc795460a47b93298819ba93652b10157675",
     "chenyu-ferry-native-backgrounds.lua": "29d7adf105cd4c5cc986bc288e04fa717f9b9db8a1a3709e8863ca85cc03c244",
-    "chenyu-south-native-backgrounds.lua": "04e37af273b681ab415446b2e2b0774691d861068138163ab5da0a6fedc40a7a"
+    "chenyu-south-native-backgrounds.lua": "04e37af273b681ab415446b2e2b0774691d861068138163ab5da0a6fedc40a7a",
+    "weekly-opening-native-backgrounds.lua": "8b6f74d25db61a5d1f3ace808b4edfdd9a82afbbdeecf9ae15fbd3f9d146f745"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -7287,6 +7288,117 @@
         "minDecodeMs": 22.67,
         "maxDecodeMs": 39.38,
         "medianRetainedLuaKiB": 1129.6
+      }
+    },
+    "shouki-godmaking-arena": {
+      "4096": {
+        "fileBytes": 16429,
+        "medianDecodeMs": 17.12,
+        "minDecodeMs": 14.79,
+        "maxDecodeMs": 23.36,
+        "medianRetainedLuaKiB": 735.8
+      },
+      "4608": {
+        "fileBytes": 19685,
+        "medianDecodeMs": 23.66,
+        "minDecodeMs": 18.74,
+        "maxDecodeMs": 38.44,
+        "medianRetainedLuaKiB": 872.7
+      },
+      "5120": {
+        "fileBytes": 22794,
+        "medianDecodeMs": 25.1,
+        "minDecodeMs": 21.97,
+        "maxDecodeMs": 40.3,
+        "medianRetainedLuaKiB": 982.6
+      },
+      "5632": {
+        "fileBytes": 25936,
+        "medianDecodeMs": 29.49,
+        "minDecodeMs": 23.89,
+        "maxDecodeMs": 53.43,
+        "medianRetainedLuaKiB": 1060.2
+      },
+      "6144": {
+        "fileBytes": 27304,
+        "medianDecodeMs": 30.75,
+        "minDecodeMs": 22.97,
+        "maxDecodeMs": 75.51,
+        "medianRetainedLuaKiB": 1137.9
+      }
+    },
+    "dvalin-sky-arena": {
+      "4096": {
+        "fileBytes": 14896,
+        "medianDecodeMs": 16.95,
+        "minDecodeMs": 14.06,
+        "maxDecodeMs": 28.31,
+        "medianRetainedLuaKiB": 744.7
+      },
+      "4608": {
+        "fileBytes": 18102,
+        "medianDecodeMs": 19.13,
+        "minDecodeMs": 16.76,
+        "maxDecodeMs": 22.19,
+        "medianRetainedLuaKiB": 915.4
+      },
+      "5120": {
+        "fileBytes": 21173,
+        "medianDecodeMs": 23.98,
+        "minDecodeMs": 18.02,
+        "maxDecodeMs": 29.24,
+        "medianRetainedLuaKiB": 993.1
+      },
+      "5632": {
+        "fileBytes": 24255,
+        "medianDecodeMs": 25.72,
+        "minDecodeMs": 23.15,
+        "maxDecodeMs": 29.58,
+        "medianRetainedLuaKiB": 1071.8
+      },
+      "6144": {
+        "fileBytes": 26103,
+        "medianDecodeMs": 27.9,
+        "minDecodeMs": 25.65,
+        "maxDecodeMs": 41.92,
+        "medianRetainedLuaKiB": 1151.0
+      }
+    },
+    "andrius-wolf-ring": {
+      "4096": {
+        "fileBytes": 16413,
+        "medianDecodeMs": 18.6,
+        "minDecodeMs": 15.59,
+        "maxDecodeMs": 19.57,
+        "medianRetainedLuaKiB": 786.7
+      },
+      "4608": {
+        "fileBytes": 19693,
+        "medianDecodeMs": 19.91,
+        "minDecodeMs": 18.19,
+        "maxDecodeMs": 24.33,
+        "medianRetainedLuaKiB": 928.2
+      },
+      "5120": {
+        "fileBytes": 22860,
+        "medianDecodeMs": 25.14,
+        "minDecodeMs": 20.94,
+        "maxDecodeMs": 26.17,
+        "medianRetainedLuaKiB": 1009.8
+      },
+      "5632": {
+        "fileBytes": 26012,
+        "medianDecodeMs": 28.86,
+        "minDecodeMs": 21.73,
+        "maxDecodeMs": 47.65,
+        "medianRetainedLuaKiB": 1091.1
+      },
+      "6144": {
+        "fileBytes": 27760,
+        "medianDecodeMs": 29.69,
+        "minDecodeMs": 25.38,
+        "maxDecodeMs": 34.96,
+        "medianRetainedLuaKiB": 1176.6
       }
     }
   }

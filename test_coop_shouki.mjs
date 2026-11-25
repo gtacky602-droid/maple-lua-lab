@@ -135,7 +135,7 @@ try{
   await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['sumeruCanopy','ready']);
+ assert.deepEqual([scene.key,scene.state],['godmakingHall','ready']);
  const upper=(await frame(a)).draws.find(d=>d.source==='shouki-idle-source-v1.png');
  assert.deepEqual([upper.y,upper.h],[480,1160]);
  await a.locator('#game').screenshot({path:'evidence/coop-shouki-upper.png'});

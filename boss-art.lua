@@ -3,7 +3,7 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local w=h*assetData.box[3]/assetData.box[4];local anchor=assetData.anchorX or .5;local left=x-(flip and (1-anchor) or anchor)*w
   if mode=='rect' then
    local asset=assetData.profiles[profile] or assetData.profiles.legacy
-   if f.rectIndex and not palette then
+   if f.rectIndex and not palette and not f.clipToViewport then
     local index=f.rectIndex[asset]
     if not index then
      index=#f.rectBatches+1
@@ -13,7 +13,15 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
      gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity}
     return
    end
-   for _,r in ipairs(asset.runs) do f.draws[#f.draws+1]={kind='rect',x=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width,y=y-h+r[2]*h/asset.height,w=r[3]*w/asset.width+.05,h=r[4]*h/asset.height+.05,color=palette and palette[r[5]] or r[5],opacity=opacity} end
+   for _,r in ipairs(asset.runs) do
+    local rx=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width
+    local ry=y-h+r[2]*h/asset.height
+    local rw,rh=r[3]*w/asset.width+.05,r[4]*h/asset.height+.05
+    -- Keep a one-pixel margin for fractional rectangle edges on the 960 x 540 stage.
+    if not f.clipToViewport or (rx<961 and rx+rw>-1 and ry<541 and ry+rh>-1) then
+     f.draws[#f.draws+1]={kind='rect',x=rx,y=ry,w=rw,h=rh,color=palette and palette[r[5]] or r[5],opacity=opacity}
+    end
+   end
   else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box,tint=tint,opacity=opacity} end
  end
  function C.drawSocketArt(f,art,x,y,w,dir,angle,mode,profile,opacity)

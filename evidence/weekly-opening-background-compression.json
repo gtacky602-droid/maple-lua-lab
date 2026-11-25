@@ -1,0 +1,132 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "godmaking-hall-background-v1.png": {
+      "sourceBytes": 1385320,
+      "sourceSha256": "91d5cea08297383341dc1284e73362c7e5e1f15b0352144e9913ef67e11df538",
+      "preview": "godmaking-hall-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16341,
+      "baseSelectedBytes": 16325,
+      "detailFixed13Bytes": 10885,
+      "detailSelectedBytes": 10877,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.6913271303530093,
+          "rgbSha256": "694a4a9c11f0e89f145f5065a01718ca61845590dff8e008a5496f5eacda9c4f"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.4899857132523149,
+          "rgbSha256": "7d05a6df92b06c23b48b2878713f3d6edab6fb0a623a3cfd62aa5c957da4fdfa"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.3598836263020833,
+          "rgbSha256": "644b6aca522c0ffe74a53a4ba367ed8bb1db4a93c02623e493b34ec5d82d3859"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.2511528862847223,
+          "rgbSha256": "81e728e1ae6d9f648a42a41a9fc80a304ddc314246d913790fc78fab245ee5ca"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.1655341254340277,
+          "rgbSha256": "c677c7ced52b7d55a10719eb6be030c8b9472be98657fb9a20eae1afa54e5dbf"
+        }
+      ]
+    },
+    "dvalin-weekly-background-v1.png": {
+      "sourceBytes": 1565855,
+      "sourceSha256": "26c32e543e59bdd5851501783886bf0f68d27d5b8bf142dae66a04acbf14bedc",
+      "preview": "dvalin-weekly-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 14805,
+      "baseSelectedBytes": 14793,
+      "detailFixed13Bytes": 11219,
+      "detailSelectedBytes": 11209,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 1.5820787217881944,
+          "rgbSha256": "502e0ce9f8ada85da6247cbdfda9000469e4bbfa7fba8620e25c89133505b2e3"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 1.4521190502025463,
+          "rgbSha256": "d68b9a3a661bbd475bd7e4d5aec61d24323055f5ba5b187d6b04816660d0274a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 1.3508843315972223,
+          "rgbSha256": "ef80a53a57f2eef6767356f98cd84ae405fce6f9b70260c827c6ffd8ff120e98"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 1.265735767505787,
+          "rgbSha256": "7915c3f335614bf4b51be28757116ac8c01462daffa29e681baaccf8ae41c383"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 1.1946931061921295,
+          "rgbSha256": "5afbf749103bac2f9599e786b5f55c38c601fb64f38e5f7396b086f591f917d5"
+        }
+      ]
+    },
+    "andrius-weekly-background-v1.png": {
+      "sourceBytes": 1991035,
+      "sourceSha256": "f5c7fe6c6d5b072e7cc6c06cac46bd276b129e8c9fbeba97c0aa341cf1286e4a",
+      "preview": "andrius-weekly-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16321,
+      "baseSelectedBytes": 16309,
+      "detailFixed13Bytes": 11361,
+      "detailSelectedBytes": 11349,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.861728244357639,
+          "rgbSha256": "d9a42a87e6fc2c597f36e5c0b1b88f3b0ac24c70ca1a04bfcdfdf5ba2a8d7e1e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.5842985930266202,
+          "rgbSha256": "7b768246123dda0ca08b079bd0b024f018bfebb320772dac6986495c81194d5a"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.367793330439815,
+          "rgbSha256": "61b5849b86ea39ab112e37456829e1203e72c300bef9773f25ef8679e9ec21b9"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.1856779875578702,
+          "rgbSha256": "9672c890cdcff5e4478824b1d2318d50697347e6188375a4271d077367516e5d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.0175374348958335,
+          "rgbSha256": "57db7f88039ed4059beb3fdfd736b1ab0a2fa8dcf8be05ded7e19bc5c2ec512a"
+        }
+      ]
+    }
+  }
+}

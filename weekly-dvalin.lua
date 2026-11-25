@@ -322,7 +322,7 @@ return function(C)
    w.stage=='takeoff' and '起き上がる・足元へゆっくり降りる' or guarded(w) and '前脚を攻撃して体勢を崩す' or c and c.move.title or '空を舞っている'
   if w.primary.hp<=0 then return end
   local layer,foreground={draws={}},{draws={}}
-  local bodyX,bodyY,bodyH,flip=480,330,220,false
+  local bodyX,bodyY,bodyH,flip=spec.center,spec.floorY-spec.openingPose.hover,spec.artHeight,false
   local pose=w.pose
   if c and (c.move.kind=='bite' or c.move.kind=='breath') then
    flip=(c.dir or -1)>0

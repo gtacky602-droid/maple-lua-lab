@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 980,
+  "verifiedModules": 995,
   "dimensions": [
     512,
     288
@@ -1377,12 +1377,33 @@
       "5120": 22249,
       "5632": 25335,
       "6144": 27219
+    },
+    "godmaking-hall-background-v1.png": {
+      "4096": 16429,
+      "4608": 19685,
+      "5120": 22794,
+      "5632": 25936,
+      "6144": 27304
+    },
+    "dvalin-weekly-background-v1.png": {
+      "4096": 14896,
+      "4608": 18102,
+      "5120": 21173,
+      "5632": 24255,
+      "6144": 26103
+    },
+    "andrius-weekly-background-v1.png": {
+      "4096": 16413,
+      "4608": 19693,
+      "5120": 22860,
+      "5632": 26012,
+      "6144": 27760
     }
   },
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 196
+      "verified": 199
     },
     "domainHunts": {
       "total": 124,
@@ -1579,19 +1600,16 @@
     },
     "weeklyBosses": {
       "totalArenas": 18,
-      "verified": 4,
+      "verified": 7,
       "pending": [
-        "andrius-wolf-ring",
         "apep-oasis-heart-arena",
         "buried-weaving-room",
-        "dvalin-sky-arena",
         "knave-crimson-court",
         "mond-gate-chess-court",
         "narwhal-inner-echo",
         "narwhal-star-sea",
         "primal-fire-sundered-forge",
         "raiden-thunder-echo-arena",
-        "shouki-godmaking-arena",
         "signora-ten-shrine-arena",
         "sumeru-heretic-lattice",
         "tide-calibration-hall"

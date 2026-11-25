@@ -119,10 +119,13 @@ assert (upper.h,upper.y)==(1160,spec.floorY)
 assert upper.x-upper.w/2<0 and upper.x+upper.w/2>960 and upper.y-upper.h<0
 assert core.frame(s,'sprite').draws[1].source==upper.source
 for profile in ('legacy','h48c32','h32c16'):
-    runs=core.shoukiWeeklyArt.upper.profiles[profile].runs
+    raw=lua.table_from({'draws':lua.table()})
+    core.drawFieldDisplayArt(raw,core.shoukiWeeklyArt.upper,upper.x,upper.y,upper.h,'rect',profile,False)
+    visible=[r for r in raw.draws.values() if r.x<961 and r.x+r.w>-1 and r.y<541 and r.y+r.h>-1]
+    assert 0<len(visible)<len(raw.draws)
     draws=core.frame(s,'rect',profile).draws
-    machine=[draws[i] for i in range(1,len(runs)+1)]
-    assert all(d.kind=='rect' for d in machine)
+    machine=[draws[i] for i in range(1,len(visible)+1)]
+    assert all(native(d)==native(r) for d,r in zip(machine,visible,strict=True))
     assert abs(max(d.y+d.h for d in machine)-upper.y)<.051
 assert [e.hitTop for e in (w.primary,*w.hands.values())]==[342,367,367]
 wide=lua.table_from({'id':1,'radial':True,'x':480,'y':480,'range':300,'atk':30,'mult':1,'limit':5,
