@@ -1,0 +1,804 @@
+{
+  "codec": "MapleCodec.lua with the R61C variable-width reader",
+  "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
+  "scenes": {
+    "ochka-bronze-court-background-v1.png": {
+      "sourceBytes": 829477,
+      "sourceSha256": "d0ced21f104ba871462bc62c77c69b27c45cf3c658728b9c5477736064258a9e",
+      "preview": "ochka-bronze-court-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18817,
+      "baseSelectedBytes": 18803,
+      "detailFixed13Bytes": 12681,
+      "detailSelectedBytes": 12671,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 8.38370090060764,
+          "rgbSha256": "7c6761f87128fc77bc890213b943434683a192083cf8c24359e43471200165f6"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 7.795233832465278,
+          "rgbSha256": "ea88cdf5ea6cc7f18acc42797681d068e796093ce4c2d1e20a809c1a0b976e4d"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 7.3472719545717595,
+          "rgbSha256": "4b41117eac0592c2bb17bd19c37e345c1c0100296b0b5c0aa95f30a1c6f49555"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 6.956423158998843,
+          "rgbSha256": "41e623ca427e8a4ba6189ba527cab661533289a3ad908d8ddc862656fafc3c3d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 6.619400589554398,
+          "rgbSha256": "240e05da4f823256fcc82fdc2c6eac9a08285a61f50c1f4a4f921fb3a84c1dda"
+        }
+      ]
+    },
+    "sacred-east-dais-background-v1.png": {
+      "sourceBytes": 576678,
+      "sourceSha256": "60cb45ac41a83aa8aac8052127f3366c356d0436fd3c60723f28b424ce2da26f",
+      "preview": "sacred-east-dais-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17463,
+      "baseSelectedBytes": 17443,
+      "detailFixed13Bytes": 11845,
+      "detailSelectedBytes": 11837,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 2.7079558195891202,
+          "rgbSha256": "6c02642067fa2d25b3704b5baed7d974c65e9a1a308b833373cc42c1069a5069"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 2.472805447048611,
+          "rgbSha256": "7fe9e7ead7eac50a451fb309baab4217704d3f7d5d02118fa52a8a688982d54e"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 2.2982765480324074,
+          "rgbSha256": "749156d03a42ed038ccec8464d7877e3e8d0d34488f5022528a2d5d29f2a3945"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.158657497829861,
+          "rgbSha256": "57ea737de384793182b7eaf69bf85051658f82b38c29eefe64a1eb1d4d8d8d7c"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.040599681712963,
+          "rgbSha256": "237ae4eb35fc5dd3afbff37fd3f6e103c50a79adc73ed8114545c8b5ff146526"
+        }
+      ]
+    },
+    "sky-sand-courtyard-background-v1.png": {
+      "sourceBytes": 569871,
+      "sourceSha256": "8e08cc6c686fbf81488cf39f8f4f41324ce0c0ac18aaad33f8164693aaf842d6",
+      "preview": "sky-sand-courtyard-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18321,
+      "baseSelectedBytes": 18301,
+      "detailFixed13Bytes": 12353,
+      "detailSelectedBytes": 12345,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.8085417570891202,
+          "rgbSha256": "ad5cd6df6acf9c8b72023c82f1f83a4889291de5cefee4e74fa0cbc885541ac2"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.441494411892361,
+          "rgbSha256": "1983267f8030bcf7e0412a1aaabbb239ebd224f6eaa768a59a8b30e479c375f8"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.18218994140625,
+          "rgbSha256": "36bbfae66a9e5c486a26fd578a241acf1c2457fb8f9c5afa2c6a0578a07ee405"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.9467253508391202,
+          "rgbSha256": "6d7552c0b50f0e7fc1d9ca54381522669e2b4c8ded7e684955e63dd1aa6ff351"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.7459309895833335,
+          "rgbSha256": "5c5f908b7bb8aea76a9830d203141f789b4dc072e1ecc5191558e880e8a8c3f2"
+        }
+      ]
+    },
+    "bygone-cineas-vault-background-v1.png": {
+      "sourceBytes": 636528,
+      "sourceSha256": "318aabafd47f7a9c2b5c28a8d40972cd63d942b0bdb6744b1b6d1c9c7f65241e",
+      "preview": "bygone-cineas-vault-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17439,
+      "baseSelectedBytes": 17421,
+      "detailFixed13Bytes": 12063,
+      "detailSelectedBytes": 12053,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.209070276331018,
+          "rgbSha256": "94db361fbbfae95e5c18802b9d21894c16cb108bcdfa5f7932f568eaad2dbe39"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.8495935510706016,
+          "rgbSha256": "adeea6e1a25faaf520d9550625f905ccdc10feba133a80d923256102682ae72e"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.5789636682581016,
+          "rgbSha256": "790118d45ea8f3cd1c98e22958f2f1e7a8cca8e54836dc1b7ac63d81ea3ceca3"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.3509928385416665,
+          "rgbSha256": "5df4c07cc10595c78136a0d41899861550d86ee13a4d8f8ad0e584439d095401"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.1635041413483798,
+          "rgbSha256": "8a38376a154d269471b7f5e83da43298bb6656a105b99cc14285840e04d7d47d"
+        }
+      ]
+    },
+    "dorn-cooking-camp-background-v1.png": {
+      "sourceBytes": 741214,
+      "sourceSha256": "c83f92fb82871d3ab00dcdb9b309b1b60c32356b1df36b8e327256e89f93b939",
+      "preview": "dorn-cooking-camp-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18023,
+      "baseSelectedBytes": 18009,
+      "detailFixed13Bytes": 12361,
+      "detailSelectedBytes": 12351,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.934877748842593,
+          "rgbSha256": "8d1f47ef951e13a22354a63c89c8572d7da3ec441db9f20ee98bf465696c7aae"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.399418583622685,
+          "rgbSha256": "8ee0703e6d7a854a5a2bcb2e505fa02ab05bd13e8811cb3c63dae7dcee032123"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.991382740162037,
+          "rgbSha256": "5122b975e4867d29a1f7c5eb69db9e5003a50596855fde6002f1b3e9dd2a227b"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.630590368200232,
+          "rgbSha256": "b6373c35eb94761c8d1f8eeee290faa8aa3167119db1cb7c85cef7b51bcfe869"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.329207808883102,
+          "rgbSha256": "8b6c6505614742f06ae231e89a37c30168badb604856ca26574ed659703fcb53"
+        }
+      ]
+    },
+    "frost-inner-chamber-background-v1.png": {
+      "sourceBytes": 613969,
+      "sourceSha256": "6fd31ec390a111274b9644d6f12a02ecf27a57bc50cce1c1dce87712b0849fc6",
+      "preview": "frost-inner-chamber-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15169,
+      "baseSelectedBytes": 15159,
+      "detailFixed13Bytes": 10937,
+      "detailSelectedBytes": 10925,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.77880859375,
+          "rgbSha256": "f3e3e3f86084e7d9194403ed203d8d845973f4b4ea70a1109825ebaf3e6a303d"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.3706212926793984,
+          "rgbSha256": "9dcd3202f9ed7b97b95eda442fa7ac0bc119533b83647a611a4ab229c4c0f734"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.0650702582465277,
+          "rgbSha256": "2f385a79f62021078903a12caa026503fce974c9ffb225d21723d4cf2c5f58ea"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.812644675925926,
+          "rgbSha256": "60df10b952de6dcb791e1452a93928e605a35b93d097a1015b4f8fdcdd2141b1"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.6243150499131946,
+          "rgbSha256": "2177551309872a2b3c125a39f0a5230eec667e1a792c5bb57352634a8147d2c7"
+        }
+      ]
+    },
+    "frost-prism-basin-background-v1.png": {
+      "sourceBytes": 728283,
+      "sourceSha256": "da8b7071cad2665b8dd0388ccca5f5a556031519632bc862d3f976b899bdaeb9",
+      "preview": "frost-prism-basin-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17761,
+      "baseSelectedBytes": 17743,
+      "detailFixed13Bytes": 12337,
+      "detailSelectedBytes": 12329,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.662247269241898,
+          "rgbSha256": "d56136a78079826123facae954f339e93647a3d6de76e4a3b67abe1d3e15020e"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 6.084108705873843,
+          "rgbSha256": "b1130fb5d56a73e3d9ed0161cb3bd1f3274faf3645f398eb5ef53ac5d4e5decb"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.662233705873843,
+          "rgbSha256": "387c337019479ef11f2a6cdb3f2c11e65fe30c42b168dbdf36e8822eb79edca7"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.315138075086805,
+          "rgbSha256": "f9da4d4921ee90ac49f65e453889a067bb976524fcba4ecb12ef8c5065f1f9be"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 5.029502586082176,
+          "rgbSha256": "028c4daca6ef764c22f5a3eba38982be070e8020b7069f3f18b5680ebecd44ae"
+        }
+      ]
+    },
+    "hiisi-crab-palace-background-v1.png": {
+      "sourceBytes": 696425,
+      "sourceSha256": "810313f0ea35279670fcafd0ba1de9b3b8fd4aebf386998c52fa1b75e3096794",
+      "preview": "hiisi-crab-palace-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16817,
+      "baseSelectedBytes": 16803,
+      "detailFixed13Bytes": 12043,
+      "detailSelectedBytes": 12035,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.876896610966435,
+          "rgbSha256": "3ee84eb9953d75b3655b224822c92468f75c3301a96be19a287bb8d42459aac7"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.385342068142361,
+          "rgbSha256": "7b0d0b33e23a9bd1d6602647dc5625843707b7902e73375b9f18f3df0d5cac05"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.992770724826389,
+          "rgbSha256": "536625522b042f2b2312c48366fd0fa9927985a119bd7244851d60db7c52a281"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.6910219545717595,
+          "rgbSha256": "36586e551ad78e4bcebde65bf7db0df72991287218b760c9016f91ababb49ec7"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.425993742766203,
+          "rgbSha256": "a366cbb87e868d25a5dd523cba11b544f803b569f63cc935ad2efd06792d0b7e"
+        }
+      ]
+    },
+    "hiljetta-camp-background-v1.png": {
+      "sourceBytes": 673137,
+      "sourceSha256": "677508c400210825b499c291be7ce246c8b48648c7c70185e6501f846964e7dc",
+      "preview": "hiljetta-camp-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15945,
+      "baseSelectedBytes": 15933,
+      "detailFixed13Bytes": 11505,
+      "detailSelectedBytes": 11491,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.138913755063657,
+          "rgbSha256": "f2307a987b0020d0ff62110544aa9e327e927def263384b1944f08244b2cdd7b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.8607720269097223,
+          "rgbSha256": "e6fb44ade466dbf10b02de5ff57e47f5ca8718d3052f7e773c33b960a670ad15"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.64617919921875,
+          "rgbSha256": "0f75fef655abb60c99c64b39ef4ced45abf9bcf6a5c1b3905f8262331b8631b4"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.4651172779224537,
+          "rgbSha256": "47256528a624723ea223c64f46a60a32241f5f33d465981a904e9813b3ff26db"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.3006230107060186,
+          "rgbSha256": "2f1bbbd172f2971cff84ce7e6320d31ffb4ba0d143008b70875a16bfcbc511ad"
+        }
+      ]
+    },
+    "aams-wolf-hall-background-v1.png": {
+      "sourceBytes": 689105,
+      "sourceSha256": "df441c93891eaebbc1c2e7927000e64496ccc59c253e16e7ea04701cb7b50c54",
+      "preview": "aams-wolf-hall-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15991,
+      "baseSelectedBytes": 15977,
+      "detailFixed13Bytes": 11475,
+      "detailSelectedBytes": 11463,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.2669677734375,
+          "rgbSha256": "0d5fee2a8ce4805c197d222f944a5fe471196d0dce750f83fa32726479562cd7"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.941017433449074,
+          "rgbSha256": "469c5bd0ebda7f4c8ba9aa832e545cf27ce4916bdc03a2f2d8e569dc89bc78b0"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.7123774775752314,
+          "rgbSha256": "9773b0325ecc72f86dc8242baf1829278e199ab63e9963509e6b935565a62a0e"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.513079607928241,
+          "rgbSha256": "21ec8fc6557349cc0cc05e1306dc993225bea49e0fef8f016d3e8516ed734360"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.3424366138599537,
+          "rgbSha256": "d60c514f8808f6baa010dd4e9f1477426093fc6b29689f8e805084e1a789e94a"
+        }
+      ]
+    },
+    "mandragora-coast-background-v1.png": {
+      "sourceBytes": 736460,
+      "sourceSha256": "8fa4cf1f4700cbae9d3133762002813938134b9a63e051abb754670917f54b20",
+      "preview": "mandragora-coast-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 16657,
+      "baseSelectedBytes": 16645,
+      "detailFixed13Bytes": 11717,
+      "detailSelectedBytes": 11707,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 6.20140697337963,
+          "rgbSha256": "66d1ac00222e32ab99f1e84c0fd0e29691153d4daac0b15f4ffd9b3e5c574c79"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.724005805121528,
+          "rgbSha256": "9e62fed6926e1a40aeebaa2a17538181df873f61c492ea7990c0f27eb910c293"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.362928602430555,
+          "rgbSha256": "14964c68937a3a99ab0434b79ce8adcc7ec875fbe157ac3e3f4087e9309f7609"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 5.049750434027778,
+          "rgbSha256": "431a4c477f9904e53416c71996270e89677996df3fcef37e5698fb83854e583d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.78229663990162,
+          "rgbSha256": "834a69cba4b33b9830f23823f243a10126bd91c9fe9b5dfce5ff477d7be75f41"
+        }
+      ]
+    },
+    "raskol-upper-ring-background-v1.png": {
+      "sourceBytes": 691032,
+      "sourceSha256": "22ed4ca29c0e4735e3b7e90137405f3fd5bf7c7f87f4f837e447cc9e71e255e0",
+      "preview": "raskol-upper-ring-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 18155,
+      "baseSelectedBytes": 18131,
+      "detailFixed13Bytes": 12223,
+      "detailSelectedBytes": 12209,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.715356897424768,
+          "rgbSha256": "e250ff3be3518a2de277faf328af7897ee409bc9e7059d464c5a7c7aedfdaf1c"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.190366391782407,
+          "rgbSha256": "5c73f0c10c4cc9b03793a6eedc1c92fdd561cd1ad27d1b660a7823ae1db8eae3"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.809127242476852,
+          "rgbSha256": "94dcdd70bdff707a98ecacc1cbef404b10280973967880ac075473bcd41c7258"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.490587022569445,
+          "rgbSha256": "568c6693cd047083f46b784b4a6d840e163d2bd7d47147a20bb9e0b514c14481"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.223899558738426,
+          "rgbSha256": "d30a52756bb5d3bc5291d6fd119954d67d821a65fe2419381d365b50bea9ba1d"
+        }
+      ]
+    },
+    "sigurd-grave-court-background-v1.png": {
+      "sourceBytes": 713181,
+      "sourceSha256": "a738a62a8c2b052b64ac471dfc816d334475a9ac12415b4d8f225ff4be9d7f3d",
+      "preview": "sigurd-grave-court-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 15193,
+      "baseSelectedBytes": 15181,
+      "detailFixed13Bytes": 11309,
+      "detailSelectedBytes": 11299,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.936360677083333,
+          "rgbSha256": "491b6f698aaf26a0ea031579f287fa7280b98bf96e3ea2ff94c3cb10a1ba56c0"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.573029694733797,
+          "rgbSha256": "329358627eb48b1e4d18dbeb1996e072ad6d7a1aabe766f25f8391de35e9455f"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.3000058774594905,
+          "rgbSha256": "ba91b78869efaf9ba8f8eb26edcec428b0da642b3265c7769b34d0b2b09e3072"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.060255262586805,
+          "rgbSha256": "dd33fac3a9bd05ae271101ec92a7ede4e3c2ae2c8898eed37320817014d31fc5"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.8599989149305554,
+          "rgbSha256": "99b70e97258c4c6dbb08b6c0cfc431e7e5aed215fe569e4aa4bddfe15a034393"
+        }
+      ]
+    },
+    "merciful-mouse-den-background-v1.png": {
+      "sourceBytes": 649267,
+      "sourceSha256": "eb9863610f847080881e87b1e2029a28561fadfbf5e68185923278a14736713b",
+      "preview": "merciful-mouse-den-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17823,
+      "baseSelectedBytes": 17811,
+      "detailFixed13Bytes": 12265,
+      "detailSelectedBytes": 12255,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.989199037905093,
+          "rgbSha256": "4b492988c920d75894ce5c7828c6f97dc978bdf4269cda0e60625215ce06027a"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.528403953269676,
+          "rgbSha256": "71b36302ae18f0939eec13e473bdff309e27a39417670f44e880b5880b35434e"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.186711064091435,
+          "rgbSha256": "93e7f2600b327647407bb18b030009d4f79fdd21c8cc59f25a52984fb2c8cb75"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.8969523111979165,
+          "rgbSha256": "1209a096ee63d0934c62eb8f00f6924afeff96e968614ecd0d444f1842d5e41e"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.6532841435185186,
+          "rgbSha256": "64bb0bffa9379414651f429e9641e7775964d53183639bc9c227186f04558180"
+        }
+      ]
+    },
+    "svet-ice-cavern-background-v1.png": {
+      "sourceBytes": 563498,
+      "sourceSha256": "896b4e21958d44f91336d01d754b7136364ac9c4df638d9eadbf4fcd3d7b8320",
+      "preview": "svet-ice-cavern-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17385,
+      "baseSelectedBytes": 17371,
+      "detailFixed13Bytes": 12189,
+      "detailSelectedBytes": 12177,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.454583062065972,
+          "rgbSha256": "6e04c8d6eb30dcbae7f5e7c39c578912107d2083f4da7aea4e5cd6ccd3bbde07"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.8996875904224537,
+          "rgbSha256": "1ee8dbd93382e382b3b08b62178c534bf306a6f0c8dd4cdb7ef0202ae1709a1b"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.5208898473668984,
+          "rgbSha256": "abf7a7c0a453d2139dbf40f524f6a872e7fedb689e5c856dbdefe4e72169f544"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.221058033130787,
+          "rgbSha256": "4fe79f5d81785478f4186fc3b28426a80f9215a26dbc5a3ec38bb41377b0c12d"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.973187481915509,
+          "rgbSha256": "7e2bde711eae44f631f238c925245e61b5265ccd0f7161e6b86f1081dbd68e3c"
+        }
+      ]
+    },
+    "churin-snow-court-background-v1.png": {
+      "sourceBytes": 611881,
+      "sourceSha256": "cf19f91c8fcaad974acebdd0b012c28280969877a5e7925ab3c4070c6232f9ee",
+      "preview": "churin-snow-court-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17599,
+      "baseSelectedBytes": 17585,
+      "detailFixed13Bytes": 11991,
+      "detailSelectedBytes": 11981,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 3.8392311378761574,
+          "rgbSha256": "a97b80b9765b64b82780bd9c5afc8ca36ab36adf22f3b3b97432a193d106472b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 3.4581841362847223,
+          "rgbSha256": "448ed609db47e9224127f122ead064c2a9b32748c132910d3be7e74acc32b68c"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.190807201244213,
+          "rgbSha256": "896d47d8cc75803ad894f9c9dee93f3aedd5e5321b3c064e861819082e617e2a"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 2.958697283709491,
+          "rgbSha256": "4cf0b3a390786c184cd8d298399646e0ed1fe5e3ba50e7512bf7d9b0a228ca56"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 2.774936252170139,
+          "rgbSha256": "3a301cbce589617e7e3d326b50759f727bb1c1738194c4ab611d333448ba6e92"
+        }
+      ]
+    },
+    "crystal-tree-refuge-background-v1.png": {
+      "sourceBytes": 636834,
+      "sourceSha256": "7a7abeecff49968ca8bac0c3c18a64b11af6452357df82e1e51098426bc35c88",
+      "preview": "crystal-tree-refuge-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17523,
+      "baseSelectedBytes": 17511,
+      "detailFixed13Bytes": 12191,
+      "detailSelectedBytes": 12177,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.994056984230324,
+          "rgbSha256": "da79ac3e7753d5b539bafbf6d1145390d1df091130b72f981cb9916df4d7d897"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.533610026041667,
+          "rgbSha256": "8c6fd94225623f2af36671530de8511181a9cf896dd0e7502a1cc26295956bac"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 4.191541883680555,
+          "rgbSha256": "6c22ed00e7d9fb97864883927ee9eabe532eeb9122a99b26deb61849d863d2b1"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.9169899269386574,
+          "rgbSha256": "ab6ccaaf639db9e7f3fe78008529ff08e1148eb515b6a5da210c207fb079281f"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.678378634982639,
+          "rgbSha256": "ddd2ce4439c8c1ee93978aa57d5590cf6dbf1080985cf4c8aa35a848378fcac9"
+        }
+      ]
+    },
+    "furiosa-snowfield-background-v1.png": {
+      "sourceBytes": 636637,
+      "sourceSha256": "9cb39896f7f2a80e0e9c5249e84a792d01d7645d0b426160174c853d8e0128f8",
+      "preview": "furiosa-snowfield-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17197,
+      "baseSelectedBytes": 17183,
+      "detailFixed13Bytes": 11969,
+      "detailSelectedBytes": 11955,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 4.665393970630787,
+          "rgbSha256": "87e72b7bf46c83883574523cfba32c3a6a381c035d951875b2604d9c1fa76d2b"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 4.209447790075232,
+          "rgbSha256": "5ddd6be0eedd332f60b7c7774c5adcc86ec3a71abb4bcdee4f28318c9b1ec2b5"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 3.865207248263889,
+          "rgbSha256": "d75d6c563c517bc4f9c989f860db8f6ff4d7309957bbf695dcd1af3e2bb4e9f5"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 3.5975093135127314,
+          "rgbSha256": "6396592ccf76391c6556b800e0258b78953d664a7588aa02005ac1bbb1886fff"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 3.3651665581597223,
+          "rgbSha256": "3f2f7be68f2699e4ad305d9ded775de4a63d717f29907c2489d9b8bdece58672"
+        }
+      ]
+    },
+    "novok-ore-yard-background-v1.png": {
+      "sourceBytes": 772230,
+      "sourceSha256": "cc6b9ec62445dab22a6a8013b988a37e0f8b2dd796349fa5174e69ac2655ede2",
+      "preview": "novok-ore-yard-native-preview-v1.png",
+      "rawDimensions": [
+        512,
+        288
+      ],
+      "baseFixed13Bytes": 17715,
+      "baseSelectedBytes": 17699,
+      "detailFixed13Bytes": 12067,
+      "detailSelectedBytes": 12055,
+      "fixedVsSelectedDifferingPixels": 0,
+      "comparedPixels": 737280,
+      "tiers": [
+        {
+          "rectangles": 4096,
+          "meanAbsoluteRgbErrorToReference": 5.87584544994213,
+          "rgbSha256": "bfe52dc28be871d88bbaaea29dd4af0a9c6c4f70e21ff6b03ba2556e1b61c9dc"
+        },
+        {
+          "rectangles": 4608,
+          "meanAbsoluteRgbErrorToReference": 5.418567798755787,
+          "rgbSha256": "fa0e78a84330b3098e4b3c8d1601f6320d148ede7c64fecc8d084d4127ae0946"
+        },
+        {
+          "rectangles": 5120,
+          "meanAbsoluteRgbErrorToReference": 5.085060402199074,
+          "rgbSha256": "ae1b896ee1f0c10c907982901ce6d5f1d9b485acde7d528a263311536edd6f46"
+        },
+        {
+          "rectangles": 5632,
+          "meanAbsoluteRgbErrorToReference": 4.796418366608797,
+          "rgbSha256": "d5045a40aa2fe32613d2ff63431a96bde28915837cd3c08985501be36057783a"
+        },
+        {
+          "rectangles": 6144,
+          "meanAbsoluteRgbErrorToReference": 4.555083098234953,
+          "rgbSha256": "4c50a68a9c4fc300c9bac29ff28361f8145608e0aaf3dabd4bc258ba1598dea0"
+        }
+      ]
+    }
+  }
+}

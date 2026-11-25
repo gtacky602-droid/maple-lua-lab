@@ -1,0 +1,177 @@
+{
+  "origin": "Original scenery concepts based on the lab's encounter locations. Temporary background plates for a future 3D environment.",
+  "sharedPrompt": "Create one original full-bleed widescreen 16:9 pixel-art background for a side-scrolling RPG. Use deliberate hand-placed square pixel clusters and broad readable color shapes with a scenic distant silhouette and striking middle plane. Fixed side view. Keep the fighting space in the central half open and a continuous walkable flat baseline near 89% height. Restrained detail, strong sense of place even after compression, no characters, enemies, statues shaped like monsters, foreground obstructions, letters, UI, logos or borders.",
+  "scenes": [
+    {
+      "key": "ochkaBronzeCourt",
+      "node": "ochka-bronzelock-island-court",
+      "source": "ochka-bronze-court-background-v1.png",
+      "preview": "ochka-bronze-court-native-preview-v1.png",
+      "surface": "sandstone",
+      "note": "北東の浮遊島の遺構のラボ用仮背景",
+      "prompt": "Ancient volcanic ruins atop a floating island. Weathered copper locking rings built into broken ochre masonry, distant smaller islands in a cloud sea, distant green jungle low on the horizon. Rich bronze highlights with cool turquoise sky, level stone across the arena."
+    },
+    {
+      "key": "sacredEastDais",
+      "node": "sacred-mountain-east-isle-dais",
+      "source": "sacred-east-dais-background-v1.png",
+      "preview": "sacred-east-dais-native-preview-v1.png",
+      "surface": "sandstone",
+      "note": "東島西の石広場のラボ用仮背景",
+      "prompt": "Western stone terrace of the eastern isle in a sacred volcanic mountain. Broad black-gold ritual paving, thin geothermal glow visible far below between rising scarlet cliffs, distant austere basalt arch, no lava crossing the floor."
+    },
+    {
+      "key": "skySandCourtyard",
+      "node": "sky-maha-pavilion-court",
+      "source": "sky-sand-courtyard-background-v1.png",
+      "preview": "sky-sand-courtyard-native-preview-v1.png",
+      "surface": "sandstone",
+      "note": "砂上の楼閣・北西の中庭のラボ用仮背景",
+      "prompt": "Northwest inner courtyard of an isolated desert pavilion above a sea of warm dunes. Wind-cut sandstone arcades, elegant balcony and open sky, one teal canopy to far left. Flat geometric flagstones and calm clear sunlight."
+    },
+    {
+      "key": "bygoneCineasVault",
+      "node": "cineas-legend-chamber",
+      "source": "bygone-cineas-vault-background-v1.png",
+      "preview": "bygone-cineas-vault-native-preview-v1.png",
+      "surface": "cavern",
+      "note": "シネアスの石床のラボ用仮背景",
+      "prompt": "A dry flat stone shelf in a vast sunken Remurian-style grotto. Ancient pale stone organ-pipe ruins, columns, broken musical reliefs in the dark, turquoise water reflecting up onto the vault in the far distance. Faint coral silhouettes at the edges. No underwater bubbles around the fighting floor."
+    },
+    {
+      "key": "dornCookingCamp",
+      "node": "dorn-churldric-cooking-camp",
+      "source": "dorn-cooking-camp-background-v1.png",
+      "preview": "dorn-cooking-camp-native-preview-v1.png",
+      "surface": "grass",
+      "note": "シールドル湖北の炊事場のラボ用仮背景",
+      "prompt": "A rustic lakeside hillside camp north of a temperate lake. An unattended cauldron on a simple tripod and bundled firewood at the far left, battered cookpots beside a timber shelter, green northern meadow, pale blue lake, wooded hills. Cozy afternoon smoke, clear earthen combat space."
+    },
+    {
+      "key": "frostInnerChamber",
+      "node": "frost-mushteshir-inner-chamber",
+      "source": "frost-inner-chamber-background-v1.png",
+      "preview": "frost-inner-chamber-native-preview-v1.png",
+      "surface": "cavern",
+      "note": "ムーシュ＝テヒルの最深室のラボ用仮背景",
+      "prompt": "Innermost vault beyond an ancient moon mechanism. A heavy open iris doorway behind to the left, huge smooth pale concave walls and broken concentric circular ribs. Cold white moonlight falling into a deep indigo chamber, sparing muted vermilion indicators. Keep central stone floor broad and empty."
+    },
+    {
+      "key": "frostPrismBasin",
+      "node": "frost-prism-slime-basin",
+      "source": "frost-prism-basin-background-v1.png",
+      "preview": "frost-prism-basin-native-preview-v1.png",
+      "surface": "wetSand",
+      "note": "プリズムスライムの水たまりのラボ用仮背景",
+      "prompt": "Shallow still pool on southern edge of a frost-moon biome. Broad mirror-like puddles, thin translucent mineral prisms at the margins splitting cyan light into restrained rose and yellow stripes, snow-dusted mossy banks backed by dark conifers. Empty near shore, no slime shapes."
+    },
+    {
+      "key": "hiisiCrabPalace",
+      "node": "nod-crab-tsar-palace",
+      "source": "hiisi-crab-palace-background-v1.png",
+      "preview": "hiisi-crab-palace-native-preview-v1.png",
+      "surface": "cavern",
+      "note": "ヒーシ島地下の宮殿のラボ用仮背景",
+      "prompt": "Subterranean island palace reached through a mirror corridor. Vast and slightly whimsical ruined sea-green hall with shell-shaped arch details worked into weathered stone, damp columns, broad slate floor and cool turquoise glints, empty dais at the back. No crabs, no thrones shaped like animals."
+    },
+    {
+      "key": "hiljettaCamp",
+      "node": "nod-hiljetta-peninsula-camp",
+      "source": "hiljetta-camp-background-v1.png",
+      "preview": "hiljetta-camp-native-preview-v1.png",
+      "surface": "grass",
+      "note": "ハイジェードのキャンプのラボ用仮背景",
+      "prompt": "Wind-beaten northern peninsula campsite southeast of a distant stone fortress. Faded canvas tent behind a low left-side windbreak, ash from a campfire, grey water and yellow-green windblown grass; muted amber under a wide clouded sky."
+    },
+    {
+      "key": "aamsWolfHall",
+      "node": "nod-homesick-wolf-lakeland",
+      "source": "aams-wolf-hall-background-v1.png",
+      "preview": "aams-wolf-hall-native-preview-v1.png",
+      "surface": "stone",
+      "note": "孤独の狼の広間のラボ用仮背景",
+      "prompt": "A solitary weathered stone hall on the east side of a northern lake. Missing wall opens onto a grey-blue lake and pale birch silhouettes. Mossed grey stone, one broken lintel at the left, empty central floor, a sliver of evening sunlight, melancholic calm."
+    },
+    {
+      "key": "mandragoraCoast",
+      "node": "nod-mandragora-cliff-foot",
+      "source": "mandragora-coast-background-v1.png",
+      "preview": "mandragora-coast-native-preview-v1.png",
+      "surface": "wetSand",
+      "note": "十六倍マンドラゴラの海岸のラボ用仮背景",
+      "prompt": "Pebbled coast at the foot of tall eroded cliffs west of a distant angular pyramid. Brackish pools, bands of slate and terracotta rock, sparse clusters of broad-leaf coastal plants off-center, distant surf, overcast light."
+    },
+    {
+      "key": "raskolUpperRing",
+      "node": "nod-raskolnikov-upper-ring",
+      "source": "raskol-upper-ring-background-v1.png",
+      "preview": "raskol-upper-ring-native-preview-v1.png",
+      "surface": "stone",
+      "note": "実験設計局の最上層のラボ用仮背景",
+      "prompt": "Highest floor of a northern industrial design bureau. Circular metal test gantry under high windows, brass lift cage off to the far left, a few gauges and overhead bridge cranes in silhouette. Clean amber light against cool grey-blue steel; broad uninterrupted steel floor."
+    },
+    {
+      "key": "sigurdGraveCourt",
+      "node": "nod-sigurd-grave-court",
+      "source": "sigurd-grave-court-background-v1.png",
+      "preview": "sigurd-grave-court-native-preview-v1.png",
+      "surface": "grass",
+      "note": "ボーンモス荒原の墓前のラボ用仮背景",
+      "prompt": "Sombre grave court in eastern windswept northern moorland. Lone weathered standing gravestone and a few small offerings at far left, low fieldstone wall, moss and heather, distant dark pines under a pearl-grey sky. No writing, no figures."
+    },
+    {
+      "key": "mercifulMouseDen",
+      "node": "sne-ancient-mouse-den",
+      "source": "merciful-mouse-den-background-v1.png",
+      "preview": "merciful-mouse-den-native-preview-v1.png",
+      "surface": "cavern",
+      "note": "古代種の巣穴のラボ用仮背景",
+      "prompt": "A spacious earthy burrow beyond a fissure in a glacial plain, ice at the outer doorway giving way to warm umber stone, roots and polished rounded tunnel recesses. Contrast crisp blue ice by the edges with amber reflected light inside; empty low floor."
+    },
+    {
+      "key": "svetIceCavern",
+      "node": "sne-bandersnatch-ice-cavern",
+      "source": "svet-ice-cavern-background-v1.png",
+      "preview": "svet-ice-cavern-native-preview-v1.png",
+      "surface": "ice",
+      "note": "バンダースナッチの洞窟のラボ用仮背景",
+      "prompt": "Deep northern ice cavern beneath a frozen settlement, overlapping translucent blue ice shelves and thick roof spires, deep cobalt shadows, dim wintry light through distant crevasses, broad pale-blue hard-packed ice floor."
+    },
+    {
+      "key": "churinSnowCourt",
+      "node": "sne-churin-snow-court",
+      "source": "churin-snow-court-background-v1.png",
+      "preview": "churin-snow-court-native-preview-v1.png",
+      "surface": "snow",
+      "note": "チュリンの彫刻広場のラボ用仮背景",
+      "prompt": "An outdoor snow sculptors plaza east of a northern settlement. Abstract spirals of worked snow and squared ice blocks at the back, simple wooden tool racks far right, warm-lit roofs beyond and soft violet-blue shadows; a level hard-packed snowy sparring court. No figurative statues."
+    },
+    {
+      "key": "crystalTreeRefuge",
+      "node": "sne-crystal-tree-refuge",
+      "source": "crystal-tree-refuge-background-v1.png",
+      "preview": "crystal-tree-refuge-native-preview-v1.png",
+      "surface": "cavern",
+      "note": "晶鉱樹洞の支流の隠れ家のラボ用仮背景",
+      "prompt": "A hidden tributary under immense mineralized roots. Side-on open cave clearing, pale violet and teal crystal veins embedded in overhead roots and rock sides, a narrow rivulet flows behind the flat stone walkway, quiet deep turquoise darkness. No singular tree figure or central monster silhouette."
+    },
+    {
+      "key": "furiosaSnowfield",
+      "node": "sne-furiosa-domain-outlook",
+      "source": "furiosa-snowfield-background-v1.png",
+      "preview": "furiosa-snowfield-native-preview-v1.png",
+      "surface": "snow",
+      "note": "フュリオサの雪原のラボ用仮背景",
+      "prompt": "Windswept snowfield northwest of a remote dungeon. Exposed red-grey tundra rock, sweeping snow drifts, a distant ruined doorway small on the left skyline, jagged cold peaks under pale golden sun. Open level snowy ridge for the duel."
+    },
+    {
+      "key": "novokOreYard",
+      "node": "sne-novokichev-ore-yard",
+      "source": "novok-ore-yard-background-v1.png",
+      "preview": "novok-ore-yard-native-preview-v1.png",
+      "surface": "stone",
+      "note": "ノヴォキッチェヴの鉱荷集積場のラボ用仮背景",
+      "prompt": "Ore-loading courtyard in a northern industrial town. Weathered ore wagons, timber crates and heaps of dark mineral beside a lantern on one side, a gantry crane on the far side, old snow and brick warehouses in evening blue. Flat stony loading apron and uncluttered gameplay floor."
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 地方伝説56会場の背景と島・湖の攻略経路
+
+[地方伝説の背景を見比べる](http://127.0.0.1:9117/map-art.html?node=ochka-bronzelock-island-court&placements=live&arena=legend&measured=1&compare=background&tier=4096)。絞り込みに全56会場が並ぶ。新しく追加した19会場では元PNG、4,096～6,144矩形の5段階、同じ位置の拡大、選んだ段階のLua書き出しを使える。[19会場の比較画像](evidence/remaining-legend-comparison.png)
+
+ラボのLuaで、育成済みLv200から銅の錠・微末・空の神殿の太子・炊事場のチュルドリック・往日の海のシネアスまで71区間を移動。浮遊装置を二つ壊して浮遊島に渡る経路、楼閣で案内役に会う経路、往日の海で上下の水門を使い分ける往復を含む。3件の依頼報告、5戦の討伐記録を再読込で確認した。[攻略経路の記録](evidence/earned-island-legends.json)
+
 ## ナタの地方伝説20会場とM地図の入口表示
 
 [ナタの地方伝説20会場を見比べる](http://127.0.0.1:9117/map-art.html?placements=live&compare=background&tier=4096&node=atocpan-battlegoat-ironclaw-field&arena=legend&region=ナタ&measured=1)。リライの草地、戦羊と鉄爪の広場、ピークの岩洞、最後のテノチズトク人の浅瀬と、分岐・登り道2地点にラボ用の仮背景を配置した。6枚とも元PNGと矩形5段階を比較できる。4,096矩形は16,810～18,896バイト、6,144矩形は28,781～31,601バイト。復号器は別セッションのR109と同一。全体で340/1,528地点、地方伝説37/56会場が5段階に対応。[6地点の画像比較](evidence/southern-legend-comparison.png)

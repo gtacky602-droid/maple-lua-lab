@@ -11745,6 +11745,8 @@
     "scenery_and_quest_checks": {
       "five_tier_coverage": "evidence/scenery-download-tiers.json",
       "coverage_key": "locationCoverage.localLegends",
+      "legend_arena_scenery": "evidence/remaining-legend-scenery-browser.json",
+      "island_lake_sea_routes": "evidence/earned-island-legends.json",
       "all_map_gate_geometry": "evidence/atlas-gate-previews.json",
       "natlan_overworld_routes": "evidence/earned-southern-legends.json",
       "natlan_overworld_scenery": "evidence/southern-legend-routes-browser.json",

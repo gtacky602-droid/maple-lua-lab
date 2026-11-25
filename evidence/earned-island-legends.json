@@ -1,0 +1,917 @@
+{
+  "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+  "itineraries": [
+    {
+      "start": "natlan-hub",
+      "destination": "ochkanatlan-dock",
+      "stops": [
+        {
+          "name": "ナタ・岩場の道",
+          "id": "natlan-field",
+          "previewX": 1380,
+          "from": "natlan-hub",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "ナタ・花翼の集付近の港（仮）",
+          "id": "natlan-port",
+          "previewX": 1380,
+          "from": "natlan-field",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "北行き航海・甲板",
+          "id": "natlan-voyage",
+          "previewX": 720,
+          "from": "natlan-port",
+          "region": "region-06",
+          "hint": "オシカ・ナタ経由のナド・クライ行きに乗る",
+          "mode": "boat",
+          "label": "舟・寄港"
+        },
+        {
+          "name": "オシカ・ナタ・寄港地",
+          "id": "ochkanatlan-dock",
+          "previewX": 720,
+          "from": "natlan-voyage",
+          "region": "branch-07",
+          "hint": "出発から30〜50秒の間に途中下船",
+          "mode": "boat",
+          "label": "舟・寄港"
+        }
+      ]
+    },
+    {
+      "start": "ochkanatlan-dock",
+      "destination": "ochka-bronzelock-device-shore",
+      "stops": [
+        {
+          "name": "オシカ・ナタ・遺構の道",
+          "id": "ochkanatlan-ruins",
+          "previewX": 1380,
+          "from": "ochkanatlan-dock",
+          "region": "branch-07",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "オシカ・ナタ・東翼の渡り廊下",
+          "id": "nat-wp-79546",
+          "previewX": 600,
+          "from": "ochkanatlan-ruins",
+          "region": "branch-07",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "オシカ・ナタ・北東島の南の浅瀬",
+          "id": "nat-wp-80846",
+          "previewX": 1121,
+          "from": "nat-wp-79546",
+          "region": "branch-07",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "オシカ・ナタ・北東島の桟橋",
+          "id": "nat-wp-79550",
+          "previewX": 1382,
+          "from": "nat-wp-80846",
+          "region": "branch-07",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "オシカ・ナタ・東の遠い岩礁",
+          "id": "nat-wp-80030",
+          "previewX": 1382,
+          "from": "nat-wp-79550",
+          "region": "branch-07",
+          "hint": "北東島への渡し舟・移動に3.4秒",
+          "mode": "boat",
+          "label": "舟・寄港"
+        },
+        {
+          "name": "オシカ・ナタ・南東の浮遊装置の岸",
+          "id": "ochka-bronzelock-device-shore",
+          "previewX": 1092,
+          "from": "nat-wp-80030",
+          "region": "branch-07",
+          "hint": "上段の入口・南東の浮遊装置の岸へ",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 407
+        }
+      ]
+    },
+    {
+      "start": "ochka-bronzelock-device-shore",
+      "destination": "ochka-bronzelock-floating-landing",
+      "stops": [
+        {
+          "name": "オシカ・ナタ・北東の浮遊島の船着き石",
+          "id": "ochka-bronzelock-floating-landing",
+          "previewX": 1240,
+          "from": "ochka-bronzelock-device-shore",
+          "region": "branch-07",
+          "hint": "上段の入口・浮遊島へ向かうスピリットウェイ・移動に2.7秒",
+          "mode": "spiritway",
+          "label": "スピリットウェイ",
+          "previewY": 414
+        }
+      ]
+    },
+    {
+      "start": "ochka-bronzelock-floating-landing",
+      "destination": "ochka-bronzelock-island-court",
+      "stops": [
+        {
+          "name": "オシカ・ナタ・北東の浮遊島の遺構",
+          "id": "ochka-bronzelock-island-court",
+          "previewX": 1270,
+          "from": "ochka-bronzelock-floating-landing",
+          "region": "branch-07",
+          "hint": "上段の入口・浮遊島の遺構・銅の錠",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 410
+        }
+      ]
+    },
+    {
+      "start": "ochka-bronzelock-island-court",
+      "destination": "ochka-bronzelock-floating-landing",
+      "stops": [
+        {
+          "name": "オシカ・ナタ・北東の浮遊島の船着き石",
+          "id": "ochka-bronzelock-floating-landing",
+          "previewX": 96,
+          "from": "ochka-bronzelock-island-court",
+          "region": "branch-07",
+          "hint": "浮遊島の船着き石へ戻る",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "ochka-bronzelock-floating-landing",
+      "destination": "ochka-bronzelock-device-shore",
+      "stops": [
+        {
+          "name": "オシカ・ナタ・南東の浮遊装置の岸",
+          "id": "ochka-bronzelock-device-shore",
+          "previewX": 117,
+          "from": "ochka-bronzelock-floating-landing",
+          "region": "branch-07",
+          "hint": "装置の岸へ戻るスピリットウェイ・移動に2.5秒",
+          "mode": "spiritway",
+          "label": "スピリットウェイ"
+        }
+      ]
+    },
+    {
+      "start": "ochkanatlan-dock",
+      "destination": "sacred-mountain-east-isle-dais",
+      "stops": [
+        {
+          "name": "ナタ行き・南行き航海の甲板",
+          "id": "natlan-voyage-return",
+          "previewX": 1050,
+          "from": "ochkanatlan-dock",
+          "region": "region-07",
+          "hint": "ナタ行きに再乗船・乗り直してから40秒で到着",
+          "mode": "boat",
+          "label": "舟・寄港"
+        },
+        {
+          "name": "ナタ・花翼の集付近の港（仮）",
+          "from": "natlan-voyage-return",
+          "automaticArrival": true,
+          "region": "region-06",
+          "hint": "出航から90秒で着岸",
+          "mode": "boat",
+          "label": "舟・寄港",
+          "id": "natlan-port"
+        },
+        {
+          "name": "ナタ・岩場の道",
+          "id": "natlan-field",
+          "previewX": 60,
+          "from": "natlan-port",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "万火のほとぎ周辺・競技場の裏口",
+          "id": "nat-wp-72429",
+          "previewX": 730,
+          "from": "natlan-field",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "クァワカン断崖周辺・断崖南の道",
+          "id": "nat-wp-79051",
+          "previewX": 76,
+          "from": "nat-wp-72429",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "アトクパンの大地・森から入る北の道",
+          "id": "nat-wp-82572",
+          "previewX": 511,
+          "from": "nat-wp-79051",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "アトクパンの大地・北東の細道",
+          "id": "nat-wp-82558",
+          "previewX": 511,
+          "from": "nat-wp-82572",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "アトクパンの大地・東の外輪の棚",
+          "id": "nat-wp-82559",
+          "previewX": 76,
+          "from": "nat-wp-82558",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "アトクパンの大地・火山東の神像",
+          "id": "nat-wp-82557",
+          "previewX": 729,
+          "from": "nat-wp-82559",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "アトクパンの大地・火山の入口台",
+          "id": "nat-wp-82560",
+          "previewX": 729,
+          "from": "nat-wp-82557",
+          "region": "region-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "古の聖山・南の入口拠点",
+          "id": "nat-mountain-camp",
+          "previewX": 1472,
+          "from": "nat-wp-82560",
+          "region": "official-area-12",
+          "hint": "上段の入口・火山と古の聖山を結ぶ昇降機・移動に2.5秒",
+          "mode": "lift",
+          "label": "昇降機",
+          "previewY": 371
+        },
+        {
+          "name": "古の聖山・南の石段",
+          "id": "nat-wp-84104",
+          "previewX": 1472,
+          "from": "nat-mountain-camp",
+          "region": "official-area-12",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "古の聖山・西の岩山の裾",
+          "id": "nat-wp-84105",
+          "previewX": 76,
+          "from": "nat-wp-84104",
+          "region": "official-area-12",
+          "hint": "西の山への渡り台・移動に2.3秒",
+          "mode": "lift",
+          "label": "昇降機"
+        },
+        {
+          "name": "古の聖山・西の火道",
+          "id": "nat-wp-84106",
+          "previewX": 76,
+          "from": "nat-wp-84105",
+          "region": "official-area-12",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "古の聖山・西の山口",
+          "id": "nat-wp-84108",
+          "previewX": 76,
+          "from": "nat-wp-84106",
+          "region": "official-area-12",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "古の聖山・中央の浮き台",
+          "id": "nat-wp-84109",
+          "previewX": 1472,
+          "from": "nat-wp-84108",
+          "region": "official-area-12",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "古の聖山・東島の石棚",
+          "id": "nat-wp-84107",
+          "previewX": 1472,
+          "from": "nat-wp-84109",
+          "region": "official-area-12",
+          "hint": "東島へ進む渡り台・移動に2.8秒",
+          "mode": "lift",
+          "label": "昇降機"
+        },
+        {
+          "name": "古の聖山・東島西の石広場",
+          "id": "sacred-mountain-east-isle-dais",
+          "previewX": 381,
+          "from": "nat-wp-84107",
+          "region": "official-area-12",
+          "hint": "上段の入口・東島の西の石広場へ",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 401
+        }
+      ]
+    },
+    {
+      "start": "sacred-mountain-east-isle-dais",
+      "destination": "nat-wp-84107",
+      "stops": [
+        {
+          "name": "古の聖山・東島の石棚",
+          "id": "nat-wp-84107",
+          "previewX": 96,
+          "from": "sacred-mountain-east-isle-dais",
+          "region": "official-area-12",
+          "hint": "東島の石棚へ戻る",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "nat-wp-84107",
+      "destination": "nat-sky-camp",
+      "stops": [
+        {
+          "name": "古の聖山・中央の浮き台",
+          "id": "nat-wp-84109",
+          "previewX": 76,
+          "from": "nat-wp-84107",
+          "region": "official-area-12",
+          "hint": "東島へ進む渡り台・移動に2.8秒",
+          "mode": "lift",
+          "label": "昇降機"
+        },
+        {
+          "name": "古の聖山・北の遠望台",
+          "id": "nat-wp-84110",
+          "previewX": 774,
+          "from": "nat-wp-84109",
+          "region": "official-area-12",
+          "hint": "上段の入口・北の遠望台への昇降機・移動に2.3秒",
+          "mode": "lift",
+          "label": "昇降機",
+          "previewY": 368
+        },
+        {
+          "name": "空の神殿・西の入口拠点",
+          "id": "nat-sky-camp",
+          "previewX": 76,
+          "from": "nat-wp-84110",
+          "region": "official-area-14",
+          "hint": "古の聖山から空の神殿へ向かう昇降機・移動に3.2秒",
+          "mode": "lift",
+          "label": "昇降機"
+        }
+      ]
+    },
+    {
+      "start": "nat-sky-camp",
+      "destination": "sky-sand-pavilion-walk",
+      "stops": [
+        {
+          "name": "空の神殿・西の浮き庭",
+          "id": "nat-wp-96366",
+          "previewX": 754,
+          "from": "nat-sky-camp",
+          "region": "official-area-14",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "空の神殿・南の渡り台",
+          "id": "nat-wp-96367",
+          "previewX": 1432,
+          "from": "nat-wp-96366",
+          "region": "official-area-14",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "空の神殿・神殿西の連絡段",
+          "id": "nat-wp-96373",
+          "previewX": 754,
+          "from": "nat-wp-96367",
+          "region": "official-area-14",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "空の神殿・中央の昇降台",
+          "id": "nat-wp-96375",
+          "previewX": 76,
+          "from": "nat-wp-96373",
+          "region": "official-area-14",
+          "hint": "上段の入口",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 365
+        },
+        {
+          "name": "空の神殿・雲上の上段通路",
+          "id": "nat-wp-96376",
+          "previewX": 760,
+          "from": "nat-wp-96375",
+          "region": "official-area-14",
+          "hint": "雲上の上段通路へ動く昇降機・移動に2.3秒",
+          "mode": "lift",
+          "label": "昇降機"
+        },
+        {
+          "name": "空の神殿・北の広場",
+          "id": "nat-wp-96378",
+          "previewX": 1432,
+          "from": "nat-wp-96376",
+          "region": "official-area-14",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "空の神殿・北端の展望棚",
+          "id": "nat-wp-96377",
+          "previewX": 754,
+          "from": "nat-wp-96378",
+          "region": "official-area-14",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "砂上の楼閣・下の回廊",
+          "id": "sky-sand-pavilion-walk",
+          "previewX": 978,
+          "from": "nat-wp-96377",
+          "region": "official-area-14",
+          "hint": "上段の入口・砂上の楼閣の下へ降りる・移動に2.2秒",
+          "mode": "lift",
+          "label": "昇降機",
+          "previewY": 365
+        }
+      ]
+    },
+    {
+      "start": "sky-sand-pavilion-walk",
+      "destination": "sky-maha-pavilion-court",
+      "stops": [
+        {
+          "name": "砂上の楼閣・北西の中庭",
+          "id": "sky-maha-pavilion-court",
+          "previewX": 1470,
+          "from": "sky-sand-pavilion-walk",
+          "region": "official-area-14",
+          "hint": "上段の入口・マーダヴァの案内で中庭へ",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 409
+        }
+      ]
+    },
+    {
+      "start": "sky-maha-pavilion-court",
+      "destination": "sky-sand-pavilion-walk",
+      "stops": [
+        {
+          "name": "砂上の楼閣・下の回廊",
+          "id": "sky-sand-pavilion-walk",
+          "previewX": 96,
+          "from": "sky-maha-pavilion-court",
+          "region": "official-area-14",
+          "hint": "楼閣の下の回廊へ戻る",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "mond-town",
+      "destination": "dornman-camp",
+      "stops": [
+        {
+          "name": "モンド・南の街道",
+          "id": "mond-road",
+          "previewX": 1380,
+          "from": "mond-town",
+          "region": "region-01",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "ドーンマンポート・入口拠点",
+          "id": "dornman-camp",
+          "previewX": 720,
+          "from": "mond-road",
+          "region": "branch-06",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "dornman-camp",
+      "destination": "dorn-churldric-cooking-camp",
+      "stops": [
+        {
+          "name": "モンド・南の街道",
+          "id": "mond-road",
+          "previewX": 60,
+          "from": "dornman-camp",
+          "region": "region-01",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "囁きの森・湖への小道",
+          "id": "sites-corridor-mond-forest",
+          "previewX": 792,
+          "from": "mond-road",
+          "region": "region-01",
+          "hint": "上段の入口・森の斜面を通って湖岸へ",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 340
+        },
+        {
+          "name": "モンド・北の湖と神像",
+          "id": "mond-wp-12",
+          "previewX": 1110,
+          "from": "sites-corridor-mond-forest",
+          "region": "region-01",
+          "hint": "モンド・北の湖と神像へ",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "モンド・北の湖の岩棚",
+          "id": "mond-wp-8",
+          "previewX": 76,
+          "from": "mond-wp-12",
+          "region": "region-01",
+          "hint": "上段の入口",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 370
+        },
+        {
+          "name": "ドーンマンポート・北の丘の東路",
+          "id": "mond-wp-95792",
+          "previewX": 76,
+          "from": "mond-wp-8",
+          "region": "branch-06",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "シールドル湖北・集落の見張り道",
+          "id": "dorn-shieldrol-lake-trail",
+          "previewX": 462,
+          "from": "mond-wp-95792",
+          "region": "branch-06",
+          "hint": "上段の入口・シールドル湖畔の集落へ",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 388
+        },
+        {
+          "name": "シールドル湖北・ヒルチャールの炊事場",
+          "id": "dorn-churldric-cooking-camp",
+          "previewX": 1450,
+          "from": "dorn-shieldrol-lake-trail",
+          "region": "branch-06",
+          "hint": "上段の入口・集落の炊事場へ",
+          "mode": "walk",
+          "label": "徒歩",
+          "previewY": 406
+        }
+      ]
+    },
+    {
+      "start": "dorn-churldric-cooking-camp",
+      "destination": "dorn-shieldrol-lake-trail",
+      "stops": [
+        {
+          "name": "シールドル湖北・集落の見張り道",
+          "id": "dorn-shieldrol-lake-trail",
+          "previewX": 96,
+          "from": "dorn-churldric-cooking-camp",
+          "region": "branch-06",
+          "hint": "集落の見張り道へ戻る",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "fontaine-hub",
+      "destination": "bygone-camp",
+      "stops": [
+        {
+          "name": "フォンテーヌ・水路沿い",
+          "id": "fontaine-field",
+          "previewX": 1380,
+          "from": "fontaine-hub",
+          "region": "region-05",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "往日の海・入口拠点",
+          "id": "bygone-camp",
+          "previewX": 720,
+          "from": "fontaine-field",
+          "region": "branch-05",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "bygone-camp",
+      "destination": "bygone-depth",
+      "stops": [
+        {
+          "name": "往日の海・探索路",
+          "id": "bygone-depth",
+          "previewX": 1380,
+          "from": "bygone-camp",
+          "region": "branch-05",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "bygone-depth",
+      "destination": "bygone-wp-68604",
+      "stops": [
+        {
+          "name": "往日の海・西海の峡谷口",
+          "id": "bygone-wp-68604",
+          "previewX": 1088,
+          "from": "bygone-depth",
+          "region": "branch-05",
+          "hint": "洞口から西海へ潜る水路・移動に2.4秒",
+          "mode": "water",
+          "label": "水路"
+        }
+      ]
+    },
+    {
+      "start": "bygone-wp-68604",
+      "destination": "bygone-wp-68605",
+      "stops": [
+        {
+          "name": "往日の海・東海の低い石橋",
+          "id": "bygone-wp-68605",
+          "previewX": 1372,
+          "from": "bygone-wp-68604",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ",
+          "mode": "swim",
+          "label": "遊泳",
+          "previewY": 245
+        }
+      ]
+    },
+    {
+      "start": "bygone-wp-68605",
+      "destination": "bygone-wp-68604",
+      "stops": [
+        {
+          "name": "往日の海・西海の峡谷口",
+          "id": "bygone-wp-68604",
+          "previewX": 76,
+          "from": "bygone-wp-68605",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ",
+          "mode": "swim",
+          "label": "遊泳",
+          "previewY": 390
+        }
+      ]
+    },
+    {
+      "start": "bygone-camp",
+      "destination": "cineas-legend-chamber",
+      "stops": [
+        {
+          "name": "往日の海・探索路",
+          "id": "bygone-depth",
+          "previewX": 1380,
+          "from": "bygone-camp",
+          "region": "branch-05",
+          "mode": "walk",
+          "label": "徒歩"
+        },
+        {
+          "name": "往日の海・西海の峡谷口",
+          "id": "bygone-wp-68604",
+          "previewX": 1088,
+          "from": "bygone-depth",
+          "region": "branch-05",
+          "hint": "洞口から西海へ潜る水路・移動に2.4秒",
+          "mode": "water",
+          "label": "水路"
+        },
+        {
+          "name": "往日の海・東海の低い石橋",
+          "id": "bygone-wp-68605",
+          "previewX": 1372,
+          "from": "bygone-wp-68604",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ",
+          "mode": "swim",
+          "label": "遊泳",
+          "previewY": 245
+        },
+        {
+          "name": "往日の海・北の覗き窓",
+          "id": "bygone-wp-68606",
+          "previewX": 508,
+          "from": "bygone-wp-68605",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ",
+          "mode": "swim",
+          "label": "遊泳",
+          "previewY": 362
+        },
+        {
+          "name": "往日の海・東の水中門",
+          "id": "bygone-wp-68609",
+          "previewX": 1372,
+          "from": "bygone-wp-68606",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ",
+          "mode": "swim",
+          "label": "遊泳",
+          "previewY": 419
+        },
+        {
+          "name": "往日の海・東端の下の水路",
+          "id": "bygone-wp-68612",
+          "previewX": 1372,
+          "from": "bygone-wp-68609",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ",
+          "mode": "swim",
+          "label": "遊泳",
+          "previewY": 248
+        },
+        {
+          "name": "往日の海・東端の別室",
+          "id": "bygone-wp-68610",
+          "previewX": 1372,
+          "from": "bygone-wp-68612",
+          "region": "branch-05",
+          "hint": "門と同じ深さまで泳ぐ・東端の別室の水路・移動に2.4秒",
+          "mode": "water",
+          "label": "水路",
+          "previewY": 305
+        },
+        {
+          "name": "往日の海・シネアスの石床",
+          "id": "cineas-legend-chamber",
+          "previewX": 1110,
+          "from": "bygone-wp-68610",
+          "region": "branch-05",
+          "hint": "地方伝説に挑戦する",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    },
+    {
+      "start": "cineas-legend-chamber",
+      "destination": "bygone-wp-68610",
+      "stops": [
+        {
+          "name": "往日の海・東端の別室",
+          "id": "bygone-wp-68610",
+          "previewX": 88,
+          "from": "cineas-legend-chamber",
+          "region": "branch-05",
+          "hint": "調査路に退く",
+          "mode": "walk",
+          "label": "徒歩"
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "quest": "ochka-floating-island-spiritway",
+      "xp": 850000,
+      "mora": 26900
+    },
+    {
+      "quest": "sky-pavilion-notes",
+      "xp": 2840000,
+      "mora": 54000
+    },
+    {
+      "quest": "fon-mapped-bygone-current",
+      "xp": 168000,
+      "mora": 13900
+    }
+  ],
+  "battles": [
+    {
+      "node": "ochka-bronzelock-island-court",
+      "targets": [
+        "legend-natlan_bronzelock"
+      ],
+      "xp": 3811665,
+      "kills": 1
+    },
+    {
+      "node": "sacred-mountain-east-isle-dais",
+      "targets": [
+        "legend-natlan_infinitesimal"
+      ],
+      "xp": 26135,
+      "kills": 1
+    },
+    {
+      "node": "sky-maha-pavilion-court",
+      "targets": [
+        "legend-mondstadt_maha_vasudevayaputra"
+      ],
+      "xp": 4864763,
+      "kills": 1
+    },
+    {
+      "node": "dorn-churldric-cooking-camp",
+      "targets": [
+        "legend-mondstadt_churldric"
+      ],
+      "xp": 1302830,
+      "kills": 1
+    },
+    {
+      "node": "cineas-legend-chamber",
+      "targets": [
+        "legend-fontaine_cineas"
+      ],
+      "xp": 563370,
+      "kills": 1
+    }
+  ],
+  "locks": [
+    {
+      "node": "ochka-bronzelock-device-shore",
+      "target": "ochka-bronzelock-floating-landing",
+      "reason": "岸辺の浮遊装置を二つ、Jで壊すと光の道が開きます。"
+    },
+    {
+      "node": "sky-sand-pavilion-walk",
+      "target": "sky-maha-pavilion-court",
+      "reason": "記録を取り、楼閣の案内役マーダヴァに話してください。"
+    }
+  ],
+  "returns": 0,
+  "levelAtStart": 200,
+  "draftBalance": true,
+  "clearsAfterReload": {
+    "legend-natlan_bronzelock": 1,
+    "legend-natlan_infinitesimal": 1,
+    "legend-mondstadt_maha_vasudevayaputra": 1,
+    "legend-mondstadt_churldric": 1,
+    "legend-fontaine_cineas": 1
+  }
+}

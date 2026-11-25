@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1515,
+  "verifiedModules": 1610,
   "dimensions": [
     512,
     288
@@ -1749,6 +1749,139 @@
       "5632": 26564,
       "6144": 28090
     },
+    "ochka-bronze-court-background-v1.png": {
+      "4096": 18911,
+      "4608": 22481,
+      "5120": 25948,
+      "5632": 29402,
+      "6144": 31580
+    },
+    "sacred-east-dais-background-v1.png": {
+      "4096": 17549,
+      "4608": 21013,
+      "5120": 24368,
+      "5632": 27706,
+      "6144": 29384
+    },
+    "sky-sand-courtyard-background-v1.png": {
+      "4096": 18409,
+      "4608": 21851,
+      "5120": 25168,
+      "5632": 28472,
+      "6144": 30752
+    },
+    "bygone-cineas-vault-background-v1.png": {
+      "4096": 17530,
+      "4608": 21070,
+      "5120": 24483,
+      "5632": 27897,
+      "6144": 29581
+    },
+    "dorn-cooking-camp-background-v1.png": {
+      "4096": 18116,
+      "4608": 21586,
+      "5120": 24929,
+      "5632": 28261,
+      "6144": 30465
+    },
+    "frost-inner-chamber-background-v1.png": {
+      "4096": 15268,
+      "4608": 18492,
+      "5120": 21605,
+      "5632": 24695,
+      "6144": 26191
+    },
+    "frost-prism-basin-background-v1.png": {
+      "4096": 17850,
+      "4608": 21308,
+      "5120": 24643,
+      "5632": 27947,
+      "6144": 30177
+    },
+    "hiisi-crab-palace-background-v1.png": {
+      "4096": 16910,
+      "4608": 20306,
+      "5120": 23587,
+      "5632": 26875,
+      "6144": 28943
+    },
+    "hiljetta-camp-background-v1.png": {
+      "4096": 16036,
+      "4608": 19356,
+      "5120": 22505,
+      "5632": 25655,
+      "6144": 27525
+    },
+    "aams-wolf-hall-background-v1.png": {
+      "4096": 16081,
+      "4608": 19373,
+      "5120": 22538,
+      "5632": 25696,
+      "6144": 27542
+    },
+    "mandragora-coast-background-v1.png": {
+      "4096": 16751,
+      "4608": 20101,
+      "5120": 23308,
+      "5632": 26510,
+      "6144": 28456
+    },
+    "raskol-upper-ring-background-v1.png": {
+      "4096": 18238,
+      "4608": 21758,
+      "5120": 25135,
+      "5632": 28503,
+      "6144": 30445
+    },
+    "sigurd-grave-court-background-v1.png": {
+      "4096": 15289,
+      "4608": 18535,
+      "5120": 21652,
+      "5632": 24770,
+      "6144": 26586
+    },
+    "merciful-mouse-den-background-v1.png": {
+      "4096": 17919,
+      "4608": 21481,
+      "5120": 24912,
+      "5632": 28348,
+      "6144": 30172
+    },
+    "svet-ice-cavern-background-v1.png": {
+      "4096": 17476,
+      "4608": 20942,
+      "5120": 24279,
+      "5632": 27597,
+      "6144": 29651
+    },
+    "churin-snow-court-background-v1.png": {
+      "4096": 17692,
+      "4608": 21238,
+      "5120": 24671,
+      "5632": 28079,
+      "6144": 29671
+    },
+    "crystal-tree-refuge-background-v1.png": {
+      "4096": 17620,
+      "4608": 21104,
+      "5120": 24457,
+      "5632": 27811,
+      "6144": 29795
+    },
+    "furiosa-snowfield-background-v1.png": {
+      "4096": 17290,
+      "4608": 20690,
+      "5120": 23949,
+      "5632": 27193,
+      "6144": 29243
+    },
+    "novok-ore-yard-background-v1.png": {
+      "4096": 17803,
+      "4608": 21197,
+      "5120": 24456,
+      "5632": 27730,
+      "6144": 29856
+    },
     "sne-central-icewall-background-v1.png": {
       "4096": 17732,
       "4608": 21172,
@@ -2131,7 +2264,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 340
+      "verified": 359
     },
     "domainHunts": {
       "total": 124,
@@ -2205,28 +2338,8 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 101,
-      "pending": [
-        "cineas-legend-chamber",
-        "dorn-churldric-cooking-camp",
-        "frost-mushteshir-inner-chamber",
-        "frost-prism-slime-basin",
-        "nod-crab-tsar-palace",
-        "nod-hiljetta-peninsula-camp",
-        "nod-homesick-wolf-lakeland",
-        "nod-mandragora-cliff-foot",
-        "nod-raskolnikov-upper-ring",
-        "nod-sigurd-grave-court",
-        "ochka-bronzelock-island-court",
-        "sacred-mountain-east-isle-dais",
-        "sky-maha-pavilion-court",
-        "sne-ancient-mouse-den",
-        "sne-bandersnatch-ice-cavern",
-        "sne-churin-snow-court",
-        "sne-crystal-tree-refuge",
-        "sne-furiosa-domain-outlook",
-        "sne-novokichev-ore-yard"
-      ]
+      "verified": 120,
+      "pending": []
     },
     "normalBosses": {
       "totalArenas": 64,
@@ -2235,28 +2348,8 @@
     },
     "localLegends": {
       "totalArenas": 56,
-      "verified": 37,
-      "pending": [
-        "cineas-legend-chamber",
-        "dorn-churldric-cooking-camp",
-        "frost-mushteshir-inner-chamber",
-        "frost-prism-slime-basin",
-        "nod-crab-tsar-palace",
-        "nod-hiljetta-peninsula-camp",
-        "nod-homesick-wolf-lakeland",
-        "nod-mandragora-cliff-foot",
-        "nod-raskolnikov-upper-ring",
-        "nod-sigurd-grave-court",
-        "ochka-bronzelock-island-court",
-        "sacred-mountain-east-isle-dais",
-        "sky-maha-pavilion-court",
-        "sne-ancient-mouse-den",
-        "sne-bandersnatch-ice-cavern",
-        "sne-churin-snow-court",
-        "sne-crystal-tree-refuge",
-        "sne-furiosa-domain-outlook",
-        "sne-novokichev-ore-yard"
-      ]
+      "verified": 56,
+      "pending": []
     },
     "weeklyBosses": {
       "totalArenas": 18,

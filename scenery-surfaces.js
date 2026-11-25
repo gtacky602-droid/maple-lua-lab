@@ -26,6 +26,23 @@ function surfaceTile(material, ground) {
       rect('#594167', 13 + i * 3, 7 + i * 3, 4, 3);
       rect('#402e52', 48 - i * 2, 10 + i * 2, 3, 2);
     }
+  } else if (material === 'snow') {
+    rect('#74889d', 0, 0, 64, tile.height);
+    rect('#d3e6e6', 0, 0, 64, 8);
+    rect('#f2f6e9', 0, 0, 64, 3);
+    for (const x of [2, 27, 46]) {
+      rect('#bfd5df', x, 6, 13, 4);
+      rect('#a6c1d0', x + 4, 10, 8, 3);
+      rect('#62768e', x + 10, 17, 6, 2);
+    }
+  } else if (material === 'ice') {
+    rect('#50778e', 0, 0, 64, tile.height);
+    rect('#85bdcb', 0, 0, 64, 9);
+    rect('#d8f3ed', 0, 0, 64, 2);
+    for (let i = 0; i < 5; i++) {
+      rect('#b1dadf', 9 + i * 3, 2 + i * 2, 4, 2);
+      rect('#709faa', 49 - i * 2, 5 + i * 3, 3, 3);
+    }
   } else if (material === 'heather') {
     rect('#67435c', 0, 0, 64, tile.height);
     rect('#985585', 0, 0, 64, 7);
