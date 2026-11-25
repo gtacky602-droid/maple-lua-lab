@@ -1,0 +1,436 @@
+{
+  "verified": 43,
+  "differentPixels": 0,
+  "scenes": {
+    "cineas-legend-chamber": {
+      "name": "シネアス",
+      "tick": 62,
+      "source": "legend-poses-source-v2.png",
+      "rectangles": {
+        "legacy": 5273,
+        "h48c32": 3170,
+        "h32c16": 1497
+      }
+    },
+    "vivianne-legend-bank": {
+      "name": "湖辺のヴィヴィアン",
+      "tick": 52,
+      "source": "fontaine-lake-legend-poses-source-v6.png",
+      "rectangles": {
+        "legacy": 384,
+        "h48c32": 274,
+        "h32c16": 191
+      }
+    },
+    "ninianne-legend-bank": {
+      "name": "湖辺のニニアン",
+      "tick": 43,
+      "source": "fontaine-lake-legend-poses-source-v6.png",
+      "rectangles": {
+        "legacy": 425,
+        "h48c32": 291,
+        "h32c16": 224
+      }
+    },
+    "yseut-legend-court": {
+      "name": "イゾルト",
+      "tick": 20,
+      "source": "fontaine-dry-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 4046,
+        "h48c32": 2398,
+        "h32c16": 1046
+      }
+    },
+    "gravity-device-legend-terrace": {
+      "name": "自律スーパー・コンピューティング型力場生成装置",
+      "tick": 32,
+      "source": "fontaine-dry-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3734,
+        "h48c32": 2216,
+        "h32c16": 975
+      }
+    },
+    "rocky-legend-ledge": {
+      "name": "ロッキー・アヴィルドセン",
+      "tick": 15,
+      "source": "fontaine-dry-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3403,
+        "h48c32": 2009,
+        "h32c16": 940
+      }
+    },
+    "liam-legend-pond": {
+      "name": "リアム",
+      "tick": 52,
+      "source": "fontaine-dry-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3277,
+        "h48c32": 1899,
+        "h32c16": 868
+      }
+    },
+    "deianeira-legend-lab": {
+      "name": "スネージヴナのディアンナラ",
+      "tick": 35,
+      "source": "fontaine-dry-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3692,
+        "h48c32": 2281,
+        "h32c16": 1012
+      }
+    },
+    "tepeakak-sappho-bank": {
+      "name": "波のジャプー",
+      "tick": 26,
+      "source": "natlan-first-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2960,
+        "h48c32": 1854,
+        "h32c16": 797
+      }
+    },
+    "toyac-balachko-inner-cave": {
+      "name": "バラチコ",
+      "tick": 38,
+      "source": "natlan-toyac-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3336,
+        "h48c32": 1998,
+        "h32c16": 951
+      }
+    },
+    "toyac-cocijo-stone-ring": {
+      "name": "コシーホ",
+      "tick": 38,
+      "source": "natlan-toyac-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3771,
+        "h48c32": 2332,
+        "h32c16": 1114
+      }
+    },
+    "night-trial-undead": {
+      "name": "アンデッド",
+      "tick": 39,
+      "source": "natlan-night-trial-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2166,
+        "h48c32": 1452,
+        "h32c16": 686
+      }
+    },
+    "night-trial-chimalli": {
+      "name": "シェマリの陰",
+      "tick": 39,
+      "source": "natlan-night-trial-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2247,
+        "h48c32": 1427,
+        "h32c16": 694
+      }
+    },
+    "night-trial-tlatzacuilotl": {
+      "name": "トゥラカルワスクアウィトゥル",
+      "tick": 39,
+      "source": "natlan-north-trial-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3450,
+        "h48c32": 2162,
+        "h32c16": 1052
+      }
+    },
+    "night-trial-ichcahuipilli": {
+      "name": "イチカウイピリの庇護",
+      "tick": 39,
+      "source": "natlan-north-trial-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1914,
+        "h48c32": 1140,
+        "h32c16": 531
+      }
+    },
+    "night-trial-atlatl": {
+      "name": "アトラトの祝福",
+      "tick": 39,
+      "source": "natlan-cliff-trial-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3052,
+        "h48c32": 1849,
+        "h32c16": 765
+      }
+    },
+    "night-trial-cihuacoatl": {
+      "name": "神骨の蛇姫",
+      "tick": 39,
+      "source": "natlan-cliff-trial-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2697,
+        "h48c32": 1585,
+        "h32c16": 688
+      }
+    },
+    "night-wind-rilai-clearing": {
+      "name": "リライ",
+      "tick": 39,
+      "source": "natlan-northwest-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2592,
+        "h48c32": 1615,
+        "h32c16": 753
+      }
+    },
+    "night-trial-fallen-dawnstar": {
+      "name": "墜落せし晨星の霊",
+      "tick": 39,
+      "source": "natlan-northwest-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3230,
+        "h48c32": 1881,
+        "h32c16": 864
+      }
+    },
+    "night-trial-ironbeard": {
+      "name": "鉄髭",
+      "tick": 39,
+      "source": "natlan-northwest-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2728,
+        "h48c32": 1703,
+        "h32c16": 809
+      }
+    },
+    "night-trial-potapo": {
+      "name": "ポタポの応援",
+      "tick": 39,
+      "source": "natlan-wayob-duo-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 889,
+        "h48c32": 548,
+        "h32c16": 244
+      }
+    },
+    "night-trial-tupayo": {
+      "name": "トゥパヨの協力",
+      "tick": 39,
+      "source": "natlan-wayob-duo-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1461,
+        "h48c32": 980,
+        "h32c16": 479
+      }
+    },
+    "night-trial-reji": {
+      "name": "レジ",
+      "tick": 39,
+      "source": "natlan-atocpan-totem-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2823,
+        "h48c32": 1700,
+        "h32c16": 836
+      }
+    },
+    "night-trial-tupu": {
+      "name": "トゥプの繁栄",
+      "tick": 39,
+      "source": "natlan-atocpan-totem-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1967,
+        "h48c32": 1185,
+        "h32c16": 547
+      }
+    },
+    "atocpan-peak-cave": {
+      "name": "ピーク",
+      "tick": 39,
+      "source": "natlan-final-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 5720,
+        "h48c32": 3565,
+        "h32c16": 1679
+      }
+    },
+    "zapabay-tenochtzitoc-shallows": {
+      "name": "最後のテノチズトク人",
+      "tick": 39,
+      "source": "natlan-final-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2831,
+        "h48c32": 1770,
+        "h32c16": 851
+      }
+    },
+    "sacred-mountain-east-isle-dais": {
+      "name": "微末",
+      "tick": 35,
+      "source": "natlan-highland-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 4567,
+        "h48c32": 2881,
+        "h32c16": 1281
+      }
+    },
+    "ochka-bronzelock-island-court": {
+      "name": "銅の錠",
+      "tick": 35,
+      "source": "natlan-highland-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 6701,
+        "h48c32": 3975,
+        "h32c16": 1711
+      }
+    },
+    "nod-sigurd-grave-court": {
+      "name": "シグルド",
+      "tick": 35,
+      "source": "nod-first-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2263,
+        "h48c32": 1411,
+        "h32c16": 641
+      }
+    },
+    "nod-crab-tsar-palace": {
+      "name": "カニ皇帝",
+      "tick": 35,
+      "source": "nod-first-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 4013,
+        "h48c32": 2337,
+        "h32c16": 945
+      }
+    },
+    "nod-raskolnikov-upper-ring": {
+      "name": "ラスコルニコフ",
+      "tick": 35,
+      "source": "nod-first-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2964,
+        "h48c32": 1758,
+        "h32c16": 779
+      }
+    },
+    "nod-mandragora-cliff-foot": {
+      "name": "十六倍マンドラゴラ",
+      "tick": 33,
+      "source": "nod-north-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1583,
+        "h48c32": 920,
+        "h32c16": 382
+      }
+    },
+    "nod-hiljetta-peninsula-camp": {
+      "name": "ハイジェード",
+      "tick": 33,
+      "source": "nod-north-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2318,
+        "h48c32": 1337,
+        "h32c16": 610
+      }
+    },
+    "nod-homesick-wolf-lakeland": {
+      "name": "故郷を偲ぶ孤独の狼",
+      "tick": 33,
+      "source": "nod-north-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3920,
+        "h48c32": 2435,
+        "h32c16": 1078
+      }
+    },
+    "sne-churin-snow-court": {
+      "name": "チュリン",
+      "tick": 35,
+      "source": "snez-first-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1175,
+        "h48c32": 677,
+        "h32c16": 340
+      }
+    },
+    "sne-bandersnatch-ice-cavern": {
+      "name": "バンダースナッチ",
+      "tick": 35,
+      "source": "snez-first-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3205,
+        "h48c32": 1984,
+        "h32c16": 1014
+      }
+    },
+    "sne-furiosa-domain-outlook": {
+      "name": "フュリオサ",
+      "tick": 35,
+      "source": "snez-first-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2901,
+        "h48c32": 1731,
+        "h32c16": 810
+      }
+    },
+    "sne-ancient-mouse-den": {
+      "name": "古代種・カチカチネズミ",
+      "tick": 35,
+      "source": "snez-late-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1848,
+        "h48c32": 1109,
+        "h32c16": 542
+      }
+    },
+    "sne-crystal-tree-refuge": {
+      "name": "災禍古樹",
+      "tick": 35,
+      "source": "snez-late-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2408,
+        "h48c32": 1408,
+        "h32c16": 652
+      }
+    },
+    "dorn-churldric-cooking-camp": {
+      "name": "チャルデリック",
+      "tick": 35,
+      "source": "final-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3577,
+        "h48c32": 2176,
+        "h32c16": 985
+      }
+    },
+    "sky-maha-pavilion-court": {
+      "name": "マハーヴァスデーヴァヤプトラ太子",
+      "tick": 35,
+      "source": "final-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 2040,
+        "h48c32": 1232,
+        "h32c16": 513
+      }
+    },
+    "frost-prism-slime-basin": {
+      "name": "プリズムスライム",
+      "tick": 35,
+      "source": "final-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 1553,
+        "h48c32": 993,
+        "h32c16": 473
+      }
+    },
+    "frost-mushteshir-inner-chamber": {
+      "name": "ムーシュ＝テヒル",
+      "tick": 35,
+      "source": "final-field-legend-poses-source-v1.png",
+      "rectangles": {
+        "legacy": 3431,
+        "h48c32": 2090,
+        "h32c16": 1014
+      }
+    }
+  }
+}

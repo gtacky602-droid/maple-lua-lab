@@ -7,7 +7,7 @@
   "itineraryOnCanvasAndPanel": true,
   "hiddenAreaRemoved": true,
   "windcrownExteriorReturn": true,
-  "globalBossChoices": 87,
+  "globalBossChoices": 143,
   "bossAliasAndWeeklyGate": true,
   "stygianDeskInGlobalBossSearch": true,
   "bossCatalogOpensFieldMap": true,
@@ -18,28 +18,28 @@
   "chasmUndergroundStages": 17,
   "chenyuLv22Guide": {
     "afterTransfer": false,
+    "requiredLevel": 23,
+    "reason": "必要Lv23",
     "stops": [
       {
         "mode": "walk",
-        "label": "徒歩",
-        "from": "liyue-wp-64843",
-        "region": "branch-02",
         "name": "沈玉の谷・谷の入口の神像",
-        "id": "liyue-wp-64825"
+        "from": "liyue-wp-64843",
+        "id": "liyue-wp-64825",
+        "label": "徒歩",
+        "region": "branch-02"
       },
       {
         "mode": "walk",
-        "label": "徒歩",
-        "from": "liyue-wp-64825",
         "reason": "必要Lv23",
-        "region": "branch-02",
         "name": "沈玉の谷・谷東の川沿い",
-        "id": "liyue-wp-64842"
+        "from": "liyue-wp-64825",
+        "id": "liyue-wp-64842",
+        "label": "徒歩",
+        "region": "branch-02"
       }
     ],
-    "status": "blocked",
-    "reason": "必要Lv23",
-    "requiredLevel": 23
+    "status": "blocked"
   },
   "errors": []
 }

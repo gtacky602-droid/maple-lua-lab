@@ -1,6 +1,6 @@
 {
   "codecSha256": "c665cbddefd635c393b8bfdce3577887bf2d0bc0d5f29592e543b441bfd58469",
-  "verifiedModules": 1290,
+  "verifiedModules": 1300,
   "dimensions": [
     512,
     288
@@ -607,6 +607,20 @@
       "5120": 19515,
       "5632": 22425,
       "6144": 23843
+    },
+    "lake-ninianne-bank-background-v1.png": {
+      "4096": 18051,
+      "4608": 21547,
+      "5120": 24928,
+      "5632": 28302,
+      "6144": 30514
+    },
+    "lake-vivianne-bank-background-v1.png": {
+      "4096": 18235,
+      "4608": 21655,
+      "5120": 24950,
+      "5632": 28224,
+      "6144": 30460
     },
     "oceanid-field-background-v1.png": {
       "4096": 14522,
@@ -1816,7 +1830,7 @@
   "locationCoverage": {
     "allStages": {
       "total": 1528,
-      "verified": 258
+      "verified": 260
     },
     "domainHunts": {
       "total": 124,
@@ -1890,7 +1904,7 @@
     },
     "fieldBosses": {
       "totalArenas": 120,
-      "verified": 51,
+      "verified": 53,
       "pending": [
         "anemo-field-basin",
         "atocpan-battlegoat-ironclaw-field",
@@ -1929,7 +1943,6 @@
         "night-trial-tupu",
         "night-trial-undead",
         "night-wind-rilai-clearing",
-        "ninianne-legend-bank",
         "nod-crab-tsar-palace",
         "nod-hiljetta-peninsula-camp",
         "nod-homesick-wolf-lakeland",
@@ -1957,7 +1970,6 @@
         "toyac-balachko-inner-cave",
         "toyac-cocijo-stone-ring",
         "tunigi-fragment-vault",
-        "vivianne-legend-bank",
         "witztli-tristars-camp",
         "yseut-legend-court",
         "zapabay-tenochtzitoc-shallows"

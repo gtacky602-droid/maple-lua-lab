@@ -3,7 +3,7 @@ import {backgroundMeasurements} from './scenery-measurements.js';
 const groupNames = {
  main: '通常地域', high_level_branch: '高難度地域', hidden_world: '隠し世界', official_layer: '別地図',
 };
-const bossKinds = {normal:'通常ボス', weekly:'週ボス', stygian:'幽境'};
+const bossKinds = {normal:'通常ボス', weekly:'週ボス', stygian:'幽境', legend:'地方伝説'};
 function huntLabel(place) {
  if (place.pocketRole === 'rare_pocket') return '任意戦・希少遭遇';
  if (place.pocketRole === 'optional_elite') return '任意戦・精鋭';
@@ -160,9 +160,11 @@ export function initAtlas(action, clearKeys) {
 
  function renderSelection() {
   const selected = view.selected;
-  compare.hidden = !Object.hasOwn(backgroundMeasurements, selected?.id);
+  const measured = Object.hasOwn(backgroundMeasurements, selected?.id);
+  compare.hidden = !measured && !selected?.boss?.placementPreview;
+  compare.textContent = measured ? 'この地点の背景を比較（別タブ）' : 'この地点のドット絵を比較（別タブ）';
   if (compare.hidden) compare.removeAttribute('href');
-  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id) + '&placements=live&compare=background';
+  else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id) + '&placements=live' + (measured ? '&compare=background' : '');
   const area = view.options.find(item => item.id === view.region);
   title.textContent = selected?.boss?.name ?? selected?.name ?? area?.name ?? 'テイワット全域';
   level.textContent = selected?.mode === 'draft' ? [

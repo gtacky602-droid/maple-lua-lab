@@ -45,7 +45,8 @@
     "field-arenas-ochka-native-backgrounds.lua": "42955ad594f260062e49f3973272c2d5718c9f801b6d59bbfa650feedfacf2db",
     "field-arenas-snez-native-backgrounds.lua": "49ac7bc9dd957d85f22a2c02ed5d16ed66416fdb37873eb8b1aaa2245e52f444",
     "field-arenas-spine-native-backgrounds.lua": "48b2fa7b38ef738540b6c55a0368caf30209828b9646b48deed3626b290920c6",
-    "field-arenas-sumeru-native-backgrounds.lua": "c329fd20c702d1ff327ddfaf7f17b5c8d2fde1a72f2c7793acbd3b32aa9504db"
+    "field-arenas-sumeru-native-backgrounds.lua": "c329fd20c702d1ff327ddfaf7f17b5c8d2fde1a72f2c7793acbd3b32aa9504db",
+    "field-arenas-lake-legends-native-backgrounds.lua": "d55e863406cc4ad35b8110d105e534b46e982a047971a2eb1a2462c6344f9f1b"
   },
   "runtime": "Lua 5.3",
   "system": "Windows AMD64",
@@ -9598,6 +9599,80 @@
         "minDecodeMs": 24.34,
         "maxDecodeMs": 42.75,
         "medianRetainedLuaKiB": 1157.9
+      }
+    },
+    "ninianne-legend-bank": {
+      "4096": {
+        "fileBytes": 18051,
+        "medianDecodeMs": 19.72,
+        "minDecodeMs": 17.5,
+        "maxDecodeMs": 23.14,
+        "medianRetainedLuaKiB": 796.5
+      },
+      "4608": {
+        "fileBytes": 21547,
+        "medianDecodeMs": 23.87,
+        "minDecodeMs": 22.04,
+        "maxDecodeMs": 29.78,
+        "medianRetainedLuaKiB": 939.7
+      },
+      "5120": {
+        "fileBytes": 24928,
+        "medianDecodeMs": 27.06,
+        "minDecodeMs": 25.29,
+        "maxDecodeMs": 28.97,
+        "medianRetainedLuaKiB": 1023.5
+      },
+      "5632": {
+        "fileBytes": 28302,
+        "medianDecodeMs": 27.91,
+        "minDecodeMs": 26.86,
+        "maxDecodeMs": 32.61,
+        "medianRetainedLuaKiB": 1107.3
+      },
+      "6144": {
+        "fileBytes": 30514,
+        "medianDecodeMs": 32.07,
+        "minDecodeMs": 29.85,
+        "maxDecodeMs": 36.32,
+        "medianRetainedLuaKiB": 1195.2
+      }
+    },
+    "vivianne-legend-bank": {
+      "4096": {
+        "fileBytes": 18235,
+        "medianDecodeMs": 18.29,
+        "minDecodeMs": 17.18,
+        "maxDecodeMs": 18.77,
+        "medianRetainedLuaKiB": 792.4
+      },
+      "4608": {
+        "fileBytes": 21655,
+        "medianDecodeMs": 22.37,
+        "minDecodeMs": 20.91,
+        "maxDecodeMs": 23.08,
+        "medianRetainedLuaKiB": 935.4
+      },
+      "5120": {
+        "fileBytes": 24950,
+        "medianDecodeMs": 25.0,
+        "minDecodeMs": 22.0,
+        "maxDecodeMs": 33.03,
+        "medianRetainedLuaKiB": 1017.9
+      },
+      "5632": {
+        "fileBytes": 28224,
+        "medianDecodeMs": 27.22,
+        "minDecodeMs": 24.98,
+        "maxDecodeMs": 29.52,
+        "medianRetainedLuaKiB": 1101.1
+      },
+      "6144": {
+        "fileBytes": 30460,
+        "medianDecodeMs": 30.29,
+        "minDecodeMs": 26.9,
+        "maxDecodeMs": 40.19,
+        "medianRetainedLuaKiB": 1184.0
       }
     }
   }

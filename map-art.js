@@ -192,7 +192,13 @@ try{
  function placementArt(e){
   const original=assets[e.species],art=e.flip&&original.left?original.left:original;
   const boss=arenaPreviews.get(node().id);
-  if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt)return {...art,h:boss.artHeight};
+  if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
+   if(boss.controller==='branchLegend' && boss.openingPose){
+    const h=boss.artScale?art.box[3]*boss.artScale:Math.round(boss.artHeight*(boss.poseHeights?.idle??1));
+    return {...art,h,hover:0,openingPose:true};
+   }
+   return {...art,h:boss.artHeight};
+  }
   if(boss?.partner?.mapIdleArt===e.species && e.id==='boss-'+boss.partner.entity)return {...art,h:boss.partner.artHeight??boss.artHeight};
   return art;
  }

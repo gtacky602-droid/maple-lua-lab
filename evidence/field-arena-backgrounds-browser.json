@@ -1,8 +1,8 @@
 {
-  "fieldPickerCount": 51,
+  "fieldPickerCount": 53,
   "atlasEntry": "ruin-serpent-field-pit",
-  "sceneCount": 48,
-  "verifiedTiers": 240,
+  "sceneCount": 50,
+  "verifiedTiers": 250,
   "scenes": {
     "ruin-serpent-field-pit": {
       "source": "ruin-serpent-field-background-v1.png",
@@ -351,6 +351,56 @@
         "6144": {
           "bytes": 23843,
           "pixelHash": "9256a8afea3970e5cf9df6e037618bf93441bc1cb4c3ca46c3b13e73262fa3e4"
+        }
+      }
+    },
+    "ninianne-legend-bank": {
+      "source": "lake-ninianne-bank-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18051,
+          "pixelHash": "582b83b0045f205742d848ac8ea2ea152177b425979ff1b52db94ddc8071904c"
+        },
+        "4608": {
+          "bytes": 21547,
+          "pixelHash": "27e51276055090565ba5cbb6ae992e9d91f33993d79b2c27cb2d749ca4b4aa5e"
+        },
+        "5120": {
+          "bytes": 24928,
+          "pixelHash": "ef4205bab19c545dca85c07e6d01d8bbdd3c0a91136b508a97722d6d49d60447"
+        },
+        "5632": {
+          "bytes": 28302,
+          "pixelHash": "a3376c3a3e3d19aac8ebda31e3a06b09ef6010d838928293b76801edacc1d614"
+        },
+        "6144": {
+          "bytes": 30514,
+          "pixelHash": "b4564204f2d6b21caad07e67f733de7c6aee94d591c4e16a619a50b67689dc8f"
+        }
+      }
+    },
+    "vivianne-legend-bank": {
+      "source": "lake-vivianne-bank-background-v1.png",
+      "tiers": {
+        "4096": {
+          "bytes": 18235,
+          "pixelHash": "379839a579dfd810707debe9d1f1314e0ee1f29dc3886f0619364f6362e09505"
+        },
+        "4608": {
+          "bytes": 21655,
+          "pixelHash": "13405e39e6a4ed32bd50c5f8e2e91b910090d62f33e90dec59ba65b7ba06ce51"
+        },
+        "5120": {
+          "bytes": 24950,
+          "pixelHash": "668955c14d5b2fbcacdce956d023f126a7c5dbd9baab8a19957e6af1e6e89d6f"
+        },
+        "5632": {
+          "bytes": 28224,
+          "pixelHash": "6e086ad93e75ff5a1a971ec29a5621eb5607c8804f43829d04823feaa5839690"
+        },
+        "6144": {
+          "bytes": 30460,
+          "pixelHash": "d2e3b233252000553c972a7b3edcfca714b68e192d2ba3cfb88a0618a354832b"
         }
       }
     },

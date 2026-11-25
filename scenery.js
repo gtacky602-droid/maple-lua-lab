@@ -1,6 +1,8 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 import {drawScenerySurface} from './scenery-surfaces.js';
 export const sceneryDefinitions={
+ ninianneSpringBank:{file:'lake-ninianne-bank-background-v1.png',decodedPreview:'lake-ninianne-bank-native-preview-v1.png',decodedTiers:'lake-ninianne-bank-native-tiers-v1.webp',surface:'stone',zones:['story:ninianne-legend-bank'],note:'西岬・ニニアンの湧水棚の仮背景'},
+ vivianneLakeBank:{file:'lake-vivianne-bank-background-v1.png',decodedPreview:'lake-vivianne-bank-native-preview-v1.png',decodedTiers:'lake-vivianne-bank-native-tiers-v1.webp',surface:'grass',zones:['story:vivianne-legend-bank'],note:'フォンテーヌ廷北・ヴィヴィアンの湖岸の仮背景'},
  sunderedForge:{file:'sundered-forge-background-v1.png',decodedPreview:'sundered-forge-native-preview-v1.png',decodedTiers:'sundered-forge-native-tiers-v1.webp',surface:'stone',zones:['story:primal-fire-sundered-forge'],note:'源焔の再現戦の仮背景'},
  crimsonMoonCourt:{file:'crimson-moon-court-background-v1.png',decodedPreview:'crimson-moon-court-native-preview-v1.png',decodedTiers:'crimson-moon-court-native-tiers-v1.webp',surface:'lacquer',zones:['story:knave-crimson-court'],note:'凶月の再現戦の仮背景'},
  starSea:{file:'narwhal-star-sea-background-v1.png',decodedPreview:'narwhal-star-sea-native-preview-v1.png',decodedTiers:'narwhal-star-sea-native-tiers-v1.webp',surface:'violetSlate',zones:['story:narwhal-star-sea'],note:'星海の再現戦の仮背景'},

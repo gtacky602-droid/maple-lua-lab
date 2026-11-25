@@ -34,9 +34,16 @@ roster = {
     for row in read('content/encounters.json')['encounters']
     if (stage := row.get(BOSS_STAGE_FIELDS[row['kind']]))
 }
+legends = {row['encounter_id']: row for row in read('design/world/encounters.json')['legends']}
+for boss in read('content/field-boss-spawns.json')['fieldBosses']:
+    if boss['id'].startswith('legend-'):
+        source = legends[boss['id']].get('source_enemy_base')
+        roster[boss['node']] = {'id': boss['id'], 'kind': 'legend', 'name': boss['name'],
+                                **({'placementPreview': True} if boss.get('mapIdleArt') else {}),
+                                **({'aliases': [source]} if source else {})}
 boss_points = {p['id']: p['boss'] for r in atlas['regions'] for p in r['points'] if 'boss' in p}
 assert boss_points == {
-    stage: {key: row[key] for key in ('id', 'name', 'kind', 'aliases') if key in row}
+    stage: {key: row[key] for key in ('id', 'name', 'kind', 'aliases', 'placementPreview') if key in row}
     for stage, row in roster.items()
 }
 for entry in plan['draft_field_approaches']:

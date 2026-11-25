@@ -1,0 +1,21 @@
+{
+  "origin": "ImageGen original temporary scenery for the local lab. Production uses a placed 3D scene.",
+  "scenes": [
+    {
+      "key": "ninianneSpringBank",
+      "note": "西岬・ニニアンの湧水棚",
+      "brief": "石灰岩の棚、崖から流れる小さな滝、青緑の湧水",
+      "node": "ninianne-legend-bank",
+      "source": "lake-ninianne-bank-background-v1.png",
+      "preview": "lake-ninianne-bank-native-preview-v1.png"
+    },
+    {
+      "key": "vivianneLakeBank",
+      "note": "フォンテーヌ廷北・ヴィヴィアンの湖岸",
+      "brief": "広い湖岸、遠くの水道橋と街、草と小石の岸辺",
+      "node": "vivianne-legend-bank",
+      "source": "lake-vivianne-bank-background-v1.png",
+      "preview": "lake-vivianne-bank-native-preview-v1.png"
+    }
+  ]
+}

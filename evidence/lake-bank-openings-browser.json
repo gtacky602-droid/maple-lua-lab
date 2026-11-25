@@ -1,0 +1,58 @@
+{
+  "ninianne-legend-bank": {
+    "source": "fontaine-lake-legend-poses-source-v6.png",
+    "artHeight": 114,
+    "firstVisibleTick": 43,
+    "profiles": {
+      "legacy": {
+        "rectangles": 425,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "rectangles": 291,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "rectangles": 224,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "vivianne-legend-bank": {
+    "source": "fontaine-lake-legend-poses-source-v6.png",
+    "artHeight": 131.1,
+    "firstVisibleTick": 52,
+    "profiles": {
+      "legacy": {
+        "rectangles": 384,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "rectangles": 274,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "rectangles": 191,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  }
+}

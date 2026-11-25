@@ -212,6 +212,20 @@ def build():
         assert stage in mapped_stage and stage not in bosses_by_stage, (boss['id'], stage)
         bosses_by_stage[stage] = {key: boss[key] for key in ('id', 'name', 'kind', 'aliases') if key in boss}
 
+    legends = {row['encounter_id']: row for row in load('design/world/encounters.json')['legends']}
+    for boss in load('content/field-boss-spawns.json')['fieldBosses']:
+        legend = legends.get(boss['id'])
+        if legend is None:
+            continue
+        stage = boss['node']
+        assert stage in mapped_stage and stage not in bosses_by_stage, (boss['id'], stage)
+        entry = {'id': boss['id'], 'name': boss['name'], 'kind': 'legend'}
+        if boss.get('mapIdleArt'):
+            entry['placementPreview'] = True
+        if legend.get('source_enemy_base'):
+            entry['aliases'] = [legend['source_enemy_base']]
+        bosses_by_stage[stage] = entry
+
     hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']
     geographic = load('sources/map-research/sites-geographic-fields.json')['routes']
     hunt_kinds = {row['stage']: 'field' for row in geographic}
