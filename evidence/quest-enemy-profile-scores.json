@@ -198,28 +198,6 @@
     }
   },
   {
-    "node": "nod-patrol-bend",
-    "subject": "nod-patrol-bend-slinger",
-    "camera": 576,
-    "profiles": {
-      "legacy": {
-        "rectangles": 1175,
-        "overlapPercent": 91.6,
-        "meanRgbError": 23.72
-      },
-      "h48c32": {
-        "rectangles": 692,
-        "overlapPercent": 93.9,
-        "meanRgbError": 27.81
-      },
-      "h32c16": {
-        "rectangles": 280,
-        "overlapPercent": 94.1,
-        "meanRgbError": 33.26
-      }
-    }
-  },
-  {
     "node": "ochka-patched-court",
     "subject": "ochka-court-blocking-carrier",
     "camera": 337,
@@ -1844,6 +1822,28 @@
         "rectangles": 323,
         "overlapPercent": 100,
         "meanRgbError": 22.53
+      }
+    }
+  },
+  {
+    "node": "nod-patrol-bend",
+    "subject": "nod-patrol-bend-slinger",
+    "camera": 576,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1175,
+        "overlapPercent": 91.6,
+        "meanRgbError": 23.72
+      },
+      "h48c32": {
+        "rectangles": 692,
+        "overlapPercent": 100,
+        "meanRgbError": 4.37
+      },
+      "h32c16": {
+        "rectangles": 280,
+        "overlapPercent": 100,
+        "meanRgbError": 26.2
       }
     }
   }
