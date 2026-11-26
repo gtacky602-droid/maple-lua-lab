@@ -4,6 +4,7 @@ Input is a tightly framed, pixel-aligned reference at the intended gameplay size
 The output uses the source grid format consumed by pack_pose_files.py.
 """
 import argparse
+import heapq
 import json
 from pathlib import Path
 
@@ -45,33 +46,61 @@ def fit_profile(image, budget, face_rows=0):
             x = end
         previous = current
 
-    while len(runs) > budget:
-        left = {(x, y, h): i for i, (x, y, w, h, _) in enumerate(runs)}
-        top = {(x, y, w): i for i, (x, y, w, h, _) in enumerate(runs)}
-        best = None
-        for i, (x, y, w, h, _) in enumerate(runs):
-            for j in (left.get((x + w, y, h)), top.get((x, y + h, w))):
-                if j is None:
-                    continue
-                for source, dest in ((i, j), (j, i)):
-                    sx, sy, sw, sh, old = runs[source]
-                    new = runs[dest][4]
-                    patch = pixels[sy:sy + sh, sx:sx + sw]
-                    loss = (np.abs(patch - palette[new]) - np.abs(patch - palette[old])).sum()
-                    if sy < face_rows and loss > 0:
-                        loss *= 3
-                    candidate = (loss, i, j, colors[new], new)
-                    if best is None or candidate < best:
-                        best = candidate
-        if best is None:
-            raise ValueError(f"Cannot merge the remaining {len(runs)} rectangles within this silhouette")
-        _, i, j, _, new = best
-        x, y, w, h, _ = runs[i]
-        xx, yy, ww, hh, _ = runs[j]
-        runs[i] = [x, y, max(x + w, xx + ww) - x, max(y + h, yy + hh) - y, new]
-        del runs[j]
+    runs = merge_neighbors(runs, pixels, palette, colors, budget, face_rows)
     return dict(width=image.width, height=image.height, colors=len({colors[r[4]] for r in runs}),
                 runs=[[x, y, w, h, colors[c]] for x, y, w, h, c in runs])
+
+
+def merge_neighbors(runs, pixels, palette, colors, budget, face_rows):
+    if len(runs) <= budget:
+        return runs
+    active = dict(enumerate(runs))
+    revision = [0] * len(runs)
+    edges = [{} for _ in range(4)]
+    heap = []
+
+    def keys(rect):
+        x, y, w, h, _ = rect
+        return ((x, y, h), (x+w, y, h), (x, y, w), (x, y+h, w))
+
+    def enqueue(i, j):
+        for source, dest in ((i, j), (j, i)):
+            x, y, w, h, old = active[source]
+            new = active[dest][4]
+            patch = pixels[y:y+h, x:x+w]
+            loss = (np.abs(patch - palette[new]) - np.abs(patch - palette[old])).sum()
+            if y < face_rows and loss > 0:
+                loss *= 3
+            heapq.heappush(heap, (loss, i, j, colors[new], new, revision[i], revision[j]))
+
+    def insert(i):
+        for side, key in enumerate(keys(active[i])):
+            edges[side][key] = i
+            neighbor = edges[side ^ 1].get(key)
+            if neighbor is not None:
+                if side in (0, 2):
+                    enqueue(neighbor, i)
+                else:
+                    enqueue(i, neighbor)
+
+    for i in active:
+        insert(i)
+    while len(active) > budget:
+        while heap:
+            _, i, j, _, new, ri, rj = heapq.heappop(heap)
+            if revision[i] == ri and revision[j] == rj:
+                break
+        else:
+            raise ValueError(f"Cannot merge the remaining {len(active)} rectangles within this silhouette")
+        for index in (i, j):
+            for side, key in enumerate(keys(active[index])):
+                del edges[side][key]
+            revision[index] += 1
+        x, y, w, h, _ = active[i]
+        xx, yy, ww, hh, _ = active.pop(j)
+        active[i] = [x, y, max(x+w, xx+ww)-x, max(y+h, yy+hh)-y, new]
+        insert(i)
+    return list(active.values())
 
 
 if __name__ == "__main__":

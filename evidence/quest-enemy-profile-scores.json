@@ -1,115 +1,5 @@
 [
   {
-    "node": "natlan-charm-trail",
-    "subject": "charm-trail-beast-west",
-    "camera": 115,
-    "profiles": {
-      "legacy": {
-        "rectangles": 4382,
-        "overlapPercent": 98.3,
-        "meanRgbError": 10.09
-      },
-      "h48c32": {
-        "rectangles": 2780,
-        "overlapPercent": 95.7,
-        "meanRgbError": 18.98
-      },
-      "h32c16": {
-        "rectangles": 1334,
-        "overlapPercent": 93,
-        "meanRgbError": 25.66
-      }
-    }
-  },
-  {
-    "node": "natlan-charm-trail",
-    "subject": "charm-trail-beast-east",
-    "camera": 478,
-    "profiles": {
-      "legacy": {
-        "rectangles": 4382,
-        "overlapPercent": 98.3,
-        "meanRgbError": 10.09
-      },
-      "h48c32": {
-        "rectangles": 2780,
-        "overlapPercent": 95.7,
-        "meanRgbError": 18.98
-      },
-      "h32c16": {
-        "rectangles": 1334,
-        "overlapPercent": 93,
-        "meanRgbError": 25.66
-      }
-    }
-  },
-  {
-    "node": "natlan-kinich-hunt",
-    "subject": "kinich-hunt-ridge-beast",
-    "camera": 421,
-    "profiles": {
-      "legacy": {
-        "rectangles": 4382,
-        "overlapPercent": 98.3,
-        "meanRgbError": 10.09
-      },
-      "h48c32": {
-        "rectangles": 2780,
-        "overlapPercent": 95.7,
-        "meanRgbError": 18.98
-      },
-      "h32c16": {
-        "rectangles": 1334,
-        "overlapPercent": 93,
-        "meanRgbError": 25.66
-      }
-    }
-  },
-  {
-    "node": "natlan-high-trial-field",
-    "subject": "natlan-high-mark-2",
-    "camera": 155,
-    "profiles": {
-      "legacy": {
-        "rectangles": 4382,
-        "overlapPercent": 98.3,
-        "meanRgbError": 10.09
-      },
-      "h48c32": {
-        "rectangles": 2780,
-        "overlapPercent": 95.7,
-        "meanRgbError": 18.98
-      },
-      "h32c16": {
-        "rectangles": 1334,
-        "overlapPercent": 93,
-        "meanRgbError": 25.66
-      }
-    }
-  },
-  {
-    "node": "sne-churin-bragin-bout",
-    "subject": "snow-bragin-sparring",
-    "camera": 368,
-    "profiles": {
-      "legacy": {
-        "rectangles": 4382,
-        "overlapPercent": 98.3,
-        "meanRgbError": 10.09
-      },
-      "h48c32": {
-        "rectangles": 2780,
-        "overlapPercent": 95.7,
-        "meanRgbError": 18.98
-      },
-      "h32c16": {
-        "rectangles": 1334,
-        "overlapPercent": 93,
-        "meanRgbError": 25.66
-      }
-    }
-  },
-  {
     "node": "sum-visitors-meadow",
     "subject": "sum-visitor-pack-1",
     "camera": 111,
@@ -1822,6 +1712,116 @@
         "rectangles": 260,
         "overlapPercent": 97.6,
         "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "natlan-charm-trail",
+    "subject": "charm-trail-beast-west",
+    "camera": 115,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1250,
+        "overlapPercent": 99.9,
+        "meanRgbError": 19.45
+      }
+    }
+  },
+  {
+    "node": "natlan-charm-trail",
+    "subject": "charm-trail-beast-east",
+    "camera": 478,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1250,
+        "overlapPercent": 99.9,
+        "meanRgbError": 19.45
+      }
+    }
+  },
+  {
+    "node": "natlan-kinich-hunt",
+    "subject": "kinich-hunt-ridge-beast",
+    "camera": 421,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1250,
+        "overlapPercent": 99.9,
+        "meanRgbError": 19.45
+      }
+    }
+  },
+  {
+    "node": "natlan-high-trial-field",
+    "subject": "natlan-high-mark-2",
+    "camera": 155,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1250,
+        "overlapPercent": 99.9,
+        "meanRgbError": 19.45
+      }
+    }
+  },
+  {
+    "node": "sne-churin-bragin-bout",
+    "subject": "snow-bragin-sparring",
+    "camera": 368,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1250,
+        "overlapPercent": 99.9,
+        "meanRgbError": 19.45
       }
     }
   },
