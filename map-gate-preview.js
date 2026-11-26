@@ -42,6 +42,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
    if(!active)return;
    const target=new URLSearchParams(params);
    target.set('placements','live');target.set('node',active.to);target.delete('phase');target.delete('light');
+   if(Number.isFinite(active.arrivalX))target.set('camera',Math.max(0,Math.round(active.arrivalX-480)));
    link.href='map-art.html?'+target;
   },
   draw(ctx,offset,dark){

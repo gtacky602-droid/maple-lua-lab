@@ -100,6 +100,17 @@ try{
  await viewer.goto(base+'map-art.html?node=fon-toy-shallows&placements=live&to=fontaine-hub&gateX=86&gateY=155');
  await viewer.waitForFunction(()=>window.mapArt?.ready);
  assert.equal(await viewer.locator('#gatePreview output').textContent(),'水中（86, 155）');
+ const source=nodes.get('mond-roadside-rest'),edge=source.exits.find(e=>e.to==='mond-wp-20');
+ const request=new URLSearchParams({node:source.id,placements:'live',to:edge.to,gateX:edge.x,gateY:edge.y??480,background:'original',tier:'4096'});
+ await viewer.goto(base+'map-art.html?'+request);
+ await viewer.waitForFunction(()=>window.mapArt?.ready);
+ await viewer.selectOption('#profile','h48c32');
+ await viewer.locator('#gatePreview a').click();
+ await viewer.waitForFunction(id=>window.mapArt?.ready&&window.mapArt.node===id,edge.to);
+ assert.equal(await viewer.locator('#profile').inputValue(),'h48c32');
+ assert.equal(await viewer.locator('#decodedBackground').isChecked(),false);
+ assert.equal(await viewer.locator('#backgroundTier').inputValue(),'4096');
+ assert.equal(await viewer.evaluate(()=>window.mapArt.camera),Math.min(nodes.get(edge.to).width-960,edge.arrivalX-480));
  const sheet=await viewer.evaluate(async rows=>{
   const c=document.createElement('canvas');c.width=1260;c.height=36+rows.length*260;
   const ctx=c.getContext('2d');ctx.fillStyle='#18272d';ctx.fillRect(0,0,c.width,c.height);

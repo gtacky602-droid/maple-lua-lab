@@ -454,7 +454,8 @@ try{
    });
    return;
   }
-  const otherView=new URLSearchParams({node:n.id,tier:$('backgroundTier').value});
+  const otherView=new URLSearchParams({node:n.id,tier:$('backgroundTier').value,profile});
+  if(!$('decodedBackground').checked)otherView.set('background','original');
   if(!liveView)otherView.set('placements','live');
   if($('matchSpritePng').checked)otherView.set('compare','background');
   if(afterReport(n))otherView.set('phase','after');
@@ -465,8 +466,9 @@ try{
   passage.hidden=!(liveView&&gate);
   if(!passage.hidden){
    const link=passage.querySelector('a'),destination=nodes.get(gate.to);
-   const params=new URLSearchParams({node:gate.to,placements:'live',tier:$('backgroundTier').value});
-   if($('matchSpritePng').checked)params.set('compare','background');
+   const params=new URLSearchParams(otherView);
+   params.set('node',gate.to);params.set('placements','live');params.delete('phase');params.delete('light');
+   if(Number.isFinite(gate.arrivalX))params.set('camera',Math.max(0,Math.round(gate.arrivalX-480)));
    if(gate.nightTotem==='enter')params.set('arena','nightTrial');
    link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
    link.href='map-art.html?'+params;
