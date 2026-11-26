@@ -30,13 +30,16 @@ try{
    const c=el(id);c.getContext('2d').clearRect(0,0,c.width,c.height);
    const size=c.closest('figure').querySelector('small');if(size)size.textContent='';
   }
-  delete el('source').dataset.art;el('error').textContent='';
+  delete el('source').dataset.art;el('error').textContent='';el('drawCost').textContent='';
   const file=current.daily?'daily-guide-sprites.json':'field-guide-extra-sprites.json';
   try{
    if(!libraries.has(file))libraries.set(file,json('assets/'+file).catch(e=>{libraries.delete(file);throw e}));
    const art=(await libraries.get(file))[current.id];
    if(token!==revision)return;
-   for(const profile of ids.slice(1))paint(el(profile),art,profile);
+   const [standard,light]=ids.slice(1).map(profile=>paint(el(profile),art,profile));
+   const saved=standard-light;
+   const change=saved===0?'同数':Math.abs(saved)+'個'+(saved>0?'減':'増')+'（'+Math.abs(100*saved/standard).toFixed(1)+'%）';
+   el('drawCost').textContent='1体を1回描く矩形数は32色版で'+standard+'個、16色版で'+light+'個。差は'+change+'。';
    const img=await sheet(art.source);
    if(token===revision){paint(el('source'),art,null,img);el('source').dataset.art=current.id}
   }catch{if(token===revision)el('error').textContent='ドット絵を読み込めませんでした。'}

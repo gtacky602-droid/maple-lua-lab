@@ -24,5 +24,7 @@ export function paint(canvas,art,profile,img){
   ctx.fillStyle=grid.palette[bytes[i+4]];
   ctx.fillRect(left,top,Math.round(x+(bytes[i]+bytes[i+2])*sx)-left,Math.round(y+(bytes[i+1]+bytes[i+3])*sy)-top);
  }
- canvas.closest('figure').querySelector('small').textContent=grid.width+' × '+grid.height+' px・'+bytes.length/5+'矩形';
+ const rectangles=bytes.length/5;
+ canvas.closest('figure').querySelector('small').textContent=grid.width+' × '+grid.height+' px・'+rectangles+'矩形';
+ return rectangles;
 }

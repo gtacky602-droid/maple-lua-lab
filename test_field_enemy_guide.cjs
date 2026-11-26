@@ -12,6 +12,8 @@ const index=require('./content/field-sprite-index.json');
   await p.selectOption('#species',s.id);
   await p.waitForFunction(id=>document.querySelector('#source').dataset.art===id,s.id);
   const art=require('./assets/'+s.file);
+  const standard=art.profiles.h48c32.runs.length,light=art.profiles.h32c16.runs.length;
+  assert((await p.locator('#drawCost').innerText()).includes('32色版で'+standard+'個、16色版で'+light+'個'));
   assert(await p.evaluate(sprite=>{
    for(const profile of ['h48c32','h32c16']){
     const c=document.querySelector('#'+profile),ref=document.createElement('canvas');
