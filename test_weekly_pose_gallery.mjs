@@ -5,9 +5,21 @@ const manifest=JSON.parse(await readFile('content/weekly-pose-files.json','utf8'
 const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
 try{
  const page=await browser.newPage();
- await page.goto(new URL('weekly-poses.html?boss=andrius&pose=awake-ready',process.env.LAB_URL||'http://127.0.0.1:9125/').href);
+ await page.goto(new URL('weekly-poses.html?boss=andrius&pose=awake-ready&pixels=1',process.env.LAB_URL||'http://127.0.0.1:9125/').href);
  await page.waitForFunction(()=>document.querySelector('#result').textContent.includes('矩形'));
  assert.equal(await page.locator('#pose').inputValue(),'awake-ready');
+ const pixels=page.locator('#palettePixels');
+ assert(await pixels.isChecked());
+ const snapshots=()=>page.locator('canvas').evaluateAll(cs=>cs.map(c=>c.toDataURL()));
+ const native=await snapshots();
+ await pixels.uncheck();
+ const direct=await snapshots();
+ assert.equal(native[0],direct[0]);
+ assert.notEqual(native[1],direct[1]);
+ assert.notEqual(native[2],direct[2]);
+ assert.equal(new URL(page.url()).searchParams.has('pixels'),false);
+ await pixels.check();
+ assert.deepEqual(await snapshots(),native);
  const bosses=await page.locator('#boss option').evaluateAll(opts=>opts.map(o=>o.value));
  let count=0;
  for(const boss of bosses){

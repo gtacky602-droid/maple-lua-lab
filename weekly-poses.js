@@ -36,6 +36,15 @@ try{
  for(const [controller,b] of entries)boss.add(new Option(b.name,controller));
  const params=new URL(location.href).searchParams;
  boss.value=entries.has(params.get('boss'))?params.get('boss'):'andrius';
+ const pixels=document.querySelector('#palettePixels');
+ pixels.checked=params.get('pixels')==='1';
+ let repaint;
+ pixels.onchange=()=>{
+  const url=new URL(location.href);
+  if(pixels.checked)url.searchParams.set('pixels','1');else url.searchParams.delete('pixels');
+  history.replaceState(history.state,'',url);
+  repaint?.();
+ };
  let revision=0;
  function changeBoss(requested){
   const b=entries.get(boss.value);
@@ -48,6 +57,7 @@ try{
  }
  async function draw(){
   const ticket=++revision;
+  repaint=null;
   const forge=boss.value==='primal_fire'&&['flame','dual'].includes(pose.value)?pose.value:null;
   const selected=entries.get(boss.value);
   const controller=boss.value,sceneKey=pose.value;
@@ -78,21 +88,24 @@ try{
    const image=new Image();image.src='assets/'+data.source;await image.decode();
    if(ticket!==revision)return;
    const height=shot?.height??Math.min(280,440*data.box[3]/data.box[2]),bounds=spriteBounds(data,height);
-   for(const [i,c] of canvases.entries()){
-    c.width=shot?960:480;c.height=shot?540:320;
-    const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;
-    if(shot){
-     sceneryRenderer(ctx,frame);paintRects(ctx,shot.behind);ctx.save();ctx.translate(shot.x,shot.y);
-     if(shot.flip)ctx.scale(-1,1);
-    }else ctx.translate((480-bounds.width)/2-bounds.x,300);
-    paintSprite(ctx,data,image,bounds,[null,'h48c32','h32c16'][i]);
-    if(shot){ctx.restore();paintRects(ctx,shot.front)}
-    if(view){
-     ctx.scale(height/view.height,height/view.height);
-     for(const [x,y,w,h,color] of view.blades){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+   repaint=()=>{
+    for(const [i,c] of canvases.entries()){
+     c.width=shot?960:480;c.height=shot?540:320;
+     const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;
+     if(shot){
+      sceneryRenderer(ctx,frame);paintRects(ctx,shot.behind);ctx.save();ctx.translate(shot.x,shot.y);
+      if(shot.flip)ctx.scale(-1,1);
+     }else ctx.translate((480-bounds.width)/2-bounds.x,300);
+     paintSprite(ctx,data,image,bounds,[null,'h48c32','h32c16'][i],pixels.checked);
+     if(shot){ctx.restore();paintRects(ctx,shot.front)}
+     if(view){
+      ctx.scale(height/view.height,height/view.height);
+      for(const [x,y,w,h,color] of view.blades){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+     }
+     c.hidden=false;
     }
-    c.hidden=false;
-   }
+   };
+   repaint();
    const standard=rectangleCount(data.profiles.h48c32),light=rectangleCount(data.profiles.h32c16);
    const standardBytes=packedGeometrySize(data.profiles.h48c32),lightBytes=packedGeometrySize(data.profiles.h32c16);
    const reduction=(standard-light)/standard*100;
