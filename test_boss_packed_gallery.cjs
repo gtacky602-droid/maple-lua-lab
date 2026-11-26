@@ -12,18 +12,24 @@ const {items}=require('./content/boss-art-gallery.json');
   await page.goto((process.env.LAB_URL||'http://127.0.0.1:9118')+'/bosses-art.html?q=ronova&both=1&zoom=1');
   await page.waitForFunction(()=>window.charactersGallery?.ready,null,{timeout:120000});
   assert.equal(await page.locator('article').count(),items.length);
+  const index=require('./assets/placement-pose-index.json');
+  const poseRequests=new Set(['/assets/placement-pose-index.json']);
   const ronovaSources=new Set();
   for(const item of items.filter(item=>(item.id+' '+item.name).toLowerCase().includes('ronova'))){
-   for(const file of [item.file,item.rear?.file].filter(Boolean))ronovaSources.add('/assets/'+require('./assets/'+file).source);
+   for(const file of [item.file,item.rear?.file].filter(Boolean)){
+    ronovaSources.add('/assets/'+index[file].sourceImage);poseRequests.add('/assets/'+index[file].poseFile);
+   }
   }
+  assert.deepEqual(jsonRequests.toSorted(),[...poseRequests].sort());
   assert.deepEqual(new Set(pngRequests),ronovaSources);
+  console.log('Filtered pose JSON bytes:',await page.evaluate(()=>performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')&&r.name.endsWith('.json')).reduce((sum,r)=>sum+r.encodedBodySize,0)));
   const bytes=require('node:fs').statSync;
   const pngBytes=paths=>[...paths].reduce((sum,path)=>sum+bytes('.'+path).size,0);
   const allSources=new Set(Object.values(require('./assets/boss-gallery-packed.json')).map(art=>'/assets/'+art.source));
   const arena=Object.values(require('./content/boss-arena-index.json')).flat().find(entry=>entry.opening);
   allSources.add('/assets/'+require('./assets/weekly-packed/'+arena.opening.file).source);
   console.log('Ronova PNGs:',pngRequests.length,pngBytes(ronovaSources),'bytes; full source set:',allSources.size,pngBytes(allSources),'bytes.');
-  for(const id of ['ronova','shouki','narwhal']){
+  for(const id of ['ronova','shouki','narwhal','legend-blubberbeast-shared','legend-hunters-ray-shared']){
    const item=items.find(entry=>entry.id===id);
    await page.fill('#assetSearch',id);
    if(id==='shouki')await page.selectOption('#shoukiForm','candidate');
@@ -63,9 +69,11 @@ const {items}=require('./content/boss-art-gallery.json');
   assert.equal(pngRequests.filter(path=>path===leftSource).length,1);
   await page.uncheck('#flip');await page.check('#flip');
   assert.equal(pngRequests.filter(path=>path===leftSource).length,1);
-  const arenas=require('./content/boss-arena-index.json');
-  const opening=Object.values(arenas).flat().find(entry=>entry.opening).opening;
-  assert.deepEqual(jsonRequests.sort(),['/assets/boss-gallery-packed.json','/assets/weekly-packed/'+opening.file].sort());
+  assert(!jsonRequests.includes('/assets/boss-gallery-packed.json'));
+  await page.click('#clearAssetSearch');
+  await page.waitForFunction(()=>window.charactersGallery.ready);
+  assert.equal(jsonRequests.filter(path=>path==='/assets/boss-gallery-packed.json').length,1);
+  assert.equal(await page.locator('article:visible').count(),items.length);
   await page.fill('#assetSearch','正機の神');await page.uncheck('#flip');
   await page.waitForFunction(()=>window.charactersGallery.ready);
   await page.screenshot({path:'evidence/boss-packed-shouki.png'});

@@ -8,13 +8,13 @@ const ready=()=>page.waitForFunction(()=>window.charactersGallery?.ready,null,{t
 const state=()=>page.evaluate(()=>window.charactersGallery);
 const visible=()=>page.locator('#cards article:not([hidden])').count();
 try{
- for(const [file,q] of [['bosses-art.html','正機'],['characters-art.html','旅人'],['enemies-art.html','ヒルチャール']]){
+ for(const [file,q,matches] of [['bosses-art.html','正機',['shouki']],['characters-art.html','旅人',['traveler']],['enemies-art.html','ヒルチャール',['hilichurl','frostarm-lawachurl']]]){
   await page.goto(`${base}/${file}?q=${encodeURIComponent(q)}&profile=h48c32&zoom=3&flip=1`);await ready();
-  const s=await state();assert.equal(s.query,q);assert.equal(s.profile,'h48c32');assert.equal(s.zoom,3);assert.equal(s.flip,true);assert.equal(await visible(),1);
+  const s=await state();assert.equal(s.query,q);assert.equal(s.profile,'h48c32');assert.equal(s.zoom,3);assert.equal(s.flip,true);assert.deepEqual(await page.locator('article:visible').evaluateAll(cards=>cards.map(card=>card.dataset.id)),matches);
   assert.equal(await page.locator('#comparisonLink').getAttribute('href'),page.url());
   await page.selectOption('#profile','legacy');await page.selectOption('#zoom','1');await page.uncheck('#flip');
   const url=page.url();assert.equal(new URL(url).searchParams.get('profile'),'legacy');assert.equal(new URL(url).searchParams.get('zoom'),'1');assert.equal(new URL(url).searchParams.has('flip'),false);
-  await page.reload();await ready();assert.equal((await state()).profile,'legacy');assert.equal((await state()).zoom,1);assert.equal(await visible(),1);
+  await page.reload();await ready();assert.equal((await state()).profile,'legacy');assert.equal((await state()).zoom,1);assert.deepEqual(await page.locator('article:visible').evaluateAll(cards=>cards.map(card=>card.dataset.id)),matches);
   await page.click('#clearAssetSearch');assert.equal(new URL(page.url()).searchParams.has('q'),false);assert.equal(await visible(),(await state()).count);
  }
  await page.goto(`${base}/bosses-art.html?q=SHOUKI&profile=bad&zoom=-1&flip=yes`);await ready();

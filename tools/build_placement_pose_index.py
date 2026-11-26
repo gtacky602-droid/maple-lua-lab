@@ -46,7 +46,7 @@ def build_placement_pose_index(assets):
                     match.parent.mkdir(exist_ok=True)
                     match.write_bytes(json.dumps(compact, ensure_ascii=False, separators=(',', ':')).encode())
                     transfer = {'fullPoseBytes':full_size, 'palettePoseBytes':match.stat().st_size}
-            entry = {**transfer, 'poseFile': match.relative_to(assets).as_posix(), 'box': pose['box']}
+            entry = {**transfer, 'poseFile': match.relative_to(assets).as_posix(), 'box': pose['box'], 'sourceImage': pose['source']}
             assert name not in index or index[name] == entry
             index[name] = entry
     weekly = json.loads((content / 'weekly-boss-spawns.json').read_bytes())['weeklyBosses']
@@ -55,8 +55,9 @@ def build_placement_pose_index(assets):
     opening_files.update(p['file'] for scene in mechanisms.values() for p in scene['parts'] if p.get('file'))
     for name in sorted(opening_files):
         path = assets / 'weekly-packed' / name
+        pose = json.loads(path.read_bytes())
         index['weekly/' + name] = {'poseFile': 'weekly-packed/' + name,
-                                  'box': json.loads(path.read_bytes())['box']}
+                                  'box': pose['box'], 'sourceImage': pose['source']}
     for scene in json.loads((content / 'stygian-openings.json').read_bytes()).values():
         for part in scene['parts']:
             name = part.get('file')
