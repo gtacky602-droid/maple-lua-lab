@@ -201,6 +201,9 @@ cross(rehearsal)
 collect(764)
 cross(hub)
 report(second)
+if after_revisits:
+    sea_seed=validate_save(native(core.checkpoint(state)))
+    (ROOT/'evidence/fontaine-narwhal-access-save.json').write_bytes((json.dumps(sea_seed,ensure_ascii=False,sort_keys=True)+'\n').encode())
 
 furina = 'fon-furina-cues'
 quest = accept(furina)

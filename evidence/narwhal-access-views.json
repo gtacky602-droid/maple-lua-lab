@@ -1,0 +1,88 @@
+{
+  "clearTicks": 7032,
+  "entryLevel": 84,
+  "level": 85,
+  "views": {
+    "arrival": {
+      "camera": 0,
+      "flip": false,
+      "height": 212,
+      "node": "narwhal-star-sea",
+      "platforms": [
+        {
+          "w": 960,
+          "x": 0,
+          "y": 480
+        },
+        {
+          "w": 170,
+          "x": 102,
+          "y": 355
+        },
+        {
+          "w": 170,
+          "x": 688,
+          "y": 355
+        }
+      ],
+      "pose": "whale",
+      "tick": 0,
+      "x": 480,
+      "y": 468
+    },
+    "inside": {
+      "camera": 0,
+      "flip": true,
+      "height": 140,
+      "node": "narwhal-inner-echo",
+      "platforms": [
+        {
+          "w": 960,
+          "x": 0,
+          "y": 480
+        },
+        {
+          "w": 170,
+          "x": 102,
+          "y": 355
+        },
+        {
+          "w": 170,
+          "x": 688,
+          "y": 355
+        }
+      ],
+      "pose": "shadow",
+      "tick": 6511,
+      "x": 480,
+      "y": 480
+    },
+    "return": {
+      "camera": 0,
+      "flip": true,
+      "height": 159,
+      "node": "narwhal-star-sea",
+      "platforms": [
+        {
+          "w": 960,
+          "x": 0,
+          "y": 480
+        },
+        {
+          "w": 170,
+          "x": 102,
+          "y": 355
+        },
+        {
+          "w": 170,
+          "x": 688,
+          "y": 355
+        }
+      ],
+      "pose": "whale",
+      "tick": 6915,
+      "x": 480,
+      "y": 468
+    }
+  }
+}

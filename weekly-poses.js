@@ -30,15 +30,22 @@ try{
   const b=entries.get(boss.value);
   pose.replaceChildren(...Object.keys(b.poses).map(k=>new Option(label(k),k)));
   if(boss.value==='primal_fire')pose.append(new Option('炎剣・開幕の予兆','flame'),new Option('双剣・床切断後','dual'));
+  if(boss.value==='narwhal')pose.append(new Option('星海・開幕','arrival'),new Option('異界・幻影戦','inside'),new Option('星海・帰還後の衰弱','return'));
   if([...pose.options].some(option=>option.value===requested))pose.value=requested;
   else if(boss.value==='shouki')pose.value='upper';
-  document.querySelector('#arena').href='map-art.html?'+new URLSearchParams({node:b.node,placements:'live'});
   return draw();
  }
  async function draw(){
   const ticket=++revision;
   const forge=boss.value==='primal_fire'&&['flame','dual'].includes(pose.value)?pose.value:null;
-  const path=entries.get(boss.value).poses[forge?'idle':pose.value];
+  const selected=entries.get(boss.value);
+  const sea=boss.value==='narwhal'&&['arrival','inside','return'].includes(pose.value)?pose.value:null;
+  const asset=sea?(sea==='inside'?'shadow':'whale'):forge?'idle':pose.value;
+  const path=selected.poses[asset];
+  const arena=document.querySelector('#arena');
+  arena.textContent=boss.value==='narwhal'&&asset==='shadow'?'異界の配置を見る':'本編の開幕配置';
+  arena.href='map-art.html?'+new URLSearchParams({node:boss.value==='narwhal'&&asset==='shadow'?selected.innerNode:selected.node,placements:'live'});
+  document.querySelector('#scaleNote').textContent=sea?'戦闘中の960×540画面と同じ構図です。各場面の床と背景に、ボスを同じ位置・大きさで重ねています。':'同じ素材を同じ倍率で並べています。姿全体を収めるため、倍率は素材ごとに変わります。';
   const url=new URL(location.href);url.searchParams.set('boss',boss.value);url.searchParams.set('pose',pose.value);
   history.replaceState(history.state,'',url);
   for(const c of canvases)c.hidden=true;
@@ -46,14 +53,26 @@ try{
   try{
    const [data,record]=await Promise.all([read('assets/weekly-packed/'+path),forge&&read('evidence/primal-forge-access.json')]);
    const view=record?.views?.[forge];
+   let shot,frame,sceneryRenderer;
+   if(sea){
+    const [replay,renderer]=await Promise.all([read('evidence/narwhal-access-views.json'),import('./scenery.js')]);
+    shot=replay.views[sea];
+    frame={story:{node:shot.node,active:true},campaign:{zone:'story:'+shot.node},camera:shot.camera,platforms:shot.platforms,t:shot.tick/60};
+    await renderer.loadScenery(frame);
+    if(renderer.sceneryStatus(frame).state!=='ready')throw Error('会場の背景を読み込めませんでした');
+    sceneryRenderer=renderer.scenery;
+   }
    if(ticket!==revision)return;
    const image=new Image();image.src='assets/'+data.source;await image.decode();
    if(ticket!==revision)return;
-   const height=Math.min(280,440*data.box[3]/data.box[2]),bounds=spriteBounds(data,height);
+   const height=shot?.height??Math.min(280,440*data.box[3]/data.box[2]),bounds=spriteBounds(data,height);
    for(const [i,c] of canvases.entries()){
-    c.width=480;c.height=320;
+    c.width=shot?960:480;c.height=shot?540:320;
     const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;
-    ctx.translate((480-bounds.width)/2-bounds.x,300);
+    if(shot){
+     sceneryRenderer(ctx,frame);ctx.translate(shot.x,shot.y);
+     if(shot.flip)ctx.scale(-1,1);
+    }else ctx.translate((480-bounds.width)/2-bounds.x,300);
     paintSprite(ctx,data,image,bounds,[null,'h48c32','h32c16'][i]);
     if(view){
      ctx.scale(height/view.height,height/view.height);
@@ -63,6 +82,7 @@ try{
    }
    const standard=rectangleCount(data.profiles.h48c32),light=rectangleCount(data.profiles.h32c16);
    result.textContent='32色 '+standard.toLocaleString()+'矩形 ／ 16色 '+light.toLocaleString()+'矩形';
+   if(shot)result.textContent+=' ／ 本編の表示高 '+shot.height+' px';
    if(view)result.textContent+=' ／ 両圧縮設定に剣 '+view.blades.length+'矩形を追加 ／ Lv'+record.level+'の戦闘記録';
   }catch(error){if(ticket===revision)result.textContent='素材を表示できませんでした。 '+error.message}
  }
