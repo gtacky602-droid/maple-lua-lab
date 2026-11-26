@@ -1,0 +1,324 @@
+{
+  "scope": "Controlled Lua frames from field placements; live game Canvas drawImage sheet and crop verified.",
+  "checked": [
+    {
+      "species": "anemo-slime",
+      "node": "sites-gaa-02",
+      "source": "mond-night-banner-props-source-v1.png",
+      "box": [
+        1117,
+        276,
+        382,
+        209
+      ]
+    },
+    {
+      "species": "armored-crab",
+      "node": "fontaine-beryl-bank",
+      "source": "armored-crab-idle-source-v2.png",
+      "box": [
+        228,
+        120,
+        946,
+        871
+      ]
+    },
+    {
+      "species": "cryo-slime",
+      "node": "branch-hunt-64829",
+      "source": "cryo-slime-idle-source-v1.png",
+      "box": [
+        366,
+        268,
+        791,
+        548
+      ]
+    },
+    {
+      "species": "dendro-fungus",
+      "node": "branch-hunt-64824",
+      "source": "dendro-fungus-idle-source-v1.png",
+      "box": [
+        285,
+        118,
+        897,
+        805
+      ]
+    },
+    {
+      "species": "fanged-beast",
+      "node": "branch-hunt-64824-pocket-1",
+      "source": "fanged-beast-idle-source-v1.png",
+      "box": [
+        286,
+        72,
+        1356,
+        754
+      ]
+    },
+    {
+      "species": "fatui-frost-operative",
+      "node": "sites-hunt-63738-pocket-1",
+      "source": "fatui-frost-operative-shared-idle-source-v2.png",
+      "box": [
+        99,
+        28,
+        75,
+        104
+      ]
+    },
+    {
+      "species": "fatui-skirmisher-cryogunner",
+      "node": "branch-hunt-64842",
+      "source": "natlan-first-legend-poses-source-v1.png",
+      "box": [
+        88,
+        163,
+        119,
+        113
+      ]
+    },
+    {
+      "species": "fatui-skirmisher-pyroslinger",
+      "node": "sites-hunt-68347",
+      "source": "natlan-first-legend-poses-source-v1.png",
+      "box": [
+        69,
+        453,
+        115,
+        111
+      ]
+    },
+    {
+      "species": "fatui-wind-operative",
+      "node": "fontaine-field",
+      "source": "fatui-wind-operative-shared-idle-source-v2.png",
+      "box": [
+        104,
+        28,
+        113,
+        104
+      ]
+    },
+    {
+      "species": "frost-pioneer-commander",
+      "node": "frost-commander-first-wave",
+      "source": "frost-commander-normal-idle-source-v1.png",
+      "box": [
+        99,
+        31,
+        99,
+        101
+      ]
+    },
+    {
+      "species": "frostarm-lawachurl",
+      "node": "branch-hunt-64839-pocket-1",
+      "source": "frostarm-lawachurl-idle-source-v1.png",
+      "box": [
+        141,
+        70,
+        896,
+        1160
+      ]
+    },
+    {
+      "species": "geovishap",
+      "node": "branch-hunt-64835-pocket-2",
+      "source": "geovishap-shared-idle-v1.png",
+      "box": [
+        28,
+        14,
+        232,
+        118
+      ]
+    },
+    {
+      "species": "grounded-geoshroom",
+      "node": "sites-hunt-28752",
+      "source": "final-field-legend-poses-source-v1.png",
+      "box": [
+        110,
+        179,
+        71,
+        97
+      ]
+    },
+    {
+      "species": "hilichurl",
+      "node": "branch-hunt-64825",
+      "source": "hilichurl-idle-source-v1.png",
+      "box": [
+        290,
+        126,
+        595,
+        1085
+      ]
+    },
+    {
+      "species": "hunter-seeker",
+      "node": "natlan-east-valley-rocks",
+      "source": "hunter-seeker-idle-source-v1.png",
+      "box": [
+        137,
+        120,
+        1259,
+        740
+      ]
+    },
+    {
+      "species": "hydro-slime",
+      "node": "branch-hunt-64825",
+      "source": "hydro-slime-idle-source-v2.png",
+      "box": [
+        335,
+        258,
+        849,
+        589
+      ]
+    },
+    {
+      "species": "nobushi",
+      "node": "inazuma-lantern-trail",
+      "source": "nobushi-idle-source-v1.png",
+      "box": [
+        273,
+        80,
+        645,
+        1174
+      ]
+    },
+    {
+      "species": "oprichniki-fireblade-shock-trooper",
+      "node": "nod-field",
+      "source": "nod-first-field-legend-poses-source-v1.png",
+      "box": [
+        77,
+        299,
+        107,
+        121
+      ]
+    },
+    {
+      "species": "pebble-courier",
+      "node": "chenyu-cart-road",
+      "source": "rubble-sifter-source-v1.png",
+      "box": [
+        262,
+        249,
+        236,
+        198
+      ]
+    },
+    {
+      "species": "primordial-bathysmal-vishap",
+      "node": "enkanomiya-depth",
+      "source": "legend-poses-source-v2.png",
+      "box": [
+        59,
+        320,
+        146,
+        100
+      ]
+    },
+    {
+      "species": "pyro-slime",
+      "node": "bygone-depth",
+      "source": "pyro-slime-idle-source-v1.png",
+      "box": [
+        354,
+        222,
+        819,
+        608
+      ]
+    },
+    {
+      "species": "ruin-guard",
+      "node": "branch-hunt-64824-pocket-2",
+      "source": "ruin-guard-idle-source-v1.png",
+      "box": [
+        202,
+        41,
+        894,
+        1110
+      ]
+    },
+    {
+      "species": "sail-shell-crawler",
+      "node": "aurora-mineral-terraces",
+      "source": "windward-tower-source-v1.png",
+      "box": [
+        234,
+        251,
+        311,
+        206
+      ]
+    },
+    {
+      "species": "sled-maintenance-cart",
+      "node": "fontaine-grand-stage-approach",
+      "source": "snow-rail-sprites-source-v1.png",
+      "box": [
+        228,
+        208,
+        287,
+        221
+      ]
+    },
+    {
+      "species": "snow-mantle-beetle",
+      "node": "aurora-ice-cut",
+      "source": "frost-antler-source-v1.png",
+      "box": [
+        212,
+        240,
+        301,
+        184
+      ]
+    },
+    {
+      "species": "sternshield-crab",
+      "node": "fontaine-beryl-foothills",
+      "source": "sternshield-crab-idle-source-v1.png",
+      "box": [
+        85,
+        27,
+        105,
+        105
+      ]
+    },
+    {
+      "species": "tainted-water-splitting-phantasm",
+      "node": "sites-hunt-50034-pocket-1",
+      "source": "fontaine-lake-legend-poses-source-v6.png",
+      "box": [
+        47,
+        162,
+        195,
+        114
+      ]
+    },
+    {
+      "species": "tainted-water-spouting-phantasm",
+      "node": "fontaine-beryl-foothills",
+      "source": "fontaine-lake-legend-poses-source-v6.png",
+      "box": [
+        91,
+        18,
+        107,
+        114
+      ]
+    },
+    {
+      "species": "treasure-scout",
+      "node": "branch-hunt-64830",
+      "source": "treasure-scout-idle-source-v1.png",
+      "box": [
+        212,
+        26,
+        667,
+        1309
+      ]
+    }
+  ]
+}

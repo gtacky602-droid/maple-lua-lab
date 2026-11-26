@@ -13,7 +13,8 @@ export const atlasNames=['cryo-regisvine-source-v1.png','atlas-transparent.png']
 const deferredSprites=new Set([...fontaineFieldSources,geovishapSource,...chizhangMotionSources,'frost-commander-normal-idle-source-v1.png','final-field-legend-poses-source-v1.png','snez-late-field-legend-poses-source-v1.png','snez-first-field-legend-poses-source-v1.png','nod-north-field-legend-poses-source-v1.png','nod-first-field-legend-poses-source-v1.png','natlan-highland-legend-poses-source-v1.png','natlan-final-legend-poses-source-v1.png','natlan-atocpan-totem-poses-source-v1.png','natlan-wayob-duo-poses-source-v1.png','natlan-northwest-legend-poses-source-v1.png','natlan-cliff-trial-poses-source-v1.png','natlan-north-trial-poses-source-v1.png','natlan-night-trial-poses-source-v1.png','natlan-toyac-legend-poses-source-v1.png','natlan-first-legend-poses-source-v1.png','fontaine-corrouge-poses-source-v1.png','fontaine-bubble-poses-source-v1.png','fontaine-echo-poses-source-v1.png','fontaine-lake-legend-poses-source-v6.png','fontaine-ray-pair-poses-source-v1.png','fontaine-iron-viscount-poses-source-v1.png','fontaine-lake-legend-poses-source-v4.png','fontaine-ocean-judge-poses-source-v1.png','fontaine-lake-legend-poses-source-v3.png','fontaine-dry-legend-poses-source-v1.png','legend-poses-source-v2.png','branch-legend-poses-source-v1.png','fontaine-lake-legend-poses-source-v1.png']);
 
 export function spriteImageFor(source,images,atlas){
- if(!images[source]&&deferredSprites.has(source)){
+ // A Lua pose can introduce a local sheet before it joins the startup roster.
+ if(!images[source]&&typeof source==='string'&&/^(?:[\w-]+\/)*[\w-]+\.png$/i.test(source)){
   const image=new Image();
   images[source]=image;
   image.src='assets/'+source;
