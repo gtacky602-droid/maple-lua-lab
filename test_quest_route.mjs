@@ -227,3 +227,19 @@ for(const [dy,word] of [[-60,'潜って'],[60,'浮上して'],[0,'門の近く']
  const text=questRouteText(diver,{kind:'visit',target:waterGate.to},'active');
  assert(text.includes(word)&&text.includes('泳いで')&&!text.includes('歩いて'));
 }
+const shrine='night-trial-ichcahuipilli',bank='witztli-sealed-stone-bank';
+const stoneGate=graph.nodes.find(n=>n.id===bank).exits.find(e=>e.to===shrine);
+const stoneFrame={story:{active:true,node:bank,quests:{}},storyGraph:graph,progression:{level:200}};
+for(const request of [{kind:'visit',target:shrine},{itinerary:[{kind:'arrive',from:bank,node:shrine}]}]){
+ for(const [record,notice] of [[null,stoneGate.requires.unstartedNotice],[{status:'active',count:1},stoneGate.requires.unavailableNotice]]){
+  stoneFrame.story.quests[stoneGate.requires.quest]=record;
+  const locked=questRoute(stoneFrame,request,'active');
+  assert(locked.text.includes(notice),locked.text);
+  const preview=new URL(locked.gateUrl,'http://localhost');
+  assert.equal(preview.searchParams.get('node'),bank);
+  assert.equal(preview.searchParams.get('fixture'),'closed');
+  assert.equal(preview.searchParams.get('gateX'),String(stoneGate.x));
+ }
+ stoneFrame.story.quests[stoneGate.requires.quest]={status:'active',count:2};
+ assert.match(questRouteText(stoneFrame,request,'active'),/残り1区間/);
+}

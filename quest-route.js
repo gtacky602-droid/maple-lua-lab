@@ -103,12 +103,35 @@ export function questRoute(f,q,status,preferredNode){
   const rule=edge.requires;
   return !rule||meetsRule(rule)||(rule.alternative&&meetsRule(rule.alternative));
  }
+ function closedGateMessage(edge){
+  if(edge.roofTrialStage&&f.storyRoof?.retry&&f.storyRoof.stage<edge.roofTrialStage)return '屋根の目印を先に調べてください。';
+  const rule=edge.requires,quest=graph.quests?.find(q=>q.id===rule.quest);
+  const state=f.story.quests?.[rule.quest];
+  if(!state&&rule.unstartedNotice)return rule.unstartedNotice;
+  if(rule.unreported||rule.before!==undefined&&state?.count>=rule.before)return rule.closedNotice||'現在の進行ではこの門を通れません。';
+  if(rule.unavailableNotice)return rule.unavailableNotice;
+  if(!quest)return 'この門は依頼の進行に合わせて開きます。';
+  if(rule.alternative){
+   const other=graph.quests?.find(q=>q.id===rule.alternative.quest);
+   if(other)return '「'+quest.name+'」か「'+other.name+'」の開通条件を満たしてください。';
+  }
+  const title='「'+quest.name+'」';
+  if(!state)return (nodes.get(quest.hub)?.name??'拠点')+'で'+title+'を受注してください。';
+  if(rule.construction)return title+'で選んだ整備計画を確認してください。';
+  if(rule.recovery&&!state.recovered)return title+'の回収を先に進めてください。';
+  const branch=rule.path&&quest.paths?.find(p=>p.id===rule.path);
+  const progress=(branch?state.pathProgress?.[branch.id]:state)?.count??0;
+  if(rule.count===undefined&&progress>=quest.goal)return (nodes.get(quest.hub)?.name??'拠点')+'で'+title+'を報告してください。';
+  const step=(branch?.steps??quest.itinerary)?.[progress];
+  return title+(branch?'・'+branch.label:'')+'（'+progress+'/'+(rule.count??quest.goal)+'）'+(step?.objective?'　'+step.objective:'を進めてください。');
+ }
  function connections(node){
   const exits=node.exits??[];
   const ride=node.voyage;
   return ride && !exits.some(e=>e.to===ride.destination)?[...exits,{to:ride.destination}]:exits;
  }
- if(arrival&&(!nodes.has(arrival.node)||!connections(nodes.get(arrival.from)).some(edge=>edge.to===arrival.node&&gateOpen(edge))))
+ const arrivalGates=arrival&&connections(nodes.get(arrival.from)).filter(edge=>edge.to===arrival.node);
+ if(arrival&&(!nodes.has(arrival.node)||!arrivalGates.length))
   return {text:'指定された出発地点の門から通れる経路がありません。'};
  const elapsed=f.voyage?.elapsed;
  const missed=edge=>edge.windowEnd!==undefined && elapsed+1e-8>=edge.windowEnd;
@@ -119,9 +142,9 @@ export function questRoute(f,q,status,preferredNode){
  const travelerDown=f.actors?.find(a=>a.id===1)?.hp<=0;
  const restriction=id=>travelerDown&&nodes.get(id)?.travelerGateMessage;
  function routeAtLevel(limit,allowBlocked=false){
-  if(arrival&&!allowBlocked&&restriction(arrival.node))return;
+  if(arrival&&!allowBlocked&&(restriction(arrival.node)||!arrivalGates.some(gateOpen)))return;
   if(arrival&&(nodes.get(arrival.node).level||1)>limit)return;
-  if(arrival&&targets.has(from)&&currentStops.some(e=>e.to===arrival.node&&gateOpen(e)&&!missed(e)))return [from,arrival.node];
+  if(arrival&&targets.has(from)&&currentStops.some(e=>e.to===arrival.node&&(allowBlocked||gateOpen(e))&&!missed(e)))return [from,arrival.node];
   // Reboarding after a missed stop starts a new trip with a fresh stop window.
   const queue=[[from]],seen=new Set(nextRide?[]:[from]);
   for(let i=0;i<queue.length;i++){
@@ -130,7 +153,7 @@ export function questRoute(f,q,status,preferredNode){
     if(!allowBlocked&&restriction(edge.to))continue;
     if(i===0&&missed(edge))continue;
     if(i!==0&&node.voyage?.source===edge.to)continue;
-    if(!nodes.has(edge.to)||seen.has(edge.to)||!gateOpen(edge)||(nodes.get(edge.to).level||1)>limit)continue;
+    if(!nodes.has(edge.to)||seen.has(edge.to)||(!allowBlocked&&!gateOpen(edge))||(nodes.get(edge.to).level||1)>limit)continue;
     const next=[...current,edge.to];if(targets.has(edge.to))return arrival?[...next,arrival.node]:next;
     seen.add(edge.to);queue.push(next);
    }
@@ -139,15 +162,25 @@ export function questRoute(f,q,status,preferredNode){
  // Prefer the shortest level-eligible route. If none exists, show the route
  // needing the smallest level increase, then the fewest transitions.
  let path=routeAtLevel(level);
- if(!path)for(const limit of [...new Set([...nodes.values()].map(n=>n.level||1))].filter(n=>n>level).sort((a,b)=>a-b)){
+ if(!path&&routeAtLevel(Infinity))for(const limit of [...new Set([...nodes.values()].map(n=>n.level||1))].filter(n=>n>level).sort((a,b)=>a-b)){
   path=routeAtLevel(limit);if(path)break;
  }
- if(!path&&travelerDown){
+ if(!path){
   const blocked=routeAtLevel(Infinity,true);
-  const gate=blocked?.slice(1).find(restriction);
-  if(gate)return {node:blocked.at(-1),text:nodes.get(gate).name+'：'+restriction(gate)};
+  if(blocked)for(let i=1;i<blocked.length;i++){
+   const id=blocked[i],source=nodes.get(blocked[i-1]);
+   if(restriction(id))return {node:blocked.at(-1),text:nodes.get(id).name+'：'+restriction(id)};
+   const gates=connections(source).filter(e=>e.to===id&&(i!==1||!missed(e)));
+   if(gates.length&&!gates.some(gateOpen)){
+    const edge=gates[0],label=edge.rideLabel??nodes.get(id).name;
+    const url=new URLSearchParams({node:source.id,to:id,gateX:edge.x,gateY:edge.y??480,placements:'live',compare:'background'});
+    if(edge.rockSeal||edge.ironGate)url.set('fixture','closed');
+    return {node:blocked.at(-1),gateUrl:'map-art.html?'+url,gateLabel:label+'の位置を見る',
+     text:source.name+'の「'+label+'」は閉じています。'+closedGateMessage(edge)};
+   }
+  }
+  return {text:'公開中の地点からつながる経路がありません。'};
  }
- if(!path)return {text:'公開中の地点からつながる経路がありません。'};
  const next=nodes.get(path[1]);
  const actor=f.actors?.find(a=>a.id===f.active);
  const gates=connections(nodes.get(from)).filter(e=>e.to===next.id&&gateOpen(e)&&!missed(e));
