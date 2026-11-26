@@ -7,11 +7,12 @@ export function surveyPoint(quest,index,node){
  if(step?.kind==='stealthCheck'&&step.node===node){
   return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,cover:step.cover,guard:step.stealthGuard};
  }
- if(step?.kind!=='inspect'||!steps.some(s=>s.kind==='arrive')||
-    !steps.every(s=>s.kind==='arrive'||s.kind==='inspect'))return null;
- const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x));
+ if(step?.kind!=='inspect')return null;
+ const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x) && Number.isFinite(p.y));
  if(!point)return null;
- return {quest:quest.id,step:index+1,node,x:point.x,y:point.y??480,name:point.name??step.name??step.objective};
+ const prop=step.returnClue??(step.returnPickup?{art:'crate',height:51}:null);
+ return {quest:quest.id,step:index+1,node,x:point.x,y:point.y,name:point.name??step.name??step.objective,
+  action:step.action??step.objective,...(prop&&{returnProp:prop})};
 }
 
 export function worksitePoints(quest){

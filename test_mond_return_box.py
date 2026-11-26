@@ -69,6 +69,7 @@ collect(s, 302)
 move(s, 649)
 core.action(s, "story_collect")
 assert status(s).count == 2
+(ROOT/'evidence/mond-orchard-mud-save.json').write_text(json.dumps(snapshot(s),ensure_ascii=False)+'\n',encoding='utf8')
 collect(s, 649, 399)
 collect(s, 1000)
 assert status(s).count == 4

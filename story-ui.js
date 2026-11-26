@@ -55,7 +55,11 @@ function syncAtlasPoint(frame){
  atlasPoint.hidden=surveyLink.hidden || !frame.worldMap?.selected || frame.worldMap.selected.id!==questMap.dataset.node;
  if(atlasPoint.hidden)atlasPoint.removeAttribute('href');
  else{
-  atlasPoint.href=surveyLink.href;
+  const url=new URL(surveyLink.href);
+  if(url.searchParams.get('placements')==='live'&&url.searchParams.get('node')===frame.worldMap.selected.id){
+   for(const id of frame.worldMap.selected.absentSpawns??[])url.searchParams.append('absent',id);
+  }
+  atlasPoint.href=url.href;
   atlasPoint.textContent=surveyLink.textContent;
  }
 }

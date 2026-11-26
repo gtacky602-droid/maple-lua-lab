@@ -276,7 +276,7 @@ try{
  }
  // Poses unique to a field encounter are fetched only when someone places or views them.
  const fieldPoseLoads=new Map();
- const patrolArt=new Map();
+ const patrolArt=new Map(),returnBoxArt=new Map();
  for(const scene of Object.values(trialScenes)){
   for(const part of scene.parts){
    if(!part.file || assets[part.species])continue;
@@ -425,6 +425,13 @@ try{
   }
   const teaProps=liveView&&selectedSurveyPoint?.tea&&selectedSurveyPoint.node===n.id?
    worksiteArt.teahouse.stages[selectedSurveyPoint.step]:[];
+  const returnProp=liveView&&selectedSurveyPoint?.returnProp;
+  if(returnProp){
+   const key=returnProp.art;
+   if(!returnBoxArt.has(key))returnBoxArt.set(key,{poseFile:'quest-packed/mond-return-box-'+key+'-sprites-v1.json',openingPose:true});
+   const art=returnBoxArt.get(key);
+   if(!art.image)missing.push(art);
+  }
   for(const key of new Set(teaProps.map(prop=>prop.key))){
    if(!teaArt.has(key))teaArt.set(key,{poseFile:worksiteArt.teahouse.files[key],openingPose:true});
    const art=teaArt.get(key);
@@ -530,7 +537,7 @@ try{
   if(selectedSurveyPoint){
    const point=selectedSurveyPoint,marker=$('surveyPointNote');
    const count=visibleLandmarks.length?` ／ この画角の小物 ${landmarksInView.length}矩形`:'';
-   marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`+count;
+   marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`+count+(point.action?' ／ '+point.action:'');
   }
   const sceneItems=previewGuard?items.filter(e=>!watchSteps.some(step=>step.stealthGuard.id===e.id)):items;
   const visibleItems=liveView && subject.value ? sceneItems.filter(e=>e.id===subject.value) : sceneItems;
@@ -600,6 +607,10 @@ try{
      ctx.fillStyle='#68aa9bab';
      ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
     }
+   }
+   if(returnProp){
+    const art=returnBoxArt.get(returnProp.art),point=selectedSurveyPoint;
+    paintPlacementLayer(ctx,art,spriteBounds(art,returnProp.height),mode==='png'||matchedSprites?null:profile,point.x-camera,point.y,false,cost);
    }
    for(const {key,x,y,height} of teaProps){
     const art=teaArt.get(key);

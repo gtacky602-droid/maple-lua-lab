@@ -50,8 +50,9 @@
     "node": "nod-wp-88169",
     "x": 791,
     "y": 480,
-    "name": "灯室の床の印"
+    "name": "灯室の床の印",
+    "action": "記録を取る"
   },
-  "points": 59,
-  "quests": 37
+  "points": 375,
+  "quests": 133
 }

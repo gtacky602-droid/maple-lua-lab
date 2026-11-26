@@ -87,6 +87,7 @@ try{
   const panel=page.locator('#localQuestSteps');
   if(!await panel.evaluate(el=>el.open))await panel.locator('summary').click();
   await panel.locator('a[href="'+surveyPointUrl(p)+'"]').click();
+  await page.waitForFunction(({quest,step})=>window.mapArt?.ready&&document.querySelector('#surveyPointNote').dataset.quest===quest&&document.querySelector('#surveyPointNote').dataset.step===String(step),p);
   const view=Number(await page.locator('#camera').inputValue());
   expected(await pixel(page,p.x-view,p.y),[133,255,223,255]);
  }
