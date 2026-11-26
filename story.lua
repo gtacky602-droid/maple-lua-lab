@@ -222,6 +222,22 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   -- Treat a tick that lands on the scheduled boundary as exact.
   return s.voyage and s.t-s.voyage.started+1e-8 or -1
  end
+ function C.boardingSchedule(edge)
+  local vehicle=nodes[edge.to]
+  local ride=vehicle and vehicle.voyage
+  if not ride then return end
+  local resumed=edge.resumeSeconds or 0
+  local details={}
+  for _,stop in ipairs(vehicle.exits) do
+   if stop.windowStart and stop.windowEnd>resumed then
+    details[#details+1]=('%g〜%g秒に%sで%s'):format(math.max(0,stop.windowStart-resumed),stop.windowEnd-resumed,
+     nodes[stop.to].name,ride.kind=='ferry' and '途中下船可' or '途中下車可')
+   end
+  end
+  details[#details+1]=('%s%g秒で%sに到着'):format(edge.resumeSeconds and '乗り直してから' or '出発から',
+   ride.seconds-resumed,nodes[ride.destination].name)
+  return table.concat(details,'、')
+ end
  function C.storyStopWindow(s,from,edge)
   if not edge.windowStart or not s.voyage or from~=s.story.node or s.coop then return end
   local elapsed=voyageElapsed(s)
@@ -382,7 +398,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if phase and completed(s,phase.quest) then visible.name=phase.name end
     visible.exits={}
     for _,edge in ipairs(node.exits) do
-     if shownEdge(s,edge) then visible.exits[#visible.exits+1]=copy(edge) end
+     if shownEdge(s,edge) then
+      local exit=copy(edge)
+      exit.boarding=C.boardingSchedule(edge)
+      visible.exits[#visible.exits+1]=exit
+     end
     end
     graph.nodes[#graph.nodes+1]=visible
    end

@@ -210,7 +210,7 @@ return function(C, atlas)
     or edge.wind and '風が弱い間に通る'
     or edge.windowStart and (('出発から%s〜%s秒の間に%s'):format(edge.windowStart,edge.windowEnd,
       voyage.kind=='trolley' and '途中下車' or '途中下船'))
-    or edge.resumeSeconds and ('乗り直してから%g秒で到着'):format(destination.voyage.seconds-edge.resumeSeconds)
+    or C.boardingSchedule(edge)
     or voyage and voyage.destination==edge.to and (
       voyage.kind=='ferry' and ('出航から'..voyage.seconds..'秒で着岸')
       or ('発車から'..voyage.seconds..'秒で到着')) or nil
@@ -607,7 +607,7 @@ return function(C, atlas)
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
-       reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),
+       reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),boarding=C.boardingSchedule(edge),
        automaticArrival=automatic_arrival(nodes[selected.id],edge)}
     end
    end

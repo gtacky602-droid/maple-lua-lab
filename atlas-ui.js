@@ -380,7 +380,7 @@ export function initAtlas(action, clearKeys) {
    const gate = route.entryHeight != null && (route.entryHeight < 480 ? '上の足場の門' : '地上の門');
    const level = route.level != null && route.reason !== `必要Lv${route.level}` && `Lv${route.level}`;
    const visit = route.visited === undefined ? '' : route.visited ? '訪問済み' : '未訪問';
-   const details = [visit, kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.stopWindow && stopTiming(route.stopWindow), route.wind && windTiming(route.wind), route.reason].filter(Boolean);
+   const details = [visit, kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.boarding, route.stopWindow && stopTiming(route.stopWindow), route.wind && windTiming(route.wind), route.reason].filter(Boolean);
    button.textContent = `${route.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(route);
    li.append(button);appendGateLink(li,selected.id,route);

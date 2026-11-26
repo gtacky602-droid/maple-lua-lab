@@ -141,7 +141,7 @@ def ochkanatlan(trip=None):
     finish(trip, third)
     proof = verify_reports(trip, first, second, third)
     reboard = trip.travel(ferry)[0]
-    assert '乗り直してから40秒で到着' in reboard['hint']
+    assert '乗り直してから40秒で' in reboard['hint'] and 'に到着' in reboard['hint']
     remaining = trip.state.voyage.arrives - trip.state.t
     assert abs(remaining - 40) < 1e-7
     trip.tick(round(remaining * 60) + 1)

@@ -60,6 +60,9 @@ try{
  console.log('White Rainbow Pass train HUD, save and restore, and automatic arrival passed.');
 
  await load(trolley,plaza);
+ await openMap(plaza);
+ await page.locator('#atlasRoutes').getByText(/1\.8〜6\.3秒に.*花棚.*途中下車可.*8\.4秒で/).waitFor();
+ await closeMap();
  await drive.cross(trolley);
  await openMap(stop);
  await page.locator('#atlasItineraryStops').getByText(/出発から1\.8〜6\.3秒の間に途中下車/).waitFor();
@@ -71,7 +74,7 @@ try{
  await page.getByRole('button',{name:'F：途中下車する',exact:true}).waitFor();
  await drive.cross(stop);
  await openMap(trolley);
- await page.locator('#atlasItineraryStops').getByText(/乗り直してから2秒で到着/).waitFor();
+ await page.locator('#atlasItineraryStops').getByText(/乗り直してから2秒で.*に到着/).waitFor();
  await closeMap();
  await drive.cross(trolley);
  const reboarded=(await frame()).voyage;

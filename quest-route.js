@@ -173,6 +173,7 @@ export function questRoute(f,q,status,preferredNode){
   else if(edge.waterwaySeconds)notes.push('乗り継ぎ場に着きました。「F：水路を渡る」で進めます');
   else notes.push(edge.liftSeconds?'昇降台の近くです。「F：昇降台に乗る」で進めます':'次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
  }
+ if(edge.boarding)notes.push(edge.boarding);
  if(wind)notes.push(windTiming(wind));
  if(edge.windowStart!==undefined){
   const elapsed=f.voyage?.elapsed;

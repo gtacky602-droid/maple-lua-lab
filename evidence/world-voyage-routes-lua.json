@@ -7,6 +7,7 @@
       "boardedAt": "liyue-harbor",
       "arrivedAt": "inazuma-port",
       "duration": 30,
+      "boardingSchedule": "出発から30秒で稲妻・離島の波止場に到着",
       "savedAt": "liyue-ferry",
       "restoredAt": "liyue-harbor",
       "arrivalGateClosedBeforeArrival": true
@@ -17,6 +18,7 @@
       "boardedAt": "natlan-port",
       "arrivedAt": "nod-port",
       "duration": 90,
+      "boardingSchedule": "30〜50秒にオシカ・ナタ・寄港地で途中下船可、出発から90秒でナド・クライ・到着港に到着",
       "savedAt": "natlan-port",
       "restoredAt": "natlan-port",
       "arrivalGateClosedBeforeArrival": true,
@@ -47,6 +49,7 @@
       "boardedAt": "snezhnaya-hub",
       "arrivedAt": "white-pass-station",
       "duration": 9,
+      "boardingSchedule": "出発から9秒で雪原の終着駅に到着",
       "savedAt": "white-pass-coach",
       "restoredAt": "snezhnaya-hub",
       "arrivalGateClosedBeforeArrival": true
@@ -57,6 +60,7 @@
       "boardedAt": "veluriyam-hub",
       "arrivedAt": "veluriyam-rail-end",
       "duration": 8.4,
+      "boardingSchedule": "1.8〜6.3秒に花棚の停留所で途中下車可、出発から8.4秒で水車前の終点に到着",
       "savedAt": "veluriyam-trolley-out",
       "restoredAt": "veluriyam-hub",
       "stop": "veluriyam-petal-stop",
@@ -86,6 +90,7 @@
       "boardedAt": "veluriyam-rail-end",
       "arrivedAt": "veluriyam-hub",
       "duration": 8.4,
+      "boardingSchedule": "1.8〜6.3秒に花棚の停留所で途中下車可、出発から8.4秒でヴェルーリヤ・ミラージュ・入口広場に到着",
       "savedAt": "veluriyam-trolley-back",
       "restoredAt": "veluriyam-hub",
       "stop": "veluriyam-petal-stop",
@@ -115,6 +120,7 @@
       "boardedAt": "veluriyam-petal-stop",
       "arrivedAt": "sites-vlm-06",
       "duration": 4.8,
+      "boardingSchedule": "出発から4.8秒で隠者の遊園の入口に到着",
       "savedAt": "sites-mirage-fair-out",
       "restoredAt": "veluriyam-hub"
     },
@@ -124,6 +130,7 @@
       "boardedAt": "sites-vlm-06",
       "arrivedAt": "veluriyam-petal-stop",
       "duration": 4.8,
+      "boardingSchedule": "出発から4.8秒で花棚の停留所に到着",
       "savedAt": "sites-mirage-fair-in",
       "restoredAt": "veluriyam-hub"
     },
@@ -133,6 +140,7 @@
       "boardedAt": "sites-sim-04",
       "arrivedAt": "sites-sim-05",
       "duration": 4.8,
+      "boardingSchedule": "出発から4.8秒で王城・安全広場に到着",
       "savedAt": "sites-star-rail-out",
       "restoredAt": "sites-sim-04"
     },
@@ -142,6 +150,7 @@
       "boardedAt": "sites-sim-05",
       "arrivedAt": "sites-sim-04",
       "duration": 4.8,
+      "boardingSchedule": "出発から4.8秒で星軌の駅に到着",
       "savedAt": "sites-star-rail-in",
       "restoredAt": "sites-sim-05"
     },
@@ -151,6 +160,7 @@
       "boardedAt": "inazuma-port",
       "arrivedAt": "liyue-harbor",
       "duration": 30,
+      "boardingSchedule": "出発から30秒で璃月・港の広場に到着",
       "savedAt": "liyue-ferry-return",
       "restoredAt": "inazuma-port",
       "arrivalGateClosedBeforeArrival": true
@@ -161,6 +171,7 @@
       "boardedAt": "nod-port",
       "arrivedAt": "natlan-port",
       "duration": 90,
+      "boardingSchedule": "30〜50秒にオシカ・ナタ・寄港地で途中下船可、出発から90秒でナタ・花翼の集付近の港（仮）に到着",
       "savedAt": "nod-port",
       "restoredAt": "nod-port",
       "arrivalGateClosedBeforeArrival": true,
@@ -191,6 +202,7 @@
       "boardedAt": "liyue-wp-66769",
       "arrivedAt": "sites-lumidouce-landing",
       "duration": 45,
+      "boardingSchedule": "出発から45秒でルミドゥース・下部連絡桟橋（試作）に到着",
       "savedAt": "chenyu-ferry-fontaine",
       "restoredAt": "liyue-wp-66769",
       "arrivalGateClosedBeforeArrival": true
@@ -201,6 +213,7 @@
       "boardedAt": "sites-lumidouce-landing",
       "arrivedAt": "liyue-wp-66769",
       "duration": 45,
+      "boardingSchedule": "出発から45秒で沈玉の谷・谷北の埠頭に到着",
       "savedAt": "fontaine-ferry-chenyu",
       "restoredAt": "sites-lumidouce-landing",
       "arrivalGateClosedBeforeArrival": true

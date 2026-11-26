@@ -126,6 +126,16 @@ def verify(node):
     if vehicle in ('white-pass-coach', 'veluriyam-trolley-out'):
         write(f'work/world-voyage-routes/{vehicle}.json', save(walk.state))
     s = walk.state
+    origin = next(n for n in core.frame(s).storyGraph.nodes.values() if n.id == source)
+    schedule = next(e.boarding for e in origin.exits.values() if e.to == vehicle)
+    assert nodes[target]['name'] in schedule and f"{spec['seconds']:g}秒" in schedule
+    core.action(s, 'world_map_focus:' + source)
+    assert next(r.boarding for r in core.frame(s).worldMap.routes.values() if r.id == vehicle) == schedule
+    core.action(s, 'world_map_close')
+    assert schedule in guide(s, vehicle)['stops'][0]['hint']
+    for stop in node['exits']:
+        if 'windowStart' in stop:
+            assert nodes[stop['to']]['name'] in schedule and f"{stop['windowStart']:g}〜{stop['windowEnd']:g}秒" in schedule
     walk.cross(vehicle)
     frame = core.frame(s).voyage
     assert frame.destination == target and frame.kind == spec['kind'] and frame.total == spec['seconds']
@@ -139,7 +149,7 @@ def verify(node):
     elapsed(s, 0.5)
     saved_at = restore_on_land(s, expected_save)
     row = dict(stage=vehicle, kind=spec['kind'], boardedAt=source, arrivedAt=target,
-               duration=spec['seconds'], savedAt=saved_at, restoredAt=expected_save)
+               duration=spec['seconds'], boardingSchedule=schedule, savedAt=saved_at, restoredAt=expected_save)
     if edge := edges.get((vehicle, target)):
         assert edge['requiresArrival']
         walk.approach(edge['x'], edge.get('y', 480), target)
@@ -171,7 +181,8 @@ def verify(node):
     reboard = edges[stop_id, vehicle]
     remaining = round(spec['seconds'] - reboard['resumeSeconds'], 8)
     plan = guide(s, vehicle)
-    assert f'{remaining:g}秒で到着' in plan['stops'][0]['hint']
+    assert f"乗り直してから{remaining:g}秒で{nodes[target]['name']}に到着" in plan['stops'][0]['hint']
+    assert '途中下' not in plan['stops'][0]['hint']
     walk.cross(vehicle)
     assert abs(core.frame(s).voyage.seconds - remaining) < 1e-8
     assert not core.frame(s).voyage.stopover
