@@ -155,9 +155,9 @@ export function worksitePoint(quest,id,node,stocked=[]){
    point.fixtures=[{x:item.x,y:item.y,rects:[[-15,-24,30,24,'#5b3f2c'],[-12,-21,24,18,'#c48a56'],[-2,-21,4,18,'#f1d58e']]}];
   }else{
    point.stocked=quest.delivery.packages.filter(p=>stocked.includes(p.id)).map(p=>p.id);
-   point.fixtures=quest.delivery.packages.map(({id,x,y,color})=>{
+   point.fixtures=quest.delivery.packages.map(({id,x,y,color,stockRects})=>{
     const rects=[[-27,-32,54,32,'#62432e'],[-24,-27,48,21,'#916749'],[-28,-32,56,4,color]];
-    if(point.stocked.includes(id))rects.push([-16,-43,13,11,color],[4,-40,12,8,'#f3d2a1']);
+    if(point.stocked.includes(id))rects.push(...stockRects);
     return {x,y,rects};
    });
   }

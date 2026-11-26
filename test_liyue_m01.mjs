@@ -125,7 +125,7 @@ try{
  await walk(106);
  await through('liyue-harbor');
  await checkStop('worksite','wheel',['pot','vessel']);
- await pixel(608,439,[119,157,199]);
+ await pixel(608,439,[243,210,161]);
  await walk(1050);
  await shop.getByRole('button',{name:'荷札「車輪」を渡す'}).waitFor();
  await page.locator('.game').screenshot({path:`evidence/liyue-m01-delivery${suffix}.png`});

@@ -76,8 +76,9 @@ function D.observe(s,f,boxes,q,state)
    draw(boxes,x-24,y-27,48,21,'#916749')
    draw(boxes,x-28,y-32,56,4,package.color)
    if stocked then
-    draw(boxes,x-16,y-43,13,11,package.color)
-    draw(boxes,x+4,y-40,12,8,'#f3d2a1')
+    for _,r in ipairs(package.stockRects) do
+     draw(boxes,x+r[1],y+r[2],r[3],r[4],r[5])
+    end
    end
   end
   if not s.paused and destination and state then
