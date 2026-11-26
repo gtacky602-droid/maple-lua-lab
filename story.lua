@@ -315,11 +315,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
  end
+ local function travelerGateMessage(n)
+  if n.travelerTrial then return '旅人が戦闘可能な状態で挑戦してください。' end
+  if n.toyDive then return '旅人が泳げる状態で潜りましょう。' end
+ end
+ local function travelerGateRestriction(s,n)
+  if s.actors[1].hp<=0 then return travelerGateMessage(n) end
+ end
  function C.atlasGateRestriction(s,from,edge,routeLevel,futureBoarding)
   local destination=nodes[edge.to]
   if (routeLevel or s.progression.level)<destination.level then return '必要Lv'..destination.level end
-  if destination.travelerTrial and s.actors[1].hp<=0 then return '旅人が戦闘可能な状態で挑戦してください。' end
-  if destination.toyDive and s.actors[1].hp<=0 then return '旅人が泳げる状態で潜りましょう。' end
+  local reason=travelerGateRestriction(s,destination)
+  if reason then return reason end
   if not futureBoarding and edge.windowStart and from==s.story.node and voyageElapsed(s)>=edge.windowEnd then
    return '乗降時間を過ぎました。'
   end
@@ -393,6 +400,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,node in ipairs(data.nodes) do
    if shownNode(s,node) then
     local visible=copy(node)
+    visible.travelerGateMessage=travelerGateMessage(node)
     visible.name=fieldName(s,node)
     local phase=node.locationAfterReport
     if phase and completed(s,phase.quest) then visible.name=phase.name end
@@ -436,8 +444,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif s.paused then reason='一時停止中'
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
-    elseif n.travelerTrial and s.actors[1].hp<=0 then reason='旅人が戦闘可能な状態で挑戦してください。'
-    else reason=gateRestriction(s,edge) end
+    else reason=travelerGateRestriction(s,n) or gateRestriction(s,edge) end
     best={to=edge.to,name=automatic and fieldName(s,n) or edge.rideLabel or fieldName(s,n),level=n.level,available=not reason,reason=reason,
           automaticArrival=automatic,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
@@ -1767,9 +1774,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
    local resume,departure=0,nil;dest=dest or fast;local n=nodes[dest];if not n then return end
    if not shownNode(s,n) then s.storyNotice='この入口はまだ発見していません。';return end
-   if n.toyDive and s.actors[1].hp<=0 then s.storyNotice='旅人が泳げる状態で潜りましょう。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
-   if n.travelerTrial and s.actors[1].hp<=0 then s.storyNotice='旅人が戦闘可能な状態で挑戦してください。';return end
+   local reason=travelerGateRestriction(s,n)
+   if reason then s.storyNotice=reason;return end
    if fast then
     if s.voyage and s.voyage.kind=='ferry' then
      s.storyNotice='船が着岸してからワープできます。'

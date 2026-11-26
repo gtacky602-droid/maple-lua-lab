@@ -116,7 +116,10 @@ export function questRoute(f,q,status,preferredNode){
  const missedStop=currentStops.some(edge=>missed(edge)&&(targets.has(edge.to)||arrival?.from===from&&arrival.node===edge.to));
  const nextRide=currentStops.some(missed);
  const level=f.progression?.level??0;
- function routeAtLevel(limit){
+ const travelerDown=f.actors?.find(a=>a.id===1)?.hp<=0;
+ const restriction=id=>travelerDown&&nodes.get(id)?.travelerGateMessage;
+ function routeAtLevel(limit,allowBlocked=false){
+  if(arrival&&!allowBlocked&&restriction(arrival.node))return;
   if(arrival&&(nodes.get(arrival.node).level||1)>limit)return;
   if(arrival&&targets.has(from)&&currentStops.some(e=>e.to===arrival.node&&gateOpen(e)&&!missed(e)))return [from,arrival.node];
   // Reboarding after a missed stop starts a new trip with a fresh stop window.
@@ -124,6 +127,7 @@ export function questRoute(f,q,status,preferredNode){
   for(let i=0;i<queue.length;i++){
    const current=queue[i],node=nodes.get(current.at(-1));
    for(const edge of connections(node)){
+    if(!allowBlocked&&restriction(edge.to))continue;
     if(i===0&&missed(edge))continue;
     if(i!==0&&node.voyage?.source===edge.to)continue;
     if(!nodes.has(edge.to)||seen.has(edge.to)||!gateOpen(edge)||(nodes.get(edge.to).level||1)>limit)continue;
@@ -137,6 +141,11 @@ export function questRoute(f,q,status,preferredNode){
  let path=routeAtLevel(level);
  if(!path)for(const limit of [...new Set([...nodes.values()].map(n=>n.level||1))].filter(n=>n>level).sort((a,b)=>a-b)){
   path=routeAtLevel(limit);if(path)break;
+ }
+ if(!path&&travelerDown){
+  const blocked=routeAtLevel(Infinity,true);
+  const gate=blocked?.slice(1).find(restriction);
+  if(gate)return {node:blocked.at(-1),text:nodes.get(gate).name+'：'+restriction(gate)};
  }
  if(!path)return {text:'公開中の地点からつながる経路がありません。'};
  const next=nodes.get(path[1]);

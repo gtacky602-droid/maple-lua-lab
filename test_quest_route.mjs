@@ -200,3 +200,11 @@ const alternate=new URL(trackedQuest(courier,delivery.id,{point:'wheel'}).pointU
 assert.equal(alternate.searchParams.get('worksite'),'wheel');
 assert.deepEqual(alternate.searchParams.getAll('stocked'),['vessel']);
 assert.deepEqual(stalls(),['pot','wheel']);
+
+const downed={...routed,active:2,actors:[{id:1,hp:0},{id:2,hp:50}]};
+const special=routeGraph.nodes.find(n=>n.id==='detour');
+special.travelerGateMessage='旅人を回復してください。';
+const gateQuest={kind:'visit',target:special.id};
+assert.deepEqual(questRoute(downed,gateQuest,'active'),{node:special.id,text:special.name+'：'+special.travelerGateMessage});
+assert.match(questRouteText(downed,targetQuest,'active'),/Locked shortcut/);
+assert.match(questRouteText({...downed,actors:[{id:1,hp:1}]},gateQuest,'active'),/次は Available detour/);

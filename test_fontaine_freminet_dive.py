@@ -84,6 +84,13 @@ fixture=checkpoint()
 act('story_accept:'+quest)
 gate(484,water,False)
 collect(477,'フレミネと玩具を点検する')
+hp=s.actors[1].hp
+s.actors[1].hp=0
+gate(484,water,False)
+blocked=frame()
+destination=next(n for n in blocked.storyGraph.nodes.values() if n.id==water)
+assert destination.travelerGateMessage==blocked.storyNearbyPortal.reason==s.storyNotice
+s.actors[1].hp=hp
 gate(484,water)
 assert s.active==1 and s.toyDive.previousActive==2 and s.companion=='emilie'
 assert len(s.enemies)==0 and not displayed(core.companionArt.emilie)
