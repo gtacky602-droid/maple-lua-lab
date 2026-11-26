@@ -96,7 +96,10 @@ return function(canInspect)
    rect(draws,x-72,y-71,144,6,'#8aaea2')
    text(draws,x,y-39,table.concat(clues,' → '),'#fff1ca',23)
   end
-  if not activeItem or not activeItem.resonanceOrder or s.paused or s.lift then return end
+  if not activeItem or not activeItem.resonanceOrder then return end
+  local litCount=s.resonanceOrder or 0
+  f.storyResonanceRoute={quest=config.quest,lit=litCount,nextPattern=clues[litCount+1]}
+  if s.paused or s.lift then return end
   local i=nearStone(s,config)
   if i or canInspect(s.actors[s.active],panel) then
    local progress=s.resonanceOrder or 0

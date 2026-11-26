@@ -57,6 +57,7 @@ export function setupPuzzlePreview(marker,focus,redraw){
     }).catch(()=>{loading=null;if(point?.stations)message.textContent='装置の画像を読み込めませんでした。'});
    }
    station.replaceChildren(...point.stations.map(s=>new Option(s.name)));
+   station.selectedIndex=point.initialStation??0;
    choices=point.stations.map(s=>s.initial??0);
    show();
   },

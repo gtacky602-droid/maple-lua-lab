@@ -23,6 +23,13 @@ function remainingEnemyPoints(step,progress){
  });
 }
 
+function resonanceGuide(frame,quest,step,index){
+ const route=frame.storyResonanceRoute;
+ if(!step?.resonanceOrder || route?.quest!==quest.id || !route.nextPattern)return null;
+ const point={quest:quest.id,node:step.node,step:index+1,lit:route.lit};
+ return {label:route.lit?'次の共鳴石「'+route.nextPattern+'」を見る':'刻印板の順番を見る',url:surveyPointUrl(point)};
+}
+
 export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
@@ -40,6 +47,8 @@ export function atlasQuestObjectives(frame,q,node){
    objectives.push({text,points:remainingEnemyPoints(step,progress)});
    return;
   }
+  const resonance=step?.node===node && resonanceGuide(frame,q,step,index);
+  if(resonance){objectives.push({text,points:[resonance]});return}
   const points=[];
   for(let i=0;i<Math.max(1,choices);i++){
    const point=surveyPoint(q,index,node,room,path?.id,choices?i+1:undefined);
@@ -312,6 +321,8 @@ export function trackedQuest(f,id,selectedWorksite){
    text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(puzzleStep(patrolStep)&&route.node===patrolStep.node){
+  const resonance=resonanceGuide(f,q,patrolStep,st.count);
+  if(resonance)return {node:route.node,pointUrl:resonance.url,pointLabel:resonance.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
   const url=surveyPointUrl({node:route.node,quest:q.id,step:st.count+1});
   return {node:route.node,pointUrl:url,pointLabel:'装置の操作場所を見る',text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }

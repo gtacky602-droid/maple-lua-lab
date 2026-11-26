@@ -173,6 +173,21 @@ try{
   await wait(()=>document.querySelector('#airflowSound').getAttribute('aria-pressed')==='false');
   await interact(1305,second,0);
   await progress(1);
+  await row(second).getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+  await page.locator('#trackedQuestMap').click();
+  const nextStone=page.locator('#atlasQuestPoint');
+  await nextStone.waitFor();
+  assert.equal(await nextStone.innerText(),'次の共鳴石「◇」を見る');
+  const [map]=await Promise.all([page.waitForEvent('popup'),nextStone.click()]);
+  try{
+    const picker=map.getByLabel('操作場所');
+    await picker.waitFor();
+    assert.equal(await picker.locator('option:checked').innerText(),'共鳴石 ◇（次に点灯）');
+    assert.ok((await picker.locator('option').allTextContents()).includes('共鳴石 ≈（点灯済み）'));
+    await map.waitForFunction(()=>window.mapArt?.ready && window.mapArt.camera===65);
+  }finally{await map.close()}
+  await page.bringToFront();
+  await page.keyboard.press('Escape');
   await jump(960,393);
   await interact(960,second,0);
   await progress(0);

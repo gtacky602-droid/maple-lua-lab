@@ -234,7 +234,7 @@ try{
   const marker=$('surveyPointNote');
   marker.hidden=!point;
   if(point){
-   $('camera').value=point.x-480;
+   $('camera').value=selectedSurveyPoint.x-480;
    marker.dataset.quest=point.quest;marker.dataset.step=point.step??'';marker.dataset.worksite=point.worksite??'';
 
   }
@@ -1010,6 +1010,14 @@ try{
    const quest=questsById.get(query.get('quest'));
    point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
     surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
+  }
+  if(point?.stations && n===openingNode && n.resonance?.order && query.has('lit')){
+   const lit=Number(query.get('lit')),order=n.resonance.order;
+   if(Number.isInteger(lit) && lit>=0 && lit<order.length){
+    point.initialStation=lit?order[lit]:0;
+    point.stations=point.stations.map((site,i)=>({...site,
+     name:site.name+(order.slice(0,lit).includes(i)?'（点灯済み）':lit && i===order[lit]?'（次に点灯）':'')}));
+   }
   }
   focusSurveyPoint(point);
   render();

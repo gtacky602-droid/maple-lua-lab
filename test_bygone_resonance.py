@@ -103,8 +103,11 @@ assert list(frame(s).storyResonance.order.values())==['≈','◇','✧']
 gate(s,1581,gallery,393,opened=False)
 collect(s,second,0,1305)
 assert frame(s).storyResonance.progress==1
+move(s,755)
+assert not frame(s).storyResonance and frame(s).storyResonanceRoute.nextPattern=="◇"
 collect(s,second,0,960,393)
 assert frame(s).storyResonance.progress==0 and 'やり直せます' in s.storyNotice
+assert frame(s).storyResonanceRoute.lit==0
 collect(s,second,0,1305)
 s=restore(s)
 gate(s,1152,hall)
@@ -113,7 +116,7 @@ assert frame(s).storyResonance.progress==0
 collect(s,second,0,1305)
 collect(s,second,0,545)
 collect(s,second,0,960)
-assert s.resonanceOrder==2
+assert s.resonanceOrder==2 and frame(s).storyResonanceRoute.nextPattern=="✧"
 collect(s,second,1,960,393)
 assert len(s.platforms)==3 and s.platforms[3].resonanceBridge
 s=restore(s)
