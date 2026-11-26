@@ -98,11 +98,16 @@ action('story_fast:' + trail)
 assert '休憩場所' in frame().storyNotice and not len(s.enemies)
 gate(1384, fork, False)
 move(647)
+options=native(frame().storyWorksites[quest])
+assert [(p['x'],p['y']) for p in options]==[(441,480),(647,396)]
+assert all('correct' not in p for p in options)
 assert not frame().storyNearbyMilestone
 jump(396)
+assert frame().storyHunts[quest].action==frame().storyNearbyMilestone.label
 collect(647, 1, 396)
 assert '分けにく' in frame().storyNotice
 collect(441, 2)
+assert not {p['point'] for p in options}.intersection(p['point'] for p in native(frame().storyWorksites[quest]))
 actor = s.actors[s.active]
 actor.hp = actor.maxhp-45
 move(864)

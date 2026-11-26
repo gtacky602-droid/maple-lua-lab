@@ -901,7 +901,23 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                    (q.sights and not state.sights and q.sights.legacyTarget==s.story.node)
     local guard=q.recovery and state.recovered and state.count==q.goal-1 and q.recovery.node==s.story.node and q.recovery.guard
     local task=worksiteGuide(s,f,q,state) or fieldTask(s,q,state)
-    if step and step.followCart and step.node==s.story.node then
+    if step and (step.kind=='choice' or step.kind=='guideChoice') and step.node==s.story.node and not s.lift then
+     local points,nearest,distance={}
+     local interactable=nearbyChoice(s,step)
+     local node=nodes[s.story.node]
+     for index,option in ipairs(step.choices) do
+      local point={node=step.node,x=option.x,y=option.y,name=option.name,action=option.action,
+       point=('choice-%s-%d-%d'):format(step.node,state.count,index),inspection=true,
+       underwater=(node.swim or node.toyDive) and true or nil}
+      points[#points+1]=point
+      local d=(actor.x-point.x)^2+(actor.y-point.y)^2
+      if option==interactable then d=-1 end
+      if not distance or d<distance then nearest,distance=point,d end
+     end
+     f.storyWorksites=f.storyWorksites or {}
+     f.storyWorksites[id]=points
+     task=nearest
+    elseif step and step.followCart and step.node==s.story.node then
      task=theater.cartGuide(s,step)
     elseif not task and step and step.kind=='inspect' and step.node==s.story.node and step.x and step.y
         and not s.lift and not step.resonanceOrder and not step.shadowChoice and not step.paperFold
