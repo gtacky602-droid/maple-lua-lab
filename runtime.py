@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys, json
+from packed_poses import load_pose_pack
 from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
@@ -305,18 +306,20 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     core.primoArt=lua.table_from(json.loads((ROOT/'assets/primo-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.maguuArt=lua.table_from(json.loads((ROOT/'assets/maguu-sprites.json').read_text(encoding='utf8')),recursive=True)
     character_gallery=json.loads((ROOT/'content/character-art-gallery.json').read_text(encoding='utf8'))
-    companion_art={}
+    poses=load_pose_pack(lua,ROOT,'character-gallery-packed.json')
+    companion_art=lua.table()
     for item in character_gallery['items']:
-        if item['id'] in ('traveler','amber'):
-            continue
-        art=json.loads((ROOT/'assets'/item['file']).read_text(encoding='utf8'))
-        art['height']=item['height']
-        if 'leftFile' in item:
-            art['left']=json.loads((ROOT/'assets'/item['leftFile']).read_text(encoding='utf8'))
-        companion_art[item['id']]=art
-    core.companionArt=lua.table_from(companion_art,recursive=True)
-    idle_files={'right':'traveler-idle-sprites-v3.json','left':'traveler-idle-left-sprites-v1.json'}
-    core.travelerIdleArt=lua.table_from({side:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for side,name in idle_files.items()},recursive=True)
+        art=poses[item['file']]
+        left=poses[item['leftFile']] if 'leftFile' in item else None
+        if item['id']=='traveler':
+            core.travelerIdleArt=lua.table(right=art,left=left)
+        elif item['id']=='amber':
+            core.amberIdleArt=art
+        else:
+            art.height=item['height']
+            art.left=left
+            companion_art[item['id']]=art
+    core.companionArt=companion_art
     run_cycles={}
     for side in ('left','right'):
         prefix=f'traveler-run-{side}'
@@ -331,13 +334,12 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
         key: json.loads((ROOT/'assets'/layout.get('file', f'{key}-idle-sprites.json')).read_text(encoding='utf8'))
         for key, layout in enemy_layout.items()
     }, recursive=True)
-    core.danukiArt=lua.table_from(json.loads((ROOT/'assets/danuki-dance-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
+    core.danukiArt=companion_art['bake-danuki']
     core.bennettArt=lua.table_from(json.loads((ROOT/'assets/bennett-cave-guide-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
     core.noelleArt=lua.table_from({
         pose: json.loads((ROOT/f'assets/noelle-rest-{pose}-sprites-v1.json').read_text(encoding='utf8'))
         for pose in ('standing','seated')
     },recursive=True)
-    core.amberIdleArt=lua.table_from(json.loads((ROOT/'assets/amber-idle-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
     core.amberBowArt=lua.table_from(json.loads((ROOT/'assets/amber-bow-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
     core.thunderArt=lua.table_from(json.loads((ROOT/'assets/thunder-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.arrayArt=lua.table_from(json.loads((ROOT/'assets/array-sprites.json').read_text(encoding='utf8')),recursive=True)
