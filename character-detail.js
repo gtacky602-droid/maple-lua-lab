@@ -11,6 +11,7 @@ export function characterDetail(article){
  const details=document.createElement('details');
  details.innerHTML='<summary>全身・部分の画質を測る</summary><p>元PNGで顔や武器を押すと、実寸24×24pxの範囲を比較します。矢印キーでも位置を選べます。</p><button type="button">全身に戻す</button> <output></output>';
  article.append(details);
+ const crops=document.createElement('div');crops.className='character-crops';details.append(crops);
  const output=details.querySelector('output'),reset=details.querySelector('button'),source=canvases[0];
  let focus,zoom,flip,profiles=[];
  function measure(){
@@ -24,6 +25,7 @@ export function characterDetail(article){
    if(active)Object.assign(marker.style,{left:x/source.width*100+'%',top:y/source.height*100+'%',width:w/source.width*100+'%',height:h/source.height*100+'%'});
   }
   source.tabIndex=details.open?0:-1;
+  crops.replaceChildren();
   if(!details.open)return;
   reset.disabled=!focus;
   function pixels(canvas){
@@ -31,6 +33,16 @@ export function characterDetail(article){
    const floor=canvas.height-15-y;
    if(floor>=0&&floor<h)data.fill(0,4*w*floor,4*w*(floor+1));
    return data;
+  }
+  if(active){
+   for(const [i,label] of ['元PNG',...profiles].entries()){
+    const figure=document.createElement('figure'),caption=document.createElement('figcaption');
+    caption.textContent=label;
+    const crop=document.createElement('canvas');
+    crop.width=w;crop.height=h;
+    crop.getContext('2d').drawImage(canvases[i],x,y,w,h,0,0,w,h);
+    figure.append(caption,crop);crops.append(figure);
+   }
   }
   const original=pixels(source);
   output.textContent=profiles.map((label,i)=>{

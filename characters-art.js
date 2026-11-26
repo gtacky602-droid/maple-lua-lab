@@ -136,7 +136,7 @@ try{
    const layer=rear&&spriteBounds(rear.data,rear.height*zoom,rear.bottom*zoom);
    const halfWidth=Math.max(-body.x,body.x+body.width,(layer?.width??0)/2);
    const top=Math.min(body.y,layer?.y??0),painted=[];
-   for(const [i,canvas] of [...article.querySelectorAll('canvas')].entries()){
+   for(const [i,canvas] of [...pair.querySelectorAll('canvas')].entries()){
     if(i===2&&!both)continue;
     const selected=i===0?null:both?(i===1?'h48c32':'h32c16'):profile;
     canvas.width=arena?960:Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=arena?540:Math.max(300,Math.ceil(hover-top+30));
