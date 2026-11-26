@@ -245,6 +245,9 @@ collect(1408)
 cross(rostrum)
 collect(853, 390)
 cross(hub)
+if args.after_revisits:
+    forge_seed=validate_save(native(core.checkpoint(state)))
+    (ROOT/'evidence/natlan-forge-access-save.json').write_bytes((json.dumps(forge_seed,ensure_ascii=False,sort_keys=True)+'\n').encode())
 report(third)
 
 kachina, charms = 'natlan-kachina-charms', 'natlan-charm-trail'

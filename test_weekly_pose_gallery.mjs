@@ -21,9 +21,16 @@ try{
     return !c.hidden&&data.some((v,i)=>i%4===3&&v>0);
    }));
    assert.deepEqual(painted,[true,true,true],boss+'/'+pose);
+   if(boss==='primal_fire'&&['flame','dual'].includes(pose)){
+    const purple=await page.locator('canvas').evaluateAll(cs=>cs.map(c=>{
+     const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
+     return pixels.some((v,i)=>i%4===0&&v===189&&pixels[i+1]===154&&pixels[i+2]===255);
+    }));
+    assert.deepEqual(purple,Array(3).fill(pose==='dual'));
+   }
    count++;
   }
  }
- assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0));
+ assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+2);
  console.log(bosses.length+' bosses, '+count+' poses, all three canvases painted');
 }finally{await browser.close()}

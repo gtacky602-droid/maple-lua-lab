@@ -29,20 +29,23 @@ try{
  function changeBoss(requested){
   const b=entries.get(boss.value);
   pose.replaceChildren(...Object.keys(b.poses).map(k=>new Option(label(k),k)));
-  if(Object.hasOwn(b.poses,requested))pose.value=requested;
+  if(boss.value==='primal_fire')pose.append(new Option('炎剣・開幕の予兆','flame'),new Option('双剣・床切断後','dual'));
+  if([...pose.options].some(option=>option.value===requested))pose.value=requested;
   else if(boss.value==='shouki')pose.value='upper';
   document.querySelector('#arena').href='map-art.html?'+new URLSearchParams({node:b.node,placements:'live'});
   return draw();
  }
  async function draw(){
   const ticket=++revision;
-  const path=entries.get(boss.value).poses[pose.value];
+  const forge=boss.value==='primal_fire'&&['flame','dual'].includes(pose.value)?pose.value:null;
+  const path=entries.get(boss.value).poses[forge?'idle':pose.value];
   const url=new URL(location.href);url.searchParams.set('boss',boss.value);url.searchParams.set('pose',pose.value);
   history.replaceState(history.state,'',url);
   for(const c of canvases)c.hidden=true;
   result.textContent='読み込み中';
   try{
-   const data=await read('assets/weekly-packed/'+path);
+   const [data,record]=await Promise.all([read('assets/weekly-packed/'+path),forge&&read('evidence/primal-forge-access.json')]);
+   const view=record?.views?.[forge];
    if(ticket!==revision)return;
    const image=new Image();image.src='assets/'+data.source;await image.decode();
    if(ticket!==revision)return;
@@ -51,10 +54,16 @@ try{
     c.width=480;c.height=320;
     const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;
     ctx.translate((480-bounds.width)/2-bounds.x,300);
-    paintSprite(ctx,data,image,bounds,[null,'h48c32','h32c16'][i]);c.hidden=false;
+    paintSprite(ctx,data,image,bounds,[null,'h48c32','h32c16'][i]);
+    if(view){
+     ctx.scale(height/view.height,height/view.height);
+     for(const [x,y,w,h,color] of view.blades){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+    }
+    c.hidden=false;
    }
    const standard=rectangleCount(data.profiles.h48c32),light=rectangleCount(data.profiles.h32c16);
    result.textContent='32色 '+standard.toLocaleString()+'矩形 ／ 16色 '+light.toLocaleString()+'矩形';
+   if(view)result.textContent+=' ／ 両圧縮設定に剣 '+view.blades.length+'矩形を追加 ／ Lv'+record.level+'の戦闘記録';
   }catch(error){if(ticket===revision)result.textContent='素材を表示できませんでした。 '+error.message}
  }
  boss.onchange=()=>changeBoss();pose.onchange=draw;await changeBoss(params.get('pose'));
