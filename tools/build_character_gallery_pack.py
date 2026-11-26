@@ -27,7 +27,7 @@ for file in dict.fromkeys(files):
     raw = (assets/file).read_bytes()
     art = json.loads(raw)
     source_bytes += len(raw)
-    art['profiles'] = {name:dict(pack_grid(grid), colors=grid['colors'])
+    art['profiles'] = {name:dict(pack_grid(grid, compact_positions=gallery == "boss"), colors=grid['colors'])
                        for name,grid in art['profiles'].items()}
     packed[file] = art
 output.write_bytes((json.dumps(packed, ensure_ascii=False, separators=(',', ':'))+'\n').encode())

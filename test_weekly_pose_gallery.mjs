@@ -2,9 +2,14 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {forEachRectangle,rectangleCount} from './sprite-layers.js';
-const manifest=JSON.parse(await readFile('content/weekly-pose-files.json','utf8'));
+const fieldMode=process.argv.includes('--field-boss');
+const kind=fieldMode?'field-boss':'weekly';
+const catalog=JSON.parse(await readFile('content/'+kind+'-pose-files.json','utf8'));
+const manifest=fieldMode?Object.fromEntries(Object.entries(catalog).map(([group,spec])=>[group,spec.poses])):catalog;
+const roster=fieldMode?JSON.parse(await readFile('content/field-boss-spawns.json','utf8')).fieldBosses:[];
+
 for(const file of new Set(Object.values(manifest).flatMap(group=>Object.values(group)))){
- const packed=JSON.parse(await readFile('assets/weekly-packed/'+file,'utf8'));
+ const packed=JSON.parse(await readFile('assets/'+kind+'-packed/'+file,'utf8'));
  const original=JSON.parse(await readFile('assets/'+file,'utf8'));
  for(const [key,grid] of Object.entries(packed.profiles)){
   const rows=original.profiles[key].runs;
@@ -17,9 +22,9 @@ for(const file of new Set(Object.values(manifest).flatMap(group=>Object.values(g
 const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
 try{
  const page=await browser.newPage();
- await page.goto(new URL('weekly-poses.html?boss=andrius&pose=awake-ready&pixels=1',process.env.LAB_URL||'http://127.0.0.1:9125/').href);
+ await page.goto(new URL(fieldMode?'weekly-poses.html?group=field&boss=battleship&pose=cannon&pixels=1':'weekly-poses.html?boss=andrius&pose=awake-ready&pixels=1',process.env.LAB_URL||'http://127.0.0.1:9125/').href);
  await page.waitForFunction(()=>document.querySelector('#result').textContent.includes('矩形'));
- assert.equal(await page.locator('#pose').inputValue(),'awake-ready');
+ assert.equal(await page.locator('#pose').inputValue(),fieldMode?'cannon':'awake-ready');
  const pixels=page.locator('#palettePixels');
  assert(await pixels.isChecked());
  const snapshots=()=>page.locator('canvas').evaluateAll(cs=>cs.map(c=>c.toDataURL()));
@@ -36,6 +41,11 @@ try{
  let count=0;
  for(const boss of bosses){
   await page.selectOption('#boss',boss);
+  if(fieldMode){
+   const name=await page.locator('#boss option:checked').innerText();
+   const node=new URL(await page.locator('#arena').getAttribute('href'),page.url()).searchParams.get('node');
+   assert(roster.some(b=>b.node===node&&name.startsWith(b.name)),boss);
+  }
   const poses=await page.locator('#pose option').evaluateAll(opts=>opts.map(o=>o.value));
   for(const pose of poses){
    await page.selectOption('#pose',pose);
@@ -96,6 +106,6 @@ try{
    count++;
   }
  }
- assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+14);
+ assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+(fieldMode?0:14));
  console.log(bosses.length+' bosses, '+count+' poses, all three canvases painted');
 }finally{await browser.close()}

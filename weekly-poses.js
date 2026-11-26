@@ -2,7 +2,28 @@ import {paintSprite,rectangleCount,packedGeometrySize,spriteBounds} from './spri
 
 const boss=document.querySelector('#boss'),pose=document.querySelector('#pose');
 const result=document.querySelector('#result'),canvases=[...document.querySelectorAll('canvas')];
+const fieldMode=new URL(location.href).searchParams.get('group')==='field';
 const names={
+ peck_ready:'くちばしの構え',peck:'ついばみ',crouch:'かがむ',spring:'跳ね上がり',stagger:'よろめき',spores:'胞子', slam_ready:'叩きつけの構え',
+ slam:'叩きつけ',sweep_ready:'薙ぎ払いの構え',sweep:'薙ぎ払い',bolts:'連弾',raised:'持ち上げ',bowed:'うなだれ',impact:'着弾',
+ bud_first:'一つ目のつぼみ',bud_second:'二つ目のつぼみ', windup:'振りかぶり',claw_first:'一段目の爪',claw_second:'二段目の爪',tail_ready:'尾の構え',tail_sweep:'尾の薙ぎ払い',
+ charge:'突進',burst:'放出',gather:'集束',branches:'枝',rain:'雨',vine:'つる',ball:'球体',
+ core:'核',ray:'光線',pillars:'柱',cloak:'隠蔽',recover:'復帰',stream:'奔流',dive:'潜行',
+ emerge:'出現',bolt:'弾',fall:'落下',rings:'環',guard:'防御',fire:'発射',exposed:'露出',
+ dim:'消灯',stones:'岩',quake:'震動',spear:'槍',hammer:'槌',merge:'合体',surge:'奔流',
+ settled:'静止',half:'半展開',attack:'攻撃',focus:'集中',bow:'お辞儀',conduct:'指揮',water:'水流',
+ rest:'休息',wing:'翼','gold-hover':'金焔・滞空','gold-dive':'金焔・急降下',feather:'羽根',fruit:'果実','claw-a':'爪・一段目',
+ 'claw-b':'爪・二段目',beam:'光線',collector:'集積器','stem-ready':'茎の構え','stem-strike':'茎の一撃','wing-ready':'翼の構え','wing-strike':'翼の一撃',
+ 'fungus-ready':'キノコンの構え','fungus-strike':'キノコンの一撃','slam-ready':'叩きつけの構え','slam-strike':'叩きつけ',fissure:'地割れ',lunge:'踏み込み',eruption:'噴出',
+ overburn:'過熱',molten:'溶融','blade-ready':'刃の構え','blade-cross':'交差斬り',purge:'放出',cooled:'冷却',crest:'冠',
+ plume:'羽飾り',punch:'拳',stomp:'踏みつけ',mecha:'機械形態','saw-ready':'丸鋸の構え',cannon:'砲撃',heated:'加熱',
+ ward:'防壁',gloom:'暗転',shield:'盾',fisher:'釣り',kick:'蹴り',green:'緑色形態',flame:'炎',
+ cocoon:'繭',anchor:'錨',cast:'詠唱',ritual:'儀式',reflection:'幻影',throw:'投擲',monitor:'監視',
+ star:'星',slash:'斬撃',coffin:'棺',rake:'引っかき',bloom:'開花',drink:'吸収',wing_first:'翼・一段目',
+ wing_second:'翼・二段目',dash:'突進',roll:'回転',bombs:'爆弾',drill:'ドリル',ram:'体当たり',jaw:'顎',
+ skull:'頭骨',dolphin:'イルカ',boar:'イノシシ',snake:'ヘビ',fist:'拳',wheel:'車輪',clap:'挟撃',
+ feathers:'羽根',blade:'刃',rocket:'ロケット',plow:'除雪板',vent:'排気',scrape:'地面をかく',braced:'踏ん張り',
+ heating:'加熱中',cracked:'ひび割れ',
  hover:'滞空',glide:'滑空',perch:'着地',breath:'ブレス',roar:'咆哮',down:'ダウン',claw:'爪',head:'頭',crystal:'結晶',orb:'弾',
  'perch-body':'着地・胴体','breath-body':'ブレス・胴体',ready:'待機',swipe:'前脚',tail:'尾',leap:'跳躍',run:'疾走',land:'着地',rise:'立ち上がり',howl:'遠吠え',
  meter:'計器',sight:'照準',pendulum:'振り子',swing:'振り',stand:'直立',reset:'復帰',closed:'閉鎖',open:'展開',shuttle:'杼',broken:'破損',
@@ -31,11 +52,24 @@ function paintRects(ctx,rects=[]){
 }
 const aliases={surveyor:'surveyorArt',loom:'loomArt',primal_fire:'primalWeeklyArt',game_before_gate:'gateWeeklyArt',false_moon:'falseMoonWeeklyArt'};
 try{
- const [{weeklyBosses},groups]=await Promise.all([read('content/weekly-boss-spawns.json'),read('content/weekly-pose-files.json')]);
- const entries=new Map(weeklyBosses.map(b=>[b.controller,{...b,poses:groups[aliases[b.controller]??b.controller+'WeeklyArt']}]));
+ const kind=fieldMode?'field-boss':'weekly';
+ const [roster,groups]=await Promise.all([read('content/'+(fieldMode?'field':'weekly')+'-boss-spawns.json'),read('content/'+kind+'-pose-files.json')]);
+ let entries;
+ if(fieldMode){
+  document.title=document.querySelector('h1').textContent='フィールドボスの形態・部位比較';
+  entries=new Map();
+  const special={cryo:'cryoRegisvine',pyro:'pyroRegisvine',primo:'primoGeovishap',rimebiter:'bathysmal',bolteater:'bathysmal'};
+  for(const [group,{poses,idleAnchor}] of Object.entries(groups)){
+   const key=group.replace(/(?:Field)?Art$/,'');
+   const boss=roster.fieldBosses.find(b=>b.node==='icewind-'+key+'-field'||b.controller===(special[key]??key));
+   if(!boss)throw Error(group);
+   const part={rimebiter:'・噛氷',bolteater:'・呑雷'}[key]??'';
+   entries.set(key,{...boss,name:boss.name+part,poses,idleAnchor});
+  }
+ }else entries=new Map(roster.weeklyBosses.map(b=>[b.controller,{...b,poses:groups[aliases[b.controller]??b.controller+'WeeklyArt']}]));
  for(const [controller,b] of entries)boss.add(new Option(b.name,controller));
  const params=new URL(location.href).searchParams;
- boss.value=entries.has(params.get('boss'))?params.get('boss'):'andrius';
+ boss.value=entries.has(params.get('boss'))?params.get('boss'):fieldMode?'battleship':'andrius';
  const pixels=document.querySelector('#palettePixels');
  pixels.checked=params.get('pixels')==='1';
  let repaint;
@@ -73,7 +107,7 @@ try{
   for(const c of canvases)c.hidden=true;
   result.textContent='読み込み中';
   try{
-   const [data,record]=await Promise.all([read('assets/weekly-packed/'+path),forge&&read('evidence/primal-forge-access.json')]);
+   const [data,record]=await Promise.all([read('assets/'+kind+'-packed/'+path),forge&&read('evidence/primal-forge-access.json')]);
    const view=record?.views?.[forge];
    let shot,frame,sceneryRenderer;
    if(scene){
@@ -87,7 +121,7 @@ try{
    if(ticket!==revision)return;
    const image=new Image();image.src='assets/'+data.source;await image.decode();
    if(ticket!==revision)return;
-   const height=shot?.height??Math.min(280,440*data.box[3]/data.box[2]),bounds=spriteBounds(data,height);
+   const height=shot?.height??Math.min(280,440*data.box[3]/data.box[2]),bounds=spriteBounds(asset==='idle'&&selected.idleAnchor!=null?{...data,anchorX:selected.idleAnchor}:data,height);
    repaint=()=>{
     for(const [i,c] of canvases.entries()){
      c.width=shot?960:480;c.height=shot?540:320;

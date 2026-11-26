@@ -15,7 +15,7 @@ count=0
 for name,pose in bundle.items():
     source=json.loads((assets/name).read_bytes())
     grids=source.pop('profiles')
-    packed={key:dict(pack_grid(grid),colors=grid['colors']) for key,grid in grids.items()}
+    packed={key:dict(pack_grid(grid, compact_positions=True),colors=grid['colors']) for key,grid in grids.items()}
     assert pose==dict(source,profiles=packed),name
     count+=len(grids)
 print(f'{len(bundle)} boss gallery poses and {count} profiles match their source files')

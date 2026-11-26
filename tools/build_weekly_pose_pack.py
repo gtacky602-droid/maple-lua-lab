@@ -19,7 +19,7 @@ if kind == 'field-boss':
 files = sorted({name for poses in catalog.values()
                 for name in ([poses] if isinstance(poses,str) else poses.values())})
 before, after = pack_pose_files(assets, out, files, archive=assets/f'{kind}-poses.zip',
-                                compact_positions=kind == 'weekly')
+                                compact_positions=kind in ('weekly', 'field-boss'))
 if kind == 'quest':
     graph = json.loads((root/'content/story-graph.json').read_bytes())
     clue_keys = {step['teaClue']['art'] for quest in graph['quests'] if quest.get('teaCase')
