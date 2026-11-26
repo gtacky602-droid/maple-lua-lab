@@ -20,7 +20,7 @@ try{
   const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
   const scale=sample?0.62:1.6;
   const bounds=spriteBounds(art,height*scale,-(sample?.lift??0)*scale);
-  let original;
+  let original,lightOverlap;
   const quality=el('quality'),region=el('bodyRegion').value;
   if(quality.open)quality.querySelector('tbody').replaceChildren();
   for(const canvas of canvases){
@@ -45,6 +45,7 @@ try{
     if(!profile)original=pixels;
     else{
      const score=compareMasks(original,pixels),row=quality.querySelector('tbody').insertRow();
+     if(profile==='h32c16'&&score.union)lightOverlap=score.overlapPercent;
      for(const value of [profile==='h48c32'?'32色':'16色',score.union?score.overlapPercent.toFixed(1)+'%':'—',score.meanRgbError?.toFixed(2)??'—'])row.insertCell().textContent=value;
     }
    }
@@ -55,22 +56,30 @@ try{
   }
   el('phase').textContent=(phase+1)+' / '+(samples()?.length??frames.length)+' コマ'+(sample?'・'+(sample.ground?'接地':'地面から '+sample.lift.toFixed(1)+' px'):'');
   el('phase').dataset.file=files[side.value][pose+1];
+  if(quality.open){
+   const url=new URL(location.href);
+   for(const [key,value] of Object.entries({side:side.value,motion:motion.value,frame:phase+1,region}))url.searchParams.set(key,value);
+   el('frameLink').href=url.href;
+  }
+  return lightOverlap;
  }
  function advance(){phase=(phase+1)%(samples()?.length??frames.length);draw()}
  function schedule(){
   clearInterval(timer);play.textContent=playing?'一時停止':'再生';
   if(playing&&frames.length)timer=setInterval(advance,samples()?50:160);
  }
- async function select(){
+ async function select(initialFrame=0){
   const value=side.value,token=++version;frames=[];phase=0;schedule();
-  play.disabled=step.disabled=true;el('error').textContent='';
+  play.disabled=step.disabled=el('worstFrame').disabled=true;el('error').textContent='';el('frameLink').removeAttribute('href');
   try{
    if(!cache.has(value))cache.set(value,Promise.all(Object.values(files[value]).map(async file=>{
     const art=await json('assets/motion-packed/'+file);return {art,image:await sheet(art.source)};
    })).catch(e=>{cache.delete(value);throw e}));
    const selected=await cache.get(value);
    if(token!==version)return;
-   frames=selected;draw();play.disabled=step.disabled=false;schedule();
+   frames=selected;
+   if(Number.isInteger(initialFrame)&&initialFrame>=0&&initialFrame<(samples()?.length??frames.length))phase=initialFrame;
+   draw();play.disabled=step.disabled=el('worstFrame').disabled=false;schedule();
   }catch{if(token===version)el('error').textContent='走行素材を読み込めませんでした。'}
  }
  play.onclick=()=>{playing=!playing;schedule()};
@@ -80,6 +89,16 @@ try{
   if(frames.length)draw();
  };
  el('bodyRegion').onchange=()=>{if(frames.length)draw()};
+ el('worstFrame').onclick=()=>{
+  playing=false;schedule();
+  let lowest=Infinity,first=phase;
+  const count=samples()?.length??frames.length;
+  for(phase=0;phase<count;phase++){
+   const overlap=draw();
+   if(overlap<lowest){lowest=overlap;first=phase}
+  }
+  phase=first;draw();
+ };
  const measure=el('measure');
  measure.addEventListener('toggle',async()=>{
   if(!measure.open||measure.dataset.loaded)return;
@@ -115,5 +134,10 @@ try{
    scene.onchange=showSizes;showSizes();wire.dataset.loaded='ready';
   }catch{delete wire.dataset.loaded;el('error').textContent='転送量を読み込めませんでした。'}
  });
- side.onchange=motion.onchange=select;await select();
+ const params=new URL(location.href).searchParams;
+ for(const [key,control] of [['side',side],['motion',motion],['region',el('bodyRegion')]]){
+  if([...control.options].some(o=>o.value===params.get(key)))control.value=params.get(key);
+ }
+ if(params.has('frame')){playing=false;el('quality').open=true}
+ side.onchange=motion.onchange=()=>select();await select(Number(params.get('frame'))-1);
 }catch{el('error').textContent='走行素材の一覧を読み込めませんでした。'}

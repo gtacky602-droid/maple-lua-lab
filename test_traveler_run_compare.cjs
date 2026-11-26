@@ -10,6 +10,7 @@ const catalog=require('./content/motion-pose-files.json');
   await page.click('#quality summary');
   for(const side of ['right','left']){
    await page.selectOption('#side',side);
+   const feet=[];
    for(let phase=1;phase<=4;phase++){
     const file=catalog[side][phase];
     await page.waitForFunction(f=>document.getElementById('phase').dataset.file===f,file);
@@ -31,10 +32,23 @@ const catalog=require('./content/motion-pose-files.json');
      assert.equal(actual.length,2);
      assert(actual.every(r=>/色[\d.]+%[\d.]+$/.test(r)),file+' '+region);
      assert.equal(await page.locator('.motion-frame[data-band]').count(),region==='all'?0:3);
+     if(region==='lower')feet.push(parseFloat(await page.locator('#quality tbody tr:last-child td:nth-child(2)').innerText()));
      if(side==='right'&&phase===2&&region==='lower')await page.locator('main').screenshot({path:'evidence/traveler-run-foot-comparison.png'});
     }
     if(phase!==4)await page.click('#step');
    }
+   await page.selectOption('#bodyRegion','lower');
+   await page.click('#worstFrame');
+   const link=await page.locator('#frameLink').getAttribute('href'),best=Number(new URL(link).searchParams.get('frame'));
+   assert.equal(feet[best-1],Math.min(...feet));
+   console.log(side,'foot overlaps',feet,'lowest at',best);
+   await page.goto(link);
+   await page.waitForFunction(f=>document.querySelector('#phase').dataset.file===f,catalog[side][best]);
+   assert.equal(await page.locator('#play').innerText(),'再生');
+   assert.equal(await page.locator('#bodyRegion').inputValue(),'lower');
+   assert.equal(await page.locator('#quality tbody tr').count(),2);
+   if(side==='left')await page.locator('main').screenshot({path:'evidence/traveler-left-run-lowest-foot-overlap.png'});
+   for(let i=best;i<4;i++)await page.click('#step');
   }
   await page.click('#play');
   await page.waitForFunction(()=>document.getElementById('phase').dataset.file.includes('left-sprites-v3'));
@@ -46,11 +60,13 @@ const catalog=require('./content/motion-pose-files.json');
    for(const motion of ['tap','hold']){
     await page.selectOption('#motion',motion);
     const samples=jumps[side][motion];
+    const overlaps=[];
     for(const [i,s] of samples.entries()){
      const label=(i+1)+' / '+samples.length+' コマ・'+(s.ground?'接地':'地面から '+s.lift.toFixed(1)+' px');
      await page.waitForFunction(text=>document.querySelector('#phase').textContent===text,label);
      assert.equal(await page.locator('#phase').getAttribute('data-file'),catalog[side][s.pose]);
      assert.equal(await page.locator('#quality tbody tr').count(),2);
+     overlaps.push(parseFloat(await page.locator('#quality tbody tr:last-child td:nth-child(2)').innerText()));
      if(!s.ground){
       const bottom=await page.locator('#h32c16').evaluate(c=>{
        const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
@@ -60,6 +76,9 @@ const catalog=require('./content/motion-pose-files.json');
      }
      if(i+1<samples.length)await page.click('#step');
     }
+    await page.click('#worstFrame');
+    const link=new URL(await page.locator('#frameLink').getAttribute('href'));
+    assert.equal(overlaps[Number(link.searchParams.get('frame'))-1],Math.min(...overlaps));
    }
   }
   await page.click('#measure summary');
