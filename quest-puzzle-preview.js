@@ -6,6 +6,12 @@ export function setupPuzzlePreview(marker,focus,redraw){
  marker.after(box);
  const [station,form]=box.querySelectorAll('select');
  const jump=box.querySelector('button'),message=box.querySelector('output');
+ const wallJump=document.createElement('button');
+ wallJump.type='button';wallJump.textContent='遮蔽の壁を見る';wallJump.hidden=true;
+ jump.after(wallJump);
+ const restore=document.createElement('button');
+ restore.type='button';restore.textContent='地図を開いた時の折り方に戻す';restore.hidden=true;
+ box.append(restore);
  const silhouette=document.createElement('figure');
  silhouette.hidden=true;
  silhouette.innerHTML='<canvas width="340" height="108"></canvas><figcaption></figcaption>';
@@ -24,16 +30,27 @@ export function setupPuzzlePreview(marker,focus,redraw){
    form.replaceChildren(...options);
    form.value=String(choices[index]);
   }
+  restore.hidden=!point.forms;
+  restore.disabled=!point.forms || choices.every((value,i)=>value===point.forms[i]);
   const selected=shape(index);
   viewingShape=false;
   jump.textContent='できる足場を見る';
   jump.disabled=!selected?.platforms?.length&&!selected?.wall;
+  wallJump.hidden=!selected?.wall || !selected.platforms?.length;
   message.textContent=selected?.line??site.hint??'';
   drawView(library?.[point.node]?.[index]?.view);
   focus({...point,x:site.x,y:site.y,name:site.name});
  }
+ restore.onclick=()=>{choices=point.forms.slice();show();redraw()};
  station.onchange=()=>{show();redraw()};
  form.onchange=()=>{choices[station.selectedIndex]=Number(form.value);show();redraw()};
+ wallJump.onclick=()=>{
+  const wall=shape(station.selectedIndex).wall;
+  viewingShape=true;
+  document.getElementById('camera').value=wall.x+wall.w/2-480;
+  jump.textContent='操作盤へ戻る';
+  redraw();
+ };
  jump.onclick=()=>{
   const selected=shape(station.selectedIndex),p=selected.platforms?.[0]??selected.wall;
   viewingShape=!viewingShape;
@@ -58,7 +75,7 @@ export function setupPuzzlePreview(marker,focus,redraw){
    }
    station.replaceChildren(...point.stations.map(s=>new Option(s.name)));
    station.selectedIndex=point.initialStation??0;
-   choices=point.stations.map(s=>s.initial??0);
+   choices=point.forms?.slice()??point.stations.map(s=>s.initial??0);
    show();
   },
   draw(ctx,camera){
@@ -81,7 +98,8 @@ export function setupPuzzlePreview(marker,focus,redraw){
     for(const p of selected.platforms??[])ctx.fillRect(p.x-camera,p.y,p.w,6);
     if(selected.wall){
      const {x,y,w,h}=selected.wall;
-     ctx.fillRect(x-camera,y,w,h);
+     ctx.fillStyle='#7d8881';ctx.fillRect(x-camera,y,w,h);
+     ctx.fillStyle='#ced2ae';ctx.fillRect(x-camera+2,y+2,w-4,h-5);
     }
    }
   }

@@ -23,7 +23,12 @@ function remainingEnemyPoints(step,progress){
  });
 }
 
-function resonanceGuide(frame,quest,step,index){
+function puzzleGuide(frame,quest,step,index){
+ const folds=frame.storyFoldRoute;
+ if(step?.paperFold && folds?.quest===quest.id && folds.node===step.node){
+  const point={quest:quest.id,node:step.node,step:index+1,forms:folds.forms,station:folds.station};
+  return {label:'現在の折り方と足場を見る',url:surveyPointUrl(point)};
+ }
  const route=frame.storyResonanceRoute;
  if(!step?.resonanceOrder || route?.quest!==quest.id || !route.nextPattern)return null;
  const point={quest:quest.id,node:step.node,step:index+1,lit:route.lit};
@@ -47,8 +52,8 @@ export function atlasQuestObjectives(frame,q,node){
    objectives.push({text,points:remainingEnemyPoints(step,progress)});
    return;
   }
-  const resonance=step?.node===node && resonanceGuide(frame,q,step,index);
-  if(resonance){objectives.push({text,points:[resonance]});return}
+  const puzzle=step?.node===node && puzzleGuide(frame,q,step,index);
+  if(puzzle){objectives.push({text,points:[puzzle]});return}
   const points=[];
   for(let i=0;i<Math.max(1,choices);i++){
    const point=surveyPoint(q,index,node,room,path?.id,choices?i+1:undefined);
@@ -321,8 +326,8 @@ export function trackedQuest(f,id,selectedWorksite){
    text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(puzzleStep(patrolStep)&&route.node===patrolStep.node){
-  const resonance=resonanceGuide(f,q,patrolStep,st.count);
-  if(resonance)return {node:route.node,pointUrl:resonance.url,pointLabel:resonance.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+  const puzzle=puzzleGuide(f,q,patrolStep,st.count);
+  if(puzzle)return {node:route.node,pointUrl:puzzle.url,pointLabel:puzzle.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
   const url=surveyPointUrl({node:route.node,quest:q.id,step:st.count+1});
   return {node:route.node,pointUrl:url,pointLabel:'装置の操作場所を見る',text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }

@@ -111,6 +111,7 @@ gate(s,1197,valley)
 assert len(s.platforms)==2
 collect(s,second,0,235)
 assert frame(s).storyPaper.choice=='一枚の長橋'
+assert list(frame(s).storyFoldRoute.forms.values())==[1,0,0]
 collect(s,second,0,235,key='story_paper_confirm')
 assert '低い橋だけ' in s.storyNotice
 walk(s,621);jump(s,652,464)

@@ -131,9 +131,14 @@ return function(canInspect)
     rect(draws,x+2,wall.y+2,wall.w-4,wall.h-5,'#ced2ae')
    end
   end
-  if not step or not step.paperFold or s.paused then return end
+  if not step or not step.paperFold then return end
   local i,panel=nearPanel(s,board)
-  if not panel then return end
+  local forms={}
+  for j,site in ipairs(board.panels) do
+   forms[j]=(s.paperChoices and s.paperChoices[j]) or site.initial or 0
+  end
+  f.storyFoldRoute={quest=board.quest,node=s.story.node,forms=forms,station=i}
+  if not panel or s.paused then return end
   local index=(s.paperChoices and s.paperChoices[i]) or panel.initial
   local form=panel.forms[index]
   f.storyNearbyMilestone={label=panel.name..'の折り方を変える'}

@@ -1011,6 +1011,14 @@ try{
    point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
     surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
   }
+  if(point?.stations && n===openingNode && n.paperBoard && query.has('folds')){
+   const values=query.get('folds').split(',').map(value=>/^\d+$/.test(value)?Number(value):-1);
+   if(values.length===point.stations.length && values.every((v,i)=>v>=(point.stations[i].initial?1:0) && v<=point.stations[i].forms.length)){
+    point.forms=values;
+    const panel=Number(query.get('panel'));
+    if(Number.isInteger(panel) && panel>=1 && panel<=values.length)point.initialStation=panel-1;
+   }
+  }
   if(point?.stations && n===openingNode && n.resonance?.order && query.has('lit')){
    const lit=Number(query.get('lit')),order=n.resonance.order;
    if(Number.isInteger(lit) && lit>=0 && lit<order.length){

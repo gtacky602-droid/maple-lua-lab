@@ -84,6 +84,10 @@ export function surveyPointUrl(point){
   params.set('tier','4096');
  }else{
   params.set('step',String(point.step));
+  if(point.forms){
+   params.set('folds',point.forms.join(','));
+   if(point.station)params.set('panel',String(point.station));
+  }
   if(point.lit!=null)params.set('lit',String(point.lit));
   if(point.choice)params.set('choice',String(point.choice));
   if(point.path)params.set('path',point.path);

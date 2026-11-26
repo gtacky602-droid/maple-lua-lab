@@ -204,6 +204,27 @@ try{
   assert.equal((await frame()).platforms.length,2);
   await walk(235);await fold('一枚の長橋');await fold('小さな階段');
   await walk(398);await fold('低い継ぎ板');await fold('短い橋');
+  await page.locator('[data-quest="'+second+'"]').getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+  await page.locator('#trackedQuestMap').click();
+  const link=page.locator('#atlasQuestPoint');
+  await link.waitFor();
+  assert.equal(await link.innerText(),'現在の折り方と足場を見る');
+  const [preview]=await Promise.all([page.waitForEvent('popup'),link.click()]);
+  try{
+    const station=preview.getByLabel('操作場所'),form=preview.getByLabel('紙の形');
+    await station.waitFor();
+    assert.equal(await station.locator('option:checked').textContent(),'中央の板');
+    assert.equal(await form.locator('option:checked').textContent(),'短い橋');
+    await station.selectOption({index:0});
+    assert.equal(await form.locator('option:checked').textContent(),'小さな階段');
+    await station.selectOption({index:2});
+    assert.equal(await form.inputValue(),'0');
+    await form.selectOption('3');
+    await preview.getByRole('button',{name:'できる足場を見る'}).click();
+  }finally{await preview.close()}
+  await page.bringToFront();
+  await page.keyboard.press('Escape');
+  assert.deepEqual((await frame()).storyFoldRoute.forms,[2,2,0]);
   await walk(556);await fold('斜めに落ちる板');await fold('高すぎる棚');await fold('遮蔽付きの踏み台');
   await page.click('#paperConfirm');
   await count(second,1);
