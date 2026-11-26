@@ -5,7 +5,10 @@ const catalog=JSON.parse(await fs.readFile(`content/${kind}-art-gallery.json`,'u
 const b=await chromium.launch({headless:true,channel:'chrome'});
 const p=await b.newPage({viewport:{width:1440,height:1100}}),errors=[];
 p.on('pageerror',e=>errors.push(e.message));
-const state=()=>p.evaluate(()=>window.mapArt);
+async function state(){
+ await p.waitForFunction(()=>window.mapArt?.ready);
+ return p.evaluate(()=>window.mapArt);
+}
 try{
  await p.goto((process.env.LAB_URL||'http://127.0.0.1:8769')+'/map-art.html');
  await p.waitForFunction(()=>window.mapArt?.ready,null,{timeout:60000});

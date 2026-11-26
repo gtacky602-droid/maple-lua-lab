@@ -152,15 +152,13 @@ try{
    const option=document.createElement('option');option.value=id;option.textContent=name;$('species').append(option);
   }
  }
- const galleryFiles=new Map(),idleCandidates=new Map();
+ const galleryFiles=await json('assets/placement-pose-index.json');
+ const idleCandidates=new Map();
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
-  const [gallery,packed]=await Promise.all([json('content/'+file),json('assets/'+kind+'-gallery-packed.json')]);
+  const gallery=await json('content/'+file);
   const group=document.createElement('optgroup');group.label=label;
   const loaded=gallery.items.map(item=>{
-   const data=packed[item.file],left=packed[item.leftFile],rear=item.rear&&packed[item.rear.file];
-   galleryFiles.set(item.file,data);
-   if(left)galleryFiles.set(item.leftFile,left);
-   if(rear)galleryFiles.set(item.rear.file,rear);
+   const data=galleryFiles[item.file],left=galleryFiles[item.leftFile],rear=item.rear&&galleryFiles[item.rear.file];
    const size={h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
    return {item,art:{...data,...size,left:left&&{...left,...size}}};
   });
@@ -170,7 +168,7 @@ try{
  for(const boss of weeklyData.weeklyBosses){
   const pose=boss.openingPose;
   if(pose){
-   const data=await json('assets/weekly-packed/'+pose.file);
+   const data=galleryFiles['weekly/'+pose.file];
    assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,heldArt:pose.heldArt,clipToViewport:pose.clipToViewport};
    $('species').append(new Option(boss.name+'（開戦時）',boss.mapIdleArt));
   }
@@ -253,16 +251,10 @@ try{
  for(const [node,scene] of Object.entries(openings)){
   arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
  }
- const mechanismFiles=new Map();
  for(const [node,scene] of Object.entries(mechanismScenes)){
   arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
   for(const part of scene.parts){
-   if(part.file && !mechanismFiles.has(part.file))mechanismFiles.set(part.file,json('assets/weekly-packed/'+part.file));
-  }
- }
- for(const scene of Object.values(mechanismScenes)){
-  for(const part of scene.parts){
-   const data=part.file?await mechanismFiles.get(part.file):{box:part.box};
+   const data=part.file?galleryFiles['weekly/'+part.file]:{box:part.box};
    assets[part.species]={...data,h:part.h,hover:0,anchorX:part.anchorX??.5,openingPose:true,
     marks:part.marks,displayName:part.name};
    $('species').append(new Option(part.name,part.species));
@@ -274,7 +266,7 @@ try{
  for(const scene of Object.values(trialScenes)){
   for(const part of scene.parts){
    if(!part.file || assets[part.species])continue;
-   const cached=galleryFiles.get(part.file);
+   const cached=galleryFiles[part.file];
    assets[part.species]={...(cached??{poseFile:part.file}),box:part.box,h:part.h,hover:part.hover,displayName:part.name};
    $('species').append(new Option(part.name,part.species));
   }
@@ -288,11 +280,14 @@ try{
    const promise=json('assets/'+art.poseFile).then(async data=>{
     const image=images[data.source]??(await loadImageSet([data.source]))[data.source];
     images[data.source]=image;
-    Object.assign(art,data,{image});
+    return {...data,image};
    }).catch(error=>{fieldPoseLoads.delete(art.poseFile);throw error});
    fieldPoseLoads.set(art.poseFile,promise);
   }
-  return fieldPoseLoads.get(art.poseFile);
+  return fieldPoseLoads.get(art.poseFile).then(data=>{
+   // A placed copy may override the shared pose's anchor, crop or height.
+   Object.assign(art,{...data,...art,image:data.image});
+  });
  }
  const sharedLegendArt=liveView?setupSharedLegendArt(layouts,assets):null;
  const legendNames=new Map(fieldData.fieldBosses.filter(b=>b.id.startsWith('legend-')).map(b=>[b.node,b.name]));
@@ -335,15 +330,17 @@ try{
  function placements(){return drafts.nodes[node().id]??[]}
  function previewCandidate(e){return liveView && $('candidateIdle').checked && idleCandidates.has(e.id)}
  $('candidateIdle').onchange=render;
+ function openingPart(e){return openings[node().id]?.parts.find(p=>p.id===e.id&&p.species===e.species)}
+ function placementSource(e,part){
+  const original=assets[e.species];
+  if(part)return previewCandidate(e)?assets[idleCandidates.get(e.id)]:original;
+  return e.flip&&original.left?original.left:original;
+ }
  function placementArt(e){
-  const original=assets[e.species],art=e.flip&&original.left?original.left:original;
+  const part=openingPart(e),art=placementSource(e,part);
   const boss=arenaPreviews.get(node().id);
-  const part=openings[node().id]?.parts.find(p=>p.id===e.id && p.species===e.species);
-  if(part && previewCandidate(e)){
-   const candidate=assets[idleCandidates.get(e.id)];
-   return {...candidate,h:part.h,hover:part.hover,openingPose:true,mirrorSource:true};
-  }
-  if(part)return {...original,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,weaponMarks:part.weaponMarks,behind:part.behind,rotation:part.rotation,anchorY:part.anchorY,openingPose:true,mirrorSource:true,rear:null};
+  if(part && previewCandidate(e))return {...art,h:part.h,hover:part.hover,openingPose:true,mirrorSource:true};
+  if(part)return {...art,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,weaponMarks:part.weaponMarks,behind:part.behind,rotation:part.rotation,anchorY:part.anchorY,openingPose:true,mirrorSource:true,rear:null};
   if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
    if(boss.controller==='branchLegend' && boss.openingPose){
     const h=boss.artScale?art.box[3]*boss.artScale:Math.round(boss.artHeight*(boss.poseHeights?.idle??1));
@@ -384,12 +381,19 @@ try{
  const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render,()=>{$('lampMode').value='dark'});
  const updateDetail=setupSceneryDetail(liveView,query);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
- let fidelityKey,profileTableKey;
+ let fidelityKey,profileTableKey,renderRevision=0;
  function render(){
+  const revision=++renderRevision;
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera);
   if(n.localLight)$('lampNote').textContent=darkRoom(n)?'消灯中。影の足場を渡ると上段の門へ進めます。':'点灯中。操作盤のそばでGを押すと、影の足場と門が現れます。';
-  const missing=[...new Set(items.map(e=>assets[e.species]).filter(a=>a.poseFile&&!a.image))];
+  const layers=new Set();
+  for(const item of items){
+   const part=openingPart(item),body=placementSource(item,part);
+   layers.add(body);
+   if(body.rear&&(!part||previewCandidate(item)))layers.add(body.rear);
+  }
+  const missing=[...layers].filter(art=>art?.poseFile&&!art.image);
   const watchSteps=liveView&&n.stealthRoute?questsById.get(n.stealthRoute.quest).itinerary.filter(s=>s.cover):[];
   for(const {cover} of watchSteps){
    if(!patrolArt.has(cover.art))patrolArt.set(cover.art,{poseFile:'ina-sayu-route-'+cover.art+'-sprites-v1.json',openingPose:true});
@@ -415,8 +419,13 @@ try{
    $('status').textContent='会場の登場ポーズを読み込み中';
    for(const canvas of [$('png'),$('rect')])canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
    Promise.all(missing.map(loadFieldPose)).then(()=>{
-    if(node().id===n.id)render();
-   }).catch(error=>{if(node().id===n.id)$('status').textContent='登場ポーズを読み込めません：'+error.message});
+    if(revision===renderRevision)render();
+   }).catch(error=>{
+    if(revision!==renderRevision)return;
+    const retry=document.createElement('button');
+    retry.textContent='もう一度読み込む';retry.onclick=render;
+    $('status').replaceChildren('登場ポーズを読み込めません：'+error.message+' ',retry);
+   });
    return;
   }
   const otherView=new URLSearchParams({node:n.id,tier:$('backgroundTier').value});

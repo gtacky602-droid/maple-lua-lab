@@ -21,8 +21,8 @@
         "canvasSha256": "9d452d7595e99014f834db8dc407677678143c01c3ad737918bb5ca3e0d4485d"
       },
       "after": {
-        "requests": 51,
-        "assetJsonBytes": 17589194,
+        "requests": 36,
+        "assetJsonBytes": 1047497,
         "canvasSha256": "9d452d7595e99014f834db8dc407677678143c01c3ad737918bb5ca3e0d4485d"
       }
     },
@@ -33,8 +33,8 @@
         "canvasSha256": "c1d213f079cd3c1e24bf1a907ec1bf893a8aa7e31030a6a3398c94f56ebb0284"
       },
       "after": {
-        "requests": 51,
-        "assetJsonBytes": 17589194,
+        "requests": 37,
+        "assetJsonBytes": 1140605,
         "canvasSha256": "c1d213f079cd3c1e24bf1a907ec1bf893a8aa7e31030a6a3398c94f56ebb0284"
       }
     }

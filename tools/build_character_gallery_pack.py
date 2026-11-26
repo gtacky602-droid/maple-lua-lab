@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 from palette_rects import pack_grid
+from build_placement_pose_index import build_placement_pose_index
 
 root = Path(__file__).resolve().parents[1]
 assets = root / 'assets'
@@ -30,4 +31,6 @@ for file in dict.fromkeys(files):
                        for name,grid in art['profiles'].items()}
     packed[file] = art
 output.write_bytes((json.dumps(packed, ensure_ascii=False, separators=(',', ':'))+'\n').encode())
+if gallery in ('character', 'boss'):
+    build_placement_pose_index(assets)
 print(f'{len(packed)} poses: {source_bytes} bytes -> {output.stat().st_size} bytes')
