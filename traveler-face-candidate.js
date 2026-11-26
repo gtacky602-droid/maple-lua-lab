@@ -1,10 +1,11 @@
 import {forEachRectangle} from './sprite-layers.js';
 
 // Sample the eyes and fringe from the source at 88px, keeping the shipped palette.
-export function travelerFaceCandidate(art,image,side){
+export function travelerFaceCandidate(art,image,side,pose){
  const grid=art.profiles.h32c16,scale=88/grid.height;
  const width=grid.width*scale,height=grid.height*scale;
- const box=side==='left'?[6,18,31,39]:[49,18,75,39];
+ const leftBox=pose===4?[8,24,24,37]:[6,18,31,39];
+ const box=side==='left'?leftBox:[49,18,75,39];
  const [left,top,right,bottom]=box,runs=[],palette=new Set();
  forEachRectangle(grid,(x,y,w,h,color)=>{
   palette.add(color);

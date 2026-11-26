@@ -33,8 +33,8 @@ try{
   const pose=sample?sample.pose-1:phase;
   el('footRevision').hidden=motion.value!=='run'||side.value!=='left'||pose!==2;
   const frame=frames[pose],image=frame.image;
-  const refined=pose===2&&faceCandidate.checked;
-  if(refined&&!frame.candidate)frame.candidate=travelerFaceCandidate(frame.art,image,side.value);
+  const refined=faceCandidate.checked&&(pose===2||(side.value==='left'&&pose===3));
+  if(refined&&!frame.candidate)frame.candidate=travelerFaceCandidate(frame.art,image,side.value,pose+1);
   const art=refined?frame.candidate:frame.art,height=pose===0?88:88*art.box[3]/100;
   const nativeRun=!sample&&nativeScale.checked;
   el('nativeScaleControl').hidden=Boolean(sample);
@@ -171,7 +171,7 @@ try{
   }finally{phase=previous;draw()}
   const sideName=side.selectedOptions[0].textContent,part=el('bodyRegion').selectedOptions[0].textContent;
   downloadComparison({canvases:columns,labels:['元PNG','32色版','16色版'],title:'旅人の'+sideName+'走行 ／ '+part+(nativeScale.checked?'（本編の描画寸法）':''),
-   stats:'輪郭は各コマの元PNGとの重なり。'+(faceCandidate.checked?'　3コマ目：16色の顔補正候補':''),note:palettePixels.checked?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
+   stats:'輪郭は各コマの元PNGとの重なり。'+(faceCandidate.checked?'　16色の顔補正候補':''),note:palettePixels.checked?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
    filename:'traveler-run-'+side.value+'-'+region+(nativeScale.checked?'-native':'')+(faceCandidate.checked?'-refined':'')+(palettePixels.checked?'-pixels':'')+'.png',
    onError:()=>{el('error').textContent='走行比較のPNGを書き出せませんでした。'}});
  };

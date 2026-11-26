@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
-import {mkdir} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
 const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
 try{
  const page=await browser.newPage();
  await mkdir('work/pose-exports',{recursive:true});
- for(const side of ['left','right']){
-  const params=new URLSearchParams({frame:3,side,region:'face',pixels:'1'});
+ const metrics=[];
+ for(const [side,frame,scale] of [['left',3,''],['right',3,''],['left',3,'native'],['left',4,'native']]){
+  const params=new URLSearchParams({frame,side,region:'face',pixels:'1',scale});
   await page.goto(new URL('traveler-run-compare.html?'+params,process.env.LAB_URL||'http://127.0.0.1:19745/').href);
   await page.waitForFunction(()=>document.querySelector('#phase').dataset.file);
   const read=()=>page.evaluate(()=>({
@@ -27,6 +28,18 @@ try{
   await page.check('#faceCandidate');const refined=await read();
   assert.notEqual(refined.images[2],cached.images[2]);
   await page.uncheck('#faceCandidate');assert.deepEqual(await read(),cached);
+  if(scale==='native'){
+   assert(refined.score[1]<cached.score[1]);
+   metrics.push({side,frame,originalRectangles:cached.runs,refinedRectangles:refined.runs,
+    originalFaceError:cached.score[1],refinedFaceError:refined.score[1],
+    originalFaceOverlap:cached.score[0],refinedFaceOverlap:refined.score[0]});
+   if(frame===4){
+    await page.check('#faceCandidate');
+    const dl=page.waitForEvent('download');await page.click('#runSheet');
+    await(await dl).saveAs('evidence/traveler-native-left-face-refined.png');
+   }
+  }
   console.log(side,'runs',before.runs,after.runs,'overlap/color',before.score,after.score);
  }
+ await writeFile('evidence/traveler-native-face-refinement.json',JSON.stringify(metrics,null,2)+'\n');
 }finally{await browser.close()}

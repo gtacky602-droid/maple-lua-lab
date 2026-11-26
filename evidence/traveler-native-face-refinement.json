@@ -1,0 +1,22 @@
+[
+  {
+    "side": "left",
+    "frame": 3,
+    "originalRectangles": 550,
+    "refinedRectangles": 738,
+    "originalFaceError": 32.03,
+    "refinedFaceError": 26.29,
+    "originalFaceOverlap": 92.6,
+    "refinedFaceOverlap": 92.9
+  },
+  {
+    "side": "left",
+    "frame": 4,
+    "originalRectangles": 483,
+    "refinedRectangles": 562,
+    "originalFaceError": 31.31,
+    "refinedFaceError": 27.92,
+    "originalFaceOverlap": 92.6,
+    "refinedFaceOverlap": 92.8
+  }
+]
