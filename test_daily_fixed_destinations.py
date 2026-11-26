@@ -28,11 +28,13 @@ def inspect(state):
             visible = core.atlasNodeVisible(state, field)
             core.enterStoryNode(state, field)
             eligible = {p['id'] for p in placements[field] if qualifies(q, p)}
-            present = any(e.spawnId in eligible for e in state.enemies.values())
+            ids = {e.spawnId for e in state.enemies.values() if e.spawnId in eligible}
+            present = bool(ids)
             if visible and present:
                 expected.append(field)
             atlas = core.dailyAtlasQuests(state, field)
-            assert present == any(r.id == q['id'] and r.role == 'field' for r in atlas.values())
+            shown = {i for r in atlas.values() if r.id == q['id'] and r.role == 'field' for i in r.targets.values()}
+            assert ids == shown, (field, q['id'], ids, shown)
         assert list(card.targetNodes.values()) == expected, (q['id'], expected)
         results[q['id']] = expected
     return results

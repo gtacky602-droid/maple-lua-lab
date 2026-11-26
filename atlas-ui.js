@@ -235,6 +235,16 @@ export function initAtlas(action, clearKeys) {
    link.href='daily-field-guide.html?'+new URLSearchParams({quest:q.id});
    link.target='_blank';link.rel='noopener';link.textContent=q.name;
    item.append(q.role==='hub'?'受付・報告（'+q.giver+'）　':'対象の敵が出現　',link);
+   if(q.targets?.length){
+    const params=new URLSearchParams({node:selected.id,placements:'live',dailyName:q.name});
+    for(const id of q.targets)params.append('target',id);
+    for(const id of selected.absentSpawns??[])params.append('absent',id);
+    if(selected.afterReport)params.set('phase','after');
+    const preview=document.createElement('a');
+    preview.href='map-art.html?'+params;preview.target='_blank';preview.rel='noopener';
+    preview.textContent='対象'+q.targets.length+'体の配置を比較';
+    item.append('　',preview);
+   }
    return item;
   }));
   fieldGuide.hidden = !selected?.fieldEnemyCount;

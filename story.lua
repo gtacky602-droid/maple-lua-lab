@@ -1032,6 +1032,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local phase,recovered,defeated=entryPopulation(s,n,railState,route and s.story.quests[route.quest])
   return function(p) return placementActive(p,phase,recovered,defeated) end
  end
+ C.storyEntryFilter=entryFilter
  function C.hasStoryTargetOnEntry(s,id,candidates)
   local active=entryFilter(s,id)
   if active then

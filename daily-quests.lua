@@ -129,14 +129,18 @@ return function(C,config,graph)
   local node=nodes[id]
   local result={}
   if not node then return result end
+  local active=C.storyEntryFilter(s,id)
   for _,q in ipairs(config.quests) do
-   local role
+   local role,targets
    if q.hub==id then role='hub'
-   else
-    local candidates=matchingPlacements(q,node)
-    if #candidates>0 and C.hasStoryTargetOnEntry(s,id,candidates) then role='field' end
+   elseif active then
+    targets={}
+    for _,p in ipairs(matchingPlacements(q,node)) do
+     if active(p) then targets[#targets+1]=p.id end
+    end
+    if #targets>0 then role='field' end
    end
-   if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver} end
+   if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver,targets=targets} end
   end
   return result
  end

@@ -133,6 +133,7 @@ try{
   }
  }
  const absent=new Set(query.getAll('absent'));
+ const dailyTargets=new Set(query.getAll('target'));
  const liveSource=liveView?await json('content/enemy-spawns.json'):null;
  let liveItems=[],liveError='';
  const subject=$('liveSubject');
@@ -595,7 +596,17 @@ try{
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
-  const fieldSubject=Boolean(!openings[n.id] && subject.value && visibleItems.length);
+  const dailyPreview=liveView && n===openingNode && dailyTargets.size>0;
+  const dailyPanel=$('dailyTargetPreview');
+  dailyPanel.hidden=!dailyPreview;
+  if(dailyPreview){
+   dailyPanel.querySelector('span').textContent=(query.get('dailyName')||'日次依頼')+'　入場時の対象 '+items.length+'体';
+   const allParams=new URLSearchParams(query);
+   allParams.delete('target');allParams.delete('dailyName');allParams.delete('subject');
+   allParams.set('profile',profile);allParams.set('camera',camera);
+   dailyPanel.querySelector('a').href='map-art.html?'+allParams;
+  }
+  const fieldSubject=Boolean(!openings[n.id] && (subject.value || dailyPreview) && visibleItems.length);
   $('fidelityControls').hidden=!(liveView && (surveyProps.length || openings[n.id] && visibleItems.length || fieldSubject) && !matchedSprites);
   const measuredSubject=surveyProps.length?'依頼の小物':fieldSubject?'対象の敵':'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
@@ -973,7 +984,10 @@ try{
    liveItems=[];liveError='';
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
-    if(n.id===query.get('node')&&absent.size)liveItems=liveItems.filter(e=>!absent.has(e.id));
+    if(n===openingNode && n.id===query.get('node')){
+     if(absent.size)liveItems=liveItems.filter(e=>!absent.has(e.id));
+     if(dailyTargets.size)liveItems=liveItems.filter(e=>dailyTargets.has(e.id));
+    }
     const openingBoss=liveItems.length>0 && (openings[n.id] || liveItems[0].id===arenaPreviews.get(n.id)?.id);
     if(liveItems.length && (openingBoss || !liveItems.some(e=>e.x>=0 && e.x<960))){
      const focusX=openingBoss?(liveItems[0].x+liveItems.at(-1).x)/2:liveItems[0].x;
