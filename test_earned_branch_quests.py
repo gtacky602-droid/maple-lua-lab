@@ -206,8 +206,10 @@ def choose_test_exit(trip, right):
     return leg
 
 
-def frostmoon():
-    trip = Journey('lv200-save.json')
+def frostmoon(trip=None):
+    standalone = trip is None
+    if standalone:
+        trip = Journey('lv200-save.json')
     assert trip.state.progression.level == 200
     trip.warp('nod-town')
     trip.travel(FROST)
@@ -229,7 +231,7 @@ def frostmoon():
     exits_seen = []
     for stage, index in ((FIRST, 2), (SECOND, 4)):
         trip.travel(stage)
-        if stage == FIRST:
+        if stage == FIRST and standalone:
             (ROOT/'work/earned-frostmoon-first-checkpoint.json').write_text(
                 json.dumps(trip.snapshot(), ensure_ascii=False)+'\n', encoding='utf8')
         exits_seen.append(choose_test_exit(trip, right=False))

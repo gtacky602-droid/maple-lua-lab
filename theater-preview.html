@@ -49,10 +49,10 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <figure data-lake="ninianne" style="margin:0;flex:1 1 240px"><div>第5案A・元絵</div><canvas class="lakeOriginal" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><div>選択中の画質</div><canvas class="lakeVariant" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><figcaption>湖辺のニニアン　<output></output></figcaption><a href="map-art.html?node=ninianne-legend-bank&amp;placements=live">生息地を見る</a></figure>
 <figure data-lake="vivianne" style="margin:0;flex:1 1 240px"><div>第5案A・元絵</div><canvas class="lakeOriginal" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><div>選択中の画質</div><canvas class="lakeVariant" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><figcaption>湖辺のヴィヴィアン　<output></output></figcaption><a href="map-art.html?node=vivianne-legend-bank&amp;placements=live">生息地を見る</a></figure></div>
 <p><a href="evidence/legend-expedition-save.json" download>地方伝説の討伐後のセーブ</a></p></section>
-<section id="legendPassages"><h2>地方伝説への行き方</h2>
+<section id="legendPassages"><h2>地方伝説56体への行き方</h2>
 <label>地方伝説 <select id="passageBoss"></select></label>
 <p id="passageStory" aria-live="polite"></p><ol id="passageSteps"></ol>
-<a id="passageMap" hidden>生息地を地図で開く</a> ／ <a href="evidence/quest-legend-expedition-save.json" download>依頼と討伐を終えたセーブ</a></section>
+<a id="passageMap" hidden>生息地を地図で開く</a> ／ <a href="evidence/original-weekly-expedition-save.json" download>地方伝説56体・璃月の独自週ボス2体を討伐したセーブ</a></section>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -184,10 +184,15 @@ async function loadChallenges(){
   const response=await fetch('evidence/challenge-expedition-route.json');
   if(!response.ok)throw Error();
   const {clears}=await response.json();
-  for(const row of clears)menu.add(new Option((row.kind==='weekly'?'週ボス':'幽境')+'・'+row.name,row.id));
+  const originalResponse=await fetch('evidence/original-weekly-expedition-route.json');
+  if(originalResponse.ok){
+   const original=await originalResponse.json();
+   clears.push(...original.clears.map(row=>({...row,kind:'original'})));
+  }
+  for(const row of clears)menu.add(new Option((row.kind==='weekly'?'週ボス':row.kind==='original'?'璃月の独自週ボス':'幽境')+'・'+row.name,row.id));
   function render(){
    const row=clears[menu.selectedIndex];
-   text.textContent='難度 '+row.mode+' ｜ '+row.seconds.toFixed(1)+'秒 ｜ '+row.rewards[0].toLocaleString('ja-JP')+' EXP・'+row.rewards[1].toLocaleString('ja-JP')+'モラ';
+   text.textContent=(row.questName?'依頼「'+row.questName+'」':'難度 '+row.mode)+' ｜ '+row.seconds.toFixed(1)+'秒 ｜ '+row.rewards[0].toLocaleString('ja-JP')+' EXP・'+row.rewards[1].toLocaleString('ja-JP')+'モラ';
    map.href='map-art.html?'+new URLSearchParams({node:row.node,placements:'live'});map.hidden=false;
   }
   menu.onchange=render;render();
@@ -197,15 +202,14 @@ loadChallenges();
 async function loadPassages(){
  const menu=document.querySelector('#passageBoss'),message=document.querySelector('#passageStory');
  try{
-  const response=await fetch('evidence/quest-legend-expedition-route.json');
+  const response=await fetch('content/legend-passage-guide.json');
   if(!response.ok)throw Error();
   const route=await response.json();
-  for(const win of route.newClears)menu.add(new Option(win.name,win.id));
+  for(const win of route)menu.add(new Option(win.name,win.id));
   function updatePassage(){
-   const win=route.newClears[menu.selectedIndex],q=route.guides[win.quest];
-   const prior=win.quest==='sne-suspicious-lantern'?'先に「'+route.guides['sne-crystal-stream-survey'].name+'」を報告。':'';
-   message.textContent=q.giver?prior+q.hub+'で「'+q.name+'」を受注。報告先は'+q.giver+'。':q.hub+'から夜魂の試練へ。';
-   document.querySelector('#passageSteps').replaceChildren(...q.steps.map(step=>{
+   const win=route[menu.selectedIndex];
+   message.textContent=win.intro;
+   document.querySelector('#passageSteps').replaceChildren(...win.steps.map(step=>{
     const item=document.createElement('li');item.textContent=step;return item;
    }));
    const map=document.querySelector('#passageMap');map.href='map-art.html?'+new URLSearchParams({node:win.node,placements:'live'});map.hidden=false;
