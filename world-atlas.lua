@@ -204,7 +204,7 @@ return function(C, atlas)
   return edge.rideLabel and side..'・'..edge.rideLabel or side
  end
 
- local function route_hint(edge,node,destination)
+ local function route_hint(edge,node,destination,actorY)
   local voyage=node.voyage
   local instruction=edge.darkOnly and '灯りを消して足場を出す'
     or edge.wind and '風が止むまで待つ'
@@ -215,7 +215,17 @@ return function(C, atlas)
       voyage.kind=='ferry' and ('出航から'..voyage.seconds..'秒で着岸')
       or ('発車から'..voyage.seconds..'秒で到着')) or nil
   local parts={}
-  if edge.y and (node.swim or node.toyDive) then parts[#parts+1]='門と同じ深さまで泳ぐ'
+  if edge.y and (node.swim or node.toyDive) then
+   local depth='門と同じ深さまで泳ぐ'
+   if node.swim and node.swim.top and node.swim.bottom then
+    local fraction=(edge.y-node.swim.top)/math.max(1,node.swim.bottom-node.swim.top)
+    depth=(fraction<1/3 and '浅い層' or fraction<2/3 and '中層' or '深い層')..'の門'
+   end
+   if actorY then
+    local dy=edge.y-actorY
+    depth=depth..'（'..(dy>=60 and '今の位置から潜る' or dy<=-60 and '今の位置から浮上' or '今の深さで通れる')..'）'
+   end
+   parts[#parts+1]=depth
   elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
   local gate=not automatic_arrival(node,edge) and (parallel_gate_hint(edge,node) or (not edge.windowStart and edge.rideLabel))
   if gate then parts[#parts+1]=gate end
@@ -397,7 +407,8 @@ return function(C, atlas)
        local automatic=automatic_arrival(node,edge)
        local parallel=not automatic and parallel_gate_hint(edge,node)
        previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
-        label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode),
+        label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode,
+         id==origin and id==s.story.node and not s.lift and s.actors[s.active].y or nil),
         gateX=parallel and edge.x or nil,automaticArrival=automatic}
        queue[#queue+1]=edge.to
       end

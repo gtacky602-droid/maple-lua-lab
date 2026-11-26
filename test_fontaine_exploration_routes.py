@@ -80,7 +80,7 @@ def follow(walk, path, mode):
     assert planned['status'] == 'ready' and [leg['id'] for leg in planned['stops']] == stops, (origin, planned)
     assert all(leg['mode'] == mode for leg in planned['stops']), planned
     if mode == 'swim':
-        assert all(leg['label'] == '遊泳' and '門と同じ深さまで泳ぐ' in leg['hint'] for leg in planned['stops'])
+        assert all(leg['label'] == '遊泳' and 'の門' in leg['hint'] for leg in planned['stops'])
     for dest in stops:
         walk.cross(dest)
 
@@ -113,6 +113,9 @@ def try_legend(host, arena):
 
     mode = 'swim' if nodes[arena].get('swim') else 'walk'
     if mode == 'swim':
+        for offset, instruction in [(-60, '潜る'), (-59, '今の深さで通れる'), (60, '浮上')]:
+            s.actors[s.active].y = gate['y'] + offset
+            assert instruction in guide(s, arena)['stops'][0]['hint']
         walk.approach(gate['x'], gate['y'] - 80, arena)
         core.action(s, 'story_portal:' + arena)
         assert s.story.node == host and not s.story.visited[arena]

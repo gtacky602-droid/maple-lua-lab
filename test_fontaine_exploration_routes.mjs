@@ -26,7 +26,7 @@ async function guideTo(target,screenshot){
  const guide=await page.evaluate(()=>window.lab.frame.worldMap.guide);
  assert.equal(guide.status,'ready');
  assert.deepEqual(guide.stops.map(stop=>[stop.id,stop.mode]),[[target,'swim']]);
- await page.locator('#atlasItineraryStops').getByText(/遊泳.*門と同じ深さまで泳ぐ/).waitFor();
+ await page.locator('#atlasItineraryStops').getByText(/遊泳.*層の門（今の/).waitFor();
  if(screenshot)await atlas.screenshot({path:'evidence/fontaine-ocean-judge-atlas.png'});
  await page.keyboard.press('Escape');
  await atlas.waitFor({state:'hidden'});
