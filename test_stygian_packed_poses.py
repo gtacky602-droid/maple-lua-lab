@@ -14,7 +14,7 @@ def capture_pack(lua,root,filename):
 
 with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader, patch('runtime.load_pose_pack',capture_pack):
     lua,core=runtime()
-    assert not any(call.args[0].parent.name=='stygian-packed' for call in reader.call_args_list)
+    assert not any(call.args[0].parent.name=='stygian-poses.zip' for call in reader.call_args_list)
     reader.reset_mock()
     check=pose_check(lua)
     same=lua.eval('rawequal')
@@ -36,6 +36,7 @@ with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader, patch(
             original.update(overrides.get(part,{}))
             count=reader.call_count
             art=view[key]
+            assert (reader.call_args.args[0].parent.name,reader.call_args.args[0].name)==('stygian-poses.zip',part)
             check(art,lua.table_from(original,recursive=True))
             for attr in ('heightScale','anchorY'):
                 assert art[attr]==original.get(attr)

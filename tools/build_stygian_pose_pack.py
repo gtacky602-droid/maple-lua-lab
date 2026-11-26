@@ -14,5 +14,5 @@ def filenames(node):
             yield from filenames(value)
 
 files = sorted(set(filenames(stygian_parts(root))))
-before,after = pack_pose_files(root/'assets',root/'assets/stygian-packed',files,stygian_overrides(root))
+before,after = pack_pose_files(root/'assets',root/'assets/stygian-packed',files,stygian_overrides(root), archive=root/'assets/stygian-poses.zip')
 print(f'{len(files)} dedicated parts: {before} -> {after} bytes')

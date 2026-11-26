@@ -6,7 +6,7 @@ from packed_pose_test_support import pose_check
 files=json.loads((ROOT/'content/motion-pose-files.json').read_bytes())
 with patch('runtime.read_packed_pose',wraps=read_packed_pose) as reader:
     lua,core=runtime()
-    assert not any(c.args[0].parent.name=='motion-packed' for c in reader.call_args_list)
+    assert not any(c.args[0].parent.name=='motion-poses.zip' for c in reader.call_args_list)
     reader.reset_mock()
     check=pose_check(lua)
     count=0
@@ -22,5 +22,5 @@ with patch('runtime.read_packed_pose',wraps=read_packed_pose) as reader:
             check(art,lua.table_from(original,recursive=True))
             count+=1
             assert reader.call_count==count
-            assert reader.call_args.args[0]==ROOT/'assets'/'motion-packed'/name
+            assert (reader.call_args.args[0].parent.name,reader.call_args.args[0].name)==('motion-poses.zip',name)
 print(f'{count} poses match original profile grids and anchors')

@@ -18,7 +18,7 @@ if kind == 'field-boss':
     catalog = {key: spec['poses'] for key, spec in catalog.items()}
 files = sorted({name for poses in catalog.values()
                 for name in ([poses] if isinstance(poses,str) else poses.values())})
-before, after = pack_pose_files(assets, out, files)
+before, after = pack_pose_files(assets, out, files, archive=assets/f'{kind}-poses.zip')
 if kind == 'quest':
     graph = json.loads((root/'content/story-graph.json').read_bytes())
     clue_keys = {step['teaClue']['art'] for quest in graph['quests'] if quest.get('teaCase')

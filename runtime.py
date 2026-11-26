@@ -224,7 +224,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     filenames={filename for group in quest_files.values()
                for filename in ([group] if isinstance(group,str) else group.values())}
     quest_poses=field_art(lua,'',(),variants={name:name for name in filenames},
-                          prepare_grid=prepare_grid,packed_dir='quest-packed')
+                          prepare_grid=prepare_grid,packed_archive='quest-poses.zip')
     single=lua.eval("""function(store,file)
         return setmetatable({},{
             __index=function(_,key) return store[file][key] end,
@@ -308,7 +308,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     motion=json.loads((ROOT/'content/motion-pose-files.json').read_bytes())
     filenames={file for parts in motion.values() for file in parts.values()}
     motion_poses=field_art(lua,'',(),variants={name:name for name in filenames},
-                           prepare_grid=prepare_grid,packed_dir='motion-packed')
+                           prepare_grid=prepare_grid,packed_archive='motion-poses.zip')
     core.travelerRunArt=lua.table()
     for side in ('left','right'):
         frames=motion[side]
@@ -336,7 +336,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     field_boss_files=json.loads((ROOT/'content/field-boss-pose-files.json').read_bytes())
     for key,spec in field_boss_files.items():
         core[key]=field_art(lua,'',(),variants=spec['poses'],idle_anchor=spec.get('idleAnchor'),
-                            prepare_grid=prepare_grid,packed_dir='field-boss-packed')
+                            prepare_grid=prepare_grid,packed_archive='field-boss-poses.zip')
     lua.execute((ROOT/'field-regisvine.lua').read_text(encoding='utf8'))(core)
     electro_vine=lua.execute((ROOT/'field-electro-regisvine.lua').read_text(encoding='utf-8'))(core)
     cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
@@ -436,7 +436,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     )
     weekly_files=json.loads((ROOT/'content/weekly-pose-files.json').read_bytes())
     for key,files in weekly_files.items():
-        core[key]=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_dir='weekly-packed')
+        core[key]=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_archive='weekly-poses.zip')
     dvalin=lua.execute((ROOT/'weekly-dvalin.lua').read_text(encoding='utf-8'))(core)
     andrius=lua.execute((ROOT/'weekly-andrius.lua').read_text(encoding='utf8'))(core)
     surveyor=lua.execute((ROOT/'weekly-surveyor.lua').read_text(encoding='utf8'))(core)
@@ -471,7 +471,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
         abyss['modes'] = {id: mode for id, mode in abyss['modes'].items() if not mode.get('draft')}
     def stygian_layers(parts):
         files={key:file for key,file in parts.items() if isinstance(file,str)}
-        layers=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_dir='stygian-packed')
+        layers=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_archive='stygian-poses.zip')
         for key,subparts in parts.items():
             if isinstance(subparts,dict):
                 layers[key]=stygian_layers(subparts)

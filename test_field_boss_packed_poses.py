@@ -7,7 +7,7 @@ from runtime import ROOT, runtime, read_packed_pose
 catalog = json.loads((ROOT/'content/field-boss-pose-files.json').read_bytes())
 with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
     lua,core = runtime()
-    assert all(call.args[0].parent.name!='field-boss-packed' for call in reader.call_args_list)
+    assert all(call.args[0].parent.name!='field-boss-poses.zip' for call in reader.call_args_list)
     reader.reset_mock()
     same = lua.eval('rawequal')
     check = pose_check(lua)
@@ -21,7 +21,7 @@ with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
             art = owner[key]
             check(art,lua.table_from(original,recursive=True))
             assert same(owner[key],art)
-            assert reader.call_args.args[0]==ROOT/'assets'/'field-boss-packed'/filename
+            assert (reader.call_args.args[0].parent.name,reader.call_args.args[0].name)==('field-boss-poses.zip',filename)
             poses+=1
             grids+=len(original['profiles'])
             assert reader.call_count==poses

@@ -7,7 +7,7 @@ from runtime import ROOT, runtime, read_packed_pose
 catalog = json.loads((ROOT/'content/weekly-pose-files.json').read_bytes())
 with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
     lua, core = runtime()
-    assert all(call.args[0].parent.name != 'weekly-packed' for call in reader.call_args_list)
+    assert all(call.args[0].parent.name != 'weekly-poses.zip' for call in reader.call_args_list)
     reader.reset_mock()
     check=pose_check(lua)
     poses=profiles=0
@@ -15,7 +15,7 @@ with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
         for key,filename in files.items():
             source=json.loads((ROOT/'assets'/filename).read_bytes())
             check(core[group][key],lua.table_from(source,recursive=True))
-            assert reader.call_args.args[0]==ROOT/'assets'/'weekly-packed'/filename
+            assert (reader.call_args.args[0].parent.name,reader.call_args.args[0].name)==('weekly-poses.zip',filename)
             assert core[group][key].source==source['source']
             poses+=1
             profiles+=len(source['profiles'])
