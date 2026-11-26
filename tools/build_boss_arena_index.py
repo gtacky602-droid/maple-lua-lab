@@ -19,7 +19,7 @@ for group,records in (
         entry={'node':node,'name':boss['name'],'region':nodes[node]['region']}
         if node=='shouki-godmaking-arena':
             entry['opening']={k:boss[k] for k in ['center','floorY','artHeight']}
-            entry['opening']['file']=boss['openingPose']['file']
+            entry['opening'].update({k:boss['openingPose'][k] for k in ['file','chestSourceY']})
         rows.append(entry)
     groups[group]=rows
 (content/'boss-arena-index.json').write_text(json.dumps(groups,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf8')

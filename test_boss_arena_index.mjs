@@ -39,6 +39,18 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile overflow');
  await page.setViewportSize({width:1280,height:900});
+ const before=await card.locator('canvas').evaluateAll(list=>list.map(c=>c.toDataURL()));
+ await page.selectOption('#shoukiForm','armored');
+ const {armoredOutline}=await read('evidence/shouki-weekly-floor-contact-lua.json');
+ assert.equal(new URL(page.url()).searchParams.get('pose'),'armored');
+ for(const [i,url] of before.entries()){
+  assert(await card.locator('canvas').nth(i).evaluate(async(c,{url,rects})=>{
+   const reference=document.createElement('canvas');reference.width=c.width;reference.height=c.height;
+   const ctx=reference.getContext('2d'),image=new Image();image.src=url;await image.decode();ctx.drawImage(image,0,0);
+   for(const r of rects){ctx.globalAlpha=r.opacity??1;ctx.fillStyle=r.color;ctx.fillRect(r.x,r.y,r.w,r.h)}
+   return c.toDataURL()===reference.toDataURL();
+  },{url,rects:armoredOutline}));
+ }
  await page.selectOption('#shoukiForm','candidate');
  assert.equal(await page.evaluate(()=>window.charactersGallery.dimensions.find(x=>x.id==='shouki').h),360);
  await page.selectOption('#shoukiForm','opening');

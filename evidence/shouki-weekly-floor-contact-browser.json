@@ -15,41 +15,41 @@
     "torsoBottom": 480,
     "floor": 480,
     "waistClearance": 0,
-    "full": 744,
-    "trial": 630,
-    "collapse": 600,
+    "armored": 1160,
+    "trial": 1160,
+    "collapse": 1160,
     "upperLeft": -216.32088520055322,
     "upperTop": -680,
-    "fullTop": -264,
+    "armoredTop": -680,
     "machineBehindParty": true,
     "shieldCore": {
+      "y": 298.69986168741355,
       "x": 480,
-      "y": 42.648648648648646,
       "exposed": true
     },
     "trialCore": {
+      "y": 298.69986168741355,
       "x": 480,
-      "y": 26.66216216216219,
       "exposed": false
     }
   },
   "clearReportRestore": true,
-  "remainingHp": 961,
+  "remainingHp": 976,
   "viewport390": true,
   "scene": {
-    "key": "sumeruCanopy",
-    "file": "sumeru-canopy-background-v1.png",
+    "key": "godmakingHall",
+    "file": "godmaking-hall-background-v1.png",
     "state": "ready"
   },
   "upperCommands": {
     "png": 39,
-    "standard": 10483,
-    "light": 2750
+    "standard": 7320,
+    "light": 2474
   },
   "commands": {
     "png": 15,
-    "standard": 11650,
-    "light": 2892
+    "standard": 7296,
+    "light": 2450
   },
   "errors": []
 }

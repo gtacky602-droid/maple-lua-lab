@@ -12,7 +12,11 @@ async function add(id,name,data,h,leftData,rear){
   const label=document.createElement('label');
   label.textContent='表示する姿 ';
   const pose=document.createElement('select');pose.id='shoukiForm';
-  pose.add(new Option('会場開幕・くびれから上','opening'));pose.add(new Option('全身の待機候補','candidate'));
+  pose.add(new Option('会場開幕・くびれから上','opening'));
+  pose.add(new Option('装甲起動後・胸の核','armored'));
+  pose.add(new Option('全身の待機候補','candidate'));
+  const requested=new URL(location.href).searchParams.get('pose');
+  if([...pose.options].some(o=>o.value===requested))pose.value=requested;
   label.append(pose);article.querySelector('.pair').before(label);
   const link=document.createElement('a');
   link.href='map-art.html?node=shouki-godmaking-arena&placements=live';
@@ -92,7 +96,8 @@ try{
  function render(){const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   updateUrl();const dimensions=[];
   for(const {id,name,right,left,article,h:sheetHeight,rear} of assets){
-   const arena=id==='shouki'&&$('shoukiForm').value==='opening'?shoukiOpening:null;
+   const form=id==='shouki'?$('shoukiForm').value:null;
+   const arena=form&&form!=='candidate'?shoukiOpening:null;
    const {data,image}=arena??(flip&&left?left:right);
    const h=arena?.artHeight??sheetHeight,ratio=data.box[2]/data.box[3],w=h*ratio;
    dimensions.push({id,h,w,ratio,source:data.source,...(rear&&{rearSource:rear.data.source})});
@@ -122,15 +127,25 @@ try{
      painted.push((selected==='legacy'?'標準':selected==='h48c32'?'32色':'16色')+' '+visible.toLocaleString('ja-JP')+'矩形');
     }else paintSprite(ctx,data,image,body,selected);
     ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,arena?.floorY??(canvas.height-15),canvas.width,1);
+    if(form==='armored'){
+     const x=arena.center,y=floor-h*(data.box[1]+data.box[3]-arena.chestSourceY)/data.box[3];
+     ctx.fillStyle='#b9f2a9';ctx.globalAlpha=.22;ctx.fillRect(x-18,y-19,36,38);ctx.globalAlpha=1;
+     ctx.fillRect(x-19,y-21,38,4);ctx.fillRect(x-19,y+17,38,4);
+     ctx.fillRect(x-21,y-17,4,34);ctx.fillRect(x+17,y-17,4,34);
+    }
    }
    const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);
    const runs=total(profile);
    const standard=total('legacy');
    article.querySelector('.stats').textContent=both?`32色版 ${total('h48c32')}矩形 ／ 16色版 ${total('h32c16')}矩形${rear?'（翼込み）':''}`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
-   if(arena)article.querySelector('.stats').textContent='開幕の画角 960×540 px ／ 腰の位置は床面 ／ 表示高 '+h.toLocaleString('ja-JP')+' px ／ 画面内の描画：'+painted.join('・');
+   if(arena)article.querySelector('.stats').textContent='会場の画角 960×540 px ／ 腰の位置は床面 ／ 表示高 '+h.toLocaleString('ja-JP')+' px ／ 画面内の描画 '+painted.join('・');
   }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:true,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
  }
- if($('shoukiForm'))$('shoukiForm').onchange=render;
+ if($('shoukiForm'))$('shoukiForm').onchange=()=>{
+  const url=new URL(location.href),form=$('shoukiForm').value;
+  if(form==='opening')url.searchParams.delete('pose');else url.searchParams.set('pose',form);
+  history.replaceState(history.state,'',url);render();
+ };
  if($('compareBoth'))$('compareBoth').onchange=()=>{$('profile').disabled=$('compareBoth').checked;render()};
  for(const id of ['profile','zoom','flip'])$(id).onchange=render;render();
 }catch(e){$('status').textContent='素材の読み込みに失敗しました: '+e.message;throw e}

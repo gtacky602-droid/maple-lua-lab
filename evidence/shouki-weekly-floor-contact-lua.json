@@ -18,9 +18,9 @@
   "only_manual_actor_collects": true,
   "art_heights": {
     "upper": 1160,
-    "full": 744,
-    "trial": 630,
-    "collapse": 600
+    "armored": 1160,
+    "trial": 1160,
+    "collapse": 1160
   },
   "upper_width": 1392.6417704011064,
   "upper_extends_past_edges": true,
@@ -30,6 +30,49 @@
   "floor_y": 480,
   "waist_clearance": 0,
   "waist_aligned_in_all_profiles": true,
+  "armoredCore": {
+    "y": 298.69986168741355,
+    "exposed": true,
+    "x": 480
+  },
+  "armoredOutline": [
+    {
+      "x": 462,
+      "y": 279.69986168741355,
+      "w": 36,
+      "h": 38,
+      "color": "#b9f2a9",
+      "opacity": 0.22
+    },
+    {
+      "x": 461,
+      "y": 277.69986168741355,
+      "w": 38,
+      "h": 4,
+      "color": "#b9f2a9"
+    },
+    {
+      "x": 461,
+      "y": 315.69986168741355,
+      "w": 38,
+      "h": 4,
+      "color": "#b9f2a9"
+    },
+    {
+      "x": 459,
+      "y": 281.69986168741355,
+      "w": 4,
+      "h": 34,
+      "color": "#b9f2a9"
+    },
+    {
+      "x": 497,
+      "y": 281.69986168741355,
+      "w": 4,
+      "h": 34,
+      "color": "#b9f2a9"
+    }
+  ],
   "chest_art_aim_and_collision_aligned": true,
   "combat_hit_heights_unchanged": true,
   "reserve_cancel_swap_and_missed_shot": true,

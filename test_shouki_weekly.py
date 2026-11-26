@@ -174,7 +174,7 @@ act(s,'encounter_interact')
 assert w.stage=='overload' and w.primary.invulnerable and not w.cast
 ticks(core,s,60)
 assert not w.primary.invulnerable and core.frame(s).weeklyBoss.shouki.exposure==360
-assert (art(s).h,art(s).y)==(720,spec.floorY)
+assert (art(s).h,art(s).y)==(spec.artHeight,spec.floorY)
 ticks(core,s,360)
 assert w.primary.invulnerable
 ticks(core,s,60)
@@ -204,11 +204,17 @@ place(a,b.x)
 ticks(core,s,1)
 assert w.charge==100 and not len(w.blocks)
 enter_p2(s,w,spec,100)
-full=art(s)
-assert (full.h,full.y,w.primary.hitTop)==(744,480,315)
+armored=art(s)
+assert list(armored.box.values())==list(upper.box.values())
+assert (armored.h,armored.y,w.primary.hitTop)==(1160,480,315)
 core_hint=core.frame(s).weeklyBoss.shouki.core
-assert core_hint.exposed and core_hint.x==w.primary.x and abs(core_hint.y-(480-744*870/1480))<1e-7
-assert 21<core_hint.y<480 and full.y-full.h<0
+assert core_hint.exposed and core_hint.x==w.primary.x and abs(core_hint.y-(480-1160*113/723))<1e-7
+assert 21<core_hint.y<480 and armored.y-armored.h<0
+core_outline=[{k:d[k] for k in ('x','y','w','h','color','opacity') if d[k] is not None}
+              for d in core.frame(s,'sprite').draws.values() if d.kind=='rect' and d.color=='#b9f2a9'
+              and abs(d.x-core_hint.x)<=22 and abs(d.y-core_hint.y)<=22]
+assert len(core_outline)==5
+armored_core=native(core_hint)
 act(s,'encounter_interact')
 assert w.aim.owner==1 and w.charge==100
 act(s,'encounter_interact')
@@ -255,9 +261,9 @@ attack(s,w.primary.x,10000)
 assert w.shield==99
 start_trial(s,w,spec)
 trial=art(s)
-assert (trial.h,trial.y)==(630,397)
+assert (trial.h,trial.y)==(1160,480)
 core_hint=core.frame(s).weeklyBoss.shouki.core
-assert not core_hint.exposed and abs(core_hint.y-(397-630*870/1480))<1e-7
+assert not core_hint.exposed and abs(core_hint.y-(480-1160*113/723))<1e-7
 assert 21<core_hint.y<480 and trial.y-trial.h<0
 for i,target in enumerate(list(w.targets.values()),1):
     old=lua.table_from({'id':1,'x':target.x-30,'y':480,'dir':1,'range':110,'atk':100,'mult':1,'gain':0,
@@ -278,7 +284,7 @@ ticks(core,s,120)
 assert w.stage=='collapse' and len(events(s,'WN14:core-hit'))==1
 ticks(core,s,60-w.stageTick)
 assert not w.primary.invulnerable and core.frame(s).weeklyBoss.shouki.exposure==600
-assert art(s).h==600 and core.frame(s).weeklyBoss.shouki.core is None
+assert art(s).h==1160 and core.frame(s).weeklyBoss.shouki.core is None
 n=w.primary.hp
 attack(s,w.primary.x)
 assert w.primary.hp<n
@@ -374,10 +380,11 @@ assert again.weeklySlots[uid].primary.hp==0 and again.story.quests[quest].status
 
 result={'live_durations':checked,'upper_hits_share_hp':True,'independent_floor_and_matrix_cooldown':True,
         'wind_and_heal':True,'paired_electro_six_seconds':True,'only_manual_actor_collects':True,
-        'art_heights':{'upper':upper.h,'full':744,'trial':630,'collapse':600},
+        'art_heights':{'upper':upper.h,'armored':armored.h,'trial':trial.h,'collapse':1160},
         'upper_width':upper.w,'upper_extends_past_edges':True,'machine_behind_party':True,
         'upper_torso_ends_at_source_row':737,'upper_waist_y':upper.y,
         'floor_y':spec.floorY,'waist_clearance':spec.floorY-upper.y,'waist_aligned_in_all_profiles':True,
+        'armoredCore':armored_core,'armoredOutline':core_outline,
         'chest_art_aim_and_collision_aligned':True,'combat_hit_heights_unchanged':True,
         'reserve_cancel_swap_and_missed_shot':True,'hit_applies_shield_separately':True,
         'four_physical_trials_and_core_collision':True,'explicit_ai_assistance_only':True,

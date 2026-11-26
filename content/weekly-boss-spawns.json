@@ -2316,7 +2316,7 @@
       "node": "shouki-godmaking-arena",
       "mapIdleArt": "boss-shouki-opening",
       "artHeight": 1160,
-      "openingPose": {"file": "shouki-weekly-torso-sprites-v3.json", "hover": 0, "clipToViewport": true},
+      "openingPose": {"file": "shouki-weekly-torso-sprites-v3.json", "hover": 0, "clipToViewport": true, "chestSourceY": 624},
       "name": "正機の神",
       "storyChallenge": "shouki-weekly",
       "level": 64,

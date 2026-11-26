@@ -3,19 +3,11 @@ return function(C)
  local avoid=C.aiAvoidTarget
  local clamp=function(x,lo,hi) return math.max(lo,math.min(hi,x)) end
  local colors={pyro='#ff9469',cryo='#a1daf7',electro='#caa3fc',anemo='#91e3cb',hydro='#87c6ff',charge='#b9f2a9',gold='#f5d794'}
- -- Chest gem is at source y=624 in the full form crop y=[14,1494).
- local coreFromBottom=870/1480
- local fullHeight=744
- local function visual(w,spec)
-  local name,t,y=w.stage,w.stageTick,spec.floorY
-  if name=='p1' or name=='overload' or name=='rise' and t<120 then
-   -- The crop ends at the waist. Meet the platform so the torso rises from the floor.
-   return 'upper',y,name=='overload' and t>=60 and 720 or spec.artHeight
-  end
-  if name=='trial' then return 'full',y-83,630 end
-  if name=='collapse' and t>=60 then return 'full',y,600 end
-  if name=='rise' then return 'full',y,656+(fullHeight-656)*clamp((t-120)/120,0,1) end
-  return 'full',y,fullHeight
+
+
+ -- Keep the shield HUD transition independent of the torso-only illustration.
+ local function armorPhase(w)
+  return w.stage~='p1' and w.stage~='overload' and (w.stage~='rise' or w.stageTick>=120)
  end
  local function actor(s) return s.actors[s.active] end
  local function weakKeys() return setmetatable({},{__mode='k'}) end
@@ -405,8 +397,8 @@ return function(C)
   end
  end
  local function aimPoint(w,spec,option)
-  local _,base,height=visual(w,spec)
-  local x,y=w.primary.x,base-height*coreFromBottom
+  local box=C.shoukiWeeklyArt.upper.box
+  local x,y=w.primary.x,spec.floorY-spec.artHeight*(box[2]+box[4]-spec.openingPose.chestSourceY)/box[4]
   if option=='left' then return x-170,y end
   if option=='right' then return x+170,y end
   return x,y
@@ -552,22 +544,21 @@ return function(C)
  end
  function controller.observe(f,s,w,spec,mode,profile)
   local b,e,c,name=f.weeklyBoss,w.primary,w.cast,w.stage
-  local label={rise='全身起動',overload='過負荷停止',trial='滅度機と胸部弱点',failure='刹那生滅',collapse='神機崩落'}
+  local label={rise='装甲起動',overload='過負荷停止',trial='滅度機と胸部弱点',failure='刹那生滅',collapse='神機崩落'}
   local card={rise='WN08',overload='WN07',trial='WN15',failure='WN16',collapse='WN17'}
-  local form,base,height=visual(w,spec)
-  local upper=form=='upper'
+  local armored=armorPhase(w)
   b.x,b.y,b.shoukiStage=e.x,e.y,name
-  b.formName=upper and '上半身' or '全身'
+  b.formName=armored and '上半身・装甲起動後' or '上半身'
   b.label=c and c.move.title or label[name] or '構え'
   b.move=c and c.id or card[name];b.moveTick=c and c.t or w.stageTick
   b.damageable=e.hp>0 and not e.invulnerable and not (name=='p2' and w.shield>0)
   b.phaseHp={{name='上半身',max=spec.p1Hp,hp=math.max(0,e.hp-spec.p2Hp)},
-    {name='全身',max=spec.p2Hp,hp=math.min(e.hp,spec.p2Hp)}}
+    {name='装甲起動後',max=spec.p2Hp,hp=math.min(e.hp,spec.p2Hp)}}
   local device=deviceNear(s,w,spec)
   local q=w.aim
   local assist=w.assists[s]
   local state={charge=w.charge,max=spec.charge.max,shield=w.shield,shieldMax=spec.charge.shield,
-    p2=not upper,blocks={},targets={},canAim=not q and canAim(w,spec) and w.charge==spec.charge.max,
+    p2=armored,blocks={},targets={},canAim=not q and canAim(w,spec) and w.charge==spec.charge.max,
     left=w.clock<(w.suppressed.left or 0),right=w.clock<(w.suppressed.right or 0),
     trialLeft=name=='trial' and w.trialLeft or nil,trialTime=name=='trial' and math.max(0,spec.trial.deadline-w.stageTick) or nil,
     assist=assist and assist.index}
@@ -590,8 +581,8 @@ return function(C)
   end
   local y=spec.floorY
   -- Put the oversized machine behind the party and its combat cues.
-  local bodyFrame={draws={},clipToViewport=upper and spec.openingPose.clipToViewport}
-  C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
+  local bodyFrame={draws={},clipToViewport=spec.openingPose.clipToViewport}
+  C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt.upper,e.x-s.camera,spec.floorY,spec.artHeight,mode,profile,false)
   table.move(f.draws,1,#f.draws,#bodyFrame.draws+1,bodyFrame.draws)
   f.draws=bodyFrame.draws
   for _,p in ipairs(w.floors) do
