@@ -35,6 +35,9 @@ try{
  await game.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,post);
  await game.locator('#atlasQuestPoint').waitFor({state:'visible'});
  assert.ok((await game.locator('#atlasQuestPoint').getAttribute('href')).includes('worksite=old-lift'));
+ const mapSite=game.locator('#atlasQuestObjectives a[href*="worksite=old-lift"]');
+ await mapSite.waitFor();
+ assert.equal(await mapSite.getAttribute('href'),await game.locator('#atlasQuestPoint').getAttribute('href'));
  await game.keyboard.press('Escape');
  await game.locator('#worldAtlas').waitFor({state:'hidden'});
  assert.equal(await hint.isVisible(),false);

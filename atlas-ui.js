@@ -203,7 +203,15 @@ export function initAtlas(action, clearKeys) {
    for(const q of frame.storyGraph.quests){
     for(const objective of atlasQuestObjectives(frame,q,selected.id)){
      const item=document.createElement('li');
-     item.textContent=q.name+'　'+objective;
+     item.textContent=q.name+'　'+objective.text;
+     for(const point of objective.points){
+      const link=document.createElement('a');
+      const url=new URL(point.url,location.href);
+      for(const id of selected.absentSpawns??[])url.searchParams.append('absent',id);
+      link.href=url.href;link.target='_blank';link.rel='noopener';
+      link.textContent=point.label+'の位置を見る';
+      item.append(' ',link);
+     }
      objectives.push(item);
     }
    }

@@ -20,12 +20,12 @@ for(const q of graph.quests.filter(q=>q.paths)){
    state.pathProgress[path.id]={count};
    const label=path.label+'　'+step.objective;
    const dest=step.kind==='arrive'&&step.from?step.from:step.node;
-   assert(atlasQuestObjectives(branchFrame,q,dest).includes(label));
+   assert(atlasQuestObjectives(branchFrame,q,dest).some(o=>o.text===label));
    if(step.kind==='arrive' && step.from!==step.node)
-    assert(!atlasQuestObjectives(branchFrame,q,step.node).includes(label));
+    assert(!atlasQuestObjectives(branchFrame,q,step.node).some(o=>o.text===label));
   }
   state.pathProgress[path.id]={count:path.steps.length};
-  assert(!atlasQuestObjectives(branchFrame,q,path.steps[0].node).some(text=>text.startsWith(path.label+'　')));
+  assert(!atlasQuestObjectives(branchFrame,q,path.steps[0].node).some(o=>o.text.startsWith(path.label+'　')));
  }
 }
 const browser=await chromium.launch({channel:'chrome'});
@@ -47,6 +47,13 @@ try{
  await page.selectOption('#atlasField','natlan-river-float-run');
  await page.waitForFunction(()=>document.querySelector('#atlasQuestObjectives').textContent.includes('水辺　岸に止まる浮き台を確認する'));
  assert.doesNotMatch(await branchText.innerText(),/上段へ跳んで/);
+ const waterPopup=page.waitForEvent('popup');
+ await branchText.getByRole('link',{name:'水辺の乗り方ノートの位置を見る'}).click();
+ const waterMap=await waterPopup;
+ await waterMap.waitForFunction(()=>window.mapArt?.ready && window.mapArt.node==='natlan-river-float-run');
+ assert.match(await waterMap.locator('#surveyPointNote').innerText(),/水辺の乗り方ノート/);
+ assert.equal(new URL(waterMap.url()).searchParams.get('path'),'water');
+ await waterMap.close();
  await page.locator('#worldAtlas').screenshot({path:'evidence/natlan-atlas-water-branch.png'});
  await page.selectOption('#atlasField','natlan-high-trial-steps');
  await link.waitFor();

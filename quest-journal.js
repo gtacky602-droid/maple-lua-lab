@@ -21,17 +21,35 @@ export function atlasQuestObjectives(frame,q,node){
  const onBranch=join>=0 && state.count===join && status==='active';
  const optional=q.anyPath && join>=0 && state.count>join;
  const objectives=[];
+ function addObjective(text,index,path){
+  const step=(path?.steps??q.itinerary)?.[index];
+  const room=frame.storyGraph.nodes.find(n=>n.id===node);
+  const choices=step?.kind==='choice'||step?.kind==='guideChoice'?step.choices.length:0;
+  const points=[];
+  for(let i=0;i<Math.max(1,choices);i++){
+   const point=surveyPoint(q,index,node,room,path?.id,choices?i+1:undefined);
+   if(point)points.push({label:point.name??'調査位置',url:surveyPointUrl(point)});
+  }
+  if(index!==undefined && !path && !points.length){
+   for(const site of Object.values(frame.storyWorksites?.[q.id]??{})){
+    if(site.node!==node || !site.point)continue;
+    const point=worksitePoint(q,site.point,node);
+    if(point)points.push({label:point.name,url:surveyPointUrl(point)});
+   }
+  }
+  objectives.push({text,points});
+ }
  if(onBranch || optional){
-  for(const {path,step} of pendingQuestPaths(q,state)){
+  for(const {path,step,count} of pendingQuestPaths(q,state)){
    const atNode=step.kind==='arrive' && step.from?step.from===node:
     step.node===node || step.alternatives?.some(p=>p.node===node);
-   if(atNode)objectives.push((optional?'任意・':'')+path.label+'　'+step.objective);
+   if(atNode)addObjective((optional?'任意・':'')+path.label+'　'+step.objective,count,path);
   }
  }
  if(onBranch || status==='complete')return objectives;
  if(questDestinations(frame,q,status).candidates.includes(node)){
-  objectives.push(status==='ready'?(q.giver?q.giver+'に報告する':'拠点で報告する'):
-   questObjective(q,frame.storyGraph,state,frame.story.growth));
+  addObjective(status==='ready'?(q.giver?q.giver+'に報告する':'拠点で報告する'):
+   questObjective(q,frame.storyGraph,state,frame.story.growth),status==='active'?state.count:undefined);
  }
  return objectives;
 }
