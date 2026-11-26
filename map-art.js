@@ -682,6 +682,10 @@ try{
   };
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
+  const memberPanel=$('legendMemberCost'),members=liveView && legendScenes[n.id]?.parts;
+  memberPanel.hidden=!(members?.length>1 && !matchedSprites);
+  const memberRows=memberPanel.querySelector('tbody');
+  memberRows.replaceChildren();
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
    for(const animal of liveView?wildlife[n.id]??[]:[]){
     const art=assets[animal.art];
@@ -755,7 +759,15 @@ try{
     }
    }
    for(const e of visibleItems){
+    const before=cost.visible,standardBefore=cost.standard;
     const {a,flip,x,y,body,rear}=paintFieldPlacement(ctx,e,mode==='png'||matchedSprites?null:profile,cost);
+    if(mode==='rect' && !memberPanel.hidden){
+     const row=memberRows.insertRow(),name=document.createElement('th');
+     name.scope='row';name.textContent=members.find(part=>part.id===e.id)?.name??e.species;
+     row.append(name);
+     row.insertCell().textContent=(cost.standard-standardBefore).toLocaleString('ja-JP');
+     row.insertCell().textContent=(cost.visible-before).toLocaleString('ja-JP');
+    }
     if(e.id===selected){
      const left=flip?-body.x-body.width:body.x;
      const minX=rear?Math.min(left,rear.x):left;
