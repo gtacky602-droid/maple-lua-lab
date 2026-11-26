@@ -907,7 +907,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local node=nodes[s.story.node]
      for index,option in ipairs(step.choices) do
       local point={node=step.node,x=option.x,y=option.y,name=option.name,action=option.action,
-       point=('choice-%s-%d-%d'):format(step.node,state.count,index),inspection=true,
+       point=('choice-%s-%d-%d'):format(step.node,state.count,index),choice=index,inspection=true,
        underwater=(node.swim or node.toyDive) and true or nil}
       points[#points+1]=point
       local d=(actor.x-point.x)^2+(actor.y-point.y)^2

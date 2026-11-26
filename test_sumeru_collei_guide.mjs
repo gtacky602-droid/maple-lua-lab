@@ -131,6 +131,13 @@ try{
   const hint=page.locator('#trackedHuntHint');
   await selector.selectOption({index:2});
   await hint.filter({hasText:/三つ石.*今いる足場の上/}).waitFor();
+  const survey=page.locator('#trackedSurveyPoint');
+  const [preview]=await Promise.all([page.waitForEvent('popup'),survey.click()]);
+  await preview.waitForFunction(()=>window.mapArt?.ready&&mapArt.backgroundState==='ready');
+  assert.match(await preview.locator('#surveyPointNote').innerText(),/高い棚の三つ石.*647, 396/);
+  assert.equal(await preview.locator('#profile').inputValue(),'h32c16');
+  await preview.locator('#rect').screenshot({path:prefix+'-stones-field-16.png'});
+  await preview.close();
   await jump(396);
   await interact(647,'三つ石を目印に選ぶ');
   await notice('分けにくかった');
@@ -138,6 +145,7 @@ try{
   assert.equal(await selector.evaluate(el=>el.selectedIndex),2);
   await selector.selectOption({index:1});
   await hint.filter({hasText:/青い色糸.*左手・下段/}).waitFor();
+  assert.equal(new URL(await survey.getAttribute('href'),page.url()).searchParams.get('choice'),'1');
   assert.match(await page.locator('#storyForest').textContent(),/分けにくかった/);
   await shot('markers');
   await interact(441,'青い色糸を目印に選ぶ');

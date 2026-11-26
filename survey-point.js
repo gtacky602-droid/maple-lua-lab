@@ -2,9 +2,17 @@
 export function puzzleStep(step){
  return step?.kind==='inspect'&&(step.resonanceOrder||step.shadowChoice||step.paperFold);
 }
-export function surveyPoint(quest,index,node,room,pathId){
+const colleiHeights={root:72,stones:43,shelter:112,bench:51,barrier:43};
+export function surveyPoint(quest,index,node,room,pathId,choice){
  const path=pathId&&quest?.paths?.find(p=>p.id===pathId);
  const steps=pathId?path?.steps:quest?.itinerary,step=steps?.[index];
+ if((step?.kind==='choice'||step?.kind==='guideChoice')&&step.node===node){
+  const option=step.choices[choice-1];
+  if(!option)return null;
+  const height=step.kind==='guideChoice'&&colleiHeights[option.art];
+  return {quest:quest.id,step:index+1,node,choice,path:pathId,x:option.x,y:option.y,name:option.name,action:option.action,
+   ...(height&&{prop:{file:'quest-packed/sum-collei-guide-'+option.art+'-sprites-v1.json',height}})};
+ }
  if(room?.id===node&&step?.node===node&&puzzleStep(step)){
   let stations;
   if(step.resonanceOrder&&room.resonance){
@@ -46,6 +54,7 @@ export function surveyPointUrl(point){
   params.set('tier','4096');
  }else{
   params.set('step',String(point.step));
+  if(point.choice)params.set('choice',String(point.choice));
   if(point.path)params.set('path',point.path);
   if(point.cover||point.tea)params.set('tier','4096');
  }

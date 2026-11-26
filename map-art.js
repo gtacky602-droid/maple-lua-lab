@@ -247,7 +247,9 @@ try{
      const quests=stepsByNode.get(nodeId);
      if(!quests.has(quest))quests.set(quest,[]);
      const objective=route.label?route.label+'：'+step.objective:step.objective;
-     quests.get(quest).push({number:index+1,objective,point:surveyPoint(quest,index,nodeId,nodes.get(nodeId),route.id)});
+     const choices=['choice','guideChoice'].includes(step.kind)?step.choices.map((option,i)=>
+      surveyPoint(quest,index,nodeId,nodes.get(nodeId),route.id,i+1)):null;
+     quests.get(quest).push({number:index+1,objective,point:surveyPoint(quest,index,nodeId,nodes.get(nodeId),route.id),choices});
     }
    }
   }
@@ -284,7 +286,7 @@ try{
  }
  // Poses unique to a field encounter are fetched only when someone places or views them.
  const fieldPoseLoads=new Map();
- const patrolArt=new Map(),returnBoxArt=new Map();
+ const patrolArt=new Map(),surveyPropArt=new Map();
  for(const scene of Object.values(trialScenes)){
   for(const part of scene.parts){
    if(!part.file || assets[part.species])continue;
@@ -452,10 +454,10 @@ try{
   const teaProps=liveView&&selectedSurveyPoint?.tea&&selectedSurveyPoint.node===n.id?
    worksiteArt.teahouse.stages[selectedSurveyPoint.step]:[];
   const returnProp=liveView&&selectedSurveyPoint?.returnProp;
-  if(returnProp){
-   const key=returnProp.art;
-   if(!returnBoxArt.has(key))returnBoxArt.set(key,{poseFile:'quest-packed/mond-return-box-'+key+'-sprites-v1.json',openingPose:true});
-   const art=returnBoxArt.get(key);
+  const surveyProp=selectedSurveyPoint?.prop??(returnProp&&{file:'quest-packed/mond-return-box-'+returnProp.art+'-sprites-v1.json',height:returnProp.height});
+  if(surveyProp){
+   if(!surveyPropArt.has(surveyProp.file))surveyPropArt.set(surveyProp.file,{poseFile:surveyProp.file,openingPose:true});
+   const art=surveyPropArt.get(surveyProp.file);
    if(!art.image)missing.push(art);
   }
   for(const key of new Set(teaProps.map(prop=>prop.key))){
@@ -637,9 +639,9 @@ try{
      ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
     }
    }
-   if(returnProp){
-    const art=returnBoxArt.get(returnProp.art),point=selectedSurveyPoint;
-    paintPlacementLayer(ctx,art,spriteBounds(art,returnProp.height),mode==='png'||matchedSprites?null:profile,point.x-camera,point.y,false,cost);
+   if(surveyProp){
+    const art=surveyPropArt.get(surveyProp.file),point=selectedSurveyPoint;
+    paintPlacementLayer(ctx,art,spriteBounds(art,surveyProp.height),mode==='png'||matchedSprites?null:profile,point.x-camera,point.y,false,cost);
    }
    for(const {key,x,y,height} of teaProps){
     const art=teaArt.get(key);
@@ -838,15 +840,16 @@ try{
    for(const [quest,entries] of steps){
     const title=document.createElement('strong'),list=document.createElement(entries[0].number?'ol':'ul');
     title.textContent=quest.name;
-    for(const {number,objective,point} of entries){
+    for(const {number,objective,point,choices} of entries){
      const item=document.createElement('li');
      if(number)item.value=number;
      item.textContent=objective;list.append(item);
-     if(point){
-      const link=document.createElement('a');link.href=surveyPointUrl(point);link.textContent='調査位置を見る';
+     for(const destination of choices??(point?[point]:[])){
+      const link=document.createElement('a');link.href=surveyPointUrl(destination);
+      link.textContent=destination.choice?destination.name:'調査位置を見る';
       link.onclick=e=>{
        if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
-       e.preventDefault();focusSurveyPoint(point);render();
+       e.preventDefault();focusSurveyPoint(destination);render();
       };
       item.append(' ',link);
      }
@@ -926,7 +929,7 @@ try{
   if(liveView && n===openingNode){
    const quest=questsById.get(query.get('quest'));
    point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
-    surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'));
+    surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
   }
   focusSurveyPoint(point);
   render();
