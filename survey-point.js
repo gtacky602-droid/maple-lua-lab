@@ -133,9 +133,20 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  if(step?.kind!=='inspect')return null;
  const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x) && Number.isFinite(p.y));
  if(!point)return null;
+ const props=[];
+ const ingredientHeights={flower:45,dry:43,wood:35};
+ if(ingredientHeights[step.scentProp]){
+  props.push({name:point.name,file:'quest-packed/fon-emilie-scent-'+step.scentProp+'-sprites-v1.json',
+   height:ingredientHeights[step.scentProp],x:point.x,y:point.y});
+ }
+ if(step.surveyGuide){
+  const guide=step.surveyGuide;
+  props.push({name:'放浪者',file:'wanderer-idle-'+(guide.left?'left':'right')+'-sprites-v3.json',
+   height:88,x:guide.x,y:guide.y});
+ }
  const prop=step.returnClue??(step.returnPickup?{art:'crate',height:51}:null);
  return {quest:quest.id,step:index+1,node,x:point.x,y:point.y,name:point.name??step.name??step.objective,
-  action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop})};
+  action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop}),...(props.length&&{props})};
 }
 
 export function worksitePoints(quest){
