@@ -2,6 +2,8 @@
   "requires_M01": true,
   "first_loop_once_even_after_restore": true,
   "exit_always_available": true,
+  "atlas_loop_and_clue_guidance": true,
+  "atlas_direct_gate_after_clue_and_reload": true,
   "optional_hint_and_three_two_choice_rooms": true,
   "wrong_choices_do_not_reset": true,
   "partial_combat_save_and_cleared_revisit": true,

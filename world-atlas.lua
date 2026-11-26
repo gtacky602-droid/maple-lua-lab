@@ -374,7 +374,7 @@ return function(C, atlas)
   if s.lift or s.story.node~=node.id then return gates end
   local actor=s.actors[s.active]
   for _,edge in ipairs(node.exits) do
-   if edge.x and not edge.loopOnce then
+   if edge.x then
     local distance=math.abs(actor.x-edge.x)+math.abs(actor.y-(edge.y or 480))
     local blocked=C.atlasGateRestriction(s,node.id,edge,routeLevel)~=nil
     local current=gates[edge.to]
@@ -399,7 +399,7 @@ return function(C, atlas)
     for _,candidate in ipairs(connections(node)) do
      local edge=id==origin and gates[candidate.to] and gates[candidate.to].edge or candidate
      local nextNode=nodes[edge.to]
-     if nextNode and previous[edge.to]==nil and not edge.loopOnce
+     if nextNode and previous[edge.to]==nil
        and (id==origin or not node.voyage or edge.to~=node.voyage.source) then
       local reason=C.atlasGateRestriction(s,id,edge,routeLevel)
       if allowBlocked or not reason then

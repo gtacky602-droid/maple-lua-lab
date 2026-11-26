@@ -7,8 +7,9 @@
   "port_report_and_restore": true,
   "coastal_shortcut": true,
   "viewport_390": true,
+  "atlasLoopClueAndOpenGate": true,
   "entryAndLoopLinks": true,
-  "atlasStatuePhase": 29,
+  "atlasStatuePhase": 14,
   "restoredExitPreview": "inazuma-forest-shore",
   "restoredSketchCount": 3,
   "errors": []

@@ -70,6 +70,14 @@ def from_port():
     through(prints)
 
 
+def guide_to_statues():
+    core.action(s,'world_map_focus:'+statues)
+    guide=native(core.frame(s).worldMap.guide)
+    core.action(s,'world_map_close')
+    assert [leg['id'] for leg in guide['stops']]==[statues], guide
+    return guide
+
+
 def sentence(fragment):
     assert fragment in core.frame(s).storyNearbyForest.label
     core.action(s,'story_collect')
@@ -88,6 +96,7 @@ core.action(s,'story_accept:'+qid)
 q=s.story.quests[qid]
 from_port()
 assert not core.frame(s).storyForest.looped
+assert "一度くぐり" in guide_to_statues()["reason"]
 walk(485)
 core.action(s,'story_collect')
 assert q.count==0
@@ -97,6 +106,7 @@ core.action(s,'story_nearby_portal')
 assert s.story.node==prints and s.actors[s.active].x==160 and q.forest.looped
 walk(1240)
 assert not gate(statues).available
+assert "木の実" in guide_to_statues()["reason"]
 core.action(s,'story_nearby_portal')
 assert s.story.node==prints and s.actors[s.active].x>1200
 walk(110)
@@ -124,6 +134,8 @@ for count,wrong,right,next_stage in (
     core.action(s,'story_collect')
     assert q.count==count+1
     walk(1240)
+    if next_stage==statues:
+        assert guide_to_statues()["status"]=="ready"
     through(next_stage)
 assert len(s.enemies)==3
 walk(420,attack=True)
@@ -136,6 +148,8 @@ from_port()
 for next_stage in (statues,water,fight):
     assert core.frame(s).storyForest.solved
     walk(1240)
+    if next_stage==statues:
+        assert guide_to_statues()["status"]=="ready"
     through(next_stage)
 assert {e.spawnId for e in s.enemies.values()}=={'inazuma-thicket-2','inazuma-thicket-3'}
 walk(785,attack=True)
@@ -186,6 +200,7 @@ assert core.frame(s).storyForest.solved
 
 (ROOT/'evidence/inazuma-m02-lua.json').write_text(json.dumps({
     'requires_M01':True,'first_loop_once_even_after_restore':True,'exit_always_available':True,
+    'atlas_loop_and_clue_guidance':True,'atlas_direct_gate_after_clue_and_reload':True,
     'optional_hint_and_three_two_choice_rooms':True,'wrong_choices_do_not_reset':True,
     'partial_combat_save_and_cleared_revisit':True,'bidirectional_shore_shortcut':True,
     'challenge_note_persists':True,'one_time_reward':{'xp':186561,'mora':440},

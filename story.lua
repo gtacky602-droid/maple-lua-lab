@@ -222,6 +222,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local rule=edge.requires
   if rule then
    local state=s.story.quests[rule.quest]
+   if planning and edge.loopOnce and state and state.status=='active' and state.count==0 then
+    if forest.canLoop(state) then return '右の鳥居を一度くぐり、戻った道で足跡を調べてください。' end
+    return '木の実のそばの足跡を調べると、次の鳥居へ進めます。'
+   end
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
     or (edge.loopOnce and forest.canLoop(state))
    if not allowed then

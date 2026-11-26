@@ -47,6 +47,19 @@ async function through(id){
  await current(id);
 }
 
+async function checkToriiGuide(status,reason){
+ await page.evaluate(()=>document.activeElement.blur());
+ await page.keyboard.press('KeyM');
+ await page.locator('#atlasField').selectOption(statues);
+ await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,statues);
+ const guide=(await frame()).worldMap.guide;
+ assert.deepEqual(guide.stops.map(leg=>leg.id),[statues]);
+ assert.equal(guide.status,status);
+ if(reason)assert.ok(guide.reason.includes(reason));
+ await page.keyboard.press('Escape');
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
+}
+
 async function reachTown(){
  await walk(1380);
  await through(road);
@@ -87,6 +100,7 @@ try{
  const link=page.locator('#trackedSurveyPoint'),sketches=page.locator('#forestSketches a');
  assert.equal(await sketches.count(),0);
  assert.match(await link.getAttribute('href'),/forest=entry/);
+ await checkToriiGuide('blocked','一度くぐり');
  await walk(1240);
  await gate(statues);
  await page.keyboard.press('KeyF');
@@ -95,6 +109,7 @@ try{
  await page.waitForFunction(()=>document.querySelector('#trackedSurveyPoint').href.includes('forest=search'));
  await walk(1240);
  await gate(statues,false);
+ await checkToriiGuide('blocked','木の実');
  await inspect(245,'綾華にヒントを聞く');
  await page.waitForFunction(()=>window.lab.frame.storyForest?.message.includes('足跡'));
  await inspect(855,'右の岩のそばを調べる');
@@ -102,6 +117,7 @@ try{
  await progress(0);
  await inspect(485,'左の岩のそばを調べる');
  await progress(1);
+ await checkToriiGuide('ready');
  await page.waitForFunction(()=>document.querySelectorAll('#forestSketches a').length===1);
  assert.match(await sketches.first().textContent(),/足跡/);
  await walk(1240);
@@ -176,7 +192,7 @@ try{
  await fs.writeFile('evidence/inazuma-m02-browser.json',JSON.stringify({
   browser:'Chrome', actual_controls:true, one_time_return:true, three_clues_and_retry:true,
   forest_combat_and_guest:true, port_report_and_restore:true, coastal_shortcut:true, viewport_390:true,
-  entryAndLoopLinks:true,atlasStatuePhase:beat,restoredExitPreview:shore,restoredSketchCount:3,errors
+  atlasLoopClueAndOpenGate:true,entryAndLoopLinks:true,atlasStatuePhase:beat,restoredExitPreview:shore,restoredSketchCount:3,errors
  },null,2)+'\n');
  console.log('Inazuma M02 Chrome maze, combat, report and coastal shortcut passed');
 }catch(error){
