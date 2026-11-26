@@ -2176,6 +2176,31 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
 
+ -- Provisional field equipment for the Morte survey. The quest count is saved already.
+ local function drawSluiceStation(draws,x,y,kind,checked,reported)
+  if x < -30 or x > 990 then return end
+  local function block(dx,dy,w,h,color)
+   draws[#draws+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=color}
+  end
+  local brass,iron,face='#c49d63','#3e5661','#d9e9cf'
+  block(-18,-6,36,6,iron)
+  block(-5,-28,10,23,brass)
+  if kind=='gauge' then
+   block(-16,-46,32,22,brass)
+   block(-12,-43,24,16,face)
+   block(-1,-32,3,4,iron)
+   block(checked and 1 or -7,-35,7,3,iron)
+  else
+   block(-22,-30,44,8,iron)
+   block(-14,-42,28,5,brass)
+   block(-14,-18,28,5,brass)
+   block(-17,-37,5,19,brass)
+   block(12,-37,5,19,brass)
+   if checked then block(-12,-30,24,4,brass) else block(-2,-37,4,20,brass) end
+  end
+  block(10,-6,6,4,reported and '#8cebd4' or '#ebb371')
+ end
+
  local function markerLayer(s,f,markers,mode)
   local layer={draws=markers}
   if s.packRectArt and mode=='rect' then
@@ -2248,6 +2273,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                  spiritway=ride.spiritwayTrack and true or nil,windLift=ride.windLift}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   if n.sluiceStation then
+    local station=n.sluiceStation
+    local step=quests[station.quest].itinerary[station.step]
+    local progress=s.story.quests[station.quest]
+    drawSluiceStation(markers,step.x-s.camera,step.y,step.sluiceInstrument,
+       progress and progress.count>=station.step,progress and progress.status=='complete')
+   end
    if s.travelerTrial then f.storyTravelerTrial=true end
    if n.domainEntrance then
     local door=n.domainEntrance
@@ -2734,7 +2766,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       elseif milestone.shoreMark then drawShoreMark(markers,x,y,milestone.shoreMark)
       elseif milestone.patternBottle then drawPatternBottle(markers,x,y,false)
       elseif milestone.pageBook then paper.drawBook(markers,x,y,false)
-      else
+      elseif not milestone.sluiceInstrument then
        markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
        markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}

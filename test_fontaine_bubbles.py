@@ -32,6 +32,24 @@ idle=lua.table()
 dt=1/60
 
 
+def check_instrument(s,step,checked,reported=False):
+    x,y=step['x']-s.camera,step['y']
+    assert -30<=x<=990
+    for packed in (False,True):
+        s.packRectArt=packed
+        try:
+            draws=core.frame(s,'rect','h32c16').draws
+            def block(dx,dy,w,color):
+                return any(d.kind=='rect' and d.x==x+dx and d.y==y+dy and d.w==w
+                           and d.color==color for d in draws.values())
+            assert block(10,-6,6,'#8cebd4' if reported else '#ebb371')
+            if step['sluiceInstrument']=='gauge':
+                assert block(1 if checked else -7,-35,7,'#3e5661')
+            else:
+                assert block(-12,-30,24,'#c49d63') if checked else block(-2,-37,4,'#c49d63')
+        finally:
+            s.packRectArt=None
+
 def exp(level):
     return LEVELS[level-1]['maple_reference_total_exp_to_reach']
 
@@ -248,7 +266,9 @@ for i,step in enumerate(quest['itinerary'],1):
     else:
         assert s.story.node==step['node']
         walk.approach(step['x'],step['y'],QUEST)
+        check_instrument(s,step,False)
         core.action(s,'story_collect')
+        check_instrument(s,step,True)
     assert s.story.quests[QUEST].count==i,(step,s.storyNotice)
 route(s,ch['node'],[ch['node']])
 core.action(s,'story_fast:'+HUB)
@@ -265,6 +285,12 @@ assert new_name==nodes[ch['node']]['locationAfterReport']['name'] and new_revisi
 saved=validate_save(native(core.checkpoint(s)))
 resumed=core.restore(lua.table_from(saved,recursive=True),12)
 assert map_room(resumed)[0]==new_name
+for step in quest['itinerary']:
+    if 'sluiceInstrument' in step:
+        core.enterStoryNode(resumed,step['node'])
+        resumed.camera=max(0,step['x']-480)
+        check_instrument(resumed,step,True,reported=True)
+
 
 assert s.story.quests[QUEST].status=='complete'
 core.action(s,'story_fast:'+CH_HOST)
