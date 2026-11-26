@@ -1,0 +1,58 @@
+{
+  "baseline": "2321dbd1475e0c8cb78c9f4d1fc7acdfd95da053",
+  "unit": "asset JSON file bytes requested by Python; PNG and HTTP excluded",
+  "before": {
+    "runtime_init": {
+      "files": 26,
+      "bytes": 3891542
+    },
+    "idle": {
+      "files": 0,
+      "bytes": 0
+    },
+    "run_right": {
+      "files": 0,
+      "bytes": 0
+    },
+    "run_left": {
+      "files": 0,
+      "bytes": 0
+    },
+    "quest_return_box": {
+      "files": 1,
+      "bytes": 6170
+    },
+    "oceanid_opening": {
+      "files": 0,
+      "bytes": 0
+    },
+    "total": 3897712
+  },
+  "after": {
+    "runtime_init": {
+      "files": 8,
+      "bytes": 2394128
+    },
+    "idle": {
+      "files": 0,
+      "bytes": 0
+    },
+    "run_right": {
+      "files": 4,
+      "bytes": 108571
+    },
+    "run_left": {
+      "files": 4,
+      "bytes": 106636
+    },
+    "quest_return_box": {
+      "files": 1,
+      "bytes": 6170
+    },
+    "oceanid_opening": {
+      "files": 1,
+      "bytes": 48111
+    },
+    "total": 2663616
+  }
+}

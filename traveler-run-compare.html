@@ -1,0 +1,13 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旅人の走行ドット絵</title><link rel="stylesheet" href="field-guide.css">
+<main><nav><a href="./">ラボに戻る</a><a href="characters-art.html">旅人と同行者の素材</a></nav>
+<h1>旅人の走行ドット絵</h1><div class="filters"><label>走る向き<select id="side"><option value="right">右</option><option value="left">左</option></select></label>
+<button id="play" type="button" disabled>再生</button><button id="step" type="button" disabled>次のコマ</button><output id="phase"></output></div>
+<div class="art"><figure><canvas id="source" width="240" height="180"></canvas><figcaption>元絵</figcaption></figure>
+<figure><canvas id="h48c32" width="240" height="180"></canvas><figcaption>32色版 <small></small></figcaption></figure>
+<figure><canvas id="h32c16" width="240" height="180"></canvas><figcaption>16色版 <small></small></figcaption></figure></div>
+<p role="status" id="error"></p>
+<details id="measure"><summary>本編の読み込み量を比較</summary>
+<p>ローカルのLuaラボで、操作ごとに読み込んだ素材JSONの容量です。単位はバイトです。</p>
+<table><thead><tr><th>操作</th><th>変更前</th><th>変更後</th></tr></thead><tbody></tbody></table></details>
+</main><script type="module" src="traveler-run-compare.js"></script></html>

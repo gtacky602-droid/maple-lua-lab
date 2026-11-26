@@ -296,12 +296,16 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
             art.left=left
             companion_art[item['id']]=art
     core.companionArt=companion_art
-    run_cycles={}
+    motion=json.loads((ROOT/'content/motion-pose-files.json').read_bytes())
+    filenames={file for parts in motion.values() for file in parts.values()}
+    motion_poses=field_art(lua,'',(),variants={name:name for name in filenames},
+                           prepare_grid=prepare_grid,packed_dir='motion-packed')
+    core.travelerRunArt=lua.table()
     for side in ('left','right'):
-        prefix=f'traveler-run-{side}'
-        files=[f'{prefix}-sprites-v3.json',*(f'{prefix}-{phase}-sprites-v1.json' for phase in range(2,5))]
-        run_cycles[side]=[json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for name in files]
-    core.travelerRunArt=lua.table_from(run_cycles,recursive=True)
+        frames=motion[side]
+        core.travelerRunArt[side]=lua.table_from([single(motion_poses,frames[str(i)]) for i in range(1,len(frames)+1)])
+    core.amberBowArt=single(motion_poses,motion['amber']['bow'])
+    core.oceanidArt=alias(motion_poses,lua.table_from(motion['oceanid']))
     core.enemySpawns=lua.table_from(json.loads((ROOT/'content/enemy-spawns.json').read_text(encoding='utf8'))['nodes'],recursive=True)
     enemy_layout=json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))
     core.enemyArtLayout=lua.table_from(enemy_layout,recursive=True)
@@ -313,8 +317,6 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     core.enemyIdleArt=alias(field_poses,lua.table_from(enemy_files))
     core.hilichurlArt=core.enemyIdleArt['hilichurl']
     core.danukiArt=companion_art['bake-danuki']
-    core.amberBowArt=lua.table_from(json.loads((ROOT/'assets/amber-bow-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
-    core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
     story_nodes={node['id']:node for node in story_data['nodes']}
     for spec in field_specs:

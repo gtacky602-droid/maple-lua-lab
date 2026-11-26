@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser(description='Build the pose files used by the b
 mode = parser.add_mutually_exclusive_group()
 mode.add_argument('--field-boss', dest='kind', action='store_const', const='field-boss')
 mode.add_argument('--quest', dest='kind', action='store_const', const='quest')
+mode.add_argument('--motion', dest='kind', action='store_const', const='motion')
 kind = parser.parse_args().kind or 'weekly'
 out = assets / f'{kind}-packed'
 catalog = json.loads((root / f'content/{kind}-pose-files.json').read_bytes())

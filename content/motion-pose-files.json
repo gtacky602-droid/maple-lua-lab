@@ -1,0 +1,28 @@
+{
+  "left": {
+    "1": "traveler-run-left-sprites-v3.json",
+    "2": "traveler-run-left-2-sprites-v1.json",
+    "3": "traveler-run-left-3-sprites-v1.json",
+    "4": "traveler-run-left-4-sprites-v1.json"
+  },
+  "right": {
+    "1": "traveler-run-right-sprites-v3.json",
+    "2": "traveler-run-right-2-sprites-v1.json",
+    "3": "traveler-run-right-3-sprites-v1.json",
+    "4": "traveler-run-right-4-sprites-v1.json"
+  },
+  "amber": {
+    "bow": "amber-bow-sprites-v3.json"
+  },
+  "oceanid": {
+    "host": "oceanid-sprites.json",
+    "boar": "oceanid-boar-sprites.json",
+    "crane": "oceanid-crane-sprites.json",
+    "mallard": "oceanid-mallard-sprites.json",
+    "ferret": "oceanid-ferret-sprites.json",
+    "crab": "oceanid-crab-sprites.json",
+    "raptor": "oceanid-raptor-sprites.json",
+    "frog": "oceanid-frog-sprites.json",
+    "finch": "oceanid-finch-sprites.json"
+  }
+}
