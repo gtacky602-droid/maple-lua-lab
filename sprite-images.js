@@ -47,6 +47,31 @@ export function drawCombatRuns(ctx,draw,runs){
  }
  return runs.length;
 }
+// Lua batch numbers are local to each frame. Compare contents before reusing a slot.
+export function drawPaletteBatch(ctx,draw,runs,cache){
+ const {gridWidth,gridHeight,batch}=draw;
+ if(batch>64||gridWidth*gridHeight>65536)return drawCombatRuns(ctx,draw,runs);
+ const previous=cache.get(batch);
+ let canvas=previous?.canvas,buildCalls=0;
+ const sameSize=canvas && canvas.width===gridWidth && canvas.height===gridHeight;
+ const sameRuns=sameSize && (previous.runs===runs || (previous.runs.length===runs.length &&
+  runs.every((row,i)=>row.every((value,j)=>value===previous.runs[i][j]))));
+ if(!sameRuns){
+  canvas=document.createElement('canvas');
+  canvas.width=gridWidth;canvas.height=gridHeight;
+  const layer=canvas.getContext('2d');
+  for(const [x,y,w,h,color] of runs){
+   layer.fillStyle=color;layer.fillRect(x,y,w,h);
+  }
+  buildCalls=runs.length;
+ }
+ cache.set(batch,{canvas,runs});
+ ctx.save();ctx.imageSmoothingEnabled=false;
+ ctx.translate(draw.x+(draw.flip?draw.w:0),draw.y);
+ if(draw.flip)ctx.scale(-1,1);
+ ctx.drawImage(canvas,0,0,draw.w,draw.h);ctx.restore();
+ return buildCalls+1;
+}
 export function combatOpacity(draw){
  return reducedTransparency?.matches ? 1 : (draw.opacity??1);
 }
