@@ -76,6 +76,10 @@ try{
  await card(cave,'offer').waitFor();
  assert.ok(await dailyRow(cave,'offer').isDisabled());
  assert.match(await dailyRow(main,'offer').textContent(),/同行中のアンバー/);
+ await card(main,'offer').locator('select').selectOption(road);
+ await wait(id=>window.lab.frame.worldMap?.selected.id===id,road);
+ assert.equal((await frame()).story.node,hub);
+ await page.keyboard.press('Escape');
  await dailyRow(main,'offer').click();
  await dailyRow(slimes,'offer').click();
  await dailyRow(rest,'offer').click();
@@ -108,6 +112,12 @@ try{
  await gate(1380,road);
  await move(439);
  await held('KeyJ',()=>window.lab.frame.daily.activeSlots.every(q=>q.count===q.goal));
+ await openBoard();
+ await card(main,'active').getByRole('button',{name:/帰り道を見る/}).click();
+ await wait(id=>window.lab.frame.worldMap?.selected.id===id,hub);
+ assert.equal((await frame()).story.node,road);
+ assert.equal((await frame()).worldMap.guide.stops.at(-1).id,hub);
+ await page.keyboard.press('Escape');
  await gate(60,hub);
  await openBoard();
  const before=await frame();

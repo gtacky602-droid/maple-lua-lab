@@ -87,11 +87,11 @@ return function(C,config,graph)
   return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
  end
 
- -- Species and elite dispatches can accept kills anywhere in their region.
+ -- Region-wide patrols, species hunts and elite hunts use the actual spawn list.
  -- Resolve matching spawns once, then expose only currently revealed map locations.
  local dispatchLocations={}
  local function targetNodes(s,q)
-  if q.filter.nodes or (q.filter.kind~='art' and q.filter.kind~='elite') then return q.filter.nodes end
+  if q.filter.nodes then return q.filter.nodes end
   local locations=dispatchLocations[q.id]
   if not locations then
    locations={}
@@ -259,6 +259,7 @@ return function(C,config,graph)
    for _,row in ipairs(rows) do
     local q=quests[row.id]
     local item=entry(s,q,row)
+    if not row.claimed and row.count==q.goal and s.story.node~=q.hub then item.reportNode=q.hub end
     item.canClaim=not s.paused and s.story.node==q.hub and not row.claimed and row.count==q.goal
     out[#out+1]=item
    end

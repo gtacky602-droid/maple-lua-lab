@@ -82,7 +82,13 @@ export function initDailyBoard(dispatch){
    button.onclick=()=>dispatch('daily_'+key+':'+entry.id);
    node.append(button);
    if(button.disabled){
-    node.append(element('small',isOffer?(entry.reason??'一時停止中'):`受取先は${entry.hub}`));
+    if(entry.reportNode){
+     const route=element('button',entry.hub+'への帰り道を見る');
+     route.type='button';route.onclick=()=>dispatch('world_map_focus:'+entry.reportNode);
+     node.append(route);
+    }else{
+     node.append(element('small',isOffer?(entry.reason??'一時停止中'):`受取先は${entry.hub}`));
+    }
    }
   }
   return node;
