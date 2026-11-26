@@ -182,6 +182,11 @@ def build():
                 draws=lua.table()
                 module.drawSite(draws,0,0,lua.table_from(item),count)
                 art[key]=rectangles(draws)
+        if kind=='cooking':
+            for flavor in q[kind]['flavors']:
+                draws=lua.table()
+                module.drawBanner(draws,0,0,lua.table_from(flavor))
+                art['banner-'+flavor['id']]=rectangles(draws)
         if kind=='stone':
             for item in (q[kind]['mural'],q[kind]['model']):
                 draws=lua.table()

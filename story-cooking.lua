@@ -102,6 +102,13 @@ local function drawIngredient(boxes,item,x,y)
  end
 end
 
+function M.drawBanner(boxes,x,y,flavor)
+  rect(boxes,x+32,y-43,5,43,'#5a412e')
+  rect(boxes,x+35,y-43,26,18,flavor.color)
+  rect(boxes,x+42,y-39,11,9,'#f5c389')
+  rect(boxes,x+46,y-39,3,9,'#e4a361')
+end
+
 function M.observe(s,f,boxes,q,state)
  local spec,stock=q.cooking,state.cooking
  if state.status=='active' then
@@ -117,10 +124,7 @@ function M.observe(s,f,boxes,q,state)
  if flavor and s.story.node==q.hub then
   local item=M.stall(s,q)
   local x,y=item.x-s.camera,item.y
-  rect(boxes,x+32,y-43,5,43,'#5a412e')
-  rect(boxes,x+35,y-43,26,18,flavor.color)
-  rect(boxes,x+42,y-39,11,9,'#f5c389')
-  rect(boxes,x+46,y-39,3,9,'#e4a361')
+  M.drawBanner(boxes,x,y,flavor)
  end
  local byStall=nearStall(s,q)
  local a=s.actors[s.active]

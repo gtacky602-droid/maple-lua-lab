@@ -1,6 +1,6 @@
 import {measureSpriteFidelity,spriteComparisonStrip} from './sprite-fidelity.js';
 import {wildlifeSites} from './underwater-wildlife.js';
-import {drawSurveyPoint,letterPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
+import {cookingStallPoint,drawSurveyPoint,letterPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
 import {setupPuzzlePreview} from './quest-puzzle-preview.js';
 import {forestPreview} from './forest-preview.js';
 import {lanternPreview} from './lantern-preview.js';
@@ -236,6 +236,11 @@ try{
   patrolPanel.hidden=!point?.guard;
   patrolTime.value=0;
   visibleLandmarks=[];
+  if(point?.stall&&point.flavor){
+   for(const [dx,dy,w,h,color] of worksiteArt.worksites[point.quest]['banner-'+point.flavor]){
+    visibleLandmarks.push({x:point.x+dx,y:point.y+dy,w,h,color});
+   }
+  }
   if(point?.worksite){
    const quest=graph.quests.find(q=>q.id===point.quest);
    const sites=quest?.sights?worksitePoints(quest).filter(site=>site.node===point.node):
@@ -1273,7 +1278,8 @@ try{
   if(liveView && n===openingNode){
    const quest=questsById.get(query.get('quest'));
    const letter=letterPoint(quest,query.get('letter'));
-   point=letter?.node===n.id?letter:query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id,query.getAll(quest?.cargo?'recovered':'stocked')):
+   const stall=cookingStallPoint(quest,query.get('stall'),query.get('flavor'));
+   point=stall?.node===n.id?stall:letter?.node===n.id?letter:query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id,query.getAll(quest?.cargo?'recovered':'stocked')):
     surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
   }
   if(point?.stations && n.rockViews && query.has('view')){

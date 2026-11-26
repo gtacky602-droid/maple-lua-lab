@@ -197,6 +197,14 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
   action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop}),...(props.length&&{props}),...(fixtures.length&&{fixtures})};
 }
 
+export function cookingStallPoint(q,stall,flavorId){
+ if(!q?.cooking||!['harbor','market'].includes(stall))return null;
+ const place=stall==='market'?q.cooking.marketStall:q.cooking.stall;
+ const flavor=q.cooking.flavors.find(item=>item.id===flavorId);
+ return {quest:q.id,node:q.hub,x:place.x,y:place.y,stall,flavor:flavor?.id,
+  name:'香菱の屋台',action:flavor?flavor.name:'食材を渡して味を選ぶ'};
+}
+
 export function constructionWorksite(plan,supplies){
  return {...plan.site,id:supplies?'work-supplies':'work-clearing',
   name:plan.name+'・'+(supplies?'資材の受け渡し':'作業場所の片付け')};
@@ -254,7 +262,11 @@ export function letterPoint(q,stage){
 
 export function surveyPointUrl(point){
  const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest});
- if(point.letter){
+ if(point.stall){
+  params.set('stall',point.stall);
+  if(point.flavor)params.set('flavor',point.flavor);
+  params.set('compare','background');params.set('tier','4096');
+ }else if(point.letter){
   params.set('letter',point.letter);
  }else if(point.worksite){
   params.set('worksite',point.worksite);

@@ -18,6 +18,35 @@ try{
    state[kind][flags][site.id]=true;state.count++;
    assert(!links(site.node).some(url=>url.searchParams.get('worksite')===site.id));
   }
+  if(kind==='cooking'){
+   const market=q.cooking.marketStall;
+   for(const opened of [false,true]){
+    frame.story.quests[market.quest]={count:opened?market.count:market.count-1};
+    const place=opened?market:q.cooking.stall;
+    for(const flavor of [null,...q.cooking.flavors]){
+     state.status=flavor?'complete':'active';state.count=flavor?q.goal:q.goal-1;
+     state.cooking.flavor=flavor?.id;
+     const [url]=links(q.hub);
+     assert.equal(url.searchParams.get('stall'),opened?'market':'harbor');
+     assert.equal(url.searchParams.get('flavor'),flavor?.id??null);
+     assert.equal(new URL(trackedQuest(frame,q.id).pointUrl,url).href,url.href);
+     await page.goto(new URL(url.pathname+url.search,process.env.LAB_URL||url.origin).href);
+     await page.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===4096);
+     const note=await page.locator('#surveyPointNote').innerText();
+     assert(note.includes(place.x+', '+place.y));
+     if(flavor){
+      assert(note.includes(flavor.name));
+      const colors=await page.evaluate(({x,y})=>['png','rect'].map(id=>{
+       const ctx=document.getElementById(id).getContext('2d');
+       return [...ctx.getImageData(x-window.mapArt.camera+39,y-37,1,1).data].slice(0,3);
+      }),place);
+      const rgb=flavor.color.slice(1).match(/../g).map(v=>parseInt(v,16));
+      assert.deepEqual(colors,[rgb,rgb]);
+     }else assert(!note.includes('4矩形'));
+    }
+   }
+   console.log('PASS both cooking locations before tasting and both saved flavors on both layers');
+  }
   if(kind==='construction'){
    const check=async (node,id)=>{
     const [url]=links(node);
