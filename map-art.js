@@ -580,12 +580,45 @@ try{
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
-  $('fidelityControls').hidden=!(liveView && (surveyProps.length || openings[n.id] && visibleItems.length) && !matchedSprites);
-  const measuredSubject=surveyProps.length?'依頼の小物':'ボス';
+  const fieldSubject=Boolean(!openings[n.id] && subject.value && visibleItems.length);
+  $('fidelityControls').hidden=!(liveView && (surveyProps.length || openings[n.id] && visibleItems.length || fieldSubject) && !matchedSprites);
+  const measuredSubject=surveyProps.length?'依頼の小物':fieldSubject?'対象の敵':'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
    paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),quality,prop.x-camera,prop.y,false,cost);
+  }
+  function paintFieldPlacement(ctx,e,quality,cost){
+    const a=placementArt(e),flip=e.flip&&(a.mirrorSource||!assets[e.species].left),x=e.x-camera,y=e.y-a.hover;
+    const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
+    const paintMarks=marks=>{
+     for(const mark of marks??[]){
+      paintMechanismMark(ctx,mark,x,y,flip);
+      if(quality && mark.kind==='rect'){
+       cost.total++;
+       const left=x+(flip?-mark.x-mark.w:mark.x);
+       if(left+mark.w>0 && left<ctx.canvas.width && y+mark.y+mark.h>0 && y+mark.y<ctx.canvas.height){
+        cost.visible++;cost.standard++;
+       }
+      }
+     }
+    };
+    paintMarks(a.behind);
+    if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
+    if(a.image)paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
+    paintMarks(a.marks);
+    if(a.heldArt){
+     const {gripX,gripY,rects}=a.heldArt,dir=flip?-1:1;
+     const handX=x+dir*a.h*gripX,handY=y-a.h*gripY;
+     for(const [dx,dy,w,h,color] of rects){
+      const rx=handX-w/2+dir*dx,ry=handY+dy;
+      if(quality)cost.total++;
+      if(rx+w<=0 || ry+h<=0 || rx>=ctx.canvas.width || ry>=ctx.canvas.height)continue;
+      ctx.fillStyle=color;ctx.fillRect(rx,ry,w,h);
+      if(quality){cost.visible++;cost.standard++}
+     }
+    }
+    return {a,flip,x,y,body,rear};
   }
   function paintMeasuredSprites(ctx,quality){
     const cost={total:0,visible:0,standard:0};
@@ -594,6 +627,10 @@ try{
      return cost.visible;
     }
     for(const e of visibleItems){
+     if(fieldSubject){
+      paintFieldPlacement(ctx,e,quality,cost);
+      continue;
+     }
      const art=placementArt(e);
      const x=e.x-camera,y=e.y-art.hover;
      paintPlacementLayer(ctx,art,spriteBounds(art,art.h),quality,x,y,e.flip,cost);
@@ -703,36 +740,7 @@ try{
     }
    }
    for(const e of visibleItems){
-    const a=placementArt(e),flip=e.flip&&(a.mirrorSource||!assets[e.species].left),x=e.x-camera,y=e.y-a.hover;
-    const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
-    const quality=mode==='png'||matchedSprites?null:profile;
-    const paintMarks=marks=>{
-     for(const mark of marks??[]){
-      paintMechanismMark(ctx,mark,x,y,flip);
-      if(quality && mark.kind==='rect'){
-       cost.total++;
-       const left=x+(flip?-mark.x-mark.w:mark.x);
-       if(left+mark.w>0 && left<ctx.canvas.width && y+mark.y+mark.h>0 && y+mark.y<ctx.canvas.height){
-        cost.visible++;cost.standard++;
-       }
-      }
-     }
-    };
-    paintMarks(a.behind);
-    if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
-    if(a.image)paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
-    paintMarks(a.marks);
-    if(a.heldArt){
-     const {gripX,gripY,rects}=a.heldArt,dir=flip?-1:1;
-     const handX=x+dir*a.h*gripX,handY=y-a.h*gripY;
-     for(const [dx,dy,w,h,color] of rects){
-      const rx=handX-w/2+dir*dx,ry=handY+dy;
-      if(quality)cost.total++;
-      if(rx+w<=0 || ry+h<=0 || rx>=ctx.canvas.width || ry>=ctx.canvas.height)continue;
-      ctx.fillStyle=color;ctx.fillRect(rx,ry,w,h);
-      if(quality){cost.visible++;cost.standard++}
-     }
-    }
+    const {a,flip,x,y,body,rear}=paintFieldPlacement(ctx,e,mode==='png'||matchedSprites?null:profile,cost);
     if(e.id===selected){
      const left=flip?-body.x-body.width:body.x;
      const minX=rear?Math.min(left,rear.x):left;

@@ -1,0 +1,1850 @@
+[
+  {
+    "node": "nod-patrol-bend",
+    "subject": "nod-patrol-bend-slinger",
+    "camera": 576,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1175,
+        "overlapPercent": 91.6,
+        "meanRgbError": 23.72
+      },
+      "h48c32": {
+        "rectangles": 692,
+        "overlapPercent": 93.9,
+        "meanRgbError": 27.81
+      },
+      "h32c16": {
+        "rectangles": 285,
+        "overlapPercent": 88,
+        "meanRgbError": 33.4
+      }
+    }
+  },
+  {
+    "node": "sne-churin-apprentice-bout",
+    "subject": "snow-apprentice-sparring",
+    "camera": 341,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1318,
+        "overlapPercent": 97,
+        "meanRgbError": 16.1
+      },
+      "h48c32": {
+        "rectangles": 799,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.79
+      },
+      "h32c16": {
+        "rectangles": 323,
+        "overlapPercent": 91.1,
+        "meanRgbError": 36.56
+      }
+    }
+  },
+  {
+    "node": "natlan-charm-trail",
+    "subject": "charm-trail-beast-west",
+    "camera": 115,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1334,
+        "overlapPercent": 93,
+        "meanRgbError": 25.66
+      }
+    }
+  },
+  {
+    "node": "natlan-charm-trail",
+    "subject": "charm-trail-beast-east",
+    "camera": 478,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1334,
+        "overlapPercent": 93,
+        "meanRgbError": 25.66
+      }
+    }
+  },
+  {
+    "node": "natlan-kinich-hunt",
+    "subject": "kinich-hunt-ridge-beast",
+    "camera": 421,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1334,
+        "overlapPercent": 93,
+        "meanRgbError": 25.66
+      }
+    }
+  },
+  {
+    "node": "natlan-high-trial-field",
+    "subject": "natlan-high-mark-2",
+    "camera": 155,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1334,
+        "overlapPercent": 93,
+        "meanRgbError": 25.66
+      }
+    }
+  },
+  {
+    "node": "sne-churin-bragin-bout",
+    "subject": "snow-bragin-sparring",
+    "camera": 368,
+    "profiles": {
+      "legacy": {
+        "rectangles": 4382,
+        "overlapPercent": 98.3,
+        "meanRgbError": 10.09
+      },
+      "h48c32": {
+        "rectangles": 2780,
+        "overlapPercent": 95.7,
+        "meanRgbError": 18.98
+      },
+      "h32c16": {
+        "rectangles": 1334,
+        "overlapPercent": 93,
+        "meanRgbError": 25.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-1",
+    "camera": 111,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-2",
+    "camera": 151,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-3",
+    "camera": 194,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-4",
+    "camera": 231,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-terrace",
+    "subject": "sum-visitor-tier-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-terrace",
+    "subject": "sum-visitor-tier-2",
+    "camera": 184,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-terrace",
+    "subject": "sum-visitor-tier-3",
+    "camera": 507,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-store",
+    "subject": "sum-visitor-fast-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-store",
+    "subject": "sum-visitor-fast-2",
+    "camera": 174,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-store",
+    "subject": "sum-visitor-fast-3",
+    "camera": 366,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 255,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.07
+      }
+    }
+  },
+  {
+    "node": "tunigi-vent-shelf",
+    "subject": "tunigi-vent-guard-2",
+    "camera": 257,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "tunigi-elite-passage",
+    "subject": "tunigi-elite-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "golden-shadow-grotto",
+    "subject": "golden-cave-patrol-2",
+    "camera": 251,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "simulanka-fold-valley",
+    "subject": "simulanka-fold-guard-2",
+    "camera": 980,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "sumeru-river-bank",
+    "subject": "sumeru-bank-guard-2",
+    "camera": 337,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "sumeru-observatory-approach",
+    "subject": "sumeru-observatory-guard-2",
+    "camera": 328,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "natlan-river-float-run",
+    "subject": "natlan-river-bank-1",
+    "camera": 631,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "natlan-river-float-run",
+    "subject": "natlan-river-bank-3",
+    "camera": 750,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "natlan-river-turn-basin",
+    "subject": "natlan-turn-bank-1",
+    "camera": 768,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1765,
+        "overlapPercent": 98.6,
+        "meanRgbError": 10.93
+      },
+      "h48c32": {
+        "rectangles": 1078,
+        "overlapPercent": 96.3,
+        "meanRgbError": 26.1
+      },
+      "h32c16": {
+        "rectangles": 413,
+        "overlapPercent": 94.1,
+        "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "ochka-patched-court",
+    "subject": "ochka-court-blocking-carrier",
+    "camera": 337,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "novo-frozen-works",
+    "subject": "novo-works-wheel-guard",
+    "camera": 679,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "tunigi-vent-shelf",
+    "subject": "tunigi-vent-guard-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "tunigi-vent-shelf",
+    "subject": "tunigi-vent-guard-3",
+    "camera": 711,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "golden-shadow-grotto",
+    "subject": "golden-cave-patrol-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "golden-shadow-grotto",
+    "subject": "golden-cave-patrol-3",
+    "camera": 486,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "simulanka-fold-valley",
+    "subject": "simulanka-fold-guard-1",
+    "camera": 980,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.28
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "sumeru-river-bank",
+    "subject": "sumeru-bank-guard-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "sumeru-observatory-approach",
+    "subject": "sumeru-observatory-guard-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "sumeru-observatory-approach",
+    "subject": "sumeru-observatory-guard-3",
+    "camera": 921,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "natlan-high-trial-field",
+    "subject": "natlan-high-mark-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "natlan-high-trial-field",
+    "subject": "natlan-high-mark-3",
+    "camera": 496,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.29
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "natlan-river-float-run",
+    "subject": "natlan-river-bank-2",
+    "camera": 750,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.28
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "natlan-river-turn-basin",
+    "subject": "natlan-turn-bank-2",
+    "camera": 770,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1258,
+        "overlapPercent": 97,
+        "meanRgbError": 13.66
+      },
+      "h48c32": {
+        "rectangles": 797,
+        "overlapPercent": 96.4,
+        "meanRgbError": 17.28
+      },
+      "h32c16": {
+        "rectangles": 349,
+        "overlapPercent": 94.7,
+        "meanRgbError": 22.87
+      }
+    }
+  },
+  {
+    "node": "frost-commander-first-wave",
+    "subject": "frost-console-first-commander-west",
+    "camera": 286,
+    "profiles": {
+      "legacy": {
+        "rectangles": 3355,
+        "overlapPercent": 98.9,
+        "meanRgbError": 16.72
+      },
+      "h48c32": {
+        "rectangles": 2074,
+        "overlapPercent": 96.4,
+        "meanRgbError": 22.86
+      },
+      "h32c16": {
+        "rectangles": 995,
+        "overlapPercent": 94.7,
+        "meanRgbError": 31.22
+      }
+    }
+  },
+  {
+    "node": "frost-commander-first-wave",
+    "subject": "frost-console-first-commander-east",
+    "camera": 614,
+    "profiles": {
+      "legacy": {
+        "rectangles": 3355,
+        "overlapPercent": 98.9,
+        "meanRgbError": 16.72
+      },
+      "h48c32": {
+        "rectangles": 2074,
+        "overlapPercent": 96.4,
+        "meanRgbError": 22.86
+      },
+      "h32c16": {
+        "rectangles": 995,
+        "overlapPercent": 94.7,
+        "meanRgbError": 31.22
+      }
+    }
+  },
+  {
+    "node": "frost-commander-second-wave",
+    "subject": "frost-console-second-commander-west",
+    "camera": 286,
+    "profiles": {
+      "legacy": {
+        "rectangles": 3355,
+        "overlapPercent": 98.9,
+        "meanRgbError": 16.72
+      },
+      "h48c32": {
+        "rectangles": 2074,
+        "overlapPercent": 96.4,
+        "meanRgbError": 22.86
+      },
+      "h32c16": {
+        "rectangles": 995,
+        "overlapPercent": 94.7,
+        "meanRgbError": 31.22
+      }
+    }
+  },
+  {
+    "node": "frost-commander-second-wave",
+    "subject": "frost-console-second-commander-east",
+    "camera": 614,
+    "profiles": {
+      "legacy": {
+        "rectangles": 3355,
+        "overlapPercent": 98.9,
+        "meanRgbError": 16.72
+      },
+      "h48c32": {
+        "rectangles": 2074,
+        "overlapPercent": 96.4,
+        "meanRgbError": 22.86
+      },
+      "h32c16": {
+        "rectangles": 995,
+        "overlapPercent": 94.7,
+        "meanRgbError": 31.22
+      }
+    }
+  },
+  {
+    "node": "fon-emilie-scent-shore",
+    "subject": "fon-scent-quay-crab",
+    "camera": 550,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1451,
+        "overlapPercent": 97.5,
+        "meanRgbError": 15.93
+      },
+      "h48c32": {
+        "rectangles": 900,
+        "overlapPercent": 96.5,
+        "meanRgbError": 20.26
+      },
+      "h32c16": {
+        "rectangles": 432,
+        "overlapPercent": 95.2,
+        "meanRgbError": 27.39
+      }
+    }
+  },
+  {
+    "node": "mond-night-hill",
+    "subject": "mond-night-slime-a",
+    "camera": 760,
+    "profiles": {
+      "legacy": {
+        "rectangles": 925,
+        "overlapPercent": 98,
+        "meanRgbError": 11.77
+      },
+      "h48c32": {
+        "rectangles": 595,
+        "overlapPercent": 97.1,
+        "meanRgbError": 18.27
+      },
+      "h32c16": {
+        "rectangles": 242,
+        "overlapPercent": 95.7,
+        "meanRgbError": 24.29
+      }
+    }
+  },
+  {
+    "node": "mond-night-hill",
+    "subject": "mond-night-slime-b",
+    "camera": 910,
+    "profiles": {
+      "legacy": {
+        "rectangles": 925,
+        "overlapPercent": 98,
+        "meanRgbError": 11.77
+      },
+      "h48c32": {
+        "rectangles": 595,
+        "overlapPercent": 97.1,
+        "meanRgbError": 18.27
+      },
+      "h32c16": {
+        "rectangles": 242,
+        "overlapPercent": 95.7,
+        "meanRgbError": 24.29
+      }
+    }
+  },
+  {
+    "node": "mond-night-hill",
+    "subject": "mond-night-slime-c",
+    "camera": 970,
+    "profiles": {
+      "legacy": {
+        "rectangles": 925,
+        "overlapPercent": 98,
+        "meanRgbError": 11.77
+      },
+      "h48c32": {
+        "rectangles": 595,
+        "overlapPercent": 97.1,
+        "meanRgbError": 18.27
+      },
+      "h32c16": {
+        "rectangles": 242,
+        "overlapPercent": 95.7,
+        "meanRgbError": 24.29
+      }
+    }
+  },
+  {
+    "node": "mond-library-orchard",
+    "subject": "mond-return-slime-a",
+    "camera": 900,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "mond-library-orchard",
+    "subject": "mond-return-slime-b",
+    "camera": 900,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "mond-library-orchard",
+    "subject": "mond-return-slime-c",
+    "camera": 900,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "novo-frozen-works",
+    "subject": "novo-works-hoist-guard",
+    "camera": 273,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "novo-drift-passage",
+    "subject": "novo-drift-west-guard",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "novo-drift-passage",
+    "subject": "novo-drift-upper-guard",
+    "camera": 325,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "novo-drift-passage",
+    "subject": "novo-drift-east-guard",
+    "camera": 590,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "spine-observation-shelf",
+    "subject": "spine-shelf-near-beetle",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "spine-observation-shelf",
+    "subject": "spine-shelf-upper-beetle",
+    "camera": 259,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "spine-observation-shelf",
+    "subject": "spine-shelf-far-beetle",
+    "camera": 645,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "tunigi-elite-passage",
+    "subject": "tunigi-elite-2",
+    "camera": 432,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1835,
+        "overlapPercent": 98.3,
+        "meanRgbError": 12.27
+      },
+      "h48c32": {
+        "rectangles": 1137,
+        "overlapPercent": 97.7,
+        "meanRgbError": 18.38
+      },
+      "h32c16": {
+        "rectangles": 495,
+        "overlapPercent": 96.1,
+        "meanRgbError": 24.65
+      }
+    }
+  },
+  {
+    "node": "nod-tide-rocks",
+    "subject": "nod-tide-rocks-1",
+    "camera": 235,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-tide-rocks",
+    "subject": "nod-tide-rocks-3",
+    "camera": 445,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-spruce-clearing",
+    "subject": "nod-spruce-1",
+    "camera": 197,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-spruce-clearing",
+    "subject": "nod-spruce-3",
+    "camera": 426,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-detour-shore",
+    "subject": "nod-detour-foe-1",
+    "camera": 199,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-detour-shore",
+    "subject": "nod-detour-foe-3",
+    "camera": 477,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-bloom-trail",
+    "subject": "nod-bloom-trail-1",
+    "camera": 170,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-bloom-trail",
+    "subject": "nod-bloom-trail-3",
+    "camera": 516,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-patrol-bend",
+    "subject": "nod-patrol-bend-slime-1",
+    "camera": 830,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "nod-patrol-bend",
+    "subject": "nod-patrol-bend-slime-3",
+    "camera": 830,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "sne-survey-ridge",
+    "subject": "sne-survey-hydro-slime",
+    "camera": 394,
+    "profiles": {
+      "legacy": {
+        "rectangles": 728,
+        "overlapPercent": 98.8,
+        "meanRgbError": 8.21
+      },
+      "h48c32": {
+        "rectangles": 415,
+        "overlapPercent": 98.5,
+        "meanRgbError": 10.81
+      },
+      "h32c16": {
+        "rectangles": 164,
+        "overlapPercent": 96.1,
+        "meanRgbError": 16.69
+      }
+    }
+  },
+  {
+    "node": "sne-survey-ridge",
+    "subject": "sne-survey-ice-slime",
+    "camera": 205,
+    "profiles": {
+      "legacy": {
+        "rectangles": 750,
+        "overlapPercent": 99.7,
+        "meanRgbError": 3.72
+      },
+      "h48c32": {
+        "rectangles": 505,
+        "overlapPercent": 97.9,
+        "meanRgbError": 15.43
+      },
+      "h32c16": {
+        "rectangles": 207,
+        "overlapPercent": 96.6,
+        "meanRgbError": 22.21
+      }
+    }
+  },
+  {
+    "node": "nod-tide-rocks",
+    "subject": "nod-tide-rocks-2",
+    "camera": 337,
+    "profiles": {
+      "legacy": {
+        "rectangles": 848,
+        "overlapPercent": 99.9,
+        "meanRgbError": 1.92
+      },
+      "h48c32": {
+        "rectangles": 486,
+        "overlapPercent": 98,
+        "meanRgbError": 8.3
+      },
+      "h32c16": {
+        "rectangles": 193,
+        "overlapPercent": 96.9,
+        "meanRgbError": 12.53
+      }
+    }
+  },
+  {
+    "node": "nod-spruce-clearing",
+    "subject": "nod-spruce-2",
+    "camera": 304,
+    "profiles": {
+      "legacy": {
+        "rectangles": 848,
+        "overlapPercent": 99.9,
+        "meanRgbError": 1.92
+      },
+      "h48c32": {
+        "rectangles": 486,
+        "overlapPercent": 98,
+        "meanRgbError": 8.3
+      },
+      "h32c16": {
+        "rectangles": 193,
+        "overlapPercent": 96.9,
+        "meanRgbError": 12.53
+      }
+    }
+  },
+  {
+    "node": "nod-spruce-clearing",
+    "subject": "nod-spruce-4",
+    "camera": 540,
+    "profiles": {
+      "legacy": {
+        "rectangles": 848,
+        "overlapPercent": 99.9,
+        "meanRgbError": 1.92
+      },
+      "h48c32": {
+        "rectangles": 486,
+        "overlapPercent": 98,
+        "meanRgbError": 8.3
+      },
+      "h32c16": {
+        "rectangles": 193,
+        "overlapPercent": 96.9,
+        "meanRgbError": 12.53
+      }
+    }
+  },
+  {
+    "node": "nod-detour-shore",
+    "subject": "nod-detour-foe-2",
+    "camera": 336,
+    "profiles": {
+      "legacy": {
+        "rectangles": 848,
+        "overlapPercent": 99.9,
+        "meanRgbError": 1.92
+      },
+      "h48c32": {
+        "rectangles": 486,
+        "overlapPercent": 98,
+        "meanRgbError": 8.3
+      },
+      "h32c16": {
+        "rectangles": 193,
+        "overlapPercent": 96.9,
+        "meanRgbError": 12.53
+      }
+    }
+  },
+  {
+    "node": "nod-bloom-trail",
+    "subject": "nod-bloom-trail-2",
+    "camera": 325,
+    "profiles": {
+      "legacy": {
+        "rectangles": 848,
+        "overlapPercent": 99.9,
+        "meanRgbError": 1.92
+      },
+      "h48c32": {
+        "rectangles": 486,
+        "overlapPercent": 98,
+        "meanRgbError": 8.3
+      },
+      "h32c16": {
+        "rectangles": 193,
+        "overlapPercent": 96.9,
+        "meanRgbError": 12.53
+      }
+    }
+  },
+  {
+    "node": "nod-patrol-bend",
+    "subject": "nod-patrol-bend-slime-2",
+    "camera": 830,
+    "profiles": {
+      "legacy": {
+        "rectangles": 848,
+        "overlapPercent": 99.9,
+        "meanRgbError": 1.93
+      },
+      "h48c32": {
+        "rectangles": 486,
+        "overlapPercent": 98,
+        "meanRgbError": 8.31
+      },
+      "h32c16": {
+        "rectangles": 193,
+        "overlapPercent": 96.9,
+        "meanRgbError": 12.55
+      }
+    }
+  },
+  {
+    "node": "white-pass-cut",
+    "subject": "white-pass-route-cart",
+    "camera": 35,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "fontaine-old-scenery-door",
+    "subject": "fontaine-old-door-patrol-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "fontaine-old-scenery-door",
+    "subject": "fontaine-old-door-patrol-2",
+    "camera": 341,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "fontaine-understage-workfloor",
+    "subject": "fontaine-understage-guard-left",
+    "camera": 479,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "fontaine-understage-workfloor",
+    "subject": "fontaine-understage-guard-right",
+    "camera": 730,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "fontaine-grand-stage-approach",
+    "subject": "fontaine-mainstage-guard-left",
+    "camera": 517,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "fontaine-grand-stage-approach",
+    "subject": "fontaine-mainstage-guard-right",
+    "camera": 865,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1004,
+        "overlapPercent": 98.6,
+        "meanRgbError": 7.28
+      },
+      "h48c32": {
+        "rectangles": 624,
+        "overlapPercent": 96.5,
+        "meanRgbError": 10.31
+      },
+      "h32c16": {
+        "rectangles": 260,
+        "overlapPercent": 97.6,
+        "meanRgbError": 16.98
+      }
+    }
+  }
+]

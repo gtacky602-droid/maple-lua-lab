@@ -109,6 +109,16 @@ try{
   assert.equal(await last.evaluate(()=>window.mapArt.shownCount),1);
  }
  assert(!(await last.evaluate(()=>window.mapArt.placements.map(p=>p.id))).includes('natlan-river-bank-1'));
+ await last.locator('#compareSpriteProfiles').click();
+ assert.match(await last.locator('#spriteProfileTable caption').innerText(),/対象の敵/);
+ const scores={};
+ for(const quality of ['h48c32','h32c16']){
+  const row=last.locator('#spriteProfileTable tr').filter({has:last.locator('button[value="'+quality+'"]')});
+  const [,rects,shape,color]=await row.locator('td').allTextContents();
+  scores[quality]={rects:Number(rects.replaceAll(',','')),overlap:parseFloat(shape),color:parseFloat(color)};
+  assert(scores[quality].rects>0 && scores[quality].overlap>0 && Number.isFinite(scores[quality].color));
+ }
+ console.log('River bank target 3',scores);
  await last.locator('#rect').screenshot({path:'evidence/natlan-river-third-target-16color.png'});
  await last.close();
  const targetPage=page.waitForEvent('popup');
