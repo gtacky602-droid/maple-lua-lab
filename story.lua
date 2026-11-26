@@ -2169,17 +2169,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   draws[#draws+1]={kind='text',x=x+1,y=y-20,text='✧',color='#fff5d9',size=21}
  end
 
+ local function paintFixture(draws,x,y,rows)
+  for _,r in ipairs(rows) do
+   draws[#draws+1]={kind='rect',x=x+r[1],y=y+r[2],w=r[3],h=r[4],color=r[5]}
+  end
+ end
  local function drawRouteFixture(draws,x,y,kind,open)
   if x < -70 or x > 1030 then return end
   local art=data.routeFixtures[kind]
-  local function paint(rows)
-   for _,r in ipairs(rows) do
-    draws[#draws+1]={kind='rect',x=x+r[1],y=y+r[2],w=r[3],h=r[4],color=r[5]}
-   end
-  end
-  paint(art.base)
-  paint(open and art.open or art.closed)
-  if art.cap then paint(art.cap) end
+  paintFixture(draws,x,y,art.base)
+  paintFixture(draws,x,y,open and art.open or art.closed)
+  if art.cap then paintFixture(draws,x,y,art.cap) end
  end
 
  local function drawWindLift(draws,x,y,t)
@@ -2286,6 +2286,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                  spiritway=ride.spiritwayTrack and true or nil,windLift=ride.windLift}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   if n.waterSurvey then
+    local q=quests[n.waterSurvey.quest]
+    local progress=s.story.quests[q.id]
+    for _,index in ipairs(n.waterSurvey.steps) do
+     local step=q.itinerary[index]
+     local x=step.x-s.camera
+     if x>=-30 and x<=990 then
+      local art=data.waterInstruments[step.waterInstrument]
+      paintFixture(markers,x,step.y,art.base)
+      paintFixture(markers,x,step.y,progress and progress.count>=index and art.after or art.before)
+     end
+    end
+   end
    if n.sluiceStation then
     local station=n.sluiceStation
     local step=quests[station.quest].itinerary[station.step]
@@ -2781,7 +2794,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       elseif milestone.shoreMark then drawShoreMark(markers,x,y,milestone.shoreMark)
       elseif milestone.patternBottle then drawPatternBottle(markers,x,y,false)
       elseif milestone.pageBook then paper.drawBook(markers,x,y,false)
-      elseif not milestone.sluiceInstrument then
+      elseif not milestone.sluiceInstrument and not milestone.waterInstrument then
        markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
        markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}

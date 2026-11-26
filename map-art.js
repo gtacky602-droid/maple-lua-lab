@@ -269,6 +269,16 @@ try{
   }
  }
  const questGates=new Map(),questsById=new Map(graph.quests.map(q=>[q.id,q]));
+ for(const node of graph.nodes){
+  if(!node.waterSurvey)continue;
+  const quest=questsById.get(node.waterSurvey.quest);
+  const stops=node.waterSurvey.steps.map(index=>quest.itinerary[index-1]);
+  questPreviews[node.id]={stages:[0,...stops.map((_,i)=>i+1)].map(count=>{
+   const focus=stops[Math.max(0,count-1)];
+   return {label:count?focus.objective+'（調査済み）':'調査前',focusX:focus.x,visible:[],waterStations:
+    stops.map((step,i)=>({x:step.x,y:step.y,kind:step.waterInstrument,checked:i<count}))};
+  })};
+ }
  for(const from of graph.nodes){
   for(const gate of from.exits){
    const quest=questsById.get(gate.requires?.quest);
@@ -779,6 +789,14 @@ try{
     }else paintMechanismMark(ctx,mark,-camera,0,false);
    }
    if(stage){
+    for(const station of stage.waterStations??[]){
+     const art=graph.waterInstruments[station.kind];
+     for(const rows of [art.base,station.checked?art.after:art.before]){
+      for(const [dx,dy,w,h,color] of rows){
+       ctx.fillStyle=color;ctx.fillRect(station.x-camera+dx,station.y+dy,w,h);
+      }
+     }
+    }
     if(stage.cart){
      for(const [x,y,w,h,color] of questPreview.fixed){
       ctx.fillStyle=color;ctx.fillRect(x-camera,y,w,h);

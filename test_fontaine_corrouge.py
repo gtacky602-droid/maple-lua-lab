@@ -31,6 +31,21 @@ idle=lua.table()
 dt=1/60
 
 
+def instrument(state,step,checked):
+    art=graph['waterInstruments'][step['waterInstrument']]
+    for packed in (False,True):
+        state.packRectArt=packed
+        try:
+            frame=core.frame(state,'rect','h32c16')
+            shapes={(d.x+state.camera-step['x'],d.y-step['y'],d.w,d.h,d.color)
+                    for d in frame.draws.values() if d.kind=='rect'}
+            for row in art['base']+art['after' if checked else 'before']:
+                assert tuple(row) in shapes,(step['objective'],checked,row)
+            assert tuple(art['before' if checked else 'after'][0]) not in shapes
+        finally:
+            state.packRectArt=None
+
+
 def exp(level):
     return LEVELS[level-1]['maple_reference_total_exp_to_reach']
 
@@ -124,7 +139,9 @@ for i,step in enumerate(quest['itinerary'],1):
     else:
         assert s.story.node==step['node']
         walk.approach(step['x'],step['y'],QUEST)
+        instrument(s,step,False)
         core.action(s,'story_collect')
+        instrument(s,step,True)
     assert state.count==i,(step,s.storyNotice)
     if i==2:
         assert s.storySwimming and not core.frame(s).storySwimCombat
@@ -220,6 +237,12 @@ save=validate_save(native(core.checkpoint(s)))
 restored=core.restore(lua.table_from(save,recursive=True),12)
 assert restored.story.node==HUB and restored.story.quests[QUEST].status=='complete'
 assert restored.endgame.bosses[BOSS].clears==1 and BOSS not in save.get('fieldBosses',{})
+for step in quest['itinerary']:
+    if step.get('waterInstrument'):
+        core.enterStoryNode(restored,step['node'])
+        restored.camera=step['x']-480
+        instrument(restored,step,True)
+
 write('evidence/fontaine-corrouge-lua.json',{
     'surveySteps':quest['goal'],'levelAndReportChecked':True,'route':[HOST,WATER,ARENA],
     'stationaryBubbleReturnBeforeBurst':True,'burstClosesReturnAndHitsOnce':True,
