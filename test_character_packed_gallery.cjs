@@ -21,6 +21,10 @@ const assert=require('node:assert/strict');
   }
   assert.deepEqual(assets.filter(path=>path.startsWith('/assets/')&&path.endsWith('.json')),['/assets/character-gallery-packed.json']);
   await page.fill('#assetSearch','旅人');await page.check('#compareBoth');
+  await page.goto(await page.locator('#comparisonLink').getAttribute('href'));
+  await page.waitForFunction(()=>window.charactersGallery?.ready);
+  assert(await page.locator('#compareBoth').isChecked());
+  assert.equal(await page.locator('#assetSearch').inputValue(),'旅人');
   await page.screenshot({path:'evidence/character-packed-traveler.png'});
   await page.setViewportSize({width:390,height:844});
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
