@@ -3,28 +3,36 @@ import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
 const el=id=>document.getElementById(id);
 const side=el('side'),play=el('play'),step=el('step');
 try{
- const files=await json('content/motion-pose-files.json');
+ const [files,jumps]=await Promise.all([json('content/motion-pose-files.json'),json('content/traveler-jump-preview.json')]);
+ const motion=el('motion');
+ const samples=()=>jumps[side.value][motion.value];
  const cache=new Map();
  let phase=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,frames=[],version=0,timer=0;
  function draw(){
-  const {art,image}=frames[phase],height=phase===0?88:88*art.box[3]/100;
-  const bounds=spriteBounds(art,height*1.6);
+  const sample=samples()?.[phase];
+  el('jumpNote').hidden=!sample;
+  const pose=sample?sample.pose-1:phase;
+  const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
+  const scale=sample?0.62:1.6;
+  const bounds=spriteBounds(art,height*scale,-(sample?.lift??0)*scale);
   for(const canvas of document.querySelectorAll('canvas')){
    const ctx=canvas.getContext('2d');
    ctx.clearRect(0,0,canvas.width,canvas.height);
    ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(canvas.width/2,canvas.height-12);
    const profile=canvas.id==='source'?null:canvas.id;
    paintSprite(ctx,art,image,bounds,profile);
-   ctx.fillStyle='#adc7bb';ctx.fillRect(-56,0,112,1);ctx.restore();
+   ctx.fillStyle='#adc7bb';ctx.fillRect(-56,0,112,1);
+   if(sample)for(let x=-56-(sample.distance*scale%12);x<56;x+=12){if(x>=-56)ctx.fillRect(x,1,1,3)}
+   ctx.restore();
    if(profile){const g=art.profiles[profile];canvas.closest('figure').querySelector('small').textContent=g.width+' × '+g.height+' px・'+rectangleCount(g)+'矩形'}
   }
-  el('phase').textContent=(phase+1)+' / '+frames.length+' コマ';
-  el('phase').dataset.file=files[side.value][phase+1];
+  el('phase').textContent=(phase+1)+' / '+(samples()?.length??frames.length)+' コマ'+(sample?'・'+(sample.ground?'接地':'地面から '+sample.lift.toFixed(1)+' px'):'');
+  el('phase').dataset.file=files[side.value][pose+1];
  }
- function advance(){phase=(phase+1)%frames.length;draw()}
+ function advance(){phase=(phase+1)%(samples()?.length??frames.length);draw()}
  function schedule(){
   clearInterval(timer);play.textContent=playing?'一時停止':'再生';
-  if(playing&&frames.length)timer=setInterval(advance,160);
+  if(playing&&frames.length)timer=setInterval(advance,samples()?50:160);
  }
  async function select(){
   const value=side.value,token=++version;frames=[];phase=0;schedule();
@@ -75,5 +83,5 @@ try{
    scene.onchange=showSizes;showSizes();wire.dataset.loaded='ready';
   }catch{delete wire.dataset.loaded;el('error').textContent='転送量を読み込めませんでした。'}
  });
- side.onchange=select;await select();
+ side.onchange=motion.onchange=select;await select();
 }catch{el('error').textContent='走行素材の一覧を読み込めませんでした。'}

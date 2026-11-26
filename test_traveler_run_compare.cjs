@@ -31,6 +31,27 @@ const catalog=require('./content/motion-pose-files.json');
   await page.waitForFunction(()=>document.getElementById('phase').dataset.file.includes('left-sprites-v3'));
   await page.click('#play');
   await page.screenshot({path:'evidence/traveler-run-packed-preview.png'});
+  const jumps=require('./content/traveler-jump-preview.json');
+  for(const side of ['left','right']){
+   await page.selectOption('#side',side);
+   for(const motion of ['tap','hold']){
+    await page.selectOption('#motion',motion);
+    const samples=jumps[side][motion];
+    for(const [i,s] of samples.entries()){
+     const label=(i+1)+' / '+samples.length+' コマ・'+(s.ground?'接地':'地面から '+s.lift.toFixed(1)+' px');
+     await page.waitForFunction(text=>document.querySelector('#phase').textContent===text,label);
+     assert.equal(await page.locator('#phase').getAttribute('data-file'),catalog[side][s.pose]);
+     if(!s.ground){
+      const bottom=await page.locator('#h32c16').evaluate(c=>{
+       const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
+       for(let y=c.height-14;y>=0;y--)for(let x=0;x<c.width;x++)if(pixels[(y*c.width+x)*4+3])return y;
+      });
+      assert(Math.abs(bottom-(168-s.lift*.62))<4);
+     }
+     if(i+1<samples.length)await page.click('#step');
+    }
+   }
+  }
   await page.click('#measure summary');
   await page.waitForFunction(()=>document.getElementById('measure').dataset.loaded==='ready');
   assert.equal(await page.locator('#measure tbody tr:last-child td').last().innerText(),require('./evidence/motion-load.json').after.total.toLocaleString('ja-JP'));
