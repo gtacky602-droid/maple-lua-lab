@@ -512,6 +512,9 @@ def validate_save(data):
         validate_party_combat(data['partyCombat'], companion)
     if 'partyPresets' in data:
         validate_party_presets(data['partyPresets'])
+    # Earlier battles could leave cumulative damage as a Lua float after percentage HP costs.
+    if type(data['damage']) is float and 0<=data['damage']<=10**15:
+        data={**data,'damage':math.floor(data['damage'])}
     for key,maximum in [('count',8),('mora',10**12),('kills',10**9),('hits',10**12),('damage',10**15),('gauge',100),('active',2)]:
         if type(data[key]) is not int or not 0<=data[key]<=maximum:
             raise ValueError('保存数値が不正です: '+key)

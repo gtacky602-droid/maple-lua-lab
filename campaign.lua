@@ -92,7 +92,7 @@ return function(C)
  function C.checkpoint(s)
   if not s.campaign then return nil end
   return {version=1,quest=s.campaign.quest,count=s.campaign.count,mora=s.mora,
-   kills=s.kills,hits=s.hits,damage=s.damage,gauge=s.gauge,active=s.active}
+   kills=s.kills,hits=s.hits,damage=math.floor(s.damage),gauge=s.gauge,active=s.active}
  end
  function C.restore(d,density)
   local s=baseNew(density)

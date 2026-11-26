@@ -18,6 +18,15 @@ async function read(path){
  if(!response.ok)throw Error(path+' '+response.status);
  return response.json();
 }
+const arenaViews={
+ narwhal:{arrival:['星海・開幕','whale'],inside:['異界・幻影戦','shadow'],return:['星海・帰還後の衰弱','whale']},
+ knave:{court:['開幕・片鎌','single'],frenzy:['形態移行・双鎌','double'],moon:['凶月と双鎌','double']}
+};
+function paintRects(ctx,rects=[]){
+ ctx.save();
+ for(const [x,y,w,h,color,opacity] of rects){ctx.fillStyle=color;ctx.globalAlpha=opacity;ctx.fillRect(x,y,w,h)}
+ ctx.restore();
+}
 const aliases={surveyor:'surveyorArt',loom:'loomArt',primal_fire:'primalWeeklyArt',game_before_gate:'gateWeeklyArt',false_moon:'falseMoonWeeklyArt'};
 try{
  const [{weeklyBosses},groups]=await Promise.all([read('content/weekly-boss-spawns.json'),read('content/weekly-pose-files.json')]);
@@ -30,7 +39,7 @@ try{
   const b=entries.get(boss.value);
   pose.replaceChildren(...Object.keys(b.poses).map(k=>new Option(label(k),k)));
   if(boss.value==='primal_fire')pose.append(new Option('炎剣・開幕の予兆','flame'),new Option('双剣・床切断後','dual'));
-  if(boss.value==='narwhal')pose.append(new Option('星海・開幕','arrival'),new Option('異界・幻影戦','inside'),new Option('星海・帰還後の衰弱','return'));
+  for(const [key,[title]] of Object.entries(arenaViews[boss.value]??{}))pose.add(new Option(title,key));
   if([...pose.options].some(option=>option.value===requested))pose.value=requested;
   else if(boss.value==='shouki')pose.value='upper';
   return draw();
@@ -39,13 +48,14 @@ try{
   const ticket=++revision;
   const forge=boss.value==='primal_fire'&&['flame','dual'].includes(pose.value)?pose.value:null;
   const selected=entries.get(boss.value);
-  const sea=boss.value==='narwhal'&&['arrival','inside','return'].includes(pose.value)?pose.value:null;
-  const asset=sea?(sea==='inside'?'shadow':'whale'):forge?'idle':pose.value;
+  const controller=boss.value,sceneKey=pose.value;
+  const scene=arenaViews[controller]?.[sceneKey];
+  const asset=scene?.[1]??(forge?'idle':pose.value);
   const path=selected.poses[asset];
   const arena=document.querySelector('#arena');
   arena.textContent=boss.value==='narwhal'&&asset==='shadow'?'異界の配置を見る':'本編の開幕配置';
   arena.href='map-art.html?'+new URLSearchParams({node:boss.value==='narwhal'&&asset==='shadow'?selected.innerNode:selected.node,placements:'live'});
-  document.querySelector('#scaleNote').textContent=sea?'戦闘中の960×540画面と同じ構図です。各場面の床と背景に、ボスを同じ位置・大きさで重ねています。':'同じ素材を同じ倍率で並べています。姿全体を収めるため、倍率は素材ごとに変わります。';
+  document.querySelector('#scaleNote').textContent=scene?'戦闘中の960×540画面と同じ構図です。各場面の床と背景に、ボスを同じ位置・大きさで重ねています。':'同じ素材を同じ倍率で並べています。姿全体を収めるため、倍率は素材ごとに変わります。';
   const url=new URL(location.href);url.searchParams.set('boss',boss.value);url.searchParams.set('pose',pose.value);
   history.replaceState(history.state,'',url);
   for(const c of canvases)c.hidden=true;
@@ -54,9 +64,9 @@ try{
    const [data,record]=await Promise.all([read('assets/weekly-packed/'+path),forge&&read('evidence/primal-forge-access.json')]);
    const view=record?.views?.[forge];
    let shot,frame,sceneryRenderer;
-   if(sea){
-    const [replay,renderer]=await Promise.all([read('evidence/narwhal-access-views.json'),import('./scenery.js')]);
-    shot=replay.views[sea];
+   if(scene){
+    const [replay,renderer]=await Promise.all([read('evidence/'+controller+'-access-views.json'),import('./scenery.js')]);
+    shot=replay.views[sceneKey];
     frame={story:{node:shot.node,active:true},campaign:{zone:'story:'+shot.node},camera:shot.camera,platforms:shot.platforms,t:shot.tick/60};
     await renderer.loadScenery(frame);
     if(renderer.sceneryStatus(frame).state!=='ready')throw Error('会場の背景を読み込めませんでした');
@@ -70,10 +80,11 @@ try{
     c.width=shot?960:480;c.height=shot?540:320;
     const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;
     if(shot){
-     sceneryRenderer(ctx,frame);ctx.translate(shot.x,shot.y);
+     sceneryRenderer(ctx,frame);paintRects(ctx,shot.behind);ctx.save();ctx.translate(shot.x,shot.y);
      if(shot.flip)ctx.scale(-1,1);
     }else ctx.translate((480-bounds.width)/2-bounds.x,300);
     paintSprite(ctx,data,image,bounds,[null,'h48c32','h32c16'][i]);
+    if(shot){ctx.restore();paintRects(ctx,shot.front)}
     if(view){
      ctx.scale(height/view.height,height/view.height);
      for(const [x,y,w,h,color] of view.blades){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
