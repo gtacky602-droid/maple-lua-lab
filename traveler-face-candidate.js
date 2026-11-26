@@ -21,7 +21,7 @@ export function travelerFaceCandidate(art,image,side){
  ctx.drawImage(image,...art.box,0,0,width,height);
  const colors=[...palette].map(hex=>({hex,r:parseInt(hex.slice(1,3),16),g:parseInt(hex.slice(3,5),16),b:parseInt(hex.slice(5,7),16)}));
  const pixels=ctx.getImageData(left,top,right-left,bottom-top).data;
- let previous=new Map();
+ const rows=[];
  for(let y=top;y<bottom;y++){
   const row=[];
   for(let x=left;x<right;x++){
@@ -34,19 +34,60 @@ export function travelerFaceCandidate(art,image,side){
    }
    row.push(nearest);
   }
-  const current=new Map();
-  for(let x=0;x<row.length;){
-   let end=x+1;
-   while(end<row.length&&row[end]===row[x])end++;
-   if(row[x]){
-    const key=[x,end,row[x]].join(','),prior=previous.get(key);
-    const run=prior??[left+x,y,end-x,1,row[x]];
-    if(prior)run[3]++;else runs.push(run);
-    current.set(key,run);
-   }
-   x=end;
-  }
-  previous=current;
+  rows.push(row);
  }
+ runs.push(...coverFacePixels(rows,left,top));
  return {...art,profiles:{...art.profiles,h32c16:{width,height,runs,colors:palette.size}}};
+}
+
+// Each candidate covers exactly the same opaque palette pixels. Keep the shorter list.
+function coverFacePixels(rows,left,top){
+ function cover(columns){
+  const span=columns?rows.length:rows[0].length;
+  const lines=columns?rows[0].length:rows.length;
+  const rectangles=[];
+  let previous=new Map();
+  for(let line=0;line<lines;line++){
+   const current=new Map();
+   for(let start=0;start<span;){
+    const color=columns?rows[start][line]:rows[line][start];
+    let end=start+1;
+    while(end<span&&(columns?rows[end][line]:rows[line][end])===color)end++;
+    if(color){
+     const key=[start,end,color].join(','),prior=previous.get(key);
+     const rect=prior??(columns?[left+line,top+start,1,end-start,color]:[left+start,top+line,end-start,1,color]);
+     if(prior)rect[columns?2:3]++;
+     else rectangles.push(rect);
+     current.set(key,rect);
+    }
+    start=end;
+   }
+   previous=current;
+  }
+  return rectangles;
+ }
+ const remaining=rows.map(row=>row.slice()),blocks=[];
+ for(let y=0;y<rows.length;y++){
+  for(let x=0;x<rows[y].length;x++){
+   const color=remaining[y][x];
+   if(!color)continue;
+   let width=rows[y].length-x,bestWidth=1,bestHeight=1;
+   for(let end=y;end<rows.length&&remaining[end][x]===color;end++){
+    let w=1;
+    while(w<width&&remaining[end][x+w]===color)w++;
+    width=w;
+    const height=end-y+1;
+    if(width*height>=bestWidth*bestHeight){bestWidth=width;bestHeight=height}
+   }
+   blocks.push([left+x,top+y,bestWidth,bestHeight,color]);
+   for(let yy=y;yy<y+bestHeight;yy++)remaining[yy].fill(null,x,x+bestWidth);
+  }
+ }
+ // Colors never overlap, so each can use its cheapest exact cover independently.
+ const options=[cover(false),cover(true),blocks],result=[];
+ for(const color of new Set(blocks.map(rect=>rect[4]))){
+  const choices=options.map(rects=>rects.filter(rect=>rect[4]===color));
+  result.push(...choices.reduce((best,next)=>next.length<best.length?next:best));
+ }
+ return result;
 }
