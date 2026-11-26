@@ -370,6 +370,8 @@ return function(C, atlas)
  end
 
  local function sealState(s,from,edge)
+  if edge.rubbleOnClosed then return C.gateHasRubble(s,edge) and 'closed' or 'open' end
+  if edge.routeFixture then return C.atlasGateRestriction(s,from,edge) and 'closed' or 'open' end
   if edge.ironGate or edge.rockSeal then
    return C.atlasGateRestriction(s,from,edge,math.huge) and 'closed' or 'open'
   end
@@ -708,7 +710,7 @@ return function(C, atlas)
    for _,edge in ipairs(source.exits) do
     if edge.to==destination.id then
      result.selected.approachGate={from=source.id,sourceName=source.name,id=destination.id,name=destination.name,
-      label=edge.rideLabel,previewX=edge.x,previewY=edge.y,reason=C.atlasGateRestriction(s,source.id,edge)}
+      label=edge.rideLabel,sealState=sealState(s,source.id,edge),previewX=edge.x,previewY=edge.y,reason=C.atlasGateRestriction(s,source.id,edge)}
      break
     end
    end

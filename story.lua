@@ -295,6 +295,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   return gateRestriction(s,edge,true)
  end
+ function C.gateHasRubble(s,edge)
+  local rule=edge.requires
+  local progress=edge.rubbleOnClosed and s.story.quests[rule.quest]
+  return progress and progress.count>=rule.before
+ end
  function C.gateOffset(a,edge)
   local dx,dy=edge.x-a.x,(edge.y or 480)-a.y
   return math.abs(dx)<90 and 0 or dx,math.abs(dy)<60 and 0 or dy
@@ -2379,9 +2384,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,edge in ipairs(n.exits) do if shownEdge(s,edge) and (not edge.darkOnly or s.storyLightMode=='dark') then
     local x,y=edge.x-s.camera,edge.y or 480
     local rule=edge.requires
-    local state=rule and s.story.quests[rule.quest]
-    local rubble=edge.rubbleOnClosed and state and state.count>=rule.before
-    if rubble then
+    if C.gateHasRubble(s,edge) then
      markers[#markers+1]={kind='rect',x=x-26,y=y-44,w=50,h=44,color='#6a4b51'}
      markers[#markers+1]={kind='rect',x=x-17,y=y-59,w=32,h=17,color='#a4785f'}
     elseif edge.ironGate and not meetsGateRule(s,rule) then

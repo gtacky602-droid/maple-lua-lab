@@ -137,6 +137,15 @@ assert sorted(e.y for e in s.enemies.values())==[390,480]
 for e in list(s.enemies.values()): defeat(s,e)
 gate(s,1530,vault)
 move(s,880)
+def vault_return_state():
+    core.action(s,'world_map_toggle')
+    view=frame(s).worldMap
+    assert view.selected.id==vault
+    route=next(route for route in view.routes.values() if route.id==passage)
+    core.action(s,'world_map_toggle')
+    return route.sealState
+
+assert vault_return_state()=='open'
 f=frame(s)
 assert f.fieldBoss and f.fieldBoss.id==boss
 gate(s,1630,shelter,opened=False)
@@ -146,6 +155,7 @@ kill_xp,mora=s.progression.killXp,s.mora
 defeat(s,s.fieldSlots[boss].enemy)
 assert (s.progression.killXp,s.mora)==(kill_xp,mora)
 assert s.story.quests[third].count==2 and s.fieldSlots[boss].phase=='respawn'
+assert vault_return_state()=='closed'
 assert '崩れた壁' in gate(s,55,passage,opened=False).reason
 gate(s,1630,shelter,opened=False)
 move(s,1425)

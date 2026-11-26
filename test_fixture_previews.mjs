@@ -54,4 +54,21 @@ try{
    console.log(node.id,edge.routeFixture,'both states and canvases, shared crop');
   }
  }
+ const collapse=new URL('map-art.html',base);
+ collapse.search=new URLSearchParams({node:'tunigi-fragment-vault',to:'tunigi-elite-passage',gateX:55,gateY:480,placements:'live',fixture:'closed'});
+ await preview.goto(collapse.href);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ const state=preview.locator('#fixtureState');
+ assert.equal(await state.isChecked(),false);
+ for(const before of [false,true]){
+  await state.setChecked(before);
+  await preview.locator('#compareSpriteProfiles').click();
+  assert.deepEqual(await preview.locator('#spriteProfileTable tbody tr').evaluateAll(rows=>rows.map(row=>Number(row.cells[1].textContent))),Array(3).fill(before?4:2));
+  for(const canvas of ['png','rect']){
+   const color=await preview.evaluate(({canvas,before})=>Array.from(document.getElementById(canvas)
+    .getContext('2d').getImageData((before?38:55)-mapArt.camera,before?405:430,1,1).data).slice(0,3),{canvas,before});
+   assert.deepEqual(color,before?[131,219,225]:[164,120,95]);
+  }
+ }
+ console.log('Vault return gate before collapse and rubble after collapse match both canvas profiles.');
 }finally{await browser.close()}

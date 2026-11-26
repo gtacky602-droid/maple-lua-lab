@@ -22,8 +22,10 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
  function selectGate(node,nodes,initial=false){
   const index=Number(select.value);
   active=index>0?node.exits[index-1]:null;
-  control.hidden=!(active?.routeFixture || active?.rockSeal);
-  state.checked=initial && active?.to===query.get('to') && query.get('fixture')==='open';
+  control.hidden=!(active?.routeFixture || active?.rockSeal || active?.rubbleOnClosed);
+  const supplied=initial && active?.to===query.get('to') && query.has('fixture');
+  state.checked=supplied?query.get('fixture')==='open':Boolean(active?.rubbleOnClosed);
+  control.querySelector('span').textContent=active?.rubbleOnClosed?'崩落前の通路を表示':'設備を開通後の姿で表示';
   panel.querySelector('#focusGate').hidden=link.hidden=position.hidden=!active;
   if(active){
    arrival=arrivalCamera(node.id,active,nodes.get(active.to));

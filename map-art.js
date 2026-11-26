@@ -495,9 +495,9 @@ try{
    if(body.rear&&(!part||previewCandidate(item)))layers.add(body.rear);
   }
   const missing=[...layers].filter(art=>art?.poseFile&&!art.image);
-  const fieldGates=liveView?n.exits.filter(edge=>edge.nightTotem||edge.rockSeal||edge.ironGate||edge.routeFixture):[];
+  const fieldGates=liveView?n.exits.filter(edge=>edge.nightTotem||edge.rockSeal||edge.ironGate||edge.routeFixture||edge.rubbleOnClosed):[];
   const ironStage=questPreviews[n.id]?.stages[Number($('questPropStage').value)];
-  const sealed=edge=>edge.ironGate?ironStage?.visible.includes(edge.to):(edge.rockSeal || edge.routeFixture) && !(gatePreview.selectedGate()===edge && $('fixtureState').checked);
+  const sealed=edge=>edge.rubbleOnClosed?gatePreview.selectedGate()===edge && !$('fixtureState').checked:edge.ironGate?ironStage?.visible.includes(edge.to):(edge.rockSeal || edge.routeFixture) && !(gatePreview.selectedGate()===edge && $('fixtureState').checked);
   if(fieldGates.some(edge=>edge.nightTotem&&!sealed(edge))&&!totemArt.image)missing.push(totemArt);
   const measureGate=fieldGates.find(edge=>edge===gatePreview.selectedGate());
   const watchSteps=liveView&&n.stealthRoute?questsById.get(n.stealthRoute.quest).itinerary.filter(s=>s.cover):[];
@@ -670,7 +670,7 @@ try{
   const groupOpening=members?.length>1;
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
   $('fidelityControls').hidden=!(liveView && (measureGate || surveyProps.length || visibleItems.length) && !matchedSprites);
-  const measuredSubject=measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
+  const measuredSubject=measureGate?.rubbleOnClosed?'遺跡の通路':measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
@@ -724,7 +724,7 @@ try{
     return;
    }
    const fixture=graph.routeFixtures[edge.routeFixture];
-   const pieces=fixture?[...fixture.base,...(closed?fixture.closed:fixture.open),...(fixture.cap??[])]:closed?[[-39,-39,78,39,'#393749'],[-31,-58,61,41,'#565067'],[-23,-66,42,12,'#756887'],[-12,-40,28,3,'#9286ab']]:
+   const pieces=fixture?[...fixture.base,...(closed?fixture.closed:fixture.open),...(fixture.cap??[])]:closed&&edge.rubbleOnClosed?[[-26,-44,50,44,'#6a4b51'],[-17,-59,32,17,'#a4785f']]:closed?[[-39,-39,78,39,'#393749'],[-31,-58,61,41,'#565067'],[-23,-66,42,12,'#756887'],[-12,-40,28,3,'#9286ab']]:
     [[-18,-90,3,90,'#83dbe1'],[15,-90,3,90,'#83dbe1'],[-18,-90,36,3,'#83dbe1'],[-21,-3,42,3,'#83dbe1']];
    for(const [dx,dy,w,h,color] of pieces){
     ctx.fillStyle=color;ctx.fillRect(x+dx,y+dy,w,h);
