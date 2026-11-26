@@ -1,6 +1,6 @@
 import {setupGalleryUrl} from './gallery-url.js';
 import {characterDetail} from './character-detail.js';
-import {spriteBounds,paintSprite,rectangleCount,openingRects} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount,openingRects,drawShoukiCore} from './sprite-layers.js';
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 async function art(data){const image=new Image();image.src='assets/'+data.source;await image.decode();return {data,image}}
@@ -121,6 +121,7 @@ try{
   for(const {id,name,right,left,article,h:sheetHeight,rear,detail} of assets){
    const form=id==='shouki'?$('shoukiForm').value:null;
    const arena=form&&form!=='candidate'?shoukiOpening:null;
+   if(form)article.querySelector('a').href='map-art.html?node=shouki-godmaking-arena&placements=live'+(form==='armored'?'&core=exposed':'');
    const {data,image}=arena??(flip&&left?left:right);
    const h=arena?.artHeight??sheetHeight,ratio=data.box[2]/data.box[3],w=h*ratio;
    dimensions.push({id,h,w,ratio,source:data.source,...(rear&&{rearSource:rear.data.source})});
@@ -152,10 +153,7 @@ try{
     }else paintSprite(ctx,data,image,body,selected,palettePixels);
     ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,arena?.floorY??(canvas.height-15),canvas.width,1);
     if(form==='armored'){
-     const x=arena.center,y=floor-h*(data.box[1]+data.box[3]-arena.chestSourceY)/data.box[3];
-     ctx.fillStyle='#b9f2a9';ctx.globalAlpha=.22;ctx.fillRect(x-18,y-19,36,38);ctx.globalAlpha=1;
-     ctx.fillRect(x-19,y-21,38,4);ctx.fillRect(x-19,y+17,38,4);
-     ctx.fillRect(x-21,y-17,4,34);ctx.fillRect(x+17,y-17,4,34);
+     drawShoukiCore(ctx,data.box,h,arena.center,floor,arena.chestSourceY,true);
     }
    }
    const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);

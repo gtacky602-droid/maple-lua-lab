@@ -20,6 +20,7 @@ export function setupSceneryDetail(liveView, query) {
         params.set(param, document.getElementById(id).value);
       }
       if(!document.getElementById('questPropPreview').hidden)params.set('stage',Number(document.getElementById('questPropStage').value)+1);
+      if(!document.getElementById('shoukiCoreControl').hidden)params.set('core',document.getElementById('shoukiCore').value);
       const subject = document.getElementById('liveSubject').value;
       if (subject) params.set('subject', subject);
       if (document.getElementById('matchSpritePng').checked) params.set('compare','background');

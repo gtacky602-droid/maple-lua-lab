@@ -13,7 +13,7 @@ import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet,drawCombatRect,omitCombatDraw,combatOpacity} from './sprite-images.js';
-import {spriteBounds,paintSprite,rectangleCount,forEachRectangle,openingRects} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount,forEachRectangle,openingRects,drawShoukiCore} from './sprite-layers.js';
 import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryDefinitions,sceneryStatus,loadScenery} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
@@ -457,6 +457,9 @@ try{
  $('fitBackground').onsubmit=event=>{event.preventDefault();fitBackground()};
  $('colorLimit').oninput=()=>{colorResult.textContent=''};
  $('backgroundTier').onchange=()=>{colorResult.textContent='';render()};
+ const coreState=$('shoukiCore');
+ if(['shielded','exposed'].includes(query.get('core')))coreState.value=query.get('core');
+ coreState.onchange=render;
  $('matchSpritePng').onchange=render;
  const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render,()=>{$('lampMode').value='dark'});
  const updateDetail=setupSceneryDetail(liveView,query);
@@ -666,6 +669,7 @@ try{
    dailyPanel.querySelector('a').href='map-art.html?'+allParams;
   }
   const arena=liveView && arenaPreviews.get(n.id);
+  $('shoukiCoreControl').hidden=!arena?.openingPose?.chestSourceY;
   const members=arena?.openingParts;
   const groupOpening=members?.length>1;
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
@@ -889,6 +893,9 @@ try{
    for(const e of visibleItems){
     const before=cost.visible,standardBefore=cost.standard;
     const {a,flip,x,y,body,rear}=paintFieldPlacement(ctx,e,mode==='png'||matchedSprites?null:profile,cost);
+    if(arena?.openingPose?.chestSourceY && e.id===arena.id && coreState.value!=='opening'){
+     drawShoukiCore(ctx,a.box,a.h,x,y,arena.openingPose.chestSourceY,coreState.value==='exposed');
+    }
     if(mode==='rect' && !memberPanel.hidden){
      const row=memberRows.insertRow(),name=document.createElement('th');
      name.scope='row';name.textContent=members.find(part=>part.id===e.id)?.name??e.species;

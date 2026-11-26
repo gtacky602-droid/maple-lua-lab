@@ -78,3 +78,12 @@ export function forEachRectangle(grid,draw){
   }
  }
 }
+
+// Five chest-target rectangles from weekly-shouki.lua, anchored to the machine's waist.
+export function drawShoukiCore(ctx,box,height,x,floor,sourceY,exposed){
+ const y=floor-height*(box[1]+box[3]-sourceY)/box[3];
+ ctx.save();ctx.fillStyle=exposed?'#b9f2a9':'#caa3fc';
+ ctx.globalAlpha=.22;ctx.fillRect(x-18,y-19,36,38);ctx.globalAlpha=1;
+ ctx.fillRect(x-19,y-21,38,4);ctx.fillRect(x-19,y+17,38,4);
+ ctx.fillRect(x-21,y-17,4,34);ctx.fillRect(x+17,y-17,4,34);ctx.restore();
+}
