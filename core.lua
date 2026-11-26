@@ -638,7 +638,7 @@ function C.step(s,dt,input)
  local player=s.actors[s.active];s.camera=clamp(player.x-400,0,math.max(0,(s.worldwidth or 2880)-960))
 end
 function C.enemyHeadY(e)
- local layout=not e.custom and C.enemyIdleArt and C.enemyIdleArt[e.art] and C.enemyArtLayout[e.art]
+ local layout=not e.custom and C.enemyArtLayout and C.enemyArtLayout[e.art]
  return e.y-(e.drawHeight or (layout and (layout.height+layout.hover) or 40))
 end
 

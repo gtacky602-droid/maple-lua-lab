@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys, json
+from field_pose_files import enemy_pose_files, legend_pose_files
 from packed_poses import load_pose_pack, read_packed_pose
 from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
@@ -11,7 +12,7 @@ def asset_entries(container):
     return ((key, value, isinstance(value, (dict, list))) for key, value in rows)
 
 
-def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None, prepare_grid=None):
+def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None, prepare_grid=None, packed_dir=None):
     filenames = {
         pose: f'{prefix}-field-{pose.replace("_", "-")}-sprites-v1.json'
         for pose in poses
@@ -28,7 +29,7 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None,
         if filename is None:
             return None
         if packed:
-            asset = read_packed_pose(ROOT / 'assets' / 'weekly-packed' / filename)
+            asset = read_packed_pose(ROOT / 'assets' / packed_dir / filename)
         else:
             asset = json.loads((ROOT / 'assets' / filename).read_text(encoding='utf8'))
         if key == 'idle' and idle_anchor is not None:
@@ -339,13 +340,26 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
         run_cycles[side]=[json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for name in files]
     core.travelerRunArt=lua.table_from(run_cycles,recursive=True)
     core.enemySpawns=lua.table_from(json.loads((ROOT/'content/enemy-spawns.json').read_text(encoding='utf8'))['nodes'],recursive=True)
-    core.hilichurlArt=lua.table_from(json.loads((ROOT/'assets/hilichurl-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     enemy_layout=json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))
     core.enemyArtLayout=lua.table_from(enemy_layout,recursive=True)
-    core.enemyIdleArt=lua.table_from({
-        key: json.loads((ROOT/'assets'/layout.get('file', f'{key}-idle-sprites.json')).read_text(encoding='utf8'))
-        for key, layout in enemy_layout.items()
-    }, recursive=True)
+    prepare_grid=lua.execute((ROOT/'packed-poses.lua').read_text(encoding='utf8'))
+    enemy_files=enemy_pose_files(enemy_layout)
+    legend_files=legend_pose_files(field_specs)
+    filenames=set(enemy_files.values()).union(*(poses.values() for poses in legend_files.values()))
+    field_poses=field_art(lua,'',(),variants={name:name for name in filenames},
+                          prepare_grid=prepare_grid,packed_dir='field-packed')
+    alias=lua.eval("""function(store,files)
+        return setmetatable({}, {__index=function(view,key)
+            local file=files[key]
+            if file then
+                local pose=store[file]
+                rawset(view,key,pose)
+                return pose
+            end
+        end})
+    end""")
+    core.enemyIdleArt=alias(field_poses,lua.table_from(enemy_files))
+    core.hilichurlArt=core.enemyIdleArt['hilichurl']
     core.danukiArt=companion_art['bake-danuki']
     core.bennettArt=lua.table_from(json.loads((ROOT/'assets/bennett-cave-guide-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
     core.noelleArt=lua.table_from({
@@ -536,18 +550,10 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     core.nightTrialTotemArt=field_art(lua,'night-trial-totem',('idle',))
     branch_legend=lua.execute((ROOT/'field-branch-legend.lua').read_text(encoding='utf-8'))(core)
     water_legend=lua.execute((ROOT/'field-water-legend.lua').read_text(encoding='utf-8'))(core)
-    legend_poses = ('idle', 'brace', 'strike')
-    legend_revisions = {
-        body['art']: spec.get('artRevision', 1)
-        for spec in field_specs if spec['controller'] in {'branchLegend', 'waterLegend'}
-        for body in (spec, spec.get('partner'), *spec.get('members', [])) if body and body.get('art')
-    }
     core.branchLegendArt=lua.table_from({
-        name: field_art(lua, name, legend_poses, variants={
-            pose: f'{name}-field-{pose}-sprites-v{revision}.json' for pose in legend_poses
-        })
-        for name, revision in sorted(legend_revisions.items())
+        name: alias(field_poses,lua.table_from(poses)) for name,poses in legend_files.items()
     })
+
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
@@ -570,9 +576,8 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
                         'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko,'spiritspeaker':spiritspeaker,'fallenVigil':fallen_vigil,'flugel':flugel,'driftingSnow':drifting_snow,'immortalConstruct':immortal_construct,'wavebinder':wavebinder})
     )
     weekly_files=json.loads((ROOT/'content/weekly-pose-files.json').read_bytes())
-    prepare_weekly_grid=lua.execute((ROOT/'packed-poses.lua').read_text(encoding='utf8'))
     for key,files in weekly_files.items():
-        core[key]=field_art(lua,'',(),variants=files,prepare_grid=prepare_weekly_grid)
+        core[key]=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_dir='weekly-packed')
     dvalin=lua.execute((ROOT/'weekly-dvalin.lua').read_text(encoding='utf-8'))(core)
     andrius=lua.execute((ROOT/'weekly-andrius.lua').read_text(encoding='utf8'))(core)
     surveyor=lua.execute((ROOT/'weekly-surveyor.lua').read_text(encoding='utf8'))(core)
