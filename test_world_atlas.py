@@ -34,7 +34,12 @@ roster = {
     for row in read('content/encounters.json')['encounters']
     if (stage := row.get(BOSS_STAGE_FIELDS[row['kind']]))
 }
-for stage in read('content/field-boss-openings.json'):
+previews = set(read('content/field-boss-openings.json'))
+previews.update(read('content/stygian-openings.json'))
+previews.update(read('content/weekly-opening-parts.json'))
+previews.update(boss['node'] for boss in read('content/weekly-boss-spawns.json')['weeklyBosses']
+                if boss.get('mapIdleArt'))
+for stage in roster.keys() & previews:
     roster[stage] = {**roster[stage], 'placementPreview': True}
 legends = {row['encounter_id']: row for row in read('design/world/encounters.json')['legends']}
 for boss in read('content/field-boss-spawns.json')['fieldBosses']:
