@@ -2,6 +2,7 @@
 
 import json
 from collections import Counter
+from math import ceil
 
 from experience import LEVELS
 from runtime import ROOT, native, runtime
@@ -77,6 +78,24 @@ def guide(s, target):
     return route
 
 
+def stop_window(s, target, phase, seconds=None):
+    core.action(s, 'world_map_focus:' + s.story.node)
+    row = next(r for r in core.frame(s).worldMap.routes.values() if r.id == target)
+    expected = dict(kind=s.voyage.kind, phase=phase)
+    if seconds is not None:
+        expected['seconds'] = seconds
+    portal = next(p for p in core.frame(s).storyPortals.values() if p.to == target)
+    assert native(row.stopWindow) == native(portal.stopWindow) == expected
+    advance(core, s, 90)
+    assert native(next(r for r in core.frame(s).worldMap.routes.values() if r.id == target).stopWindow) == expected
+    core.action(s, 'world_map_close')
+    route = guide(s, target)
+    if phase != 'passed':
+        assert route['stops'][0]['stopWindow'] == expected
+    else:
+        assert all('stopWindow' not in leg for leg in route['stops'])
+
+
 def elapsed(s, seconds):
     ticks = round((seconds - (s.t - s.voyage.started)) * 60)
     assert ticks >= 0
@@ -140,11 +159,13 @@ def verify(node):
     plan = guide(s, stop_id)
     assert plan['stops'][0]['id'] == stop_id and f'{start}〜{end}秒' in plan['stops'][0]['hint']
     elapsed(s, start - 1 / 60)
+    stop_window(s, stop_id, 'waiting', 1)
     assert not core.frame(s).storyNearbyPortal.available and not core.frame(s).voyage.stopover
     core.action(s, 'story_nearby_portal')
     assert s.story.node == vehicle
     advance(core, s, 1)
     assert core.frame(s).storyNearbyPortal.available and core.frame(s).voyage.stopover
+    stop_window(s, stop_id, 'open', ceil(end - start - 1e-8))
     walk.cross(stop_id)
     assert not s.voyage
     reboard = edges[stop_id, vehicle]
@@ -166,6 +187,7 @@ def verify(node):
     assert core.frame(s).storyNearbyPortal.available and core.frame(s).voyage.stopover
     advance(core, s, 1)
     assert not core.frame(s).storyNearbyPortal.available and not core.frame(s).voyage.stopover
+    stop_window(s, stop_id, 'passed')
     after_stop = guide(s, stop_id)
     assert after_stop['status'] != 'ready' or after_stop['stops'][0]['id'] != stop_id, (vehicle, after_stop)
     core.action(s, 'story_nearby_portal')
@@ -189,7 +211,7 @@ def verify(node):
             recovery.cross(leg['id'], leg.get('previewX'))
     assert recovery.state.story.node == stop_id
     finish(missed, node)
-    row.update(stop=stop_id, window=[start, end], reboardedFrom=stop_id, secondsAfterReboarding=remaining,
+    row.update(stop=stop_id, window=[start, end], atlasWindowPhases=['waiting', 'open', 'passed'], reboardedFrom=stop_id, secondsAfterReboarding=remaining,
                restoredAfterReboarding=reboard_restore, atlasStopsOfferingClosedGate=True, reachedEndAfterMissingStop=True,
                recoveryAfterMiss=[leg['id'] for leg in planned['stops']])
     return row

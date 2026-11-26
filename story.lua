@@ -222,6 +222,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   -- Treat a tick that lands on the scheduled boundary as exact.
   return s.voyage and s.t-s.voyage.started+1e-8 or -1
  end
+ function C.storyStopWindow(s,from,edge)
+  if not edge.windowStart or not s.voyage or from~=s.story.node or s.coop then return end
+  local elapsed=voyageElapsed(s)
+  if elapsed>=edge.windowEnd then return {phase='passed',kind=s.voyage.kind} end
+  local waiting=elapsed<edge.windowStart
+  return {phase=waiting and 'waiting' or 'open',kind=s.voyage.kind,
+   seconds=math.ceil((waiting and edge.windowStart or edge.windowEnd)-elapsed)}
+ end
  local function questGateHint(rule,state)
   local q=quests[rule.quest]
   local title='依頼「'..q.name..'」'
@@ -2459,7 +2467,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
      marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
     end
-    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=(fixture or edge.wind) and edge.x,wind=C.storyGateWind(s,n.id,edge)}
+    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=(fixture or edge.wind or edge.windowStart) and edge.x,wind=C.storyGateWind(s,n.id,edge),stopWindow=C.storyStopWindow(s,n.id,edge)}
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)

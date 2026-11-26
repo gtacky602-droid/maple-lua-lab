@@ -8,6 +8,8 @@
   "trolley": {
     "stage": "veluriyam-trolley-out",
     "atlasPausesVoyage": true,
+    "liveStopCountdown": true,
+    "passedStopOnReboarding": true,
     "window": [
       1.8,
       6.3

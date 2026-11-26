@@ -63,6 +63,7 @@ try{
  await drive.cross(trolley);
  await openMap(stop);
  await page.locator('#atlasItineraryStops').getByText(/出発から1\.8〜6\.3秒の間に途中下車/).waitFor();
+ assert.match(await page.locator('#atlasItineraryStops').innerText(),/停車まであと約\d+秒|途中下車できる時間はあと約\d+秒/);
  const paused=(await frame()).voyage.seconds;
  await atlas.screenshot({path:'evidence/world-voyage-trolley-atlas.png'});
  assert.equal((await frame()).voyage.seconds,paused);
@@ -75,11 +76,14 @@ try{
  await drive.cross(trolley);
  const reboarded=(await frame()).voyage;
  assert.ok(reboarded.seconds>0&&reboarded.seconds<=2.001&&!reboarded.stopover);
+ await openMap(trolley);
+ await page.locator('#atlasRoutes').getByText(/この便は停留所を通過しました/).waitFor();
+ await closeMap();
  await drive.waitNode(nodes[trolley].voyage.destination);
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/world-voyage-routes-browser.json',JSON.stringify({
   train:{stage:train,correctLabelInHudAndStoryPanel:true,restoredAt:snowTown,arrivedAt:station},
-  trolley:{stage:trolley,atlasPausesVoyage:true,window:[1.8,6.3],stoppedAt:stop,reboardSeconds:2,arrivedAt:nodes[trolley].voyage.destination},
+  trolley:{stage:trolley,atlasPausesVoyage:true,liveStopCountdown:true,passedStopOnReboarding:true,window:[1.8,6.3],stoppedAt:stop,reboardSeconds:2,arrivedAt:nodes[trolley].voyage.destination},
   errors
  },null,2)+'\n');
  console.log('Veluriyam trolley timed stop, atlas instructions, reboarding and arrival passed.');

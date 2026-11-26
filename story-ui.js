@@ -1,3 +1,4 @@
+import {stopTiming} from './quest-route.js';
 import {fieldGuide,huntHint} from './hunt-guide.js';
 import {renderQuestJournal,trackedQuest} from './quest-journal.js';
 import {initEndgameUI} from './endgame-ui.js';
@@ -123,6 +124,7 @@ function update(){
  // Guidance only changes when the actor enters a gate's range, crosses its
  // height, or gets closer to another gate leading to the same destination.
  const actor=trackedId && f.actors?.find(a=>a.id===f.active);
+ const stop=f.voyage&&Array.isArray(f.storyPortals)&&f.storyPortals.find(portal=>portal.stopWindow);
  let gatePosition='';
  if(actor){
   const exits=f.storyGraph.nodes.find(n=>n.id===f.story.node)?.exits??[];
@@ -141,7 +143,7 @@ function update(){
    gatePosition+=group.sort((a,b)=>a[2]-b[2]).map(([x,y])=>x+','+y).join('/');
   }
  }
- const signature=JSON.stringify([gatePosition,lampSide,f.storyCargo,f.storyRoof?.stage,f.storyRoof?.retry,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyRailTransit?.release,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([gatePosition,stop?.stopWindow,lampSide,f.storyCargo,f.storyRoof?.stage,f.storyRoof?.retry,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyRailTransit?.release,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  updateRevisitMap(f);
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
@@ -166,6 +168,7 @@ function update(){
   const phase=f.voyage.kind==='train'?'列車で移動中':trolley?
    (f.voyage.stopover?'停車中・途中下車可':'トロッコで移動中'):
    (f.voyage.stopover?'寄港中・途中下船可':'航海中');
+  if(stop)position.textContent+=' ／ '+graph.nodes.find(n=>n.id===stop.to).name+'：'+stopTiming(stop.stopWindow);
   position.textContent+=' ／ 到着まで '+Math.ceil(f.voyage.seconds)+'秒（'+phase+'）';
  }
  panel.append(position);

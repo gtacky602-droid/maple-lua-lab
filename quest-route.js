@@ -66,6 +66,13 @@ export function questDestinations(f,q,status,preferredNode){
  return {candidates,arrival};
 }
 
+export function stopTiming(stop){
+ const boat=stop.kind==='ferry';
+ if(stop.phase==='passed')return boat?'この便は寄港地を通過しました':'この便は停留所を通過しました';
+ if(stop.phase==='waiting')return (boat?'寄港':'停車')+'まであと約'+stop.seconds+'秒';
+ return (boat?'下船':'途中下車')+'できる時間はあと約'+stop.seconds+'秒';
+}
+
 export function windTiming(wind){
  return wind.calm?'風が弱まっています。通過できる時間はあと約'+wind.seconds+'秒':'風が弱まるまであと約'+wind.seconds+'秒';
 }
@@ -169,7 +176,8 @@ export function questRoute(f,q,status,preferredNode){
  if(wind)notes.push(windTiming(wind));
  if(edge.windowStart!==undefined){
   const elapsed=f.voyage?.elapsed;
-  if(f.voyage?.kind==='trolley'){
+  if(portal?.stopWindow)notes.push(stopTiming(portal.stopWindow));
+  else if(f.voyage?.kind==='trolley'){
    if(elapsed+1e-8<edge.windowStart)notes.push('停留所に近づいています');
    else notes.push('停車中。途中下車できます');
   }else if(elapsed===undefined)notes.push('寄港中のみ下船できます');

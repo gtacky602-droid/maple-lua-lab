@@ -437,7 +437,10 @@ return function(C, atlas)
      leg.secondsRemaining=math.max(0,s.voyage.arrives-s.t)
     end
     if leg.edge.x and not leg.automaticArrival then
-     if leg.first then leg.wind=C.storyGateWind(s,leg.from,leg.edge) end
+     if leg.first then
+      leg.wind=C.storyGateWind(s,leg.from,leg.edge)
+      leg.stopWindow=C.storyStopWindow(s,leg.from,leg.edge)
+     end
      leg.sealState=C.gateFixtureState(s,leg.from,leg.edge);leg.routeFixture=leg.edge.routeFixture;leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
      if leg.first and leg.from==s.story.node and not s.lift and not s.coop then
       local dx,dy=C.gateOffset(s.actors[s.active],leg.edge)
@@ -600,7 +603,7 @@ return function(C, atlas)
    for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
      local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
-     routes[#routes+1]={wind=C.storyGateWind(s,selected.id,edge),sealState=C.gateFixtureState(s,selected.id,edge),routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
+     routes[#routes+1]={stopWindow=C.storyStopWindow(s,selected.id,edge),wind=C.storyGateWind(s,selected.id,edge),sealState=C.gateFixtureState(s,selected.id,edge),routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,

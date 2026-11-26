@@ -1,4 +1,4 @@
-import {windTiming} from './quest-route.js';
+import {stopTiming,windTiming} from './quest-route.js';
 import {entranceKey} from './arena-entrances.js';
 import {atlasQuestObjectives} from './quest-journal.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
@@ -158,7 +158,7 @@ export function initAtlas(action, clearKeys) {
   itineraryNote.textContent = guide?.requiredLevel ? `この道順はLv${guide.requiredLevel}から通れます。`
    : guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。'
    : arriving && guide.paused ? '地図を閉じると移動を再開します。'
-   : stops[0]?.secondsRemaining != null ? '地図を閉じると移動を再開します。'
+   : stops[0]?.secondsRemaining != null || stops[0]?.stopWindow ? '地図を閉じると移動を再開します。'
    : stops[0]?.wind ? '地図を閉じると風の時間が進みます。'
    : guide?.battle ? '地図を閉じて戦闘を進めてください。' : '');
   itineraryNote.hidden = !itineraryNote.textContent;
@@ -184,7 +184,7 @@ export function initAtlas(action, clearKeys) {
    const li = document.createElement('li');
    const button = document.createElement('button');
    const timing = stop.secondsRemaining != null ? `到着まで ${Math.ceil(stop.secondsRemaining)}秒` : stop.hint;
-   const details = [stop.approach, stop.label, stop.level && `必要Lv${stop.level}`, stop.reason!==`必要Lv${stop.level}` && stop.reason, timing, stop.wind && windTiming(stop.wind), stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
+   const details = [stop.approach, stop.label, stop.level && `必要Lv${stop.level}`, stop.reason!==`必要Lv${stop.level}` && stop.reason, timing, stop.stopWindow && stopTiming(stop.stopWindow), stop.wind && windTiming(stop.wind), stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
    button.textContent = `${stop.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(stop);
    li.append(button);appendGateLink(li,stop.from,stop);
@@ -380,7 +380,7 @@ export function initAtlas(action, clearKeys) {
    const gate = route.entryHeight != null && (route.entryHeight < 480 ? '上の足場の門' : '地上の門');
    const level = route.level != null && route.reason !== `必要Lv${route.level}` && `Lv${route.level}`;
    const visit = route.visited === undefined ? '' : route.visited ? '訪問済み' : '未訪問';
-   const details = [visit, kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.wind && windTiming(route.wind), route.reason].filter(Boolean);
+   const details = [visit, kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.stopWindow && stopTiming(route.stopWindow), route.wind && windTiming(route.wind), route.reason].filter(Boolean);
    button.textContent = `${route.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(route);
    li.append(button);appendGateLink(li,selected.id,route);
