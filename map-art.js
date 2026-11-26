@@ -1,4 +1,5 @@
 import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
+import {wildlifeSites} from './underwater-wildlife.js';
 import {drawSurveyPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
 import {forestPreview} from './forest-preview.js';
 import {lanternPreview} from './lantern-preview.js';
@@ -121,7 +122,7 @@ try{
  const [graph,initial,slimePreviews,weeklyData,fieldData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/slime-preview-packed.json'),json('content/weekly-boss-spawns.json'),json('content/field-boss-spawns.json')]);
  const weeklyArenaNodes=new Set(weeklyData.weeklyBosses.flatMap(b=>[b.node,b.innerNode].filter(Boolean)));
  const arenaPreviews=new Map([...weeklyData.weeklyBosses,...fieldData.fieldBosses].filter(b=>b.mapIdleArt).map(b=>[b.node,b]));
- const layouts=await json('content/enemy-art-layout.json');
+ const layouts=await json('content/enemy-art-layout.json'),wildlife=wildlifeSites(layouts);
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const query=new URLSearchParams(location.search);
  const openingNode=nodes.get(query.get('node'))??nodes.get('mond-road');
@@ -139,6 +140,9 @@ try{
  if(query.get('compare')==='background')$('matchSpritePng').checked=true;
  if(query.get('background')==='original')$('decodedBackground').checked=false;
  if(Array.from($('profile').options).some(o=>o.value===query.get('profile')))$('profile').value=query.get('profile');
+ const wildlifeNote=document.createElement('p');
+ wildlifeNote.id='wildlifeNote';wildlifeNote.hidden=true;
+ $('placementViewLink').after(wildlifeNote);
  const openingBackground=loadScenery(sceneFrame(openingNode,0));
  const pendingBackgrounds=new Set();
  for(const [id,art] of Object.entries(slimePreviews))assets[id]={...art,h:40};
@@ -553,6 +557,10 @@ try{
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
+   for(const animal of liveView?wildlife[n.id]??[]:[]){
+    const art=assets[animal.art];
+    paintPlacementLayer(ctx,art,spriteBounds(art,art.h),mode==='png'||matchedSprites?null:profile,animal.x-camera,animal.y,animal.flip,cost);
+   }
    for(const {cover} of watchSteps){
     const art=patrolArt.get(cover.art),x=cover.x+cover.w/2-camera;
     paintPlacementLayer(ctx,art,spriteBounds(art,cover.height),mode==='png'||matchedSprites?null:profile,x,cover.y,false,cost);
@@ -677,8 +685,8 @@ try{
    $('placements').append(label);
   }
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  const subjects=teaProps.length?'事件帖の絵札・茶屋の道具':course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':'キャラクター';
-  const matchedLabel=teaProps.length?'事件帖の道具は左右とも元PNG':course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':'キャラは左右とも元PNG';
+  const subjects=teaProps.length?'事件帖の絵札・茶屋の道具':course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':liveView&&wildlife[n.id]?'水中生物':'キャラクター';
+  const matchedLabel=teaProps.length?'事件帖の道具は左右とも元PNG':course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':liveView&&wildlife[n.id]?'水中生物は左右とも元PNG':'キャラは左右とも元PNG';
   $('viewportCost').textContent=matchedSprites?matchedLabel:decoded&&!cost.standard?'':viewportSummary(cost,profile,subjects);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
@@ -715,6 +723,16 @@ try{
   colorResult.textContent='';
   selected=null;
   const n=node(),camera=$('camera');
+  const residents=liveView?wildlife[n.id]:null;
+  wildlifeNote.hidden=!residents;
+  wildlifeNote.replaceChildren();
+  if(residents){
+   wildlifeNote.append('水中で観察できる生物（試作配置）　');
+   for(const animal of residents){
+    const link=document.createElement('a');link.textContent=layouts[animal.art].name.split('（')[0];
+    link.href='enemies-art.html?'+new URLSearchParams({q:animal.art});wildlifeNote.append(link);
+   }
+  }
   $('lampPreview').hidden=!n.localLight;
   $('lampMode').value=n.localLight && n.id===openingNode.id && query.get('light')==='dark'?'dark':'bright';
   $('sceneryPhaseControl').hidden=!n.locationAfterReport;

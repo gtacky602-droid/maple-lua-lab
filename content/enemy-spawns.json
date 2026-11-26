@@ -1186,6 +1186,15 @@
         "art": "pyro-slime",
         "x": 690,
         "platform": 2
+      },
+      {
+        "id": "fontaine-field-fatui-wind-operative",
+        "kind": 2,
+        "name": "ファデュイ・烈風の従者",
+        "art": "fatui-wind-operative",
+        "x": 1070,
+        "platform": 3,
+        "expRole": "normal"
       }
     ],
     "fontaine-outskirts-loading": [

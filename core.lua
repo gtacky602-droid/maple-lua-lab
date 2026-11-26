@@ -699,6 +699,21 @@ function C.frame(s,mode,profile)
  local function rect(x,y,w,h,c) add({kind='rect',x=floor(x),y=floor(y),w=w,h=h,color=c}) end
  -- Background and terrain visuals belong to the host renderer (3D in production).
  -- Only collision platform data is owned by Lua; no scenery draw commands here.
+ local wildlife=s.storySwimming and s.storyWildlife
+ if wildlife then
+  for _,animal in ipairs(wildlife) do
+   local layout=C.enemyArtLayout[animal.art]
+   local x=animal.x-s.camera
+   local art=C.enemyIdleArt[animal.art]
+   local width=layout.height*art.box[3]/art.box[4]
+   local anchor=art.anchorX or .5
+   local left=x-width*(animal.flip and (1-anchor) or anchor)
+   if left+width>0 and left<960 then
+    local y=animal.y+3*math.sin(s.t*1.4)
+    C.drawFieldDisplayArt(artFrame,art,x,y,layout.height,mode,profile,animal.flip)
+   end
+  end
+ end
  for _,d in ipairs(s.decoys or {}) do
   rect(d.x-s.camera-15,d.y-30,30,30,'#d95a4c')
   rect(d.x-s.camera-12,d.y-50,8,23,'#e98b71');rect(d.x-s.camera+4,d.y-50,8,23,'#e98b71')

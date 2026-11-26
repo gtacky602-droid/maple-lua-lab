@@ -35,3 +35,7 @@ Lv99から、入江、埠頭、二つの沈水区域、水門、北岸の6狩場
 - Chromeで水深を合わせて門を通り、二つの標識の依頼と往日の海の調査を報告した。ノストイ沖から往日の海に入り、再読み込み後にフォンテーヌ湖の水中へワープできた。 [Chromeの検証結果](../evidence/fontaine-waypoint-browser.json) · [フォンテーヌ湖](../evidence/fontaine-waypoint-swim.png) · [往日の海](../evidence/bygone-waypoint-swim.png)
 
 Luaの検証は `python -X utf8 test_fontaine_waypoints.py`。その実行で用意される `work/fontaine-waypoint-browser-save.json` を「JSONを読み込んで再開」で開くと、Lv99の水辺の広場から確認できる。Chromeの検証は `node test_fontaine_waypoints.mjs`。別ポートの場合は `LAB_URL` を指定する。
+
+## 水中生物の試作配置
+
+フォンテーヌ湖の6地点とエリニュスの根・地下水脈で、狩猟刀エイ、プクプク獣、チェルビックアプリシア、黄と青紫のボウシクラゲが水中を漂う。この7地点では観察用の生物として描画する。配置プレビューでは地点を開いた時点の高さで静止し、本編ではそこから上下3px揺れる。地上の水路沿いには、Lv80の烈風の従者を上段に1体配置した。 [観察用セーブ](../theater-preview.html#fontaineWildlife) · [烈風の従者の配置図鑑](../field-enemy-guide.html?species=fatui-wind-operative)

@@ -1,4 +1,4 @@
-"""Check the two trial placements in a running Lua story scene."""
+"""Check trial placements in a running Lua story scene."""
 import json
 from runtime import ROOT, runtime
 
@@ -6,7 +6,8 @@ lua, core = runtime()
 graph = {n['id']: n for n in json.loads((ROOT/'content/story-graph.json').read_bytes())['nodes']}
 layouts = json.loads((ROOT/'content/enemy-art-layout.json').read_bytes())
 for node, species in [('enkanomiya-depth','primordial-bathysmal-vishap'),
-                      ('nod-field','oprichniki-fireblade-shock-trooper')]:
+                      ('nod-field','oprichniki-fireblade-shock-trooper'),
+                      ('fontaine-field','fatui-wind-operative')]:
     state = core.new(12)
     core.action(state,'story_start')
     core.enterStoryNode(state,node)

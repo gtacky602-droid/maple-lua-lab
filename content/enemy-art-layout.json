@@ -73,31 +73,72 @@
     "name": "狩猟刀エイ（通常・黄緑の待機候補）",
     "height": 74,
     "hover": 45,
-    "file": "hunters-ray-shared-idle-sprites-v1.json"
+    "file": "hunters-ray-shared-idle-sprites-v1.json",
+    "habitats": {
+      "fon-wp-50075": {
+        "x": 740,
+        "y": 310,
+        "flip": true
+      },
+      "fon-wp-50071": {
+        "x": 620,
+        "y": 350
+      }
+    }
   },
   "blubberbeast": {
     "name": "プクプク獣（通常・青灰の待機候補）",
     "height": 82,
     "hover": 45,
-    "file": "blubberbeast-shared-idle-sprites-v1.json"
+    "file": "blubberbeast-shared-idle-sprites-v1.json",
+    "habitats": {
+      "fon-wp-50073": {
+        "x": 675,
+        "y": 417,
+        "flip": true
+      },
+      "fon-wp-50062": {
+        "x": 560,
+        "y": 405
+      }
+    }
   },
   "hat-jellyfish-gold": {
     "name": "ボウシクラゲ（黄・待機候補）",
     "height": 84,
     "hover": 45,
-    "file": "hat-jellyfish-gold-shared-idle-sprites-v2.json"
+    "file": "hat-jellyfish-gold-shared-idle-sprites-v2.json",
+    "habitats": {
+      "fon-wp-55765": {
+        "x": 615,
+        "y": 294
+      }
+    }
   },
   "hat-jellyfish-blue": {
     "name": "ボウシクラゲ（青紫・待機候補）",
     "height": 84,
     "hover": 45,
-    "file": "hat-jellyfish-blue-shared-idle-sprites-v2.json"
+    "file": "hat-jellyfish-blue-shared-idle-sprites-v2.json",
+    "habitats": {
+      "erinnyes-root-waterway": {
+        "x": 680,
+        "y": 315,
+        "flip": true
+      }
+    }
   },
   "cherubic-sea-hare": {
     "name": "チェルビックアプリシア（待機候補）",
     "height": 76,
     "hover": 45,
-    "file": "cherubic-sea-hare-shared-idle-sprites-v2.json"
+    "file": "cherubic-sea-hare-shared-idle-sprites-v2.json",
+    "habitats": {
+      "fon-wp-53865": {
+        "x": 590,
+        "y": 365
+      }
+    }
   },
   "sternshield-crab": {
     "name": "堅盾重甲ヤドカニ（地方伝説と輪郭を共用）",

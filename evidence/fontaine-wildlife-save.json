@@ -1,0 +1,82 @@
+{
+  "progression": {
+    "total": 37604479,
+    "curve": "maplesea-reference-v02",
+    "xp": 0,
+    "curveAdjustment": 0,
+    "level": 100,
+    "questXp": 37604479,
+    "lastKills": 0,
+    "questRewarded": false,
+    "killXp": 0,
+    "overflowXp": 0,
+    "baseXp": 37604479
+  },
+  "kills": 0,
+  "quest": "available",
+  "loadout": [
+    [
+      "SK01"
+    ],
+    [
+      "SK02"
+    ],
+    [
+      "SK01",
+      "SK02"
+    ],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "story": {
+    "quests": {},
+    "node": "fontaine-hub",
+    "discovered": {},
+    "active": true,
+    "visited": {
+      "fon-wp-50071": true,
+      "fon-wp-50073": true,
+      "fon-wp-50062": true,
+      "fontaine-hub": true,
+      "fon-wp-50075": true,
+      "mond-town": true,
+      "fon-wp-55765": true,
+      "fontaine-field": true,
+      "fon-wp-53865": true
+    }
+  },
+  "hits": 0,
+  "partyCombat": {
+    "companion": {
+      "hp": 140,
+      "cooldowns": {}
+    },
+    "reserve": {},
+    "traveler": {
+      "hp": 140,
+      "cooldowns": {}
+    },
+    "swap": 0
+  },
+  "companion": "amber",
+  "version": 1,
+  "active": 1,
+  "mora": 0,
+  "damage": 0,
+  "inventory": {
+    "sampleKit": false,
+    "rng": 731,
+    "targetSet": "gladiator",
+    "ground": [],
+    "nextId": 1,
+    "items": [],
+    "upgradeOre": 0,
+    "combatRng": 1973,
+    "message": "通常敵1%・ボス25%の試作抽選。80個まで。"
+  },
+  "count": 0,
+  "gauge": 60
+}

@@ -1135,6 +1135,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   s.storySwimming=n.swim
+  s.storyWildlife=nil
+  if n.swim then
+   for species,layout in pairs(C.enemyArtLayout) do
+    local site=layout.habitats and layout.habitats[n.id]
+    if site then
+     s.storyWildlife=s.storyWildlife or {}
+     table.insert(s.storyWildlife,{art=species,x=site.x,y=site.y,flip=site.flip})
+    end
+   end
+  end
   for i,a in ipairs(s.actors) do
    local startX=(spawn or 160)-(i-1)*40
    a.x=n.swim and math.max(20,startX) or startX

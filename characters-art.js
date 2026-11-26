@@ -44,6 +44,13 @@ try{
   for(const [id,{height,file,name}] of Object.entries(layouts)){
    if(!shown.has(id))await add(id,name??id,await json('assets/field-packed/'+(file??`${id}-idle-sprites.json`)),height);
   }
+  for(const item of assets){
+   const habitat=Object.keys(layouts[item.id]?.habitats??{})[0];
+   if(!habitat)continue;
+   const link=document.createElement('a');link.textContent='水中での大きさと配置を見る';
+   link.href='map-art.html?'+new URLSearchParams({node:habitat,placements:'live'});
+   item.article.append(link);
+  }
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
   const kind=document.documentElement.dataset.gallery==='bosses'?'boss':'character';
