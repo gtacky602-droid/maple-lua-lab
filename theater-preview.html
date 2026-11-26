@@ -60,6 +60,10 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <section id="inaSumSurvey"><h2>稲妻とスメールの踏破セーブ</h2>
 <p>M地図の地域欄では、各地域の訪問数と総地点数を確認できます。地点を選ぶと、隣の入口にも訪問済み・未訪問が表示されます。</p>
 <a href="evidence/ina-sum-survey-save.json" download>稲妻とスメールを巡ったセーブ</a></section>
+<section id="fonNatSurvey"><h2>フォンテーヌとナタの調査路</h2>
+<label>調査依頼 <select id="surveyQuest"></select></label>
+<label>手順 <select id="surveyStep"></select></label>
+<p id="surveyMark" role="status"></p><a id="surveyMap" hidden>この地点を地図で見る</a> ／ <a href="evidence/fon-nat-survey-save.json" download>調査後のセーブ</a></section>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -225,6 +229,29 @@ async function loadPassages(){
  }catch{message.textContent='遠征記録を読み込めませんでした。'}
 }
 loadPassages();
+async function loadSurveyGuide(){
+ const quests=document.querySelector('#surveyQuest'),steps=document.querySelector('#surveyStep');
+ const mark=document.querySelector('#surveyMark'),map=document.querySelector('#surveyMap');
+ try{
+  const response=await fetch('content/fon-nat-survey-guide.json');
+  if(!response.ok)throw Error();
+  const guide=await response.json();
+  for(const q of guide)quests.add(new Option(q.name));
+  function showStep(){
+   const q=guide[quests.selectedIndex],step=q.steps[steps.selectedIndex];
+   mark.textContent='受注地　'+q.hub+' ｜ '+step.place+'　位置 ('+step.x+', '+step.y+')';
+   const params=new URLSearchParams({node:step.node,placements:'live'});
+   if(step.to){params.set('to',step.to);params.set('gateX',step.x);params.set('gateY',step.y)}
+   map.href='map-art.html?'+params;map.hidden=false;
+  }
+  function showQuest(){
+   steps.replaceChildren(...guide[quests.selectedIndex].steps.map((s,i)=>new Option((i+1)+'. '+s.label)));
+   showStep();
+  }
+  quests.onchange=showQuest;steps.onchange=showStep;showQuest();
+ }catch{mark.textContent='調査記録を読み込めませんでした。'}
+}
+loadSurveyGuide();
 const lakeMenu=document.getElementById('lakeProfile');
 let lakeGallery;
 const lakeSheets=new Map();

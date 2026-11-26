@@ -8,6 +8,7 @@ from test_earned_branch_quests import Journey, graph, quests
 
 groups={
     'mond-liyue':('original-weekly-expedition',[('モンド','region-01','mond-town'),('璃月','region-02','liyue-harbor')]),
+    'fon-nat':('ina-sum-survey',[('フォンテーヌ','region-05','fontaine-hub'),('ナタ','region-06','natlan-hub')]),
     'ina-sum':('mond-liyue-survey',[('稲妻','region-03','inazuma-town'),('スメール','region-04','sumeru-hub')]),
 }
 parser=argparse.ArgumentParser(description=__doc__)
@@ -15,7 +16,39 @@ parser.add_argument('--group',choices=groups,default='mond-liyue')
 group=parser.parse_args().group
 seed,regions=groups[group]
 source=ROOT/f'evidence/{seed}-save.json'
-trip=Journey(source,runtime(),select_traveler=True)
+class SurveyJourney(Journey):
+    def approach(self,x,y,target):
+        try:
+            super().approach(x,y,target)
+            return
+        except AssertionError:
+            if self.state.storySwimming or self.actor.hp<=0:
+                raise
+        self.tick(90)
+        shelves=nodes[self.state.story.node]['platforms']
+        def contains(p,px):
+            return p['x']<=px<=p['x']+p['w']
+        starts=[i for i,p in enumerate(shelves) if abs(self.actor.y-p['y'])<10 and contains(p,self.actor.x)]
+        goals={i for i,p in enumerate(shelves) if abs(y-p['y'])<10 and contains(p,x)}
+        queue=deque((i,[]) for i in starts)
+        seen=set(starts)
+        while queue:
+            i,path=queue.popleft()
+            if i in goals:
+                for px,py in path:
+                    super().approach(px,py,target)
+                super().approach(x,y,target)
+                return
+            lower=shelves[i]
+            for j,upper in enumerate(shelves):
+                left=max(lower['x'],upper['x'])
+                right=min(lower['x']+lower['w'],upper['x']+upper['w'])
+                if j not in seen and 0<lower['y']-upper['y']<=110 and right-left>=20:
+                    seen.add(j)
+                    queue.append((j,path+[((left+right)//2,upper['y'])]))
+        raise AssertionError((self.state.story.node,target,x,y,'足場の経路未確認'))
+
+trip=SurveyJourney(source,runtime(),select_traveler=True)
 before=trip.snapshot()
 nodes={n['id']:n for n in graph['nodes']}
 atlas=json.loads((ROOT/'content/world-atlas.json').read_bytes())
@@ -69,7 +102,7 @@ def commissions(region,hub):
                 move=abs(dx)>22 or trip.actor.dir*dx<0
                 trip.tick(1,trip.lua.table(left=move and dx<0,right=move and dx>0,jump=enemy.y<trip.actor.y-45,attack=True))
             assert state.count>=q['goal'],(q['id'],state.count,trip.state.story.node,trip.actor.x,trip.actor.y)
-        elif q['id'] in ('liyue-mapped-east-shore','mond-mapped-lakeside','threadline-survey','sum-mapped-twin-shaft','ina-mapped-seirai-ferry'):
+        elif '-mapped-' in q['id'] or q['id'] in ('threadline-survey','fon-morte-sluice-survey','natlan-ancient-excavation-wall','natlan-seaward-signs','natlan-two-pillar-trails','natlan-atocpan-landmarks','natlan-southern-trail-survey'):
             for index,step in enumerate(q['itinerary'],1):
                 if state.count>=index:continue
                 if step['kind']=='arrive':
@@ -103,12 +136,29 @@ for region,area_id,hub in regions:
         else:
             target=sorted(pending)[0]
         try:
+            if target=='narwhal-inner-echo':
+                trip.warp(hub)
+                trip.approach(700,480,'narwhal-star-sea')
+                trip.act('hold_ally_fire')
+                trip.act('weekly_start:boss-29090101:entry')
+                for _ in range(180):
+                    trip.tick(60)
+                    if trip.state.story.node==target:break
+                assert trip.state.story.node==target,'呑星の鯨の腹中に到達せず'
+                trip.act('hold_ally_fire')
+                slot=trip.state.weeklySlots['boss-29090101']
+                fight=trip.lua.execute((ROOT/'tools/earned_boss_driver.lua').read_text('utf8'))
+                result=fight(trip.core,trip.state,slot,'weekly',60*240,'mechanics')
+                assert result.status=='clear',result.status
+                trip.warp(hub)
+                continue
             if target=='mond-old-canopy':
                 trip.travel('mond-old-road')
                 trip.approach(510,390,target)
                 trip.approach(510,300,target)
             trip.travel(target)
         except AssertionError as error:
+            if target=='narwhal-inner-echo':raise
             detail=error.args[0] if error.args else ''
             reason=detail[2].get('reason') if isinstance(detail,tuple) and len(detail)>2 and isinstance(detail[2],dict) else str(detail)
             failures[target]=reason or '経路未確認'

@@ -428,6 +428,8 @@ function updateProgression(f){
  $('regionLevels').textContent=f.regionEligibility.map(r=>`${r.name} Lv${r.required}：${r.eligible?'レベル条件達成':'未達'}・正式マップ未実装`).join(' ／ ');
 }
 function hud(f,calls,renderMs){
+ $('allyFire').setAttribute('aria-pressed',String(Boolean(f.holdAllyFire)));
+ $('allyFire').textContent=f.holdAllyFire?'同行者の攻撃を再開':'同行者の攻撃を控える';
  $('grappleNext').hidden=(f.grappleNodes?.length||0)<2;
  const balance=f.fieldBalance, balanceNote=$('fieldBalance');
  balanceNote.hidden=!balance;

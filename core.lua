@@ -413,6 +413,7 @@ local function reportMotion(s,a,kind,at,dir)
  if C.onPlayerMotion and at and not s.paused and a.hp>0 then C.onPlayerMotion(s,a,kind,at,dir) end
 end
 function C.action(s,key)
+ if key=='hold_ally_fire' then s.holdAllyFire=not s.holdAllyFire;return end
  local a=s.actors[s.active]
  if key=='swap' and s.swap<=0 and s.actors[3-s.active].hp>0 then
   local b=s.actors[3-s.active];b.x,a.x=a.x,a.x-35*a.dir;b.y=a.y;b.vy=a.vy;b.ground=a.ground
@@ -597,6 +598,7 @@ function C.step(s,dt,input)
       nearest,dist=e,d
      end
     end
+    if s.holdAllyFire and a.id~=s.active then nearest=nil end
     local leader=s.actors[s.active]
     local avoid=C.aiAvoidTarget and C.aiAvoidTarget(s,a)
     local climb
@@ -738,6 +740,6 @@ function C.frame(s,mode,profile)
   else add({kind='effect',x=e.x-s.camera,y=e.y,w=e.w,h=e.h,color=e.color,alpha=e.life/.3}) end
  end
  for _,n in ipairs(s.numbers) do add({kind='text',x=n.x-s.camera,y=n.y-(.8-n.life)*35,text=n.text,color=n.color,size=19}) end
- return {draws=draws,rectBatches=artFrame.rectBatches,camera=s.camera,platforms=s.platforms,t=s.t,active=s.active,gauge=s.gauge,actors=s.actors,hits=s.hits,kills=s.kills,mora=s.mora,damage=s.damage,returns=s.returns,visible=visible,total=#s.enemies,commands=#draws,numbers=#s.numbers,auto=s.auto,paused=s.paused,events=s.events}
+ return {draws=draws,rectBatches=artFrame.rectBatches,camera=s.camera,platforms=s.platforms,t=s.t,active=s.active,gauge=s.gauge,actors=s.actors,hits=s.hits,kills=s.kills,mora=s.mora,damage=s.damage,returns=s.returns,visible=visible,total=#s.enemies,commands=#draws,numbers=#s.numbers,auto=s.auto,holdAllyFire=s.holdAllyFire,paused=s.paused,events=s.events}
 end
 return C
