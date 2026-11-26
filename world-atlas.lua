@@ -400,23 +400,28 @@ return function(C, atlas)
   local function find(routeLevel,allowBlocked)
    local gates=starting_gates(s,nodes[origin],routeLevel)
    local queue, previous={origin},{[origin]=false}
+   -- A fresh boarding from the departure port has a new stop window.
+   if origin==s.story.node and s.voyage and nodes[origin].voyage then previous[origin]=nil end
    local head=1
    while head<=#queue and previous[target]==nil do
+    local first=head==1
     local id=queue[head];head=head+1
     local node=nodes[id]
     for _,candidate in ipairs(connections(node)) do
-     local edge=id==origin and gates[candidate.to] and gates[candidate.to].edge or candidate
+     local edge=first and gates[candidate.to] and gates[candidate.to].edge or candidate
      local nextNode=nodes[edge.to]
      if nextNode and previous[edge.to]==nil
-       and (id==origin or not node.voyage or edge.to~=node.voyage.source) then
-      local reason=C.atlasGateRestriction(s,id,edge,routeLevel)
-      if allowBlocked or not reason then
+       and (first or not node.voyage or edge.to~=node.voyage.source) then
+      local reason=C.atlasGateRestriction(s,id,edge,routeLevel,not first)
+      local missed=first and edge.windowEnd and id==s.story.node and s.voyage
+       and s.t-s.voyage.started+1e-8>=edge.windowEnd
+      if not missed and (allowBlocked or not reason) then
        local mode=route_mode(edge,node,nextNode)
        local automatic=automatic_arrival(node,edge)
        local parallel=not automatic and parallel_gate_hint(edge,node)
-       previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
+       previous[edge.to]={first=first,from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
         label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode,
-         id==origin and id==s.story.node and not s.lift and s.actors[s.active].y or nil),
+         first and id==s.story.node and not s.lift and s.actors[s.active].y or nil),
         gateX=parallel and edge.x or nil,automaticArrival=automatic}
        queue[#queue+1]=edge.to
       end
@@ -426,21 +431,22 @@ return function(C, atlas)
    if not previous[target] then return end
    local reverse,stops={},{}
    local id=target
-   while id~=origin do
+   while true do
     local leg=previous[id]
     reverse[#reverse+1]=leg
+    if leg.first then break end
     id=leg.from
    end
    local blocked
    for index=#reverse,1,-1 do
     local leg=reverse[index]
-    leg.reason=C.atlasGateRestriction(s,leg.from,leg.edge)
-    if not s.coop and leg.automaticArrival and leg.from==s.story.node and s.voyage and s.voyage.destination==leg.id then
+    leg.reason=C.atlasGateRestriction(s,leg.from,leg.edge,nil,not leg.first)
+    if leg.first and not s.coop and leg.automaticArrival and leg.from==s.story.node and s.voyage and s.voyage.destination==leg.id then
      leg.secondsRemaining=math.max(0,s.voyage.arrives-s.t)
     end
     if leg.edge.x and not leg.automaticArrival then
      leg.sealState=sealState(s,leg.from,leg.edge);leg.routeFixture=leg.edge.routeFixture;leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
-     if leg.from==s.story.node and not s.lift and not s.coop then
+     if leg.first and leg.from==s.story.node and not s.lift and not s.coop then
       local dx,dy=C.gateOffset(s.actors[s.active],leg.edge)
       if dx~=0 then leg.approach=dx<0 and '現在地から左へ' or '現在地から右へ'
       elseif dy~=0 then leg.approach=dy<0 and '入口は今いる位置の上' or '入口は今いる位置の下'
@@ -448,7 +454,7 @@ return function(C, atlas)
      end
     end
     leg.level=nodes[leg.id].level
-    leg.edge=nil
+    leg.edge=nil;leg.first=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason
    end

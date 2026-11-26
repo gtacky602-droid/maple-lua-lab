@@ -90,14 +90,22 @@ export function questRoute(f,q,status,preferredNode){
  }
  if(arrival&&(!nodes.has(arrival.node)||!connections(nodes.get(arrival.from)).some(edge=>edge.to===arrival.node&&gateOpen(edge))))
   return {text:'指定された出発地点の門から通れる経路がありません。'};
+ const elapsed=f.voyage?.elapsed;
+ const missed=edge=>edge.windowEnd!==undefined && elapsed+1e-8>=edge.windowEnd;
+ const currentStops=connections(nodes.get(from));
+ const missedStop=currentStops.some(edge=>missed(edge)&&(targets.has(edge.to)||arrival?.from===from&&arrival.node===edge.to));
+ const nextRide=currentStops.some(missed);
  const level=f.progression?.level??0;
  function routeAtLevel(limit){
   if(arrival&&(nodes.get(arrival.node).level||1)>limit)return;
-  if(arrival&&targets.has(from))return [from,arrival.node];
-  const queue=[[from]],seen=new Set([from]);
+  if(arrival&&targets.has(from)&&currentStops.some(e=>e.to===arrival.node&&gateOpen(e)&&!missed(e)))return [from,arrival.node];
+  // Reboarding after a missed stop starts a new trip with a fresh stop window.
+  const queue=[[from]],seen=new Set(nextRide?[]:[from]);
   for(let i=0;i<queue.length;i++){
    const current=queue[i],node=nodes.get(current.at(-1));
    for(const edge of connections(node)){
+    if(i===0&&missed(edge))continue;
+    if(i!==0&&node.voyage?.source===edge.to)continue;
     if(!nodes.has(edge.to)||seen.has(edge.to)||!gateOpen(edge)||(nodes.get(edge.to).level||1)>limit)continue;
     const next=[...current,edge.to];if(targets.has(edge.to))return arrival?[...next,arrival.node]:next;
     seen.add(edge.to);queue.push(next);
@@ -113,12 +121,13 @@ export function questRoute(f,q,status,preferredNode){
  if(!path)return {text:'公開中の地点からつながる経路がありません。'};
  const next=nodes.get(path[1]);
  const actor=f.actors?.find(a=>a.id===f.active);
- const gates=connections(nodes.get(from)).filter(e=>e.to===next.id&&gateOpen(e));
+ const gates=connections(nodes.get(from)).filter(e=>e.to===next.id&&gateOpen(e)&&!missed(e));
  const distance=e=>Math.abs(actor.x-e.x)+Math.abs(actor.y-(e.y??480));
  const edge=gates.length>1&&Number.isFinite(actor?.x)&&Number.isFinite(actor?.y)
   ?gates.reduce((best,e)=>distance(e)<distance(best)?e:best):gates[0];
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
+ if(missedStop)notes.push(f.voyage?.kind==='trolley'?'停留所を通過しました':'寄港時間を過ぎています');
  const vehicle=nodes.get(from).voyage;
  const automatic=vehicle?.destination===edge.to;
  const needsDark=edge.darkOnly && f.storyLocalLight?.mode!=='dark';
@@ -145,11 +154,9 @@ export function questRoute(f,q,status,preferredNode){
   const elapsed=f.voyage?.elapsed;
   if(f.voyage?.kind==='trolley'){
    if(elapsed+1e-8<edge.windowStart)notes.push('停留所に近づいています');
-   else if(elapsed+1e-8>=edge.windowEnd)notes.push('停留所を通過しました。終点から戻れます');
    else notes.push('停車中。途中下車できます');
   }else if(elapsed===undefined)notes.push('寄港中のみ下船できます');
   else if(elapsed+1e-8<edge.windowStart)notes.push(`寄港まで約${Math.ceil(edge.windowStart-elapsed)}秒`);
-  else if(elapsed+1e-8>=edge.windowEnd)notes.push('寄港時間を過ぎています。出発港へ戻り、再乗船してください');
   else notes.push(`寄港中：下船できる残り時間は約${Math.ceil(edge.windowEnd-elapsed)}秒`);
  }else if(automatic){
   const seconds=f.voyage?.seconds;
@@ -157,6 +164,7 @@ export function questRoute(f,q,status,preferredNode){
   notes.push(`${name}に乗ったまま${next.name}へ。到着すると自動で降ります${Number.isFinite(seconds)&&seconds>0?`（あと約${Math.ceil(seconds)}秒）`:''}`);
  }
  else if(edge.darkOnly)notes.push(needsDark?'消灯すると影の足場と門が現れます':'消灯中。影の足場へ跳び、上段の門を通ってください');
+ else if(vehicle?.source===edge.to)notes.push(path[2]===from?'出発港へ戻る門を使い、もう一度乗船してください':'出発港へ戻る門を使ってください');
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);

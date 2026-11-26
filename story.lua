@@ -285,12 +285,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
  end
- function C.atlasGateRestriction(s,from,edge,routeLevel)
+ function C.atlasGateRestriction(s,from,edge,routeLevel,futureBoarding)
   local destination=nodes[edge.to]
   if (routeLevel or s.progression.level)<destination.level then return '必要Lv'..destination.level end
   if destination.travelerTrial and s.actors[1].hp<=0 then return '旅人が戦闘可能な状態で挑戦してください。' end
   if destination.toyDive and s.actors[1].hp<=0 then return '旅人が泳げる状態で潜りましょう。' end
-  if edge.windowStart and from==s.story.node and voyageElapsed(s)>=edge.windowEnd then
+  if not futureBoarding and edge.windowStart and from==s.story.node and voyageElapsed(s)>=edge.windowEnd then
    return '乗降時間を過ぎました。'
   end
   return gateRestriction(s,edge,true)

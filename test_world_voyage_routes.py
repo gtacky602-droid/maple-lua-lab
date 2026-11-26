@@ -170,9 +170,28 @@ def verify(node):
     assert after_stop['status'] != 'ready' or after_stop['stops'][0]['id'] != stop_id, (vehicle, after_stop)
     core.action(s, 'story_nearby_portal')
     assert s.story.node == vehicle and not s.story.visited[stop_id]
+    recovery = setup(node, level, boarding)
+    recovery.cross(vehicle)
+    elapsed(recovery.state, end)
+    if vehicle == 'veluriyam-trolley-back':
+        locked = guide(recovery.state, stop_id)
+        assert locked['status'] == 'blocked' and locked['stops'][0]['id'] == target, locked
+        ticket = quests['veluriyam-bottle-ticket']
+        assert ticket['name'] in locked['reason'], locked
+        recovery.state.story.quests[ticket['id']] = lua.table_from(dict(status='complete', count=ticket['goal'], cycles=1))
+    planned = guide(recovery.state, stop_id)
+    assert planned['status'] == 'ready', (vehicle, planned)
+    for leg in planned['stops']:
+        assert recovery.state.story.node == leg['from']
+        if leg.get('automaticArrival'):
+            finish(recovery, nodes[leg['from']])
+        else:
+            recovery.cross(leg['id'], leg.get('previewX'))
+    assert recovery.state.story.node == stop_id
     finish(missed, node)
     row.update(stop=stop_id, window=[start, end], reboardedFrom=stop_id, secondsAfterReboarding=remaining,
-               restoredAfterReboarding=reboard_restore, atlasStopsOfferingClosedGate=True, reachedEndAfterMissingStop=True)
+               restoredAfterReboarding=reboard_restore, atlasStopsOfferingClosedGate=True, reachedEndAfterMissingStop=True,
+               recoveryAfterMiss=[leg['id'] for leg in planned['stops']])
     return row
 
 

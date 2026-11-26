@@ -152,3 +152,20 @@ assert.equal(nextGate()[0],2188);
 assert.match(nextGate()[1],/門の近く/);
 sayuFrame.actors[0].x=100;
 assert.equal(nextGate()[0],64);
+
+// The live departure is closed, but boarding the same vehicle again resets its clock.
+for(const [vehicle,landing,elapsed,kind,legs] of [
+ ['natlan-voyage','ochkanatlan-dock',50,'ferry',3],
+ ['natlan-voyage-return','ochkanatlan-dock',50,'ferry',3],
+ ['veluriyam-trolley-out','veluriyam-petal-stop',6.3,'trolley',5],
+ ['veluriyam-trolley-back','veluriyam-petal-stop',6.3,'trolley',5]
+]){
+ const f={story:{active:true,node:vehicle,quests:{'veluriyam-bottle-ticket':{status:'complete'}}},storyGraph:graph,progression:{level:200},voyage:{elapsed,kind}};
+ const trip={kind:'itinerary',itinerary:[{kind:'arrive',from:vehicle,node:landing}]};
+ const recover=questRoute(f,trip,'active');
+ assert.ok(recover.text.includes('残り'+legs+'区間'),recover.text);
+ if(kind==='ferry')assert.equal(new URL(recover.gateUrl,'http://localhost').searchParams.get('to'),graph.nodes.find(n=>n.id===vehicle).voyage.source);
+ else assert.equal(recover.gateUrl,undefined);
+ f.voyage.elapsed-=.02;
+ assert.equal(new URL(questRoute(f,trip,'active').gateUrl,'http://localhost').searchParams.get('to'),landing);
+}

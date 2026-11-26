@@ -29,7 +29,12 @@
       "secondsAfterReboarding": 40,
       "restoredAfterReboarding": "ochkanatlan-dock",
       "atlasStopsOfferingClosedGate": true,
-      "reachedEndAfterMissingStop": true
+      "reachedEndAfterMissingStop": true,
+      "recoveryAfterMiss": [
+        "natlan-port",
+        "natlan-voyage",
+        "ochkanatlan-dock"
+      ]
     },
     {
       "stage": "white-pass-coach",
@@ -58,7 +63,12 @@
       "secondsAfterReboarding": 2.0,
       "restoredAfterReboarding": "veluriyam-hub",
       "atlasStopsOfferingClosedGate": true,
-      "reachedEndAfterMissingStop": true
+      "reachedEndAfterMissingStop": true,
+      "recoveryAfterMiss": [
+        "veluriyam-rail-end",
+        "veluriyam-trolley-back",
+        "veluriyam-petal-stop"
+      ]
     },
     {
       "stage": "veluriyam-trolley-back",
@@ -77,7 +87,12 @@
       "secondsAfterReboarding": 2.0,
       "restoredAfterReboarding": "veluriyam-hub",
       "atlasStopsOfferingClosedGate": true,
-      "reachedEndAfterMissingStop": true
+      "reachedEndAfterMissingStop": true,
+      "recoveryAfterMiss": [
+        "veluriyam-hub",
+        "veluriyam-trolley-out",
+        "veluriyam-petal-stop"
+      ]
     },
     {
       "stage": "sites-mirage-fair-out",
@@ -143,7 +158,12 @@
       "secondsAfterReboarding": 40,
       "restoredAfterReboarding": "ochkanatlan-dock",
       "atlasStopsOfferingClosedGate": true,
-      "reachedEndAfterMissingStop": true
+      "reachedEndAfterMissingStop": true,
+      "recoveryAfterMiss": [
+        "nod-port",
+        "natlan-voyage-return",
+        "ochkanatlan-dock"
+      ]
     },
     {
       "stage": "chenyu-ferry-fontaine",
