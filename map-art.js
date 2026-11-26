@@ -646,8 +646,10 @@ try{
    allParams.set('profile',profile);allParams.set('camera',camera);
    dailyPanel.querySelector('a').href='map-art.html?'+allParams;
   }
+  const members=liveView && arenaPreviews.get(n.id)?.openingParts;
+  const groupOpening=members?.length>1;
   const fieldSubject=Boolean(!openings[n.id] && (subject.value || dailyPreview) && visibleItems.length);
-  $('fidelityControls').hidden=!(liveView && (surveyProps.length || openings[n.id] && visibleItems.length || fieldSubject) && !matchedSprites);
+  $('fidelityControls').hidden=!(liveView && (surveyProps.length || (openings[n.id] || groupOpening) && visibleItems.length || fieldSubject) && !matchedSprites);
   const measuredSubject=surveyProps.length?'依頼の小物':fieldSubject?'対象の敵':'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
@@ -693,7 +695,7 @@ try{
      return cost.visible;
     }
     for(const e of visibleItems){
-     if(fieldSubject){
+     if(fieldSubject || groupOpening){
       paintFieldPlacement(ctx,e,quality,cost);
       continue;
      }
@@ -733,8 +735,8 @@ try{
   };
   if(sharedLegendArt)sharedLegendArt(legendNames.has(n.id)?visibleItems:[],profile,placementArt,
    e=>openings[n.id]?.parts.find(p=>p.id===e.id)?.name??legendNames.get(n.id));
-  const memberPanel=$('legendMemberCost'),members=liveView && legendScenes[n.id]?.parts;
-  memberPanel.hidden=!(members?.length>1 && !matchedSprites);
+  const memberPanel=$('legendMemberCost');
+  memberPanel.hidden=!(groupOpening && !matchedSprites);
   const memberRows=memberPanel.querySelector('tbody');
   memberRows.replaceChildren();
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
@@ -824,8 +826,10 @@ try{
      const row=memberRows.insertRow(),name=document.createElement('th');
      name.scope='row';name.textContent=members.find(part=>part.id===e.id)?.name??e.species;
      row.append(name);
-     row.insertCell().textContent=(cost.standard-standardBefore).toLocaleString('ja-JP');
-     row.insertCell().textContent=(cost.visible-before).toLocaleString('ja-JP');
+     const reference=cost.standard-standardBefore,current=cost.visible-before;
+     row.insertCell().textContent=reference.toLocaleString('ja-JP');
+     row.insertCell().textContent=current.toLocaleString('ja-JP');
+     row.insertCell().textContent=reference?((reference-current)*100/reference).toFixed(1)+'%':'—';
     }
     if(e.id===selected){
      const left=flip?-body.x-body.width:body.x;
