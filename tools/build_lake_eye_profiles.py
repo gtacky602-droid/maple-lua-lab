@@ -13,9 +13,9 @@ assets = Path(__file__).resolve().parents[1] / 'assets'
 regions = {'vivianne': (46, 11, 59, 19), 'ninianne': (77, 34, 96, 45)}
 
 
-def restore_eye(base, image, region, size):
+def restore_eye(base, image, region):
     # The source grid keeps single-pixel eye corners aligned at the authored scale.
-    width, height = size
+    width, height = image.size
 
     def project(x,y,w,h):
         left,right=[round(v*width/base['width']) for v in (x,x+w)]
@@ -110,9 +110,7 @@ def build(*, fresh=False):
                       eye[2]+margin[2], eye[3]+margin[3])
             if pose == 'idle':
                 assert region == regions[name]
-            # Vivianne's brace keeps more of the cyan rim on its existing even grid.
-            size = (base['width']*2, base['height']*2) if (name,pose)==('vivianne','brace') else image.size
-            updated = restore_eye(base, image, region, size)
+            updated = restore_eye(base, image, region)
             art['profiles']['h32c16'] = updated
             path.write_bytes(json.dumps(art,ensure_ascii=False,separators=(',', ':')).encode())
             print(name,pose,len(base['runs']),len(updated['runs']))

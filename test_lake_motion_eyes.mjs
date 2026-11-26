@@ -39,8 +39,9 @@ try{
     const crops=await motion.locator('canvas[aria-label]').count();
     assert.equal(crops,3);
     console.log(name,pose,readings[2]);
-    if(name==='ninianne'||pose==='strike'||(native&&pose==='idle'))assert.deepEqual(results[2],results[0],name+'/'+pose);
+    if(name==='ninianne'||pose==='strike'||native)assert.deepEqual(results[2],results[0],name+'/'+pose);
     assert.ok(results[2].length>=12,name+'/'+pose);
+    if(name==='vivianne'&&native&&pose==='brace')await motion.screenshot({path:'evidence/vivianne-native-brace-eye-profiles.png'});
     const center=pts=>pts.reduce(([x,y],[a,b])=>[x+a/pts.length,y+b/pts.length],[0,0]);
     const [a,,b]=results.map(center);
     assert.ok(Math.hypot(a[0]-b[0],a[1]-b[1])<1.5,name+'/'+pose);
