@@ -273,10 +273,12 @@ try{
   if(!node.waterSurvey)continue;
   const quest=questsById.get(node.waterSurvey.quest);
   const stops=node.waterSurvey.steps.map(index=>quest.itinerary[index-1]);
-  questPreviews[node.id]={stages:[0,...stops.map((_,i)=>i+1)].map(count=>{
-   const focus=stops[Math.max(0,count-1)];
-   return {label:count?focus.objective+'（調査済み）':'調査前',focusX:focus.x,visible:[],waterStations:
-    stops.map((step,i)=>({x:step.x,y:step.y,kind:step.waterInstrument,checked:i<count}))};
+  const lastStage=stops.length+Number(Boolean(node.waterSurvey.reportLight));
+  questPreviews[node.id]={stages:Array.from({length:lastStage+1},(_,count)=>{
+   const reported=count>stops.length;
+   const focus=stops[Math.min(stops.length-1,Math.max(0,count-1))];
+   return {label:reported?'報告後':count?focus.objective+'（調査済み）':'調査前',focusX:focus.x,visible:[],waterStations:
+    stops.map((step,i)=>({x:step.x,y:step.y,kind:step.waterInstrument,checked:i<count,reported}))};
   })};
  }
  for(const from of graph.nodes){
@@ -791,7 +793,7 @@ try{
    if(stage){
     for(const station of stage.waterStations??[]){
      const art=graph.waterInstruments[station.kind];
-     for(const rows of [art.base,station.checked?art.after:art.before]){
+     for(const rows of [art.base,station.checked?art.after:art.before,(station.reported?art.reported:art.pending)??[]]){
       for(const [dx,dy,w,h,color] of rows){
        ctx.fillStyle=color;ctx.fillRect(station.x-camera+dx,station.y+dy,w,h);
       }
@@ -1021,8 +1023,9 @@ try{
   if(preview){
    for(const [index,stage] of preview.stages.entries())stageSelect.add(new Option(stage.label,String(index)));
    const requested=n.id===festival.node?'round':n.id===worksiteArt.contest.node?'contest':null;
-   const phase=n===openingNode&&requested?Number(query.get(requested)):0;
-   const index=Number.isInteger(phase)&&phase>=1&&phase<=3?phase-1:0;
+   const stageParam=n===openingNode?query.get('stage'):null;
+   const phase=stageParam!==null?Number(stageParam):n===openingNode&&requested?Number(query.get(requested)):0;
+   const index=Number.isInteger(phase)&&phase>=1&&phase<=preview.stages.length?phase-1:0;
    stageSelect.value=String(index);
    camera.value=preview.stages[index].focusX-480;
   }

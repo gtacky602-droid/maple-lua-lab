@@ -43,7 +43,7 @@ def check_instrument(s,step,checked,reported=False):
                 return any(d.kind=='rect' and d.x==x+dx and d.y==y+dy and d.w==w
                            and d.color==color for d in draws.values())
             assert block(10,-6,6,'#8cebd4' if reported else '#ebb371')
-            if step['sluiceInstrument']=='gauge':
+            if step['waterInstrument']=='gauge':
                 assert block(1 if checked else -7,-35,7,'#3e5661')
             else:
                 assert block(-12,-30,24,'#c49d63') if checked else block(-2,-37,4,'#c49d63')
@@ -286,7 +286,7 @@ saved=validate_save(native(core.checkpoint(s)))
 resumed=core.restore(lua.table_from(saved,recursive=True),12)
 assert map_room(resumed)[0]==new_name
 for step in quest['itinerary']:
-    if 'sluiceInstrument' in step:
+    if 'waterInstrument' in step:
         core.enterStoryNode(resumed,step['node'])
         resumed.camera=max(0,step['x']-480)
         check_instrument(resumed,step,True,reported=True)
