@@ -380,7 +380,11 @@ try{
  function afterReport(n){return $('sceneryPhase').value==='after'?n.locationAfterReport:null}
  function darkRoom(n){return Boolean(n.localLight && $('lampMode').value==='dark')}
  function sceneMeasures(n){return backgroundMeasurements[darkRoom(n)?n.id+'#dark':sceneryDefinitions[afterReport(n)?.scenery]?.measurementNode??n.id]}
- $('sceneryPhase').onchange=()=>{colorResult.textContent='';render()};
+ $('sceneryPhase').onchange=()=>{
+  colorResult.textContent='';
+  gatePreview.reset(node(),nodes,false,Boolean(afterReport(node())));
+  render();
+ };
  function sceneFrame(n,camera,gate){
   const dark=darkRoom(n);
   const platforms=[...n.platforms];
@@ -1074,7 +1078,7 @@ try{
    }
    $('liveSubjectControl').hidden=liveItems.length<2;
   }
-  gatePreview.reset(n,nodes,n.id===openingNode.id);
+  gatePreview.reset(n,nodes,n.id===openingNode.id,Boolean(afterReport(n)));
   if(gatePreview.darkGate() && query.get('light')!=='bright')$('lampMode').value='dark';
   let point=null;
   if(liveView && n===openingNode){

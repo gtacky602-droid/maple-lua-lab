@@ -44,6 +44,7 @@ export function initAtlas(action, clearKeys) {
  const itineraryStops = document.getElementById('atlasItineraryStops');
  const ctx = canvas.getContext('2d');
  let view, signature, regionSignature;
+ let reportedRooms=new Set();
 
  function send(key) {
   clearKeys();
@@ -200,6 +201,8 @@ export function initAtlas(action, clearKeys) {
   if(route.previewX==null)return;
   const link=document.createElement('a');
   const params=new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
+  if(reportedRooms.has(from))params.set('phase','after');
+  if(reportedRooms.has(route.id))params.set('afterArrival',route.id);
   if(route.routeFixture)params.set('fixture',route.reason?'closed':'open');
   link.href='map-art.html?'+params;
   link.target='_blank';link.rel='noopener';
@@ -295,7 +298,9 @@ export function initAtlas(action, clearKeys) {
   if (bossCompare.hidden) bossCompare.removeAttribute('href');
   if (selected?.boss?.placementPreview) {
    const artLink = measured ? bossCompare : compare;
-   artLink.href = 'map-art.html?' + new URLSearchParams({node:selected.id,placements:'live',background:'original',profile:'h32c16'});
+   const params=new URLSearchParams({node:selected.id,placements:'live',background:'original',profile:'h32c16'});
+   if(selected.afterReport)params.set('phase','after');
+   artLink.href='map-art.html?'+params;
    artLink.textContent = selected.boss.name + 'の開幕配置を比較（別タブ）';
   }
   const area = view.options.find(item => item.id === view.region);
@@ -413,6 +418,9 @@ export function initAtlas(action, clearKeys) {
   layer.value = view.layer;
   renderRegions();
   renderFields();
+  reportedRooms=new Set(entries(frame.storyGraph?.nodes)
+   .filter(n=>n.locationAfterReport && frame.story?.quests?.[n.locationAfterReport.quest]?.status==='complete')
+   .map(n=>n.id));
   renderSelection(frame);
   renderItinerary();
   draw();

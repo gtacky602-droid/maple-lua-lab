@@ -277,12 +277,14 @@ def map_room(state):
     room=next(n for n in f.storyGraph.nodes.values() if n.id==ch['node'])
     return room.name,f.storyGraphRevision
 
+write('work/morte-phase-before.json',validate_save(native(core.checkpoint(s))))
 old_name,old_revision=map_room(s)
 assert old_name==nodes[ch['node']]['name']
 core.action(s,'story_report:'+QUEST)
 new_name,new_revision=map_room(s)
 assert new_name==nodes[ch['node']]['locationAfterReport']['name'] and new_revision>old_revision
 saved=validate_save(native(core.checkpoint(s)))
+write('work/morte-phase-after.json',saved)
 resumed=core.restore(lua.table_from(saved,recursive=True),12)
 assert map_room(resumed)[0]==new_name
 for step in quest['itinerary']:

@@ -33,11 +33,14 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
  return {
   selectedGate(){return active},
   darkGate(){return Boolean(active?.darkOnly)},
-  reset(node,nodes,initial){
+  reset(node,nodes,initial,reported){
    active=null;
    select.replaceChildren(new Option('表示しない',''));
    if(liveView)node.exits.forEach((edge,i)=>{
     if(!Number.isFinite(edge.x)||node.voyage?.destination===edge.to||!nodes.has(edge.to))return;
+    const rule=edge.requires;
+    if(edge.hideUntilAllowed && node.locationAfterReport && rule?.quest===node.locationAfterReport.quest &&
+       rule.count==null && !rule.alternative && (rule.unreported===true)===reported)return;
     const label=nodes.get(edge.to).name;
     const option=new Option((edge.rideLabel??label)+'（'+edge.x+', '+(edge.y??480)+'）',String(i+1));
     Object.assign(option.dataset,{to:edge.to,gateX:edge.x,gateY:edge.y??480});
@@ -60,6 +63,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
    if(!active)return;
    const target=new URLSearchParams(params);
    target.set('placements','live');target.set('node',active.to);target.delete('phase');target.delete('light');
+   if(query.get('afterArrival')===active.to)target.set('phase','after');
    target.set('camera',arrival);
    target.set('from',params.get('node'));target.set('departureX',active.x);
    link.href='map-art.html?'+target;
