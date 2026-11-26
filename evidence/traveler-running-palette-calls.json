@@ -1,0 +1,30 @@
+[
+  {
+    "direction": "right",
+    "frames": 24,
+    "poses": [
+      "traveler-run-right-source-v3.png",
+      "traveler-run-right-2-source-v1.png",
+      "traveler-run-right-3-source-v1.png",
+      "traveler-run-right-4-source-v1.png"
+    ],
+    "batchDraws": 48,
+    "reused": 43,
+    "directCalls": 23373,
+    "paletteCalls": 2655
+  },
+  {
+    "direction": "left",
+    "frames": 24,
+    "poses": [
+      "traveler-run-left-source-v3.png",
+      "traveler-run-left-2-source-v1.png",
+      "traveler-run-left-3-source-v1.png",
+      "traveler-run-left-4-source-v1.png"
+    ],
+    "batchDraws": 48,
+    "reused": 43,
+    "directCalls": 23041,
+    "paletteCalls": 2602
+  }
+]

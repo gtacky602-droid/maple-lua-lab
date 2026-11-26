@@ -47,11 +47,12 @@ export function drawCombatRuns(ctx,draw,runs){
  }
  return runs.length;
 }
-// Lua batch numbers are local to each frame. Compare contents before reusing a slot.
+// Different poses can share a Lua batch number. Keep recent grids across animation frames.
 export function drawPaletteBatch(ctx,draw,runs,cache){
- const {gridWidth,gridHeight,batch}=draw;
- if(batch>64||gridWidth*gridHeight>65536)return drawCombatRuns(ctx,draw,runs);
- const previous=cache.get(batch);
+ const {gridWidth,gridHeight}=draw;
+ if(gridWidth*gridHeight>65536)return drawCombatRuns(ctx,draw,runs);
+ const key=[gridWidth,gridHeight,runs.length,runs[0],runs[runs.length>>1],runs.at(-1)].join('|');
+ const previous=cache.get(key);
  let canvas=previous?.canvas,buildCalls=0;
  const sameSize=canvas && canvas.width===gridWidth && canvas.height===gridHeight;
  const sameRuns=sameSize && (previous.runs===runs || (previous.runs.length===runs.length &&
@@ -65,7 +66,9 @@ export function drawPaletteBatch(ctx,draw,runs,cache){
   }
   buildCalls=runs.length;
  }
- cache.set(batch,{canvas,runs});
+ cache.delete(key);
+ cache.set(key,{canvas,runs});
+ if(cache.size>64)cache.delete(cache.keys().next().value);
  ctx.save();ctx.imageSmoothingEnabled=false;
  ctx.translate(draw.x+(draw.flip?draw.w:0),draw.y);
  if(draw.flip)ctx.scale(-1,1);
