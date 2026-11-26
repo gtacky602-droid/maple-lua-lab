@@ -681,7 +681,7 @@ end
 function C.frame(s,mode,profile)
  local draws={};local visible=0
  local artFrame={draws=draws}
- if s.coop and s.packRectArt and mode=='rect' then
+ if (s.coop or (s.story and s.story.active)) and s.packRectArt and mode=='rect' then
   artFrame.rectIndex,artFrame.rectBatches={},{}
  end
  local assets=(profile and C.variants and C.variants[profile]) or C.assets

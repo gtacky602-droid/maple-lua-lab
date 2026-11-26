@@ -1198,7 +1198,22 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
   for i,a in ipairs(s.actors) do
-   local startX=(spawn or 160)-(i-1)*40
+   local anchor=spawn or 160
+   local spacing=(i-1)*40
+   local startX=anchor-spacing
+   if i>1 and arrivalY and arrivalY<480 and not n.swim then
+    local alternate
+    for _,platform in ipairs(s.platforms) do
+     if platform.y==arrivalY then
+      local right=platform.x+platform.w
+      if startX>=platform.x and startX<=right then alternate=nil;break end
+      if anchor>=platform.x and anchor<=right then
+       alternate=math.max(alternate or anchor,math.min(anchor+spacing,right))
+      end
+     end
+    end
+    startX=alternate or startX
+   end
    a.x=n.swim and math.max(20,startX) or startX
    a.y=arrivalY or (n.swim and n.swim.entryY) or 480
    a.vy=0;a.ground=not n.swim

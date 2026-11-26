@@ -144,7 +144,9 @@ def check_course(index):
     assert list(expand_rectangles(packet))==reference['draws']
     def size(data):
         return len(json.dumps(data,ensure_ascii=False,separators=(',',':')).encode())
-    assert len(packet['rectBatches'])==len({m['key'] for m in marks if m['kind']=='prop'})
+    for key in {m['key'] for m in marks if m['kind']=='prop'}:
+        runs = native(core.ittoGameArt[key].profiles.h32c16.runs)
+        assert packet['rectBatches'].count(runs) == 1, key
     packing[index]=dict(before=size(reference),after=size(packet),objects=len(sprites),batches=len(packet['rectBatches']))
     assert packing[index]['after']<packing[index]['before']
 begin(s)

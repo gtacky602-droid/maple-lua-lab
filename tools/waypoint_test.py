@@ -85,6 +85,12 @@ class TrailWalk:
             expected_x = edge['arrivalX'] - (self.state.active - 1) * 40
             if self.state.storySwimming:
                 expected_x = max(20, expected_x)
+            elif edge.get('arrivalY', 480) < 480:
+                shelves = [p for p in self.state.platforms.values() if p.y == edge['arrivalY']]
+                anchor = edge['arrivalX']
+                supports = [p for p in shelves if p.x <= anchor <= p.x+p.w]
+                if supports and not any(p.x <= expected_x <= p.x+p.w for p in shelves):
+                    expected_x = min(anchor + (anchor-expected_x), max(p.x+p.w for p in supports))
             assert (self.actor.x, self.actor.y) == (expected_x, edge.get('arrivalY', 480))
         self.crossings.add((origin, target))
 

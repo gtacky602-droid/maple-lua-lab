@@ -1,0 +1,62 @@
+{
+  "mond-road": {
+    "legacy": {
+      "before": 564370,
+      "after": 244697,
+      "stamps": 4,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 404091,
+      "after": 169393,
+      "stamps": 4,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 142230,
+      "after": 65549,
+      "stamps": 4,
+      "batches": 3
+    }
+  },
+  "fontaine-lift-catwalk": {
+    "legacy": {
+      "before": 334769,
+      "after": 206147,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h48c32": {
+      "before": 243411,
+      "after": 145999,
+      "stamps": 1,
+      "batches": 1
+    },
+    "h32c16": {
+      "before": 87467,
+      "after": 53659,
+      "stamps": 1,
+      "batches": 1
+    }
+  },
+  "natlan-flag-ledges": {
+    "legacy": {
+      "before": 457460,
+      "after": 233371,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h48c32": {
+      "before": 342055,
+      "after": 163391,
+      "stamps": 2,
+      "batches": 2
+    },
+    "h32c16": {
+      "before": 129528,
+      "after": 61569,
+      "stamps": 2,
+      "batches": 2
+    }
+  }
+}
