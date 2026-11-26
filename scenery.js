@@ -440,11 +440,31 @@ export const sceneryDefinitions={
 const backgrounds=new Map();
 const grayCrystal={image:new Image(),box:[382,175,762,667]};
 grayCrystal.image.src='assets/tunigi-gray-crystal-source-v1.png';
+const roadsideFile='liyue-roadside-props.png';
+const teaCart={file:roadsideFile,box:[0,0,65,56]};
+const cargoBox={file:roadsideFile,box:[65,0,30,29]};
+const roadSign={file:roadsideFile,box:[95,0,40,45]};
 const decorations=new Map([['tunigi-depth',[
  {art:grayCrystal,x:207,y:480,height:78},
  {art:grayCrystal,x:742,y:480,height:94,flip:true},
  {art:grayCrystal,x:1250,y:480,height:112},
+]],['liyue-entry',[
+ {art:roadSign,x:254,y:480,height:56},
+ {art:roadSign,x:1070,y:360,height:45,flip:true},
+]],['liyue-loading-yard',[
+ {art:cargoBox,x:272,y:393,height:41},
+ {art:cargoBox,x:315,y:393,height:34},
+ {art:teaCart,x:755,y:480,height:74},
+ {art:cargoBox,x:1130,y:290,height:37},
+]],['liyue-river-trail',[
+ {art:teaCart,x:305,y:480,height:68,flip:true},
+ {art:roadSign,x:1000,y:391,height:48},
+ {art:cargoBox,x:1440,y:374,height:34},
 ]]]);
+function roadsideAsset(frame){
+ const node=frame.story?.node;
+ if(frame.story?.active && frame.campaign?.zone==='story:'+node && decorations.get(node)?.[0].art.file===roadsideFile)return backgroundFor(roadsideFile);
+}
 function backgroundFor(file){
  const cached=backgrounds.get(file);
  if(cached)return cached;
@@ -507,17 +527,20 @@ export function sceneryKey(frame){
 }
 export function sceneryStatus(frame,previewFile){
  const key=sceneryKey(frame),file=previewFile??sceneryDefinitions[key].file;
- return {key,file,state:backgrounds.get(file)?.state??'loading'};
+ const waiting=roadsideAsset(frame)?.state==='loading';
+ return {key,file,state:waiting?'loading':backgrounds.get(file)?.state??'loading'};
 }
 export function loadScenery(frame,previewFile){
- return backgroundFor(previewFile??sceneryDefinitions[sceneryKey(frame)].file).ready;
+ const backdrop=backgroundFor(previewFile??sceneryDefinitions[sceneryKey(frame)].file).ready;
+ const roadside=roadsideAsset(frame);
+ return roadside?Promise.all([backdrop,roadside.ready]).then(([state])=>state):backdrop;
 }
 function drawDecorations(ctx,frame,camera){
  const node=frame.story?.node,placements=decorations.get(node);
  if(!placements||!frame.story.active||frame.campaign?.zone!==`story:${node}`)return;
  ctx.imageSmoothingEnabled=false;
  for(const {art,x,y,height,flip} of placements){
-  const {image,box}=art;
+  const image=art.image??backgroundFor(art.file).image,box=art.box;
   if(!image.complete||!image.naturalWidth)continue;
   const width=height*box[2]/box[3],screenX=x-camera;
   if(screenX+width/2<=0||screenX-width/2>=960)continue;
