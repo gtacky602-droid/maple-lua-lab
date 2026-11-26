@@ -4,14 +4,30 @@ export function questTargetNode(q,graph){
  return graph.nodes.find(n=>n.challenge===q.target)?.id??graph.bossNodes?.[q.target];
 }
 
+export function hasOptionalPath(q,state){
+ return q?.anyPath&&state?.status==='complete'&&state.pathProgress&&
+  q.paths.some(p=>(state.pathProgress[p.id]?.count??0)<p.steps.length);
+}
+
 export function questRoute(f,q,status,preferredNode){
- if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return {text:''};
+ const optional=hasOptionalPath(q,f.story?.quests?.[q?.id]);
+ if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable&&!optional))return {text:''};
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
- const arrival=milestone?.kind==='arrive'&&milestone.from?milestone:null;
  const pathProgress=f.story.quests?.[q.id]?.pathProgress;
- const branches=milestone?.kind==='paths'&&q.paths.map(path=>path.steps[pathProgress?.[path.id]?.count??0]).filter(Boolean);
+ let branches;
+ if(milestone?.kind==='paths'||optional){
+  const pending=q.paths.map(path=>{
+   const count=pathProgress?.[path.id]?.count??0;
+   return {count,step:path.steps[count]};
+  }).filter(p=>p.step);
+  const local=pending.filter(({step})=>(step.from??step.node)===f.story.node);
+  const started=pending.filter(p=>p.count>0);
+  branches=(local.length?local:started.length?started:pending).map(p=>p.step);
+ }
+ const arrival=milestone?.kind==='arrive'&&milestone.from?milestone:
+  branches?.find(s=>s.kind==='arrive'&&s.from);
  let target=status==='active'?questTargetNode(q,graph):q.hub;
  if(status==='active'&&q.itinerary)target=arrival?.from??milestone?.node;
  if(status==='active'&&q.sights&&f.story.quests?.[q.id]&&!f.story.quests[q.id].sights)target=q.sights.legacyTarget;
@@ -42,7 +58,7 @@ export function questRoute(f,q,status,preferredNode){
  const targets=new Set(candidates.filter(id=>nodes.has(id)));
  if(!targets.size)return {text:'目的地は未公開または未登録です。'};
  const from=f.story.node;if(!nodes.has(from))return {text:''};
- if(targets.has(from)&&!arrival)return {node:from,text:status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。'};
+ if(targets.has(from)&&!arrival)return {node:from,text:status==='active'||optional?'目的地に到着しています。':'受注・報告の拠点にいます。'};
  function meetsRule(rule){
   const questState=f.story.quests?.[rule.quest];
   const state=rule.path?questState?.pathProgress?.[rule.path]:questState;

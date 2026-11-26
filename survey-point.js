@@ -2,8 +2,9 @@
 export function puzzleStep(step){
  return step?.kind==='inspect'&&(step.resonanceOrder||step.shadowChoice||step.paperFold);
 }
-export function surveyPoint(quest,index,node,room){
- const steps=quest?.itinerary,step=steps?.[index];
+export function surveyPoint(quest,index,node,room,pathId){
+ const path=pathId&&quest?.paths?.find(p=>p.id===pathId);
+ const steps=pathId?path?.steps:quest?.itinerary,step=steps?.[index];
  if(room?.id===node&&step?.node===node&&puzzleStep(step)){
   let stations;
   if(step.resonanceOrder&&room.resonance){
@@ -25,7 +26,7 @@ export function surveyPoint(quest,index,node,room){
  if(!point)return null;
  const prop=step.returnClue??(step.returnPickup?{art:'crate',height:51}:null);
  return {quest:quest.id,step:index+1,node,x:point.x,y:point.y,name:point.name??step.name??step.objective,
-  action:step.action??step.objective,...(prop&&{returnProp:prop})};
+  action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop})};
 }
 
 export function worksitePoints(quest){
@@ -45,6 +46,7 @@ export function surveyPointUrl(point){
   params.set('tier','4096');
  }else{
   params.set('step',String(point.step));
+  if(point.path)params.set('path',point.path);
   if(point.cover||point.tea)params.set('tier','4096');
  }
  return 'map-art.html?'+params;

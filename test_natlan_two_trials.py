@@ -112,6 +112,7 @@ begin=checkpoint(s)
 s=from_summit_save(begin)
 gate(s,969,steps,390)
 walk(s,522);jump(s,522,391);collect(s,522,391,1,'high')
+(ROOT/'evidence/natlan-high-second-target-save.json').write_text(json.dumps(checkpoint(s),ensure_ascii=False)+'\n',encoding='utf8')
 walk(s,900);jump(s,900,302);walk(s,1044);collect(s,1044,302,2,'high')
 gate(s,1420,high,302)
 assert len(s.enemies)==3
@@ -130,6 +131,7 @@ def water_path(s,physical):
         defeat(s,s.enemies[1])
         partial=checkpoint(s)
         assert partial['story']['quests'][quest]['pathProgress']['water']['sweep']
+        (ROOT/'evidence/natlan-river-partial-sweep-save.json').write_text(json.dumps(partial,ensure_ascii=False)+'\n',encoding='utf8')
         s=restore(partial)
         gate(s,1055,river)
         assert len(s.enemies)==2

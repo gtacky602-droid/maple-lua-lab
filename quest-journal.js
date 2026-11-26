@@ -1,4 +1,4 @@
-import {questRoute,questTargetNode} from './quest-route.js';
+import {hasOptionalPath,questRoute,questTargetNode} from './quest-route.js';
 import {teaNotebook} from './tea-notebook.js';
 import {puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
@@ -245,6 +245,27 @@ export function trackedQuest(f,id,selectedWorksite){
  if(puzzleStep(patrolStep)&&route.node===patrolStep.node){
   const url=surveyPointUrl({node:route.node,quest:q.id,step:st.count+1});
   return {node:route.node,pointUrl:url,pointLabel:'装置の操作場所を見る',text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+ }
+ const optional=hasOptionalPath(q,st);
+ if(patrolStep?.kind==='paths'||optional){
+  const title=q.name+(optional?'（報告済み・任意の寄り道）':'');
+  for(const path of q.paths){
+   const index=st.pathProgress?.[path.id]?.count??0,step=path.steps[index];
+   if(!step||step.node!==route.node)continue;
+   if(step.kind==='kill'){
+    const targets=step.enemies??(step.enemy?[step.enemy]:[]);
+    const sweep=st.pathProgress?.[path.id]?.sweep;
+    const remaining=targets.filter(id=>!sweep?.[id]);
+    if(remaining.length){
+     const params=new URLSearchParams({placements:'live',node:step.node,subject:remaining[0]});
+     return {node:step.node,pointUrl:'map-art.html?'+params,pointLabel:path.label+'の残りの敵を見る',
+      text:title+' ｜ '+path.label+'：'+step.objective+'（残り'+remaining.length+'体） ｜ '+route.text};
+    }
+   }
+   const point=surveyPoint(q,index,route.node,null,path.id);
+   if(point)return {node:route.node,pointUrl:surveyPointUrl(point),pointLabel:path.label+'の調査位置を見る',
+    text:title+' ｜ '+path.label+'：'+step.objective+(route.text?' ｜ '+route.text:'')};
+  }
  }
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));

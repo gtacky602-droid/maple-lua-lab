@@ -241,12 +241,16 @@ try{
    if(!quests.has(quest))quests.set(quest,[]);
    quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node)});
   }
-  for(const [index,step] of (quest.itinerary??[]).entries()){
-   for(const nodeId of new Set([step.node,...(step.alternatives??[]).map(p=>p.node)])){
-    if(!stepsByNode.has(nodeId))stepsByNode.set(nodeId,new Map());
-    const quests=stepsByNode.get(nodeId);
-    if(!quests.has(quest))quests.set(quest,[]);
-    quests.get(quest).push({number:index+1,objective:step.objective,point:surveyPoint(quest,index,nodeId,nodes.get(nodeId))});
+  for(const route of [{steps:quest.itinerary??[]},...quest.paths??[]]){
+   for(const [index,step] of route.steps.entries()){
+    for(const nodeId of new Set([step.node,...(step.alternatives??[]).map(p=>p.node)])){
+     if(!nodeId)continue;
+     if(!stepsByNode.has(nodeId))stepsByNode.set(nodeId,new Map());
+     const quests=stepsByNode.get(nodeId);
+     if(!quests.has(quest))quests.set(quest,[]);
+     const objective=route.label?route.label+'：'+step.objective:step.objective;
+     quests.get(quest).push({number:index+1,objective,point:surveyPoint(quest,index,nodeId,nodes.get(nodeId),route.id)});
+    }
    }
   }
  }
@@ -903,7 +907,7 @@ try{
   if(liveView && n===openingNode){
    const quest=questsById.get(query.get('quest'));
    point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
-    surveyPoint(quest,Number(query.get('step'))-1,n.id,n);
+    surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'));
   }
   focusSurveyPoint(point);
   render();

@@ -1,0 +1,85 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {chromium} from 'playwright';
+import {surveyPoint,surveyPointUrl} from './survey-point.js';
+import {questRoute} from './quest-route.js';
+
+const graph=JSON.parse(await readFile('content/story-graph.json','utf8'));
+const returnQuest=graph.quests.find(q=>q.id==='natlan-witztli-three-echoes');
+const branch=returnQuest.paths[0],arrival=branch.steps[1];
+const frame={storyGraph:graph,story:{active:true,node:arrival.from,quests:{[returnQuest.id]:{status:'active',count:1,pathProgress:{[branch.id]:{count:1}}}}},progression:{level:200}};
+assert.equal(questRoute(frame,returnQuest,'active').node,arrival.node);
+frame.story.node=arrival.node;
+assert.equal(questRoute(frame,returnQuest,'active').node,arrival.from);
+const browser=await chromium.launch({channel:'chrome'});
+try{
+ const page=await browser.newPage();
+ const base=process.env.LAB_URL??'http://127.0.0.1:9125/';
+ await page.goto(base);
+ await page.waitForFunction(()=>window.lab?.frame);
+ await page.locator('#importSave').setInputFiles('evidence/natlan-high-second-target-save.json');
+ const id='natlan-two-trials';
+ await page.waitForFunction(id=>window.lab.frame.story?.quests?.[id]?.pathProgress?.high?.count===1,id);
+ await page.locator('[data-quest="'+id+'"]').getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+ await page.locator('#trackedQuestMap').click();
+ const link=page.locator('#atlasQuestPoint');
+ await link.waitFor();
+ assert.equal(await link.innerText(),'高台の調査位置を見る');
+ const popup=page.waitForEvent('popup');
+ await link.click();
+ const map=await popup;
+ await page.goto('about:blank');
+ await map.waitForFunction(()=>window.mapArt?.ready);
+ assert.match(await map.locator('#surveyPointNote').innerText(),/上段の標的.*1044, 302/);
+ assert.equal(new URL(map.url()).searchParams.get('path'),'high');
+ let count=0;
+ for(const q of graph.quests.filter(q=>q.paths))for(const path of q.paths){
+  for(const [i,s] of path.steps.entries()){
+   const point=surveyPoint(q,i,s.node,null,path.id);
+   if(s.kind!=='inspect'){assert.equal(point,null);continue}
+   assert.deepEqual([point.x,point.y],[s.x,s.y]);
+   const url=surveyPointUrl(point);
+   await map.goto(new URL(url,base).href);
+   await map.waitForFunction(()=>window.mapArt?.ready&&window.mapArt.backgroundState==='ready');
+   const panel=map.locator('#localQuestSteps');
+   if(!await panel.evaluate(el=>el.open))await panel.locator('summary').click();
+   const location=panel.locator('a[href="'+url+'"]');
+   assert((await location.locator('..').innerText()).includes(path.label));
+   await location.click();
+   const colors=await map.evaluate(({x,y})=>['png','rect'].map(id=>[...document.querySelector('#'+id).getContext('2d').getImageData(x-window.mapArt.camera,y,1,1).data]),point);
+   assert.deepEqual(colors,[[133,255,223,255],[133,255,223,255]]);
+   if(q.id===id&&path.id==='high'&&i===1)await map.locator('#rect').screenshot({path:'evidence/natlan-high-second-target-map.png'});
+   count++;
+  }
+ }
+ await map.close();
+ await page.goto(base);
+ await page.waitForFunction(()=>window.lab?.frame);
+ await page.locator('#importSave').setInputFiles('evidence/natlan-river-partial-sweep-save.json');
+ await page.waitForFunction(id=>window.lab.frame.story?.quests?.[id]?.pathProgress?.water?.count===1,id);
+ await page.waitForFunction(()=>document.getElementById('trackedSurveyPoint').textContent==='水辺の残りの敵を見る');
+ await page.locator('#trackedQuestMap').click();
+ await link.waitFor();
+ assert.equal(await link.innerText(),'水辺の残りの敵を見る');
+ const params=new URL(await link.evaluate(a=>a.href)).searchParams;
+ assert.equal(params.get('subject'),'natlan-river-bank-2');
+ assert(params.getAll('absent').includes('natlan-river-bank-1'));
+ const targetPage=page.waitForEvent('popup');
+ await link.click();const enemy=await targetPage;
+ await enemy.waitForFunction(()=>window.mapArt?.ready&&document.querySelector('#liveSubject').value==='natlan-river-bank-2');
+ await page.goto('about:blank');
+ await enemy.close();
+ await page.goto(base);await page.waitForFunction(()=>window.lab?.frame);
+ await page.locator('#importSave').setInputFiles('evidence/nod-optional-coast-save.json');
+ const optional='nod-moon-crossroads';
+ await page.waitForFunction(id=>window.lab.frame.story?.quests?.[id]?.status==='complete',optional);
+ await page.locator('#questFilter').selectOption('complete');
+ await page.locator('[data-quest="'+optional+'"]').getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+ await page.locator('#trackedQuestMap').click();
+ await link.waitFor();
+ assert.equal(await link.innerText(),'海岸旧道の調査位置を見る');
+ const coast=new URL(await link.evaluate(a=>a.href)).searchParams;
+ assert.deepEqual([coast.get('path'),coast.get('node'),coast.get('step')],['coast','nod-lantern-shore','1']);
+ await page.goto('about:blank');
+ console.log(count+' branch inspection points, both saved paths, remaining enemy focus, directed return and optional post-report branch verified.');
+}finally{await browser.close()}

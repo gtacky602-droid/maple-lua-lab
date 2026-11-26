@@ -200,6 +200,7 @@ except ValueError as error:
 else:
     raise AssertionError('Completed path must retain visits to its own objectives')
 s = finish(s)
+(ROOT/'evidence/nod-optional-coast-save.json').write_text(json.dumps(checkpoint(s),ensure_ascii=False)+'\n',encoding='utf8')
 gate(s, 1258, cave)
 inspect(s, 549)
 assert "岩窟口の札" in s.storyNotice
