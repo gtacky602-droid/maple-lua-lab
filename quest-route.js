@@ -9,18 +9,22 @@ export function hasOptionalPath(q,state){
   q.paths.some(p=>(state.pathProgress[p.id]?.count??0)<p.steps.length);
 }
 
+export function pendingQuestPaths(q,state){
+ if(!q.paths)return [];
+ return q.paths.map(path=>{
+  const count=state?.pathProgress?.[path.id]?.count??0;
+  return {path,step:path.steps[count],count};
+ }).filter(p=>p.step);
+}
+
 export function questDestinations(f,q,status,preferredNode){
  const optional=hasOptionalPath(q,f.story.quests?.[q.id]);
  const graph=f.storyGraph;
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
- const pathProgress=f.story.quests?.[q.id]?.pathProgress;
  let branches;
  if(milestone?.kind==='paths'||optional){
-  const pending=q.paths.map(path=>{
-   const count=pathProgress?.[path.id]?.count??0;
-   return {count,step:path.steps[count]};
-  }).filter(p=>p.step);
+  const pending=pendingQuestPaths(q,f.story.quests?.[q.id]);
   const local=pending.filter(({step})=>(step.from??step.node)===f.story.node);
   const started=pending.filter(p=>p.count>0);
   branches=(local.length?local:started.length?started:pending).map(p=>p.step);

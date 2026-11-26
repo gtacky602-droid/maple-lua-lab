@@ -1,5 +1,4 @@
-import {questDestinations} from './quest-route.js';
-import {questObjective,questStatus} from './quest-journal.js';
+import {atlasQuestObjectives} from './quest-journal.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 
 const groupNames = {
@@ -202,14 +201,11 @@ export function initAtlas(action, clearKeys) {
   const objectives=[];
   if(selected && frame.storyGraph){
    for(const q of frame.storyGraph.quests){
-    const state=frame.story.quests?.[q.id];
-    if(!state || state.status==='complete')continue;
-    const status=questStatus(q,state,frame.story.quests);
-    if(!questDestinations(frame,q,status).candidates.includes(selected.id))continue;
-    const item=document.createElement('li');
-    const objective=status==='ready'?(q.giver?q.giver+'に報告する':'拠点で報告する'):questObjective(q,frame.storyGraph,state,frame.story.growth);
-    item.textContent=q.name+'　'+objective;
-    objectives.push(item);
+    for(const objective of atlasQuestObjectives(frame,q,selected.id)){
+     const item=document.createElement('li');
+     item.textContent=q.name+'　'+objective;
+     objectives.push(item);
+    }
    }
   }
   document.getElementById('atlasQuestObjectives').replaceChildren(...objectives);

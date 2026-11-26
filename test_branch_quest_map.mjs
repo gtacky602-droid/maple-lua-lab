@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {surveyPoint,surveyPointUrl} from './survey-point.js';
+import {atlasQuestObjectives} from './quest-journal.js';
 import {questRoute} from './quest-route.js';
 
 const graph=JSON.parse(await readFile('content/story-graph.json','utf8'));
@@ -11,6 +12,22 @@ const frame={storyGraph:graph,story:{active:true,node:arrival.from,quests:{[retu
 assert.equal(questRoute(frame,returnQuest,'active').node,arrival.node);
 frame.story.node=arrival.node;
 assert.equal(questRoute(frame,returnQuest,'active').node,arrival.from);
+for(const q of graph.quests.filter(q=>q.paths)){
+ const state={status:'active',count:q.itinerary.findIndex(step=>step.kind==='paths'),pathProgress:{}};
+ const branchFrame={storyGraph:graph,story:{node:q.hub,quests:{[q.id]:state}}};
+ for(const path of q.paths){
+  for(const [count,step] of path.steps.entries()){
+   state.pathProgress[path.id]={count};
+   const label=path.label+'　'+step.objective;
+   const dest=step.kind==='arrive'&&step.from?step.from:step.node;
+   assert(atlasQuestObjectives(branchFrame,q,dest).includes(label));
+   if(step.kind==='arrive' && step.from!==step.node)
+    assert(!atlasQuestObjectives(branchFrame,q,step.node).includes(label));
+  }
+  state.pathProgress[path.id]={count:path.steps.length};
+  assert(!atlasQuestObjectives(branchFrame,q,path.steps[0].node).some(text=>text.startsWith(path.label+'　')));
+ }
+}
 const browser=await chromium.launch({channel:'chrome'});
 try{
  const page=await browser.newPage();
@@ -25,6 +42,14 @@ try{
  const link=page.locator('#atlasQuestPoint');
  await link.waitFor();
  assert.equal(await link.innerText(),'高台の調査位置を見る');
+ const branchText=page.locator('#atlasQuestObjectives');
+ assert.match(await branchText.innerText(),/高台　上段へ跳んで次の狩場を見下ろす/);
+ await page.selectOption('#atlasField','natlan-river-float-run');
+ await page.waitForFunction(()=>document.querySelector('#atlasQuestObjectives').textContent.includes('水辺　岸に止まる浮き台を確認する'));
+ assert.doesNotMatch(await branchText.innerText(),/上段へ跳んで/);
+ await page.locator('#worldAtlas').screenshot({path:'evidence/natlan-atlas-water-branch.png'});
+ await page.selectOption('#atlasField','natlan-high-trial-steps');
+ await link.waitFor();
  const popup=page.waitForEvent('popup');
  await link.click();
  const map=await popup;
@@ -78,6 +103,7 @@ try{
  await page.locator('#trackedQuestMap').click();
  await link.waitFor();
  assert.equal(await link.innerText(),'海岸旧道の調査位置を見る');
+ assert.match(await branchText.innerText(),/任意・海岸旧道　海岸旧道でフリンズ/);
  const coast=new URL(await link.evaluate(a=>a.href)).searchParams;
  assert.deepEqual([coast.get('path'),coast.get('node'),coast.get('step')],['coast','nod-lantern-shore','1']);
  await page.goto('about:blank');

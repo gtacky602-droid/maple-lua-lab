@@ -1,4 +1,4 @@
-import {hasOptionalPath,questRoute,questTargetNode} from './quest-route.js';
+import {hasOptionalPath,pendingQuestPaths,questDestinations,questRoute,questTargetNode} from './quest-route.js';
 import {teaNotebook} from './tea-notebook.js';
 import {puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
@@ -13,6 +13,29 @@ export function questStatus(q,state,quests,level=Infinity,growthEligibility){
 const rewardNumber=new Intl.NumberFormat('ja-JP');
 const questName=(q,state)=>q.sights&&state&&!state.sights?q.sights.legacyName:q.name;
 const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
+export function atlasQuestObjectives(frame,q,node){
+ const state=frame.story.quests?.[q.id];
+ if(!state)return [];
+ const status=questStatus(q,state,frame.story.quests);
+ const join=q.paths?q.itinerary.findIndex(step=>step.kind==='paths'):-1;
+ const onBranch=join>=0 && state.count===join && status==='active';
+ const optional=q.anyPath && join>=0 && state.count>join;
+ const objectives=[];
+ if(onBranch || optional){
+  for(const {path,step} of pendingQuestPaths(q,state)){
+   const atNode=step.kind==='arrive' && step.from?step.from===node:
+    step.node===node || step.alternatives?.some(p=>p.node===node);
+   if(atNode)objectives.push((optional?'任意・':'')+path.label+'　'+step.objective);
+  }
+ }
+ if(onBranch || status==='complete')return objectives;
+ if(questDestinations(frame,q,status).candidates.includes(node)){
+  objectives.push(status==='ready'?(q.giver?q.giver+'に報告する':'拠点で報告する'):
+   questObjective(q,frame.storyGraph,state,frame.story.growth));
+ }
+ return objectives;
+}
+
 export function questObjective(q,graph,state,growth={}){
  if(q.lesson){
   if(state?.status==='complete')return '成長依頼を報告済み';
