@@ -96,6 +96,21 @@ try{
  const params=new URL(await link.evaluate(a=>a.href)).searchParams;
  assert.equal(params.get('subject'),'natlan-river-bank-2');
  assert(params.getAll('absent').includes('natlan-river-bank-1'));
+ const targets=branchText.locator('a[href*="subject=natlan-river-bank"]');
+ assert.deepEqual(await targets.allTextContents(),['討伐対象 2／3の位置を見る','討伐対象 3／3の位置を見る']);
+ const lastPopup=page.waitForEvent('popup');
+ await targets.last().click();
+ const last=await lastPopup;
+ await last.waitForFunction(()=>window.mapArt?.ready&&document.querySelector('#liveSubject').value==='natlan-river-bank-3');
+ for(const profile of ['h48c32','h32c16']){
+  await last.selectOption('#profile',profile);
+  await last.waitForFunction(p=>window.mapArt?.profile===p,profile);
+  assert.equal(await last.locator('#liveSubject').inputValue(),'natlan-river-bank-3');
+  assert.equal(await last.evaluate(()=>window.mapArt.shownCount),1);
+ }
+ assert(!(await last.evaluate(()=>window.mapArt.placements.map(p=>p.id))).includes('natlan-river-bank-1'));
+ await last.locator('#rect').screenshot({path:'evidence/natlan-river-third-target-16color.png'});
+ await last.close();
  const targetPage=page.waitForEvent('popup');
  await link.click();const enemy=await targetPage;
  await enemy.waitForFunction(()=>window.mapArt?.ready&&document.querySelector('#liveSubject').value==='natlan-river-bank-2');

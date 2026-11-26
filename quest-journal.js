@@ -13,6 +13,16 @@ export function questStatus(q,state,quests,level=Infinity,growthEligibility){
 const rewardNumber=new Intl.NumberFormat('ja-JP');
 const questName=(q,state)=>q.sights&&state&&!state.sights?q.sights.legacyName:q.name;
 const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
+function remainingEnemyPoints(step,progress){
+ const targets=step.enemies??(step.enemy?[step.enemy]:[]);
+ return targets.flatMap((subject,index)=>{
+  if(progress?.sweep?.[subject])return [];
+  const params=new URLSearchParams({placements:'live',node:step.node,subject});
+  const label=targets.length===1?'討伐対象':'討伐対象 '+(index+1)+'／'+targets.length;
+  return [{subject,label,url:'map-art.html?'+params}];
+ });
+}
+
 export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
@@ -25,6 +35,11 @@ export function atlasQuestObjectives(frame,q,node){
   const step=(path?.steps??q.itinerary)?.[index];
   const room=frame.storyGraph.nodes.find(n=>n.id===node);
   const choices=step?.kind==='choice'||step?.kind==='guideChoice'?step.choices.length:0;
+  if(step?.kind==='kill' && step.node===node){
+   const progress=path?state.pathProgress?.[path.id]:state;
+   objectives.push({text,points:remainingEnemyPoints(step,progress)});
+   return;
+  }
   const points=[];
   for(let i=0;i<Math.max(1,choices);i++){
    const point=surveyPoint(q,index,node,room,path?.id,choices?i+1:undefined);
@@ -294,12 +309,9 @@ export function trackedQuest(f,id,selectedWorksite){
    const index=st.pathProgress?.[path.id]?.count??0,step=path.steps[index];
    if(!step||step.node!==route.node)continue;
    if(step.kind==='kill'){
-    const targets=step.enemies??(step.enemy?[step.enemy]:[]);
-    const sweep=st.pathProgress?.[path.id]?.sweep;
-    const remaining=targets.filter(id=>!sweep?.[id]);
+    const remaining=remainingEnemyPoints(step,st.pathProgress?.[path.id]);
     if(remaining.length){
-     const params=new URLSearchParams({placements:'live',node:step.node,subject:remaining[0]});
-     return {node:step.node,pointUrl:'map-art.html?'+params,pointLabel:path.label+'の残りの敵を見る',
+     return {node:step.node,pointUrl:remaining[0].url,pointLabel:path.label+'の残りの敵を見る',
       text:title+' ｜ '+path.label+'：'+step.objective+'（残り'+remaining.length+'体） ｜ '+route.text};
     }
    }

@@ -205,6 +205,7 @@ export function initAtlas(action, clearKeys) {
      const item=document.createElement('li');
      item.textContent=q.name+'　'+objective.text;
      for(const point of objective.points){
+      if(point.subject && selected.absentSpawns?.includes(point.subject))continue;
       const link=document.createElement('a');
       const url=new URL(point.url,location.href);
       for(const id of selected.absentSpawns??[])url.searchParams.append('absent',id);
