@@ -3,6 +3,7 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "complete_atlas_survey": {"regions":24,"catalog":1528,"mainVisited":1527,"visitedAcrossTwoChoices":1528,"mainQuestReports":200,"record":"evidence/complete-atlas-survey.json","mainSave":"evidence/northern-gates-save.json","alternateSave":"evidence/visited-lift-survey-save.json"},
   "fon_nat_atlas_survey": {"fontaine":169,"fontaineTotal":169,"natlan":199,"natlanTotal":199,"newVisits":141,"newReports":16,"visitedAllRegions":1116,"guideSteps":37,"save":"evidence/fon-nat-survey-save.json"},
   "ina_sum_atlas_survey": {"inazuma":100,"inazumaTotal":100,"sumeru":190,"sumeruTotal":190,"newVisitsInRegions":212,"newVisitsAllRegions":214,"newReports":4,"visitedAllRegions":975,"save":"evidence/ina-sum-survey-save.json"},
   "mond_liyue_atlas_survey": {"mondstadt":68,"mondstadtTotal":68,"liyue":97,"liyueTotal":98,"newVisits":105,"newReports":9,"visitedAllRegions":761,"save":"evidence/mond-liyue-survey-save.json","alternate":"evidence/liyue-alternate-lift-save.json"},

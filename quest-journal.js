@@ -295,6 +295,16 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
  const regionNames={MON:'モンド',LIY:'璃月',INA:'稲妻',SUM:'スメール',FON:'フォンテーヌ',NAT:'ナタ',NOD:'ナド・クライ',SNE:'スネージナヤ'};
  const chapters=new Map(),branches=new Map(),growth=new Map();
  const hubRegions=new Map(graph.nodes.map(n=>[n.id,n.region]));
+ const outstanding=new Map();
+ for(const q of graph.quests){
+  if(statusOf(q)==='complete'||(q.legacyOnly&&!story.quests[q.id]))continue;
+  const region=hubRegions.get(q.hub);
+  if(region)outstanding.set(region,(outstanding.get(region)||0)+1);
+ }
+ if(filter.startsWith('area:')&&!outstanding.has(filter.slice(5)))outstanding.set(filter.slice(5),0);
+ const surveyGroup=document.createElement('optgroup');surveyGroup.label='受注地域別の未報告依頼';
+ for(const [region,total] of outstanding)surveyGroup.append(new Option(region+'（'+total+'件）','area:'+region));
+ if(outstanding.size)select.append(surveyGroup);
  for(const q of graph.quests){
   const chapter=q.designId?.match(/^Q-([A-Z]+)-[MS]\d{2}$/)?.[1];
   const branch=q.designId?.match(/^Q-(B\d{2})-\d{2}$/)?.[1];
@@ -344,6 +354,8 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   if(selected){
    const record=selected.get(q.id);
    if(!record||(selection==='pending'?record.done:record.code!==selection))continue;
+  }else if(kind==='area'){
+   if(hubRegions.get(q.hub)!==selection||status==='complete'||(q.legacyOnly&&!st))continue;
   }else if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
   shown++;const row=document.createElement(kind==='branch'&&selection!=='pending'?'div':'p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;

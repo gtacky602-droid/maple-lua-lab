@@ -4,19 +4,32 @@ import json
 from collections import deque
 
 from runtime import ROOT, runtime
-from test_earned_branch_quests import Journey, graph, quests
+from test_earned_branch_quests import graph, quests
+from test_earned_survey_itineraries import SurveyJourney as LightSurveyJourney
 
 groups={
+    'north':('fon-nat-survey',[('ナド・クライ','region-07','nod-town'),('スネージナヤ','region-08','snezhnaya-hub')]),
     'mond-liyue':('original-weekly-expedition',[('モンド','region-01','mond-town'),('璃月','region-02','liyue-harbor')]),
     'fon-nat':('ina-sum-survey',[('フォンテーヌ','region-05','fontaine-hub'),('ナタ','region-06','natlan-hub')]),
     'ina-sum':('mond-liyue-survey',[('稲妻','region-03','inazuma-town'),('スメール','region-04','sumeru-hub')]),
 }
+atlas=json.loads((ROOT/'content/world-atlas.json').read_bytes())
+branch_hubs={
+    'branch-01':'dragonspine-camp','branch-02':'chenyu-camp','branch-03':'enkanomiya-camp',
+    'branch-04':'tunigi-camp','branch-05':'bygone-camp','branch-06':'dornman-camp',
+    'branch-07':'ochkanatlan-dock','branch-08':'nod-special-camp','branch-09':'novokichev-camp',
+    'hidden-01':'golden-hub','hidden-02':'veluriyam-hub','hidden-03':'simulanka-hub',
+    'official-area-6':'chasm-camp','official-area-12':'nat-mountain-camp',
+    'official-area-14':'nat-sky-camp','official-area-15':'frostmoon-camp',
+}
+groups['branches']=('north-survey',[(area['name'],area['id'],branch_hubs[area['id']])
+                                    for area in atlas['regions'] if area['id'] in branch_hubs])
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--group',choices=groups,default='mond-liyue')
 group=parser.parse_args().group
 seed,regions=groups[group]
 source=ROOT/f'evidence/{seed}-save.json'
-class SurveyJourney(Journey):
+class SurveyJourney(LightSurveyJourney):
     def approach(self,x,y,target):
         try:
             super().approach(x,y,target)
@@ -51,7 +64,6 @@ class SurveyJourney(Journey):
 trip=SurveyJourney(source,runtime(),select_traveler=True)
 before=trip.snapshot()
 nodes={n['id']:n for n in graph['nodes']}
-atlas=json.loads((ROOT/'content/world-atlas.json').read_bytes())
 regions_proof={}
 
 def report_ready(hub):

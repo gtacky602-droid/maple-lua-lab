@@ -64,6 +64,10 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <label>調査依頼 <select id="surveyQuest"></select></label>
 <label>手順 <select id="surveyStep"></select></label>
 <p id="surveyMark" role="status"></p><a id="surveyMap" hidden>この地点を地図で見る</a> ／ <a href="evidence/fon-nat-survey-save.json" download>調査後のセーブ</a></section>
+<section id="completeAtlas"><h2>全地域の踏破記録</h2>
+<p>地上の運搬路を整備した本編セーブでは1,527地点を訪問。璃月の荷揚げ台には、昇降機を整備した分岐セーブで到達しました。</p>
+<label>地域 <select id="surveyArea"></select></label> <output id="surveyTotal"></output>
+<p><a href="evidence/northern-gates-save.json" download>本編の踏破セーブ</a> ／ <a href="evidence/visited-lift-survey-save.json" download>荷揚げ台を通過した分岐セーブ</a></p></section>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -252,6 +256,21 @@ async function loadSurveyGuide(){
  }catch{mark.textContent='調査記録を読み込めませんでした。'}
 }
 loadSurveyGuide();
+async function loadCompleteAtlas(){
+ const menu=document.querySelector('#surveyArea'),status=document.querySelector('#surveyTotal');
+ try{
+  const response=await fetch('evidence/complete-atlas-survey.json');
+  if(!response.ok)throw Error();
+  const survey=await response.json();
+  for(const area of survey.regions)menu.add(new Option(area.name,area.id));
+  function show(){
+   const area=survey.regions[menu.selectedIndex];
+   status.textContent='本編で訪問済み '+area.visited+' ／ '+area.total+'地点'+(area.visited<area.total?'（荷揚げ台は分岐セーブで訪問済み）':'');
+  }
+  menu.onchange=show;show();
+ }catch{status.textContent='訪問記録を読み込めませんでした。'}
+}
+loadCompleteAtlas();
 const lakeMenu=document.getElementById('lakeProfile');
 let lakeGallery;
 const lakeSheets=new Map();
