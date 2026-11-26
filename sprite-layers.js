@@ -5,8 +5,9 @@ export function spriteBounds(art,height,bottom=0){
 
 const decoded=new WeakMap();
 function rectangleBytes(grid){
- if(!decoded.has(grid))decoded.set(grid,Uint8Array.from(atob(grid.data),c=>c.charCodeAt(0)));
- return decoded.get(grid);
+ const geometry=grid.geometry??grid;
+ if(!decoded.has(geometry))decoded.set(geometry,Uint8Array.from(atob(geometry.data),c=>c.charCodeAt(0)));
+ return decoded.get(geometry);
 }
 export function rectangleCount(grid){
  return grid.runs?grid.runs.length:rectangleBytes(grid).length/(grid.wide?9:5);

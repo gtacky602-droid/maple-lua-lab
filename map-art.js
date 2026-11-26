@@ -289,6 +289,11 @@ try{
  function loadFieldPose(art){
   if(!fieldPoseLoads.has(art.poseFile)){
    const promise=json('assets/'+art.poseFile).then(async data=>{
+    if(data.geometrySpecies){
+     const base=assets[data.geometrySpecies+'-reference']??assets[data.geometrySpecies];
+     data.profiles=Object.fromEntries(Object.entries(data.palettes).map(([key,palette])=>
+      [key,{...base.profiles[key],geometry:base.profiles[key],palette}]));
+    }
     const image=images[data.source]??(await loadImageSet([data.source]))[data.source];
     images[data.source]=image;
     return {...data,image};

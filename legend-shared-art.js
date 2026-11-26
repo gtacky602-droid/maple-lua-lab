@@ -32,6 +32,7 @@ export function setupSharedLegendArt(layouts,assets){
    const a=spriteBounds(enemy.art,enemy.art.h),b=spriteBounds(legend,legend.h);
    const cell=Math.ceil(Math.max(a.width,b.width))+24;
    if(legend.ordinaryVariant)caption.append(' ／ 同じ輪郭の色違い候補');
+   if(legend.palettePoseBytes)caption.append(' ／ 通常型の読込後に追加するJSON '+legend.palettePoseBytes.toLocaleString('ja-JP')+' B（単独版 '+legend.fullPoseBytes.toLocaleString('ja-JP')+' B）');
    figure.append(caption);
    const views=document.createElement('div');views.className='shared-profile-views';
    views.style.cssText='display:flex;flex-wrap:wrap;gap:12px';

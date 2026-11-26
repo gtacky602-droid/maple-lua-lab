@@ -2,10 +2,30 @@
 import json
 from pathlib import Path
 
+def palette_variant(pose, base, species):
+    """Share runs only when every profile has the same packed geometry and indices."""
+    profiles = pose['profiles']
+    if profiles.keys() != base['profiles'].keys():
+        return None
+    for name, grid in profiles.items():
+        ordinary = base['profiles'][name]
+        if {k:v for k,v in grid.items() if k != 'palette'} != {
+            k:v for k,v in ordinary.items() if k != 'palette'
+        } or len(grid['palette']) != len(ordinary['palette']):
+            return None
+    return {**{k:v for k,v in pose.items() if k != 'profiles'},
+            'geometrySpecies': species,
+            'palettes': {name:grid['palette'] for name,grid in profiles.items()}}
+
+
 def build_placement_pose_index(assets):
     output = assets / 'placement-packed'
     output.mkdir(exist_ok=True)
     directories = sorted(d for d in assets.glob('*-packed') if d.is_dir() and d != output)
+    content = assets.parent / 'content'
+    layouts = json.loads((content/'enemy-art-layout.json').read_bytes())
+    catalog = json.loads((content/'boss-art-gallery.json').read_bytes())
+    variants = {item['file']:item['ordinaryVariant'] for item in catalog['items'] if 'ordinaryVariant' in item}
     index = {}
     for kind in ('character', 'boss'):
         poses = json.loads((assets / f'{kind}-gallery-packed.json').read_bytes())
@@ -15,10 +35,20 @@ def build_placement_pose_index(assets):
             if match is None:
                 match = output / name
                 match.write_bytes(json.dumps(pose, ensure_ascii=False, separators=(',', ':')).encode())
-            entry = {'poseFile': match.relative_to(assets).as_posix(), 'box': pose['box']}
+            transfer = {}
+            if kind == 'boss' and name in variants:
+                species = variants[name]
+                base_file = assets/'field-packed'/layouts[species]['file']
+                compact = palette_variant(pose, json.loads(base_file.read_bytes()), species)
+                if compact is not None:
+                    full_size = match.stat().st_size
+                    match = assets/'placement-palettes'/name
+                    match.parent.mkdir(exist_ok=True)
+                    match.write_bytes(json.dumps(compact, ensure_ascii=False, separators=(',', ':')).encode())
+                    transfer = {'fullPoseBytes':full_size, 'palettePoseBytes':match.stat().st_size}
+            entry = {**transfer, 'poseFile': match.relative_to(assets).as_posix(), 'box': pose['box']}
             assert name not in index or index[name] == entry
             index[name] = entry
-    content = assets.parent / 'content'
     weekly = json.loads((content / 'weekly-boss-spawns.json').read_bytes())['weeklyBosses']
     mechanisms = json.loads((content / 'weekly-opening-parts.json').read_bytes())
     opening_files = {b['openingPose']['file'] for b in weekly if b.get('openingPose')}
