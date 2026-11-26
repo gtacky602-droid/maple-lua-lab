@@ -176,6 +176,10 @@ export function questRoute(f,q,status,preferredNode){
   gateLabel=next.name+'の到着位置を見る';
  }else if(Number.isFinite(edge.x)){
   params=new URLSearchParams({node:from,to:edge.to,gateX:edge.x,gateY:edge.y??480,placements:'live',compare:'background'});
+  if(Array.isArray(f.storyPortals)){
+   const portal=f.storyPortals.find(p=>p.gateX===edge.x&&p.to===edge.to&&p.y===(edge.y??480));
+   if(portal?.sealState)params.set('fixture',portal.sealState);
+  }
   if(reported(nodes.get(from)))params.set('phase','after');
   if(reported(next))params.set('afterArrival',next.id);
   gateLabel='次の門の位置を見る';

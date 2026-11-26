@@ -301,6 +301,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local progress=edge.rubbleOnClosed and s.story.quests[rule.quest]
   return progress and progress.count>=rule.before
  end
+ function C.gateFixtureState(s,from,edge)
+  if edge.rubbleOnClosed then return C.gateHasRubble(s,edge) and 'closed' or 'open' end
+  if edge.routeFixture then return C.atlasGateRestriction(s,from,edge) and 'closed' or 'open' end
+  if edge.ironGate or edge.rockSeal then
+   return C.atlasGateRestriction(s,from,edge,math.huge) and 'closed' or 'open'
+  end
+ end
+
  function C.gateOffset(a,edge)
   local dx,dy=edge.x-a.x,(edge.y or 480)-a.y
   return math.abs(dx)<90 and 0 or dx,math.abs(dy)<60 and 0 or dy
@@ -2396,11 +2404,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    for _,edge in ipairs(n.exits) do if shownEdge(s,edge) and (not edge.darkOnly or s.storyLightMode=='dark') then
     local x,y=edge.x-s.camera,edge.y or 480
-    local rule=edge.requires
-    if C.gateHasRubble(s,edge) then
+    local fixture=C.gateFixtureState(s,n.id,edge)
+    if edge.rubbleOnClosed and fixture=='closed' then
      markers[#markers+1]={kind='rect',x=x-26,y=y-44,w=50,h=44,color='#6a4b51'}
      markers[#markers+1]={kind='rect',x=x-17,y=y-59,w=32,h=17,color='#a4785f'}
-    elseif edge.ironGate and not meetsGateRule(s,rule) then
+    elseif edge.ironGate and fixture=='closed' then
      local first=#markers+1
      markers[#markers+1]={kind='rect',x=x-30,y=y-88,w=60,h=87,color='#332337'}
      for offset=-25,25,10 do
@@ -2410,7 +2418,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
      identifyQuestProp(s,markers,first,edge.to)
     elseif edge.routeFixture then
-     drawRouteFixture(markers,x,y,edge.routeFixture,not C.atlasGateRestriction(s,n.id,edge))
+     drawRouteFixture(markers,x,y,edge.routeFixture,fixture=='open')
     elseif edge.spiritwayTrack then
      local track=edge.spiritwayTrack
      if gateRestriction(s,edge) then
@@ -2430,7 +2438,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       local step=i/7
       markers[#markers+1]={kind='rect',x=x+(endX-x)*step-4,y=y+(endY-y)*step-31,w=8,h=8,color='#edc47b'}
      end
-    elseif edge.rockSeal and not meetsGateRule(s,rule) then
+    elseif edge.rockSeal and fixture=='closed' then
      if x>=-100 and x<=1060 then drawRockSeal(markers,x,y,edge.rockSeal) end
     elseif edge.nightTotem then
      if x>=-100 and x<=1060 then
@@ -2447,7 +2455,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
      marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
     end
-    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
+    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=fixture and edge.x}
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)
