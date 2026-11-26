@@ -1,3 +1,4 @@
+import {entranceKey,showArenaEntrances} from './arena-entrances.js';
 import {paintSprite,rectangleCount,packedGeometrySize,spriteBounds} from './sprite-layers.js';
 
 const boss=document.querySelector('#boss'),pose=document.querySelector('#pose');
@@ -55,7 +56,8 @@ function paintRects(ctx,rects=[]){
 const aliases={surveyor:'surveyorArt',loom:'loomArt',primal_fire:'primalWeeklyArt',game_before_gate:'gateWeeklyArt',false_moon:'falseMoonWeeklyArt'};
 try{
  const kind=fieldMode?'field-boss':'weekly';
- const [roster,groups]=await Promise.all([read('content/'+(fieldMode?'field':'weekly')+'-boss-spawns.json'),read('content/'+kind+'-pose-files.json')]);
+ const [roster,groups,arenaGroups]=await Promise.all([read('content/'+(fieldMode?'field':'weekly')+'-boss-spawns.json'),read('content/'+kind+'-pose-files.json'),read('content/boss-arena-index.json')]);
+ const arenaIndex=new Map(Object.values(arenaGroups).flat().map(entry=>[entry.node,entry]));
  let entries;
  if(fieldMode){
   document.title=document.querySelector('h1').textContent='フィールドボスの形態・部位比較';
@@ -136,7 +138,22 @@ try{
   const path=selected.poses[asset];
   const arena=document.querySelector('#arena');
   arena.textContent=boss.value==='narwhal'&&asset==='shadow'?'異界の配置を見る':'本編の開幕配置';
-  arena.href='map-art.html?'+new URLSearchParams({node:boss.value==='narwhal'&&asset==='shadow'?selected.innerNode:selected.node,placements:'live'});
+  const destination=boss.value==='narwhal'&&asset==='shadow'?selected.innerNode:selected.node;
+  const mapParams=new URLSearchParams({node:destination,placements:'live'});
+  const fromMap=params.get('visit')===selected.node;
+  if(fromMap&&params.get('phase')==='after'&&destination===selected.node)mapParams.set('phase','after');
+  arena.href='map-art.html?'+mapParams;
+  let gates=arenaIndex.get(selected.node)?.entrances??[];
+  if(fromMap){
+   const visible=new Set(params.getAll('gate'));
+   gates=gates.flatMap(g=>{
+    const key=entranceKey(g.from,g.x,g.y);
+    if(!visible.has(key))return [];
+    const fixture=['open','closed'].find(state=>params.getAll(state).includes(key));
+    return [{...g,fixture,after:params.getAll('afterGate').includes(key)}];
+   });
+  }
+  showArenaEntrances(document.querySelector('#arenaEntrances'),selected.node,gates,'h32c16');
   document.querySelector('#scaleNote').textContent=scene?'戦闘中の960×540画面と同じ構図です。各場面の床と背景に、ボスを同じ位置・大きさで重ねています。':'同じ素材を同じ倍率で並べています。姿全体を収めるため、倍率は素材ごとに変わります。';
   const url=new URL(location.href);url.searchParams.delete('node');url.searchParams.set('boss',boss.value);url.searchParams.set('pose',pose.value);
   history.replaceState(history.state,'',url);

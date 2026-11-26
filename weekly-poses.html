@@ -9,6 +9,7 @@ main{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-
 </style>
 <header><h1>週ボスの形態・部位比較</h1><a href="bosses-art.html">ボス一覧</a><a id="arena">本編の開幕配置</a></header>
 <nav><label>ボス <select id="boss"></select></label><label>形態・部位 <select id="pose"></select></label><label><input id="palettePixels" type="checkbox"> 矩形を原寸で合成してから拡大</label></nav>
+<details id="arenaEntrances" hidden><summary>フィールドから会場への入口を見る</summary><ul></ul></details>
 <p id="scaleNote">同じ素材を同じ倍率で並べています。姿全体を収めるため、倍率は素材ごとに変わります。</p>
 <main><figure><figcaption>元PNG</figcaption><canvas></canvas></figure><figure><figcaption>32色版</figcaption><canvas></canvas></figure><figure><figcaption>16色版</figcaption><canvas></canvas></figure></main>
 <p id="result" role="status"></p><script type="module" src="weekly-poses.js"></script></html>

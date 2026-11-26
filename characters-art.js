@@ -1,3 +1,4 @@
+import {showArenaEntrances} from './arena-entrances.js';
 import {setupGalleryUrl} from './gallery-url.js';
 import {characterDetail} from './character-detail.js';
 import {spriteBounds,paintSprite,rectangleCount,openingRects,drawShoukiCore} from './sprite-layers.js';
@@ -62,17 +63,7 @@ try{
    poseLink.hidden=!group;
    if(group)poseLink.href='weekly-poses.html?'+new URLSearchParams({group,node,pixels:'1'});
    const gates=arenas.get(node)?.entrances??[];
-   panel.hidden=!gates.length;
-   panel.querySelector('ul').replaceChildren(...gates.map(gate=>{
-    const item=document.createElement('li'),link=document.createElement('a');
-    link.textContent=gate.name+(gate.label?'・'+gate.label:'');
-    const params=new URLSearchParams({node:gate.from,to:node,gateX:gate.x,gateY:gate.y,placements:'live',profile});
-    if(gate.afterArrival)params.set('afterArrival',gate.afterArrival);
-    link.href='map-art.html?'+params;
-    item.append(link);
-    if(gate.condition)item.append('　'+gate.condition);
-    return item;
-   }));
+   showArenaEntrances(panel,node,gates,profile);
   };
   picker.onchange=updateArenaLinks;
   picker.onchange();

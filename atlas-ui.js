@@ -1,3 +1,4 @@
+import {entranceKey} from './arena-entrances.js';
 import {atlasQuestObjectives} from './quest-journal.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 
@@ -189,6 +190,10 @@ export function initAtlas(action, clearKeys) {
   }));
  }
 
+ function fixtureState(route){
+  return route.sealState || (route.routeFixture ? (route.reason?'closed':'open') : null);
+ }
+
  function appendGateLink(item,from,route){
   if(route.mode==='battle'){
    const link=document.createElement('a');
@@ -212,8 +217,8 @@ export function initAtlas(action, clearKeys) {
   const params=new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
   if(reportedRooms.has(from))params.set('phase','after');
   if(reportedRooms.has(route.id))params.set('afterArrival',route.id);
-  if(route.sealState)params.set('fixture',route.sealState);
-  else if(route.routeFixture)params.set('fixture',route.reason?'closed':'open');
+  const fixture=fixtureState(route);
+  if(fixture)params.set('fixture',fixture);
   link.href='map-art.html?'+params;
   link.target='_blank';link.rel='noopener';
   link.textContent='入口を見る';link.setAttribute('aria-label',(route.sourceName?route.sourceName+'から':'')+route.name+'へ向かう入口を見る（別タブ）');
@@ -336,6 +341,22 @@ export function initAtlas(action, clearKeys) {
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';
   const entrancePanel = document.getElementById('atlasBossEntrances');
   const entrances = entries(selected?.entrances);
+  const poseLink=document.getElementById('atlasBossPoses');
+  poseLink.hidden=!['normal','weekly','legend'].includes(selected?.boss?.kind);
+  if(poseLink.hidden)poseLink.removeAttribute('href');
+  else{
+   const query=new URLSearchParams({group:selected.boss.kind==='weekly'?'weekly':'field',node:selected.id,
+    visit:selected.id,pixels:'1'});
+   if(selected.afterReport)query.set('phase','after');
+   for(const gate of entrances){
+    const key=entranceKey(gate.from,gate.previewX,gate.previewY);
+    query.append('gate',key);
+    const fixture=fixtureState(gate);
+    if(fixture)query.append(fixture,key);
+    if(reportedRooms.has(gate.from))query.append('afterGate',key);
+   }
+   poseLink.href='weekly-poses.html?'+query;
+  }
   entrancePanel.hidden = !entrances.length;
   entrancePanel.querySelector('ul').replaceChildren(...entrances.map(gate => {
    const li = document.createElement('li');

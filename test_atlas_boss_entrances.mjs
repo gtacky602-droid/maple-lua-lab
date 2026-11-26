@@ -29,12 +29,22 @@ try{
    assert.equal(u.get('to'),id);
    return [u.get('node'),Number(u.get('gateX')),Number(u.get('gateY'))];
   }),authored);
+  const guide=page.locator('#atlasBossPoses');
+  const kind=await page.evaluate(()=>window.lab.frame.worldMap.selected.boss.kind);
+  if(kind==='stygian')assert(await guide.isHidden());
+  else{
+   assert(await guide.isVisible());
+   const params=new URL(await guide.getAttribute('href'),page.url()).searchParams;
+   assert.equal(params.get('group'),kind==='weekly'?'weekly':'field');
+   assert.equal(params.get('visit'),id);
+   assert.deepEqual(params.getAll('gate'),authored.map(([from,x,y])=>[from,x,y].join(',')));
+  }
   sources.set(id,coordinates);
   if(id==='buried-weaving-room'){
    await panel.evaluate(el=>{el.open=true});
    for(const gate of gates){
     assert.ok(gate.reason && gate.requiredLevel);
-    const text=await panel.locator('li').filter({hasText:gate.sourceName}).innerText();
+    const text=await panel.locator('li').filter({has:page.getByRole('button',{name:gate.sourceName+'までの道順',exact:true})}).innerText();
     assert.ok(text.includes(gate.reason) && text.includes('必要Lv'+gate.requiredLevel));
    }
   }
@@ -42,7 +52,7 @@ try{
    await panel.locator('summary').click();
    const gate=gates.find(g=>g.from==='fon-wp-55765');
    assert.ok(gate.requiredLevel && !gate.reason);
-   const row=panel.locator('li').filter({hasText:gate.sourceName});
+   const row=panel.locator('li').filter({has:page.getByRole('button',{name:gate.sourceName+'までの道順',exact:true})});
    assert.ok((await row.innerText()).includes('必要Lv'+gate.requiredLevel));
    const [preview]=await Promise.all([page.waitForEvent('popup'),row.locator('a').click()]);
    try{
