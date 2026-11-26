@@ -168,16 +168,20 @@ export function questRoute(f,q,status,preferredNode){
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);
- const gateParams=!automatic&&Number.isFinite(edge.x)?new URLSearchParams({
-  node:from,to:edge.to,gateX:edge.x,gateY:edge.y??480,placements:'live',compare:'background'
- }):undefined;
- if(gateParams){
-  const reported=node=>f.story.quests?.[node.locationAfterReport?.quest]?.status==='complete';
-  if(reported(nodes.get(from)))gateParams.set('phase','after');
-  if(reported(next))gateParams.set('afterArrival',next.id);
+ const reported=node=>f.story.quests?.[node.locationAfterReport?.quest]?.status==='complete';
+ let params,gateLabel;
+ if(automatic){
+  params=new URLSearchParams({node:next.id,voyage:from,placements:'live',compare:'background'});
+  if(reported(next))params.set('phase','after');
+  gateLabel=next.name+'の到着位置を見る';
+ }else if(Number.isFinite(edge.x)){
+  params=new URLSearchParams({node:from,to:edge.to,gateX:edge.x,gateY:edge.y??480,placements:'live',compare:'background'});
+  if(reported(nodes.get(from)))params.set('phase','after');
+  if(reported(next))params.set('afterArrival',next.id);
+  gateLabel='次の門の位置を見る';
  }
- const gateUrl=gateParams?'map-art.html?'+gateParams:undefined;
- return {node:focus,gateUrl,text:`次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`};
+ const gateUrl=params?'map-art.html?'+params:undefined;
+ return {node:focus,gateUrl,gateLabel,text:`次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`};
 }
 
 export function questRouteText(f,q,status){

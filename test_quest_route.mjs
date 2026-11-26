@@ -165,7 +165,7 @@ for(const [vehicle,landing,elapsed,kind,legs] of [
  const recover=questRoute(f,trip,'active');
  assert.ok(recover.text.includes('残り'+legs+'区間'),recover.text);
  if(kind==='ferry')assert.equal(new URL(recover.gateUrl,'http://localhost').searchParams.get('to'),graph.nodes.find(n=>n.id===vehicle).voyage.source);
- else assert.equal(recover.gateUrl,undefined);
+ else assert.equal(new URL(recover.gateUrl,'http://localhost').searchParams.get('voyage'),vehicle);
  f.voyage.elapsed-=.02;
  assert.equal(new URL(questRoute(f,trip,'active').gateUrl,'http://localhost').searchParams.get('to'),landing);
 }

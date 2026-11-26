@@ -146,7 +146,7 @@ function update(){
  questMap.dataset.node=guide.node??'';
  gateLink.hidden=!guide.gateUrl||guide.gateUrl===guide.pointUrl||Boolean(f.growthTrial);
  if(gateLink.hidden)gateLink.removeAttribute('href');
- else gateLink.href=guide.gateUrl;
+ else{gateLink.href=guide.gateUrl;gateLink.textContent=guide.gateLabel;}
  surveyLink.textContent=guide.pointLabel||'調査位置を見る';
  surveyLink.hidden=!guide.pointUrl||Boolean(f.growthTrial);
  if(!surveyLink.hidden)surveyLink.href=guide.pointUrl;
