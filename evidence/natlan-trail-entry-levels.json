@@ -1,0 +1,14 @@
+[
+  {
+    "quest": "natlan-witztli-three-echoes",
+    "startLevel": 100,
+    "reached": "witztli-sealed-stone-bank",
+    "crossings": 16
+  },
+  {
+    "quest": "natlan-seaward-signs",
+    "startLevel": 108,
+    "reached": "night-wind-seaward-fork",
+    "crossings": 14
+  }
+]
