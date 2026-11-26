@@ -85,6 +85,15 @@ try{
 
  await walk(335);
  await collect('basket');
+ await page.waitForFunction(()=>{
+  const link=document.querySelector('#trackedSurveyPoint');
+  return !link.hidden&&new URL(link.href).searchParams.get('recovered')==='basket';
+ });
+ const preview=await browser.newPage();
+ await preview.goto(await page.locator('#trackedSurveyPoint').evaluate(link=>link.href));
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ assert.equal(await preview.locator('#surveyPointNote').getAttribute('data-worksite'),'toolbox');
+ await preview.close();
  await walk(650);
  assert.equal((await current()).y,480);
  assert.equal(await page.locator('#nearbyCargo').isVisible(),false);

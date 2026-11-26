@@ -261,10 +261,11 @@ try{
  }
  for(const quest of graph.quests){
   for(const site of worksitePoints(quest)){
+   if(quest.cargo&&site.node===openingNode.id&&query.getAll('recovered').includes(site.id))continue;
    if(!stepsByNode.has(site.node))stepsByNode.set(site.node,new Map());
    const quests=stepsByNode.get(site.node);
    if(!quests.has(quest))quests.set(quest,[]);
-   quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node,site.node===openingNode.id?query.getAll('stocked'):[])});
+   quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node,site.node===openingNode.id?query.getAll(quest.cargo?'recovered':'stocked'):[])});
   }
   let steps=quest.itinerary??[];
   if(quest.roof)steps=[...quest.roof.marks.map(mark=>({node:quest.target,objective:mark.label})),
@@ -1023,6 +1024,11 @@ try{
      ctx.fillStyle=r.color;ctx.fillRect(r.x-camera,r.y,r.w,r.h);
     }
     puzzlePreview.draw(ctx,camera);
+    for(const parcel of point.parcels??[]){
+     for(const [dx,dy,w,h,color] of parcel.rects){
+      ctx.fillStyle=color;ctx.fillRect(parcel.x-camera+dx,parcel.y+dy,w,h);
+     }
+    }
     drawSurveyPoint(ctx,point,camera);
    }
   }
@@ -1213,7 +1219,7 @@ try{
   let point=null;
   if(liveView && n===openingNode){
    const quest=questsById.get(query.get('quest'));
-   point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id,query.getAll('stocked')):
+   point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id,query.getAll(quest?.cargo?'recovered':'stocked')):
     surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
   }
   if(point?.stations && n.rockViews && query.has('view')){

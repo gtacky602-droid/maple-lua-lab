@@ -139,6 +139,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
 }
 
 export function worksitePoints(quest){
+ if(quest?.cargo)return quest.cargo.map(p=>({...p,node:quest.recovery?.node??quest.target}));
  if(quest?.trail?.clues)return [...quest.trail.clues,...(quest.trail.meeting?[{...quest.trail.meeting,node:quest.target}]:[])];
  if(quest?.delivery)return [...quest.delivery.packages.map(p=>({...p,node:quest.hub,name:p.stall})),
   {...quest.delivery.cache,node:quest.target}];
@@ -150,6 +151,11 @@ export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);
  if(!item)return null;
  const point={quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name};
+ if(quest.cargo){
+  point.recovered=quest.cargo.filter(p=>stocked.includes(p.id)).map(p=>p.id);
+  point.parcels=quest.cargo.filter(p=>!point.recovered.includes(p.id));
+  point.absent=quest.cargo.filter(p=>p.guard&&point.recovered.includes(p.id)).map(p=>p.guard);
+ }
  if(quest.trail&&item.rects)point.fixtures=[{x:item.x,y:item.y,rects:item.rects}];
  if(quest.delivery){
   if(node===quest.target){
@@ -171,6 +177,7 @@ export function surveyPointUrl(point){
  const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest});
  if(point.worksite){
   params.set('worksite',point.worksite);
+  for(const id of point.recovered??[])params.append('recovered',id);
   for(const id of point.stocked??[])params.append('stocked',id);
   params.set('compare','background');
   params.set('tier','4096');

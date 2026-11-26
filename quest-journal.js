@@ -27,6 +27,15 @@ function restGuards(q,state){
  return remainingEnemyPoints({node:q.target,enemies:q.rest.guards},{sweep:state.rest?.defeated});
 }
 
+function cargoStops(q,state,node){
+ if(!state.recovered||node!==(q.recovery?.node??q.target))return [];
+ if(q.recovery?state.count>=q.goal-1:state.count!==q.goal-1)return [];
+ const recovered=q.cargo.filter(item=>state.recovered[item.id]).map(item=>item.id);
+ return q.cargo.filter(item=>!state.recovered[item.id]).map(item=>({
+  id:item.id,label:item.name,url:surveyPointUrl(worksitePoint(q,item.id,node,recovered))
+ }));
+}
+
 function trailStops(q,state,node){
  const {clues,meeting,guard}=q.trail;
  const sites=state.count===0?clues.filter(c=>c.node===node):meeting&&state.count===1&&node===q.target?[meeting]:[];
@@ -93,6 +102,10 @@ export function atlasQuestObjectives(frame,q,node){
    const point=surveyPoint(q,q.goal,node);
    return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
   }
+ }
+ if(q.cargo&&status==='active'){
+  const points=cargoStops(q,state,node);
+  if(points.length)return [{text:questObjective(q,frame.storyGraph,state),points}];
  }
  if(q.trail&&status==='active'){
   const points=trailStops(q,state,node);
@@ -406,6 +419,12 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(q.cargo&&status==='active'){
+  const points=cargoStops(q,st,route.node),local=f.storyHunts?.[id];
+  const nearby=local?.point??q.cargo.find(p=>p.guard&&p.guard===local?.spawn)?.id;
+  const point=points.find(p=>p.id===nearby)??points[0];
+  if(point)return {...route,pointUrl:point.url,pointLabel:point.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
+ }
  if(q.trail&&status==='active'){
   const [point]=trailStops(q,st,route.node);
   if(point)return {...route,pointUrl:point.url,pointLabel:point.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};

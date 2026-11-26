@@ -2700,10 +2700,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       f.storyCargo[item.id]={x=item.x,y=item.y}
       local x,y=item.x-s.camera,item.y
       if x>=-20 and x<=980 then
-       markers[#markers+1]={kind='rect',x=x-15,y=y-24,w=30,h=24,color='#453020'}
-       markers[#markers+1]={kind='rect',x=x-13,y=y-22,w=26,h=19,color='#bb7950'}
-       markers[#markers+1]={kind='rect',x=x-13,y=y-16,w=26,h=4,color='#f2cc7a'}
-       markers[#markers+1]={kind='rect',x=x-3,y=y-22,w=6,h=19,color='#79502f'}
+       for _,r in ipairs(item.rects) do
+        markers[#markers+1]={kind='rect',x=x+r[1],y=y+r[2],w=r[3],h=r[4],color=r[5]}
+       end
       end
      end
     end
