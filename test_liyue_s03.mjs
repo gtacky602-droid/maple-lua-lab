@@ -54,6 +54,15 @@ async function defeat(id){
  }finally{await page.keyboard.up('KeyJ')}
 }
 
+async function checkAtlas(node,text){
+ await page.locator('#atlasOpen').click();
+ await page.locator('#atlasField').selectOption(node);
+ await page.waitForFunction(({node,text})=>window.lab.frame.worldMap?.selected?.id===node &&
+  document.querySelector('#atlasQuestObjectives').textContent.includes(text),{node,text});
+ await page.locator('#atlasClose').click();
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
+}
+
 try{
  await page.goto(root);
  await page.waitForFunction(()=>window.lab?.frame);
@@ -62,6 +71,7 @@ try{
  await page.locator('#loadProgress').click();
  await current(port);
  await quest.getByRole('button',{name:'受注',exact:true}).click();
+ await checkAtlas(field,'落ちた試し刷りを探す');
  await walk(1380);
  await through(field);
  await walk(530,true);
@@ -84,6 +94,7 @@ try{
  await progress(2);
  await walk(1220);
  await through(camp);
+ await checkAtlas(camp,'石門の奥で宝盗団を退ける');
  assert.ok((await frame()).draws.some(d=>d.source==='treasure-scout-idle-source-v1.png'));
  await walk(415,true);
  await defeat('liyue-book-scout-1');
@@ -96,6 +107,7 @@ try{
  await walk(1250);
  await button('G：新刊と版木の箱を回収する').click();
  await progress(4);
+ await checkAtlas(port,'行秋に報告する');
  await walk(110);
  await through(field);
  await walk(110,true);

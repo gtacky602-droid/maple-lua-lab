@@ -9,10 +9,9 @@ export function hasOptionalPath(q,state){
   q.paths.some(p=>(state.pathProgress[p.id]?.count??0)<p.steps.length);
 }
 
-export function questRoute(f,q,status,preferredNode){
- const optional=hasOptionalPath(q,f.story?.quests?.[q?.id]);
- if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable&&!optional))return {text:''};
- const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
+export function questDestinations(f,q,status,preferredNode){
+ const optional=hasOptionalPath(q,f.story.quests?.[q.id]);
+ const graph=f.storyGraph;
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
  const pathProgress=f.story.quests?.[q.id]?.pathProgress;
@@ -55,6 +54,14 @@ export function questRoute(f,q,status,preferredNode){
  const destinations=arrival?[arrival.from]:branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
   :unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
  const candidates=unfinished?.some(item=>item.node===preferredNode)?[preferredNode]:destinations;
+ return {candidates,arrival};
+}
+
+export function questRoute(f,q,status,preferredNode){
+ const optional=hasOptionalPath(q,f.story?.quests?.[q?.id]);
+ if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable&&!optional))return {text:''};
+ const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
+ const {candidates,arrival}=questDestinations(f,q,status,preferredNode);
  const targets=new Set(candidates.filter(id=>nodes.has(id)));
  if(!targets.size)return {text:'目的地は未公開または未登録です。'};
  const from=f.story.node;if(!nodes.has(from))return {text:''};
