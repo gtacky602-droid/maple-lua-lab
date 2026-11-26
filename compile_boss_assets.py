@@ -2,7 +2,7 @@
 from pathlib import Path
 from PIL import Image
 import json,hashlib,argparse,re
-parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');parser.add_argument('--foot-anchor-band',type=float,default=.035,help='Bottom fraction used to locate the support foot; narrow for low weapons');parser.add_argument('--anchor-x',type=float,help='Explicit normalized horizontal anchor for artwork with low props');parser.add_argument('--crop',type=int,nargs=4,metavar=('X','Y','W','H'),help='Isolate one pose from a shared PNG sheet');parser.add_argument('--pivot',type=int,nargs=2,metavar=('X','Y'),help='Anchor within a crop with Y at or below the opaque pixels');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');parser.add_argument('--foot-anchor-band',type=float,default=.035,help='Bottom fraction used to locate the support foot; narrow for low weapons');parser.add_argument('--anchor-x',type=float,help='Explicit normalized horizontal anchor for artwork with low props');parser.add_argument('--crop',type=int,nargs=4,metavar=('X','Y','W','H'),help='Isolate one pose from a shared PNG sheet');parser.add_argument('--pivot',type=int,nargs=2,metavar=('X','Y'),help='Anchor within a crop with Y at or below the opaque pixels');parser.add_argument('--light-outline',action='store_true',help='Sample the 16-color silhouette at twice its base height for thin props');args=parser.parse_args()
 if args.anchor_x is not None and (not 0<=args.anchor_x<=1 or args.foot_anchor):parser.error('anchor-x must be within 0..1 and cannot combine with foot-anchor')
 if args.pivot and (args.foot_anchor or args.anchor_x is not None):parser.error('pivot replaces foot-anchor and anchor-x')
 if not 0<args.foot_anchor_band<=1:parser.error('foot-anchor-band must be greater than 0 and at most 1')
@@ -59,6 +59,28 @@ for key,h,count in [('legacy',args.height,32),('h48c32',round(args.height*.75),3
    if rgb not in cache:cache[rgb]=min(colors,key=lambda c:sum((a-b)**2 for a,b in zip(c,rgb)))
    line.append('#'+''.join(f'{v:02x}' for v in cache[rgb]))
   encoded.append(line)
+ if key=='h32c16' and args.light_outline:
+  # Keep the coarse interior colors; use the source alpha to recover thin edges.
+  base=Image.new('RGBA',(w,h))
+  for x,y,rw,rh,c in merge(encoded):
+   base.paste(c,(x,y,x+rw,y+rh))
+  palette=sorted({c for row in encoded for c in row if c})
+  rgb={c:tuple(bytes.fromhex(c[1:])) for c in palette}
+  h*=2
+  w=round((right-left)/(bottom-top)*h)
+  body=base.resize((w,h),Image.Resampling.NEAREST)
+  detail=im.crop((left,top,right,bottom)).resize((w,h),Image.Resampling.NEAREST)
+  encoded=[]
+  for y in range(h):
+   line=[]
+   for x in range(w):
+    source=detail.getpixel((x,y))
+    coarse=body.getpixel((x,y))
+    if source[3]<128:color=None
+    elif coarse[3]:color='#'+bytes(coarse[:3]).hex()
+    else:color=min(palette,key=lambda c:sum((a-b)**2 for a,b in zip(rgb[c],source[:3])))
+    line.append(color)
+   encoded.append(line)
  runs=merge(encoded);reconstructed=[[None]*w for _ in range(h)]
  for x,y,rw,rh,c in runs:
   for yy in range(y,y+rh):
