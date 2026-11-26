@@ -665,6 +665,7 @@
         },
         {
           "to": "mond-restored-road",
+          "routeFixture": "barrier",
           "x": 1700,
           "requires": {
             "quest": "mond-watchtower-clear",
@@ -1232,6 +1233,7 @@
         },
         {
           "to": "liyue-harbor",
+          "routeFixture": "hoist",
           "x": 1700,
           "requires": {
             "quest": "liyue-caravan-search",
@@ -7282,7 +7284,7 @@
     {"id":"buried-weaving-room","name":"埋もれた織房","region":"璃月","level":34,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":145,"y":376,"w":145},{"x":670,"y":376,"w":145}],"exits":[{"to":"liyue-harbor","x":45},{"to":"threadline-relay","x":900,"requires":{"quest":"threadline-restore","count":1}}],"checkpoint":"liyue-harbor","scenery":"buriedWeaving"},
     {"id":"cloth-service-walk","name":"布巻きの作業路","region":"璃月","level":32,"hub":false,"peaceful":true,"width":1200,"platforms":[{"x":0,"y":480,"w":1200},{"x":585,"y":382,"w":296}],"checkpoint":"liyue-harbor","exits":[{"to":"liyue-harbor","x":55},{"to":"threadline-relay","x":1138,"requires":{"quest":"threadline-survey","count":2}}]},
     {"id":"threadline-relay","name":"糸道の配電室","region":"璃月","level":32,"hub":false,"peaceful":true,"width":1080,"platforms":[{"x":0,"y":480,"w":1080},{"x":370,"y":388,"w":170}],"checkpoint":"liyue-harbor","exits":[{"to":"cloth-service-walk","x":60},{"to":"buried-weaving-room","x":1018,"requires":{"quest":"threadline-restore","count":1}}]},
-    {"id":"snow-rail-transfer","name":"雪線の積替場","region":"スネージナヤ","level":140,"hub":false,"width":1500,"platforms":[{"x":0,"y":480,"w":1500},{"x":595,"y":384,"w":218}],"clearedBy":"snow-rail-clear","checkpoint":"snezhnaya-hub","exits":[{"to":"snezhnaya-field","x":60},{"to":"steam-stabling-depot","x":1432,"requires":{"quest":"snow-rail-pressure","count":1}}]},
+    {"id":"snow-rail-transfer","name":"雪線の積替場","region":"スネージナヤ","level":140,"hub":false,"width":1500,"platforms":[{"x":0,"y":480,"w":1500},{"x":595,"y":384,"w":218}],"clearedBy":"snow-rail-clear","checkpoint":"snezhnaya-hub","exits":[{"to":"snezhnaya-field","x":60},{"to":"steam-stabling-depot","routeFixture":"signal","x":1432,"requires":{"quest":"snow-rail-pressure","count":1}}]},
     {"id":"steam-stabling-depot","name":"蒸気留置庫","region":"スネージナヤ","level":142,"hub":false,"peaceful":true,"width":1480,"platforms":[{"x":0,"y":480,"w":1480},{"x":361,"y":382,"w":130},{"x":1060,"y":382,"w":172}],"checkpoint":"snezhnaya-hub","exits":[{"to":"snow-rail-transfer","x":60}]},
     {"id":"winter-frontier-switchback","name":"冬越えの折返し道","region":"ナド・クライ","level":136,"huntKind":"field","hub":false,"width":1820,"platforms":[{"x":0,"y":480,"w":1820},{"x":125,"y":386,"w":640},{"x":1005,"y":389,"w":650}],"exits":[{"to":"nod-town","x":60},{"to":"snezhnaya-entry","x":1745,"arrivalX":295,"arrivalY":380,"rideLabel":"峠を越えて雪原へ"}],"checkpoint":"nod-town"},
     {"id":"white-pass-cut","huntKind":"field","name":"雪線の切通し","region":"スネージナヤ","level":140,"hub":false,"width":1820,"platforms":[{"x":0,"y":480,"w":1820},{"x":165,"y":382,"w":600},{"x":990,"y":388,"w":650}],"exits":[{"to":"snezhnaya-field","x":60},{"to":"white-pass-woods","x":1750},{"to":"sne-wp-100666","x":1155,"arrivalX":961,"arrivalY":480},{"to":"sites-hunt-100706","x":1308,"arrivalX":92,"arrivalY":480,"rideLabel":"西の秘境入口"},{"to":"sites-white-pass-service-path","x":900,"arrivalX":1090,"arrivalY":480,"rideLabel":"駅裏の歩廊へ"}],"checkpoint":"snezhnaya-hub","mapPoint":"teyvat:100665","waypoint":{"kind":"waypoint","area":"雪の町と白虹峠","x":509,"y":480}},

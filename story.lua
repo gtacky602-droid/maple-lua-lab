@@ -2169,6 +2169,31 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   draws[#draws+1]={kind='text',x=x+1,y=y-20,text='✧',color='#fff5d9',size=21}
  end
 
+ local function drawRouteFixture(draws,x,y,kind,open)
+  if x < -70 or x > 1030 then return end
+  local function rect(dx,dy,w,h,color)
+   draws[#draws+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=color}
+  end
+  local wood,brass,steel='#775640','#deb46f','#475e6a'
+  if kind=='barrier' then
+   rect(-38,-48,9,48,wood)
+   if open then rect(-37,-85,6,45,brass) else rect(-36,-45,66,7,brass) end
+   rect(-37,-45,6,6,steel)
+  elseif kind=='hoist' then
+   rect(-42,-92,7,92,steel)
+   rect(-42,-93,72,6,wood)
+   local deck=open and -5 or -56
+   rect(-27,-87,3,87+deck,brass)
+   rect(22,-87,3,87+deck,brass)
+   rect(-32,deck,64,5,wood)
+  elseif kind=='signal' then
+   rect(-37,-74,5,74,steel)
+   rect(-44,-85,19,27,steel)
+   rect(-40,open and -70 or -81,11,7,open and '#80e4b2' or '#f08167')
+   if open then rect(-32,-93,5,23,brass) else rect(-32,-77,30,5,brass) end
+  end
+ end
+
  local function drawWindLift(draws,x,y,t)
   for i=1,5 do
    local rise=(i*19+t*65)%92
@@ -2360,6 +2385,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
      identifyQuestProp(s,markers,first,edge.to)
+    elseif edge.routeFixture then
+     drawRouteFixture(markers,x,y,edge.routeFixture,not C.atlasGateRestriction(s,n.id,edge))
     elseif edge.spiritwayTrack then
      local track=edge.spiritwayTrack
      if gateRestriction(s,edge) then
