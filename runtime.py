@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys, json
-from packed_poses import load_pose_pack
+from packed_poses import load_pose_pack, read_packed_pose
 from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
@@ -11,7 +11,7 @@ def asset_entries(container):
     return ((key, value, isinstance(value, (dict, list))) for key, value in rows)
 
 
-def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None):
+def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None, prepare_grid=None):
     filenames = {
         pose: f'{prefix}-field-{pose.replace("_", "-")}-sprites-v1.json'
         for pose in poses
@@ -21,11 +21,16 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
     if variants:
         filenames.update(variants)
 
+    packed = prepare_grid is not None
+
     def read(key):
         filename = filenames.get(key)
         if filename is None:
             return None
-        asset = json.loads((ROOT / 'assets' / filename).read_text(encoding='utf8'))
+        if packed:
+            asset = read_packed_pose(ROOT / 'assets' / 'weekly-packed' / filename)
+        else:
+            asset = json.loads((ROOT / 'assets' / filename).read_text(encoding='utf8'))
         if key == 'idle' and idle_anchor is not None:
             asset['anchorX'] = idle_anchor
         return asset
@@ -33,7 +38,7 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
     # Cache a pose on first use. The Python callbacks do not retain the Lua
     # runtime, so retiring a browser session can reclaim its asset tables.
     loader = lua.eval("""
-        function(read, entries)
+        function(read, entries, prepareGrid)
             local function copy(container)
                 local result = {}
                 for key, value, nested in python.iterex(entries(container)) do
@@ -45,12 +50,19 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
                 local data = read(key)
                 if data == nil then return nil end
                 local art = copy(data)
+                if prepareGrid then
+                    for _,grid in pairs(art.profiles) do
+                        local records=grid.data
+                        grid.data=nil
+                        prepareGrid(grid,records)
+                    end
+                end
                 rawset(poses, key, art)
                 return art
             end})
         end
     """)
-    return loader(read, asset_entries)
+    return loader(read, asset_entries, prepare_grid)
 
 
 def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=False):
@@ -557,53 +569,30 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
                         'knuckleDuck':knuckle_duck,'battleship':battleship,'frostnightHerra':frostnight_herra,
                         'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko,'spiritspeaker':spiritspeaker,'fallenVigil':fallen_vigil,'flugel':flugel,'driftingSnow':drifting_snow,'immortalConstruct':immortal_construct,'wavebinder':wavebinder})
     )
+    weekly_files=json.loads((ROOT/'content/weekly-pose-files.json').read_bytes())
+    prepare_weekly_grid=lua.execute((ROOT/'packed-poses.lua').read_text(encoding='utf8'))
+    for key,files in weekly_files.items():
+        core[key]=field_art(lua,'',(),variants=files,prepare_grid=prepare_weekly_grid)
     dvalin=lua.execute((ROOT/'weekly-dvalin.lua').read_text(encoding='utf-8'))(core)
-    core.dvalinWeeklyArt=field_art(lua,'dvalin-weekly',(),variants={pose:'dvalin-weekly-'+pose+'-sprites-v1.json' for pose in ('hover','glide','perch','breath','roar','down','claw','head','crystal','orb','perch-body','breath-body')})
     andrius=lua.execute((ROOT/'weekly-andrius.lua').read_text(encoding='utf8'))(core)
-    core.andriusWeeklyArt=field_art(lua,'andrius-weekly',(),variants={phase+'-'+pose:'andrius-weekly-'+phase+'-'+pose+'-sprites-v1.json' for phase,poses in [('normal',('ready','swipe','tail','leap','run','land')),('awake',('ready','rise','howl','run','leap','land','swipe','tail'))] for pose in poses})
     surveyor=lua.execute((ROOT/'weekly-surveyor.lua').read_text(encoding='utf8'))(core)
-    core.surveyorArt=field_art(lua,'tide-surveyor',(),variants={pose:f'tide-surveyor-{pose}-sprites-v1.json' for pose in ('meter','sight','pendulum','swing','stand','reset')})
     loom=lua.execute((ROOT/'weekly-loom.lua').read_text(encoding='utf8'))(core)
-    core.loomArt=field_art(lua,'twin-shuttle-loom',(),variants={
-        pose:f'twin-shuttle-loom-{pose}-sprites-v1.json' for pose in ('closed','open','shuttle','broken')
-    })
     childe=lua.execute((ROOT/'weekly-childe.lua').read_text(encoding='utf8'))(core)
-    core.childeWeeklyArt=field_art(lua,'childe',(),variants={
-        'human':'childe-idle-sprites.json','foul':'childe-foul-idle-sprites.json'})
     azhdaha=lua.execute((ROOT/'weekly-azhdaha.lua').read_text(encoding='utf8'))(core)
-    core.azhdahaWeeklyArt=field_art(lua,'azhdaha',(),variants={'idle':'azhdaha-idle-sprites.json'})
     signora=lua.execute((ROOT/'weekly-signora.lua').read_text(encoding='utf8'))(core)
-    core.signoraWeeklyArt=field_art(lua,'signora',(),variants={
-        'cryo':'signora-idle-sprites.json','pyro':'signora-flame-idle-sprites.json'})
     raiden=lua.execute((ROOT/'weekly-raiden.lua').read_text(encoding='utf8'))(core)
-    core.raidenWeeklyArt=field_art(lua,'raiden-boss',(),variants={
-        'armored':'raiden-boss-idle-sprites.json','normal':'raiden-weekly-normal-sprites-v1.json'})
     shouki=lua.execute((ROOT/'weekly-shouki.lua').read_text(encoding='utf8'))(core)
-    core.shoukiWeeklyArt=field_art(lua,'shouki',(),variants={
-        'full':'shouki-idle-sprites.json',
-        'upper':'shouki-weekly-torso-sprites-v3.json'})
     apep_defense=lua.execute((ROOT/'weekly-apep-defense.lua').read_text(encoding='utf8'))(core)
     apep=lua.execute((ROOT/'weekly-apep.lua').read_text(encoding='utf8'))(core,apep_defense)
-    core.apepWeeklyArt=field_art(lua,'apep',(),variants={
-        'dark':'apep-dark-idle-sprites.json','prime':'apep-prime-idle-sprites.json','seed':'dendro-fungus-idle-sprites.json'})
     narwhal=lua.execute((ROOT/'weekly-narwhal.lua').read_text(encoding='utf8'))(core)
-    core.narwhalWeeklyArt=field_art(lua,'narwhal',(),variants={
-        'whale':'narwhal-idle-sprites.json','shadow':'narwhal-phantom-idle-sprites-v1.json'})
     knave=lua.execute((ROOT/'weekly-knave.lua').read_text(encoding='utf8'))(core)
-    core.knaveWeeklyArt=field_art(lua,'knave-weekly',(),variants={
-        'single':'knave-weekly-single-sprites-v1.json','double':'knave-weekly-double-sprites-v1.json'})
     primal_fire=lua.execute((ROOT/'weekly-primal-fire.lua').read_text(encoding='utf8'))(core)
-    core.primalWeeklyArt=field_art(lua,'gosoythoth',(),idle='gosoythoth-idle-sprites.json')
     gate_moves=lua.execute((ROOT/'weekly-gate-moves.lua').read_text(encoding='utf8'))(core)
     gate=lua.execute((ROOT/'weekly-gate.lua').read_text(encoding='utf8'))(core,gate_moves)
-    core.gateWeeklyArt=field_art(lua,'gate-weekly',(),variants={
-        'king':'gate-weekly-king-sprites-v1.json','queen':'gate-weekly-queen-sprites-v1.json'})
     false_moon_moves=lua.execute((ROOT/'weekly-false-moon-attacks.lua').read_text(encoding='utf8'))(core)
     false_moon=lua.execute((ROOT/'weekly-false-moon.lua').read_text(encoding='utf8'))(core,false_moon_moves)
-    core.falseMoonWeeklyArt=field_art(lua,'false-moon-weekly',(),idle='false-moon-weekly-idle-sprites-v1.json')
     heretic_moves=lua.execute((ROOT/'weekly-heretic-attacks.lua').read_text(encoding='utf8'))(core)
     heretic=lua.execute((ROOT/'weekly-heretic.lua').read_text(encoding='utf8'))(core,heretic_moves)
-    core.hereticWeeklyArt=field_art(lua,'heretic-weekly',(),idle='heretic-weekly-idle-sprites-v1.json')
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,

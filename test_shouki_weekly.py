@@ -118,9 +118,10 @@ assert list(upper.box.values())==[87,14,868,723]
 assert (upper.h,upper.y)==(1160,spec.floorY)
 assert upper.x-upper.w/2<0 and upper.x+upper.w/2>960 and upper.y-upper.h<0
 assert core.frame(s,'sprite').draws[1].source==upper.source
+original_upper=lua.table_from(json.loads((ROOT/'assets'/spec.openingPose.file).read_bytes()),recursive=True)
 for profile in ('legacy','h48c32','h32c16'):
     raw=lua.table_from({'draws':lua.table()})
-    core.drawFieldDisplayArt(raw,core.shoukiWeeklyArt.upper,upper.x,upper.y,upper.h,'rect',profile,False)
+    core.drawFieldDisplayArt(raw,original_upper,upper.x,upper.y,upper.h,'rect',profile,False)
     visible=[r for r in raw.draws.values() if r.x<961 and r.x+r.w>-1 and r.y<541 and r.y+r.h>-1]
     assert 0<len(visible)<len(raw.draws)
     draws=core.frame(s,'rect',profile).draws

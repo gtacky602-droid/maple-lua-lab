@@ -1,0 +1,91 @@
+{
+  "dvalinWeeklyArt": {
+    "hover": "dvalin-weekly-hover-sprites-v1.json",
+    "glide": "dvalin-weekly-glide-sprites-v1.json",
+    "perch": "dvalin-weekly-perch-sprites-v1.json",
+    "breath": "dvalin-weekly-breath-sprites-v1.json",
+    "roar": "dvalin-weekly-roar-sprites-v1.json",
+    "down": "dvalin-weekly-down-sprites-v1.json",
+    "claw": "dvalin-weekly-claw-sprites-v1.json",
+    "head": "dvalin-weekly-head-sprites-v1.json",
+    "crystal": "dvalin-weekly-crystal-sprites-v1.json",
+    "orb": "dvalin-weekly-orb-sprites-v1.json",
+    "perch-body": "dvalin-weekly-perch-body-sprites-v1.json",
+    "breath-body": "dvalin-weekly-breath-body-sprites-v1.json"
+  },
+  "andriusWeeklyArt": {
+    "normal-ready": "andrius-weekly-normal-ready-sprites-v1.json",
+    "normal-swipe": "andrius-weekly-normal-swipe-sprites-v1.json",
+    "normal-tail": "andrius-weekly-normal-tail-sprites-v1.json",
+    "normal-leap": "andrius-weekly-normal-leap-sprites-v1.json",
+    "normal-run": "andrius-weekly-normal-run-sprites-v1.json",
+    "normal-land": "andrius-weekly-normal-land-sprites-v1.json",
+    "awake-ready": "andrius-weekly-awake-ready-sprites-v1.json",
+    "awake-rise": "andrius-weekly-awake-rise-sprites-v1.json",
+    "awake-howl": "andrius-weekly-awake-howl-sprites-v1.json",
+    "awake-run": "andrius-weekly-awake-run-sprites-v1.json",
+    "awake-leap": "andrius-weekly-awake-leap-sprites-v1.json",
+    "awake-land": "andrius-weekly-awake-land-sprites-v1.json",
+    "awake-swipe": "andrius-weekly-awake-swipe-sprites-v1.json",
+    "awake-tail": "andrius-weekly-awake-tail-sprites-v1.json"
+  },
+  "surveyorArt": {
+    "meter": "tide-surveyor-meter-sprites-v1.json",
+    "sight": "tide-surveyor-sight-sprites-v1.json",
+    "pendulum": "tide-surveyor-pendulum-sprites-v1.json",
+    "swing": "tide-surveyor-swing-sprites-v1.json",
+    "stand": "tide-surveyor-stand-sprites-v1.json",
+    "reset": "tide-surveyor-reset-sprites-v1.json"
+  },
+  "loomArt": {
+    "closed": "twin-shuttle-loom-closed-sprites-v1.json",
+    "open": "twin-shuttle-loom-open-sprites-v1.json",
+    "shuttle": "twin-shuttle-loom-shuttle-sprites-v1.json",
+    "broken": "twin-shuttle-loom-broken-sprites-v1.json"
+  },
+  "childeWeeklyArt": {
+    "human": "childe-idle-sprites.json",
+    "foul": "childe-foul-idle-sprites.json"
+  },
+  "azhdahaWeeklyArt": {
+    "idle": "azhdaha-idle-sprites.json"
+  },
+  "signoraWeeklyArt": {
+    "cryo": "signora-idle-sprites.json",
+    "pyro": "signora-flame-idle-sprites.json"
+  },
+  "raidenWeeklyArt": {
+    "armored": "raiden-boss-idle-sprites.json",
+    "normal": "raiden-weekly-normal-sprites-v1.json"
+  },
+  "shoukiWeeklyArt": {
+    "full": "shouki-idle-sprites.json",
+    "upper": "shouki-weekly-torso-sprites-v3.json"
+  },
+  "apepWeeklyArt": {
+    "dark": "apep-dark-idle-sprites.json",
+    "prime": "apep-prime-idle-sprites.json",
+    "seed": "dendro-fungus-idle-sprites.json"
+  },
+  "narwhalWeeklyArt": {
+    "whale": "narwhal-idle-sprites.json",
+    "shadow": "narwhal-phantom-idle-sprites-v1.json"
+  },
+  "knaveWeeklyArt": {
+    "single": "knave-weekly-single-sprites-v1.json",
+    "double": "knave-weekly-double-sprites-v1.json"
+  },
+  "primalWeeklyArt": {
+    "idle": "gosoythoth-idle-sprites.json"
+  },
+  "gateWeeklyArt": {
+    "king": "gate-weekly-king-sprites-v1.json",
+    "queen": "gate-weekly-queen-sprites-v1.json"
+  },
+  "falseMoonWeeklyArt": {
+    "idle": "false-moon-weekly-idle-sprites-v1.json"
+  },
+  "hereticWeeklyArt": {
+    "idle": "heretic-weekly-idle-sprites-v1.json"
+  }
+}
