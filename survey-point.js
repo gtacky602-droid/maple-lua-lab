@@ -226,6 +226,10 @@ export function worksitePoints(quest){
   {...quest.delivery.cache,node:quest.target}];
  if(quest?.rail)return [quest.rail.release,quest.rail.dispatch].map(p=>({...p,node:quest.target,name:p.label}));
  if(quest?.sights)return [...quest.sights.places,quest.sights.bridge].map(p=>({...p,node:quest.target}));
+ if(quest?.book){
+  const {proof,markers,cache}=quest.book;
+  return [proof,...markers.map(m=>({...m,node:proof.node})),{...cache,node:quest.target}];
+ }
  if(quest?.stone)return [...quest.stone.marks,...[quest.stone.mural,quest.stone.model].map(site=>({...site,node:quest.target}))];
  if(quest?.construction){
   const {surveys,desk,plans}=quest.construction;
@@ -237,6 +241,7 @@ export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);
  if(!item)return null;
  const point={quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name};
+ if(quest.book&&id===quest.book.cache.id)point.absent=quest.book.guards;
  if(quest.cargo){
   point.recovered=quest.cargo.filter(p=>stocked.includes(p.id)).map(p=>p.id);
   point.parcels=quest.cargo.filter(p=>!point.recovered.includes(p.id));

@@ -23,6 +23,22 @@ function remainingEnemyPoints(step,progress){
  });
 }
 
+function bookStops(q,state,node){
+ const {proof,markers,cache,guards}=q.book;
+ if(state.count===2&&node===q.target){
+  const defeated=guards.filter(id=>state.book?.defeated?.[id]);
+  const removed=new URLSearchParams();
+  for(const id of defeated)removed.append('absent',id);
+  return remainingEnemyPoints({node,enemies:guards},{sweep:state.book?.defeated}).map(point=>({
+   ...point,url:point.url+(removed.size?'&'+removed:'')
+  }));
+ }
+ let sites=[];
+ if(node===proof.node)sites=state.count===0?[proof]:state.count===1?markers:[];
+ if(node===q.target&&state.count===3)sites=[cache];
+ return sites.map(site=>({label:site.name,url:surveyPointUrl(worksitePoint(q,site.id,node))}));
+}
+
 function restGuards(q,state){
  return remainingEnemyPoints({node:q.target,enemies:q.rest.guards},{sweep:state.rest?.defeated});
 }
@@ -177,6 +193,10 @@ export function atlasQuestObjectives(frame,q,node){
    const point=surveyPoint(q,q.goal,node);
    return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
   }
+ }
+ if(q.book&&status==='active'){
+  const points=bookStops(q,state,node);
+  return points.length?[{text:questObjective(q,frame.storyGraph,state),points}]:[];
  }
  const hunt=status==='active'&&huntPoint(q,state,node);
  if(hunt)return [{text:questObjective(q,frame.storyGraph,state),points:[hunt]}];
@@ -527,6 +547,10 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(q.book&&status==='active'){
+  const [point]=bookStops(q,st,route.node);
+  if(point)return {...route,pointUrl:point.url,pointLabel:point.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
+ }
  const hunt=status==='active'&&huntPoint(q,st,route.node);
  if(hunt)return {...route,pointUrl:hunt.url,pointLabel:hunt.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
  if(q.cargo&&status==='active'){

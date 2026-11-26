@@ -244,8 +244,9 @@ try{
   }
   if(point?.worksite){
    const quest=graph.quests.find(q=>q.id===point.quest);
-   const sites=quest?.sights?worksitePoints(quest).filter(site=>site.node===point.node):
-    [{id:point.worksite,x:point.x,y:point.y}];
+   let sites=[{id:point.worksite,x:point.x,y:point.y}];
+   if(quest?.sights)sites=worksitePoints(quest).filter(site=>site.node===point.node);
+   if(quest?.book?.markers.some(marker=>marker.id===point.worksite))sites=quest.book.markers;
    if(quest?.rail){
     const release=point.worksite===quest.rail.release.id;
     const x=release?quest.rail.startX:quest.rail.dispatch.x;

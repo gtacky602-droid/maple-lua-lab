@@ -86,6 +86,37 @@ try{
    state.count++;
   }
  }
+ const bookQuest=graph.quests.find(q=>q.book);
+ const {proof,markers,guards,cache}=bookQuest.book;
+ const bookState={status:'active',count:0,book:{defeated:{}}};
+ const bookFrame={storyGraph:graph,story:{active:true,node:proof.node,quests:{[bookQuest.id]:bookState}},progression:{level:200}};
+ const objectives=node=>atlasQuestObjectives(bookFrame,bookQuest,node).flatMap(o=>o.points);
+ for(const [stage,sites] of [[0,[proof]],[1,markers],[3,[cache]]]){
+  bookState.count=stage;
+  const node=stage===3?bookQuest.target:proof.node;
+  bookFrame.story.node=node;
+  const points=objectives(node);
+  assert.deepEqual(points.map(p=>p.label),sites.map(s=>s.name));
+  assert.equal(trackedQuest(bookFrame,bookQuest.id).pointUrl,points[0].url);
+  for(const [i,point] of points.entries()){
+   await page.goto(new URL(point.url,process.env.LAB_URL||'http://127.0.0.1:19745/').href);
+   await page.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===4096);
+   const note=await page.locator('#surveyPointNote').innerText();
+   assert(note.includes(sites[i].name)&&note.includes(sites[i].x+', '+sites[i].y));
+   const drawn=sites.reduce((sum,s)=>sum+art[bookQuest.id][s.id].length,0);
+   assert(note.includes(drawn+'矩形'));
+  }
+ }
+ bookState.count=2;
+ for(const id of guards){
+  const points=objectives(bookQuest.target);
+  assert.equal(points[0].subject,id);
+  assert.equal(trackedQuest(bookFrame,bookQuest.id).pointUrl,points[0].url);
+  const url=new URL(points[0].url,'http://localhost');
+  assert.deepEqual(url.searchParams.getAll('absent'),Object.keys(bookState.book.defeated));
+  bookState.book.defeated[id]=true;
+ }
+ console.log('PASS proof sheet, both landmarks, remaining guards and recovered crate');
  for(const q of graph.quests.filter(q=>q.book||q.stone)){
   const spec=q.book??q.stone,market=spec.marketStand;
   const state={count:q.goal,status:'active',stone:{marked:{}}};

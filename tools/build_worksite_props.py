@@ -148,12 +148,13 @@ def build():
             continue
         if q.get('book'):
             book=lua.execute((ROOT/'story-book.lua').read_text('utf8'))
-            stand=q['book']['stand']
-            sim=dict(story={'node':q['hub'],'quests':{}},active=1,actors=[{'hp':1,'x':0,'y':0}],camera=stand['x'])
-            draws=lua.table()
-            book.observe(lua.table_from(sim,recursive=True),lua.table(),draws,lua.table_from(q,recursive=True),
-                         lua.table_from(dict(status='complete',count=q['goal']),recursive=True))
-            props[q['id']]={'read-stand':[relative(r,0,stand['y']) for r in rectangles(draws)]}
+            spec=q['book']
+            art={}
+            for item in [spec['proof'],*spec['markers'],spec['cache'],{'id':'read-stand'}]:
+                draws=lua.table()
+                book.drawSite(draws,lua.table_from(item),0,0)
+                art[item['id']]=rectangles(draws)
+            props[q['id']]=art
             continue
         if kind=='sights':
             sights=lua.execute((ROOT/'story-sights.lua').read_text('utf8'))(lua.table())

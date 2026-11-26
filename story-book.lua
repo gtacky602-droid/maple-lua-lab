@@ -66,7 +66,7 @@ local function rect(boxes,x,y,w,h,color)
  boxes[#boxes+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
 end
 
-local function draw(boxes,item,x,y)
+function B.drawSite(boxes,item,x,y)
  if item.id=='proof-sheet' then
   rect(boxes,x-12,y-12,24,12,'#e5d4a5')
   rect(boxes,x-7,y-9,14,3,'#5a675d')
@@ -98,7 +98,7 @@ end
 
 function B.observe(s,f,boxes,q,state)
  for _,item in ipairs(sites(s,q,state)) do
-  draw(boxes,item,item.x-s.camera,item.y)
+  B.drawSite(boxes,item,item.x-s.camera,item.y)
  end
  local item=not s.paused and B.nearby(s,q,state)
  if item then
