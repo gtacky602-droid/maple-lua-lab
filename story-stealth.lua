@@ -169,8 +169,9 @@ return function(C,canInspect)
    if quiet and x>=-guard.range and x<=960+guard.range then
     local color=seen and '#ffd193' or '#f2dc8c88'
     for i=0,7 do
-     local distance=19+guard.range/8*i
-     rect(draws,x+dir*distance-5,y-5,10,3,color)
+     local distance=(guard.range-10)*i/7
+     local left=dir>0 and x+distance or x-distance-10
+     rect(draws,left,y-5,10,3,color)
     end
     local artInfo=C.enemyArtLayout[guard.art]
     C.drawFieldDisplayArt(artFrame(draws,packing),C.enemyIdleArt[guard.art],x,y,artInfo.height,mode,profile,dir>0)

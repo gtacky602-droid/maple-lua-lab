@@ -198,8 +198,17 @@ try{
  const openings={...legendScenes,...trialScenes};
  const stepsByNode=new Map();
  let selectedSurveyPoint=null,visibleLandmarks=[];
+ const patrolPanel=document.createElement('div');
+ patrolPanel.hidden=true;
+ patrolPanel.innerHTML='<label><input type="checkbox"> 見張りの巡回と視線を表示</label> <label>巡回の時刻 <input type="range" min="0" max="15" value="0"></label> <output></output>';
+ $('surveyPointNote').after(patrolPanel);
+ const [showPatrol,patrolTime]=patrolPanel.querySelectorAll('input');
+ showPatrol.checked=query.get('patrol')==='1';
+ showPatrol.onchange=patrolTime.oninput=()=>render();
  function focusSurveyPoint(point){
   selectedSurveyPoint=point;
+  patrolPanel.hidden=!point?.guard;
+  patrolTime.value=0;
   visibleLandmarks=[];
   if(point?.worksite){
    const quest=graph.quests.find(q=>q.id===point.quest);
@@ -400,6 +409,9 @@ try{
   }
   const missing=[...layers].filter(art=>art?.poseFile&&!art.image);
   const watchSteps=liveView&&n.stealthRoute?questsById.get(n.stealthRoute.quest).itinerary.filter(s=>s.cover):[];
+  const guard=selectedSurveyPoint?.guard;
+  const previewGuard=guard&&showPatrol.checked?assets[guard.art]:null;
+  if(previewGuard?.poseFile&&!previewGuard.image&&!missing.includes(previewGuard))missing.push(previewGuard);
   for(const {cover} of watchSteps){
    if(!patrolArt.has(cover.art))patrolArt.set(cover.art,{poseFile:'ina-sayu-route-'+cover.art+'-sprites-v1.json',openingPose:true});
    const art=patrolArt.get(cover.art);
@@ -505,13 +517,23 @@ try{
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};
+  let patrol=null;
+  if(guard){
+   patrolTime.disabled=!showPatrol.checked;
+   const seconds=Number(patrolTime.value)*guard.period/16;
+   const angle=(seconds+guard.offset)/guard.period*2*Math.PI;
+   patrol={x:guard.x+Math.sin(angle)*guard.roam,dir:Math.cos(angle)>=0?1:-1};
+   patrolPanel.querySelector('output').textContent=previewGuard?
+    seconds.toFixed(2)+'秒・'+(patrol.dir>0?'右':'左')+'向き ／ 黄：視線 '+guard.range+' px ／ 緑枠：足元が隠れる範囲「'+selectedSurveyPoint.cover.name+'」':'';
+  }
   const landmarksInView=visibleLandmarks.filter(r=>r.x+r.w>camera&&r.x<camera+960&&r.y+r.h>0&&r.y<540);
   if(selectedSurveyPoint){
    const point=selectedSurveyPoint,marker=$('surveyPointNote');
    const count=visibleLandmarks.length?` ／ この画角の小物 ${landmarksInView.length}矩形`:'';
    marker.textContent=`調査位置「${point.name}」 （${point.x}, ${point.y}）`+count;
   }
-  const visibleItems=liveView && subject.value ? items.filter(e=>e.id===subject.value) : items;
+  const sceneItems=previewGuard?items.filter(e=>!watchSteps.some(step=>step.stealthGuard.id===e.id)):items;
+  const visibleItems=liveView && subject.value ? sceneItems.filter(e=>e.id===subject.value) : sceneItems;
   const fidelity=$('spriteFidelity');
   const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked].join('/');
   const currentKey=poseKey+'/'+profile;
@@ -561,6 +583,15 @@ try{
    for(const animal of liveView?wildlife[n.id]??[]:[]){
     const art=assets[animal.art];
     paintPlacementLayer(ctx,art,spriteBounds(art,art.h),mode==='png'||matchedSprites?null:profile,animal.x-camera,animal.y,animal.flip,cost);
+   }
+   if(previewGuard&&patrol){
+    const x=patrol.x-camera,y=selectedSurveyPoint.y;
+    const edge=x+patrol.dir*guard.range;
+    ctx.fillStyle='#ffd36a40';ctx.fillRect(Math.min(x,edge),y-42,guard.range,84);
+    ctx.fillStyle='#ffe19e';ctx.fillRect(edge-1,y-42,2,84);
+    const cover=selectedSurveyPoint.cover;
+    ctx.strokeStyle='#9ef3c6';ctx.strokeRect(cover.x-camera,cover.y-30,cover.w,60);
+    paintPlacementLayer(ctx,previewGuard,spriteBounds(previewGuard,layouts[guard.art].height),mode==='png'||matchedSprites?null:profile,x,y,patrol.dir>0,cost);
    }
    for(const {cover} of watchSteps){
     const art=patrolArt.get(cover.art),x=cover.x+cover.w/2-camera;

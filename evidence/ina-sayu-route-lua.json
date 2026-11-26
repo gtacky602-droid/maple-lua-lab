@@ -18,22 +18,22 @@
   "rereadGift": true,
   "packing": {
     "brush": {
-      "before": 502200,
-      "after": 163622,
+      "before": 502196,
+      "after": 163618,
       "rectangles": 4407,
       "batches": 4,
       "profile": "h32c16"
     },
     "cave": {
-      "before": 1308451,
-      "after": 437590,
+      "before": 1308447,
+      "after": 437586,
       "rectangles": 10726,
       "batches": 4,
       "profile": "h48c32"
     },
     "tree": {
-      "before": 1957261,
-      "after": 672272,
+      "before": 1957260,
+      "after": 672271,
       "rectangles": 18261,
       "batches": 4,
       "profile": "legacy"

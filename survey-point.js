@@ -5,7 +5,7 @@ export function surveyPoint(quest,index,node){
   return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,tea:true};
  }
  if(step?.kind==='stealthCheck'&&step.node===node){
-  return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,cover:step.cover};
+  return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,cover:step.cover,guard:step.stealthGuard};
  }
  if(step?.kind!=='inspect'||!steps.some(s=>s.kind==='arrive')||
     !steps.every(s=>s.kind==='arrive'||s.kind==='inspect'))return null;

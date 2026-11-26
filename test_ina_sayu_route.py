@@ -71,6 +71,32 @@ def measure_packing(s,profile):
     return dict(before=before,after=after,rectangles=len(reference['draws']),batches=len(packet['rectBatches']),profile=profile)
 
 
+watch_steps=next(q['itinerary'] for q in json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))['quests'] if q['id']==quest)
+watch_steps=[s for s in watch_steps if 'stealthGuard' in s]
+patrol_samples={}
+def record_patrol(s,guard_id):
+    guard=next(step['stealthGuard'] for step in watch_steps if step['stealthGuard']['id']==guard_id)
+    previous,camera=s.t,s.camera
+    s.camera=guard['x']-480
+    samples=[]
+    try:
+        for index in range(16):
+            s.t=s.storyEnteredAt+index*guard['period']/16
+            scene=frame(s)
+            view=scene.storyStealth
+
+            dots=[d for d in scene.draws.values() if d.kind=='rect' and d.w==10 and d.h==3 and d.color in ('#ffd193','#f2dc8c88')]
+            assert len(dots)==8
+            bounds=sorted([min(d.x for d in dots)+s.camera,max(d.x+10 for d in dots)+s.camera])
+
+            expected=sorted([view.watchX,view.watchX+view.facing*guard['range']])
+            assert all(abs(a-b)<0.001 for a,b in zip(bounds,expected))
+            samples.append([round(view.watchX,3),view.facing])
+    finally:
+        s.t,s.camera=previous,camera
+    patrol_samples[guard_id]=samples
+
+
 def begin(s):
     core.action(s,"story_accept:"+quest)
     gate(s,454,path,False)
@@ -101,6 +127,7 @@ if earned:
 fixture=save(s)
 initial_kills=s.kills
 begin(s)
+record_patrol(s,"sayu-watch-brush")
 move(s,540)
 for _ in range(300):
     tick(s)
@@ -119,6 +146,7 @@ assert state(s).count==1
 move(s,472)
 packing={'brush':measure_packing(s,'h32c16')}
 collect(s,472)
+record_patrol(s,"sayu-watch-cave")
 move(s,1012)
 core.action(s,"story_collect")
 assert state(s).count==2
@@ -128,6 +156,7 @@ assert s.actors[1].ground and s.actors[1].y==392
 assert frame(s).storyStealth.mode=="cover"
 packing['cave']=measure_packing(s,'h48c32')
 collect(s,1012,392)
+record_patrol(s,"sayu-watch-tree")
 move(s,1589)
 packing['tree']=measure_packing(s,'legacy')
 collect(s,1589)
@@ -216,6 +245,8 @@ result={
     "singleReportReward":True,"reward":reward,"coverEdgeBlocked":True,"rereadGift":True,"packing":packing,
 }
 suffix="-earned" if earned else ""
+if not earned:
+    (ROOT/"evidence/sayu-patrol-samples.json").write_text(json.dumps(patrol_samples)+"\n",encoding="utf8")
 if earned:
     result.update(startLevel=fixture['progression']['level'],source=source.name,sha256=sha256(raw).hexdigest())
 (ROOT/f"evidence/ina-sayu-route{suffix}-lua.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf8")
