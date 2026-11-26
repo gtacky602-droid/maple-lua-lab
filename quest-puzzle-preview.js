@@ -9,6 +9,9 @@ export function setupPuzzlePreview(marker,focus,redraw){
  const wallJump=document.createElement('button');
  wallJump.type='button';wallJump.textContent='遮蔽の壁を見る';wallJump.hidden=true;
  jump.after(wallJump);
+ const returnView=document.createElement('button');
+ returnView.type='button';returnView.textContent='元の観察地点に戻る';returnView.hidden=true;
+ box.append(returnView);
  const restore=document.createElement('button');
  restore.type='button';restore.textContent='地図を開いた時の折り方に戻す';restore.hidden=true;
  box.append(restore);
@@ -17,6 +20,23 @@ export function setupPuzzlePreview(marker,focus,redraw){
  silhouette.innerHTML='<canvas width="340" height="108"></canvas><figcaption></figcaption>';
  box.append(silhouette);
  const drawView=initRockView(silhouette,silhouette.querySelector('figcaption'),silhouette.querySelector('canvas'));
+ const reference=silhouette.cloneNode(true);
+ reference.setAttribute('aria-label','元の観察地点の岩影');
+ const selectedLabel=document.createElement('span');selectedLabel.textContent='選択中の観察地点';
+ silhouette.prepend(selectedLabel);
+ for(const fig of [silhouette,reference])fig.style.width='min(100%,342px)';
+ const originalLabel=document.createElement('span');originalLabel.textContent='元の観察地点';
+ reference.prepend(originalLabel);
+ const views=document.createElement('div');
+ views.style.cssText='display:flex;flex-wrap:wrap;gap:12px';
+ box.append(views);views.append(silhouette,reference);
+ const drawReference=initRockView(reference,reference.querySelector('figcaption'),reference.querySelector('canvas'));
+ function drawRockViews(){
+  const devices=library?.[point.node],index=station.selectedIndex,origin=point.initialStation??0;
+  drawView(devices?.[index]?.view);
+  drawReference(index!==origin?devices?.[origin]?.view:undefined);
+  selectedLabel.hidden=reference.hidden;
+ }
  let point=null,choices=[],library,loading,viewingShape=false;
  function shape(index){
   return point?.stations[index].forms?.[choices[index]-1];
@@ -30,6 +50,8 @@ export function setupPuzzlePreview(marker,focus,redraw){
    form.replaceChildren(...options);
    form.value=String(choices[index]);
   }
+  returnView.hidden=point.stations.length<2 || point.stations[0].angle==null;
+  returnView.disabled=index===(point.initialStation??0);
   restore.hidden=!point.forms;
   restore.disabled=!point.forms || choices.every((value,i)=>value===point.forms[i]);
   const selected=shape(index);
@@ -38,9 +60,10 @@ export function setupPuzzlePreview(marker,focus,redraw){
   jump.disabled=!selected?.platforms?.length&&!selected?.wall;
   wallJump.hidden=!selected?.wall || !selected.platforms?.length;
   message.textContent=selected?.line??site.hint??'';
-  drawView(library?.[point.node]?.[index]?.view);
+  drawRockViews();
   focus({...point,x:site.x,y:site.y,name:site.name});
  }
+ returnView.onclick=()=>{station.selectedIndex=point.initialStation??0;show();redraw()};
  restore.onclick=()=>{choices=point.forms.slice();show();redraw()};
  station.onchange=()=>{show();redraw()};
  form.onchange=()=>{choices[station.selectedIndex]=Number(form.value);show();redraw()};
@@ -70,7 +93,7 @@ export function setupPuzzlePreview(marker,focus,redraw){
      return r.json();
     }).then(data=>{
      library=data;
-     if(point?.stations){drawView(library[point.node][station.selectedIndex]?.view);redraw()}
+     if(point?.stations){drawRockViews();redraw()}
     }).catch(()=>{loading=null;if(point?.stations)message.textContent='装置の画像を読み込めませんでした。'});
    }
    station.replaceChildren(...point.stations.map(s=>new Option(s.name)));

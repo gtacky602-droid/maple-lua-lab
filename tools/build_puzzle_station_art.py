@@ -12,7 +12,7 @@ resonance,rocks,paper=map(module,['resonance','rock-views','paper-folds'])
 graph=json.loads((root/'content/story-graph.json').read_text(encoding='utf8'))
 targets={s['node'] for q in graph['quests'] for s in q.get('itinerary',[])
          if s.get('resonanceOrder') or s.get('paperFold') or s.get('shadowChoice')}
-rooms=[room for room in graph['nodes'] if room['id'] in targets]
+rooms=[room for room in graph['nodes'] if room['id'] in targets or room.get('rockViews')]
 rooms_art={}
 for room in rooms:
     config=room.get('rockViews') or room.get('paperBoard') or room.get('resonance')
@@ -38,7 +38,7 @@ for room in rooms:
         if frame.storyRockView:
             v=frame.storyRockView
             entry['view']={'id':v.id,'name':v.name,'line':v.line,'rocks':[
-                {'left':r.left,'right':r.right,'height':r.height,'color':r.color} for r in v.rocks.values()]}
+                {'left':r.left,'right':r.right,'height':r.height,'color':r.color,**({'shape':r.shape} if r.shape else {})} for r in v.rocks.values()]}
         assert rows
         exported.append(entry)
     rooms_art[room['id']]=exported

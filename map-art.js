@@ -1011,6 +1011,10 @@ try{
    point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
     surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
   }
+  if(point?.stations && n.rockViews && query.has('view')){
+   const index=point.stations.findIndex(site=>site.id===query.get('view'));
+   if(index>=0)point.initialStation=index;
+  }
   if(point?.stations && n===openingNode && n.paperBoard && query.has('folds')){
    const values=query.get('folds').split(',').map(value=>/^\d+$/.test(value)?Number(value):-1);
    if(values.length===point.stations.length && values.every((v,i)=>v>=(point.stations[i].initial?1:0) && v<=point.stations[i].forms.length)){

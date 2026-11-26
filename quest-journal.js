@@ -24,6 +24,11 @@ function remainingEnemyPoints(step,progress){
 }
 
 function puzzleGuide(frame,quest,step,index){
+ const view=frame.storyRockView;
+ if(step?.shadowChoice && frame.story.node===step.node && view){
+  const point={quest:quest.id,node:step.node,step:index+1,view:view.id};
+  return {label:view.name+'からの岩影を見比べる',url:surveyPointUrl(point)};
+ }
  const folds=frame.storyFoldRoute;
  if(step?.paperFold && folds?.quest===quest.id && folds.node===step.node){
   const point={quest:quest.id,node:step.node,step:index+1,forms:folds.forms,station:folds.station};

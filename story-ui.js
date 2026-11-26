@@ -119,7 +119,7 @@ function update(){
   const dx=lampControlX-f.actors.find(a=>a.id===f.active)?.x;
   lampSide=dx<=-54?'left':dx>=54?'right':'near';
  }
- const signature=JSON.stringify([lampSide,target?.point,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([lampSide,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  updateRevisitMap(f);
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;

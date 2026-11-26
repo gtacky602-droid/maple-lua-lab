@@ -43,6 +43,11 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
   return {quest:quest.id,step:index+1,node,choice,path:pathId,x:option.x,y:option.y,name:option.name,action:option.action,
    props:step.choices.map(o=>choiceProp(o,step.kind)).filter(Boolean),fixtures:choiceFixtures(step)};
  }
+ if(room?.rockViews && room.rockViews.quest===quest?.id && step?.kind==='inspect' && step.node===node){
+  const stations=room.rockViews.points;
+  const initialStation=stations.findIndex(p=>p.x===step.x && p.y===step.y);
+  if(initialStation>=0)return {quest:quest.id,step:index+1,node,...stations[initialStation],stations,initialStation,action:step.objective};
+ }
  if(room?.id===node&&step?.node===node&&puzzleStep(step)){
   let stations;
   if(step.resonanceOrder&&room.resonance){
@@ -84,6 +89,7 @@ export function surveyPointUrl(point){
   params.set('tier','4096');
  }else{
   params.set('step',String(point.step));
+  if(point.view)params.set('view',point.view);
   if(point.forms){
    params.set('folds',point.forms.join(','));
    if(point.station)params.set('panel',String(point.station));

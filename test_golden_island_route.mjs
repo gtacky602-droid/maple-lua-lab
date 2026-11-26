@@ -19,6 +19,16 @@ const wait=(fn,param,timeout=12000)=>page.waitForFunction(fn,param,{timeout});
 const nodeIs=node=>wait(id=>window.lab.frame.story.node===id,node);
 const row=id=>page.locator(`[data-quest="${id}"]`);
 
+async function checkRockPreview(url,expected){
+  const preview=await browser.newPage();
+  try{
+    await preview.goto(new URL(url,page.url()).href);
+    await preview.waitForFunction(()=>document.querySelector('#surveyPointNote ~ div figure:not([hidden])'));
+    const image=await preview.locator('#surveyPointNote ~ div figure:visible canvas').evaluate(c=>c.toDataURL());
+    assert.ok(image===expected);
+  }finally{await preview.close();await page.bringToFront()}
+}
+
 async function key(code){
   await canvas.click();
   await page.keyboard.press(code);
@@ -161,6 +171,7 @@ try{
   assert.deepEqual(dock,{key:'goldenDock',file:'golden-dock-background-v1.png',state:'ready'});
   await quest(first,'受注','active');
   await interact(345,first,1);
+  await checkRockPreview('map-art.html?placements=live&node='+coast+'&quest='+first+'&step=1',await page.locator('#rockViewCanvas').evaluate(c=>c.toDataURL()));
   assert.equal((await frame()).storyRockView.gap,0);
   await jump(827,390);
   await interact(827,first,2);
@@ -169,6 +180,7 @@ try{
   await page.locator('.game').screenshot({path:prefix+'-dock.png'});
   await gate(1530,island,true);
   await interact(505,first,4);
+  await checkRockPreview('map-art.html?placements=live&node='+island+'&quest='+first+'&step=4',await page.locator('#rockViewCanvas').evaluate(c=>c.toDataURL()));
   assert.ok((await frame()).storyRockView.gap>23);
   await interact(248,first,5);
   await interact(931,first,6);
@@ -189,6 +201,28 @@ try{
     await page.locator('#rockView').screenshot({path:prefix+'-'+id+'.png'});
   }
   assert.equal(new Set(samples).size,3);
+  await row(second).getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+  await page.locator('#trackedQuestMap').click();
+  const link=page.locator('#atlasQuestPoint');
+  await link.waitFor();
+  assert.equal(await link.innerText(),'岩穴からの岩影を見比べる');
+  const [preview]=await Promise.all([page.waitForEvent('popup'),link.click()]);
+  try{
+    const picker=preview.getByLabel('操作場所'),drawing=preview.locator('#surveyPointNote ~ div figure').first().locator('canvas');
+    await drawing.waitFor();
+    assert.equal(await picker.locator('option:checked').innerText(),'岩穴');
+    for(const [i,expected] of samples.entries()){
+      await picker.selectOption({index:i});
+      assert.ok(await drawing.evaluate(c=>c.toDataURL())===expected);
+      const original=preview.getByLabel('元の観察地点の岩影');
+      assert.equal(await original.isVisible(),i!==2);
+      if(i!==2)assert.ok(await original.locator('canvas').evaluate(c=>c.toDataURL())===samples[2]);
+    }
+    await picker.selectOption({index:0});
+    await preview.getByRole('button',{name:'元の観察地点に戻る'}).click();
+    assert.equal(await drawing.evaluate(c=>c.toDataURL()),samples[2]);
+  }finally{await preview.close();await page.bringToFront()}
+  await page.keyboard.press('Escape');
   assert.ok(gaps[0]===0&&gaps[1]>0&&gaps[1]<24&&gaps[2]>=24);
   await interact(819,second,3);
   await wait(()=>window.lab.frame.storyNotice?.includes('別の地点'));
