@@ -78,11 +78,11 @@ return function(C,canInspect)
   return {sprite=sprite,source=sprite.source,box=sprite.box,x=x,y=y,h=height,flip=flip and key~='traveler'}
  end
 
- local function prop(draws,s,item,mode,profile)
+ local function prop(layer,s,item,mode,profile)
   local half=item.h*item.box[3]/item.box[4]/2
   local x=item.x-s.camera
   if x+half>=0 and x-half<=960 then
-   C.drawFieldDisplayArt({draws=draws},item.sprite,x,item.y,item.h,mode,profile,item.flip)
+   C.drawFieldDisplayArt(layer,item.sprite,x,item.y,item.h,mode,profile,item.flip)
   end
  end
 
@@ -134,11 +134,12 @@ return function(C,canInspect)
   if x>=-70 and x<=1030 then draws[#draws+1]={kind='text',x=x,y=y,text=text,size=14,color='#fff0b9'} end
  end
 
- function photo.observe(f,s,draws,q,state,mode,profile)
+ function photo.observe(f,s,layer,q,state,mode,profile)
+  local draws=layer.draws
   if not state then return end
   local spec,record=q.groupPhoto,state.groupPhoto
   local function art(key,place,h)
-   prop(draws,s,card(key,place.x,place.y,h,false),mode,profile)
+   prop(layer,s,card(key,place.x,place.y,h,false),mode,profile)
   end
   for i,worker in ipairs(spec.crew) do
    local finished=(i==1 and 3 or i==2 and 4 or 5)
@@ -157,7 +158,7 @@ return function(C,canInspect)
   if state.count>=spec.shootAt then art('board',spec.board,105) end
   if record and state.count>=spec.layoutAt then
    for _,item in ipairs(scene(spec,record,state.status=='complete' and record.posted=='candid',false)) do
-    prop(draws,s,item,mode,profile)
+    prop(layer,s,item,mode,profile)
    end
    if state.count==spec.layoutAt then
     local x=spec.mark.x-s.camera

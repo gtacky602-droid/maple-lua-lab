@@ -58,11 +58,11 @@ return function(C,canInspect)
   s.storyNotice='金色の折り鳥を見送りました。'
  end
 
- local function art(draws,s,sprite,x,y,height,mode,profile,flip)
+ local function art(layer,s,sprite,x,y,height,mode,profile,flip)
   x=x-s.camera
   local half=height*sprite.box[3]/sprite.box[4]/2
   if x+half>=0 and x-half<=960 then
-   C.drawFieldDisplayArt({draws=draws},sprite,x,y,height,mode,profile,flip)
+   C.drawFieldDisplayArt(layer,sprite,x,y,height,mode,profile,flip)
   end
  end
 
@@ -78,16 +78,17 @@ return function(C,canInspect)
   end
  end
 
- function magic.choice(draws,s,option,mode,profile)
+ function magic.choice(layer,s,option,mode,profile)
   local sprite=option.id=='curtain' and C.furinaCueArt.curtain or C.furinaCueArt.lamp
-  art(draws,s,sprite,option.x,option.y,74,mode,profile,false)
+  art(layer,s,sprite,option.x,option.y,74,mode,profile,false)
  end
 
- local function sceneStage(draws,s,scene,spec,variant,elapsed,mode,profile)
+ local function sceneStage(layer,s,scene,spec,variant,elapsed,mode,profile)
+  local draws=layer.draws
   local showing=elapsed and elapsed>=spec.reveal
   local x,y=scene.x,scene.y
   if variant=='light' then
-   art(draws,s,C.lyneyMagicArt.screen,x,y,151,mode,profile,false)
+   art(layer,s,C.lyneyMagicArt.screen,x,y,151,mode,profile,false)
    if elapsed then
     local lit=showing and '#fff1ac5c' or '#8cb8b464'
     box(draws,s,x-52,y-137,104,110,lit)
@@ -98,21 +99,22 @@ return function(C,canInspect)
    end
   else
    local rise=elapsed and math.min(1,elapsed/.8)*100 or 0
-   art(draws,s,C.furinaCueArt.curtain,x-30,y-rise,154,mode,profile,false)
+   art(layer,s,C.furinaCueArt.curtain,x-30,y-rise,154,mode,profile,false)
    if variant=='curtain' then
     local rearRise=elapsed and math.min(1,math.max(0,elapsed-.52)/.6)*97 or 0
-    art(draws,s,C.furinaCueArt.curtain,x+34,y-rearRise,116,mode,profile,true)
+    art(layer,s,C.furinaCueArt.curtain,x+34,y-rearRise,116,mode,profile,true)
    end
   end
   if showing then
    local flow=math.min(1,(elapsed-spec.reveal)/(spec.duration-spec.reveal))
-   art(draws,s,C.lyneyMagicArt.birds,x-42+flow*160,y-106-flow*107,114,mode,profile,false)
+   art(layer,s,C.lyneyMagicArt.birds,x-42+flow*160,y-106-flow*107,114,mode,profile,false)
    label(draws,s,x+48,y-251,'金色の折り鳥')
   end
   return showing==true
  end
 
- function magic.observe(f,s,draws,scene,q,state,mode,profile)
+ function magic.observe(f,s,layer,scene,q,state,mode,profile)
+  local draws=layer.draws
   if not state then return end
   local spec=q.pocketMagic
   local wings=scene.role=='wings'
@@ -132,17 +134,17 @@ return function(C,canInspect)
    end
    local sprite=state.count>=4 and C.lyneyMagicArt.broken or C.lyneyMagicArt.cart
    box(draws,s,spec.cartFrom-43,477,spec.cartStop-spec.cartFrom+86,3,'#b6a98c')
-   art(draws,s,sprite,x,480,88,mode,profile,false)
+   art(layer,s,sprite,x,480,88,mode,profile,false)
    if state.count>=4 then label(draws,s,x,378,'車輪故障・使用中止') end
    if state.count<=2 then
     label(draws,s,553,356,'客席から見えない通路')
    end
    if state.count>=5 and state.storyChoice then
-    magic.choice(draws,s,{id=state.storyChoice,x=1179,y=480},mode,profile)
+    magic.choice(layer,s,{id=state.storyChoice,x=1179,y=480},mode,profile)
    end
   elseif scene.desk then
    local desk=scene.desk
-   art(draws,s,C.furinaCueArt.console,desk.x,desk.y,66,mode,profile,false)
+   art(layer,s,C.furinaCueArt.console,desk.x,desk.y,66,mode,profile,false)
    if state.status=='complete' then
     label(draws,s,desk.x,desk.y-80,scene.role=='finale' and '追加演目' or '客席から再演')
     if not run and not chapter and not s.paused and canInspect(s.actors[s.active],desk) then
@@ -154,7 +156,7 @@ return function(C,canInspect)
   local birds=false
   local runningShow=chapter or (run and run.started and run.kind~='wheel')
   if (not wings or state.count>=5) and (scene.role~='finale' or runningShow) then
-   birds=sceneStage(draws,s,scene,spec,state.storyChoice,runningShow and elapsed,mode,profile)
+   birds=sceneStage(layer,s,scene,spec,state.storyChoice,runningShow and elapsed,mode,profile)
   end
   local phase,note
   if run and run.kind=='wheel' then phase,note='wheel',lines.wheel

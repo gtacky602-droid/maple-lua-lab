@@ -2368,9 +2368,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)
+   local stageProps
+   if n.furinaRehearsal or n.groupPhotoQuest or n.magicScene or n.toyDive or n.toyDisplay then
+    stageProps=markerLayer(s,f,markers,mode)
+    if stageProps.rectBatches then f.rectBatches=stageProps.rectBatches end
+   end
    if n.furinaRehearsal then
     local q=quests[n.furinaRehearsal]
-    furinaCues.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
+    furinaCues.observe(f,s,stageProps,q,s.story.quests[q.id],mode,profile)
    end
    if f.storyTheaterProgramme and s.photoPanel=='read' then
     local id='fon-navia-photo'
@@ -2378,18 +2383,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if n.groupPhotoQuest then
     local q=quests[n.groupPhotoQuest]
-    naviaPhoto.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
+    naviaPhoto.observe(f,s,stageProps,q,s.story.quests[q.id],mode,profile)
    end
    if n.magicScene then
     local id=n.magicScene.quest
-    lyneyMagic.observe(f,s,markers,n.magicScene,quests[id],s.story.quests[id],mode,profile)
+    lyneyMagic.observe(f,s,stageProps,n.magicScene,quests[id],s.story.quests[id],mode,profile)
    end
    if n.toyDive then
     local q=quests[n.toyDive.quest]
-    freminetDive.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+    freminetDive.observe(f,s,stageProps,n,q,s.story.quests[q.id],mode,profile)
    end
    if n.toyDisplay then
-    freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
+    freminetDive.display(f,s,stageProps,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
    if n.stoneCharmQuest or n.iansanQuest or n.springQuest or n.kinichQuest or n.surfQuest
        or n.flagCourse or n.riverCrossing or n.id=='natlan-sunset-rostrum' then
@@ -2667,8 +2672,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        if x>=-25 and x<=985 then
         if option.detourGift then coastDetour.drawGift(markers,x,y,option.id,mode,profile)
         elseif option.scentArt then emilieScent.choice({draws=markers},s,option,mode,profile)
-        elseif option.magicChoice then lyneyMagic.choice(markers,s,option,mode,profile)
-        elseif option.diveChoice then freminetDive.choice(markers,s,option,mode,profile)
+        elseif option.magicChoice then lyneyMagic.choice(stageProps or {draws=markers},s,option,mode,profile)
+        elseif option.diveChoice then freminetDive.choice(stageProps or {draws=markers},s,option,mode,profile)
         else
          markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
          markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}

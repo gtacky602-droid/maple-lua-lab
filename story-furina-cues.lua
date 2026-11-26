@@ -50,11 +50,11 @@ return function(C,canInspect)
   run.next=run.next+1
  end
 
- local function art(draws,s,sprite,placement,height,mode,profile,rise)
+ local function art(layer,s,sprite,placement,height,mode,profile,rise)
   local x=placement.x-s.camera
   local half=height*sprite.box[3]/sprite.box[4]/2
   if x+half>=0 and x-half<=960 then
-   C.drawFieldDisplayArt({draws=draws},sprite,x,placement.y-(rise or 0),height,mode,profile,false)
+   C.drawFieldDisplayArt(layer,sprite,x,placement.y-(rise or 0),height,mode,profile,false)
   end
  end
 
@@ -65,7 +65,8 @@ return function(C,canInspect)
   end
  end
 
- function rehearsal.observe(f,s,draws,q,state,mode,profile)
+ function rehearsal.observe(f,s,layer,q,state,mode,profile)
+  local draws=layer.draws
   if not state then return end
   local spec,run=q.rehearsal,s.furinaRun
   local done=state.count>=2 and not run
@@ -78,12 +79,12 @@ return function(C,canInspect)
     draws[#draws+1]={kind='rect',x=x+28,y=345,w=193,h=69,color='#ffe8ac38'}
    end
   end
-  art(draws,s,C.furinaCueArt.console,spec.console,83,mode,profile)
-  art(draws,s,C.furinaCueArt.lamp,spec.lamp,89,mode,profile)
-  art(draws,s,C.furinaCueArt.curtain,spec.curtain,170,mode,profile,raised*131)
-  art(draws,s,C.colleiGuideArt.guest,spec.crew,91,mode,profile)
+  art(layer,s,C.furinaCueArt.console,spec.console,83,mode,profile)
+  art(layer,s,C.furinaCueArt.lamp,spec.lamp,89,mode,profile)
+  art(layer,s,C.furinaCueArt.curtain,spec.curtain,170,mode,profile,raised*131)
+  art(layer,s,C.colleiGuideArt.guest,spec.crew,91,mode,profile)
   text(draws,s,spec.crew,spec.crew.y-104,'舞台係')
-  if done then art(draws,s,C.stageWaveArt,spec.wave,113,mode,profile) end
+  if done then art(layer,s,C.stageWaveArt,spec.wave,113,mode,profile) end
   if state.count>=3 then text(draws,s,spec.wave,spec.wave.y-127,'拍手は、裏方のみんなへ') end
   f.storyFurinaRehearsal={curtain=raised>0 or (run and run.curtainAt~=nil) or false,
                          light=lit,wave=done,message=s.storyNotice}

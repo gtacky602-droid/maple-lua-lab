@@ -1,0 +1,82 @@
+{
+  "fontaine-rehearsal-room": {
+    "legacy": {
+      "before": 2692193,
+      "after": 599942,
+      "stamps": 5,
+      "batches": 5
+    },
+    "h48c32": {
+      "before": 1786199,
+      "after": 360663,
+      "stamps": 5,
+      "batches": 5
+    },
+    "h32c16": {
+      "before": 606078,
+      "after": 129294,
+      "stamps": 5,
+      "batches": 5
+    }
+  },
+  "fon-photo-terrace": {
+    "legacy": {
+      "before": 950743,
+      "after": 211858,
+      "stamps": 6,
+      "batches": 6
+    },
+    "h48c32": {
+      "before": 699242,
+      "after": 128677,
+      "stamps": 6,
+      "batches": 6
+    },
+    "h32c16": {
+      "before": 273790,
+      "after": 54916,
+      "stamps": 6,
+      "batches": 6
+    }
+  },
+  "fon-magic-seats": {
+    "legacy": {
+      "before": 4695960,
+      "after": 479940,
+      "stamps": 4,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 2489393,
+      "after": 287277,
+      "stamps": 4,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 988302,
+      "after": 100741,
+      "stamps": 4,
+      "batches": 3
+    }
+  },
+  "fon-toy-shallows": {
+    "legacy": {
+      "before": 902149,
+      "after": 136556,
+      "stamps": 5,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 596672,
+      "after": 88263,
+      "stamps": 5,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 219182,
+      "after": 39893,
+      "stamps": 5,
+      "batches": 3
+    }
+  }
+}

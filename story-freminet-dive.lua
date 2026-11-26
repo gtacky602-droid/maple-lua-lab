@@ -102,11 +102,11 @@ return function(C,canInspect)
   return settled
  end
 
- local function art(draws,s,sprite,x,y,height,mode,profile)
+ local function art(layer,s,sprite,x,y,height,mode,profile)
   x=x-s.camera
   local half=height*sprite.box[3]/sprite.box[4]/2
   if x+half>=0 and x-half<=960 then
-   C.drawFieldDisplayArt({draws=draws},sprite,x,y,height,mode,profile,false)
+   C.drawFieldDisplayArt(layer,sprite,x,y,height,mode,profile,false)
   end
  end
 
@@ -133,9 +133,10 @@ return function(C,canInspect)
   end
  end
 
- function dive.choice(draws,s,option,mode,profile)
+ function dive.choice(layer,s,option,mode,profile)
+  local draws=layer.draws
   local sprite=option.id=='coral' and C.freminetDiveArt.coral or C.freminetDiveArt.marker
-  art(draws,s,sprite,option.x,option.y+20,55,mode,profile)
+  art(layer,s,sprite,option.x,option.y+20,55,mode,profile)
   if option.id=='bubbles' then bubbles(draws,s,option.x,option.y-38) end
  end
 
@@ -155,10 +156,11 @@ return function(C,canInspect)
   return false
  end
 
- function dive.display(f,s,draws,place,state,mode,profile)
+ function dive.display(f,s,layer,place,state,mode,profile)
+  local draws=layer.draws
   if not state or place.exhibit and state.status~='complete' then return end
   if state.count==0 or state.status=='complete' then
-   art(draws,s,C.freminetDiveArt.toy,place.x,place.y,72,mode,profile)
+   art(layer,s,C.freminetDiveArt.toy,place.x,place.y,72,mode,profile)
   end
   if state.status=='complete' then
    label(draws,s,place.x,place.y-89,'小さな潜航玩具')
@@ -169,20 +171,21 @@ return function(C,canInspect)
   end
  end
 
- function dive.observe(f,s,draws,node,q,state,mode,profile)
+ function dive.observe(f,s,layer,node,q,state,mode,profile)
+  local draws=layer.draws
   local spec=node.toyDive
   f.platforms=nil
   local guide=spec.shelters[1]
-  art(draws,s,C.freminetDiveArt.buoy,guide.x-24,guide.y+26,51,mode,profile)
+  art(layer,s,C.freminetDiveArt.buoy,guide.x-24,guide.y+26,51,mode,profile)
   label(draws,s,guide.x+8,guide.y-44,'フレミネの合図灯')
   for i=2,#spec.shelters do
    local point=spec.shelters[i]
-   art(draws,s,C.freminetDiveArt.buoy,point.x-53,point.y+14,36,mode,profile)
+   art(layer,s,C.freminetDiveArt.buoy,point.x-53,point.y+14,36,mode,profile)
   end
   bubbles(draws,s,291,241)
   local swimmer=s.actors[1]
   bubbles(draws,s,swimmer.x-swimmer.dir*24,swimmer.y-54)
-  art(draws,s,C.freminetDiveArt.coral,525,396,91,mode,profile)
+  art(layer,s,C.freminetDiveArt.coral,525,396,91,mode,profile)
   local view={message=s.storyNotice or 'WASD・方向キーで泳ぎ、Gで調べます。',pushed=s.toyDive.pushed}
   f.storyToyDive=view
   if not state then return end
@@ -203,12 +206,12 @@ return function(C,canInspect)
   if state.count>=2 then
    local tx,ty,settled=toyPosition(s,q,state)
    view.toy={x=tx,y=ty,arrived=settled}
-   if state.count<q.goal then art(draws,s,C.freminetDiveArt.toy,tx,ty+29,76,mode,profile) end
+   if state.count<q.goal then art(layer,s,C.freminetDiveArt.toy,tx,ty+29,76,mode,profile) end
    if settled and state.count<q.goal then label(draws,s,tx,ty-66,'帰り着いた玩具') end
   end
   local marker=state.storyChoice and q.toyRoute.markers[state.storyChoice]
   if marker then
-   art(draws,s,C.freminetDiveArt.marker,marker.x,marker.y+19,68,mode,profile)
+   art(layer,s,C.freminetDiveArt.marker,marker.x,marker.y+19,68,mode,profile)
    view.marker=marker.name
    label(draws,s,marker.x,marker.y-63,marker.name)
   end
