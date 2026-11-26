@@ -34,6 +34,11 @@ for(const [id,level] of [[36674,65],[36684,66],[36680,67],[36677,67],[36681,68],
  assert.equal(nodes.get(room).level,level);
  assert.equal(minimum.get(room),level,room);
 }
+for(const [id,level] of [[50035,82],[50036,83],[50046,83],[50060,83],[50047,82],[50048,83]]){
+ const room='fon-wp-'+id;
+ assert.equal(minimum.get(room),level,room);
+ assert.equal(nodes.get(room).level,level);
+}
 const harborFrame={storyGraph:graph,story:{active:true,node:'sum-wp-28720',quests:{}},progression:{level:60}};
 const nextBank=nodes.get('sum-wp-28721');
 const bankRoute=questRoute(harborFrame,{kind:'visit',target:nextBank.id},'active');
