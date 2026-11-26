@@ -22,7 +22,7 @@
     },
     {
       "node": "andrius-wolf-ring",
-      "sharedNodes": ["mond-wp-23", "mond-wp-25", "mond-wp-26"],
+      "sharedNodes": [],
       "key": "andriusWeekly",
       "note": "奔狼領の試練場",
       "surface": "stone",

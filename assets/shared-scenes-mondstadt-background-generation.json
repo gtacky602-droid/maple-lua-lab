@@ -58,8 +58,7 @@
       "node": "mond-roadside-rest",
       "sharedNodes": [
         "mond-wp-13",
-        "mond-wp-14",
-        "mond-wp-19"
+        "mond-wp-14"
       ],
       "source": "mond-roadside-rest-background-v1.png",
       "preview": "mond-roadside-rest-native-preview-v1.png"
@@ -84,7 +83,9 @@
     {
       "key": "goldenDock",
       "node": "golden-mainland-coast",
-      "sharedNodes": [],
+      "sharedNodes": [
+        "mond-wp-15"
+      ],
       "source": "golden-dock-background-v1.png",
       "preview": "golden-dock-native-preview-v1.png"
     }

@@ -3,7 +3,7 @@
   "scenes": [
     {
       "node": "electro-field-shelf",
-      "sharedNodes": ["mond-wp-24"],
+      "sharedNodes": [],
       "key": "electroField",
       "note": "モンド・雷紋の岩棚",
       "source": "electro-hypostasis-field-background-v1.png",

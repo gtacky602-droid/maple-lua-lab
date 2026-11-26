@@ -7,7 +7,10 @@
       "source": "mond-cecilia-garden-background-v1.png",
       "preview": "mond-cecilia-garden-native-preview-v1.png",
       "note": "セシリアの苗床・花の石段",
-      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. Cecilia Garden in Mondstadt: a pale ruined Gothic lintel, grasses and a few large ivory lily clusters, distant wooded hills with a quiet blue lake. A weathered stair meanders through the middle distance. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures."
+      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. Cecilia Garden in Mondstadt: a pale ruined Gothic lintel, grasses and a few large ivory lily clusters, distant wooded hills with a quiet blue lake. A weathered stair meanders through the middle distance. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures.",
+      "sharedNodes": [
+        "mond-wp-21"
+      ]
     },
     {
       "node": "sites-hunt-7092-pocket-1",
@@ -23,7 +26,12 @@
       "source": "mond-broken-spire-background-v1.png",
       "preview": "mond-broken-spire-native-preview-v1.png",
       "note": "風龍廃墟・中央塔の回廊",
-      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. Stormterror’s Lair, central tower exterior. An enormous broken pale cylindrical Gothic tower centered in far distance; layered rings of ruined viaducts, slate cliffs, moss. Long narrow cool light cuts across the overcast sky. Distinct stacked architectural silhouettes. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures."
+      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. Stormterror’s Lair, central tower exterior. An enormous broken pale cylindrical Gothic tower centered in far distance; layered rings of ruined viaducts, slate cliffs, moss. Long narrow cool light cuts across the overcast sky. Distinct stacked architectural silhouettes. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures.",
+      "sharedNodes": [
+        "mond-wp-24",
+        "mond-wp-25",
+        "mond-wp-26"
+      ]
     },
     {
       "node": "sites-hunt-7111-pocket-1",
@@ -39,7 +47,11 @@
       "source": "mond-quiet-lookout-background-v1.png",
       "preview": "mond-quiet-lookout-native-preview-v1.png",
       "note": "廃塔・風待ちの見晴らし台",
-      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. A secret quiet grassy lookout above the tower ruins looking across broken arches into a broad blue sky. A little abandoned dark satchel rests on a distant stone bench near amber shrubs. Airy quiet, pale green meadow. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures."
+      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. A secret quiet grassy lookout above the tower ruins looking across broken arches into a broad blue sky. A little abandoned dark satchel rests on a distant stone bench near amber shrubs. Airy quiet, pale green meadow. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures.",
+      "sharedNodes": [
+        "mond-wp-23",
+        "mond-wp-27"
+      ]
     },
     {
       "node": "sites-hunt-7137",
@@ -47,7 +59,10 @@
       "source": "mond-memory-valley-background-v1.png",
       "preview": "mond-memory-valley-native-preview-v1.png",
       "note": "銘記の谷・谷の小径",
-      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. Valley of Remembrance south of Mondstadt: a green and ochre ravine in autumn, limestone pillars, an ancient sealed arch far behind a broad red-orange tree; loose leaves arranged in a few connected silhouettes. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures."
+      "prompt": "One original wide 16:9 environment backdrop for a Genshin-inspired Maple-like side-scrolling pixel RPG. Valley of Remembrance south of Mondstadt: a green and ochre ravine in autumn, limestone pillars, an ancient sealed arch far behind a broad red-orange tree; loose leaves arranged in a few connected silhouettes. Crisp deliberate pixel art, flat side-view composition, large connected color clusters and stepped edges, no dithering or noise, about four to five colors per material so the image keeps its contours at 512x288. Quiet and unobstructed lower third for game actors and separately drawn platforms. No text, UI, gameplay platforms, people or creatures.",
+      "sharedNodes": [
+        "mond-wp-19"
+      ]
     },
     {
       "node": "sites-hunt-7137-pocket-1",

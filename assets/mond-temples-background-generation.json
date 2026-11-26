@@ -31,7 +31,10 @@
       "note": "南風の獅子・石門の谷",
       "source": "mond-lion-temple-background-v1.png",
       "preview": "mond-lion-temple-native-preview-v1.png",
-      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Temple of the Lion approach: two sturdy weathered limestone pillars flanking the distant domain entrance, one eroded lion head carved in profile on a buttress. Warm ochre cliffs, summer grass in the canyon, strong afternoon shadow. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Temple of the Lion approach: two sturdy weathered limestone pillars flanking the distant domain entrance, one eroded lion head carved in profile on a buttress. Warm ochre cliffs, summer grass in the canyon, strong afternoon shadow. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering.",
+      "sharedNodes": [
+        "mond-wp-18"
+      ]
     },
     {
       "node": "sites-hunt-7201",
@@ -63,7 +66,12 @@
       "note": "鷹の門・海風の岬",
       "source": "mond-eagle-cape-background-v1.png",
       "preview": "mond-eagle-cape-native-preview-v1.png",
-      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Eagle’s Gate near Cape Oath: a windswept promontory with tiny distant stone spires, vast ocean and distant sea stacks, a single broken stone eagle relief under a bent pine on a high bluff, copper light along the horizon. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering."
+      "prompt": "Original 16:9 horizontal environment backdrop for a Maple-like side-scrolling pixel RPG inspired by Genshin Impact. Eagle’s Gate near Cape Oath: a windswept promontory with tiny distant stone spires, vast ocean and distant sea stacks, a single broken stone eagle relief under a bent pine on a high bluff, copper light along the horizon. Drawn pixel art, bold stepped silhouettes, 4–5 clearly grouped values per material, broad connected shapes, readable at 512×288. Quiet lower third for the separately drawn playable floor and actors. No gameplay platforms, no characters, no monsters, no lettering, no grain or dithering.",
+      "sharedNodes": [
+        "mond-wp-9",
+        "mond-wp-10",
+        "mond-wp-17"
+      ]
     },
     {
       "node": "sites-hunt-7210-pocket-1",

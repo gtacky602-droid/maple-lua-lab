@@ -8113,14 +8113,14 @@
       "name": "モンド・海食崖の南棚",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "mondEagleCape"
     },
     {
       "id": "mond-wp-10",
       "name": "モンド・北東の崖先",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "mondEagleCape"
     },
     {
       "id": "mond-wp-12",
@@ -8148,28 +8148,28 @@
       "name": "モンド・東の浜道",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "goldenDock"
     },
     {
       "id": "mond-wp-17",
       "name": "モンド・東南の岬",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "mondEagleCape"
     },
     {
       "id": "mond-wp-18",
       "name": "モンド・東南の谷口",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "mondhill"
+      "scenery": "mondLionTemple"
     },
     {
       "id": "mond-wp-19",
       "name": "モンド・西の並木と神像",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "mondrest"
+      "scenery": "mondMemoryValley"
     },
     {
       "id": "mond-wp-20",
@@ -8183,7 +8183,7 @@
       "name": "モンド・湖西の石段",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "mondhill"
+      "scenery": "mondCeciliaGarden"
     },
     {
       "id": "mond-wp-22",
@@ -8197,35 +8197,35 @@
       "name": "モンド・西の遺跡の東稜",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "andriusWeekly"
+      "scenery": "mondQuietLookout"
     },
     {
       "id": "mond-wp-24",
       "name": "モンド・西の遺跡の上段回廊",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "electroField"
+      "scenery": "mondBrokenSpire"
     },
     {
       "id": "mond-wp-25",
       "name": "モンド・西の遺跡と神像",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "andriusWeekly"
+      "scenery": "mondBrokenSpire"
     },
     {
       "id": "mond-wp-26",
       "name": "モンド・遺跡の西壁沿い",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "andriusWeekly"
+      "scenery": "mondBrokenSpire"
     },
     {
       "id": "mond-wp-27",
       "name": "モンド・遺跡の北縁",
       "region": "モンド",
       "status": "regional_temporary_image",
-      "scenery": "mondhill"
+      "scenery": "mondQuietLookout"
     },
     {
       "id": "mond-wp-28",

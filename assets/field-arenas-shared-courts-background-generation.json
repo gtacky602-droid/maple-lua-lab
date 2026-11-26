@@ -13,7 +13,7 @@
     },
     {
       "node": "anemo-field-basin",
-      "sharedNodes": ["mond-hill", "mond-watchtower", "mond-wp-7", "mond-wp-18", "mond-wp-21", "mond-wp-27", "mond-wp-28", "sites-lookout-85351", "sites-corridor-mond-forest"],
+      "sharedNodes": ["mond-hill", "mond-watchtower", "mond-wp-7", "mond-wp-28", "sites-lookout-85351", "sites-corridor-mond-forest"],
       "key": "mondhill",
       "note": "モンド・風鳴りの広場",
       "source": "mond-hill-background-v1.png",

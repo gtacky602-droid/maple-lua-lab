@@ -1,0 +1,107 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "mond-wp-15",
+      "key": "goldenDock",
+      "file": "golden-dock-background-v1.png",
+      "bundle": "shared-scenes-mondstadt-native-backgrounds.lua",
+      "packedBytes": 29798
+    },
+    {
+      "id": "mond-wp-9",
+      "key": "mondEagleCape",
+      "file": "mond-eagle-cape-background-v1.png",
+      "bundle": "mond-temples-native-backgrounds.lua",
+      "packedBytes": 29796
+    },
+    {
+      "id": "mond-wp-10",
+      "key": "mondEagleCape",
+      "file": "mond-eagle-cape-background-v1.png",
+      "bundle": "mond-temples-native-backgrounds.lua",
+      "packedBytes": 29796
+    },
+    {
+      "id": "mond-wp-17",
+      "key": "mondEagleCape",
+      "file": "mond-eagle-cape-background-v1.png",
+      "bundle": "mond-temples-native-backgrounds.lua",
+      "packedBytes": 29796
+    },
+    {
+      "id": "mond-wp-23",
+      "key": "mondQuietLookout",
+      "file": "mond-quiet-lookout-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 29770
+    },
+    {
+      "id": "mond-wp-27",
+      "key": "mondQuietLookout",
+      "file": "mond-quiet-lookout-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 29770
+    },
+    {
+      "id": "mond-wp-24",
+      "key": "mondBrokenSpire",
+      "file": "mond-broken-spire-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 28012
+    },
+    {
+      "id": "mond-wp-25",
+      "key": "mondBrokenSpire",
+      "file": "mond-broken-spire-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 28012
+    },
+    {
+      "id": "mond-wp-26",
+      "key": "mondBrokenSpire",
+      "file": "mond-broken-spire-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 28012
+    },
+    {
+      "id": "mond-wp-21",
+      "key": "mondCeciliaGarden",
+      "file": "mond-cecilia-garden-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 30456
+    },
+    {
+      "id": "mond-wp-19",
+      "key": "mondMemoryValley",
+      "file": "mond-memory-valley-background-v1.png",
+      "bundle": "mond-ruins-native-backgrounds.lua",
+      "packedBytes": 30840
+    },
+    {
+      "id": "mond-wp-18",
+      "key": "mondLionTemple",
+      "file": "mond-lion-temple-background-v1.png",
+      "bundle": "mond-temples-native-backgrounds.lua",
+      "packedBytes": 30624
+    },
+    {
+      "id": "mond-town",
+      "key": "mondstadt",
+      "file": "mondstadt-background.png",
+      "bundle": "shared-scenes-mondstadt-native-backgrounds.lua",
+      "packedBytes": 30288
+    },
+    {
+      "id": "inazuma-shiomi-cape",
+      "key": "shiomicape",
+      "file": "inazuma-shiomi-cape-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 28100
+    }
+  ]
+}
