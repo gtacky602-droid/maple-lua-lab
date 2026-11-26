@@ -47,7 +47,25 @@ console.log('Fields above listed level on every ordinary path:',graph.nodes.filt
 const innerRooms=graph.nodes.filter(n=>n.weeklySceneOf);
 for(const room of innerRooms)assert(reachable.has(room.weeklySceneOf));
 for(const room of graph.nodes)assert(reachable.has(room.id)||innerRooms.includes(room),room.id);
-let steps=0;
+// Check whether an intermediate field alone forces extra leveling. Quest-state gates
+// are tested in Lua. A previously visited shortcut cannot establish a first route.
+const levelRoutes=new Map();
+function approachLevels(hub){
+ if(levelRoutes.has(hub))return levelRoutes.get(hub);
+ const levels=new Map([[hub,nodes.get(hub).level]]),frontier=[hub];
+ for(const id of frontier){
+  const room=nodes.get(id);
+  const exits=room.exits.filter(edge=>!edge.visitedOnly&&!edge.returnOnly).map(edge=>edge.to);
+  if(room.voyage)exits.push(room.voyage.destination);
+  for(const next of exits){
+   const needed=Math.max(levels.get(id),nodes.get(next).level||1);
+   if(needed<(levels.get(next)??Infinity)){levels.set(next,needed);frontier.push(next)}
+  }
+ }
+ levelRoutes.set(hub,levels);
+ return levels;
+}
+let steps=0, specifiedArrivals=0;
 for(const q of graph.quests){
  assert(nodes.has(q.hub),q.id+' hub');
  assert(nodes.has(questTargetNode(q,graph)),q.id+' target');
@@ -70,7 +88,18 @@ for(const q of graph.quests){
  for(const s of [...q.itinerary??[],...q.paths?.flatMap(path=>path.steps)??[]]){
   if(s.kind==='paths')continue;
   steps++;
-  for(const place of [s.node,s.from,...(s.alternatives??[]).map(a=>a.node)].filter(Boolean))assert(nodes.has(place),q.id+' '+place);
+  if(s.kind==='arrive'&&s.from){
+   const origin=nodes.get(s.from);
+   assert(origin?.exits.some(edge=>edge.to===s.node)||origin?.voyage?.destination===s.node,
+    q.id+' missing arrival '+s.from+' -> '+s.node);
+   specifiedArrivals++;
+  }
+  for(const place of [s.node,s.from,...(s.alternatives??[]).map(a=>a.node)].filter(Boolean)){
+   assert(nodes.has(place),q.id+' '+place);
+   const expected=Math.max(q.level??1,nodes.get(q.hub).level,nodes.get(place).level);
+   const needed=approachLevels(q.hub).get(place)??Infinity;
+   assert(needed<=expected,q.id+' via '+place+' needs '+needed+', expected '+expected);
+  }
  }
 }
 for(const room of innerRooms){
@@ -89,4 +118,4 @@ for(const room of innerRooms){
  assert(!questDestinations(frame,q,'active').candidates.includes(room.id));
  console.log(q.name,room.name,tracked.pointUrl);
 }
-console.log({nodes:nodes.size,ordinaryReachable:reachable.size,innerRooms:innerRooms.length,quests:graph.quests.length,steps});
+console.log({nodes:nodes.size,ordinaryReachable:reachable.size,innerRooms:innerRooms.length,quests:graph.quests.length,steps,specifiedArrivals});

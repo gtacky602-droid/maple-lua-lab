@@ -1,0 +1,35 @@
+{
+  "quest": "nod-north-landmark-round",
+  "level": 133,
+  "outwardRoutes": {
+    "coast": [
+      "nod-wp-92868",
+      "nod-wp-92874",
+      "nod-wp-92875",
+      "nod-pyramid-seaward-steps"
+    ],
+    "peninsula": [
+      "nod-wp-92868",
+      "nod-wp-92870",
+      "nod-wp-92871",
+      "nod-wp-92873",
+      "nod-wp-92877",
+      "nod-wp-92879",
+      "nod-wind-fort-peninsula"
+    ],
+    "ridge": [
+      "nod-wp-92868",
+      "nod-wp-92870",
+      "nod-wp-92871",
+      "nod-wp-92873",
+      "nod-wp-92877",
+      "nod-wp-92883",
+      "nod-wp-92885",
+      "nod-wp-92866",
+      "nod-wp-92888",
+      "nod-wp-92889",
+      "nod-aamsvaltnir-east-ridge"
+    ]
+  },
+  "reportedAndRestored": true
+}
