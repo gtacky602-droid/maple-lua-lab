@@ -7,7 +7,7 @@ import {lanternPreview} from './lantern-preview.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
-import {setupGatePreview} from './map-gate-preview.js';
+import {arrivalCamera,setupGatePreview} from './map-gate-preview.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
@@ -468,7 +468,7 @@ try{
    const link=passage.querySelector('a'),destination=nodes.get(gate.to);
    const params=new URLSearchParams(otherView);
    params.set('node',gate.to);params.set('placements','live');params.delete('phase');params.delete('light');
-   if(Number.isFinite(gate.arrivalX))params.set('camera',Math.max(0,Math.round(gate.arrivalX-480)));
+   params.set('camera',arrivalCamera(n.id,gate,destination));
    if(gate.nightTotem==='enter')params.set('arena','nightTrial');
    link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
    link.href='map-art.html?'+params;

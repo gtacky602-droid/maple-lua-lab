@@ -1,12 +1,25 @@
+// Match story.lua's traveler arrival and 960px camera for a physical gate.
+export function arrivalCamera(from,gate,destination){
+ let x=gate.arrivalX;
+ if(x==null){
+  const back=destination.exits.findLast(edge=>edge.to===from&&!edge.returnOnly);
+  const ride=gate.liftSeconds||gate.boatSeconds||gate.waterwaySeconds||gate.phaseSeconds;
+  x=back&&back.x>=720?destination.width-160:160;
+  if(ride&&back)x=back.x;
+ }
+ return Math.max(0,Math.min(Math.round(x-400),destination.width-960));
+}
+
 // Match physical coordinates because discovery can hide individual exits from Lua's M-map.
 export function setupGatePreview(panel, camera, liveView, query, render, showDarkRoom) {
  const select=panel.querySelector('select'),link=panel.querySelector('a'),position=panel.querySelector('output');
- let active=null;
+ let active=null,arrival=0;
  function selectGate(node,nodes){
   const index=Number(select.value);
   active=index>0?node.exits[index-1]:null;
   link.hidden=position.hidden=!active;
   if(active){
+   arrival=arrivalCamera(node.id,active,nodes.get(active.to));
    const y=active.y??480;
    camera.value=Math.max(0,Math.min(Number(camera.max),active.x-480));
    position.textContent=(node.swim||node.toyDive?'水中':y<480?'上段':y>480?'下段':'地上')+'（'+active.x+', '+y+'）';
@@ -42,7 +55,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
    if(!active)return;
    const target=new URLSearchParams(params);
    target.set('placements','live');target.set('node',active.to);target.delete('phase');target.delete('light');
-   if(Number.isFinite(active.arrivalX))target.set('camera',Math.max(0,Math.round(active.arrivalX-480)));
+   target.set('camera',arrival);
    link.href='map-art.html?'+target;
   },
   draw(ctx,offset,dark){

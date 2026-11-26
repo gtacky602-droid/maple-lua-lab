@@ -110,7 +110,16 @@ try{
  assert.equal(await viewer.locator('#profile').inputValue(),'h48c32');
  assert.equal(await viewer.locator('#decodedBackground').isChecked(),false);
  assert.equal(await viewer.locator('#backgroundTier').inputValue(),'4096');
- assert.equal(await viewer.evaluate(()=>window.mapArt.camera),Math.min(nodes.get(edge.to).width-960,edge.arrivalX-480));
+ assert.equal(await viewer.evaluate(()=>window.mapArt.camera),Math.min(nodes.get(edge.to).width-960,edge.arrivalX-400));
+ // Traveler camera positions observed after crossing these exits in Lua.
+ for(const [from,to,camera] of [['mond-town','mond-road',0],['mond-road','mond-town',480],['liyue-cliff-planks','liyue-river-trail',720]]){
+  const gate=nodes.get(from).exits.find(e=>e.to===to);
+  const query=new URLSearchParams({node:from,placements:'live',to,gateX:gate.x,gateY:gate.y??480});
+  await viewer.goto(base+'map-art.html?'+query);
+  await viewer.locator('#gatePreview a').click();
+  await viewer.waitForFunction(id=>window.mapArt?.ready&&window.mapArt.node===id,to);
+  assert.equal(await viewer.evaluate(()=>window.mapArt.camera),camera,from+' → '+to);
+ }
  const sheet=await viewer.evaluate(async rows=>{
   const c=document.createElement('canvas');c.width=1260;c.height=36+rows.length*260;
   const ctx=c.getContext('2d');ctx.fillStyle='#18272d';ctx.fillRect(0,0,c.width,c.height);
