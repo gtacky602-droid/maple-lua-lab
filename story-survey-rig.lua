@@ -10,8 +10,8 @@ return function(C,canInspect)
   draws[#draws+1]={kind='text',x=x,y=y,text=text,size=14,color=color or cream}
  end
 
- local function art(draws,key,x,y,h,mode,profile)
-  C.drawFieldDisplayArt({draws=draws},C.surveyEquipment[key],x,y,h,mode,profile,false)
+ local function art(layer,key,x,y,h,mode,profile)
+  C.drawFieldDisplayArt(layer,C.surveyEquipment[key],x,y,h,mode,profile,false)
  end
 
  local function fits(config,choice)
@@ -33,15 +33,16 @@ return function(C,canInspect)
   return false
  end
 
- local function rig(draws,x,y,choice,mode,profile)
+ local function rig(layer,x,y,choice,mode,profile)
+  local draws=layer.draws
   local offset=choice.offset
   local base=y-offset
   rect(draws,x-16,y-4,32,4,'#485972')
   rect(draws,x-12,base,4,offset,'#4b5a6a')
   rect(draws,x+8,base,4,offset,'#576578')
   rect(draws,x-17,base,34,5,'#a27956')
-  if choice.brace then art(draws,'clamp',x+24,y,22,mode,profile) end
-  art(draws,'lens',x,base,42,mode,profile)
+  if choice.brace then art(layer,'clamp',x+24,y,22,mode,profile) end
+  art(layer,'lens',x,base,42,mode,profile)
  end
 
  local function meter(value)
@@ -75,26 +76,28 @@ return function(C,canInspect)
   return false
  end
 
- local function drawSample(draws,x,y,step,sample,measured,mode,profile)
+ local function drawSample(layer,x,y,step,sample,measured,mode,profile)
+  local draws=layer.draws
   if step.name=='屋根下' then
    rect(draws,x-73,y-99,149,9,'#555b6e')
    rect(draws,x-73,y-101,149,3,'#dae7f2')
    rect(draws,x-62,y-90,5,90,'#806b6a')
    rect(draws,x+62,y-90,5,90,'#77636a')
   end
-  rig(draws,x,y,{offset=16},mode,profile)
+  rig(layer,x,y,{offset=16},mode,profile)
   label(draws,x,y-(step.name=='屋根下' and 116 or 84),step.name)
   if measured then label(draws,x,y+26,rating(sample),'#eff9ff') end
  end
 
- function survey.observe(s,f,draws,scene,q,state,mode,profile)
+ function survey.observe(s,f,layer,scene,q,state,mode,profile)
+  local draws=layer.draws
   local a=s.actors[s.active]
   local count=state and state.count or 0
   local message
   if scene.scout and count>=scene.scout.after and s.companion~='mitya' then
    local scout=scene.scout
    if scout.x-s.camera>=-80 and scout.x-s.camera<=1040 then
-    C.drawCompanionArt({draws=draws},s,{x=scout.x,y=scout.y,dir=-1},mode,profile,'mitya')
+    C.drawCompanionArt(layer,s,{x=scout.x,y=scout.y,dir=-1},mode,profile,'mitya')
     label(draws,scout.x-s.camera,scout.y-103,'ミティヤ')
    end
   end
@@ -106,7 +109,7 @@ return function(C,canInspect)
     if x>=-125 and x<=1085 then
      local sample=step.surveySample
      if sample then
-      drawSample(draws,x,y,step,sample,count>=i,mode,profile)
+      drawSample(layer,x,y,step,sample,count>=i,mode,profile)
       if near and count>=i then message=step.name..' ｜ '..sample.reading end
      elseif step.surveyPad then
       rect(draws,x-37,y-7,74,7,'#6f8194')
@@ -116,7 +119,7 @@ return function(C,canInspect)
       local conf=step.surveyRig
       local fixed=count>=i
       local choice=conf.options[fixed and #conf.options or state.surveySupport or 1]
-      rig(draws,x,y,choice,mode,profile)
+      rig(layer,x,y,choice,mode,profile)
       label(draws,x,y-94,fixed and '観測器・固定済み' or '段差の観測器')
       if fixed and near and count>=q.goal and not s.paused then
        f.storyNearbyMilestone={label='固定した観測器の記録を読む'}
@@ -127,7 +130,7 @@ return function(C,canInspect)
       rect(draws,x-39,y-18,78,7,'#7d6977')
       rect(draws,x-35,y-11,7,11,'#574555')
       rect(draws,x+28,y-11,7,11,'#574555')
-      art(draws,'blanket',x+2,y-18,24,mode,profile)
+      art(layer,'blanket',x+2,y-18,24,mode,profile)
       label(draws,x,y-63,'毛布の腰掛け')
      end
     end

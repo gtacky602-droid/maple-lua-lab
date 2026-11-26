@@ -2526,7 +2526,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
     if n.survey then
      local q=quests[n.survey.quest]
-     survey.observe(s,f,markers,n.survey,q,s.story.quests[q.id],mode,profile)
+     local layer=markerLayer(s,f,markers,mode)
+     survey.observe(s,f,layer,n.survey,q,s.story.quests[q.id],mode,profile)
+     if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
     end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
@@ -2659,7 +2661,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then
     local guide=recoveryQuest.recovery.guide
     if math.abs(guide.x-s.camera-480)<540 then
-     C.drawCompanionArt({draws=markers},s,{x=guide.x,y=guide.y,dir=-1},mode,profile,guide.id)
+     local layer=markerLayer(s,f,markers,mode)
+     C.drawCompanionArt(layer,s,{x=guide.x,y=guide.y,dir=-1},mode,profile,guide.id)
+     if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
      markers[#markers+1]={kind='text',x=guide.x-s.camera,y=guide.y-94,size=15,color='#ffe7a2',text=guide.name}
     end
    end

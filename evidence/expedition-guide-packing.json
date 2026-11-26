@@ -1,0 +1,82 @@
+{
+  "liyue-crux-wharf": {
+    "legacy": {
+      "before": 654801,
+      "after": 145587,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h48c32": {
+      "before": 470738,
+      "after": 85621,
+      "stamps": 4,
+      "batches": 4
+    },
+    "h32c16": {
+      "before": 162891,
+      "after": 36319,
+      "stamps": 4,
+      "batches": 4
+    }
+  },
+  "sne-survey-shed": {
+    "legacy": {
+      "before": 474095,
+      "after": 106702,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 346318,
+      "after": 64247,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 122031,
+      "after": 28509,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "sne-survey-yard": {
+    "legacy": {
+      "before": 455756,
+      "after": 94435,
+      "stamps": 4,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 348983,
+      "after": 57354,
+      "stamps": 4,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 118612,
+      "after": 25702,
+      "stamps": 4,
+      "batches": 3
+    }
+  },
+  "sne-survey-ridge": {
+    "legacy": {
+      "before": 672623,
+      "after": 143181,
+      "stamps": 7,
+      "batches": 6
+    },
+    "h48c32": {
+      "before": 504877,
+      "after": 86574,
+      "stamps": 7,
+      "batches": 6
+    },
+    "h32c16": {
+      "before": 177551,
+      "after": 39076,
+      "stamps": 7,
+      "batches": 6
+    }
+  }
+}
