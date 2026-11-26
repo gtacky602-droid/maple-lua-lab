@@ -192,7 +192,13 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
             for card in stygian_timing['entries'] if card['boss']==scripted_match
         }
     story_data['bossNodes'].update({spec['challenge']:spec['node'] for spec in stygian.values()})
-    graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
+    # Compile the current design so a changed map is playable before the export is rebuilt.
+    from tools.build_platform_templates import build as build_platform_templates
+    packed_platforms, _, _ = build_platform_templates(story_data['nodes'])
+    resolved = resolve_story_exp(story_data)
+    nodes = [{k: v for k, v in node.items() if k != 'platforms'} for node in resolved['nodes']]
+    graph = lua.table_from(dict(resolved, nodes=nodes), recursive=True)
+    graph.readPlatforms = lua.execute(packed_platforms)
     cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
     roof=lua.execute((ROOT/'story-roof.lua').read_text(encoding='utf8'))(core)
     reflection=lua.execute((ROOT/'story-reflection.lua').read_text(encoding='utf8'))(core)

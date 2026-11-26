@@ -9,6 +9,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
+ do
+  local lastPlatformNode,lastPlatformRows
+  function data.basePlatforms(node)
+   if node.platforms then return node.platforms end
+   if lastPlatformNode~=node then
+    lastPlatformRows=assert(data.readPlatforms(node.id),'Missing platforms: '..node.id)
+    lastPlatformNode=node
+   end
+   return lastPlatformRows
+  end
+ end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
  local graphNodes,graphEdges,graphQuests,phaseNodes={},{},{},{}
  local growthQuests,growthEvidence={},{}
@@ -1163,7 +1174,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local fresh=C.new(math.max(12,math.ceil(#placements/3)))
    for i,placement in ipairs(placements) do
     if placementActive(placement,phase,recovered,defeated) then
-     local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
+     local e=fresh.enemies[i];local p=assert(data.basePlatforms(n)[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
      e.dailyElite=placement.dailyElite;e.expRole=placement.expRole
@@ -1237,7 +1248,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.resonanceOrder,s.resonancePage=nil,nil
   paper.reset(s)
   s.storyMoonDeck=nil
-  s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
+  s.platforms={};for _,p in ipairs(data.basePlatforms(n)) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
    if state then
@@ -1391,7 +1402,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.story.node=id;s.story.visited[id]=true;s.campaign.zone='story:'..id
   s.storyEnteredAt=s.t;s.worldwidth=n.width;s.camera=0
   s.platforms={};s.solids={}
-  for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
+  for _,p in ipairs(data.basePlatforms(n)) do s.platforms[#s.platforms+1]=copy(p) end
   C.clearWeeklySceneCasts(s)
   for i,a in ipairs(s.actors) do
    if a.hp>0 then
