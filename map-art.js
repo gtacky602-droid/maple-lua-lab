@@ -260,13 +260,11 @@ try{
    if(!quests.has(quest))quests.set(quest,[]);
    quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node)});
   }
-  const steps=quest.roof?[...quest.roof.marks.map(mark=>({node:quest.target,objective:mark.label})),
-   {node:quest.roof.lookout,objective:quest.roof.finish.label}]:quest.itinerary??[];
-  if(quest.cave){
-   const point=surveyPoint(quest,3,quest.cave.depth);
-   if(!stepsByNode.has(point.node))stepsByNode.set(point.node,new Map());
-   stepsByNode.get(point.node).set(quest,[{number:point.step,objective:point.action,point}]);
-  }
+  let steps=quest.itinerary??[];
+  if(quest.roof)steps=[...quest.roof.marks.map(mark=>({node:quest.target,objective:mark.label})),
+   {node:quest.roof.lookout,objective:quest.roof.finish.label}];
+  if(quest.cave)steps=[quest.target,quest.target,quest.target,quest.cave.depth].map((node,index)=>
+   ({node,objective:surveyPoint(quest,index,node).action}));
   for(const route of [{steps},...quest.paths??[]]){
    for(const [index,step] of route.steps.entries()){
     for(const nodeId of new Set([step.node,...(step.alternatives??[]).map(p=>p.node)])){
@@ -731,8 +729,9 @@ try{
   const groupOpening=members?.length>1;
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
   $('fidelityControls').hidden=!(liveView && (measureGate || surveyProps.length || visibleItems.length) && !matchedSprites);
-  const measuredSubject=measureGate?.rubbleOnClosed?'遺跡の通路':measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
-  $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
+  const propName=surveyProps.length===1?surveyProps[0].name:null;
+  const measuredSubject=measureGate?.rubbleOnClosed?'遺跡の通路':measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?(propName||'依頼の小物'):fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
+  $('measureSprite').textContent=surveyProps.length?(propName||'小物')+'の形と色を測る':'ドット絵の形と色を測る';
   function paintDuelStage(ctx){
    if(!liveView||subject.value)return;
     for(const mark of stygianScenes[n.id]?.stageMarks??[]){
@@ -742,7 +741,7 @@ try{
   }
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
-   paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),quality,prop.x-camera,prop.y,false,cost);
+   paintPlacementLayer(ctx,art,spriteBounds(art,prop.height??art.profiles.legacy.height),quality,prop.x-camera,prop.y,false,cost);
   }
   function paintFieldPlacement(ctx,e,quality,cost){
     const a=placementArt(e),flip=e.flip&&(a.mirrorSource||!assets[e.species].left),x=e.x-camera,y=e.y-a.hover;

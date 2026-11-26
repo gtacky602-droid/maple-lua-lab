@@ -35,11 +35,27 @@ function choiceFixtures(step){
  return fixtures;
 }
 export function surveyPoint(quest,index,node,room,pathId,choice){
- if(quest?.cave&&index===3&&node===quest.cave.depth){
-  const {x,y,label}=quest.cave.ore;
-  const fixtures=[{x,y,rects:[[-26,-12,52,12,'#526266'],[-18,-28,10,18,'#6cb39d'],
-   [-4,-40,13,30,'#a6e1cd'],[12,-27,13,18,'#73b5af']]}];
-  return {quest:quest.id,node,step:index+1,x,y,name:'強化鉱石',action:label,fixtures};
+ if(quest?.cave&&Number.isInteger(index)&&index>=0&&index<=3){
+  const {depth,guide,chest,brittle,landing,ore}=quest.cave;
+  const lower=index===3;
+  if(node!==(lower?depth:quest.target))return null;
+  const props=[{file:'quest-packed/bennett-cave-guide-sprites-v1.json',name:'ベネット',
+   x:lower?landing.x+42:guide.x,y:lower?landing.y:guide.y}];
+  const common={quest:quest.id,node,step:index+1,props};
+  if(lower){
+   const {x,y,label}=ore;
+   const fixtures=[{x,y,rects:[[-26,-12,52,12,'#526266'],[-18,-28,10,18,'#6cb39d'],
+    [-4,-40,13,30,'#a6e1cd'],[12,-27,13,18,'#73b5af']]}];
+   return {...common,x,y,name:'強化鉱石',action:label,fixtures};
+  }
+  const cracks=[];
+  for(let i=1;i<=4;i++)cracks.push([i*39,3,3,8,'#615e68'],[i*39+3,8,6,2,'#615e68']);
+  const fixtures=[{x:chest.x,y:chest.y,rects:[[-19,-22,38,22,'#764a32'],[-19,-22,38,5,'#ce954f'],
+   [-16,index===2?-37:-28,32,8,'#ae7244'],[-3,-19,6,8,'#ffcd6a']]},{x:brittle.x,y:brittle.y,rects:cracks}];
+  if(index===2)return {...common,x:brittle.x+brittle.w/2,y:brittle.y,name:'ひびの入った足場',
+   action:'宝箱から左へ戻り、ひびの上を歩く',fixtures};
+  const site=index===0?guide:chest;
+  return {...common,x:site.x,y:site.y,name:index===0?'ベネット':'上段の宝箱',action:site.label,fixtures};
  }
  if(quest?.roof&&Number.isInteger(index)&&index>=0){
   const {marks,finish,lookout}=quest.roof;

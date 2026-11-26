@@ -64,6 +64,26 @@ async function interact(label,count){
  await page.waitForFunction(({qid,count})=>window.lab.frame.story.quests[qid]?.count===count,{qid,count});
 }
 
+const preview=await browser.newPage();
+async function trackedPreview(step,node){
+ const link=page.locator('#trackedSurveyPoint');
+ await page.waitForFunction(({step,node})=>{
+  const href=document.querySelector('#trackedSurveyPoint').getAttribute('href');
+  if(!href)return false;
+  const query=new URL(href,location.href).searchParams;
+  return query.get('node')===node&&query.get('step')===String(step);
+ },{step,node});
+ await preview.goto(new URL(await link.getAttribute('href'),page.url()).href);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+}
+async function pixelAt(x,y,rgb){
+ for(const id of ['png','rect']){
+  const pixel=await preview.evaluate(({id,x,y})=>Array.from(document.getElementById(id).getContext('2d')
+   .getImageData(x-mapArt.camera,y,1,1).data).slice(0,3),{id,x,y});
+  assert.deepEqual(pixel,rgb,id+' '+x+','+y);
+ }
+}
+
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');
  await page.waitForFunction(()=>window.lab?.frame);
@@ -84,8 +104,17 @@ try{
  await walk(895,true);
  await through(upper);
  assert.equal((await backdrop()).key,'windsplit');
+ await trackedPreview(1,upper);
+ assert.match(await preview.locator('#surveyPointNote').innerText(),/ベネット.*270, 480/);
+ await preview.locator('#compareSpriteProfiles').click();
+ const counts=await preview.locator('#spriteProfileTable tbody tr').evaluateAll(rows=>rows.map(row=>Number(row.cells[1].textContent.replaceAll(',',''))));
+ assert(counts.length===3&&counts[0]>counts[1]&&counts[1]>counts[2]&&counts[2]>0);
+ console.log('Bennett profile rectangles:',counts);
  await walk(270);
  await interact('ベネットに洞窟の道を聞く',1);
+ await trackedPreview(2,upper);
+ assert.match(await preview.locator('#surveyPointNote').innerText(),/上段の宝箱.*1170, 315/);
+ await pixelAt(1180,288,[174,114,68]);
  assert.ok((await frame()).draws.some(d=>d.source==='bennett-cave-guide-source-v1.png'));
  await walk(405);
  await focus();
@@ -110,6 +139,10 @@ try{
  await jump(315);
  await walk(1170);
  await interact('宝箱を開ける',2);
+ await trackedPreview(3,upper);
+ assert.match(await preview.locator('#surveyPointNote').innerText(),/ひびの入った足場.*780, 315/);
+ await pixelAt(1180,280,[174,114,68]);
+ await pixelAt(710,320,[97,94,104]);
  assert.match((await frame()).storyCave.message,/箱の中は空/);
  await walk(1100);
  const pre=await frame();
@@ -123,16 +156,9 @@ try{
  assert.ok(collapse.platforms.every(p=>p.x!==670));
  await page.waitForFunction(node=>window.lab.frame.story.node===node,depth);
  await page.waitForFunction(node=>document.getElementById('trackedQuestMap').dataset.node===node,depth);
- const point=new URL(await page.locator('#trackedSurveyPoint').getAttribute('href'),page.url());
- assert.equal(point.searchParams.get('node'),depth);
- const preview=await browser.newPage();await preview.goto(point.href);
- await preview.waitForFunction(()=>window.mapArt?.ready);
+ await trackedPreview(4,depth);
  assert.match(await preview.locator('#surveyPointNote').innerText(),/強化鉱石.*480, 480/);
- for(const id of ['png','rect']){
-  const rgb=await preview.evaluate(id=>Array.from(document.getElementById(id).getContext('2d')
-   .getImageData(483-mapArt.camera,444,1,1).data).slice(0,3),id);
-  assert.deepEqual(rgb,[166,225,205]);
- }
+ await pixelAt(483,444,[166,225,205]);
  await preview.close();
  const landed=await frame();
  assert.equal(landed.returns,pre.returns);
