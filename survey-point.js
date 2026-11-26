@@ -197,6 +197,15 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
   action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop}),...(props.length&&{props}),...(fixtures.length&&{fixtures})};
 }
 
+export function exhibitPoint(q,exhibit){
+ const spec=q?.stone??q?.book;
+ if(!spec||!['harbor','market'].includes(exhibit))return null;
+ const place=exhibit==='market'?spec.marketStand:spec.stand;
+ return {quest:q.id,node:q.hub,x:place.x,y:place.y,exhibit,
+  landmark:q.stone?q.stone.model.id:'read-stand',name:q.stone?place.name:'行秋の読書台',
+  action:q.stone?'港に飾った模型を調べる':'「'+spec.title+'」を読む'};
+}
+
 export function cookingStallPoint(q,stall,flavorId){
  if(!q?.cooking||!['harbor','market'].includes(stall))return null;
  const place=stall==='market'?q.cooking.marketStall:q.cooking.stall;
@@ -262,8 +271,9 @@ export function letterPoint(q,stage){
 
 export function surveyPointUrl(point){
  const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest});
- if(point.stall){
-  params.set('stall',point.stall);
+ if(point.stall||point.exhibit){
+  if(point.exhibit)params.set('exhibit',point.exhibit);
+  else params.set('stall',point.stall);
   if(point.flavor)params.set('flavor',point.flavor);
   params.set('compare','background');params.set('tier','4096');
  }else if(point.letter){

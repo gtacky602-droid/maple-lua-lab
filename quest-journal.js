@@ -1,6 +1,6 @@
 import {hasOptionalPath,pendingFieldSites,pendingQuestPaths,questDestinations,questRoute,questTargetNode} from './quest-route.js';
 import {teaNotebook} from './tea-notebook.js';
-import {cookingStallPoint,letterPoint,puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
+import {cookingStallPoint,exhibitPoint,letterPoint,puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
@@ -133,7 +133,12 @@ function arrivalGatePoints(graph,step){
  });
 }
 
-function cookingDestination(q,state,status,quests){
+function harborDestination(q,state,status,quests){
+ const exhibit=q.stone??q.book;
+ if(exhibit&&status==='complete'){
+  const market=exhibit.marketStand;
+  return exhibitPoint(q,quests[market.quest]?.count>=market.count?'market':'harbor');
+ }
  if(!q.cooking||!(status==='complete'||(status==='active'&&state.count===q.goal-1)))return;
  const market=q.cooking.marketStall;
  return cookingStallPoint(q,quests[market.quest]?.count>=market.count?'market':'harbor',state.cooking.flavor);
@@ -143,8 +148,8 @@ export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
  const status=questStatus(q,state,frame.story.quests);
- const stall=cookingDestination(q,state,status,frame.story.quests);
- if(stall&&node===q.hub)return [{text:questObjective(q,frame.storyGraph,state),points:[{label:stall.name,url:surveyPointUrl(stall)}]}];
+ const harbor=harborDestination(q,state,status,frame.story.quests);
+ if(harbor&&node===q.hub)return [{text:questObjective(q,frame.storyGraph,state),points:[{label:harbor.name,url:surveyPointUrl(harbor)}]}];
  const letter=postQuestLetter(q,state);
  if(letter)return letter.node===node?[{text:letter.action,points:[{label:letter.name,url:surveyPointUrl(letter)}]}]:[];
  if(q.roof&&frame.storyRoof?.retry){
@@ -419,10 +424,10 @@ export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
- const stall=cookingDestination(q,st,status,f.story.quests);
- if(stall){
-  const route=questRoute(f,{kind:'visit',target:stall.node},'active');
-  return {...route,node:stall.node,pointUrl:surveyPointUrl(stall),pointLabel:'香菱の屋台を見る',
+ const harbor=harborDestination(q,st,status,f.story.quests);
+ if(harbor){
+  const route=questRoute(f,{kind:'visit',target:harbor.node},'active');
+  return {...route,node:harbor.node,pointUrl:surveyPointUrl(harbor),pointLabel:harbor.name+'を見る',
    text:q.name+' ｜ '+questObjective(q,f.storyGraph,st)+(route.text?' ｜ '+route.text:'')};
  }
  const letter=postQuestLetter(q,st);

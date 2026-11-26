@@ -86,5 +86,39 @@ try{
    state.count++;
   }
  }
+ for(const q of graph.quests.filter(q=>q.book||q.stone)){
+  const spec=q.book??q.stone,market=spec.marketStand;
+  const state={count:q.goal,status:'active',stone:{marked:{}}};
+  const frame={storyGraph:graph,story:{active:true,node:q.hub,quests:{[q.id]:state}},progression:{level:200}};
+  const points=()=>atlasQuestObjectives(frame,q,q.hub).flatMap(o=>o.points);
+  assert(!points().some(p=>p.url.includes('exhibit=')));
+  state.status='complete';
+  for(const opened of [false,true]){
+   frame.story.quests[market.quest]={count:opened?market.count:market.count-1};
+   const place=opened?market:spec.stand;
+   const url=new URL(points()[0].url,process.env.LAB_URL||'http://127.0.0.1:19745/');
+   assert.equal(url.searchParams.get('exhibit'),opened?'market':'harbor');
+   assert.equal(new URL(trackedQuest(frame,q.id).pointUrl,url).href,url.href);
+   await page.goto(url.href);
+   await page.waitForFunction(()=>window.mapArt?.decodedBackgroundRectangles===4096);
+   const runs=art[q.id][q.book?'read-stand':spec.model.id];
+   const note=await page.locator('#surveyPointNote').innerText();
+   assert(note.includes(place.x+', '+place.y)&&note.includes(runs.length+'矩形'));
+   await page.evaluate(({runs,place})=>{
+    const expected=new Map();
+    for(const [dx,dy,w,h,color] of runs)for(let j=dy;j<dy+h;j++)for(let i=dx;i<dx+w;i++){
+     if(Math.abs(i)>12||Math.abs(j)>12)expected.set((place.y+j)*960+place.x-window.mapArt.camera+i,color);
+    }
+    for(const id of ['png','rect']){
+     const pixels=document.getElementById(id).getContext('2d').getImageData(0,0,960,540).data;
+     for(const [offset,color] of expected){
+      const i=offset*4;
+      if(((pixels[i]<<16)+(pixels[i+1]<<8)+pixels[i+2])!==parseInt(color.slice(1),16))throw Error('Exhibit pixel '+offset);
+     }
+    }
+   },{runs,place});
+   console.log(q.id,place.x,place.y,runs.length,'rectangles');
+  }
+ }
  console.log('PASS all nine field sites and both stone quest stages');
 }finally{await browser.close()}
