@@ -1,4 +1,5 @@
 import {setupGalleryUrl} from './gallery-url.js';
+import {characterDetail} from './character-detail.js';
 import {spriteBounds,paintSprite,rectangleCount,openingRects} from './sprite-layers.js';
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
@@ -28,7 +29,8 @@ async function add(id,name,data,h,leftData,rear){
   extra.hidden=true;extra.innerHTML='<small>16色版</small><canvas width="340" height="300"></canvas>';
   article.querySelector('.pair').append(extra);
  }
- $('cards').append(article);assets.push({id,name,right,left,article,h,rear:layer&&{...layer,height:rear.height,bottom:rear.bottom}});
+ const detail=document.body.hasAttribute('data-character-measure')?characterDetail(article):null;
+ $('cards').append(article);assets.push({id,name,right,left,article,h,detail,rear:layer&&{...layer,height:rear.height,bottom:rear.bottom}});
 }
 let layouts={};
 const enemies=document.documentElement.dataset.gallery==='enemies';
@@ -95,7 +97,7 @@ try{
  const updateUrl=setupGalleryUrl({search,render});
  function render(){const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   updateUrl();const dimensions=[];
-  for(const {id,name,right,left,article,h:sheetHeight,rear} of assets){
+  for(const {id,name,right,left,article,h:sheetHeight,rear,detail} of assets){
    const form=id==='shouki'?$('shoukiForm').value:null;
    const arena=form&&form!=='candidate'?shoukiOpening:null;
    const {data,image}=arena??(flip&&left?left:right);
@@ -135,6 +137,7 @@ try{
     }
    }
    const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);
+   detail?.(zoom,flip,both?['32色','16色']:[$('profile').selectedOptions[0].textContent]);
    const runs=total(profile);
    const standard=total('legacy');
    article.querySelector('.stats').textContent=both?`32色版 ${total('h48c32')}矩形 ／ 16色版 ${total('h32c16')}矩形${rear?'（翼込み）':''}`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;

@@ -15,7 +15,7 @@ export function measureSpriteProfiles(paint,profiles,width,height){
  });
 }
 
-function compareMasks(png,rect){
+export function compareMasks(png,rect){
  let union=0,overlap=0,error=0;
  for(let i=0;i<png.length;i+=4){
   const a=png[i+3]>=128,b=rect[i+3]>=128;
