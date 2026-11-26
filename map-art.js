@@ -634,7 +634,7 @@ try{
   const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked,propKey].join('/');
   const currentKey=poseKey+'/'+profile;
   if(fidelityKey!==currentKey){
-   fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
+   $('differenceCrops').hidden=true;fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
   const dailyPreview=liveView && n===openingNode && dailyTargets.size>0;
   const dailyPanel=$('dailyTargetPreview');
@@ -709,6 +709,20 @@ try{
   $('measureSprite').onclick=()=>{
    const result=measureSpriteFidelity(paintMeasuredSprites,profile,960,540);
    fidelity.dataset.result=JSON.stringify(result);
+   const crops=$('differenceCrops');
+   crops.hidden=!Object.keys(result.locations).length;
+   for(const button of crops.querySelectorAll('button')){
+    const location=result.locations[button.dataset.crop];
+    button.disabled=!location;
+    button.onclick=()=>{
+     if(!location)return;
+     $('detailX').value=location.x;
+     $('detailY').value=location.y;
+     $('sceneryDetail').open=true;
+     updateDetail();
+     $('sceneryDetail').scrollIntoView({block:'center'});
+    };
+   }
    fidelity.textContent=result.union?'形の重なり '+result.overlapPercent.toFixed(1)+'% ／ 平均色差 '+
     (result.meanRgbError===null?'対象画素なし':result.meanRgbError.toFixed(2)+' / 255'):'この画角には'+measuredSubject+'が映っていません。';
   };
