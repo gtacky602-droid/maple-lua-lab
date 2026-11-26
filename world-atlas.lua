@@ -432,6 +432,12 @@ return function(C, atlas)
     end
     if leg.edge.x and not leg.automaticArrival then
      leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
+     if leg.from==s.story.node and not s.lift and not s.coop then
+      local dx,dy=C.gateOffset(s.actors[s.active],leg.edge)
+      if dx~=0 then leg.approach=dx<0 and '現在地から左へ' or '現在地から右へ'
+      elseif dy~=0 then leg.approach=dy<0 and '入口は今いる位置の上' or '入口は今いる位置の下'
+      else leg.approach='入口のそばにいます' end
+     end
     end
     leg.level=nodes[leg.id].level
     leg.edge=nil

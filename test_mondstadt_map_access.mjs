@@ -32,6 +32,8 @@ try{
  await page.locator('#atlasField').selectOption(domain);
  await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,domain);
  const stops=page.locator('#atlasItineraryStops button');
+ assert.match(await stops.first().innerText(),/現在地から右へ/);
+ assert.equal(await stops.filter({hasText:'現在地から'}).count(),1);
  await stops.filter({hasText:/石門の岩棚.*必要Lv12/}).waitFor();
  await stops.filter({hasText:/試練の広間.*必要Lv20.*上段の入口/}).scrollIntoViewIfNeeded();
  await atlas.screenshot({path:'evidence/mondstadt-domain-gate-atlas.png'});

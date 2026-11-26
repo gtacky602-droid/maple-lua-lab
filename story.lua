@@ -256,8 +256,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   return gateRestriction(s,edge,true)
  end
+ function C.gateOffset(a,edge)
+  local dx,dy=edge.x-a.x,(edge.y or 480)-a.y
+  return math.abs(dx)<90 and 0 or dx,math.abs(dy)<60 and 0 or dy
+ end
  local function nearGate(a,edge)
-  return math.abs(a.x-edge.x)<90 and math.abs(a.y-(edge.y or 480))<60
+  local dx,dy=C.gateOffset(a,edge)
+  return dx==0 and dy==0
  end
  local function shownNode(s,n)
   return (not n.hiddenGroup or s.story.discovered[n.hiddenGroup])

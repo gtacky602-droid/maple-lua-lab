@@ -67,6 +67,9 @@ def check_locked(walk, target):
     walk.approach(gate['x'], gate.get('y', 480), target)
     portal = core.frame(s).storyNearbyPortal
     assert portal.to == target and not portal.available and portal.level == level
+    nearby = map_to(s, target)
+    assert nearby['stops'][0]['approach'] == '入口のそばにいます'
+    assert nearby['reason'] == f'必要Lv{level}'
     core.action(s, 'story_nearby_portal')
     assert s.story.node == origin and not s.story.visited[target]
 
