@@ -33,6 +33,11 @@ const catalog=require('./content/motion-pose-files.json');
      assert(actual.every(r=>/色[\d.]+%[\d.]+$/.test(r)),file+' '+region);
      assert.equal(await page.locator('.motion-frame[data-band]').count(),region==='all'?0:3);
      if(region==='lower')feet.push(parseFloat(await page.locator('#quality tbody tr:last-child td:nth-child(2)').innerText()));
+     if(side==='left'&&phase===3&&region==='lower'){
+      assert(feet.at(-1)>93);
+      assert.match(await page.locator('figure').filter({has:page.locator('#h32c16')}).locator('figcaption').innerText(),/550矩形/);
+      assert(await page.locator('#footRevision').isVisible());
+     }
      if(side==='right'&&phase===2&&region==='lower')await page.locator('main').screenshot({path:'evidence/traveler-run-foot-comparison.png'});
     }
     if(phase!==4)await page.click('#step');

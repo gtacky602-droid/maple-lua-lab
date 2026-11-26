@@ -17,6 +17,7 @@ try{
   const sample=samples()?.[phase];
   el('jumpNote').hidden=!sample;
   const pose=sample?sample.pose-1:phase;
+  el('footRevision').hidden=motion.value!=='run'||side.value!=='left'||pose!==2;
   const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
   const scale=sample?0.62:1.6;
   const bounds=spriteBounds(art,height*scale,-(sample?.lift??0)*scale);
