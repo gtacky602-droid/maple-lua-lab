@@ -1393,6 +1393,15 @@
         "art": "pyro-slime",
         "x": 640,
         "platform": 2
+      },
+      {
+        "id": "nod-field-oprichniki-fireblade-shock-trooper",
+        "kind": 2,
+        "name": "ファデュイ特務隊・突撃兵・ファイアーブレイド",
+        "art": "oprichniki-fireblade-shock-trooper",
+        "x": 1020,
+        "platform": 3,
+        "expRole": "normal"
       }
     ],
     "nod-tide-scrapyard": [
@@ -1638,6 +1647,15 @@
         "art": "pyro-slime",
         "x": 650,
         "platform": 2
+      },
+      {
+        "id": "enkanomiya-depth-primordial-bathysmal-vishap",
+        "kind": 2,
+        "name": "アビサルヴィシャップ・原種",
+        "art": "primordial-bathysmal-vishap",
+        "x": 1010,
+        "platform": 3,
+        "expRole": "normal"
       }
     ],
     "tunigi-depth": [

@@ -5,7 +5,7 @@ const index=require('./content/field-sprite-index.json');
  const browser=await chromium.launch({channel:'chrome'});
  try{
  const p=await browser.newPage({viewport:{width:1080,height:860}});
- await p.goto('http://127.0.0.1:9118/daily-field-guide.html');
+ await p.goto(new URL('/daily-field-guide.html',process.env.LAB_URL||'http://127.0.0.1:9118').href);
  await p.click('a[href="field-enemy-guide.html"]');
  let bytes=0;
  for(const s of index.species){
@@ -29,12 +29,28 @@ const index=require('./content/field-sprite-index.json');
   for(const [id,n] of s.places)assert(n>0 && index.places[id]);
   bytes+=Buffer.byteLength(JSON.stringify({source:art.source,box:art.box,profiles:Object.fromEntries(['h48c32','h32c16'].map(k=>[k,art.profiles[k]]))}));
  }
+ for(const [art,node,legend] of [
+  ['primordial-bathysmal-vishap','enkanomiya-depth','cineas-legend-chamber'],
+  ['oprichniki-fireblade-shock-trooper','nod-field','nod-raskolnikov-upper-ring']
+ ]){
+  await p.selectOption('#species',art);
+  await p.waitForFunction(id=>document.querySelector('#source').dataset.art===id,art);
+  const map=await browser.newPage();
+  await map.goto(await p.locator('#fieldMap').evaluate(a=>a.href));
+  await map.waitForFunction(id=>window.mapArt?.ready&&document.querySelector('#liveSubject').value===id,node+'-'+art);
+  await map.waitForFunction(()=>window.mapArt.backgroundState==='ready');
+  await map.locator('#rect').screenshot({path:'evidence/'+art+'-ordinary-field.png'});
+  await map.goto(await p.locator('#shared a').evaluate(a=>a.href));
+  await map.waitForFunction(id=>window.mapArt?.ready&&window.mapArt.node===id&&document.querySelector('#sharedLegendArt')?.open,legend);
+  assert((await map.locator('#sharedLegendArt figcaption').first().innerText()).includes('px'));
+  await map.close();
+ }
  await p.selectOption('#species','tainted-water-splitting-phantasm');
  await p.waitForFunction(()=>document.querySelector('#source').dataset.art==='tainted-water-splitting-phantasm');
  assert.match(await p.locator('#shared').innerText(),/ニニアン/);
  await p.screenshot({path:'evidence/field-enemy-guide.png',fullPage:true});
  await p.setViewportSize({width:390,height:844});
  assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
- console.log('52 compressed renders verified; uncompressed entries',bytes,'packed libraries',fs.statSync('assets/daily-guide-sprites.json').size+fs.statSync('assets/field-guide-extra-sprites.json').size);
+ console.log(index.species.length*2,'compressed renders verified; uncompressed entries',bytes,'packed libraries',fs.statSync('assets/daily-guide-sprites.json').size+fs.statSync('assets/field-guide-extra-sprites.json').size);
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -922,8 +922,11 @@ for(const id of ['camera','profile'])$(id).oninput=render;
    fitBackground();
   }
  }
- if(liveView && liveItems.some(e=>e.id===query.get('subject'))){
-  subject.value=query.get('subject');
+ const requestedSpecies=query.get('species');
+ const matchingEnemy=requestedSpecies&&liveItems.find(e=>e.species===requestedSpecies||e.species===requestedSpecies+'-reference');
+ const requestedSubject=query.get('subject')??matchingEnemy?.id;
+ if(liveView && liveItems.some(e=>e.id===requestedSubject)){
+  subject.value=requestedSubject;
   if(!query.has('camera') && !query.has('sampleX') && !query.has('sampleY'))focusSubject();
   else render();
  }

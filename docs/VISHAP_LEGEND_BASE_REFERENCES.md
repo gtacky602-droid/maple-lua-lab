@@ -32,3 +32,5 @@ Chromeで茶棚の脇部屋まで移動し、通常型のPNGがそこで読み�
 Luaで両者の3ポーズの切り替えと、向き・足元・攻撃判定・共有HPを確認した。Chromeで赤璋の丘へ入り、移即と天虞の攻撃をそれぞれ撮影した。 [移即の踏み込み](../evidence/chizhang-ember-strike.png) · [天虞の霜の輪](../evidence/chizhang-frost-strike.png) · [標準と軽量の検証](../evidence/sites-branch-legends-browser.json)
 
 名付き個体の完全な背面、3Dビューアによる回転、モデルとテクスチャのIDは未確認。通常のアビサルヴィシャップは待機比較の段階。
+
+ラボの試作配置では、淵下宮・探索路の右上の足場にLv40のアビサルヴィシャップ・原種が1体いる。通常個体の表示高は118px。配置図鑑から往日の海のシネアスの会場も開ける。 [原種の配置とシネアスの比較](../field-enemy-guide.html?species=primordial-bathysmal-vishap)
