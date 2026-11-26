@@ -16,14 +16,19 @@ try{
   el('place').textContent=q.place+(q.enemy?'　'+q.enemy:'');
   for(const [link,node] of [['hubMap',q.hub],['fieldMap',q.node]])el(link).href='map-art.html?'+new URLSearchParams({node,placements:'live'});
   el('routeStart').textContent=q.hubName+'を出発（Lv'+q.level+'・地域の物語依頼を受ける前の経路）';
-  const steps=routes[[q.hub,q.level,q.node].join('/')];
-  el('routeStops').replaceChildren(...steps.map(step=>{
-   const item=document.createElement('li'),link=document.createElement('a');
-   link.textContent=step.name;link.href='map-art.html?'+new URLSearchParams({node:step.node,placements:'live'});
-   item.append(link);
-   if(step.requires)item.append('　'+step.requires);
-   return item;
-  }));
+  const route=routes[[q.hub,q.level,q.node].join('/')];
+  for(const [id,steps] of [['routeStops',route.outbound],['routeHome',route.home]]){
+   el(id).replaceChildren(...steps.map(step=>{
+    const item=document.createElement('li'),link=document.createElement('a');
+    link.textContent=step.name;link.href='map-art.html?'+new URLSearchParams({node:step.node,placements:'live'});
+    const gate=document.createElement('a');
+    gate.textContent='出発側の門';gate.setAttribute('aria-label',step.name+'へ向かう出発側の門');
+    gate.href='map-art.html?'+new URLSearchParams({node:step.from,to:step.node,gateX:step.x,gateY:step.y,placements:'live',compare:'background'});
+    item.append(link,'（',gate,'）');
+    if(step.requires)item.append('　'+step.requires);
+    return item;
+   }));
+  }
   for(const profile of ['h48c32','h32c16'])paint(el(profile),art,profile);
   const source=el('source');source.getContext('2d').clearRect(0,0,source.width,source.height);
   delete source.dataset.art;el('error').textContent='';

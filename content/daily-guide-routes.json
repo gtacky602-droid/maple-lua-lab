@@ -1,181 +1,597 @@
 {
-  "mond-town/1/mond-road": [
-    {
-      "node": "mond-road",
-      "name": "モンド・南の街道"
-    }
-  ],
-  "mond-town/1/mond-old-ground": [
-    {
-      "node": "mond-road",
-      "name": "モンド・南の街道"
-    },
-    {
-      "node": "mond-old-road",
-      "name": "モンド・木漏れ日の旧道",
-      "requires": "モンド・城門広場で依頼「配達は、スライム待ち！」を受注してください。"
-    },
-    {
-      "node": "mond-old-ground",
-      "name": "モンド・旧道の下段"
-    }
-  ],
-  "liyue-harbor/20/liyue-entry": [
-    {
-      "node": "liyue-entry",
-      "name": "璃月・北の入口"
-    }
-  ],
-  "liyue-harbor/20/liyue-loading-yard": [
-    {
-      "node": "liyue-loading-yard",
-      "name": "璃月・港外の仮置き場",
-      "requires": "璃月・港の広場で依頼「港に着いたら、ひと仕事！」を受注してください。"
-    }
-  ],
-  "liyue-harbor/20/liyue-river-trail": [
-    {
-      "node": "liyue-river-trail",
-      "name": "璃月・川沿いの荷運び道",
-      "requires": "「山道に消えた商隊」か「山のごちそう、港の一皿」を受注してください。"
-    }
-  ],
-  "inazuma-town/40/inazuma-road": [
-    {
-      "node": "inazuma-road",
-      "name": "稲妻・海辺の街道"
-    }
-  ],
-  "inazuma-town/40/inazuma-shore-hunt": [
-    {
-      "node": "inazuma-shore-hunt",
-      "name": "稲妻・潮風の浜"
-    }
-  ],
-  "sumeru-hub/60/sumeru-entry": [
-    {
-      "node": "sumeru-entry",
-      "name": "スメール・地域の入口"
-    }
-  ],
-  "sumeru-hub/60/sumeru-field": [
-    {
-      "node": "sumeru-field",
-      "name": "スメール・雨林の道"
-    }
-  ],
-  "sumeru-hub/60/sum-kaveh-timberyard": [
-    {
-      "node": "sumeru-field",
-      "name": "スメール・雨林の道"
-    },
-    {
-      "node": "sum-kaveh-timberyard",
-      "name": "スメール・工房の資材置き場"
-    }
-  ],
-  "fontaine-hub/80/fontaine-entry": [
-    {
-      "node": "fontaine-entry",
-      "name": "フォンテーヌ・地域の入口"
-    }
-  ],
-  "fontaine-hub/80/fontaine-field": [
-    {
-      "node": "fontaine-field",
-      "name": "フォンテーヌ・水路沿い"
-    }
-  ],
-  "fontaine-hub/80/fontaine-outskirts-loading": [
-    {
-      "node": "fontaine-field",
-      "name": "フォンテーヌ・水路沿い"
-    },
-    {
-      "node": "fontaine-outskirts-loading",
-      "name": "フォンテーヌ・郊外の搬入口"
-    }
-  ],
-  "natlan-hub/100/natlan-entry": [
-    {
-      "node": "natlan-entry",
-      "name": "ナタ・地域の入口"
-    }
-  ],
-  "natlan-hub/100/natlan-field": [
-    {
-      "node": "natlan-field",
-      "name": "ナタ・岩場の道"
-    }
-  ],
-  "natlan-hub/100/natlan-riverside-range": [
-    {
-      "node": "natlan-riverside-range",
-      "name": "ナタ・川沿いの浅瀬道"
-    }
-  ],
-  "natlan-hub/100/natlan-quarry-road": [
-    {
-      "node": "natlan-field",
-      "name": "ナタ・岩場の道"
-    },
-    {
-      "node": "natlan-quarry-road",
-      "name": "ナタ・赤岩の採掘路"
-    }
-  ],
-  "nod-town/120/nod-field": [
-    {
-      "node": "nod-field",
-      "name": "ナド・クライ・月明かりの道"
-    }
-  ],
-  "nod-town/120/nod-tide-scrapyard": [
-    {
-      "node": "nod-field",
-      "name": "ナド・クライ・月明かりの道"
-    },
-    {
-      "node": "nod-tide-scrapyard",
-      "name": "ナド・クライ・月浜の部品置き場"
-    }
-  ],
-  "nod-town/120/nod-forest-outer": [
-    {
-      "node": "nod-forest-outer",
-      "name": "ナド・クライ・トウヒ林の外周"
-    }
-  ],
-  "snezhnaya-hub/140/snezhnaya-entry": [
-    {
-      "node": "snezhnaya-entry",
-      "name": "スネージナヤ・雪原の入口"
-    }
-  ],
-  "snezhnaya-hub/140/sne-survey-outskirts": [
-    {
-      "node": "sne-survey-shed",
-      "name": "スネージナヤ・駅脇の観測小屋"
-    },
-    {
-      "node": "sne-survey-outskirts",
-      "name": "スネージナヤ・郊外の観測路"
-    }
-  ],
-  "snezhnaya-hub/140/snezhnaya-field": [
-    {
-      "node": "snezhnaya-field",
-      "name": "スネージナヤ・凍った街道"
-    }
-  ],
-  "snezhnaya-hub/140/white-pass-cut": [
-    {
-      "node": "snezhnaya-field",
-      "name": "スネージナヤ・凍った街道"
-    },
-    {
-      "node": "white-pass-cut",
-      "name": "雪線の切通し"
-    }
-  ]
+  "mond-town/1/mond-road": {
+    "outbound": [
+      {
+        "node": "mond-road",
+        "name": "モンド・南の街道",
+        "from": "mond-town",
+        "x": 1380,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "mond-town",
+        "name": "モンド・城門広場",
+        "from": "mond-road",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "mond-town/1/mond-old-ground": {
+    "outbound": [
+      {
+        "node": "mond-road",
+        "name": "モンド・南の街道",
+        "from": "mond-town",
+        "x": 1380,
+        "y": 480
+      },
+      {
+        "node": "mond-old-road",
+        "name": "モンド・木漏れ日の旧道",
+        "from": "mond-road",
+        "x": 895,
+        "y": 480,
+        "requires": "モンド・城門広場で依頼「配達は、スライム待ち！」を受注してください。"
+      },
+      {
+        "node": "mond-old-ground",
+        "name": "モンド・旧道の下段",
+        "from": "mond-old-road",
+        "x": 1380,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "mond-old-road",
+        "name": "モンド・木漏れ日の旧道",
+        "from": "mond-old-ground",
+        "x": 60,
+        "y": 480
+      },
+      {
+        "node": "mond-road",
+        "name": "モンド・南の街道",
+        "from": "mond-old-road",
+        "x": 60,
+        "y": 480
+      },
+      {
+        "node": "mond-town",
+        "name": "モンド・城門広場",
+        "from": "mond-road",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "liyue-harbor/20/liyue-entry": {
+    "outbound": [
+      {
+        "node": "liyue-entry",
+        "name": "璃月・北の入口",
+        "from": "liyue-harbor",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "liyue-harbor",
+        "name": "璃月・港の広場",
+        "from": "liyue-entry",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "liyue-harbor/20/liyue-loading-yard": {
+    "outbound": [
+      {
+        "node": "liyue-loading-yard",
+        "name": "璃月・港外の仮置き場",
+        "from": "liyue-harbor",
+        "x": 400,
+        "y": 480,
+        "requires": "璃月・港の広場で依頼「港に着いたら、ひと仕事！」を受注してください。"
+      }
+    ],
+    "home": [
+      {
+        "node": "liyue-harbor",
+        "name": "璃月・港の広場",
+        "from": "liyue-loading-yard",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "liyue-harbor/20/liyue-river-trail": {
+    "outbound": [
+      {
+        "node": "liyue-river-trail",
+        "name": "璃月・川沿いの荷運び道",
+        "from": "liyue-harbor",
+        "x": 955,
+        "y": 480,
+        "requires": "「山道に消えた商隊」か「山のごちそう、港の一皿」を受注してください。"
+      }
+    ],
+    "home": [
+      {
+        "node": "liyue-harbor",
+        "name": "璃月・港の広場",
+        "from": "liyue-river-trail",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "inazuma-town/40/inazuma-road": {
+    "outbound": [
+      {
+        "node": "inazuma-road",
+        "name": "稲妻・海辺の街道",
+        "from": "inazuma-town",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "inazuma-town",
+        "name": "稲妻・城下の広場",
+        "from": "inazuma-road",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "inazuma-town/40/inazuma-shore-hunt": {
+    "outbound": [
+      {
+        "node": "inazuma-shore-hunt",
+        "name": "稲妻・潮風の浜",
+        "from": "inazuma-town",
+        "x": 194,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "inazuma-town",
+        "name": "稲妻・城下の広場",
+        "from": "inazuma-shore-hunt",
+        "x": 62,
+        "y": 480
+      }
+    ]
+  },
+  "sumeru-hub/60/sumeru-entry": {
+    "outbound": [
+      {
+        "node": "sumeru-entry",
+        "name": "スメール・地域の入口",
+        "from": "sumeru-hub",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "sumeru-hub",
+        "name": "スメール・樹陰の広場",
+        "from": "sumeru-entry",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "sumeru-hub/60/sumeru-field": {
+    "outbound": [
+      {
+        "node": "sumeru-field",
+        "name": "スメール・雨林の道",
+        "from": "sumeru-hub",
+        "x": 1380,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "sumeru-hub",
+        "name": "スメール・樹陰の広場",
+        "from": "sumeru-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "sumeru-hub/60/sum-kaveh-timberyard": {
+    "outbound": [
+      {
+        "node": "sumeru-field",
+        "name": "スメール・雨林の道",
+        "from": "sumeru-hub",
+        "x": 1380,
+        "y": 480
+      },
+      {
+        "node": "sum-kaveh-timberyard",
+        "name": "スメール・工房の資材置き場",
+        "from": "sumeru-field",
+        "x": 230,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "sumeru-field",
+        "name": "スメール・雨林の道",
+        "from": "sum-kaveh-timberyard",
+        "x": 63,
+        "y": 480
+      },
+      {
+        "node": "sumeru-hub",
+        "name": "スメール・樹陰の広場",
+        "from": "sumeru-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "fontaine-hub/80/fontaine-entry": {
+    "outbound": [
+      {
+        "node": "fontaine-entry",
+        "name": "フォンテーヌ・地域の入口",
+        "from": "fontaine-hub",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "fontaine-hub",
+        "name": "フォンテーヌ・水辺の広場",
+        "from": "fontaine-entry",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "fontaine-hub/80/fontaine-field": {
+    "outbound": [
+      {
+        "node": "fontaine-field",
+        "name": "フォンテーヌ・水路沿い",
+        "from": "fontaine-hub",
+        "x": 1380,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "fontaine-hub",
+        "name": "フォンテーヌ・水辺の広場",
+        "from": "fontaine-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "fontaine-hub/80/fontaine-outskirts-loading": {
+    "outbound": [
+      {
+        "node": "fontaine-field",
+        "name": "フォンテーヌ・水路沿い",
+        "from": "fontaine-hub",
+        "x": 1380,
+        "y": 480
+      },
+      {
+        "node": "fontaine-outskirts-loading",
+        "name": "フォンテーヌ・郊外の搬入口",
+        "from": "fontaine-field",
+        "x": 194,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "fontaine-field",
+        "name": "フォンテーヌ・水路沿い",
+        "from": "fontaine-outskirts-loading",
+        "x": 62,
+        "y": 480
+      },
+      {
+        "node": "fontaine-hub",
+        "name": "フォンテーヌ・水辺の広場",
+        "from": "fontaine-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "natlan-hub/100/natlan-entry": {
+    "outbound": [
+      {
+        "node": "natlan-entry",
+        "name": "ナタ・地域の入口",
+        "from": "natlan-hub",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "natlan-hub",
+        "name": "ナタ・谷の集落",
+        "from": "natlan-entry",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "natlan-hub/100/natlan-field": {
+    "outbound": [
+      {
+        "node": "natlan-field",
+        "name": "ナタ・岩場の道",
+        "from": "natlan-hub",
+        "x": 1380,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "natlan-hub",
+        "name": "ナタ・谷の集落",
+        "from": "natlan-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "natlan-hub/100/natlan-riverside-range": {
+    "outbound": [
+      {
+        "node": "natlan-riverside-range",
+        "name": "ナタ・川沿いの浅瀬道",
+        "from": "natlan-hub",
+        "x": 280,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "natlan-hub",
+        "name": "ナタ・谷の集落",
+        "from": "natlan-riverside-range",
+        "x": 62,
+        "y": 480
+      }
+    ]
+  },
+  "natlan-hub/100/natlan-quarry-road": {
+    "outbound": [
+      {
+        "node": "natlan-field",
+        "name": "ナタ・岩場の道",
+        "from": "natlan-hub",
+        "x": 1380,
+        "y": 480
+      },
+      {
+        "node": "natlan-quarry-road",
+        "name": "ナタ・赤岩の採掘路",
+        "from": "natlan-field",
+        "x": 552,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "natlan-field",
+        "name": "ナタ・岩場の道",
+        "from": "natlan-quarry-road",
+        "x": 64,
+        "y": 480
+      },
+      {
+        "node": "natlan-hub",
+        "name": "ナタ・谷の集落",
+        "from": "natlan-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "nod-town/120/nod-field": {
+    "outbound": [
+      {
+        "node": "nod-field",
+        "name": "ナド・クライ・月明かりの道",
+        "from": "nod-town",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "nod-town",
+        "name": "ナド・クライ・町の広場",
+        "from": "nod-field",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "nod-town/120/nod-tide-scrapyard": {
+    "outbound": [
+      {
+        "node": "nod-field",
+        "name": "ナド・クライ・月明かりの道",
+        "from": "nod-town",
+        "x": 60,
+        "y": 480
+      },
+      {
+        "node": "nod-tide-scrapyard",
+        "name": "ナド・クライ・月浜の部品置き場",
+        "from": "nod-field",
+        "x": 617,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "nod-field",
+        "name": "ナド・クライ・月明かりの道",
+        "from": "nod-tide-scrapyard",
+        "x": 64,
+        "y": 480
+      },
+      {
+        "node": "nod-town",
+        "name": "ナド・クライ・町の広場",
+        "from": "nod-field",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "nod-town/120/nod-forest-outer": {
+    "outbound": [
+      {
+        "node": "nod-forest-outer",
+        "name": "ナド・クライ・トウヒ林の外周",
+        "from": "nod-town",
+        "x": 671,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "nod-town",
+        "name": "ナド・クライ・町の広場",
+        "from": "nod-forest-outer",
+        "x": 62,
+        "y": 480
+      }
+    ]
+  },
+  "snezhnaya-hub/140/snezhnaya-entry": {
+    "outbound": [
+      {
+        "node": "snezhnaya-entry",
+        "name": "スネージナヤ・雪原の入口",
+        "from": "snezhnaya-hub",
+        "x": 60,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "snezhnaya-hub",
+        "name": "スネージナヤ・雪の町",
+        "from": "snezhnaya-entry",
+        "x": 1380,
+        "y": 480
+      }
+    ]
+  },
+  "snezhnaya-hub/140/sne-survey-outskirts": {
+    "outbound": [
+      {
+        "node": "sne-survey-shed",
+        "name": "スネージナヤ・駅脇の観測小屋",
+        "from": "snezhnaya-hub",
+        "x": 417,
+        "y": 480
+      },
+      {
+        "node": "sne-survey-outskirts",
+        "name": "スネージナヤ・郊外の観測路",
+        "from": "sne-survey-shed",
+        "x": 535,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "sne-survey-shed",
+        "name": "スネージナヤ・駅脇の観測小屋",
+        "from": "sne-survey-outskirts",
+        "x": 63,
+        "y": 480
+      },
+      {
+        "node": "snezhnaya-hub",
+        "name": "スネージナヤ・雪の町",
+        "from": "sne-survey-shed",
+        "x": 63,
+        "y": 480
+      }
+    ]
+  },
+  "snezhnaya-hub/140/snezhnaya-field": {
+    "outbound": [
+      {
+        "node": "snezhnaya-field",
+        "name": "スネージナヤ・凍った街道",
+        "from": "snezhnaya-hub",
+        "x": 1380,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "snezhnaya-hub",
+        "name": "スネージナヤ・雪の町",
+        "from": "snezhnaya-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  },
+  "snezhnaya-hub/140/white-pass-cut": {
+    "outbound": [
+      {
+        "node": "snezhnaya-field",
+        "name": "スネージナヤ・凍った街道",
+        "from": "snezhnaya-hub",
+        "x": 1380,
+        "y": 480
+      },
+      {
+        "node": "white-pass-cut",
+        "name": "雪線の切通し",
+        "from": "snezhnaya-field",
+        "x": 865,
+        "y": 480
+      }
+    ],
+    "home": [
+      {
+        "node": "snezhnaya-field",
+        "name": "スネージナヤ・凍った街道",
+        "from": "white-pass-cut",
+        "x": 60,
+        "y": 480
+      },
+      {
+        "node": "snezhnaya-hub",
+        "name": "スネージナヤ・雪の町",
+        "from": "snezhnaya-field",
+        "x": 60,
+        "y": 480
+      }
+    ]
+  }
 }

@@ -17,11 +17,17 @@ try{
   await page.waitForFunction(art=>document.querySelector('#source').dataset.art===art,q.art);
   assert.equal(new URL(await page.locator('#fieldMap').evaluate(a=>a.href)).searchParams.get('node'),q.node);
   assert.equal(new URL(await page.locator('#hubMap').evaluate(a=>a.href)).searchParams.get('node'),q.hub);
-  const legs=routes[[q.hub,q.level,q.node].join('/')];
+  const {outbound:legs,home}=routes[[q.hub,q.level,q.node].join('/')];
+  assert.equal(home.at(-1).node,q.hub);
+  assert.deepEqual(await page.locator('#routeHome li > a:first-child').evaluateAll(links=>links.map(a=>new URL(a.href).searchParams.get('node'))),home.map(step=>step.node));
   assert.equal(legs.at(-1).node,q.node);
   const rows=page.locator('#routeStops li');
-  assert.deepEqual(await rows.allTextContents(),legs.map(step=>step.name+(step.requires?'　'+step.requires:'')));
-  assert.deepEqual(await rows.locator('a').evaluateAll(links=>links.map(a=>new URL(a.href).searchParams.get('node'))),legs.map(step=>step.node));
+  assert.deepEqual(await rows.allTextContents(),legs.map(step=>step.name+'（出発側の門）'+(step.requires?'　'+step.requires:'')));
+  assert.deepEqual(await rows.locator('a:first-child').evaluateAll(links=>links.map(a=>new URL(a.href).searchParams.get('node'))),legs.map(step=>step.node));
+  for(const [selector,steps] of [['#routeStops',legs],['#routeHome',home]]){
+   const gates=await page.locator(selector+' li > a:last-child').evaluateAll(links=>links.map(a=>Object.fromEntries(new URL(a.href).searchParams)));
+   assert.deepEqual(gates.map(g=>[g.node,g.to,+g.gateX,+g.gateY]),steps.map(s=>[s.from,s.node,s.x,s.y]));
+  }
   if(checked.has(q.art))continue;
   checked.add(q.art);
   const sprite=await read('assets/'+q.art+'-idle-sprites.json');
