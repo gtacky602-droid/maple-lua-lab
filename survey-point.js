@@ -42,6 +42,23 @@ function choiceProp(option,kind){
  if(height)return {file:'quest-packed/'+pose+'-sprites-v1.json',height,x:option.x,y:option.y+offsetY,
   bubbles:option.diveChoice&&option.id==='bubbles'};
 }
+function colleiSceneProps(quest,index,node,room){
+ const props=[];
+ for(const [i,step] of quest.itinerary.entries()){
+  if(step.node!==node||step.kind!=='guideChoice')continue;
+  for(const option of step.choices){
+   if(option.rainOnly&&!room?.guideScene?.rain)continue;
+   const prop=choiceProp(option,'guideChoice');
+   prop.name=option.name;
+   if(i<=index)prop.guideLabel={text:option.name,height:Math.max(108,prop.height+21),muted:i!==index};
+   props.push(prop);
+  }
+ }
+ const guest=room?.guideScene?.guest;
+ if(guest)props.push({name:'初めて来た旅人',file:'quest-packed/sum-collei-guest-sprites-v1.json',
+  height:85,x:guest.x,y:guest.y,guideLabel:{text:'初めて来た旅人',height:117,offsetX:26}});
+ return props;
+}
 // Fixed scenery drawn by the Lua choice and treasure handlers in both sprite modes.
 const giftTable=[[-30,-25,60,10,'#674d52'],[-28,-25,56,3,'#a98260'],[-24,-15,4,15,'#594451'],[20,-15,4,15,'#594451']];
 const choiceSign=[[-12,-25,24,25,'#423951'],[-8,-21,16,12,'#d3dbf5']];
@@ -130,7 +147,8 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
   const option=step.choices[choice-1];
   if(!option)return null;
   return {quest:quest.id,step:index+1,node,choice,path:pathId,x:option.x,y:option.y,name:option.name,action:option.action,
-   props:step.choices.map(o=>choiceProp(o,step.kind)).filter(Boolean),fixtures:choiceFixtures(step)};
+   props:step.kind==='guideChoice'&&room?colleiSceneProps(quest,index,node,room):
+    step.choices.map(o=>choiceProp(o,step.kind)).filter(Boolean),fixtures:choiceFixtures(step)};
  }
  if(room?.rockViews && room.rockViews.quest===quest?.id && step?.kind==='inspect' && step.node===node){
   const stations=room.rockViews.points;
@@ -156,7 +174,8 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  if(step?.kind!=='inspect')return null;
  const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x) && Number.isFinite(p.y));
  if(!point)return null;
- const props=quest.surveyAssist?wandererSurveyProps(quest,index,node):[];
+ const props=quest.surveyAssist?wandererSurveyProps(quest,index,node):
+  room?.colleiGuideQuest===quest.id?colleiSceneProps(quest,index,node,room):[];
  const ingredientHeights={flower:45,dry:43,wood:35};
  if(ingredientHeights[step.scentProp]){
   props.push({name:point.name,file:'quest-packed/fon-emilie-scent-'+step.scentProp+'-sprites-v1.json',

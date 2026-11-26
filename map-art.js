@@ -920,6 +920,14 @@ try{
    }
    for(const prop of surveyProps){
     paintSurveyProp(ctx,prop,mode==='png'||matchedSprites?null:profile,cost);
+    if(prop.guideLabel){
+     const {text,height,offsetX=0,muted}=prop.guideLabel;
+     const x=prop.x+offsetX-camera,y=prop.y-height,w=Array.from(text).length*14+16;
+     if(x-w/2>=0&&x+w/2<=960){
+      ctx.fillStyle='#253f3bee';ctx.fillRect(x-w/2,y-17,w,22);
+      paintMechanismMark(ctx,{kind:'text',x:0,y:0,size:14,color:muted?'#ccd9b9':'#fff0cb',text},x,y,false);
+     }
+    }
     if(prop.bubbles){
      const x=prop.x-camera;
      // Still frame of the seven Lua bubbles at t=0, measured from the sprite base.
