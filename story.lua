@@ -287,7 +287,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local cached=s.storyGraphCache
   if cached and cached.key==key then return cached.graph,cached.revision end
 
-  local graph={version=data.version,status=data.status,nodes={},quests={},bossNodes={}}
+  local graph={version=data.version,status=data.status,nodes={},quests={},bossNodes={},
+   currentQuestTotal=#data.quests-#graphQuests,legacyQuestTotal=#graphQuests}
   for _,node in ipairs(data.nodes) do
    if shownNode(s,node) then
     local visible=copy(node)

@@ -8,6 +8,8 @@ from test_earned_branch_quests import graph, quests
 from test_earned_survey_itineraries import SurveyJourney as LightSurveyJourney
 
 groups={
+    'remaining':('boss-commission-tour',[(hub,None,hub) for hub in
+        ('sne-east-camp','nod-port','nod-north-harbor','nat-resort-pier','inazuma-port','wingspan-camp','liyue-harbor')]),
     'north':('fon-nat-survey',[('ナド・クライ','region-07','nod-town'),('スネージナヤ','region-08','snezhnaya-hub')]),
     'mond-liyue':('original-weekly-expedition',[('モンド','region-01','mond-town'),('璃月','region-02','liyue-harbor')]),
     'fon-nat':('ina-sum-survey',[('フォンテーヌ','region-05','fontaine-hub'),('ナタ','region-06','natlan-hub')]),
@@ -82,7 +84,30 @@ def commissions(region,hub):
     for q in selected:
         state=trip.state.story.quests[q['id']]
         if not state or state.status=='complete' or state.count>=q['goal']: continue
-        if q['kind']=='visit':
+        if q['id']=='nod-north-landmark-round':
+            for path in q['paths']:
+                for mark in path['steps']:
+                    trip.travel(mark['node'])
+                    trip.approach(mark['x'],mark['y'],q['id'])
+                    trip.act('story_collect')
+                assert state.pathProgress[path['id']].count==len(path['steps'])
+        elif q['id']=='threadline-restore':
+            for index,step in enumerate(q['itinerary'],1):
+                trip.travel(step['node'])
+                if step['kind']=='inspect':
+                    trip.mark(q['id'],index)
+                else:
+                    slot=trip.state.weeklySlots[step['boss']]
+                    for tick in range(18000):
+                        if state.count==index:break
+                        target=slot.primary
+                        if not slot.openUntil:
+                            target=next((part for part in slot.shuttles.values() if part.hp>0),target)
+                        dx=target.x-trip.actor.x
+                        move=abs(dx)>48 or trip.actor.dir*dx<0
+                        trip.tick(1,trip.lua.table(left=move and dx<0,right=move and dx>0,attack=True))
+                assert state.count==index
+        elif q['kind']=='visit':
             trip.travel(q['target'])
         elif q['kind']=='kill':
             trip.warp(hub)
@@ -128,6 +153,7 @@ def commissions(region,hub):
 
 for region,area_id,hub in regions:
     commissions(region,hub)
+    if area_id is None:continue
     area=next(a for a in atlas['regions'] if a['id']==area_id)
     targets={point['id'] for point in area['points']}
     failures={}

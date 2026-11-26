@@ -289,6 +289,13 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
  const heading=document.createElement('h2');heading.textContent='依頼手帳';section.append(heading);
  const statusOf=q=>questStatus(q,story.quests[q.id],story.quests,f.progression?.level??0,f.growthEligibility);
  const counts={locked:0,unaccepted:0,active:0,ready:0,complete:0};for(const q of graph.quests)counts[statusOf(q)]++;
+ const current=graph.quests.filter(q=>!q.legacyOnly);
+ const reported=current.filter(q=>statusOf(q)==='complete').length;
+ const progress=document.createElement('p');progress.id='questStoryProgress';
+ progress.textContent='現行のストーリー依頼　報告済み '+reported+' ／ '+(graph.currentQuestTotal??current.length)+'件';
+ const legacy=graph.legacyQuestTotal??(graph.quests.length-current.length);
+ if(legacy)progress.textContent+='　旧セーブ専用 '+legacy+'件';
+ section.append(progress);
  const summary=document.createElement('p');summary.textContent=Object.entries(labels).map(([key,label])=>`${label}${counts[key]}件`).join(' ／ ');section.append(summary);
  const label=document.createElement('label');label.textContent='表示する依頼 ';const select=document.createElement('select');select.id='questFilter';
  for(const [value,text] of Object.entries({relevant:'現在地の依頼＋受注済み',all:'すべて',...labels}))select.add(new Option(text,value));
