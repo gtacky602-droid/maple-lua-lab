@@ -12,15 +12,15 @@ import numpy as np
 from PIL import Image
 
 
-def fit_profile(image, budget, face_rows=0, detail_boxes=()):
+def fit_profile(image, budget, face_rows=0, detail_boxes=(), palette_size=16):
     rgba = np.asarray(image.convert("RGBA"))
     pixels = rgba[:, :, :3].astype(float)
     visible = rgba[:, :, 3] >= 128
     if not visible.any() or budget < 1:
         raise ValueError("A visible sprite and positive rectangle budget are required")
     samples = rgba[:, :, :3][visible][:, None, :]
-    quantized = Image.fromarray(samples).quantize(16)
-    palette = np.array(quantized.getpalette()[:48]).reshape(-1, 3)
+    quantized = Image.fromarray(samples).quantize(palette_size)
+    palette = np.array(quantized.getpalette()[:3 * palette_size]).reshape(-1, 3)
     colors = ["#%02x%02x%02x" % tuple(channels) for channels in palette]
     indices = np.abs(pixels[:, :, None, :] - palette).sum(axis=3).argmin(axis=2)
     indices[~visible] = -1

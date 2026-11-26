@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sayu-watch-brush",
+    "camera": "153",
+    "shape": 99.6,
+    "color": 23.24
+  },
+  {
+    "id": "sayu-watch-cave",
+    "camera": "691",
+    "shape": 99.6,
+    "color": 23.24
+  },
+  {
+    "id": "sayu-watch-tree",
+    "camera": "1274",
+    "shape": 99.6,
+    "color": 23.24
+  }
+]
