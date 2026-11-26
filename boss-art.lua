@@ -13,14 +13,22 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
      gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity}
     return
    end
+   local clipped=f.rectBatches and f.clipToViewport and not palette and {} or nil
    for _,r in ipairs(asset.runs) do
     local rx=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width
     local ry=y-h+r[2]*h/asset.height
     local rw,rh=r[3]*w/asset.width+.05,r[4]*h/asset.height+.05
     -- Keep a one-pixel margin for fractional rectangle edges on the 960 x 540 stage.
     if not f.clipToViewport or (rx<961 and rx+rw>-1 and ry<541 and ry+rh>-1) then
-     f.draws[#f.draws+1]={kind='rect',x=rx,y=ry,w=rw,h=rh,color=palette and palette[r[5]] or r[5],opacity=opacity}
+     if clipped then clipped[#clipped+1]=r
+     else f.draws[#f.draws+1]={kind='rect',x=rx,y=ry,w=rw,h=rh,color=palette and palette[r[5]] or r[5],opacity=opacity} end
     end
+   end
+   if clipped and #clipped>0 then
+    local index=#f.rectBatches+1
+    f.rectBatches[index]=clipped
+    f.draws[#f.draws+1]={kind='rect_runs',batch=index,x=left,y=y-h,w=w,h=h,
+     gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity}
    end
   else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box,tint=tint,opacity=opacity} end
  end

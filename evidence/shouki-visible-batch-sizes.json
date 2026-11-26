@@ -1,0 +1,119 @@
+[
+  {
+    "camera": 0,
+    "profile": "legacy",
+    "visible": 3061,
+    "before": {
+      "json": 453727,
+      "gzip": 65280
+    },
+    "after": {
+      "json": 148431,
+      "gzip": 48587
+    }
+  },
+  {
+    "camera": 0,
+    "profile": "h48c32",
+    "visible": 1851,
+    "before": {
+      "json": 275888,
+      "gzip": 37714
+    },
+    "after": {
+      "json": 88166,
+      "gzip": 28894
+    }
+  },
+  {
+    "camera": 0,
+    "profile": "h32c16",
+    "visible": 1458,
+    "before": {
+      "json": 200541,
+      "gzip": 28305
+    },
+    "after": {
+      "json": 56744,
+      "gzip": 18888
+    }
+  },
+  {
+    "camera": 80,
+    "profile": "legacy",
+    "visible": 3012,
+    "before": {
+      "json": 447962,
+      "gzip": 64891
+    },
+    "after": {
+      "json": 147508,
+      "gzip": 48214
+    }
+  },
+  {
+    "camera": 80,
+    "profile": "h48c32",
+    "visible": 1833,
+    "before": {
+      "json": 273555,
+      "gzip": 37622
+    },
+    "after": {
+      "json": 87874,
+      "gzip": 28770
+    }
+  },
+  {
+    "camera": 80,
+    "profile": "h32c16",
+    "visible": 1466,
+    "before": {
+      "json": 201432,
+      "gzip": 28326
+    },
+    "after": {
+      "json": 57010,
+      "gzip": 18958
+    }
+  },
+  {
+    "camera": 173,
+    "profile": "legacy",
+    "visible": 2981,
+    "before": {
+      "json": 444213,
+      "gzip": 64014
+    },
+    "after": {
+      "json": 146931,
+      "gzip": 47969
+    }
+  },
+  {
+    "camera": 173,
+    "profile": "h48c32",
+    "visible": 1818,
+    "before": {
+      "json": 271879,
+      "gzip": 37446
+    },
+    "after": {
+      "json": 87616,
+      "gzip": 28668
+    }
+  },
+  {
+    "camera": 173,
+    "profile": "h32c16",
+    "visible": 1449,
+    "before": {
+      "json": 199341,
+      "gzip": 27751
+    },
+    "after": {
+      "json": 56599,
+      "gzip": 18828
+    }
+  }
+]

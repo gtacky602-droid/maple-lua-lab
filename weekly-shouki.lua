@@ -581,7 +581,7 @@ return function(C)
   end
   local y=spec.floorY
   -- Put the oversized machine behind the party and its combat cues.
-  local bodyFrame={draws={},clipToViewport=spec.openingPose.clipToViewport}
+  local bodyFrame={draws={},clipToViewport=spec.openingPose.clipToViewport,rectBatches=f.rectBatches}
   C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt.upper,e.x-s.camera,spec.floorY,spec.artHeight,mode,profile,false)
   table.move(f.draws,1,#f.draws,#bodyFrame.draws+1,bodyFrame.draws)
   f.draws=bodyFrame.draws
