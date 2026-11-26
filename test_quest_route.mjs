@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {questRoute,questRouteText} from './quest-route.js';
-import {trackedQuest} from './quest-journal.js';
+import {trackedQuest,atlasQuestObjectives} from './quest-journal.js';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const q=graph.quests.find(q=>q.id==='mond-patrol'),frame={story:{active:true,node:'mond-town'},storyGraph:graph,progression:{level:1}};
 assert.match(questRouteText(frame,q,'unaccepted'),/拠点にいます/);
@@ -181,3 +181,22 @@ miner.story.node=cave.hub;
 miner.story.quests['amber-join']={status:'complete',count:4};
 miner.story.quests[cave.requires]={status:'complete',count:2};
 assert.equal(trackedQuest(miner,cave.id).node,cave.cave.depth);
+
+const delivery=graph.quests.find(q=>q.id==='liyue-market-delivery');
+const parcels={guardCleared:false,recovered:false,delivered:{}};
+const courier={storyGraph:graph,progression:{level:20},story:{active:true,node:delivery.hub,
+ quests:{[delivery.id]:{status:'active',count:0,delivery:parcels}}}};
+const stalls=()=>atlasQuestObjectives(courier,delivery,delivery.hub).flatMap(o=>o.points).map(p=>p.id);
+assert.deepEqual(stalls(),['pot','vessel']);
+courier.story.node=delivery.target;
+assert.equal(new URL(trackedQuest(courier,delivery.id).pointUrl,'http://localhost').searchParams.get('subject'),delivery.delivery.cache.guard);
+parcels.guardCleared=true;
+assert.equal(new URL(trackedQuest(courier,delivery.id).pointUrl,'http://localhost').searchParams.get('node'),delivery.target);
+parcels.recovered=true;
+assert.deepEqual(stalls(),['pot','vessel','wheel']);
+parcels.delivered.vessel=true;
+courier.story.quests[delivery.id].count=1;
+const alternate=new URL(trackedQuest(courier,delivery.id,{point:'wheel'}).pointUrl,'http://localhost');
+assert.equal(alternate.searchParams.get('worksite'),'wheel');
+assert.deepEqual(alternate.searchParams.getAll('stocked'),['vessel']);
+assert.deepEqual(stalls(),['pot','wheel']);

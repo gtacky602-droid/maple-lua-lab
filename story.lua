@@ -884,12 +884,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local spec,progress=q.delivery,state.delivery
    if node==q.target and not progress.recovered then
     if progress.guardCleared then point(spec.cache,'Gで回収') else guard(spec.cache.guard) end
-   elseif node==q.hub then
-    for _,parcel in ipairs(spec.packages) do
-     if delivery.carried(q,progress,parcel) then
-      offer(parcel.x,parcel.y,parcel.id,parcel.stall,'店先で荷札を選ぶ')
-     end
-    end
+
    end
   elseif q.trail then
    if count==0 then
@@ -916,7 +911,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function worksiteGuide(s,f,q,state)
   local sites,done,action
-  if q.cooking then
+  if q.delivery and s.story.node==q.hub then
+   sites,done,action=q.delivery.packages,state.delivery.delivered,'店先で荷札を選ぶ'
+  elseif q.cooking then
    sites,done,action=q.cooking.ingredients,state.cooking.gathered,'Gで採集'
   elseif q.stone then
    sites,done,action=q.stone.marks,state.stone.marked,'Gで調べる'
@@ -932,9 +929,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if state.count<#sites or q.sights then
    local pending,nearest,distance={}
    for _,item in ipairs(sites) do
-    if not done[item.id] then
-     local node=item.node or q.target
-     local point={node=node,x=item.x,y=item.y,point=item.id,name=item.name,action=action}
+    if not done[item.id] and (not q.delivery or delivery.carried(q,state.delivery,item)) then
+     local node=item.node or (q.delivery and q.hub) or q.target
+     local point={node=node,x=item.x,y=item.y,point=item.id,name=item.stall or item.name,action=action}
      pending[#pending+1]=point
      if node==s.story.node then
       local d=(actor.x-item.x)^2+(actor.y-item.y)^2
@@ -942,8 +939,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
    end
-   f.storyWorksites=f.storyWorksites or {}
-   f.storyWorksites[q.id]=pending
+   if #pending>0 then
+    f.storyWorksites=f.storyWorksites or {}
+    f.storyWorksites[q.id]=pending
+   end
    return nearest
   end
   local item,name

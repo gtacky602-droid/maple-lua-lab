@@ -27,6 +27,18 @@ function restGuards(q,state){
  return remainingEnemyPoints({node:q.target,enemies:q.rest.guards},{sweep:state.rest?.defeated});
 }
 
+function deliveryStops(q,state,node){
+ const {cache,packages}=q.delivery,progress=state.delivery??{delivered:{}};
+ if(node===q.target&&!progress.recovered){
+  if(!progress.guardCleared)return remainingEnemyPoints({node,enemy:cache.guard}).map(p=>({...p,label:'荷箱の見張り'}));
+  return [{label:cache.name,url:surveyPointUrl(worksitePoint(q,cache.id,node))}];
+ }
+ if(node!==q.hub)return [];
+ const stocked=packages.filter(p=>progress.delivered[p.id]).map(p=>p.id);
+ return packages.filter(p=>!stocked.includes(p.id)&&(p.id!==cache.id||progress.recovered)).map(p=>
+  ({id:p.id,label:p.stall,url:surveyPointUrl(worksitePoint(q,p.id,node,stocked))}));
+}
+
 function bossFieldPoint(node,subject){
  const params=new URLSearchParams({placements:'live',node});
  if(subject)params.set('subject',subject);
@@ -74,6 +86,10 @@ export function atlasQuestObjectives(frame,q,node){
    const point=surveyPoint(q,q.goal,node);
    return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
   }
+ }
+ if(q.delivery&&status==='active'){
+  const points=deliveryStops(q,state,node);
+  return points.length?[{text:questObjective(q,frame.storyGraph,state),points}]:[];
  }
  const join=q.paths?q.itinerary.findIndex(step=>step.kind==='paths'):-1;
  const onBranch=join>=0 && state.count===join && status==='active';
@@ -330,6 +346,12 @@ export function trackedQuest(f,id,selectedWorksite){
   return {...route,node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'お茶の位置を見る',
    text:q.name+' ｜ 報告済み。休憩所のお茶で操作中のキャラのHPが最大'+q.rest.tea.heal+'回復します。 '+route.text};
  }
+ if(q.delivery&&status==='complete'){
+  const packages=q.delivery.packages,point=worksitePoint(q,packages[0].id,q.hub,packages.map(p=>p.id));
+  const route=questRoute(f,{kind:'visit',target:q.hub},'active');
+  return {...route,node:q.hub,pointUrl:surveyPointUrl(point),pointLabel:'配達後の三軒を見る',
+   text:q.name+' ｜ 報告済み。港の三軒に荷物が並びました。 '+route.text};
+ }
  if(q.teaCase&&status==='complete'){
   const point=surveyPoint(q,q.goal-1,q.target);
   return {node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'茶屋の位置を見る',
@@ -373,6 +395,11 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(q.delivery&&status==='active'){
+  const points=deliveryStops(q,st,route.node),local=f.storyHunts?.[id];
+  const point=points.find(p=>p.id&&(p.id===(selectedWorksite?.point??local?.point)))??points[0];
+  if(point)return {...route,pointUrl:point.url,pointLabel:point.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
+ }
  if(q.rest&&status==='active'&&st.count===0){
   const guard=restGuards(q,st)[0];
   if(guard)return {...route,pointUrl:guard.url,pointLabel:'残っている魔物の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};

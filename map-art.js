@@ -264,7 +264,7 @@ try{
    if(!stepsByNode.has(site.node))stepsByNode.set(site.node,new Map());
    const quests=stepsByNode.get(site.node);
    if(!quests.has(quest))quests.set(quest,[]);
-   quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node)});
+   quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node,site.node===openingNode.id?query.getAll('stocked'):[])});
   }
   let steps=quest.itinerary??[];
   if(quest.roof)steps=[...quest.roof.marks.map(mark=>({node:quest.target,objective:mark.label})),
@@ -1213,7 +1213,7 @@ try{
   let point=null;
   if(liveView && n===openingNode){
    const quest=questsById.get(query.get('quest'));
-   point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
+   point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id,query.getAll('stocked')):
     surveyPoint(quest,Number(query.get('step'))-1,n.id,n,query.get('path'),Number(query.get('choice')));
   }
   if(point?.stations && n.rockViews && query.has('view')){

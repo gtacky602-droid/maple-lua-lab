@@ -139,19 +139,37 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
 }
 
 export function worksitePoints(quest){
+ if(quest?.delivery)return [...quest.delivery.packages.map(p=>({...p,node:quest.hub,name:p.stall})),
+  {...quest.delivery.cache,node:quest.target}];
  if(quest?.rail)return [quest.rail.release,quest.rail.dispatch].map(p=>({...p,node:quest.target,name:p.label}));
  if(quest?.sights)return [...quest.sights.places,quest.sights.bridge].map(p=>({...p,node:quest.target}));
  return quest?.cooking?.ingredients??quest?.construction?.surveys??quest?.stone?.marks??[];
 }
-export function worksitePoint(quest,id,node){
+export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);
- return item?{quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name}:null;
+ if(!item)return null;
+ const point={quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name};
+ if(quest.delivery){
+  if(node===quest.target){
+   point.absent=[quest.delivery.cache.guard];
+   point.fixtures=[{x:item.x,y:item.y,rects:[[-15,-24,30,24,'#5b3f2c'],[-12,-21,24,18,'#c48a56'],[-2,-21,4,18,'#f1d58e']]}];
+  }else{
+   point.stocked=quest.delivery.packages.filter(p=>stocked.includes(p.id)).map(p=>p.id);
+   point.fixtures=quest.delivery.packages.map(({id,x,y,color})=>{
+    const rects=[[-27,-32,54,32,'#62432e'],[-24,-27,48,21,'#916749'],[-28,-32,56,4,color]];
+    if(point.stocked.includes(id))rects.push([-16,-43,13,11,color],[4,-40,12,8,'#f3d2a1']);
+    return {x,y,rects};
+   });
+  }
+ }
+ return point;
 }
 
 export function surveyPointUrl(point){
  const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest});
  if(point.worksite){
   params.set('worksite',point.worksite);
+  for(const id of point.stocked??[])params.append('stocked',id);
   params.set('compare','background');
   params.set('tier','4096');
  }else{

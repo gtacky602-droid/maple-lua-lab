@@ -48,6 +48,25 @@ async function deliver(label,n){
  await page.waitForFunction(({id,n})=>window.lab.frame.story.quests[id].count===n,{id,n});
 }
 
+const preview=await browser.newPage();
+async function checkStop(key,value,stocked){
+ await page.waitForFunction(({key,value})=>{
+  const link=document.getElementById('trackedSurveyPoint');
+  return !link.hidden&&new URL(link.href).searchParams.get(key)===value;
+ },{key,value});
+ const url=new URL(await page.locator('#trackedSurveyPoint').getAttribute('href'),page.url());
+ assert.deepEqual(url.searchParams.getAll('stocked'),stocked);
+ await preview.goto(url.href);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ if(key==='subject')assert.equal(await preview.locator('#liveSubject').inputValue(),value);
+ else assert.equal(await preview.locator('#surveyPointNote').getAttribute('data-worksite'),value);
+}
+async function pixel(x,y,rgb){
+ for(const id of ['png','rect']){
+  assert.deepEqual(await preview.evaluate(({id,x,y})=>Array.from(document.getElementById(id)
+   .getContext('2d').getImageData(x-mapArt.camera,y,1,1).data).slice(0,3),{id,x,y}),rgb);
+ }
+}
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');
  await page.waitForFunction(()=>window.lab?.frame);
@@ -61,11 +80,18 @@ try{
  await page.waitForSelector('[data-quest="beidou-join"][data-status="unaccepted"]');
  await row.getByRole('button',{name:'この依頼を追跡',exact:true}).click();
 
+ await page.selectOption('#trackedWorksite','vessel');
+ await checkStop('worksite','vessel',[]);
+ await page.selectOption('#trackedWorksite','pot');
+ await checkStop('worksite','pot',[]);
+ await pixel(248,450,[213,151,96]);
  await walk(245);
  await shop.getByRole('button',{name:'荷札「器」を渡す',exact:true}).click();
  await page.waitForFunction(()=>document.querySelector('#storyDeliveryResult').textContent.includes('もう一度'));
  assert.equal((await frame()).story.quests[id].count,0);
  await deliver('鍋',1);
+ await checkStop('worksite','vessel',['pot']);
+ await pixel(237,439,[213,151,96]);
  assert.deepEqual((await frame()).storyShopStock,{pot:true,vessel:false,wheel:false});
  await walk(615);
  await deliver('器',2);
@@ -77,6 +103,7 @@ try{
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
  assert.deepEqual((await frame()).storyShopStock,{pot:true,vessel:true,wheel:false});
 
+ await checkStop('subject','liyue-loading-yard-1',[]);
  await walk(400);
  await through('liyue-loading-yard');
  await walk(432,true);
@@ -85,6 +112,8 @@ try{
  try{
   await page.waitForFunction(id=>window.lab.frame.story.quests[id].delivery.guardCleared,id);
  }finally{await page.keyboard.up('KeyJ')}
+ await checkStop('worksite','wheel',[]);
+ await pixel(735,362,[241,213,142]);
  await walk(735);
  await focus();
  await page.keyboard.down('Space');
@@ -95,6 +124,8 @@ try{
  await page.waitForFunction(id=>window.lab.frame.story.quests[id].delivery.recovered,id);
  await walk(106);
  await through('liyue-harbor');
+ await checkStop('worksite','wheel',['pot','vessel']);
+ await pixel(608,439,[119,157,199]);
  await walk(1050);
  await shop.getByRole('button',{name:'荷札「車輪」を渡す'}).waitFor();
  await page.locator('.game').screenshot({path:`evidence/liyue-m01-delivery${suffix}.png`});
@@ -107,6 +138,7 @@ try{
  assert.match(await row.innerText(),/初回報酬：港の護送剣/);
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForSelector('[data-quest="liyue-market-delivery"][data-status="complete"]');
+ await checkStop('worksite','pot',['pot','vessel','wheel']);
  const paid=await frame();
  assert.match(await row.innerText(),/石切り場/);
  assert.equal(paid.mora-before.mora,300);
