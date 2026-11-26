@@ -156,6 +156,32 @@ def verify(origin, edge, time_key):
                 atlasPausesTransfer=True)
 
 
+def verify_wind_gates():
+    checked = []
+    for (origin, destination), gate in edges.items():
+        if 'wind' not in gate:
+            continue
+        state = ready(origin, gate).state
+        phases = []
+        for calm, seconds in ((False, 0.1), (True, gate['wind']['calmStart'] + 0.1)):
+            state.t = state.storyEnteredAt + seconds
+            portal = next(p for p in core.frame(state).storyPortals.values() if p.to == destination)
+            expected = native(portal.wind)
+            assert expected['calm'] == calm and expected['seconds'] > 0
+            core.action(state, 'world_map_focus:' + origin)
+            row = next(r for r in core.frame(state).worldMap.routes.values() if r.id == destination)
+            assert native(row.wind) == expected
+            core.action(state, 'world_map_focus:' + destination)
+            leg = core.frame(state).worldMap.guide.stops[1]
+            assert leg.id == destination and native(leg.wind) == expected
+            advance(core, state, 90)
+            assert native(core.frame(state).worldMap.guide.stops[1].wind) == expected
+            core.action(state, 'world_map_close')
+            phases.append(expected)
+        checked.append(dict(origin=origin, destination=destination, phases=phases))
+    return checked
+
+
 def main():
     checked = [verify(origin, gate, time_key) for (origin, destination), gate in edges.items()
                if {origin, destination} - covered for time_key in durations if time_key in gate]
@@ -163,7 +189,7 @@ def main():
     assert counts == dict(boat=12, lift=37, water=10, phase=24), counts
     result = {'scope': 'Timed gates with at least one endpoint outside the marker, hunt and voyage ledgers.',
               'setup': 'Each trial starts at its source with the required level and quest state; all gate approaches use movement.',
-              'counts': dict(counts), 'directions': checked}
+              'counts': dict(counts), 'directions': checked, 'windWindows': verify_wind_gates()}
     (ROOT / 'evidence/world-timed-gates-lua.json').write_text(
         json.dumps(result, indent=2) + '\n', encoding='utf8')
     print(f'{len(checked)} short transfers exercised with the in-game portal action.')

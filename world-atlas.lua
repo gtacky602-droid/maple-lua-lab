@@ -207,7 +207,7 @@ return function(C, atlas)
  local function route_hint(edge,node,destination,actorY)
   local voyage=node.voyage
   local instruction=edge.darkOnly and '灯りを消して足場を出す'
-    or edge.wind and '風が止むまで待つ'
+    or edge.wind and '風が弱い間に通る'
     or edge.windowStart and (('出発から%s〜%s秒の間に%s'):format(edge.windowStart,edge.windowEnd,
       voyage.kind=='trolley' and '途中下車' or '途中下船'))
     or edge.resumeSeconds and ('乗り直してから%g秒で到着'):format(destination.voyage.seconds-edge.resumeSeconds)
@@ -437,6 +437,7 @@ return function(C, atlas)
      leg.secondsRemaining=math.max(0,s.voyage.arrives-s.t)
     end
     if leg.edge.x and not leg.automaticArrival then
+     if leg.first then leg.wind=C.storyGateWind(s,leg.from,leg.edge) end
      leg.sealState=C.gateFixtureState(s,leg.from,leg.edge);leg.routeFixture=leg.edge.routeFixture;leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
      if leg.first and leg.from==s.story.node and not s.lift and not s.coop then
       local dx,dy=C.gateOffset(s.actors[s.active],leg.edge)
@@ -599,7 +600,7 @@ return function(C, atlas)
    for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
      local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
-     routes[#routes+1]={sealState=C.gateFixtureState(s,selected.id,edge),routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
+     routes[#routes+1]={wind=C.storyGateWind(s,selected.id,edge),sealState=C.gateFixtureState(s,selected.id,edge),routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,

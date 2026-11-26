@@ -1253,5 +1253,91 @@
       "atlasShowsDestinationDuringTransfer": true,
       "atlasPausesTransfer": true
     }
+  ],
+  "windWindows": [
+    {
+      "origin": "spine-wind-notch",
+      "destination": "spine-shelter",
+      "phases": [
+        {
+          "seconds": 4,
+          "calm": false
+        },
+        {
+          "seconds": 3,
+          "calm": true
+        }
+      ]
+    },
+    {
+      "origin": "tunigi-baffle-workshop",
+      "destination": "tunigi-return-shelter",
+      "phases": [
+        {
+          "seconds": 2,
+          "calm": false
+        },
+        {
+          "seconds": 8,
+          "calm": true
+        }
+      ]
+    },
+    {
+      "origin": "sne-wp-100680",
+      "destination": "sne-wp-100681",
+      "phases": [
+        {
+          "seconds": 3,
+          "calm": false
+        },
+        {
+          "seconds": 3,
+          "calm": true
+        }
+      ]
+    },
+    {
+      "origin": "sne-wp-106210",
+      "destination": "sne-wp-106211",
+      "phases": [
+        {
+          "seconds": 3,
+          "calm": false
+        },
+        {
+          "seconds": 3,
+          "calm": true
+        }
+      ]
+    },
+    {
+      "origin": "sum-wp-41838",
+      "destination": "sum-wp-41836",
+      "phases": [
+        {
+          "seconds": 4,
+          "calm": false
+        },
+        {
+          "seconds": 3,
+          "calm": true
+        }
+      ]
+    },
+    {
+      "origin": "sum-wp-46515",
+      "destination": "sum-wp-46516",
+      "phases": [
+        {
+          "seconds": 3,
+          "calm": false
+        },
+        {
+          "seconds": 3,
+          "calm": true
+        }
+      ]
+    }
   ]
 }

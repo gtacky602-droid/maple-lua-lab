@@ -66,6 +66,10 @@ export function questDestinations(f,q,status,preferredNode){
  return {candidates,arrival};
 }
 
+export function windTiming(wind){
+ return wind.calm?'風が弱まっています。通過できる時間はあと約'+wind.seconds+'秒':'風が弱まるまであと約'+wind.seconds+'秒';
+}
+
 export function questRoute(f,q,status,preferredNode){
  const optional=hasOptionalPath(q,f.story?.quests?.[q?.id]);
  if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable&&!optional))return {text:''};
@@ -139,6 +143,8 @@ export function questRoute(f,q,status,preferredNode){
  if(missedStop)notes.push(f.voyage?.kind==='trolley'?'停留所を通過しました':'寄港時間を過ぎています');
  const vehicle=nodes.get(from).voyage;
  const automatic=vehicle?.destination===edge.to;
+ const portal=Array.isArray(f.storyPortals)&&f.storyPortals.find(p=>p.gateX===edge.x&&p.to===edge.to&&p.y===(edge.y??480));
+ const wind=portal?.wind;
  const needsDark=edge.darkOnly && f.storyLocalLight?.mode!=='dark';
  if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
  if(needsDark){
@@ -152,6 +158,7 @@ export function questRoute(f,q,status,preferredNode){
   const dx=edge.x-actor.x;
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
   else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
+  else if(wind&&!wind.calm)notes.push('風待ちの入口に着きました');
   else if(f.voyage?.kind==='trolley'&&edge.windowStart!==undefined)notes.push('停車したら「F：途中下車する」で降りられます');
   else if(next.voyage?.kind==='train')notes.push('乗り場に着きました。「F：列車に乗る」で進めます');
   else if(next.voyage?.kind==='trolley')notes.push('乗り場に着きました。「F：トロッコに乗る」で進めます');
@@ -159,6 +166,7 @@ export function questRoute(f,q,status,preferredNode){
   else if(edge.waterwaySeconds)notes.push('乗り継ぎ場に着きました。「F：水路を渡る」で進めます');
   else notes.push(edge.liftSeconds?'昇降台の近くです。「F：昇降台に乗る」で進めます':'次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
  }
+ if(wind)notes.push(windTiming(wind));
  if(edge.windowStart!==undefined){
   const elapsed=f.voyage?.elapsed;
   if(f.voyage?.kind==='trolley'){
@@ -174,7 +182,7 @@ export function questRoute(f,q,status,preferredNode){
  }
  else if(edge.darkOnly)notes.push(needsDark?'消灯すると影の足場と門が現れます':'消灯中。影の足場へ跳び、上段の門を通ってください');
  else if(vehicle?.source===edge.to)notes.push(path[2]===from?'出発港へ戻る門を使い、もう一度乗船してください':'出発港へ戻る門を使ってください');
- else notes.push('次の地点の門へ歩いて移動してください');
+ else if(!wind||wind.calm)notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);
  const reported=node=>f.story.quests?.[node.locationAfterReport?.quest]?.status==='complete';
@@ -185,10 +193,7 @@ export function questRoute(f,q,status,preferredNode){
   gateLabel=next.name+'の到着位置を見る';
  }else if(Number.isFinite(edge.x)){
   params=new URLSearchParams({node:from,to:edge.to,gateX:edge.x,gateY:edge.y??480,placements:'live',compare:'background'});
-  if(Array.isArray(f.storyPortals)){
-   const portal=f.storyPortals.find(p=>p.gateX===edge.x&&p.to===edge.to&&p.y===(edge.y??480));
-   if(portal?.sealState)params.set('fixture',portal.sealState);
-  }
+  if(portal?.sealState)params.set('fixture',portal.sealState);
   if(reported(nodes.get(from)))params.set('phase','after');
   if(reported(next))params.set('afterArrival',next.id);
   gateLabel='次の門の位置を見る';

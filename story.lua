@@ -213,6 +213,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local nextChange=calm and wind.calmEnd or (t<wind.calmStart and wind.calmStart or wind.period+wind.calmStart)
   return calm,nextChange-t
  end
+ function C.storyGateWind(s,from,edge)
+  if not edge.wind or from~=s.story.node or s.coop then return end
+  local calm,seconds=windWindow(s,edge.wind)
+  return {calm=calm,seconds=math.ceil(seconds)}
+ end
  local function voyageElapsed(s)
   -- Treat a tick that lands on the scheduled boundary as exact.
   return s.voyage and s.t-s.voyage.started+1e-8 or -1
@@ -2454,7 +2459,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
      marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
     end
-    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=fixture and edge.x}
+    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=(fixture or edge.wind) and edge.x,wind=C.storyGateWind(s,n.id,edge)}
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)

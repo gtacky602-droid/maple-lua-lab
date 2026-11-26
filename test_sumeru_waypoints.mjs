@@ -14,7 +14,7 @@ const page=await browser.newPage({viewport:{width:1200,height:960}});
 page.on('pageerror',e=>errors.push(e.message));
 const {walk,changeHeight,cross,actor,warp,count,waitNode,accept,report,choices,journeys}=waypointDriver(page,nodes);
 const follow=async(...stages)=>{for(const stage of stages)await cross(stage)};
-const calls=()=>page.evaluate(()=>window.lab.frame.draws.length);
+const calls=()=>page.evaluate(()=>Number(document.querySelector('#draws').textContent.replaceAll(',','')));
 
 async function inspect(step,quest,index){
  await walk(step.x-38);
@@ -33,16 +33,16 @@ async function compareProfiles(){
  const png=await calls();
  await canvas.screenshot({path:'evidence/sumeru-waypoint-png.png'});
  await page.selectOption('#renderMode','rect');
- await page.waitForFunction(n=>window.lab.frame.draws.length>n*8,png);
+ await page.waitForFunction(n=>Number(document.querySelector('#draws').textContent.replaceAll(',',''))>n*8,png);
  const standard=await calls();
  await page.selectOption('#renderMode','h32c16');
- await page.waitForFunction(n=>window.lab.frame.draws.length<n*.75,standard);
+ await page.waitForFunction(n=>Number(document.querySelector('#draws').textContent.replaceAll(',',''))<n*.75,standard);
  const light=await calls();
  await canvas.screenshot({path:'evidence/sumeru-waypoint-light.png'});
  const after=await actor();
  assert.deepEqual([before.x,before.y,before.hp],[after.x,after.y,after.hp]);
  await page.selectOption('#renderMode','sprite');
- await page.waitForFunction(n=>window.lab.frame.draws.length===n,png);
+ await page.waitForFunction(n=>Number(document.querySelector('#draws').textContent.replaceAll(',',''))===n,png);
  await page.locator('#pause').click();
  await page.waitForFunction(()=>!window.lab.frame.paused);
  return {marker:pin,png,standard,light,actor:[before.x,before.y],frozen:true};
@@ -67,6 +67,7 @@ try{
  await warp('sumeru-hub');
  await follow('sumeru-field','tunigi-camp');
  await accept(wind);
+ await page.locator('[data-quest="'+wind+'"]').getByRole('button',{name:'この依頼を追跡'}).click();
  await follow('sum-wp-46517','sum-wp-46516','sum-wp-46515','sum-wp-41834','sum-wp-41835','sum-wp-41838');
  await count(wind,1);
 
@@ -77,6 +78,7 @@ try{
   const gate=window.lab.frame.storyNearbyPortal;
   return gate?.to==='sum-wp-41836'&&!gate.available&&gate.wind?.seconds>.6;
  },null,{timeout:15000});
+ await page.waitForFunction(()=>document.querySelector('#trackedQuestText').textContent.includes('風が弱まるまであと約')&&window.lab.frame.storyNearbyPortal.wind.seconds>.6);
  assert.equal(await page.locator('#nearbyPortalGo').isDisabled(),true);
  await page.keyboard.press('KeyF');
  await page.waitForFunction(()=>window.lab.frame.storyNotice?.includes('風が弱まるまで'));

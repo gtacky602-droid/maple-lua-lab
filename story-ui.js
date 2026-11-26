@@ -126,6 +126,9 @@ function update(){
  let gatePosition='';
  if(actor){
   const exits=f.storyGraph.nodes.find(n=>n.id===f.story.node)?.exits??[];
+  for(const portal of Array.isArray(f.storyPortals)?f.storyPortals:[]){
+   if(portal.wind)gatePosition+=portal.to+portal.wind.calm+portal.wind.seconds;
+  }
   const distances=new Map();
   for(const edge of exits){
    if(!Number.isFinite(edge.x))continue;

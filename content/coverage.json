@@ -9399,6 +9399,7 @@
     ]
   },
   "world_map_review": {
+    "wind_gate_countdown": {"directedGates":6,"states":["gust","calm"],"scope":"Solo quest tracking and current-room atlas routes use the Lua crossing window. The atlas pauses its timer.","regression":"test_world_timed_gates.py"},
     "level_detour_evidence": "evidence/world-atlas-lua.json",
     "level_detour_browser_evidence": "evidence/world-atlas-browser.json",
     "mondstadt_stage_evidence": "design/world/mondstadt-stage-evidence.json",

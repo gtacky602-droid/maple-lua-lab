@@ -25,7 +25,7 @@ def dragonspine(trip=None, *, on_shelter=None):
     trip.travel(notch)
     trip.mark(second, 1)
     route = trip.travel(shelter)
-    assert route[0]['mode'] == 'lift' and '風が止むまで待つ' in route[0]['hint']
+    assert route[0]['mode'] == 'lift' and '風が弱い間に通る' in route[0]['hint']
     trip.mark(second, 2)
     if on_shelter:
         on_shelter(trip.snapshot())
