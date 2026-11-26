@@ -208,3 +208,22 @@ const gateQuest={kind:'visit',target:special.id};
 assert.deepEqual(questRoute(downed,gateQuest,'active'),{node:special.id,text:special.name+'：'+special.travelerGateMessage});
 assert.match(questRouteText(downed,targetQuest,'active'),/Locked shortcut/);
 assert.match(questRouteText({...downed,actors:[{id:1,hp:1}]},gateQuest,'active'),/次は Available detour/);
+
+const forkQuest=graph.quests.find(q=>q.id==='sum-collei-guide');
+const forkFrame={story:{active:true,node:'sum-collei-rainfork',quests:{[forkQuest.id]:{status:'active',count:5}}},
+ storyGraph:graph,progression:{level:200},active:1,actors:[{id:1,x:553,y:389}]};
+const visitWelcome={kind:'visit',target:'sum-collei-welcome'};
+for(const [status,x,label] of [['active',1272,'右側の門・根の下の迂回路'],['complete',553,'左側の門・川沿いの近道']]){
+ forkFrame.story.quests[forkQuest.id].status=status;
+ const route=questRoute(forkFrame,visitWelcome,'active');
+ assert(route.text.includes(label));
+ assert.equal(route.gateLabel,label+'の位置を見る');
+ assert.equal(new URL(route.gateUrl,'http://localhost').searchParams.get('gateX'),String(x));
+}
+const waterGate=graph.nodes.find(n=>n.id==='fon-wp-50062').exits.find(e=>e.to==='fon-wp-50063');
+const diver={...forkFrame,story:{active:true,node:'fon-wp-50062',quests:{}},actors:[{id:1,x:waterGate.x,y:waterGate.y}]};
+for(const [dy,word] of [[-60,'潜って'],[60,'浮上して'],[0,'門の近く']]){
+ diver.actors[0].y=waterGate.y+dy;
+ const text=questRouteText(diver,{kind:'visit',target:waterGate.to},'active');
+ assert(text.includes(word)&&text.includes('泳いで')&&!text.includes('歩いて'));
+}

@@ -156,6 +156,16 @@ export function questRoute(f,q,status,preferredNode){
   ?gates.reduce((best,e)=>distance(e)<distance(best)?e:best):gates[0];
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
+ const source=nodes.get(from);
+ const swimming=Boolean(source.swim||source.toyDive);
+ const parallel=currentStops.filter(e=>e.to===edge.to&&Number.isFinite(e.x));
+ let entrance;
+ if(parallel.length>1&&Number.isFinite(edge.x)){
+  const xs=parallel.map(e=>e.x);
+  const side=Math.min(...xs)===Math.max(...xs)?'':edge.x===Math.min(...xs)?'左側の門':edge.x===Math.max(...xs)?'右側の門':'中央の門';
+  entrance=[side,edge.rideLabel].filter(Boolean).join('・');
+  if(entrance)notes.push(entrance);
+ }
  if(missedStop)notes.push(f.voyage?.kind==='trolley'?'停留所を通過しました':'寄港時間を過ぎています');
  const vehicle=nodes.get(from).voyage;
  const automatic=vehicle?.destination===edge.to;
@@ -173,6 +183,7 @@ export function questRoute(f,q,status,preferredNode){
  }else if(!automatic&&actor&&Number.isFinite(actor.x)&&Number.isFinite(actor.y)&&Number.isFinite(edge.x)){
   const dx=edge.x-actor.x;
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
+  else if(swimming&&Math.abs(actor.y-(edge.y??480))>=60)notes.push(actor.y<(edge.y??480)?'門の横位置まで来ています。今の位置から潜ってください':'門の横位置まで来ています。今の位置から浮上してください');
   else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
   else if(wind&&!wind.calm)notes.push('風待ちの入口に着きました');
   else if(f.voyage?.kind==='trolley'&&edge.windowStart!==undefined)notes.push('停車したら「F：途中下車する」で降りられます');
@@ -200,7 +211,7 @@ export function questRoute(f,q,status,preferredNode){
  }
  else if(edge.darkOnly)notes.push(needsDark?'消灯すると影の足場と門が現れます':'消灯中。影の足場へ跳び、上段の門を通ってください');
  else if(vehicle?.source===edge.to)notes.push(path[2]===from?'出発港へ戻る門を使い、もう一度乗船してください':'出発港へ戻る門を使ってください');
- else if(!wind||wind.calm)notes.push('次の地点の門へ歩いて移動してください');
+ else if(!wind||wind.calm)notes.push(swimming?'次の地点の門へ泳いで移動してください':'次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);
  const reported=node=>f.story.quests?.[node.locationAfterReport?.quest]?.status==='complete';
@@ -214,7 +225,7 @@ export function questRoute(f,q,status,preferredNode){
   if(portal?.sealState)params.set('fixture',portal.sealState);
   if(reported(nodes.get(from)))params.set('phase','after');
   if(reported(next))params.set('afterArrival',next.id);
-  gateLabel='次の門の位置を見る';
+  gateLabel=entrance?entrance+'の位置を見る':'次の門の位置を見る';
  }
  const gateUrl=params?'map-art.html?'+params:undefined;
  return {node:focus,gateUrl,gateLabel,text:`次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`};

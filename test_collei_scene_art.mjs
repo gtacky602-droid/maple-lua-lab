@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {surveyPoint,surveyPointUrl} from './survey-point.js';
+import {questRoute} from './quest-route.js';
 import {trackedQuest,atlasQuestObjectives} from './quest-journal.js';
 import {rectangleCount,spriteBounds} from './sprite-layers.js';
 
@@ -60,5 +61,19 @@ try{
    assert.equal(Number(cells[1].replaceAll(',','')),rectangleCount(pose.profiles.h32c16));
   }
   console.log(stage,note);
+ }
+ frame.story.node='sum-collei-rainfork';
+ frame.active=1;
+ frame.actors=[{id:1,x:553,y:389}];
+ for(const [status,x,y] of [['active',1272,480],['complete',553,389]]){
+  state.status=status;
+  state.count=status==='active'?5:quest.goal;
+  const route=questRoute(frame,{kind:'visit',target:'sum-collei-welcome'},'active');
+  await page.goto(new URL(route.gateUrl,process.env.LAB_URL||'http://127.0.0.1:9125/').href);
+  await page.waitForFunction(()=>window.mapArt?.ready&&mapArt.backgroundState==='ready');
+  const selected=page.locator('#gatePreview select option:checked');
+  assert.equal(await selected.getAttribute('data-gate-x'),String(x));
+  assert.equal(await selected.getAttribute('data-gate-y'),String(y));
+  console.log(status,route.gateLabel,await selected.innerText());
  }
 }finally{await browser.close()}
