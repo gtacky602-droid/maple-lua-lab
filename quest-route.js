@@ -1,3 +1,5 @@
+import {constructionWorksite} from './survey-point.js';
+
 // Guidance over the published graph only. Never moves the player or unlocks gates.
 export function questTargetNode(q,graph){
  if(q.kind!=='boss')return q.target;
@@ -25,7 +27,15 @@ export function pendingFieldSites(q,state){
   if(state?.count===marks.length+1)return [{...model,node:q.target}];
   return marks.filter(site=>!state?.stone?.marked?.[site.id]);
  }
- if(q.construction&&state?.construction)return q.construction.surveys.filter(site=>!state.construction.surveyed?.[site.id]);
+ if(q.construction&&state?.construction){
+  const {surveys,desk,plans}=q.construction;
+  if(state.count===surveys.length)return [desk];
+  if(state.count>surveys.length&&state.count<q.goal){
+   const plan=plans.find(plan=>plan.id===state.construction.plan);
+   return plan?[constructionWorksite(plan,state.count===surveys.length+2)]:[];
+  }
+  return surveys.filter(site=>!state.construction.surveyed?.[site.id]);
+ }
  return [];
 }
 

@@ -70,7 +70,7 @@ return function(drawCart)
   rect(draws,x-3,top+6,6,bottom-top-6,'#9c8259')
  end
 
- local function surveyProp(draws,x,y,item,count)
+ function H.drawSite(draws,x,y,item,count)
   if item.id=='roof' then
    rect(draws,x-20,y-12,40,5,'#ab875c')
    rect(draws,x-20,y-7,5,7,'#6c4f3d')
@@ -110,7 +110,7 @@ return function(drawCart)
  function H.observe(s,f,draws,q,state)
   local spec=q.construction
   local item=H.nearby(s,q,state)
-  for _,site in ipairs(H.sites(s,q,state)) do surveyProp(draws,site.x-s.camera,site.y,site,state.count) end
+  for _,site in ipairs(H.sites(s,q,state)) do H.drawSite(draws,site.x-s.camera,site.y,site,state.count) end
   if item and not s.paused and not s.lift then
    local label=state.count==4 and '作業場所を片付ける' or state.count==5 and '資材を職人に渡す' or item.name..'を調べる'
    f.storyNearbyConstruction={label=label}

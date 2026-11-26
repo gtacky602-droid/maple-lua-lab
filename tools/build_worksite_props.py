@@ -175,6 +175,13 @@ def build():
             runs=[relative(rect,0,item['y']) for rect in rectangles(draws)]
             assert runs
             art[item['id']]=runs
+        if kind=='construction':
+            spec=q[kind]
+            for key,item,count in [(spec['desk']['id'],spec['desk'],3),('work-clearing',spec['plans'][0]['site'],4),
+                                   ('work-supplies',spec['plans'][0]['site'],5)]:
+                draws=lua.table()
+                module.drawSite(draws,0,0,lua.table_from(item),count)
+                art[key]=rectangles(draws)
         if kind=='stone':
             for item in (q[kind]['mural'],q[kind]['model']):
                 draws=lua.table()

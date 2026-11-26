@@ -197,6 +197,11 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
   action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop}),...(props.length&&{props}),...(fixtures.length&&{fixtures})};
 }
 
+export function constructionWorksite(plan,supplies){
+ return {...plan.site,id:supplies?'work-supplies':'work-clearing',
+  name:plan.name+'・'+(supplies?'資材の受け渡し':'作業場所の片付け')};
+}
+
 export function worksitePoints(quest){
  if(quest?.cargo)return quest.cargo.map(p=>({...p,node:quest.recovery?.node??quest.target}));
  if(quest?.trail?.clues)return [...quest.trail.clues,...(quest.trail.meeting?[{...quest.trail.meeting,node:quest.target}]:[])];
@@ -205,7 +210,11 @@ export function worksitePoints(quest){
  if(quest?.rail)return [quest.rail.release,quest.rail.dispatch].map(p=>({...p,node:quest.target,name:p.label}));
  if(quest?.sights)return [...quest.sights.places,quest.sights.bridge].map(p=>({...p,node:quest.target}));
  if(quest?.stone)return [...quest.stone.marks,...[quest.stone.mural,quest.stone.model].map(site=>({...site,node:quest.target}))];
- return quest?.cooking?.ingredients??quest?.construction?.surveys??[];
+ if(quest?.construction){
+  const {surveys,desk,plans}=quest.construction;
+  return [...surveys,desk,...plans.flatMap(plan=>[constructionWorksite(plan,false),constructionWorksite(plan,true)])];
+ }
+ return quest?.cooking?.ingredients??[];
 }
 export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);

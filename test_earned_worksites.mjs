@@ -79,7 +79,7 @@ try{
  }
 
  await preview.bringToFront();
- for(const quest of graph.quests.filter(q=>q.hub===hub)){
+ for(const quest of graph.quests.filter(q=>q.hub===hub&&(q.cooking||q.stone||q.construction))){
   for(const site of worksitePoints(quest)){
    const p=worksitePoint(quest,site.id,site.node);
    await preview.selectOption('#node',site.node);
@@ -134,7 +134,7 @@ try{
   }
  }
  const picture=await preview.evaluate(async rows=>{
-  const sheet=document.createElement('canvas');sheet.width=978;sheet.height=448;
+  const sheet=document.createElement('canvas');sheet.width=978;sheet.height=80+Math.ceil(rows.length/3)*123;
   const ctx=sheet.getContext('2d');ctx.fillStyle='#153133';ctx.fillRect(0,0,sheet.width,sheet.height);
   ctx.fillStyle='#f5eed9';ctx.font='bold 18px sans-serif';
   ctx.fillText('璃月の採集・調査地点',14,27);ctx.font='14px sans-serif';
@@ -148,11 +148,11 @@ try{
   }
   return sheet.toDataURL();
  },pictures);
- assert.equal(results.length,9);
+ assert.equal(results.length,16);
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/liyue-worksites-comparison.png',Buffer.from(picture.split(',')[1],'base64'));
  await fs.writeFile('evidence/earned-worksites-browser.json',JSON.stringify({results,haulChecks,selectedSiteRestored:true,
   sameRoomAlternatives:true,mapFocus:true,finishedOptionsRemoved:true,
   completedShortcutLinks:['liyue-cart-road','liyue-cart-lift'],errors},null,2)+'\n');
- console.log('9 worksites: field, map, both preview layers and saved preference passed.');
+ console.log('16 worksites: field, map, both preview layers and saved preference passed.');
 }finally{await browser.close()}

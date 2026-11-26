@@ -49,6 +49,22 @@
       "pixelsPerLayer": 756
     },
     {
+      "quest": "liyue-stone-marks",
+      "id": "craft-mural",
+      "node": "liyue-craftsmen-overlook",
+      "x": 488,
+      "y": 397,
+      "pixelsPerLayer": 7188
+    },
+    {
+      "quest": "liyue-stone-marks",
+      "id": "overlook-model",
+      "node": "liyue-craftsmen-overlook",
+      "x": 980,
+      "y": 231,
+      "pixelsPerLayer": 1344
+    },
+    {
       "quest": "liyue-hauling-shortcut",
       "id": "roof",
       "node": "liyue-harbor",
@@ -71,6 +87,46 @@
       "x": 1535,
       "y": 480,
       "pixelsPerLayer": 2126
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "work-plan",
+      "node": "liyue-harbor",
+      "x": 875,
+      "y": 480,
+      "pixelsPerLayer": 1194
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "work-clearing",
+      "node": "liyue-harbor",
+      "x": 170,
+      "y": 480,
+      "pixelsPerLayer": 1035
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "work-supplies",
+      "node": "liyue-harbor",
+      "x": 170,
+      "y": 480,
+      "pixelsPerLayer": 620
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "work-clearing",
+      "node": "liyue-quarry-post",
+      "x": 1535,
+      "y": 480,
+      "pixelsPerLayer": 1035
+    },
+    {
+      "quest": "liyue-hauling-shortcut",
+      "id": "work-supplies",
+      "node": "liyue-quarry-post",
+      "x": 1535,
+      "y": 480,
+      "pixelsPerLayer": 620
     }
   ],
   "haulChecks": [

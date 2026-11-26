@@ -18,6 +18,27 @@ try{
    state[kind][flags][site.id]=true;state.count++;
    assert(!links(site.node).some(url=>url.searchParams.get('worksite')===site.id));
   }
+  if(kind==='construction'){
+   const check=async (node,id)=>{
+    const [url]=links(node);
+    assert.equal(url.searchParams.get('worksite'),id);
+    const tracked=new URL(trackedQuest(frame,q.id).pointUrl,url);
+    assert.equal(tracked.searchParams.get('worksite'),id);
+    assert.equal(tracked.searchParams.get('node'),node);
+    await page.goto(new URL(url.pathname+url.search,process.env.LAB_URL||url.origin).href);
+    await page.waitForFunction(id=>window.mapArt?.decodedBackgroundRectangles===4096&&document.querySelector('#surveyPointNote')?.dataset.worksite===id,id);
+    assert((await page.locator('#surveyPointNote').innerText()).includes(art[q.id][id].length+'矩形'));
+   };
+   await check(q.construction.desk.node,'work-plan');
+   for(const plan of q.construction.plans){
+    state.construction.plan=plan.id;
+    state.count=4;
+    await check(plan.site.node,'work-clearing');
+    state.count=5;
+    await check(plan.site.node,'work-supplies');
+   }
+   console.log('PASS desk, both build sites and material deliveries');
+  }
   if(kind!=='stone')continue;
   for(const site of [q.stone.mural,q.stone.model]){
    const [url]=links(q.target);
