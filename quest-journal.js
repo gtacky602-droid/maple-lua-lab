@@ -397,7 +397,7 @@ export function trackedQuest(f,id,selectedWorksite){
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));
  const point=status==='active' && (worksitePoint(q,site?.point,route.node)??surveyPoint(q,st.count,route.node,null,null,site?.choice));
- return {node:route.node,pointUrl:point?surveyPointUrl(point):undefined,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
+ return {node:route.node,pointUrl:point?surveyPointUrl(point):route.gateUrl,pointLabel:!point&&route.gateUrl?'次の門の位置を見る':undefined,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
 }
 export function trackedQuestText(f,id){return trackedQuest(f,id).text}
 function prerequisiteText(q,graph,level){

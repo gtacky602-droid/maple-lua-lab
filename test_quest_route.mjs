@@ -134,3 +134,21 @@ assert(follow.text.includes(graph.nodes.find(n=>n.id===tower).name));
 waterFrame.story.node=bubbleRoom;
 assert.match(questRouteText(waterFrame,{kind:'visit',target:outside},'active'),/残り2区間/);
 console.log('Quest routing fixtures passed');
+
+// Two physical exits can lead to the same field. Match the Lua atlas choice
+// as story progress unlocks the nearby return gate on Sayu's patrol route.
+const sayuFrame={story:{active:true,node:'ina-sayu-watchpath',quests:{'ina-sayu-quiet-route':{status:'active',count:4}}},
+ storyGraph:graph,progression:{level:200},active:1,actors:[{id:1,x:2160,y:480}]};
+const returnToTown={kind:'visit',target:'inazuma-town'};
+function nextGate(){
+ const route=questRoute(sayuFrame,returnToTown,'active');
+ const url=new URL(route.gateUrl,'http://localhost');
+ assert.equal(url.searchParams.get('to'),'inazuma-town');
+ return [Number(url.searchParams.get('gateX')),route.text];
+}
+assert.equal(nextGate()[0],64);
+sayuFrame.story.quests['ina-sayu-quiet-route'].count=5;
+assert.equal(nextGate()[0],2188);
+assert.match(nextGate()[1],/門の近く/);
+sayuFrame.actors[0].x=100;
+assert.equal(nextGate()[0],64);

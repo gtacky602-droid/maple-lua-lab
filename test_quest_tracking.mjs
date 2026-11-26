@@ -26,6 +26,14 @@ try{
  await p.locator('#saveProgress').click();await p.waitForFunction(()=>document.getElementById('saveStatus').textContent.includes('保存しました'));
  await p.reload();await p.waitForFunction(()=>window.lab?.frame);await p.waitForSelector('#trackedQuest:visible');await p.click('#loadProgress');await p.waitForSelector('#trackedQuest:visible');assert.match(await p.locator('#trackedQuestText').textContent(),/街道の安全確認.*0\/8/);
  assert.match(await p.locator('#trackedQuestText').textContent(),/次は モンド・南の街道.*残り1区間/);await p.locator('#trackedQuest').screenshot({path:'evidence/quest-tracking.png'});
+ const gate=p.locator('#trackedSurveyPoint');
+ assert.equal(await gate.textContent(),'次の門の位置を見る');
+ const [preview]=await Promise.all([p.waitForEvent('popup'),gate.click()]);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ const selected=preview.locator('#gatePreview select option:checked');
+ assert.equal(await selected.getAttribute('data-to'),'mond-road');
+ assert.equal(await selected.getAttribute('data-gate-x'),'1380');
+ await preview.close();
  await inspectMarker('mond-road');
  await p.setViewportSize({width:390,height:844});assert.equal(await p.locator('#trackedQuest').evaluate(el=>el.scrollWidth>el.clientWidth),false);
  await p.locator('#trackedQuest').screenshot({path:'evidence/quest-tracking-mobile.png'});

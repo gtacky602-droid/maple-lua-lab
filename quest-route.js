@@ -111,14 +111,18 @@ export function questRoute(f,q,status,preferredNode){
   path=routeAtLevel(limit);if(path)break;
  }
  if(!path)return {text:'公開中の地点からつながる経路がありません。'};
- const next=nodes.get(path[1]),edge=connections(nodes.get(from)).find(e=>e.to===next.id&&gateOpen(e));
+ const next=nodes.get(path[1]);
+ const actor=f.actors?.find(a=>a.id===f.active);
+ const gates=connections(nodes.get(from)).filter(e=>e.to===next.id&&gateOpen(e));
+ const distance=e=>Math.abs(actor.x-e.x)+Math.abs(actor.y-(e.y??480));
+ const edge=gates.length>1&&Number.isFinite(actor?.x)&&Number.isFinite(actor?.y)
+  ?gates.reduce((best,e)=>distance(e)<distance(best)?e:best):gates[0];
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
  const vehicle=nodes.get(from).voyage;
  const automatic=vehicle?.destination===edge.to;
  const needsDark=edge.darkOnly && f.storyLocalLight?.mode!=='dark';
  if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
- const actor=f.actors?.find(a=>a.id===f.active);
  if(needsDark){
   const control=nodes.get(from).localLight?.controls.find(c=>!c.darkOnly);
   if(control && actor){
@@ -156,7 +160,10 @@ export function questRoute(f,q,status,preferredNode){
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  const focus=arrival && from!==arrival.from ? arrival.from : path.at(-1);
- return {node:focus,text:`次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`};
+ const gateUrl=!automatic&&Number.isFinite(edge.x)?'map-art.html?'+new URLSearchParams({
+  node:from,to:edge.to,gateX:edge.x,gateY:edge.y??480,placements:'live'
+ }):undefined;
+ return {node:focus,gateUrl,text:`次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`};
 }
 
 export function questRouteText(f,q,status){

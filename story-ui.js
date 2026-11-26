@@ -119,7 +119,25 @@ function update(){
   const dx=lampControlX-f.actors.find(a=>a.id===f.active)?.x;
   lampSide=dx<=-54?'left':dx>=54?'right':'near';
  }
- const signature=JSON.stringify([lampSide,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyRailTransit?.release,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ // Guidance only changes when the actor enters a gate's range, crosses its
+ // height, or gets closer to another gate leading to the same destination.
+ const actor=trackedId && f.actors?.find(a=>a.id===f.active);
+ let gatePosition='';
+ if(actor){
+  const exits=f.storyGraph.nodes.find(n=>n.id===f.story.node)?.exits??[];
+  const distances=new Map();
+  for(const edge of exits){
+   if(!Number.isFinite(edge.x))continue;
+   const dx=edge.x-actor.x,dy=(edge.y??480)-actor.y;
+   gatePosition+=(Math.abs(dx)>=90?(dx>0?'r':'l'):Math.abs(dy)>=60?'v':'n');
+   const group=distances.get(edge.to)??[];
+   group.push([edge.x,edge.y??480,Math.abs(dx)+Math.abs(dy)]);distances.set(edge.to,group);
+  }
+  for(const group of distances.values())if(group.length>1){
+   gatePosition+=group.sort((a,b)=>a[2]-b[2]).map(([x,y])=>x+','+y).join('/');
+  }
+ }
+ const signature=JSON.stringify([gatePosition,lampSide,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyRailTransit?.release,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  updateRevisitMap(f);
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
