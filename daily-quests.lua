@@ -131,16 +131,31 @@ return function(C,config,graph)
   if not node then return result end
   local active=C.storyEntryFilter(s,id)
   for _,q in ipairs(config.quests) do
-   local role,targets
+   local role,targets,observations
    if q.hub==id then role='hub'
    elseif active then
     targets={}
+    local bySpecies
+    if q.observation then
+     bySpecies={}
+     observations={}
+     local row=s.daily and find(s.daily.ledger.activeSlots,q.id)
+     for _,species in ipairs(q.observation) do
+      local group={name=species.name,targets={}}
+      if row then group.recorded=row.recorded[species.art] or false end
+      observations[#observations+1]=group
+      bySpecies[species.art]=group.targets
+     end
+    end
     for _,p in ipairs(matchingPlacements(q,node)) do
-     if active(p) then targets[#targets+1]=p.id end
+     if active(p) then
+      targets[#targets+1]=p.id
+      if observations then table.insert(bySpecies[p.art],p.id) end
+     end
     end
     if #targets>0 then role='field' end
    end
-   if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver,targets=targets} end
+   if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver,targets=targets,observations=observations} end
   end
   return result
  end

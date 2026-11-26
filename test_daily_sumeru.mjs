@@ -81,11 +81,28 @@ try{
  await page.keyboard.press('KeyG');
  await wait(()=>window.lab.frame.daily.notice==='キノコンを記録しました。');
  assert.deepEqual(record(await frame()).species.filter(entry=>entry.recorded).map(entry=>entry.name),['キノコン']);
+ await page.evaluate(()=>window.lab.action('pause'));
+ await wait(()=>window.lab.frame.paused);
  await shot('recorded');
  await page.reload();
  await wait(()=>window.lab?.frame);
  await load(null);
  assert.deepEqual(record(await frame()).species.filter(entry=>entry.recorded).map(entry=>entry.name),['キノコン']);
+ await openBoard();
+ await card(species,'active').locator('select').selectOption(field);
+ await page.locator('#atlasDaily summary').click();
+ const groups=page.locator('#atlasDailyLinks > li').filter({hasText:'今日、分かったこと'}).locator('ul li');
+ const atlasObservations=await groups.allTextContents();
+ assert.deepEqual(atlasObservations,['キノコン（記録済み）　出現位置を見る','水スライム（未記録）　出現位置を見る','炎スライム（未記録）　出現位置を見る']);
+ const [preview]=await Promise.all([page.waitForEvent('popup'),groups.nth(2).getByRole('link').click()]);
+ try{
+  await preview.waitForFunction(()=>window.mapArt?.ready);
+  const ids=await preview.evaluate(()=>window.mapArt.placements.map(e=>[e.id,e.species]));
+  assert.ok(ids.length && ids.every(([,kind])=>kind==='pyro-slime-reference'));
+  assert.deepEqual(ids.map(([id])=>id),new URL(preview.url()).searchParams.getAll('target'));
+ }finally{await preview.close()}
+ await page.bringToFront();
+ await page.keyboard.press('Escape');
  await gate(1380,field);
  await gate(230,yard);
  await move(296);
@@ -116,7 +133,7 @@ try{
  await fs.writeFile('evidence/daily-sum-web.json',JSON.stringify({
   townOffers:5,normalGRecordsLiveFungus:true,normalCombatCompletesOtherSpecies:true,
   sameSpeciesOutsideTargetFieldDoesNotCount:true,workyardWalkAndHunt:true,
-  speciesRecordSurvivesOldSave:true,claimCannotReplay:true,mobileFits:true,reward,errors
+  atlasObservations,speciesRecordSurvivesOldSave:true,claimCannotReplay:true,mobileFits:true,reward,errors
  },null,2)+'\n');
  console.log('Sumeru: Chrome observation, ordinary kills, workyard, stale save and reward passed');
 }catch(error){

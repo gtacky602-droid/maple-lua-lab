@@ -4,6 +4,11 @@
   "normalCombatCompletesOtherSpecies": true,
   "sameSpeciesOutsideTargetFieldDoesNotCount": true,
   "workyardWalkAndHunt": true,
+  "atlasObservations": [
+    "キノコン（記録済み）　出現位置を見る",
+    "水スライム（未記録）　出現位置を見る",
+    "炎スライム（未記録）　出現位置を見る"
+  ],
   "speciesRecordSurvivesOldSave": true,
   "claimCannotReplay": true,
   "mobileFits": true,

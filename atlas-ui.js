@@ -235,15 +235,27 @@ export function initAtlas(action, clearKeys) {
    link.href='daily-field-guide.html?'+new URLSearchParams({quest:q.id});
    link.target='_blank';link.rel='noopener';link.textContent=q.name;
    item.append(q.role==='hub'?'受付・報告（'+q.giver+'）　':'対象の敵が出現　',link);
-   if(q.targets?.length){
-    const params=new URLSearchParams({node:selected.id,placements:'live',dailyName:q.name});
-    for(const id of q.targets)params.append('target',id);
+   function placementLink(ids,name,label){
+    const params=new URLSearchParams({node:selected.id,placements:'live',dailyName:name});
+    for(const id of ids)params.append('target',id);
     for(const id of selected.absentSpawns??[])params.append('absent',id);
     if(selected.afterReport)params.set('phase','after');
     const preview=document.createElement('a');
     preview.href='map-art.html?'+params;preview.target='_blank';preview.rel='noopener';
-    preview.textContent='対象'+q.targets.length+'体の配置を比較';
-    item.append('　',preview);
+    preview.textContent=label;preview.setAttribute('aria-label',name+'　'+label);
+    return preview;
+   }
+   if(q.targets?.length)item.append('　',placementLink(q.targets,q.name,'対象'+q.targets.length+'体の配置を比較'));
+   if(q.observations?.length){
+    const list=document.createElement('ul');
+    for(const group of q.observations){
+     const row=document.createElement('li');
+     const status=group.recorded==null?'':group.recorded?'（記録済み）':'（未記録）';
+     row.append(group.name+status);
+     if(group.targets?.length)row.append('　',placementLink(group.targets,q.name+'・'+group.name+status,'出現位置を見る'));
+     list.append(row);
+    }
+    item.append(list);
    }
    return item;
   }));

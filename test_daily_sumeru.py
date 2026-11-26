@@ -82,14 +82,23 @@ core.action(s, 'story_collect')
 assert counts(s)[species] == 1 and fungus.hp == fungus.maxhp
 assert core.defeatEnemy(s, fungus, 2)
 assert counts(s) == {survey: 3, forest: 2, species: 1}
+def observation_map(state):
+    entry = next(q for q in core.dailyAtlasQuests(state, field).values() if q.id == species)
+    return {g.name: (g.recorded, tuple(g.targets.values())) for g in entry.observations.values()}
+
+
+partial = observation_map(s)
+assert partial['キノコン'][0] and not partial['水スライム'][0] and not partial['炎スライム'][0]
+assert all(ids for recorded, ids in partial.values())
 mid = checkpoint(s)
 s = core.restore(lua.table_from(mid, recursive=True))
-assert counts(s)[species] == 1
+assert counts(s)[species] == 1 and observation_map(s) == partial
 defeat(s, field, 'sumeru-field-2')
 defeat(s, field, 'sumeru-field-4')
 assert counts(s)[species] == 2
 defeat(s, field, 'sumeru-field-3')
 assert counts(s) == {survey: 6, forest: 5, species: 3}
+assert all(recorded for recorded, ids in observation_map(s).values())
 
 for _ in range(75):
     defeat(s, field, 'sumeru-field-2')
