@@ -2171,27 +2171,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
 
  local function drawRouteFixture(draws,x,y,kind,open)
   if x < -70 or x > 1030 then return end
-  local function rect(dx,dy,w,h,color)
-   draws[#draws+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=color}
+  local art=data.routeFixtures[kind]
+  local function paint(rows)
+   for _,r in ipairs(rows) do
+    draws[#draws+1]={kind='rect',x=x+r[1],y=y+r[2],w=r[3],h=r[4],color=r[5]}
+   end
   end
-  local wood,brass,steel='#775640','#deb46f','#475e6a'
-  if kind=='barrier' then
-   rect(-38,-48,9,48,wood)
-   if open then rect(-37,-85,6,45,brass) else rect(-36,-45,66,7,brass) end
-   rect(-37,-45,6,6,steel)
-  elseif kind=='hoist' then
-   rect(-42,-92,7,92,steel)
-   rect(-42,-93,72,6,wood)
-   local deck=open and -5 or -56
-   rect(-27,-87,3,87+deck,brass)
-   rect(22,-87,3,87+deck,brass)
-   rect(-32,deck,64,5,wood)
-  elseif kind=='signal' then
-   rect(-37,-74,5,74,steel)
-   rect(-44,-85,19,27,steel)
-   rect(-40,open and -70 or -81,11,7,open and '#80e4b2' or '#f08167')
-   if open then rect(-32,-93,5,23,brass) else rect(-32,-77,30,5,brass) end
-  end
+  paint(art.base)
+  paint(open and art.open or art.closed)
+  if art.cap then paint(art.cap) end
  end
 
  local function drawWindLift(draws,x,y,t)

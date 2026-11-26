@@ -11,12 +11,16 @@ export function arrivalCamera(from,gate,destination){
 }
 
 // Match physical coordinates because discovery can hide individual exits from Lua's M-map.
-export function setupGatePreview(panel, camera, liveView, query, render, showDarkRoom) {
+export function setupGatePreview(panel, camera, liveView, query, render, showDarkRoom, fixtures) {
  const select=panel.querySelector('select'),link=panel.querySelector('a'),position=panel.querySelector('output');
+ const control=panel.querySelector('#fixtureControl'),state=control.querySelector('input');
+ state.onchange=render;
  let active=null,arrival=0;
- function selectGate(node,nodes){
+ function selectGate(node,nodes,initial=false){
   const index=Number(select.value);
   active=index>0?node.exits[index-1]:null;
+  control.hidden=!active?.routeFixture;
+  state.checked=initial && active?.to===query.get('to') && query.get('fixture')==='open';
   panel.querySelector('#focusGate').hidden=link.hidden=position.hidden=!active;
   if(active){
    arrival=arrivalCamera(node.id,active,nodes.get(active.to));
@@ -49,7 +53,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
      select.value=value;panel.open=true;
     }
    }
-   selectGate(node,nodes);
+   selectGate(node,nodes,initial);
    select.onchange=()=>{selectGate(node,nodes);if(active?.darkOnly)showDarkRoom();render()};
   },
   updateLink(params){
@@ -63,6 +67,16 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
   draw(ctx,offset,dark){
    if(!active || (active.darkOnly&&!dark))return;
    const x=Math.round(active.x-offset),y=Math.round(active.y??480);
+   const art=fixtures[active.routeFixture];
+   if(art){
+    ctx.save();
+    for(const rows of [art.base,state.checked?art.open:art.closed,art.cap??[]]){
+     for(const [dx,dy,w,h,color] of rows){
+      ctx.fillStyle=color;ctx.fillRect(x+dx,y+dy,w,h);
+     }
+    }
+    ctx.restore();
+   }
    // The pointed tip is the exact portal coordinate, even on a raised platform.
    ctx.save();
    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-9,y-13);ctx.lineTo(x+9,y-13);ctx.closePath();

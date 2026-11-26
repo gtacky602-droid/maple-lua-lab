@@ -34,5 +34,10 @@ for node in nodes.values():
                 rects={(d.x-actor.x+state.camera,d.y-actor.y,d.w,d.h)
                        for d in frame.draws.values() if d.kind=='rect'}
                 assert fixtures[kind][opened] in rects and fixtures[kind][not opened] not in rects
+            core.action(state,'world_map_focus:'+node['id'])
+            atlas=core.frame(state).worldMap
+            route=next(r for r in atlas.routes.values() if r.id==edge['to'])
+            assert route.routeFixture==kind and (route.reason is None)==opened
+            core.action(state,'world_map_close')
         print(node['id'],kind,'passed')
 assert seen==set(fixtures)

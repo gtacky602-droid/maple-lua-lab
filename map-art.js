@@ -434,7 +434,7 @@ try{
  $('colorLimit').oninput=()=>{colorResult.textContent=''};
  $('backgroundTier').onchange=()=>{colorResult.textContent='';render()};
  $('matchSpritePng').onchange=render;
- const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render,()=>{$('lampMode').value='dark'});
+ const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render,()=>{$('lampMode').value='dark'},graph.routeFixtures);
  const updateDetail=setupSceneryDetail(liveView,query);
  $('focusGate').onclick=()=>{
   const gate=gatePreview.selectedGate();

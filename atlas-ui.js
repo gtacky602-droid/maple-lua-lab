@@ -199,7 +199,9 @@ export function initAtlas(action, clearKeys) {
   }
   if(route.previewX==null)return;
   const link=document.createElement('a');
-  link.href='map-art.html?'+new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
+  const params=new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
+  if(route.routeFixture)params.set('fixture',route.reason?'closed':'open');
+  link.href='map-art.html?'+params;
   link.target='_blank';link.rel='noopener';
   link.textContent='入口を見る';link.setAttribute('aria-label',(route.sourceName?route.sourceName+'から':'')+route.name+'へ向かう入口を見る（別タブ）');
   item.append(' ',link);

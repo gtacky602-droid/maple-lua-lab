@@ -27,6 +27,7 @@ export function setupSceneryDetail(liveView, query) {
       if (!document.getElementById('sceneryPhaseControl').hidden) params.set('phase',document.getElementById('sceneryPhase').value);
       const gate=document.querySelector('#gatePreview select').selectedOptions[0];
       if(gate?.dataset.to)for(const key of ['to','gateX','gateY'])params.set(key,gate.dataset[key]);
+      if(!document.getElementById('fixtureControl').hidden)params.set('fixture',document.getElementById('fixtureState').checked?'open':'closed');
       const marker=document.getElementById('surveyPointNote');
       if(!marker.hidden){
         params.set('quest',marker.dataset.quest);params.set('step',marker.dataset.step);

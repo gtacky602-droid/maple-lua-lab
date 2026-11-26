@@ -431,7 +431,7 @@ return function(C, atlas)
      leg.secondsRemaining=math.max(0,s.voyage.arrives-s.t)
     end
     if leg.edge.x and not leg.automaticArrival then
-     leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
+     leg.routeFixture=leg.edge.routeFixture;leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
      if leg.from==s.story.node and not s.lift and not s.coop then
       local dx,dy=C.gateOffset(s.actors[s.active],leg.edge)
       if dx~=0 then leg.approach=dx<0 and '現在地から左へ' or '現在地から右へ'
@@ -593,7 +593,7 @@ return function(C, atlas)
    for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
      local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
-     routes[#routes+1]={previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
+     routes[#routes+1]={routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
