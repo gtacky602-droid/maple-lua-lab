@@ -1,27 +1,5 @@
 [
   {
-    "node": "sne-churin-apprentice-bout",
-    "subject": "snow-apprentice-sparring",
-    "camera": 341,
-    "profiles": {
-      "legacy": {
-        "rectangles": 1318,
-        "overlapPercent": 97,
-        "meanRgbError": 16.1
-      },
-      "h48c32": {
-        "rectangles": 799,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.79
-      },
-      "h32c16": {
-        "rectangles": 323,
-        "overlapPercent": 91.1,
-        "meanRgbError": 36.56
-      }
-    }
-  },
-  {
     "node": "natlan-charm-trail",
     "subject": "charm-trail-beast-west",
     "camera": 115,
@@ -1844,6 +1822,28 @@
         "rectangles": 260,
         "overlapPercent": 97.6,
         "meanRgbError": 16.98
+      }
+    }
+  },
+  {
+    "node": "sne-churin-apprentice-bout",
+    "subject": "snow-apprentice-sparring",
+    "camera": 341,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1318,
+        "overlapPercent": 97,
+        "meanRgbError": 16.1
+      },
+      "h48c32": {
+        "rectangles": 799,
+        "overlapPercent": 93.5,
+        "meanRgbError": 28.79
+      },
+      "h32c16": {
+        "rectangles": 323,
+        "overlapPercent": 100,
+        "meanRgbError": 22.53
       }
     }
   }
