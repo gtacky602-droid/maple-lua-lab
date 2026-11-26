@@ -42,6 +42,19 @@ async function run({field,stages}){
    }
    await page.locator('#atlasField').selectOption(destination);
    await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,destination);
+   if(destination===stages.at(-1)){
+    const panel=map.locator('#atlasApproachGate');
+    const [preview]=await Promise.all([page.waitForEvent('popup'),panel.locator('a').click()]);
+    const choice=preview.locator('#gatePreview select option:checked');
+    await preview.waitForFunction(to=>document.querySelector('#gatePreview select option:checked')?.dataset.to===to,stages[1]);
+    assert.equal(await choice.getAttribute('data-to'),stages[1]);
+    await preview.close();
+    await panel.getByRole('button').click();
+    await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,origin);
+    if(await page.locator('#atlasRegion').inputValue()!==region)await page.locator('#atlasRegion').selectOption(region);
+    await page.locator('#atlasField').selectOption(destination);
+    await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,destination);
+   }
    const guide=await page.evaluate(()=>window.lab.frame.worldMap.guide);
    assert.equal(guide.status,'ready');
    assert.deepEqual(guide.stops.map(stop=>stop.id),path.slice(1));
@@ -64,7 +77,7 @@ async function run({field,stages}){
    return stages.every(stage=>saved?.story?.visited?.[stage]===true);
   },stages);
   assert.deepEqual(errors,[]);
-  return {field,itineraries,journeys:drive.journeys,savedVisits:true,errors};
+  return {field,itineraries,journeys:drive.journeys,savedVisits:true,entrancePreviewAndFocus:true,errors};
  }catch(error){
   console.error(origin,await page.evaluate(()=>({
    position:window.lab?.frame.actors?.[0],node:window.lab?.frame.story?.node,

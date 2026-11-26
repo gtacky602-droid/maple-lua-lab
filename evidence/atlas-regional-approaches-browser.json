@@ -6,92 +6,114 @@
       "itineraries": [
         [
           {
-            "hint": "古の聖山から空の神殿へ向かう昇降機",
-            "label": "昇降機",
-            "id": "nat-sky-camp",
-            "region": "official-area-14",
-            "mode": "lift",
             "name": "空の神殿・西の入口拠点",
-            "from": "nat-wp-84110"
+            "previewX": 76,
+            "id": "nat-sky-camp",
+            "level": 130,
+            "label": "昇降機",
+            "hint": "古の聖山から空の神殿へ向かう昇降機・移動に3.2秒",
+            "approach": "現在地から左へ",
+            "from": "nat-wp-84110",
+            "region": "official-area-14",
+            "mode": "lift"
           },
           {
-            "label": "徒歩",
-            "id": "nat-wp-96366",
-            "region": "official-area-14",
-            "mode": "walk",
             "name": "空の神殿・西の浮き庭",
-            "from": "nat-sky-camp"
-          },
-          {
+            "previewX": 754,
+            "id": "nat-wp-96366",
+            "level": 132,
             "label": "徒歩",
-            "id": "nat-wp-96367",
+            "from": "nat-sky-camp",
             "region": "official-area-14",
-            "mode": "walk",
+            "mode": "walk"
+          },
+          {
             "name": "空の神殿・南の渡り台",
-            "from": "nat-wp-96366"
+            "previewX": 1432,
+            "id": "nat-wp-96367",
+            "level": 133,
+            "label": "徒歩",
+            "from": "nat-wp-96366",
+            "region": "official-area-14",
+            "mode": "walk"
           },
           {
-            "hint": "南東の小島への渡り台",
-            "label": "昇降機",
-            "id": "nat-wp-96368",
-            "region": "official-area-14",
-            "mode": "lift",
             "name": "空の神殿・南東の小島",
-            "from": "nat-wp-96367"
+            "previewX": 1432,
+            "id": "nat-wp-96368",
+            "level": 130,
+            "label": "昇降機",
+            "hint": "南東の小島への渡り台・移動に2.4秒",
+            "from": "nat-wp-96367",
+            "region": "official-area-14",
+            "mode": "lift"
           },
           {
-            "hint": "南東の雲下に降りる昇降機",
-            "label": "昇降機",
-            "id": "nat-wp-96380",
-            "region": "official-area-14",
-            "mode": "lift",
             "name": "空の神殿・南の雲の下の小間",
-            "from": "nat-wp-96368"
+            "previewX": 754,
+            "id": "nat-wp-96380",
+            "level": 134,
+            "label": "昇降機",
+            "hint": "南東の雲下に降りる昇降機・移動に2秒",
+            "from": "nat-wp-96368",
+            "region": "official-area-14",
+            "mode": "lift"
           }
         ],
         [
           {
-            "hint": "南東の小島へ上がる昇降機",
-            "label": "昇降機",
-            "id": "nat-wp-96368",
-            "region": "official-area-14",
-            "mode": "lift",
             "name": "空の神殿・南東の小島",
-            "from": "nat-wp-96380"
+            "previewX": 76,
+            "id": "nat-wp-96368",
+            "level": 130,
+            "label": "昇降機",
+            "hint": "南東の小島へ上がる昇降機・移動に2秒",
+            "approach": "入口のそばにいます",
+            "from": "nat-wp-96380",
+            "region": "official-area-14",
+            "mode": "lift"
           },
           {
-            "hint": "南の渡り台へ戻る足場",
-            "label": "昇降機",
-            "id": "nat-wp-96367",
-            "region": "official-area-14",
-            "mode": "lift",
             "name": "空の神殿・南の渡り台",
-            "from": "nat-wp-96368"
-          },
-          {
-            "label": "徒歩",
-            "id": "nat-wp-96366",
-            "region": "official-area-14",
-            "mode": "walk",
-            "name": "空の神殿・西の浮き庭",
-            "from": "nat-wp-96367"
-          },
-          {
-            "label": "徒歩",
-            "id": "nat-sky-camp",
-            "region": "official-area-14",
-            "mode": "walk",
-            "name": "空の神殿・西の入口拠点",
-            "from": "nat-wp-96366"
-          },
-          {
-            "hint": "古の聖山へ戻る昇降機",
+            "previewX": 76,
+            "id": "nat-wp-96367",
+            "level": 133,
             "label": "昇降機",
-            "id": "nat-wp-84110",
-            "region": "official-area-12",
-            "mode": "lift",
+            "hint": "南の渡り台へ戻る足場・移動に2.4秒",
+            "from": "nat-wp-96368",
+            "region": "official-area-14",
+            "mode": "lift"
+          },
+          {
+            "name": "空の神殿・西の浮き庭",
+            "previewX": 76,
+            "id": "nat-wp-96366",
+            "level": 132,
+            "label": "徒歩",
+            "from": "nat-wp-96367",
+            "region": "official-area-14",
+            "mode": "walk"
+          },
+          {
+            "name": "空の神殿・西の入口拠点",
+            "previewX": 76,
+            "id": "nat-sky-camp",
+            "level": 130,
+            "label": "徒歩",
+            "from": "nat-wp-96366",
+            "region": "official-area-14",
+            "mode": "walk"
+          },
+          {
             "name": "古の聖山・北の遠望台",
-            "from": "nat-sky-camp"
+            "previewX": 1432,
+            "id": "nat-wp-84110",
+            "level": 118,
+            "label": "昇降機",
+            "hint": "古の聖山へ戻る昇降機・移動に3.2秒",
+            "from": "nat-sky-camp",
+            "region": "official-area-12",
+            "mode": "lift"
           }
         ]
       ],
@@ -148,6 +170,7 @@
         ]
       ],
       "savedVisits": true,
+      "entrancePreviewAndFocus": true,
       "errors": []
     },
     {
@@ -157,53 +180,68 @@
           {
             "region": "branch-06",
             "id": "mond-wp-95798",
-            "label": "徒歩",
+            "approach": "現在地から右へ",
             "from": "dornman-camp",
+            "mode": "walk",
+            "level": 162,
+            "previewX": 1260,
             "name": "ドーンマンポート・港の石段広場",
-            "mode": "walk"
+            "label": "徒歩"
           },
           {
             "region": "branch-06",
             "id": "mond-wp-95800",
-            "label": "徒歩",
+            "previewY": 370,
             "from": "mond-wp-95798",
+            "mode": "walk",
             "hint": "上段の入口",
+            "level": 165,
+            "previewX": 76,
             "name": "ドーンマンポート・港北の風が抜ける丘",
-            "mode": "walk"
+            "label": "徒歩"
           },
           {
             "region": "branch-06",
             "id": "mond-wp-95801",
-            "label": "徒歩",
             "from": "mond-wp-95800",
+            "mode": "walk",
+            "level": 168,
+            "previewX": 1372,
             "name": "ドーンマンポート・北岸の船溜まり",
-            "mode": "walk"
+            "label": "徒歩"
           }
         ],
         [
           {
             "region": "branch-06",
             "id": "mond-wp-95800",
-            "label": "徒歩",
+            "approach": "入口のそばにいます",
             "from": "mond-wp-95801",
+            "mode": "walk",
+            "level": 165,
+            "previewX": 76,
             "name": "ドーンマンポート・港北の風が抜ける丘",
-            "mode": "walk"
+            "label": "徒歩"
           },
           {
             "region": "branch-06",
             "id": "mond-wp-95798",
-            "label": "徒歩",
             "from": "mond-wp-95800",
+            "mode": "walk",
+            "level": 162,
+            "previewX": 76,
             "name": "ドーンマンポート・港の石段広場",
-            "mode": "walk"
+            "label": "徒歩"
           },
           {
             "region": "branch-06",
             "id": "dornman-camp",
-            "label": "徒歩",
             "from": "mond-wp-95798",
+            "mode": "walk",
+            "level": 1,
+            "previewX": 926,
             "name": "ドーンマンポート・入口拠点",
-            "mode": "walk"
+            "label": "徒歩"
           }
         ]
       ],
@@ -240,6 +278,7 @@
         ]
       ],
       "savedVisits": true,
+      "entrancePreviewAndFocus": true,
       "errors": []
     }
   ]

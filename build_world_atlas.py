@@ -354,12 +354,14 @@ def build():
     atlas_review = load('sources/map-research/sites-atlas-connections.json')
     reviewed_routes = load('sources/map-research/sites-return-ferries.json')['routes'] + atlas_review['routes']
     retained_entrances = {frozenset(entry['fields']): entry for entry in atlas_review['retained_regional_entrances']}
+    atlas_points = {p["id"]: p for region in entries for p in region["points"]}
     for pair, entry in retained_entrances.items():
         assert pair in pending_reasons and all(entrance in nodes for entrance in entry['entrances'])
         approaches = entry.get('regional_approaches', [])
         assert {route['field'] for route in approaches} == pair
         for route, entrance in zip(approaches, entry['entrances'], strict=True):
             stages = route['stages']
+            atlas_points[stages[-1]]['approachGate'] = {'from':stages[0], 'to':stages[1]}
             assert entrance in stages and stages[-1] == field_links[route['field']]['stage_id']
             for start, end in zip(stages, stages[1:]):
                 assert any(edge['to']==end for edge in nodes[start]['exits'])

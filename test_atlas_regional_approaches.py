@@ -35,6 +35,10 @@ def guide(state, target):
     core.action(state, 'world_map_select:' + target)
     view = core.frame(state, 'sprite', 'legacy').worldMap
     assert view.selected.id == target
+    if target in (sky,port):
+        route = next(a['stages'] for a in approaches if a['stages'][-1]==target)
+        gate = view.selected.approachGate
+        assert (gate['from'],gate.id,gate.previewX)==(route[0],route[1],edges[route[0],route[1]]['x'])
     itinerary = native(view.guide)
     core.action(state, 'world_map_close')
     return itinerary
@@ -103,8 +107,8 @@ def check_approach(approach):
 
 evidence = [check_approach(approach) for approach in approaches]
 sky_legs, port_legs = [report['itinerary'] for report in evidence]
-assert sky_legs[1][0]['hint'] == '南東の小島へ上がる昇降機'
-assert sky_legs[1][-1]['hint'] == '古の聖山へ戻る昇降機'
+assert sky_legs[1][0]['hint'] == '南東の小島へ上がる昇降機・移動に2秒'
+assert sky_legs[1][-1]['hint'] == '古の聖山へ戻る昇降機・移動に3.2秒'
 assert port_legs[0][1]['hint'] == '上段の入口'
 write('evidence/atlas-regional-approaches-lua.json', {
     'method': 'Walked and used the in-game gates in order from the atlas itinerary with level fixtures.',

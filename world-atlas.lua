@@ -695,6 +695,18 @@ return function(C, atlas)
    end
    result.selected.entrances=entrances
   end
+  local point=result.selected and positions[result.selected.id]
+  local approach=point and point.approachGate
+  if approach and nodes[approach.from] and nodes[approach.to] then
+   local source,destination=nodes[approach.from],nodes[approach.to]
+   for _,edge in ipairs(source.exits) do
+    if edge.to==destination.id then
+     result.selected.approachGate={from=source.id,sourceName=source.name,id=destination.id,name=destination.name,
+      label=edge.rideLabel,previewX=edge.x,previewY=edge.y,reason=C.atlasGateRestriction(s,source.id,edge)}
+     break
+    end
+   end
+  end
   local spawn=result.selected and C.enemySpawns and C.enemySpawns[result.selected.id]
   if spawn and #spawn>0 then
    local selected=result.selected

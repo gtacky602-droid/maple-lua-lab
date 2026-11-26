@@ -209,6 +209,18 @@ export function initAtlas(action, clearKeys) {
 
  function renderSelection(frame) {
   const selected = view.selected;
+  const approach=document.getElementById('atlasApproachGate');
+  const gate=selected?.approachGate;
+  approach.replaceChildren();
+  approach.hidden=!gate;
+  if(gate){
+   const focus=document.createElement('button');
+   focus.type='button';focus.textContent=gate.sourceName+'までの道順';
+   focus.onclick=()=>send('world_map_focus:'+gate.from);
+   const label=gate.label??gate.sourceName+'から'+gate.name+'へ';
+   approach.append(label+(gate.reason?'（'+gate.reason+'）':''),' ',focus);
+   appendGateLink(approach,gate.from,gate);
+  }
   const objectives=[];
   if(selected && frame.storyGraph){
    for(const q of frame.storyGraph.quests){
