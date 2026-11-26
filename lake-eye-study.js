@@ -73,6 +73,9 @@ export function lakeEyeStudy(enemy,legend){
  const controls=document.createElement('label'),pose=document.createElement('select');
  controls.append('姿勢 ',pose);
  pose.add(new Option('待機','idle'));pose.add(new Option('構え','brace'));pose.add(new Option('攻撃','strike'));
+ const pixelLabel=document.createElement('label'),pixels=document.createElement('input');
+ pixels.type='checkbox';pixelLabel.append(pixels,'矩形を原寸で合成してから拡大');
+ const poseData=new Map([['idle',legend]]);
  const images=document.createElement('div');images.className='eye-crops';
  const status=document.createElement('p');status.setAttribute('role','status');
  let revision=0;
@@ -81,11 +84,12 @@ export function lakeEyeStudy(enemy,legend){
   images.replaceChildren();status.textContent='読み込み中';
   const name=enemy.id==='tainted-water-splitting-phantasm'?'ninianne':'vivianne';
   try{
-   let data=legend;
-   if(pose.value!=='idle'){
-    const response=await fetch('assets/field-packed/lake-'+name+'-field-'+pose.value+'-sprites-v6.json');
+   const selected=pose.value;
+   let data=poseData.get(selected);
+   if(!data){
+    const response=await fetch('assets/field-packed/lake-'+name+'-field-'+selected+'-sprites-v6.json');
     if(!response.ok)throw Error(response.status);
-    data=await response.json();
+    data=await response.json();poseData.set(selected,data);
    }
    if(ticket!==revision)return;
    const scale=legend.h/legend.box[3],bounds=spriteBounds(data,data.box[3]*scale);
@@ -95,7 +99,7 @@ export function lakeEyeStudy(enemy,legend){
     canvas.width=Math.ceil(bounds.width)+8;canvas.height=Math.ceil(bounds.height)+8;
     canvas.style.width=canvas.width+'px';canvas.style.height='auto';canvas.style.maxWidth='100%';
     const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
-    ctx.translate(4-bounds.x,canvas.height-4);paintSprite(ctx,data,legend.image,bounds,profile);
+    ctx.translate(4-bounds.x,canvas.height-4);paintSprite(ctx,data,legend.image,bounds,profile,pixels.checked);
     caption.textContent=label+(profile?'・'+rectangleCount(data.profiles[profile])+'矩形':'');
     const eye=eyePixels(canvas);
     if(!profile)reference=eye;
@@ -109,6 +113,7 @@ export function lakeEyeStudy(enemy,legend){
      for(const pixel of eye.pixels)if(reference.pixels.has(pixel))overlap++;
      const union=eye.pixels.size+reference.pixels.size-overlap;
      reading.textContent='目の明るい水色 '+eye.pixels.size+'画素'+(profile?' ／ 元PNGとの重なり '+(100*overlap/union).toFixed(1)+'%':'');
+     if(profile&&eye.pixels.size)reading.textContent+=' ／ 目の中心のずれ '+Math.hypot(eye.x-reference.x,eye.y-reference.y).toFixed(2)+' px';
      card.append(document.createElement('br'),detail,document.createElement('br'),reading);
     }
     images.append(card);
@@ -116,9 +121,17 @@ export function lakeEyeStudy(enemy,legend){
    status.textContent='';
   }catch(error){if(ticket===revision)status.textContent='姿勢の読み込みに失敗しました。 '+error.message}
  }
- pose.onchange=drawMotion;
+ const requested=new URL(location.href).searchParams;
+ if([...pose.options].some(o=>o.value===requested.get('eyePose'))){
+  pose.value=requested.get('eyePose');pixels.checked=requested.get('eyePixels')==='1';motion.open=true;
+ }
+ pose.onchange=pixels.onchange=()=>{
+  const url=new URL(location.href);url.searchParams.set('eyePose',pose.value);
+  if(pixels.checked)url.searchParams.set('eyePixels','1');else url.searchParams.delete('eyePixels');
+  history.replaceState(history.state,'',url);drawMotion();
+ };
  motion.ontoggle=()=>{if(motion.open&&!images.childElementCount)drawMotion()};
- motion.append(summary,controls,images,status);
+ motion.append(summary,controls,pixelLabel,images,status);
  section.append(title,note,strip,motion,refs);
  return section;
 }
