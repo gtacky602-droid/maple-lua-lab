@@ -448,6 +448,23 @@ const inaRoadside='inazuma-roadside-props.png',sumRoadside='sumeru-roadside-prop
 const gate={file:inaRoadside,box:[0,0,55,60]},brush={file:inaRoadside,box:[55,0,80,39]},flag={file:inaRoadside,box:[135,0,15,29]};
 const shelter={file:sumRoadside,box:[0,0,85,56]},root={file:sumRoadside,box:[85,0,49,36]};
 const worktable={file:sumRoadside,box:[134,0,76,62]},shelf={file:sumRoadside,box:[210,0,40,29]};
+const windBanner={file:'mondstadt-roadside-props.png',box:[0,0,31,55]};
+const tornBanner={file:'mondstadt-roadside-props.png',box:[31,0,31,33]};
+const roadGrass={file:'mondstadt-roadside-props.png',box:[62,0,34,14]};
+const streetLamp={file:'fontaine-roadside-props.png',box:[0,0,28,44]};
+const buoy={file:'fontaine-roadside-props.png',box:[28,0,15,30]};
+const dockCrate={file:'fontaine-roadside-props.png',box:[43,0,38,22]};
+const courseFlag={file:'natlan-roadside-props.png',box:[0,0,30,43]};
+const rock={file:'natlan-roadside-props.png',box:[30,0,71,55]};
+const surfboard={file:'natlan-roadside-props.png',box:[101,0,52,12]};
+const stoneBench={file:'natlan-roadside-props.png',box:[153,0,55,48]};
+const lantern={file:'nod-roadside-props.png',box:[0,0,16,26]};
+const machine={file:'nod-roadside-props.png',box:[16,0,40,56]};
+const berry={file:'nod-roadside-props.png',box:[56,0,12,10]};
+const snowFlag={file:'snezhnaya-roadside-props.png',box:[0,0,29,32]};
+const snowWall={file:'snezhnaya-roadside-props.png',box:[29,0,59,30]};
+const lens={file:'snezhnaya-roadside-props.png',box:[88,0,35,21]};
+const rubble={file:'snezhnaya-roadside-props.png',box:[123,0,38,10]};
 const decorations=new Map([['tunigi-depth',[
  {art:grayCrystal,x:207,y:480,height:78},
  {art:grayCrystal,x:742,y:480,height:94,flip:true},
@@ -481,6 +498,54 @@ const decorations=new Map([['tunigi-depth',[
  {art:worktable,x:280,y:480,height:56},
  {art:shelf,x:457,y:389,height:45},
  {art:shelf,x:1184,y:391,height:35,flip:true},
+]],['mond-road',[
+ {art:windBanner,x:282,y:480,height:69},
+ {art:roadGrass,x:651,y:390,height:27},
+]],['mond-old-ground',[
+ {art:tornBanner,x:298,y:395,height:55},
+ {art:roadGrass,x:675,y:315,height:30},
+]],['fontaine-entry',[
+ {art:streetLamp,x:312,y:480,height:82},
+ {art:streetLamp,x:696,y:300,height:63},
+]],['fontaine-field',[
+ {art:buoy,x:257,y:480,height:46},
+ {art:buoy,x:660,y:280,height:34},
+]],['fontaine-outskirts-loading',[
+ {art:dockCrate,x:278,y:480,height:42},
+ {art:dockCrate,x:513,y:392,height:32},
+]],['natlan-entry',[
+ {art:courseFlag,x:279,y:480,height:63},
+ {art:rock,x:542,y:290,height:46},
+]],['natlan-field',[
+ {art:rock,x:262,y:370,height:55},
+ {art:rock,x:567,y:260,height:38},
+]],['natlan-riverside-range',[
+ {art:surfboard,x:199,y:480,height:23},
+ {art:courseFlag,x:566,y:392,height:39},
+]],['natlan-quarry-road',[
+ {art:stoneBench,x:259,y:480,height:54},
+ {art:rock,x:507,y:389,height:47},
+]],['nod-field',[
+ {art:lantern,x:250,y:380,height:43},
+ {art:lantern,x:591,y:290,height:35},
+]],['nod-tide-scrapyard',[
+ {art:machine,x:309,y:480,height:67},
+ {art:machine,x:572,y:393,height:39},
+]],['nod-forest-outer',[
+ {art:berry,x:279,y:480,height:37},
+ {art:berry,x:523,y:394,height:28},
+]],['snezhnaya-entry',[
+ {art:snowFlag,x:276,y:480,height:58},
+ {art:snowWall,x:562,y:280,height:42},
+]],['sne-survey-outskirts',[
+ {art:lens,x:279,y:480,height:56},
+ {art:snowFlag,x:559,y:393,height:44},
+]],['snezhnaya-field',[
+ {art:snowWall,x:293,y:380,height:46},
+ {art:rubble,x:624,y:290,height:27},
+]],['white-pass-cut',[
+ {art:rubble,x:317,y:382,height:41},
+ {art:snowFlag,x:731,y:382,height:72},
 ]]]);
 function roadsideAsset(frame){
  const node=frame.story?.node;

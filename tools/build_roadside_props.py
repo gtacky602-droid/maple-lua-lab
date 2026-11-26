@@ -5,6 +5,11 @@ from PIL import Image
 
 assets = Path(__file__).resolve().parents[1] / "assets"
 sources = {
+    "mondstadt": ["mond-night-banner-repaired", "mond-night-banner-torn", "mond-return-box-grass"],
+    "fontaine": ["fon-furina-cues-lamp", "fon-freminet-dive-buoy", "fon-navia-photo-crate"],
+    "natlan": ["nat-xilonen-course-flag", "nat-kachina-charms-outcrop", "nat-mualani-surf-board", "nat-xilonen-course-bench"],
+    "nod": ["nod-lantern-patrol-lantern", "nod-appraisal-machine", "nod-moon-bloom-berry"],
+    "snezhnaya": ["sne-snow-match-flag", "sne-snow-match-wall", "sne-survey-lens", "sne-snow-match-rubble"],
     "liyue": ["ina-tea-case-cart", "mond-return-box-crate", "sum-wanderer-sign-sign"],
     "inazuma": ["ina-sayu-route-gate", "ina-sayu-route-brush", "ina-itto-games-flag"],
     "sumeru": ["sum-collei-guide-shelter", "sum-collei-guide-root", "sum-kaveh-room-table", "sum-kaveh-room-shelfLow"],
