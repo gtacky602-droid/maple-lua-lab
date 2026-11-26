@@ -680,6 +680,21 @@ return function(C, atlas)
     end
    end
   end
+  if result.selected and result.selected.boss then
+   local arena=nodes[result.selected.id]
+   local entrances={}
+   for _,source in ipairs(f.storyGraph.nodes) do
+    for _,edge in ipairs(source.exits) do
+     if edge.to==arena.id and edge.x then
+      entrances[#entrances+1]={from=source.id,id=arena.id,name=arena.name,sourceName=source.name,
+       previewX=edge.x,previewY=edge.y or 480,requiredLevel=s.progression.level<arena.level and arena.level or nil,
+       reason=C.atlasGateRestriction(s,source.id,edge,math.max(s.progression.level,arena.level)),
+       hint=route_hint(edge,source,arena,source.id==s.story.node and s.actors[s.active].y or nil)}
+     end
+    end
+   end
+   result.selected.entrances=entrances
+  end
   local spawn=result.selected and C.enemySpawns and C.enemySpawns[result.selected.id]
   if spawn and #spawn>0 then
    local selected=result.selected

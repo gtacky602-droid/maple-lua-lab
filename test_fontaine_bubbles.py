@@ -65,6 +65,13 @@ def route(s,stage,stops):
     atlas=core.frame(s).worldMap
     assert atlas.selected.id==stage and atlas.guide.status=='ready'
     assert [point.id for point in atlas.guide.stops.values()]==stops
+    if stage==specs[CH]['node']:
+        entrances=list(atlas.selected.entrances.values())
+        expected=TOWER if s.story.quests[QUEST] and s.story.quests[QUEST].status=='complete' else CH_HOST
+        assert len(entrances)==1 and entrances[0]['from']==expected
+        edge=edges[expected,stage]
+        assert not entrances[0].reason and not entrances[0].requiredLevel
+        assert (entrances[0].previewX,entrances[0].previewY)==(edge['x'],edge['y'])
     core.action(s,'world_map_close')
 
 

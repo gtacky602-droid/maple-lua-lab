@@ -201,7 +201,7 @@ export function initAtlas(action, clearKeys) {
   const link=document.createElement('a');
   link.href='map-art.html?'+new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
   link.target='_blank';link.rel='noopener';
-  link.textContent='入口を見る';link.setAttribute('aria-label',route.name+'へ向かう入口を見る（別タブ）');
+  link.textContent='入口を見る';link.setAttribute('aria-label',(route.sourceName?route.sourceName+'から':'')+route.name+'へ向かう入口を見る（別タブ）');
   item.append(' ',link);
  }
 
@@ -305,6 +305,18 @@ export function initAtlas(action, clearKeys) {
     selected.huntLevels?.length ? '脇道の狩場は' + selected.huntLevels.map(level => 'Lv' + level).join('・') :
       selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';
+  const entrancePanel = document.getElementById('atlasBossEntrances');
+  const entrances = entries(selected?.entrances);
+  entrancePanel.hidden = !entrances.length;
+  entrancePanel.querySelector('ul').replaceChildren(...entrances.map(gate => {
+   const li = document.createElement('li');
+   const button = document.createElement('button');
+   button.textContent = gate.sourceName + 'までの道順';
+   button.onclick = () => send('world_map_focus:' + gate.from);
+   li.append(button, ' ' + [gate.requiredLevel && '必要Lv'+gate.requiredLevel,gate.hint,gate.reason].filter(Boolean).join('・'));
+   appendGateLink(li,gate.from,gate);
+   return li;
+  }));
   const links = entries(view.routes).map(route => {
    const li = document.createElement('li');
    const button = document.createElement('button');
