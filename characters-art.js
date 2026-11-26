@@ -44,6 +44,7 @@ try{
    for(const entry of entries){
     const option=new Option(entry.region+'・'+entry.name,entry.node);
     if(name==='フィールド・地方伝説')option.dataset.poseGroup='field';
+    if(name==='幽境専用')option.dataset.poseGroup='stygian';
     if(name==='週ボス')option.dataset.poseGroup='weekly';
     group.append(option);
     if(entry.opening)shoukiOpening={...entry.opening,...await art(await json('assets/weekly-packed/'+entry.opening.file))};
@@ -61,7 +62,8 @@ try{
    $('bossArenaLink').href='map-art.html?'+new URLSearchParams({node,placements:'live',profile});
    const poseLink=$('arenaPoseLink'),group=picker.selectedOptions[0].dataset.poseGroup;
    poseLink.hidden=!group;
-   if(group)poseLink.href='weekly-poses.html?'+new URLSearchParams({group,node,pixels:'1'});
+   if(group==='stygian')poseLink.href='map-art.html?'+new URLSearchParams({node,placements:'live',background:'original',profile})+'#stygianPoses';
+   else if(group)poseLink.href='weekly-poses.html?'+new URLSearchParams({group,node,pixels:'1'});
    const gates=arenas.get(node)?.entrances??[];
    showArenaEntrances(panel,node,gates,profile);
   };

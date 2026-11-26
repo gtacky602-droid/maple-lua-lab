@@ -57,6 +57,13 @@ def build_placement_pose_index(assets):
         path = assets / 'weekly-packed' / name
         index['weekly/' + name] = {'poseFile': 'weekly-packed/' + name,
                                   'box': json.loads(path.read_bytes())['box']}
+    for scene in json.loads((content / 'stygian-openings.json').read_bytes()).values():
+        for part in scene['parts']:
+            name = part.get('file')
+            if name and name not in index:
+                path = assets / 'stygian-packed' / name
+                assert path.is_file(), name
+                index[name] = {'poseFile': path.relative_to(assets).as_posix(), 'box': part['box']}
     (assets / 'placement-pose-index.json').write_bytes(json.dumps(
         index, ensure_ascii=False, separators=(',', ':')).encode())
 

@@ -1,5 +1,5 @@
-export function compareOpeningPixels(page,png,rect,node,camera=0){
- return page.evaluate(async({png,rect,node,camera})=>{
+export function compareOpeningPixels(page,png,rect,node,camera=0,ids=['png','rect']){
+ return page.evaluate(async({png,rect,node,camera,ids})=>{
   const {scenery,loadScenery}=await import('./scenery.js');
   const {drawCombatRect,omitCombatDraw,combatOpacity}=await import('./sprite-images.js');
   const frame={camera,platforms:node.platforms,storySwim:Boolean(node.swim),campaign:{zone:'story:'+node.id},story:{active:true,node:node.id},storyGraph:{nodes:[node]}};
@@ -27,6 +27,6 @@ export function compareOpeningPixels(page,png,rect,node,camera=0){
    for(let i=0;i<actual.length;i+=4)if(actual[i]!==expected[i]||actual[i+1]!==expected[i+1]||actual[i+2]!==expected[i+2]||actual[i+3]!==expected[i+3])diff++;
    return diff;
   };
-  return {png:await render('png',png),rect:await render('rect',rect)};
- },{png,rect,node,camera});
+  return {png:await render(ids[0],png),rect:await render(ids[1],rect)};
+ },{png,rect,node,camera,ids});
 }

@@ -342,9 +342,13 @@ export function initAtlas(action, clearKeys) {
   const entrancePanel = document.getElementById('atlasBossEntrances');
   const entrances = entries(selected?.entrances);
   const poseLink=document.getElementById('atlasBossPoses');
-  poseLink.hidden=!['normal','weekly','legend'].includes(selected?.boss?.kind);
+  poseLink.hidden=!selected?.boss?.placementPreview;
   if(poseLink.hidden)poseLink.removeAttribute('href');
-  else{
+  else if(selected.boss.kind==='stygian'){
+   poseLink.textContent='開幕の元絵・32色・16色を並べる（別タブ）';
+   poseLink.href='map-art.html?'+new URLSearchParams({node:selected.id,placements:'live',background:'original'})+'#stygianPoses';
+  }else{
+   poseLink.textContent='この会場の姿と入口を見る（別タブ）';
    const query=new URLSearchParams({group:selected.boss.kind==='weekly'?'weekly':'field',node:selected.id,
     visit:selected.id,pixels:'1'});
    if(selected.afterReport)query.set('phase','after');

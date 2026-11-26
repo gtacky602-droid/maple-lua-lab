@@ -473,6 +473,9 @@ try{
   render();
   $('sceneryDetail').scrollIntoView({block:'center'});
  };
+ const duelPanel=$('stygianPoses');
+ duelPanel.open=location.hash==='#stygianPoses';
+ duelPanel.addEventListener('toggle',render);
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  let fidelityKey,profileTableKey,renderRevision=0;
  const duelGates=new Map();
@@ -723,6 +726,13 @@ try{
   $('fidelityControls').hidden=!(liveView && (measureGate || surveyProps.length || visibleItems.length) && !matchedSprites);
   const measuredSubject=measureGate?.rubbleOnClosed?'遺跡の通路':measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
+  function paintDuelStage(ctx){
+   if(!liveView||subject.value)return;
+    for(const mark of stygianScenes[n.id]?.stageMarks??[]){
+     if(omitCombatDraw(mark))continue;
+     ctx.save();ctx.globalAlpha=combatOpacity(mark);paintMechanismMark(ctx,mark,-camera,0,false);ctx.restore();
+    }
+  }
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
    paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),quality,prop.x-camera,prop.y,false,cost);
@@ -931,12 +941,7 @@ try{
      for(const mark of questPreview.props[id])paintMechanismMark(ctx,mark,-camera,0,false);
     }
    }
-   if(liveView && !subject.value){
-    for(const mark of stygianScenes[n.id]?.stageMarks??[]){
-     if(omitCombatDraw(mark))continue;
-     ctx.save();ctx.globalAlpha=combatOpacity(mark);paintMechanismMark(ctx,mark,-camera,0,false);ctx.restore();
-    }
-   }
+   paintDuelStage(ctx);
    for(const e of visibleItems){
     const before=cost.visible,standardBefore=cost.standard;
     const {a,flip,x,y,body,rear}=paintFieldPlacement(ctx,e,mode==='png'||matchedSprites?null:profile,cost);
@@ -1004,6 +1009,17 @@ try{
     }
     puzzlePreview.draw(ctx,camera);
     drawSurveyPoint(ctx,point,camera);
+   }
+  }
+  duelPanel.hidden=!(liveView&&stygianScenes[n.id]);
+  if(!duelPanel.hidden&&duelPanel.open){
+   for(const [id,quality] of [['duelPng',null],['duel32','h48c32'],['duel16','h32c16']]){
+    const ctx=$(id).getContext('2d');
+    ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
+    paintDuelStage(ctx);
+    const cost={visible:0,total:0,standard:0};
+    for(const item of visibleItems)paintFieldPlacement(ctx,item,quality,cost);
+    if(quality)$(id+'Count').textContent='・本体と装備 '+cost.total.toLocaleString('ja-JP')+'矩形';
    }
   }
   updateDetail();

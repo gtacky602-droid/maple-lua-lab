@@ -26,10 +26,11 @@ try{
   await page.selectOption('#atlasLayer','boss');
   await page.waitForFunction(()=>window.lab.frame.worldMap?.layer==='boss');
   await page.selectOption('#atlasField',id);
-  const link=page.locator('#atlasBackgroundCompare[href*="'+id+'"]');
+  const link=page.locator('#atlasBossPoses[href*="'+id+'"]');
   const [viewer]=await Promise.all([page.waitForEvent('popup'),link.click()]);
   viewer.on('pageerror',e=>errors.push(e.message));
   await viewer.waitForFunction(id=>window.mapArt?.node===id&&window.mapArt.ready&&window.mapArt.backgroundState==='ready',id);
+  assert(await viewer.locator('#stygianPoses').evaluate(el=>el.open&&!el.hidden));
   const initial=await viewer.evaluate(()=>window.mapArt);
   assert.equal(initial.count,scene.parts.length);
   await viewer.locator('#stygianRules summary').click();
@@ -45,6 +46,11 @@ try{
    await viewer.selectOption('#profile',profile);
    const diff=await compareOpeningPixels(viewer,translate(refs.png),translate(refs[profile]),node,initial.camera);
    assert.deepEqual(diff,{png:0,rect:0},id+' '+profile+' '+JSON.stringify(diff));
+   if(profile!=='legacy'){
+    const id=profile==='h48c32'?'duel32':'duel16';
+    const trio=await compareOpeningPixels(viewer,translate(refs.png),translate(refs[profile]),node,initial.camera,['duelPng',id]);
+    assert.deepEqual(trio,{png:0,rect:0},scene.match+' '+id);
+   }
    await viewer.locator('#measureSprite').click();
    const fidelity=JSON.parse(await viewer.locator('#spriteFidelity').getAttribute('data-result'));
    assert.ok(fidelity.overlap>0);

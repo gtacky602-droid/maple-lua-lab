@@ -31,7 +31,11 @@ try{
   }),authored);
   const guide=page.locator('#atlasBossPoses');
   const kind=await page.evaluate(()=>window.lab.frame.worldMap.selected.boss.kind);
-  if(kind==='stygian')assert(await guide.isHidden());
+  if(kind==='stygian'){
+   assert(await guide.isVisible());
+   const url=new URL(await guide.getAttribute('href'),page.url());
+   assert.equal(url.searchParams.get('node'),id);assert.equal(url.hash,'#stygianPoses');
+  }
   else{
    assert(await guide.isVisible());
    const params=new URL(await guide.getAttribute('href'),page.url()).searchParams;
