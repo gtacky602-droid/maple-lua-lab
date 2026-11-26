@@ -34,6 +34,7 @@ export function initAtlas(action, clearKeys) {
  const title = document.getElementById('atlasPlaceName');
  const level = document.getElementById('atlasPlaceLevel');
  const compare = document.getElementById('atlasBackgroundCompare');
+ const fieldGuide = document.getElementById('atlasFieldEnemyGuide');
  const routes = document.getElementById('atlasRoutes');
  const itinerary = document.getElementById('atlasItinerary');
  const itineraryTitle = document.getElementById('atlasItineraryTitle');
@@ -196,6 +197,12 @@ export function initAtlas(action, clearKeys) {
 
  function renderSelection() {
   const selected = view.selected;
+  fieldGuide.hidden = !selected?.fieldEnemyCount;
+  if (fieldGuide.hidden) fieldGuide.removeAttribute('href');
+  else {
+   fieldGuide.href = 'field-enemy-guide.html?' + new URLSearchParams({node:selected.id});
+   fieldGuide.textContent = '通常敵の配置とドット絵を見る（'+selected.fieldEnemyCount+'体）';
+  }
   const measured = Object.hasOwn(backgroundMeasurements, selected?.id);
   compare.hidden = !measured && !selected?.boss?.placementPreview;
   compare.textContent = measured ? 'この地点の背景を比較（別タブ）' : 'この地点のドット絵を比較（別タブ）';

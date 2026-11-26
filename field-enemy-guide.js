@@ -4,22 +4,29 @@ const species=el('species'), region=el('region'), place=el('place');
 const mapUrl=(node,art)=>'map-art.html?'+new URLSearchParams({node,placements:'live',...(art&&{species:art})});
 try{
  const index=await json('content/field-sprite-index.json');
- const entries=new Map(index.species.map(s=>[s.id,s]));
+ const params=new URLSearchParams(location.search),node=params.get('node');
+ const local=index.species.filter(s=>s.places.some(([id])=>id===node));
+ const focused=local.length>0;
+ const entries=new Map((focused?local:index.species).map(s=>[s.id,s]));
+ if(focused){
+  el('scope').hidden=false;
+  el('scope').querySelector('strong').textContent=index.places[node][0]+'の通常敵（'+local.length+'種）';
+ }
  const libraries=new Map();
  let revision=0;
- for(const s of index.species)species.add(new Option(s.name,s.id));
+ for(const s of entries.values())species.add(new Option(s.name,s.id));
  function selectPlaces(){
   const current=entries.get(species.value);
-  const places=current.places.filter(([node])=>index.places[node][1]===region.value);
+  const places=current.places.filter(([id])=>focused?id===node:index.places[id][1]===region.value);
   place.replaceChildren(...places.map(([node,count])=>new Option(index.places[node][0]+'（'+count+'体）',node)));
   el('fieldMap').href=mapUrl(place.value,species.value);
  }
  async function selectSpecies(){
   const current=entries.get(species.value),token=++revision;
   el('name').textContent=current.name;
-  el('count').textContent=current.places.length+'地点に計'+current.count.toLocaleString('ja-JP')+'体配置';
+  el('count').textContent=focused?'この地点に'+current.places.find(([id])=>id===node)[1]+'体配置':current.places.length+'地点に計'+current.count.toLocaleString('ja-JP')+'体配置';
   const url=new URL(location.href);url.searchParams.set('species',current.id);history.replaceState(null,'',url);
-  const regions=new Set(current.places.map(([node])=>index.places[node][1]));
+  const regions=focused?[index.places[node][1]]:new Set(current.places.map(([id])=>index.places[id][1]));
   region.replaceChildren(...Array.from(regions,r=>new Option(r)));selectPlaces();
   const links=Object.entries(current.legends).map(([node,name])=>{
    const a=document.createElement('a');a.href=mapUrl(node)+'#sharedLegendArt';a.textContent=name;return a;
