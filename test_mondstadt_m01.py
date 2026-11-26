@@ -84,6 +84,10 @@ collect('crate')
 assert not s.story.discovered.golden
 chase = next(enemy for enemy in s.enemies.values() if enemy.spawnId == 'mond-road-1')
 assert chase.home == 1210 and chase.x >= 1130
+for direction in (-1,1):
+    chase.dir=direction
+    mark=next(d for d in core.frame(s).draws.values() if d.color=='#ef7663')
+    assert abs(mark.x-(chase.x-s.camera+(31 if direction==-1 else -39)))<0.01
 walk(1165, attack=True)
 for _ in range(420):
     if quest.count == 4:

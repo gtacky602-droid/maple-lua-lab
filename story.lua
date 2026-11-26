@@ -2707,6 +2707,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
    end
+   if q and q.chase and recoveredAll(q,state) then
+    for _,enemy in ipairs(s.enemies) do
+     if enemy.spawnId==q.chase.enemy and enemy.hp>0 then
+      for _,r in ipairs(q.chase.cloth) do
+       local offset=(enemy.dir or 1)<0 and -r.x-r.w or r.x
+       f.draws[#f.draws+1]={kind='rect',x=enemy.x-s.camera+offset,y=enemy.y+r.y,w=r.w,h=r.h,color=r.color}
+      end
+      break
+     end
+    end
+   end
    local clue,_,nextCount=trailClue(s)
    if clue then
     if not s.paused and canInspect(s.actors[s.active],clue) then

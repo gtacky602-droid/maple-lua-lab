@@ -772,6 +772,7 @@ try{
     if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
     if(a.image)paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
     paintMarks(a.marks);
+    paintMarks(e.cloth);
     if(a.heldArt){
      const {gripX,gripY,rects}=a.heldArt,dir=flip?-1:1;
      const handX=x+dir*a.h*gripX,handY=y-a.h*gripY;
@@ -1196,6 +1197,11 @@ try{
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
     if(n===openingNode && n.id===query.get('node')){
+     const hunt=questsById.get(query.get('chase'));
+     if(hunt?.chase&&hunt.target===n.id){
+      const quarry=liveItems.find(item=>item.id===hunt.chase.enemy);
+      if(quarry){quarry.x=hunt.chase.x;quarry.cloth=hunt.chase.cloth}
+     }
      if(absent.size)liveItems=liveItems.filter(e=>!absent.has(e.id));
      if(dailyTargets.size)liveItems=liveItems.filter(e=>dailyTargets.has(e.id));
     }

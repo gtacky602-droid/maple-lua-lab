@@ -40,6 +40,10 @@ function cargoStops(q,state,node,frame){
  if(q.recovery&&state.count>=q.goal-1)return [wharfExit(q,state.count>=q.goal)];
  if(!q.recovery&&state.count!==q.goal-1)return [];
  const recovered=q.cargo.filter(item=>state.recovered[item.id]).map(item=>item.id);
+ if(q.chase&&recovered.length===q.cargo.length){
+  const params=new URLSearchParams({placements:'live',node,chase:q.id,subject:q.chase.enemy});
+  return [{label:'赤い布を引きずるヒルチャール',subject:q.chase.enemy,url:'map-art.html?'+params}];
+ }
  const here=frame.story.node===node?frame.storyCargo:null;
  const absent=new URLSearchParams();
  for(const parcel of q.cargo){

@@ -112,6 +112,14 @@ try{
  assert.ok(!(await frame()).story.discovered.golden);
  await page.waitForFunction(()=>document.querySelector('#trackedQuestText').textContent.includes('赤い布'));
 
+ const pursuit=await browser.newPage();
+ await pursuit.goto(await page.locator('#trackedSurveyPoint').evaluate(link=>link.href));
+ await pursuit.waitForFunction(()=>window.mapArt?.ready);
+ assert.equal(await pursuit.locator('#liveSubject').inputValue(),'mond-road-1');
+ const target=await pursuit.evaluate(()=>mapArt.placements.find(p=>p.id==='mond-road-1'));
+ assert.equal(target.x,1210);
+ assert.equal(target.cloth.length,4);
+ await pursuit.close();
  await walk(1165,{attack:true});
  assert.ok(await fightUntil(4,7500));
  await page.waitForSelector('[data-quest="amber-join"][data-status="ready"]');
