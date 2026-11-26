@@ -49,7 +49,7 @@ try{
    assert.match(await page.locator('#legendAccess').innerText(),/三つの光/);
    assert.doesNotMatch(await page.locator('#legendAccess').innerText(),/を報告/);
   }
-  const link=page.locator('#nightTrialPassage a');
+  const link=page.locator('#nightTrialPassage a').first();
   await link.click();
   await page.waitForFunction(id=>window.mapArt?.node===id,entrance);
   if(node==='night-trial-tlatzacuilotl'){

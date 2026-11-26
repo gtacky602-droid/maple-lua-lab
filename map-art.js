@@ -7,6 +7,7 @@ import {lanternPreview} from './lantern-preview.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
+import {entranceKey} from './arena-entrances.js';
 import {arrivalCamera,gateLanding,setupGatePreview} from './map-gate-preview.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
@@ -639,6 +640,26 @@ try{
    params.set('from',n.id);params.set('departureX',gate.x);
    if(gate.nightTotem==='enter')params.set('arena','nightTrial');
    link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
+   const entering=gate.nightTotem==='enter';
+   const arena=entering?destination:n,source=entering?n:destination;
+   const entrance=entering?gate:source.exits.find(e=>e.nightTotem==='enter'&&e.to===arena.id);
+   const artLink=$('nightTrialArt');
+   artLink.hidden=!entrance||!legendNames.has(arena.id);
+   if(!artLink.hidden){
+    const key=entranceKey(source.id,entrance.x,entrance.y);
+    const poses=new URLSearchParams({group:'field',node:arena.id,visit:arena.id,gate:key,pixels:'1'});
+    const fixture=entrance.rockSeal?(entering?(sealed(entrance)?'closed':'open'):
+     query.get('from')===source.id?query.get('trialFixture'):null):null;
+    if(fixture==='open'||fixture==='closed'){
+     poses.set(fixture,key);
+     params.set(entering?'trialFixture':'fixture',fixture);
+    }
+    if(!entering){
+     params.set('to',arena.id);params.set('gateX',entrance.x);params.set('gateY',entrance.y??480);
+    }
+    artLink.href='weekly-poses.html?'+poses;
+    artLink.textContent=legendNames.get(arena.id)+'の元絵・32色・16色を比べる';
+   }
    link.href='map-art.html?'+params;
   }
   const forestRects=forest.rectangles(camera,960);
