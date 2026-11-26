@@ -23,6 +23,11 @@ function remainingEnemyPoints(step,progress){
  });
 }
 
+function bossFieldPoint(step){
+ const params=new URLSearchParams({placements:'live',node:step.node,subject:step.boss});
+ return {label:'討伐対象のボスを見比べる',url:'map-art.html?'+params};
+}
+
 function puzzleGuide(frame,quest,step,index){
  const view=frame.storyRockView;
  if(step?.shadowChoice && frame.story.node===step.node && view){
@@ -67,6 +72,9 @@ export function atlasQuestObjectives(frame,q,node){
    return;
   }
   const choices=step?.kind==='choice'||step?.kind==='guideChoice'?step.choices.length:0;
+  if(step?.kind==='boss' && step.node===node){
+   objectives.push({text,points:[bossFieldPoint(step)]});return;
+  }
   if(step?.kind==='kill' && step.node===node){
    const progress=path?state.pathProgress?.[path.id]:state;
    objectives.push({text,points:remainingEnemyPoints(step,progress)});
@@ -345,6 +353,10 @@ export function trackedQuest(f,id,selectedWorksite){
    text:`${q.name} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
  }
  const patrolStep=status==='active'&&q.itinerary?.[st.count];
+ if(patrolStep?.kind==='boss'&&route.node===patrolStep.node){
+  const point=bossFieldPoint(patrolStep);
+  return {node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+ }
  if(patrolStep?.cover&&route.node===patrolStep.node){
   const point=surveyPoint(q,st.count,route.node);
   return {node:route.node,pointUrl:surveyPointUrl(point),pointLabel:patrolStep.cover.name+'の位置を見る',
@@ -415,7 +427,7 @@ function expeditionStops(quest,state,graph,button){
   if(node){
    const point=surveyPoint(quest,index,node.id,node);
    const links=point?[{label:'調査位置を見る',url:surveyPointUrl(point)}]:
-    mark.kind==='kill'?remainingEnemyPoints(mark):[];
+    mark.kind==='boss'?[bossFieldPoint(mark)]:mark.kind==='kill'?remainingEnemyPoints(mark):[];
    if(mark.kind==='arrive'&&graph.nodes.some(n=>n.id===mark.from&&n.voyage?.destination===node.id)){
     links.push({label:'到着位置を見る',url:'map-art.html?'+new URLSearchParams({placements:'live',node:node.id,voyage:mark.from})});
    }

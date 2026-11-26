@@ -1,0 +1,402 @@
+[
+  {
+    "quest": "threadline-restore",
+    "boss": "original-twin-shuttle-loom",
+    "node": "buried-weaving-room",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 6970,
+        "overlap": "100.0%",
+        "meanRgbError": "4.91 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 4593,
+        "overlap": "97.2%",
+        "meanRgbError": "10.98 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1896,
+        "overlap": "96.3%",
+        "meanRgbError": "15.41 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "snow-rail-pressure",
+    "boss": "original-snow-sweeper",
+    "node": "steam-stabling-depot",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 4160,
+        "overlap": "99.2%",
+        "meanRgbError": "6.91 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2690,
+        "overlap": "98.2%",
+        "meanRgbError": "11.65 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1099,
+        "overlap": "96.8%",
+        "meanRgbError": "17.97 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "white-pass-summit",
+    "boss": "original-frost-antler",
+    "node": "white-rainbow-basin",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 12004,
+        "overlap": "99.1%",
+        "meanRgbError": "8.14 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 7552,
+        "overlap": "98.6%",
+        "meanRgbError": "11.66 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 3339,
+        "overlap": "98.0%",
+        "meanRgbError": "17.09 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "windward-tower-clear",
+    "boss": "original-windward-tower",
+    "node": "dornman-windworks",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 8948,
+        "overlap": "99.5%",
+        "meanRgbError": "8.56 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 5458,
+        "overlap": "97.9%",
+        "meanRgbError": "20.60 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 2194,
+        "overlap": "96.8%",
+        "meanRgbError": "28.15 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "ochka-sifter-clear",
+    "boss": "original-rubble-sifter",
+    "node": "ochka-sifting-kiln",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 9609,
+        "overlap": "98.9%",
+        "meanRgbError": "11.30 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 5868,
+        "overlap": "98.7%",
+        "meanRgbError": "13.56 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 2538,
+        "overlap": "97.9%",
+        "meanRgbError": "19.60 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "nod-rim-return",
+    "boss": "original-prism-walker",
+    "node": "nod-quiet-rim",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 4184,
+        "overlap": "99.4%",
+        "meanRgbError": "7.90 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2639,
+        "overlap": "98.2%",
+        "meanRgbError": "11.10 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1245,
+        "overlap": "97.0%",
+        "meanRgbError": "15.82 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "novo-return-report",
+    "boss": "original-ice-crawler",
+    "node": "novo-ice-vault",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 4479,
+        "overlap": "99.4%",
+        "meanRgbError": "4.31 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2952,
+        "overlap": "98.8%",
+        "meanRgbError": "5.89 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1283,
+        "overlap": "98.5%",
+        "meanRgbError": "9.55 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "spine-ridge-record",
+    "boss": "original-rime-hare",
+    "node": "spine-trace-ridge",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 3229,
+        "overlap": "98.2%",
+        "meanRgbError": "7.11 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1973,
+        "overlap": "97.5%",
+        "meanRgbError": "10.07 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 895,
+        "overlap": "96.3%",
+        "meanRgbError": "14.13 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "chenyu-tea-with-friends",
+    "boss": "original-tea-boulder",
+    "node": "chenyu-boulder-gully",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 4868,
+        "overlap": "99.5%",
+        "meanRgbError": "4.06 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2978,
+        "overlap": "98.4%",
+        "meanRgbError": "6.78 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1301,
+        "overlap": "97.8%",
+        "meanRgbError": "9.46 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "enkan-coverless-log",
+    "boss": "original-plate-tail",
+    "node": "enkan-tablet-hollow",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 6284,
+        "overlap": "98.7%",
+        "meanRgbError": "5.88 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 4204,
+        "overlap": "98.2%",
+        "meanRgbError": "7.40 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1840,
+        "overlap": "97.5%",
+        "meanRgbError": "10.07 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "tunigi-fragment-return",
+    "boss": "original-wind-ring",
+    "node": "tunigi-fragment-vault",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 4866,
+        "overlap": "98.3%",
+        "meanRgbError": "12.56 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2984,
+        "overlap": "97.0%",
+        "meanRgbError": "16.83 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1344,
+        "overlap": "95.6%",
+        "meanRgbError": "23.10 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "bygone-sound-book",
+    "boss": "original-bellgate",
+    "node": "bygone-bell-archive",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 4665,
+        "overlap": "98.3%",
+        "meanRgbError": "7.01 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 3182,
+        "overlap": "97.7%",
+        "meanRgbError": "10.36 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1094,
+        "overlap": "96.7%",
+        "meanRgbError": "15.60 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "sumeru-observatory-map",
+    "boss": "original-canopy-fungus",
+    "node": "sumeru-observatory-terrace",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 3393,
+        "overlap": "99.8%",
+        "meanRgbError": "5.54 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 2365,
+        "overlap": "98.0%",
+        "meanRgbError": "11.33 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1120,
+        "overlap": "96.9%",
+        "meanRgbError": "16.71 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "fontaine-grand-finale",
+    "boss": "original-grand-finale",
+    "node": "fontaine-grand-stage",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 11798,
+        "overlap": "98.7%",
+        "meanRgbError": "17.15 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 7225,
+        "overlap": "98.0%",
+        "meanRgbError": "22.39 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 3035,
+        "overlap": "97.2%",
+        "meanRgbError": "29.14 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "natlan-sunset-duel",
+    "boss": "original-river-racer",
+    "node": "natlan-sunset-arena",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 1700,
+        "overlap": "96.9%",
+        "meanRgbError": "8.63 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 1036,
+        "overlap": "97.0%",
+        "meanRgbError": "12.62 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 417,
+        "overlap": "95.5%",
+        "meanRgbError": "17.96 / 255"
+      }
+    ]
+  },
+  {
+    "quest": "nod-moon-vault-quest",
+    "boss": "original-moon-crab",
+    "node": "nod-moon-crab-arena",
+    "profiles": [
+      {
+        "profile": "legacy",
+        "rectangles": 5271,
+        "overlap": "98.9%",
+        "meanRgbError": "8.42 / 255"
+      },
+      {
+        "profile": "h48c32",
+        "rectangles": 3541,
+        "overlap": "98.4%",
+        "meanRgbError": "12.84 / 255"
+      },
+      {
+        "profile": "h32c16",
+        "rectangles": 1612,
+        "overlap": "97.5%",
+        "meanRgbError": "17.56 / 255"
+      }
+    ]
+  }
+]
