@@ -27,6 +27,11 @@ try{
    await preview.locator('#focusGate').click();
    for(const open of [false,true]){
     await toggle.setChecked(open);
+    await preview.locator('#matchSpritePng').uncheck();
+    await preview.locator('#compareSpriteProfiles').click();
+    const art=graph.routeFixtures[edge.routeFixture];
+    const count=art.base.length+art[open?'open':'closed'].length+(art.cap?.length??0);
+    assert.deepEqual(await preview.locator('#spriteProfileTable tbody tr').evaluateAll(rows=>rows.map(row=>Number(row.cells[1].textContent))),Array(3).fill(count));
     const rows=graph.routeFixtures[edge.routeFixture][open?'open':'closed'];
     // Take a pixel within the distinctive bar, platform or signal arm, outside the portal tip.
     const [dx,dy,w,h,color]=rows.at(-1);
@@ -41,6 +46,11 @@ try{
    await preview.goto(new URL(detail,preview.url()).href);
    await preview.waitForFunction(()=>window.mapArt?.ready);
    assert.ok(await toggle.isChecked());
+   await preview.locator('#gatePreview select').selectOption('');
+   const [dx,dy,, ,color]=graph.routeFixtures[edge.routeFixture].closed.at(-1);
+   const pixel=await preview.evaluate(({x,y})=>Array.from(document.querySelector('#rect').getContext('2d')
+    .getImageData(x-window.mapArt.camera,y,1,1).data).slice(0,3),{x:edge.x+dx+6,y:(edge.y??480)+dy+1});
+   assert.equal('#'+pixel.map(v=>v.toString(16).padStart(2,'0')).join(''),color);
    console.log(node.id,edge.routeFixture,'both states and canvases, shared crop');
   }
  }

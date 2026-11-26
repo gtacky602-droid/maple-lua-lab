@@ -11,7 +11,7 @@ export function arrivalCamera(from,gate,destination){
 }
 
 // Match physical coordinates because discovery can hide individual exits from Lua's M-map.
-export function setupGatePreview(panel, camera, liveView, query, render, showDarkRoom, fixtures) {
+export function setupGatePreview(panel, camera, liveView, query, render, showDarkRoom) {
  const select=panel.querySelector('select'),link=panel.querySelector('a'),position=panel.querySelector('output');
  const control=panel.querySelector('#fixtureControl'),state=control.querySelector('input');
  state.onchange=render;
@@ -71,16 +71,6 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
   draw(ctx,offset,dark){
    if(!active || (active.darkOnly&&!dark))return;
    const x=Math.round(active.x-offset),y=Math.round(active.y??480);
-   const art=fixtures[active.routeFixture];
-   if(art){
-    ctx.save();
-    for(const rows of [art.base,state.checked?art.open:art.closed,art.cap??[]]){
-     for(const [dx,dy,w,h,color] of rows){
-      ctx.fillStyle=color;ctx.fillRect(x+dx,y+dy,w,h);
-     }
-    }
-    ctx.restore();
-   }
    // The pointed tip is the exact portal coordinate, even on a raised platform.
    ctx.save();
    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-9,y-13);ctx.lineTo(x+9,y-13);ctx.closePath();
