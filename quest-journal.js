@@ -143,6 +143,15 @@ export function atlasQuestObjectives(frame,q,node){
   const stage=frame.storyRoof.stage,point=surveyPoint(q,stage,node);
   return point?[{text:questObjective(q,frame.storyGraph,{count:stage}),points:[{label:point.name,url:surveyPointUrl(point)}]}]:[];
  }
+ if(q.sights&&state.sights&&node===q.target){
+  let places=[];
+  if(status==='active')places=state.count===q.goal-1?[q.sights.bridge]:
+   q.sights.places.filter(place=>!state.sights.seen[place.id]);
+  if(status==='complete')places=[...q.sights.places,q.sights.bridge].filter(place=>place.id===state.sights.favorite);
+  if(places.length)return [{text:questObjective(q,frame.storyGraph,state),points:places.map(place=>({
+   label:place.name,url:surveyPointUrl(worksitePoint(q,place.id,node))
+  }))}];
+ }
  if(q.rest&&node===q.target){
   if(status==='active'&&state.count===0)return [{text:questObjective(q,frame.storyGraph,state),points:restGuards(q,state)}];
   if(status==='complete'||status==='ready'){
