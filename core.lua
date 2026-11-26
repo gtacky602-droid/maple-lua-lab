@@ -302,6 +302,7 @@ local function pulse(s,cast)
    if cast.pull and e.hp>0 and not e.boss then
     local center=cast.pullCenter or cast.x
     local nextX=e.x+clamp(center-e.x,-cast.pull,cast.pull)
+    if e.patrolMin then nextX=clamp(nextX,e.patrolMin,e.patrolMax) end
     if not C.pathClear or C.pathClear(s,e,nextX,e.y) then e.x=nextX;e.home=nextX end
    end
    if cast.armorBreak then e.armorBreak=cast.armorBreak end
@@ -312,7 +313,11 @@ local function pulse(s,cast)
     if e.boss then e.slow=cast.root else e.root=cast.root end
     cast.rooted[e.id]=true
    end
-   if cast.push and not e.boss then e.x=clamp(e.x+cast.dir*cast.push,20,(s.worldwidth or 2880)-20);e.home=e.x end
+   if cast.push and not e.boss then
+    local nextX=clamp(e.x+cast.dir*cast.push,20,(s.worldwidth or 2880)-20)
+    e.x=e.patrolMin and clamp(nextX,e.patrolMin,e.patrolMax) or nextX
+    e.home=e.x
+   end
   end
   if chainLightning then lightningX,lightningY=e.x,e.y-35 end
  end
