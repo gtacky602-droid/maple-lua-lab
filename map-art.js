@@ -223,6 +223,12 @@ try{
   $('camera').value=point.x-480;
  },()=>render());
  function focusSurveyPoint(point){
+  if(liveView&&(point?.absent||selectedSurveyPoint?.absent)){
+   const absent=new Set(point?.absent);
+   for(const option of subject.options)option.hidden=absent.has(option.value);
+   if(absent.has(subject.value))subject.value='';
+   $('liveSubjectControl').hidden=liveItems.filter(item=>!absent.has(item.id)).length<2;
+  }
   selectedSurveyPoint=point;
   puzzlePreview.reset(point);
   patrolPanel.hidden=!point?.guard;
@@ -263,6 +269,8 @@ try{
   let steps=quest.itinerary??[];
   if(quest.roof)steps=[...quest.roof.marks.map(mark=>({node:quest.target,objective:mark.label})),
    {node:quest.roof.lookout,objective:quest.roof.finish.label}];
+  if(quest.rest)steps=Array.from({length:quest.goal+1},(_,i)=>
+   ({node:quest.target,objective:i?surveyPoint(quest,i,quest.target).action:'休憩所の魔物を退ける'}));
   if(quest.cave)steps=[quest.target,quest.target,quest.target,quest.cave.depth].map((node,index)=>
    ({node,objective:surveyPoint(quest,index,node).action}));
   for(const route of [{steps},...quest.paths??[]]){
@@ -530,6 +538,7 @@ try{
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,frame=sceneFrame(n,camera,gatePreview.selectedGate());
   showDuel(n,gatePreview.selectedGate(),profile);
   let items=liveView?liveItems:placements();
+  if(selectedSurveyPoint?.absent)items=items.filter(item=>!selectedSurveyPoint.absent.includes(item.id));
   const rail=liveView && questsById.get(n.clearedBy)?.rail;
   if(rail){
    const station=selectedSurveyPoint?.node===n.id && selectedSurveyPoint.worksite;

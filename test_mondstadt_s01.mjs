@@ -81,6 +81,29 @@ async function land(y,drop=false){
  }
 }
 
+const preview=await browser.newPage();
+async function checkSite(count,sample,color){
+ await page.waitForFunction(count=>{
+  const href=document.querySelector('#trackedSurveyPoint').getAttribute('href');
+  return href&&new URL(href,location.href).searchParams.get('step')===String(count+1);
+ },count);
+ const link=await page.locator('#trackedSurveyPoint').getAttribute('href');
+ await preview.goto(new URL(link,page.url()).href);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ assert.equal(await preview.locator('#surveyPointNote').getAttribute('data-step'),String(count+1));
+ assert(await preview.locator('#liveSubjectControl').isHidden());
+ for(const id of ['png','rect']){
+  const rgb=await preview.evaluate(({id,sample})=>Array.from(document.getElementById(id).getContext('2d')
+   .getImageData(sample[0]-mapArt.camera,sample[1],1,1).data).slice(0,3),{id,sample});
+  assert.deepEqual(rgb,color,'stage '+count+' '+id);
+ }
+ if(count===1||count===5){
+  await preview.locator('#compareSpriteProfiles').click();
+  const counts=await preview.locator('#spriteProfileTable tbody tr').evaluateAll(rows=>rows.map(row=>Number(row.cells[1].textContent.replaceAll(',',''))));
+  assert(counts[0]>counts[1]&&counts[1]>counts[2]&&counts[2]>0);
+  console.log(count===1?'Standing':'Seated',counts);
+ }
+}
 try{
  await page.goto(root);
  await page.waitForFunction(()=>window.lab?.frame);
@@ -90,6 +113,7 @@ try{
  await current(town);
  await quest.getByRole('button',{name:'受注',exact:true}).click();
  await quest.getByRole('button',{name:'この依頼を追跡'}).click();
+ await page.waitForFunction(()=>document.querySelector('#trackedSurveyPoint').href.includes('subject=mond-rest-slime'));
  await reachRest();
  assert.equal(await page.evaluate(async()=>{
   const {sceneryStatus,backgroundReady}=await import('./scenery.js');
@@ -97,8 +121,10 @@ try{
   return sceneryStatus(window.lab.frame).key;
  }),'mondrest');
  await defeat(315,'mond-rest-slime');
+ await page.waitForFunction(()=>document.querySelector('#trackedSurveyPoint').href.includes('subject=mond-rest-hilichurl'));
  await defeat(755,'mond-rest-hilichurl');
  await progress(1);
+ await checkSite(1,[520,377],[185,144,93]);
  await walk(745);
  await canvas.screenshot({path:'evidence/mondstadt-s01-before.png'});
  const standing=(await frame()).draws.find(d=>d.source===sprite);
@@ -107,11 +133,14 @@ try{
  await land(392);
  await button('G：ベンチ用の板を拾う').click();
  await progress(2);
+ await checkSite(2,[728,476],[163,107,59]);
  await land(480,true);
  await inspect(750,'落ち葉を掃除する');
  await progress(3);
+ await checkSite(3,[866,442],[212,167,107]);
  await inspect(925,'ノエルに声をかける');
  await progress(4);
+ await checkSite(4,[1011,451],[206,157,100]);
  await inspect(1050,'ノエルの椅子を置く');
  await progress(5);
  const seated=(await frame()).draws.find(d=>d.source===sprite);
@@ -145,6 +174,7 @@ try{
  await page.waitForFunction(()=>window.lab?.frame);
  await page.locator('#loadProgress').click();
  await current(town);
+ await checkSite(5,[1079,447],[167,119,84]);
  await reachRest();
  assert.equal((await frame()).storyRest.ready,true);
  assert.equal((await frame()).total,0);

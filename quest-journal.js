@@ -23,6 +23,10 @@ function remainingEnemyPoints(step,progress){
  });
 }
 
+function restGuards(q,state){
+ return remainingEnemyPoints({node:q.target,enemies:q.rest.guards},{sweep:state.rest?.defeated});
+}
+
 function bossFieldPoint(node,subject){
  const params=new URLSearchParams({placements:'live',node});
  if(subject)params.set('subject',subject);
@@ -63,6 +67,13 @@ export function atlasQuestObjectives(frame,q,node){
  if(q.roof&&frame.storyRoof?.retry){
   const stage=frame.storyRoof.stage,point=surveyPoint(q,stage,node);
   return point?[{text:questObjective(q,frame.storyGraph,{count:stage}),points:[{label:point.name,url:surveyPointUrl(point)}]}]:[];
+ }
+ if(q.rest&&node===q.target){
+  if(status==='active'&&state.count===0)return [{text:questObjective(q,frame.storyGraph,state),points:restGuards(q,state)}];
+  if(status==='complete'||status==='ready'){
+   const point=surveyPoint(q,q.goal,node);
+   return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
+  }
  }
  const join=q.paths?q.itinerary.findIndex(step=>step.kind==='paths'):-1;
  const onBranch=join>=0 && state.count===join && status==='active';
@@ -313,6 +324,12 @@ export function trackedQuest(f,id,selectedWorksite){
     text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route.text?' ｜ '+route.text:'')};
   }
  }
+ if(q.rest&&status==='complete'){
+  const point=surveyPoint(q,q.goal,q.target);
+  const route=questRoute(f,{kind:'visit',target:q.target},'active');
+  return {...route,node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'お茶の位置を見る',
+   text:q.name+' ｜ 報告済み。休憩所のお茶で操作中のキャラのHPが最大'+q.rest.tea.heal+'回復します。 '+route.text};
+ }
  if(q.teaCase&&status==='complete'){
   const point=surveyPoint(q,q.goal-1,q.target);
   return {node:q.target,pointUrl:surveyPointUrl(point),pointLabel:'茶屋の位置を見る',
@@ -356,6 +373,10 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(q.rest&&status==='active'&&st.count===0){
+  const guard=restGuards(q,st)[0];
+  if(guard)return {...route,pointUrl:guard.url,pointLabel:'残っている魔物の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
+ }
  if(status==='active' && q.kind==='boss' && route.node){
   const point=bossFieldPoint(f.storyGraph.bossNodes?.[q.target]??route.node);
   return {...route,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};

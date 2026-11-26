@@ -34,7 +34,29 @@ function choiceFixtures(step){
  }
  return fixtures;
 }
+function restStopPoint(quest,count,node){
+ const rest=quest.rest;
+ const site=[null,rest.planks,rest.leaves,rest.bench,rest.chair,rest.tea][count];
+ if(!site||node!==quest.target)return null;
+ const fixtures=[{x:rest.bench.x,y:rest.bench.y,rects:count>=3?
+  [[-76,-39,105,14,'#875a45'],[-76,-39,105,4,'#d4a76b'],[-77,-21,108,9,'#b78454'],[-70,-12,8,12,'#654536'],[16,-12,8,12,'#654536']]:
+  [[-69,-12,88,7,'#715344'],[-52,-35,16,23,'#7f6851'],[13,-16,15,16,'#765444']]}];
+ if(count===1)fixtures.push({...rest.planks,rects:Array.from({length:3},(_,i)=>[-17+i*3,-7-i*5,37,5,'#b9905d'])});
+ if(count<=2)fixtures.push({...rest.leaves,rects:Array.from({length:7},(_,i)=>
+  [(i-3)*8,-5-(i%3)*3,7,4,i%2?'#c28c42':'#a36b3b'])});
+ if(count>=4)fixtures.push({...rest.tea,rects:[[-24,-31,48,6,'#ce9d64'],[-17,-25,6,25,'#714c39'],
+  [13,-25,6,25,'#714c39'],[-15,-41,13,10,'#e8e3c6'],[5,-38,8,7,'#eacfb8'],[14,-37,3,4,'#eacfb8']]});
+ const seated=count===quest.goal;
+ if(seated)fixtures.push({...rest.chair,rects:[[28,-42,7,42,'#805440'],[19,-41,16,11,'#a77754'],
+  [20,-41,15,3,'#d2a16c'],[-4,-24,39,6,'#bd8b5b'],[-3,-18,6,18,'#714c3b']]});
+ const props=[{name:'ノエル',file:'quest-packed/noelle-rest-'+(seated?'seated':'standing')+'-sprites-v1.json',
+  x:seated?rest.chair.x:rest.bench.x+50,y:rest.bench.y}];
+ return {quest:quest.id,node,step:count+1,name:['','修理用の板','落ち葉','直ったベンチ','椅子の設置場所','休憩所のお茶'][count],
+  action:site.label,x:site.x,y:site.y,fixtures,props,absent:rest.guards};
+}
+
 export function surveyPoint(quest,index,node,room,pathId,choice){
+ if(quest?.rest)return restStopPoint(quest,index,node);
  if(quest?.cave&&Number.isInteger(index)&&index>=0&&index<=3){
   const {depth,guide,chest,brittle,landing,ore}=quest.cave;
   const lower=index===3;
