@@ -39,6 +39,8 @@ async function atlasPath(stage,ids){
   const reported=ids.includes(tower);
   const href=page.locator('#atlasBackgroundCompare');
   await page.waitForFunction(({stage,reported})=>{
+   const name=window.lab.frame.worldMap.selected.name;
+   if(reported!==name.includes('下層の泡室'))return false;
    const u=new URL(document.getElementById('atlasBackgroundCompare').href);
    return u.searchParams.get('node')===stage&&(u.searchParams.get('phase')==='after')===reported;
   },{stage,reported});
@@ -145,6 +147,17 @@ try{
  await drive.warp(hub);
  await drive.report(quest.id);
  await drive.warp(chHost);
+ await page.locator('#questFilter').selectOption('complete');
+ await page.locator('[data-quest="'+quest.id+'"]').getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+ const roomLink=page.locator('#trackedSurveyPoint');
+ await roomLink.waitFor();
+ assert.match(await roomLink.innerText(),/下層の泡室/);
+ const popup=page.waitForEvent('popup');
+ await roomLink.click();
+ const preview=await popup;
+ await preview.waitForFunction(()=>window.mapArt?.node==='chassanion-legend-bubble-room' &&
+  document.querySelector('#sceneryPhase').value==='after' && window.mapArt.backgroundState==='ready');
+ await preview.close();
  await atlasPath(chStage,[tower,chStage]);
  const oldGate=nodes[chHost].exits.find(e=>e.to===chStage);
  await drive.walk(oldGate.x);
@@ -173,7 +186,7 @@ try{
   ['極彩色のルケア',['legend-cherubic-sea-hare-shared','legend-luachra']]
  ]){
   await page.locator('#assetSearch').fill(name);
-  for(const id of ids)assert.equal(await page.locator('#cards article[data-id="'+id+'"]:not([hidden]) canvas').count(),2);
+  for(const id of ids)assert.equal(await page.locator('#cards article[data-id="'+id+'"]:not([hidden]) canvas:visible').count(),2);
  }
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/fontaine-bubble-browser.json',JSON.stringify({

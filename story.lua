@@ -10,7 +10,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
- local graphNodes,graphEdges,graphQuests={},{},{}
+ local graphNodes,graphEdges,graphQuests,phaseNodes={},{},{},{}
  local growthQuests,growthEvidence={},{}
  local advancedGrowth={
   SK54={level=127,region='nod-port',alternate='nod-town',mark='lunar-orb'},
@@ -46,6 +46,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local places=n.hub and element.hubs or element.places
    places[#places+1]=n.id
   end
+  if n.locationAfterReport then phaseNodes[#phaseNodes+1]=n end
   if n.hiddenGroup or n.revealAfter then graphNodes[#graphNodes+1]=n end
   for _,edge in ipairs(n.exits) do
    if edge.visitedOnly or edge.hideUntilAllowed then graphEdges[#graphEdges+1]={from=n,edge=edge} end
@@ -282,6 +283,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,node in ipairs(graphNodes) do
    visibility[#visibility+1]=shownNode(s,node) and '1' or '0'
   end
+  for _,node in ipairs(phaseNodes) do
+   visibility[#visibility+1]=completed(s,node.locationAfterReport.quest) and '1' or '0'
+  end
   for _,rule in ipairs(graphEdges) do
    visibility[#visibility+1]=shownNode(s,rule.from) and shownEdge(s,rule.edge) and '1' or '0'
   end
@@ -297,6 +301,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,node in ipairs(data.nodes) do
    if shownNode(s,node) then
     local visible=copy(node)
+    local phase=node.locationAfterReport
+    if phase and completed(s,phase.quest) then visible.name=phase.name end
     visible.exits={}
     for _,edge in ipairs(node.exits) do
      if shownEdge(s,edge) then visible.exits[#visible.exits+1]=copy(edge) end

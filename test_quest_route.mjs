@@ -115,4 +115,22 @@ assert.match(questRouteText(viaWest,beam,'active'),/^次は 淵下宮・中央�
 assert.equal(questRoute(viaWest,beam,'active').node,beam.itinerary[0].node);
 assert.equal(questRoute(frame,{...q,target:'missing'},'active').node,undefined);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
-await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','ordered arrival directions reach the specified departure gate','no frame mutation']},null,2));console.log('Quest routing fixtures passed');
+await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','ordered arrival directions reach the specified departure gate','no frame mutation']},null,2));
+
+const sluice=graph.quests.find(q=>q.id==='fon-morte-sluice-survey');
+const bubbleRoom='chassanion-legend-bubble-room',outside='fon-wp-55765',tower='morte-tower-sluice';
+const waterFrame={story:{active:true,node:outside,quests:{}},storyGraph:graph,progression:{level:120}};
+const visitRoom={kind:'visit',target:bubbleRoom};
+for(const state of [undefined,{status:'active',count:0},{status:'active',count:sluice.goal}]){
+ waterFrame.story.quests[sluice.id]=state;
+ assert.match(questRouteText(waterFrame,visitRoom,'active'),/残り1区間/);
+}
+waterFrame.story.quests[sluice.id]={status:'complete',count:sluice.goal};
+assert.match(questRouteText(waterFrame,visitRoom,'active'),/残り2区間/);
+const follow=trackedQuest(waterFrame,sluice.id);
+assert.equal(follow.node,bubbleRoom);
+assert.equal(new URL(follow.pointUrl,'http://localhost').searchParams.get('phase'),'after');
+assert(follow.text.includes(graph.nodes.find(n=>n.id===tower).name));
+waterFrame.story.node=bubbleRoom;
+assert.match(questRouteText(waterFrame,{kind:'visit',target:outside},'active'),/残り2区間/);
+console.log('Quest routing fixtures passed');

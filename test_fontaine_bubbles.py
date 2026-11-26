@@ -245,7 +245,20 @@ for i,step in enumerate(quest['itinerary'],1):
     assert s.story.quests[QUEST].count==i,(step,s.storyNotice)
 route(s,ch['node'],[ch['node']])
 core.action(s,'story_fast:'+HUB)
+def map_room(state):
+    f=core.frame(state)
+    room=next(n for n in f.storyGraph.nodes.values() if n.id==ch['node'])
+    return room.name,f.storyGraphRevision
+
+old_name,old_revision=map_room(s)
+assert old_name==nodes[ch['node']]['name']
 core.action(s,'story_report:'+QUEST)
+new_name,new_revision=map_room(s)
+assert new_name==nodes[ch['node']]['locationAfterReport']['name'] and new_revision>old_revision
+saved=validate_save(native(core.checkpoint(s)))
+resumed=core.restore(lua.table_from(saved,recursive=True),12)
+assert map_room(resumed)[0]==new_name
+
 assert s.story.quests[QUEST].status=='complete'
 core.action(s,'story_fast:'+CH_HOST)
 route(s,ch['node'],[TOWER,ch['node']])

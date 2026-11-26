@@ -72,6 +72,7 @@ export function questRoute(f,q,status,preferredNode){
  if(targets.has(from)&&!arrival)return {node:from,text:status==='active'||optional?'目的地に到着しています。':'受注・報告の拠点にいます。'};
  function meetsRule(rule){
   const questState=f.story.quests?.[rule.quest];
+  if(rule.unreported)return questState?.status!=='complete';
   const state=rule.path?questState?.pathProgress?.[rule.path]:questState;
   if(rule.before!==undefined&&state?.count>=rule.before)return false;
   if(rule.construction)return state?.status==='complete'&&state.construction?.plan===rule.construction;

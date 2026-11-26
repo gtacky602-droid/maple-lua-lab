@@ -76,7 +76,10 @@ export function questObjective(q,graph,state,growth={}){
   return q.lesson.map(step=>`${growth[step.id]?'✓ ':''}${step.text}`).join(' ／ ');
  }
  if(state?.status==='complete'&&q.completedObjective)return q.completedObjective;
- if(q.itinerary)return q.itinerary[state?.count??0]?.objective??'拠点で報告する';
+ if(q.itinerary){
+  if(state?.status==='complete')return '報告済み';
+  return q.itinerary[state?.count??0]?.objective??'拠点で報告する';
+ }
  const destination=graph.nodes.find(n=>n.id===questTargetNode(q,graph));
  const place=destination?.name||'目的地未登録';
  if(q.roof){
@@ -228,6 +231,16 @@ export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ if(status==='complete'){
+  const changed=f.storyGraph.nodes.find(n=>n.locationAfterReport?.quest===id);
+  if(changed){
+   const route=questRoute(f,{kind:'visit',target:changed.id},'active');
+   const place=changed.locationAfterReport.name;
+   const params=new URLSearchParams({node:changed.id,placements:'live',phase:'after'});
+   return {node:changed.id,pointUrl:'map-art.html?'+params,pointLabel:place+'の配置を見る',
+    text:q.name+' ｜ 報告済み ｜ '+q.closing+' '+route.text};
+  }
+ }
  if(q.contest){
   const replay=status==='complete';
   const rematch=replay&&f.storyContest?.replay;
