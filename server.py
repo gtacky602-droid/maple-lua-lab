@@ -42,8 +42,13 @@ def accepts_gzip(header):
 
 # Large shared inputs used by the field preview, atlas and sprite galleries.
 STATIC_JSON = frozenset(ROOT / directory / name for directory, names in (
-    ('assets', ('boss-gallery-packed.json', 'character-gallery-packed.json', 'common-boss-packed.json')),
-    ('content', ('story-graph.json', 'enemy-spawns.json', 'map-catalog.json', 'world-atlas.json')),
+    ('assets', ('boss-gallery-packed.json', 'character-gallery-packed.json', 'common-boss-packed.json',
+                'placement-pose-index.json', 'slime-preview-packed.json')),
+    ('content', ('story-graph.json', 'enemy-spawns.json', 'map-catalog.json', 'world-atlas.json',
+                 'field-boss-spawns.json', 'weekly-boss-spawns.json', 'enemy-placement-drafts.json',
+                 'enemy-art-layout.json', 'boss-arena-index.json', 'field-boss-openings.json',
+                 'group-legend-openings.json', 'stygian-openings.json', 'weekly-opening-parts.json',
+                 'worksite-props.json', 'toyac-quest-previews.json')),
 ) for name in names)
 
 

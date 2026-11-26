@@ -29,7 +29,10 @@ empty = lua.table()
 def prepare(shield=False):
     s = core.new(12)
     core.action(s, 'story_start')
-    core.grantExp(s, LEVEL['maple_reference_total_exp_to_reach'], 'quest')
+    level = LEVELS[95] if shield else LEVEL
+    core.grantExp(s, level['maple_reference_total_exp_to_reach'], 'quest')
+    if shield:
+        core.enterStoryNode(s, 'fontaine-hub')
     core.enterStoryNode(s, HUB)
     core.action(s, 'story_accept:'+QUEST)
     if shield:
@@ -64,8 +67,8 @@ def spot(a, b, dx):
     a.x, a.y, a.vy, a.ground, a.inv = b.x+dx, b.y, 0, True, 0
 
 
-def training(companion=None):
-    s = prepare(True)
+def training(companion=None, shield=True):
+    s = prepare(shield)
     if companion:
         core.action(s, 'town')
         core.action(s, 'companion:'+companion)
@@ -174,7 +177,7 @@ assert (a.waterShield is None or a.waterShield.hp < hp)
 assert ally.thunderShield is None or ally.thunderShield.hp < ally_hp
 
 # Actual kills advance the saved generation; the element is fixed until the next spawn.
-s, slot, a, b = training()
+s, slot, a, b = training(shield=False)
 initial_cash, initial_xp = s.mora, s.progression.killXp
 order = ['hydro','pyro','cryo','electro','hydro']
 for generation, element in enumerate(order, 1):

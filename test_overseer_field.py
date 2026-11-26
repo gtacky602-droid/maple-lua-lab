@@ -29,10 +29,13 @@ def enter(state):
     portal(state,258,arena)
 
 
-def make(fixture=False):
+def make(fixture=False, cryo=False):
     state=core.new(12)
     core.action(state,'story_start')
-    core.grantExp(state,LEVELS[111]['maple_reference_total_exp_to_reach'],'quest')
+    level = 140 if fixture or cryo else 112
+    core.grantExp(state,LEVELS[level-1]['maple_reference_total_exp_to_reach'],'quest')
+    if fixture or cryo:
+        core.enterStoryNode(state,'snezhnaya-hub')
     core.enterStoryNode(state,hub)
     if fixture:
         (ROOT/'work').mkdir(exist_ok=True)
@@ -117,7 +120,7 @@ assert png.t==standard.t==light.t and light.commands<standard.commands
 assert sum(d.source=='overseer-field-poses-source-v1.png' for d in png.draws.values())==2
 uncool=purge.damage[3]
 
-state,slot,boss,hero=make()
+state,slot,boss,hero=make(cryo=True)
 purge=until(state,slot,'FOV03',300)
 assert purge.flow==4
 spot(hero,boss.x-92)

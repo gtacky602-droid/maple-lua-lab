@@ -165,6 +165,7 @@ for generation,variant in enumerate(spec['elementVariants'],1):
     copy.actors[2].hp=0
     cast=until(copy,copy_slot,'FIB03',60)
     assert [s.damageElement for s in cast.sources.values()]==variant
+    copy.actors[1].hp = copy.actors[1].maxhp
     offset=len(hits)
     for i,start in enumerate((120,156,192)):
         until(copy,copy_slot,'FIB03',start-1)

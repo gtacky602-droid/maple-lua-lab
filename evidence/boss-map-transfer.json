@@ -1,0 +1,59 @@
+{
+  "method": "Local HTTP GET body lengths, with gzip equality verified against each authored file by test_static_asset_transfer.py.",
+  "files": {
+    "placement-pose-index.json": {
+      "sourceBytes": 41792,
+      "gzipBytes": 6674
+    },
+    "slime-preview-packed.json": {
+      "sourceBytes": 15279,
+      "gzipBytes": 7899
+    },
+    "boss-arena-index.json": {
+      "sourceBytes": 34431,
+      "gzipBytes": 10096
+    },
+    "enemy-art-layout.json": {
+      "sourceBytes": 5224,
+      "gzipBytes": 1585
+    },
+    "enemy-placement-drafts.json": {
+      "sourceBytes": 27355,
+      "gzipBytes": 3476
+    },
+    "field-boss-openings.json": {
+      "sourceBytes": 45265,
+      "gzipBytes": 7164
+    },
+    "field-boss-spawns.json": {
+      "sourceBytes": 158994,
+      "gzipBytes": 35353
+    },
+    "group-legend-openings.json": {
+      "sourceBytes": 25916,
+      "gzipBytes": 4461
+    },
+    "stygian-openings.json": {
+      "sourceBytes": 37013,
+      "gzipBytes": 4272
+    },
+    "toyac-quest-previews.json": {
+      "sourceBytes": 8189,
+      "gzipBytes": 1089
+    },
+    "weekly-boss-spawns.json": {
+      "sourceBytes": 120356,
+      "gzipBytes": 19396
+    },
+    "weekly-opening-parts.json": {
+      "sourceBytes": 5840,
+      "gzipBytes": 1152
+    },
+    "worksite-props.json": {
+      "sourceBytes": 13288,
+      "gzipBytes": 5017
+    }
+  },
+  "sourceBytes": 538942,
+  "gzipBytes": 107634
+}
