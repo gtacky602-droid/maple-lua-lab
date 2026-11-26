@@ -1,4 +1,5 @@
 """Walk the atlas to field arenas and carry confirmed first clears into one save."""
+import argparse
 import json
 from runtime import ROOT,runtime
 from test_earned_branch_quests import Journey,graph
@@ -12,9 +13,16 @@ def write(file,value):
 hubs=dict(zip(('モンド','璃月','稲妻','スメール','フォンテーヌ','ナタ','ナド・クライ','スネージナヤ','ドラゴンスパイン','淵下宮','層岩巨淵・地下鉱区','沈玉の谷','ドーンマンポート','ノヴォキッチェヴ（仮構造）'),
               ('mond-town','liyue-harbor','inazuma-town','sumeru-hub','fontaine-hub','natlan-hub','nod-town','snezhnaya-hub','dragonspine-camp','enkanomiya-camp','liyue-harbor','chenyu-camp','dornman-camp','novokichev-camp')))
 regions={n['id']:n['region'] for n in graph['nodes']}
-roster=[s for s in read('content/field-boss-spawns.json')['fieldBosses'] if not s['id'].startswith(('legend-','original-'))]
-source='evidence/growth-expedition-save.json'
-checkpoint='work/field-expedition-progress.json'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--legends',action='store_true')
+legends=parser.parse_args().legends
+hubs.update({'霜月':'nod-town','往日の海':'bygone-camp','古の聖山':'natlan-hub','オシカ・ナタ':'ochkanatlan-dock','空の神殿':'natlan-hub'})
+roster=[s for s in read('content/field-boss-spawns.json')['fieldBosses']
+        if not s['id'].startswith('original-') and s['id'].startswith('legend-')==legends]
+prefix='legend' if legends else 'field'
+seed='challenge-expedition-save' if legends else 'growth-expedition-save'
+source=f'evidence/{seed}.json'
+checkpoint=f'work/{prefix}-expedition-progress.json'
 engine=runtime()
 rows,missed=[],[]
 for spec in roster:
@@ -36,9 +44,10 @@ for spec in roster:
         legs=trip.travel(node)
         slot=s.fieldSlots[id]
         assert slot and slot.enemy,(node,'spawn')
+        finished='cleared' if spec.get('manualRechallenge') else 'respawn'
         before=(s.progression.total,s.mora)
         for tick in range(7200):
-            if slot.phase=='respawn':break
+            if slot.phase==finished:break
             enemy=slot.enemy
             dx=enemy.x-trip.actor.x
             moving=abs(dx)>60 or dx*trip.actor.dir<0
@@ -46,7 +55,7 @@ for spec in roster:
             if tick%90==0:trip.act('skill2')
             trip.tick(1,trip.lua.table(left=moving and dx<0,right=moving and dx>0,jump=enemy.y<trip.actor.y-60,attack=True))
             assert s.story.node==node,(node,'returned')
-        assert slot.phase=='respawn',(node,'survived',round(slot.enemy.hp))
+        assert slot.phase==finished,(node,'survived',slot.phase)
         earned=(s.progression.total-before[0],s.mora-before[1])
         assert earned[0]>0 and earned[1]>0,(id,earned)
         trip.warp(hub)
@@ -59,8 +68,11 @@ for spec in roster:
         source=checkpoint
         print('clear',len(rows),spec['name'],flush=True)
     except AssertionError as error:
-        missed.append(dict(id=id,node=node,reason=str(error)))
+        detail=error.args[0] if error.args else ''
+        reason=detail[2].get('reason') if isinstance(detail,tuple) and len(detail)>2 and isinstance(detail[2],dict) else str(detail)
+        missed.append(dict(id=id,node=node,reason=reason or '経路未確認'))
         print('pending',node,str(error)[:160],flush=True)
-assert len(rows)==len(roster) and not missed,missed
-write('evidence/field-expedition-save.json',read(checkpoint))
-write('evidence/field-expedition-route.json',dict(seed='growth-expedition-save',catalog=len(roster),newClears=rows,pending=missed))
+assert len(rows)+len(missed)==len(roster)
+if not legends:assert not missed,missed
+write(f'evidence/{prefix}-expedition-save.json',read(checkpoint))
+write(f'evidence/{prefix}-expedition-route.json',dict(seed=seed,catalog=len(roster),newClears=rows,pending=missed))

@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 地方伝説の遠征と湖辺の比較
+
+同じLv200セーブで地方伝説56体のうち34体を初討伐した。未討伐22体は、依頼で入口が開く20体と、高所の入口に届かなかった2体。[遠征記録](evidence/legend-expedition-route.json) ／ [継続セーブ](evidence/legend-expedition-save.json)。
+
+ニニアンとヴィヴィアンの第5案Aを原寸比のまま並べ、32色・16色に切り替えて元絵と見比べられる。両者の4種類の矩形データをパレット番号でまとめ、比較用JSONを22,116 Bから7,168 Bに削減。復号した矩形の位置・寸法・色・順番を全件照合した。[比較画面](theater-preview.html#lakeLegends)
+
 ## 49種の通常ボスと21の挑戦
 
 成長依頼後の同じLv200セーブで通常フィールドボス49種を初討伐し、原作週ボス14種のentryと幽境7戦のnormalをクリアした。各戦後に読み直して勝数1回と報酬を確認。[討伐地点と報酬](theater-preview.html#fieldTripTitle) ／ [継続セーブ](evidence/challenge-expedition-save.json)。地方伝説、ラボ独自の週ボス2種、他の難度は別集計。

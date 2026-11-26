@@ -43,6 +43,12 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <section aria-labelledby="challengeTitle"><h2 id="challengeTitle">週ボス・幽境の初回討伐</h2>
 <label>相手 <select id="challengeBoss"></select></label><p id="challengeReward" role="status"></p>
 <a id="challengeMap" hidden>挑戦場所を見る</a> ／ <a href="evidence/challenge-expedition-save.json" download>週ボス・幽境戦を終えたセーブ</a></section>
+<section id="lakeLegends" aria-labelledby="lakeHeading"><h2 id="lakeHeading">湖辺の地方伝説</h2>
+<label>待機ドット絵 <select id="lakeProfile"><option value="source">第5案A・元絵</option><option value="h48c32" selected>32色</option><option value="h32c16">16色</option></select></label>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<figure data-lake="ninianne" style="margin:0;flex:1 1 240px"><div>第5案A・元絵</div><canvas class="lakeOriginal" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><div>選択中の画質</div><canvas class="lakeVariant" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><figcaption>湖辺のニニアン　<output></output></figcaption><a href="map-art.html?node=ninianne-legend-bank&amp;placements=live">生息地を見る</a></figure>
+<figure data-lake="vivianne" style="margin:0;flex:1 1 240px"><div>第5案A・元絵</div><canvas class="lakeOriginal" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><div>選択中の画質</div><canvas class="lakeVariant" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><figcaption>湖辺のヴィヴィアン　<output></output></figcaption><a href="map-art.html?node=vivianne-legend-bank&amp;placements=live">生息地を見る</a></figure></div>
+<p><a href="evidence/legend-expedition-save.json" download>地方伝説の討伐後のセーブ</a></p></section>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -184,6 +190,43 @@ async function loadChallenges(){
  }catch{text.textContent='挑戦記録を読み込めませんでした。'}
 }
 loadChallenges();
+const lakeMenu=document.getElementById('lakeProfile');
+let lakeGallery;
+const lakeSheets=new Map();
+async function drawLakes(){
+ const profile=lakeMenu.value;
+ for(const card of document.querySelectorAll('[data-lake]')){
+  const id=card.dataset.lake,caption=card.querySelector('output');
+  try{
+   lakeGallery??=fetch('assets/lake-legend-gallery.json').then(response=>{
+    if(!response.ok)throw Error();return response.json();
+   }).catch(error=>{lakeGallery=null;throw error});
+   const art=(await lakeGallery)[id];
+   if(!lakeSheets.has(art.source)){
+    const sheet=new Image();sheet.src='assets/'+art.source;
+    lakeSheets.set(art.source,sheet.decode().then(()=>sheet).catch(error=>{lakeSheets.delete(art.source);throw error}));
+   }
+   const image=await lakeSheets.get(art.source);
+   if(lakeMenu.value!==profile)return;
+   const c=card.querySelector('.lakeVariant'),ctx=c.getContext('2d');
+   const [,,w,h]=art.box,k=Math.min((c.width-24)/w,(c.height-20)/h),x=(c.width-w*k)/2,y=c.height-8-h*k;
+   const original=card.querySelector('.lakeOriginal').getContext('2d');
+   original.clearRect(0,0,c.width,c.height);original.imageSmoothingEnabled=false;
+   original.drawImage(image,...art.box,x,y,w*k,h*k);
+   ctx.clearRect(0,0,c.width,c.height);ctx.imageSmoothingEnabled=false;
+   if(profile==='source'){ctx.drawImage(image,...art.box,x,y,w*k,h*k);caption.textContent=w+' × '+h+' px'}
+   else{
+    const grid=art.profiles[profile],sx=w*k/grid.width,sy=h*k/grid.height;
+    const data=Uint8Array.from(atob(grid.data),c=>c.charCodeAt(0));
+    for(let i=0;i<data.length;i+=5){const [a,b,r,t,index]=data.subarray(i,i+5);ctx.fillStyle=grid.palette[index];ctx.fillRect(Math.round(x+a*sx),Math.round(y+b*sy),Math.round(x+(a+r)*sx)-Math.round(x+a*sx),Math.round(y+(b+t)*sy)-Math.round(y+b*sy))}
+    caption.textContent=(data.length/5)+'矩形';
+   }
+   c.dataset.profile=profile;
+  }catch{caption.textContent='画像を読み込めませんでした。'}
+ }
+}
+lakeMenu.onchange=drawLakes;
+new IntersectionObserver((entries,observer)=>{if(entries.some(e=>e.isIntersecting)){observer.disconnect();drawLakes()}}).observe(document.getElementById('lakeLegends'));
 const selector=document.getElementById('record'),message=document.getElementById('loadMessage');
 try{
  const response=await fetch('evidence/fontaine-theater-exhibits.json');

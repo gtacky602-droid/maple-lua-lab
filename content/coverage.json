@@ -3,6 +3,7 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_legend_expedition": {"catalog":56,"newClears":34,"questLocked":20,"highEntrancesPending":2,"save":"evidence/legend-expedition-save.json","gallery":"theater-preview.html#lakeLegends"},
   "earned_boss_expedition": {"field":49,"weeklyEntry":14,"stygianNormal":7,"save":"evidence/challenge-expedition-save.json"},
   "earned_growth": {"reported":16,"newReports":11,"save":"evidence/growth-expedition-save.json"},
   "earned_expedition": {"regionalReports":64,"branchReports":27,"hiddenReports":6,"save":"evidence/hidden-expedition-save.json"},
