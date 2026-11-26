@@ -117,6 +117,25 @@ return function(C,config,graph)
   return visible
  end
 
+ function C.dailyAtlasQuests(s,id)
+  local node=nodes[id]
+  local result={}
+  if not node then return result end
+  for _,q in ipairs(config.quests) do
+   local role
+   if q.hub==id then role='hub'
+   else
+    local candidates={}
+    for _,p in ipairs(C.enemySpawns[id] or {}) do
+     if not p.dailyExclude and eligible(q,node,p) then candidates[#candidates+1]=p end
+    end
+    if #candidates>0 and C.hasStoryTargetOnEntry(s,id,candidates) then role='field' end
+   end
+   if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver} end
+  end
+  return result
+ end
+
  local function entry(s,q,row)
   local item={id=q.id,kind=q.kind,name=q.name,giver=q.giver,region=config.regions[q.region].label,hub=nodes[q.hub].name,
               goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,material=q.material,

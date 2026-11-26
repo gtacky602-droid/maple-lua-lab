@@ -197,6 +197,16 @@ export function initAtlas(action, clearKeys) {
 
  function renderSelection() {
   const selected = view.selected;
+  const dailies=entries(selected?.dailyQuests);
+  const daily=document.getElementById('atlasDaily');
+  daily.hidden=!dailies.length;
+  document.getElementById('atlasDailyLinks').replaceChildren(...dailies.map(q=>{
+   const item=document.createElement('li'),link=document.createElement('a');
+   link.href='daily-field-guide.html?'+new URLSearchParams({quest:q.id});
+   link.target='_blank';link.rel='noopener';link.textContent=q.name;
+   item.append(q.role==='hub'?'受付・報告（'+q.giver+'）　':'対象の敵が出現　',link);
+   return item;
+  }));
   fieldGuide.hidden = !selected?.fieldEnemyCount;
   if (fieldGuide.hidden) fieldGuide.removeAttribute('href');
   else {

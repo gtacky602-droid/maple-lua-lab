@@ -683,6 +683,9 @@ return function(C, atlas)
    selected.fieldEnemyCount=#spawn
    selected.entryEnemyCount,selected.entrySpecies,selected.entryQuest,selected.absentSpawns=C.storyEntryCounts(s,selected.id,spawn)
   end
+  if result.selected and C.dailyAtlasQuests then
+   result.selected.dailyQuests=C.dailyAtlasQuests(s,result.selected.id)
+  end
   local phase=result.selected and nodes[result.selected.id] and nodes[result.selected.id].locationAfterReport
   if phase and s.story.quests[phase.quest] and s.story.quests[phase.quest].status=='complete' then
    result.selected.afterReport=true
