@@ -23,6 +23,8 @@ const names={
  wing_second:'翼・二段目',dash:'突進',roll:'回転',bombs:'爆弾',drill:'ドリル',ram:'体当たり',jaw:'顎',
  skull:'頭骨',dolphin:'イルカ',boar:'イノシシ',snake:'ヘビ',fist:'拳',wheel:'車輪',clap:'挟撃',
  feathers:'羽根',blade:'刃',rocket:'ロケット',plow:'除雪板',vent:'排気',scrape:'地面をかく',braced:'踏ん張り',
+ brace:'構え',strike:'攻撃姿勢',shell:'外殻',pillar:'岩柱',mask:'仮面',stance:'構え',host:'本体',crane:'ツル',mallard:'アヒル',
+ ferret:'フェレット',crab:'カニ',raptor:'タカ',frog:'カエル',finch:'スズメ',
  heating:'加熱中',cracked:'ひび割れ',
  hover:'滞空',glide:'滑空',perch:'着地',breath:'ブレス',roar:'咆哮',down:'ダウン',claw:'爪',head:'頭',crystal:'結晶',orb:'弾',
  'perch-body':'着地・胴体','breath-body':'ブレス・胴体',ready:'待機',swipe:'前脚',tail:'尾',leap:'跳躍',run:'疾走',land:'着地',rise:'立ち上がり',howl:'遠吠え',
@@ -66,12 +68,46 @@ try{
    const part={rimebiter:'・噛氷',bolteater:'・呑雷'}[key]??'';
    entries.set(key,{...boss,name:boss.name+part,poses,idleAnchor});
   }
+  const [motion,quest]=await Promise.all([read('content/motion-pose-files.json'),read('content/quest-pose-files.json')]);
+  const common={
+   anemoHypostasis:{shell:'anemo-shell',core:'anemo-core'},
+   electroHypostasis:{shell:'electro-shell',core:'electro-core'},
+   geoHypostasis:{shell:'geo-shell',core:'geo-core',pillar:'geo-pillar'},
+   maguu:{idle:'maguu',stance:'maguu-stance',slash:'maguu-slash',mask:'maguu-mask'}
+  };
+  for(const [controller,parts] of Object.entries(common)){
+   const poses=Object.fromEntries(Object.entries(parts).map(([key,stem])=>[key,stem+'-sprites.json']));
+   entries.set(controller,{...roster.fieldBosses.find(b=>b.controller===controller),poses,pack:'common-boss'});
+  }
+  for(const [controller,pack,poses] of [['oceanid','motion',motion.oceanid],['grandFinale','quest',{idle:quest.grandFinaleArt}]]){
+   entries.set(controller,{...roster.fieldBosses.find(b=>b.controller===controller),poses,pack});
+  }
+  for(const boss of roster.fieldBosses.filter(b=>['branchLegend','waterLegend'].includes(b.controller))){
+   const bodies=[boss,boss.partner,...(boss.members??[])].filter(body=>body?.art);
+   for(const body of bodies){
+    const member=body.memberName??(body!==boss?body.name:null)??({pyro:'炎',cryo:'氷'}[body.element])??body.art;
+    const name=bodies.length>1?boss.name+'・'+member:boss.name;
+    const poses=Object.fromEntries(['idle','brace','strike'].map(key=>[key,body.art+'-field-'+key+'-sprites-v'+(boss.artRevision??1)+'.json']));
+    entries.set(body.art,{...boss,name,poses,pack:'field',legend:true});
+   }
+  }
  }else entries=new Map(roster.weeklyBosses.map(b=>[b.controller,{...b,poses:groups[aliases[b.controller]??b.controller+'WeeklyArt']}]));
- for(const [controller,b] of entries)boss.add(new Option(b.name,controller));
+ const legends=document.createElement('optgroup');legends.label='地方伝説';
+ for(const [controller,b] of entries)(b.legend?legends:boss).append(new Option(b.name,controller));
+ if(legends.children.length)boss.append(legends);
  const params=new URL(location.href).searchParams;
- boss.value=entries.has(params.get('boss'))?params.get('boss'):fieldMode?'battleship':'andrius';
+ const byNode=[...entries].find(([,entry])=>entry.node===params.get('node'));
+ boss.value=entries.has(params.get('boss'))?params.get('boss'):byNode?.[0]??(fieldMode?'battleship':'andrius');
  const pixels=document.querySelector('#palettePixels');
  pixels.checked=params.get('pixels')==='1';
+ let commonPack;
+ function readPose(selected,path){
+  if(selected.pack==='common-boss'){
+   commonPack??=read('assets/common-boss-packed.json').catch(error=>{commonPack=null;throw error});
+   return commonPack.then(parts=>parts[path]);
+  }
+  return read('assets/'+(selected.pack??kind)+'-packed/'+path);
+ }
  let repaint;
  pixels.onchange=()=>{
   const url=new URL(location.href);
@@ -102,12 +138,12 @@ try{
   arena.textContent=boss.value==='narwhal'&&asset==='shadow'?'異界の配置を見る':'本編の開幕配置';
   arena.href='map-art.html?'+new URLSearchParams({node:boss.value==='narwhal'&&asset==='shadow'?selected.innerNode:selected.node,placements:'live'});
   document.querySelector('#scaleNote').textContent=scene?'戦闘中の960×540画面と同じ構図です。各場面の床と背景に、ボスを同じ位置・大きさで重ねています。':'同じ素材を同じ倍率で並べています。姿全体を収めるため、倍率は素材ごとに変わります。';
-  const url=new URL(location.href);url.searchParams.set('boss',boss.value);url.searchParams.set('pose',pose.value);
+  const url=new URL(location.href);url.searchParams.delete('node');url.searchParams.set('boss',boss.value);url.searchParams.set('pose',pose.value);
   history.replaceState(history.state,'',url);
   for(const c of canvases)c.hidden=true;
   result.textContent='読み込み中';
   try{
-   const [data,record]=await Promise.all([read('assets/'+kind+'-packed/'+path),forge&&read('evidence/primal-forge-access.json')]);
+   const [data,record]=await Promise.all([readPose(selected,path),forge&&read('evidence/primal-forge-access.json')]);
    const view=record?.views?.[forge];
    let shot,frame,sceneryRenderer;
    if(scene){

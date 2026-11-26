@@ -41,7 +41,10 @@ try{
   for(const [name,entries] of Object.entries(groups)){
    const group=document.createElement('optgroup');group.label=name+'（'+entries.length+'）';
    for(const entry of entries){
-    group.append(new Option(entry.region+'・'+entry.name,entry.node));
+    const option=new Option(entry.region+'・'+entry.name,entry.node);
+    if(name==='フィールド・地方伝説')option.dataset.poseGroup='field';
+    if(name==='週ボス')option.dataset.poseGroup='weekly';
+    group.append(option);
     if(entry.opening)shoukiOpening={...entry.opening,...await art(await json('assets/weekly-packed/'+entry.opening.file))};
    }
    picker.append(group);
@@ -55,6 +58,9 @@ try{
    if(key===previous)return;
    previous=key;
    $('bossArenaLink').href='map-art.html?'+new URLSearchParams({node,placements:'live',profile});
+   const poseLink=$('arenaPoseLink'),group=picker.selectedOptions[0].dataset.poseGroup;
+   poseLink.hidden=!group;
+   if(group)poseLink.href='weekly-poses.html?'+new URLSearchParams({group,node,pixels:'1'});
    const gates=arenas.get(node)?.entrances??[];
    panel.hidden=!gates.length;
    panel.querySelector('ul').replaceChildren(...gates.map(gate=>{

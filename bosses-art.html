@@ -6,6 +6,6 @@
 <header><label>軽量設定 <select id="profile"><option value="legacy">標準</option><option value="h48c32">中間・32色</option><option value="h32c16" selected>最軽量・16色</option></select></label><label><input type="checkbox" id="compareBoth">元絵・32色・16色を並べる</label><label><input type="checkbox" id="palettePixels">矩形を原寸で合成してから拡大</label><label>拡大 <select id="zoom"><option value="1">実寸</option><option value="2" selected>2倍</option><option value="3">3倍</option></select></label><label><input type="checkbox" id="flip">左向き</label></header>
 <p class="note">待機素材の制作候補を比較する画面です。参照の確認範囲は素材ごとの制作記録に残しています。表示できても、固有戦闘・動作・本編配置の完成を意味しません。表示高は比較用です。矩形削減率は標準矩形版との比較で、実機FPSではありません。最軽量では顔・装飾・細い模様が省略されます。</p>
 <style>.arena-picker label{display:flex;gap:.5em;align-items:center;flex-wrap:wrap;max-width:100%;white-space:normal}.arena-picker select{max-width:100%;min-width:0;box-sizing:border-box}</style>
-<header class="arena-picker"><label>本編のボス会場 <select id="bossArena"></select></label><a id="bossArenaLink">会場で開幕の配置を見る</a></header>
+<header class="arena-picker"><label>本編のボス会場 <select id="bossArena"></select></label><a id="bossArenaLink">会場で開幕の配置を見る</a><a id="arenaPoseLink" hidden>この会場の形態・部位を比較</a></header>
 <details id="arenaEntrances" hidden><summary>フィールドから会場への入口を見る</summary><ul></ul></details>
 <main id="cards"></main><p id="status" role="status">読み込み中</p><script type="module" src="characters-art.js"></script></html>

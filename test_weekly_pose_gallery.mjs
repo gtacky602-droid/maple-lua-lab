@@ -39,11 +39,13 @@ try{
  assert.deepEqual(await snapshots(),native);
  const bosses=await page.locator('#boss option').evaluateAll(opts=>opts.map(o=>o.value));
  let count=0;
+ const covered=new Set();
  for(const boss of bosses){
   await page.selectOption('#boss',boss);
   if(fieldMode){
    const name=await page.locator('#boss option:checked').innerText();
    const node=new URL(await page.locator('#arena').getAttribute('href'),page.url()).searchParams.get('node');
+   covered.add(node);
    assert(roster.some(b=>b.node===node&&name.startsWith(b.name)),boss);
   }
   const poses=await page.locator('#pose option').evaluateAll(opts=>opts.map(o=>o.value));
@@ -103,9 +105,28 @@ try{
     if(pose==='moon')await page.locator('main').screenshot({path:'evidence/knave-moon-profiles.png'});
     if(pose==='inside')await page.locator('main').screenshot({path:'evidence/narwhal-inner-profiles.png'});
    }
+   const legend=roster.find(b=>['branchLegend','waterLegend'].includes(b.controller)&&[b,b.partner,...(b.members??[])].some(body=>body?.art===boss));
+   if(fieldMode&&(legend||['maguu','geoHypostasis','anemoHypostasis','electroHypostasis','oceanid','grandFinale'].includes(boss))){
+    const stems={maguu:pose==='idle'?'maguu':'maguu-'+pose,geoHypostasis:'geo-'+pose,anemoHypostasis:'anemo-'+pose,electroHypostasis:'electro-'+pose};
+    const filename=legend?boss+'-field-'+pose+'-sprites-v'+(legend.artRevision??1)+'.json':boss==='grandFinale'?'grand-finale-field-idle-sprites-v1.json':boss==='oceanid'?(pose==='host'?'oceanid':'oceanid-'+pose)+'-sprites.json':stems[boss]+'-sprites.json';
+    const original=JSON.parse(await readFile('assets/'+filename,'utf8'));
+    const match=await page.locator('canvas').evaluateAll((canvases,art)=>['h48c32','h32c16'].every((key,i)=>{
+     const grid=art.profiles[key],tile=document.createElement('canvas');
+     tile.width=grid.width;tile.height=grid.height;
+     const pen=tile.getContext('2d');
+     for(const [x,y,w,h,color] of grid.runs){pen.fillStyle=color;pen.fillRect(x,y,w,h)}
+     const ref=document.createElement('canvas');ref.width=480;ref.height=320;
+     const ctx=ref.getContext('2d');ctx.imageSmoothingEnabled=false;
+     const h=Math.min(280,440*art.box[3]/art.box[2]),w=h*art.box[2]/art.box[3],left=-w*(art.anchorX??.5);
+     ctx.translate((480-w)/2-left,300);ctx.drawImage(tile,left,-h,w,h);
+     return ref.toDataURL()===canvases[i+1].toDataURL();
+    }),original);
+    assert(match,boss+'/'+pose);
+   }
    count++;
   }
  }
- assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+(fieldMode?0:14));
+ if(fieldMode)assert.deepEqual(covered,new Set(roster.map(b=>b.node)));
+ assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+(fieldMode?21+3*roster.filter(b=>['branchLegend','waterLegend'].includes(b.controller)).flatMap(b=>[b,b.partner,...(b.members??[])]).filter(b=>b?.art).length:14));
  console.log(bosses.length+' bosses, '+count+' poses, all three canvases painted');
 }finally{await browser.close()}
