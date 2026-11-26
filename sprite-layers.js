@@ -9,8 +9,12 @@ function rectangleBytes(grid){
  if(!decoded.has(geometry))decoded.set(geometry,Uint8Array.from(atob(geometry.data),c=>c.charCodeAt(0)));
  return decoded.get(geometry);
 }
+function recordStride(grid){
+ if(grid.planarXY16)return 7;
+ return grid.wide?9:5;
+}
 export function rectangleCount(grid){
- return grid.runs?grid.runs.length:rectangleBytes(grid).length/(grid.wide?9:5);
+ return grid.runs?grid.runs.length:rectangleBytes(grid).length/recordStride(grid);
 }
 export function packedGeometrySize(grid){
  return rectangleBytes(grid).byteLength;
@@ -70,7 +74,13 @@ export function forEachRectangle(grid,draw){
   for(const run of grid.runs)draw(...run);
  }else{
   const bytes=rectangleBytes(grid);
-  if(grid.wide){
+  if(grid.planarXY16){
+   const count=bytes.length/7;
+   for(let i=0;i<count;i++){
+    const x=bytes[i]+256*bytes[count+i],y=bytes[2*count+i]+256*bytes[3*count+i];
+    draw(x,y,bytes[4*count+i],bytes[5*count+i],grid.palette[bytes[6*count+i]]);
+   }
+  }else if(grid.wide){
    const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
    for(let i=0;i<bytes.length;i+=9)draw(view.getUint16(i,true),view.getUint16(i+2,true),view.getUint16(i+4,true),view.getUint16(i+6,true),grid.palette[bytes[i+8]]);
   }else{

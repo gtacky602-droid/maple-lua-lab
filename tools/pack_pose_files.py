@@ -5,7 +5,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 from palette_rects import pack_grid
 
 
-def pack_pose_files(assets, out, files, overrides=None, *, archive=None):
+def pack_pose_files(assets, out, files, overrides=None, *, archive=None, compact_positions=False):
     out.mkdir(exist_ok=True)
     before = after = 0
     for name in files:
@@ -14,7 +14,7 @@ def pack_pose_files(assets, out, files, overrides=None, *, archive=None):
         if overrides:
             art.update(overrides.get(name, {}))
         art['profiles'] = {
-            key: dict(pack_grid(grid), colors=grid['colors']) for key, grid in art['profiles'].items()
+            key: dict(pack_grid(grid, compact_positions=compact_positions), colors=grid['colors']) for key, grid in art['profiles'].items()
         }
         packed = (json.dumps(art, ensure_ascii=False, separators=(',', ':'))+'\n').encode()
         (out / name).write_bytes(packed)

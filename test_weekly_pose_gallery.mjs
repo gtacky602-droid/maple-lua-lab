@@ -1,7 +1,19 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {forEachRectangle,rectangleCount} from './sprite-layers.js';
 const manifest=JSON.parse(await readFile('content/weekly-pose-files.json','utf8'));
+for(const file of new Set(Object.values(manifest).flatMap(group=>Object.values(group)))){
+ const packed=JSON.parse(await readFile('assets/weekly-packed/'+file,'utf8'));
+ const original=JSON.parse(await readFile('assets/'+file,'utf8'));
+ for(const [key,grid] of Object.entries(packed.profiles)){
+  const rows=original.profiles[key].runs;
+  assert.equal(rectangleCount(grid),rows.length);
+  let index=0;
+  forEachRectangle(grid,(...row)=>assert.deepEqual(row,rows[index++]));
+  assert.equal(index,rows.length);
+ }
+}
 const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
 try{
  const page=await browser.newPage();
