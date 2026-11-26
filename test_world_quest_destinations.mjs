@@ -29,6 +29,11 @@ for(const id of pending){
 }
 assert.equal(minimum.get('sum-wp-28720'),60);
 assert.equal(minimum.get('sum-wp-28721'),62);
+for(const [id,level] of [[36674,65],[36684,66],[36680,67],[36677,67],[36681,68],[36685,68],[36686,68],[36676,68]]){
+ const room='sum-wp-'+id;
+ assert.equal(nodes.get(room).level,level);
+ assert.equal(minimum.get(room),level,room);
+}
 const harborFrame={storyGraph:graph,story:{active:true,node:'sum-wp-28720',quests:{}},progression:{level:60}};
 const nextBank=nodes.get('sum-wp-28721');
 const bankRoute=questRoute(harborFrame,{kind:'visit',target:nextBank.id},'active');
