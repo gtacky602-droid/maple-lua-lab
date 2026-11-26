@@ -22,7 +22,7 @@
     },
     {
       "key": "balachkoGrateChamber",
-      "sharedNodes": ["nat-wp-85981"],
+      "sharedNodes": ["nat-wp-85981", "nat-wp-72442", "nat-wp-72443", "nat-wp-72449", "nat-wp-72451", "nat-wp-72452", "nat-wp-72455", "nat-wp-79548", "nat-wp-80033"],
       "node": "toyac-balachko-inner-cave",
       "source": "balachko-grate-chamber-background-v1.png",
       "preview": "balachko-grate-chamber-native-preview-v1.png",

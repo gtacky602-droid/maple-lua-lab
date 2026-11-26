@@ -4354,7 +4354,7 @@
       "name": "トヤック源泉地・中央の温泉洞",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "natSpringKeyCave"
     },
     {
       "id": "nat-wp-72426",
@@ -4459,28 +4459,28 @@
       "name": "万火のほとぎ周辺・岩窪地下の広間",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-72442",
       "name": "万火のほとぎ周辺・岩窪地下の通路",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-72443",
       "name": "テケメカンの谷・東端の下の石室",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-72444",
       "name": "テケメカンの谷・南東の洞床",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-72445",
@@ -4494,49 +4494,49 @@
       "name": "トヤック源泉地・源泉北の地下水路",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "natFallsCavern"
     },
     {
       "id": "nat-wp-72447",
       "name": "トヤック源泉地・沖の小島の洞窟",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "natSpringKeyCave"
     },
     {
       "id": "nat-wp-72448",
       "name": "トヤック源泉地・熱水の下の洞",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "natSpringKeyCave"
     },
     {
       "id": "nat-wp-72449",
       "name": "トヤック源泉地・沖の下の通路",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-72450",
       "name": "万火のほとぎ周辺・北の地ならし場の下",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-72451",
       "name": "万火のほとぎ周辺・競技場の下の回廊",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-72452",
       "name": "万火のほとぎ周辺・北東の溝の石室",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-72453",
@@ -4557,7 +4557,7 @@
       "name": "テケメカンの谷・谷北の石室",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-72456",
@@ -4599,7 +4599,7 @@
       "name": "トヤック源泉地・海の浅瀬の洞",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "natSpringKeyCave"
     },
     {
       "id": "nat-wp-79050",
@@ -4753,14 +4753,14 @@
       "name": "クァワカン断崖周辺・北崖の地下道・南口",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-79544",
       "name": "クァワカン断崖周辺・北崖の地下道・北口",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-79545",
@@ -4781,7 +4781,7 @@
       "name": "オシカ・ナタ・中庭下の石室",
       "region": "オシカ・ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkanatlan"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-79549",
@@ -4816,7 +4816,7 @@
       "name": "オシカ・ナタ・中央塔の下の石室",
       "region": "オシカ・ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkanatlan"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-wp-80035",
@@ -4837,7 +4837,7 @@
       "name": "オシカ・ナタ・北西の沖の地下水路",
       "region": "オシカ・ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkanatlan"
+      "scenery": "natFallsCavern"
     },
     {
       "id": "nat-wp-80846",
@@ -4851,7 +4851,7 @@
       "name": "クァワカン断崖周辺・崖下の奥の洞窟",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-82557",
@@ -4928,21 +4928,21 @@
       "name": "アトクパンの大地・火山下の通路・西口",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-82568",
       "name": "アトクパンの大地・火山下の通路・東口",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-82569",
       "name": "アトクパンの大地・火山下の通路・中央",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-82570",
@@ -4970,14 +4970,14 @@
       "name": "アトクパンの大地・北の入江の下の洞",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "natFallsCavern"
     },
     {
       "id": "nat-wp-82574",
       "name": "アトクパンの大地・火山東岸の地下の棚",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "ochkaCliff"
+      "scenery": "atocpanPeakGrotto"
     },
     {
       "id": "nat-wp-82575",

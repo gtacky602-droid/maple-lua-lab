@@ -1,0 +1,11 @@
+{
+  "level": 107,
+  "route": [
+    "natlan-entry",
+    "nat-wp-72413",
+    "nat-wp-72443"
+  ],
+  "returnTo": "nat-wp-72413",
+  "restoredCheckpoint": "natlan-hub",
+  "stoneRoomVisitRetained": true
+}

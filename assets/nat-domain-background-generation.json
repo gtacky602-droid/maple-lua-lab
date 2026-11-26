@@ -39,7 +39,7 @@
     },
     {
       "node": "sites-hunt-73161",
-      "sharedNodes": ["ochka-tide-stairs", "ochka-patched-court", "nat-wp-72425", "nat-wp-72441", "nat-wp-72442", "nat-wp-72443", "nat-wp-72444", "nat-wp-72445", "nat-wp-72446", "nat-wp-72447", "nat-wp-72448", "nat-wp-72449", "nat-wp-72450", "nat-wp-72451", "nat-wp-72452", "nat-wp-72454", "nat-wp-72455", "nat-wp-77772", "nat-wp-79543", "nat-wp-79544", "nat-wp-81381", "nat-wp-82567", "nat-wp-82568", "nat-wp-82569", "nat-wp-82573", "nat-wp-82574", "sites-corridor-natlan-cliff", "sites-corridor-natlan-tunnel", "temple-northwest-totem-ravine", "witztli-root-hollow", "ochka-bronzelock-device-shore"],
+      "sharedNodes": ["ochka-tide-stairs", "ochka-patched-court", "nat-wp-72445", "nat-wp-72454", "sites-corridor-natlan-cliff", "sites-corridor-natlan-tunnel", "temple-northwest-totem-ravine", "witztli-root-hollow", "ochka-bronzelock-device-shore"],
       "key": "natCentralPath",
       "note": "中央の岩壁の細道",
       "source": "ochka-cliff-background-v1.png",
@@ -47,6 +47,7 @@
       "existing": true
     },
     {
+      "sharedNodes": ["nat-wp-72446", "nat-wp-80040", "nat-wp-82573"],
       "node": "tepeacac-waterfall-wall",
       "key": "natFallsCavern",
       "note": "滝裏の燃素洞",
@@ -71,7 +72,7 @@
       "prompt": "Produce one original 16:9 wide horizontal pixel art background for a colorful Maple-like side-scrolling RPG inspired by Natlan. A secluded Fatui survey camp in the shadow of a volcanic canyon, one angular indigo field tent, empty crates and a single hanging violet-glass lantern, distant late afternoon river light beyond on the left. No symbols or characters. Strict side elevation; broad clearly separated pixel color clusters with clear silhouettes at 512x288, limited palette for each material. Keep details broad, no dithering, no fine noisy patterns. Low contrast open bottom quarter, game overlays its floor and platforms. Empty environment only. No enemies, people, writing, interface, watermark, or foreground platform lines. Opaque landscape."
     },
     {
-      "sharedNodes": ["nat-wp-85979", "nat-wp-85980"],
+      "sharedNodes": ["nat-wp-85979", "nat-wp-85980", "nat-wp-72425", "nat-wp-72447", "nat-wp-72448", "nat-wp-77772"],
       "node": "toyac-rainbow-key-cave",
       "key": "natSpringKeyCave",
       "note": "二つの鍵の洞窟",

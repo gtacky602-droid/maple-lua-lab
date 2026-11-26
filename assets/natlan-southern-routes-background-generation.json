@@ -22,6 +22,7 @@
     },
     {
       "key": "atocpanPeakGrotto",
+      "sharedNodes": ["nat-wp-72441", "nat-wp-72444", "nat-wp-72450", "nat-wp-79543", "nat-wp-79544", "nat-wp-81381", "nat-wp-82567", "nat-wp-82568", "nat-wp-82569", "nat-wp-82574"],
       "node": "atocpan-peak-cave",
       "source": "atocpan-peak-grotto-background-v1.png",
       "preview": "atocpan-peak-grotto-native-preview-v1.png",
