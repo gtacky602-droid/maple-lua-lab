@@ -216,6 +216,40 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   -- Treat a tick that lands on the scheduled boundary as exact.
   return s.voyage and s.t-s.voyage.started+1e-8 or -1
  end
+ local function questGateHint(rule,state)
+  local q=quests[rule.quest]
+  local title='依頼「'..q.name..'」'
+  if not state then return nodes[q.hub].name..'で'..title..'を受注してください。' end
+  if not rule.count and state.count>=q.goal then return nodes[q.hub].name..'で'..title..'を報告してください。' end
+  local progress,steps=state,q.itinerary
+  if rule.path then
+   for _,path in ipairs(q.paths) do
+    if path.id==rule.path then
+     title=title..'・'..path.label
+     progress=state.pathProgress and state.pathProgress[path.id]
+     steps=path.steps
+     break
+    end
+   end
+  end
+  local count=progress and progress.count or 0
+  local needed=rule.count or q.goal
+  local nextStep=steps and steps[count+1]
+  local hint=title..'（'..(rule.count and '開通まで ' or '報告まで ')..count..'/'..needed..'）'
+  if nextStep and nextStep.objective then
+   local place=nextStep.node and nodes[nextStep.node]
+   hint=hint..'　'..(place and place.name..'：' or '')..nextStep.objective
+   if nextStep.enemies and progress and progress.sweep then
+    local remaining=0
+    for _,id in ipairs(nextStep.enemies) do
+     if not progress.sweep[id] then remaining=remaining+1 end
+    end
+    hint=hint..'（残り'..remaining..'体）'
+   end
+   return hint
+  end
+  return hint
+ end
  local function gateRestriction(s,edge,planning)
   if not planning and edge.darkOnly and s.storyLightMode~='dark' then return '消灯すると出口が見えます。' end
   if edge.roofTrialStage and s.roofTrial and s.roofTrial.count<edge.roofTrialStage then return '屋根の目印を先に調べてください。' end
@@ -237,7 +271,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if rule.alternative then
      return '「'..quests[rule.quest].name..'」か「'..quests[rule.alternative.quest].name..'」を受注してください。'
     end
-    return rule.unavailableNotice or '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
+    return rule.unavailableNotice or questGateHint(rule,state)
    end
   end
   if planning then return end

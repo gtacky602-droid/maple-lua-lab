@@ -40,6 +40,16 @@ def gate(s,x,dest,y=480,opened=True):
     assert s.story.node==(dest if opened else previous)
 
 
+def blocked_hint(s,x,y,dest,*fragments):
+    move(s,x,y)
+    portal=frame(s).storyNearbyPortal
+    assert portal.to==dest and not portal.available
+    core.action(s,'world_map_focus:'+s.story.node)
+    route=next(r for r in frame(s).worldMap.routes.values() if r.id==dest)
+    assert route.reason==portal.reason and all(f in route.reason for f in fragments),route.reason
+    core.action(s,'world_map_close')
+
+
 def collect(s,x,y,count,path=None):
     move(s,x,y)
     core.action(s,'story_collect')
@@ -103,6 +113,7 @@ s.story.quests[first]=lua.table_from(dict(status='complete',count=5,cycles=1))
 for node in ('natlan-flag-staging','natlan-flag-slope','natlan-flag-cleft',summit):
     s.story.visited[node]=True
 fixture=checkpoint(s)
+blocked_hint(s,1040,480,high,'ナタ・谷の集落','受注')
 core.action(s,'story_accept:'+quest)
 gate(s,1227,summit)
 gate(s,1292,meet,390,opened=False)
@@ -111,7 +122,10 @@ begin=checkpoint(s)
 
 s=from_summit_save(begin)
 gate(s,969,steps,390)
+blocked_hint(s,1420,302,high,'高台','0/2','手前の標的')
 walk(s,522);jump(s,522,391);collect(s,522,391,1,'high')
+blocked_hint(s,1420,302,high,'高台','1/2','上段へ跳んで')
+move(s,522,391)
 (ROOT/'evidence/natlan-high-second-target-save.json').write_text(json.dumps(checkpoint(s),ensure_ascii=False)+'\n',encoding='utf8')
 walk(s,900);jump(s,900,302);walk(s,1044);collect(s,1044,302,2,'high')
 gate(s,1420,high,302)
@@ -135,6 +149,7 @@ def water_path(s,physical):
         s=restore(partial)
         gate(s,1055,river)
         assert len(s.enemies)==2
+        blocked_hint(s,1610,480,turn,'水辺','1/2','残り2体')
         move(s,407)
         for _ in range(85):
             step(core,s,1,True,False,False)
