@@ -14,7 +14,8 @@ PALETTE = ['#140e16', '#362735', '#514455', '#765951', '#a18160', '#cba576', '#e
            '#d77afa', '#f3cbff']
 RGB = np.array(
     [list(bytes.fromhex(c[1:])) for c in PALETTE], dtype=np.int32)
-FOCUS = {'mask': (458, 413, 587, 562), 'emblem': (467, 562, 576, 676)}
+FOCUS = {'mask': (458, 413, 587, 562), 'emblem': (467, 562, 576, 676),
+         'left_trim': (182, 612, 254, 670), 'right_trim': (787, 612, 859, 670)}
 
 
 def sample(source, size):

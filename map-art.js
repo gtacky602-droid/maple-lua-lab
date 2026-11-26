@@ -649,10 +649,11 @@ try{
    allParams.set('profile',profile);allParams.set('camera',camera);
    dailyPanel.querySelector('a').href='map-art.html?'+allParams;
   }
-  const members=liveView && arenaPreviews.get(n.id)?.openingParts;
+  const arena=liveView && arenaPreviews.get(n.id);
+  const members=arena?.openingParts;
   const groupOpening=members?.length>1;
   const fieldSubject=Boolean(!openings[n.id] && (subject.value || dailyPreview) && visibleItems.length);
-  $('fidelityControls').hidden=!(liveView && (surveyProps.length || (openings[n.id] || groupOpening) && visibleItems.length || fieldSubject) && !matchedSprites);
+  $('fidelityControls').hidden=!(liveView && (surveyProps.length || (openings[n.id] || arena) && visibleItems.length || fieldSubject) && !matchedSprites);
   const measuredSubject=surveyProps.length?'依頼の小物':fieldSubject?'対象の敵':'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
@@ -698,7 +699,7 @@ try{
      return cost.visible;
     }
     for(const e of visibleItems){
-     if(fieldSubject || groupOpening){
+     if(fieldSubject || groupOpening || arena && !openings[n.id]){
       paintFieldPlacement(ctx,e,quality,cost);
       continue;
      }

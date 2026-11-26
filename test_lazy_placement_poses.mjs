@@ -29,6 +29,29 @@ try{
   await page.selectOption('#node',node);
   await ready(node);
   for(const file of files)assert(requests.includes('/assets/'+index['weekly/'+file].poseFile),node+' / '+file);
+  await page.locator('#compareSpriteProfiles').click();
+  const table=page.locator('#spriteProfileTable tbody');
+  const rows=await table.locator('tr').evaluateAll(trs=>trs.map(row=>[...row.cells].map(c=>c.textContent)));
+  assert.equal(rows.length,3,node);
+  for(const [,count,shape,color] of rows){
+   assert.ok(Number(count.replaceAll(',',''))>0,node);
+   assert.ok(parseFloat(shape)>0 && Number.isFinite(parseFloat(color)),node);
+  }
+  if(node==='shouki-godmaking-arena'){
+   const {shouki}=JSON.parse(await fs.readFile('evidence/weekly-opening-poses-lua.json','utf8'));
+   for(const [i,profile] of ['legacy','h48c32','h32c16'].entries()){
+    assert.equal(Number(rows[i][1].replaceAll(',','')),shouki.profiles[profile].drawnRuns);
+   }
+   console.log('Shouki on-screen profiles',JSON.stringify(rows));
+   await page.locator('#profile').selectOption('h32c16');
+   await page.locator('#measureSprite').click();
+   await page.locator('#differenceCrops [data-crop=color]').click();
+   // Compare the same right-hand gold trim identified in the earlier 16-color opening.
+   for(const [id,value] of [['detailX',880],['detailY',315]]){
+    await page.locator('#'+id).evaluate((el,value)=>{el.value=value;el.dispatchEvent(new Event('input'))},value);
+   }
+   await page.locator('#sceneryDetail .detail-pair').screenshot({path:'evidence/shouki-waist-color-crop-16.png'});
+  }
  }
  const files=requests.filter(p=>p.includes('/weekly-packed/'));
  await page.selectOption('#node',first);

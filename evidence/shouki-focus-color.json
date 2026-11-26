@@ -6,5 +6,13 @@
   "emblem": {
     "v2RgbMae": 55.23,
     "v3RgbMae": 31.98
+  },
+  "left_trim": {
+    "v2RgbMae": 59.85,
+    "v3RgbMae": 37.22
+  },
+  "right_trim": {
+    "v2RgbMae": 56.32,
+    "v3RgbMae": 37.9
   }
 }
