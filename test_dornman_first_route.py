@@ -21,9 +21,13 @@ def route(target):
 def save():
     return validate_save(native(core.checkpoint(s)))
 assert route('dornman-depth')['status']=='ready'
+(ROOT/'work').mkdir(exist_ok=True)
+(ROOT/'work/dornman-entry-level.json').write_text(json.dumps(save(),ensure_ascii=False),encoding='utf8')
 core.grantExp(s,sum(core.expNeeded(i) for i in range(1,167)),'quest')
 guide=route(flags)
 assert guide['requiredLevel']==168 and [leg['id'] for leg in guide['stops']]==[stairs,flags]
+(ROOT/'work').mkdir(exist_ok=True)
+(ROOT/'evidence/dornman-map-lv167.json').write_text(json.dumps(save(),ensure_ascii=False,sort_keys=True)+'\n',encoding='utf8')
 core.grantExp(s,core.expNeeded(167),'quest')
 assert s.progression.level==168
 (ROOT/'work').mkdir(exist_ok=True)
@@ -37,6 +41,7 @@ assert s.story.node==flags
 walk.cross(camp)
 s=core.restore(lua.table_from(save(),recursive=True),12)
 assert s.story.node==camp and s.story.visited[flags]
+(ROOT/'evidence/dornman-map-shortcut.json').write_text(json.dumps(save(),ensure_ascii=False,sort_keys=True)+'\n',encoding='utf8')
 shortcut=route(flags)
 assert [leg['id'] for leg in shortcut['stops']]==[flags]
 walk=TrailWalk(lua,core,s,edges,exits)

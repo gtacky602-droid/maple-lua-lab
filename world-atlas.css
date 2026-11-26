@@ -57,6 +57,9 @@
 .atlas-legend [data-marker="boss"] { color: #8b4167 }
 .atlas-itinerary { margin-top: 10px; padding: 7px; border: 1px solid #96845b; border-radius: 5px }
 .atlas-itinerary summary { cursor: pointer; color: #ffe196; font-size: 12px }
+#atlasFirstBlocked:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px }
+#atlasFirstBlocked p { flex-basis: 100%; margin: 4px 0 }
+#atlasFirstBlocked a { white-space: nowrap }
 .atlas-itinerary ol { padding-left: 1.45rem; margin: 7px 0 0; max-height: 132px; overflow: auto; font-size: 11px }
 .atlas-info {
  color: var(--atlas-ink); background: #324950; padding: 14px 13px;

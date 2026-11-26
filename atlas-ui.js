@@ -155,6 +155,24 @@ export function initAtlas(action, clearKeys) {
    : stops[0]?.secondsRemaining != null ? '地図を閉じると移動を再開します。'
    : guide?.battle ? '地図を閉じて戦闘を進めてください。' : '');
   itineraryNote.hidden = !itineraryNote.textContent;
+  const barrier=document.getElementById('atlasFirstBlocked');
+  const blockedAt=guide?.status==='blocked'?stops.findIndex(stop=>stop.reason):-1;
+  barrier.hidden=blockedAt<0;
+  barrier.replaceChildren();
+  if(blockedAt>=0){
+   const stop=stops[blockedAt],lastReachable=stops[blockedAt-1];
+   const from=lastReachable?.name??(guide.afterTransfer?'移動先':view.location);
+   const description=document.createElement('p');
+   description.textContent=`最初に通れない入口　${from} → ${stop.name}（${stop.reason}）`;
+   barrier.append(description);
+   if(lastReachable){
+    const detour=document.createElement('button');
+    detour.type='button';detour.textContent=lastReachable.name+'までの道順を見る';
+    detour.onclick=()=>showPlace(lastReachable);
+    barrier.append(detour);
+   }
+   appendGateLink(barrier,stop.from,stop);
+  }
   itineraryStops.replaceChildren(...stops.map(stop => {
    const li = document.createElement('li');
    const button = document.createElement('button');
