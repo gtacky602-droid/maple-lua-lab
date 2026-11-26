@@ -27,13 +27,28 @@ function restGuards(q,state){
  return remainingEnemyPoints({node:q.target,enemies:q.rest.guards},{sweep:state.rest?.defeated});
 }
 
-function cargoStops(q,state,node){
+function wharfExit(q,cleared){
+ const params=new URLSearchParams({placements:'live',node:q.recovery.node});
+ for(const item of q.cargo)if(item.guard)params.append('absent',item.guard);
+ if(cleared)params.append('absent',q.recovery.guard);
+ else params.set('subject',q.recovery.guard);
+ return {label:cleared?'開通した桟橋':'帰路を塞ぐ魔物',subject:cleared?undefined:q.recovery.guard,url:'map-art.html?'+params};
+}
+
+function cargoStops(q,state,node,frame){
  if(!state.recovered||node!==(q.recovery?.node??q.target))return [];
- if(q.recovery?state.count>=q.goal-1:state.count!==q.goal-1)return [];
+ if(q.recovery&&state.count>=q.goal-1)return [wharfExit(q,state.count>=q.goal)];
+ if(!q.recovery&&state.count!==q.goal-1)return [];
  const recovered=q.cargo.filter(item=>state.recovered[item.id]).map(item=>item.id);
- return q.cargo.filter(item=>!state.recovered[item.id]).map(item=>({
-  id:item.id,label:item.name,url:surveyPointUrl(worksitePoint(q,item.id,node,recovered))
- }));
+ const here=frame.story.node===node?frame.storyCargo:null;
+ const absent=new URLSearchParams();
+ for(const parcel of q.cargo){
+  if(parcel.guard&&here?.[parcel.id]?.guarded===false)absent.append('absent',parcel.guard);
+ }
+ return q.cargo.filter(item=>!state.recovered[item.id]).map(item=>{
+  const url=surveyPointUrl(worksitePoint(q,item.id,node,recovered));
+  return {id:item.id,label:item.name,url:absent.size?url+'&'+absent:url};
+ });
 }
 
 function trailStops(q,state,node){
@@ -103,8 +118,8 @@ export function atlasQuestObjectives(frame,q,node){
    return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
   }
  }
- if(q.cargo&&status==='active'){
-  const points=cargoStops(q,state,node);
+ if(q.cargo&&(status==='active'||q.recovery)){
+  const points=cargoStops(q,state,node,frame);
   if(points.length)return [{text:questObjective(q,frame.storyGraph,state),points}];
  }
  if(q.trail&&status==='active'){
@@ -364,6 +379,11 @@ export function trackedQuest(f,id,selectedWorksite){
     text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route.text?' ｜ '+route.text:'')};
   }
  }
+ if(q.recovery&&st?.recovered&&status==='complete'){
+  const route=questRoute(f,{kind:'visit',target:q.recovery.node},'active');
+  const point=wharfExit(q,true);
+  return {...route,node:q.recovery.node,pointUrl:point.url,pointLabel:point.label+'を見る',text:q.name+' ｜ '+q.clearedNotice+' '+route.text};
+ }
  if(q.rest&&status==='complete'){
   const point=surveyPoint(q,q.goal,q.target);
   const route=questRoute(f,{kind:'visit',target:q.target},'active');
@@ -420,7 +440,7 @@ export function trackedQuest(f,id,selectedWorksite){
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
  if(q.cargo&&status==='active'){
-  const points=cargoStops(q,st,route.node),local=f.storyHunts?.[id];
+  const points=cargoStops(q,st,route.node,f),local=f.storyHunts?.[id];
   const nearby=local?.point??q.cargo.find(p=>p.guard&&p.guard===local?.spawn)?.id;
   const point=points.find(p=>p.id===nearby)??points[0];
   if(point)return {...route,pointUrl:point.url,pointLabel:point.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};

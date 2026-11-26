@@ -43,10 +43,24 @@ async function fight(wait){
  await page.keyboard.down('KeyJ');
  try{await wait()}finally{await page.keyboard.up('KeyJ')}
 }
+const preview=await browser.newPage();
+async function guardPreview(key,value,expected,absent){
+ await page.waitForFunction(({key,value,absent})=>{
+  const link=document.querySelector('#trackedSurveyPoint');
+  if(link.hidden)return false;
+  const params=new URL(link.href).searchParams;
+  return params.get(key)===value&&(!absent||params.getAll('absent').includes(absent));
+ },{key,value,absent});
+ await preview.goto(await page.locator('#trackedSurveyPoint').evaluate(link=>link.href));
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ const guards=await preview.locator('#liveSubject option').evaluateAll(options=>options.filter(o=>!o.hidden&&o.value).map(o=>o.value));
+ assert.deepEqual(guards,expected.map(s=>'liyue-crux-'+s));
+}
 async function recover(x,label,n){
  await walk(x);
  const collect=button('G：'+label+'を回収');
  await fight(()=>collect.waitFor());
+ if(n===1)await guardPreview('worksite','pier',['rocks','ledge'],'liyue-crux-pier');
  await collect.click();
  await progress(n);
 }
@@ -64,9 +78,7 @@ try{
  await quest.getByRole('button',{name:'この依頼を追跡'}).click();
  await walk(570);
  await through(wharf);
- await walk(315);
- await button('桟橋の樽 ｜ 先に魔物を退ける').click();
- await progress(0);
+ await guardPreview('worksite','pier',['pier','rocks','ledge']);
  await recover(315,'桟橋の樽',1);
  await recover(690,'岩場の木箱',2);
  await walk(960);
@@ -78,6 +90,7 @@ try{
   });
  }finally{await page.keyboard.up('Space')}
  await recover(975,'足場の帆布',3);
+ await guardPreview('subject','liyue-crux-return',['return']);
  assert.match(await page.locator('#storyElite').innerText(),/桟橋を塞ぐヒルチャール/);
  await walk(755);
  await page.waitForFunction(()=>window.lab.frame.draws.some(d=>d.text==='北斗'));
@@ -93,6 +106,7 @@ try{
  await quest.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForSelector(`[data-quest="${qid}"][data-status="complete"]`);
  const reported=await frame();
+ await guardPreview('node',wharf,[],'liyue-crux-return');
  assert.equal(reported.storyJoined.beidou,true);
  assert.equal(reported.companion.id,'amber');
  assert.equal(reported.mora-before.mora,150);

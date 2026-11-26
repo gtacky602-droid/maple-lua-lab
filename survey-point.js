@@ -155,6 +155,7 @@ export function worksitePoint(quest,id,node,stocked=[]){
   point.recovered=quest.cargo.filter(p=>stocked.includes(p.id)).map(p=>p.id);
   point.parcels=quest.cargo.filter(p=>!point.recovered.includes(p.id));
   point.absent=quest.cargo.filter(p=>p.guard&&point.recovered.includes(p.id)).map(p=>p.guard);
+  if(quest.recovery)point.absent.push(quest.recovery.guard);
  }
  if(quest.trail&&item.rects)point.fixtures=[{x:item.x,y:item.y,rects:item.rects}];
  if(quest.delivery){

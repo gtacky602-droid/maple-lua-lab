@@ -2697,7 +2697,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     f.storyCargo={}
     for _,item in ipairs(q.cargo) do
      if not state.recovered[item.id] then
-      f.storyCargo[item.id]={x=item.x,y=item.y}
+      f.storyCargo[item.id]={x=item.x,y=item.y,guarded=item.guard and (guarding(s,item) or false)}
       local x,y=item.x-s.camera,item.y
       if x>=-20 and x<=980 then
        for _,r in ipairs(item.rects) do
