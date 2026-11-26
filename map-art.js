@@ -115,6 +115,17 @@ try{
  const query=new URLSearchParams(location.search);
  const openingNode=nodes.get(query.get('node'))??nodes.get('mond-road');
  const liveView=query.get('placements')==='live';
+ const departure=liveView&&nodes.get(query.get('from'))?.exits.find(edge=>
+  edge.to===openingNode.id&&String(edge.x)===query.get('departureX'));
+ // On a return trip the quest bridge under the recorded landing is already built.
+ let landingQuest,landingDeck;
+ if(Number.isFinite(departure?.arrivalX)&&Number.isFinite(departure.arrivalY)){
+  for(const quest of graph.quests){
+   const step=quest.itinerary?.find(({node,bridge})=>node===openingNode.id&&bridge&&
+    bridge.y===departure.arrivalY&&departure.arrivalX>=bridge.x&&departure.arrivalX<=bridge.x+bridge.w);
+   if(step){landingQuest=quest;landingDeck=step.bridge;break}
+  }
+ }
  const absent=new Set(query.getAll('absent'));
  const liveSource=liveView?await json('content/enemy-spawns.json'):null;
  let liveItems=[],liveError='';
@@ -341,7 +352,8 @@ try{
  $('sceneryPhase').onchange=()=>{colorResult.textContent='';render()};
  function sceneFrame(n,camera){
   const dark=darkRoom(n);
-  return {camera,platforms:dark?[...n.platforms,n.localLight.bridge]:n.platforms,storySwim:Boolean(n.swim),storyLocalLight:n.localLight?{mode:dark?'dark':'bright'}:undefined,storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  const platforms=dark?[...n.platforms,n.localLight.bridge]:n.platforms;
+  return {camera,platforms:landingDeck&&n===openingNode?[...platforms,landingDeck]:platforms,storySwim:Boolean(n.swim),storyLocalLight:n.localLight?{mode:dark?'dark':'bright'}:undefined,storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
  }
  function placements(){return drafts.nodes[node().id]??[]}
  function previewCandidate(e){return liveView && $('candidateIdle').checked && idleCandidates.has(e.id)}
@@ -525,6 +537,7 @@ try{
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   if(metrics?.locations && !afterReport(n)) $('context').append(` この仮背景は${metrics.locations}地点で共用しています。`);
+  if(landingDeck&&n===openingNode)$('context').append(' 「'+landingQuest.name+'」で開いた足場に到着します。');
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};
