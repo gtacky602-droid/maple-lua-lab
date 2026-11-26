@@ -204,7 +204,11 @@ def build():
             stages_by_region[region][node['id']] = node
             mapped_stage[node['id']] = region
 
-    field_openings = load('content/field-boss-openings.json')
+    opening_stages = set(load('content/field-boss-openings.json'))
+    opening_stages.update(load('content/stygian-openings.json'))
+    opening_stages.update(load('content/weekly-opening-parts.json'))
+    opening_stages.update(b['node'] for b in load('content/weekly-boss-spawns.json')['weeklyBosses']
+                          if b.get('mapIdleArt'))
     bosses_by_stage = {}
     for boss in load('content/encounters.json')['encounters']:
         stage = boss.get(BOSS_STAGE_FIELDS[boss['kind']])
@@ -213,7 +217,7 @@ def build():
         assert stage in mapped_stage and stage not in bosses_by_stage, (boss['id'], stage)
         bosses_by_stage[stage] = {key: boss[key] for key in ('id', 'name', 'kind', 'aliases') if key in boss}
 
-        if stage in field_openings:
+        if stage in opening_stages:
             bosses_by_stage[stage]['placementPreview'] = True
 
     legends = {row['encounter_id']: row for row in load('design/world/encounters.json')['legends']}

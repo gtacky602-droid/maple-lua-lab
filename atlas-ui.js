@@ -35,6 +35,7 @@ export function initAtlas(action, clearKeys) {
  const title = document.getElementById('atlasPlaceName');
  const level = document.getElementById('atlasPlaceLevel');
  const compare = document.getElementById('atlasBackgroundCompare');
+ const bossCompare = document.getElementById('atlasBossCompare');
  const fieldGuide = document.getElementById('atlasFieldEnemyGuide');
  const routes = document.getElementById('atlasRoutes');
  const itinerary = document.getElementById('atlasItinerary');
@@ -276,6 +277,13 @@ export function initAtlas(action, clearKeys) {
   compare.textContent = measured ? 'この地点の背景を比較（別タブ）' : 'この地点のドット絵を比較（別タブ）';
   if (compare.hidden) compare.removeAttribute('href');
   else compare.href = 'map-art.html?node=' + encodeURIComponent(selected.id) + '&placements=live' + (measured ? '&compare=background' : '') + (selected.afterReport ? '&phase=after' : '');
+  bossCompare.hidden = !measured || !selected?.boss?.placementPreview;
+  if (bossCompare.hidden) bossCompare.removeAttribute('href');
+  if (selected?.boss?.placementPreview) {
+   const artLink = measured ? bossCompare : compare;
+   artLink.href = 'map-art.html?' + new URLSearchParams({node:selected.id,placements:'live',background:'original',profile:'h32c16'});
+   artLink.textContent = selected.boss.name + 'の開幕配置を比較（別タブ）';
+  }
   const area = view.options.find(item => item.id === view.region);
   title.textContent = selected?.boss?.name ?? selected?.name ?? area?.name ?? 'テイワット全域';
   level.textContent = selected?.mode === 'draft' ? [
