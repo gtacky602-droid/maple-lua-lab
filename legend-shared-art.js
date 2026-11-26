@@ -1,4 +1,4 @@
-import {spriteBounds,paintSprite} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
 import {lakeEyeStudy} from './lake-eye-study.js';
 
 // Only identical source images and crop rectangles qualify as shared idle art.
@@ -6,7 +6,11 @@ export function setupSharedLegendArt(layouts,assets){
  const panel=document.createElement('details'),heading=document.createElement('summary'),rows=document.createElement('div');
  panel.id='sharedLegendArt';panel.hidden=true;heading.textContent='同じ待機絵を使う通常敵と大きさを比較';
  panel.open=location.hash==='#sharedLegendArt';
- panel.append(heading,rows);document.querySelector('main').after(panel);
+ const controls=document.createElement('label'),compare=document.createElement('input');
+ compare.type='checkbox';compare.id='compareSharedProfiles';
+ compare.checked=new URL(location.href).searchParams.get('sharedProfiles')==='all';
+ controls.append(compare,'元PNG・32色・16色を並べる');
+ panel.append(heading,controls,rows);document.querySelector('main').after(panel);
  const key=art=>JSON.stringify([art.source,art.box]);
  const ordinary=new Map();
  for(const [id,layout] of Object.entries(layouts)){
@@ -24,23 +28,41 @@ export function setupSharedLegendArt(layouts,assets){
    link.href='enemies-art.html?'+new URLSearchParams({q:enemy.id,profile,zoom:'1'});
    link.target='_blank';link.rel='noopener';link.textContent=enemy.name;
    caption.append(link,'（'+enemy.art.h+' px） ／ '+name+'（'+Number(legend.h.toFixed(2))+' px）');
-   const canvas=document.createElement('canvas');
    const a=spriteBounds(enemy.art,enemy.art.h),b=spriteBounds(legend,legend.h);
    const cell=Math.ceil(Math.max(a.width,b.width))+24;
-   canvas.width=cell*2;canvas.height=Math.ceil(Math.max(a.height,b.height))+16;
-   canvas.style.width='min(100%, '+canvas.width+'px)';canvas.style.height='auto';
-   canvas.setAttribute('aria-label',enemy.name+'と'+name+'の等倍率比較');
-   const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
-   ctx.fillStyle='#20414b';ctx.fillRect(0,0,canvas.width,canvas.height);
-   for(const [i,art,box] of [[0,enemy.art,a],[1,legend,b]]){
-    ctx.save();ctx.translate((i+.5)*cell-box.x-box.width/2,canvas.height-6);
-    paintSprite(ctx,art,art.image,box,profile);ctx.restore();
+   figure.append(caption);
+   const views=document.createElement('div');views.className='shared-profile-views';
+   views.style.cssText='display:flex;flex-wrap:wrap;gap:12px';
+   for(const selected of compare.checked?[null,'h48c32','h32c16']:[profile]){
+    const view=document.createElement('div'),canvas=document.createElement('canvas');
+    view.style.maxWidth='100%';
+    canvas.width=cell*2;canvas.height=Math.ceil(Math.max(a.height,b.height))+16;
+    canvas.style.width='min(100%, '+canvas.width+'px)';canvas.style.height='auto';canvas.style.display='block';
+    const quality=selected===null?'元PNG':selected==='h48c32'?'32色':selected==='h32c16'?'16色':'標準';
+    canvas.setAttribute('aria-label',quality+'・'+enemy.name+'と'+name+'の等倍率比較');
+    const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
+    ctx.fillStyle='#20414b';ctx.fillRect(0,0,canvas.width,canvas.height);
+    for(const [i,art,box] of [[0,enemy.art,a],[1,legend,b]]){
+     ctx.save();ctx.translate((i+.5)*cell-box.x-box.width/2,canvas.height-6);
+     paintSprite(ctx,art,art.image,box,selected);ctx.restore();
+    }
+    if(compare.checked){
+     const label=document.createElement('small');
+     label.textContent=quality+(selected?'　通常 '+rectangleCount(enemy.art.profiles[selected])+'矩形 ／ 地方伝説 '+rectangleCount(legend.profiles[selected])+'矩形':'');
+     view.append(label);
+    }
+    view.append(canvas);views.append(view);
    }
-   figure.append(caption,canvas);rows.append(figure);
+   figure.append(views);rows.append(figure);
    const study=lakeEyeStudy(enemy,legend);
    if(study)rows.append(study);
   }
  }
+ compare.onchange=()=>{
+  const url=new URL(location.href);
+  if(compare.checked)url.searchParams.set('sharedProfiles','all');else url.searchParams.delete('sharedProfiles');
+  history.replaceState(history.state,'',url);draw();
+ };
  panel.ontoggle=draw;
  return (items,profile,artFor,nameFor)=>{
   const next=items.flatMap(e=>{

@@ -33,6 +33,30 @@ try{
   await page.selectOption('#profile','h32c16');
   assert.notEqual(await first.evaluate(c=>c.toDataURL()),standard);
   results[node]=await panel.locator('figcaption').allTextContents();
+  await panel.locator('#compareSharedProfiles').check();
+  const groups=panel.locator('.shared-profile-views');
+  assert.equal(await groups.count(),expected.length);
+  for(const group of await groups.all()){
+   const views=await group.locator('canvas').evaluateAll(cs=>cs.map(c=>{
+    const ctx=c.getContext('2d');
+    const painted=[0,1].map(i=>{
+     const data=ctx.getImageData(i*c.width/2,0,c.width/2,c.height).data;
+     return data.some((v,j)=>j%4===0&&v!==32);
+    });
+    return {width:c.width,height:c.height,painted,pixels:c.toDataURL()};
+   }));
+   assert.equal(views.length,3);
+   assert.equal(new Set(views.map(v=>v.width+'x'+v.height)).size,1);
+   assert.equal(new Set(views.map(v=>v.pixels)).size,3);
+   assert(views.every(v=>v.painted.every(Boolean)));
+  }
+  if(node==='cineas-legend-chamber'){
+   await groups.first().screenshot({path:'evidence/cineas-shared-profiles.png'});
+   await page.setViewportSize({width:390,height:844});
+   assert(await groups.first().evaluate(el=>el.getBoundingClientRect().right<=innerWidth));
+   await page.setViewportSize({width:1200,height:900});
+  }
+  await panel.locator('#compareSharedProfiles').uncheck();
   if(node===initial){
    const [gallery]=await Promise.all([page.waitForEvent('popup'),panel.locator('a').first().click()]);
    await gallery.waitForFunction(()=>window.charactersGallery?.ready);
@@ -61,6 +85,15 @@ try{
  }
  await page.selectOption('#node','chassanion-legend-bubble-room');
  await panel.waitFor({state:'hidden'});
+ for(const species of ['fatui-frost-operative','fatui-wind-operative']){
+  await page.goto(new URL('field-enemy-guide.html?species='+species,base).href);
+  const candidate=page.locator('#shared nav a').filter({hasText:'待機絵の候補'});
+  await candidate.click();
+  await panel.locator('.shared-profile-views canvas').nth(2).waitFor();
+  assert(await page.locator('#candidateIdle').isChecked());
+  assert(await page.locator('#compareSharedProfiles').isChecked());
+  assert.deepEqual(await ids(),[species]);
+ }
  assert.deepEqual(errors,[]);
  await page.goto(new URL('/map-art.html?node=ninianne-legend-bank&placements=live#sharedLegendArt',base).href);
  await panel.locator('.eye-crops canvas').first().waitFor();

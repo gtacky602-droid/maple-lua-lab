@@ -47,7 +47,10 @@ for node,rows in spawns.items():
 
 labels=SpeciesLabels()
 labels.feed((root/'map-art.html').read_text('utf8'))
-gallery={'boss-'+r['id']:r['file'] for r in read('content/boss-art-gallery.json')['items']}
+gallery_items=read('content/boss-art-gallery.json')['items']
+gallery={'boss-'+r['id']:r['file'] for r in gallery_items}
+candidate_files={r['candidateFor']:r['file'] for r in gallery_items if 'candidateFor' in r}
+candidate_matches=defaultdict(dict)
 openings=read('content/group-legend-openings.json')
 shared=defaultdict(dict)
 for b in read('content/field-boss-spawns.json')['fieldBosses']:
@@ -55,6 +58,10 @@ for b in read('content/field-boss-spawns.json')['fieldBosses']:
     parts=openings.get(b['node'],{}).get('parts',[])
     fallback=[b]+([b['partner']] if b.get('partner') else [])
     files=[p.get('file') or gallery.get(p['species']) for p in parts] if parts else [gallery.get(p.get('mapIdleArt')) for p in fallback]
+    for part in parts:
+        candidate=candidate_files.get(part.get('id'))
+        if candidate:
+            candidate_matches[crop(candidate)][b['node']]=b['name']
     for file in filter(None,files):
         shared[crop(file)][b['node']]=b['name']
 
@@ -77,6 +84,8 @@ for key,counts in sorted(places.items()):
     species.append(dict(id=key,name=name.split('（')[0],file=file,height=layout['height'],
                         daily=key in daily,count=sum(counts.values()),places=sorted(counts.items()),
                         legends=shared.get(crop(file),{})))
+    if crop(file) in candidate_matches:
+        species[-1]['legendCandidates']=candidate_matches[crop(file)]
 index=dict(species=species,places={n:[nodes[n]['name'],nodes[n]['region']] for n in sorted(spawns)})
 (root/'content/field-sprite-index.json').write_bytes(encode(index))
 (root/'assets/field-guide-extra-sprites.json').write_bytes(encode(extra))

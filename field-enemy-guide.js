@@ -56,6 +56,11 @@ try{
   const links=Object.entries(current.legends).map(([node,name])=>{
    const a=document.createElement('a');a.href=mapUrl(node)+'#sharedLegendArt';a.textContent=name;return a;
   });
+  for(const [node,name] of Object.entries(current.legendCandidates??{})){
+   const url=new URL(mapUrl(node),location.href);
+   url.searchParams.set('idle','candidate');url.searchParams.set('sharedProfiles','all');url.hash='sharedLegendArt';
+   const link=document.createElement('a');link.href=url.href;link.textContent=name+'（待機絵の候補）';links.push(link);
+  }
   el('shared').querySelector('nav').replaceChildren(...links);el('shared').hidden=!links.length;
   const ids=['source','h48c32','h32c16'];
   for(const id of ids){
