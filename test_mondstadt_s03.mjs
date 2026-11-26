@@ -122,6 +122,18 @@ try{
  const collapse=await frame();
  assert.ok(collapse.platforms.every(p=>p.x!==670));
  await page.waitForFunction(node=>window.lab.frame.story.node===node,depth);
+ await page.waitForFunction(node=>document.getElementById('trackedQuestMap').dataset.node===node,depth);
+ const point=new URL(await page.locator('#trackedSurveyPoint').getAttribute('href'),page.url());
+ assert.equal(point.searchParams.get('node'),depth);
+ const preview=await browser.newPage();await preview.goto(point.href);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ assert.match(await preview.locator('#surveyPointNote').innerText(),/強化鉱石.*480, 480/);
+ for(const id of ['png','rect']){
+  const rgb=await preview.evaluate(id=>Array.from(document.getElementById(id).getContext('2d')
+   .getImageData(483-mapArt.camera,444,1,1).data).slice(0,3),id);
+  assert.deepEqual(rgb,[166,225,205]);
+ }
+ await preview.close();
  const landed=await frame();
  assert.equal(landed.returns,pre.returns);
  assert.deepEqual(landed.actors.map(a=>a.hp),pre.actors.map(a=>a.hp));

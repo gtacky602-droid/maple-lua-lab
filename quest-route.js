@@ -40,6 +40,11 @@ export function questDestinations(f,q,status,preferredNode){
   if(activeCount===0)target=q.hub;
   else if(activeCount<4)target=q.lantern.trail;
  }
+ if(status==='active'&&q.cave&&activeCount===3)target=q.cave.depth;
+ if(status==='active'&&q.roof){
+  const stage=f.storyRoof?.retry?f.storyRoof.stage:activeCount;
+  target=stage===q.roof.marks.length?q.roof.lookout:q.target;
+ }
  if(status==='active'&&q.book&&(f.story.quests?.[q.id]?.count??0)<2)target=q.book.proof.node;
  const work=status==='active'&&f.story.quests?.[q.id]?.construction;
  if(work?.plan)target=q.construction.plans.find(plan=>plan.id===work.plan)?.site.node??target;
@@ -69,6 +74,9 @@ export function questRoute(f,q,status,preferredNode){
  const targets=new Set(candidates.filter(id=>nodes.has(id)));
  if(!targets.size)return {text:'目的地は未公開または未登録です。'};
  const from=f.story.node;if(!nodes.has(from))return {text:''};
+ if(status==='active'&&q.cave&&f.storyCave?.falling&&targets.has(q.cave.depth)){
+  return {node:q.cave.depth,text:'床が崩れて落下中です。着地すると下層の鉱石を拾えます。'};
+ }
  if(targets.has(from)&&!arrival)return {node:from,text:status==='active'||optional?'目的地に到着しています。':'受注・報告の拠点にいます。'};
  function meetsRule(rule){
   const questState=f.story.quests?.[rule.quest];
@@ -80,6 +88,7 @@ export function questRoute(f,q,status,preferredNode){
   return (!requiresBranch&&questState?.status==='complete')||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
  }
  function gateOpen(edge){
+  if(edge.roofTrialStage&&f.storyRoof?.retry&&f.storyRoof.stage<edge.roofTrialStage)return false;
   const rule=edge.requires;
   return !rule||meetsRule(rule)||(rule.alternative&&meetsRule(rule.alternative));
  }

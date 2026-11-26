@@ -260,7 +260,14 @@ try{
    if(!quests.has(quest))quests.set(quest,[]);
    quests.get(quest).push({objective:site.name,point:worksitePoint(quest,site.id,site.node)});
   }
-  for(const route of [{steps:quest.itinerary??[]},...quest.paths??[]]){
+  const steps=quest.roof?[...quest.roof.marks.map(mark=>({node:quest.target,objective:mark.label})),
+   {node:quest.roof.lookout,objective:quest.roof.finish.label}]:quest.itinerary??[];
+  if(quest.cave){
+   const point=surveyPoint(quest,3,quest.cave.depth);
+   if(!stepsByNode.has(point.node))stepsByNode.set(point.node,new Map());
+   stepsByNode.get(point.node).set(quest,[{number:point.step,objective:point.action,point}]);
+  }
+  for(const route of [{steps},...quest.paths??[]]){
    for(const [index,step] of route.steps.entries()){
     for(const nodeId of new Set([step.node,...(step.alternatives??[]).map(p=>p.node)])){
      if(!nodeId)continue;

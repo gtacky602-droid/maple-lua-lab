@@ -60,6 +60,10 @@ export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
  const status=questStatus(q,state,frame.story.quests);
+ if(q.roof&&frame.storyRoof?.retry){
+  const stage=frame.storyRoof.stage,point=surveyPoint(q,stage,node);
+  return point?[{text:questObjective(q,frame.storyGraph,{count:stage}),points:[{label:point.name,url:surveyPointUrl(point)}]}]:[];
+ }
  const join=q.paths?q.itinerary.findIndex(step=>step.kind==='paths'):-1;
  const onBranch=join>=0 && state.count===join && status==='active';
  const optional=q.anyPath && join>=0 && state.count>join;
@@ -278,6 +282,13 @@ export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ if(q.roof&&(status==='active'||f.storyRoof?.retry)){
+  const retry=f.storyRoof?.retry,stage=retry?f.storyRoof.stage:st.count;
+  const route=questRoute(f,q,'active');
+  const point=surveyPoint(q,stage,route.node);
+  if(point)return {...route,pointUrl:surveyPointUrl(point),pointLabel:'次の目印の位置を見る',
+   text:q.name+(retry?'（記録に再挑戦中）':'')+' ｜ '+questObjective(q,f.storyGraph,{count:stage})+(route.text?' ｜ '+route.text:'')};
+ }
  if(status==='complete'){
   const changed=f.storyGraph.nodes.find(n=>n.locationAfterReport?.quest===id);
   if(changed){

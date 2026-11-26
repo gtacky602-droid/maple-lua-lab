@@ -169,3 +169,15 @@ for(const [vehicle,landing,elapsed,kind,legs] of [
  f.voyage.elapsed-=.02;
  assert.equal(new URL(questRoute(f,trip,'active').gateUrl,'http://localhost').searchParams.get('to'),landing);
 }
+
+const cave=graph.quests.find(q=>q.id==='mond-bennett-cave');
+const miner={storyGraph:graph,progression:{level:16},story:{active:true,node:cave.target,quests:{[cave.id]:{status:'active',count:3}}},storyCave:{falling:true}};
+const descent=trackedQuest(miner,cave.id);
+assert.match(descent.text,/落下中/);
+assert.equal(descent.gateUrl,undefined);
+assert.equal(new URL(descent.pointUrl,'http://localhost').searchParams.get('node'),cave.cave.depth);
+miner.storyCave.falling=false;
+miner.story.node=cave.hub;
+miner.story.quests['amber-join']={status:'complete',count:4};
+miner.story.quests[cave.requires]={status:'complete',count:2};
+assert.equal(trackedQuest(miner,cave.id).node,cave.cave.depth);

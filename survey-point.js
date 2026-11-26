@@ -35,6 +35,34 @@ function choiceFixtures(step){
  return fixtures;
 }
 export function surveyPoint(quest,index,node,room,pathId,choice){
+ if(quest?.cave&&index===3&&node===quest.cave.depth){
+  const {x,y,label}=quest.cave.ore;
+  const fixtures=[{x,y,rects:[[-26,-12,52,12,'#526266'],[-18,-28,10,18,'#6cb39d'],
+   [-4,-40,13,30,'#a6e1cd'],[12,-27,13,18,'#73b5af']]}];
+  return {quest:quest.id,node,step:index+1,x,y,name:'強化鉱石',action:label,fixtures};
+ }
+ if(quest?.roof&&Number.isInteger(index)&&index>=0){
+  const {marks,finish,lookout}=quest.roof;
+  const onRoof=node===quest.target&&index<marks.length;
+  const atFinish=node===lookout&&index===marks.length;
+  if(!onRoof&&!atFinish)return null;
+  const mark=atFinish?finish:marks[index];
+  const colors=['#ed6870','#5fa8e5','#edc35f'];
+  const flags=onRoof?marks.slice(0,index+1):[finish];
+  const fixtures=flags.map(({x,y},i)=>{
+   const color=atFinish?colors[2]:i===index?colors[i]:'#96ae81';
+   return {x,y,rects:[[-2,-28,4,28,'#745447'],[2,-28,20,9,color],[2,-19,13,5,color]]};
+  });
+  if(onRoof)for(const draft of quest.roof.drafts.filter(item=>item.requires<=index)){
+   const rects=Array.from({length:6},(_,i)=>{
+    const width=24+i*6;
+    return [-width/2,-6-(i*13)%76,width,3,i%2===0?'#a4eedc':'#e5fff0'];
+   });
+   fixtures.push({x:draft.x,y:draft.y,rects,name:'上昇気流',labelHeight:92});
+  }
+  const name=atFinish?'飛ばされた目印':['赤い目印','青い目印','黄色い目印'][index];
+  return {quest:quest.id,node,step:index+1,x:mark.x,y:mark.y,name,action:mark.label,fixtures};
+ }
  const path=pathId&&quest?.paths?.find(p=>p.id===pathId);
  const steps=pathId?path?.steps:quest?.itinerary,step=steps?.[index];
  if((step?.kind==='choice'||step?.kind==='guideChoice')&&step.node===node){

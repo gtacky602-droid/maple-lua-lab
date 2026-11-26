@@ -68,6 +68,24 @@ async function air(y){
  },y);
 }
 
+const preview=await browser.newPage();
+async function checkFlag(step,node,x,y,color){
+ const link=page.locator('#trackedSurveyPoint');
+ await page.waitForFunction(({step,node})=>{
+  const href=document.getElementById('trackedSurveyPoint').getAttribute('href');
+  if(!href)return false;
+  const params=new URL(href,location.href).searchParams;
+  return params.get('node')===node&&params.get('step')===String(step);
+ },{step,node});
+ await preview.goto(new URL(await link.getAttribute('href'),page.url()).href);
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ assert((await preview.locator('#surveyPointNote').innerText()).includes('（'+x+', '+y+'）'));
+ for(const id of ['png','rect']){
+  const rgb=await preview.evaluate(({id,x,y})=>Array.from(document.getElementById(id).getContext('2d')
+   .getImageData(x-mapArt.camera+8,y-24,1,1).data).slice(0,3),{id,x,y});
+  assert.deepEqual(rgb,color);
+ }
+}
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');
  await page.waitForFunction(()=>window.lab?.frame);
@@ -84,15 +102,18 @@ try{
  await through(roof);
  assert.equal((await backdrop()).key,'mondroof');
  assert.equal((await frame()).total,0);
+ await checkFlag(1,roof,329,395,[237,104,112]);
  await walk(329);
  await jump(395);
  await interact('屋根の赤い目印を調べる');
  await stage(1);
+ await checkFlag(2,roof,584,310,[95,168,229]);
  await walk(498);
  await jump(310);
  await walk(584);
  await interact('見張りの青い目印を調べる');
  await stage(2);
+ await checkFlag(3,roof,965,145,[237,195,95]);
  const beforeFall=await frame();
  await focus();
  await page.keyboard.down('KeyS');
@@ -113,6 +134,13 @@ try{
  await walk(965);
  await interact('風車の黄色い目印を調べる');
  await stage(3);
+ await checkFlag(4,view,563,480,[237,195,95]);
+ assert((await page.locator('#trackedRouteGate').getAttribute('href')).includes('to='+view));
+ await page.locator('#trackedQuestMap').click();
+ const atlasLink=page.locator('#atlasQuestObjectives a[href*="quest=mond-windmill"][href*="step=4"]');
+ await atlasLink.waitFor();
+ assert.equal(new URL(await atlasLink.getAttribute('href'),page.url()).searchParams.get('node'),view);
+ await page.keyboard.press('Escape');
  assert.match((await frame()).storyRoof.message,/黄色い目印が飛んだ/);
  await walk(1045);
  await interact('展望台へ上がる気流に乗る');
@@ -148,6 +176,11 @@ try{
  assert.equal((await frame()).story.quests[qid].roof.bestTicks,record);
  await walk(965);
  await through(view);
+ await walk(1150);await through(town);
+ await walk(620);await through(roof);
+ await walk(185);await interact('屋根巡回の記録に挑戦する');
+ await stage(0);await checkFlag(1,roof,329,395,[237,104,112]);
+ assert.match(await page.locator('#trackedQuestText').innerText(),/記録に再挑戦中/);
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);

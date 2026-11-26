@@ -138,7 +138,7 @@ function update(){
    gatePosition+=group.sort((a,b)=>a[2]-b[2]).map(([x,y])=>x+','+y).join('/');
   }
  }
- const signature=JSON.stringify([gatePosition,lampSide,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyRailTransit?.release,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([gatePosition,lampSide,f.storyRoof?.stage,f.storyRoof?.retry,target?.point,f.storyRockView?.id,f.storyResonanceRoute?.lit,f.storyFoldRoute,f.story,f.storyContest?.stage,f.storyContest?.replay,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyRailTransit?.release,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  updateRevisitMap(f);
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
