@@ -4,10 +4,22 @@ import {characterDetail} from './character-detail.js';
 import {spriteBounds,paintSprite,rectangleCount,openingRects,drawShoukiCore} from './sprite-layers.js';
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
-async function art(data){const image=new Image();image.src='assets/'+data.source;await image.decode();return {data,image}}
+const images=new Map();
+function galleryImage(source){
+ if(images.has(source))return images.get(source);
+ const image=new Image();
+ image.src='assets/'+source;
+ const entry={image,decoded:false};
+ entry.ready=image.decode().then(()=>{entry.decoded=true},error=>{
+  images.delete(source);
+  throw error;
+ });
+ images.set(source,entry);
+ return entry;
+}
 let shoukiOpening,updateArenaLinks;
-async function add(id,name,data,h,leftData,rear){
- const [right,left,layer]=await Promise.all([art(data),leftData&&art(leftData),rear&&art(rear.data)]);
+function add(id,name,data,h,leftData,rear){
+ const right={data},left=leftData&&{data:leftData};
  const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;
  if(id==='shouki'){
   article.querySelector('h2').textContent='正機の神';
@@ -32,7 +44,7 @@ async function add(id,name,data,h,leftData,rear){
   article.querySelector('.pair').append(extra);
  }
  const detail=document.body.hasAttribute('data-character-measure')?characterDetail(article):null;
- $('cards').append(article);assets.push({id,name,right,left,article,h,detail,rear:layer&&{...layer,height:rear.height,bottom:rear.bottom}});
+ $('cards').append(article);assets.push({id,name,right,left,article,h,detail,rear});
 }
 let layouts={};
 const enemies=document.documentElement.dataset.gallery==='enemies';
@@ -47,7 +59,7 @@ try{
     if(name==='幽境専用')option.dataset.poseGroup='stygian';
     if(name==='週ボス')option.dataset.poseGroup='weekly';
     group.append(option);
-    if(entry.opening)shoukiOpening={...entry.opening,...await art(await json('assets/weekly-packed/'+entry.opening.file))};
+    if(entry.opening)shoukiOpening={...entry.opening,data:await json('assets/weekly-packed/'+entry.opening.file)};
    }
    picker.append(group);
   }
@@ -74,23 +86,23 @@ try{
   layouts=await json('content/enemy-art-layout.json');
   const slimePreviews=await json('assets/slime-preview-packed.json');
   for(const [id,name] of [['hydro-slime','水スライム（既存候補）'],['pyro-slime','炎スライム（既存候補）']]){
-   await add(id,name,slimePreviews[id],40);
+   add(id,name,slimePreviews[id],40);
   }
-  await add('hilichurl','ヒルチャール（待機候補）',await json('assets/field-packed/hilichurl-idle-sprites.json'),76);
-  await add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/field-packed/hydro-slime-idle-sprites.json'),40);
-  await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/field-packed/pyro-slime-idle-sprites.json'),40);
-  await add('cryo-slime','氷スライム（小型・雪山に仮配置）',await json('assets/field-packed/cryo-slime-idle-sprites.json'),layouts['cryo-slime'].height);
-  await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/field-packed/ruin-guard-idle-sprites.json'),144);
-  await add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/field-packed/dendro-fungus-idle-sprites.json'),64);
-  await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/field-packed/nobushi-idle-sprites.json'),104);
-  await add('treasure-scout','宝盗団・斥候（待機候補・璃月に仮配置）',await json('assets/field-packed/treasure-scout-idle-sprites.json'),layouts['treasure-scout'].height);
-  await add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/field-packed/armored-crab-idle-sprites.json'),64);
-  await add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/field-packed/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
-  await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/field-packed/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
-  await add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/field-packed/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
+  add('hilichurl','ヒルチャール（待機候補）',await json('assets/field-packed/hilichurl-idle-sprites.json'),76);
+  add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/field-packed/hydro-slime-idle-sprites.json'),40);
+  add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/field-packed/pyro-slime-idle-sprites.json'),40);
+  add('cryo-slime','氷スライム（小型・雪山に仮配置）',await json('assets/field-packed/cryo-slime-idle-sprites.json'),layouts['cryo-slime'].height);
+  add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/field-packed/ruin-guard-idle-sprites.json'),144);
+  add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/field-packed/dendro-fungus-idle-sprites.json'),64);
+  add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/field-packed/nobushi-idle-sprites.json'),104);
+  add('treasure-scout','宝盗団・斥候（待機候補・璃月に仮配置）',await json('assets/field-packed/treasure-scout-idle-sprites.json'),layouts['treasure-scout'].height);
+  add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/field-packed/armored-crab-idle-sprites.json'),64);
+  add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/field-packed/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
+  add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/field-packed/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
+  add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/field-packed/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
   const shown=new Set(assets.map(item=>item.id));
   for(const [id,{height,file,name}] of Object.entries(layouts)){
-   if(!shown.has(id))await add(id,name??id,await json('assets/field-packed/'+(file??`${id}-idle-sprites.json`)),height);
+   if(!shown.has(id))add(id,name??id,await json('assets/field-packed/'+(file??`${id}-idle-sprites.json`)),height);
   }
   for(const item of assets){
    const habitat=Object.keys(layouts[item.id]?.habitats??{})[0];
@@ -104,7 +116,7 @@ try{
   const kind=document.documentElement.dataset.gallery==='bosses'?'boss':'character';
   const [packed,{items}]=await Promise.all([json('assets/'+kind+'-gallery-packed.json'),json('content/'+catalog)]);
   for(const item of items){
-   await add(item.id,item.name,packed[item.file],item.height,packed[item.leftFile],item.rear&&{...item.rear,data:packed[item.rear.file]});
+   add(item.id,item.name,packed[item.file],item.height,packed[item.leftFile],item.rear&&{...item.rear,data:packed[item.rear.file]});
   }
  }
  const searchControls=document.createElement('div');searchControls.className='gallery-search';
@@ -116,7 +128,10 @@ try{
  const normalize=s=>s.normalize('NFKC').toLocaleLowerCase('ja');
  search.oninput=render;clear.onclick=()=>{search.value='';render();search.focus()};
  const updateUrl=setupGalleryUrl({search,render});
- function render(){updateArenaLinks?.();const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
+ let renderVersion=0;
+ function render(){
+  const version=++renderVersion,pending=[];
+  updateArenaLinks?.();const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   updateUrl();const dimensions=[];
   for(const {id,name,right,left,article,h:sheetHeight,rear,detail} of assets){
    const form=id==='shouki'?$('shoukiForm').value:null;
@@ -125,7 +140,7 @@ try{
     node:'shouki-godmaking-arena',placements:'live',profile,
     core:form==='armored'?'exposed':form==='shielded'?'shielded':'opening'
    });
-   const {data,image}=arena??(flip&&left?left:right);
+   const {data}=arena??(flip&&left?left:right);
    const h=arena?.artHeight??sheetHeight,ratio=data.box[2]/data.box[3],w=h*ratio;
    dimensions.push({id,h,w,ratio,source:data.source,...(rear&&{rearSource:rear.data.source})});
    article.hidden=!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;
@@ -138,35 +153,59 @@ try{
    const a=data.profiles[both?'h48c32':profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom;
    const palettePixels=$('palettePixels')?.checked;
    const body=spriteBounds(data,arena?h:h*zoom);
-   const layer=rear&&spriteBounds(rear.data,rear.height*zoom,rear.bottom*zoom);
-   const halfWidth=Math.max(-body.x,body.x+body.width,(layer?.width??0)/2);
-   const top=Math.min(body.y,layer?.y??0),painted=[];
-   for(const [i,canvas] of [...pair.querySelectorAll('canvas')].entries()){
-    if(i===2&&!both)continue;
-    const selected=i===0?null:both?(i===1?'h48c32':'h32c16'):profile;
-    canvas.width=arena?960:Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=arena?540:Math.max(300,Math.ceil(hover-top+30));
-    const floor=arena?.floorY??(canvas.height-15-hover);
-    const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(arena?.center??canvas.width/2,floor);
-    if(layer)paintSprite(ctx,rear.data,rear.image,layer,selected,palettePixels);
-    if(flip&&!left)ctx.scale(-1,1);
-    if(arena&&selected){
-     if(palettePixels)paintSprite(ctx,data,image,body,selected,true);
-     else ctx.setTransform(1,0,0,1,0,0);
-     const visible=openingRects(ctx,data.profiles[selected],body,arena.center,floor,flip,true,!palettePixels);
-     painted.push((selected==='legacy'?'標準':selected==='h48c32'?'32色':'16色')+' '+visible.toLocaleString('ja-JP')+'矩形');
-    }else paintSprite(ctx,data,image,body,selected,palettePixels);
-    ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,arena?.floorY??(canvas.height-15),canvas.width,1);
-    if(form==='armored'||form==='shielded'){
-     drawShoukiCore(ctx,data.box,h,arena.center,floor,arena.chestSourceY,form==='armored');
+   const bodyImage=galleryImage(data.source),rearImage=rear&&galleryImage(rear.data.source);
+   function draw(){
+    if(version!==renderVersion)return;
+    pair.style.visibility='';
+    article.removeAttribute('aria-busy');
+    const layer=rear&&spriteBounds(rear.data,rear.height*zoom,rear.bottom*zoom);
+    const halfWidth=Math.max(-body.x,body.x+body.width,(layer?.width??0)/2);
+    const top=Math.min(body.y,layer?.y??0),painted=[];
+    for(const [i,canvas] of [...pair.querySelectorAll('canvas')].entries()){
+     if(i===2&&!both)continue;
+     const selected=i===0?null:both?(i===1?'h48c32':'h32c16'):profile;
+     canvas.width=arena?960:Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=arena?540:Math.max(300,Math.ceil(hover-top+30));
+     const floor=arena?.floorY??(canvas.height-15-hover);
+     const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(arena?.center??canvas.width/2,floor);
+     if(layer)paintSprite(ctx,rear.data,rearImage?.image,layer,selected,palettePixels);
+     if(flip&&!left)ctx.scale(-1,1);
+     if(arena&&selected){
+      if(palettePixels)paintSprite(ctx,data,bodyImage.image,body,selected,true);
+      else ctx.setTransform(1,0,0,1,0,0);
+      const visible=openingRects(ctx,data.profiles[selected],body,arena.center,floor,flip,true,!palettePixels);
+      painted.push((selected==='legacy'?'標準':selected==='h48c32'?'32色':'16色')+' '+visible.toLocaleString('ja-JP')+'矩形');
+     }else paintSprite(ctx,data,bodyImage.image,body,selected,palettePixels);
+     ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,arena?.floorY??(canvas.height-15),canvas.width,1);
+     if(form==='armored'||form==='shielded'){
+      drawShoukiCore(ctx,data.box,h,arena.center,floor,arena.chestSourceY,form==='armored');
+     }
     }
+    const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);
+    detail?.(zoom,flip,both?['32色','16色']:[$('profile').selectedOptions[0].textContent]);
+    const runs=total(profile);
+    const standard=total('legacy');
+    article.querySelector('.stats').textContent=both?`32色版 ${total('h48c32')}矩形 ／ 16色版 ${total('h32c16')}矩形${rear?'（翼込み）':''}`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
+    if(arena)article.querySelector('.stats').textContent='会場の画角 960×540 px ／ 腰の位置は床面 ／ 表示高 '+h.toLocaleString('ja-JP')+' px ／ 画面内にかかる矩形 '+painted.join('・');
    }
-   const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);
-   detail?.(zoom,flip,both?['32色','16色']:[$('profile').selectedOptions[0].textContent]);
-   const runs=total(profile);
-   const standard=total('legacy');
-   article.querySelector('.stats').textContent=both?`32色版 ${total('h48c32')}矩形 ／ 16色版 ${total('h32c16')}矩形${rear?'（翼込み）':''}`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
-   if(arena)article.querySelector('.stats').textContent='会場の画角 960×540 px ／ 腰の位置は床面 ／ 表示高 '+h.toLocaleString('ja-JP')+' px ／ 画面内にかかる矩形 '+painted.join('・');
-  }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:true,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
+   if(bodyImage.decoded&&(!rearImage||rearImage.decoded))draw();
+   else{
+    pair.style.visibility='hidden';
+    article.setAttribute('aria-busy','true');
+    article.querySelector('.stats').textContent='元画像を読み込み中…';
+    pending.push(Promise.all([bodyImage.ready,rearImage?.ready]).then(draw).catch(error=>{
+     if(version===renderVersion){
+      article.removeAttribute('aria-busy');
+      article.querySelector('.stats').textContent='元画像を読み込めませんでした。';
+     }
+     throw error;
+    }));
+   }
+  }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:pending.length===0,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
+  if(pending.length)Promise.all(pending).then(()=>{
+   if(version===renderVersion)window.charactersGallery.ready=true;
+  }).catch(error=>{
+   if(version===renderVersion)$('status').textContent='素材の読み込みに失敗しました: '+error.message;
+  });
  }
  if($('shoukiForm'))$('shoukiForm').onchange=()=>{
   const url=new URL(location.href),form=$('shoukiForm').value;
