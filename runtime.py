@@ -1,6 +1,8 @@
 from pathlib import Path
 import sys, json
+from stygian_art import stygian_parts
 from field_pose_files import enemy_pose_files, legend_pose_files
+import common_boss_art as boss_parts
 from packed_poses import load_pose_pack, read_packed_pose
 from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
@@ -315,9 +317,15 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     if assets.exists(): core.assets=lua.table_from(json.loads(assets.read_text())['sprites'],recursive=True)
     variants=ROOT/'assets/variants.json'
     if variants.exists(): core.variants=lua.table_from({k:v['sprites'] for k,v in json.loads(variants.read_text(encoding='utf8'))['variants'].items()},recursive=True)
-    lua.execute((ROOT/'boss-art.lua').read_text(encoding='utf8'))(core,*[lua.table_from(json.loads((ROOT/'assets'/name).read_text(encoding='utf8')),recursive=True) for name in ['boss-sprites.json','anemo-shell-sprites.json','anemo-core-sprites.json','farka-sprites.json']],lua.table_from([json.loads((ROOT/'assets'/f'farka-action-{i}.json').read_text(encoding='utf8')) for i in range(1,5)],recursive=True),lua.table_from(json.loads((ROOT/'assets/pyro-regisvine-sprites.json').read_text(encoding='utf8')),recursive=True),*[lua.table_from(json.loads((ROOT/'assets'/name).read_text(encoding='utf8')),recursive=True) for name in ['electro-shell-sprites.json','electro-core-sprites.json']],lua.table_from({part:json.loads((ROOT/'assets'/f'geo-{part}-sprites.json').read_text(encoding='utf8')) for part in ['shell','core','pillar']},recursive=True))
-    core.primoArt=lua.table_from(json.loads((ROOT/'assets/primo-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.maguuArt=lua.table_from(json.loads((ROOT/'assets/maguu-sprites.json').read_text(encoding='utf8')),recursive=True)
+    shared=load_pose_pack(lua,ROOT,'common-boss-packed.json')
+    lua.execute((ROOT/'boss-art.lua').read_text(encoding='utf8'))(
+        core,*(shared[name] for name in boss_parts.BASE),
+        lua.table_from([shared[name] for name in boss_parts.FARKA_ACTIONS]),shared[boss_parts.PYRO],
+        *(shared[name] for name in boss_parts.ELECTRO),
+        lua.table_from({key:shared[name] for key,name in boss_parts.GEO.items()}))
+    for key,name in boss_parts.CORE.items():
+        core[key]=shared[name]
+    core.arrayPartArt=lua.table_from([shared[name] for name in boss_parts.ARRAY_PARTS])
     character_gallery=json.loads((ROOT/'content/character-art-gallery.json').read_text(encoding='utf8'))
     poses=load_pose_pack(lua,ROOT,'character-gallery-packed.json')
     companion_art=lua.table()
@@ -367,12 +375,6 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
         for pose in ('standing','seated')
     },recursive=True)
     core.amberBowArt=lua.table_from(json.loads((ROOT/'assets/amber-bow-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
-    core.thunderArt=lua.table_from(json.loads((ROOT/'assets/thunder-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.arrayArt=lua.table_from(json.loads((ROOT/'assets/array-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.arrayPartArt=lua.table_from([json.loads((ROOT/'assets'/f'array-part-{i}-sprites.json').read_text(encoding='utf8')) for i in range(1,5)],recursive=True)
-    core.maguuMaskArt=lua.table_from(json.loads((ROOT/'assets/maguu-mask-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.maguuStanceArt=lua.table_from(json.loads((ROOT/'assets/maguu-stance-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.maguuSlashArt=lua.table_from(json.loads((ROOT/'assets/maguu-slash-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
     story_nodes={node['id']:node for node in story_data['nodes']}
@@ -525,78 +527,48 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     abyss=json.loads((ROOT/'content/abyss-settings.json').read_text(encoding='utf8'))
     if not draft_balance:
         abyss['modes'] = {id: mode for id, mode in abyss['modes'].items() if not mode.get('draft')}
+    def stygian_layers(parts):
+        files={key:file for key,file in parts.items() if isinstance(file,str)}
+        layers=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_dir='stygian-packed')
+        for key,subparts in parts.items():
+            if isinstance(subparts,dict):
+                layers[key]=stygian_layers(subparts)
+        return layers
+
+    for name,parts in stygian_parts(ROOT).items():
+        core['stygian'+name+'Art']=stygian_layers(parts)
+    core.stygianWandererArt=lua.table(left=companion_art.wanderer.left,right=companion_art.wanderer)
+    core.stygianBeidouArt.idle=lua.table(left=companion_art.beidou.left,right=companion_art.beidou)
+    for name in ('Capitano','Xbalanque'):
+        sockets=json.loads((ROOT/f'assets/{name.lower()}-stygian-generation-v1.json').read_bytes())['hand_sockets']
+        core['stygian'+name+'Art'].hands=lua.table_from(sockets,recursive=True)
     stygian_geometry=lua.execute((ROOT/'stygian-geometry.lua').read_text(encoding='utf8'))
     stygian_beidou=lua.execute((ROOT/'stygian-beidou.lua').read_text(encoding='utf8'))(core,stygian_geometry)
-    guard_assets={}
-    beidou_audit=json.loads((ROOT/'assets/beidou-stygian-generation-v1.json').read_text(encoding='utf8'))
-    for direction,pose in beidou_audit['poses'].items():
-        art=json.loads((ROOT/'assets'/pose['encoding']).read_text(encoding='utf8'))
-        crown,_,sole=pose['crownChinSoleY']
-        art['heightScale']=art['box'][3]/(sole-crown)
-        guard_assets[direction]=art
-    core.stygianBeidouArt=lua.table_from({
-        'idle':{'left':companion_art['beidou']['left'],'right':companion_art['beidou']},
-        'guard':guard_assets,
-    },recursive=True)
     capitano_moves=lua.execute((ROOT/'stygian-capitano-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     capitano=lua.execute((ROOT/'stygian-capitano.lua').read_text(encoding='utf8'))(core,capitano_moves)
-    capitano_audit=json.loads((ROOT/'assets/capitano-stygian-generation-v1.json').read_text(encoding='utf8'))
-    core.stygianCapitanoArt=lua.table_from({
-        kind:{side:json.loads((ROOT/'assets'/f'capitano-{kind}-{side}-sprites-v1.json').read_text(encoding='utf8'))
-              for side in ('left','right')}
-        for kind in ('coat','battle','strike')
-    } | {
-        'sword':json.loads((ROOT/'assets/capitano-ice-sword-sprites-v1.json').read_text(encoding='utf8')),
-        'hands':capitano_audit['hand_sockets'],
-    },recursive=True)
     xbalanque_moves=lua.execute((ROOT/'stygian-xbalanque-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     xbalanque=lua.execute((ROOT/'stygian-xbalanque.lua').read_text(encoding='utf8'))(core,stygian_geometry,xbalanque_moves)
-    xbalanque_audit=json.loads((ROOT/'assets/xbalanque-stygian-generation-v1.json').read_text(encoding='utf8'))
-    core.stygianXbalanqueArt=lua.table_from({
-        kind:{side:json.loads((ROOT/'assets'/f'xbalanque-{kind}-{side}-sprites-v1.json').read_text(encoding='utf8'))
-              for side in ('left','right')}
-        for kind in ('idle','guard','punch')
-    } | {'hands':xbalanque_audit['hand_sockets']},recursive=True)
     rerir_moves=lua.execute((ROOT/'stygian-rerir-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     rerir_view=lua.execute((ROOT/'stygian-rerir-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,rerir_moves)
     rerir=lua.execute((ROOT/'stygian-rerir.lua').read_text(encoding='utf8'))(core,stygian_geometry,rerir_moves,rerir_view)
-    core.stygianRerirArt=lua.table_from({
-        side:json.loads((ROOT/'assets'/f'rerir-idle-{side}-sprites-v1.json').read_text(encoding='utf8'))
-        for side in ('left','right')
-    },recursive=True)
     ronova_party=lua.execute((ROOT/'stygian-ronova-party.lua').read_text(encoding='utf8'))(core)
     ronova_moves=lua.execute((ROOT/'stygian-ronova-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry,ronova_party)
     ronova_view=lua.execute((ROOT/'stygian-ronova-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,ronova_moves)
     ronova=lua.execute((ROOT/'stygian-ronova.lua').read_text(encoding='utf8'))(core,stygian_geometry,ronova_party,ronova_moves,ronova_view)
-    core.stygianRonovaArt=lua.table_from({
-        kind:json.loads((ROOT/'assets'/f'ronova-{suffix}-sprites-v1.json').read_text(encoding='utf8'))
-        for kind,suffix in {'left':'idle-left','right':'idle-right','wings':'wings'}.items()
-    },recursive=True)
     wanderer_moves=lua.execute((ROOT/'stygian-wanderer-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     wanderer_view=lua.execute((ROOT/'stygian-wanderer-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,wanderer_moves)
     wanderer=lua.execute((ROOT/'stygian-wanderer.lua').read_text(encoding='utf8'))(core,stygian_geometry,wanderer_moves,wanderer_view)
-    core.stygianWandererArt=lua.table_from({
-        direction:json.loads((ROOT/'assets'/f'wanderer-idle-{direction}-sprites-v3.json').read_text(encoding='utf8'))
-        for direction in ('left','right')
-    },recursive=True)
     farka_moves=lua.execute((ROOT/'stygian-farka-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     farka_view=lua.execute((ROOT/'stygian-farka-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,farka_moves)
     farka=lua.execute((ROOT/'stygian-farka.lua').read_text(encoding='utf8'))(core,stygian_geometry,farka_moves,farka_view)
     farka_layers=json.loads((ROOT/'content/farka-idle-layers.json').read_text(encoding='utf8'))
-    farka_sword=json.loads((ROOT/'assets'/farka_layers['sword']['file']).read_text(encoding='utf8'))
-    sx,sy,sw,sh=farka_sword['box']
-    gx,gy=farka_layers['sword']['grip']
-    farka_sword['anchorX'],farka_sword['anchorY']=(gx-sx)/sw,(gy-sy)/sh
     farka_root=farka_layers['root']
     farka_hands={
         side:{hand:[value-root for value,root in zip(layer['sockets'][f'hand_{hand}'],farka_root)]
               for hand in ('front','back')}
         for side,layer in farka_layers['facings'].items()
     }
-    core.stygianFarkaArt=lua.table_from({
-        side:json.loads((ROOT/'assets'/layer['body']).read_text(encoding='utf8'))
-        for side,layer in farka_layers['facings'].items()
-    } | {'sword':farka_sword,'hands':farka_hands},recursive=True)
+    core.stygianFarkaArt.hands=lua.table_from(farka_hands,recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
         lua.table_from(stygian,recursive=True),
