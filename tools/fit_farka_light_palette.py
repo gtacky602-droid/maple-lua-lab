@@ -1,4 +1,5 @@
-"""Fit a sixteen-color palette to the Farka opening at its displayed resolution."""
+"""Fit a sixteen-color palette to a masked two-dimensional field sprite."""
+import argparse
 import json
 from pathlib import Path
 
@@ -67,11 +68,18 @@ def fit(art):
 
 
 if __name__=='__main__':
-    for side in ('left','right'):
-        path=ASSETS/f'farka-body-{side}-sprites-v1.json'
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('roster',choices=('farka','tristars'),default='farka',nargs='?')
+    roster=parser.parse_args().roster
+    if roster=='farka':
+        names=[f'farka-body-{side}-sprites-v1.json' for side in ('left','right')]
+    else:
+        names=[f'legend-tristars-{element}-field-idle-sprites-v1.json' for element in ('cryo','electro','pyro')]
+    for name in names:
+        path=ASSETS/name
         art=json.loads(path.read_bytes())
         old=art['profiles']['h32c16']
         new=fit(art)
-        print(side,len(old['runs']),len(new['runs']))
+        print(name,len(old['runs']),len(new['runs']))
         art['profiles']['h32c16']=new
         path.write_bytes((json.dumps(art,ensure_ascii=False,separators=(',',':'))+'\n').encode())

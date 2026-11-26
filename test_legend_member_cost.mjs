@@ -58,6 +58,14 @@ try {
    assert.equal(link.searchParams.get('sampleX'),String(point.x));
    assert.equal(link.searchParams.get('sampleY'),String(point.y));
   }
+  if(node==='witztli-tristars-camp'){
+   for(const part of parts){
+    await page.locator('#liveSubject').selectOption(part.id);
+    await page.locator('#measureSprite').click();
+    const result=await page.locator('#spriteFidelity').evaluate(el=>JSON.parse(el.dataset.result));
+    assert.ok(result.union>0 && result.overlapPercent>90 && result.meanRgbError<28,part.name);
+   }
+  }
   if(node==='mond-stygian-dual-court'){
    await page.locator('#differenceCrops [data-crop="color"]').click();
    await page.locator('#sceneryDetail .detail-pair').screenshot({path:'evidence/farka-color-crop-16.png'});
