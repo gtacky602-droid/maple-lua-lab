@@ -117,7 +117,7 @@ export function initAtlas(action, clearKeys) {
  }
 
  function renderRegions() {
-  const next = view.options.map(item => item.id).join(',');
+  const next = view.options.map(item => [item.id,item.visited,item.total].join(':')).join(',');
   if (next !== regionSignature) {
    regionSignature = next;
    const groups = new Map();
@@ -127,7 +127,7 @@ export function initAtlas(action, clearKeys) {
      group.label = groupNames[item.kind] ?? '地域';
      groups.set(item.kind, group);
     }
-    groups.get(item.kind).append(new Option(item.name, item.id));
+    groups.get(item.kind).append(new Option(`${item.name}（${item.visited}／${item.total}）`, item.id));
    }
    region.replaceChildren(new Option('テイワット全域', 'world'), ...groups.values());
   }
@@ -210,7 +210,8 @@ export function initAtlas(action, clearKeys) {
    const kind = huntLabel(route);
    const gate = route.entryHeight != null && (route.entryHeight < 480 ? '上の足場の門' : '地上の門');
    const level = route.level != null && route.reason !== `必要Lv${route.level}` && `Lv${route.level}`;
-   const details = [kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.reason].filter(Boolean);
+   const visit = route.visited === undefined ? '' : route.visited ? '訪問済み' : '未訪問';
+   const details = [visit, kind, route.label, level, gate, route.automaticArrival && '到着後に自動で移動', route.hint, route.reason].filter(Boolean);
    button.textContent = `${route.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(route);
    li.append(button);appendGateLink(li,selected.id,route);

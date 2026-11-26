@@ -1,15 +1,24 @@
 """Follow town commissions and visit unexplored map points on the continuing save."""
+import argparse
 import json
 from collections import deque
 
 from runtime import ROOT, runtime
 from test_earned_branch_quests import Journey, graph, quests
 
-source=ROOT/'evidence/original-weekly-expedition-save.json'
+groups={
+    'mond-liyue':('original-weekly-expedition',[('モンド','region-01','mond-town'),('璃月','region-02','liyue-harbor')]),
+    'ina-sum':('mond-liyue-survey',[('稲妻','region-03','inazuma-town'),('スメール','region-04','sumeru-hub')]),
+}
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--group',choices=groups,default='mond-liyue')
+group=parser.parse_args().group
+seed,regions=groups[group]
+source=ROOT/f'evidence/{seed}-save.json'
 trip=Journey(source,runtime(),select_traveler=True)
 before=trip.snapshot()
 nodes={n['id']:n for n in graph['nodes']}
-regions={'モンド':'mond-town','璃月':'liyue-harbor'}
+atlas=json.loads((ROOT/'content/world-atlas.json').read_bytes())
 regions_proof={}
 
 def report_ready(hub):
@@ -31,19 +40,36 @@ def commissions(region,hub):
         if q['kind']=='visit':
             trip.travel(q['target'])
         elif q['kind']=='kill':
+            trip.warp(hub)
+            bag=trip.state.inventory
+            if len(bag.ground):
+                items=list(bag['items'].values())
+                spare=sorted((a for a in items if a.owner==0 and not a.locked),
+                             key=lambda a:(a.rarity,a.itemLv,a.id))
+                for a in spare[:max(0,len(items)+len(bag.ground)+4-80)]:
+                    trip.act('artifact_sell:'+str(a.id))
+                trip.act('artifact_recover')
             trip.travel(q['target'])
-            for _ in range(18000):
+            for tick in range(18000):
                 if state.count>=q['goal']:break
                 enemies=[e for e in trip.state.enemies.values() if e.hp>0]
                 if not enemies:
-                    trip.tick(30)
+                    trip.warp(hub)
+                    trip.travel(q['target'])
                     continue
-                enemy=min(enemies,key=lambda e:abs(e.x-trip.actor.x))
+                enemy=min(enemies,key=lambda e:abs(e.x-trip.actor.x)+2*abs(e.y-trip.actor.y))
+                if tick%90==0:
+                    trip.act('skill1')
+                    trip.act('skill2')
+                if tick and tick%1200==0:
+                    trip.warp(hub)
+                    trip.travel(q['target'])
+                    continue
                 dx=enemy.x-trip.actor.x
-                move=abs(dx)>65 or trip.actor.dir*dx<0
-                trip.tick(1,trip.lua.table(left=move and dx<0,right=move and dx>0,attack=True))
-            assert state.count>=q['goal'],q['id']
-        elif q['id'] in ('liyue-mapped-east-shore','mond-mapped-lakeside','threadline-survey'):
+                move=abs(dx)>22 or trip.actor.dir*dx<0
+                trip.tick(1,trip.lua.table(left=move and dx<0,right=move and dx>0,jump=enemy.y<trip.actor.y-45,attack=True))
+            assert state.count>=q['goal'],(q['id'],state.count,trip.state.story.node,trip.actor.x,trip.actor.y)
+        elif q['id'] in ('liyue-mapped-east-shore','mond-mapped-lakeside','threadline-survey','sum-mapped-twin-shaft','ina-mapped-seirai-ferry'):
             for index,step in enumerate(q['itinerary'],1):
                 if state.count>=index:continue
                 if step['kind']=='arrive':
@@ -55,10 +81,9 @@ def commissions(region,hub):
                 assert state.count>=index
     report_ready(hub)
 
-for region,hub in regions.items():
+for region,area_id,hub in regions:
     commissions(region,hub)
-    atlas=json.loads((ROOT/'content/world-atlas.json').read_bytes())
-    area=next(a for a in atlas['regions'] if a['id']=={'モンド':'region-01','璃月':'region-02'}[region])
+    area=next(a for a in atlas['regions'] if a['id']==area_id)
     targets={point['id'] for point in area['points']}
     failures={}
     while True:
@@ -99,4 +124,4 @@ after=trip.snapshot()
 assert all(after['story']['visited'].get(n) for n,v in before['story']['visited'].items() if v)
 assert all(after['endgame']['bosses'][k]['clears']>=v['clears'] for k,v in before['endgame']['bosses'].items())
 for name,data in [('save',after),('route',dict(seed=source.name,regions=regions_proof,reports=trip.reports))]:
-    (ROOT/f'evidence/mond-liyue-survey-{name}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())
+    (ROOT/f'evidence/{group}-survey-{name}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())

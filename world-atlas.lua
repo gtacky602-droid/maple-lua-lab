@@ -344,14 +344,17 @@ return function(C, atlas)
   end
  end
 
- local function visible_options(nodes)
+ local function visible_options(nodes,visited)
   local out={}
   for _,region in ipairs(atlas.regions) do
-   local seen=false
+   local count,total=0,0
    for _,point in ipairs(region.points) do
-    if nodes[point.id] then seen=true;break end
+    if nodes[point.id] then
+     total=total+1
+     if visited[point.id] then count=count+1 end
+    end
    end
-   if seen then out[#out+1]={id=region.id,name=region.name,low=region.low,high=region.high,kind=region.kind} end
+   if total>0 then out[#out+1]={id=region.id,name=region.name,low=region.low,high=region.high,kind=region.kind,visited=count,total=total} end
   end
   return out
  end
@@ -574,6 +577,7 @@ return function(C, atlas)
      local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
      routes[#routes+1]={previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
+       visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
        reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),
        automaticArrival=automatic_arrival(nodes[selected.id],edge)}
@@ -586,7 +590,7 @@ return function(C, atlas)
     selected.battleScene=returning
     if nodes[target] then
      routes[#routes+1]={id=target,name=nodes[target].name,region=places[target],level=nodes[target].level,
-      label=returning and '戦闘中に帰還' or '戦闘中に移動'}
+      visited=state.visited[target] or false,label=returning and '戦闘中に帰還' or '戦闘中に移動'}
     end
    end
   elseif selected and nodes[selected.anchor] then
@@ -629,7 +633,7 @@ return function(C, atlas)
  local function build(f,s,map)
   local nodes={}
   for _,node in ipairs(f.storyGraph.nodes) do nodes[node.id]=node end
-  local options=visible_options(nodes)
+  local options=visible_options(nodes,s.story.visited)
   local region=regions[map.region]
   if region then
    local legal=false
