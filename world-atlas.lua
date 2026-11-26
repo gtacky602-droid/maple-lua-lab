@@ -370,7 +370,7 @@ return function(C, atlas)
  end
 
  local function sealState(s,from,edge)
-  if edge.nightTotem and edge.rockSeal then
+  if edge.ironGate or edge.rockSeal then
    return C.atlasGateRestriction(s,from,edge,math.huge) and 'closed' or 'open'
   end
  end

@@ -491,10 +491,11 @@ try{
    if(body.rear&&(!part||previewCandidate(item)))layers.add(body.rear);
   }
   const missing=[...layers].filter(art=>art?.poseFile&&!art.image);
-  const trialGates=liveView?n.exits.filter(edge=>edge.nightTotem):[];
-  const sealed=edge=>edge.rockSeal && !(gatePreview.selectedGate()===edge && $('fixtureState').checked);
-  if(trialGates.some(edge=>!sealed(edge))&&!totemArt.image)missing.push(totemArt);
-  const measureGate=trialGates.find(edge=>edge===gatePreview.selectedGate());
+  const fieldGates=liveView?n.exits.filter(edge=>edge.nightTotem||edge.rockSeal||edge.ironGate):[];
+  const ironStage=questPreviews[n.id]?.stages[Number($('questPropStage').value)];
+  const sealed=edge=>edge.ironGate?ironStage?.visible.includes(edge.to):edge.rockSeal && !(gatePreview.selectedGate()===edge && $('fixtureState').checked);
+  if(fieldGates.some(edge=>edge.nightTotem&&!sealed(edge))&&!totemArt.image)missing.push(totemArt);
+  const measureGate=fieldGates.find(edge=>edge===gatePreview.selectedGate());
   const watchSteps=liveView&&n.stealthRoute?questsById.get(n.stealthRoute.quest).itinerary.filter(s=>s.cover):[];
   const guard=selectedSurveyPoint?.guard;
   const previewGuard=guard&&showPatrol.checked?assets[guard.art]:null;
@@ -663,7 +664,7 @@ try{
   const groupOpening=members?.length>1;
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
   $('fidelityControls').hidden=!(liveView && (measureGate || surveyProps.length || visibleItems.length) && !matchedSprites);
-  const measuredSubject=measureGate?(sealed(measureGate)?'封印の大岩':'黒曜石の柱'):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
+  const measuredSubject=measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
@@ -701,21 +702,31 @@ try{
     }
     return {a,flip,x,y,body,rear};
   }
-  function paintTrialGate(ctx,edge,quality,cost){
+  function paintFieldGate(ctx,edge,quality,cost){
    const x=edge.x-camera,y=edge.y??480;
    if(x < -100 || x > 1060)return;
-   if(!sealed(edge)){
+   const closed=sealed(edge);
+   if(!closed && edge.nightTotem){
     paintPlacementLayer(ctx,totemArt,spriteBounds(totemArt,136),quality,x,y,false,cost);
     return;
    }
-   for(const [dx,dy,w,h,color] of [[-39,-39,78,39,'#393749'],[-31,-58,61,41,'#565067'],[-23,-66,42,12,'#756887'],[-12,-40,28,3,'#9286ab']]){
+   if(closed && edge.ironGate){
+    for(const mark of questPreviews[n.id].props[edge.to]){
+     paintMechanismMark(ctx,mark,-camera,0,false);
+     if(quality){cost.total++;if(mark.x-camera+mark.w>0&&mark.x-camera<960){cost.visible++;cost.standard++}}
+    }
+    return;
+   }
+   const pieces=closed?[[-39,-39,78,39,'#393749'],[-31,-58,61,41,'#565067'],[-23,-66,42,12,'#756887'],[-12,-40,28,3,'#9286ab']]:
+    [[-18,-90,3,90,'#83dbe1'],[15,-90,3,90,'#83dbe1'],[-18,-90,36,3,'#83dbe1'],[-21,-3,42,3,'#83dbe1']];
+   for(const [dx,dy,w,h,color] of pieces){
     ctx.fillStyle=color;ctx.fillRect(x+dx,y+dy,w,h);
     if(quality){cost.total++;if(x+dx+w>0&&x+dx<960){cost.visible++;cost.standard++}}
    }
   }
   function paintMeasuredSprites(ctx,quality){
     const cost={total:0,visible:0,standard:0};
-    if(measureGate){paintTrialGate(ctx,measureGate,quality,cost);return cost.visible}
+    if(measureGate){paintFieldGate(ctx,measureGate,quality,cost);return cost.visible}
     if(surveyProps.length){
      for(const prop of surveyProps)paintSurveyProp(ctx,prop,quality,cost);
      return cost.visible;
@@ -780,7 +791,7 @@ try{
   const memberRows=memberPanel.querySelector('tbody');
   memberRows.replaceChildren();
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
-   for(const edge of trialGates)paintTrialGate(ctx,edge,mode==='png'||matchedSprites?null:profile,cost);
+   for(const edge of fieldGates)paintFieldGate(ctx,edge,mode==='png'||matchedSprites?null:profile,cost);
    for(const animal of liveView?wildlife[n.id]??[]:[]){
     const art=assets[animal.art];
     paintPlacementLayer(ctx,art,spriteBounds(art,art.h),mode==='png'||matchedSprites?null:profile,animal.x-camera,animal.y,animal.flip,cost);
@@ -851,6 +862,7 @@ try{
      }
     }
     for(const id of stage.visible){
+     if(fieldGates.some(edge=>edge.ironGate && edge.to===id))continue;
      for(const mark of questPreview.props[id])paintMechanismMark(ctx,mark,-camera,0,false);
     }
    }
@@ -931,7 +943,7 @@ try{
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   const subjects=teaProps.length?'事件帖の絵札・茶屋の道具':course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':liveView&&wildlife[n.id]?'水中生物':'キャラクター';
   const matchedLabel=teaProps.length?'事件帖の道具は左右とも元PNG':course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':liveView&&wildlife[n.id]?'水中生物は左右とも元PNG':'キャラは左右とも元PNG';
-  const costSubject=trialGates.length?'入口とキャラクターの':surveyProps.length?'小物・キャラクターの':subjects;
+  const costSubject=fieldGates.length?'入口とキャラクターの':surveyProps.length?'小物・キャラクターの':subjects;
   $('viewportCost').textContent=matchedSprites?(surveyProps.length?'小物は左右とも元PNG':matchedLabel):decoded&&!cost.standard?'':viewportSummary(cost,profile,costSubject);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
@@ -1070,7 +1082,9 @@ try{
    const requested=n.id===festival.node?'round':n.id===worksiteArt.contest.node?'contest':null;
    const stageParam=n===openingNode?query.get('stage'):null;
    const phase=stageParam!==null?Number(stageParam):n===openingNode&&requested?Number(query.get(requested)):0;
-   const index=Number.isInteger(phase)&&phase>=1&&phase<=preview.stages.length?phase-1:0;
+   let index=Number.isInteger(phase)&&phase>=1&&phase<=preview.stages.length?phase-1:0;
+   const iron=n===openingNode&&n.exits.find(edge=>edge.ironGate&&edge.to===query.get('to'));
+   if(iron&&query.get('fixture')==='open')index=preview.stages.findIndex(stage=>!stage.visible.includes(iron.to));
    stageSelect.value=String(index);
    camera.value=preview.stages[index].focusX-480;
   }
