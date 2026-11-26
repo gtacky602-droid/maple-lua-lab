@@ -171,6 +171,8 @@ try{
    const h=arena?.artHeight??sheetHeight,ratio=data.box[2]/data.box[3],w=h*ratio;
    dimensions.push({id,h,w,ratio,source:data.source??data.sourceImage,...(rear&&{rearSource:rear.data.source??rear.data.sourceImage})});
    article.hidden=!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;
+   const save=article.querySelector('.save-comparison');
+   if(save)save.disabled=true;
    const both=$('compareBoth')?.checked;
    const pair=article.querySelector('.pair');
    if(pair.children.length===3){
@@ -215,6 +217,7 @@ try{
       drawShoukiCore(ctx,data.box,h,arena.center,floor,arena.chestSourceY,form==='armored');
      }
     }
+    if(save)save.disabled=false;
     const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);
     detail?.(zoom,flip,both?['32色','16色']:[$('profile').selectedOptions[0].textContent]);
     const runs=total(profile);

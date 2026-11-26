@@ -1,3 +1,4 @@
+import {downloadComparison} from './comparison-png.js';
 import {compareMasks} from './sprite-fidelity.js';
 
 export function characterDetail(article){
@@ -9,16 +10,29 @@ export function characterDetail(article){
   return marker;
  });
  const details=document.createElement('details');
- details.innerHTML='<summary>全身・部分の画質を測る</summary><p>元PNGで顔や武器を押すと、実寸24×24pxの範囲を比較します。矢印キーでも位置を選べます。</p><button type="button">全身に戻す</button> <output></output>';
+ details.innerHTML='<summary>全身・部分の画質を測る</summary><p>元PNGで顔や武器を押すと、実寸24×24pxの範囲を比較します。矢印キーでも位置を選べます。</p><button type="button">全身に戻す</button> <button type="button" class="save-comparison" disabled>比較画像をPNGで保存</button> <output></output>';
  article.append(details);
  const crops=document.createElement('div');crops.className='character-crops';details.append(crops);
  const output=details.querySelector('output'),reset=details.querySelector('button'),source=canvases[0];
- let focus,zoom,flip,profiles=[];
+ const save=details.querySelector('.save-comparison');
+ let focus,zoom,flip,profiles=[],crop;
+ save.onclick=()=>{
+  const direction=flip?'左向き':'右向き',labels=['元PNG',...profiles];
+  const merged=document.querySelector('#palettePixels').checked;
+  downloadComparison({canvases:canvases.slice(0,labels.length),labels,
+   title:article.querySelector('h2').textContent+' ／ '+direction+'・'+zoom+'倍',
+   stats:article.querySelector('.stats').textContent,
+   note:(merged?'原寸合成':'表示倍率で描画')+' ／ '+(crop?'実寸24×24pxの選択範囲 ／ ':'')+output.textContent,
+   filename:[article.dataset.id,flip?'left':'right',zoom+'x',profiles.length===2?'both':document.querySelector('#profile').value,
+    merged?'pixels':'rect',crop?('crop-'+crop.x+'-'+crop.y):'full'].join('-')+'.png',crop,
+   onError:()=>{output.textContent='PNGを書き出せませんでした。'}});
+ };
  function measure(){
   const active=details.open&&focus;
   const size=24*zoom;
   const x=active?Math.max(0,Math.min(source.width-size,Math.round(focus.x-size/2))):0;
   const y=active?Math.max(0,Math.min(source.height-size,Math.round(focus.y-size/2))):0;
+  crop=active?{x,y,size}:null;
   const w=active?size:source.width,h=active?size:source.height;
   for(const marker of markers){
    marker.hidden=!active;

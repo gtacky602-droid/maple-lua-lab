@@ -1,3 +1,4 @@
+import {downloadComparison} from './comparison-png.js';
 import {entranceKey,showArenaEntrances} from './arena-entrances.js';
 import {paintSprite,rectangleCount,packedGeometrySize,spriteBounds} from './sprite-layers.js';
 
@@ -5,31 +6,12 @@ const boss=document.querySelector('#boss'),pose=document.querySelector('#pose');
 const result=document.querySelector('#result'),canvases=[...document.querySelectorAll('canvas')];
 const saveButton=document.querySelector('#saveComparison'),saveStatus=document.querySelector('#saveStatus');
 saveButton.onclick=()=>{
- const image=document.createElement('canvas'),w=canvases[0].width,h=canvases[0].height;
- const margin=20,gap=12,top=88;
- image.width=2*margin+3*w+2*gap;image.height=top+h+64;
- const ctx=image.getContext('2d');
- ctx.fillStyle='#102b33';ctx.fillRect(0,0,image.width,image.height);
- ctx.fillStyle='#e3f4f4';ctx.font='bold 26px "Yu Gothic UI", sans-serif';
- ctx.fillText(boss.selectedOptions[0].text+' ／ '+pose.selectedOptions[0].text,margin,36);
- ctx.font='18px "Yu Gothic UI", sans-serif';
- for(const [i,c] of canvases.entries()){
-  const x=margin+i*(w+gap);
-  ctx.fillStyle='#e3f4f4';ctx.fillText(c.parentElement.querySelector('figcaption').textContent,x,top-10);
-  ctx.fillStyle='#26454b';ctx.fillRect(x,top,w,h);
-  ctx.drawImage(c,x,top);
- }
- ctx.fillStyle='#e3f4f4';ctx.font='16px "Yu Gothic UI", sans-serif';
- ctx.fillText(result.textContent,margin,top+h+25,image.width-2*margin);
  const nativePixels=document.querySelector('#palettePixels').checked;
- ctx.fillText(nativePixels?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',margin,top+h+50);
- const filename=boss.value+'-'+pose.value+(nativePixels?'-pixels':'')+'-comparison.png';
- image.toBlob(blob=>{
-  if(!blob){saveStatus.textContent='PNGを書き出せませんでした。';return}
-  const link=document.createElement('a'),url=URL.createObjectURL(blob);
-  link.download=filename;link.href=url;link.click();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
- },'image/png');
+ downloadComparison({canvases,labels:canvases.map(c=>c.parentElement.querySelector('figcaption').textContent),
+  title:boss.selectedOptions[0].text+' ／ '+pose.selectedOptions[0].text,stats:result.textContent,
+  note:nativePixels?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
+  filename:boss.value+'-'+pose.value+(nativePixels?'-pixels':'')+'-comparison.png',
+  onError:()=>{saveStatus.textContent='PNGを書き出せませんでした。'}});
 };
 const fieldMode=new URL(location.href).searchParams.get('group')==='field';
 const names={
