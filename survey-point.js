@@ -174,6 +174,13 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  if(step?.kind!=='inspect')return null;
  const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x) && Number.isFinite(p.y));
  if(!point)return null;
+ const fixtures=[];
+ if(step.outcrop){
+  const ink={faint:'#8199af',partial:'#536e91',clear:'#24456c'}[step.outcrop];
+  const rects=[[-23,-30,46,30,'#68869b'],[-17,-39,34,27,'#b9d8e3']];
+  for(let stripe=-1;stripe<=1;stripe++)for(let i=0;i<4;i++)rects.push([stripe*9+i,-30-i*2,4,2,ink]);
+  fixtures.push({x:point.x,y:point.y,rects,name:point.name,labelHeight:48});
+ }
  const props=quest.surveyAssist?wandererSurveyProps(quest,index,node):
   room?.colleiGuideQuest===quest.id?colleiSceneProps(quest,index,node,room):[];
  const ingredientHeights={flower:45,dry:43,wood:35};
@@ -187,7 +194,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  }
  const prop=step.returnClue??(step.returnPickup?{art:'crate',height:51}:null);
  return {quest:quest.id,step:index+1,node,x:point.x,y:point.y,name:point.name??step.name??step.objective,
-  action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop}),...(props.length&&{props})};
+  action:step.action??step.objective,...(path&&{path:path.id,pathLabel:path.label}),...(prop&&{returnProp:prop}),...(props.length&&{props}),...(fixtures.length&&{fixtures})};
 }
 
 export function worksitePoints(quest){

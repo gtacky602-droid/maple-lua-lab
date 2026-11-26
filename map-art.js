@@ -909,6 +909,16 @@ try{
      ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
     }
    }
+   if(n===openingNode&&n.spiritReturns&&query.has('echoes')&&gatePreview.selectedGate()?.rockSeal){
+    const returned=query.get('echoes').split(',');
+    for(const mark of n.spiritReturns){
+     if(!returned.includes(mark.path))continue;
+     const x=mark.x-camera,y=mark.y-36+Math.sin(x*.026)*4;
+     ctx.fillStyle='#6ce7b75c';ctx.fillRect(x-9,y-8,18,16);
+     ctx.fillStyle='#bcfddb';ctx.fillRect(x-3,y-6,6,12);
+     ctx.fillStyle='#dcffeb';ctx.fillRect(x-6,y-2,12,4);
+    }
+   }
    for(const fixture of selectedSurveyPoint?.fixtures??[]){
     const x=fixture.x-camera;
     for(const [dx,dy,w,h,color] of fixture.rects){

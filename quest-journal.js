@@ -125,6 +125,14 @@ function postQuestLetter(q,state){
  return letterPoint(q,stage);
 }
 
+function arrivalGatePoints(graph,step){
+ const source=graph.nodes.find(n=>n.id===step.from);
+ return (source?.exits??[]).filter(e=>e.to===step.node&&Number.isFinite(e.x)).map(e=>{
+  const params=new URLSearchParams({placements:'live',node:step.from,to:step.node,gateX:e.x,gateY:e.y??480});
+  return {label:e.rideLabel??source.name+'の出発口',url:'map-art.html?'+params};
+ });
+}
+
 export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
@@ -160,6 +168,17 @@ export function atlasQuestObjectives(frame,q,node){
  const onBranch=join>=0 && state.count===join && status==='active';
  const optional=q.anyPath && join>=0 && state.count>join;
  const objectives=[];
+ if(q.paths&&node===q.target&&state.pathProgress&&state.count>0){
+  const bank=frame.storyGraph.nodes.find(n=>n.id===node&&n.pathsQuest===q.id&&n.spiritReturns);
+  const seal=bank?.exits.find(e=>e.rockSeal);
+  if(seal){
+   const returned=bank.spiritReturns.filter(p=>state.pathProgress[p.path]?.count===q.paths.find(path=>path.id===p.path)?.steps.length);
+   const count=returned.length,total=bank.spiritReturns.length;
+   const params=new URLSearchParams({placements:'live',node,to:seal.to,gateX:seal.x,gateY:seal.y??480,
+    fixture:count===total?'open':'closed',echoes:returned.map(p=>p.path).join(',')});
+   objectives.push({text:'大岩に戻った光 '+count+' / '+total,points:[{label:count===total?'開いた試練の柱':'封じられた大岩',url:'map-art.html?'+params}]});
+  }
+ }
  function addObjective(text,index,path){
   const step=(path?.steps??q.itinerary)?.[index];
   const room=frame.storyGraph.nodes.find(n=>n.id===node);
@@ -179,6 +198,9 @@ export function atlasQuestObjectives(frame,q,node){
    const progress=path?state.pathProgress?.[path.id]:state;
    objectives.push({text,points:remainingEnemyPoints(step,progress)});
    return;
+  }
+  if(step?.kind==='arrive'&&step.from===node){
+   objectives.push({text,points:arrivalGatePoints(frame.storyGraph,step)});return;
   }
   const puzzle=step?.node===node && puzzleGuide(frame,q,step,index);
   if(puzzle){objectives.push({text,points:[puzzle]});return}
@@ -528,6 +550,11 @@ export function trackedQuest(f,id,selectedWorksite){
   const title=q.name+(optional?'（報告済み・任意の寄り道）':'');
   for(const path of q.paths){
    const index=st.pathProgress?.[path.id]?.count??0,step=path.steps[index];
+   if(step?.kind==='arrive'&&step.from&&(route.node===step.from||f.story.node===step.from&&route.node===step.node)){
+    const points=arrivalGatePoints(f.storyGraph,step);
+    if(points.length===1)return {...route,pointUrl:points[0].url,pointLabel:points[0].label+'の位置を見る',
+     text:title+' ｜ '+path.label+'：'+step.objective+' ｜ '+route.text};
+   }
    if(!step||step.node!==route.node)continue;
    if(step.kind==='kill'){
     const remaining=remainingEnemyPoints(step,st.pathProgress?.[path.id]);
