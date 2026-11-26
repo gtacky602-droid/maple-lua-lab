@@ -38,7 +38,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local barrierTargets={}
  local lunarJoin={'columbina-join','columbina-coast-detour'}
  local pathJoins={}
- local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
+ local forestQuest,lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do
   nodes[n.id]=n
   local element=elementByRegion[n.region]
@@ -67,6 +67,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if q.anyPath then
    for i,step in ipairs(q.itinerary) do if step.kind=='paths' then pathJoins[q.id]=i;break end end
   end
+  if q.forest then forestQuest=q end
   if q.lantern then lanternQuest=q end
   if q.contest then contestQuest=q end
   if q.sights then sightQuest=q end
@@ -319,10 +320,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return shownNode(s,nodes[edge.to]) and (not edge.visitedOnly or s.story.visited[edge.to])
       and (not edge.hideUntilAllowed or not gateRestriction(s,edge))
  end
+ local function learnedForestRooms(s)
+  local progress=forestQuest and s.story.quests[forestQuest.id]
+  return progress and math.min(progress.count,#forestQuest.forest.rooms) or 0
+ end
+ local function fieldName(s,node)
+  for i=1,learnedForestRooms(s) do
+   local room=forestQuest.forest.rooms[i]
+   if room.node==node.id then return node.name..'（'..room.name..'）' end
+  end
+  return node.name
+ end
  local function visibleStoryGraph(s)
   -- Edges with ordinary requirements stay in the graph and are evaluated at the gate.
   -- Only these predicates can change which definitions are present in a published graph.
-  local visibility={}
+  local visibility={tostring(learnedForestRooms(s)),':'}
   for _,node in ipairs(graphNodes) do
    visibility[#visibility+1]=shownNode(s,node) and '1' or '0'
   end
@@ -344,6 +356,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,node in ipairs(data.nodes) do
    if shownNode(s,node) then
     local visible=copy(node)
+    visible.name=fieldName(s,node)
     local phase=node.locationAfterReport
     if phase and completed(s,phase.quest) then visible.name=phase.name end
     visible.exits={}
@@ -384,7 +397,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     elseif n.travelerTrial and s.actors[1].hp<=0 then reason='旅人が戦闘可能な状態で挑戦してください。'
     else reason=gateRestriction(s,edge) end
-    best={to=edge.to,name=automatic and n.name or edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
+    best={to=edge.to,name=automatic and fieldName(s,n) or edge.rideLabel or fieldName(s,n),level=n.level,available=not reason,reason=reason,
           automaticArrival=automatic,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
           ferryBoard=n.voyage and n.voyage.kind=='ferry' or nil,

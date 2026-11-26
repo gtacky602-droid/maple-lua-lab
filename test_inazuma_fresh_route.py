@@ -161,6 +161,20 @@ def check_room_art():
         step()
     raise AssertionError((node,checked))
 
+def verify_torii_names(s, solved):
+    rooms = nodes[prints]['name']
+    expected = {id: rooms + ('（' + clue + '）' if index < solved else '')
+                for index, (id, clue) in enumerate([(prints, '岩のそば'), (statues, '石像'), (water, '水たまり')])}
+    core.action(s, 'world_map_focus:' + prints)
+    f = core.frame(s)
+    points = {p.id: p.name for p in f.worldMap.points.values()}
+    names = {n.id: n.name for n in f.storyGraph.nodes.values()}
+    for id, name in expected.items():
+        assert names[id] == points[id] == name
+    core.action(s, 'world_map_close')
+
+
+verify_torii_names(state, 0)
 forest_clues=[]
 for count, x, stage in [(1, 485, statues), (2, 855, water), (3, 485, thicket)]:
     art_check=check_room_art()
@@ -171,6 +185,7 @@ for count, x, stage in [(1, 485, statues), (2, 855, water), (3, 485, thicket)]:
     forest_clues.append(dict(**art_check,hintAndRetry=True))
     collect(x)
     assert q.count == count
+    verify_torii_names(state, count)
     trail.cross(stage)
 for i, x in enumerate((420, 785, 1130), 1):
     guides.expect(frame(),maze,spawns=['inazuma-thicket-'+str(n) for n in range(i,4)])
@@ -182,6 +197,7 @@ cross_all(shore, town, road, port)
 report(maze)
 guides.expect(frame(),maze,absent=True)
 assert q.status=='complete' and q.cycles==1
+verify_torii_names(core.restore(core.checkpoint(state),12), 3)
 (ROOT/'evidence/torii-earned-route.json').write_text(json.dumps(dict(
     startLevel=checkpoint['progression']['level'],rooms=forest_clues,coast=shore,report=milestones[-1]),
     ensure_ascii=False,indent=2)+'\n',encoding='utf8')
