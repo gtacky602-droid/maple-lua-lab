@@ -1,0 +1,121 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "fontaine-entry",
+      "key": "fontaine",
+      "file": "fontaine-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 30618
+    },
+    {
+      "id": "fontaine-hub",
+      "key": "fontaine",
+      "file": "fontaine-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 30618
+    },
+    {
+      "id": "fontaine-field",
+      "key": "fontaine",
+      "file": "fontaine-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 30618
+    },
+    {
+      "id": "fon-wp-50035",
+      "key": "fontaineBerylCoast",
+      "file": "fon-beryl-coast-background-v1.png",
+      "bundle": "fon-beryl-native-backgrounds.lua",
+      "packedBytes": 29882
+    },
+    {
+      "id": "fontaine-beryl-bank",
+      "key": "fontaineBerylCoast",
+      "file": "fon-beryl-coast-background-v1.png",
+      "bundle": "fon-beryl-native-backgrounds.lua",
+      "packedBytes": 29882
+    },
+    {
+      "id": "fon-wp-50041",
+      "key": "fontaineBerylCoast",
+      "file": "fon-beryl-coast-background-v1.png",
+      "bundle": "fon-beryl-native-backgrounds.lua",
+      "packedBytes": 29882
+    },
+    {
+      "id": "fon-wp-50046",
+      "key": "fontaineBerylCoast",
+      "file": "fon-beryl-coast-background-v1.png",
+      "bundle": "fon-beryl-native-backgrounds.lua",
+      "packedBytes": 29882
+    },
+    {
+      "id": "fon-wp-50047",
+      "key": "fontaineBerylSluice",
+      "file": "fon-beryl-sluice-background-v1.png",
+      "bundle": "fon-beryl-native-backgrounds.lua",
+      "packedBytes": 28016
+    },
+    {
+      "id": "fon-wp-53858",
+      "key": "fontaineNorthTidegate",
+      "file": "fon-north-tidegate-background-v1.png",
+      "bundle": "fon-north-native-backgrounds.lua",
+      "packedBytes": 27702
+    },
+    {
+      "id": "fon-wp-53862",
+      "key": "fontaineNorthHeadland",
+      "file": "fon-north-headland-background-v1.png",
+      "bundle": "fon-north-native-backgrounds.lua",
+      "packedBytes": 28872
+    },
+    {
+      "id": "fon-wp-55770",
+      "key": "fontaineNorthHeadland",
+      "file": "fon-north-headland-background-v1.png",
+      "bundle": "fon-north-native-backgrounds.lua",
+      "packedBytes": 28872
+    },
+    {
+      "id": "fontaine-stage-watch",
+      "key": "fontaineBackstage",
+      "file": "fontaine-backstage-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 29794
+    },
+    {
+      "id": "fon-wp-53852",
+      "key": "fontaineDelivery",
+      "file": "fontaine-delivery-quay-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 30932
+    },
+    {
+      "id": "fon-wp-55775",
+      "key": "fontaineDelivery",
+      "file": "fontaine-delivery-quay-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 30932
+    },
+    {
+      "id": "sites-lumidouce-landing",
+      "key": "fontaineDelivery",
+      "file": "fontaine-delivery-quay-background-v1.png",
+      "bundle": "shared-scenes-fontaine-native-backgrounds.lua",
+      "packedBytes": 30932
+    },
+    {
+      "id": "fon-wp-68341",
+      "key": "nostoiIslandPier",
+      "file": "nostoi-island-pier-background-v1.png",
+      "bundle": "border-domains-native-backgrounds.lua",
+      "packedBytes": 30140
+    }
+  ]
+}

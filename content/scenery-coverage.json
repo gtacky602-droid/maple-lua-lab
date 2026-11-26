@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "basis": "tools/build_scenery_coverage.mjs resolves host backgrounds for every authored node and decodes every registered PNG/WebP in Chrome.",
   "scope": "Base entry scenery only. Shared lab images are temporary. Story-state overrides, canonical map completeness and production 3D are outside this inventory.",
   "regional_temporary_image": 1510,
@@ -2051,7 +2051,7 @@
       "name": "幕裏の監視所",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineBackstage"
     },
     {
       "id": "fontaine-scenery-booth",
@@ -5453,14 +5453,14 @@
       "name": "フォンテーヌ南部・入江の北岸",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineBerylCoast"
     },
     {
       "id": "fontaine-beryl-bank",
       "name": "フォンテーヌ・ベリルの入江の河原",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineBerylCoast"
     },
     {
       "id": "fon-wp-50036",
@@ -5509,7 +5509,7 @@
       "name": "フォンテーヌ南部・対岸を望む棚",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineBerylCoast"
     },
     {
       "id": "fon-wp-50042",
@@ -5544,14 +5544,14 @@
       "name": "フォンテーヌ南部・水路橋南の岸",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineBerylCoast"
     },
     {
       "id": "fon-wp-50047",
       "name": "フォンテーヌ南部・東の水門前",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineBerylSluice"
     },
     {
       "id": "fon-wp-50048",
@@ -5768,7 +5768,7 @@
       "name": "フォンテーヌ北部・北西岸の船着き場",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineDelivery"
     },
     {
       "id": "fon-wp-53853",
@@ -5810,7 +5810,7 @@
       "name": "フォンテーヌ北部・高い水門の側道",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineNorthTidegate"
     },
     {
       "id": "fon-wp-53859",
@@ -5838,7 +5838,7 @@
       "name": "フォンテーヌ北部・北端の高台",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineNorthHeadland"
     },
     {
       "id": "fon-wp-53863",
@@ -5978,7 +5978,7 @@
       "name": "フォンテーヌ東部・湾東の岬",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineNorthHeadland"
     },
     {
       "id": "fon-wp-55771",
@@ -6013,7 +6013,7 @@
       "name": "フォンテーヌ東部・砂利の舟置き場",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineDelivery"
     },
     {
       "id": "fon-wp-55776",
@@ -6104,7 +6104,7 @@
       "name": "ノストイ地区・島南の古い桟橋",
       "region": "ノストイ地区",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "nostoiIslandPier"
     },
     {
       "id": "fon-wp-68342",
@@ -9499,7 +9499,7 @@
       "name": "ルミドゥース・下部連絡桟橋（試作）",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image",
-      "scenery": "fontaine"
+      "scenery": "fontaineDelivery"
     },
     {
       "id": "chenyu-ferry-fontaine",

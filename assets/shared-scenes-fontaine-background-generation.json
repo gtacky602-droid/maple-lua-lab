@@ -9,32 +9,23 @@
         "fontaine-hub",
         "fontaine-field",
         "simulanka-book-room",
-        "fontaine-stage-watch",
-        "fon-wp-50035",
-        "fontaine-beryl-bank",
         "fon-wp-50036",
         "fontaine-beryl-foothills",
         "fon-wp-50037",
         "fon-wp-50038",
         "fon-wp-50039",
         "fon-wp-50040",
-        "fon-wp-50041",
         "fon-wp-50042",
         "fon-wp-50045",
-        "fon-wp-50046",
-        "fon-wp-50047",
         "fon-wp-50048",
-        "fon-wp-53852",
         "fon-wp-53853",
         "fon-wp-53854",
         "fon-wp-53855",
         "fon-wp-53856",
         "fon-wp-53857",
-        "fon-wp-53858",
         "fon-wp-53859",
         "fon-wp-53860",
         "fon-wp-53861",
-        "fon-wp-53862",
         "fon-wp-53863",
         "fon-wp-53867",
         "fon-wp-53868",
@@ -44,12 +35,10 @@
         "fon-wp-55762",
         "fon-wp-55763",
         "fon-wp-55769",
-        "fon-wp-55770",
         "fon-wp-55771",
         "fon-wp-55772",
         "fon-wp-55773",
         "fon-wp-55774",
-        "fon-wp-55775",
         "fon-wp-55776",
         "fon-wp-55777",
         "fon-wp-55778",
@@ -59,9 +48,7 @@
         "fon-wp-55782",
         "fon-wp-55783",
         "fon-wp-68340",
-        "fon-wp-68341",
-        "sites-corridor-beryl-ledge",
-        "sites-lumidouce-landing"
+        "sites-corridor-beryl-ledge"
       ],
       "source": "fontaine-background-v1.png",
       "preview": "fontaine-native-preview-v1.png"
@@ -77,7 +64,10 @@
         "fon-wp-50053",
         "fon-wp-50056",
         "fon-wp-50058",
-        "fon-wp-50077"
+        "fon-wp-50077",
+        "fon-wp-53852",
+        "fon-wp-55775",
+        "sites-lumidouce-landing"
       ],
       "source": "fontaine-delivery-quay-background-v1.png",
       "preview": "fontaine-delivery-quay-native-preview-v1.png"
@@ -109,7 +99,8 @@
       "sharedNodes": [
         "fontaine-moon-fly-loft",
         "fontaine-stage-wings",
-        "fontaine-lift-catwalk"
+        "fontaine-lift-catwalk",
+        "fontaine-stage-watch"
       ],
       "source": "fontaine-backstage-background-v1.png",
       "preview": "fontaine-backstage-native-preview-v1.png"

@@ -17,7 +17,11 @@
       "note": "北岸の灯台岬",
       "source": "fon-north-headland-background-v1.png",
       "preview": "fon-north-headland-native-preview-v1.png",
-      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Windy northern headland beside a trial gate. Weathered ivory lighthouse capped in dark copper near the right edge above folded cliffs, an old timber warehouse and sea gate grouped at the left, a distant sweeping slate-blue sea and pale amber evening horizon. Strong memorable silhouette, room connections readable as distant landmarks. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition."
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Windy northern headland beside a trial gate. Weathered ivory lighthouse capped in dark copper near the right edge above folded cliffs, an old timber warehouse and sea gate grouped at the left, a distant sweeping slate-blue sea and pale amber evening horizon. Strong memorable silhouette, room connections readable as distant landmarks. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition.",
+      "sharedNodes": [
+        "fon-wp-53862",
+        "fon-wp-55770"
+      ]
     },
     {
       "node": "sites-hunt-68347-pocket-1",
@@ -26,7 +30,10 @@
       "note": "浜の水門",
       "source": "fon-north-tidegate-background-v1.png",
       "preview": "fon-north-tidegate-native-preview-v1.png",
-      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Inside a tidal sluice beside a northern beach. Low vaulted chamber with a huge sunken wooden radial gate across left-center, dark green tidal water, broad tidal marks on cream stone, thin cyan daylight slipping through a side opening. The middle and lower middle are quiet and pale enough for a dark watery enemy to read. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition."
+      "prompt": "Create ONE original 16:9 landscape background illustration in clean deliberate pixel art for a side scrolling fantasy RPG. Inside a tidal sluice beside a northern beach. Low vaulted chamber with a huge sunken wooden radial gate across left-center, dark green tidal water, broad tidal marks on cream stone, thin cyan daylight slipping through a side opening. The middle and lower middle are quiet and pale enough for a dark watery enemy to read. Side-on straight horizontal camera, simplified broad color masses, discrete 3-5 shade clusters per material, fine detail only at the landmark, lively hand-placed pixels but no grain, noise or dithering. Maintain a low contrast lower quarter with no painted walkable platforms; the game renders its own floor and enemy sprites there. No text, interface, characters, monsters, logos or borders. Opaque. Full bleed. Original composition.",
+      "sharedNodes": [
+        "fon-wp-53858"
+      ]
     },
     {
       "node": "sites-hunt-68347-pocket-2",

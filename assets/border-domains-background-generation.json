@@ -23,7 +23,10 @@
       "note": "島南の石桟橋",
       "source": "nostoi-island-pier-background-v1.png",
       "preview": "nostoi-island-pier-native-preview-v1.png",
-      "prompt": "A small Mediterranean coastal island south harbour at dawn, a broken pale limestone pier, turquoise wavelets and a distant bell tower against olive hills. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+      "prompt": "A small Mediterranean coastal island south harbour at dawn, a broken pale limestone pier, turquoise wavelets and a distant bell tower against olive hills. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering.",
+      "sharedNodes": [
+        "fon-wp-68341"
+      ]
     },
     {
       "node": "sites-hunt-68346-pocket-1",
