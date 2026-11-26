@@ -102,7 +102,8 @@ return function(C)
   rect(draws,x-3,y-19,6,8,'#ffcd6a')
  end
 
- function cave.observe(s,f,draws,q,state,mode,profile)
+ function cave.observe(s,f,layer,q,state,mode,profile)
+  local draws=layer.draws
   if not state then return end
   local spec=q.cave
   local upper=s.story.node==q.target
@@ -111,7 +112,7 @@ return function(C)
   if upper then
    local guide=spec.guide
    if n<=2 and guide.x-camera>=-60 then
-    C.drawBennettArt({draws=draws},guide.x-camera,guide.y,mode,profile)
+    C.drawBennettArt(layer,guide.x-camera,guide.y,mode,profile)
     label(draws,guide.x-camera,guide.y-87,'ベネット')
    end
    chest(draws,spec.chest,camera,n>=2)
@@ -140,7 +141,7 @@ return function(C)
    end
   elseif n==3 then
    local guideX=spec.landing.x+42-camera
-   C.drawBennettArt({draws=draws},guideX,480,mode,profile)
+   C.drawBennettArt(layer,guideX,480,mode,profile)
    label(draws,guideX,393,'ベネット')
    local x=spec.ore.x-camera
    rect(draws,x-26,468,52,12,'#526266')

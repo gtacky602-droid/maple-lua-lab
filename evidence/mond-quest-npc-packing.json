@@ -1,0 +1,82 @@
+{
+  "standing": {
+    "legacy": {
+      "before": 537474,
+      "after": 120700,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 395858,
+      "after": 73394,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 139212,
+      "after": 32459,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "seated": {
+    "legacy": {
+      "before": 527296,
+      "after": 118949,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 390206,
+      "after": 72003,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 147385,
+      "after": 31875,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "ledge": {
+    "legacy": {
+      "before": 455433,
+      "after": 102617,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h48c32": {
+      "before": 336502,
+      "after": 62338,
+      "stamps": 3,
+      "batches": 3
+    },
+    "h32c16": {
+      "before": 119867,
+      "after": 27859,
+      "stamps": 3,
+      "batches": 3
+    }
+  },
+  "depth": {
+    "legacy": {
+      "before": 609136,
+      "after": 136670,
+      "stamps": 5,
+      "batches": 5
+    },
+    "h48c32": {
+      "before": 443670,
+      "after": 81585,
+      "stamps": 5,
+      "batches": 5
+    },
+    "h32c16": {
+      "before": 154132,
+      "after": 35252,
+      "stamps": 5,
+      "batches": 5
+    }
+  }
+}

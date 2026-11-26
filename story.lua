@@ -2643,8 +2643,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if contestQuest then contest.observe(s,f,markers,n,contestQuest,s.story.quests[contestQuest.id],mode,profile) end
    if sightQuest then sights.observe(s,f,markers,sightQuest,s.story.quests[sightQuest.id],mode,profile) end
-   if restQuest then rest.observe(s,f,markers,restQuest,s.story.quests[restQuest.id],mode,profile) end
-   if caveQuest then cave.observe(s,f,markers,caveQuest,s.story.quests[caveQuest.id],mode,profile) end
+   if (restQuest and n.id==restQuest.target) or
+       (caveQuest and (n.id==caveQuest.target or n.id==caveQuest.cave.depth)) then
+    local layer=markerLayer(s,f,markers,mode)
+    if restQuest and n.id==restQuest.target then
+     rest.observe(s,f,layer,restQuest,s.story.quests[restQuest.id],mode,profile)
+    else
+     cave.observe(s,f,layer,caveQuest,s.story.quests[caveQuest.id],mode,profile)
+    end
+    if layer.rectBatches and #layer.rectBatches>0 then f.rectBatches=layer.rectBatches end
+   end
    if roofQuest then roof.observe(s,f,markers,roofQuest,s.story.quests[roofQuest.id]) end
    local recoveryQuest=quests[n.clearedBy]
    local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]

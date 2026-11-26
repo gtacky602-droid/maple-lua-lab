@@ -84,7 +84,8 @@ return function(C)
   rect(boxes,x+14,443,3,4,'#eacfb8')
  end
 
- function rest.observe(s,f,boxes,q,state,mode,profile)
+ function rest.observe(s,f,layer,q,state,mode,profile)
+  local boxes=layer.draws
   if not state or s.story.node~=q.target then return end
   local c=s.camera
   local spec=q.rest
@@ -106,7 +107,7 @@ return function(C)
    rect(boxes,x-3,462,6,18,'#714c3b')
   end
   local noelleX=count>=5 and spec.chair.x or spec.bench.x+50
-  C.drawNoelleArt({draws=boxes},noelleX-c,480,count>=5,mode,profile)
+  C.drawNoelleArt(layer,noelleX-c,480,count>=5,mode,profile)
   boxes[#boxes+1]={kind='text',x=noelleX-c,y=count>=5 and 390 or 385,text='ノエル',size=14,color='#fff0bd'}
   local item=nearby(s,q,state)
   if item then f.storyNearbyRest={label=item.label} end
