@@ -43,4 +43,7 @@ try{
  assert.equal(measures.length,16);
  await writeFile('evidence/quest-boss-field-profiles.json',JSON.stringify(measures,null,2)+'\n');
  console.log(measures.length,'quest bosses and',measures.length*3,'visible profiles measured.');
-}finally{await browser.close()}
+}finally{
+ await Promise.all(browser.contexts().flatMap(c=>c.pages()).map(p=>p.goto('about:blank').catch(()=>{})));
+ await browser.close();
+}

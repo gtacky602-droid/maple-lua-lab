@@ -14,6 +14,7 @@ try{
  await game.locator('#loadProgress').click();
  await game.waitForFunction(()=>window.lab?.frame.story?.active);
  const graph=await game.evaluate(()=>lab.frame.storyGraph);
+ await game.goto('about:blank');
  const commissions=graph.quests.filter(q=>q.kind==='boss');
  const results=[];
  async function inspect(quests){
