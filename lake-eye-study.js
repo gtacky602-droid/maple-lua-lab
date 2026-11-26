@@ -24,6 +24,20 @@ const studies={
  }
 };
 
+// The approved v6 sheet reserves this opaque cyan for the single eye.
+function eyePixels(canvas){
+ const {width,height}=canvas,rgba=canvas.getContext('2d').getImageData(0,0,width,height).data;
+ const pixels=new Set();
+ let sumX=0,sumY=0;
+ for(let i=0;i<rgba.length;i+=4){
+  // Canvas coverage blends the eye with its rim between source pixels.
+  if(rgba[i]<135 || rgba[i+1]<220 || rgba[i+2]<235 || rgba[i+3]<128)continue;
+  const pos=i/4;
+  pixels.add(pos);sumX+=pos%width;sumY+=Math.floor(pos/width);
+ }
+ return {pixels,x:sumX/pixels.size,y:sumY/pixels.size};
+}
+
 export function lakeEyeStudy(enemy,legend){
  const study=studies[enemy.id];
  if(!study||legend.source!=='fontaine-lake-legend-poses-source-v6.png')return;
@@ -55,10 +69,10 @@ export function lakeEyeStudy(enemy,legend){
   link.target='_blank';link.rel='noopener';if(refs.childNodes.length)refs.append(' ／ ');refs.append(link);
  }
  const motion=document.createElement('details'),summary=document.createElement('summary');
- summary.textContent='構え・攻撃の単眼を本編サイズで比較';
+ summary.textContent='待機・構え・攻撃の単眼を比較';
  const controls=document.createElement('label'),pose=document.createElement('select');
  controls.append('姿勢 ',pose);
- pose.add(new Option('構え','brace'));pose.add(new Option('攻撃','strike'));
+ pose.add(new Option('待機','idle'));pose.add(new Option('構え','brace'));pose.add(new Option('攻撃','strike'));
  const images=document.createElement('div');images.className='eye-crops';
  const status=document.createElement('p');status.setAttribute('role','status');
  let revision=0;
@@ -72,6 +86,7 @@ export function lakeEyeStudy(enemy,legend){
    const data=await response.json();
    if(ticket!==revision)return;
    const scale=legend.h/legend.box[3],bounds=spriteBounds(data,data.box[3]*scale);
+   let reference;
    for(const [profile,label] of [[null,'元PNG'],['h48c32','32色'],['h32c16','16色']]){
     const card=document.createElement('figure'),caption=document.createElement('figcaption'),canvas=document.createElement('canvas');
     canvas.width=Math.ceil(bounds.width)+8;canvas.height=Math.ceil(bounds.height)+8;
@@ -79,7 +94,21 @@ export function lakeEyeStudy(enemy,legend){
     const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
     ctx.translate(4-bounds.x,canvas.height-4);paintSprite(ctx,data,legend.image,bounds,profile);
     caption.textContent=label+(profile?'・'+rectangleCount(data.profiles[profile])+'矩形':'');
-    card.append(caption,canvas);images.append(card);
+    const eye=eyePixels(canvas);
+    if(!profile)reference=eye;
+    card.append(caption,canvas);
+    if(reference.pixels.size){
+     const detail=document.createElement('canvas'),reading=document.createElement('small');
+     detail.width=36;detail.height=26;detail.setAttribute('aria-label',label+'の目元の拡大');
+     const crop=detail.getContext('2d');
+     crop.drawImage(canvas,Math.round(reference.x)-18,Math.round(reference.y)-13,36,26,0,0,36,26);
+     let overlap=0;
+     for(const pixel of eye.pixels)if(reference.pixels.has(pixel))overlap++;
+     const union=eye.pixels.size+reference.pixels.size-overlap;
+     reading.textContent='目の明るい水色 '+eye.pixels.size+'画素'+(profile?' ／ 元PNGとの重なり '+(100*overlap/union).toFixed(1)+'%':'');
+     card.append(document.createElement('br'),detail,document.createElement('br'),reading);
+    }
+    images.append(card);
    }
    status.textContent='';
   }catch(error){if(ticket===revision)status.textContent='姿勢の読み込みに失敗しました。 '+error.message}
