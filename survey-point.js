@@ -226,9 +226,20 @@ export function worksitePoint(quest,id,node,stocked=[]){
  return point;
 }
 
+export function letterPoint(q,stage){
+ if(!q?.guideLetter||!['pickup','delivery','reply'].includes(stage))return null;
+ const place=stage==='pickup'?q.guideLetter.sender:q.guideLetter.recipient;
+ const name=stage==='pickup'?'コレイからの手紙':'アンバーへの手紙';
+ const action={pickup:'コレイからアンバーへの手紙を預かる',delivery:'アンバーに手紙を渡す',reply:'アンバーの返事を聞き返す'}[stage];
+ const props=stage==='reply'?[]:[{name,file:'quest-packed/sum-collei-guide-letter-sprites-v1.json',height:36,x:place.x,y:place.y-12}];
+ return {...place,quest:q.id,letter:stage,name:stage==='reply'?'アンバーの返事':name,action,props};
+}
+
 export function surveyPointUrl(point){
  const params=new URLSearchParams({placements:'live',node:point.node,quest:point.quest});
- if(point.worksite){
+ if(point.letter){
+  params.set('letter',point.letter);
+ }else if(point.worksite){
   params.set('worksite',point.worksite);
   for(const id of point.recovered??[])params.append('recovered',id);
   for(const id of point.stocked??[])params.append('stocked',id);

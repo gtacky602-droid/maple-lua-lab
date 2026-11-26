@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {surveyPoint,surveyPointUrl} from './survey-point.js';
+import {trackedQuest,atlasQuestObjectives} from './quest-journal.js';
 import {rectangleCount,spriteBounds} from './sprite-layers.js';
 
 const graph=JSON.parse(await readFile('content/story-graph.json','utf8'));
@@ -36,5 +37,28 @@ try{
     if(i===2)console.log(point.name,cells.slice(1).join(' / '));
    }
   }
+ }
+ const state={status:'complete',count:quest.goal};
+ const frame={story:{active:true,node:quest.hub,quests:{[quest.id]:state}},storyGraph:graph,progression:{level:120}};
+ for(const [saved,stage,place] of [[null,'pickup',quest.guideLetter.sender],['held','delivery',quest.guideLetter.recipient],['delivered','reply',quest.guideLetter.recipient]]){
+  state.colleiLetter=saved;
+  const tracked=trackedQuest(frame,quest.id);
+  const [objective]=atlasQuestObjectives(frame,quest,place.node);
+  assert.equal(tracked.node,place.node);
+  assert.equal(tracked.pointUrl,objective.points[0].url);
+  assert.equal(atlasQuestObjectives(frame,quest,place.node===quest.hub?quest.guideLetter.recipient.node:quest.hub).length,0);
+  const url=new URL(tracked.pointUrl,process.env.LAB_URL||'http://127.0.0.1:9125/');
+  assert.equal(url.searchParams.get('letter'),stage);
+  await page.goto(url.href);
+  await page.waitForFunction(()=>window.mapArt?.ready&&mapArt.backgroundState==='ready');
+  const note=await page.locator('#surveyPointNote').innerText();
+  assert(note.includes(objective.text)&&note.includes(String(place.x)));
+  if(stage!=='reply'){
+   await page.locator('#compareSpriteProfiles').click();
+   const cells=await page.locator('#spriteProfileTable tbody tr').last().locator('td').allTextContents();
+   const pose=JSON.parse(await readFile('assets/quest-packed/sum-collei-guide-letter-sprites-v1.json','utf8'));
+   assert.equal(Number(cells[1].replaceAll(',','')),rectangleCount(pose.profiles.h32c16));
+  }
+  console.log(stage,note);
  }
 }finally{await browser.close()}

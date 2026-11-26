@@ -1,6 +1,6 @@
 import {hasOptionalPath,pendingQuestPaths,questDestinations,questRoute,questTargetNode} from './quest-route.js';
 import {teaNotebook} from './tea-notebook.js';
-import {puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
+import {letterPoint,puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
@@ -119,10 +119,18 @@ function railGuide(frame,q,count){
  if(station)return {label:count===0?'上段の留め具':'港へ送るレバー',url:surveyPointUrl(worksitePoint(q,station.id,q.target))};
 }
 
+function postQuestLetter(q,state){
+ if(!q.guideLetter||state?.status!=='complete')return null;
+ const stage=state.colleiLetter==='delivered'?'reply':state.colleiLetter==='held'?'delivery':'pickup';
+ return letterPoint(q,stage);
+}
+
 export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
  const status=questStatus(q,state,frame.story.quests);
+ const letter=postQuestLetter(q,state);
+ if(letter)return letter.node===node?[{text:letter.action,points:[{label:letter.name,url:surveyPointUrl(letter)}]}]:[];
  if(q.roof&&frame.storyRoof?.retry){
   const stage=frame.storyRoof.stage,point=surveyPoint(q,stage,node);
   return point?[{text:questObjective(q,frame.storyGraph,{count:stage}),points:[{label:point.name,url:surveyPointUrl(point)}]}]:[];
@@ -366,6 +374,12 @@ export function trackedQuest(f,id,selectedWorksite){
  if(!f.story?.active)return {text:''};
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return {text:''};
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ const letter=postQuestLetter(q,st);
+ if(letter){
+  const route=questRoute(f,{kind:'visit',target:letter.node},'active');
+  return {...route,node:letter.node,pointUrl:surveyPointUrl(letter),pointLabel:letter.name+'の位置を見る',
+   text:q.name+' ｜ 報告済み ｜ '+letter.action+' ｜ '+route.text};
+ }
  if(q.roof&&(status==='active'||f.storyRoof?.retry)){
   const retry=f.storyRoof?.retry,stage=retry?f.storyRoof.stage:st.count;
   const route=questRoute(f,q,'active');
@@ -711,6 +725,13 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
    const b=button(f.companion?.id===q.join?`${q.giver}が同行中`:`${q.giver}を同行に選ぶ`,'story_select_joined:'+q.id);
    b.disabled=!graph.nodes.find(n=>n.id===story.node)?.hub||f.companion?.id===q.join;
    row.append(b);
+  }
+  const letter=postQuestLetter(q,st);
+  if(letter){
+   const link=document.createElement('a');
+   link.href=surveyPointUrl(letter);link.target='_blank';link.rel='noopener';
+   link.textContent='任意の寄り道：'+letter.action;
+   row.append(link);
   }
   if(onTrack){const b=document.createElement('button');b.textContent=trackedId===q.id?'追跡を解除':'この依頼を追跡';b.setAttribute('aria-pressed',String(trackedId===q.id));b.onclick=()=>onTrack(trackedId===q.id?null:q.id);row.append(b)}
   const huntDialogue=q.kinichHunt?.reports?.[st?.huntNotes?.outcome];
