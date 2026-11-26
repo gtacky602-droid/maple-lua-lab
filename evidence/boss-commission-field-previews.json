@@ -1,0 +1,967 @@
+[
+  {
+    "quest": "aeonblight-commission",
+    "node": "aeonblight-field-chamber",
+    "approach": "aeonblight-field-chamber",
+    "actors": [
+      "boss-24030301"
+    ],
+    "rectangles": [
+      8195,
+      5179,
+      2271
+    ]
+  },
+  {
+    "quest": "andrius-weekly-commission",
+    "node": "andrius-wolf-ring",
+    "approach": "andrius-wolf-ring",
+    "actors": [
+      "boss-29020101"
+    ],
+    "rectangles": [
+      13306,
+      8248,
+      3644
+    ]
+  },
+  {
+    "quest": "anemo-commission",
+    "node": "anemo-field-basin",
+    "approach": "anemo-approach",
+    "actors": [
+      "boss-20040201-shell-1",
+      "boss-20040201-shell-2",
+      "boss-20040201-shell-3",
+      "boss-20040201-shell-4",
+      "boss-20040201-shell-5",
+      "boss-20040201-shell-6",
+      "boss-20040201"
+    ],
+    "rectangles": [
+      10865,
+      6486,
+      2805
+    ]
+  },
+  {
+    "quest": "apep-weekly-commission",
+    "node": "apep-oasis-heart-arena",
+    "approach": "apep-oasis-heart-arena",
+    "actors": [
+      "boss-29080101"
+    ],
+    "rectangles": [
+      18603,
+      11910,
+      5320
+    ]
+  },
+  {
+    "quest": "array-commission",
+    "node": "array-field-court",
+    "approach": "array-approach",
+    "actors": [
+      "boss-24021101"
+    ],
+    "rectangles": [
+      2598,
+      1622,
+      682
+    ]
+  },
+  {
+    "quest": "asimon-commission",
+    "node": "asimon-field-ruins",
+    "approach": "asimon-field-ruins",
+    "actors": [
+      "boss-24050101"
+    ],
+    "rectangles": [
+      6836,
+      4119,
+      1811
+    ]
+  },
+  {
+    "quest": "azhdaha-weekly-commission",
+    "node": "azhdaha-dragon-seal-arena",
+    "approach": "azhdaha-dragon-seal-arena",
+    "actors": [
+      "boss-29040101"
+    ],
+    "rectangles": [
+      18545,
+      11659,
+      5356
+    ]
+  },
+  {
+    "quest": "baptist-commission",
+    "node": "baptist-field-sanctuary",
+    "approach": "baptist-field-sanctuary",
+    "actors": [
+      "boss-22100501"
+    ],
+    "rectangles": [
+      6025,
+      3777,
+      1715
+    ]
+  },
+  {
+    "quest": "bathysmal-commission",
+    "node": "bathysmal-field-sanctum",
+    "approach": "bathysmal-field-sanctum",
+    "actors": [
+      "bathysmal-herd",
+      "bathysmal-herd-partner"
+    ],
+    "rectangles": [
+      15806,
+      9981,
+      4741
+    ]
+  },
+  {
+    "quest": "battleship-commission",
+    "node": "nod-battleship-depot",
+    "approach": "nod-battleship-depot",
+    "actors": [
+      "boss-23090101"
+    ],
+    "rectangles": [
+      19680,
+      12201,
+      5626
+    ]
+  },
+  {
+    "quest": "childe-weekly-commission",
+    "node": "childe-golden-house-arena",
+    "approach": "childe-golden-house-arena",
+    "actors": [
+      "boss-29030101"
+    ],
+    "rectangles": [
+      1543,
+      924,
+      413
+    ]
+  },
+  {
+    "quest": "config-device-commission",
+    "node": "config-device-field-workshop",
+    "approach": "config-device-field-workshop",
+    "actors": [
+      "boss-24090201"
+    ],
+    "rectangles": [
+      8499,
+      5393,
+      2429
+    ]
+  },
+  {
+    "quest": "cryo-commission",
+    "node": "cryo-field-grove",
+    "approach": "cryo-approach",
+    "actors": [
+      "boss-26020101"
+    ],
+    "rectangles": [
+      3801,
+      2334,
+      1099
+    ]
+  },
+  {
+    "quest": "cryo-hypostasis-commission",
+    "node": "cryo-hypostasis-field-basin",
+    "approach": "cryo-hypostasis-field-basin",
+    "actors": [
+      "boss-20040501"
+    ],
+    "rectangles": [
+      4383,
+      2889,
+      1184
+    ]
+  },
+  {
+    "quest": "dendro-hypostasis-commission",
+    "node": "dendro-hypostasis-field-den",
+    "approach": "dendro-hypostasis-field-den",
+    "actors": [
+      "boss-20040701"
+    ],
+    "rectangles": [
+      5766,
+      3547,
+      1439
+    ]
+  },
+  {
+    "quest": "drifting-snow-commission",
+    "node": "drifting-snow-court",
+    "approach": "drifting-snow-court",
+    "actors": [
+      "boss-25135202"
+    ],
+    "rectangles": [
+      6980,
+      4486,
+      2029
+    ]
+  },
+  {
+    "quest": "dvalin-weekly-commission",
+    "node": "dvalin-sky-arena",
+    "approach": "dvalin-sky-arena",
+    "actors": [
+      "boss-29010101"
+    ],
+    "rectangles": [
+      12636,
+      7915,
+      3472
+    ]
+  },
+  {
+    "quest": "electro-commission",
+    "node": "electro-field-shelf",
+    "approach": "electro-approach",
+    "actors": [
+      "boss-20040101-shell-1",
+      "boss-20040101-shell-2",
+      "boss-20040101-shell-3",
+      "boss-20040101-shell-4",
+      "boss-20040101-shell-5",
+      "boss-20040101-shell-6",
+      "boss-20040101"
+    ],
+    "rectangles": [
+      12453,
+      7788,
+      3432
+    ]
+  },
+  {
+    "quest": "electro-regisvine-commission",
+    "node": "electro-regisvine-field-cave",
+    "approach": "electro-regisvine-field-cave",
+    "actors": [
+      "boss-26020301"
+    ],
+    "rectangles": [
+      8154,
+      5312,
+      2499
+    ]
+  },
+  {
+    "quest": "emperor-commission",
+    "node": "emperor-field-cove",
+    "approach": "emperor-field-cove",
+    "actors": [
+      "boss-26160302"
+    ],
+    "rectangles": [
+      8275,
+      5175,
+      2261
+    ]
+  },
+  {
+    "quest": "fallen-vigil-commission",
+    "node": "windrest-vigil-court",
+    "approach": "windrest-vigil-court",
+    "actors": [
+      "boss-24111101"
+    ],
+    "rectangles": [
+      12238,
+      7313,
+      3359
+    ]
+  },
+  {
+    "quest": "false-moon-weekly-commission",
+    "node": "nod-false-moon-court",
+    "approach": "nod-false-moon-court",
+    "actors": [
+      "boss-29130201"
+    ],
+    "rectangles": [
+      3825,
+      2336,
+      1074
+    ]
+  },
+  {
+    "quest": "field-generator-commission",
+    "node": "field-generator-field-chamber",
+    "approach": "field-generator-field-chamber",
+    "actors": [
+      "boss-24080101"
+    ],
+    "rectangles": [
+      8097,
+      5051,
+      2266
+    ]
+  },
+  {
+    "quest": "flugel-commission",
+    "node": "flugel-tundra-basin",
+    "approach": "flugel-tundra-basin",
+    "actors": [
+      "boss-26310501"
+    ],
+    "rectangles": [
+      15492,
+      9927,
+      4338
+    ]
+  },
+  {
+    "quest": "frostnight-herra-commission",
+    "node": "nod-herra-terrace",
+    "approach": "nod-herra-terrace",
+    "actors": [
+      "boss-20081001"
+    ],
+    "rectangles": [
+      13573,
+      8538,
+      3863
+    ]
+  },
+  {
+    "quest": "gate-weekly-commission",
+    "node": "mond-gate-chess-court",
+    "approach": "mond-gate-chess-court",
+    "actors": [
+      "boss-29122001"
+    ],
+    "rectangles": [
+      8,
+      8,
+      8
+    ]
+  },
+  {
+    "quest": "geo-commission",
+    "node": "geo-field-court",
+    "approach": "geo-approach",
+    "actors": [
+      "boss-20040301-shell-1",
+      "boss-20040301-shell-2",
+      "boss-20040301-shell-3",
+      "boss-20040301-shell-4",
+      "boss-20040301-shell-5",
+      "boss-20040301-shell-6",
+      "boss-20040301"
+    ],
+    "rectangles": [
+      11307,
+      7219,
+      2984
+    ]
+  },
+  {
+    "quest": "heretic-weekly-commission",
+    "node": "sumeru-heretic-lattice",
+    "approach": "sumeru-heretic-lattice",
+    "actors": [
+      "boss-29150101"
+    ],
+    "rectangles": [
+      4838,
+      3084,
+      1422
+    ]
+  },
+  {
+    "quest": "hydro-hypostasis-commission",
+    "node": "hydro-hypostasis-field-cove",
+    "approach": "hydro-hypostasis-field-cove",
+    "actors": [
+      "boss-20040401"
+    ],
+    "rectangles": [
+      4764,
+      3040,
+      1259
+    ]
+  },
+  {
+    "quest": "icewind-coppelia-commission",
+    "node": "icewind-coppelia-field",
+    "approach": "icewind-coppelia-field",
+    "actors": [
+      "icewind-coppelia",
+      "boss--24070301"
+    ],
+    "rectangles": [
+      6645,
+      4048,
+      1829
+    ]
+  },
+  {
+    "quest": "icewind-coppelius-commission",
+    "node": "icewind-coppelius-field",
+    "approach": "icewind-coppelius-field",
+    "actors": [
+      "icewind-coppelius",
+      "boss--24070301"
+    ],
+    "rectangles": [
+      6645,
+      4048,
+      1829
+    ]
+  },
+  {
+    "quest": "immortal-construct-commission",
+    "node": "immortal-construct-root-hollow",
+    "approach": "immortal-construct-root-hollow",
+    "actors": [
+      "boss-25140101"
+    ],
+    "rectangles": [
+      13892,
+      8634,
+      3726
+    ]
+  },
+  {
+    "quest": "jadeplume-commission",
+    "node": "sumeru-jadeplume-grove",
+    "approach": "sumeru-jadeplume-grove",
+    "actors": [
+      "boss-26110101"
+    ],
+    "rectangles": [
+      6145,
+      4055,
+      1893
+    ]
+  },
+  {
+    "quest": "knave-weekly-commission",
+    "node": "knave-crimson-court",
+    "approach": "knave-crimson-court",
+    "actors": [
+      "boss-29091001"
+    ],
+    "rectangles": [
+      2610,
+      1616,
+      721
+    ]
+  },
+  {
+    "quest": "knuckle-duckle-commission",
+    "node": "nod-duckle-workyard",
+    "approach": "nod-duckle-workyard",
+    "actors": [
+      "boss-24100101"
+    ],
+    "rectangles": [
+      7431,
+      4607,
+      2096
+    ]
+  },
+  {
+    "quest": "lava-dragon-commission",
+    "node": "atocpan-lava-field",
+    "approach": "atocpan-lava-field",
+    "actors": [
+      "boss-26270301"
+    ],
+    "rectangles": [
+      11206,
+      7564,
+      3425
+    ]
+  },
+  {
+    "quest": "legatus-commission",
+    "node": "legatus-field-hall",
+    "approach": "legatus-field-hall",
+    "actors": [
+      "boss-26140101"
+    ],
+    "rectangles": [
+      9413,
+      5857,
+      2647
+    ]
+  },
+  {
+    "quest": "loom-stopped",
+    "node": "buried-weaving-room",
+    "approach": "buried-weaving-room",
+    "actors": [
+      "original-twin-shuttle-loom",
+      "boss-99000003",
+      "boss-99000004"
+    ],
+    "rectangles": [
+      10760,
+      6965,
+      2964
+    ]
+  },
+  {
+    "quest": "maguu-commission",
+    "node": "maguu-field-dojo",
+    "approach": "maguu-approach",
+    "actors": [
+      "boss-25090101"
+    ],
+    "rectangles": [
+      4295,
+      2564,
+      1135
+    ]
+  },
+  {
+    "quest": "moonfly-commission",
+    "node": "nod-moonfly-hollow",
+    "approach": "nod-moonfly-hollow",
+    "actors": [
+      "boss-26301101"
+    ],
+    "rectangles": [
+      6452,
+      4095,
+      1847
+    ]
+  },
+  {
+    "quest": "moongecko-commission",
+    "node": "nod-gecko-depths",
+    "approach": "nod-gecko-depths",
+    "actors": [
+      "boss-26302101"
+    ],
+    "rectangles": [
+      9736,
+      6170,
+      2845
+    ]
+  },
+  {
+    "quest": "narwhal-weekly-commission",
+    "node": "narwhal-star-sea",
+    "approach": "narwhal-star-sea",
+    "actors": [
+      "boss-29090101"
+    ],
+    "rectangles": [
+      10430,
+      6670,
+      3070
+    ]
+  },
+  {
+    "quest": "oceanid-commission",
+    "node": "oceanid-field-reservoir",
+    "approach": "oceanid-approach",
+    "actors": [
+      "boss-20050101-host",
+      "boss-20050101"
+    ],
+    "rectangles": [
+      5591,
+      3580,
+      1575
+    ]
+  },
+  {
+    "quest": "overseer-commission",
+    "node": "atocpan-overseer-ruin",
+    "approach": "atocpan-overseer-ruin",
+    "actors": [
+      "boss-24090501"
+    ],
+    "rectangles": [
+      8227,
+      5181,
+      2280
+    ]
+  },
+  {
+    "quest": "papilla-commission",
+    "node": "papilla-field-hollow",
+    "approach": "papilla-field-hollow",
+    "actors": [
+      "boss-22120101"
+    ],
+    "rectangles": [
+      7089,
+      4396,
+      1979
+    ]
+  },
+  {
+    "quest": "primal-fire-weekly-commission",
+    "node": "primal-fire-sundered-forge",
+    "approach": "primal-fire-sundered-forge",
+    "actors": [
+      "boss-29091101"
+    ],
+    "rectangles": [
+      12054,
+      7447,
+      3281
+    ]
+  },
+  {
+    "quest": "primo-commission",
+    "node": "primo-field-vault",
+    "approach": "primo-approach",
+    "actors": [
+      "boss-26050101"
+    ],
+    "rectangles": [
+      9954,
+      6228,
+      2788
+    ]
+  },
+  {
+    "quest": "pyro-commission",
+    "node": "pyro-field-grotto",
+    "approach": "pyro-approach",
+    "actors": [
+      "boss-26020201"
+    ],
+    "rectangles": [
+      3409,
+      2162,
+      985
+    ]
+  },
+  {
+    "quest": "pyro-hypostasis-commission",
+    "node": "pyro-hypostasis-field-terrace",
+    "approach": "pyro-hypostasis-field-terrace",
+    "actors": [
+      "boss-20040601"
+    ],
+    "rectangles": [
+      4814,
+      2771,
+      1163
+    ]
+  },
+  {
+    "quest": "qucusaur-commission",
+    "node": "qucusaur-field-cavern",
+    "approach": "qucusaur-field-cavern",
+    "actors": [
+      "boss-26230301"
+    ],
+    "rectangles": [
+      9599,
+      6176,
+      2642
+    ]
+  },
+  {
+    "quest": "raiden-weekly-commission",
+    "node": "raiden-thunder-echo-arena",
+    "approach": "raiden-thunder-echo-arena",
+    "actors": [
+      "boss-29060201"
+    ],
+    "rectangles": [
+      2365,
+      1493,
+      685
+    ]
+  },
+  {
+    "quest": "ruin-serpent-commission",
+    "node": "ruin-serpent-field-pit",
+    "approach": "ruin-serpent-field-pit",
+    "actors": [
+      "boss-24010401"
+    ],
+    "rectangles": [
+      5696,
+      3614,
+      1636
+    ]
+  },
+  {
+    "quest": "seahorse-commission",
+    "node": "seahorse-field-cavern",
+    "approach": "seahorse-field-cavern",
+    "actors": [
+      "boss-26180101"
+    ],
+    "rectangles": [
+      8422,
+      5406,
+      2461
+    ]
+  },
+  {
+    "quest": "shouki-weekly-commission",
+    "node": "shouki-godmaking-arena",
+    "approach": "shouki-godmaking-arena",
+    "actors": [
+      "boss-29070101"
+    ],
+    "rectangles": [
+      3061,
+      1851,
+      1458
+    ]
+  },
+  {
+    "quest": "signora-weekly-commission",
+    "node": "signora-ten-shrine-arena",
+    "approach": "signora-ten-shrine-arena",
+    "actors": [
+      "boss-29050101"
+    ],
+    "rectangles": [
+      2084,
+      1230,
+      544
+    ]
+  },
+  {
+    "quest": "spiritspeaker-commission",
+    "node": "spiritspeaker-field-grotto",
+    "approach": "spiritspeaker-field-grotto",
+    "actors": [
+      "boss-25520101"
+    ],
+    "rectangles": [
+      5355,
+      3330,
+      1527
+    ]
+  },
+  {
+    "quest": "stygian-beidou-commission",
+    "node": "liyue-stygian-deck",
+    "approach": "liyue-stygian-deck",
+    "actors": [
+      "stygian-beidou-1"
+    ],
+    "rectangles": [
+      2021,
+      1170,
+      488
+    ]
+  },
+  {
+    "quest": "stygian-capitano-commission",
+    "node": "sne-stygian-frost-court",
+    "approach": "sne-stygian-frost-court",
+    "actors": [
+      "stygian-capitano-1"
+    ],
+    "rectangles": [
+      6166,
+      3864,
+      1731
+    ]
+  },
+  {
+    "quest": "stygian-farka-commission",
+    "node": "mond-stygian-dual-court",
+    "approach": "mond-stygian-dual-court",
+    "actors": [
+      "stygian-farka-1",
+      "stygian-farka-2",
+      "stygian-farka-3"
+    ],
+    "rectangles": [
+      5664,
+      3571,
+      1427
+    ]
+  },
+  {
+    "quest": "stygian-rerir-commission",
+    "node": "nod-stygian-hunt",
+    "approach": "nod-stygian-hunt",
+    "actors": [
+      "stygian-rerir-1"
+    ],
+    "rectangles": [
+      4804,
+      2970,
+      1248
+    ]
+  },
+  {
+    "quest": "stygian-ronova-commission",
+    "node": "sne-stygian-last-gate",
+    "approach": "sne-stygian-last-gate",
+    "actors": [
+      "stygian-ronova-1",
+      "stygian-ronova-2"
+    ],
+    "rectangles": [
+      8824,
+      5589,
+      2357
+    ]
+  },
+  {
+    "quest": "stygian-wanderer-commission",
+    "node": "sumeru-stygian-windcourt",
+    "approach": "sumeru-stygian-windcourt",
+    "actors": [
+      "stygian-wanderer-1"
+    ],
+    "rectangles": [
+      1964,
+      1147,
+      532
+    ]
+  },
+  {
+    "quest": "stygian-xbalanque-commission",
+    "node": "natlan-solar-court",
+    "approach": "natlan-solar-court",
+    "actors": [
+      "stygian-xbalanque-1"
+    ],
+    "rectangles": [
+      1740,
+      1066,
+      477
+    ]
+  },
+  {
+    "quest": "suanni-commission",
+    "node": "suanni-field-sanctum",
+    "approach": "suanni-field-sanctum",
+    "actors": [
+      "boss-26190101"
+    ],
+    "rectangles": [
+      7678,
+      4946,
+      2257
+    ]
+  },
+  {
+    "quest": "surveyor-inspection",
+    "node": "tide-calibration-hall",
+    "approach": "tide-calibration-hall",
+    "actors": [
+      "calibration-pad-left",
+      "calibration-pad-right",
+      "original-tide-surveyor"
+    ],
+    "rectangles": [
+      3635,
+      2347,
+      1004
+    ]
+  },
+  {
+    "quest": "thunder-commission",
+    "node": "thunder-field-crest",
+    "approach": "thunder-approach",
+    "actors": [
+      "boss-20070101"
+    ],
+    "rectangles": [
+      4530,
+      2831,
+      1199
+    ]
+  },
+  {
+    "quest": "tulpa-commission",
+    "node": "tulpa-field-grotto",
+    "approach": "tulpa-field-grotto",
+    "actors": [
+      "boss-20051201"
+    ],
+    "rectangles": [
+      9888,
+      6597,
+      2989
+    ]
+  },
+  {
+    "quest": "wavebinder-commission",
+    "node": "wavebinder-tide-cavern",
+    "approach": "wavebinder-tide-cavern",
+    "actors": [
+      "boss-25134601"
+    ],
+    "rectangles": [
+      10747,
+      6818,
+      3003
+    ]
+  },
+  {
+    "quest": "wenut-commission",
+    "node": "wenut-field-cavern",
+    "approach": "wenut-field-cavern",
+    "actors": [
+      "boss-26130101"
+    ],
+    "rectangles": [
+      4403,
+      2903,
+      1351
+    ]
+  },
+  {
+    "quest": "whisperer-nightmares-commission",
+    "node": "nod-nightmare-shore",
+    "approach": "nod-nightmare-shore",
+    "actors": [
+      "boss-22150101"
+    ],
+    "rectangles": [
+      6956,
+      4404,
+      2004
+    ]
+  },
+  {
+    "quest": "wolflord-commission",
+    "node": "wolflord-field-ruins",
+    "approach": "wolflord-field-ruins",
+    "actors": [
+      "boss-22060101"
+    ],
+    "rectangles": [
+      4456,
+      2727,
+      1171
+    ]
+  },
+  {
+    "quest": "yumka-commission",
+    "node": "yumka-field-ravine",
+    "approach": "yumka-field-ravine",
+    "actors": [
+      "boss-26220301"
+    ],
+    "rectangles": [
+      6431,
+      4323,
+      1914
+    ]
+  }
+]

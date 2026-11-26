@@ -23,8 +23,9 @@ function remainingEnemyPoints(step,progress){
  });
 }
 
-function bossFieldPoint(step){
- const params=new URLSearchParams({placements:'live',node:step.node,subject:step.boss});
+function bossFieldPoint(node,subject){
+ const params=new URLSearchParams({placements:'live',node});
+ if(subject)params.set('subject',subject);
  return {label:'討伐対象のボスを見比べる',url:'map-art.html?'+params};
 }
 
@@ -72,8 +73,11 @@ export function atlasQuestObjectives(frame,q,node){
    return;
   }
   const choices=step?.kind==='choice'||step?.kind==='guideChoice'?step.choices.length:0;
+  if(q.kind==='boss' && status==='active' && node===questTargetNode(q,frame.storyGraph)){
+   objectives.push({text,points:[bossFieldPoint(frame.storyGraph.bossNodes?.[q.target]??node)]});return;
+  }
   if(step?.kind==='boss' && step.node===node){
-   objectives.push({text,points:[bossFieldPoint(step)]});return;
+   objectives.push({text,points:[bossFieldPoint(step.node,step.boss)]});return;
   }
   if(step?.kind==='kill' && step.node===node){
    const progress=path?state.pathProgress?.[path.id]:state;
@@ -341,6 +345,10 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(status==='active' && q.kind==='boss' && route.node){
+  const point=bossFieldPoint(f.storyGraph.bossNodes?.[q.target]??route.node);
+  return {node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+ }
  if(status==='active' && q.rail){
   const guide=railGuide(f,q,st.count);
   return {node:route.node,text:q.name+' ｜ '+next+' ｜ '+route.text,pointUrl:guide?.url,pointLabel:guide && guide.label+'の位置を見る'};
@@ -354,7 +362,7 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const patrolStep=status==='active'&&q.itinerary?.[st.count];
  if(patrolStep?.kind==='boss'&&route.node===patrolStep.node){
-  const point=bossFieldPoint(patrolStep);
+  const point=bossFieldPoint(patrolStep.node,patrolStep.boss);
   return {node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(patrolStep?.cover&&route.node===patrolStep.node){
@@ -427,7 +435,7 @@ function expeditionStops(quest,state,graph,button){
   if(node){
    const point=surveyPoint(quest,index,node.id,node);
    const links=point?[{label:'調査位置を見る',url:surveyPointUrl(point)}]:
-    mark.kind==='boss'?[bossFieldPoint(mark)]:mark.kind==='kill'?remainingEnemyPoints(mark):[];
+    mark.kind==='boss'?[bossFieldPoint(mark.node,mark.boss)]:mark.kind==='kill'?remainingEnemyPoints(mark):[];
    if(mark.kind==='arrive'&&graph.nodes.some(n=>n.id===mark.from&&n.voyage?.destination===node.id)){
     links.push({label:'到着位置を見る',url:'map-art.html?'+new URLSearchParams({placements:'live',node:node.id,voyage:mark.from})});
    }
