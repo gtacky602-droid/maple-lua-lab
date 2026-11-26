@@ -1,0 +1,163 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "ina-wp-12715",
+      "key": "inaTataraFurnace",
+      "file": "ina-tatara-furnace-background-v1.png",
+      "bundle": "ina-west-native-backgrounds.lua",
+      "packedBytes": 27182
+    },
+    {
+      "id": "ina-wp-12718",
+      "key": "inaTataraFurnace",
+      "file": "ina-tatara-furnace-background-v1.png",
+      "bundle": "ina-west-native-backgrounds.lua",
+      "packedBytes": 27182
+    },
+    {
+      "id": "ina-wp-12733",
+      "key": "inaYougouStair",
+      "file": "ina-yougou-stair-background-v1.png",
+      "bundle": "ina-narukami-native-backgrounds.lua",
+      "packedBytes": 27480
+    },
+    {
+      "id": "ina-wp-12738",
+      "key": "inaYougouStair",
+      "file": "ina-yougou-stair-background-v1.png",
+      "bundle": "ina-narukami-native-backgrounds.lua",
+      "packedBytes": 27480
+    },
+    {
+      "id": "ina-wp-12726",
+      "key": "toriiforest",
+      "file": "inazuma-torii-forest-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 29316
+    },
+    {
+      "id": "ina-wp-12728",
+      "key": "inaByakkoMeadow",
+      "file": "ina-byakko-meadow-background-v1.png",
+      "bundle": "ina-narukami-native-backgrounds.lua",
+      "packedBytes": 29248
+    },
+    {
+      "id": "ina-wp-12749",
+      "key": "inaYashioriRift",
+      "file": "ina-yashiori-rift-background-v1.png",
+      "bundle": "ina-west-native-backgrounds.lua",
+      "packedBytes": 28174
+    },
+    {
+      "id": "ina-wp-12704",
+      "key": "inaYashioriRift",
+      "file": "ina-yashiori-rift-background-v1.png",
+      "bundle": "ina-west-native-backgrounds.lua",
+      "packedBytes": 28174
+    },
+    {
+      "id": "maguu-approach",
+      "key": "inaSerpentQuarry",
+      "file": "ina-serpent-quarry-background-v1.png",
+      "bundle": "ina-west-native-backgrounds.lua",
+      "packedBytes": 28222
+    },
+    {
+      "id": "watatsumi-landing",
+      "key": "inaSuigetsuPool",
+      "file": "ina-suigetsu-pool-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 30314
+    },
+    {
+      "id": "ina-wp-15940",
+      "key": "inaSuigetsuPool",
+      "file": "ina-suigetsu-pool-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 30314
+    },
+    {
+      "id": "ina-wp-15951",
+      "key": "inaSuigetsuPool",
+      "file": "ina-suigetsu-pool-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 30314
+    },
+    {
+      "id": "tsurumi-coast",
+      "key": "inaFogIslet",
+      "file": "ina-fog-islet-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 26368
+    },
+    {
+      "id": "thunder-approach",
+      "key": "inaSeiraiCrags",
+      "file": "ina-seirai-crags-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 29094
+    },
+    {
+      "id": "ina-wp-16022",
+      "key": "inaSeiraiCrags",
+      "file": "ina-seirai-crags-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 29094
+    },
+    {
+      "id": "ina-wp-16026",
+      "key": "inaSeiraiCrags",
+      "file": "ina-seirai-crags-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 29094
+    },
+    {
+      "id": "ina-wp-16029",
+      "key": "inaSeiraiCrags",
+      "file": "ina-seirai-crags-background-v1.png",
+      "bundle": "ina-islands-native-backgrounds.lua",
+      "packedBytes": 29094
+    },
+    {
+      "id": "ina-wp-12722",
+      "key": "teaLanding",
+      "file": "ina-tea-case-landing-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 28400
+    },
+    {
+      "id": "ina-wp-13669",
+      "key": "teaLanding",
+      "file": "ina-tea-case-landing-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 28400
+    },
+    {
+      "id": "ina-wp-13670",
+      "key": "teaLanding",
+      "file": "ina-tea-case-landing-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 28400
+    },
+    {
+      "id": "inazuma-port",
+      "key": "inazuma",
+      "file": "inazuma-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 29750
+    },
+    {
+      "id": "inazuma-town",
+      "key": "inazumatown",
+      "file": "inazuma-castle-town-background-v1.png",
+      "bundle": "shared-scenes-inazuma-native-backgrounds.lua",
+      "packedBytes": 30238
+    }
+  ]
+}

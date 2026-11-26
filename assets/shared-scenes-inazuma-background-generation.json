@@ -6,24 +6,14 @@
       "key": "inazuma",
       "node": "inazuma-port",
       "sharedNodes": [
-        "tsurumi-coast",
-        "watatsumi-landing",
         "inazuma-road",
         "inazuma-lantern-trail",
         "inazuma-lantern-clearing",
         "inazuma-forest-shore",
-        "maguu-approach",
         "array-approach",
-        "thunder-approach",
-        "ina-wp-12704",
-        "ina-wp-12715",
-        "ina-wp-12718",
         "ina-wp-12719",
-        "ina-wp-12728",
         "ina-wp-12735",
-        "ina-wp-12745",
-        "ina-wp-12749",
-        "ina-wp-16026"
+        "ina-wp-12745"
       ],
       "source": "inazuma-background-v1.png",
       "preview": "inazuma-native-preview-v1.png"
@@ -42,14 +32,8 @@
         "ina-wp-12729",
         "ina-wp-12746",
         "ina-wp-13429",
-        "ina-wp-13669",
-        "ina-wp-13670",
-        "ina-wp-15940",
-        "ina-wp-15951",
         "ina-wp-16012",
         "ina-wp-16014",
-        "ina-wp-16022",
-        "ina-wp-16029",
         "mond-wp-9",
         "mond-wp-10",
         "mond-wp-15",
@@ -63,7 +47,6 @@
       "key": "inazumatown",
       "node": "inazuma-town",
       "sharedNodes": [
-        "ina-wp-12722",
         "ina-wp-12740"
       ],
       "source": "inazuma-castle-town-background-v1.png",
@@ -93,7 +76,11 @@
     {
       "key": "teaLanding",
       "node": "ina-tea-landing",
-      "sharedNodes": [],
+      "sharedNodes": [
+        "ina-wp-12722",
+        "ina-wp-13669",
+        "ina-wp-13670"
+      ],
       "source": "ina-tea-case-landing-background-v1.png",
       "preview": "ina-tea-case-landing-native-preview-v1.png"
     },
@@ -118,9 +105,7 @@
         "inazuma-torii-statues",
         "inazuma-torii-reflections",
         "inazuma-torii-thicket",
-        "ina-wp-12726",
-        "ina-wp-12733",
-        "ina-wp-12738"
+        "ina-wp-12726"
       ],
       "source": "inazuma-torii-forest-background-v1.png",
       "preview": "inazuma-torii-forest-native-preview-v1.png"

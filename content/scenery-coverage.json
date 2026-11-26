@@ -231,7 +231,7 @@
       "name": "稲妻・鶴観の浜",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaFogIslet"
     },
     {
       "id": "wolflord-field-ruins",
@@ -245,7 +245,7 @@
       "name": "稲妻・海祇島の浜",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaSuigetsuPool"
     },
     {
       "id": "hydro-hypostasis-field-cove",
@@ -1295,7 +1295,7 @@
       "name": "魔偶剣鬼・挑戦入口",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaSerpentQuarry"
     },
     {
       "id": "maguu-field-dojo",
@@ -1323,7 +1323,7 @@
       "name": "雷音権現・挑戦入口",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaSeiraiCrags"
     },
     {
       "id": "thunder-field-crest",
@@ -7105,7 +7105,7 @@
       "name": "ヤシオリ島・北の尾根の小径",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaYashioriRift"
     },
     {
       "id": "ina-wp-12711",
@@ -7119,7 +7119,7 @@
       "name": "神無塚・南湾の石段",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaTataraFurnace"
     },
     {
       "id": "ina-wp-12716",
@@ -7140,7 +7140,7 @@
       "name": "神無塚・工房の西の崖道",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaTataraFurnace"
     },
     {
       "id": "ina-wp-12719",
@@ -7161,7 +7161,7 @@
       "name": "鳴神島・離島・城南の船着き場",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazumatown"
+      "scenery": "teaLanding"
     },
     {
       "id": "ina-wp-12725",
@@ -7182,7 +7182,7 @@
       "name": "鳴神島・離島・平地の道標",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaByakkoMeadow"
     },
     {
       "id": "ina-wp-12729",
@@ -7196,7 +7196,7 @@
       "name": "鳴神島・離島・社へ続く山道",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "toriiforest"
+      "scenery": "inaYougouStair"
     },
     {
       "id": "ina-wp-12735",
@@ -7210,7 +7210,7 @@
       "name": "鳴神島・離島・東斜面の石段",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "toriiforest"
+      "scenery": "inaYougouStair"
     },
     {
       "id": "ina-wp-12740",
@@ -7238,7 +7238,7 @@
       "name": "ヤシオリ島・峠の神像",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaYashioriRift"
     },
     {
       "id": "ina-wp-13429",
@@ -7252,14 +7252,14 @@
       "name": "神無塚・北西の渡し場",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "teaLanding"
     },
     {
       "id": "ina-wp-13670",
       "name": "神無塚・岬の東の渡し場",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "teaLanding"
     },
     {
       "id": "ina-wp-15938",
@@ -7273,7 +7273,7 @@
       "name": "海祇島・南の潮だまり",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "inaSuigetsuPool"
     },
     {
       "id": "ina-wp-15942",
@@ -7294,7 +7294,7 @@
       "name": "海祇島・東沖の中継島",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "inaSuigetsuPool"
     },
     {
       "id": "ina-wp-16012",
@@ -7322,7 +7322,7 @@
       "name": "セイライ島・海峡の神像",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "inaSeiraiCrags"
     },
     {
       "id": "ina-wp-16024",
@@ -7336,7 +7336,7 @@
       "name": "セイライ島・北西の斜面の分岐",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "inazuma"
+      "scenery": "inaSeiraiCrags"
     },
     {
       "id": "ina-wp-16027",
@@ -7350,7 +7350,7 @@
       "name": "セイライ島・東沖の石橋",
       "region": "稲妻",
       "status": "regional_temporary_image",
-      "scenery": "shiomicape"
+      "scenery": "inaSeiraiCrags"
     },
     {
       "id": "ina-wp-16030",

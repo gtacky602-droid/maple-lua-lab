@@ -23,7 +23,11 @@
       "note": "影向山の杉の参道",
       "source": "ina-yougou-stair-background-v1.png",
       "preview": "ina-yougou-stair-native-preview-v1.png",
-      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. A mountain path beneath Mt Yougou. Straight dark cedars at the left, a small vermilion torii and mossy stone lantern in the middle distance at right, pale mauve mountain ridgelines and irregular bands of cloud beyond, sparse cherry blossoms high up. Misty cool morning, side view of ascending terraces far back. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. A mountain path beneath Mt Yougou. Straight dark cedars at the left, a small vermilion torii and mossy stone lantern in the middle distance at right, pale mauve mountain ridgelines and irregular bands of cloud beyond, sparse cherry blossoms high up. Misty cool morning, side view of ascending terraces far back. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene.",
+      "sharedNodes": [
+        "ina-wp-12733",
+        "ina-wp-12738"
+      ]
     },
     {
       "node": "sites-hunt-12781-pocket-1",
@@ -39,7 +43,10 @@
       "note": "白狐の野の分かれ道",
       "source": "ina-byakko-meadow-background-v1.png",
       "preview": "ina-byakko-meadow-native-preview-v1.png",
-      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. Byakko Plain on Narukami Island, late summer dusk. Flat Japanese grassland with big silver pampas plumes grouped at the outer edges, distant pink cherry crowns, farm path curving toward a lone red gate, a blue mountain silhouette behind it. Golden cream and indigo. Wide side-on clearing. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene."
+      "prompt": "One original 16:9 edge-to-edge pixel art background for a Maple-like 2D scrolling RPG inspired by Inazuma. Byakko Plain on Narukami Island, late summer dusk. Flat Japanese grassland with big silver pampas plumes grouped at the outer edges, distant pink cherry crowns, farm path curving toward a lone red gate, a blue mountain silhouette behind it. Golden cream and indigo. Wide side-on clearing. Horizontal orthographic side view. Deliberate large stepped pixel clusters, restrained 4-5 values per material, broad silhouettes legible at 512x288, clear open low-contrast lower third for game characters. No foreground walkable platforms, lettering, UI, characters, enemies, logos, outlines around the whole image, pixel noise or dithering. Opaque. One scene.",
+      "sharedNodes": [
+        "ina-wp-12728"
+      ]
     },
     {
       "node": "sites-hunt-12784-pocket-1",

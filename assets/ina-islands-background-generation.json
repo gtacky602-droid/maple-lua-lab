@@ -7,7 +7,12 @@
       "source": "ina-suigetsu-pool-background-v1.png",
       "preview": "ina-suigetsu-pool-native-preview-v1.png",
       "note": "池の中の秘境・水月池の石井戸",
-      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Watatsumi: an enormous sunken round carved stone cistern with turquoise still water under coral-pink branches; low mossy ruin arches overhead. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Watatsumi: an enormous sunken round carved stone cistern with turquoise still water under coral-pink branches; low mossy ruin arches overhead. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering.",
+      "sharedNodes": [
+        "watatsumi-landing",
+        "ina-wp-15940",
+        "ina-wp-15951"
+      ]
     },
     {
       "node": "sites-hunt-17223",
@@ -23,7 +28,10 @@
       "source": "ina-fog-islet-background-v1.png",
       "preview": "ina-fog-islet-native-preview-v1.png",
       "note": "離れ小島・霧の岸",
-      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. An isolated Inazuman islet off Tsurumi, quiet pale gray blue fog, low sea stacks, distant broken flagstones emerging from the water and a solitary twisted pine. Boat route approaches from the right. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. An isolated Inazuman islet off Tsurumi, quiet pale gray blue fog, low sea stacks, distant broken flagstones emerging from the water and a solitary twisted pine. Boat route approaches from the right. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering.",
+      "sharedNodes": [
+        "tsurumi-coast"
+      ]
     },
     {
       "node": "sites-hunt-18667-pocket-1",
@@ -39,7 +47,13 @@
       "source": "ina-seirai-crags-background-v1.png",
       "preview": "ina-seirai-crags-native-preview-v1.png",
       "note": "セイライ・雷雲の岩場",
-      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Storm-torn Seirai island. In the middle distance a crooked line of detached levitating slate slabs leads the eye upwards to a purple storm above split peaks; luminous violet along cloud undersides, subdued blue-slate lower valley. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering."
+      "prompt": "Create one original wide 16:9 environment background for a Genshin-inspired Maple-like side-scrolling pixel RPG. Storm-torn Seirai island. In the middle distance a crooked line of detached levitating slate slabs leads the eye upwards to a purple storm above split peaks; luminous violet along cloud undersides, subdued blue-slate lower valley. Flat side view. Deliberately drawn pixel art with broad connected clusters, stepped silhouettes, four to five colors per material, readable at 512x288. Calm lower third for overlaid game actors. No figures, platforms, text, panels, logos or UI, grain, stippling or dithering.",
+      "sharedNodes": [
+        "thunder-approach",
+        "ina-wp-16022",
+        "ina-wp-16026",
+        "ina-wp-16029"
+      ]
     },
     {
       "node": "sites-hunt-24906",
