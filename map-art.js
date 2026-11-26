@@ -652,9 +652,9 @@ try{
   const arena=liveView && arenaPreviews.get(n.id);
   const members=arena?.openingParts;
   const groupOpening=members?.length>1;
-  const fieldSubject=Boolean(!openings[n.id] && (subject.value || dailyPreview) && visibleItems.length);
-  $('fidelityControls').hidden=!(liveView && (surveyProps.length || (openings[n.id] || arena) && visibleItems.length || fieldSubject) && !matchedSprites);
-  const measuredSubject=surveyProps.length?'依頼の小物':fieldSubject?'対象の敵':'ボス';
+  const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
+  $('fidelityControls').hidden=!(liveView && (surveyProps.length || visibleItems.length) && !matchedSprites);
+  const measuredSubject=surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
@@ -699,7 +699,7 @@ try{
      return cost.visible;
     }
     for(const e of visibleItems){
-     if(fieldSubject || groupOpening || arena && !openings[n.id]){
+     if(!openings[n.id] || groupOpening){
       paintFieldPlacement(ctx,e,quality,cost);
       continue;
      }
