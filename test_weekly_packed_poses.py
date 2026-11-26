@@ -1,4 +1,5 @@
 """Exercise Lua pose lookup, lazy profiles and rectangle restoration for every weekly encounter."""
+import base64
 import json
 from unittest.mock import patch
 from packed_pose_test_support import pose_check
@@ -14,7 +15,11 @@ with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
     for group,files in catalog.items():
         for key,filename in files.items():
             source=json.loads((ROOT/'assets'/filename).read_bytes())
-            check(core[group][key],lua.table_from(source,recursive=True))
+            with patch('packed_poses.base64.b64decode', wraps=base64.b64decode) as decode:
+                art = core[group][key]
+                assert art.source == source['source'] and decode.call_count == 0
+                check(art,lua.table_from(source,recursive=True))
+                assert decode.call_count == len(source['profiles'])
             assert (reader.call_args.args[0].parent.name,reader.call_args.args[0].name)==('weekly-poses.zip',filename)
             assert core[group][key].source==source['source']
             poses+=1

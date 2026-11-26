@@ -1,11 +1,10 @@
 from pathlib import Path
 from zipfile import ZipFile, Path as ZipPath
-import base64
 import sys, json
 from stygian_art import stygian_parts
 from field_pose_files import enemy_pose_files, legend_pose_files
 import common_boss_art as boss_parts
-from packed_poses import load_pose_pack, read_packed_pose
+from packed_poses import deferred_grid, load_pose_pack, read_packed_pose, shared_pack
 from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
@@ -34,9 +33,9 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None,
             return None
         if packed_archive:
             with ZipFile(ROOT/'assets'/packed_archive) as archive:
-                asset = read_packed_pose(ZipPath(archive, filename))
+                asset = read_packed_pose(ZipPath(archive, filename), defer=True)
         elif packed:
-            asset = read_packed_pose(ROOT/'assets'/packed_dir/filename)
+            asset = read_packed_pose(ROOT/'assets'/packed_dir/filename, defer=True)
         else:
             asset = json.loads((ROOT / 'assets' / filename).read_text(encoding='utf8'))
         if key == 'idle' and idle_anchor is not None:
@@ -276,9 +275,8 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     core.variants=lua.table()
     for path in sorted((ROOT/'assets/base-packed').glob('*.json')):
         sprites=lua.table()
-        for index,grid in enumerate(json.loads(path.read_bytes())['sprites'],1):
-            records=base64.b64decode(grid.pop('data'),validate=True)
-            sprites[index]=prepare_grid(lua.table_from(grid,recursive=True),records)
+        for index,grid in enumerate(shared_pack(path)['sprites'],1):
+            sprites[index]=deferred_grid(lua,prepare_grid,grid)
         core.variants[path.stem]=sprites
     core.assets=core.variants.legacy
     shared=load_pose_pack(lua,ROOT,'common-boss-packed.json')

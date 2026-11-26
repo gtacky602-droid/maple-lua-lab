@@ -4,26 +4,37 @@ import json
 from functools import lru_cache, partial
 
 
-def decode_records(pose):
+def record_reader(encoded):
+    return partial(base64.b64decode, encoded, validate=True)
+
+
+def read_packed_pose(path, *, defer=False):
+    pose = json.loads(path.read_bytes())
     for grid in pose['profiles'].values():
-        grid['data'] = base64.b64decode(grid['data'], validate=True)
+        read = record_reader(grid['data'])
+        grid['data'] = read if defer else read()
     return pose
 
 
-def read_packed_pose(path):
-    return decode_records(json.loads(path.read_bytes()))
-
-
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=10)
 def _shared_pack(path, modified_ns, size):
     # Each session owns its Lua tables. The unchanged source strings can be shared.
     return json.loads(path.read_bytes())
 
 
-def load_pose_pack(lua, root, filename):
-    path = root / 'assets' / filename
+def shared_pack(path):
     stat = path.stat()
-    poses = _shared_pack(path, stat.st_mtime_ns, stat.st_size)
+    return _shared_pack(path, stat.st_mtime_ns, stat.st_size)
+
+
+def deferred_grid(lua, prepare, grid):
+    metadata = {key: value for key, value in grid.items() if key != 'data'}
+    read_records = record_reader(grid['data'])
+    return prepare(lua.table_from(metadata, recursive=True), read_records)
+
+
+def load_pose_pack(lua, root, filename):
+    poses = shared_pack(root / 'assets' / filename)
     prepare = lua.execute((root / 'packed-poses.lua').read_text(encoding='utf8'))
     result = {}
     for name, pose in poses.items():
@@ -31,8 +42,6 @@ def load_pose_pack(lua, root, filename):
         art = lua.table_from(metadata, recursive=True)
         art.profiles = lua.table()
         for key, grid in pose['profiles'].items():
-            dimensions = {field: value for field, value in grid.items() if field != 'data'}
-            read_records = partial(base64.b64decode, grid['data'], validate=True)
-            art.profiles[key] = prepare(lua.table_from(dimensions, recursive=True), read_records)
+            art.profiles[key] = deferred_grid(lua, prepare, grid)
         result[name] = art
     return result
