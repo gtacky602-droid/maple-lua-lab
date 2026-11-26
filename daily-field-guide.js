@@ -2,7 +2,7 @@ import {json,sheet,paint} from './sprite-comparison.js';
 const el=id=>document.getElementById(id);
 const region=el('region'),menu=el('quest');
 try{
- const [{quests},sprites]=await Promise.all([json('content/daily-field-guide.json'),json('assets/daily-guide-sprites.json')]);
+ const [{quests},sprites,routes]=await Promise.all([json('content/daily-field-guide.json'),json('assets/daily-guide-sprites.json'),json('content/daily-guide-routes.json')]);
  const byId=new Map(quests.map(q=>[q.id,q]));
  const params=new URLSearchParams(location.search);
  const first=byId.get(params.get('quest'))||quests[0];
@@ -15,6 +15,15 @@ try{
   el('objective').textContent=q.target+'　目標 '+q.goal;el('reward').textContent='報酬　'+q.xp.toLocaleString('ja-JP')+' EXP・'+q.mora.toLocaleString('ja-JP')+' モラ';
   el('place').textContent=q.place+(q.enemy?'　'+q.enemy:'');
   for(const [link,node] of [['hubMap',q.hub],['fieldMap',q.node]])el(link).href='map-art.html?'+new URLSearchParams({node,placements:'live'});
+  el('routeStart').textContent=q.hubName+'を出発（Lv'+q.level+'・地域の物語依頼を受ける前の経路）';
+  const steps=routes[[q.hub,q.level,q.node].join('/')];
+  el('routeStops').replaceChildren(...steps.map(step=>{
+   const item=document.createElement('li'),link=document.createElement('a');
+   link.textContent=step.name;link.href='map-art.html?'+new URLSearchParams({node:step.node,placements:'live'});
+   item.append(link);
+   if(step.requires)item.append('　'+step.requires);
+   return item;
+  }));
   for(const profile of ['h48c32','h32c16'])paint(el(profile),art,profile);
   const source=el('source');source.getContext('2d').clearRect(0,0,source.width,source.height);
   delete source.dataset.art;el('error').textContent='';
