@@ -1,4 +1,5 @@
-import {loadImageSet} from './sprite-images.js';
+import {paintSprite,rectangleCount} from './sprite-layers.js';
+import {sheet} from './sprite-comparison.js';
 
 const $=id=>document.getElementById(id);
 
@@ -10,27 +11,28 @@ async function readJson(path){
 
 try{
  const pose=await readJson('content/farka-idle-layers.json');
- const files=[pose.sword.file,...Object.values(pose.facings).flatMap(facing=>[facing.body,facing.reference]),
-  ...Object.values(pose.guide.facings).map(facing=>facing.body)];
- const sprites=Object.fromEntries(await Promise.all(files.map(async file=>[file,await readJson(`assets/${file}`)])));
- const images=await loadImageSet(Object.values(sprites).map(art=>art.source));
+ const packedFiles=new Set([pose.sword.file,...Object.values(pose.facings).map(f=>f.body)]);
+ const requests=new Map(),sprites=new Map(),images=new Map();
+ async function prepare(command,png){
+  const {file}=command;
+  if(!requests.has(file)){
+   const dir=packedFiles.has(file)?'assets/stygian-packed/':'assets/';
+   requests.set(file,readJson(dir+file).catch(error=>{requests.delete(file);throw error}));
+  }
+  const art=await requests.get(file);
+  sprites.set(file,art);
+  if(png)images.set(art.source,await sheet(art.source));
+ }
  const contexts=['reference','layered'].map(id=>{
   const canvas=$(id);[canvas.width,canvas.height]=pose.cell;
   const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;return ctx;
  });
 
  function paint(ctx,command,mode){
-  const {file,left,top,width:w,height:h,origin,angle}=command,art=sprites[file];
+  const {file,left,top,width:w,height:h,origin,angle}=command,art=sprites.get(file);
   ctx.save();
   if(origin){ctx.translate(...origin);ctx.rotate(angle)}
-  if(mode==='png'){
-   ctx.drawImage(images[art.source],...art.box,left,top,w,h);
-  }else{
-   const profile=art.profiles[mode],sx=w/profile.width,sy=h/profile.height;
-   for(const [x,y,width,height,color] of profile.runs){
-    ctx.fillStyle=color;ctx.fillRect(left+x*sx,top+y*sy,width*sx+.05,height*sy+.05);
-   }
-  }
+  paintSprite(ctx,art,images.get(art.source),{x:left,y:top,width:w,height:h},mode==='png'?null:mode,$('nativePixels').checked);
   ctx.restore();
  }
 
@@ -63,6 +65,10 @@ try{
    $('layeredTitle').textContent='身体と二刀を重ねた絵';
    $('status').textContent=stats(frame);
   }
+  const total=profile=>frame.draws.reduce((n,d)=>n+rectangleCount(sprites.get(d.file).profiles[profile]),0);
+  const normal=total('h48c32'),light=total('h32c16');
+  $('cost').textContent='表示中の部品　32色 '+normal.toLocaleString()+'矩形 ／ 16色 '+light.toLocaleString()+'矩形'+
+   (normal?'（'+((1-light/normal)*100).toFixed(1)+'%減）':'');
   window.farkaIdle=frame;
  }
 
@@ -78,6 +84,11 @@ try{
     body:JSON.stringify(options),signal:current.signal});
    if(!response.ok)throw new Error(`HTTP ${response.status}`);
    const frame=await response.json();
+   if(request!==current)return;
+   const layers=[...frame.draws,...(frame.baseline?.draws??[])];
+   const loads=layers.map(command=>prepare(command,frame.mode==='png'));
+   if(frame.reference)loads.push(prepare(frame.reference,true));
+   await Promise.all(loads);
    if(request===current)show(frame);
   }catch(error){
    if(request===current)$('status').textContent=`Luaの描画指示を取得できませんでした。${error.message}`;
@@ -85,7 +96,7 @@ try{
  }
 
  $('pose').addEventListener('input',event=>{
-  if(event.target===$('markers')&&window.farkaIdle)show(window.farkaIdle);
+  if([$('markers'),$('nativePixels')].includes(event.target)&&window.farkaIdle)show(window.farkaIdle);
   else render();
  });
  $('pose').addEventListener('reset',()=>requestAnimationFrame(render));

@@ -20,7 +20,7 @@ try{
   return read();
  };
  const checks=[];
- const legacyCounts={right:[0,6241,4025,1715],left:[0,5664,3571,1503]};
+ const legacyCounts={right:[0,6241,4025,1602],left:[0,5664,3571,1427]};
  let largestResponse=0;
  const api=new URL('api/farka-idle',base).href;
  for(const side of ['right','left']){
@@ -47,6 +47,22 @@ try{
    checks.push({side,mode,rectangles:frame.rectangles});
   }
  }
+ const unchanged=await read();
+ const canvas=page.locator('#layered');
+ const direct=await canvas.evaluate(c=>c.toDataURL());
+ await page.locator('#nativePixels').check();
+ const native=await canvas.evaluate(c=>c.toDataURL());
+ assert.notEqual(native,direct);
+ assert.deepEqual(await read(),unchanged);
+ assert.match(await page.locator('#cost').textContent(),/3,571矩形 ／ 16色 1,427矩形/);
+ await page.locator('#nativePixels').uncheck();
+ assert.equal(await canvas.evaluate(c=>c.toDataURL()),direct);
+ const loaded=await page.evaluate(()=>performance.getEntriesByType('resource').map(e=>new URL(e.name).pathname));
+ for(const file of [pose.sword.file,pose.facings.left.body,pose.facings.right.body]){
+  assert.equal(loaded.filter(path=>path==='/assets/stygian-packed/'+file).length,1,file);
+  assert.ok(!loaded.includes('/assets/'+file),file);
+ }
+ for(const facing of Object.values(pose.guide.facings))assert.ok(!loaded.includes('/assets/'+facing.body));
  const before=await read();
  await page.locator('#frontAngle').fill('20');
  await page.locator('#markers').check();
