@@ -34,6 +34,14 @@ for node_id, animals in routes.items():
         assert draw.h == layout['height'] and abs(draw.y - a['y']) <= 3
         assert bool(draw.flip) == a.get('flip', False)
         assert node['swim']['top'] <= a['y']-draw.h-3 and a['y']+3 <= node['swim']['bottom']
+    player = s.actors[s.active]
+    for animal in animals:
+        player.x,player.y = animal['x'],animal['y']
+        observation = core.frame(s,'sprite','legacy').wildlifeSighting
+        assert observation.art == animal['art']
+        assert observation.name == layouts[animal['art']].get('observationName',layouts[animal['art']]['name'].split('（')[0])
+    player.x = 20
+    assert core.frame(s,'sprite','legacy').wildlifeSighting is None
     for quality in ['legacy','h48c32','h32c16']:
         full = core.frame(s,'rect',quality).commands
         saved = s.storyWildlife
@@ -54,7 +62,10 @@ if '--write-demo' in sys.argv:
     for node_id in routes:
         if nodes[node_id].get('waypoint'):
             core.enterStoryNode(demo,node_id)
+    core.enterStoryNode(demo,'fon-wp-55784')
     core.enterStoryNode(demo,'fontaine-field')
     core.enterStoryNode(demo,'fontaine-hub')
     data = validate_save(native(core.checkpoint(demo)))
-    (ROOT/'evidence/fontaine-wildlife-save.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    path = ROOT/'evidence/fontaine-wildlife-save.json'
+    if not path.exists() or json.loads(path.read_bytes()) != data:
+        path.write_text(json.dumps(data,ensure_ascii=False,sort_keys=True,indent=2)+'\n',encoding='utf8')

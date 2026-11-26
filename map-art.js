@@ -729,7 +729,8 @@ try{
   if(residents){
    wildlifeNote.append('水中で観察できる生物（試作配置）　');
    for(const animal of residents){
-    const link=document.createElement('a');link.textContent=layouts[animal.art].name.split('（')[0];
+    const layout=layouts[animal.art],link=document.createElement('a');
+    link.textContent=layout.observationName??layout.name.split('（')[0];
     link.href='enemies-art.html?'+new URLSearchParams({q:animal.art});wildlifeNote.append(link);
    }
   }

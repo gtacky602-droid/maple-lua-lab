@@ -37,7 +37,7 @@ try{
  await page.goto(new URL('/index.html',base).href);
  await page.waitForFunction(()=>window.lab?.frame);
  await page.locator('#importSave').setInputFiles('evidence/fontaine-wildlife-save.json');
- const drive=waypointDriver(page,nodes);
+ const drive=waypointDriver(page,nodes,{walkTimeout:23000});
  await drive.waitNode('fontaine-hub');
  for(const [node,animals] of Object.entries(routes)){
   if(!nodes[node].waypoint)continue;
@@ -51,6 +51,43 @@ try{
  await drive.walk(850);
  const operative=await read('assets/'+layouts['fatui-wind-operative'].file);
  await page.waitForFunction(key=>window.paintedSpriteSheets.has(key),'/assets/'+operative.source+'#'+operative.box.join(','));
+ const hub='fontaine-hub',host='fon-wp-55784',water='erinnyes-root-waterway';
+ const {quests}=await read('content/story-graph.json');
+ const quest=quests.find(q=>q.id==='fon-erinnyes-root-water-survey');
+ await drive.warp(host);
+ const gate=nodes[host].exits.find(e=>e.to===water);
+ await drive.walk(gate.x);
+ await page.waitForFunction(to=>window.lab.frame.storyNearbyPortal?.to===to,water);
+ assert.equal(await page.evaluate(()=>window.lab.frame.storyNearbyPortal.available),false);
+ await drive.warp(hub);
+ await drive.accept(quest.id);
+ await drive.warp(host);
+ const jelly=await read('assets/'+layouts['hat-jellyfish-blue'].file);
+ const sheetKey='/assets/'+jelly.source+'#'+jelly.box.join(',');
+ for(const [index,step] of quest.itinerary.entries()){
+  if(step.kind==='arrive'){
+   await drive.cross(step.node);
+  }else{
+   await drive.walk(step.x);
+   await drive.changeHeight(step.y);
+   if(step.node===water&&index===2){
+    await page.waitForFunction(key=>window.paintedSpriteSheets.has(key),sheetKey);
+    await page.waitForFunction(label=>window.lab.frame.draws.some(d=>d.kind==='text'&&d.text===label),step.label);
+    const entry=page.getByRole('link',{name:'青紫のボウシクラゲ',exact:true});
+    await entry.waitFor();
+    const [gallery]=await Promise.all([page.waitForEvent('popup'),entry.click()]);
+    await gallery.waitForFunction(()=>window.charactersGallery?.ready);
+    assert.deepEqual(await gallery.locator('#cards article:not([hidden])').evaluateAll(cards=>cards.map(c=>c.dataset.id)),['hat-jellyfish-blue']);
+    await gallery.close();
+    await page.locator('#game').screenshot({path:'evidence/erinnyes-jelly-survey.png'});
+   }
+   await page.keyboard.press('KeyG');
+  }
+  await drive.count(quest.id,index+1);
+ }
+ await drive.warp(hub);
+ await drive.report(quest.id);
+ assert(await page.locator('#wildlifeSighting').isHidden());
  assert.deepEqual(errors,[]);
- console.log('Seven wildlife previews and six swims from the downloadable save passed');
+ console.log('Seven wildlife habitats seen in play; locked passage, five survey steps and report passed');
 }finally{await browser.close()}

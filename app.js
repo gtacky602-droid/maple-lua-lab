@@ -786,6 +786,12 @@ function hud(f,calls,renderMs){
  if(surveyReading!==$('surveyRigReading').textContent)$('surveyRigReading').textContent=surveyReading;
  if(interact||ingredient||cargo||clue)$('nearbyCargoGo').textContent=interact?`G：${interact.label}`:ingredient?`G：${ingredient.name}を集める`:clue?'G：'+(clue.label??clue.name+'を調べる'):
   cargo.guarded?`${cargo.name} ｜ 先に魔物を退ける`:`G：${cargo.name}を回収`;
+ const sighting=f.wildlifeSighting;
+ $('wildlifeSighting').hidden=!sighting;
+ if(sighting&&$('wildlifeEntry').dataset.art!==sighting.art){
+  const entry=$('wildlifeEntry');entry.dataset.art=sighting.art;entry.textContent=sighting.name;
+  entry.href='enemies-art.html?'+new URLSearchParams({q:sighting.art});
+ }
  const portal=f.storyNearbyPortal;
  $('nearbyPortal').hidden=!portal;
  if(portal){

@@ -2152,6 +2152,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local reward=s.storyFirstClear
    if reward and s.t<reward.untilTime then f.storyFirstClear={quest=reward.quest,xp=reward.xp} end
+   if s.storyWildlife and not s.lift then
+    local player=s.actors[s.active]
+    local nearest=145*145
+    for _,animal in ipairs(s.storyWildlife) do
+     local layout=C.enemyArtLayout[animal.art]
+     local dx,dy=player.x-animal.x,(player.y-32)-(animal.y-layout.height/2)
+     local distance=dx*dx+dy*dy
+     if player.hp>0 and distance<nearest then
+      nearest=distance
+      f.wildlifeSighting={art=animal.art,name=layout.observationName or layout.name:match('^(.-)（') or layout.name}
+     end
+    end
+   end
    if not f.storyCleared then
     local player=s.actors[s.active]
     for _,e in ipairs(s.enemies) do
@@ -2642,7 +2655,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
        markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}
       end
-      markers[#markers+1]={kind='text',x=x,y=y-(milestone.routeBeacon and 61 or milestone.patternBottle and 66 or milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
+      local caption=milestone.name or milestone.label or milestone.objective
+      if caption then
+       local captionY=milestone.name and y-(milestone.routeBeacon and 61 or milestone.patternBottle and 66 or milestone.outcrop and 48 or 41) or y+19
+       markers[#markers+1]={kind='text',x=x,y=captionY,text=caption,color='#fff0b9',size=14}
+      end
      end
      if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
          and not (milestone.flagLowerSeconds and s.flagLowering)

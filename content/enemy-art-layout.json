@@ -104,6 +104,7 @@
     }
   },
   "hat-jellyfish-gold": {
+    "observationName": "黄のボウシクラゲ",
     "name": "ボウシクラゲ（黄・待機候補）",
     "height": 84,
     "hover": 45,
@@ -116,6 +117,7 @@
     }
   },
   "hat-jellyfish-blue": {
+    "observationName": "青紫のボウシクラゲ",
     "name": "ボウシクラゲ（青紫・待機候補）",
     "height": 84,
     "hover": 45,
