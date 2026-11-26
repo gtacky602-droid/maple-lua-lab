@@ -37,6 +37,23 @@ try{
  }
  await verifyCrops();
  await card.screenshot({path:'evidence/traveler-face-profile-comparison.png'});
+ async function facePixels(){
+  return crops.evaluateAll(nodes=>nodes.map(c=>{
+   const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
+   let partial=0;
+   for(let i=3;i<pixels.length;i+=4)if(pixels[i]>0&&pixels[i]<255)partial++;
+   return {partial,png:c.toDataURL()};
+  }));
+ }
+ const before=await facePixels();
+ await page.check('#palettePixels');await verifyCrops();
+ const after=await facePixels();
+ assert.equal(before[0].png,after[0].png);
+ for(let i=1;i<=2;i++){assert(before[i].partial>0);assert.equal(after[i].partial,0)}
+ console.log('Face partial-alpha pixels before/after:',before.map(p=>p.partial),after.map(p=>p.partial),await card.locator('output').innerText());
+ await card.screenshot({path:'evidence/traveler-face-palette-pixels.png'});
+ await page.uncheck('#palettePixels');
+ assert.deepEqual(await facePixels(),before);
  const marker=card.locator('.detail-canvas i').first();
  const left=await marker.evaluate(el=>el.style.left);
  await png.press('ArrowRight');assert.notEqual(await marker.evaluate(el=>el.style.left),left);

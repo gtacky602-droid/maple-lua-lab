@@ -16,13 +16,28 @@ export function packedGeometrySize(grid){
  return rectangleBytes(grid).byteLength;
 }
 
-export function paintSprite(ctx,art,image,bounds,profile){
+export function paintSprite(ctx,art,image,bounds,profile,palettePixels=false){
  const {x,y,width,height}=bounds;
  if(!profile){
   ctx.drawImage(image,...art.box,x,y,width,height);
   return;
  }
- paintRectangleGrid(ctx,art.profiles[profile],bounds,.05);
+ if(palettePixels)paintPalettePixels(ctx,art.profiles[profile],bounds);
+ else paintRectangleGrid(ctx,art.profiles[profile],bounds,.05);
+}
+
+// Reconstruct the palette grid at integer coordinates before scaling the whole sprite.
+const paletteCanvases=new WeakMap();
+function paintPalettePixels(ctx,grid,{x,y,width,height}){
+ let canvas=paletteCanvases.get(grid);
+ if(!canvas){
+  canvas=document.createElement('canvas');
+  canvas.width=grid.width;canvas.height=grid.height;
+  paintRectangleGrid(canvas.getContext('2d'),grid,{x:0,y:0,width:grid.width,height:grid.height});
+  paletteCanvases.set(grid,canvas);
+ }
+ ctx.save();ctx.imageSmoothingEnabled=false;
+ ctx.drawImage(canvas,x,y,width,height);ctx.restore();
 }
 
 export function paintRectangleGrid(ctx,grid,{x,y,width,height},overlap=0){

@@ -132,6 +132,7 @@ try{
     pair.children[2].hidden=!both;
    }
    const a=data.profiles[both?'h48c32':profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom;
+   const palettePixels=$('palettePixels')?.checked;
    const body=spriteBounds(data,arena?h:h*zoom);
    const layer=rear&&spriteBounds(rear.data,rear.height*zoom,rear.bottom*zoom);
    const halfWidth=Math.max(-body.x,body.x+body.width,(layer?.width??0)/2);
@@ -142,13 +143,13 @@ try{
     canvas.width=arena?960:Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=arena?540:Math.max(300,Math.ceil(hover-top+30));
     const floor=arena?.floorY??(canvas.height-15-hover);
     const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(arena?.center??canvas.width/2,floor);
-    if(layer)paintSprite(ctx,rear.data,rear.image,layer,selected);
+    if(layer)paintSprite(ctx,rear.data,rear.image,layer,selected,palettePixels);
     if(flip&&!left)ctx.scale(-1,1);
     if(arena&&selected){
      ctx.setTransform(1,0,0,1,0,0);
      const visible=openingRects(ctx,data.profiles[selected],body,arena.center,floor,flip,true,true);
      painted.push((selected==='legacy'?'標準':selected==='h48c32'?'32色':'16色')+' '+visible.toLocaleString('ja-JP')+'矩形');
-    }else paintSprite(ctx,data,image,body,selected);
+    }else paintSprite(ctx,data,image,body,selected,palettePixels);
     ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,arena?.floorY??(canvas.height-15),canvas.width,1);
     if(form==='armored'){
      const x=arena.center,y=floor-h*(data.box[1]+data.box[3]-arena.chestSourceY)/data.box[3];
@@ -170,6 +171,7 @@ try{
   if(form==='opening')url.searchParams.delete('pose');else url.searchParams.set('pose',form);
   history.replaceState(history.state,'',url);render();
  };
+ if($('palettePixels'))$('palettePixels').onchange=render;
  if($('compareBoth'))$('compareBoth').onchange=()=>{$('profile').disabled=$('compareBoth').checked;render()};
  for(const id of ['profile','zoom','flip'])$(id).onchange=render;render();
 }catch(e){$('status').textContent='素材の読み込みに失敗しました: '+e.message;throw e}
