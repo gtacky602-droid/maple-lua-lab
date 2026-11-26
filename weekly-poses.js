@@ -1,4 +1,4 @@
-import {paintSprite,rectangleCount,spriteBounds} from './sprite-layers.js';
+import {paintSprite,rectangleCount,packedGeometrySize,spriteBounds} from './sprite-layers.js';
 
 const boss=document.querySelector('#boss'),pose=document.querySelector('#pose');
 const result=document.querySelector('#result'),canvases=[...document.querySelectorAll('canvas')];
@@ -92,7 +92,11 @@ try{
     c.hidden=false;
    }
    const standard=rectangleCount(data.profiles.h48c32),light=rectangleCount(data.profiles.h32c16);
-   result.textContent='32色 '+standard.toLocaleString()+'矩形 ／ 16色 '+light.toLocaleString()+'矩形';
+   const standardBytes=packedGeometrySize(data.profiles.h48c32),lightBytes=packedGeometrySize(data.profiles.h32c16);
+   const reduction=(standard-light)/standard*100;
+   result.textContent='ボス素材　32色 '+standard.toLocaleString()+'矩形 → 16色 '+light.toLocaleString()+'矩形'
+    +'（'+Math.abs(reduction).toFixed(1)+'%'+(reduction<0?'増':'減')+'）'
+    +' ／ 座標・色番号のデータ量 '+standardBytes.toLocaleString()+' B → '+lightBytes.toLocaleString()+' B';
    if(shot)result.textContent+=' ／ 本編の表示高 '+shot.height+' px';
    if(view)result.textContent+=' ／ 両圧縮設定に剣 '+view.blades.length+'矩形を追加 ／ Lv'+record.level+'の戦闘記録';
   }catch(error){if(ticket===revision)result.textContent='素材を表示できませんでした。 '+error.message}

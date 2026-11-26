@@ -12,6 +12,9 @@ function rectangleBytes(grid){
 export function rectangleCount(grid){
  return grid.runs?grid.runs.length:rectangleBytes(grid).length/(grid.wide?9:5);
 }
+export function packedGeometrySize(grid){
+ return rectangleBytes(grid).byteLength;
+}
 
 export function paintSprite(ctx,art,image,bounds,profile){
  const {x,y,width,height}=bounds;

@@ -21,6 +21,14 @@ try{
     return !c.hidden&&data.some((v,i)=>i%4===3&&v>0);
    }));
    assert.deepEqual(painted,[true,true,true],boss+'/'+pose);
+   if(boss==='knave'&&pose==='moon'){
+    const art=JSON.parse(await readFile('assets/weekly-packed/'+manifest.knaveWeeklyArt.double,'utf8'));
+    const bytes=['h48c32','h32c16'].map(key=>Buffer.from(art.profiles[key].data,'base64').length);
+    const expected=((1-bytes[1]/bytes[0])*100).toFixed(1);
+    const status=await page.locator('#result').innerText();
+    assert(status.includes(expected+'%減'));
+    assert(status.includes(bytes.map(n=>n.toLocaleString()+' B').join(' → ')));
+   }
    if(boss==='primal_fire'&&['flame','dual'].includes(pose)){
     const purple=await page.locator('canvas').evaluateAll(cs=>cs.map(c=>{
      const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
