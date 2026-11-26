@@ -13,14 +13,21 @@ assets = Path(__file__).resolve().parents[1] / 'assets'
 regions = {'vivianne': (46, 11, 59, 19), 'ninianne': (77, 34, 96, 45)}
 
 
-def restore_eye(base, image, region):
-    width, height = base['width'] * 2, base['height'] * 2
+def restore_eye(base, image, region, size):
+    # The source grid keeps single-pixel eye corners aligned at the authored scale.
+    width, height = size
+
+    def project(x,y,w,h):
+        left,right=[round(v*width/base['width']) for v in (x,x+w)]
+        top,bottom=[round(v*height/base['height']) for v in (y,y+h)]
+        return left,top,right-left,bottom-top
+
     x0, y0, x1, y1 = region
     x0, x1 = [round(x * width / image.width) for x in (x0, x1)]
     y0, y1 = [round(y * height / image.height) for y in (y0, y1)]
     runs = []
     for x, y, w, h, color in base['runs']:
-        x, y, w, h = x*2, y*2, w*2, h*2
+        x, y, w, h = project(x,y,w,h)
         l, t, r, b = max(x, x0), max(y, y0), min(x+w, x1), min(y+h, y1)
         if l >= r or t >= b:
             runs.append([x, y, w, h, color])
@@ -54,7 +61,8 @@ def restore_eye(base, image, region):
     # Check the entire output, including transparent space outside the silhouette.
     expected = Image.new('RGBA',(width,height))
     for x,y,w,h,color in base['runs']:
-        expected.paste(color,(x*2,y*2,(x+w)*2,(y+h)*2))
+        x,y,w,h=project(x,y,w,h)
+        expected.paste(color,(x,y,x+w,y+h))
     expected.paste(reference.crop((x0,y0,x1,y1)),(x0,y0))
     actual = Image.new('RGBA',(width,height))
     pixels = 0
@@ -102,7 +110,9 @@ def build(*, fresh=False):
                       eye[2]+margin[2], eye[3]+margin[3])
             if pose == 'idle':
                 assert region == regions[name]
-            updated = restore_eye(base, image, region)
+            # Vivianne's brace keeps more of the cyan rim on its existing even grid.
+            size = (base['width']*2, base['height']*2) if (name,pose)==('vivianne','brace') else image.size
+            updated = restore_eye(base, image, region, size)
             art['profiles']['h32c16'] = updated
             path.write_bytes(json.dumps(art,ensure_ascii=False,separators=(',', ':')).encode())
             print(name,pose,len(base['runs']),len(updated['runs']))
