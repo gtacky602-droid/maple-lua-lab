@@ -15,6 +15,11 @@ const cases={
 const browser=await chromium.launch({channel:'chrome'});
 try{
  const page=await browser.newPage({viewport:{width:1200,height:900}});
+ const poseRequests=[];
+ page.on('request',request=>{
+  const path=new URL(request.url()).pathname;
+  if(path.startsWith('/assets/field-packed/'))poseRequests.push(path);
+ });
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(new URL('/map-art.html?node='+initial+'&placements=live&tier=4096',base).href);
  await page.waitForFunction(()=>window.mapArt?.ready);
@@ -83,6 +88,10 @@ try{
    await study.screenshot({path:'evidence/'+node+'-eye.png'});
   }
  }
+ const layouts=JSON.parse(await fs.readFile('content/enemy-art-layout.json','utf8'));
+ const shared=Object.values(cases).flat().map(id=>'/assets/field-packed/'+layouts[id].file);
+ for(const path of shared)assert.equal(poseRequests.filter(url=>url===path).length,1,path);
+ console.log(shared.length+' shared poses fetched once across six arenas');
  await page.selectOption('#node','chassanion-legend-bubble-room');
  await panel.waitFor({state:'hidden'});
  for(const species of ['fatui-frost-operative','fatui-wind-operative']){

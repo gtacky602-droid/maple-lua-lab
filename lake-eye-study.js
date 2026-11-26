@@ -81,9 +81,12 @@ export function lakeEyeStudy(enemy,legend){
   images.replaceChildren();status.textContent='読み込み中';
   const name=enemy.id==='tainted-water-splitting-phantasm'?'ninianne':'vivianne';
   try{
-   const response=await fetch('assets/field-packed/lake-'+name+'-field-'+pose.value+'-sprites-v6.json');
-   if(!response.ok)throw Error(response.status);
-   const data=await response.json();
+   let data=legend;
+   if(pose.value!=='idle'){
+    const response=await fetch('assets/field-packed/lake-'+name+'-field-'+pose.value+'-sprites-v6.json');
+    if(!response.ok)throw Error(response.status);
+    data=await response.json();
+   }
    if(ticket!==revision)return;
    const scale=legend.h/legend.box[3],bounds=spriteBounds(data,data.box[3]*scale);
    let reference;

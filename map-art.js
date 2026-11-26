@@ -153,8 +153,11 @@ try{
  const openingBackground=loadScenery(sceneFrame(openingNode,0));
  const pendingBackgrounds=new Set();
  for(const [id,art] of Object.entries(slimePreviews))assets[id]={...art,h:40};
+ const ordinaryPoses=new Map();
  for(const [id,{height,hover,file,name}] of Object.entries(layouts)){
-  const data=await json('assets/field-packed/'+(file??`${id}-idle-sprites.json`)),art={...data,h:height,hover};
+  const path='field-packed/'+(file??`${id}-idle-sprites.json`);
+  if(!ordinaryPoses.has(path))ordinaryPoses.set(path,await json('assets/'+path));
+  const art={...ordinaryPoses.get(path),h:height,hover};
   if(assets[id]){
    Object.assign(assets[id],{h:height,hover});
    assets[id+'-reference']=art;
@@ -327,7 +330,7 @@ try{
  for(const data of imageArt)data.image=images[data.source];
  function loadFieldPose(art){
   if(!fieldPoseLoads.has(art.poseFile)){
-   const promise=json('assets/'+art.poseFile).then(async data=>{
+   const promise=Promise.resolve(ordinaryPoses.get(art.poseFile)??json('assets/'+art.poseFile)).then(async data=>{
     if(data.geometrySpecies){
      const base=assets[data.geometrySpecies+'-reference']??assets[data.geometrySpecies];
      data.profiles=Object.fromEntries(Object.entries(data.palettes).map(([key,palette])=>
