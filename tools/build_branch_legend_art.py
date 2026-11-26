@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+from build_lake_eye_profiles import build as build_lake_eyes
 
 ROOT = Path(__file__).resolve().parents[1]
 SHEETS = {
@@ -68,6 +69,8 @@ for layout_name, revision in PIVOT_LAYOUTS.items():
             '--height', str(height), '--pivot', *(str(v) for v in pivot),
             '--crop', *(str(v) for v in crop),
         ], cwd=ROOT, check=True)
+
+build_lake_eyes()
 
 motion = json.loads((ROOT/'assets'/'chizhang-shared-motion-layout-v3.json').read_text(encoding='utf-8'))
 for frame in motion['frames']:

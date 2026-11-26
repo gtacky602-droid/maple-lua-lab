@@ -23,6 +23,8 @@
 
 第4稿は、水形タルパや北風の王狼と同じ大きさで旧稿を比べて制作した。第3稿で強かった金色の目と黒い外周の面積を減らし、青い水の明暗で厚みを描いた。ヴィヴィアンは縦に浮く胴と小さな頭、ニニアンは左右の重い腕と中央の顔。どちらの目も小さな青白い発光として残す。初稿と第2・3稿もギャラリーにある。背景はラボ用の仮画像。 [旧作と同寸の比較](../evidence/lake-legend-art-style-v4.png) · [6ポーズの比較](../evidence/lake-legend-art-v4-poses.png) · [公式の紹介図と2D資料](FONTAINE_LAKE_ART_REFERENCES.md) · [制作時に確認した出典](../evidence/lake-legend-art-v4-sources.json)
 
+本編と通常個体が共用する待機絵では、16色版の目元だけをA案の元PNGに合わせた。ヴィヴィアンは全身191矩形から213矩形、ニニアンは224矩形から248矩形。元の水色パレットで、発光部の下側が細くなる形と濃い縁を描く。配置プレビューでは目元を4倍に拡大し、元PNG、32色版、従来の16色版、補正後を同じ範囲で見比べられる。 [ヴィヴィアン](../map-art.html?node=vivianne-legend-bank&placements=live#sharedLegendArt) · [ニニアン](../map-art.html?node=ninianne-legend-bank&placements=live#sharedLegendArt)
+
 ## 検証
 
 Luaで通行Lv100の境界、6行動、移動する水波の命中範囲、退路と入り直し、報酬とセーブを確認した。移動・ジャンプ・通常攻撃の自動入力で最大HPから討伐した検査では、ヴィヴィアン80.83秒、ニニアン87.20秒。別の命中検査では位置とHPを固定して比較した。 [Luaログ](../evidence/sites-branch-legends-lua.json)

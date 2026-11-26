@@ -7,14 +7,14 @@
   "bothRetreatsAndReentryPassed": true,
   "measuredDrawCommandsSamePausedFrame": {
     "vivianne": {
-      "png": 25,
-      "legacy": 4643,
-      "h32c16": 1262
+      "png": 23,
+      "legacy": 4641,
+      "h32c16": 1260
     },
     "ninianne": {
-      "png": 19,
-      "legacy": 5390,
-      "h32c16": 1441
+      "png": 16,
+      "legacy": 4696,
+      "h32c16": 1295
     }
   },
   "errors": []

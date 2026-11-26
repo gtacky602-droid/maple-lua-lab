@@ -185,22 +185,22 @@ try{
  const visibleCards=page.locator('#cards article:not([hidden])');
  if(dry){
   assert.equal(await visibleCards.count(),1);
-  assert.equal(await visibleCards.locator('canvas').count(),2);
+  assert.equal(await visibleCards.locator('canvas:visible').count(),2);
   await page.locator('#assetSearch').fill('ディアンナラ');
   const ids=await visibleCards.evaluateAll(cards=>cards.map(card=>card.dataset.id).sort());
   assert.deepEqual(ids,['legend-deianeira','legend-deianeira-shared-operative']);
-  assert.equal(await visibleCards.locator('canvas').count(),4);
+  assert.equal(await visibleCards.locator('canvas:visible').count(),4);
  }else{
   const revisions=lake?6:2;
   const visible=revisions*2+(revisedChizhang?2:0);
   assert.equal(await visibleCards.count(),visible);
-  assert.equal(await visibleCards.locator('canvas').count(),visible*2);
+  assert.equal(await visibleCards.locator('canvas:visible').count(),visible*2);
   await page.locator('#assetSearch').fill(lake?'ニニアン':'シネアス');
   assert.equal(await visibleCards.count(),revisions);
   const titles=await visibleCards.locator('h2').allTextContents();
   const labels=lake?['初稿','第2稿','第3稿・一つ目','第4稿・水の陰影','第5稿A・本編表示中','第5稿B・斜めの奥行き']:['初稿','改稿'];
   titles.forEach((title,index)=>assert.ok(title.endsWith('（'+labels[index]+'）')));
-  assert.equal(await visibleCards.locator('canvas').count(),revisions*2);
+  assert.equal(await visibleCards.locator('canvas:visible').count(),revisions*2);
  }
  assert.deepEqual(errors,[]);
  const log=dry?'sites-fontaine-dry-legends-browser':lake?'sites-fontaine-lake-legends-a-browser':'sites-branch-legends-browser';

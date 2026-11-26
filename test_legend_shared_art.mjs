@@ -44,9 +44,17 @@ try{
   }
   if(node.endsWith('-legend-bank')){
    const study=panel.locator('.lake-eye-study');
-   assert.deepEqual(await study.locator('figcaption').allTextContents(),['元PNG','32色版','16色版']);
+   await study.locator('canvas[data-ready="true"]').nth(3).waitFor();
+   assert.deepEqual(await study.locator('figcaption').allTextContents(),['元PNG','32色版','従来の16色版','目元を補正した16色版']);
+   const [before,after]=await study.locator('small').allTextContents().then(labels=>labels.slice(-2));
+   assert.deepEqual([before,after],node.startsWith('vivianne')?['全身 191矩形','全身 213矩形']:['全身 224矩形','全身 248矩形']);
    const colors=await study.locator('canvas').evaluateAll(cs=>cs.map(c=>Array.from(c.getContext('2d').getImageData(18,13,1,1).data)));
    for(const [r,g,b,a] of colors)assert(r>140&&g>220&&b>220&&a>220,JSON.stringify(colors));
+   const error=await study.locator('canvas').evaluateAll(cs=>{
+    const crops=cs.map(c=>c.getContext('2d').getImageData(9,9,19,12).data);
+    return crops.slice(2).map(crop=>crop.reduce((sum,value,i)=>sum+Math.abs(value-crops[0][i]),0));
+   });
+   assert(error[1]<error[0],node+' eye error '+error);
    assert.equal(await study.locator('a').count(),3);
    await study.screenshot({path:'evidence/'+node+'-eye.png'});
   }

@@ -1,4 +1,12 @@
-import {paintSprite} from './sprite-layers.js';
+import {paintSprite,rectangleCount} from './sprite-layers.js';
+
+let previousProfiles;
+function loadPreviousProfiles(){
+ return previousProfiles??=fetch('assets/lake-legend-gallery.json').then(response=>{
+  if(!response.ok)throw Error('比較素材を読み込めません');
+  return response.json();
+ }).catch(error=>{previousProfiles=undefined;throw error});
+}
 
 const official='https://webstatic.hoyoverse.com/upload/op-public/2023/08/11/f13e999e59de3c81a58cc7f63ecde8de_4249075339798025693.png';
 const studies={
@@ -23,13 +31,23 @@ export function lakeEyeStudy(enemy,legend){
  section.className='lake-eye-study';title.textContent='単眼の見え方';
  const note=document.createElement('p');note.textContent=study.note;
  const strip=document.createElement('div');strip.className='eye-crops';
- for(const [quality,label] of [[null,'元PNG'],['h48c32','32色版'],['h32c16','16色版']]){
+ for(const [quality,label,previous] of [[null,'元PNG'],['h48c32','32色版'],['h32c16','従来の16色版',true],['h32c16','目元を補正した16色版']]){
   const figure=document.createElement('figure'),caption=document.createElement('figcaption');
   const canvas=document.createElement('canvas');canvas.width=36;canvas.height=26;
   const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
   const [cx,cy]=study.eye,[,,width,height]=legend.box;
-  paintSprite(ctx,legend,legend.image,{x:18-cx,y:13-cy,width,height},quality);
-  caption.textContent=label;figure.append(caption,canvas);strip.append(figure);
+  const bounds={x:18-cx,y:13-cy,width,height};
+  const count=document.createElement('small');
+  function draw(art){
+   paintSprite(ctx,art,legend.image,bounds,quality);
+   if(quality)count.textContent='全身 '+rectangleCount(art.profiles[quality])+'矩形';
+   canvas.dataset.ready='true';
+  }
+  if(previous){
+   const key=enemy.id==='tainted-water-splitting-phantasm'?'ninianne':'vivianne';
+   loadPreviousProfiles().then(poses=>draw(poses[key])).catch(error=>{count.textContent=error.message});
+  }else draw(legend);
+  caption.textContent=label;figure.append(caption,canvas,document.createElement('br'),count);strip.append(figure);
  }
  const refs=document.createElement('p');
  for(const [label,url] of [['公式紹介図・通常個体の2種',official],...study.photos]){
