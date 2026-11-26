@@ -1,7 +1,5 @@
-export function initRockView(){
- const panel=document.getElementById('rockView');
- const caption=document.getElementById('rockViewCaption');
- const canvas=document.getElementById('rockViewCanvas'),ctx=canvas.getContext('2d');
+export function initRockView(panel=document.getElementById('rockView'),caption=document.getElementById('rockViewCaption'),canvas=document.getElementById('rockViewCanvas')){
+ const ctx=canvas.getContext('2d');
  let displayed;
  return function update(view){
   panel.hidden=!view;

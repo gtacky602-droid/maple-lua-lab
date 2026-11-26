@@ -1,6 +1,7 @@
 import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
 import {wildlifeSites} from './underwater-wildlife.js';
 import {drawSurveyPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
+import {setupPuzzlePreview} from './quest-puzzle-preview.js';
 import {forestPreview} from './forest-preview.js';
 import {lanternPreview} from './lantern-preview.js';
 import {setupSceneryDetail} from './scenery-detail.js';
@@ -205,8 +206,13 @@ try{
  const [showPatrol,patrolTime]=patrolPanel.querySelectorAll('input');
  showPatrol.checked=query.get('patrol')==='1';
  showPatrol.onchange=patrolTime.oninput=()=>render();
+ const puzzlePreview=setupPuzzlePreview($('surveyPointNote'),point=>{
+  selectedSurveyPoint=point;
+  $('camera').value=point.x-480;
+ },()=>render());
  function focusSurveyPoint(point){
   selectedSurveyPoint=point;
+  puzzlePreview.reset(point);
   patrolPanel.hidden=!point?.guard;
   patrolTime.value=0;
   visibleLandmarks=[];
@@ -240,7 +246,7 @@ try{
     if(!stepsByNode.has(nodeId))stepsByNode.set(nodeId,new Map());
     const quests=stepsByNode.get(nodeId);
     if(!quests.has(quest))quests.set(quest,[]);
-    quests.get(quest).push({number:index+1,objective:step.objective,point:surveyPoint(quest,index,nodeId)});
+    quests.get(quest).push({number:index+1,objective:step.objective,point:surveyPoint(quest,index,nodeId,nodes.get(nodeId))});
    }
   }
  }
@@ -715,6 +721,7 @@ try{
     for(const r of landmarksInView){
      ctx.fillStyle=r.color;ctx.fillRect(r.x-camera,r.y,r.w,r.h);
     }
+    puzzlePreview.draw(ctx,camera);
     drawSurveyPoint(ctx,point,camera);
    }
   }
@@ -896,7 +903,7 @@ try{
   if(liveView && n===openingNode){
    const quest=questsById.get(query.get('quest'));
    point=query.has('worksite')?worksitePoint(quest,query.get('worksite'),n.id):
-    surveyPoint(quest,Number(query.get('step'))-1,n.id);
+    surveyPoint(quest,Number(query.get('step'))-1,n.id,n);
   }
   focusSurveyPoint(point);
   render();

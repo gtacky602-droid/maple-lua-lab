@@ -1,6 +1,6 @@
 import {questRoute,questTargetNode} from './quest-route.js';
 import {teaNotebook} from './tea-notebook.js';
-import {surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
+import {puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
@@ -241,6 +241,10 @@ export function trackedQuest(f,id,selectedWorksite){
   const point=surveyPoint(q,st.count,route.node);
   return {node:route.node,pointUrl:surveyPointUrl(point),pointLabel:patrolStep.cover.name+'の位置を見る',
    text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+ }
+ if(puzzleStep(patrolStep)&&route.node===patrolStep.node){
+  const url=surveyPointUrl({node:route.node,quest:q.id,step:st.count+1});
+  return {node:route.node,pointUrl:url,pointLabel:'装置の操作場所を見る',text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));

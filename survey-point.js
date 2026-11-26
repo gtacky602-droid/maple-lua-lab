@@ -1,6 +1,19 @@
 // Physical inspection points on the authored travel-and-survey itineraries.
-export function surveyPoint(quest,index,node){
+export function puzzleStep(step){
+ return step?.kind==='inspect'&&(step.resonanceOrder||step.shadowChoice||step.paperFold);
+}
+export function surveyPoint(quest,index,node,room){
  const steps=quest?.itinerary,step=steps?.[index];
+ if(room?.id===node&&step?.node===node&&puzzleStep(step)){
+  let stations;
+  if(step.resonanceOrder&&room.resonance){
+   const r=room.resonance;
+   stations=[{...r.panel,name:'刻印板',hint:r.order.map(i=>r.stones[i-1].pattern).join(' → ')},
+    ...r.stones.map(s=>({...s,name:'共鳴石 '+s.pattern}))];
+  }else if(step.shadowChoice)stations=room.rockViews?.points;
+  else if(step.paperFold)stations=room.paperBoard?.panels;
+  if(stations?.length)return {quest:quest.id,step:index+1,node,...stations[0],stations,action:step.objective};
+ }
  if(quest?.teaCase&&step?.node===node&&(step.teaClue||step.teaCup||step.kind==='teaEvidence')){
   return {quest:quest.id,step:index+1,node,x:step.x,y:step.y,name:step.name,tea:true};
  }

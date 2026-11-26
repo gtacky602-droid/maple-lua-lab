@@ -82,6 +82,7 @@ gate(s,1138,book)
 assert hub not in exits(s,book)
 core.action(s,'story_accept:'+first)
 collect(s,first,1,321)
+(ROOT/'evidence/simulanka-paper-panel-save.json').write_text(json.dumps(checkpoint(s),ensure_ascii=False)+'\n',encoding='utf8')
 move(s,497)
 assert frame(s).storyPaper.choice=='表・描かれた道'
 collect(s,first,1,497,key='story_paper_confirm')
