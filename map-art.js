@@ -640,6 +640,15 @@ try{
      ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
     }
    }
+   for(const fixture of selectedSurveyPoint?.fixtures??[]){
+    const x=fixture.x-camera;
+    for(const [dx,dy,w,h,color] of fixture.rects){
+     ctx.fillStyle=color;ctx.fillRect(x+dx,fixture.y+dy,w,h);
+    }
+    if(fixture.name&&x>=-25&&x<=985){
+     paintMechanismMark(ctx,{kind:'text',x:0,y:-fixture.labelHeight,size:14,color:'#fff0b9',text:fixture.name},x,fixture.y,false);
+    }
+   }
    for(const prop of surveyProps){
     const art=surveyPropArt.get(prop.file),x=prop.x-camera;
     paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),mode==='png'||matchedSprites?null:profile,x,prop.y,false,cost);

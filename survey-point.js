@@ -13,9 +13,26 @@ function choiceProp(option,kind){
   pose='fon-furina-cues-'+(option.id==='curtain'?'curtain':'lamp');height=74;
  }else if(option.diveChoice){
   pose='fon-freminet-dive-'+(option.id==='coral'?'coral':'marker');height=55;offsetY=20;
+ }else if(option.detourGift){
+  pose='coastal-gifts-'+option.id;height=35;offsetY=-25;
  }
  if(height)return {file:'quest-packed/'+pose+'-sprites-v1.json',height,x:option.x,y:option.y+offsetY,
   bubbles:option.diveChoice&&option.id==='bubbles'};
+}
+// Fixed scenery drawn by the Lua choice and treasure handlers in both sprite modes.
+const giftTable=[[-30,-25,60,10,'#674d52'],[-28,-25,56,3,'#a98260'],[-24,-15,4,15,'#594451'],[20,-15,4,15,'#594451']];
+const choiceSign=[[-12,-25,24,25,'#423951'],[-8,-21,16,12,'#d3dbf5']];
+const closedChest=[[-20,-19,40,19,'#855c4a'],[-21,-24,42,9,'#ba9063'],[-16,-17,4,17,'#cfa468'],[12,-17,4,17,'#cfa468'],[-3,-19,6,9,'#eed39a']];
+function choiceFixtures(step){
+ if(step.kind!=='choice')return [];
+ const fixtures=[];
+ if(step.treasure)fixtures.push({...step.treasure,rects:closedChest});
+ for(const o of step.choices){
+  const sprite=o.scentArt||o.magicChoice||o.diveChoice;
+  fixtures.push({x:o.x,y:o.y,name:o.name,labelHeight:o.detourGift?79:sprite?82:43,
+   rects:o.detourGift?giftTable:sprite?[]:choiceSign});
+ }
+ return fixtures;
 }
 export function surveyPoint(quest,index,node,room,pathId,choice){
  const path=pathId&&quest?.paths?.find(p=>p.id===pathId);
@@ -24,7 +41,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
   const option=step.choices[choice-1];
   if(!option)return null;
   return {quest:quest.id,step:index+1,node,choice,path:pathId,x:option.x,y:option.y,name:option.name,action:option.action,
-   props:step.choices.map(o=>choiceProp(o,step.kind)).filter(Boolean)};
+   props:step.choices.map(o=>choiceProp(o,step.kind)).filter(Boolean),fixtures:choiceFixtures(step)};
  }
  if(room?.id===node&&step?.node===node&&puzzleStep(step)){
   let stations;
