@@ -16,14 +16,16 @@ const browser=await chromium.launch({channel:'chrome'});
 try{
  const page=await browser.newPage({viewport:{width:1200,height:900}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(base+'map-art.html?node='+initial+'&placements=live&tier=4096');
+ await page.goto(new URL('/map-art.html?node='+initial+'&placements=live&tier=4096',base).href);
  await page.waitForFunction(()=>window.mapArt?.ready);
  const panel=page.locator('#sharedLegendArt');
  await panel.locator('summary').click();
- const ids=()=>panel.locator('a').evaluateAll(links=>links.map(a=>new URL(a.href).searchParams.get('q')));
+ const ids=()=>panel.locator('a[href^="enemies-art.html"]').evaluateAll(links=>links.map(a=>new URL(a.href).searchParams.get('q')));
  const results={};
  for(const [node,expected] of Object.entries(cases)){
-  await page.selectOption('#node',node);await panel.waitFor();
+  await page.selectOption('#node',node);
+  await page.waitForFunction(id=>window.mapArt?.ready&&window.mapArt.node===id,node);
+  await panel.waitFor();
   assert.deepEqual(await ids(),expected);
   const canvases=panel.locator('canvas'),first=canvases.first();
   await page.selectOption('#profile','legacy');
@@ -40,11 +42,21 @@ try{
    await page.selectOption('#liveSubject','boss-97076');assert.deepEqual(await ids(),[expected[1]]);
    await page.selectOption('#liveSubject','');
   }
-  if(node==='vivianne-legend-bank')await panel.screenshot({path:'evidence/vivianne-ordinary-size-comparison.png'});
+  if(node.endsWith('-legend-bank')){
+   const study=panel.locator('.lake-eye-study');
+   assert.deepEqual(await study.locator('figcaption').allTextContents(),['元PNG','32色版','16色版']);
+   const colors=await study.locator('canvas').evaluateAll(cs=>cs.map(c=>Array.from(c.getContext('2d').getImageData(18,13,1,1).data)));
+   for(const [r,g,b,a] of colors)assert(r>140&&g>220&&b>220&&a>220,JSON.stringify(colors));
+   assert.equal(await study.locator('a').count(),3);
+   await study.screenshot({path:'evidence/'+node+'-eye.png'});
+  }
  }
  await page.selectOption('#node','chassanion-legend-bubble-room');
  await panel.waitFor({state:'hidden'});
  assert.deepEqual(errors,[]);
+ await page.goto(new URL('/map-art.html?node=ninianne-legend-bank&placements=live#sharedLegendArt',base).href);
+ await panel.locator('.eye-crops canvas').first().waitFor();
+ assert(await panel.evaluate(el=>el.open));
  await fs.writeFile('evidence/legend-shared-art-browser.json',JSON.stringify(results,null,2)+'\n');
  console.log('Shared source art: seven ordinary/legend comparisons in six arenas; selection, scale, links and quality checked.');
 }finally{await browser.close()}

@@ -1,9 +1,11 @@
 import {spriteBounds,paintSprite} from './sprite-layers.js';
+import {lakeEyeStudy} from './lake-eye-study.js';
 
 // Only identical source images and crop rectangles qualify as shared idle art.
 export function setupSharedLegendArt(layouts,assets){
  const panel=document.createElement('details'),heading=document.createElement('summary'),rows=document.createElement('div');
  panel.id='sharedLegendArt';panel.hidden=true;heading.textContent='同じ待機絵を使う通常敵と大きさを比較';
+ panel.open=location.hash==='#sharedLegendArt';
  panel.append(heading,rows);document.querySelector('main').after(panel);
  const key=art=>JSON.stringify([art.source,art.box]);
  const ordinary=new Map();
@@ -12,7 +14,7 @@ export function setupSharedLegendArt(layouts,assets){
   if(!ordinary.has(source))ordinary.set(source,[]);
   ordinary.get(source).push({id,art,name:(layout.name??id).split('（')[0]});
  }
- let current=[],last='';
+ let current=[],last='',jumpToPanel=panel.open;
  function draw(){
   rows.replaceChildren();
   if(!panel.open)return;
@@ -35,6 +37,8 @@ export function setupSharedLegendArt(layouts,assets){
     paintSprite(ctx,art,art.image,box,profile);ctx.restore();
    }
    figure.append(caption,canvas);rows.append(figure);
+   const study=lakeEyeStudy(enemy,legend);
+   if(study)rows.append(study);
   }
  }
  panel.ontoggle=draw;
@@ -46,5 +50,6 @@ export function setupSharedLegendArt(layouts,assets){
   const signature=JSON.stringify(next.map(r=>[r.enemy.id,r.name,r.legend.h,r.profile]));
   if(signature===last)return;
   last=signature;current=next;panel.hidden=!next.length;draw();
+  if(jumpToPanel&&next.length){jumpToPanel=false;requestAnimationFrame(()=>panel.scrollIntoView())}
  };
 }
