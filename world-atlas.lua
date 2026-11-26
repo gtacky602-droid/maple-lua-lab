@@ -607,8 +607,11 @@ return function(C, atlas)
     local target=returning and spec.node or spec.innerNode
     selected.battleScene=returning
     if nodes[target] then
-     routes[#routes+1]={id=target,name=nodes[target].name,region=places[target],level=nodes[target].level,
-      visited=state.visited[target] or false,label=returning and '戦闘中に帰還' or '戦闘中に移動'}
+     local hint=returning and spec.atlasTransfer.leave or spec.atlasTransfer.enter
+     local stop=battle_stop(nodes,selected.id,target,returning,hint)
+     stop.level=nodes[target].level
+     stop.visited=state.visited[target] or false
+     routes[#routes+1]=stop
     end
    end
   elseif selected and nodes[selected.anchor] then

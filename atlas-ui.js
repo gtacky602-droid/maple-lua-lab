@@ -188,6 +188,14 @@ export function initAtlas(action, clearKeys) {
  }
 
  function appendGateLink(item,from,route){
+  if(route.mode==='battle'){
+   const link=document.createElement('a');
+   link.href='map-art.html?'+new URLSearchParams({node:route.id,placements:'live'});
+   link.target='_blank';link.rel='noopener';
+   link.textContent=route.name+'の配置を見る';
+   item.append(' ',link);
+   return;
+  }
   if(route.previewX==null)return;
   const link=document.createElement('a');
   link.href='map-art.html?'+new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});

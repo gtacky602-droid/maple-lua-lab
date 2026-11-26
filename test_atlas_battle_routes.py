@@ -64,7 +64,8 @@ def prepare(name, hub):
 
     TrailWalk(lua, core, s, edges, {}).cross(outer)
     adjacent = guide(s, outer)['routes']
-    assert any(row['id'] == inner and row['label'] == '戦闘中に移動' for row in adjacent)
+    leg = next(row for row in adjacent if row['id'] == inner)
+    assert (leg['mode'], leg['hint'], leg['label']) == ('battle', spec['atlasTransfer']['enter'], '戦闘中に移動')
     core.action(s, 'story_portal:' + inner)
     assert s.story.node == outer
     slot, live_spec = core.currentWeeklyBoss(s)
@@ -86,6 +87,9 @@ def returning(s, spec, hub, *, retreat):
     leg = view['stops'][0]
     assert (leg['from'], leg['id'], leg['label'], leg['hint']) == (
         spec.innerNode, spec.node, '戦闘中に帰還', spec.atlasTransfer.leave)
+    adjacent = guide(s, spec.innerNode)['routes']
+    back = next(row for row in adjacent if row['id'] == spec.node)
+    assert back['mode'] == 'battle' and back['hint'] == spec.atlasTransfer.leave
     route_to_hub = guide(s, hub)['guide']
     assert [leg['id'] for leg in route_to_hub['stops']] == ([hub] if retreat else [spec.node, hub])
     assert route_to_hub['status'] == ('ready' if retreat else 'battle')

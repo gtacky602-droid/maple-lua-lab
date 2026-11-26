@@ -109,6 +109,12 @@ function viewportSummary(cost,profile,subject='キャラクター'){
 try{
  const [graph,initial,slimePreviews,weeklyData,fieldData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/slime-preview-packed.json'),json('content/weekly-boss-spawns.json'),json('content/field-boss-spawns.json')]);
  const weeklyArenaNodes=new Set(weeklyData.weeklyBosses.flatMap(b=>[b.node,b.innerNode].filter(Boolean)));
+ const battleTransfers=new Map();
+ for(const boss of weeklyData.weeklyBosses){
+  if(!boss.atlasTransfer || !boss.innerNode)continue;
+  battleTransfers.set(boss.node,{to:boss.innerNode,hint:boss.atlasTransfer.enter});
+  battleTransfers.set(boss.innerNode,{to:boss.node,hint:boss.atlasTransfer.leave});
+ }
  const arenaPreviews=new Map([...weeklyData.weeklyBosses,...fieldData.fieldBosses].filter(b=>b.mapIdleArt).map(b=>[b.node,b]));
  const layouts=await json('content/enemy-art-layout.json'),wildlife=wildlifeSites(layouts);
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
@@ -489,6 +495,15 @@ try{
   if(darkRoom(n))otherView.set('light','dark');
   viewLink.href='map-art.html?'+otherView;
   gatePreview.updateLink(otherView);
+  const transfer=liveView && battleTransfers.get(n.id),guide=$('battleTransferGuide');
+  guide.hidden=!transfer;
+  if(transfer){
+   guide.querySelector('span').textContent=transfer.hint;
+   const params=new URLSearchParams(otherView),link=guide.querySelector('a');
+   params.set('node',transfer.to);params.set('placements','live');
+   link.href='map-art.html?'+params;
+   link.textContent=nodes.get(transfer.to).name+'の配置と見比べる';
+  }
   const passage=$('nightTrialPassage'),gate=n.exits.find(e=>e.nightTotem);
   passage.hidden=!(liveView&&gate);
   if(!passage.hidden){
