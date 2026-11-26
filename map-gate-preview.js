@@ -27,6 +27,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
   }
  }
  return {
+  selectedGate(){return active},
   darkGate(){return Boolean(active?.darkOnly)},
   reset(node,nodes,initial){
    active=null;

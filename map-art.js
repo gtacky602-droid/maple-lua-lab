@@ -350,10 +350,22 @@ try{
  function darkRoom(n){return Boolean(n.localLight && $('lampMode').value==='dark')}
  function sceneMeasures(n){return backgroundMeasurements[darkRoom(n)?n.id+'#dark':sceneryDefinitions[afterReport(n)?.scenery]?.measurementNode??n.id]}
  $('sceneryPhase').onchange=()=>{colorResult.textContent='';render()};
- function sceneFrame(n,camera){
+ function sceneFrame(n,camera,gate){
   const dark=darkRoom(n);
-  const platforms=dark?[...n.platforms,n.localLight.bridge]:n.platforms;
-  return {camera,platforms:landingDeck&&n===openingNode?[...platforms,landingDeck]:platforms,storySwim:Boolean(n.swim),storyLocalLight:n.localLight?{mode:dark?'dark':'bright'}:undefined,storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  const platforms=[...n.platforms];
+  if(dark)platforms.push(n.localLight.bridge);
+  if(landingDeck&&n===openingNode)platforms.push(landingDeck);
+  const rule=gate?.requires;
+  const steps=rule?.count&&questsById.get(rule.quest)?.itinerary;
+  for(const step of steps?steps.slice(0,rule.count):[]){
+   if(step.node!==n.id)continue;
+   for(const deck of [...(step.bridges??[]),...(step.bridge?[step.bridge]:[])]){
+    const previous=platforms.findIndex(p=>p===deck||(deck.track&&p.track===deck.track));
+    if(previous>=0)platforms[previous]=deck;
+    else platforms.push(deck);
+   }
+  }
+  return {camera,platforms,storySwim:Boolean(n.swim),storyLocalLight:n.localLight?{mode:dark?'dark':'bright'}:undefined,storyScenery:afterReport(n)?.scenery,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
  }
  function placements(){return drafts.nodes[node().id]??[]}
  function previewCandidate(e){return liveView && $('candidateIdle').checked && idleCandidates.has(e.id)}
@@ -413,7 +425,7 @@ try{
  function render(){
   const revision=++renderRevision;
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
-  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera);
+  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera,gatePreview.selectedGate());
   if(n.localLight)$('lampNote').textContent=darkRoom(n)?'消灯中。影の足場を渡ると上段の門へ進めます。':'点灯中。操作盤のそばでGを押すと、影の足場と門が現れます。';
   const layers=new Set();
   for(const item of items){
@@ -537,7 +549,7 @@ try{
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   if(metrics?.locations && !afterReport(n)) $('context').append(` この仮背景は${metrics.locations}地点で共用しています。`);
-  if(landingDeck&&n===openingNode)$('context').append(' 「'+landingQuest.name+'」で開いた足場に到着します。');
+  if(landingDeck&&n===openingNode&&frame.platforms.includes(landingDeck))$('context').append(' 「'+landingQuest.name+'」で開いた足場に到着します。');
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
   const cost={total:0,visible:0,standard:0};
