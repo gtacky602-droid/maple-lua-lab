@@ -1,4 +1,4 @@
-import {measureSpriteFidelity,measureSpriteProfiles} from './sprite-fidelity.js';
+import {measureSpriteFidelity,spriteComparisonStrip} from './sprite-fidelity.js';
 import {wildlifeSites} from './underwater-wildlife.js';
 import {drawSurveyPoint,surveyPoint,surveyPointUrl,worksitePoint,worksitePoints} from './survey-point.js';
 import {setupPuzzlePreview} from './quest-puzzle-preview.js';
@@ -772,11 +772,12 @@ try{
   };
   const table=$('spriteProfileTable');
   table.caption.textContent='この画角に映る'+measuredSubject+'のドット絵';
-  if(profileTableKey!==poseKey){table.hidden=true;table.tBodies[0].replaceChildren();profileTableKey=poseKey}
+  if(profileTableKey!==poseKey){$('spriteComparisonStrip').replaceChildren();table.hidden=true;table.tBodies[0].replaceChildren();profileTableKey=poseKey}
   for(const button of table.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.value===profile));
   $('compareSpriteProfiles').onclick=()=>{
    const options=Array.from($('profile').options);
-   const rows=measureSpriteProfiles(paintMeasuredSprites,options.map(o=>o.value),960,540);
+   const rows=spriteComparisonStrip($('spriteComparisonStrip'),paintMeasuredSprites,options,960,540);
+   const baseline=rows.find(r=>r.profile==='legacy')?.rectangles;
    const body=table.tBodies[0];body.replaceChildren();
    for(const [i,result] of rows.entries()){
     const tr=body.insertRow(),button=document.createElement('button');
@@ -788,6 +789,12 @@ try{
     const {overlapPercent,meanRgbError}=result.fidelity;
     tr.insertCell().textContent=overlapPercent==null?'—':overlapPercent.toFixed(1)+'%';
     tr.insertCell().textContent=meanRgbError==null?'—':meanRgbError.toFixed(2)+' / 255';
+    const delta=tr.insertCell();
+    if(result.profile==='legacy'||!baseline)delta.textContent='—';
+    else{
+     const change=100*(result.rectangles-baseline)/baseline;
+     delta.textContent=(change>0?'+':'')+change.toFixed(1)+'%';
+    }
    }
    table.hidden=false;
   };

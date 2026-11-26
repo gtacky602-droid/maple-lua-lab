@@ -1,12 +1,14 @@
 // Compare the visible actor masks independently of the background and encounter labels.
-export function measureSpriteProfiles(paint,profiles,width,height,locateDifferences=false){
+export function measureSpriteProfiles(paint,profiles,width,height,locateDifferences=false,onRaster){
  const raster=quality=>{
   const canvas=document.createElement('canvas');
   canvas.width=width;canvas.height=height;
   const ctx=canvas.getContext('2d',{willReadFrequently:true});
   ctx.imageSmoothingEnabled=false;
   const rectangles=paint(ctx,quality);
-  return {rgba:ctx.getImageData(0,0,width,height).data,rectangles};
+  const rgba=ctx.getImageData(0,0,width,height).data;
+  if(onRaster)onRaster(quality,canvas,rgba);
+  return {rgba,rectangles};
  };
  const png=raster(null).rgba;
  return profiles.map(profile=>{
@@ -46,4 +48,30 @@ export function compareMasks(png,rect,width=0){
 
 export function measureSpriteFidelity(paint,profile,width,height){
  return measureSpriteProfiles(paint,[profile],width,height,true)[0].fidelity;
+}
+
+// Use one crop for all four views so lost outlines and detached parts stay comparable.
+export function spriteComparisonStrip(container,paint,options,width,height){
+ const rasters=[];
+ let left=width,top=height,right=-1,bottom=-1;
+ const rows=measureSpriteProfiles(paint,options.map(o=>o.value),width,height,false,(profile,canvas,rgba)=>{
+  rasters.push({profile,canvas});
+  for(let y=0;y<height;y++){
+   for(let x=0,i=(y*width)*4+3;x<width;x++,i+=4){
+    if(!rgba[i])continue;
+    left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);
+   }
+  }
+ });
+ container.replaceChildren();
+ if(right<left)return rows;
+ for(const {profile,canvas} of rasters){
+  const figure=document.createElement('figure'),caption=document.createElement('figcaption');
+  caption.textContent=options.find(o=>o.value===profile)?.textContent??'元PNG';
+  const crop=document.createElement('canvas');
+  crop.width=right-left+1;crop.height=bottom-top+1;
+  crop.getContext('2d').drawImage(canvas,left,top,crop.width,crop.height,0,0,crop.width,crop.height);
+  figure.append(caption,crop);container.append(figure);
+ }
+ return rows;
 }
