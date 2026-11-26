@@ -1,0 +1,86 @@
+[
+  {
+    "scene": "running",
+    "profile": "sprite",
+    "legacyBytes": 21132,
+    "jsonBytes": 20147,
+    "wireBytes": 10025
+  },
+  {
+    "scene": "running",
+    "profile": "legacy",
+    "legacyBytes": 476972,
+    "jsonBytes": 426517,
+    "wireBytes": 55667
+  },
+  {
+    "scene": "running",
+    "profile": "h48c32",
+    "legacyBytes": 344277,
+    "jsonBytes": 314018,
+    "wireBytes": 38127
+  },
+  {
+    "scene": "running",
+    "profile": "h32c16",
+    "legacyBytes": 132530,
+    "jsonBytes": 119359,
+    "wireBytes": 21201
+  },
+  {
+    "scene": "return_box",
+    "profile": "sprite",
+    "legacyBytes": 24000,
+    "jsonBytes": 22750,
+    "wireBytes": 11221
+  },
+  {
+    "scene": "return_box",
+    "profile": "legacy",
+    "legacyBytes": 415900,
+    "jsonBytes": 371424,
+    "wireBytes": 47778
+  },
+  {
+    "scene": "return_box",
+    "profile": "h48c32",
+    "legacyBytes": 300339,
+    "jsonBytes": 273426,
+    "wireBytes": 34350
+  },
+  {
+    "scene": "return_box",
+    "profile": "h32c16",
+    "legacyBytes": 122042,
+    "jsonBytes": 109839,
+    "wireBytes": 20636
+  },
+  {
+    "scene": "oceanid",
+    "profile": "sprite",
+    "legacyBytes": 21389,
+    "jsonBytes": 20388,
+    "wireBytes": 10199
+  },
+  {
+    "scene": "oceanid",
+    "profile": "legacy",
+    "legacyBytes": 804649,
+    "jsonBytes": 718487,
+    "wireBytes": 87382
+  },
+  {
+    "scene": "oceanid",
+    "profile": "h48c32",
+    "legacyBytes": 593709,
+    "jsonBytes": 540835,
+    "wireBytes": 61797
+  },
+  {
+    "scene": "oceanid",
+    "profile": "h32c16",
+    "legacyBytes": 236363,
+    "jsonBytes": 211845,
+    "wireBytes": 31263
+  }
+]

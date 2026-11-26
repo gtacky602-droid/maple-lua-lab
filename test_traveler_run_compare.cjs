@@ -34,6 +34,13 @@ const catalog=require('./content/motion-pose-files.json');
   await page.click('#measure summary');
   await page.waitForFunction(()=>document.getElementById('measure').dataset.loaded==='ready');
   assert.equal(await page.locator('#measure tbody tr:last-child td').last().innerText(),require('./evidence/motion-load.json').after.total.toLocaleString('ja-JP'));
+  await page.click('#wire summary');
+  await page.waitForFunction(()=>document.getElementById('wire').dataset.loaded==='ready');
+  for(const scene of ['running','return_box','oceanid']){
+   await page.selectOption('#wireScene',scene);
+   const values=await page.locator('#wire tbody tr td:nth-child(3)').allTextContents();
+   assert.deepEqual(values,require('./evidence/frame-wire-sizes.json').filter(s=>s.scene===scene).map(s=>s.wireBytes.toLocaleString('ja-JP')));
+  }
   await page.setViewportSize({width:390,height:844});
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   console.log('8 poses and 16 reduced renders matched; playback, stepping, both directions and mobile width verified');

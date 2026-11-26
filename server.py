@@ -16,7 +16,7 @@ LAB_ACTIONS = {'campaign', 'accept', 'report', 'town', 'field', 'arena',
 LAB_ACTION_PREFIXES = ('boss_', 'barrier_trial:')
 SESSIONS = {}
 LOCK = threading.RLock()
-LARGE_FRAME_BYTES = 32 * 1024
+FRAME_COMPRESSION_BYTES = 4 * 1024
 MAX_REQUEST_BYTES = 64 * 1024
 # Restore requests carry the 256 KiB save along with the frame metadata.
 MAX_RESTORE_REQUEST_BYTES = 272 * 1024
@@ -76,9 +76,9 @@ class LabServer(ThreadingHTTPServer):
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**kw): super().__init__(*a,directory=str(ROOT),**kw)
     def log_message(self,*a): pass
-    def send_json(self, status, result, ranking_cookie=None, *, coop_frame=False):
-        data = json.dumps(result, ensure_ascii=False).encode('utf8')
-        large = coop_frame and len(data) >= LARGE_FRAME_BYTES
+    def send_json(self, status, result, ranking_cookie=None, *, frame=False):
+        data = json.dumps(result, ensure_ascii=False, separators=(',', ':')).encode('utf8')
+        large = frame and len(data) >= FRAME_COMPRESSION_BYTES
         encoded = large and accepts_gzip(self.headers.get('Accept-Encoding', ''))
         if encoded:
             data = compress(data, compresslevel=1)
@@ -308,7 +308,7 @@ class Handler(SimpleHTTPRequestHandler):
                         ms=(time.perf_counter()-start)*1000
                         comparisons.append({'profile':profile,'draw_ms':ms,'commands':f.commands,'draws':native(f.draws),'t':state.t})
                     out['comparisons']=comparisons
-            self.send_json(200, out, ranking_cookie, coop_frame='code' in coop_view)
+            self.send_json(200, out, ranking_cookie, frame=True)
         except (ValueError,TypeError,KeyError) as e:
             self.send_json(400,{'error':str(e)})
         except sqlite3.Error:

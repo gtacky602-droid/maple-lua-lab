@@ -10,4 +10,8 @@
 <details id="measure"><summary>本編の読み込み量を比較</summary>
 <p>ローカルのLuaラボで、操作ごとに読み込んだ素材JSONの容量です。単位はバイトです。</p>
 <table><thead><tr><th>操作</th><th>変更前</th><th>変更後</th></tr></thead><tbody></tbody></table></details>
+<details id="wire"><summary>画面1枚あたりの転送量を比較</summary>
+<p>ソロプレイで地図データを受け取った後の1フレームです。同じ描画命令を従来形式で送る場合と、gzip転送した実測値をバイトで表示します。</p>
+<label>場面<select id="wireScene"><option value="running">旅人の走行</option><option value="return_box">モンドの返却箱</option><option value="oceanid">純水精霊の開幕</option></select></label>
+<table><thead><tr><th>画質</th><th>従来形式</th><th>転送量</th><th>削減率</th></tr></thead><tbody></tbody></table></details>
 </main><script type="module" src="traveler-run-compare.js"></script></html>

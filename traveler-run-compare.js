@@ -57,5 +57,23 @@ try{
    measure.dataset.loaded='ready';
   }catch{delete measure.dataset.loaded;el('error').textContent='計測結果を読み込めませんでした。'}
  });
+ const wire=el('wire'),scene=el('wireScene');
+ wire.addEventListener('toggle',async()=>{
+  if(!wire.open||wire.dataset.loaded)return;
+  wire.dataset.loaded='pending';
+  try{
+   const samples=await json('evidence/frame-wire-sizes.json');
+   const names={sprite:'元絵PNG',legacy:'標準矩形',h48c32:'32色',h32c16:'16色'};
+   function showSizes(){
+    const body=wire.querySelector('tbody');body.replaceChildren();
+    for(const sample of samples.filter(row=>row.scene===scene.value)){
+     const row=body.insertRow();
+     for(const value of [names[sample.profile],sample.legacyBytes.toLocaleString('ja-JP'),sample.wireBytes.toLocaleString('ja-JP'),
+                         (100*(1-sample.wireBytes/sample.legacyBytes)).toFixed(1)+'%'])row.insertCell().textContent=value;
+    }
+   }
+   scene.onchange=showSizes;showSizes();wire.dataset.loaded='ready';
+  }catch{delete wire.dataset.loaded;el('error').textContent='転送量を読み込めませんでした。'}
+ });
  side.onchange=select;await select();
 }catch{el('error').textContent='走行素材の一覧を読み込めませんでした。'}
