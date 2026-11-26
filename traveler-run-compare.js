@@ -1,3 +1,4 @@
+import {downloadComparison} from './comparison-png.js';
 import {json,sheet} from './sprite-comparison.js';
 import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
 import {compareMasks} from './sprite-fidelity.js';
@@ -23,6 +24,7 @@ try{
  function draw(){
   const sample=samples()?.[phase];
   el('jumpNote').hidden=!sample;
+  el('runSheet').hidden=motion.value!=='run';
   el('runCacheControl').hidden=Boolean(sample)||palettePixels.checked;
   const pose=sample?sample.pose-1:phase;
   el('footRevision').hidden=motion.value!=='run'||side.value!=='left'||pose!==2;
@@ -62,8 +64,8 @@ try{
    wrap.toggleAttribute('data-band',quality.open&&region!=='all');
    if(quality.open){
     const bottom=canvas.height-12+bounds.y+bounds.height,top=bottom-bounds.height;
-    const start=Math.max(0,Math.floor(region==='lower'?bottom-bounds.height/3:top));
-    const end=Math.min(canvas.height,Math.ceil(region==='upper'?top+bounds.height/3:bottom));
+    const start=Math.max(0,Math.floor(region==='lower'?bottom-bounds.height/3:region==='face'?top+bounds.height*.22:top));
+    const end=Math.min(canvas.height,Math.ceil(region==='upper'?top+bounds.height/3:region==='face'?top+bounds.height*.5:bottom));
     if(region!=='all'){
      wrap.style.setProperty('--x',(canvas.width/2+bounds.x)/canvas.width*100+'%');
      wrap.style.setProperty('--y',start/canvas.height*100+'%');
@@ -100,7 +102,7 @@ try{
  }
  async function select(initialFrame=0){
   const value=side.value,token=++version;frames=[];phase=0;schedule();
-  play.disabled=step.disabled=el('worstFrame').disabled=true;el('error').textContent='';el('frameLink').removeAttribute('href');
+  play.disabled=step.disabled=el('runSheet').disabled=el('worstFrame').disabled=true;el('error').textContent='';el('frameLink').removeAttribute('href');
   try{
    if(!cache.has(value))cache.set(value,Promise.all(Object.values(files[value]).map(async file=>{
     const art=await json('assets/motion-packed/'+file);return {art,image:await sheet(art.source)};
@@ -109,7 +111,7 @@ try{
    if(token!==version)return;
    frames=selected;
    if(Number.isInteger(initialFrame)&&initialFrame>=0&&initialFrame<(samples()?.length??frames.length))phase=initialFrame;
-   draw();play.disabled=step.disabled=el('worstFrame').disabled=false;schedule();
+   draw();play.disabled=step.disabled=el('runSheet').disabled=el('worstFrame').disabled=false;schedule();
   }catch{if(token===version)el('error').textContent='走行素材を読み込めませんでした。'}
  }
  play.onclick=()=>{playing=!playing;schedule()};
@@ -128,6 +130,38 @@ try{
    if(overlap<lowest){lowest=overlap;first=phase}
   }
   phase=first;draw();
+ };
+ el('runSheet').onclick=()=>{
+  const region=el('bodyRegion').value,whole=region==='all';
+  const width=whole?240:320,rowHeight=whole?212:152;
+  const columns=canvases.map(()=>{
+   const c=document.createElement('canvas');c.width=width;c.height=rowHeight*frames.length;return c;
+  });
+  const previous=phase;
+  try{
+   for(phase=0;phase<frames.length;phase++){
+    draw();
+    const rows=[...el('quality').querySelectorAll('tbody tr')];
+    canvases.forEach((canvas,i)=>{
+     const ctx=columns[i].getContext('2d'),y=phase*rowHeight;
+     ctx.fillStyle='#26454b';ctx.fillRect(0,y,width,rowHeight);
+     ctx.imageSmoothingEnabled=false;ctx.fillStyle='#e3f4f4';ctx.font='16px sans-serif';
+     ctx.fillText((phase+1)+'コマ目'+(i?'　輪郭 '+rows[i-1].cells[1].textContent:''),8,y+22);
+     if(whole){ctx.drawImage(canvas,0,y+28);return}
+     const css=canvas.parentElement.style;
+     const value=(key,size)=>Math.round(parseFloat(css.getPropertyValue(key))*size/100);
+     const x=value('--x',canvas.width),sy=value('--y',canvas.height);
+     const w=value('--w',canvas.width),h=value('--h',canvas.height);
+     const scale=Math.max(1,Math.floor(Math.min(width/w,(rowHeight-30)/h)));
+     ctx.drawImage(canvas,x,sy,w,h,Math.floor((width-w*scale)/2),y+30,w*scale,h*scale);
+    });
+   }
+  }finally{phase=previous;draw()}
+  const sideName=side.selectedOptions[0].textContent,part=el('bodyRegion').selectedOptions[0].textContent;
+  downloadComparison({canvases:columns,labels:['元PNG','32色版','16色版'],title:'旅人の'+sideName+'走行 ／ '+part,
+   stats:'輪郭は各コマの元PNGとの重なり。',note:palettePixels.checked?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
+   filename:'traveler-run-'+side.value+'-'+region+(palettePixels.checked?'-pixels':'')+'.png',
+   onError:()=>{el('error').textContent='走行比較のPNGを書き出せませんでした。'}});
  };
  const measure=el('measure');
  measure.addEventListener('toggle',async()=>{

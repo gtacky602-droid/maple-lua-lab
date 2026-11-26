@@ -14,9 +14,9 @@
 <img loading="lazy" style="max-width:100%;height:auto" width="750" height="240" src="evidence/traveler-left-3-foot-before-after.png" alt="左から元絵、補正前の16色、補正後の16色。つま先と靴底の輪郭を比較。"></details>
 <p role="status" id="error"></p>
 <details id="quality"><summary>このコマの形と色を比較</summary>
-<label>測る範囲<select id="bodyRegion"><option value="all">全身</option><option value="upper">上部3分の1（髪・顔付近）</option><option value="lower">下部3分の1（足元付近）</option></select></label>
+<label>測る範囲<select id="bodyRegion"><option value="all">全身</option><option value="upper">上部3分の1（髪・顔付近）</option><option value="face">顔付近（上から22〜50%）</option><option value="lower">下部3分の1（足元付近）</option></select></label>
 <table><thead><tr><th>画質</th><th>元絵と形が重なる割合</th><th>平均色差（0〜255）</th></tr></thead><tbody></tbody></table>
-<button id="worstFrame" type="button" disabled>この動きで16色の輪郭差が最大のコマへ</button> <a id="frameLink">このコマを開くリンク</a></details>
+<button id="worstFrame" type="button" disabled>この動きで16色の輪郭差が最大のコマへ</button> <a id="frameLink">このコマを開くリンク</a> <button id="runSheet" type="button" disabled>走行4コマの比較PNGを保存</button></details>
 <details id="measure"><summary>本編の読み込み量を比較</summary>
 <p>ローカルのLuaラボで、操作ごとに読み込んだ素材JSONの容量です。単位はバイトです。</p>
 <table><thead><tr><th>操作</th><th>変更前</th><th>変更後</th></tr></thead><tbody></tbody></table></details>
