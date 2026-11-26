@@ -903,6 +903,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local task=worksiteGuide(s,f,q,state) or fieldTask(s,q,state)
     if step and step.followCart and step.node==s.story.node then
      task=theater.cartGuide(s,step)
+    elseif not task and step and step.kind=='inspect' and step.node==s.story.node and step.x and step.y
+        and not s.lift and not step.resonanceOrder and not step.shadowChoice and not step.paperFold
+        and (not step.roomLight or step.roomLight==s.storyLightMode)
+        and (not step.teaCup or teaCase.allowed(s,q,state)) then
+     local node=nodes[s.story.node]
+     task={x=step.x,y=step.y,name=step.name or '調査地点',action=step.action or '調べる',
+      inspection=true,underwater=(node.swim or node.toyDive) and true or nil}
     end
     if task then
      f.storyHunts=f.storyHunts or {}

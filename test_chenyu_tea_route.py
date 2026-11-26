@@ -90,9 +90,13 @@ gate(s,1198,rig)
 gate(s,570,rig,opened=False)
 collect(s,355,480,second,1)
 assert len(s.platforms)==2 and s.platforms[2].track=='tea-landing' and s.platforms[2].y==312
+guide=core.frame(s).storyHunts[second]
+assert guide.inspection and (guide.x,guide.y)==(655,312)
 gate(s,570,rig,lift=True)
 batch(core,s,29)
 assert 312<s.actors[1].y<480 and 570<s.actors[1].x<650
+guides=core.frame(s).storyHunts
+assert not guides or not guides[second]
 middle=s.actors[1].y
 core.action(s,'pause');batch(core,s,29)
 assert s.actors[1].y==middle
@@ -100,6 +104,8 @@ core.action(s,'pause');batch(core,s,45)
 assert not s.lift and (s.actors[1].x,s.actors[1].y,s.actors[1].ground)==(650,312,True)
 core.action(s,'story_collect')
 assert s.story.quests[second].count==2
+guide=core.frame(s).storyHunts[second]
+assert guide.inspection and (guide.x,guide.y)==(922,480)
 s=restore(s)
 assert s.story.node==camp
 gate(s,1198,rig)

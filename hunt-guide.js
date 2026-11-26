@@ -13,8 +13,14 @@ export function huntHint(target,actor){
  const label=target.action?`${name}　${target.action}`:`討伐対象　${name}`;
  if(!actor)return label;
  const dx=target.x-actor.x,dy=target.y-actor.y;
- const side=Math.abs(dx)<58?'すぐ近く':dx>0?'右手':'左手';
- const height=Math.abs(dy)<45?'':dy<0?'・上段':'・下段';
+ const aligned=Math.abs(dx)<(target.inspection?54:58);
+ const level=Math.abs(dy)<(target.inspection?34:45);
+ if(target.inspection&&aligned&&!level){
+  const vertical=target.underwater?(dy<0?'上へ泳ぐ':'下へ潜る'):(dy<0?'今いる足場の上':'今いる足場の下');
+  return `${label}（${vertical}）`;
+ }
+ const side=aligned?'すぐ近く':dx>0?'右手':'左手';
+ const height=level?'':target.underwater?(dy<0?'・浅い方':'・深い方'):(dy<0?'・上段':'・下段');
  return `${label}（${side}${height}）`;
 }
 
