@@ -1,0 +1,149 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "nat-sky-camp",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96366",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96367",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96369",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96370",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96373",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96375",
+      "key": "ochkaBronzeCourt",
+      "file": "ochka-bronze-court-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 31474
+    },
+    {
+      "id": "nat-wp-96368",
+      "key": "ochkanatlan",
+      "file": "ochkanatlan-background-v1.png",
+      "bundle": "shared-scenes-ochkanatlan-native-backgrounds.lua",
+      "packedBytes": 26630
+    },
+    {
+      "id": "nat-wp-96371",
+      "key": "ochkanatlan",
+      "file": "ochkanatlan-background-v1.png",
+      "bundle": "shared-scenes-ochkanatlan-native-backgrounds.lua",
+      "packedBytes": 26630
+    },
+    {
+      "id": "nat-wp-96372",
+      "key": "ochkanatlan",
+      "file": "ochkanatlan-background-v1.png",
+      "bundle": "shared-scenes-ochkanatlan-native-backgrounds.lua",
+      "packedBytes": 26630
+    },
+    {
+      "id": "nat-wp-96376",
+      "key": "ochkanatlan",
+      "file": "ochkanatlan-background-v1.png",
+      "bundle": "shared-scenes-ochkanatlan-native-backgrounds.lua",
+      "packedBytes": 26630
+    },
+    {
+      "id": "nat-wp-96377",
+      "key": "ochkanatlan",
+      "file": "ochkanatlan-background-v1.png",
+      "bundle": "shared-scenes-ochkanatlan-native-backgrounds.lua",
+      "packedBytes": 26630
+    },
+    {
+      "id": "nat-wp-96378",
+      "key": "skySandCourtyard",
+      "file": "sky-sand-courtyard-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 30646
+    },
+    {
+      "id": "nat-wp-96374",
+      "key": "aamsWolfHall",
+      "file": "aams-wolf-hall-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 27440
+    },
+    {
+      "id": "nat-wp-96380",
+      "key": "aamsWolfHall",
+      "file": "aams-wolf-hall-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 27440
+    },
+    {
+      "id": "nat-wp-96381",
+      "key": "aamsWolfHall",
+      "file": "aams-wolf-hall-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 27440
+    },
+    {
+      "id": "nat-wp-96382",
+      "key": "aamsWolfHall",
+      "file": "aams-wolf-hall-background-v1.png",
+      "bundle": "remaining-legends-native-backgrounds.lua",
+      "packedBytes": 27440
+    },
+    {
+      "id": "nat-wp-96379",
+      "key": "gateCourt",
+      "file": "gate-court-background-v1.png",
+      "bundle": "weekly-arenas-native-backgrounds.lua",
+      "packedBytes": 22744
+    },
+    {
+      "id": "nat-wp-96383",
+      "key": "gateCourt",
+      "file": "gate-court-background-v1.png",
+      "bundle": "weekly-arenas-native-backgrounds.lua",
+      "packedBytes": 22744
+    },
+    {
+      "id": "nat-wp-96384",
+      "key": "gateCourt",
+      "file": "gate-court-background-v1.png",
+      "bundle": "weekly-arenas-native-backgrounds.lua",
+      "packedBytes": 22744
+    }
+  ]
+}

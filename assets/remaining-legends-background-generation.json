@@ -4,6 +4,7 @@
   "scenes": [
     {
       "key": "ochkaBronzeCourt",
+      "sharedNodes": ["nat-sky-camp", "nat-wp-96366", "nat-wp-96367", "nat-wp-96369", "nat-wp-96370", "nat-wp-96373", "nat-wp-96375"],
       "node": "ochka-bronzelock-island-court",
       "source": "ochka-bronze-court-background-v1.png",
       "preview": "ochka-bronze-court-native-preview-v1.png",
@@ -22,6 +23,7 @@
     },
     {
       "key": "skySandCourtyard",
+      "sharedNodes": ["nat-wp-96378"],
       "node": "sky-maha-pavilion-court",
       "source": "sky-sand-courtyard-background-v1.png",
       "preview": "sky-sand-courtyard-native-preview-v1.png",
@@ -85,6 +87,7 @@
     },
     {
       "key": "aamsWolfHall",
+      "sharedNodes": ["nat-wp-96374", "nat-wp-96380", "nat-wp-96381", "nat-wp-96382"],
       "node": "nod-homesick-wolf-lakeland",
       "source": "aams-wolf-hall-background-v1.png",
       "preview": "aams-wolf-hall-native-preview-v1.png",

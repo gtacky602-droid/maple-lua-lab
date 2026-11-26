@@ -34,7 +34,8 @@ voyage = review['voyage_connector']
 stages = set(mapping.values()) | {voyage}
 exits = {key:n['exits'] for key,n in nodes.items()}
 edges = {(a,e['to']):e for a in stages for e in exits[a] if e['to'] in stages}
-assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 422
+assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 424
+assert ('nat-wp-72760','nat-wp-72436') in edges  # Witztli quest approach
 assert sum('animatedLift' in e for e in edges.values()) == 2
 
 

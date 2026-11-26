@@ -5,7 +5,7 @@
     {
       "key": "ochkanatlan",
       "node": "ochkanatlan-dock",
-      "sharedNodes": ["ochkanatlan-ruins", "nat-wp-79295", "nat-wp-79512", "nat-wp-79523", "nat-wp-79536", "nat-wp-79538", "nat-wp-79539", "nat-wp-79540", "nat-wp-79541", "nat-wp-79546", "nat-wp-79549", "nat-wp-79550", "nat-wp-80025", "nat-wp-80030", "nat-wp-80035", "nat-wp-80036", "nat-wp-80846", "ochka-bronzelock-floating-landing"],
+      "sharedNodes": ["ochkanatlan-ruins", "nat-wp-79295", "nat-wp-79512", "nat-wp-79523", "nat-wp-79536", "nat-wp-79538", "nat-wp-79539", "nat-wp-79540", "nat-wp-79541", "nat-wp-79546", "nat-wp-79549", "nat-wp-79550", "nat-wp-80025", "nat-wp-80030", "nat-wp-80035", "nat-wp-80036", "nat-wp-80846", "ochka-bronzelock-floating-landing", "nat-wp-96368", "nat-wp-96371", "nat-wp-96372", "nat-wp-96376", "nat-wp-96377"],
       "source": "ochkanatlan-background-v1.png",
       "preview": "ochkanatlan-native-preview-v1.png"
     }

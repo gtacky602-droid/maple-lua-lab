@@ -51,6 +51,7 @@
       "origin": "Existing arena background retained at its original resolution"
     },
     {
+      "sharedNodes": ["nat-wp-96379", "nat-wp-96383", "nat-wp-96384"],
       "node": "mond-gate-chess-court",
       "key": "gateCourt",
       "note": "扉の対局・再現盤",

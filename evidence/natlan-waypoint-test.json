@@ -183,8 +183,8 @@
     "ochkanatlan-dock",
     "ochkanatlan-ruins"
   ],
-  "reciprocal_routes_including_ship": 211,
-  "directed_crossings": 422,
+  "reciprocal_routes_including_ship": 212,
+  "directed_crossings": 424,
   "timed_ship_stop_and_reboarding": true,
   "animated_lift": {
     "from": "nat-wp-96375",

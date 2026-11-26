@@ -5313,140 +5313,140 @@
       "name": "空の神殿・西の入口拠点",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96366",
       "name": "空の神殿・西の浮き庭",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96367",
       "name": "空の神殿・南の渡り台",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96368",
       "name": "空の神殿・南東の小島",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkanatlan"
     },
     {
       "id": "nat-wp-96369",
       "name": "空の神殿・東の渡り台",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96370",
       "name": "空の神殿・東の入口広場",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96371",
       "name": "空の神殿・東の庭の高台",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkanatlan"
     },
     {
       "id": "nat-wp-96372",
       "name": "空の神殿・東の庭の外縁",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkanatlan"
     },
     {
       "id": "nat-wp-96373",
       "name": "空の神殿・神殿西の連絡段",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96374",
       "name": "空の神殿・神殿中央の別室",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "aamsWolfHall"
     },
     {
       "id": "nat-wp-96375",
       "name": "空の神殿・中央の昇降台",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkaBronzeCourt"
     },
     {
       "id": "nat-wp-96376",
       "name": "空の神殿・雲上の上段通路",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkanatlan"
     },
     {
       "id": "nat-wp-96377",
       "name": "空の神殿・北端の展望棚",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "ochkanatlan"
     },
     {
       "id": "nat-wp-96378",
       "name": "空の神殿・北の広場",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "skySandCourtyard"
     },
     {
       "id": "nat-wp-96379",
       "name": "空の神殿・北の広場下の石室",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "gateCourt"
     },
     {
       "id": "nat-wp-96380",
       "name": "空の神殿・南の雲の下の小間",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "aamsWolfHall"
     },
     {
       "id": "nat-wp-96381",
       "name": "空の神殿・神殿東の別室",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "aamsWolfHall"
     },
     {
       "id": "nat-wp-96382",
       "name": "空の神殿・中央階層の第一室",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "aamsWolfHall"
     },
     {
       "id": "nat-wp-96383",
       "name": "空の神殿・中央階層の第二室",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "gateCourt"
     },
     {
       "id": "nat-wp-96384",
       "name": "空の神殿・西の入口の下の部屋",
       "region": "空の神殿",
       "status": "regional_temporary_image",
-      "scenery": "natlanRaceSummit"
+      "scenery": "gateCourt"
     },
     {
       "id": "fon-wp-50035",
