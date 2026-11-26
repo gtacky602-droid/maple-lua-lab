@@ -574,14 +574,25 @@ try{
   const sceneItems=previewGuard?items.filter(e=>!watchSteps.some(step=>step.stealthGuard.id===e.id)):items;
   const visibleItems=liveView && subject.value ? sceneItems.filter(e=>e.id===subject.value) : sceneItems;
   const fidelity=$('spriteFidelity');
-  const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked].join('/');
+  const propKey=surveyProps.map(p=>[p.file,p.x,p.y,p.height].join(':')).join(',');
+  const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked,propKey].join('/');
   const currentKey=poseKey+'/'+profile;
   if(fidelityKey!==currentKey){
    fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
-  $('fidelityControls').hidden=!(liveView && openings[n.id] && visibleItems.length && !matchedSprites);
-  function paintMeasuredActors(ctx,quality){
+  $('fidelityControls').hidden=!(liveView && (surveyProps.length || openings[n.id] && visibleItems.length) && !matchedSprites);
+  const measuredSubject=surveyProps.length?'依頼の小物':'ボス';
+  $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
+  function paintSurveyProp(ctx,prop,quality,cost){
+   const art=surveyPropArt.get(prop.file);
+   paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),quality,prop.x-camera,prop.y,false,cost);
+  }
+  function paintMeasuredSprites(ctx,quality){
     const cost={total:0,visible:0,standard:0};
+    if(surveyProps.length){
+     for(const prop of surveyProps)paintSurveyProp(ctx,prop,quality,cost);
+     return cost.visible;
+    }
     for(const e of visibleItems){
      const art=placementArt(e);
      const x=e.x-camera,y=e.y-art.hover;
@@ -591,17 +602,18 @@ try{
     return cost.visible;
   }
   $('measureSprite').onclick=()=>{
-   const result=measureSpriteFidelity(paintMeasuredActors,profile,960,540);
+   const result=measureSpriteFidelity(paintMeasuredSprites,profile,960,540);
    fidelity.dataset.result=JSON.stringify(result);
    fidelity.textContent=result.union?'形の重なり '+result.overlapPercent.toFixed(1)+'% ／ 平均色差 '+
-    (result.meanRgbError===null?'対象画素なし':result.meanRgbError.toFixed(2)+' / 255'):'この画角にはボスが映っていません。';
+    (result.meanRgbError===null?'対象画素なし':result.meanRgbError.toFixed(2)+' / 255'):'この画角には'+measuredSubject+'が映っていません。';
   };
   const table=$('spriteProfileTable');
+  table.caption.textContent='この画角に映る'+measuredSubject+'のドット絵';
   if(profileTableKey!==poseKey){table.hidden=true;table.tBodies[0].replaceChildren();profileTableKey=poseKey}
   for(const button of table.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.value===profile));
   $('compareSpriteProfiles').onclick=()=>{
    const options=Array.from($('profile').options);
-   const rows=measureSpriteProfiles(paintMeasuredActors,options.map(o=>o.value),960,540);
+   const rows=measureSpriteProfiles(paintMeasuredSprites,options.map(o=>o.value),960,540);
    const body=table.tBodies[0];body.replaceChildren();
    for(const [i,result] of rows.entries()){
     const tr=body.insertRow(),button=document.createElement('button');
@@ -650,9 +662,9 @@ try{
     }
    }
    for(const prop of surveyProps){
-    const art=surveyPropArt.get(prop.file),x=prop.x-camera;
-    paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),mode==='png'||matchedSprites?null:profile,x,prop.y,false,cost);
+    paintSurveyProp(ctx,prop,mode==='png'||matchedSprites?null:profile,cost);
     if(prop.bubbles){
+     const x=prop.x-camera;
      // Still frame of the seven Lua bubbles at t=0, measured from the sprite base.
      for(let i=1;i<=7;i++){
       const rise=i*17%76,bx=x+Math.sin(i+rise*.04)*13,by=prop.y-58-rise;
@@ -780,7 +792,8 @@ try{
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   const subjects=teaProps.length?'事件帖の絵札・茶屋の道具':course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':liveView&&wildlife[n.id]?'水中生物':'キャラクター';
   const matchedLabel=teaProps.length?'事件帖の道具は左右とも元PNG':course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':liveView&&wildlife[n.id]?'水中生物は左右とも元PNG':'キャラは左右とも元PNG';
-  $('viewportCost').textContent=matchedSprites?matchedLabel:decoded&&!cost.standard?'':viewportSummary(cost,profile,subjects);
+  const costSubject=surveyProps.length?'小物・キャラクターの':subjects;
+  $('viewportCost').textContent=matchedSprites?(surveyProps.length?'小物は左右とも元PNG':matchedLabel):decoded&&!cost.standard?'':viewportSummary(cost,profile,costSubject);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){

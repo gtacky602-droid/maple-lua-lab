@@ -27,7 +27,28 @@ try{
      if(s.treasure)assert.deepEqual(sample.lock,[238,211,154]);
     }
     if(o.detourGift)assert.notEqual(samples[0].gift,samples[1].gift,o.name);
-    if(o.id==='chime')await page.locator('#rect').screenshot({path:'evidence/nod-night-stall-choices-16.png'});
+    if(o.id==='chime'){
+     await page.locator('#compareSpriteProfiles').click();
+     const rows=page.locator('#spriteProfileTable tbody tr');
+     const art=await Promise.all(s.choices.map(async item=>JSON.parse(await readFile(
+      'assets/quest-packed/coastal-gifts-'+item.id+'-sprites-v1.json','utf8'))));
+     for(const [index,key] of ['legacy','h48c32','h32c16'].entries()){
+      const expected=art.reduce((sum,item)=>{
+       const grid=item.profiles[key];
+       return sum+Buffer.from(grid.data,'base64').length/(grid.wide?9:5);
+      },0);
+      const cells=await rows.nth(index).locator('td').allTextContents();
+      assert.equal(Number(cells[1].replaceAll(',','')),expected);
+      assert(parseFloat(cells[2])>0&&parseFloat(cells[2])<=100);
+      console.log(cells.join(' / '));
+     }
+     await rows.last().getByRole('button').click();
+     await page.locator('#measureSprite').click();
+     const measured=JSON.parse(await page.locator('#spriteFidelity').getAttribute('data-result'));
+     assert.equal(measured.overlapPercent.toFixed(1)+'%',await rows.last().locator('td').nth(2).textContent());
+     await page.locator('#spriteProfileTable').screenshot({path:'evidence/nod-night-stall-profile-table.png'});
+     await page.locator('#rect').screenshot({path:'evidence/nod-night-stall-choices-16.png'});
+    }
     count++;
    }
   }

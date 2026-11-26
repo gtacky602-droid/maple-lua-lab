@@ -1004,7 +1004,7 @@
       "profiles": {
         "legacy": 425,
         "h48c32": 291,
-        "h32c16": 224
+        "h32c16": 248
       },
       "hpBarRectangles": 0,
       "fidelity": {
@@ -1024,7 +1024,7 @@
           "union": 9426,
           "overlap": 9130,
           "overlapPercent": 96.85974962868661,
-          "meanRgbError": 1.8623585250091275
+          "meanRgbError": 1.4933917488134356
         }
       }
     },
@@ -1733,7 +1733,7 @@
       "profiles": {
         "legacy": 384,
         "h48c32": 274,
-        "h32c16": 191
+        "h32c16": 213
       },
       "hpBarRectangles": 0,
       "fidelity": {
@@ -1753,7 +1753,7 @@
           "union": 5687,
           "overlap": 5373,
           "overlapPercent": 94.47863548443819,
-          "meanRgbError": 3.5997270302127924
+          "meanRgbError": 3.3281220919411876
         }
       }
     },

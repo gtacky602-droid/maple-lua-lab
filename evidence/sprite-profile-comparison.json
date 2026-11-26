@@ -616,9 +616,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 224,
+        "rectangles": 248,
         "overlap": "96.9%",
-        "error": "1.86 / 255"
+        "error": "1.49 / 255"
       }
     ],
     "nod-crab-tsar-palace": [
@@ -1056,9 +1056,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 191,
+        "rectangles": 213,
         "overlap": "94.5%",
-        "error": "3.60 / 255"
+        "error": "3.33 / 255"
       }
     ],
     "witztli-tristars-camp": [
