@@ -13,7 +13,7 @@ import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet,drawCombatRect,omitCombatDraw,combatOpacity} from './sprite-images.js';
-import {spriteBounds,paintSprite,rectangleCount,forEachRectangle} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount,forEachRectangle,openingRects} from './sprite-layers.js';
 import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryDefinitions,sceneryStatus,loadScenery} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
@@ -23,20 +23,7 @@ async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);r
 
 // The live Lua renderer submits rectangles in stage coordinates. Keep its operation order
 // so fractional edges land on the same pixels as the combat frame.
-function openingRects(ctx,grid,bounds,x,y,flip,clip,paint){
- const left=x+(flip?-bounds.x-bounds.width:bounds.x);
- const top=y+bounds.y;
- let count=0;
- forEachRectangle(grid,(column,row,w,h,color)=>{
-  const rx=left+(flip?grid.width-column-w:column)*bounds.width/grid.width;
-  const ry=top+row*bounds.height/grid.height;
-  const rw=w*bounds.width/grid.width+.05,rh=h*bounds.height/grid.height+.05;
-  if(clip && (rx>=ctx.canvas.width+1 || rx+rw<=-1 || ry>=ctx.canvas.height+1 || ry+rh<=-1))return;
-  if(paint){ctx.fillStyle=color;ctx.fillRect(rx,ry,rw,rh)}
-  count++;
- });
- return count;
-}
+
 function paintMechanismMark(ctx,mark,x,y,flip){
  const px=x+(flip?-(mark.x+(mark.w??0)):mark.x),py=y+mark.y;
  if(mark.kind==='rect'){

@@ -31,6 +31,21 @@ export function paintRectangleGrid(ctx,grid,{x,y,width,height},overlap=0){
  forEachRectangle(grid,draw);
 }
 
+export function openingRects(ctx,grid,bounds,x,y,flip,clip,paint){
+ const left=x+(flip?-bounds.x-bounds.width:bounds.x);
+ const top=y+bounds.y;
+ let count=0;
+ forEachRectangle(grid,(column,row,w,h,color)=>{
+  const rx=left+(flip?grid.width-column-w:column)*bounds.width/grid.width;
+  const ry=top+row*bounds.height/grid.height;
+  const rw=w*bounds.width/grid.width+.05,rh=h*bounds.height/grid.height+.05;
+  if(clip && (rx>=ctx.canvas.width+1 || rx+rw<=-1 || ry>=ctx.canvas.height+1 || ry+rh<=-1))return;
+  if(paint){ctx.fillStyle=color;ctx.fillRect(rx,ry,rw,rh)}
+  count++;
+ });
+ return count;
+}
+
 export function forEachRectangle(grid,draw){
  if(grid.runs){
   for(const run of grid.runs)draw(...run);
