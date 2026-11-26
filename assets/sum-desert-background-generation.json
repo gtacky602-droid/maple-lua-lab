@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "sites-hunt-36703",
+      "sharedNodes": ["sum-wp-36683", "sum-wp-36695"],
       "key": "sumRedSandWell",
       "note": "赤砂の井戸下回廊",
       "source": "sum-redsand-well-background-v1.png",
@@ -19,6 +20,7 @@
     },
     {
       "node": "sites-hunt-36704",
+      "sharedNodes": ["sum-wp-36674", "sum-wp-36675", "sum-wp-36677", "sum-wp-36689", "sum-wp-36690", "sum-wp-36691", "sum-wp-36696", "sum-wp-36699", "sum-wp-41819", "sum-wp-41821", "sum-wp-41822", "sum-wp-41840"],
       "key": "sumeruDesertTombApproach",
       "note": "砂丘と王墓を望む参道",
       "source": "sumeru-desert-tomb-approach-background-v1.png",
@@ -27,6 +29,7 @@
     },
     {
       "node": "sites-hunt-36704-pocket-1",
+      "sharedNodes": ["sum-wp-36692", "sum-wp-36693", "sum-wp-41826", "sum-wp-41835", "sum-wp-41838"],
       "key": "sumRoyalDen",
       "note": "王墓脇の岩棚",
       "source": "sum-royal-den-background-v1.png",
@@ -35,6 +38,7 @@
     },
     {
       "node": "sites-hunt-36705",
+      "sharedNodes": ["sum-wp-36694", "sum-wp-36697", "sum-wp-36700", "sum-wp-36701", "sum-wp-36702"],
       "key": "sumDuneVault",
       "note": "砂丘の埋没回廊",
       "source": "sum-dune-vault-background-v1.png",

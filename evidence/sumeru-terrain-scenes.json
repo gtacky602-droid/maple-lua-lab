@@ -1,0 +1,303 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "sum-wp-36674",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36675",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36677",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36689",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36690",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36691",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36696",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36699",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-41819",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-41821",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-41822",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-41840",
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28940
+    },
+    {
+      "id": "sum-wp-36680",
+      "key": "sumSandMarket",
+      "file": "sum-sands-market-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 28818
+    },
+    {
+      "id": "sum-wp-36684",
+      "key": "sumSandMarket",
+      "file": "sum-sands-market-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 28818
+    },
+    {
+      "id": "sum-wp-36676",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-36681",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-36685",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-36688",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41820",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41827",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41828",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41830",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41832",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41834",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-41839",
+      "key": "sumSandEastBasin",
+      "file": "sum-sands-basin-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 27956
+    },
+    {
+      "id": "sum-wp-36692",
+      "key": "sumRoyalDen",
+      "file": "sum-royal-den-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28106
+    },
+    {
+      "id": "sum-wp-36693",
+      "key": "sumRoyalDen",
+      "file": "sum-royal-den-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28106
+    },
+    {
+      "id": "sum-wp-41826",
+      "key": "sumRoyalDen",
+      "file": "sum-royal-den-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28106
+    },
+    {
+      "id": "sum-wp-41835",
+      "key": "sumRoyalDen",
+      "file": "sum-royal-den-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28106
+    },
+    {
+      "id": "sum-wp-41838",
+      "key": "sumRoyalDen",
+      "file": "sum-royal-den-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 28106
+    },
+    {
+      "id": "sum-wp-36679",
+      "key": "tunBlueCut",
+      "file": "tun-blue-cut-background-v1.png",
+      "bundle": "tun-domains-native-backgrounds.lua",
+      "packedBytes": 28242
+    },
+    {
+      "id": "sum-wp-36686",
+      "key": "tunBlueCut",
+      "file": "tun-blue-cut-background-v1.png",
+      "bundle": "tun-domains-native-backgrounds.lua",
+      "packedBytes": 28242
+    },
+    {
+      "id": "sum-wp-36683",
+      "key": "sumRedSandWell",
+      "file": "sum-redsand-well-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26846
+    },
+    {
+      "id": "sum-wp-36695",
+      "key": "sumRedSandWell",
+      "file": "sum-redsand-well-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26846
+    },
+    {
+      "id": "sum-wp-36694",
+      "key": "sumDuneVault",
+      "file": "sum-dune-vault-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26600
+    },
+    {
+      "id": "sum-wp-36697",
+      "key": "sumDuneVault",
+      "file": "sum-dune-vault-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26600
+    },
+    {
+      "id": "sum-wp-36700",
+      "key": "sumDuneVault",
+      "file": "sum-dune-vault-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26600
+    },
+    {
+      "id": "sum-wp-36701",
+      "key": "sumDuneVault",
+      "file": "sum-dune-vault-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26600
+    },
+    {
+      "id": "sum-wp-36702",
+      "key": "sumDuneVault",
+      "file": "sum-dune-vault-background-v1.png",
+      "bundle": "sum-desert-native-backgrounds.lua",
+      "packedBytes": 26600
+    },
+    {
+      "id": "sum-wp-36687",
+      "key": "sumSandWindcut",
+      "file": "sum-sands-windcut-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 26382
+    },
+    {
+      "id": "sum-wp-41836",
+      "key": "sumSandWindcut",
+      "file": "sum-sands-windcut-background-v1.png",
+      "bundle": "sum-sands-native-backgrounds.lua",
+      "packedBytes": 26382
+    },
+    {
+      "id": "asimon-field-ruins",
+      "key": "asimonField",
+      "file": "asimon-field-background-v1.png",
+      "bundle": "field-arenas-sumeru-native-backgrounds.lua",
+      "packedBytes": 27406
+    }
+  ]
+}

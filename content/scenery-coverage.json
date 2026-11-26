@@ -6608,28 +6608,28 @@
       "name": "砂漠南部・砂漠入口の神像",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36675",
       "name": "砂漠南部・石廟の東の神像",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36676",
       "name": "砂漠南部・南の峡谷の神像",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-36677",
       "name": "砂漠南部・砂漠入口の南丘",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36678",
@@ -6643,21 +6643,21 @@
       "name": "砂漠南部・北の石橋の跡",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "tunBlueCut"
     },
     {
       "id": "sum-wp-36680",
       "name": "砂漠南部・市場跡の石段",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandMarket"
     },
     {
       "id": "sum-wp-36681",
       "name": "砂漠南部・東外縁の崖道",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-36682",
@@ -6671,105 +6671,105 @@
       "name": "砂漠南部・井戸の下の回廊",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRedSandWell"
     },
     {
       "id": "sum-wp-36684",
       "name": "砂漠南部・北東の石の道",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandMarket"
     },
     {
       "id": "sum-wp-36685",
       "name": "砂漠南部・峡谷東の出口",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-36686",
       "name": "砂漠南部・峡谷西の崩れ橋",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "tunBlueCut"
     },
     {
       "id": "sum-wp-36687",
       "name": "砂漠南部・南の峡谷の洞",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandWindcut"
     },
     {
       "id": "sum-wp-36688",
       "name": "砂漠南部・南端の岩丘",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-36689",
       "name": "砂漠南部・西南の砂斜面",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36690",
       "name": "砂漠南部・石廟南東の小道",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36691",
       "name": "砂漠南部・北東の砂段",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36692",
       "name": "砂漠南部・西の見張り岩",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRoyalDen"
     },
     {
       "id": "sum-wp-36693",
       "name": "砂漠南部・南西の遺構",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRoyalDen"
     },
     {
       "id": "sum-wp-36694",
       "name": "砂漠南部・石廟の下層玄室",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumDuneVault"
     },
     {
       "id": "sum-wp-36695",
       "name": "砂漠南部・石廟南の地下道",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRedSandWell"
     },
     {
       "id": "sum-wp-36696",
       "name": "砂漠南部・石廟地上の広場",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36697",
       "name": "砂漠南部・石廟東の脇室",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumDuneVault"
     },
     {
       "id": "sum-wp-36698",
@@ -6783,56 +6783,56 @@
       "name": "砂漠南部・南の砂丘の遺構",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-36700",
       "name": "砂漠南部・西回廊の東端",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumDuneVault"
     },
     {
       "id": "sum-wp-36701",
       "name": "砂漠南部・西回廊の西端",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumDuneVault"
     },
     {
       "id": "sum-wp-36702",
       "name": "砂漠南部・石廟の北の上層",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumDuneVault"
     },
     {
       "id": "sum-wp-41819",
       "name": "ハドラマヴェス砂漠・砂嵐の南の神像",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-41820",
       "name": "ハドラマヴェス砂漠・すり鉢東の段丘",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41821",
       "name": "ハドラマヴェス砂漠・砂嵐の南東の外縁",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-41822",
       "name": "ハドラマヴェス砂漠・南の古い門",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-41823",
@@ -6860,21 +6860,21 @@
       "name": "ハドラマヴェス砂漠・西の石垣の外",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRoyalDen"
     },
     {
       "id": "sum-wp-41827",
       "name": "ハドラマヴェス砂漠・西の輪の低い足場",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41828",
       "name": "ハドラマヴェス砂漠・南の斜面の分岐",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41829",
@@ -6888,7 +6888,7 @@
       "name": "ハドラマヴェス砂漠・西の輪の高い足場",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41831",
@@ -6902,7 +6902,7 @@
       "name": "ハドラマヴェス砂漠・北西の横道",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41833",
@@ -6916,21 +6916,21 @@
       "name": "ハドラマヴェス砂漠・北端の広い道",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41835",
       "name": "ハドラマヴェス砂漠・北の風よけ",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRoyalDen"
     },
     {
       "id": "sum-wp-41836",
       "name": "ハドラマヴェス砂漠・風穴の下の石床",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "wenutField"
+      "scenery": "sumSandWindcut"
     },
     {
       "id": "sum-wp-41837",
@@ -6944,21 +6944,21 @@
       "name": "ハドラマヴェス砂漠・東の風待ち棚",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumRoyalDen"
     },
     {
       "id": "sum-wp-41839",
       "name": "ハドラマヴェス砂漠・外輪の東の岸",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumSandEastBasin"
     },
     {
       "id": "sum-wp-41840",
       "name": "ハドラマヴェス砂漠・森に抜ける外輪の門",
       "region": "スメール",
       "status": "regional_temporary_image",
-      "scenery": "asimonField"
+      "scenery": "sumeruDesertTombApproach"
     },
     {
       "id": "sum-wp-46514",

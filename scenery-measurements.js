@@ -128,8 +128,8 @@ export const backgroundMeasurements = {
   "cryo-hypostasis-field-basin": {"bundle": "field-arenas-spine-native-backgrounds.lua", "bytes": 25624, "error": {"4096": 3.7164171006944446, "4608": 3.3974518952546298, "5120": 3.156781231915509, "5632": 2.9551459418402777, "6144": 2.7909523292824074}, "decode": {"4096": {"ms": 19.19, "kib": 740.1}, "4608": {"ms": 19.39, "kib": 909.7}, "5120": {"ms": 24.27, "kib": 987.0}, "5632": {"ms": 26.03, "kib": 1064.9}, "6144": {"ms": 26.19, "kib": 1142.8}}},
   "spine-trace-ridge": {"bundle": "field-arenas-spine-native-backgrounds.lua", "bytes": 25420, "error": {"4096": 5.071257414641203, "4608": 4.675428602430555, "5120": 4.388414171006945, "5632": 4.150424533420139, "6144": 3.9412773980034723}, "decode": {"4096": {"ms": 17.39, "kib": 728.0}, "4608": {"ms": 19.35, "kib": 865.0}, "5120": {"ms": 21.06, "kib": 942.0}, "5632": {"ms": 25.16, "kib": 1050.6}, "6144": {"ms": 27.67, "kib": 1131.0}}},
   "baptist-field-sanctuary": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 23452, "error": {"4096": 1.1155440719039351, "4608": 1.0121166087962963, "5120": 0.9422562210648148, "5632": 0.8887396918402778, "6144": 0.8442337601273148}, "locations": 4, "decode": {"4096": {"ms": 16.41, "kib": 723.9}, "4608": {"ms": 19.99, "kib": 856.8}, "5120": {"ms": 20.42, "kib": 931.5}, "5632": {"ms": 21.72, "kib": 1005.4}, "6144": {"ms": 27.58, "kib": 1115.3}}},
-  "wenut-field-cavern": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 26944, "error": {"4096": 2.2728271484375, "4608": 2.0926920572916665, "5120": 1.957508228443287, "5632": 1.8461077654803242, "6144": 1.7569354021990742}, "locations": 9, "decode": {"4096": {"ms": 15.62, "kib": 785.8}, "4608": {"ms": 17.07, "kib": 926.6}, "5120": {"ms": 22.09, "kib": 1007.2}, "5632": {"ms": 26.1, "kib": 1087.7}, "6144": {"ms": 24.1, "kib": 1168.3}}},
-  "asimon-field-ruins": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 27406, "error": {"4096": 3.0360401294849537, "4608": 2.8282154224537037, "5120": 2.659640842013889, "5632": 2.516151710792824, "6144": 2.3965295862268516}, "locations": 41, "decode": {"4096": {"ms": 15.18, "kib": 745.1}, "4608": {"ms": 18.9, "kib": 916.5}, "5120": {"ms": 20.7, "kib": 995.3}, "5632": {"ms": 22.68, "kib": 1073.9}, "6144": {"ms": 25.41, "kib": 1152.4}}},
+  "wenut-field-cavern": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 26944, "error": {"4096": 2.2728271484375, "4608": 2.0926920572916665, "5120": 1.957508228443287, "5632": 1.8461077654803242, "6144": 1.7569354021990742}, "locations": 8, "decode": {"4096": {"ms": 15.62, "kib": 785.8}, "4608": {"ms": 17.07, "kib": 926.6}, "5120": {"ms": 22.09, "kib": 1007.2}, "5632": {"ms": 26.1, "kib": 1087.7}, "6144": {"ms": 24.1, "kib": 1168.3}}},
+  "asimon-field-ruins": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 27406, "error": {"4096": 3.0360401294849537, "4608": 2.8282154224537037, "5120": 2.659640842013889, "5632": 2.516151710792824, "6144": 2.3965295862268516}, "decode": {"4096": {"ms": 15.18, "kib": 745.1}, "4608": {"ms": 18.9, "kib": 916.5}, "5120": {"ms": 20.7, "kib": 995.3}, "5632": {"ms": 22.68, "kib": 1073.9}, "6144": {"ms": 25.41, "kib": 1152.4}}},
   "dendro-hypostasis-field-den": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 24230, "error": {"4096": 1.8297051323784723, "4608": 1.6885330765335649, "5120": 1.5871333369502314, "5632": 1.5039921513310186, "6144": 1.4329630533854167}, "decode": {"4096": {"ms": 19.61, "kib": 708.7}, "4608": {"ms": 19.88, "kib": 841.6}, "5120": {"ms": 23.95, "kib": 915.1}, "5632": {"ms": 27.64, "kib": 988.5}, "6144": {"ms": 36.64, "kib": 1065.2}}},
   "aeonblight-field-chamber": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 24118, "error": {"4096": 1.5289329246238426, "4608": 1.4177313910590277, "5120": 1.3384580258969907, "5632": 1.273753978587963, "6144": 1.2167426215277777}, "decode": {"4096": {"ms": 19.57, "kib": 731.9}, "4608": {"ms": 23.62, "kib": 867.7}, "5120": {"ms": 26.02, "kib": 976.3}, "5632": {"ms": 26.6, "kib": 1053.3}, "6144": {"ms": 29.89, "kib": 1130.0}}},
   "electro-regisvine-field-cave": {"bundle": "field-arenas-sumeru-native-backgrounds.lua", "bytes": 24362, "error": {"4096": 2.191616482204861, "4608": 2.0427110460069446, "5120": 1.9257857711226851, "5632": 1.8280707465277777, "6144": 1.7417376482928242}, "decode": {"4096": {"ms": 22.81, "kib": 779.8}, "4608": {"ms": 22.65, "kib": 919.5}, "5120": {"ms": 23.29, "kib": 999.2}, "5632": {"ms": 30.5, "kib": 1078.6}, "6144": {"ms": 28.95, "kib": 1157.9}}},
@@ -375,11 +375,11 @@ export const backgroundMeasurements = {
   "natlan-solar-court": {"bundle": "stygian-arenas-native-backgrounds.lua", "bytes": 27270, "error": {"4096": 2.0717072663483798, "4608": 1.9139336480034723, "5120": 1.8057725694444444, "5632": 1.7070244683159723, "6144": 1.6230785228587963}, "decode": {"4096": {"ms": 18.91, "kib": 780.1}, "4608": {"ms": 21.73, "kib": 919.5}, "5120": {"ms": 24.26, "kib": 999.9}, "5632": {"ms": 27.72, "kib": 1080.3}, "6144": {"ms": 31.45, "kib": 1164.0}}},
   "sne-stygian-frost-court": {"bundle": "stygian-arenas-native-backgrounds.lua", "bytes": 29084, "error": {"4096": 4.58228443287037, "4608": 4.245496961805555, "5120": 3.975414134837963, "5632": 3.757572880497685, "6144": 3.5570588288483798}, "decode": {"4096": {"ms": 19.79, "kib": 787.3}, "4608": {"ms": 24.7, "kib": 927.4}, "5120": {"ms": 25.31, "kib": 1008.6}, "5632": {"ms": 29.03, "kib": 1089.8}, "6144": {"ms": 30.71, "kib": 1171.6}}},
   "liyue-stygian-deck": {"bundle": "stygian-arenas-native-backgrounds.lua", "bytes": 28146, "error": {"4096": 2.529536494502315, "4608": 2.3072600188078702, "5120": 2.143353497540509, "5632": 2.0061894169560186, "6144": 1.8956683123553242}, "decode": {"4096": {"ms": 18.43, "kib": 789.5}, "4608": {"ms": 20.7, "kib": 931.0}, "5120": {"ms": 24.64, "kib": 1013.0}, "5632": {"ms": 24.97, "kib": 1094.0}, "6144": {"ms": 29.13, "kib": 1175.3}}},
-  "sites-hunt-36703": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 26846, "error": {"4096": 0.7513766818576388, "4608": 0.6780847620081019, "5120": 0.6245275426793981, "5632": 0.5864755135995371, "6144": 0.5528338396990741}, "decode": {"4096": {"ms": 9.43, "kib": 738.8}, "4608": {"ms": 10.25, "kib": 909.6}, "5120": {"ms": 12.29, "kib": 987.9}, "5632": {"ms": 14.49, "kib": 1066.4}, "6144": {"ms": 14.65, "kib": 1149.0}}},
+  "sites-hunt-36703": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 26846, "error": {"4096": 0.7513766818576388, "4608": 0.6780847620081019, "5120": 0.6245275426793981, "5632": 0.5864755135995371, "6144": 0.5528338396990741}, "locations": 3, "decode": {"4096": {"ms": 9.43, "kib": 738.8}, "4608": {"ms": 10.25, "kib": 909.6}, "5120": {"ms": 12.29, "kib": 987.9}, "5632": {"ms": 14.49, "kib": 1066.4}, "6144": {"ms": 14.65, "kib": 1149.0}}},
   "sites-hunt-36703-pocket-1": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 25586, "error": {"4096": 0.6255221896701388, "4608": 0.5559511537905093, "5120": 0.51580810546875, "5632": 0.4842325846354167, "6144": 0.4601711697048611}, "decode": {"4096": {"ms": 10.2, "kib": 725.3}, "4608": {"ms": 11.4, "kib": 859.3}, "5120": {"ms": 13.09, "kib": 934.9}, "5632": {"ms": 14.64, "kib": 1009.3}, "6144": {"ms": 15.2, "kib": 1115.9}}},
-  "sites-hunt-36704": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 28940, "error": {"4096": 3.648143627025463, "4608": 3.3634666160300926, "5120": 3.159701877170139, "5632": 2.9845513237847223, "6144": 2.8345743815104165}, "decode": {"4096": {"ms": 9.13, "kib": 790.3}, "4608": {"ms": 11.38, "kib": 932.5}, "5120": {"ms": 12.18, "kib": 1014.5}, "5632": {"ms": 13.71, "kib": 1097.0}, "6144": {"ms": 15.43, "kib": 1183.3}}},
-  "sites-hunt-36704-pocket-1": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 28106, "error": {"4096": 2.0114904333043984, "4608": 1.7845933702256944, "5120": 1.6281828703703705, "5632": 1.4999593098958333, "6144": 1.3922051323784723}, "decode": {"4096": {"ms": 9.22, "kib": 747.2}, "4608": {"ms": 11.01, "kib": 919.2}, "5120": {"ms": 13.38, "kib": 999.4}, "5632": {"ms": 14.29, "kib": 1079.5}, "6144": {"ms": 14.78, "kib": 1163.4}}},
-  "sites-hunt-36705": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 26600, "error": {"4096": 0.5764838324652778, "4608": 0.5185117368344907, "5120": 0.48618344907407407, "5632": 0.4609375, "6144": 0.44078007450810186}, "decode": {"4096": {"ms": 8.81, "kib": 722.4}, "4608": {"ms": 10.76, "kib": 857.6}, "5120": {"ms": 12.14, "kib": 933.1}, "5632": {"ms": 14.11, "kib": 1008.7}, "6144": {"ms": 14.97, "kib": 1115.9}}},
+  "sites-hunt-36704": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 28940, "error": {"4096": 3.648143627025463, "4608": 3.3634666160300926, "5120": 3.159701877170139, "5632": 2.9845513237847223, "6144": 2.8345743815104165}, "locations": 13, "decode": {"4096": {"ms": 9.13, "kib": 790.3}, "4608": {"ms": 11.38, "kib": 932.5}, "5120": {"ms": 12.18, "kib": 1014.5}, "5632": {"ms": 13.71, "kib": 1097.0}, "6144": {"ms": 15.43, "kib": 1183.3}}},
+  "sites-hunt-36704-pocket-1": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 28106, "error": {"4096": 2.0114904333043984, "4608": 1.7845933702256944, "5120": 1.6281828703703705, "5632": 1.4999593098958333, "6144": 1.3922051323784723}, "locations": 6, "decode": {"4096": {"ms": 9.22, "kib": 747.2}, "4608": {"ms": 11.01, "kib": 919.2}, "5120": {"ms": 13.38, "kib": 999.4}, "5632": {"ms": 14.29, "kib": 1079.5}, "6144": {"ms": 14.78, "kib": 1163.4}}},
+  "sites-hunt-36705": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 26600, "error": {"4096": 0.5764838324652778, "4608": 0.5185117368344907, "5120": 0.48618344907407407, "5632": 0.4609375, "6144": 0.44078007450810186}, "locations": 6, "decode": {"4096": {"ms": 8.81, "kib": 722.4}, "4608": {"ms": 10.76, "kib": 857.6}, "5120": {"ms": 12.14, "kib": 933.1}, "5632": {"ms": 14.11, "kib": 1008.7}, "6144": {"ms": 14.97, "kib": 1115.9}}},
   "sites-hunt-36705-pocket-1": {"bundle": "sum-desert-native-backgrounds.lua", "bytes": 25578, "error": {"4096": 0.7059552228009259, "4608": 0.6449381510416666, "5120": 0.6027786820023148, "5632": 0.5699892397280093, "6144": 0.5415287724247685}, "decode": {"4096": {"ms": 8.87, "kib": 725.5}, "4608": {"ms": 9.69, "kib": 861.2}, "5120": {"ms": 11.19, "kib": 935.9}, "5632": {"ms": 13.4, "kib": 1043.5}, "6144": {"ms": 13.57, "kib": 1119.4}}},
   "sites-hunt-28751": {"bundle": "sum-forest-native-backgrounds.lua", "bytes": 30768, "error": {"4096": 7.746491608796297, "4608": 7.010039152922453, "5120": 6.448217321325232, "5632": 5.972529658564815, "6144": 5.588489673755787}, "decode": {"4096": {"ms": 10.33, "kib": 795.4}, "4608": {"ms": 10.8, "kib": 938.8}, "5120": {"ms": 13.18, "kib": 1022.4}, "5632": {"ms": 13.74, "kib": 1105.9}, "6144": {"ms": 15.83, "kib": 1189.3}}},
   "sites-hunt-28751-pocket-1": {"bundle": "sum-forest-native-backgrounds.lua", "bytes": 30482, "error": {"4096": 4.745582863136574, "4608": 4.298669885706018, "5120": 3.948321307146991, "5632": 3.6765679253472223, "6144": 3.4329517505787037}, "decode": {"4096": {"ms": 9.5, "kib": 792.7}, "4608": {"ms": 10.8, "kib": 935.0}, "5120": {"ms": 12.77, "kib": 1017.3}, "5632": {"ms": 14.02, "kib": 1099.5}, "6144": {"ms": 15.38, "kib": 1186.0}}},
@@ -394,16 +394,16 @@ export const backgroundMeasurements = {
   "sites-hunt-28756": {"bundle": "sum-frontier-native-backgrounds.lua", "bytes": 28520, "error": {"4096": 5.90130615234375, "4608": 5.386664496527778, "5120": 5.002753363715278, "5632": 4.698879665798611, "6144": 4.421538176359953}, "decode": {"4096": {"ms": 10.88, "kib": 789.3}, "4608": {"ms": 13.55, "kib": 931.1}, "5120": {"ms": 15.93, "kib": 1013.0}, "5632": {"ms": 16.52, "kib": 1095.0}, "6144": {"ms": 16.22, "kib": 1176.8}}},
   "sites-hunt-41009": {"bundle": "sum-frontier-native-backgrounds.lua", "bytes": 30628, "error": {"4096": 7.947943793402778, "4608": 7.362779405381945, "5120": 6.901373969184028, "5632": 6.529545536747685, "6144": 6.207890263310185}, "decode": {"4096": {"ms": 10.57, "kib": 795.3}, "4608": {"ms": 13.92, "kib": 938.0}, "5120": {"ms": 14.82, "kib": 1021.4}, "5632": {"ms": 17.99, "kib": 1104.9}, "6144": {"ms": 17.2, "kib": 1188.1}}},
   "sites-hunt-98499": {"bundle": "sum-frontier-native-backgrounds.lua", "bytes": 28530, "error": {"4096": 4.432327835648148, "4608": 4.025126139322917, "5120": 3.720416033709491, "5632": 3.4608606409143516, "6144": 3.2518672236689814}, "decode": {"4096": {"ms": 11.95, "kib": 743.2}, "4608": {"ms": 14.02, "kib": 915.8}, "5120": {"ms": 13.17, "kib": 996.0}, "5632": {"ms": 15.46, "kib": 1076.0}, "6144": {"ms": 17.4, "kib": 1160.2}}},
-  "sites-hunt-41694": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 28818, "error": {"4096": 1.6123408564814814, "4608": 1.4497409396701388, "5120": 1.3305121527777777, "5632": 1.2342325846354167, "6144": 1.1515209056712963}, "decode": {"4096": {"ms": 10.44, "kib": 786.4}, "4608": {"ms": 11.77, "kib": 927.2}, "5120": {"ms": 12.58, "kib": 1008.8}, "5632": {"ms": 13.92, "kib": 1089.7}, "6144": {"ms": 14.71, "kib": 1174.4}}},
+  "sites-hunt-41694": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 28818, "error": {"4096": 1.6123408564814814, "4608": 1.4497409396701388, "5120": 1.3305121527777777, "5632": 1.2342325846354167, "6144": 1.1515209056712963}, "locations": 3, "decode": {"4096": {"ms": 10.44, "kib": 786.4}, "4608": {"ms": 11.77, "kib": 927.2}, "5120": {"ms": 12.58, "kib": 1008.8}, "5632": {"ms": 13.92, "kib": 1089.7}, "6144": {"ms": 14.71, "kib": 1174.4}}},
   "sites-hunt-41694-pocket-1": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 30154, "error": {"4096": 2.4542032877604165, "4608": 2.1695421006944446, "5120": 1.979541919849537, "5632": 1.8275010850694444, "6144": 1.6980907298900463}, "decode": {"4096": {"ms": 9.54, "kib": 787.5}, "4608": {"ms": 11.43, "kib": 929.0}, "5120": {"ms": 12.71, "kib": 1011.2}, "5632": {"ms": 14.42, "kib": 1093.4}, "6144": {"ms": 15.91, "kib": 1175.3}}},
-  "sites-hunt-41817": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 26382, "error": {"4096": 1.03515625, "4608": 0.9072695131655093, "5120": 0.8208776403356481, "5632": 0.7623449254918981, "6144": 0.7154880099826388}, "decode": {"4096": {"ms": 8.91, "kib": 722.1}, "4608": {"ms": 10.72, "kib": 858.5}, "5120": {"ms": 12.15, "kib": 934.7}, "5632": {"ms": 14.38, "kib": 1043.5}, "6144": {"ms": 13.37, "kib": 1119.1}}},
+  "sites-hunt-41817": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 26382, "error": {"4096": 1.03515625, "4608": 0.9072695131655093, "5120": 0.8208776403356481, "5632": 0.7623449254918981, "6144": 0.7154880099826388}, "locations": 3, "decode": {"4096": {"ms": 8.91, "kib": 722.1}, "4608": {"ms": 10.72, "kib": 858.5}, "5120": {"ms": 12.15, "kib": 934.7}, "5632": {"ms": 14.38, "kib": 1043.5}, "6144": {"ms": 13.37, "kib": 1119.1}}},
   "sites-hunt-41817-pocket-1": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 28134, "error": {"4096": 1.67919921875, "4608": 1.4841851128472223, "5120": 1.3466254340277777, "5632": 1.2411159939236112, "6144": 1.1549343532986112}, "decode": {"4096": {"ms": 9.21, "kib": 746.7}, "4608": {"ms": 11.78, "kib": 916.8}, "5120": {"ms": 12.39, "kib": 996.1}, "5632": {"ms": 14.26, "kib": 1075.8}, "6144": {"ms": 14.47, "kib": 1159.2}}},
-  "sites-hunt-41818": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 27956, "error": {"4096": 0.9422110098379629, "4608": 0.8590178313078703, "5120": 0.8012356228298612, "5632": 0.7532416449652778, "6144": 0.7139078776041666}, "decode": {"4096": {"ms": 9.29, "kib": 781.8}, "4608": {"ms": 11.2, "kib": 922.6}, "5120": {"ms": 12.33, "kib": 1003.0}, "5632": {"ms": 14.28, "kib": 1083.9}, "6144": {"ms": 14.94, "kib": 1164.2}}},
+  "sites-hunt-41818": {"bundle": "sum-sands-native-backgrounds.lua", "bytes": 27956, "error": {"4096": 0.9422110098379629, "4608": 0.8590178313078703, "5120": 0.8012356228298612, "5632": 0.7532416449652778, "6144": 0.7139078776041666}, "locations": 12, "decode": {"4096": {"ms": 9.29, "kib": 781.8}, "4608": {"ms": 11.2, "kib": 922.6}, "5120": {"ms": 12.33, "kib": 1003.0}, "5632": {"ms": 14.28, "kib": 1083.9}, "6144": {"ms": 14.94, "kib": 1164.2}}},
   "sites-hunt-46531": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 26626, "error": {"4096": 3.1764842845775463, "4608": 2.853061252170139, "5120": 2.6211073133680554, "5632": 2.4293913664641202, "6144": 2.2709870515046298}, "decode": {"4096": {"ms": 10.74, "kib": 742.1}, "4608": {"ms": 13.07, "kib": 911.8}, "5120": {"ms": 15.51, "kib": 990.3}, "5632": {"ms": 16.24, "kib": 1068.9}, "6144": {"ms": 16.38, "kib": 1146.6}}},
   "sites-hunt-46531-pocket-1": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 28414, "error": {"4096": 4.069541648582176, "4608": 3.691688820167824, "5120": 3.4136669017650463, "5632": 3.1877509223090277, "6144": 2.9945610894097223}, "decode": {"4096": {"ms": 11.31, "kib": 792.9}, "4608": {"ms": 11.18, "kib": 935.5}, "5120": {"ms": 14.61, "kib": 1018.2}, "5632": {"ms": 16.85, "kib": 1100.5}, "6144": {"ms": 18.77, "kib": 1183.2}}},
   "sites-hunt-46532": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 30546, "error": {"4096": 8.087793420862269, "4608": 7.529538755063657, "5120": 7.072593406394676, "5632": 6.676000524450232, "6144": 6.3280029296875}, "decode": {"4096": {"ms": 11.96, "kib": 796.4}, "4608": {"ms": 14.07, "kib": 940.0}, "5120": {"ms": 14.72, "kib": 1023.3}, "5632": {"ms": 15.4, "kib": 1106.9}, "6144": {"ms": 16.43, "kib": 1195.3}}},
   "sites-hunt-46532-pocket-1": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 29054, "error": {"4096": 3.5714518229166665, "4608": 3.2866459599247686, "5120": 3.060757107204861, "5632": 2.8780540183738426, "6144": 2.7131438078703702}, "decode": {"4096": {"ms": 11.25, "kib": 795.3}, "4608": {"ms": 12.84, "kib": 938.5}, "5120": {"ms": 14.03, "kib": 1021.3}, "5632": {"ms": 16.24, "kib": 1104.6}, "6144": {"ms": 16.01, "kib": 1192.5}}},
-  "sites-hunt-46533": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 28242, "error": {"4096": 2.0889892578125, "4608": 1.8980260778356481, "5120": 1.7490889937789351, "5632": 1.6281060112847223, "6144": 1.5254200122974537}, "decode": {"4096": {"ms": 11.83, "kib": 786.5}, "4608": {"ms": 15.08, "kib": 926.7}, "5120": {"ms": 15.9, "kib": 1008.2}, "5632": {"ms": 17.27, "kib": 1089.3}, "6144": {"ms": 18.37, "kib": 1174.6}}},
+  "sites-hunt-46533": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 28242, "error": {"4096": 2.0889892578125, "4608": 1.8980260778356481, "5120": 1.7490889937789351, "5632": 1.6281060112847223, "6144": 1.5254200122974537}, "locations": 3, "decode": {"4096": {"ms": 11.83, "kib": 786.5}, "4608": {"ms": 15.08, "kib": 926.7}, "5120": {"ms": 15.9, "kib": 1008.2}, "5632": {"ms": 17.27, "kib": 1089.3}, "6144": {"ms": 18.37, "kib": 1174.6}}},
   "sites-hunt-46533-pocket-1": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 30776, "error": {"4096": 5.303003381799768, "4608": 4.831264919704861, "5120": 4.485188802083333, "5632": 4.193565086082176, "6144": 3.9491667570891202}, "decode": {"4096": {"ms": 13.65, "kib": 794.9}, "4608": {"ms": 14.87, "kib": 938.4}, "5120": {"ms": 17.35, "kib": 1021.3}, "5632": {"ms": 20.6, "kib": 1104.7}, "6144": {"ms": 20.52, "kib": 1192.6}}},
   "sites-hunt-46534": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 28834, "error": {"4096": 2.332065158420139, "4608": 2.0970707646122686, "5120": 1.9352575231481481, "5632": 1.8006885669849537, "6144": 1.6909473560474537}, "decode": {"4096": {"ms": 12.06, "kib": 782.4}, "4608": {"ms": 12.95, "kib": 921.8}, "5120": {"ms": 15.21, "kib": 1002.2}, "5632": {"ms": 16.43, "kib": 1082.2}, "6144": {"ms": 18.45, "kib": 1162.3}}},
   "sites-hunt-46534-pocket-1": {"bundle": "tun-domains-native-backgrounds.lua", "bytes": 27116, "error": {"4096": 1.8477783203125, "4608": 1.6734551323784723, "5120": 1.549427173755787, "5632": 1.452747486255787, "6144": 1.365478515625}, "decode": {"4096": {"ms": 10.6, "kib": 739.2}, "4608": {"ms": 15.38, "kib": 909.4}, "5120": {"ms": 15.39, "kib": 987.7}, "5632": {"ms": 20.58, "kib": 1065.9}, "6144": {"ms": 18.6, "kib": 1148.3}}},
@@ -565,48 +565,7 @@ backgroundMeasurements["sum-wp-41825"] = backgroundMeasurements["wenut-field-cav
 backgroundMeasurements["sum-wp-41829"] = backgroundMeasurements["wenut-field-cavern"];
 backgroundMeasurements["sum-wp-41831"] = backgroundMeasurements["wenut-field-cavern"];
 backgroundMeasurements["sum-wp-41833"] = backgroundMeasurements["wenut-field-cavern"];
-backgroundMeasurements["sum-wp-41836"] = backgroundMeasurements["wenut-field-cavern"];
 backgroundMeasurements["sum-wp-41837"] = backgroundMeasurements["wenut-field-cavern"];
-backgroundMeasurements["sum-wp-36674"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36675"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36676"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36677"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36679"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36680"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36681"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36683"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36684"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36685"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36686"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36687"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36688"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36689"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36690"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36691"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36692"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36693"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36694"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36695"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36696"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36697"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36699"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36700"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36701"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-36702"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41819"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41820"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41821"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41822"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41826"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41827"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41828"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41830"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41832"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41834"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41835"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41838"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41839"] = backgroundMeasurements["asimon-field-ruins"];
-backgroundMeasurements["sum-wp-41840"] = backgroundMeasurements["asimon-field-ruins"];
 backgroundMeasurements["luachra-legend-shelf"] = backgroundMeasurements["sites-hunt-50067"];
 backgroundMeasurements["bygone-wp-68600"] = backgroundMeasurements["sites-hunt-50067"];
 backgroundMeasurements["bygone-wp-68608"] = backgroundMeasurements["sites-hunt-50067"];
@@ -1530,5 +1489,46 @@ backgroundMeasurements["natlan-voyage-return"] = backgroundMeasurements["liyue-f
 backgroundMeasurements["chenyu-ferry-fontaine"] = backgroundMeasurements["liyue-ferry"];
 backgroundMeasurements["fontaine-ferry-chenyu"] = backgroundMeasurements["liyue-ferry"];
 backgroundMeasurements["wingspan-lookout"] = backgroundMeasurements["wingspan-camp"];
+backgroundMeasurements["sum-wp-36683"] = backgroundMeasurements["sites-hunt-36703"];
+backgroundMeasurements["sum-wp-36695"] = backgroundMeasurements["sites-hunt-36703"];
+backgroundMeasurements["sum-wp-36674"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36675"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36677"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36689"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36690"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36691"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36696"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36699"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-41819"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-41821"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-41822"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-41840"] = backgroundMeasurements["sites-hunt-36704"];
+backgroundMeasurements["sum-wp-36692"] = backgroundMeasurements["sites-hunt-36704-pocket-1"];
+backgroundMeasurements["sum-wp-36693"] = backgroundMeasurements["sites-hunt-36704-pocket-1"];
+backgroundMeasurements["sum-wp-41826"] = backgroundMeasurements["sites-hunt-36704-pocket-1"];
+backgroundMeasurements["sum-wp-41835"] = backgroundMeasurements["sites-hunt-36704-pocket-1"];
+backgroundMeasurements["sum-wp-41838"] = backgroundMeasurements["sites-hunt-36704-pocket-1"];
+backgroundMeasurements["sum-wp-36694"] = backgroundMeasurements["sites-hunt-36705"];
+backgroundMeasurements["sum-wp-36697"] = backgroundMeasurements["sites-hunt-36705"];
+backgroundMeasurements["sum-wp-36700"] = backgroundMeasurements["sites-hunt-36705"];
+backgroundMeasurements["sum-wp-36701"] = backgroundMeasurements["sites-hunt-36705"];
+backgroundMeasurements["sum-wp-36702"] = backgroundMeasurements["sites-hunt-36705"];
+backgroundMeasurements["sum-wp-36680"] = backgroundMeasurements["sites-hunt-41694"];
+backgroundMeasurements["sum-wp-36684"] = backgroundMeasurements["sites-hunt-41694"];
+backgroundMeasurements["sum-wp-36687"] = backgroundMeasurements["sites-hunt-41817"];
+backgroundMeasurements["sum-wp-41836"] = backgroundMeasurements["sites-hunt-41817"];
+backgroundMeasurements["sum-wp-36676"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-36681"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-36685"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-36688"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41820"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41827"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41828"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41830"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41832"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41834"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-41839"] = backgroundMeasurements["sites-hunt-41818"];
+backgroundMeasurements["sum-wp-36679"] = backgroundMeasurements["sites-hunt-46533"];
+backgroundMeasurements["sum-wp-36686"] = backgroundMeasurements["sites-hunt-46533"];
 backgroundMeasurements["sum-wp-28709"] = backgroundMeasurements["buried-weaving-room"];
 backgroundMeasurements["sum-wp-32452"] = backgroundMeasurements["buried-weaving-room"];

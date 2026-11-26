@@ -3,6 +3,7 @@
   "scenes": [
     {
       "node": "sites-hunt-41694",
+      "sharedNodes": ["sum-wp-36680", "sum-wp-36684"],
       "key": "sumSandMarket",
       "note": "市場跡の石段",
       "source": "sum-sands-market-background-v1.png",
@@ -19,6 +20,7 @@
     },
     {
       "node": "sites-hunt-41817",
+      "sharedNodes": ["sum-wp-36687", "sum-wp-41836"],
       "key": "sumSandWindcut",
       "note": "千尋北の風穴",
       "source": "sum-sands-windcut-background-v1.png",
@@ -35,6 +37,7 @@
     },
     {
       "node": "sites-hunt-41818",
+      "sharedNodes": ["sum-wp-36676", "sum-wp-36681", "sum-wp-36685", "sum-wp-36688", "sum-wp-41820", "sum-wp-41827", "sum-wp-41828", "sum-wp-41830", "sum-wp-41832", "sum-wp-41834", "sum-wp-41839"],
       "key": "sumSandEastBasin",
       "note": "千尋東の外輪盆地",
       "source": "sum-sands-basin-background-v1.png",

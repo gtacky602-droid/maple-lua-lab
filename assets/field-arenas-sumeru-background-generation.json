@@ -11,7 +11,7 @@
     },
     {
       "node": "wenut-field-cavern",
-      "sharedNodes": ["sum-wp-41823", "sum-wp-41824", "sum-wp-41825", "sum-wp-41829", "sum-wp-41831", "sum-wp-41833", "sum-wp-41836", "sum-wp-41837"],
+      "sharedNodes": ["sum-wp-41823", "sum-wp-41824", "sum-wp-41825", "sum-wp-41829", "sum-wp-41831", "sum-wp-41833", "sum-wp-41837"],
       "key": "wenutField",
       "note": "スメール・風蝕の砂洞",
       "source": "wenut-field-background-v1.png",
@@ -19,7 +19,7 @@
     },
     {
       "node": "asimon-field-ruins",
-      "sharedNodes": ["sum-wp-36674", "sum-wp-36675", "sum-wp-36676", "sum-wp-36677", "sum-wp-36679", "sum-wp-36680", "sum-wp-36681", "sum-wp-36683", "sum-wp-36684", "sum-wp-36685", "sum-wp-36686", "sum-wp-36687", "sum-wp-36688", "sum-wp-36689", "sum-wp-36690", "sum-wp-36691", "sum-wp-36692", "sum-wp-36693", "sum-wp-36694", "sum-wp-36695", "sum-wp-36696", "sum-wp-36697", "sum-wp-36699", "sum-wp-36700", "sum-wp-36701", "sum-wp-36702", "sum-wp-41819", "sum-wp-41820", "sum-wp-41821", "sum-wp-41822", "sum-wp-41826", "sum-wp-41827", "sum-wp-41828", "sum-wp-41830", "sum-wp-41832", "sum-wp-41834", "sum-wp-41835", "sum-wp-41838", "sum-wp-41839", "sum-wp-41840"],
+      "sharedNodes": [],
       "key": "asimonField",
       "note": "スメール・砂鏡の遺構",
       "source": "asimon-field-background-v1.png",
