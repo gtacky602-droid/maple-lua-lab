@@ -475,10 +475,52 @@ try{
  };
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  let fidelityKey,profileTableKey,renderRevision=0;
+ const duelGates=new Map();
+ for(const hub of nodes.values()){
+  for(const edge of hub.exits){
+   if(stygianScenes[edge.to] && Number.isFinite(edge.x)){
+    const gates=duelGates.get(edge.to)??[];
+    gates.push({hub,edge});duelGates.set(edge.to,gates);
+   }
+  }
+ }
+ let lastDuelView;
+ function showDuel(node,gate,profile){
+  const id=liveView && (stygianScenes[node.id]?node.id:gate?.to);
+  const duel=stygianScenes[id],key=duel && [id,node.id,profile].join('/');
+  if(key===lastDuelView)return;
+  lastDuelView=key;
+  const rules=$('stygianRules');
+  rules.hidden=!duel;
+  if(!duel)return;
+  rules.querySelector('summary').textContent=duel.name+'の挑戦レベルとHP';
+  const table=rules.querySelector('tbody');table.replaceChildren();
+  for(const mode of duel.modes){
+   const row=table.insertRow();
+   for(const value of [mode.name,mode.level,mode.hp.toLocaleString('ja-JP')])row.insertCell().textContent=value;
+  }
+  const links=$('stygianLinks');links.replaceChildren();
+  function link(label,page,params){
+   const a=document.createElement('a');a.textContent=label;a.href=page+'?'+new URLSearchParams(params);
+   if(links.childNodes.length)links.append(' ／ ');
+   links.append(a);
+  }
+  if(id!==node.id)link('会場の開幕配置','map-art.html',{node:id,placements:'live',profile});
+  else for(const {hub,edge} of duelGates.get(id)??[]){
+   link(hub.name+'の入口を見る','map-art.html',{node:hub.id,to:id,gateX:edge.x,gateY:edge.y??480,placements:'live',profile});
+  }
+  if(duel.match==='farka')link('二刀と胴体の重なりを比較','farka-idle.html',{profile,facing:'left'});
+  else{
+   const party=duel.match==='wanderer';
+   link('左右のドット絵を比較',party?'characters-art.html':'bosses-art.html',
+    {q:duel.match,profile,flip:'1',pixels:'1',...(party?{}:{arena:id})});
+  }
+ }
  function render(){
   const revision=++renderRevision;
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,frame=sceneFrame(n,camera,gatePreview.selectedGate());
+  showDuel(n,gatePreview.selectedGate(),profile);
   let items=liveView?liveItems:placements();
   const rail=liveView && questsById.get(n.clearedBy)?.rail;
   if(rail){
@@ -1065,15 +1107,6 @@ try{
      }
     }
     questList.append(title,list);
-   }
-  }
-  const rules=$('stygianRules'),duel=stygianScenes[n.id];
-  rules.hidden=!(liveView && duel);
-  const table=rules.querySelector('tbody');table.replaceChildren();
-  if(liveView && duel){
-   for(const mode of duel.modes){
-    const row=table.insertRow();
-    for(const value of [mode.name,mode.level,mode.hp.toLocaleString('ja-JP')])row.insertCell().textContent=value;
    }
   }
   $('defenseCompareLink').hidden=n.id!=='apep-oasis-heart-arena';

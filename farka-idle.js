@@ -89,7 +89,11 @@ try{
   else render();
  });
  $('pose').addEventListener('reset',()=>requestAnimationFrame(render));
- if(new URLSearchParams(location.search).get('variant')==='guide')$('variant').value='guide';
+ const requested=new URLSearchParams(location.search);
+ for(const id of ['variant','profile','facing']){
+  const value=requested.get(id);
+  if([...$(id).options].some(option=>option.value===value))$(id).value=value;
+ }
  render();
 }catch(error){
  $('status').textContent=`素材の読み込みに失敗しました。${error.message}`;
