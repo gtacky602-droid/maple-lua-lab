@@ -316,6 +316,7 @@ try{
  // Poses unique to a field encounter are fetched only when someone places or views them.
  const fieldPoseLoads=new Map();
  const patrolArt=new Map(),surveyPropArt=new Map();
+ const totemArt={poseFile:'quest-packed/night-trial-totem-field-idle-sprites-v1.json',openingPose:true};
  for(const scene of Object.values(trialScenes)){
   for(const part of scene.parts){
    if(!part.file || assets[part.species])continue;
@@ -490,6 +491,10 @@ try{
    if(body.rear&&(!part||previewCandidate(item)))layers.add(body.rear);
   }
   const missing=[...layers].filter(art=>art?.poseFile&&!art.image);
+  const trialGates=liveView?n.exits.filter(edge=>edge.nightTotem):[];
+  const sealed=edge=>edge.rockSeal && !(gatePreview.selectedGate()===edge && $('fixtureState').checked);
+  if(trialGates.some(edge=>!sealed(edge))&&!totemArt.image)missing.push(totemArt);
+  const measureGate=trialGates.find(edge=>edge===gatePreview.selectedGate());
   const watchSteps=liveView&&n.stealthRoute?questsById.get(n.stealthRoute.quest).itinerary.filter(s=>s.cover):[];
   const guard=selectedSurveyPoint?.guard;
   const previewGuard=guard&&showPatrol.checked?assets[guard.art]:null;
@@ -638,7 +643,7 @@ try{
   const visibleItems=liveView && subject.value ? sceneItems.filter(e=>e.id===subject.value) : sceneItems;
   const fidelity=$('spriteFidelity');
   const propKey=surveyProps.map(p=>[p.file,p.x,p.y,p.height].join(':')).join(',');
-  const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked,propKey].join('/');
+  const poseKey=[n.id,camera,subject.value,matchedSprites,$('candidateIdle').checked,propKey,measureGate?.to,measureGate&&sealed(measureGate)].join('/');
   const currentKey=poseKey+'/'+profile;
   if(fidelityKey!==currentKey){
    $('differenceCrops').hidden=true;fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
@@ -657,8 +662,8 @@ try{
   const members=arena?.openingParts;
   const groupOpening=members?.length>1;
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
-  $('fidelityControls').hidden=!(liveView && (surveyProps.length || visibleItems.length) && !matchedSprites);
-  const measuredSubject=surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
+  $('fidelityControls').hidden=!(liveView && (measureGate || surveyProps.length || visibleItems.length) && !matchedSprites);
+  const measuredSubject=measureGate?(sealed(measureGate)?'封印の大岩':'黒曜石の柱'):surveyProps.length?'依頼の小物':fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
   $('measureSprite').textContent=surveyProps.length?'小物の形と色を測る':'ドット絵の形と色を測る';
   function paintSurveyProp(ctx,prop,quality,cost){
    const art=surveyPropArt.get(prop.file);
@@ -696,8 +701,21 @@ try{
     }
     return {a,flip,x,y,body,rear};
   }
+  function paintTrialGate(ctx,edge,quality,cost){
+   const x=edge.x-camera,y=edge.y??480;
+   if(x < -100 || x > 1060)return;
+   if(!sealed(edge)){
+    paintPlacementLayer(ctx,totemArt,spriteBounds(totemArt,136),quality,x,y,false,cost);
+    return;
+   }
+   for(const [dx,dy,w,h,color] of [[-39,-39,78,39,'#393749'],[-31,-58,61,41,'#565067'],[-23,-66,42,12,'#756887'],[-12,-40,28,3,'#9286ab']]){
+    ctx.fillStyle=color;ctx.fillRect(x+dx,y+dy,w,h);
+    if(quality){cost.total++;if(x+dx+w>0&&x+dx<960){cost.visible++;cost.standard++}}
+   }
+  }
   function paintMeasuredSprites(ctx,quality){
     const cost={total:0,visible:0,standard:0};
+    if(measureGate){paintTrialGate(ctx,measureGate,quality,cost);return cost.visible}
     if(surveyProps.length){
      for(const prop of surveyProps)paintSurveyProp(ctx,prop,quality,cost);
      return cost.visible;
@@ -762,6 +780,7 @@ try{
   const memberRows=memberPanel.querySelector('tbody');
   memberRows.replaceChildren();
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame,mode==='rect'?decoded:undefined,mode==='rect'&&decoded?tierTile:undefined);ctx.imageSmoothingEnabled=false;
+   for(const edge of trialGates)paintTrialGate(ctx,edge,mode==='png'||matchedSprites?null:profile,cost);
    for(const animal of liveView?wildlife[n.id]??[]:[]){
     const art=assets[animal.art];
     paintPlacementLayer(ctx,art,spriteBounds(art,art.h),mode==='png'||matchedSprites?null:profile,animal.x-camera,animal.y,animal.flip,cost);
@@ -912,7 +931,7 @@ try{
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   const subjects=teaProps.length?'事件帖の絵札・茶屋の道具':course?.length?'競技の道具と走者':watchSteps.length?'隠れ場所とキャラクター':liveView&&wildlife[n.id]?'水中生物':'キャラクター';
   const matchedLabel=teaProps.length?'事件帖の道具は左右とも元PNG':course?.length?'道具と走者は左右とも元PNG':watchSteps.length?'隠れ場所とキャラは左右とも元PNG':liveView&&wildlife[n.id]?'水中生物は左右とも元PNG':'キャラは左右とも元PNG';
-  const costSubject=surveyProps.length?'小物・キャラクターの':subjects;
+  const costSubject=trialGates.length?'入口とキャラクターの':surveyProps.length?'小物・キャラクターの':subjects;
   $('viewportCost').textContent=matchedSprites?(surveyProps.length?'小物は左右とも元PNG':matchedLabel):decoded&&!cost.standard?'':viewportSummary(cost,profile,costSubject);
   const placementCost=matchedSprites?'キャラは元PNGで表示':'矩形'+cost.total.toLocaleString('ja-JP')+'個（配置全体の合計）';
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);

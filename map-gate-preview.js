@@ -19,7 +19,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
  function selectGate(node,nodes,initial=false){
   const index=Number(select.value);
   active=index>0?node.exits[index-1]:null;
-  control.hidden=!active?.routeFixture;
+  control.hidden=!(active?.routeFixture || (active?.nightTotem && active.rockSeal));
   state.checked=initial && active?.to===query.get('to') && query.get('fixture')==='open';
   panel.querySelector('#focusGate').hidden=link.hidden=position.hidden=!active;
   if(active){

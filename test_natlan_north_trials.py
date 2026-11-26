@@ -162,10 +162,20 @@ core.action(s, 'story_accept:' + ECHOES)
 spec = specs[ICHCA]
 bank = spec['entryThrough'][0]
 branches = {path['id']: path['steps'][0] for path in quests[ECHOES]['paths']}
+
+def check_seal_link(expected):
+    core.action(s,'world_map_focus:'+spec['node'])
+    view=core.frame(s).worldMap
+    gate=next(edge for edge in view.selected.entrances.values() if edge['from']==bank)
+    assert gate.sealState==expected
+    assert view.guide.stops[1].sealState==expected
+    core.action(s,'world_map_close')
+
 walk = walk_for(s)
 core.enterStoryNode(s, I_HOST)
 walk.cross(bank)
 locked(s, walk, spec['node'], '三つの光', '封じられた大岩')
+check_seal_link('closed')
 root = branches['root']
 walk.cross(root['node'])
 walk.cross(bank)
@@ -190,6 +200,7 @@ walk.cross(root['node'])
 walk.cross(bank)
 assert state.pathProgress.root.count == 2 and state.count == 1
 locked(s, walk, spec['node'], '三つの光', '封じられた大岩')
+check_seal_link('closed')
 crystal = branches['crystal']
 walk.cross(crystal['node'])
 collect(s, walk, crystal)
@@ -198,6 +209,7 @@ assert all(path.count == 2 for path in state.pathProgress.values()) and state.co
 walk.cross(I_HOST)
 guide(s, spec['node'], 'ready', [(bank, 'walk'), (spec['node'], 'night')])
 walk.cross(bank)
+check_seal_link('open')
 pillar = edges[bank, spec['node']]
 walk.approach(pillar['x'], 480, spec['node'])
 frame = core.frame(s, 'sprite', 'legacy')

@@ -203,7 +203,8 @@ export function initAtlas(action, clearKeys) {
   const params=new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});
   if(reportedRooms.has(from))params.set('phase','after');
   if(reportedRooms.has(route.id))params.set('afterArrival',route.id);
-  if(route.routeFixture)params.set('fixture',route.reason?'closed':'open');
+  if(route.sealState)params.set('fixture',route.sealState);
+  else if(route.routeFixture)params.set('fixture',route.reason?'closed':'open');
   link.href='map-art.html?'+params;
   link.target='_blank';link.rel='noopener';
   link.textContent='入口を見る';link.setAttribute('aria-label',(route.sourceName?route.sourceName+'から':'')+route.name+'へ向かう入口を見る（別タブ）');
