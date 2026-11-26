@@ -17,7 +17,7 @@ export function setupGatePreview(panel, camera, liveView, query, render, showDar
  function selectGate(node,nodes){
   const index=Number(select.value);
   active=index>0?node.exits[index-1]:null;
-  link.hidden=position.hidden=!active;
+  panel.querySelector('#focusGate').hidden=link.hidden=position.hidden=!active;
   if(active){
    arrival=arrivalCamera(node.id,active,nodes.get(active.to));
    const y=active.y??480;

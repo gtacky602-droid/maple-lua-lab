@@ -33,6 +33,7 @@ export function setupSceneryDetail(liveView, query) {
       }
       link.href = '?' + params + '#sceneryDetail';
     }
+    const samples = [];
     for (const wrapper of sources) {
       const marker = wrapper.querySelector('.detail-marker');
       marker.hidden = !detail.open;
@@ -43,8 +44,20 @@ export function setupSceneryDetail(liveView, query) {
       marker.style.left = (100 * left / src.width) + '%';
       marker.style.top = (100 * top / src.height) + '%';
       const ctx = dest.getContext('2d');
+      samples.push(src.getContext('2d').getImageData(left, top, width, height).data);
       ctx.imageSmoothingEnabled = false;
       ctx.drawImage(src, left, top, width, height, 0, 0, dest.width, dest.height);
+    }
+    if (samples.length === 2) {
+      const [a,b] = samples;
+      let total = 0, changed = 0;
+      for (let i = 0; i < a.length; i += 4) {
+        const difference = Math.abs(a[i]-b[i])+Math.abs(a[i+1]-b[i+1])+Math.abs(a[i+2]-b[i+2]);
+        total += difference;
+        if (difference) changed++;
+      }
+      document.getElementById('sampleDifference').textContent =
+        '拡大範囲の平均色差 '+(total/(3*width*height)).toFixed(2)+' / 255（色が変わった画素 '+changed+' / '+(width*height)+'）';
     }
   }
   for (const wrapper of sources) {

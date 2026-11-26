@@ -436,6 +436,16 @@ try{
  $('matchSpritePng').onchange=render;
  const gatePreview=setupGatePreview($('gatePreview'),$('camera'),liveView,query,render,()=>{$('lampMode').value='dark'});
  const updateDetail=setupSceneryDetail(liveView,query);
+ $('focusGate').onclick=()=>{
+  const gate=gatePreview.selectedGate();
+  if(!gate)return;
+  $('camera').value=gate.x-480;
+  $('detailX').value=gate.x-Number($('camera').value)-40;
+  $('detailY').value=(gate.y??480)-22;
+  $('sceneryDetail').open=true;
+  render();
+  $('sceneryDetail').scrollIntoView({block:'center'});
+ };
  const updateDownload=setupSceneryDownload($('sceneryDownload'),$('sceneryExportStatus'));
  let fidelityKey,profileTableKey,renderRevision=0;
  function render(){
