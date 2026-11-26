@@ -4,6 +4,7 @@
   "goal_status": "active",
   "scope_complete": false,
   "daily_field_guide": {"quests":40,"regions":8,"representativeSprites":13,"profilesCompared":26,"rectangles":21838,"unpackedBytes":477899,"packedBytes":154516,"guide":"daily-field-guide.html"},
+  "weekly_tier_expedition": {"rankedBosses":14,"difficultyRecords":56,"newClears":42,"expertRematches":14,"save":"evidence/weekly-tier-expedition-save.json","records":"evidence/weekly-tier-expedition.json"},
   "stygian_tier_expedition": {"matches":7,"difficultyRecords":28,"newClears":21,"save":"evidence/stygian-tier-expedition-save.json","records":"evidence/stygian-tier-expedition.json"},
   "reported_adventure": {"currentStoryQuests":280,"reported":280,"legacyOnly":4,"bossCommissionReportsAdded":69,"otherReportsAdded":11,"verifiedEncounterEntries":143,"save":"evidence/remaining-survey-save.json","records":"evidence/adventure-roster.json"},
   "complete_atlas_survey": {"regions":24,"catalog":1528,"mainVisited":1527,"visitedAcrossTwoChoices":1528,"mainQuestReports":200,"record":"evidence/complete-atlas-survey.json","mainSave":"evidence/northern-gates-save.json","alternateSave":"evidence/visited-lift-survey-save.json"},
