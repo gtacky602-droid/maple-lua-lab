@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 地方伝説49体までの継続セーブ
+
+34体のセーブから13件の依頼を報告し、15体を追加で初討伐。夜魂の試練2か所には岩棚を4段・3段と登って入った。「地方伝説への行き方」で15体それぞれの手順と地図を見られる。[生息地と行き方](theater-preview.html#legendPassages) ／ [49体の継続セーブ](evidence/quest-legend-expedition-save.json)
+
 ## 地方伝説の遠征と湖辺の比較
 
 同じLv200セーブで地方伝説56体のうち34体を初討伐した。未討伐22体は、依頼で入口が開く20体と、高所の入口に届かなかった2体。[遠征記録](evidence/legend-expedition-route.json) ／ [継続セーブ](evidence/legend-expedition-save.json)。

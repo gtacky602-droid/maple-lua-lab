@@ -49,6 +49,10 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <figure data-lake="ninianne" style="margin:0;flex:1 1 240px"><div>第5案A・元絵</div><canvas class="lakeOriginal" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><div>選択中の画質</div><canvas class="lakeVariant" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><figcaption>湖辺のニニアン　<output></output></figcaption><a href="map-art.html?node=ninianne-legend-bank&amp;placements=live">生息地を見る</a></figure>
 <figure data-lake="vivianne" style="margin:0;flex:1 1 240px"><div>第5案A・元絵</div><canvas class="lakeOriginal" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><div>選択中の画質</div><canvas class="lakeVariant" width="320" height="182" style="width:100%;image-rendering:pixelated"></canvas><figcaption>湖辺のヴィヴィアン　<output></output></figcaption><a href="map-art.html?node=vivianne-legend-bank&amp;placements=live">生息地を見る</a></figure></div>
 <p><a href="evidence/legend-expedition-save.json" download>地方伝説の討伐後のセーブ</a></p></section>
+<section id="legendPassages"><h2>地方伝説への行き方</h2>
+<label>地方伝説 <select id="passageBoss"></select></label>
+<p id="passageStory" aria-live="polite"></p><ol id="passageSteps"></ol>
+<a id="passageMap" hidden>生息地を地図で開く</a> ／ <a href="evidence/quest-legend-expedition-save.json" download>依頼と討伐を終えたセーブ</a></section>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -190,6 +194,26 @@ async function loadChallenges(){
  }catch{text.textContent='挑戦記録を読み込めませんでした。'}
 }
 loadChallenges();
+async function loadPassages(){
+ const menu=document.querySelector('#passageBoss'),message=document.querySelector('#passageStory');
+ try{
+  const response=await fetch('evidence/quest-legend-expedition-route.json');
+  if(!response.ok)throw Error();
+  const route=await response.json();
+  for(const win of route.newClears)menu.add(new Option(win.name,win.id));
+  function updatePassage(){
+   const win=route.newClears[menu.selectedIndex],q=route.guides[win.quest];
+   const prior=win.quest==='sne-suspicious-lantern'?'先に「'+route.guides['sne-crystal-stream-survey'].name+'」を報告。':'';
+   message.textContent=q.giver?prior+q.hub+'で「'+q.name+'」を受注。報告先は'+q.giver+'。':q.hub+'から夜魂の試練へ。';
+   document.querySelector('#passageSteps').replaceChildren(...q.steps.map(step=>{
+    const item=document.createElement('li');item.textContent=step;return item;
+   }));
+   const map=document.querySelector('#passageMap');map.href='map-art.html?'+new URLSearchParams({node:win.node,placements:'live'});map.hidden=false;
+  }
+  menu.onchange=updatePassage;updatePassage();
+ }catch{message.textContent='遠征記録を読み込めませんでした。'}
+}
+loadPassages();
 const lakeMenu=document.getElementById('lakeProfile');
 let lakeGallery;
 const lakeSheets=new Map();
