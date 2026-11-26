@@ -32,6 +32,7 @@ function updateWorksites(frame){
  return selected;
 }
 const questMap=document.getElementById('trackedQuestMap');
+const gateLink=document.getElementById('trackedRouteGate');
 const surveyLink=document.getElementById('trackedSurveyPoint');
 questMap.onclick=()=>{if(questMap.dataset.node)window.lab.action('world_map_focus:'+questMap.dataset.node)};
 const atlasFocus=document.getElementById('atlasQuestFocus');
@@ -143,6 +144,9 @@ function update(){
  const tracked=document.getElementById('trackedQuest'),guide=trackedQuest(f,trackedId,selected);tracked.hidden=!guide.text;document.getElementById('trackedQuestText').textContent=guide.text;
  questMap.hidden=!guide.node||Boolean(f.growthTrial);
  questMap.dataset.node=guide.node??'';
+ gateLink.hidden=!guide.gateUrl||guide.gateUrl===guide.pointUrl||Boolean(f.growthTrial);
+ if(gateLink.hidden)gateLink.removeAttribute('href');
+ else gateLink.href=guide.gateUrl;
  surveyLink.textContent=guide.pointLabel||'調査位置を見る';
  surveyLink.hidden=!guide.pointUrl||Boolean(f.growthTrial);
  if(!surveyLink.hidden)surveyLink.href=guide.pointUrl;

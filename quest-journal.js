@@ -284,7 +284,7 @@ export function trackedQuest(f,id,selectedWorksite){
    const route=questRoute(f,{kind:'visit',target:changed.id},'active');
    const place=changed.locationAfterReport.name;
    const params=new URLSearchParams({node:changed.id,placements:'live',phase:'after'});
-   return {node:changed.id,pointUrl:'map-art.html?'+params,pointLabel:place+'の配置を見る',
+   return {gateUrl:route.gateUrl,node:changed.id,pointUrl:'map-art.html?'+params,pointLabel:place+'の配置を見る',
     text:q.name+' ｜ 報告済み ｜ '+q.closing+' '+route.text};
   }
  }
@@ -297,9 +297,9 @@ export function trackedQuest(f,id,selectedWorksite){
    if(replay)params.set('replay','1');
    const objective=rematch?questObjective(q,f.storyGraph,{status:'active',count:phase}):
     replay?'海辺の洞穴で親分に再戦を申し込めます。':questObjective(q,f.storyGraph,st);
-   const route=replay?'':questRoute(f,q,status).text;
-   return {node:q.target,pointUrl:'map-art.html?'+params,pointLabel:phase===2?'水面の三つの影を見比べる':'大灯籠の姿を見る',
-    text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route?' ｜ '+route:'')};
+   const route=replay?{}:questRoute(f,q,status);
+   return {gateUrl:route.gateUrl,node:q.target,pointUrl:'map-art.html?'+params,pointLabel:phase===2?'水面の三つの影を見比べる':'大灯籠の姿を見る',
+    text:`${q.name} ｜ ${rematch?'再戦中':labels[status]} ｜ ${objective}`+(route.text?' ｜ '+route.text:'')};
   }
  }
  if(q.teaCase&&status==='complete'){
@@ -312,9 +312,9 @@ export function trackedQuest(f,id,selectedWorksite){
   const round=f.story.node===q.target&&(f.storyIttoGames?.round??f.storyIttoGames?.next)||festivalRound||1;
   const params=new URLSearchParams({node:q.target,placements:'live',round,tier:'4096'});
   const objective=st.ittoContest?.series>0?'景品台で三競技の成績を確認できます。':questObjective(q,f.storyGraph,st);
-  const route=questRoute(f,q,status).text;
-  return {node:q.target,pointUrl:'map-art.html?'+params,pointLabel:'競技広場の配置を見る',
-   text:q.name+' ｜ '+objective+(route?' ｜ '+route:'')};
+  const route=questRoute(f,q,status);
+  return {gateUrl:route.gateUrl,node:q.target,pointUrl:'map-art.html?'+params,pointLabel:'競技広場の配置を見る',
+   text:q.name+' ｜ '+objective+(route.text?' ｜ '+route.text:'')};
  }
  if(status==='complete'&&q.fireworks){
   const design=recordedFirework(q,st);
@@ -347,34 +347,34 @@ export function trackedQuest(f,id,selectedWorksite){
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
  if(status==='active' && q.kind==='boss' && route.node){
   const point=bossFieldPoint(f.storyGraph.bossNodes?.[q.target]??route.node);
-  return {node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+  return {gateUrl:route.gateUrl,node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(status==='active' && q.rail){
   const guide=railGuide(f,q,st.count);
-  return {node:route.node,text:q.name+' ｜ '+next+' ｜ '+route.text,pointUrl:guide?.url,pointLabel:guide && guide.label+'の位置を見る'};
+  return {gateUrl:route.gateUrl,node:route.node,text:q.name+' ｜ '+next+' ｜ '+route.text,pointUrl:guide?.url,pointLabel:guide && guide.label+'の位置を見る'};
  }
  const room=status==='active'&&q.forest?.rooms[st.count];
  if(room&&route.node===room.node){
   const phase=st.forest.looped?'search':'entry';
   const params=new URLSearchParams({node:room.node,placements:'live',forest:phase,compare:'background',tier:'4096'});
-  return {node:room.node,pointUrl:'map-art.html?'+params,pointLabel:'広場の様子を見る',
+  return {gateUrl:route.gateUrl,node:room.node,pointUrl:'map-art.html?'+params,pointLabel:'広場の様子を見る',
    text:`${q.name} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
  }
  const patrolStep=status==='active'&&q.itinerary?.[st.count];
  if(patrolStep?.kind==='boss'&&route.node===patrolStep.node){
   const point=bossFieldPoint(patrolStep.node,patrolStep.boss);
-  return {node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+  return {gateUrl:route.gateUrl,node:route.node,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(patrolStep?.cover&&route.node===patrolStep.node){
   const point=surveyPoint(q,st.count,route.node);
-  return {node:route.node,pointUrl:surveyPointUrl(point),pointLabel:patrolStep.cover.name+'の位置を見る',
+  return {gateUrl:route.gateUrl,node:route.node,pointUrl:surveyPointUrl(point),pointLabel:patrolStep.cover.name+'の位置を見る',
    text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(puzzleStep(patrolStep)&&route.node===patrolStep.node){
   const puzzle=puzzleGuide(f,q,patrolStep,st.count);
-  if(puzzle)return {node:route.node,pointUrl:puzzle.url,pointLabel:puzzle.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+  if(puzzle)return {gateUrl:route.gateUrl,node:route.node,pointUrl:puzzle.url,pointLabel:puzzle.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
   const url=surveyPointUrl({node:route.node,quest:q.id,step:st.count+1});
-  return {node:route.node,pointUrl:url,pointLabel:'装置の操作場所を見る',text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
+  return {gateUrl:route.gateUrl,node:route.node,pointUrl:url,pointLabel:'装置の操作場所を見る',text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  const optional=hasOptionalPath(q,st);
  if(patrolStep?.kind==='paths'||optional){
@@ -385,19 +385,19 @@ export function trackedQuest(f,id,selectedWorksite){
    if(step.kind==='kill'){
     const remaining=remainingEnemyPoints(step,st.pathProgress?.[path.id]);
     if(remaining.length){
-     return {node:step.node,pointUrl:remaining[0].url,pointLabel:path.label+'の残りの敵を見る',
+     return {gateUrl:route.gateUrl,node:step.node,pointUrl:remaining[0].url,pointLabel:path.label+'の残りの敵を見る',
       text:title+' ｜ '+path.label+'：'+step.objective+'（残り'+remaining.length+'体） ｜ '+route.text};
     }
    }
    const point=surveyPoint(q,index,route.node,null,path.id);
-   if(point)return {node:route.node,pointUrl:surveyPointUrl(point),pointLabel:path.label+'の調査位置を見る',
+   if(point)return {gateUrl:route.gateUrl,node:route.node,pointUrl:surveyPointUrl(point),pointLabel:path.label+'の調査位置を見る',
     text:title+' ｜ '+path.label+'：'+step.objective+(route.text?' ｜ '+route.text:'')};
   }
  }
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));
  const point=status==='active' && (worksitePoint(q,site?.point,route.node)??surveyPoint(q,st.count,route.node,null,null,site?.choice));
- return {node:route.node,pointUrl:point?surveyPointUrl(point):route.gateUrl,pointLabel:!point&&route.gateUrl?'次の門の位置を見る':undefined,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
+ return {gateUrl:route.gateUrl,node:route.node,pointUrl:point?surveyPointUrl(point):route.gateUrl,pointLabel:!point&&route.gateUrl?'次の門の位置を見る':undefined,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
 }
 export function trackedQuestText(f,id){return trackedQuest(f,id).text}
 function prerequisiteText(q,graph,level){
