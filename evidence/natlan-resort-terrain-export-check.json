@@ -1,0 +1,52 @@
+{
+  "checkedExports": 30,
+  "dimensions": [
+    512,
+    288
+  ],
+  "matchedMeasuredRgb": true,
+  "exportBytes": {
+    "nat-mualani-surf-cove-background-v1.png": {
+      "4096": 18710,
+      "4608": 22298,
+      "5120": 25771,
+      "5632": 29231,
+      "6144": 31305
+    },
+    "nat-southern-clearing-background-v1.png": {
+      "4096": 18878,
+      "4608": 22436,
+      "5120": 25853,
+      "5632": 29279,
+      "6144": 31193
+    },
+    "nat-kinich-ambush-trail-background-v1.png": {
+      "4096": 18260,
+      "4608": 21730,
+      "5120": 25091,
+      "5632": 28415,
+      "6144": 30685
+    },
+    "toyac-shallow-shore-background-v1.png": {
+      "4096": 18860,
+      "4608": 22448,
+      "5120": 25905,
+      "5632": 29347,
+      "6144": 31455
+    },
+    "nat-spring-key-background-v1.png": {
+      "4096": 18515,
+      "4608": 22029,
+      "5120": 25432,
+      "5632": 28814,
+      "6144": 30720
+    },
+    "balachko-grate-chamber-background-v1.png": {
+      "4096": 17579,
+      "4608": 21017,
+      "5120": 24328,
+      "5632": 27644,
+      "6144": 29672
+    }
+  }
+}

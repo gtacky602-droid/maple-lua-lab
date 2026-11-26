@@ -1,0 +1,233 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "nat-wp-85957",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-resort-pier",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85959",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85965",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85968",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85969",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85970",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85972",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85974",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85976",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85978",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-72418",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-72419",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-72420",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-72456",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-79482",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-82563",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-82576",
+      "key": "natVolcanicShore",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31196
+    },
+    {
+      "id": "nat-wp-85963",
+      "key": "natSouthernClearing",
+      "file": "nat-southern-clearing-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31084
+    },
+    {
+      "id": "nat-wp-85964",
+      "key": "natSouthernClearing",
+      "file": "nat-southern-clearing-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31084
+    },
+    {
+      "id": "nat-wp-85973",
+      "key": "natSouthernClearing",
+      "file": "nat-southern-clearing-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31084
+    },
+    {
+      "id": "nat-wp-85977",
+      "key": "natSouthernClearing",
+      "file": "nat-southern-clearing-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31084
+    },
+    {
+      "id": "nat-wp-85349",
+      "key": "natSouthernClearing",
+      "file": "nat-southern-clearing-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31084
+    },
+    {
+      "id": "nat-wp-85960",
+      "key": "natlanKinichHunt",
+      "file": "nat-kinich-ambush-trail-background-v1.png",
+      "bundle": "shared-scenes-natlan-native-backgrounds.lua",
+      "packedBytes": 30574
+    },
+    {
+      "id": "nat-wp-85961",
+      "key": "natlanKinichHunt",
+      "file": "nat-kinich-ambush-trail-background-v1.png",
+      "bundle": "shared-scenes-natlan-native-backgrounds.lua",
+      "packedBytes": 30574
+    },
+    {
+      "id": "nat-wp-85975",
+      "key": "natlanKinichHunt",
+      "file": "nat-kinich-ambush-trail-background-v1.png",
+      "bundle": "shared-scenes-natlan-native-backgrounds.lua",
+      "packedBytes": 30574
+    },
+    {
+      "id": "nat-wp-85971",
+      "key": "toyacShallowShore",
+      "file": "toyac-shallow-shore-background-v1.png",
+      "bundle": "natlan-toyac-legends-native-backgrounds.lua",
+      "packedBytes": 31348
+    },
+    {
+      "id": "nat-wp-85979",
+      "key": "natSpringKeyCave",
+      "file": "nat-spring-key-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 30618
+    },
+    {
+      "id": "nat-wp-85980",
+      "key": "natSpringKeyCave",
+      "file": "nat-spring-key-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 30618
+    },
+    {
+      "id": "nat-wp-85981",
+      "key": "balachkoGrateChamber",
+      "file": "balachko-grate-chamber-background-v1.png",
+      "bundle": "natlan-toyac-legends-native-backgrounds.lua",
+      "packedBytes": 29562
+    },
+    {
+      "id": "nat-wp-85966",
+      "key": "natlanRiverTrial",
+      "file": "natlan-riverside-trial-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31028
+    },
+    {
+      "id": "nat-wp-85967",
+      "key": "natlanRiverTrial",
+      "file": "natlan-riverside-trial-background-v1.png",
+      "bundle": "nat-domain-native-backgrounds.lua",
+      "packedBytes": 31028
+    }
+  ]
+}

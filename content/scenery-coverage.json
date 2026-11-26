@@ -4305,21 +4305,21 @@
       "name": "トヤック源泉地・東の渡り島",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-72419",
       "name": "トヤック源泉地・南西の浜の棚",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-72420",
       "name": "トヤック源泉地・源泉東の岬",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-72421",
@@ -4564,7 +4564,7 @@
       "name": "トヤック源泉地・東沖の小島の波止場",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-72758",
@@ -4690,7 +4690,7 @@
       "name": "クァワカン断崖周辺・東の離れ島",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-79512",
@@ -4900,7 +4900,7 @@
       "name": "アトクパンの大地・南の小島の波止場",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-82564",
@@ -4991,7 +4991,7 @@
       "name": "アトクパンの大地・南沖の小桟橋",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-mountain-camp",
@@ -5131,42 +5131,42 @@
       "name": "アトクパンの大地・南端の離れ丘",
       "region": "ナタ",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSouthernClearing"
     },
     {
       "id": "nat-wp-85957",
       "name": "のびのびリゾート・南の神像",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-resort-pier",
       "name": "のびのびリゾート・南の連絡桟橋",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85959",
       "name": "のびのびリゾート・東岸の小浜",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85960",
       "name": "のびのびリゾート・島の道の分岐",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natlanKinichHunt"
     },
     {
       "id": "nat-wp-85961",
       "name": "のびのびリゾート・南西の並木道",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natlanKinichHunt"
     },
     {
       "id": "nat-wp-85962",
@@ -5180,21 +5180,21 @@
       "name": "のびのびリゾート・西岸の丘",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSouthernClearing"
     },
     {
       "id": "nat-wp-85964",
       "name": "のびのびリゾート・東の草地",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSouthernClearing"
     },
     {
       "id": "nat-wp-85965",
       "name": "のびのびリゾート・東の岬の風見",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85966",
@@ -5215,98 +5215,98 @@
       "name": "のびのびリゾート・中央の浜",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85969",
       "name": "のびのびリゾート・西の入江",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85970",
       "name": "のびのびリゾート・北西の小島",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85971",
       "name": "のびのびリゾート・西島の岩棚",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "toyacShallowShore"
     },
     {
       "id": "nat-wp-85972",
       "name": "のびのびリゾート・西島の桟橋",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85973",
       "name": "のびのびリゾート・北西の見晴らし台",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSouthernClearing"
     },
     {
       "id": "nat-wp-85974",
       "name": "のびのびリゾート・遠島南の桟橋",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85975",
       "name": "のびのびリゾート・遠島の木立",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natlanKinichHunt"
     },
     {
       "id": "nat-wp-85976",
       "name": "のびのびリゾート・遠島の北端",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85977",
       "name": "のびのびリゾート・遠島の小さな丘",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSouthernClearing"
     },
     {
       "id": "nat-wp-85978",
       "name": "のびのびリゾート・沖の金色の島",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natVolcanicShore"
     },
     {
       "id": "nat-wp-85979",
       "name": "のびのびリゾート・沖の遺構上段・北室",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSpringKeyCave"
     },
     {
       "id": "nat-wp-85980",
       "name": "のびのびリゾート・沖の遺構上段・南室",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "natSpringKeyCave"
     },
     {
       "id": "nat-wp-85981",
       "name": "のびのびリゾート・沖の遺構の下段",
       "region": "のびのびリゾート",
       "status": "regional_temporary_image",
-      "scenery": "natlanRiverTrial"
+      "scenery": "balachkoGrateChamber"
     },
     {
       "id": "nat-sky-camp",

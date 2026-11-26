@@ -77,7 +77,7 @@
     {
       "key": "natlanKinichHunt",
       "node": "natlan-kinich-hunt",
-      "sharedNodes": [],
+      "sharedNodes": ["nat-wp-85960", "nat-wp-85961", "nat-wp-85975"],
       "source": "nat-kinich-ambush-trail-background-v1.png",
       "preview": "nat-kinich-ambush-trail-native-preview-v1.png"
     },
