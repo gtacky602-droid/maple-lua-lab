@@ -444,6 +444,10 @@ const roadsideFile='liyue-roadside-props.png';
 const teaCart={file:roadsideFile,box:[0,0,65,56]};
 const cargoBox={file:roadsideFile,box:[65,0,30,29]};
 const roadSign={file:roadsideFile,box:[95,0,40,45]};
+const inaRoadside='inazuma-roadside-props.png',sumRoadside='sumeru-roadside-props.png';
+const gate={file:inaRoadside,box:[0,0,55,60]},brush={file:inaRoadside,box:[55,0,80,39]},flag={file:inaRoadside,box:[135,0,15,29]};
+const shelter={file:sumRoadside,box:[0,0,85,56]},root={file:sumRoadside,box:[85,0,49,36]};
+const worktable={file:sumRoadside,box:[134,0,76,62]},shelf={file:sumRoadside,box:[210,0,40,29]};
 const decorations=new Map([['tunigi-depth',[
  {art:grayCrystal,x:207,y:480,height:78},
  {art:grayCrystal,x:742,y:480,height:94,flip:true},
@@ -460,10 +464,28 @@ const decorations=new Map([['tunigi-depth',[
  {art:teaCart,x:305,y:480,height:68,flip:true},
  {art:roadSign,x:1000,y:391,height:48},
  {art:cargoBox,x:1440,y:374,height:34},
+]],['inazuma-road',[
+ {art:gate,x:320,y:480,height:93},
+ {art:brush,x:891,y:370,height:34},
+]],['inazuma-shore-hunt',[
+ {art:flag,x:264,y:480,height:48},
+ {art:brush,x:574,y:392,height:28,flip:true},
+ {art:flag,x:1230,y:393,height:42},
+]],['sumeru-entry',[
+ {art:shelter,x:327,y:480,height:87},
+ {art:root,x:879,y:350,height:32},
+]],['sumeru-field',[
+ {art:root,x:265,y:380,height:41},
+ {art:root,x:556,y:270,height:32,flip:true},
+]],['sum-kaveh-timberyard',[
+ {art:worktable,x:280,y:480,height:56},
+ {art:shelf,x:457,y:389,height:45},
+ {art:shelf,x:1184,y:391,height:35,flip:true},
 ]]]);
 function roadsideAsset(frame){
  const node=frame.story?.node;
- if(frame.story?.active && frame.campaign?.zone==='story:'+node && decorations.get(node)?.[0].art.file===roadsideFile)return backgroundFor(roadsideFile);
+ const file=decorations.get(node)?.[0].art.file;
+ if(file && frame.story.active && frame.campaign?.zone==='story:'+node)return backgroundFor(file);
 }
 function backgroundFor(file){
  const cached=backgrounds.get(file);
