@@ -1,0 +1,42 @@
+{
+  "baseline": "d47ea6df",
+  "metric": "Chrome decodedBodySize for /assets/*.json; one fresh page per measurement",
+  "pages": {
+    "enemy": {
+      "before": {
+        "requests": 35,
+        "assetJsonBytes": 4052417,
+        "canvasSha256": "6fed54e766b6db1d99aa95eca8405729b783112945bb8f1eea60f5224f6666b2"
+      },
+      "after": {
+        "requests": 35,
+        "assetJsonBytes": 1017556,
+        "canvasSha256": "6fed54e766b6db1d99aa95eca8405729b783112945bb8f1eea60f5224f6666b2"
+      }
+    },
+    "map": {
+      "before": {
+        "requests": 268,
+        "assetJsonBytes": 53765203,
+        "canvasSha256": "9d452d7595e99014f834db8dc407677678143c01c3ad737918bb5ca3e0d4485d"
+      },
+      "after": {
+        "requests": 51,
+        "assetJsonBytes": 17589194,
+        "canvasSha256": "9d452d7595e99014f834db8dc407677678143c01c3ad737918bb5ca3e0d4485d"
+      }
+    },
+    "shouki": {
+      "before": {
+        "requests": 268,
+        "assetJsonBytes": 53765203,
+        "canvasSha256": "c1d213f079cd3c1e24bf1a907ec1bf893a8aa7e31030a6a3398c94f56ebb0284"
+      },
+      "after": {
+        "requests": 51,
+        "assetJsonBytes": 17589194,
+        "canvasSha256": "c1d213f079cd3c1e24bf1a907ec1bf893a8aa7e31030a6a3398c94f56ebb0284"
+      }
+    }
+  }
+}

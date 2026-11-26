@@ -11,7 +11,7 @@ import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet,drawCombatRect,omitCombatDraw,combatOpacity} from './sprite-images.js';
-import {spriteBounds,paintSprite} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount,forEachRectangle} from './sprite-layers.js';
 import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryDefinitions,sceneryStatus,loadScenery} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
@@ -25,14 +25,14 @@ function openingRects(ctx,grid,bounds,x,y,flip,clip,paint){
  const left=x+(flip?-bounds.x-bounds.width:bounds.x);
  const top=y+bounds.y;
  let count=0;
- for(const [column,row,w,h,color] of grid.runs){
+ forEachRectangle(grid,(column,row,w,h,color)=>{
   const rx=left+(flip?grid.width-column-w:column)*bounds.width/grid.width;
   const ry=top+row*bounds.height/grid.height;
   const rw=w*bounds.width/grid.width+.05,rh=h*bounds.height/grid.height+.05;
-  if(clip && (rx>=ctx.canvas.width+1 || rx+rw<=-1 || ry>=ctx.canvas.height+1 || ry+rh<=-1))continue;
+  if(clip && (rx>=ctx.canvas.width+1 || rx+rw<=-1 || ry>=ctx.canvas.height+1 || ry+rh<=-1))return;
   if(paint){ctx.fillStyle=color;ctx.fillRect(rx,ry,rw,rh)}
   count++;
- }
+ });
  return count;
 }
 function paintMechanismMark(ctx,mark,x,y,flip){
@@ -58,7 +58,7 @@ function paintSocketLayer(ctx,art,bounds,profile,x,y,flip,cost){
  const box=socketBounds(art,bounds,flip);
  const visible=x+box.x<ctx.canvas.width+1 && x+box.x+box.width>-1 &&
   y+box.y<ctx.canvas.height+1 && y+box.y+box.height>-1;
- if(profile)cost.total+=art.profiles[profile].runs.length;
+ if(profile)cost.total+=rectangleCount(art.profiles[profile]);
  if(!visible)return;
  if(!profile){
   ctx.save();ctx.translate(x,y);ctx.rotate(theta);if(flip)ctx.scale(-1,1);
@@ -67,13 +67,13 @@ function paintSocketLayer(ctx,art,bounds,profile,x,y,flip,cost){
  }
  const grid=art.profiles[profile],cos=Math.cos(theta),sin=Math.sin(theta);
  const sx=w/grid.width,sy=h/grid.height;
- for(const [col,row,rw,rh,color] of grid.runs){
+ forEachRectangle(grid,(col,row,rw,rh,color)=>{
   let left=bounds.x+col*sx;
   if(flip)left=-left-rw*sx;
   const ry=top+row*sy;
   drawCombatRect(ctx,{x:x+cos*left-sin*ry,y:y+sin*left+cos*ry,w:rw*sx+.05,h:rh*sy+.05,color,rotation:theta});
- }
- cost.visible+=grid.runs.length;cost.standard+=art.profiles.legacy.runs.length;
+ });
+ cost.visible+=rectangleCount(grid);cost.standard+=rectangleCount(art.profiles.legacy);
 }
 function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
  if(art.anchorY!=null){
@@ -84,19 +84,19 @@ function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
  // paintSprite slightly overlaps adjacent rectangle edges. Keep boundary layers until fully clear.
  const visible=left<ctx.canvas.width+1&&left+bounds.width>-1&&top<ctx.canvas.height+1&&top+bounds.height>-1;
  if(profile){
-  const runs=art.profiles[profile].runs.length;
+  const runs=rectangleCount(art.profiles[profile]);
   cost.total+=runs;
   if(visible){
    if(art.openingPose){
     const emitted=openingRects(ctx,art.profiles[profile],bounds,x,y,flip,art.clipToViewport,true);
     cost.visible+=emitted;
-    let standard=art.profiles.legacy.runs.length;
+    let standard=rectangleCount(art.profiles.legacy);
     if(art.clipToViewport)standard=profile==='legacy'?emitted:openingRects(ctx,art.profiles.legacy,bounds,x,y,flip,true,false);
     cost.standard+=standard;
     return;
    }
    cost.visible+=runs;
-   cost.standard+=art.profiles.legacy.runs.length;
+   cost.standard+=rectangleCount(art.profiles.legacy);
   }
  }
  if(!visible)return;
@@ -118,7 +118,7 @@ function viewportSummary(cost,profile,subject='キャラクター'){
 }
 
 try{
- const [graph,initial,variants,weeklyData,fieldData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),json('content/weekly-boss-spawns.json'),json('content/field-boss-spawns.json')]);
+ const [graph,initial,slimePreviews,weeklyData,fieldData]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/slime-preview-packed.json'),json('content/weekly-boss-spawns.json'),json('content/field-boss-spawns.json')]);
  const weeklyArenaNodes=new Set(weeklyData.weeklyBosses.flatMap(b=>[b.node,b.innerNode].filter(Boolean)));
  const arenaPreviews=new Map([...weeklyData.weeklyBosses,...fieldData.fieldBosses].filter(b=>b.mapIdleArt).map(b=>[b.node,b]));
  const layouts=await json('content/enemy-art-layout.json');
@@ -141,9 +141,9 @@ try{
  if(Array.from($('profile').options).some(o=>o.value===query.get('profile')))$('profile').value=query.get('profile');
  const openingBackground=loadScenery(sceneFrame(openingNode,0));
  const pendingBackgrounds=new Set();
- for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
+ for(const [id,art] of Object.entries(slimePreviews))assets[id]={...art,h:40};
  for(const [id,{height,hover,file,name}] of Object.entries(layouts)){
-  const data=await json('assets/'+(file??`${id}-idle-sprites.json`)),art={...data,h:height,hover};
+  const data=await json('assets/field-packed/'+(file??`${id}-idle-sprites.json`)),art={...data,h:height,hover};
   if(assets[id]){
    Object.assign(assets[id],{h:height,hover});
    assets[id+'-reference']=art;
@@ -154,24 +154,23 @@ try{
  }
  const galleryFiles=new Map(),idleCandidates=new Map();
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
-  const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
-  const loaded=await Promise.all(gallery.items.map(async item=>{
-   const [data,left,rear]=await Promise.all([
-    json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile),item.rear&&json('assets/'+item.rear.file)
-   ]);
+  const [gallery,packed]=await Promise.all([json('content/'+file),json('assets/'+kind+'-gallery-packed.json')]);
+  const group=document.createElement('optgroup');group.label=label;
+  const loaded=gallery.items.map(item=>{
+   const data=packed[item.file],left=packed[item.leftFile],rear=item.rear&&packed[item.rear.file];
    galleryFiles.set(item.file,data);
    if(left)galleryFiles.set(item.leftFile,left);
    if(rear)galleryFiles.set(item.rear.file,rear);
    const size={h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
    return {item,art:{...data,...size,left:left&&{...left,...size}}};
-  }));
+  });
   for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;if(kind==='boss' && item.candidateFor)idleCandidates.set(item.candidateFor,id);const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
  for(const boss of weeklyData.weeklyBosses){
   const pose=boss.openingPose;
   if(pose){
-   const data=await json('assets/'+pose.file);
+   const data=await json('assets/weekly-packed/'+pose.file);
    assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,heldArt:pose.heldArt,clipToViewport:pose.clipToViewport};
    $('species').append(new Option(boss.name+'（開戦時）',boss.mapIdleArt));
   }
@@ -258,7 +257,7 @@ try{
  for(const [node,scene] of Object.entries(mechanismScenes)){
   arenaPreviews.set(node,{node,openingParts:scene.parts,openingPose:true});
   for(const part of scene.parts){
-   if(part.file && !mechanismFiles.has(part.file))mechanismFiles.set(part.file,json('assets/'+part.file));
+   if(part.file && !mechanismFiles.has(part.file))mechanismFiles.set(part.file,json('assets/weekly-packed/'+part.file));
   }
  }
  for(const scene of Object.values(mechanismScenes)){

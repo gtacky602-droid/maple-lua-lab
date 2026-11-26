@@ -14,7 +14,7 @@ try {
       return getContext.call(this,type,type==='2d'?{...options,willReadFrequently:true}:options);
     };
   });
-  await page.goto(new URL('/map-art.html?node=' + node, base).href);
+  await page.goto(new URL('/map-art.html?background=original&node=' + node, base).href);
   await page.waitForFunction(() => window.mapArt?.ready && window.mapArt.backgroundState === 'ready');
   const items = [true, false].map((flip, i) => ({
     id: 'layer-' + i, species: 'boss-ronova', x: i ? 1150 : 1006, y: 480, flip,

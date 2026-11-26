@@ -24,23 +24,25 @@ const enemies=document.documentElement.dataset.gallery==='enemies';
 try{
  if(enemies){
   layouts=await json('content/enemy-art-layout.json');
-  const variants=(await json('assets/variants.json')).variants;
-  for(const [id,name,index] of [['hydro-slime','水スライム（既存候補）',4],['pyro-slime','炎スライム（既存候補）',6]]){const profiles=Object.fromEntries(['legacy','h48c32','h32c16'].map(k=>[k,variants[k].sprites[index]]));await add(id,name,{source:'atlas-transparent.png',box:profiles.legacy.box,profiles},40)}
-  await add('hilichurl','ヒルチャール（待機候補）',await json('assets/hilichurl-idle-sprites.json'),76);
-  await add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/hydro-slime-idle-sprites.json'),40);
-  await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/pyro-slime-idle-sprites.json'),40);
-  await add('cryo-slime','氷スライム（小型・雪山に仮配置）',await json('assets/cryo-slime-idle-sprites.json'),layouts['cryo-slime'].height);
-  await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
-  await add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/dendro-fungus-idle-sprites.json'),64);
-  await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/nobushi-idle-sprites.json'),104);
-  await add('treasure-scout','宝盗団・斥候（待機候補・璃月に仮配置）',await json('assets/treasure-scout-idle-sprites.json'),layouts['treasure-scout'].height);
-  await add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/armored-crab-idle-sprites.json'),64);
-  await add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
-  await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
-  await add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
+  const slimePreviews=await json('assets/slime-preview-packed.json');
+  for(const [id,name] of [['hydro-slime','水スライム（既存候補）'],['pyro-slime','炎スライム（既存候補）']]){
+   await add(id,name,slimePreviews[id],40);
+  }
+  await add('hilichurl','ヒルチャール（待機候補）',await json('assets/field-packed/hilichurl-idle-sprites.json'),76);
+  await add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/field-packed/hydro-slime-idle-sprites.json'),40);
+  await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/field-packed/pyro-slime-idle-sprites.json'),40);
+  await add('cryo-slime','氷スライム（小型・雪山に仮配置）',await json('assets/field-packed/cryo-slime-idle-sprites.json'),layouts['cryo-slime'].height);
+  await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/field-packed/ruin-guard-idle-sprites.json'),144);
+  await add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/field-packed/dendro-fungus-idle-sprites.json'),64);
+  await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/field-packed/nobushi-idle-sprites.json'),104);
+  await add('treasure-scout','宝盗団・斥候（待機候補・璃月に仮配置）',await json('assets/field-packed/treasure-scout-idle-sprites.json'),layouts['treasure-scout'].height);
+  await add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/field-packed/armored-crab-idle-sprites.json'),64);
+  await add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/field-packed/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
+  await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/field-packed/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
+  await add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/field-packed/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
   const shown=new Set(assets.map(item=>item.id));
   for(const [id,{height,file,name}] of Object.entries(layouts)){
-   if(!shown.has(id))await add(id,name??id,await json('assets/'+(file??`${id}-idle-sprites.json`)),height);
+   if(!shown.has(id))await add(id,name??id,await json('assets/field-packed/'+(file??`${id}-idle-sprites.json`)),height);
   }
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';

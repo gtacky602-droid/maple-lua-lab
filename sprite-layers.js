@@ -22,14 +22,18 @@ export function paintSprite(ctx,art,image,bounds,profile){
 }
 
 export function paintRectangleGrid(ctx,grid,{x,y,width,height},overlap=0){
- const {width:columns,height:rows,runs}=grid;
+ const {width:columns,height:rows}=grid;
  const sx=width/columns,sy=height/rows;
  function draw(left,top,w,h,color){
   ctx.fillStyle=color;
   ctx.fillRect(x+left*sx,y+top*sy,w*sx+overlap,h*sy+overlap);
  }
- if(runs){
-  for(const run of runs)draw(...run);
+ forEachRectangle(grid,draw);
+}
+
+export function forEachRectangle(grid,draw){
+ if(grid.runs){
+  for(const run of grid.runs)draw(...run);
  }else{
   const bytes=rectangleBytes(grid);
   if(grid.wide){
