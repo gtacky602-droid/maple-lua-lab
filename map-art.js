@@ -712,6 +712,11 @@ try{
   }
   const arena=liveView && arenaPreviews.get(n.id);
   $('shoukiCoreControl').hidden=!arena?.openingPose?.chestSourceY;
+  const shoukiGallery=$('shoukiGallery');
+  shoukiGallery.hidden=$('shoukiCoreControl').hidden;
+  if(!shoukiGallery.hidden)shoukiGallery.href='bosses-art.html?'+new URLSearchParams({
+   q:'shouki',both:'1',pixels:'1',profile,pose:coreState.value==='exposed'?'armored':coreState.value
+  });
   const members=arena?.openingParts;
   const groupOpening=members?.length>1;
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;

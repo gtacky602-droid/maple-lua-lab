@@ -39,6 +39,26 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile overflow');
  await page.setViewportSize({width:1280,height:900});
+ const raw=await read('assets/shouki-weekly-torso-sprites-v3.json');
+ await page.locator('#palettePixels').check();
+ for(const flip of [false,true]){
+  await page.locator('#flip').setChecked(flip);
+  for(const [i,key] of ['h48c32','h32c16'].entries()){
+   assert(await card.locator('canvas').nth(i+1).evaluate((canvas,{grid,pose,flip})=>{
+    const tile=document.createElement('canvas');tile.width=grid.width;tile.height=grid.height;
+    const pen=tile.getContext('2d');
+    for(const [x,y,w,h,color] of grid.runs){pen.fillStyle=color;pen.fillRect(x,y,w,h)}
+    const ref=document.createElement('canvas');ref.width=960;ref.height=540;
+    const ctx=ref.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();
+    ctx.translate(pose.x,pose.y);if(flip)ctx.scale(-1,1);
+    ctx.drawImage(tile,-pose.w*pose.anchorX,-pose.h,pose.w,pose.h);ctx.restore();
+    ctx.fillStyle='#dae5cc';ctx.fillRect(0,pose.y,960,1);
+    return ref.toDataURL()===canvas.toDataURL();
+   },{grid:raw.profiles[key],pose:opening.png,flip}),key+' native, flip='+flip);
+  }
+ }
+ assert.equal(new URL(page.url()).searchParams.get('pixels'),'1');
+ await page.locator('#flip').uncheck();await page.locator('#palettePixels').uncheck();
  const before=await card.locator('canvas').evaluateAll(list=>list.map(c=>c.toDataURL()));
  await page.selectOption('#shoukiForm','armored');
  const {armoredOutline}=await read('evidence/shouki-weekly-floor-contact-lua.json');
