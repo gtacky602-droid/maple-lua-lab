@@ -12,7 +12,7 @@ import numpy as np
 from PIL import Image
 
 
-def fit_profile(image, budget, face_rows=0):
+def fit_profile(image, budget, face_rows=0, detail_boxes=()):
     rgba = np.asarray(image.convert("RGBA"))
     pixels = rgba[:, :, :3].astype(float)
     visible = rgba[:, :, 3] >= 128
@@ -46,12 +46,19 @@ def fit_profile(image, budget, face_rows=0):
             x = end
         previous = current
 
-    runs = merge_neighbors(runs, pixels, palette, colors, budget, face_rows)
+    weights = None
+    if detail_boxes:
+        weights = np.ones(visible.shape, dtype=float)
+        for x, y, width, height in detail_boxes:
+            if min(x, y) < 0 or min(width, height) < 1 or x+width > image.width or y+height > image.height:
+                raise ValueError("Detail box must fit inside the input raster")
+            weights[y:y+height, x:x+width] = 12
+    runs = merge_neighbors(runs, pixels, palette, colors, budget, face_rows, weights)
     return dict(width=image.width, height=image.height, colors=len({colors[r[4]] for r in runs}),
                 runs=[[x, y, w, h, colors[c]] for x, y, w, h, c in runs])
 
 
-def merge_neighbors(runs, pixels, palette, colors, budget, face_rows):
+def merge_neighbors(runs, pixels, palette, colors, budget, face_rows, weights=None):
     if len(runs) <= budget:
         return runs
     active = dict(enumerate(runs))
@@ -68,7 +75,10 @@ def merge_neighbors(runs, pixels, palette, colors, budget, face_rows):
             x, y, w, h, old = active[source]
             new = active[dest][4]
             patch = pixels[y:y+h, x:x+w]
-            loss = (np.abs(patch - palette[new]) - np.abs(patch - palette[old])).sum()
+            difference = np.abs(patch - palette[new]) - np.abs(patch - palette[old])
+            if weights is not None:
+                difference *= weights[y:y+h, x:x+w, None]
+            loss = difference.sum()
             if y < face_rows and loss > 0:
                 loss *= 3
             heapq.heappush(heap, (loss, i, j, colors[new], new, revision[i], revision[j]))
@@ -110,7 +120,9 @@ if __name__ == "__main__":
     parser.add_argument("output", type=Path)
     parser.add_argument("--face-rows", type=int, default=0,
                         help="Give positive color errors in the top N rows triple weight")
+    parser.add_argument("--detail-box", nargs=4, type=int, action="append", metavar=("X", "Y", "W", "H"),
+                        help="Give color differences inside this detail twelve times the weight (repeatable)")
     args = parser.parse_args()
     with Image.open(args.png) as image:
-        grid = fit_profile(image, args.budget, args.face_rows)
+        grid = fit_profile(image, args.budget, args.face_rows, args.detail_box)
     args.output.write_text(json.dumps(grid, separators=(",", ":")), encoding="utf8")

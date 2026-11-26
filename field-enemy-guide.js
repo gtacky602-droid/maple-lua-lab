@@ -21,6 +21,15 @@ try{
   el('scope').hidden=false;
   el('scope').querySelector('strong').textContent=index.places[node][0]+'の通常敵（'+local.length+'種）';
  }
+ const revisions={hilichurl:'hilichurl','treasure-scout':'scout','fanged-beast':'beast','dendro-fungus':'fungus'};
+ const comparison=el('refinement'),comparisonImage=comparison.querySelector('img');
+ function showComparison(){
+  const file=revisions[species.value];
+  comparison.hidden=!file;
+  if(!file || !comparison.open){comparisonImage.removeAttribute('src');return}
+  comparisonImage.src='evidence/'+file+'-field-refinement.png';
+ }
+ comparison.ontoggle=showComparison;
  const libraries=new Map();
  let revision=0;
  const visibleSpecies=[...entries.values()];
@@ -46,7 +55,7 @@ try{
  }
  async function selectSpecies(){
   const current=entries.get(species.value),token=++revision;
-  el('name').textContent=current.name;
+  el('name').textContent=current.name;showComparison();
   el('count').textContent=focused?'この地点に'+current.places.find(([id])=>id===node)[1]+'体配置':current.places.length+'地点に計'+current.count.toLocaleString('ja-JP')+'体配置';
   if(hasSnapshot)el('count').textContent+='。地図を開いたときの進行状況では、入場時に'+entryCounts.get(current.id)+'体出現。';
   if(hasSnapshot&&params.get('quest'))el('count').textContent+=' 関連する依頼「'+params.get('quest')+'」。';

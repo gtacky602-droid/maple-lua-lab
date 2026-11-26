@@ -1,225 +1,5 @@
 [
   {
-    "node": "sum-visitors-meadow",
-    "subject": "sum-visitor-pack-1",
-    "camera": 111,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-meadow",
-    "subject": "sum-visitor-pack-2",
-    "camera": 151,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-meadow",
-    "subject": "sum-visitor-pack-3",
-    "camera": 194,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-meadow",
-    "subject": "sum-visitor-pack-4",
-    "camera": 231,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-terrace",
-    "subject": "sum-visitor-tier-1",
-    "camera": 0,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-terrace",
-    "subject": "sum-visitor-tier-2",
-    "camera": 184,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-terrace",
-    "subject": "sum-visitor-tier-3",
-    "camera": 507,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-store",
-    "subject": "sum-visitor-fast-1",
-    "camera": 0,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-store",
-    "subject": "sum-visitor-fast-2",
-    "camera": 174,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
-    "node": "sum-visitors-store",
-    "subject": "sum-visitor-fast-3",
-    "camera": 366,
-    "profiles": {
-      "legacy": {
-        "rectangles": 882,
-        "overlapPercent": 99.5,
-        "meanRgbError": 6.79
-      },
-      "h48c32": {
-        "rectangles": 559,
-        "overlapPercent": 96.4,
-        "meanRgbError": 19.27
-      },
-      "h32c16": {
-        "rectangles": 255,
-        "overlapPercent": 93.5,
-        "meanRgbError": 28.07
-      }
-    }
-  },
-  {
     "node": "tunigi-vent-shelf",
     "subject": "tunigi-vent-guard-2",
     "camera": 257,
@@ -1822,6 +1602,226 @@
         "rectangles": 1250,
         "overlapPercent": 99.9,
         "meanRgbError": 19.45
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-1",
+    "camera": 111,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-2",
+    "camera": 151,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-3",
+    "camera": 194,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-meadow",
+    "subject": "sum-visitor-pack-4",
+    "camera": 231,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-terrace",
+    "subject": "sum-visitor-tier-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-terrace",
+    "subject": "sum-visitor-tier-2",
+    "camera": 184,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-terrace",
+    "subject": "sum-visitor-tier-3",
+    "camera": 507,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-store",
+    "subject": "sum-visitor-fast-1",
+    "camera": 0,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-store",
+    "subject": "sum-visitor-fast-2",
+    "camera": 174,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
+      }
+    }
+  },
+  {
+    "node": "sum-visitors-store",
+    "subject": "sum-visitor-fast-3",
+    "camera": 366,
+    "profiles": {
+      "legacy": {
+        "rectangles": 882,
+        "overlapPercent": 99.5,
+        "meanRgbError": 6.79
+      },
+      "h48c32": {
+        "rectangles": 559,
+        "overlapPercent": 96.4,
+        "meanRgbError": 19.27
+      },
+      "h32c16": {
+        "rectangles": 246,
+        "overlapPercent": 100,
+        "meanRgbError": 18.66
       }
     }
   },
