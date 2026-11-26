@@ -3,6 +3,7 @@
 <style>.motion-frame{position:relative}.motion-frame[data-band]::after{content:'';position:absolute;pointer-events:none;box-sizing:border-box;border:1px dashed #99ebdc;left:var(--x);top:var(--y);width:var(--w);height:var(--h)}#quality th,#quality td{padding:.3em .7em;text-align:right}#quality summary{cursor:pointer}</style>
 <main><nav><a href="./">ラボに戻る</a><a href="characters-art.html">旅人と同行者の素材</a></nav>
 <h1>旅人の走行とジャンプ</h1><div class="filters"><label>動き<select id="motion"><option value="run">走行4コマ</option><option value="tap">ジャンプ・短押し</option><option value="hold">ジャンプ・長押し</option></select></label><label>向き<select id="side"><option value="right">右</option><option value="left">左</option></select></label>
+<label><input type="checkbox" id="palettePixels">矩形を原寸で合成してから拡大</label>
 <label id="runCacheControl"><input type="checkbox" id="runCache" checked>走行コマを再利用</label>
 <button id="play" type="button" disabled>再生</button><button id="step" type="button" disabled>次のコマ</button><output id="phase"></output></div>
 <div class="art"><figure><canvas id="source" width="240" height="180"></canvas><figcaption>元絵</figcaption></figure>

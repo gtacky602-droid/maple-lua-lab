@@ -50,6 +50,22 @@ const catalog=require('./content/motion-pose-files.json');
      }
      if(side==='right'&&phase===2&&region==='lower')await page.locator('main').screenshot({path:'evidence/traveler-run-foot-comparison.png'});
     }
+    const pngFrame=()=>page.locator('#source').evaluate(c=>c.toDataURL());
+    const before=await pngFrame();
+    await page.check('#palettePixels');
+    assert.equal(await pngFrame(),before);
+    assert.equal(await page.locator('#runCacheControl').isVisible(),false);
+    assert(await page.locator('#h48c32,#h32c16').evaluateAll(cs=>cs.every(c=>{
+     const rgba=c.getContext('2d').getImageData(0,0,c.width,c.height-12).data;
+     return !rgba.some((n,i)=>i%4===3 && n>0 && n<255);
+    })));
+    if(side==='left'&&phase===3){
+     const link=await page.locator('#frameLink').getAttribute('href');
+     await page.goto(link);await page.waitForFunction(()=>document.querySelector('#phase').dataset.file);
+     assert(await page.locator('#palettePixels').isChecked());
+     await page.locator('.art').screenshot({path:'evidence/traveler-left-run-palette-pixels.png'});
+    }
+    await page.uncheck('#palettePixels');assert.deepEqual(await snapshot(),cached);
     if(phase!==4)await page.click('#step');
    }
    await page.selectOption('#bodyRegion','lower');
@@ -70,30 +86,33 @@ const catalog=require('./content/motion-pose-files.json');
   await page.click('#play');
   await page.screenshot({path:'evidence/traveler-run-packed-preview.png'});
   const jumps=require('./content/traveler-jump-preview.json');
-  for(const side of ['left','right']){
-   await page.selectOption('#side',side);
-   for(const motion of ['tap','hold']){
-    await page.selectOption('#motion',motion);
-    const samples=jumps[side][motion];
-    const overlaps=[];
-    for(const [i,s] of samples.entries()){
-     const label=(i+1)+' / '+samples.length+' コマ・'+(s.ground?'接地':'地面から '+s.lift.toFixed(1)+' px');
-     await page.waitForFunction(text=>document.querySelector('#phase').textContent===text,label);
-     assert.equal(await page.locator('#phase').getAttribute('data-file'),catalog[side][s.pose]);
-     assert.equal(await page.locator('#quality tbody tr').count(),2);
-     overlaps.push(parseFloat(await page.locator('#quality tbody tr:last-child td:nth-child(2)').innerText()));
-     if(!s.ground){
-      const bottom=await page.locator('#h32c16').evaluate(c=>{
-       const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
-       for(let y=c.height-14;y>=0;y--)for(let x=0;x<c.width;x++)if(pixels[(y*c.width+x)*4+3])return y;
-      });
-      assert(Math.abs(bottom-(168-s.lift*.62))<4);
+  for(const pixels of [false,true]){
+   await page.locator('#palettePixels').setChecked(pixels);
+   for(const side of ['left','right']){
+    await page.selectOption('#side',side);
+    for(const motion of ['tap','hold']){
+     await page.selectOption('#motion',motion);
+     const samples=jumps[side][motion];
+     const overlaps=[];
+     for(const [i,s] of samples.entries()){
+      const label=(i+1)+' / '+samples.length+' コマ・'+(s.ground?'接地':'地面から '+s.lift.toFixed(1)+' px');
+      await page.waitForFunction(text=>document.querySelector('#phase').textContent===text,label);
+      assert.equal(await page.locator('#phase').getAttribute('data-file'),catalog[side][s.pose]);
+      assert.equal(await page.locator('#quality tbody tr').count(),2);
+      overlaps.push(parseFloat(await page.locator('#quality tbody tr:last-child td:nth-child(2)').innerText()));
+      if(!s.ground){
+       const bottom=await page.locator('#h32c16').evaluate(c=>{
+        const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
+        for(let y=c.height-14;y>=0;y--)for(let x=0;x<c.width;x++)if(pixels[(y*c.width+x)*4+3])return y;
+       });
+       assert(Math.abs(bottom-(168-s.lift*.62))<4);
+      }
+      if(i+1<samples.length)await page.click('#step');
      }
-     if(i+1<samples.length)await page.click('#step');
+     await page.click('#worstFrame');
+     const link=new URL(await page.locator('#frameLink').getAttribute('href'));
+     assert.equal(overlaps[Number(link.searchParams.get('frame'))-1],Math.min(...overlaps));
     }
-    await page.click('#worstFrame');
-    const link=new URL(await page.locator('#frameLink').getAttribute('href'));
-    assert.equal(overlaps[Number(link.searchParams.get('frame'))-1],Math.min(...overlaps));
    }
   }
   await page.click('#measure summary');

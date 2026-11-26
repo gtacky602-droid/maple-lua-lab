@@ -9,7 +9,8 @@ try{
  const samples=()=>jumps[side.value][motion.value];
  const cache=new Map();
  const runLayers=new Map();
- const runCache=el('runCache');
+ const runCache=el('runCache'),palettePixels=el('palettePixels');
+ palettePixels.onchange=()=>{if(frames.length)draw()};
  runCache.onchange=()=>{
   runLayers.clear();
   if(frames.length)draw();
@@ -22,7 +23,7 @@ try{
  function draw(){
   const sample=samples()?.[phase];
   el('jumpNote').hidden=!sample;
-  el('runCacheControl').hidden=Boolean(sample);
+  el('runCacheControl').hidden=Boolean(sample)||palettePixels.checked;
   const pose=sample?sample.pose-1:phase;
   el('footRevision').hidden=motion.value!=='run'||side.value!=='left'||pose!==2;
   const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
@@ -37,7 +38,10 @@ try{
    ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(canvas.width/2,canvas.height-12);
    const profile=canvas.id==='source'?null:canvas.id;
    let cost='';
-   if(profile && !sample && runCache.checked){
+   if(profile && palettePixels.checked){
+    paintSprite(ctx,art,image,bounds,profile,true);
+    cost='原寸合成・画像1枚';
+   }else if(profile && !sample && runCache.checked){
     const key=files[side.value][pose+1]+'/'+profile;
     let layer=runLayers.get(key);
     if(!layer){
@@ -84,6 +88,7 @@ try{
   if(quality.open){
    const url=new URL(location.href);
    for(const [key,value] of Object.entries({side:side.value,motion:motion.value,frame:phase+1,region}))url.searchParams.set(key,value);
+   if(palettePixels.checked)url.searchParams.set('pixels','1');else url.searchParams.delete('pixels');
    el('frameLink').href=url.href;
   }
   return lightOverlap;
@@ -163,6 +168,7 @@ try{
  for(const [key,control] of [['side',side],['motion',motion],['region',el('bodyRegion')]]){
   if([...control.options].some(o=>o.value===params.get(key)))control.value=params.get(key);
  }
+ palettePixels.checked=params.get('pixels')==='1';
  if(params.has('frame')){playing=false;el('quality').open=true}
  side.onchange=motion.onchange=()=>select();await select(Number(params.get('frame'))-1);
 }catch{el('error').textContent='走行素材の一覧を読み込めませんでした。'}
