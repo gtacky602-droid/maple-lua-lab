@@ -35,6 +35,18 @@ function wharfExit(q,cleared){
  return {label:cleared?'開通した桟橋':'帰路を塞ぐ魔物',subject:cleared?undefined:q.recovery.guard,url:'map-art.html?'+params};
 }
 
+function huntPoint(q,state,node){
+ if(q.kind!=='kill'||node!==q.target)return null;
+ const opening=q.openingArts&&state.recovered&&state.count<q.goal-1;
+ if(!q.enemy&&!opening){
+  if(q.cargo&&state.recovered)return null;
+  return {label:'討伐対象',url:'map-art.html?'+new URLSearchParams({placements:'live',node})};
+ }
+ const params=new URLSearchParams({placements:'live',node,hunt:q.id});
+ if(q.enemy)params.set('subject',q.enemy);
+ return {label:q.enemyName??'討伐対象のスライム',subject:q.enemy,url:'map-art.html?'+params};
+}
+
 function cargoStops(q,state,node,frame){
  if(!state.recovered||node!==(q.recovery?.node??q.target))return [];
  if(q.recovery&&state.count>=q.goal-1)return [wharfExit(q,state.count>=q.goal)];
@@ -122,6 +134,8 @@ export function atlasQuestObjectives(frame,q,node){
    return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
   }
  }
+ const hunt=status==='active'&&huntPoint(q,state,node);
+ if(hunt)return [{text:questObjective(q,frame.storyGraph,state),points:[hunt]}];
  if(q.cargo&&(status==='active'||q.recovery)){
   const points=cargoStops(q,state,node,frame);
   if(points.length)return [{text:questObjective(q,frame.storyGraph,state),points}];
@@ -443,6 +457,8 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ const hunt=status==='active'&&huntPoint(q,st,route.node);
+ if(hunt)return {...route,pointUrl:hunt.url,pointLabel:hunt.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
  if(q.cargo&&status==='active'){
   const points=cargoStops(q,st,route.node,f),local=f.storyHunts?.[id];
   const nearby=local?.point??q.cargo.find(p=>p.guard&&p.guard===local?.spawn)?.id;

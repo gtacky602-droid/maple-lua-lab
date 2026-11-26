@@ -137,6 +137,7 @@ try{
   }
  }
  const absent=new Set(query.getAll('absent'));
+ const requestedHunt=graph.quests.find(q=>q.id===query.get('hunt')&&q.target===openingNode.id&&q.kind==='kill'&&(q.openingArts||q.enemy));
  const dailyTargets=new Set(query.getAll('target'));
  const liveSource=liveView?await json('content/enemy-spawns.json'):null;
  let liveItems=[],liveError='';
@@ -718,13 +719,13 @@ try{
   if(fidelityKey!==currentKey){
    $('differenceCrops').hidden=true;fidelity.textContent='';delete fidelity.dataset.result;fidelityKey=currentKey;
   }
-  const dailyPreview=liveView && n===openingNode && dailyTargets.size>0;
+  const targetPreview=liveView && n===openingNode && (dailyTargets.size>0||requestedHunt);
   const dailyPanel=$('dailyTargetPreview');
-  dailyPanel.hidden=!dailyPreview;
-  if(dailyPreview){
-   dailyPanel.querySelector('span').textContent=(query.get('dailyName')||'日次依頼')+'　入場時の対象 '+items.length+'体';
+  dailyPanel.hidden=!targetPreview;
+  if(targetPreview){
+   dailyPanel.querySelector('span').textContent=(requestedHunt?.name||query.get('dailyName')||'日次依頼')+'　入場時の対象 '+items.length+'体';
    const allParams=new URLSearchParams(query);
-   allParams.delete('target');allParams.delete('dailyName');allParams.delete('subject');
+   allParams.delete('hunt');allParams.delete('target');allParams.delete('dailyName');allParams.delete('subject');
    allParams.set('profile',profile);allParams.set('camera',camera);
    dailyPanel.querySelector('a').href='map-art.html?'+allParams;
   }
@@ -740,7 +741,7 @@ try{
   const fieldEnemies=!arena && !openings[n.id] && visibleItems.length>0;
   $('fidelityControls').hidden=!(liveView && (measureGate || surveyProps.length || visibleItems.length) && !matchedSprites);
   const propName=surveyProps.length===1?surveyProps[0].name:null;
-  const measuredSubject=measureGate?.rubbleOnClosed?'遺跡の通路':measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?(propName||'依頼の小物'):fieldEnemies?(subject.value || dailyPreview?'対象の敵':'フィールドの敵'):'ボス';
+  const measuredSubject=measureGate?.rubbleOnClosed?'遺跡の通路':measureGate?.routeFixture?'通路設備':measureGate?(sealed(measureGate)?(measureGate.ironGate?'鉄格子':'封印の大岩'):(measureGate.nightTotem?'黒曜石の柱':'開通した門')):surveyProps.length?(propName||'依頼の小物'):fieldEnemies?(subject.value || targetPreview?'対象の敵':'フィールドの敵'):'ボス';
   $('measureSprite').textContent=surveyProps.length?(propName||'小物')+'の形と色を測る':'ドット絵の形と色を測る';
   function paintDuelStage(ctx){
    if(!liveView||subject.value)return;
@@ -1203,6 +1204,10 @@ try{
       if(quarry){quarry.x=hunt.chase.x;quarry.cloth=hunt.chase.cloth}
      }
      if(absent.size)liveItems=liveItems.filter(e=>!absent.has(e.id));
+     if(requestedHunt){
+      const targets=new Set(liveSource.nodes[n.id].filter(e=>requestedHunt.enemy?e.id===requestedHunt.enemy:requestedHunt.openingArts.includes(e.art)).map(e=>e.id));
+      liveItems=liveItems.filter(e=>targets.has(e.id));
+     }
      if(dailyTargets.size)liveItems=liveItems.filter(e=>dailyTargets.has(e.id));
     }
     const openingBoss=liveItems.length>0 && (openings[n.id] || liveItems[0].id===arenaPreviews.get(n.id)?.id);

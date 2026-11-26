@@ -68,6 +68,15 @@ try{
  assert.match(await quest.innerText(),/配達は、スライム待ち！.*アンバー/s);
  await quest.getByRole('button',{name:'受注',exact:true}).click();
  await quest.filter({hasText:'進行中'}).waitFor();
+ await page.waitForFunction(()=>document.querySelector('#trackedSurveyPoint').href.includes('hunt=amber-join'));
+ const hunt=await browser.newPage();
+ await hunt.goto(await page.locator('#trackedSurveyPoint').evaluate(link=>link.href));
+ await hunt.waitForFunction(()=>window.mapArt?.ready);
+ const slimes=await hunt.evaluate(()=>mapArt.placements.map(e=>e.species).sort());
+ assert.deepEqual(slimes,[...Array(3).fill('hydro-slime-reference'),...Array(2).fill('pyro-slime-reference')]);
+ await hunt.locator('#dailyTargetPreview a').click();
+ await hunt.waitForFunction(()=>window.mapArt?.ready&&mapArt.count===6);
+ await hunt.close();
  await walk(1330);
  await gate('モンド・南の街道').click();
  await page.waitForFunction(()=>window.lab.frame.story.node==='mond-road');
