@@ -26,12 +26,22 @@ const catalog=require('./content/motion-pose-files.json');
      }
      return true;
     },{art:require('./assets/'+file),phase}),file);
+    const snapshot=()=>page.locator('#h48c32,#h32c16').evaluateAll(cs=>cs.map(c=>c.toDataURL()));
+    const cached=await snapshot();
+    await page.uncheck('#runCache');
+    assert.deepEqual(await snapshot(),cached,'direct vs cached '+file);
+    await page.check('#runCache');
+    assert.deepEqual(await snapshot(),cached,'fresh cache '+file);
     for(const region of ['upper','lower','all']){
      await page.selectOption('#bodyRegion',region);
      const actual=await page.locator('#quality tbody tr').allTextContents();
      assert.equal(actual.length,2);
      assert(actual.every(r=>/色[\d.]+%[\d.]+$/.test(r)),file+' '+region);
      assert.equal(await page.locator('.motion-frame[data-band]').count(),region==='all'?0:3);
+     if(region==='lower'){
+      assert.match(await page.locator('#h32c16').locator('..').locator('..').locator('small').innerText(),/再利用・画像1枚/);
+      assert.deepEqual(await snapshot(),cached,'reused frame '+file);
+     }
      if(region==='lower')feet.push(parseFloat(await page.locator('#quality tbody tr:last-child td:nth-child(2)').innerText()));
      if(side==='left'&&phase===3&&region==='lower'){
       assert(feet.at(-1)>93);

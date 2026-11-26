@@ -8,6 +8,12 @@ try{
  const motion=el('motion');
  const samples=()=>jumps[side.value][motion.value];
  const cache=new Map();
+ const runLayers=new Map();
+ const runCache=el('runCache');
+ runCache.onchange=()=>{
+  runLayers.clear();
+  if(frames.length)draw();
+ };
  const canvases=[...document.querySelectorAll('.art canvas')];
  for(const canvas of canvases){
   const wrap=document.createElement('div');wrap.className='motion-frame';canvas.replaceWith(wrap);wrap.append(canvas);
@@ -16,6 +22,7 @@ try{
  function draw(){
   const sample=samples()?.[phase];
   el('jumpNote').hidden=!sample;
+  el('runCacheControl').hidden=Boolean(sample);
   const pose=sample?sample.pose-1:phase;
   el('footRevision').hidden=motion.value!=='run'||side.value!=='left'||pose!==2;
   const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
@@ -29,7 +36,24 @@ try{
    ctx.clearRect(0,0,canvas.width,canvas.height);
    ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(canvas.width/2,canvas.height-12);
    const profile=canvas.id==='source'?null:canvas.id;
-   paintSprite(ctx,art,image,bounds,profile);
+   let cost='';
+   if(profile && !sample && runCache.checked){
+    const key=files[side.value][pose+1]+'/'+profile;
+    let layer=runLayers.get(key);
+    if(!layer){
+     layer=document.createElement('canvas');
+     layer.width=canvas.width;layer.height=canvas.height;
+     const layerCtx=layer.getContext('2d');
+     layerCtx.translate(layer.width/2,layer.height-12);
+     paintSprite(layerCtx,art,image,bounds,profile);
+     runLayers.set(key,layer);
+     cost='初回生成＋画像1枚';
+    }else cost='再利用・画像1枚';
+    ctx.drawImage(layer,-canvas.width/2,12-canvas.height);
+   }else{
+    paintSprite(ctx,art,image,bounds,profile);
+    if(profile)cost='矩形を直接描画';
+   }
    const wrap=canvas.parentElement;
    wrap.toggleAttribute('data-band',quality.open&&region!=='all');
    if(quality.open){
@@ -53,7 +77,7 @@ try{
    ctx.fillStyle='#adc7bb';ctx.fillRect(-56,0,112,1);
    if(sample)for(let x=-56-(sample.distance*scale%12);x<56;x+=12){if(x>=-56)ctx.fillRect(x,1,1,3)}
    ctx.restore();
-   if(profile){const g=art.profiles[profile];canvas.closest('figure').querySelector('small').textContent=g.width+' × '+g.height+' px・'+rectangleCount(g)+'矩形'}
+   if(profile){const g=art.profiles[profile];canvas.closest('figure').querySelector('small').textContent=g.width+' × '+g.height+' px・'+rectangleCount(g)+'矩形・'+cost}
   }
   el('phase').textContent=(phase+1)+' / '+(samples()?.length??frames.length)+' コマ'+(sample?'・'+(sample.ground?'接地':'地面から '+sample.lift.toFixed(1)+' px'):'');
   el('phase').dataset.file=files[side.value][pose+1];
