@@ -2,6 +2,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-compare-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,omitCombatDraw} from './sprite-images.js';
 import {scenery} from './scenery.js';
+import {paintRectangleGrid,rectangleCount} from './sprite-layers.js';
 const $=id=>document.getElementById(id);
 const split=$('escortSplit');
 split.oninput=()=>{
@@ -9,15 +10,17 @@ split.oninput=()=>{
  split.setAttribute('aria-valuetext',split.value+'パーセント');
 };
 const data=await(await fetch('assets/variants.json')).json(),variants=data.variants;
+const packedLegacy=await (await fetch('assets/base-packed/legacy.json')).json();
+variants.packedLegacy={...packedLegacy,label:'標準画質・パレット圧縮（同じ絵）'};
 const {bossImages,bossAtlas,atlas}=await loadSpriteImages($('state'));
 const names={png:'原画像 PNG',...Object.fromEntries(Object.entries(variants).map(([k,v])=>[k,v.label]))};
 for(const id of ['left','right'])for(const [key,name]of Object.entries(names))$(id).add(new Option(name,key));
-$('left').value='legacy';$('right').value='h48c32';
+$('left').value='legacy';$('right').value=location.hash==='#packedLegacy'?'packedLegacy':'h48c32';
 let session=lifecycle.savedSession,frozen=true,auto=false,reset=!session,busy=false,actions=[],keys=new Set(),samples=[],frame=null,last=performance.now(),acc=0,signature='';
 const median=xs=>[...xs].sort((a,b)=>a-b)[Math.floor(xs.length/2)]||0;
-function sprite(ctx,key,id,x,y,h){const s=(variants[key]||variants.legacy).sprites[id-1],w=h*s.box[2]/s.box[3];if(key==='png'){ctx.drawImage(atlas,...s.box,x-w/2,y-h,w,h);return}for(const r of s.runs){ctx.fillStyle=r[4];ctx.fillRect(x-w/2+r[0]*w/s.width,y-h+r[1]*h/s.height,r[2]*w/s.width+.05,r[3]*h/s.height+.05)}}
+function sprite(ctx,key,id,x,y,h){const s=(variants[key]||variants.legacy).sprites[id-1],w=h*s.box[2]/s.box[3];if(key==='png'){ctx.drawImage(atlas,...s.box,x-w/2,y-h,w,h);return}paintRectangleGrid(ctx,s,{x:x-w/2,y:y-h,width:w,height:h},.05)}
 function draw(canvas,draws,scene){const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,canvas.width,canvas.height);scenery(ctx,scene);for(const d of draws){if(omitCombatDraw(d))continue;ctx.globalAlpha=combatOpacity(d);if(d.kind==='rect'){drawCombatRect(ctx,d)}else if(d.kind==='text'){ctx.font=`bold ${d.size}px sans-serif`;ctx.textAlign='center';ctx.strokeStyle='#23494480';ctx.lineWidth=3;ctx.strokeText(d.text,d.x,d.y);ctx.fillStyle=d.color;ctx.fillText(d.text,d.x,d.y)}else if(d.kind==='boss_sprite'){const img=spriteImageFor(d.source,bossImages,bossAtlas);if(!img.complete||!img.naturalWidth)continue;ctx.save();ctx.translate(d.x,d.y);if(d.rotation)ctx.rotate(d.rotation);if(d.flip)ctx.scale(-1,1);ctx.drawImage(elementTintedSprite(img,d.tint),...d.box,-d.w*(d.anchorX??.5),-d.h*(d.anchorY??1),d.w,d.h);ctx.restore()}else if(d.kind==='sprite'){ctx.save();ctx.translate(d.x,d.y);if(d.flip)ctx.scale(-1,1);sprite(ctx,'png',d.asset,0,0,d.h);ctx.restore()}else if(d.kind==='effect'){ctx.globalAlpha=d.alpha*.65;ctx.strokeStyle=d.color;ctx.lineWidth=6;ctx.beginPath();ctx.ellipse(d.x,d.y,d.w/2,d.h/2,-.2,0,Math.PI*2);ctx.stroke()}}ctx.globalAlpha=1}
-function portraits(){const id=+$('asset').value,h=(id<5?88:id===8?66:40)*+$('zoom').value;for(const [canvas,key]of [['original','png'],['portraitA',$('left').value],['portraitB',$('right').value]]){const ctx=$(canvas).getContext('2d');ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,440,320);sprite(ctx,key,id,220,295,h)}for(const side of ['A','B']){const key=$(side==='A'?'left':'right').value,s=(variants[key]||variants.legacy).sprites[id-1];$('label'+side).textContent=side+' / '+names[key];$('detail'+side).textContent=key==='png'?'原画像を同じ寸法で表示':`${s.width} × ${s.height}px · ${s.runs.length.toLocaleString()}矩形${s.palette_colors?' · 共通パレット'+s.palette_colors+'色':''}`}document.querySelectorAll('tr[data-key]').forEach(r=>r.classList.toggle('selected',r.dataset.key===$('right').value))}
+function portraits(){const id=+$('asset').value,h=(id<5?88:id===8?66:40)*+$('zoom').value;for(const [canvas,key]of [['original','png'],['portraitA',$('left').value],['portraitB',$('right').value]]){const ctx=$(canvas).getContext('2d');ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,440,320);sprite(ctx,key,id,220,295,h)}for(const side of ['A','B']){const key=$(side==='A'?'left':'right').value,s=(variants[key]||variants.legacy).sprites[id-1];$('label'+side).textContent=side+' / '+names[key];$('detail'+side).textContent=key==='png'?'原画像を同じ寸法で表示':`${s.width} × ${s.height}px · ${rectangleCount(s).toLocaleString()}矩形 · ${new Blob([JSON.stringify(s)]).size.toLocaleString()} B（素材JSON）${s.palette_colors?' · 共通パレット'+s.palette_colors+'色':''}`}document.querySelectorAll('tr[data-key]').forEach(r=>r.classList.toggle('selected',r.dataset.key===$('right').value))}
 for(const id of ['left','right','asset','zoom'])$(id).onchange=()=>{portraits();samples=[];$(id).blur()};
 $('pyroCompare').onclick=()=>{actions.push('boss_pyro_regisvine');samples=[];$('pyroCompare').blur()};
 $('farkaCompare').onclick=()=>{actions.push('boss_farka');samples=[];$('farkaCompare').blur()};

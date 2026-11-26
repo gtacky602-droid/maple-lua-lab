@@ -1,4 +1,5 @@
 from pathlib import Path
+import base64
 import sys, json
 from stygian_art import stygian_parts
 from field_pose_files import enemy_pose_files, legend_pose_files
@@ -268,10 +269,14 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     lua.execute((ROOT/'mechanical-array.lua').read_text(encoding='utf8'))(core)
     lua.execute((ROOT/'array-sentinels.lua').read_text(encoding='utf8'))(core)
     lua.execute((ROOT/'thunder-manifestation.lua').read_text(encoding='utf8'))(core)
-    assets=ROOT/'assets/sprites.json'
-    if assets.exists(): core.assets=lua.table_from(json.loads(assets.read_text())['sprites'],recursive=True)
-    variants=ROOT/'assets/variants.json'
-    if variants.exists(): core.variants=lua.table_from({k:v['sprites'] for k,v in json.loads(variants.read_text(encoding='utf8'))['variants'].items()},recursive=True)
+    core.variants=lua.table()
+    for path in sorted((ROOT/'assets/base-packed').glob('*.json')):
+        sprites=lua.table()
+        for index,grid in enumerate(json.loads(path.read_bytes())['sprites'],1):
+            records=base64.b64decode(grid.pop('data'),validate=True)
+            sprites[index]=prepare_grid(lua.table_from(grid,recursive=True),records)
+        core.variants[path.stem]=sprites
+    core.assets=core.variants.legacy
     shared=load_pose_pack(lua,ROOT,'common-boss-packed.json')
     lua.execute((ROOT/'boss-art.lua').read_text(encoding='utf8'))(
         core,*(shared[name] for name in boss_parts.BASE),

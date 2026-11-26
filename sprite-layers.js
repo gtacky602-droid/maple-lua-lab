@@ -18,11 +18,15 @@ export function paintSprite(ctx,art,image,bounds,profile){
   ctx.drawImage(image,...art.box,x,y,width,height);
   return;
  }
- const grid=art.profiles[profile],{width:columns,height:rows,runs}=grid;
+ paintRectangleGrid(ctx,art.profiles[profile],bounds,.05);
+}
+
+export function paintRectangleGrid(ctx,grid,{x,y,width,height},overlap=0){
+ const {width:columns,height:rows,runs}=grid;
  const sx=width/columns,sy=height/rows;
  function draw(left,top,w,h,color){
   ctx.fillStyle=color;
-  ctx.fillRect(x+left*sx,y+top*sy,w*sx+.05,h*sy+.05);
+  ctx.fillRect(x+left*sx,y+top*sy,w*sx+overlap,h*sy+overlap);
  }
  if(runs){
   for(const run of runs)draw(...run);
