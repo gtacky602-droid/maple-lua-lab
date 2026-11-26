@@ -1,27 +1,5 @@
 [
   {
-    "node": "nod-patrol-bend",
-    "subject": "nod-patrol-bend-slinger",
-    "camera": 576,
-    "profiles": {
-      "legacy": {
-        "rectangles": 1175,
-        "overlapPercent": 91.6,
-        "meanRgbError": 23.72
-      },
-      "h48c32": {
-        "rectangles": 692,
-        "overlapPercent": 93.9,
-        "meanRgbError": 27.81
-      },
-      "h32c16": {
-        "rectangles": 285,
-        "overlapPercent": 88,
-        "meanRgbError": 33.4
-      }
-    }
-  },
-  {
     "node": "sne-churin-apprentice-bout",
     "subject": "snow-apprentice-sparring",
     "camera": 341,
@@ -568,6 +546,28 @@
         "rectangles": 413,
         "overlapPercent": 94.1,
         "meanRgbError": 32.68
+      }
+    }
+  },
+  {
+    "node": "nod-patrol-bend",
+    "subject": "nod-patrol-bend-slinger",
+    "camera": 576,
+    "profiles": {
+      "legacy": {
+        "rectangles": 1175,
+        "overlapPercent": 91.6,
+        "meanRgbError": 23.72
+      },
+      "h48c32": {
+        "rectangles": 692,
+        "overlapPercent": 93.9,
+        "meanRgbError": 27.81
+      },
+      "h32c16": {
+        "rectangles": 280,
+        "overlapPercent": 94.1,
+        "meanRgbError": 33.26
       }
     }
   },
