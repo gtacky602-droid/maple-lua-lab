@@ -36,6 +36,13 @@ button{cursor:pointer}article button{margin:3px 4px 3px 0}#programmeMeasurement{
 <p id="cropMeasurement" role="status"></p></details>
 <p><a id="backgroundCompare" href="map-art.html">この場所の仮背景を5段階のLua圧縮で比較する</a></p></section>
 <p><a href="evidence/dornman-after-chapters-save.json" download>ドーンマンポートで再開（分岐3件報告）</a> ／ <a href="evidence/branch-expedition-save.json" download>9分岐地域を終えたLv200のセーブをダウンロード</a> ／ <a href="evidence/hidden-expedition-save.json" download>隠し世界3つから帰還したセーブ</a></p>
+<section aria-labelledby="fieldTripTitle"><h2 id="fieldTripTitle">Lv200のフィールドボス討伐記録</h2>
+<label>討伐した相手 <select id="fieldTripBoss"></select></label>
+<p id="fieldTripResult" role="status"></p><a id="fieldTripMap" hidden>討伐地点の地図と風景を見る</a>
+<p><a href="evidence/field-expedition-save.json" download>討伐記録を引き継ぐセーブ</a></p></section>
+<section aria-labelledby="challengeTitle"><h2 id="challengeTitle">週ボス・幽境の初回討伐</h2>
+<label>相手 <select id="challengeBoss"></select></label><p id="challengeReward" role="status"></p>
+<a id="challengeMap" hidden>挑戦場所を見る</a> ／ <a href="evidence/challenge-expedition-save.json" download>週ボス・幽境戦を終えたセーブ</a></section>
 </main>
 <script type="module">
 import {initTheaterProgramme} from './theater-programme.js';
@@ -145,6 +152,38 @@ split.oninput=()=>{
 const requested=new URLSearchParams(location.search).get('stage');
 if(Array.from(stage.options).some(option=>option.value===requested))stage.value=requested;
 stage.onchange();split.oninput();
+async function loadFieldTrip(){
+ const select=document.getElementById('fieldTripBoss'),text=document.getElementById('fieldTripResult'),map=document.getElementById('fieldTripMap');
+ try{
+  const response=await fetch('evidence/field-expedition-route.json');
+  if(!response.ok)throw Error();
+  const {newClears,catalog}=await response.json();
+  for(const row of newClears)select.add(new Option(row.region+'・'+row.name,row.id));
+  function render(){
+   const row=newClears[select.selectedIndex];
+   text.textContent='初回討伐 '+newClears.length+' / '+catalog+'種　｜　この戦闘で '+row.xp.toLocaleString('ja-JP')+' EXP・'+row.mora.toLocaleString('ja-JP')+'モラ';
+   map.href='map-art.html?'+new URLSearchParams({node:row.node,placements:'live'});map.hidden=false;
+  }
+  select.onchange=render;render();
+ }catch{text.textContent='討伐記録を読み込めませんでした。'}
+}
+loadFieldTrip();
+async function loadChallenges(){
+ const menu=document.getElementById('challengeBoss'),text=document.getElementById('challengeReward'),map=document.getElementById('challengeMap');
+ try{
+  const response=await fetch('evidence/challenge-expedition-route.json');
+  if(!response.ok)throw Error();
+  const {clears}=await response.json();
+  for(const row of clears)menu.add(new Option((row.kind==='weekly'?'週ボス':'幽境')+'・'+row.name,row.id));
+  function render(){
+   const row=clears[menu.selectedIndex];
+   text.textContent='難度 '+row.mode+' ｜ '+row.seconds.toFixed(1)+'秒 ｜ '+row.rewards[0].toLocaleString('ja-JP')+' EXP・'+row.rewards[1].toLocaleString('ja-JP')+'モラ';
+   map.href='map-art.html?'+new URLSearchParams({node:row.node,placements:'live'});map.hidden=false;
+  }
+  menu.onchange=render;render();
+ }catch{text.textContent='挑戦記録を読み込めませんでした。'}
+}
+loadChallenges();
 const selector=document.getElementById('record'),message=document.getElementById('loadMessage');
 try{
  const response=await fetch('evidence/fontaine-theater-exhibits.json');

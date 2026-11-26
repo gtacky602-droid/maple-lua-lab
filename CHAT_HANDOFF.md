@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 49種の通常ボスと21の挑戦
+
+成長依頼後の同じLv200セーブで通常フィールドボス49種を初討伐し、原作週ボス14種のentryと幽境7戦のnormalをクリアした。各戦後に読み直して勝数1回と報酬を確認。[討伐地点と報酬](theater-preview.html#fieldTripTitle) ／ [継続セーブ](evidence/challenge-expedition-save.json)。地方伝説、ラボ独自の週ボス2種、他の難度は別集計。
+
 ## 成長依頼16件の報告
 
 隠し世界から帰還した時点の5件に11件を追加。装備の比較・強化・継承・刻印は町の見本と比較画面を使用。月と星の実戦課題、深境の入口3部屋、ファルカの隙への攻撃、アンドリアスへの攻撃を達成した。依頼手帳に成長依頼の全件と未報告フィルターを追加した。[Lv200の継続セーブ](evidence/growth-expedition-save.json) ／ [報告記録](evidence/growth-expedition-route.json)
