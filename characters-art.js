@@ -59,9 +59,11 @@ try{
    panel.querySelector('ul').replaceChildren(...gates.map(gate=>{
     const item=document.createElement('li'),link=document.createElement('a');
     link.textContent=gate.name+(gate.label?'・'+gate.label:'');
-    link.href='map-art.html?'+new URLSearchParams({node:gate.from,to:node,gateX:gate.x,gateY:gate.y,placements:'live',profile});
+    const params=new URLSearchParams({node:gate.from,to:node,gateX:gate.x,gateY:gate.y,placements:'live',profile});
+    if(gate.afterArrival)params.set('afterArrival',gate.afterArrival);
+    link.href='map-art.html?'+params;
     item.append(link);
-    if(gate.quest)item.append('　関連依頼「'+gate.quest+'」');
+    if(gate.condition)item.append('　'+gate.condition);
     return item;
    }));
   };
