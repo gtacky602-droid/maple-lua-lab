@@ -41,7 +41,7 @@ try{
   await choices.selectOption(id);
   await guide.waitForFunction(value=>document.querySelector('#source').dataset.art===value,id);
   assert.equal(await guide.locator('#place').inputValue(),node);
-  assert.equal(await guide.locator('#count').innerText(),'この地点に'+count+'体配置');
+  assert.equal(await guide.locator('#count').innerText(),'この地点に'+count+'体配置。地図を開いたときの進行状況では、入場時に'+count+'体出現。');
   const map=new URL(await guide.locator('#fieldMap').getAttribute('href'),base);
   assert.equal(map.searchParams.get('node'),node);
   assert.equal(map.searchParams.get('species'),id);
@@ -52,5 +52,13 @@ try{
  await page.locator('#atlasField').selectOption('fontaine-hub');
  await link.waitFor({state:'hidden'});
  assert.equal(await link.getAttribute('href'),null);
+ await page.locator('#atlasField').selectOption('fon-emilie-scent-shore');
+ await link.waitFor();
+ await page.waitForFunction(()=>document.querySelector('#atlasFieldEnemyGuide').textContent.includes('今入ると0体／全配置1体'));
+ const shore=page.waitForEvent('popup');
+ await link.click();
+ const shoreGuide=await shore;
+ await shoreGuide.waitForFunction(()=>document.querySelector('#source')?.dataset.art==='armored-crab');
+ assert((await shoreGuide.locator('#count').innerText()).includes('入場時に0体出現。 関連する依頼「旅の香りを、ひとしずく」'));
  console.log(byNode.size+' placement lists match; M map, scoped guide, species switching, full guide and empty hub verified.');
 }finally{await browser.close()}

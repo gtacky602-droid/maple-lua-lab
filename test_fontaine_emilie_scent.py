@@ -47,6 +47,14 @@ def collect(x,expected,y=480):
     assert state().count==before+1
 
 
+def assert_shore_forecast(count):
+    act('world_map_focus:'+shore)
+    selected=frame().worldMap.selected
+    assert selected.id==shore and selected.fieldEnemyCount==1
+    assert selected.entryEnemyCount==count and selected.entrySpecies['armored-crab']==count
+    act('world_map_close')
+
+
 def checkpoint():
     return validate_save(native(core.checkpoint(s)))
 
@@ -102,6 +110,7 @@ gate(1275,shore,False)
 collect(456,'エミリエに依頼の話を聞く')
 gate(1275,shore)
 assert len(s.enemies)==0
+assert_shore_forecast(0)
 move(1325)
 act('story_collect')
 assert state().count==1
@@ -115,6 +124,7 @@ advance(core,s,28,idle)
 assert s.actors[s.active].y==394
 collect(664,'乾いた香り葉を拾う',394)
 assert s.enemies[1].spawnId=='fon-scent-quay-crab'
+assert_shore_forecast(1)
 before_battle=checkpoint()
 s=restore(before_battle)
 assert s.story.node==hub
@@ -125,6 +135,7 @@ assert e.spawnId=='fon-scent-quay-crab'
 move(e.x-30)
 advance(core,s,180,attack)
 assert e.hp==0 and state().count==4
+assert_shore_forecast(0)
 assert not core.starterEquipment(s,'emilie')
 collect(1325,'岸に流れ着いた木片を拾う')
 gate(1490,atelier)

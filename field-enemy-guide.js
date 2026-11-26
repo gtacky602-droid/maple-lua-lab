@@ -7,6 +7,15 @@ try{
  const params=new URLSearchParams(location.search),node=params.get('node');
  const local=index.species.filter(s=>s.places.some(([id])=>id===node));
  const focused=local.length>0;
+ const entryCounts=new Map();
+ for(const value of params.getAll('entry')){
+  const match=/^([\w-]+):(\d+)$/.exec(value);
+  if(match)entryCounts.set(match[1],Number(match[2]));
+ }
+ const hasSnapshot=focused&&local.every(s=>{
+  const count=entryCounts.get(s.id);
+  return Number.isSafeInteger(count)&&count<=s.places.find(([id])=>id===node)[1];
+ });
  const entries=new Map((focused?local:index.species).map(s=>[s.id,s]));
  if(focused){
   el('scope').hidden=false;
@@ -25,6 +34,8 @@ try{
   const current=entries.get(species.value),token=++revision;
   el('name').textContent=current.name;
   el('count').textContent=focused?'この地点に'+current.places.find(([id])=>id===node)[1]+'体配置':current.places.length+'地点に計'+current.count.toLocaleString('ja-JP')+'体配置';
+  if(hasSnapshot)el('count').textContent+='。地図を開いたときの進行状況では、入場時に'+entryCounts.get(current.id)+'体出現。';
+  if(hasSnapshot&&params.get('quest'))el('count').textContent+=' 関連する依頼「'+params.get('quest')+'」。';
   const url=new URL(location.href);url.searchParams.set('species',current.id);history.replaceState(null,'',url);
   const regions=focused?[index.places[node][1]]:new Set(current.places.map(([id])=>index.places[id][1]));
   region.replaceChildren(...Array.from(regions,r=>new Option(r)));selectPlaces();

@@ -200,8 +200,13 @@ export function initAtlas(action, clearKeys) {
   fieldGuide.hidden = !selected?.fieldEnemyCount;
   if (fieldGuide.hidden) fieldGuide.removeAttribute('href');
   else {
-   fieldGuide.href = 'field-enemy-guide.html?' + new URLSearchParams({node:selected.id});
-   fieldGuide.textContent = '通常敵の配置とドット絵を見る（'+selected.fieldEnemyCount+'体）';
+   const query=new URLSearchParams({node:selected.id});
+   for(const [id,count] of Object.entries(selected.entrySpecies??{}))query.append('entry',id+':'+count);
+   if(selected.entryQuest)query.set('quest',selected.entryQuest);
+   fieldGuide.href = 'field-enemy-guide.html?' + query;
+   fieldGuide.textContent = selected.entryEnemyCount===selected.fieldEnemyCount || selected.entryEnemyCount==null
+    ? '通常敵の配置とドット絵を見る（'+selected.fieldEnemyCount+'体）'
+    : '通常敵の配置とドット絵を見る（今入ると'+selected.entryEnemyCount+'体／全配置'+selected.fieldEnemyCount+'体）';
   }
   const measured = Object.hasOwn(backgroundMeasurements, selected?.id);
   compare.hidden = !measured && !selected?.boss?.placementPreview;

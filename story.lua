@@ -990,16 +990,32 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return not (defeated and defeated[p.id]) and (not p.questPhase or p.questPhase==phase)
      and not (p.cargo and recovered and recovered[p.cargo])
  end
- function C.hasStoryTargetOnEntry(s,id,candidates)
+ local function entryFilter(s,id)
   local n=nodes[id]
-  if not n or n.hub or n.peaceful or cleared(s,n) then return false end
+  if not n or n.hub or n.peaceful or cleared(s,n) then return nil end
   local _,railState=railQuest(s,n)
   local route=n.stealthRoute
   local phase,recovered,defeated=entryPopulation(s,n,railState,route and s.story.quests[route.quest])
-  for _,p in ipairs(candidates) do
-   if placementActive(p,phase,recovered,defeated) then return true end
+  return function(p) return placementActive(p,phase,recovered,defeated) end
+ end
+ function C.hasStoryTargetOnEntry(s,id,candidates)
+  local active=entryFilter(s,id)
+  if active then
+   for _,p in ipairs(candidates) do if active(p) then return true end end
   end
   return false
+ end
+ function C.storyEntryCounts(s,id,placements)
+  local active=entryFilter(s,id)
+  local total,counts=0,{}
+  for _,p in ipairs(placements) do
+   local count=active and active(p) and 1 or 0
+   counts[p.art]=(counts[p.art] or 0)+count
+   total=total+count
+  end
+  local n=nodes[id]
+  local quest=quests[n.clearedBy or (n.stealthRoute and n.stealthRoute.quest)]
+  return total,counts,quest and quest.name
  end
  local function spawnEnemies(s,n,phase,recovered,defeated)
   s.enemies={}
