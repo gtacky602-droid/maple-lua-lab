@@ -243,3 +243,18 @@ for(const request of [{kind:'visit',target:shrine},{itinerary:[{kind:'arrive',fr
  stoneFrame.story.quests[stoneGate.requires.quest]={status:'active',count:2};
  assert.match(questRouteText(stoneFrame,request,'active'),/残り1区間/);
 }
+
+{
+ const hauling=graph.quests.find(q=>q.construction);
+ const state={status:'active',count:0,construction:{surveyed:{}}};
+ const atHarbor={storyGraph:graph,story:{active:true,node:hauling.hub,quests:{[hauling.id]:state}},progression:{level:200}};
+ const routeToLift=()=>questRouteText(atHarbor,{kind:'visit',target:'liyue-cart-lift'},'active');
+ assert.match(routeToLift(),/昇降台を修理する.*選び/);
+ state.construction.plan='lift';
+ assert.match(routeToLift(),/整備を終えて拠点で報告/);
+ state.status='complete';
+ assert.match(routeToLift(),/残り1区間/);
+ state.construction.plan='ground';
+ const ground=graph.nodes.find(n=>n.id==='liyue-cart-road');
+ assert(routeToLift().includes(ground.name+'を利用できます。'));
+}

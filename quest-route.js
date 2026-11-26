@@ -143,7 +143,17 @@ export function questRoute(f,q,status,preferredNode){
   }
   const title='「'+quest.name+'」';
   if(!state)return (nodes.get(quest.hub)?.name??'拠点')+'で'+title+'を受注してください。';
-  if(rule.construction)return title+'で選んだ整備計画を確認してください。';
+  if(rule.construction){
+   const plans=quest.construction?.plans??[];
+   const chosen=plans.find(p=>p.id===state.construction?.plan);
+   const required=plans.find(p=>p.id===rule.construction);
+   if(chosen&&chosen.id!==rule.construction){
+    const road=nodes.get(chosen.route)?.name??chosen.name;
+    return title+'では「'+chosen.name+'」を選択済みです。'+road+'を利用できます'+(state.status==='complete'?'。':'（整備・報告後）。');
+   }
+   if(chosen)return title+'の整備を終えて拠点で報告してください。';
+   if(required)return title+'で「'+required.name+'」を選び、整備を終えて報告してください。';
+  }
   if(rule.recovery&&!state.recovered)return title+'の回収を先に進めてください。';
   const branch=rule.path&&quest.paths?.find(p=>p.id===rule.path);
   const progress=(branch?state.pathProgress?.[branch.id]:state)?.count??0;
