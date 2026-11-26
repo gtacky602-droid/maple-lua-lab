@@ -454,8 +454,9 @@ try{
   const teaProps=liveView&&selectedSurveyPoint?.tea&&selectedSurveyPoint.node===n.id?
    worksiteArt.teahouse.stages[selectedSurveyPoint.step]:[];
   const returnProp=liveView&&selectedSurveyPoint?.returnProp;
-  const surveyProp=selectedSurveyPoint?.prop??(returnProp&&{file:'quest-packed/mond-return-box-'+returnProp.art+'-sprites-v1.json',height:returnProp.height});
-  if(surveyProp){
+  const surveyProps=selectedSurveyPoint?.props??(returnProp?[{file:'quest-packed/mond-return-box-'+returnProp.art+'-sprites-v1.json',
+   height:returnProp.height,x:selectedSurveyPoint.x,y:selectedSurveyPoint.y}]:[]);
+  for(const surveyProp of surveyProps){
    if(!surveyPropArt.has(surveyProp.file))surveyPropArt.set(surveyProp.file,{poseFile:surveyProp.file,openingPose:true});
    const art=surveyPropArt.get(surveyProp.file);
    if(!art.image)missing.push(art);
@@ -639,9 +640,17 @@ try{
      ctx.fillRect(cover.x-camera,cover.y-3,cover.w,3);
     }
    }
-   if(surveyProp){
-    const art=surveyPropArt.get(surveyProp.file),point=selectedSurveyPoint;
-    paintPlacementLayer(ctx,art,spriteBounds(art,surveyProp.height),mode==='png'||matchedSprites?null:profile,point.x-camera,point.y,false,cost);
+   for(const prop of surveyProps){
+    const art=surveyPropArt.get(prop.file),x=prop.x-camera;
+    paintPlacementLayer(ctx,art,spriteBounds(art,prop.height),mode==='png'||matchedSprites?null:profile,x,prop.y,false,cost);
+    if(prop.bubbles){
+     // Still frame of the seven Lua bubbles at t=0, measured from the sprite base.
+     for(let i=1;i<=7;i++){
+      const rise=i*17%76,bx=x+Math.sin(i+rise*.04)*13,by=prop.y-58-rise;
+      ctx.fillStyle='#c2f3e285';ctx.fillRect(bx,by,3+i%3,3+i%3);
+      ctx.fillStyle='#edfbcfc0';ctx.fillRect(bx+1,by,2,1);
+     }
+    }
    }
    for(const {key,x,y,height} of teaProps){
     const art=teaArt.get(key);

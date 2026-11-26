@@ -3,15 +3,28 @@ export function puzzleStep(step){
  return step?.kind==='inspect'&&(step.resonanceOrder||step.shadowChoice||step.paperFold);
 }
 const colleiHeights={root:72,stones:43,shelter:112,bench:51,barrier:43};
+function choiceProp(option,kind){
+ let pose,height,offsetY=0;
+ if(kind==='guideChoice'){
+  pose='sum-collei-guide-'+option.art;height=colleiHeights[option.art];
+ }else if(option.scentArt){
+  pose='fon-emilie-scent-'+option.id;height={amber:44,pink:45,mint:43}[option.id];offsetY=-8;
+ }else if(option.magicChoice){
+  pose='fon-furina-cues-'+(option.id==='curtain'?'curtain':'lamp');height=74;
+ }else if(option.diveChoice){
+  pose='fon-freminet-dive-'+(option.id==='coral'?'coral':'marker');height=55;offsetY=20;
+ }
+ if(height)return {file:'quest-packed/'+pose+'-sprites-v1.json',height,x:option.x,y:option.y+offsetY,
+  bubbles:option.diveChoice&&option.id==='bubbles'};
+}
 export function surveyPoint(quest,index,node,room,pathId,choice){
  const path=pathId&&quest?.paths?.find(p=>p.id===pathId);
  const steps=pathId?path?.steps:quest?.itinerary,step=steps?.[index];
  if((step?.kind==='choice'||step?.kind==='guideChoice')&&step.node===node){
   const option=step.choices[choice-1];
   if(!option)return null;
-  const height=step.kind==='guideChoice'&&colleiHeights[option.art];
   return {quest:quest.id,step:index+1,node,choice,path:pathId,x:option.x,y:option.y,name:option.name,action:option.action,
-   ...(height&&{prop:{file:'quest-packed/sum-collei-guide-'+option.art+'-sprites-v1.json',height}})};
+   props:step.choices.map(o=>choiceProp(o,step.kind)).filter(Boolean)};
  }
  if(room?.id===node&&step?.node===node&&puzzleStep(step)){
   let stations;
