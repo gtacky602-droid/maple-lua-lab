@@ -2300,6 +2300,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return layer
  end
 
+ local function drawTravelMarker(s,f,markers,art,x,y,h,mode,profile,flip)
+  local layer=markerLayer(s,f,markers,mode)
+  C.drawFieldDisplayArt(layer,art,x,y,h,mode,profile,flip)
+  if layer.rectBatches then f.rectBatches=layer.rectBatches end
+ end
+
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story
   f.growthEligibility={}
@@ -2481,7 +2487,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if x>=-100 and x<=1060 then drawRockSeal(markers,x,y,edge.rockSeal) end
     elseif edge.nightTotem then
      if x>=-100 and x<=1060 then
-      C.drawFieldDisplayArt({draws=markers},C.nightTrialTotemArt.idle,x,y,136,mode,profile,false)
+      drawTravelMarker(s,f,markers,C.nightTrialTotemArt.idle,x,y,136,mode,profile,false)
       local title=edge.nightTotem=='return' and '出口' or '夜魂の試練'
       markers[#markers+1]={kind='text',x=x,y=y-152,text=title,color='#ead6ff',size=14}
      end
@@ -2691,11 +2697,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.paperLantern then
     local p=n.paperLantern
     local x=p.x-s.camera
-    if x>=-130 and x<=1090 then C.drawFieldDisplayArt({draws=markers},C.paperLanternArt,x,p.y,96,mode,profile,false) end
+    if x>=-130 and x<=1090 then drawTravelMarker(s,f,markers,C.paperLanternArt,x,p.y,96,mode,profile,false) end
    end
    if f.voyage and f.voyage.kind=='trolley' then
     local a=s.actors[1]
-    C.drawFieldDisplayArt({draws=markers},C.trolleyArt,a.x-s.camera-20,a.y+36,62,mode,profile,s.voyage.reverse)
+    drawTravelMarker(s,f,markers,C.trolleyArt,a.x-s.camera-20,a.y+36,62,mode,profile,s.voyage.reverse)
    end
    if n.resonance then
     local quest=quests[n.resonance.quest]
