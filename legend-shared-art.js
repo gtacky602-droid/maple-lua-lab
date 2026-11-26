@@ -1,10 +1,10 @@
 import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
 import {lakeEyeStudy} from './lake-eye-study.js';
 
-// Only identical source images and crop rectangles qualify as shared idle art.
+// Compare exact crops or explicitly paired palette variants from the gallery.
 export function setupSharedLegendArt(layouts,assets){
  const panel=document.createElement('details'),heading=document.createElement('summary'),rows=document.createElement('div');
- panel.id='sharedLegendArt';panel.hidden=true;heading.textContent='同じ待機絵を使う通常敵と大きさを比較';
+ panel.id='sharedLegendArt';panel.hidden=true;heading.textContent='通常敵と待機絵の輪郭・大きさを比較';
  panel.open=location.hash==='#sharedLegendArt';
  const controls=document.createElement('label'),compare=document.createElement('input');
  compare.type='checkbox';compare.id='compareSharedProfiles';
@@ -12,11 +12,12 @@ export function setupSharedLegendArt(layouts,assets){
  controls.append(compare,'元PNG・32色・16色を並べる');
  panel.append(heading,controls,rows);document.querySelector('main').after(panel);
  const key=art=>JSON.stringify([art.source,art.box]);
- const ordinary=new Map();
+ const ordinary=new Map(),byId=new Map();
  for(const [id,layout] of Object.entries(layouts)){
   const art=assets[id+'-reference']??assets[id],source=key(art);
   if(!ordinary.has(source))ordinary.set(source,[]);
-  ordinary.get(source).push({id,art,name:(layout.name??id).split('（')[0]});
+  const enemy={id,art,name:(layout.name??id).split('（')[0]};
+  ordinary.get(source).push(enemy);byId.set(id,enemy);
  }
  let current=[],last='',jumpToPanel=panel.open;
  function draw(){
@@ -30,6 +31,7 @@ export function setupSharedLegendArt(layouts,assets){
    caption.append(link,'（'+enemy.art.h+' px） ／ '+name+'（'+Number(legend.h.toFixed(2))+' px）');
    const a=spriteBounds(enemy.art,enemy.art.h),b=spriteBounds(legend,legend.h);
    const cell=Math.ceil(Math.max(a.width,b.width))+24;
+   if(legend.ordinaryVariant)caption.append(' ／ 同じ輪郭の色違い候補');
    figure.append(caption);
    const views=document.createElement('div');views.className='shared-profile-views';
    views.style.cssText='display:flex;flex-wrap:wrap;gap:12px';
@@ -67,7 +69,8 @@ export function setupSharedLegendArt(layouts,assets){
  return (items,profile,artFor,nameFor)=>{
   const next=items.flatMap(e=>{
    const legend=artFor(e);
-   return (ordinary.get(key(legend))??[]).map(enemy=>({enemy,legend,name:nameFor(e),profile}));
+   const matches=legend.ordinaryVariant?[byId.get(legend.ordinaryVariant)]:(ordinary.get(key(legend))??[]);
+   return matches.map(enemy=>({enemy,legend,name:nameFor(e),profile}));
   });
   const signature=JSON.stringify(next.map(r=>[r.enemy.id,r.name,r.legend.h,r.profile]));
   if(signature===last)return;

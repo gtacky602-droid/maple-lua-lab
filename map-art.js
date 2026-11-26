@@ -152,10 +152,10 @@ try{
   const group=document.createElement('optgroup');group.label=label;
   const loaded=gallery.items.map(item=>{
    const data=galleryFiles[item.file],left=galleryFiles[item.leftFile],rear=item.rear&&galleryFiles[item.rear.file];
-   const size={h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
+   const size={ordinaryVariant:item.ordinaryVariant,h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
    return {item,art:{...data,...size,left:left&&{...left,...size}}};
   });
-  for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;if(kind==='boss' && item.candidateFor)idleCandidates.set(item.candidateFor,id);const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
+  for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;if(kind==='boss' && item.candidateFor){for(const target of [item.candidateFor].flat())idleCandidates.set(target,id)}const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
  for(const boss of weeklyData.weeklyBosses){
@@ -733,7 +733,7 @@ try{
   $('status').textContent=`配置${items.length}体 ／ ${placementCost} ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   if(liveView){
    const boss=arenaPreviews.get(n.id);
-   const label=visibleItems.some(previewCandidate)?'通常敵と共用する待機絵の候補':stygianScenes[n.id]?'幽境・4難度に共通する開始時の配置':fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
+   const label=visibleItems.some(previewCandidate)?'通常敵と輪郭を共用する待機絵の候補':stygianScenes[n.id]?'幽境・4難度に共通する開始時の配置':fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
    const snapshot=n.id===query.get('node')&&absent.size?'地図を開いた時点の入場配置 ｜ ':'';
    $('status').textContent=liveError||(snapshot+label+' ｜ '+placementCost);
   }

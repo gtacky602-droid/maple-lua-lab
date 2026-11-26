@@ -49,7 +49,11 @@ labels=SpeciesLabels()
 labels.feed((root/'map-art.html').read_text('utf8'))
 gallery_items=read('content/boss-art-gallery.json')['items']
 gallery={'boss-'+r['id']:r['file'] for r in gallery_items}
-candidate_files={r['candidateFor']:r['file'] for r in gallery_items if 'candidateFor' in r}
+candidates={}
+for item in gallery_items:
+    targets=item.get('candidateFor',[])
+    for target in ([targets] if isinstance(targets,str) else targets):
+        candidates[target]=item
 candidate_matches=defaultdict(dict)
 openings=read('content/group-legend-openings.json')
 shared=defaultdict(dict)
@@ -59,9 +63,11 @@ for b in read('content/field-boss-spawns.json')['fieldBosses']:
     fallback=[b]+([b['partner']] if b.get('partner') else [])
     files=[p.get('file') or gallery.get(p['species']) for p in parts] if parts else [gallery.get(p.get('mapIdleArt')) for p in fallback]
     for part in parts:
-        candidate=candidate_files.get(part.get('id'))
+        candidate=candidates.get(part.get('id'))
         if candidate:
-            candidate_matches[crop(candidate)][b['node']]=b['name']
+            ordinary=candidate.get('ordinaryVariant')
+            file=layouts[ordinary]['file'] if ordinary else candidate['file']
+            candidate_matches[crop(file)][b['node']]=b['name']
     for file in filter(None,files):
         shared[crop(file)][b['node']]=b['name']
 
