@@ -1,3 +1,4 @@
+import {travelerFaceCandidate} from './traveler-face-candidate.js';
 import {downloadComparison} from './comparison-png.js';
 import {json,sheet} from './sprite-comparison.js';
 import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
@@ -9,7 +10,8 @@ try{
  const motion=el('motion');
  const samples=()=>jumps[side.value][motion.value];
  const cache=new Map();
- const runLayers=new Map();
+ const runLayers=new Map(),faceCandidate=el('faceCandidate');
+ faceCandidate.onchange=()=>{if(frames.length)draw()};
  const runCache=el('runCache'),palettePixels=el('palettePixels');
  palettePixels.onchange=()=>{if(frames.length)draw()};
  runCache.onchange=()=>{
@@ -28,7 +30,10 @@ try{
   el('runCacheControl').hidden=Boolean(sample)||palettePixels.checked;
   const pose=sample?sample.pose-1:phase;
   el('footRevision').hidden=motion.value!=='run'||side.value!=='left'||pose!==2;
-  const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
+  const frame=frames[pose],image=frame.image;
+  const refined=pose===2&&faceCandidate.checked;
+  if(refined&&!frame.candidate)frame.candidate=travelerFaceCandidate(frame.art,image,side.value);
+  const art=refined?frame.candidate:frame.art,height=pose===0?88:88*art.box[3]/100;
   const scale=sample?0.62:1.6;
   const bounds=spriteBounds(art,height*scale,-(sample?.lift??0)*scale);
   let original,lightOverlap;
@@ -44,7 +49,7 @@ try{
     paintSprite(ctx,art,image,bounds,profile,true);
     cost='原寸合成・画像1枚';
    }else if(profile && !sample && runCache.checked){
-    const key=files[side.value][pose+1]+'/'+profile;
+    const key=files[side.value][pose+1]+'/'+profile+(refined&&profile==='h32c16'?'/face':'');
     let layer=runLayers.get(key);
     if(!layer){
      layer=document.createElement('canvas');
@@ -91,6 +96,7 @@ try{
    const url=new URL(location.href);
    for(const [key,value] of Object.entries({side:side.value,motion:motion.value,frame:phase+1,region}))url.searchParams.set(key,value);
    if(palettePixels.checked)url.searchParams.set('pixels','1');else url.searchParams.delete('pixels');
+   if(faceCandidate.checked)url.searchParams.set('face','1');else url.searchParams.delete('face');
    el('frameLink').href=url.href;
   }
   return lightOverlap;
@@ -159,8 +165,8 @@ try{
   }finally{phase=previous;draw()}
   const sideName=side.selectedOptions[0].textContent,part=el('bodyRegion').selectedOptions[0].textContent;
   downloadComparison({canvases:columns,labels:['元PNG','32色版','16色版'],title:'旅人の'+sideName+'走行 ／ '+part,
-   stats:'輪郭は各コマの元PNGとの重なり。',note:palettePixels.checked?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
-   filename:'traveler-run-'+side.value+'-'+region+(palettePixels.checked?'-pixels':'')+'.png',
+   stats:'輪郭は各コマの元PNGとの重なり。'+(faceCandidate.checked?'　3コマ目：16色の顔補正候補':''),note:palettePixels.checked?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
+   filename:'traveler-run-'+side.value+'-'+region+(faceCandidate.checked?'-refined':'')+(palettePixels.checked?'-pixels':'')+'.png',
    onError:()=>{el('error').textContent='走行比較のPNGを書き出せませんでした。'}});
  };
  const measure=el('measure');
@@ -202,7 +208,7 @@ try{
  for(const [key,control] of [['side',side],['motion',motion],['region',el('bodyRegion')]]){
   if([...control.options].some(o=>o.value===params.get(key)))control.value=params.get(key);
  }
- palettePixels.checked=params.get('pixels')==='1';
+ palettePixels.checked=params.get('pixels')==='1';faceCandidate.checked=params.get('face')==='1';
  if(params.has('frame')){playing=false;el('quality').open=true}
  side.onchange=motion.onchange=()=>select();await select(Number(params.get('frame'))-1);
 }catch{el('error').textContent='走行素材の一覧を読み込めませんでした。'}
