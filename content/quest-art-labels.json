@@ -1,0 +1,365 @@
+{
+  "coastalGifts": {
+    "title": "海辺の贈り物",
+    "parts": {
+      "biscuit": "ビスケット",
+      "chime": "鈴",
+      "tea": "お茶"
+    }
+  },
+  "appraisalArt": {
+    "title": "鑑定の道具",
+    "parts": {
+      "gear": "歯車",
+      "plate": "板",
+      "stone": "石",
+      "machine": "機械",
+      "lamp": "ランプ"
+    }
+  },
+  "rumorArt": {
+    "title": "噂の聞き込み",
+    "parts": {
+      "glint": "光",
+      "little": "小さな手掛かり",
+      "stolen": "盗品",
+      "boatkeeper": "船番",
+      "courier": "配達人",
+      "painter": "画家"
+    }
+  },
+  "bloomArt": {
+    "title": "月の花",
+    "parts": {
+      "bud": "つぼみ",
+      "flower": "花",
+      "overhead": "頭上の花",
+      "charm": "お守り",
+      "rabbit": "ウサギ",
+      "fox": "キツネ",
+      "petal": "花びら",
+      "berry": "実"
+    }
+  },
+  "patrolArt": {
+    "title": "灯りの巡回",
+    "parts": {
+      "lantern": "灯籠",
+      "tea": "お茶",
+      "biscuits": "ビスケット"
+    }
+  },
+  "surveyEquipment": {
+    "title": "測量機材",
+    "parts": {
+      "lens": "レンズ",
+      "clamp": "留め具",
+      "blanket": "毛布"
+    }
+  },
+  "snowMatchArt": {
+    "title": "雪上試合",
+    "parts": {
+      "wall": "雪壁",
+      "rubble": "崩れた雪壁",
+      "flag": "旗"
+    }
+  },
+  "snowMatchHost": {
+    "title": "雪上試合の案内役",
+    "parts": {
+      "idle": "タルタリヤ"
+    }
+  },
+  "returnBoxArt": {
+    "title": "返却箱",
+    "parts": {
+      "crate": "木箱",
+      "bookmark": "しおり",
+      "mud": "泥",
+      "grass": "草"
+    }
+  },
+  "returnBoxCarrier": {
+    "title": "返却箱の運び手",
+    "parts": {
+      "idle": "水スライム"
+    }
+  },
+  "nightBannerArt": {
+    "title": "夜の旗",
+    "parts": {
+      "torn": "破れた旗",
+      "repaired": "修繕した旗",
+      "shadow": "影"
+    }
+  },
+  "fireworkArt": {
+    "title": "花火の会場",
+    "parts": {
+      "window": "窓",
+      "marker": "印",
+      "stand": "台"
+    }
+  },
+  "stealthArt": {
+    "title": "潜入路",
+    "parts": {
+      "brush": "茂み",
+      "cave": "洞窟",
+      "tree": "木",
+      "gate": "門",
+      "leaf": "葉",
+      "nap": "休憩場所"
+    }
+  },
+  "ittoGameArt": {
+    "title": "一斗の遊び場",
+    "parts": {
+      "flag": "旗",
+      "target": "的",
+      "blue": "青の目印",
+      "orange": "橙の目印",
+      "bell": "鈴",
+      "prize": "景品"
+    }
+  },
+  "teaCaseArt": {
+    "title": "移動茶屋",
+    "parts": {
+      "cart": "屋台",
+      "keeper": "店主",
+      "paper": "紙の絵札",
+      "tracks": "足跡の絵札",
+      "day": "昼の絵札",
+      "dusk": "夕暮れの絵札",
+      "cup": "茶器"
+    }
+  },
+  "wandererSurveyArt": {
+    "title": "放浪者の調査",
+    "parts": {
+      "root": "根",
+      "stone": "石",
+      "ring": "輪",
+      "lever": "レバー",
+      "leverOn": "操作後のレバー",
+      "sign": "看板"
+    }
+  },
+  "observationVisitorsArt": {
+    "title": "キノコンの観察",
+    "parts": {
+      "instrument": "観測器",
+      "satchel": "かばん",
+      "traces": "痕跡",
+      "sample": "試料",
+      "cabinet": "棚",
+      "cabinetClosed": "閉じた棚"
+    }
+  },
+  "colleiGuideArt": {
+    "title": "コレイの道案内",
+    "parts": {
+      "root": "根",
+      "stones": "飛び石",
+      "shelter": "雨宿り場所",
+      "bench": "腰掛け",
+      "barrier": "障害物",
+      "letter": "手紙",
+      "guest": "来客"
+    }
+  },
+  "kavehRoomArt": {
+    "title": "カーヴェの部屋模型",
+    "parts": {
+      "table": "テーブル",
+      "shelfHigh": "高い棚",
+      "shelfLow": "低い棚",
+      "desk": "机",
+      "windowOut": "窓の外",
+      "windowIn": "窓の内"
+    }
+  },
+  "nahidaMapArt": {
+    "title": "ナヒーダの地図",
+    "parts": {
+      "leaf": "葉",
+      "roots": "根",
+      "branches": "枝",
+      "sky": "空",
+      "dew": "露",
+      "board": "地図板"
+    }
+  },
+  "emilieScentArt": {
+    "title": "エミリエの調香",
+    "parts": {
+      "flower": "花",
+      "dry": "乾燥素材",
+      "wood": "木",
+      "trial": "試作品",
+      "amber": "琥珀色",
+      "pink": "桃色",
+      "mint": "ミント色",
+      "table": "作業台"
+    }
+  },
+  "furinaCueArt": {
+    "title": "フリーナの舞台",
+    "parts": {
+      "console": "操作卓",
+      "lamp": "ランプ",
+      "curtain": "幕"
+    }
+  },
+  "naviaPhotoArt": {
+    "title": "ナヴィアの写真",
+    "parts": {
+      "camera": "カメラ",
+      "chair": "椅子",
+      "crate": "木箱",
+      "board": "看板",
+      "snack": "軽食",
+      "tickets": "切符",
+      "porter": "運搬係",
+      "baker": "パン職人",
+      "mechanic": "整備士",
+      "porterSmile": "運搬係の笑顔",
+      "bakerSmile": "パン職人の笑顔",
+      "mechanicSmile": "整備士の笑顔"
+    }
+  },
+  "lyneyMagicArt": {
+    "title": "リネの手品",
+    "parts": {
+      "cart": "手品台",
+      "broken": "壊れた手品台",
+      "screen": "衝立",
+      "birds": "鳥"
+    }
+  },
+  "freminetDiveArt": {
+    "title": "フレミネの潜水",
+    "parts": {
+      "toy": "おもちゃ",
+      "buoy": "ブイ",
+      "coral": "サンゴ",
+      "marker": "目印"
+    }
+  },
+  "stoneOrnamentArt": {
+    "title": "石飾り",
+    "parts": {
+      "table": "作業台",
+      "outcrop": "岩場",
+      "pendant": "ペンダント",
+      "amber": "琥珀色",
+      "teal": "青緑色",
+      "purple": "紫色"
+    }
+  },
+  "mualaniSurfArt": {
+    "title": "ムアラニの波乗り",
+    "parts": {
+      "board": "ボード",
+      "hoop": "輪",
+      "wave": "波",
+      "saurian": "竜",
+      "ball": "ボール",
+      "charm": "お守り"
+    }
+  },
+  "kinichHuntArt": {
+    "title": "キィニチの狩り",
+    "parts": {
+      "tracks": "足跡",
+      "branch": "枝",
+      "marker": "目印",
+      "cover": "遮蔽物"
+    }
+  },
+  "springCourseArt": {
+    "title": "シロネンのコース",
+    "parts": {
+      "high": "高台",
+      "low": "低い足場",
+      "roof": "屋根",
+      "bench": "ベンチ",
+      "flag": "旗",
+      "timer": "タイマー"
+    }
+  },
+  "iansanTrainingArt": {
+    "title": "イアンサの訓練",
+    "parts": {
+      "dummy": "人形",
+      "pad": "パッド",
+      "water": "水",
+      "board": "ボード",
+      "flag": "旗",
+      "marker": "目印"
+    }
+  },
+  "trolleyArt": {
+    "title": "幻のトロッコ",
+    "parts": {
+      "idle": "トロッコ"
+    }
+  },
+  "parcelMekaArt": {
+    "title": "荷物運搬マシナリー",
+    "parts": {
+      "idle": "運搬機"
+    }
+  },
+  "stageWaveArt": {
+    "title": "舞台の波",
+    "parts": {
+      "idle": "波"
+    }
+  },
+  "grandFinaleArt": {
+    "title": "フィナーレ",
+    "parts": {
+      "idle": "本体"
+    }
+  },
+  "natlanRaceFlagArt": {
+    "title": "ナタのレース",
+    "parts": {
+      "idle": "旗"
+    }
+  },
+  "natlanTrialRaftArt": {
+    "title": "ナタの試練",
+    "parts": {
+      "idle": "いかだ"
+    }
+  },
+  "paperLanternArt": {
+    "title": "紙灯籠",
+    "parts": {
+      "idle": "灯籠"
+    }
+  },
+  "nightTrialTotemArt": {
+    "title": "夜の試練",
+    "parts": {
+      "idle": "トーテム"
+    }
+  },
+  "bennettArt": {
+    "title": "ベネットの洞窟案内",
+    "parts": {
+      "idle": "ベネット"
+    }
+  },
+  "noelleArt": {
+    "title": "ノエルの休憩",
+    "parts": {
+      "standing": "立ち姿",
+      "seated": "腰掛けた姿"
+    }
+  }
+}

@@ -203,103 +203,58 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     duel=lua.execute((ROOT/'story-sunset-duel.lua').read_text(encoding='utf8'))(core)
     moon_inlet=lua.execute((ROOT/'story-moon-inlet.lua').read_text(encoding='utf8'))()
     coast_detour=lua.execute((ROOT/'story-coast-detour.lua').read_text(encoding='utf8'))(core)
-    core.coastalGifts=field_art(lua,'coastal-gifts',(),variants={
-        gift:f'coastal-gifts-{gift}-sprites-v1.json' for gift in ('biscuit','chime','tea')})
+    prepare_grid=lua.execute((ROOT/'packed-poses.lua').read_text(encoding='utf8'))
+    alias=lua.eval("""function(store,files)
+        return setmetatable({}, {__index=function(view,key)
+            local file=files[key]
+            if file then
+                local pose=store[file]
+                rawset(view,key,pose)
+                return pose
+            end
+        end})
+    end""")
+    core.teaCluePictures=lua.table_from(json.loads((ROOT/'content/tea-clue-pictures.json').read_bytes()),recursive=True)
+    quest_files=json.loads((ROOT/'content/quest-pose-files.json').read_bytes())
+    filenames={filename for group in quest_files.values()
+               for filename in ([group] if isinstance(group,str) else group.values())}
+    quest_poses=field_art(lua,'',(),variants={name:name for name in filenames},
+                          prepare_grid=prepare_grid,packed_dir='quest-packed')
+    single=lua.eval("""function(store,file)
+        return setmetatable({},{
+            __index=function(_,key) return store[file][key] end,
+            __pairs=function() return pairs(store[file]) end
+        })
+    end""")
+    for key,group in quest_files.items():
+        core[key]=single(quest_poses,group) if isinstance(group,str) else alias(quest_poses,lua.table_from(group))
     appraisal=lua.execute((ROOT/'story-appraisal.lua').read_text(encoding='utf8'))
-    core.appraisalArt=field_art(lua,'nod-appraisal',(),variants={
-        kind:f'nod-appraisal-{kind}-sprites-v1.json' for kind in ('gear','plate','stone','machine','lamp')})
     rumor=lua.execute((ROOT/'story-rumor.lua').read_text(encoding='utf8'))
-    core.rumorArt=field_art(lua,'nod-rumor',(),variants={
-        kind:f'nod-rumor-{kind}-sprites-v1.json'
-        for kind in ('glint','little','stolen','boatkeeper','courier','painter')})
     bloom=lua.execute((ROOT/'story-bloom.lua').read_text(encoding='utf8'))
-    core.bloomArt=field_art(lua,'nod-moon-bloom',(),variants={
-        kind:f'nod-moon-bloom-{kind}-sprites-v1.json'
-        for kind in ('bud','flower','overhead','charm','rabbit','fox','petal','berry')})
     patrol=lua.execute((ROOT/'story-patrol.lua').read_text(encoding='utf8'))
-    core.patrolArt=field_art(lua,'nod-lantern-patrol',(),variants={
-        kind:f'nod-lantern-patrol-{kind}-sprites-v1.json' for kind in ('lantern','tea','biscuits')})
     survey_rig=lua.execute((ROOT/'story-survey-rig.lua').read_text(encoding='utf8'))
-    core.surveyEquipment=field_art(lua,'sne-survey',(),variants={
-        kind:f'sne-survey-{kind}-sprites-v1.json' for kind in ('lens','clamp','blanket')})
     snow_match=lua.execute((ROOT/'story-snow-match.lua').read_text(encoding='utf8'))
-    core.snowMatchArt=field_art(lua,'sne-snow-match',(),variants={
-        kind:f'sne-snow-match-{kind}-sprites-v1.json' for kind in ('wall','rubble','flag')})
-    core.snowMatchHost=field_art(lua,'childe',(),idle='childe-idle-sprites.json').idle
     return_box=lua.execute((ROOT/'story-return-box.lua').read_text(encoding='utf8'))
-    core.returnBoxArt=field_art(lua,'mond-return-box',(),variants={
-        kind:f'mond-return-box-{kind}-sprites-v1.json' for kind in ('crate','bookmark','mud','grass')})
-    core.returnBoxCarrier=field_art(lua,'hydro-slime',(),idle='hydro-slime-idle-sprites.json').idle
     night_banner=lua.execute((ROOT/'story-night-banner.lua').read_text(encoding='utf8'))
-    core.nightBannerArt=field_art(lua,'mond-night-banner',(),variants={
-        kind:f'mond-night-banner-{kind}-sprites-v1.json' for kind in ('torn','repaired','shadow')})
     fireworks=lua.execute((ROOT/'story-fireworks.lua').read_text(encoding='utf8'))
-    core.fireworkArt=field_art(lua,'ina-fireworks',(),variants={
-        kind:f'ina-fireworks-{kind}-sprites-v1.json' for kind in ('window','marker','stand')})
     stealth=lua.execute((ROOT/'story-stealth.lua').read_text(encoding='utf8'))
-    core.stealthArt=field_art(lua,'ina-sayu-route',(),variants={
-        kind:f'ina-sayu-route-{kind}-sprites-v1.json' for kind in ('brush','cave','tree','gate','leaf','nap')})
     itto_games=lua.execute((ROOT/'story-itto-games.lua').read_text(encoding='utf8'))
-    core.ittoGameArt=field_art(lua,'ina-itto-games',(),variants={
-        kind:f'ina-itto-games-{kind}-sprites-v1.json' for kind in ('flag','target','blue','orange','bell','prize')})
     tea_case=lua.execute((ROOT/'story-tea-case.lua').read_text(encoding='utf8'))
-    core.teaCaseArt=field_art(lua,'ina-tea-case',(),variants={
-        **{kind:f'ina-tea-case-{kind}-sprites-v1.json' for kind in ('cart','keeper','paper','tracks','day','dusk')},
-        'cup':'nod-lantern-patrol-tea-sprites-v1.json',
-    })
     wanderer_survey=lua.execute((ROOT/'story-wanderer-survey.lua').read_text(encoding='utf8'))
-    core.wandererSurveyArt=field_art(lua,'sum-wanderer-sign',(),variants={
-        kind:f'sum-wanderer-sign-{kind}-sprites-v1.json' for kind in ('root','stone','ring','lever','leverOn','sign')})
     observation_visitors=lua.execute((ROOT/'story-observation-visitors.lua').read_text(encoding='utf8'))
-    core.observationVisitorsArt=field_art(lua,'sum-fungus-visitors',(),variants={
-        kind:f'sum-fungus-visitors-{kind}-sprites-v1.json' for kind in ('instrument','satchel','traces','sample','cabinet','cabinetClosed')})
     collei_guide=lua.execute((ROOT/'story-collei-guide.lua').read_text(encoding='utf8'))
-    core.colleiGuideArt=field_art(lua,'sum-collei-guide',(),variants={
-        **{kind:f'sum-collei-guide-{kind}-sprites-v1.json' for kind in ('root','stones','shelter','bench','barrier','letter')},
-        'guest':'sum-collei-guest-sprites-v1.json',
-    })
     kaveh_model=lua.execute((ROOT/'story-kaveh-model.lua').read_text(encoding='utf8'))
-    core.kavehRoomArt=field_art(lua,'sum-kaveh-room',(),variants={
-        kind:f'sum-kaveh-room-{kind}-sprites-v1.json' for kind in ('table','shelfHigh','shelfLow','desk','windowOut','windowIn')})
     nahida_map=lua.execute((ROOT/'story-discovery-map.lua').read_text(encoding='utf8'))
-    core.nahidaMapArt=field_art(lua,'sum-nahida-map',(),variants={
-        kind:f'sum-nahida-map-{kind}-sprites-v1.json' for kind in ('leaf','roots','branches','sky','dew','board')})
     emilie_scent=lua.execute((ROOT/'story-emilie-scent.lua').read_text(encoding='utf8'))
-    core.emilieScentArt=field_art(lua,'fon-emilie-scent',(),variants={
-        kind:f'fon-emilie-scent-{kind}-sprites-v1.json'
-        for kind in ('flower','dry','wood','trial','amber','pink','mint','table')})
     furina_cues=lua.execute((ROOT/'story-furina-cues.lua').read_text(encoding='utf8'))
-    core.furinaCueArt=field_art(lua,'fon-furina-cues',(),variants={
-        key:f'fon-furina-cues-{key}-sprites-v1.json' for key in ('console','lamp','curtain')})
     navia_photo=lua.execute((ROOT/'story-navia-photo.lua').read_text(encoding='utf8'))
-    core.naviaPhotoArt=field_art(lua,'fon-navia-photo',(),variants={
-        **{key:f'fon-navia-photo-{key}-sprites-v1.json' for key in ('camera','chair','crate','board','snack','tickets')},
-        **{key:f'fon-navia-people-{key}-sprites-v1.json'
-           for key in ('porter','baker','mechanic','porterSmile','bakerSmile','mechanicSmile')},
-    })
     lyney_magic=lua.execute((ROOT/'story-lyney-magic.lua').read_text(encoding='utf8'))
-    core.lyneyMagicArt=field_art(lua,'fon-lyney-magic',(),variants={
-        part:f'fon-lyney-magic-{part}-sprites-v1.json' for part in ('cart','broken','screen','birds')})
     freminet_dive=lua.execute((ROOT/'story-freminet-dive.lua').read_text(encoding='utf8'))
-    core.freminetDiveArt=field_art(lua,'fon-freminet-dive',(),variants={
-        kind:f'fon-freminet-dive-{kind}-sprites-v1.json' for kind in ('toy','buoy','coral','marker')})
     stone_ornaments=lua.execute((ROOT/'story-stone-ornaments.lua').read_text(encoding='utf8'))
-    core.stoneOrnamentArt=field_art(lua,'nat-kachina-charms',(),variants={
-        kind:f'nat-kachina-charms-{kind}-sprites-v1.json'
-        for kind in ('table','outcrop','pendant','amber','teal','purple')})
     mualani_surf=lua.execute((ROOT/'story-mualani-surf.lua').read_text(encoding='utf8'))
-    core.mualaniSurfArt=field_art(lua,'nat-mualani-surf',(),variants={
-        kind:f'nat-mualani-surf-{kind}-sprites-v1.json'
-        for kind in ('board','hoop','wave','saurian','ball','charm')})
     kinich_ambush=lua.execute((ROOT/'story-kinich-ambush.lua').read_text(encoding='utf8'))
-    core.kinichHuntArt=field_art(lua,'nat-kinich-ambush',(),variants={
-        kind:f'nat-kinich-ambush-{kind}-sprites-v1.json' for kind in ('tracks','branch','marker','cover')})
     xilonen_springs=lua.execute((ROOT/'story-xilonen-springs.lua').read_text(encoding='utf8'))
-    core.springCourseArt=field_art(lua,'nat-xilonen-course',(),variants={
-        kind:f'nat-xilonen-course-{kind}-sprites-v1.json' for kind in ('high','low','roof','bench','flag','timer')})
     iansan_training=lua.execute((ROOT/'story-iansan-training.lua').read_text(encoding='utf8'))
-    core.iansanTrainingArt=field_art(lua,'nat-iansan-training',(),variants={
-        kind:f'nat-iansan-training-{kind}-sprites-v1.json' for kind in ('dummy','pad','water','board','flag','marker')})
     lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues,navia_photo,lyney_magic,freminet_dive,stone_ornaments,mualani_surf,kinich_ambush,xilonen_springs,iansan_training)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
@@ -350,30 +305,14 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     core.enemySpawns=lua.table_from(json.loads((ROOT/'content/enemy-spawns.json').read_text(encoding='utf8'))['nodes'],recursive=True)
     enemy_layout=json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))
     core.enemyArtLayout=lua.table_from(enemy_layout,recursive=True)
-    prepare_grid=lua.execute((ROOT/'packed-poses.lua').read_text(encoding='utf8'))
     enemy_files=enemy_pose_files(enemy_layout)
     legend_files=legend_pose_files(field_specs)
     filenames=set(enemy_files.values()).union(*(poses.values() for poses in legend_files.values()))
     field_poses=field_art(lua,'',(),variants={name:name for name in filenames},
                           prepare_grid=prepare_grid,packed_dir='field-packed')
-    alias=lua.eval("""function(store,files)
-        return setmetatable({}, {__index=function(view,key)
-            local file=files[key]
-            if file then
-                local pose=store[file]
-                rawset(view,key,pose)
-                return pose
-            end
-        end})
-    end""")
     core.enemyIdleArt=alias(field_poses,lua.table_from(enemy_files))
     core.hilichurlArt=core.enemyIdleArt['hilichurl']
     core.danukiArt=companion_art['bake-danuki']
-    core.bennettArt=lua.table_from(json.loads((ROOT/'assets/bennett-cave-guide-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
-    core.noelleArt=lua.table_from({
-        pose: json.loads((ROOT/f'assets/noelle-rest-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-        for pose in ('standing','seated')
-    },recursive=True)
     core.amberBowArt=lua.table_from(json.loads((ROOT/'assets/amber-bow-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
     core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
@@ -450,12 +389,6 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     wind_ring=ruin_guardian(core,core.windRingFieldArt)
     bell_gate=ruin_guardian(core,core.bellGateFieldArt)
     canopy_fungus=ruin_guardian(core,core.canopyFungusFieldArt)
-    core.trolleyArt=field_art(lua,'mirage-trolley',('idle',),idle='mirage-trolley-sprites-v1.json').idle
-    core.parcelMekaArt=field_art(lua,'parcel-meka',('idle',),idle='parcel-meka-sprites-v1.json').idle
-    core.stageWaveArt=field_art(lua,'stage-wave',('idle',),idle='stage-wave-sprites-v1.json').idle
-    core.grandFinaleArt=field_art(lua,'grand-finale',('idle',)).idle
-    core.natlanRaceFlagArt=field_art(lua,'natlan-race-flag',('idle',),idle='natlan-race-flag-sprites-v1.json').idle
-    core.natlanTrialRaftArt=field_art(lua,'natlan-trial-raft',('idle',),idle='natlan-trial-raft-sprites-v1.json').idle
     river_racer=field_display(core,core.riverRacerFieldArt)
     river_racer.damageFactor=duel.damageFactor
     river_racer.storyDriven=True
@@ -463,8 +396,6 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     river_racer.stepCoop=duel.stepCoop
     river_racer.finishPractice=duel.finishPractice
     moon_crab=lua.execute((ROOT/'field-moon-crab.lua').read_text(encoding='utf8'))(core)
-    core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
-    core.nightTrialTotemArt=field_art(lua,'night-trial-totem',('idle',))
     branch_legend=lua.execute((ROOT/'field-branch-legend.lua').read_text(encoding='utf-8'))(core)
     water_legend=lua.execute((ROOT/'field-water-legend.lua').read_text(encoding='utf-8'))(core)
     core.branchLegendArt=lua.table_from({

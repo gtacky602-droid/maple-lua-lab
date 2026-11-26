@@ -435,7 +435,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,step in ipairs(quest.itinerary) do
     local clue=step.teaClue
     if clue then
-     local art=C.teaCaseArt[clue.art]
+     local art=(C.teaCluePictures or C.teaCaseArt)[clue.art]
      clue.source,clue.box=art.source,art.box
     end
    end

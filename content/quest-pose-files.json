@@ -1,0 +1,225 @@
+{
+  "coastalGifts": {
+    "biscuit": "coastal-gifts-biscuit-sprites-v1.json",
+    "chime": "coastal-gifts-chime-sprites-v1.json",
+    "tea": "coastal-gifts-tea-sprites-v1.json"
+  },
+  "appraisalArt": {
+    "gear": "nod-appraisal-gear-sprites-v1.json",
+    "plate": "nod-appraisal-plate-sprites-v1.json",
+    "stone": "nod-appraisal-stone-sprites-v1.json",
+    "machine": "nod-appraisal-machine-sprites-v1.json",
+    "lamp": "nod-appraisal-lamp-sprites-v1.json"
+  },
+  "rumorArt": {
+    "glint": "nod-rumor-glint-sprites-v1.json",
+    "little": "nod-rumor-little-sprites-v1.json",
+    "stolen": "nod-rumor-stolen-sprites-v1.json",
+    "boatkeeper": "nod-rumor-boatkeeper-sprites-v1.json",
+    "courier": "nod-rumor-courier-sprites-v1.json",
+    "painter": "nod-rumor-painter-sprites-v1.json"
+  },
+  "bloomArt": {
+    "bud": "nod-moon-bloom-bud-sprites-v1.json",
+    "flower": "nod-moon-bloom-flower-sprites-v1.json",
+    "overhead": "nod-moon-bloom-overhead-sprites-v1.json",
+    "charm": "nod-moon-bloom-charm-sprites-v1.json",
+    "rabbit": "nod-moon-bloom-rabbit-sprites-v1.json",
+    "fox": "nod-moon-bloom-fox-sprites-v1.json",
+    "petal": "nod-moon-bloom-petal-sprites-v1.json",
+    "berry": "nod-moon-bloom-berry-sprites-v1.json"
+  },
+  "patrolArt": {
+    "lantern": "nod-lantern-patrol-lantern-sprites-v1.json",
+    "tea": "nod-lantern-patrol-tea-sprites-v1.json",
+    "biscuits": "nod-lantern-patrol-biscuits-sprites-v1.json"
+  },
+  "surveyEquipment": {
+    "lens": "sne-survey-lens-sprites-v1.json",
+    "clamp": "sne-survey-clamp-sprites-v1.json",
+    "blanket": "sne-survey-blanket-sprites-v1.json"
+  },
+  "snowMatchArt": {
+    "wall": "sne-snow-match-wall-sprites-v1.json",
+    "rubble": "sne-snow-match-rubble-sprites-v1.json",
+    "flag": "sne-snow-match-flag-sprites-v1.json"
+  },
+  "snowMatchHost": "childe-idle-sprites.json",
+  "returnBoxArt": {
+    "crate": "mond-return-box-crate-sprites-v1.json",
+    "bookmark": "mond-return-box-bookmark-sprites-v1.json",
+    "mud": "mond-return-box-mud-sprites-v1.json",
+    "grass": "mond-return-box-grass-sprites-v1.json"
+  },
+  "returnBoxCarrier": "hydro-slime-idle-sprites.json",
+  "nightBannerArt": {
+    "torn": "mond-night-banner-torn-sprites-v1.json",
+    "repaired": "mond-night-banner-repaired-sprites-v1.json",
+    "shadow": "mond-night-banner-shadow-sprites-v1.json"
+  },
+  "fireworkArt": {
+    "window": "ina-fireworks-window-sprites-v1.json",
+    "marker": "ina-fireworks-marker-sprites-v1.json",
+    "stand": "ina-fireworks-stand-sprites-v1.json"
+  },
+  "stealthArt": {
+    "brush": "ina-sayu-route-brush-sprites-v1.json",
+    "cave": "ina-sayu-route-cave-sprites-v1.json",
+    "tree": "ina-sayu-route-tree-sprites-v1.json",
+    "gate": "ina-sayu-route-gate-sprites-v1.json",
+    "leaf": "ina-sayu-route-leaf-sprites-v1.json",
+    "nap": "ina-sayu-route-nap-sprites-v1.json"
+  },
+  "ittoGameArt": {
+    "flag": "ina-itto-games-flag-sprites-v1.json",
+    "target": "ina-itto-games-target-sprites-v1.json",
+    "blue": "ina-itto-games-blue-sprites-v1.json",
+    "orange": "ina-itto-games-orange-sprites-v1.json",
+    "bell": "ina-itto-games-bell-sprites-v1.json",
+    "prize": "ina-itto-games-prize-sprites-v1.json"
+  },
+  "teaCaseArt": {
+    "cart": "ina-tea-case-cart-sprites-v1.json",
+    "keeper": "ina-tea-case-keeper-sprites-v1.json",
+    "paper": "ina-tea-case-paper-sprites-v1.json",
+    "tracks": "ina-tea-case-tracks-sprites-v1.json",
+    "day": "ina-tea-case-day-sprites-v1.json",
+    "dusk": "ina-tea-case-dusk-sprites-v1.json",
+    "cup": "nod-lantern-patrol-tea-sprites-v1.json"
+  },
+  "wandererSurveyArt": {
+    "root": "sum-wanderer-sign-root-sprites-v1.json",
+    "stone": "sum-wanderer-sign-stone-sprites-v1.json",
+    "ring": "sum-wanderer-sign-ring-sprites-v1.json",
+    "lever": "sum-wanderer-sign-lever-sprites-v1.json",
+    "leverOn": "sum-wanderer-sign-leverOn-sprites-v1.json",
+    "sign": "sum-wanderer-sign-sign-sprites-v1.json"
+  },
+  "observationVisitorsArt": {
+    "instrument": "sum-fungus-visitors-instrument-sprites-v1.json",
+    "satchel": "sum-fungus-visitors-satchel-sprites-v1.json",
+    "traces": "sum-fungus-visitors-traces-sprites-v1.json",
+    "sample": "sum-fungus-visitors-sample-sprites-v1.json",
+    "cabinet": "sum-fungus-visitors-cabinet-sprites-v1.json",
+    "cabinetClosed": "sum-fungus-visitors-cabinetClosed-sprites-v1.json"
+  },
+  "colleiGuideArt": {
+    "root": "sum-collei-guide-root-sprites-v1.json",
+    "stones": "sum-collei-guide-stones-sprites-v1.json",
+    "shelter": "sum-collei-guide-shelter-sprites-v1.json",
+    "bench": "sum-collei-guide-bench-sprites-v1.json",
+    "barrier": "sum-collei-guide-barrier-sprites-v1.json",
+    "letter": "sum-collei-guide-letter-sprites-v1.json",
+    "guest": "sum-collei-guest-sprites-v1.json"
+  },
+  "kavehRoomArt": {
+    "table": "sum-kaveh-room-table-sprites-v1.json",
+    "shelfHigh": "sum-kaveh-room-shelfHigh-sprites-v1.json",
+    "shelfLow": "sum-kaveh-room-shelfLow-sprites-v1.json",
+    "desk": "sum-kaveh-room-desk-sprites-v1.json",
+    "windowOut": "sum-kaveh-room-windowOut-sprites-v1.json",
+    "windowIn": "sum-kaveh-room-windowIn-sprites-v1.json"
+  },
+  "nahidaMapArt": {
+    "leaf": "sum-nahida-map-leaf-sprites-v1.json",
+    "roots": "sum-nahida-map-roots-sprites-v1.json",
+    "branches": "sum-nahida-map-branches-sprites-v1.json",
+    "sky": "sum-nahida-map-sky-sprites-v1.json",
+    "dew": "sum-nahida-map-dew-sprites-v1.json",
+    "board": "sum-nahida-map-board-sprites-v1.json"
+  },
+  "emilieScentArt": {
+    "flower": "fon-emilie-scent-flower-sprites-v1.json",
+    "dry": "fon-emilie-scent-dry-sprites-v1.json",
+    "wood": "fon-emilie-scent-wood-sprites-v1.json",
+    "trial": "fon-emilie-scent-trial-sprites-v1.json",
+    "amber": "fon-emilie-scent-amber-sprites-v1.json",
+    "pink": "fon-emilie-scent-pink-sprites-v1.json",
+    "mint": "fon-emilie-scent-mint-sprites-v1.json",
+    "table": "fon-emilie-scent-table-sprites-v1.json"
+  },
+  "furinaCueArt": {
+    "console": "fon-furina-cues-console-sprites-v1.json",
+    "lamp": "fon-furina-cues-lamp-sprites-v1.json",
+    "curtain": "fon-furina-cues-curtain-sprites-v1.json"
+  },
+  "naviaPhotoArt": {
+    "camera": "fon-navia-photo-camera-sprites-v1.json",
+    "chair": "fon-navia-photo-chair-sprites-v1.json",
+    "crate": "fon-navia-photo-crate-sprites-v1.json",
+    "board": "fon-navia-photo-board-sprites-v1.json",
+    "snack": "fon-navia-photo-snack-sprites-v1.json",
+    "tickets": "fon-navia-photo-tickets-sprites-v1.json",
+    "porter": "fon-navia-people-porter-sprites-v1.json",
+    "baker": "fon-navia-people-baker-sprites-v1.json",
+    "mechanic": "fon-navia-people-mechanic-sprites-v1.json",
+    "porterSmile": "fon-navia-people-porterSmile-sprites-v1.json",
+    "bakerSmile": "fon-navia-people-bakerSmile-sprites-v1.json",
+    "mechanicSmile": "fon-navia-people-mechanicSmile-sprites-v1.json"
+  },
+  "lyneyMagicArt": {
+    "cart": "fon-lyney-magic-cart-sprites-v1.json",
+    "broken": "fon-lyney-magic-broken-sprites-v1.json",
+    "screen": "fon-lyney-magic-screen-sprites-v1.json",
+    "birds": "fon-lyney-magic-birds-sprites-v1.json"
+  },
+  "freminetDiveArt": {
+    "toy": "fon-freminet-dive-toy-sprites-v1.json",
+    "buoy": "fon-freminet-dive-buoy-sprites-v1.json",
+    "coral": "fon-freminet-dive-coral-sprites-v1.json",
+    "marker": "fon-freminet-dive-marker-sprites-v1.json"
+  },
+  "stoneOrnamentArt": {
+    "table": "nat-kachina-charms-table-sprites-v1.json",
+    "outcrop": "nat-kachina-charms-outcrop-sprites-v1.json",
+    "pendant": "nat-kachina-charms-pendant-sprites-v1.json",
+    "amber": "nat-kachina-charms-amber-sprites-v1.json",
+    "teal": "nat-kachina-charms-teal-sprites-v1.json",
+    "purple": "nat-kachina-charms-purple-sprites-v1.json"
+  },
+  "mualaniSurfArt": {
+    "board": "nat-mualani-surf-board-sprites-v1.json",
+    "hoop": "nat-mualani-surf-hoop-sprites-v1.json",
+    "wave": "nat-mualani-surf-wave-sprites-v1.json",
+    "saurian": "nat-mualani-surf-saurian-sprites-v1.json",
+    "ball": "nat-mualani-surf-ball-sprites-v1.json",
+    "charm": "nat-mualani-surf-charm-sprites-v1.json"
+  },
+  "kinichHuntArt": {
+    "tracks": "nat-kinich-ambush-tracks-sprites-v1.json",
+    "branch": "nat-kinich-ambush-branch-sprites-v1.json",
+    "marker": "nat-kinich-ambush-marker-sprites-v1.json",
+    "cover": "nat-kinich-ambush-cover-sprites-v1.json"
+  },
+  "springCourseArt": {
+    "high": "nat-xilonen-course-high-sprites-v1.json",
+    "low": "nat-xilonen-course-low-sprites-v1.json",
+    "roof": "nat-xilonen-course-roof-sprites-v1.json",
+    "bench": "nat-xilonen-course-bench-sprites-v1.json",
+    "flag": "nat-xilonen-course-flag-sprites-v1.json",
+    "timer": "nat-xilonen-course-timer-sprites-v1.json"
+  },
+  "iansanTrainingArt": {
+    "dummy": "nat-iansan-training-dummy-sprites-v1.json",
+    "pad": "nat-iansan-training-pad-sprites-v1.json",
+    "water": "nat-iansan-training-water-sprites-v1.json",
+    "board": "nat-iansan-training-board-sprites-v1.json",
+    "flag": "nat-iansan-training-flag-sprites-v1.json",
+    "marker": "nat-iansan-training-marker-sprites-v1.json"
+  },
+  "trolleyArt": "mirage-trolley-sprites-v1.json",
+  "parcelMekaArt": "parcel-meka-sprites-v1.json",
+  "stageWaveArt": "stage-wave-sprites-v1.json",
+  "grandFinaleArt": "grand-finale-field-idle-sprites-v1.json",
+  "natlanRaceFlagArt": "natlan-race-flag-sprites-v1.json",
+  "natlanTrialRaftArt": "natlan-trial-raft-sprites-v1.json",
+  "paperLanternArt": "paper-lantern-sprites-v1.json",
+  "nightTrialTotemArt": {
+    "idle": "night-trial-totem-field-idle-sprites-v1.json"
+  },
+  "bennettArt": "bennett-cave-guide-sprites-v1.json",
+  "noelleArt": {
+    "standing": "noelle-rest-standing-sprites-v1.json",
+    "seated": "noelle-rest-seated-sprites-v1.json"
+  }
+}

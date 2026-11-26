@@ -1,0 +1,38 @@
+{
+  "day": {
+    "source": "ina-tea-case-props-source-v1.png",
+    "box": [
+      751,
+      524,
+      283,
+      275
+    ]
+  },
+  "dusk": {
+    "source": "ina-tea-case-props-source-v1.png",
+    "box": [
+      1347,
+      524,
+      282,
+      275
+    ]
+  },
+  "paper": {
+    "source": "ina-tea-case-props-source-v1.png",
+    "box": [
+      1359,
+      171,
+      259,
+      185
+    ]
+  },
+  "tracks": {
+    "source": "ina-tea-case-props-source-v1.png",
+    "box": [
+      105,
+      593,
+      394,
+      170
+    ]
+  }
+}
