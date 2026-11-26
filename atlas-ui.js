@@ -159,7 +159,7 @@ export function initAtlas(action, clearKeys) {
    const li = document.createElement('li');
    const button = document.createElement('button');
    const timing = stop.secondsRemaining != null ? `到着まで ${Math.ceil(stop.secondsRemaining)}秒` : stop.hint;
-   const details = [stop.label, stop.reason, timing, stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
+   const details = [stop.label, stop.level && `必要Lv${stop.level}`, stop.reason!==`必要Lv${stop.level}` && stop.reason, timing, stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
    button.textContent = `${stop.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(stop);
    li.append(button);appendGateLink(li,stop.from,stop);

@@ -792,7 +792,8 @@ function hud(f,calls,renderMs){
   const automatic=Boolean(portal.automaticArrival);
   const status=automatic?'着岸後に自動で移動':portal.available?'移動できます':portal.reason;
   const wind=portal.wind?` ｜ ${portal.wind.calm?'風が止んでいます　残り':'風が止むまで'} ${Math.ceil(portal.wind.seconds)}秒`:'';
-  $('nearbyPortalText').textContent=`行き先：${portal.name} ｜ ${status}${wind}`;
+  const level=portal.available && portal.level>1 ? `（必要Lv${portal.level}）` : '';
+  $('nearbyPortalText').textContent=`行き先：${portal.name}${level} ｜ ${status}${wind}`;
   const cooldown=$('nearbyPortalCooldown');
   cooldown.hidden=!portal.weeklyRespawnSeconds;
   if(!cooldown.hidden){

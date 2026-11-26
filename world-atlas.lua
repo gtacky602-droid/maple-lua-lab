@@ -422,6 +422,7 @@ return function(C, atlas)
     if leg.edge.x and not leg.automaticArrival then
      leg.previewX=leg.edge.x;leg.previewY=leg.edge.y
     end
+    leg.level=nodes[leg.id].level
     leg.edge=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason

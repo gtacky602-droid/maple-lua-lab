@@ -5135,7 +5135,8 @@
         },
         {
           "to": "dornman-flag-trestle",
-          "x": 536
+          "x": 536,
+          "visitedOnly": true
         },
         {
           "to": "mond-wp-95782",
