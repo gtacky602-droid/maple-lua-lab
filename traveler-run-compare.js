@@ -1,5 +1,6 @@
 import {json,sheet} from './sprite-comparison.js';
 import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
+import {compareMasks} from './sprite-fidelity.js';
 const el=id=>document.getElementById(id);
 const side=el('side'),play=el('play'),step=el('step');
 try{
@@ -7,6 +8,10 @@ try{
  const motion=el('motion');
  const samples=()=>jumps[side.value][motion.value];
  const cache=new Map();
+ const canvases=[...document.querySelectorAll('.art canvas')];
+ for(const canvas of canvases){
+  const wrap=document.createElement('div');wrap.className='motion-frame';canvas.replaceWith(wrap);wrap.append(canvas);
+ }
  let phase=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,frames=[],version=0,timer=0;
  function draw(){
   const sample=samples()?.[phase];
@@ -15,12 +20,34 @@ try{
   const {art,image}=frames[pose],height=pose===0?88:88*art.box[3]/100;
   const scale=sample?0.62:1.6;
   const bounds=spriteBounds(art,height*scale,-(sample?.lift??0)*scale);
-  for(const canvas of document.querySelectorAll('canvas')){
+  let original;
+  const quality=el('quality'),region=el('bodyRegion').value;
+  if(quality.open)quality.querySelector('tbody').replaceChildren();
+  for(const canvas of canvases){
    const ctx=canvas.getContext('2d');
    ctx.clearRect(0,0,canvas.width,canvas.height);
    ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(canvas.width/2,canvas.height-12);
    const profile=canvas.id==='source'?null:canvas.id;
    paintSprite(ctx,art,image,bounds,profile);
+   const wrap=canvas.parentElement;
+   wrap.toggleAttribute('data-band',quality.open&&region!=='all');
+   if(quality.open){
+    const bottom=canvas.height-12+bounds.y+bounds.height,top=bottom-bounds.height;
+    const start=Math.max(0,Math.floor(region==='lower'?bottom-bounds.height/3:top));
+    const end=Math.min(canvas.height,Math.ceil(region==='upper'?top+bounds.height/3:bottom));
+    if(region!=='all'){
+     wrap.style.setProperty('--x',(canvas.width/2+bounds.x)/canvas.width*100+'%');
+     wrap.style.setProperty('--y',start/canvas.height*100+'%');
+     wrap.style.setProperty('--w',bounds.width/canvas.width*100+'%');
+     wrap.style.setProperty('--h',(end-start)/canvas.height*100+'%');
+    }
+    const pixels=ctx.getImageData(0,start,canvas.width,end-start).data;
+    if(!profile)original=pixels;
+    else{
+     const score=compareMasks(original,pixels),row=quality.querySelector('tbody').insertRow();
+     for(const value of [profile==='h48c32'?'32色':'16色',score.union?score.overlapPercent.toFixed(1)+'%':'—',score.meanRgbError?.toFixed(2)??'—'])row.insertCell().textContent=value;
+    }
+   }
    ctx.fillStyle='#adc7bb';ctx.fillRect(-56,0,112,1);
    if(sample)for(let x=-56-(sample.distance*scale%12);x<56;x+=12){if(x>=-56)ctx.fillRect(x,1,1,3)}
    ctx.restore();
@@ -48,6 +75,11 @@ try{
  }
  play.onclick=()=>{playing=!playing;schedule()};
  step.onclick=()=>{playing=false;schedule();advance()};
+ el('quality').ontoggle=()=>{
+  if(el('quality').open){playing=false;schedule()}
+  if(frames.length)draw();
+ };
+ el('bodyRegion').onchange=()=>{if(frames.length)draw()};
  const measure=el('measure');
  measure.addEventListener('toggle',async()=>{
   if(!measure.open||measure.dataset.loaded)return;

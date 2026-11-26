@@ -2,11 +2,12 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const catalog=require('./content/motion-pose-files.json');
 (async()=>{
- const browser=await chromium.launch({channel:'chrome'});
+ const browser=await chromium.launch({channel:'chrome',args:['--disable-accelerated-2d-canvas']});
  try{
   const page=await browser.newPage({reducedMotion:'reduce',viewport:{width:1050,height:760}});
   await page.goto((process.env.LAB_URL||'http://127.0.0.1:9118')+'/characters-art.html');
   await page.click('a[href="traveler-run-compare.html"]');
+  await page.click('#quality summary');
   for(const side of ['right','left']){
    await page.selectOption('#side',side);
    for(let phase=1;phase<=4;phase++){
@@ -24,6 +25,14 @@ const catalog=require('./content/motion-pose-files.json');
      }
      return true;
     },{art:require('./assets/'+file),phase}),file);
+    for(const region of ['upper','lower','all']){
+     await page.selectOption('#bodyRegion',region);
+     const actual=await page.locator('#quality tbody tr').allTextContents();
+     assert.equal(actual.length,2);
+     assert(actual.every(r=>/色[\d.]+%[\d.]+$/.test(r)),file+' '+region);
+     assert.equal(await page.locator('.motion-frame[data-band]').count(),region==='all'?0:3);
+     if(side==='right'&&phase===2&&region==='lower')await page.locator('main').screenshot({path:'evidence/traveler-run-foot-comparison.png'});
+    }
     if(phase!==4)await page.click('#step');
    }
   }
@@ -41,6 +50,7 @@ const catalog=require('./content/motion-pose-files.json');
      const label=(i+1)+' / '+samples.length+' コマ・'+(s.ground?'接地':'地面から '+s.lift.toFixed(1)+' px');
      await page.waitForFunction(text=>document.querySelector('#phase').textContent===text,label);
      assert.equal(await page.locator('#phase').getAttribute('data-file'),catalog[side][s.pose]);
+     assert.equal(await page.locator('#quality tbody tr').count(),2);
      if(!s.ground){
       const bottom=await page.locator('#h32c16').evaluate(c=>{
        const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;
