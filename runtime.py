@@ -1,4 +1,5 @@
 from pathlib import Path
+from zipfile import ZipFile, Path as ZipPath
 import base64
 import sys, json
 from stygian_art import stygian_parts
@@ -15,7 +16,7 @@ def asset_entries(container):
     return ((key, value, isinstance(value, (dict, list))) for key, value in rows)
 
 
-def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None, prepare_grid=None, packed_dir=None):
+def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None, prepare_grid=None, packed_dir=None, packed_archive=None):
     filenames = {
         pose: f'{prefix}-field-{pose.replace("_", "-")}-sprites-v1.json'
         for pose in poses
@@ -31,8 +32,11 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None,
         filename = filenames.get(key)
         if filename is None:
             return None
-        if packed:
-            asset = read_packed_pose(ROOT / 'assets' / packed_dir / filename)
+        if packed_archive:
+            with ZipFile(ROOT/'assets'/packed_archive) as archive:
+                asset = read_packed_pose(ZipPath(archive, filename))
+        elif packed:
+            asset = read_packed_pose(ROOT/'assets'/packed_dir/filename)
         else:
             asset = json.loads((ROOT / 'assets' / filename).read_text(encoding='utf8'))
         if key == 'idle' and idle_anchor is not None:
@@ -318,7 +322,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     legend_files=legend_pose_files(field_specs)
     filenames=set(enemy_files.values()).union(*(poses.values() for poses in legend_files.values()))
     field_poses=field_art(lua,'',(),variants={name:name for name in filenames},
-                          prepare_grid=prepare_grid,packed_dir='field-packed')
+                          prepare_grid=prepare_grid,packed_archive='field-poses.zip')
     core.enemyIdleArt=alias(field_poses,lua.table_from(enemy_files))
     core.hilichurlArt=core.enemyIdleArt['hilichurl']
     core.danukiArt=companion_art['bake-danuki']

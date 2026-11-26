@@ -267,7 +267,8 @@ def via_http(url,id,check_level=False):
         for s,target in zip(st,(b,b.fieldPartner or b)):
             a=actor_at(s,target.x-65);a.dir,a.atk=1,42
     for c in clients: c.frame(['normal'])
-    values=advance(host,guest,.11)
+    # Sequential HTTP reads can straddle either player's hit. Wait for both swings to resolve.
+    values=advance(host,guest,.5)
     assert values[0]['fieldBoss']['hp']==values[1]['fieldBoss']['hp']<spec['hp']
     hp=values[0]['fieldBoss']['hp']
     for c in clients: cross(c,gate['x'],entry)

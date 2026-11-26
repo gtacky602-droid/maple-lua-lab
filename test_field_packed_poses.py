@@ -1,6 +1,7 @@
 """Verify all referenced field grids and reuse of the same pose across encounters."""
 import json
 from unittest.mock import patch
+from zipfile import ZipFile, Path as ZipPath
 from field_pose_files import enemy_pose_files, legend_pose_files
 from packed_pose_test_support import pose_check
 from runtime import ROOT, runtime, read_packed_pose
@@ -33,6 +34,11 @@ with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
                 grids += len(source['profiles'])
                 seen[filename] = pose
     assert reader.call_count == len(seen)
+    assert all(isinstance(call.args[0], ZipPath) for call in reader.call_args_list)
+    with ZipFile(ROOT/'assets/field-poses.zip') as archive:
+        assert sorted(archive.namelist()) == sorted(seen)
+        for name in seen:
+            assert json.loads(archive.read(name)) == read('assets/field-packed/'+name)
     assert same(core.enemyIdleArt['tainted-water-spouting-phantasm'],core.branchLegendArt['lake-vivianne'].idle)
     assert same(core.enemyIdleArt['tainted-water-splitting-phantasm'],core.branchLegendArt['lake-ninianne'].idle)
     assert not same(core.branchLegendArt['lake-vivianne'].idle,core.branchLegendArt['lake-ninianne'].idle)
