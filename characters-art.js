@@ -6,6 +6,12 @@ async function art(data){const image=new Image();image.src='assets/'+data.source
 async function add(id,name,data,h,leftData,rear){
  const [right,left,layer]=await Promise.all([art(data),leftData&&art(leftData),rear&&art(rear.data)]);
  const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;
+ if(id==='shouki'){
+  const link=document.createElement('a');
+  link.href='map-art.html?node=shouki-godmaking-arena&placements=live';
+  link.textContent='週ボス会場で、地面から伸びる上半身を見る';
+  article.append(link);
+ }
  if($('compareBoth')){
   const extra=document.createElement('div');
   extra.hidden=true;extra.innerHTML='<small>16色版</small><canvas width="340" height="300"></canvas>';
@@ -38,13 +44,10 @@ try{
   }
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
-  const packed=catalog==='character-art-gallery.json'?await json('assets/character-gallery-packed.json'):null;
-  const readPose=file=>packed?packed[file]:json('assets/'+file);
-  for(const item of (await json('content/'+catalog)).items){
-   const [data,left,rearData]=await Promise.all([
-    readPose(item.file),item.leftFile&&readPose(item.leftFile),item.rear&&readPose(item.rear.file)
-   ]);
-   await add(item.id,item.name,data,item.height,left,item.rear&&{...item.rear,data:rearData});
+  const kind=document.documentElement.dataset.gallery==='bosses'?'boss':'character';
+  const [packed,{items}]=await Promise.all([json('assets/'+kind+'-gallery-packed.json'),json('content/'+catalog)]);
+  for(const item of items){
+   await add(item.id,item.name,packed[item.file],item.height,packed[item.leftFile],item.rear&&{...item.rear,data:packed[item.rear.file]});
   }
  }
  const searchControls=document.createElement('div');searchControls.className='gallery-search';
@@ -82,9 +85,10 @@ try{
     paintSprite(ctx,data,image,body,selected);
     ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,canvas.height-15,canvas.width,1);
    }
-   const runs=rectangleCount(a)+(rear?rectangleCount(rear.data.profiles[profile]):0);
-   const standard=rectangleCount(data.profiles.legacy)+(rear?rectangleCount(rear.data.profiles.legacy):0);
-   article.querySelector('.stats').textContent=both?`32色版 ${rectangleCount(a)}矩形 ／ 16色版 ${rectangleCount(data.profiles.h32c16)}矩形`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
+   const total=key=>rectangleCount(data.profiles[key])+(rear?rectangleCount(rear.data.profiles[key]):0);
+   const runs=total(profile);
+   const standard=total('legacy');
+   article.querySelector('.stats').textContent=both?`32色版 ${total('h48c32')}矩形 ／ 16色版 ${total('h32c16')}矩形${rear?'（翼込み）':''}`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
   }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:true,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
  }
  if($('compareBoth'))$('compareBoth').onchange=()=>{$('profile').disabled=$('compareBoth').checked;render()};

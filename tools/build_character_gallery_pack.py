@@ -1,11 +1,15 @@
 """Pack all character gallery poses while preserving anchors and profile dimensions."""
+import argparse
 import json
 from pathlib import Path
 from palette_rects import pack_grid
 
 root = Path(__file__).resolve().parents[1]
 assets = root / 'assets'
-catalog = json.loads((root / 'content/character-art-gallery.json').read_bytes())
+parser = argparse.ArgumentParser()
+parser.add_argument('--gallery', choices=['character','boss'], default='character')
+gallery = parser.parse_args().gallery
+catalog = json.loads((root / f'content/{gallery}-art-gallery.json').read_bytes())
 packed = {}
 source_bytes = 0
 for item in catalog['items']:
@@ -19,6 +23,6 @@ for item in catalog['items']:
             name: dict(pack_grid(grid), colors=grid['colors']) for name, grid in art['profiles'].items()
         }
         packed[file] = art
-output = assets / 'character-gallery-packed.json'
+output = assets / f'{gallery}-gallery-packed.json'
 output.write_bytes((json.dumps(packed, ensure_ascii=False, separators=(',', ':'))+'\n').encode())
 print(f'{len(packed)} poses: {source_bytes} bytes -> {output.stat().st_size} bytes')

@@ -9,7 +9,7 @@ function rectangleBytes(grid){
  return decoded.get(grid);
 }
 export function rectangleCount(grid){
- return grid.runs?grid.runs.length:rectangleBytes(grid).length/5;
+ return grid.runs?grid.runs.length:rectangleBytes(grid).length/(grid.wide?9:5);
 }
 
 export function paintSprite(ctx,art,image,bounds,profile){
@@ -28,6 +28,11 @@ export function paintSprite(ctx,art,image,bounds,profile){
   for(const run of runs)draw(...run);
  }else{
   const bytes=rectangleBytes(grid);
-  for(let i=0;i<bytes.length;i+=5)draw(bytes[i],bytes[i+1],bytes[i+2],bytes[i+3],grid.palette[bytes[i+4]]);
+  if(grid.wide){
+   const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
+   for(let i=0;i<bytes.length;i+=9)draw(view.getUint16(i,true),view.getUint16(i+2,true),view.getUint16(i+4,true),view.getUint16(i+6,true),grid.palette[bytes[i+8]]);
+  }else{
+   for(let i=0;i<bytes.length;i+=5)draw(bytes[i],bytes[i+1],bytes[i+2],bytes[i+3],grid.palette[bytes[i+4]]);
+  }
  }
 }
