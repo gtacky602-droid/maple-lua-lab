@@ -394,10 +394,10 @@ function expeditionStops(quest,state,graph,button){
  const caption=document.createElement('summary');
  caption.textContent='遠征の足跡（記録'+marks.length+'件）';
  section.append(caption);
- let lastNode,list;
- for(const mark of marks){
+ let lastNode,list,node;
+ for(const [index,mark] of marks.entries()){
   if(mark.node!==lastNode){
-   const node=graph.nodes.find(n=>n.id===mark.node);
+   node=graph.nodes.find(n=>n.id===mark.node);
    const group=document.createElement('div'),place=document.createElement('strong');
    place.textContent=node?.name??mark.node;
    group.append(place);
@@ -412,6 +412,18 @@ function expeditionStops(quest,state,graph,button){
   }
   const item=document.createElement('li');
   item.textContent=mark.completedLabel||mark.action||mark.objective||mark.name;
+  if(node){
+   const point=surveyPoint(quest,index,node.id,node);
+   const links=point?[{label:'調査位置を見る',url:surveyPointUrl(point)}]:
+    mark.kind==='kill'?remainingEnemyPoints(mark):[];
+   if(mark.kind==='arrive'&&graph.nodes.some(n=>n.id===mark.from&&n.voyage?.destination===node.id)){
+    links.push({label:'到着位置を見る',url:'map-art.html?'+new URLSearchParams({placements:'live',node:node.id,voyage:mark.from})});
+   }
+   for(const {label,url} of links){
+    const link=document.createElement('a');
+    link.href=url;link.textContent=label;link.target='_blank';link.rel='noopener';item.append(' ',link);
+   }
+  }
   list.append(item);
  }
  return section;
