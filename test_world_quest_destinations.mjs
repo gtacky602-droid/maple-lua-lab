@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {questDestinations,questTargetNode} from './quest-route.js';
+import {questDestinations,questRoute,questTargetNode} from './quest-route.js';
 import {atlasQuestObjectives,trackedQuest} from './quest-journal.js';
 
 const read=async name=>JSON.parse((await readFile('content/'+name+'.json','utf8')).replace(/^\uFEFF/,''));
@@ -18,6 +18,22 @@ for(const id of queue){
   if(!reachable.has(next)){reachable.add(next);queue.push(next)}
  }
 }
+// Lowest possible entrance level along published links, ignoring quest gates.
+const minimum=new Map([[start,nodes.get(start).level]]),pending=[start];
+for(const id of pending){
+ const room=nodes.get(id);
+ for(const next of [...room.exits.map(e=>e.to),room.voyage?.destination].filter(Boolean)){
+  const level=Math.max(minimum.get(id),nodes.get(next).level||1);
+  if(level<(minimum.get(next)??Infinity)){minimum.set(next,level);pending.push(next)}
+ }
+}
+assert.equal(minimum.get('sum-wp-28720'),60);
+assert.equal(minimum.get('sum-wp-28721'),62);
+const harborFrame={storyGraph:graph,story:{active:true,node:'sum-wp-28720',quests:{}},progression:{level:60}};
+const nextBank=nodes.get('sum-wp-28721');
+const bankRoute=questRoute(harborFrame,{kind:'visit',target:nextBank.id},'active');
+assert(bankRoute.text.includes(nextBank.name+'に入るにはLv62'));
+console.log('Fields above listed level on every ordinary path:',graph.nodes.filter(n=>minimum.get(n.id)>(n.level||1)).length);
 const innerRooms=graph.nodes.filter(n=>n.weeklySceneOf);
 for(const room of innerRooms)assert(reachable.has(room.weeklySceneOf));
 for(const room of graph.nodes)assert(reachable.has(room.id)||innerRooms.includes(room),room.id);

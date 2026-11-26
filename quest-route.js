@@ -231,7 +231,13 @@ export function questRoute(f,q,status,preferredNode){
  const portal=Array.isArray(f.storyPortals)&&f.storyPortals.find(p=>p.gateX===edge.x&&p.to===edge.to&&p.y===(edge.y??480));
  const wind=portal?.wind;
  const needsDark=edge.darkOnly && f.storyLocalLight?.mode!=='dark';
- if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
+ if(level<required){
+  const gated=path.slice(1).map(id=>nodes.get(id));
+  const first=gated.find(n=>n.level>level),highest=gated.find(n=>n.level===required);
+  notes.push('現在のレベルでは通れません。'+first.name+'に入るにはLv'+first.level+'が必要です');
+  if(highest!==first)notes.push('経路上では'+highest.name+'のLv'+required+'が必要です');
+ }
+
  if(needsDark){
   const control=nodes.get(from).localLight?.controls.find(c=>!c.darkOnly);
   if(control && actor){
