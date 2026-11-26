@@ -16,6 +16,14 @@ try{
   const ready=()=>page.waitForFunction(id=>window.mapArt?.node===id&&mapArt.backgroundState==='ready',to);
   await ready();
   assert.match(await page.locator('#context').innerText(),/開いた足場に到着/);
+  assert((await page.locator('#context').innerText()).includes('旅人の到着位置（'+gate.arrivalX+', '+gate.arrivalY+'）'));
+  for(const canvas of ['png','rect']){
+   const lit=await page.evaluate(({canvas,x,y})=>{
+    const data=document.getElementById(canvas).getContext('2d').getImageData(x-mapArt.camera-8,y-12,16,12).data;
+    return data.some((v,i)=>i%4===0 && v===145 && data[i+1]===255 && data[i+2]===240);
+   },{canvas,x:gate.arrivalX,y:gate.arrivalY});
+   assert(lit,to+' '+canvas);
+  }
   const pixels=()=>page.evaluate(([x,y])=>['png','rect'].map(id=>Array.from(document.getElementById(id)
    .getContext('2d').getImageData(x-mapArt.camera-12,y,24,8).data).join(',')),[gate.arrivalX,gate.arrivalY]);
   const built=await pixels();

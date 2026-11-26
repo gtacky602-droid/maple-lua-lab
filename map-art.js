@@ -7,7 +7,7 @@ import {lanternPreview} from './lantern-preview.js';
 import {setupSceneryDetail} from './scenery-detail.js';
 import {setupSharedLegendArt} from './legend-shared-art.js';
 import {setupSceneryDownload} from './scenery-export.js';
-import {arrivalCamera,setupGatePreview} from './map-gate-preview.js';
+import {arrivalCamera,gateLanding,setupGatePreview} from './map-gate-preview.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
@@ -123,6 +123,7 @@ try{
  const liveView=query.get('placements')==='live';
  const departure=liveView&&nodes.get(query.get('from'))?.exits.find(edge=>
   edge.to===openingNode.id&&String(edge.x)===query.get('departureX'));
+ const landing=departure&&gateLanding(query.get('from'),departure,openingNode);
  // On a return trip the quest bridge under the recorded landing is already built.
  let landingQuest,landingDeck;
  if(Number.isFinite(departure?.arrivalX)&&Number.isFinite(departure.arrivalY)){
@@ -565,6 +566,7 @@ try{
    const params=new URLSearchParams(otherView);
    params.set('node',gate.to);params.set('placements','live');params.delete('phase');params.delete('light');
    params.set('camera',arrivalCamera(n.id,gate,destination));
+   params.set('from',n.id);params.set('departureX',gate.x);
    if(gate.nightTotem==='enter')params.set('arena','nightTrial');
    link.textContent=(gate.nightTotem==='enter'?'柱の先の試練場を見る：':'入口の黒曜石の柱を見る：')+destination.name;
    link.href='map-art.html?'+params;
@@ -621,6 +623,7 @@ try{
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   if(metrics?.locations && !afterReport(n)) $('context').append(` この仮背景は${metrics.locations}地点で共用しています。`);
+  if(landing&&n===openingNode)$('context').append(' 旅人の到着位置（'+landing.x+', '+landing.y+'）を水色の目印で表示しています。');
   if(landingDeck&&n===openingNode&&frame.platforms.includes(landingDeck))$('context').append(' 「'+landingQuest.name+'」で開いた足場に到着します。');
   $('questOpeningNote').hidden=!(liveView && questNotes.has(n.id));
   $('questOpeningNote').textContent=liveView?(questNotes.get(n.id)??''):'';
@@ -921,6 +924,13 @@ try{
    }
    for(const [x,y,w,h,color] of forestRects){
     ctx.fillStyle=color;ctx.fillRect(x,y,w,h);
+   }
+   if(landing&&n===openingNode){
+    const x=landing.x-camera,y=landing.y;
+    ctx.save();
+    ctx.beginPath();ctx.moveTo(x-7,y-10);ctx.lineTo(x,y-2);ctx.lineTo(x+7,y-10);
+    ctx.strokeStyle='#173841';ctx.lineWidth=5;ctx.stroke();
+    ctx.strokeStyle='#91fff0';ctx.lineWidth=2;ctx.stroke();ctx.restore();
    }
    gatePreview.draw(ctx,camera,darkRoom(n));
    if(selectedSurveyPoint){

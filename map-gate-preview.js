@@ -1,12 +1,15 @@
 // Match story.lua's traveler arrival and 960px camera for a physical gate.
+export function gateLanding(from,gate,destination){
+ const back=destination.exits.findLast(edge=>edge.to===from&&!edge.returnOnly);
+ const ride=gate.liftSeconds||gate.boatSeconds||gate.waterwaySeconds||gate.phaseSeconds;
+ const side=back&&back.x>=720?destination.width-160:160;
+ const x=gate.arrivalX??(ride&&back?back.x:side);
+ const y=gate.arrivalY??(ride?(back?.y??480):(destination.swim?.entryY??480));
+ return {x:destination.swim?Math.max(20,x):x,y};
+}
+
 export function arrivalCamera(from,gate,destination){
- let x=gate.arrivalX;
- if(x==null){
-  const back=destination.exits.findLast(edge=>edge.to===from&&!edge.returnOnly);
-  const ride=gate.liftSeconds||gate.boatSeconds||gate.waterwaySeconds||gate.phaseSeconds;
-  x=back&&back.x>=720?destination.width-160:160;
-  if(ride&&back)x=back.x;
- }
+ const {x}=gateLanding(from,gate,destination);
  return Math.max(0,Math.min(Math.round(x-400),destination.width-960));
 }
 
