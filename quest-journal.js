@@ -83,12 +83,12 @@ export function atlasQuestObjectives(frame,q,node){
  if(onBranch || status==='complete')return objectives;
  if(questDestinations(frame,q,status).candidates.includes(node)){
   addObjective(status==='ready'?(q.giver?q.giver+'に報告する':'拠点で報告する'):
-   questObjective(q,frame.storyGraph,state,frame.story.growth),status==='active'?state.count:undefined);
+   questObjective(q,frame.storyGraph,state,frame.story.growth,frame.storyRailTransit),status==='active'?state.count:undefined);
  }
  return objectives;
 }
 
-export function questObjective(q,graph,state,growth={}){
+export function questObjective(q,graph,state,growth={},railTransit){
  if(q.lesson){
   if(state?.status==='complete')return '成長依頼を報告済み';
   if(state?.count===q.goal)return '拠点で報告する';
@@ -196,9 +196,10 @@ export function questObjective(q,graph,state,growth={}){
   return '北斗が荷運び人を避難させている間に、帰りの桟橋の魔物を退ける';
  }
  if(q.rail){
+  if(railTransit && state?.status==='active')return railTransit.release?'荷車が分岐へ移動中。到着すると奥の足場が下りる':'荷車が港へ移動中。到着すると市場への帰り道が開く';
   if(state?.status==='complete')return '荷車が帰り、山海の大市が開いた';
   if(state?.count===q.goal)return '市場への帰り道から港へ戻り、北斗に報告する';
-  if(state?.count===2)return '分岐に止まった荷車をGキーで港へ送り出す';
+  if(state?.count===2)return '分岐に止まった荷車の横で、黄色いレバーをGキーで切り替えて港へ送り出す';
   if(state?.count===1)return '保管区画で石切り場の番人を倒す';
   return '保管区画の上段に上がり、Gキーで荷車の留め具を外す';
  }
@@ -315,7 +316,7 @@ export function trackedQuest(f,id,selectedWorksite){
     text:`${q.name} ｜ 報告済み ｜ ${hub}から「${opened.name}」を通って狩場へ行けます。`};
   }
  }
- const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth);
+ const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
  const room=status==='active'&&q.forest?.rooms[st.count];
  if(room&&route.node===room.node){
@@ -482,7 +483,7 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   const firstClear=q.chapterClearXp&&(st?.count??0)<q.chapterClearCount
    ?` ｜ 章ボス初回勝利 ${rewardNumber.format(q.chapterClearXp)}EXP`:'';
   const weapon=q.weaponReward?` ｜ ${status==='complete'?'受取済み':'初回報酬'}：${q.weaponReward}`:'';
-  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear}${weapon} `;
+  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth,f.storyRailTransit)} ｜ 受注・報告：${hub}${payout}${firstClear}${weapon} `;
   if(selected&&status!=='complete'){
    row.append(button('受注・報告場所を地図で見る','world_map_focus:'+q.hub));
   }

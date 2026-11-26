@@ -76,6 +76,7 @@ try{
  await walk(658);
  await page.getByRole('button',{name:'G：荷車の留め具を外す'}).click();
  await page.waitForFunction(()=>window.lab.frame.storyRailTransit?.release);
+ await page.locator('#trackedQuestText').filter({hasText:'荷車が分岐へ移動中'}).waitFor({timeout:3500});
  await progress(1);
  assert.match(await page.locator('#storyElite').innerText(),/石切り場の番人/);
  await walk(1070);
@@ -87,9 +88,17 @@ try{
  assert.match(await page.locator('#storyChapterReward').innerText(),/73,057 EXP/);
  assert.equal((await frame()).progression.questXp-beforeVictory.progression.questXp,73057);
  await walk(1030);
+ const ready=await frame();
+ const lever=ready.draws.find(d=>d.color==='#f2c85c' && d.w===10 && d.h===9);
+ assert.ok(lever,'yellow switch handle beside the parked cart');
+ assert.equal(lever.x+ready.camera,976);
+ await canvas.screenshot({path:'evidence/liyue-quarry-switch-ready.png'});
  await page.keyboard.press('KeyG');
  await page.waitForFunction(()=>window.lab.frame.storyRailTransit?.release===false);
  assert.match(await page.locator('#storyMarket').innerText(),/荷車が港へ移動中/);
+ await page.locator('#trackedQuestText').filter({hasText:'荷車が港へ移動中'}).waitFor({timeout:3500});
+ const dispatched=await frame();
+ assert.ok(dispatched.draws.some(d=>d.color==='#a67a59' && d.w===10 && d.x+dispatched.camera===998));
  await progress(3);
  await walk(1690);
  await through(harbor);

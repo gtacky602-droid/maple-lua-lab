@@ -49,6 +49,18 @@ function R.drawCart(boxes,x,y)
  end
 end
 
+-- The handle stays above the parked cart so the control remains visible.
+local function switchStand(boxes,x,y,ready,thrown)
+ if x+16<0 or x-16>960 then return end
+ draw(boxes,x-12,y-6,24,6,'#554437')
+ draw(boxes,x-4,y-57,8,51,'#64544b')
+ draw(boxes,x-3,y-56,3,48,'#c79a62')
+ local dir=thrown and 1 or -1
+ for i=1,3 do draw(boxes,x+dir*i*3-2,y-56-i*4,5,6,'#d6b47a') end
+ draw(boxes,x+dir*11-5,y-76,10,9,ready and '#f2c85c' or '#a67a59')
+ draw(boxes,x-3,y-57,6,6,'#e5ce97')
+end
+
 local function market(boxes,x,y,color,goods)
  draw(boxes,x-39,y-70,78,9,'#513831')
  draw(boxes,x-34,y-69,5,69,'#5d3b2c')
@@ -81,8 +93,12 @@ function R.observe(s,f,boxes,q,state)
  end
  local c=s.camera
  draw(boxes,spec.startX-45-c,477,spec.exitX-spec.startX+75,3,'#9b8461')
- for tie=spec.startX-40,spec.exitX+20,40 do draw(boxes,tie-c,472,6,8,'#594336') end
+ local first=spec.startX-40
+ local visibleFirst=first+40*math.max(0,math.ceil((c-6-first)/40))
+ for tie=visibleFirst,math.min(spec.exitX+20,c+960),40 do draw(boxes,tie-c,472,6,8,'#594336') end
  if state.count<q.goal then R.drawCart(boxes,x-c,480);f.storyCartX=x end
+ local thrown=state.count>=q.goal or (trip and not trip.release)
+ switchStand(boxes,spec.dispatch.x-38-c,spec.dispatch.y,state.count==2 and not trip,thrown)
  if state.count==0 then
   local latch=spec.release
   draw(boxes,latch.x-7-c,latch.y-25,14,25,'#5b4736')
