@@ -204,7 +204,8 @@ export function worksitePoints(quest){
   {...quest.delivery.cache,node:quest.target}];
  if(quest?.rail)return [quest.rail.release,quest.rail.dispatch].map(p=>({...p,node:quest.target,name:p.label}));
  if(quest?.sights)return [...quest.sights.places,quest.sights.bridge].map(p=>({...p,node:quest.target}));
- return quest?.cooking?.ingredients??quest?.construction?.surveys??quest?.stone?.marks??[];
+ if(quest?.stone)return [...quest.stone.marks,...[quest.stone.mural,quest.stone.model].map(site=>({...site,node:quest.target}))];
+ return quest?.cooking?.ingredients??quest?.construction?.surveys??[];
 }
 export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);

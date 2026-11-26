@@ -1,4 +1,4 @@
-import {hasOptionalPath,pendingQuestPaths,questDestinations,questRoute,questTargetNode} from './quest-route.js';
+import {hasOptionalPath,pendingFieldSites,pendingQuestPaths,questDestinations,questRoute,questTargetNode} from './quest-route.js';
 import {teaNotebook} from './tea-notebook.js';
 import {letterPoint,puzzleStep,surveyPoint,surveyPointUrl,worksitePoint} from './survey-point.js';
 export function questStatus(q,state,quests,level=Infinity,growthEligibility){
@@ -142,6 +142,12 @@ export function atlasQuestObjectives(frame,q,node){
  if(q.roof&&frame.storyRoof?.retry){
   const stage=frame.storyRoof.stage,point=surveyPoint(q,stage,node);
   return point?[{text:questObjective(q,frame.storyGraph,{count:stage}),points:[{label:point.name,url:surveyPointUrl(point)}]}]:[];
+ }
+ if(status==='active'){
+  const sites=pendingFieldSites(q,state).filter(site=>site.node===node);
+  if(sites.length)return [{text:questObjective(q,frame.storyGraph,state),points:sites.map(site=>({
+   label:site.name,url:surveyPointUrl(worksitePoint(q,site.id,node))
+  }))}];
  }
  if(q.sights&&state.sights&&node===q.target){
   let places=[];
@@ -579,7 +585,8 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const local=f.storyHunts?.[id];
  const site=selectedWorksite??f.storyWorksites?.[id]?.find(p=>p.point===local?.point || (!local && p.node===route.node));
- const point=status==='active' && (worksitePoint(q,site?.point,route.node)??surveyPoint(q,st.count,route.node,null,null,site?.choice));
+ const fieldSite=status==='active'&&pendingFieldSites(q,st).find(place=>place.node===route.node);
+ const point=status==='active' && (worksitePoint(q,site?.point??fieldSite?.id,route.node)??surveyPoint(q,st.count,route.node,null,null,site?.choice));
  return {...route,pointUrl:point?surveyPointUrl(point):route.gateUrl,pointLabel:!point?route.gateLabel:undefined,text:`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route.text?' ｜ '+route.text:'')};
 }
 export function trackedQuestText(f,id){return trackedQuest(f,id).text}

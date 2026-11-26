@@ -17,6 +17,18 @@ export function pendingQuestPaths(q,state){
  }).filter(p=>p.step);
 }
 
+export function pendingFieldSites(q,state){
+ if(q.cooking)return q.cooking.ingredients.filter(site=>!state?.cooking?.gathered?.[site.id]);
+ if(q.stone){
+  const {marks,mural,model}=q.stone;
+  if(state?.count===marks.length)return [{...mural,node:q.target}];
+  if(state?.count===marks.length+1)return [{...model,node:q.target}];
+  return marks.filter(site=>!state?.stone?.marked?.[site.id]);
+ }
+ if(q.construction&&state?.construction)return q.construction.surveys.filter(site=>!state.construction.surveyed?.[site.id]);
+ return [];
+}
+
 export function questDestinations(f,q,status,preferredNode){
  const optional=hasOptionalPath(q,f.story.quests?.[q.id]);
  const graph=f.storyGraph;
@@ -56,10 +68,8 @@ export function questDestinations(f,q,status,preferredNode){
   if(!canRecover && q.delivery.packages.some(p=>!state?.delivered[p.id]&&(p.id!==cache||state?.recovered)))target=q.hub;
  }
  const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
- const ingredients=status==='active'&&q.cooking?.ingredients.filter(item=>!f.story.quests?.[q.id]?.cooking.gathered[item.id]);
- const marks=status==='active'&&q.stone?.marks.filter(item=>!f.story.quests?.[q.id]?.stone.marked[item.id]);
- const surveys=work&&q.construction.surveys.filter(item=>!work.surveyed[item.id]);
- const unfinished=ingredients?.length?ingredients:marks?.length?marks:surveys?.length?surveys:lookingForClues?q.trail.clues:null;
+ const fieldSites=status==='active'?pendingFieldSites(q,f.story.quests?.[q.id]):[];
+ const unfinished=fieldSites.length?fieldSites:lookingForClues?q.trail.clues:null;
  const destinations=arrival?[arrival.from]:branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
   :unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
  const candidates=unfinished?.some(item=>item.node===preferredNode)?[preferredNode]:destinations;

@@ -78,7 +78,7 @@ local function symbol(draws,x,y)
  rect(draws,x-7,y-10,14,3,'#dfc895')
 end
 
-local function drawSite(draws,item,x,y,opened)
+function S.drawSite(draws,item,x,y,opened)
  if item.id=='craft-mural' then
   rect(draws,x-52,y-72,104,72,'#7c7767')
   rect(draws,x-49,y-69,98,6,'#ada287')
@@ -131,7 +131,7 @@ end
 function S.observe(s,f,draws,q,state)
  local spec=q.stone
  for _,item in ipairs(sites(s,q,state)) do
-  drawSite(draws,item,item.x-s.camera,item.y,state.count>=4)
+  S.drawSite(draws,item,item.x-s.camera,item.y,state.count>=4)
  end
  local item=S.nearby(s,q,state)
  if not item or s.lift then return end

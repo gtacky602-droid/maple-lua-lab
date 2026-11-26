@@ -175,6 +175,11 @@ def build():
             runs=[relative(rect,0,item['y']) for rect in rectangles(draws)]
             assert runs
             art[item['id']]=runs
+        if kind=='stone':
+            for item in (q[kind]['mural'],q[kind]['model']):
+                draws=lua.table()
+                module.drawSite(draws,lua.table_from(item),0,0,False)
+                art[item['id']]=rectangles(draws)
         props[q['id']]=art
     quest=next(q for q in graph['quests'] if q['kind']=='construction')
     forest_quest=next(q for q in graph['quests'] if q.get('forest'))
