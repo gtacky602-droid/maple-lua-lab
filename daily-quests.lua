@@ -87,25 +87,33 @@ return function(C,config,graph)
   return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
  end
 
- -- Region-wide patrols, species hunts and elite hunts use the actual spawn list.
- -- Resolve matching spawns once, then expose only currently revealed map locations.
+ -- Only the placement definitions are static. Entry populations can change after a report.
  local dispatchLocations={}
+ local function matchingPlacements(q,node)
+  local candidates={}
+  for _,p in ipairs(C.enemySpawns[node.id] or {}) do
+   if not p.dailyExclude and eligible(q,node,p) then candidates[#candidates+1]=p end
+  end
+  return candidates
+ end
+
  local function targetNodes(s,q)
-  if q.filter.nodes then return q.filter.nodes end
   local locations=dispatchLocations[q.id]
   if not locations then
    locations={}
-   for _,node in ipairs(graph.nodes) do
-    local candidates={}
-    for _,p in ipairs(C.enemySpawns[node.id] or {}) do
-     if not p.dailyExclude and eligible(q,node,p) then candidates[#candidates+1]=p end
-    end
+   local function add(node)
+    local candidates=matchingPlacements(q,node)
     if #candidates>0 then locations[#locations+1]={id=node.id,placements=candidates} end
    end
-   table.sort(locations,function(a,b)
-    if nodes[a.id].level~=nodes[b.id].level then return nodes[a.id].level<nodes[b.id].level end
-    return a.id<b.id
-   end)
+   if q.filter.nodes then
+    for _,id in ipairs(q.filter.nodes) do add(nodes[id]) end
+   else
+    for _,node in ipairs(graph.nodes) do add(node) end
+    table.sort(locations,function(a,b)
+     if nodes[a.id].level~=nodes[b.id].level then return nodes[a.id].level<nodes[b.id].level end
+     return a.id<b.id
+    end)
+   end
    dispatchLocations[q.id]=locations
   end
   local visible={}
@@ -125,10 +133,7 @@ return function(C,config,graph)
    local role
    if q.hub==id then role='hub'
    else
-    local candidates={}
-    for _,p in ipairs(C.enemySpawns[id] or {}) do
-     if not p.dailyExclude and eligible(q,node,p) then candidates[#candidates+1]=p end
-    end
+    local candidates=matchingPlacements(q,node)
     if #candidates>0 and C.hasStoryTargetOnEntry(s,id,candidates) then role='field' end
    end
    if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver} end

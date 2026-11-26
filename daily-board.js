@@ -34,7 +34,7 @@ export function initDailyBoard(dispatch){
   const guide=element('a','対象例のフィールドとドット絵');
   guide.href='daily-field-guide.html?'+new URLSearchParams({quest:entry.id});guide.target='_blank';guide.rel='noopener';
   node.append(guide);
-  const targets=(entry.targetNodes??[]).map(id=>mapNodes.get(id)).filter(Boolean);
+  const targets=Array.from(entry.targetNodes??[]).map(id=>mapNodes.get(id)).filter(Boolean);
   if(targets.length){
    const label=element('label','討伐・調査地点 ');
    const select=element('select');
@@ -53,6 +53,8 @@ export function initDailyBoard(dispatch){
    };
    label.append(select);
    node.append(label);
+  }else if(entry.targetNodes){
+   node.append(element('p','現在の地図に、対象の敵が出現する地点はありません。'));
   }
   const unit=entry.material?'個':'';
   if(mode==='offer'){
