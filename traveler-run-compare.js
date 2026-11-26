@@ -12,6 +12,8 @@ try{
  const cache=new Map();
  const runLayers=new Map(),faceCandidate=el('faceCandidate');
  faceCandidate.onchange=()=>{if(frames.length)draw()};
+ const nativeScale=el('nativeScale');
+ nativeScale.onchange=()=>{if(frames.length)draw()};
  const runCache=el('runCache'),palettePixels=el('palettePixels');
  palettePixels.onchange=()=>{if(frames.length)draw()};
  runCache.onchange=()=>{
@@ -34,7 +36,10 @@ try{
   const refined=pose===2&&faceCandidate.checked;
   if(refined&&!frame.candidate)frame.candidate=travelerFaceCandidate(frame.art,image,side.value);
   const art=refined?frame.candidate:frame.art,height=pose===0?88:88*art.box[3]/100;
-  const scale=sample?0.62:1.6;
+  const nativeRun=!sample&&nativeScale.checked;
+  el('nativeScaleControl').hidden=Boolean(sample);
+  document.querySelector('.art').toggleAttribute('data-native',nativeRun);
+  const scale=sample?0.62:nativeRun?1:1.6;
   const bounds=spriteBounds(art,height*scale,-(sample?.lift??0)*scale);
   let original,lightOverlap;
   const quality=el('quality'),region=el('bodyRegion').value;
@@ -49,7 +54,7 @@ try{
     paintSprite(ctx,art,image,bounds,profile,true);
     cost='原寸合成・画像1枚';
    }else if(profile && !sample && runCache.checked){
-    const key=files[side.value][pose+1]+'/'+profile+(refined&&profile==='h32c16'?'/face':'');
+    const key=files[side.value][pose+1]+'/'+profile+'/'+scale+(refined&&profile==='h32c16'?'/face':'');
     let layer=runLayers.get(key);
     if(!layer){
      layer=document.createElement('canvas');
@@ -95,6 +100,7 @@ try{
   if(quality.open){
    const url=new URL(location.href);
    for(const [key,value] of Object.entries({side:side.value,motion:motion.value,frame:phase+1,region}))url.searchParams.set(key,value);
+   if(nativeScale.checked)url.searchParams.set('scale','native');else url.searchParams.delete('scale');
    if(palettePixels.checked)url.searchParams.set('pixels','1');else url.searchParams.delete('pixels');
    if(faceCandidate.checked)url.searchParams.set('face','1');else url.searchParams.delete('face');
    el('frameLink').href=url.href;
@@ -164,9 +170,9 @@ try{
    }
   }finally{phase=previous;draw()}
   const sideName=side.selectedOptions[0].textContent,part=el('bodyRegion').selectedOptions[0].textContent;
-  downloadComparison({canvases:columns,labels:['元PNG','32色版','16色版'],title:'旅人の'+sideName+'走行 ／ '+part,
+  downloadComparison({canvases:columns,labels:['元PNG','32色版','16色版'],title:'旅人の'+sideName+'走行 ／ '+part+(nativeScale.checked?'（本編の描画寸法）':''),
    stats:'輪郭は各コマの元PNGとの重なり。'+(faceCandidate.checked?'　3コマ目：16色の顔補正候補':''),note:palettePixels.checked?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',
-   filename:'traveler-run-'+side.value+'-'+region+(faceCandidate.checked?'-refined':'')+(palettePixels.checked?'-pixels':'')+'.png',
+   filename:'traveler-run-'+side.value+'-'+region+(nativeScale.checked?'-native':'')+(faceCandidate.checked?'-refined':'')+(palettePixels.checked?'-pixels':'')+'.png',
    onError:()=>{el('error').textContent='走行比較のPNGを書き出せませんでした。'}});
  };
  const measure=el('measure');
@@ -208,6 +214,7 @@ try{
  for(const [key,control] of [['side',side],['motion',motion],['region',el('bodyRegion')]]){
   if([...control.options].some(o=>o.value===params.get(key)))control.value=params.get(key);
  }
+ nativeScale.checked=params.get('scale')==='native';
  palettePixels.checked=params.get('pixels')==='1';faceCandidate.checked=params.get('face')==='1';
  if(params.has('frame')){playing=false;el('quality').open=true}
  side.onchange=motion.onchange=()=>select();await select(Number(params.get('frame'))-1);

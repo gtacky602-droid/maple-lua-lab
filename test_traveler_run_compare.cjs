@@ -27,7 +27,24 @@ const catalog=require('./content/motion-pose-files.json');
      return true;
     },{art:require('./assets/'+file),phase}),file);
     const snapshot=()=>page.locator('#h48c32,#h32c16').evaluateAll(cs=>cs.map(c=>c.toDataURL()));
-    const cached=await snapshot();
+    const enlarged=await snapshot();
+    await page.check('#nativeScale');
+    assert(await page.locator('#frameLink').evaluate(a=>new URL(a.href).searchParams.get('scale')==='native'));
+    assert(await page.evaluate(async({art,phase})=>{
+     const {spriteBounds,paintSprite}=await import('./sprite-layers.js');
+     for(const profile of ['h48c32','h32c16']){
+      const visible=document.getElementById(profile),ref=document.createElement('canvas');
+      ref.width=visible.width;ref.height=visible.height;
+      const ctx=ref.getContext('2d');ctx.translate(ref.width/2,ref.height-12);
+      paintSprite(ctx,art,null,spriteBounds(art,phase===1?88:88*art.box[3]/100),profile);
+      ctx.fillStyle='#adc7bb';ctx.fillRect(-56,0,112,1);
+      if(ref.toDataURL()!==visible.toDataURL())return false;
+     }
+     return true;
+    },{art:require('./assets/'+file),phase}),file+' native');
+    await page.uncheck('#nativeScale');
+    assert.deepEqual(await snapshot(),enlarged,'restore enlarged cache '+file);
+    const cached=enlarged;
     await page.uncheck('#runCache');
     assert.deepEqual(await snapshot(),cached,'direct vs cached '+file);
     await page.check('#runCache');
