@@ -3,6 +3,34 @@ import {paintSprite,rectangleCount,packedGeometrySize,spriteBounds} from './spri
 
 const boss=document.querySelector('#boss'),pose=document.querySelector('#pose');
 const result=document.querySelector('#result'),canvases=[...document.querySelectorAll('canvas')];
+const saveButton=document.querySelector('#saveComparison'),saveStatus=document.querySelector('#saveStatus');
+saveButton.onclick=()=>{
+ const image=document.createElement('canvas'),w=canvases[0].width,h=canvases[0].height;
+ const margin=20,gap=12,top=88;
+ image.width=2*margin+3*w+2*gap;image.height=top+h+64;
+ const ctx=image.getContext('2d');
+ ctx.fillStyle='#102b33';ctx.fillRect(0,0,image.width,image.height);
+ ctx.fillStyle='#e3f4f4';ctx.font='bold 26px "Yu Gothic UI", sans-serif';
+ ctx.fillText(boss.selectedOptions[0].text+' ／ '+pose.selectedOptions[0].text,margin,36);
+ ctx.font='18px "Yu Gothic UI", sans-serif';
+ for(const [i,c] of canvases.entries()){
+  const x=margin+i*(w+gap);
+  ctx.fillStyle='#e3f4f4';ctx.fillText(c.parentElement.querySelector('figcaption').textContent,x,top-10);
+  ctx.fillStyle='#26454b';ctx.fillRect(x,top,w,h);
+  ctx.drawImage(c,x,top);
+ }
+ ctx.fillStyle='#e3f4f4';ctx.font='16px "Yu Gothic UI", sans-serif';
+ ctx.fillText(result.textContent,margin,top+h+25,image.width-2*margin);
+ const nativePixels=document.querySelector('#palettePixels').checked;
+ ctx.fillText(nativePixels?'矩形を原寸で合成してから拡大':'表示倍率で矩形を描画',margin,top+h+50);
+ const filename=boss.value+'-'+pose.value+(nativePixels?'-pixels':'')+'-comparison.png';
+ image.toBlob(blob=>{
+  if(!blob){saveStatus.textContent='PNGを書き出せませんでした。';return}
+  const link=document.createElement('a'),url=URL.createObjectURL(blob);
+  link.download=filename;link.href=url;link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+ },'image/png');
+};
 const fieldMode=new URL(location.href).searchParams.get('group')==='field';
 const names={
  peck_ready:'くちばしの構え',peck:'ついばみ',crouch:'かがむ',spring:'跳ね上がり',stagger:'よろめき',spores:'胞子', slam_ready:'叩きつけの構え',
@@ -129,7 +157,7 @@ try{
  }
  async function draw(){
   const ticket=++revision;
-  repaint=null;
+  repaint=null;saveButton.disabled=true;saveStatus.textContent='';
   const forge=boss.value==='primal_fire'&&['flame','dual'].includes(pose.value)?pose.value:null;
   const selected=entries.get(boss.value);
   const controller=boss.value,sceneKey=pose.value;
@@ -202,6 +230,7 @@ try{
    if(shot)result.textContent+=' ／ 本編の表示高 '+shot.height+' px';
    if(shot?.device)result.textContent+=' ／ 場内装置 '+shot.device+' × 2';
    if(view)result.textContent+=' ／ 両圧縮設定に剣 '+view.blades.length+'矩形を追加 ／ Lv'+record.level+'の戦闘記録';
+   saveButton.disabled=false;
   }catch(error){if(ticket===revision)result.textContent='素材を表示できませんでした。 '+error.message}
  }
  boss.onchange=()=>changeBoss();pose.onchange=draw;await changeBoss(params.get('pose'));
