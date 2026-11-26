@@ -202,6 +202,7 @@ export function initAtlas(action, clearKeys) {
   else {
    const query=new URLSearchParams({node:selected.id});
    for(const [id,count] of Object.entries(selected.entrySpecies??{}))query.append('entry',id+':'+count);
+   for(const id of selected.absentSpawns??[])query.append('absent',id);
    if(selected.entryQuest)query.set('quest',selected.entryQuest);
    fieldGuide.href = 'field-enemy-guide.html?' + query;
    fieldGuide.textContent = selected.entryEnemyCount===selected.fieldEnemyCount || selected.entryEnemyCount==null

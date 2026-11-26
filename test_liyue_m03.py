@@ -78,6 +78,15 @@ def approach_storage():
     go(room)
 
 
+def check_storage_entry(hilichurl, slime, guard):
+    core.action(session,'world_map_focus:'+room)
+    selected=core.frame(session).worldMap.selected
+    assert selected.id==room and selected.fieldEnemyCount==4
+    assert selected.entryEnemyCount==hilichurl+slime+guard
+    assert native(selected.entrySpecies)=={'hilichurl':hilichurl,'pyro-slime':slime,'ruin-guard':guard}
+    core.action(session,'world_map_close')
+
+
 def saved():
     return validate_save(native(core.checkpoint(session)))
 
@@ -87,6 +96,7 @@ core.action(session, 'story_accept:'+qid)
 approach_storage()
 q = session.story.quests[qid]
 base_platforms = len(session.platforms)
+check_storage_entry(1,1,0)
 assert {e.spawnId for e in session.enemies.values()} == {
     'liyue-quarry-storage-1', 'liyue-quarry-storage-2',
 }
@@ -116,9 +126,11 @@ for _ in range(90):
 assert q.count == 1 and not session.railTrip
 assert len(session.platforms) == base_platforms+1
 assert core.frame(session).storyElite.name == '石切り場の番人'
+check_storage_entry(0,1,1)
 
 session = core.restore(lua.table_from(saved(), recursive=True))
 assert session.story.node == port and session.story.quests[qid].count == 1
+check_storage_entry(0,1,1)
 approach_storage()
 q = session.story.quests[qid]
 assert len(session.platforms) == base_platforms+1
@@ -166,6 +178,7 @@ walk(1270)
 go(room)
 assert core.frame(session).storyCleared and len(session.enemies) == 0
 assert not core.frame(session).storyCartX and len(session.platforms) == base_platforms+1
+check_storage_entry(0,0,0)
 
 (ROOT/'evidence/liyue-m03-lua.json').write_text(json.dumps({
     'M02_prerequisite': True, 'latch_elevation_required': True,

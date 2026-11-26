@@ -17,6 +17,15 @@ seed = validate_save(native(core.checkpoint(s)))
 (ROOT/'work/liyue-s01-fixture.json').write_text(json.dumps(seed), encoding='utf8')
 
 
+def check_wharf_entry(expected):
+    core.action(s,'world_map_focus:'+wharf)
+    selected=core.frame(s).worldMap.selected
+    assert selected.id==wharf and selected.fieldEnemyCount==4
+    assert selected.entryEnemyCount==sum(expected.values())
+    assert native(selected.entrySpecies)==expected
+    core.action(s,'world_map_close')
+
+
 def step(**keys):
     core.step(s, 1/60, lua.table_from(keys))
 
@@ -70,6 +79,7 @@ core.action(s, 'story_accept:'+q_id)
 q = s.story.quests[q_id]
 assert q.recovered is not None and q.count == s.story.quests[delivery].count == 0
 legacy_seed = save()
+check_wharf_entry({'hydro-slime':1,'hilichurl':1,'pyro-slime':1})
 gate(wharf)
 walk(315)
 assert core.frame(s).storyNearbyCargo.guarded
@@ -83,7 +93,9 @@ assert q.count == 1
 core.action(s, 'story_collect')
 assert q.count == 1
 
+check_wharf_entry({'hydro-slime':0,'hilichurl':1,'pyro-slime':1})
 partial = save()
+(ROOT/'evidence/liyue-crux-one-cargo-save.json').write_text(json.dumps(partial,ensure_ascii=False)+'\n',encoding='utf8')
 bad = deepcopy(partial)
 bad['story']['quests'][q_id]['recovered']['ledge'] = True
 try:
@@ -93,6 +105,7 @@ except ValueError:
 else:
     raise AssertionError('Count and recovered checkpoints disagreed')
 s = load(partial)
+check_wharf_entry({'hydro-slime':0,'hilichurl':1,'pyro-slime':1})
 walk(570)
 gate(wharf)
 assert not any(e.spawnId == 'liyue-crux-pier' for e in s.enemies.values())
@@ -121,6 +134,7 @@ walk(570)
 gate(wharf)
 q = s.story.quests[q_id]
 assert q.count == 3 and len(s.enemies) == 1
+check_wharf_entry({'hydro-slime':0,'hilichurl':1,'pyro-slime':0})
 walk(260, attack=True)
 fight('liyue-crux-return')
 assert q.count == 4 and q.status == 'active'
@@ -137,6 +151,7 @@ core.action(s, 'story_select_joined:'+q_id)
 assert core.frame(s).companion.id == 'beidou' and len(s.actors) == 2
 s = load(save())
 assert core.frame(s).companion.id == 'beidou'
+check_wharf_entry({'hydro-slime':0,'hilichurl':0,'pyro-slime':0})
 walk(570)
 gate(wharf)
 assert len(s.enemies) == 0

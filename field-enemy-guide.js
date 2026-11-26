@@ -23,12 +23,26 @@ try{
  }
  const libraries=new Map();
  let revision=0;
- for(const s of entries.values())species.add(new Option(s.name,s.id));
+ const visibleSpecies=[...entries.values()];
+ if(hasSnapshot)visibleSpecies.sort((a,b)=>Number(entryCounts.get(b.id)>0)-Number(entryCounts.get(a.id)>0));
+ for(const s of visibleSpecies){
+  const count=entryCounts.get(s.id);
+  const label=hasSnapshot?s.name+(count?'（入場時 '+count+'体）':'（現在は出現しない）'):s.name;
+  species.add(new Option(label,s.id));
+ }
  function selectPlaces(){
   const current=entries.get(species.value);
   const places=current.places.filter(([id])=>focused?id===node:index.places[id][1]===region.value);
   place.replaceChildren(...places.map(([node,count])=>new Option(index.places[node][0]+'（'+count+'体）',node)));
-  el('fieldMap').href=mapUrl(place.value,species.value);
+  updateFieldLink();
+ }
+ function updateFieldLink(){
+  const url=new URL(mapUrl(place.value,species.value),location.href);
+  if(hasSnapshot){
+   el('fieldMap').textContent='入場時の配置を見る';
+   for(const id of params.getAll('absent'))url.searchParams.append('absent',id);
+  }
+  el('fieldMap').href=url.href;
  }
  async function selectSpecies(){
   const current=entries.get(species.value),token=++revision;
@@ -62,7 +76,7 @@ try{
    if(token===revision){paint(el('source'),art,null,img);el('source').dataset.art=current.id}
   }catch{if(token===revision)el('error').textContent='ドット絵を読み込めませんでした。'}
  }
- region.onchange=selectPlaces;place.onchange=()=>{el('fieldMap').href=mapUrl(place.value,species.value)};
+ region.onchange=selectPlaces;place.onchange=updateFieldLink;
  const first=new URLSearchParams(location.search).get('species');
  if(entries.has(first))species.value=first;
  species.onchange=selectSpecies;await selectSpecies();

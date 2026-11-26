@@ -1007,15 +1007,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  function C.storyEntryCounts(s,id,placements)
   local active=entryFilter(s,id)
-  local total,counts=0,{}
+  local total,counts,absent=0,{},{}
   for _,p in ipairs(placements) do
    local count=active and active(p) and 1 or 0
+   if count==0 then absent[#absent+1]=p.id end
    counts[p.art]=(counts[p.art] or 0)+count
    total=total+count
   end
   local n=nodes[id]
   local quest=quests[n.clearedBy or (n.stealthRoute and n.stealthRoute.quest)]
-  return total,counts,quest and quest.name
+  return total,counts,quest and quest.name,#absent>0 and absent or nil
  end
  local function spawnEnemies(s,n,phase,recovered,defeated)
   s.enemies={}

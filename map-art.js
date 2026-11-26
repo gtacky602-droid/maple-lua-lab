@@ -127,6 +127,7 @@ try{
  const query=new URLSearchParams(location.search);
  const openingNode=nodes.get(query.get('node'))??nodes.get('mond-road');
  const liveView=query.get('placements')==='live';
+ const absent=new Set(query.getAll('absent'));
  const liveSource=liveView?await json('content/enemy-spawns.json'):null;
  let liveItems=[],liveError='';
  const subject=$('liveSubject');
@@ -693,7 +694,8 @@ try{
   if(liveView){
    const boss=arenaPreviews.get(n.id);
    const label=visibleItems.some(previewCandidate)?'通常敵と共用する待機絵の候補':stygianScenes[n.id]?'幽境・4難度に共通する開始時の配置':fieldScenes[n.id]?(fieldScenes[n.id].quest?'依頼戦が開いた時の姿':n.id.startsWith('icewind-')?'演目開始時の主役と相方':'本編で最初に見えるボスの配置'):legendScenes[n.id]?'地方伝説が最初に見えたときの配置':boss?.openingParts?'戦闘開始時の本体・機構':boss?.innerNode===n.id?'異界の影の出現位置':boss?.storyWindow?'依頼戦・再戦が開いた時のボス位置':boss?'開戦時のボス位置・待機絵で比較':weeklyArenaNodes.has(n.id)&&!items.length?'週ボス会場の背景比較（ボス配置のプレビューは準備中）':'本編の敵配置 '+items.length+'体';
-   $('status').textContent=liveError||(label+' ｜ '+placementCost);
+   const snapshot=n.id===query.get('node')&&absent.size?'地図を開いた時点の入場配置 ｜ ':'';
+   $('status').textContent=liveError||(snapshot+label+' ｜ '+placementCost);
   }
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
@@ -830,6 +832,7 @@ try{
    liveItems=[];liveError='';
    try{
     liveItems=liveNodeDraft(liveSource,graph,n.id,Object.keys(assets),arenaPreviews.get(n.id));
+    if(n.id===query.get('node')&&absent.size)liveItems=liveItems.filter(e=>!absent.has(e.id));
     const openingBoss=liveItems.length>0 && (openings[n.id] || liveItems[0].id===arenaPreviews.get(n.id)?.id);
     if(liveItems.length && (openingBoss || !liveItems.some(e=>e.x>=0 && e.x<960))){
      const focusX=openingBoss?(liveItems[0].x+liveItems.at(-1).x)/2:liveItems[0].x;
