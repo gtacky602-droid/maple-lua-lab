@@ -27,6 +27,13 @@ function restGuards(q,state){
  return remainingEnemyPoints({node:q.target,enemies:q.rest.guards},{sweep:state.rest?.defeated});
 }
 
+function trailStops(q,state,node){
+ const {clues,meeting,guard}=q.trail;
+ const sites=state.count===0?clues.filter(c=>c.node===node):meeting&&state.count===1&&node===q.target?[meeting]:[];
+ if(sites.length)return sites.map(s=>({label:s.name,url:surveyPointUrl(worksitePoint(q,s.id,node))}));
+ return node===q.target&&state.count===(meeting?2:1)?remainingEnemyPoints({node,enemy:guard}):[];
+}
+
 function deliveryStops(q,state,node){
  const {cache,packages}=q.delivery,progress=state.delivery??{delivered:{}};
  if(node===q.target&&!progress.recovered){
@@ -86,6 +93,10 @@ export function atlasQuestObjectives(frame,q,node){
    const point=surveyPoint(q,q.goal,node);
    return [{text:point.action,points:[{label:point.name,url:surveyPointUrl(point)}]}];
   }
+ }
+ if(q.trail&&status==='active'){
+  const points=trailStops(q,state,node);
+  return points.length?[{text:questObjective(q,frame.storyGraph,state),points}]:[];
  }
  if(q.delivery&&status==='active'){
   const points=deliveryStops(q,state,node);
@@ -395,6 +406,10 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(q.trail&&status==='active'){
+  const [point]=trailStops(q,st,route.node);
+  if(point)return {...route,pointUrl:point.url,pointLabel:point.label+'の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
+ }
  if(q.delivery&&status==='active'){
   const points=deliveryStops(q,st,route.node),local=f.storyHunts?.[id];
   const point=points.find(p=>p.id&&(p.id===(selectedWorksite?.point??local?.point)))??points[0];

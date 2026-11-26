@@ -2714,9 +2714,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      f.storyNearbyClue={id=clue.id,name=clue.name,label=nextCount==2 and clue.name..'と話す' or nil}
     end
     local x,y=clue.x-s.camera,clue.y
-    local elevated=y<480
-    markers[#markers+1]={kind='rect',x=x-10,y=y-14,w=20,h=4,color=elevated and '#a93634' or '#634936'}
-    markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
+    for _,r in ipairs(clue.rects) do
+     markers[#markers+1]={kind='rect',x=x+r[1],y=y+r[2],w=r[3],h=r[4],color=r[5]}
+    end
    elseif C.dailyNearbyClue then
     f.storyNearbyClue=C.dailyNearbyClue(s)
    end

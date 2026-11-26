@@ -41,6 +41,17 @@ async function through(id){
 }
 const progress=n=>page.waitForFunction(n=>window.lab.frame.story.quests['liyue-caravan-search'].count===n,n);
 
+const preview=await browser.newPage();
+async function checkTarget(key,id){
+ await page.waitForFunction(({key,id})=>{
+  const link=document.querySelector('#trackedSurveyPoint');
+  return !link.hidden&&new URL(link.href).searchParams.get(key)===id;
+ },{key,id});
+ await preview.goto(await page.locator('#trackedSurveyPoint').evaluate(link=>link.href));
+ await preview.waitForFunction(()=>window.mapArt?.ready);
+ if(key==='subject')assert.equal(await preview.locator('#liveSubject').inputValue(),id);
+ else assert.equal(await preview.locator('#surveyPointNote').getAttribute('data-worksite'),id);
+}
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');
  await page.waitForFunction(()=>window.lab?.frame);
@@ -52,6 +63,7 @@ try{
  await quest.getByRole('button',{name:'この依頼を追跡',exact:true}).click();
  await walk(955);
  await through('liyue-river-trail');
+ await checkTarget('worksite','cart-ruts');
  await walk(680,true);
  await page.waitForFunction(()=>window.lab.frame.storyNearbyClue?.id==='cart-ruts');
  await page.keyboard.press('KeyG');
@@ -59,9 +71,11 @@ try{
  await walk(1655,true);
  await through('liyue-quarry-post');
  await walk(385);
+ await checkTarget('worksite','caravan');
  const talk=page.getByRole('button',{name:'G：詰所の商隊と話す',exact:true});
  await talk.click();
  await progress(2);
+ await checkTarget('subject','liyue-quarry-post-1');
  assert.equal((await frame()).story.quests[qid].inspected.caravan,true);
  await walk(870,true);
  await focus();

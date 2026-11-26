@@ -139,6 +139,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
 }
 
 export function worksitePoints(quest){
+ if(quest?.trail?.clues)return [...quest.trail.clues,...(quest.trail.meeting?[{...quest.trail.meeting,node:quest.target}]:[])];
  if(quest?.delivery)return [...quest.delivery.packages.map(p=>({...p,node:quest.hub,name:p.stall})),
   {...quest.delivery.cache,node:quest.target}];
  if(quest?.rail)return [quest.rail.release,quest.rail.dispatch].map(p=>({...p,node:quest.target,name:p.label}));
@@ -149,6 +150,7 @@ export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);
  if(!item)return null;
  const point={quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name};
+ if(quest.trail&&item.rects)point.fixtures=[{x:item.x,y:item.y,rects:item.rects}];
  if(quest.delivery){
   if(node===quest.target){
    point.absent=[quest.delivery.cache.guard];
