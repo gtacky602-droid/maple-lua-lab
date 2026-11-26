@@ -39,7 +39,11 @@
       "preview": "li-guyun-shoal-native-preview-v1.png",
       "key": "liyueGuyunShoal",
       "note": "孤雲閣の潮の岩棚",
-      "prompt": "Marine archipelago with colossal jagged stone spears rising from deep turquoise sea, bright white waves on a pale granite shore, a distant Chinese junk sail, hot summer sky. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+      "prompt": "Marine archipelago with colossal jagged stone spears rising from deep turquoise sea, bright white waves on a pale granite shore, a distant Chinese junk sail, hot summer sky. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms.",
+      "sharedNodes": [
+        "geo-approach",
+        "liyue-wp-100"
+      ]
     },
     {
       "node": "sites-hunt-7215-pocket-1",
@@ -63,7 +67,12 @@
       "preview": "li-tianheng-pass-native-preview-v1.png",
       "key": "liyueTianhengPass",
       "note": "天衡の山道",
-      "prompt": "A high winding pass of Mount Tianheng, bold pale cliffs on left, ochre pines and a stone lantern, far below on the right a tiny cluster of red harbour roofs and blue water. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms."
+      "prompt": "A high winding pass of Mount Tianheng, bold pale cliffs on left, ochre pines and a stone lantern, far below on the right a tiny cluster of red harbour roofs and blue water. Wide 16:9 landscape, original high-quality pixel art game background for a Maple-like side-scrolling RPG inspired by Liyue. Crisp deliberate pixel clusters, convincing side elevation and a dramatic landmark in the middle distance. Limited harmonious palette, broad masses and strong silhouettes that can be simplified to 4096 rectangles at 512x288. Relatively calm bottom quarter for separate sprites. No people, creatures, text, UI or visible game platforms.",
+      "sharedNodes": [
+        "liyue-wp-92",
+        "liyue-wp-105",
+        "sites-corridor-liyue-switchback"
+      ]
     },
     {
       "node": "sites-hunt-7220-pocket-1",

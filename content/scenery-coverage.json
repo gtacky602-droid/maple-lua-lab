@@ -182,7 +182,7 @@
       "name": "璃月・南十字の荷受け場",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "chenyuCargoWharf"
     },
     {
       "id": "liyue-field",
@@ -1253,7 +1253,7 @@
       "name": "無相の岩・挑戦入口",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "liyueGuyunShoal"
     },
     {
       "id": "geo-field-court",
@@ -1267,7 +1267,7 @@
       "name": "純水精霊・湖畔入口",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "liyueNorthLakeshore"
     },
     {
       "id": "oceanid-field-reservoir",
@@ -1281,7 +1281,7 @@
       "name": "エンシェントヴィシャップ・洞窟入口",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "liyueGeovishapDen"
     },
     {
       "id": "primo-field-vault",
@@ -7630,14 +7630,14 @@
       "name": "璃月・奥蔵の北の山道",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "liyueAocangRidge"
     },
     {
       "id": "liyue-wp-40",
       "name": "璃月・慶雲の頂へ続く棚",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "liyueAocangRidge"
     },
     {
       "id": "liyue-wp-41",
@@ -7651,7 +7651,7 @@
       "name": "璃月・絶雲の池畔",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "liyueJueyunPool"
     },
     {
       "id": "liyue-wp-43",
@@ -7735,7 +7735,7 @@
       "name": "璃月・天衡の岩間",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "liyueTianhengPass"
     },
     {
       "id": "liyue-wp-94",
@@ -7763,14 +7763,14 @@
       "name": "璃月・東岸の岩浜",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "liyueGuyunShoal"
     },
     {
       "id": "liyue-wp-104",
       "name": "璃月・港東の荷揚げ波止場",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "chenyuCargoWharf"
     },
     {
       "id": "liyue-quarry-scree",
@@ -7784,7 +7784,7 @@
       "name": "璃月・港西の登り道",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "liyueTianhengPass"
     },
     {
       "id": "liyue-wp-106",
@@ -7840,7 +7840,7 @@
       "name": "璃月・湖西の石浜",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyue"
+      "scenery": "liyueNorthLakeshore"
     },
     {
       "id": "liyue-wp-24908",
@@ -7882,7 +7882,7 @@
       "name": "層岩巨淵・地上・採掘場の北の峠",
       "region": "層岩巨淵・地上",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "chasmQuarryLedge"
     },
     {
       "id": "liyue-wp-28732",
@@ -9408,7 +9408,7 @@
       "name": "天衡山・山腹の折り返し坂",
       "region": "璃月",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "liyueTianhengPass"
     },
     {
       "id": "sites-corridor-dihua-causeway",
@@ -9443,7 +9443,7 @@
       "name": "巨淵西口・森林へ抜ける国境洞道",
       "region": "層岩巨淵・地上",
       "status": "regional_temporary_image",
-      "scenery": "liyuequarry"
+      "scenery": "chasm"
     },
     {
       "id": "sites-corridor-natlan-cliff",

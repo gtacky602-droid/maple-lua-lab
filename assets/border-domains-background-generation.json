@@ -7,7 +7,10 @@
       "note": "採掘場の北の段丘",
       "source": "chasm-quarry-ledge-background-v1.png",
       "preview": "chasm-quarry-ledge-native-preview-v1.png",
-      "prompt": "A high open cast quarry, stepped salmon colored cliffs and tilted ochre stone strata with distant wooden extraction cranes in dusty light, a green Liyue mountain skyline. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering."
+      "prompt": "A high open cast quarry, stepped salmon colored cliffs and tilted ochre stone strata with distant wooden extraction cranes in dusty light, a green Liyue mountain skyline. Original fantasy pixel art landscape for a side-scrolling RPG, wide 16:9. Compose in discrete crisp pixel clusters and broad flat atmospheric silhouettes for low-rectangle compression, quiet dark lower quarter for gameplay. Absolutely no characters, interface, type, tilesheet, border, platforms or lettering.",
+      "sharedNodes": [
+        "liyue-wp-26445"
+      ]
     },
     {
       "node": "sites-hunt-24907-pocket-1",

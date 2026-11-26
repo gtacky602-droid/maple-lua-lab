@@ -135,7 +135,11 @@
       "surface": "timber",
       "prompt": "Large timber loading crane and three blue ceramic cargo jars on a long Chinese river wharf in peach sunrise.",
       "source": "chenyu-cargo-wharf-background-v1.png",
-      "preview": "chenyu-cargo-wharf-native-preview-v1.png"
+      "preview": "chenyu-cargo-wharf-native-preview-v1.png",
+      "sharedNodes": [
+        "liyue-crux-wharf",
+        "liyue-wp-104"
+      ]
     },
     {
       "node": "branch-hunt-66770",

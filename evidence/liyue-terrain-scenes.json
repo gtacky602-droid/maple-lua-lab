@@ -1,0 +1,128 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "liyue-crux-wharf",
+      "key": "chenyuCargoWharf",
+      "file": "chenyu-cargo-wharf-background-v1.png",
+      "bundle": "chenyu-south-native-backgrounds.lua",
+      "packedBytes": 29838
+    },
+    {
+      "id": "liyue-wp-104",
+      "key": "chenyuCargoWharf",
+      "file": "chenyu-cargo-wharf-background-v1.png",
+      "bundle": "chenyu-south-native-backgrounds.lua",
+      "packedBytes": 29838
+    },
+    {
+      "id": "geo-approach",
+      "key": "liyueGuyunShoal",
+      "file": "li-guyun-shoal-background-v1.png",
+      "bundle": "li-highlands-native-backgrounds.lua",
+      "packedBytes": 31040
+    },
+    {
+      "id": "liyue-wp-100",
+      "key": "liyueGuyunShoal",
+      "file": "li-guyun-shoal-background-v1.png",
+      "bundle": "li-highlands-native-backgrounds.lua",
+      "packedBytes": 31040
+    },
+    {
+      "id": "oceanid-approach",
+      "key": "liyueNorthLakeshore",
+      "file": "li-north-lakeshore-background-v1.png",
+      "bundle": "li-north-native-backgrounds.lua",
+      "packedBytes": 30882
+    },
+    {
+      "id": "liyue-wp-1748",
+      "key": "liyueNorthLakeshore",
+      "file": "li-north-lakeshore-background-v1.png",
+      "bundle": "li-north-native-backgrounds.lua",
+      "packedBytes": 30882
+    },
+    {
+      "id": "liyue-wp-39",
+      "key": "liyueAocangRidge",
+      "file": "li-aocang-ridge-background-v1.png",
+      "bundle": "li-north-native-backgrounds.lua",
+      "packedBytes": 30374
+    },
+    {
+      "id": "liyue-wp-40",
+      "key": "liyueAocangRidge",
+      "file": "li-aocang-ridge-background-v1.png",
+      "bundle": "li-north-native-backgrounds.lua",
+      "packedBytes": 30374
+    },
+    {
+      "id": "liyue-wp-42",
+      "key": "liyueJueyunPool",
+      "file": "li-jueyun-pool-background-v1.png",
+      "bundle": "li-north-native-backgrounds.lua",
+      "packedBytes": 30464
+    },
+    {
+      "id": "liyue-wp-92",
+      "key": "liyueTianhengPass",
+      "file": "li-tianheng-pass-background-v1.png",
+      "bundle": "li-highlands-native-backgrounds.lua",
+      "packedBytes": 31006
+    },
+    {
+      "id": "liyue-wp-105",
+      "key": "liyueTianhengPass",
+      "file": "li-tianheng-pass-background-v1.png",
+      "bundle": "li-highlands-native-backgrounds.lua",
+      "packedBytes": 31006
+    },
+    {
+      "id": "sites-corridor-liyue-switchback",
+      "key": "liyueTianhengPass",
+      "file": "li-tianheng-pass-background-v1.png",
+      "bundle": "li-highlands-native-backgrounds.lua",
+      "packedBytes": 31006
+    },
+    {
+      "id": "liyue-wp-26445",
+      "key": "chasmQuarryLedge",
+      "file": "chasm-quarry-ledge-background-v1.png",
+      "bundle": "border-domains-native-backgrounds.lua",
+      "packedBytes": 29352
+    },
+    {
+      "id": "sites-corridor-chasm-border",
+      "key": "chasm",
+      "file": "chasm-background-v1.png",
+      "bundle": "shared-scenes-chasm-native-backgrounds.lua",
+      "packedBytes": 25082
+    },
+    {
+      "id": "primo-approach",
+      "key": "liyueGeovishapDen",
+      "file": "li-geovishap-den-background-v1.png",
+      "bundle": "li-north-native-backgrounds.lua",
+      "packedBytes": 30088
+    },
+    {
+      "id": "liyue-harbor",
+      "key": "liyue",
+      "file": "liyue-background-v1.png",
+      "bundle": "shared-scenes-liyue-native-backgrounds.lua",
+      "packedBytes": 31024
+    },
+    {
+      "id": "liyue-quarry-post",
+      "key": "liyuequarry",
+      "file": "liyue-quarry-background-v1.png",
+      "bundle": "shared-scenes-liyue-native-backgrounds.lua",
+      "packedBytes": 29062
+    }
+  ]
+}
