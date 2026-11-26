@@ -1,0 +1,125 @@
+[
+  {
+    "origin": "liyue-ferry",
+    "destination": "inazuma-port",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "natlan-voyage",
+    "destination": "nod-port",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "white-pass-coach",
+    "destination": "white-pass-station",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "veluriyam-trolley-out",
+    "destination": "veluriyam-rail-end",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "veluriyam-trolley-back",
+    "destination": "veluriyam-hub",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "sites-mirage-fair-out",
+    "destination": "sites-vlm-06",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "sites-mirage-fair-in",
+    "destination": "veluriyam-petal-stop",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "sites-star-rail-out",
+    "destination": "sites-sim-05",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "sites-star-rail-in",
+    "destination": "sites-sim-04",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "liyue-ferry-return",
+    "destination": "liyue-harbor",
+    "automatic": true,
+    "x": 720,
+    "y": 480
+  },
+  {
+    "origin": "natlan-voyage-return",
+    "destination": "natlan-port",
+    "automatic": true,
+    "x": 720,
+    "y": 480
+  },
+  {
+    "origin": "chenyu-ferry-fontaine",
+    "destination": "sites-lumidouce-landing",
+    "automatic": true,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "fontaine-ferry-chenyu",
+    "destination": "liyue-wp-66769",
+    "automatic": true,
+    "x": 455,
+    "y": 480
+  },
+  {
+    "origin": "liyue-cart-lift",
+    "destination": "liyue-harbor",
+    "automatic": false,
+    "departureX": 180,
+    "x": 840,
+    "y": 480
+  },
+  {
+    "origin": "inazuma-port",
+    "destination": "watatsumi-landing",
+    "automatic": false,
+    "departureX": 1050,
+    "x": 160,
+    "y": 480
+  },
+  {
+    "origin": "fontaine-field",
+    "destination": "fon-wp-50064",
+    "automatic": false,
+    "departureX": 625,
+    "x": 724,
+    "y": 345
+  },
+  {
+    "origin": "enkan-wp-21592",
+    "destination": "enkan-wp-21587",
+    "automatic": false,
+    "departureX": 1120,
+    "x": 1250,
+    "y": 409
+  }
+]

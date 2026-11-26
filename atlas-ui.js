@@ -198,6 +198,15 @@ export function initAtlas(action, clearKeys) {
    item.append(' ',link);
    return;
   }
+  if(route.automaticArrival){
+   const link=document.createElement('a');
+   const params=new URLSearchParams({node:route.id,voyage:from,placements:'live'});
+   if(reportedRooms.has(route.id))params.set('phase','after');
+   link.href='map-art.html?'+params;link.target='_blank';link.rel='noopener';
+   link.textContent=route.name+'の到着位置を見る';
+   item.append(' ',link);
+   return;
+  }
   if(route.previewX==null)return;
   const link=document.createElement('a');
   const params=new URLSearchParams({node:from,to:route.id,gateX:route.previewX,gateY:route.previewY??480,placements:'live',compare:'background'});

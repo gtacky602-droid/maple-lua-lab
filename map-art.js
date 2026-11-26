@@ -123,7 +123,10 @@ try{
  const liveView=query.get('placements')==='live';
  const departure=liveView&&nodes.get(query.get('from'))?.exits.find(edge=>
   edge.to===openingNode.id&&String(edge.x)===query.get('departureX'));
- const landing=departure&&gateLanding(query.get('from'),departure,openingNode);
+ const voyage=liveView&&nodes.get(query.get('voyage'))?.voyage;
+ const landing=voyage?.destination===openingNode.id
+  ?{x:voyage.arrivalX??160,y:voyage.arrivalY??openingNode.swim?.entryY??480}
+  :departure&&gateLanding(query.get('from'),departure,openingNode);
  // On a return trip the quest bridge under the recorded landing is already built.
  let landingQuest,landingDeck;
  if(Number.isFinite(departure?.arrivalX)&&Number.isFinite(departure.arrivalY)){
@@ -1248,6 +1251,9 @@ for(const id of ['camera','profile'])$(id).oninput=render;
  }
  if(liveView && /^\d+$/.test(query.get('camera')??'')){
   $('camera').value=query.get('camera');
+  render();
+ }else if(landing){
+  $('camera').value=Math.max(0,landing.x-400);
   render();
  }
 }catch(e){$('status').textContent='読み込みに失敗しました: '+e.message;throw e}
