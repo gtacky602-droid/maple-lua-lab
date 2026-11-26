@@ -36,7 +36,7 @@ try{
     }));
     assert.deepEqual(purple,Array(3).fill(pose==='dual'));
    }
-   if((boss==='childe'&&['water','delusion','legacy-form'].includes(pose))||(boss==='narwhal'&&['arrival','inside','return'].includes(pose))||(boss==='knave'&&['court','frenzy','moon'].includes(pose))){
+   if((boss==='signora'&&['frost','emerging','blaze'].includes(pose))||(boss==='childe'&&['water','delusion','legacy-form'].includes(pose))||(boss==='narwhal'&&['arrival','inside','return'].includes(pose))||(boss==='knave'&&['court','frenzy','moon'].includes(pose))){
     const replay=JSON.parse(await readFile('evidence/'+boss+'-access-views.json','utf8'));
     const shot=replay.views[pose];
     assert.equal(new URL(await page.locator('#arena').getAttribute('href'),page.url()).searchParams.get('node'),shot.node);
@@ -56,6 +56,15 @@ try{
      return c.toDataURL()===canvas.toDataURL();
     },{shot,boss});
     assert(matches,pose);
+    if(boss==='signora'){
+     const expected=shot.device==='霜眼'?[139,229,243]:[255,150,76];
+     const posts=shot.behind.filter(r=>r[2]===16&&r[3]===48).map(r=>[r[0]+2,r[1]+2]);
+     assert.equal(posts.length,2);
+     const devices=await page.locator('canvas').evaluateAll((cs,points)=>cs.flatMap(c=>points.map(([x,y])=>
+      [...c.getContext('2d').getImageData(x,y,1,1).data].slice(0,3))),posts);
+     assert.deepEqual(devices,Array(6).fill(expected));
+     if(pose==='blaze')await page.locator('main').screenshot({path:'evidence/signora-blaze-arena-profiles.png'});
+    }
     if(pose==='legacy-form')await page.locator('main').screenshot({path:'evidence/childe-foul-arena-profiles.png'});
     if(pose==='moon')await page.locator('main').screenshot({path:'evidence/knave-moon-profiles.png'});
     if(pose==='inside')await page.locator('main').screenshot({path:'evidence/narwhal-inner-profiles.png'});
@@ -63,6 +72,6 @@ try{
    count++;
   }
  }
- assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+11);
+ assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+14);
  console.log(bosses.length+' bosses, '+count+' poses, all three canvases painted');
 }finally{await browser.close()}

@@ -19,6 +19,7 @@ async function read(path){
  return response.json();
 }
 const arenaViews={
+ signora:{frost:['氷形態・炎心','cryo'],emerging:['焔蝶の羽化・繭から出る瞬間','pyro'],blaze:['炎形態・霜眼','pyro']},
  childe:{water:['黄金屋・第1形態','human'],delusion:['黄金屋・第2形態（邪眼）','human'],'legacy-form':['黄金屋・第3形態（魔王武装）','foul']},
  narwhal:{arrival:['星海・開幕','whale'],inside:['異界・幻影戦','shadow'],return:['星海・帰還後の衰弱','whale']},
  knave:{court:['開幕・片鎌','single'],frenzy:['形態移行・双鎌','double'],moon:['凶月と双鎌','double']}
@@ -99,6 +100,7 @@ try{
     +'（'+Math.abs(reduction).toFixed(1)+'%'+(reduction<0?'増':'減')+'）'
     +' ／ 座標・色番号のデータ量 '+standardBytes.toLocaleString()+' B → '+lightBytes.toLocaleString()+' B';
    if(shot)result.textContent+=' ／ 本編の表示高 '+shot.height+' px';
+   if(shot?.device)result.textContent+=' ／ 場内装置 '+shot.device+' × 2';
    if(view)result.textContent+=' ／ 両圧縮設定に剣 '+view.blades.length+'矩形を追加 ／ Lv'+record.level+'の戦闘記録';
   }catch(error){if(ticket===revision)result.textContent='素材を表示できませんでした。 '+error.message}
  }

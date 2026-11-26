@@ -65,7 +65,26 @@ def has_art(s, form):
     return any(d.source == 'signora-'+form+'source-v1.png' for d in core.frame(s, 'sprite').draws.values())
 
 
+views = {}
+def capture_view(key, s, pose):
+    frame = core.frame(s, 'sprite', 'legacy')
+    draws = list(frame.draws.values())
+    source = core.signoraWeeklyArt[pose].source
+    index = next(i for i,d in enumerate(draws) if d.kind=='boss_sprite' and d.source==source)
+    body = draws[index]
+    colors = {'#4b4b61','#ff964c','#8be5f3','#fff3bd'}
+    if key=='emerging':
+        colors.update(('#597b9d','#91c7dd','#c0eff3','#ffb676'))
+    behind = [[d.x,d.y,d.w,d.h,d.color,d.opacity or 1] for d in draws[:index]
+              if d.kind=='rect' and d.color in colors]
+    assert len(behind)==(15 if key=='emerging' else 8)
+    views[key] = dict(pose=pose,node=node,tick=round(s.t*60),camera=frame.camera,
+                      platforms=native(frame.platforms),x=body.x,y=body.y,height=body.h,
+                      flip=body.flip,behind=behind,device=frame.weeklyBoss.deviceLabel)
+
+
 s, w, spec = arena()
+capture_view('frost',s,'cryo')
 checked = {}
 for row in manifest['entries']:
     name = row['id']
@@ -167,9 +186,12 @@ assert w.stage == 'transform' and w.primary.hp == spec.pyroHp
 assert not list(w.floors.values()) and list(w.devices.values()) == [0,0]
 ticks(core,s,spec.moves.WS09.total-1)
 assert w.primary.invulnerable
+capture_view('emerging',s,'pyro')
 ticks(core,s,1)
 assert not w.primary.invulnerable and w.stage == 'pyro' and core.frame(s).weeklyBoss.temperature == 0 and has_art(s,'flame-idle-')
 assert len(events(s,'moth-used')) == 4
+capture_view('blaze',s,'pyro')
+(ROOT/'evidence/signora-access-views.json').write_bytes((json.dumps({'views':views},ensure_ascii=False,indent=2)+'\n').encode())
 
 fight = start()
 assert core.giveArtifact(fight,2,45,3)
