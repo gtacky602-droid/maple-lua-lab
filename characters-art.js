@@ -1,11 +1,16 @@
 import {setupGalleryUrl} from './gallery-url.js';
-import {spriteBounds,paintSprite} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 async function art(data){const image=new Image();image.src='assets/'+data.source;await image.decode();return {data,image}}
 async function add(id,name,data,h,leftData,rear){
  const [right,left,layer]=await Promise.all([art(data),leftData&&art(leftData),rear&&art(rear.data)]);
  const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;
+ if($('compareBoth')){
+  const extra=document.createElement('div');
+  extra.hidden=true;extra.innerHTML='<small>16色版</small><canvas width="340" height="300"></canvas>';
+  article.querySelector('.pair').append(extra);
+ }
  $('cards').append(article);assets.push({id,name,right,left,article,h,rear:layer&&{...layer,height:rear.height,bottom:rear.bottom}});
 }
 let layouts={};
@@ -33,9 +38,11 @@ try{
   }
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
+  const packed=catalog==='character-art-gallery.json'?await json('assets/character-gallery-packed.json'):null;
+  const readPose=file=>packed?packed[file]:json('assets/'+file);
   for(const item of (await json('content/'+catalog)).items){
    const [data,left,rearData]=await Promise.all([
-    json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile),item.rear&&json('assets/'+item.rear.file)
+    readPose(item.file),item.leftFile&&readPose(item.leftFile),item.rear&&readPose(item.rear.file)
    ]);
    await add(item.id,item.name,data,item.height,left,item.rear&&{...item.rear,data:rearData});
   }
@@ -54,23 +61,32 @@ try{
   for(const {id,name,right,left,article,h,rear} of assets){const {data,image}=flip&&left?left:right;const ratio=data.box[2]/data.box[3],w=h*ratio;
    dimensions.push({id,h,w,ratio,source:data.source,...(rear&&{rearSource:rear.data.source})});
    article.hidden=!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;
-   const a=data.profiles[profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom;
+   const both=$('compareBoth')?.checked;
+   const pair=article.querySelector('.pair');
+   if(pair.children.length===3){
+    pair.children[1].querySelector('small').textContent=both?'32色版':'矩形版';
+    pair.children[2].hidden=!both;
+   }
+   const a=data.profiles[both?'h48c32':profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom;
    const body=spriteBounds(data,h*zoom);
    const layer=rear&&spriteBounds(rear.data,rear.height*zoom,rear.bottom*zoom);
    const halfWidth=Math.max(-body.x,body.x+body.width,(layer?.width??0)/2);
    const top=Math.min(body.y,layer?.y??0);
    for(const [i,canvas] of [...article.querySelectorAll('canvas')].entries()){
+    if(i===2&&!both)continue;
+    const selected=i===0?null:both?(i===1?'h48c32':'h32c16'):profile;
     canvas.width=Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=Math.max(300,Math.ceil(hover-top+30));
     const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(canvas.width/2,canvas.height-15-hover);
-    if(layer)paintSprite(ctx,rear.data,rear.image,layer,i===0?null:profile);
+    if(layer)paintSprite(ctx,rear.data,rear.image,layer,selected);
     if(flip&&!left)ctx.scale(-1,1);
-    paintSprite(ctx,data,image,body,i===0?null:profile);
+    paintSprite(ctx,data,image,body,selected);
     ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,canvas.height-15,canvas.width,1);
    }
-   const runs=a.runs.length+(rear?.data.profiles[profile].runs.length??0);
-   const standard=data.profiles.legacy.runs.length+(rear?.data.profiles.legacy.runs.length??0);
-   article.querySelector('.stats').textContent=`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
+   const runs=rectangleCount(a)+(rear?rectangleCount(rear.data.profiles[profile]):0);
+   const standard=rectangleCount(data.profiles.legacy)+(rear?rectangleCount(rear.data.profiles.legacy):0);
+   article.querySelector('.stats').textContent=both?`32色版 ${rectangleCount(a)}矩形 ／ 16色版 ${rectangleCount(data.profiles.h32c16)}矩形`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
   }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:true,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
  }
+ if($('compareBoth'))$('compareBoth').onchange=()=>{$('profile').disabled=$('compareBoth').checked;render()};
  for(const id of ['profile','zoom','flip'])$(id).onchange=render;render();
 }catch(e){$('status').textContent='素材の読み込みに失敗しました: '+e.message;throw e}
