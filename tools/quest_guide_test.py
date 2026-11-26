@@ -9,9 +9,24 @@ def worksite_art():
     return json.loads((ROOT/'content/worksite-props.json').read_bytes())['worksites']
 
 def check_worksite_art(frame, quest, item):
-    if not item or not item.point or not frame.storyWorksites or not frame.storyWorksites[quest]:
+    if not item or not item.point:
         return 0
-    art=worksite_art()[quest][item.point]
+    progress=frame.story.quests[quest]
+    if progress.delivery:
+        delivery=next(q for q in frame.storyGraph.quests.values() if q.id==quest)
+        spec=delivery.delivery
+        if frame.story.node==delivery.target:
+            assert item.point==spec.cache.id
+            art=[[-15,-24,30,24,'#5b3f2c'],[-12,-21,24,18,'#c48a56'],[-2,-21,4,18,'#f1d58e']]
+        else:
+            parcel=next(p for p in spec.packages.values() if p.id==item.point)
+            art=[[-27,-32,54,32,'#62432e'],[-24,-27,48,21,'#916749'],[-28,-32,56,4,parcel.color]]
+            if progress.delivery.delivered[item.point]:
+                art.extend(native(parcel.stockRects))
+    else:
+        if not frame.storyWorksites or not frame.storyWorksites[quest]:
+            return 0
+        art=worksite_art()[quest][item.point]
     x=item.x-frame.camera
     if frame.story.quests[quest].sights:
         x=floor(x)

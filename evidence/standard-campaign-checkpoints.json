@@ -1,0 +1,89 @@
+{
+  "command": "python test_cap_fresh_route.py --replay",
+  "profile": "standard",
+  "startLevel": 1,
+  "worldGraphSha256": "f47436aa98f529bc6e53f935eda93a962f43866da998f8639ab06ad4812e47e7",
+  "checkpoints": [
+    {
+      "segment": "mondstadt",
+      "arrival": "liyue-harbor",
+      "level": 20,
+      "totalExp": 20729,
+      "completedQuests": 6,
+      "kills": 510,
+      "saveSha256": "6a72b368b4447e86c8c130435223619a5c9a020fa06b122226100aeb6ac80b5b"
+    },
+    {
+      "segment": "liyue",
+      "arrival": "inazuma-port",
+      "level": 40,
+      "totalExp": 383914,
+      "completedQuests": 13,
+      "kills": 1169,
+      "saveSha256": "d4824ef85e2a25e389d85d45d17a9c960a36bb05a944e7c45c786bdd8d3971b7"
+    },
+    {
+      "segment": "inazuma",
+      "arrival": "sumeru-hub",
+      "level": 60,
+      "totalExp": 2738763,
+      "completedQuests": 19,
+      "kills": 2715,
+      "saveSha256": "1b45fcc98908c7e9094530cbf19b056ab0a4e2363865dd7572b48951fdf5e97a"
+    },
+    {
+      "segment": "sumeru",
+      "arrival": "fontaine-hub",
+      "level": 80,
+      "totalExp": 10032327,
+      "completedQuests": 25,
+      "kills": 5986,
+      "saveSha256": "f68c323cf73f7591c8437b1150bdc8ea4303b8e43679e3967ff59d745f0c946c"
+    },
+    {
+      "segment": "fontaine",
+      "arrival": "natlan-hub",
+      "level": 100,
+      "totalExp": 37652833,
+      "completedQuests": 31,
+      "kills": 9652,
+      "saveSha256": "b84ecddaf4612a1cbfbd5453e7fc17510849a2ebc25db9b95ded1ed906fee3f1"
+    },
+    {
+      "segment": "natlan",
+      "arrival": "nod-town",
+      "level": 120,
+      "totalExp": 110443194,
+      "completedQuests": 37,
+      "kills": 15624,
+      "saveSha256": "8c348eca300122a8ea72cfa05a6da740defd65874d2bff601336ef78864ee082"
+    },
+    {
+      "segment": "nod",
+      "arrival": "snezhnaya-hub",
+      "level": 140,
+      "totalExp": 362048528,
+      "completedQuests": 43,
+      "kills": 23189,
+      "saveSha256": "0fa6ed4aa83cdb749bfb61c61131c5c1cc7154e34fb3b09bba791ec02eab3c6d"
+    },
+    {
+      "segment": "snez",
+      "arrival": "white-pass-station",
+      "level": 160,
+      "totalExp": 1222853920,
+      "completedQuests": 51,
+      "kills": 39662,
+      "saveSha256": "80869e8f4e6124f511e88f81649ea6e2bec1ce48b736b2d6319ce42127ad0096"
+    },
+    {
+      "segment": "cap",
+      "arrival": "white-pass-station",
+      "level": 200,
+      "totalExp": 11499249275,
+      "completedQuests": 56,
+      "kills": 114815,
+      "saveSha256": "7a8c89b074483aa164d41fbeabe10ef7743c890ea6b589f5b38787acf0ba3732"
+    }
+  ]
+}

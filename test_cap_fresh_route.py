@@ -414,3 +414,7 @@ if options.after_revisits:
     (ROOT/'evidence/cap-revisit-save.json').write_bytes((json.dumps(cap,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
 (ROOT / 'evidence' / f'cap-fresh-route{suffix}.json').write_text(
     json.dumps(progression,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+
+if options.replay and not draft and not options.after_revisits:
+    from tools.standard_replay_report import record_standard_replay
+    record_standard_replay(ROOT)
