@@ -138,6 +138,14 @@ def build():
     props={}
     for q in graph['quests']:
         kind=q['kind']
+        if q.get('rail'):
+            rail=lua.execute((ROOT/'story-rail.lua').read_text('utf8'))
+            latch,switch=lua.table(),lua.table()
+            rail.drawLatch(latch,480,0)
+            rail.drawSwitch(switch,480,0,True,False)
+            props[q['id']]={item['id']:[relative(r,480,0) for r in rectangles(draws)]
+                            for item,draws in [(q['rail']['release'],latch),(q['rail']['dispatch'],switch)]}
+            continue
         if kind=='sights':
             sights=lua.execute((ROOT/'story-sights.lua').read_text('utf8'))(lua.table())
             art={}

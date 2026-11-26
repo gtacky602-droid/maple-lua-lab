@@ -39,6 +39,22 @@ async function walk(x,attack=false){
   if(attack)await page.keyboard.up('KeyJ');
  }
 }
+async function checkAtlasTarget(key,id,visible){
+ await page.keyboard.press('KeyM');
+ await page.locator('#atlasQuestFocus').click();
+ const target=page.locator('#atlasQuestObjectives a[href*="'+key+'='+id+'"]');
+ await target.waitFor();
+ assert.equal(await target.getAttribute('href'),await page.locator('#atlasQuestPoint').getAttribute('href'));
+ const [preview]=await Promise.all([page.waitForEvent('popup'),target.click()]);
+ try{
+  await preview.waitForFunction(({node,total})=>window.mapArt?.ready && window.mapArt.node===node && window.mapArt.shownCount===total,{node:room,total:visible});
+  if(key==='subject')assert.equal(await preview.locator('#liveSubject').inputValue(),id);
+  else assert.equal(await preview.locator('#surveyPointNote').getAttribute('data-worksite'),id);
+  if(id==='market-switch')await preview.locator('#rect').screenshot({path:'evidence/liyue-quarry-atlas-dispatch.png'});
+ }finally{await preview.close()}
+ await page.keyboard.press('Escape');
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
+}
 async function jump(y){
  await page.keyboard.down('Space');
  try{await atHeight(y)}finally{await page.keyboard.up('Space')}
@@ -70,6 +86,7 @@ try{
  await jump(305);
  await walk(1490);
  await through(room);
+ await checkAtlasTarget('worksite','cart-latch',2);
  await walk(490,true);
  await jump(397);
  await jump(312);
@@ -79,6 +96,7 @@ try{
  await page.locator('#trackedQuestText').filter({hasText:'荷車が分岐へ移動中'}).waitFor({timeout:3500});
  await progress(1);
  assert.match(await page.locator('#storyElite').innerText(),/石切り場の番人/);
+ await checkAtlasTarget('subject','liyue-quarry-storage-keeper',1);
  await walk(1070);
  await atHeight(480);
  const beforeVictory=await frame();
@@ -87,6 +105,7 @@ try{
  try{await progress(2)}finally{await page.keyboard.up('KeyJ')}
  assert.match(await page.locator('#storyChapterReward').innerText(),/73,057 EXP/);
  assert.equal((await frame()).progression.questXp-beforeVictory.progression.questXp,73057);
+ await checkAtlasTarget('worksite','market-switch',0);
  await walk(1030);
  const ready=await frame();
  const lever=ready.draws.find(d=>d.color==='#f2c85c' && d.w===10 && d.h===9);

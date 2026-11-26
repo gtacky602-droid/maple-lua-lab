@@ -40,6 +40,16 @@ function puzzleGuide(frame,quest,step,index){
  return {label:route.lit?'次の共鳴石「'+route.nextPattern+'」を見る':'刻印板の順番を見る',url:surveyPointUrl(point)};
 }
 
+function railGuide(frame,q,count){
+ if(frame.storyRailTransit)return null;
+ if(count===1){
+  const params=new URLSearchParams({placements:'live',node:q.target,subject:q.rail.guard});
+  return {label:'石切り場の番人',subject:q.rail.guard,url:'map-art.html?'+params};
+ }
+ const station=count===0?q.rail.release:count===2?q.rail.dispatch:null;
+ if(station)return {label:count===0?'上段の留め具':'港へ送るレバー',url:surveyPointUrl(worksitePoint(q,station.id,q.target))};
+}
+
 export function atlasQuestObjectives(frame,q,node){
  const state=frame.story.quests?.[q.id];
  if(!state)return [];
@@ -51,6 +61,11 @@ export function atlasQuestObjectives(frame,q,node){
  function addObjective(text,index,path){
   const step=(path?.steps??q.itinerary)?.[index];
   const room=frame.storyGraph.nodes.find(n=>n.id===node);
+  if(q.rail && node===q.target && status==='active'){
+   const guide=railGuide(frame,q,index);
+   objectives.push({text,points:guide?[guide]:[]});
+   return;
+  }
   const choices=step?.kind==='choice'||step?.kind==='guideChoice'?step.choices.length:0;
   if(step?.kind==='kill' && step.node===node){
    const progress=path?state.pathProgress?.[path.id]:state;
@@ -318,6 +333,10 @@ export function trackedQuest(f,id,selectedWorksite){
  }
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth,f.storyRailTransit);
  const route=status==='locked'?{text:''}:questRoute(f,q,status,selectedWorksite?.node);
+ if(status==='active' && q.rail){
+  const guide=railGuide(f,q,st.count);
+  return {node:route.node,text:q.name+' ｜ '+next+' ｜ '+route.text,pointUrl:guide?.url,pointLabel:guide && guide.label+'の位置を見る'};
+ }
  const room=status==='active'&&q.forest?.rooms[st.count];
  if(room&&route.node===room.node){
   const phase=st.forest.looped?'search':'entry';

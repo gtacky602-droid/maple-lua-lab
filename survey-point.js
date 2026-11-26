@@ -73,6 +73,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
 }
 
 export function worksitePoints(quest){
+ if(quest?.rail)return [quest.rail.release,quest.rail.dispatch].map(p=>({...p,node:quest.target,name:p.label}));
  if(quest?.sights)return [...quest.sights.places,quest.sights.bridge].map(p=>({...p,node:quest.target}));
  return quest?.cooking?.ingredients??quest?.construction?.surveys??quest?.stone?.marks??[];
 }

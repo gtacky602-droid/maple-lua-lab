@@ -225,6 +225,13 @@ try{
    const quest=graph.quests.find(q=>q.id===point.quest);
    const sites=quest?.sights?worksitePoints(quest).filter(site=>site.node===point.node):
     [{id:point.worksite,x:point.x,y:point.y}];
+   if(quest?.rail){
+    const release=point.worksite===quest.rail.release.id;
+    const x=release?quest.rail.startX:quest.rail.dispatch.x;
+    for(const [dx,dy,w,h,color] of worksiteArt.haul.cart){
+     visibleLandmarks.push({x:x+dx,y:quest.rail.dispatch.y+dy,w,h,color});
+    }
+   }
    for(const site of sites){
     for(const [dx,dy,w,h,color] of worksiteArt.worksites[point.quest]?.[site.id]??[]){
      visibleLandmarks.push({x:site.x+dx,y:site.y+dy,w,h,color});
@@ -434,7 +441,18 @@ try{
  function render(){
   const revision=++renderRevision;
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
-  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=liveView?liveItems:placements(),frame=sceneFrame(n,camera,gatePreview.selectedGate());
+  const n=node(),camera=Number($('camera').value),profile=$('profile').value,frame=sceneFrame(n,camera,gatePreview.selectedGate());
+  let items=liveView?liveItems:placements();
+  const rail=liveView && questsById.get(n.clearedBy)?.rail;
+  if(rail){
+   const station=selectedSurveyPoint?.node===n.id && selectedSurveyPoint.worksite;
+   const phase=station===rail.release.id?0:station===rail.dispatch.id?2:subject.value===rail.guard?1:null;
+   if(phase!==null){
+    const spawns=liveSource.nodes[n.id];
+    items=items.filter(item=>spawns.some(spawn=>spawn.id===item.id && (spawn.questPhase==null || spawn.questPhase===phase)));
+    if(phase>0)frame.platforms.push(rail.bridge);
+   }
+  }
   if(n.localLight)$('lampNote').textContent=darkRoom(n)?'消灯中。影の足場を渡ると上段の門へ進めます。':'点灯中。操作盤のそばでGを押すと、影の足場と門が現れます。';
   const layers=new Set();
   for(const item of items){
