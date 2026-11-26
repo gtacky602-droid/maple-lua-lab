@@ -1,5 +1,8 @@
 import json, sqlite3, time, uuid, threading
+from email.utils import parsedate_to_datetime
+from functools import lru_cache
 from gzip import compress
+from io import BytesIO
 from http.cookies import CookieError, SimpleCookie
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
@@ -36,6 +39,19 @@ def accepts_gzip(header):
             return False
         return True
     return False
+
+# Large shared inputs used by the field preview, atlas and sprite galleries.
+STATIC_JSON = frozenset(ROOT / directory / name for directory, names in (
+    ('assets', ('boss-gallery-packed.json', 'character-gallery-packed.json', 'common-boss-packed.json')),
+    ('content', ('story-graph.json', 'enemy-spawns.json', 'map-catalog.json', 'world-atlas.json')),
+) for name in names)
+
+
+@lru_cache(maxsize=len(STATIC_JSON))
+def compressed_asset(path, mtime_ns, size):
+    # Metadata in the key invalidates the cached representation after a rebuild.
+    return compress(path.read_bytes(), compresslevel=3, mtime=0)
+
 
 class LabServer(ThreadingHTTPServer):
     # The map and sprite views load several image and JSON groups in parallel.
@@ -76,6 +92,39 @@ class LabServer(ThreadingHTTPServer):
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**kw): super().__init__(*a,directory=str(ROOT),**kw)
     def log_message(self,*a): pass
+    def end_headers(self):
+        if getattr(self, 'vary_asset_encoding', False):
+            self.send_header('Vary', 'Accept-Encoding')
+        super().end_headers()
+
+    def send_head(self):
+        path = Path(self.translate_path(self.path))
+        self.vary_asset_encoding = path in STATIC_JSON
+        if not self.vary_asset_encoding or not accepts_gzip(self.headers.get('Accept-Encoding', '')):
+            return super().send_head()
+        try:
+            stat = path.stat()
+            since = self.headers.get('If-Modified-Since')
+            if since and 'If-None-Match' not in self.headers:
+                try:
+                    modified = parsedate_to_datetime(since)
+                    if modified.tzinfo and int(stat.st_mtime) <= modified.timestamp():
+                        self.send_response(304)
+                        self.end_headers()
+                        return None
+                except (ValueError, TypeError, OverflowError):
+                    pass
+            data = compressed_asset(path, stat.st_mtime_ns, stat.st_size)
+        except OSError:
+            return super().send_head()
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Encoding', 'gzip')
+        self.send_header('Content-Length', str(len(data)))
+        self.send_header('Last-Modified', self.date_time_string(stat.st_mtime))
+        self.end_headers()
+        return BytesIO(data)
+
     def send_json(self, status, result, ranking_cookie=None, *, frame=False):
         data = json.dumps(result, ensure_ascii=False, separators=(',', ':')).encode('utf8')
         large = frame and len(data) >= FRAME_COMPRESSION_BYTES

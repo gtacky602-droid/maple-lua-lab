@@ -13,6 +13,7 @@ const {items}=require('./content/boss-art-gallery.json');
   for(const id of ['ronova','shouki','narwhal']){
    const item=items.find(entry=>entry.id===id);
    await page.fill('#assetSearch',id);
+   if(id==='shouki')await page.selectOption('#shoukiForm','candidate');
    const card=page.locator('article[data-id="'+id+'"]');
    for(const left of [false,true]){
     await page.locator('#flip').setChecked(left);
@@ -37,7 +38,9 @@ const {items}=require('./content/boss-art-gallery.json');
     if(rear)assert((await card.locator('.stats').innerText()).includes((art.profiles.h32c16.runs.length+rear.profiles.h32c16.runs.length)+'矩形'));
    }
   }
-  assert.deepEqual(jsonRequests,['/assets/boss-gallery-packed.json']);
+  const arenas=require('./content/boss-arena-index.json');
+  const opening=Object.values(arenas).flat().find(entry=>entry.opening).opening;
+  assert.deepEqual(jsonRequests.sort(),['/assets/boss-gallery-packed.json','/assets/weekly-packed/'+opening.file].sort());
   await page.fill('#assetSearch','正機の神');await page.uncheck('#flip');
   await page.screenshot({path:'evidence/boss-packed-shouki.png'});
   await page.setViewportSize({width:390,height:844});
