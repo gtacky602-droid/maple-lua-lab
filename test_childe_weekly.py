@@ -78,6 +78,25 @@ def events(s, event):
     return [e for e in s.events.values() if e.kind==event]
 
 
+# Record the arena at each form transition using the same hit path as the combat checks.
+s,w,spec=arena()
+views={}
+for number,key in enumerate(('water','delusion','legacy-form'),1):
+    form(s,w,spec,number)
+    frame=core.frame(s,'sprite','legacy')
+    pose='foul' if number==3 else 'human'
+    draws=list(frame.draws.values())
+    index=next(i for i,d in enumerate(draws) if d.kind=='boss_sprite' and d.source==core.childeWeeklyArt[pose].source)
+    body=draws[index]
+    def rectangles(commands,colors):
+        return [[d.x,d.y,d.w,d.h,d.color,d.opacity or 1] for d in commands if d.kind=='rect' and d.color in colors]
+    behind=rectangles(draws[:index],{'#55463b','#caaf69','#fff5cd'})
+    front=rectangles(draws[index+1:],{'#6b4b99','#d9bdff','#a889e7','#b595f2'})
+    assert len(behind)==4 and len(front)==(0,3,1)[number-1]
+    views[key]=dict(node=node,pose=pose,tick=round(s.t*60),camera=frame.camera,x=body.x,y=body.y,
+                    height=body.h,flip=body.flip,platforms=native(frame.platforms),behind=behind,front=front)
+(ROOT/'evidence/childe-access-views.json').write_bytes((json.dumps({'views':views},ensure_ascii=False,indent=2)+'\n').encode())
+
 s,w,spec=arena()
 assert [sum(spec.phaseHp.values()),spec.hp]==[960,960]
 for row in move_rows:

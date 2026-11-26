@@ -19,6 +19,7 @@ async function read(path){
  return response.json();
 }
 const arenaViews={
+ childe:{water:['黄金屋・第1形態','human'],delusion:['黄金屋・第2形態（邪眼）','human'],'legacy-form':['黄金屋・第3形態（魔王武装）','foul']},
  narwhal:{arrival:['星海・開幕','whale'],inside:['異界・幻影戦','shadow'],return:['星海・帰還後の衰弱','whale']},
  knave:{court:['開幕・片鎌','single'],frenzy:['形態移行・双鎌','double'],moon:['凶月と双鎌','double']}
 };

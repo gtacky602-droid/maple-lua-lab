@@ -36,7 +36,7 @@ try{
     }));
     assert.deepEqual(purple,Array(3).fill(pose==='dual'));
    }
-   if((boss==='narwhal'&&['arrival','inside','return'].includes(pose))||(boss==='knave'&&['court','frenzy','moon'].includes(pose))){
+   if((boss==='childe'&&['water','delusion','legacy-form'].includes(pose))||(boss==='narwhal'&&['arrival','inside','return'].includes(pose))||(boss==='knave'&&['court','frenzy','moon'].includes(pose))){
     const replay=JSON.parse(await readFile('evidence/'+boss+'-access-views.json','utf8'));
     const shot=replay.views[pose];
     assert.equal(new URL(await page.locator('#arena').getAttribute('href'),page.url()).searchParams.get('node'),shot.node);
@@ -56,12 +56,13 @@ try{
      return c.toDataURL()===canvas.toDataURL();
     },{shot,boss});
     assert(matches,pose);
+    if(pose==='legacy-form')await page.locator('main').screenshot({path:'evidence/childe-foul-arena-profiles.png'});
     if(pose==='moon')await page.locator('main').screenshot({path:'evidence/knave-moon-profiles.png'});
     if(pose==='inside')await page.locator('main').screenshot({path:'evidence/narwhal-inner-profiles.png'});
    }
    count++;
   }
  }
- assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+8);
+ assert.equal(count,Object.values(manifest).reduce((n,v)=>n+Object.keys(v).length,0)+11);
  console.log(bosses.length+' bosses, '+count+' poses, all three canvases painted');
 }finally{await browser.close()}
