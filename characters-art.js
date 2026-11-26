@@ -4,7 +4,7 @@ import {spriteBounds,paintSprite,rectangleCount,openingRects} from './sprite-lay
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 async function art(data){const image=new Image();image.src='assets/'+data.source;await image.decode();return {data,image}}
-let shoukiOpening;
+let shoukiOpening,updateArenaLinks;
 async function add(id,name,data,h,leftData,rear){
  const [right,left,layer]=await Promise.all([art(data),leftData&&art(leftData),rear&&art(rear.data)]);
  const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;
@@ -46,7 +46,26 @@ try{
    picker.append(group);
   }
   picker.value='shouki-godmaking-arena';
-  picker.onchange=()=>{$('bossArenaLink').href='map-art.html?'+new URLSearchParams({node:picker.value,placements:'live'})};
+  const arenas=new Map(Object.values(groups).flat().map(entry=>[entry.node,entry]));
+  const panel=$('arenaEntrances');
+  let previous='';
+  updateArenaLinks=()=>{
+   const profile=$('profile').value, node=picker.value, key=node+'/'+profile;
+   if(key===previous)return;
+   previous=key;
+   $('bossArenaLink').href='map-art.html?'+new URLSearchParams({node,placements:'live',profile});
+   const gates=arenas.get(node)?.entrances??[];
+   panel.hidden=!gates.length;
+   panel.querySelector('ul').replaceChildren(...gates.map(gate=>{
+    const item=document.createElement('li'),link=document.createElement('a');
+    link.textContent=gate.name+(gate.label?'・'+gate.label:'');
+    link.href='map-art.html?'+new URLSearchParams({node:gate.from,to:node,gateX:gate.x,gateY:gate.y,placements:'live',profile});
+    item.append(link);
+    if(gate.quest)item.append('　関連依頼「'+gate.quest+'」');
+    return item;
+   }));
+  };
+  picker.onchange=updateArenaLinks;
   picker.onchange();
  }
  if(enemies){
@@ -95,7 +114,7 @@ try{
  const normalize=s=>s.normalize('NFKC').toLocaleLowerCase('ja');
  search.oninput=render;clear.onclick=()=>{search.value='';render();search.focus()};
  const updateUrl=setupGalleryUrl({search,render});
- function render(){const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
+ function render(){updateArenaLinks?.();const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   updateUrl();const dimensions=[];
   for(const {id,name,right,left,article,h:sheetHeight,rear,detail} of assets){
    const form=id==='shouki'?$('shoukiForm').value:null;
