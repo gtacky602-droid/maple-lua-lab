@@ -3,6 +3,7 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "mond_liyue_atlas_survey": {"mondstadt":68,"mondstadtTotal":68,"liyue":97,"liyueTotal":98,"newVisits":105,"newReports":9,"visitedAllRegions":761,"save":"evidence/mond-liyue-survey-save.json","alternate":"evidence/liyue-alternate-lift-save.json"},
   "all_legend_expedition": {"legendClears":56,"catalog":56,"originalWeeklies":2,"newQuestReports":9,"save":"evidence/original-weekly-expedition-save.json","guide":"theater-preview.html#legendPassages"},
   "quest_legend_expedition": {"cleared":49,"catalog":56,"newClears":15,"questReports":13,"guides":"theater-preview.html#legendPassages","save":"evidence/quest-legend-expedition-save.json"},
   "earned_legend_expedition": {"catalog":56,"newClears":34,"questLocked":20,"highEntrancesPending":2,"save":"evidence/legend-expedition-save.json","gallery":"theater-preview.html#lakeLegends"},

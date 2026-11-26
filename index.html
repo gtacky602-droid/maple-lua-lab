@@ -615,7 +615,9 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
     </div>
     <section class="atlas-info" aria-label="地点の詳細">
       <label>地点を探す<input id="atlasSearch" type="search" placeholder="地名・ボス名・Lv"></label>
+      <label id="atlasVisitsLabel">訪問記録<select id="atlasVisits"><option value="all">すべて</option><option value="unvisited">未訪問</option><option value="visited">訪問済み</option></select></label>
       <select id="atlasField" aria-label="地点を選ぶ"></select>
+      <output id="atlasVisitsCount"></output>
       <h3 id="atlasPlaceName"></h3>
       <p id="atlasPlaceLevel"></p>
       <a id="atlasBackgroundCompare" target="_blank" rel="noopener" hidden>この地点の背景を比較（別タブ）</a>

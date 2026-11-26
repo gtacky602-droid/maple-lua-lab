@@ -28,6 +28,9 @@ export function initAtlas(action, clearKeys) {
  const canvas = document.getElementById('atlasCanvas');
  const search = document.getElementById('atlasSearch');
  const field = document.getElementById('atlasField');
+ const visits = document.getElementById('atlasVisits');
+ const visitsLabel = document.getElementById('atlasVisitsLabel');
+ const visitsCount = document.getElementById('atlasVisitsCount');
  const title = document.getElementById('atlasPlaceName');
  const level = document.getElementById('atlasPlaceLevel');
  const compare = document.getElementById('atlasBackgroundCompare');
@@ -71,6 +74,7 @@ export function initAtlas(action, clearKeys) {
   else choose(field.value);
  };
  search.oninput = renderFields;
+ visits.onchange = renderFields;
 
  function choose(id) {
   if (id) send((view.region === 'world' ? 'world_map_region:' : 'world_map_select:') + id);
@@ -95,7 +99,12 @@ export function initAtlas(action, clearKeys) {
   const query = search.value.normalize('NFKC').trim().toLowerCase();
   const byBoss = view.layer === 'boss';
   const globalBosses = byBoss && view.region === 'world';
-  const matches = entries(globalBosses ? view.bosses : view.points).filter(({name,level,boss,area}) =>
+  const local = view.region !== 'world' && view.layer !== 'review';
+  visitsLabel.hidden = visitsCount.hidden = !local;
+  const points = entries(globalBosses ? view.bosses : view.points);
+  const visited = points.filter(item => item.visited).length;
+  visitsCount.textContent = local ? '表示中の層　訪問済み '+visited+' ／ '+points.length : '';
+  const matches = points.filter(item => !local || visits.value === 'all' || Boolean(item.visited) === (visits.value === 'visited')).filter(({name,level,boss,area}) =>
    !query || [name + (level ? ' Lv' + level : ''),boss?.name,...entries(boss?.aliases),area]
     .filter(Boolean).some(value => value.normalize('NFKC').toLowerCase().includes(query)));
   const prompt = matches.length ? (byBoss ? 'ボスを選ぶ' : '地点を選ぶ') : '該当する地点なし';
@@ -255,6 +264,7 @@ export function initAtlas(action, clearKeys) {
   if (!dialog.open) {
    dialog.showModal();
    search.value = '';
+   visits.value = 'all';
   }
   const next = `${view.region}/${view.revision}`;
   if (next === signature) return;
