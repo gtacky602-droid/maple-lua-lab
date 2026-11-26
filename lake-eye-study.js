@@ -1,4 +1,4 @@
-import {paintSprite,rectangleCount} from './sprite-layers.js';
+import {spriteBounds,paintSprite,rectangleCount} from './sprite-layers.js';
 
 let previousProfiles;
 function loadPreviousProfiles(){
@@ -54,6 +54,39 @@ export function lakeEyeStudy(enemy,legend){
   const link=document.createElement('a');link.href=url;link.textContent=label;
   link.target='_blank';link.rel='noopener';if(refs.childNodes.length)refs.append(' ／ ');refs.append(link);
  }
- section.append(title,note,strip,refs);
+ const motion=document.createElement('details'),summary=document.createElement('summary');
+ summary.textContent='構え・攻撃の単眼を本編サイズで比較';
+ const controls=document.createElement('label'),pose=document.createElement('select');
+ controls.append('姿勢 ',pose);
+ pose.add(new Option('構え','brace'));pose.add(new Option('攻撃','strike'));
+ const images=document.createElement('div');images.className='eye-crops';
+ const status=document.createElement('p');status.setAttribute('role','status');
+ let revision=0;
+ async function drawMotion(){
+  const ticket=++revision;
+  images.replaceChildren();status.textContent='読み込み中';
+  const name=enemy.id==='tainted-water-splitting-phantasm'?'ninianne':'vivianne';
+  try{
+   const response=await fetch('assets/field-packed/lake-'+name+'-field-'+pose.value+'-sprites-v6.json');
+   if(!response.ok)throw Error(response.status);
+   const data=await response.json();
+   if(ticket!==revision)return;
+   const scale=legend.h/legend.box[3],bounds=spriteBounds(data,data.box[3]*scale);
+   for(const [profile,label] of [[null,'元PNG'],['h48c32','32色'],['h32c16','16色']]){
+    const card=document.createElement('figure'),caption=document.createElement('figcaption'),canvas=document.createElement('canvas');
+    canvas.width=Math.ceil(bounds.width)+8;canvas.height=Math.ceil(bounds.height)+8;
+    canvas.style.width=canvas.width+'px';canvas.style.height='auto';canvas.style.maxWidth='100%';
+    const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
+    ctx.translate(4-bounds.x,canvas.height-4);paintSprite(ctx,data,legend.image,bounds,profile);
+    caption.textContent=label+(profile?'・'+rectangleCount(data.profiles[profile])+'矩形':'');
+    card.append(caption,canvas);images.append(card);
+   }
+   status.textContent='';
+  }catch(error){if(ticket===revision)status.textContent='姿勢の読み込みに失敗しました。 '+error.message}
+ }
+ pose.onchange=drawMotion;
+ motion.ontoggle=()=>{if(motion.open&&!images.childElementCount)drawMotion()};
+ motion.append(summary,controls,images,status);
+ section.append(title,note,strip,motion,refs);
  return section;
 }

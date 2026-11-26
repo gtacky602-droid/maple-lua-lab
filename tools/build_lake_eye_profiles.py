@@ -1,5 +1,8 @@
-"""Restore the approved eye shape inside the half-resolution idle profiles."""
+"""Restore the approved eye shape inside the half-resolution lake legend poses."""
 import json
+import subprocess
+import sys
+from tempfile import TemporaryDirectory
 from pathlib import Path
 
 from PIL import Image
@@ -63,22 +66,46 @@ def restore_eye(base, image, region):
     return dict(width=width,height=height,colors=base['colors'],runs=runs)
 
 
-def build():
-
-    for name, region in regions.items():
-        prefix = 'lake-'+name+'-field-idle'
-        base = json.loads((assets/(prefix+'-a-sprites-v5.json')).read_bytes())['profiles']['h32c16']
-        path = assets/(prefix+'-sprites-v6.json')
-        art = json.loads(path.read_bytes())
-        l,t,w,h = art['box']
-        with Image.open(assets/art['source']) as sheet:
-            image = sheet.convert('RGBA').crop((l,t,l+w,t+h))
-        updated = restore_eye(base, image, region)
-        art['profiles']['h32c16'] = updated
-        path.write_bytes(json.dumps(art,ensure_ascii=False,separators=(',', ':')).encode())
-
-        print(name,len(base['runs']),len(updated['runs']))
-
+def build(*, fresh=False):
+    layout = json.loads((assets/'fontaine-lake-legend-poses-v6-layout.json').read_bytes())
+    with TemporaryDirectory() as tmp:
+        for frame in layout['frames']:
+            name = frame['id'].removeprefix('lake-')
+            pose = frame['pose']
+            prefix = f"{frame['id']}-field-{pose}"
+            path = assets/(prefix+'-sprites-v6.json')
+            art = json.loads(path.read_bytes())
+            if pose == 'idle':
+                base_path = assets/(prefix+'-a-sprites-v5.json')
+            elif fresh:
+                base_path = path
+            else:
+                base_path = Path(tmp)/(prefix+'.json')
+                height = frame['pivot'][1] - frame['opaque_box'][1]
+                subprocess.run([
+                    sys.executable, str(assets.parent/'compile_boss_assets.py'),
+                    '--source', layout['source'], '--output', str(base_path),
+                    '--height', str(height), '--pivot', *map(str, frame['pivot']),
+                    '--crop', *map(str, frame['crop']),
+                ], check=True)
+            base = json.loads(base_path.read_bytes())['profiles']['h32c16']
+            l,t,w,h = art['box']
+            with Image.open(assets/art['source']) as sheet:
+                image = sheet.convert('RGBA').crop((l,t,l+w,t+h))
+            # The bright cyan pupil is unique on each authored cel.
+            mask = Image.frombytes('L', image.size, bytes(
+                int(pixel == (165,243,251,255)) for pixel in image.getdata()))
+            eye = mask.getbbox()
+            assert eye is not None, prefix
+            margin = (2,2,3,2) if name == 'vivianne' else (3,1,2,2)
+            region = (eye[0]-margin[0], eye[1]-margin[1],
+                      eye[2]+margin[2], eye[3]+margin[3])
+            if pose == 'idle':
+                assert region == regions[name]
+            updated = restore_eye(base, image, region)
+            art['profiles']['h32c16'] = updated
+            path.write_bytes(json.dumps(art,ensure_ascii=False,separators=(',', ':')).encode())
+            print(name,pose,len(base['runs']),len(updated['runs']))
 
 
 if __name__ == '__main__':

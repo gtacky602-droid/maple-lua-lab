@@ -70,7 +70,7 @@ for layout_name, revision in PIVOT_LAYOUTS.items():
             '--crop', *(str(v) for v in crop),
         ], cwd=ROOT, check=True)
 
-build_lake_eyes()
+build_lake_eyes(fresh=True)
 
 motion = json.loads((ROOT/'assets'/'chizhang-shared-motion-layout-v3.json').read_text(encoding='utf-8'))
 for frame in motion['frames']:
