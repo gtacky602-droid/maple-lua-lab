@@ -1,0 +1,544 @@
+{
+  "jadeplumeArt": {
+    "poses": {
+      "peck_ready": "jadeplume-field-peck-ready-sprites-v1.json",
+      "peck": "jadeplume-field-peck-sprites-v1.json",
+      "crouch": "jadeplume-field-crouch-sprites-v1.json",
+      "spring": "jadeplume-field-spring-sprites-v1.json",
+      "stagger": "jadeplume-field-stagger-sprites-v1.json",
+      "spores": "jadeplume-field-spores-sprites-v1.json",
+      "idle": "jadeplume-idle-sprites.json"
+    }
+  },
+  "cryoFieldArt": {
+    "poses": {
+      "slam_ready": "cryo-field-slam-ready-sprites-v1.json",
+      "slam": "cryo-field-slam-sprites-v1.json",
+      "sweep_ready": "cryo-field-sweep-ready-sprites-v1.json",
+      "sweep": "cryo-field-sweep-sprites-v1.json",
+      "bolts": "cryo-field-bolts-sprites-v1.json",
+      "down": "cryo-field-down-sprites-v1.json",
+      "idle": "boss-sprites.json"
+    },
+    "idleAnchor": 0.54
+  },
+  "pyroFieldArt": {
+    "poses": {
+      "raised": "pyro-field-raised-sprites-v1.json",
+      "bowed": "pyro-field-bowed-sprites-v1.json",
+      "impact": "pyro-field-impact-sprites-v1.json",
+      "down": "pyro-field-down-sprites-v1.json",
+      "bud_first": "pyro-field-bud-first-sprites-v1.json",
+      "bud_second": "pyro-field-bud-second-sprites-v1.json",
+      "sweep_ready": "pyro-field-sweep-ready-sprites-v1.json",
+      "sweep": "pyro-field-sweep-sprites-v1.json",
+      "idle": "pyro-regisvine-sprites.json"
+    },
+    "idleAnchor": 0.49
+  },
+  "primoFieldArt": {
+    "poses": {
+      "windup": "primo-field-windup-sprites-v1.json",
+      "claw_first": "primo-field-claw-first-sprites-v1.json",
+      "claw_second": "primo-field-claw-second-sprites-v1.json",
+      "tail_ready": "primo-field-tail-ready-sprites-v1.json",
+      "tail_sweep": "primo-field-tail-sweep-sprites-v1.json",
+      "charge": "primo-field-charge-sprites-v1.json",
+      "burst": "primo-field-burst-sprites-v1.json",
+      "down": "primo-field-down-sprites-v1.json",
+      "idle": "primo-sprites.json"
+    },
+    "idleAnchor": 0.43
+  },
+  "electroRegisvineFieldArt": {
+    "poses": {
+      "gather": "electro-regisvine-field-gather-sprites-v1.json",
+      "bowed": "electro-regisvine-field-bowed-sprites-v1.json",
+      "impact": "electro-regisvine-field-impact-sprites-v1.json",
+      "branches": "electro-regisvine-field-branches-sprites-v1.json",
+      "rain": "electro-regisvine-field-rain-sprites-v1.json",
+      "down": "electro-regisvine-field-down-sprites-v1.json",
+      "idle": "electro-regisvine-idle-sprites.json"
+    },
+    "idleAnchor": 0.51
+  },
+  "dendroHypostasisFieldArt": {
+    "poses": {
+      "vine": "dendro-hypostasis-field-vine-sprites-v1.json",
+      "ball": "dendro-hypostasis-field-ball-sprites-v1.json",
+      "core": "dendro-hypostasis-field-core-sprites-v1.json",
+      "idle": "dendro-hypostasis-idle-sprites.json"
+    }
+  },
+  "asimonFieldArt": {
+    "poses": {
+      "ray": "asimon-field-ray-sprites-v1.json",
+      "pillars": "asimon-field-pillars-sprites-v1.json",
+      "cloak": "asimon-field-cloak-sprites-v1.json",
+      "recover": "asimon-field-recover-sprites-v1.json",
+      "idle": "asimon-idle-sprites.json"
+    }
+  },
+  "wenutFieldArt": {
+    "poses": {
+      "idle": "wenut-field-idle-sprites-v1.json",
+      "sweep": "wenut-field-sweep-sprites-v1.json",
+      "stream": "wenut-field-stream-sprites-v1.json",
+      "dive": "wenut-field-dive-sprites-v1.json",
+      "emerge": "wenut-field-emerge-sprites-v1.json",
+      "orb": "wenut-field-orb-sprites-v1.json"
+    }
+  },
+  "baptistFieldArt": {
+    "poses": {
+      "bolt": "baptist-field-bolt-sprites-v1.json",
+      "fall": "baptist-field-fall-sprites-v1.json",
+      "rings": "baptist-field-rings-sprites-v1.json",
+      "recover": "baptist-field-recover-sprites-v1.json",
+      "idle": "baptist-idle-sprites.json"
+    }
+  },
+  "emperorFieldArt": {
+    "poses": {
+      "guard": "emperor-field-guard-sprites-v1.json",
+      "claw": "emperor-field-claw-sprites-v1.json",
+      "fire": "emperor-field-fire-sprites-v1.json",
+      "exposed": "emperor-field-exposed-sprites-v1.json"
+    }
+  },
+  "seahorseFieldArt": {
+    "poses": {
+      "sweep": "seahorse-field-sweep-sprites-v1.json",
+      "charge": "seahorse-field-charge-sprites-v1.json",
+      "dive": "seahorse-field-dive-sprites-v1.json",
+      "dim": "seahorse-field-dim-sprites-v1.json",
+      "idle": "seahorse-idle-sprites.json"
+    },
+    "idleAnchor": 0.28
+  },
+  "generatorFieldArt": {
+    "poses": {
+      "sweep": "field-generator-field-sweep-sprites-v1.json",
+      "stones": "field-generator-field-stones-sprites-v1.json",
+      "quake": "field-generator-field-quake-sprites-v1.json",
+      "recover": "field-generator-field-recover-sprites-v1.json",
+      "idle": "field-generator-idle-sprites.json"
+    }
+  },
+  "tulpaFieldArt": {
+    "poses": {
+      "spear": "tulpa-field-spear-sprites-v1.json",
+      "hammer": "tulpa-field-hammer-sprites-v1.json",
+      "merge": "tulpa-field-merge-sprites-v1.json",
+      "surge": "tulpa-field-surge-sprites-v1.json",
+      "settled": "tulpa-field-settled-sprites-v1.json",
+      "half": "tulpa-field-half-sprites-v1.json",
+      "idle": "tulpa-idle-sprites.json"
+    }
+  },
+  "coppeliaFieldArt": {
+    "poses": {
+      "idle": "coppelia-field-idle-sprites-v1.json",
+      "attack": "coppelia-field-attack-sprites-v1.json",
+      "focus": "coppelia-field-focus-sprites-v1.json",
+      "bow": "coppelia-field-bow-sprites-v1.json"
+    }
+  },
+  "coppeliusFieldArt": {
+    "poses": {
+      "idle": "coppelius-field-idle-sprites-v1.json",
+      "attack": "coppelius-field-attack-sprites-v1.json",
+      "focus": "coppelius-field-focus-sprites-v1.json",
+      "bow": "coppelius-field-bow-sprites-v1.json"
+    }
+  },
+  "legatusFieldArt": {
+    "poses": {
+      "sweep": "legatus-field-sweep-sprites-v1.json",
+      "charge": "legatus-field-charge-sprites-v1.json",
+      "conduct": "legatus-field-conduct-sprites-v1.json",
+      "stagger": "legatus-field-stagger-sprites-v1.json",
+      "idle": "legatus-idle-sprites.json"
+    }
+  },
+  "suanniFieldArt": {
+    "poses": {
+      "claw": "suanni-field-claw-sprites-v1.json",
+      "tail": "suanni-field-tail-sprites-v1.json",
+      "water": "suanni-field-water-sprites-v1.json",
+      "crouch": "suanni-field-crouch-sprites-v1.json",
+      "leap": "suanni-field-leap-sprites-v1.json",
+      "rest": "suanni-field-rest-sprites-v1.json",
+      "idle": "suanni-idle-sprites.json"
+    }
+  },
+  "qucusaurFieldArt": {
+    "poses": {
+      "wing": "qucusaur-field-wing-sprites-v1.json",
+      "ready": "qucusaur-field-ready-sprites-v1.json",
+      "rest": "qucusaur-field-rest-sprites-v1.json",
+      "gold-hover": "qucusaur-field-gold-hover-sprites-v1.json",
+      "gold-dive": "qucusaur-field-gold-dive-sprites-v1.json",
+      "feather": "qucusaur-field-feather-sprites-v1.json",
+      "idle": "qucusaur-idle-sprites.json"
+    }
+  },
+  "yumkaFieldArt": {
+    "poses": {
+      "tail": "yumka-field-tail-sprites-v1.json",
+      "crouch": "yumka-field-crouch-sprites-v1.json",
+      "leap": "yumka-field-leap-sprites-v1.json",
+      "land": "yumka-field-land-sprites-v1.json",
+      "fruit": "yumka-field-fruit-sprites-v1.json",
+      "seed": "yumka-field-seed-sprites-v1.json",
+      "idle": "yumka-idle-sprites.json"
+    }
+  },
+  "configDeviceFieldArt": {
+    "poses": {
+      "claw-a": "config-device-field-claw-a-sprites-v1.json",
+      "claw-b": "config-device-field-claw-b-sprites-v1.json",
+      "beam": "config-device-field-beam-sprites-v1.json",
+      "charge": "config-device-field-charge-sprites-v1.json",
+      "down": "config-device-field-down-sprites-v1.json",
+      "collector": "config-device-field-collector-sprites-v1.json",
+      "idle": "config-device-idle-sprites.json"
+    }
+  },
+  "papillaFieldArt": {
+    "poses": {
+      "stem-ready": "papilla-field-stem-ready-sprites-v1.json",
+      "stem-strike": "papilla-field-stem-strike-sprites-v1.json",
+      "wing-ready": "papilla-field-wing-ready-sprites-v1.json",
+      "wing-strike": "papilla-field-wing-strike-sprites-v1.json",
+      "fungus-ready": "papilla-field-fungus-ready-sprites-v1.json",
+      "fungus-strike": "papilla-field-fungus-strike-sprites-v1.json",
+      "idle": "papilla-idle-sprites.json"
+    }
+  },
+  "lavaDragonFieldArt": {
+    "poses": {
+      "slam-ready": "lava-dragon-field-slam-ready-sprites-v1.json",
+      "slam-strike": "lava-dragon-field-slam-strike-sprites-v1.json",
+      "fissure": "lava-dragon-field-fissure-sprites-v1.json",
+      "lunge": "lava-dragon-field-lunge-sprites-v1.json",
+      "eruption": "lava-dragon-field-eruption-sprites-v1.json",
+      "overburn": "lava-dragon-field-overburn-sprites-v1.json",
+      "idle": "lava-dragon-sprites.json",
+      "molten": "lava-dragon-molten-sprites.json"
+    }
+  },
+  "overseerFieldArt": {
+    "poses": {
+      "blade-ready": "overseer-field-blade-ready-sprites-v1.json",
+      "blade-cross": "overseer-field-blade-cross-sprites-v1.json",
+      "purge": "overseer-field-purge-sprites-v1.json",
+      "cooled": "overseer-field-cooled-sprites-v1.json",
+      "crest": "overseer-field-crest-sprites-v1.json",
+      "plume": "overseer-field-plume-sprites-v1.json",
+      "idle": "overseer-idle-sprites.json"
+    }
+  },
+  "knuckleDuckFieldArt": {
+    "poses": {
+      "windup": "knuckle-duckle-field-windup-sprites-v1.json",
+      "punch": "knuckle-duckle-field-punch-sprites-v1.json",
+      "stomp": "knuckle-duckle-field-stomp-sprites-v1.json",
+      "guard": "knuckle-duckle-field-guard-sprites-v1.json",
+      "down": "knuckle-duckle-field-down-sprites-v1.json",
+      "mecha": "knuckle-duckle-field-mecha-sprites-v1.json",
+      "idle": "knuckle-duckle-idle-sprites.json"
+    }
+  },
+  "battleshipFieldArt": {
+    "poses": {
+      "saw-ready": "battleship-field-saw-ready-sprites-v1.json",
+      "sweep": "battleship-field-sweep-sprites-v1.json",
+      "cannon": "battleship-field-cannon-sprites-v1.json",
+      "heated": "battleship-field-heated-sprites-v1.json",
+      "ward": "battleship-field-ward-sprites-v1.json",
+      "down": "battleship-field-down-sprites-v1.json",
+      "idle": "battleship-idle-sprites.json"
+    }
+  },
+  "frostnightHerraFieldArt": {
+    "poses": {
+      "ready": "frostnight-herra-field-ready-sprites-v1.json",
+      "sweep": "frostnight-herra-field-sweep-sprites-v1.json",
+      "leap": "frostnight-herra-field-leap-sprites-v1.json",
+      "land": "frostnight-herra-field-land-sprites-v1.json",
+      "gloom": "frostnight-herra-field-gloom-sprites-v1.json",
+      "down": "frostnight-herra-field-down-sprites-v1.json",
+      "idle": "frostnight-herra-idle-sprites.json"
+    }
+  },
+  "whispererNightmaresFieldArt": {
+    "poses": {
+      "ready": "whisperer-nightmares-field-ready-sprites-v1.json",
+      "lunge": "whisperer-nightmares-field-lunge-sprites-v1.json",
+      "emerge": "whisperer-nightmares-field-emerge-sprites-v1.json",
+      "shield": "whisperer-nightmares-field-shield-sprites-v1.json",
+      "down": "whisperer-nightmares-field-down-sprites-v1.json",
+      "fisher": "whisperer-nightmares-field-fisher-sprites-v1.json",
+      "idle": "whisperer-nightmares-idle-sprites.json"
+    }
+  },
+  "moonflyFieldArt": {
+    "poses": {
+      "ready": "moonfly-field-ready-sprites-v1.json",
+      "kick": "moonfly-field-kick-sprites-v1.json",
+      "green": "moonfly-field-green-sprites-v1.json",
+      "flame": "moonfly-field-flame-sprites-v1.json",
+      "cocoon": "moonfly-field-cocoon-sprites-v1.json",
+      "down": "moonfly-field-down-sprites-v1.json",
+      "idle": "moonfly-idle-sprites.json"
+    }
+  },
+  "moongeckoFieldArt": {
+    "poses": {
+      "ready": "moongecko-field-ready-sprites-v1.json",
+      "tail": "moongecko-field-tail-sprites-v1.json",
+      "leap": "moongecko-field-leap-sprites-v1.json",
+      "charge": "moongecko-field-charge-sprites-v1.json",
+      "down": "moongecko-field-down-sprites-v1.json",
+      "anchor": "moongecko-field-anchor-sprites-v1.json",
+      "idle": "moongecko-idle-sprites.json"
+    }
+  },
+  "spiritspeakerFieldArt": {
+    "poses": {
+      "ready": "spiritspeaker-field-ready-sprites-v1.json",
+      "sweep": "spiritspeaker-field-sweep-sprites-v1.json",
+      "cast": "spiritspeaker-field-cast-sprites-v1.json",
+      "ritual": "spiritspeaker-field-ritual-sprites-v1.json",
+      "reflection": "spiritspeaker-field-reflection-sprites-v1.json",
+      "down": "spiritspeaker-field-down-sprites-v1.json",
+      "idle": "spiritspeaker-field-ready-sprites-v1.json"
+    }
+  },
+  "fallenVigilFieldArt": {
+    "poses": {
+      "ready": "fallen-vigil-field-ready-sprites-v1.json",
+      "lunge": "fallen-vigil-field-lunge-sprites-v1.json",
+      "throw": "fallen-vigil-field-throw-sprites-v1.json",
+      "monitor": "fallen-vigil-field-monitor-sprites-v1.json",
+      "down": "fallen-vigil-field-down-sprites-v1.json",
+      "star": "fallen-vigil-field-star-sprites-v1.json",
+      "idle": "fallen-vigil-field-ready-sprites-v1.json"
+    }
+  },
+  "flugelFieldArt": {
+    "poses": {
+      "ready": "flugel-field-ready-sprites-v1.json",
+      "slash": "flugel-field-slash-sprites-v1.json",
+      "dive": "flugel-field-dive-sprites-v1.json",
+      "charge": "flugel-field-charge-sprites-v1.json",
+      "down": "flugel-field-down-sprites-v1.json",
+      "orb": "flugel-field-orb-sprites-v1.json",
+      "idle": "flugel-field-ready-sprites-v1.json"
+    }
+  },
+  "driftingSnowFieldArt": {
+    "poses": {
+      "ready": "drifting-snow-field-ready-sprites-v1.json",
+      "slash": "drifting-snow-field-slash-sprites-v1.json",
+      "cast": "drifting-snow-field-cast-sprites-v1.json",
+      "coffin": "drifting-snow-field-coffin-sprites-v1.json",
+      "down": "drifting-snow-field-down-sprites-v1.json",
+      "spear": "drifting-snow-field-spear-sprites-v1.json",
+      "idle": "drifting-snow-field-ready-sprites-v1.json"
+    }
+  },
+  "immortalConstructFieldArt": {
+    "poses": {
+      "ready": "immortal-construct-field-ready-sprites-v1.json",
+      "rake": "immortal-construct-field-rake-sprites-v1.json",
+      "wing": "immortal-construct-field-wing-sprites-v1.json",
+      "bloom": "immortal-construct-field-bloom-sprites-v1.json",
+      "down": "immortal-construct-field-down-sprites-v1.json",
+      "seed": "immortal-construct-field-seed-sprites-v1.json",
+      "idle": "immortal-construct-field-ready-sprites-v1.json"
+    }
+  },
+  "wavebinderFieldArt": {
+    "poses": {
+      "ready": "wavebinder-field-ready-sprites-v1.json",
+      "sweep": "wavebinder-field-sweep-sprites-v1.json",
+      "throw": "wavebinder-field-throw-sprites-v1.json",
+      "drink": "wavebinder-field-drink-sprites-v1.json",
+      "down": "wavebinder-field-down-sprites-v1.json",
+      "anchor": "wavebinder-field-anchor-sprites-v1.json",
+      "idle": "wavebinder-field-ready-sprites-v1.json"
+    }
+  },
+  "aeonblightFieldArt": {
+    "poses": {
+      "wing_first": "aeonblight-field-wing-first-sprites-v1.json",
+      "wing_second": "aeonblight-field-wing-second-sprites-v1.json",
+      "cannon": "aeonblight-field-cannon-sprites-v1.json",
+      "windup": "aeonblight-field-windup-sprites-v1.json",
+      "dash": "aeonblight-field-dash-sprites-v1.json",
+      "down": "aeonblight-field-down-sprites-v1.json",
+      "idle": "aeonblight-idle-sprites.json"
+    }
+  },
+  "rimebiterFieldArt": {
+    "poses": {
+      "tail": "rimebiter-field-tail-sprites-v1.json",
+      "breath": "rimebiter-field-breath-sprites-v1.json",
+      "leap": "rimebiter-field-leap-sprites-v1.json",
+      "idle": "rimebiter-idle-sprites.json"
+    }
+  },
+  "bolteaterFieldArt": {
+    "poses": {
+      "tail": "bolteater-field-tail-sprites-v1.json",
+      "breath": "bolteater-field-breath-sprites-v1.json",
+      "leap": "bolteater-field-leap-sprites-v1.json",
+      "idle": "bolteater-idle-sprites.json"
+    }
+  },
+  "ruinSerpentFieldArt": {
+    "poses": {
+      "idle": "ruin-serpent-field-idle-sprites-v1.json",
+      "roll": "ruin-serpent-field-roll-sprites-v1.json",
+      "dive": "ruin-serpent-field-dive-sprites-v1.json",
+      "emerge": "ruin-serpent-field-emerge-sprites-v1.json",
+      "bombs": "ruin-serpent-field-bombs-sprites-v1.json",
+      "drill": "ruin-serpent-field-drill-sprites-v1.json"
+    }
+  },
+  "wolflordFieldArt": {
+    "poses": {
+      "idle": "wolflord-field-idle-sprites-v1.json",
+      "ram": "wolflord-field-ram-sprites-v1.json",
+      "tail": "wolflord-field-tail-sprites-v1.json",
+      "jaw": "wolflord-field-jaw-sprites-v1.json",
+      "recover": "wolflord-field-recover-sprites-v1.json",
+      "skull": "wolflord-field-skull-sprites-v1.json"
+    }
+  },
+  "hydroHypostasisFieldArt": {
+    "poses": {
+      "dolphin": "hydro-hypostasis-field-dolphin-sprites-v1.json",
+      "ray": "hydro-hypostasis-field-ray-sprites-v1.json",
+      "rain": "hydro-hypostasis-field-rain-sprites-v1.json",
+      "recover": "hydro-hypostasis-field-recover-sprites-v1.json",
+      "idle": "hydro-hypostasis-idle-sprites.json"
+    }
+  },
+  "pyroHypostasisFieldArt": {
+    "poses": {
+      "boar": "pyro-hypostasis-field-boar-sprites-v1.json",
+      "snake": "pyro-hypostasis-field-snake-sprites-v1.json",
+      "fist": "pyro-hypostasis-field-fist-sprites-v1.json",
+      "recover": "pyro-hypostasis-field-recover-sprites-v1.json",
+      "idle": "pyro-hypostasis-idle-sprites.json"
+    }
+  },
+  "cryoHypostasisFieldArt": {
+    "poses": {
+      "wheel": "cryo-hypostasis-field-wheel-sprites-v1.json",
+      "clap": "cryo-hypostasis-field-clap-sprites-v1.json",
+      "fall": "cryo-hypostasis-field-fall-sprites-v1.json",
+      "recover": "cryo-hypostasis-field-recover-sprites-v1.json",
+      "idle": "cryo-hypostasis-idle-sprites.json"
+    }
+  },
+  "thunderFieldArt": {
+    "poses": {
+      "wing": "thunder-field-wing-sprites-v1.json",
+      "feathers": "thunder-field-feathers-sprites-v1.json",
+      "dash": "thunder-field-dash-sprites-v1.json",
+      "recover": "thunder-field-recover-sprites-v1.json"
+    }
+  },
+  "arrayFieldArt": {
+    "poses": {
+      "blade": "array-field-blade-sprites-v1.json",
+      "wheel": "array-field-wheel-sprites-v1.json",
+      "rocket": "array-field-rocket-sprites-v1.json",
+      "core": "array-field-core-sprites-v1.json"
+    }
+  },
+  "snowSweeperArt": {
+    "poses": {
+      "idle": "snow-sweeper-field-idle-sprites-v1.json",
+      "plow": "snow-sweeper-field-plow-sprites-v1.json",
+      "vent": "snow-sweeper-field-vent-sprites-v1.json"
+    }
+  },
+  "frostAntlerArt": {
+    "poses": {
+      "idle": "frost-antler-field-idle-sprites-v1.json",
+      "scrape": "frost-antler-field-scrape-sprites-v1.json",
+      "exposed": "frost-antler-field-exposed-sprites-v1.json"
+    }
+  },
+  "windwardTowerArt": {
+    "poses": {
+      "idle": "windward-tower-field-idle-sprites-v1.json",
+      "braced": "windward-tower-field-braced-sprites-v1.json",
+      "open": "windward-tower-field-open-sprites-v1.json"
+    }
+  },
+  "rubbleSifterArt": {
+    "poses": {
+      "idle": "rubble-sifter-field-idle-sprites-v1.json",
+      "heating": "rubble-sifter-field-heating-sprites-v1.json",
+      "open": "rubble-sifter-field-open-sprites-v1.json"
+    }
+  },
+  "prismWalkerArt": {
+    "poses": {
+      "idle": "prism-walker-field-idle-sprites-v1.json"
+    }
+  },
+  "iceCrawlerArt": {
+    "poses": {
+      "idle": "ice-crawler-field-idle-sprites-v1.json",
+      "open": "ice-crawler-field-open-sprites-v1.json"
+    }
+  },
+  "rimeHareArt": {
+    "poses": {
+      "idle": "rime-hare-field-idle-sprites-v1.json"
+    }
+  },
+  "teaBoulderArt": {
+    "poses": {
+      "idle": "tea-boulder-field-idle-sprites-v1.json"
+    }
+  },
+  "plateTailArt": {
+    "poses": {
+      "idle": "plate-tail-field-idle-sprites-v1.json"
+    }
+  },
+  "moonCrabArt": {
+    "poses": {
+      "idle": "moon-crab-field-idle-sprites-v1.json",
+      "cracked": "moon-crab-field-cracked-sprites-v1.json"
+    }
+  },
+  "windRingFieldArt": {
+    "poses": {
+      "idle": "wind-ring-field-idle-sprites-v1.json"
+    }
+  },
+  "bellGateFieldArt": {
+    "poses": {
+      "idle": "bellgate-field-idle-sprites-v1.json"
+    }
+  },
+  "canopyFungusFieldArt": {
+    "poses": {
+      "idle": "canopy-fungus-field-idle-sprites-v1.json"
+    }
+  },
+  "riverRacerFieldArt": {
+    "poses": {
+      "idle": "river-racer-field-idle-sprites-v1.json"
+    }
+  }
+}

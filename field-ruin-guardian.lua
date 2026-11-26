@@ -93,7 +93,7 @@ return function(C,art)
    end
   end
   local x=b.x-s.camera
-  C.drawFieldDisplayArt(f,art,x,b.y,spec.artHeight,mode,profile,b.facing>0)
+  C.drawFieldDisplayArt(f,art.idle or art,x,b.y,spec.artHeight,mode,profile,b.facing>0)
   if b.recovering then rect(x-24,y-4,48,4,'#ffe5a5') end
  end
 

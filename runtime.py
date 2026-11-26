@@ -381,17 +381,11 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
         if cover:
             spec['cover']=cover
     jade=lua.execute((ROOT/'field-jadeplume.lua').read_text(encoding='utf-8'))(core)
-    core.jadeplumeArt=field_art(lua,'jadeplume',('peck_ready','peck','crouch','spring','stagger','spores'),
-                               idle='jadeplume-idle-sprites.json')
-    core.cryoFieldArt=field_art(lua,'cryo',('slam_ready','slam','sweep_ready','sweep','bolts','down'),
-                                idle='boss-sprites.json',idle_anchor=.54)
-    core.pyroFieldArt=field_art(lua,'pyro',('raised','bowed','impact','down','bud_first','bud_second','sweep_ready','sweep'),
-                                idle='pyro-regisvine-sprites.json',idle_anchor=.49)
-    core.primoFieldArt=field_art(lua,'primo',('windup','claw_first','claw_second','tail_ready','tail_sweep','charge','burst','down'),
-                                idle='primo-sprites.json',idle_anchor=.43)
+    field_boss_files=json.loads((ROOT/'content/field-boss-pose-files.json').read_bytes())
+    for key,spec in field_boss_files.items():
+        core[key]=field_art(lua,'',(),variants=spec['poses'],idle_anchor=spec.get('idleAnchor'),
+                            prepare_grid=prepare_grid,packed_dir='field-boss-packed')
     lua.execute((ROOT/'field-regisvine.lua').read_text(encoding='utf8'))(core)
-    core.electroRegisvineFieldArt=field_art(lua,'electro-regisvine',('gather','bowed','impact','branches','rain','down'),
-                                         idle='electro-regisvine-idle-sprites.json',idle_anchor=.51)
     electro_vine=lua.execute((ROOT/'field-electro-regisvine.lua').read_text(encoding='utf-8'))(core)
     cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
     pyro_field=lua.execute((ROOT/'field-pyro-regisvine.lua').read_text(encoding='utf8'))(core)
@@ -410,142 +404,63 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     ruin_serpent=lua.execute((ROOT/'field-ruin-serpent.lua').read_text(encoding='utf-8'))(core)
     aeonblight=lua.execute((ROOT/'field-aeonblight.lua').read_text(encoding='utf-8'))(core)
     dendro_hypostasis=lua.execute((ROOT/'field-dendro-hypostasis.lua').read_text(encoding='utf-8'))(core)
-    core.dendroHypostasisFieldArt=field_art(lua,'dendro-hypostasis',('vine','ball','core'),
-                                            idle='dendro-hypostasis-idle-sprites.json')
     asimon=lua.execute((ROOT/'field-asimon.lua').read_text(encoding='utf-8'))(core)
-    core.asimonFieldArt=field_art(lua,'asimon',('ray','pillars','cloak','recover'),
-                                 idle='asimon-idle-sprites.json')
     wenut=lua.execute((ROOT/'field-wenut.lua').read_text(encoding='utf-8'))(core)
-    core.wenutFieldArt=field_art(lua,'wenut',('idle','sweep','stream','dive','emerge','orb'))
     baptist=lua.execute((ROOT/'field-baptist.lua').read_text(encoding='utf-8'))(core)
-    core.baptistFieldArt=field_art(lua,'baptist',('bolt','fall','rings','recover'),idle='baptist-idle-sprites.json')
     emperor=lua.execute((ROOT/'field-emperor.lua').read_text(encoding='utf-8'))(core)
-    core.emperorFieldArt=field_art(lua,'emperor',('guard','claw','fire','exposed'))
     seahorse=lua.execute((ROOT/'field-seahorse.lua').read_text(encoding='utf-8'))(core)
-    core.seahorseFieldArt=field_art(lua,'seahorse',('sweep','charge','dive','dim'),
-                                   idle='seahorse-idle-sprites.json',idle_anchor=.28)
     generator=lua.execute((ROOT/'field-generator.lua').read_text(encoding='utf-8'))(core)
-    core.generatorFieldArt=field_art(lua,'field-generator',('sweep','stones','quake','recover'),
-                                    idle='field-generator-idle-sprites.json')
     tulpa=lua.execute((ROOT/'field-tulpa.lua').read_text(encoding='utf-8'))(core)
-    core.tulpaFieldArt=field_art(lua,'tulpa',('spear','hammer','merge','surge','settled','half'),
-                               idle='tulpa-idle-sprites.json')
     icewind=lua.execute((ROOT/'field-icewind.lua').read_text(encoding='utf-8'))(core)
-    core.coppeliaFieldArt=field_art(lua,'coppelia',('idle','attack','focus','bow'))
-    core.coppeliusFieldArt=field_art(lua,'coppelius',('idle','attack','focus','bow'))
     legatus=lua.execute((ROOT/'field-legatus.lua').read_text(encoding='utf-8'))(core)
-    core.legatusFieldArt=field_art(lua,'legatus',('sweep','charge','conduct','stagger'),
-                                  idle='legatus-idle-sprites.json')
     suanni=lua.execute((ROOT/'field-suanni.lua').read_text(encoding='utf-8'))(core)
-    core.suanniFieldArt=field_art(lua,'suanni',('claw','tail','water','crouch','leap','rest'),
-                                 idle='suanni-idle-sprites.json')
     qucusaur=lua.execute((ROOT/'field-qucusaur.lua').read_text(encoding='utf-8'))(core)
-    core.qucusaurFieldArt=field_art(lua,'qucusaur',('wing','ready','rest','gold-hover','gold-dive','feather'),
-                                   idle='qucusaur-idle-sprites.json')
     yumka=lua.execute((ROOT/'field-yumka.lua').read_text(encoding='utf-8'))(core)
-    core.yumkaFieldArt=field_art(lua,'yumka',('tail','crouch','leap','land','fruit','seed'),
-                                idle='yumka-idle-sprites.json')
     config_device=lua.execute((ROOT/'field-config-device.lua').read_text(encoding='utf-8'))(core)
-    core.configDeviceFieldArt=field_art(lua,'config-device',('claw-a','claw-b','beam','charge','down','collector'),
-                                       idle='config-device-idle-sprites.json')
     papilla=lua.execute((ROOT/'field-papilla.lua').read_text(encoding='utf-8'))(core)
-    core.papillaFieldArt=field_art(lua,'papilla',('stem-ready','stem-strike','wing-ready','wing-strike',
-                                               'fungus-ready','fungus-strike'),idle='papilla-idle-sprites.json')
     lava_dragon=lua.execute((ROOT/'field-lava-dragon.lua').read_text(encoding='utf-8'))(core)
-    core.lavaDragonFieldArt=field_art(lua,'lava-dragon',('slam-ready','slam-strike','fissure','lunge','eruption','overburn'),
-                                    idle='lava-dragon-sprites.json',variants={'molten':'lava-dragon-molten-sprites.json'})
     overseer=lua.execute((ROOT/'field-overseer.lua').read_text(encoding='utf-8'))(core)
-    core.overseerFieldArt=field_art(lua,'overseer',('blade-ready','blade-cross','purge','cooled','crest','plume'),
-                                   idle='overseer-idle-sprites.json')
     knuckle_duck=lua.execute((ROOT/'field-knuckle-duckle.lua').read_text(encoding='utf-8'))(core)
-    core.knuckleDuckFieldArt=field_art(lua,'knuckle-duckle',('windup','punch','stomp','guard','down','mecha'),
-                                       idle='knuckle-duckle-idle-sprites.json')
     battleship=lua.execute((ROOT/'field-battleship.lua').read_text(encoding='utf-8'))(core)
-    core.battleshipFieldArt=field_art(lua,'battleship',('saw-ready','sweep','cannon','heated','ward','down'),
-                                     idle='battleship-idle-sprites.json')
     frostnight_herra=lua.execute((ROOT/'field-frostnight-herra.lua').read_text(encoding='utf-8'))(core)
-    core.frostnightHerraFieldArt=field_art(lua,'frostnight-herra',('ready','sweep','leap','land','gloom','down'),
-                                          idle='frostnight-herra-idle-sprites.json')
     whisperer_nightmares=lua.execute((ROOT/'field-whisperer-nightmares.lua').read_text(encoding='utf-8'))(core)
-    core.whispererNightmaresFieldArt=field_art(lua,'whisperer-nightmares',('ready','lunge','emerge','shield','down','fisher'),
-                                             idle='whisperer-nightmares-idle-sprites.json')
     lua.execute((ROOT/'radiant-cocoon.lua').read_text(encoding='utf-8'))(core)
     moonfly=lua.execute((ROOT/'field-moonfly.lua').read_text(encoding='utf-8'))(core)
-    core.moonflyFieldArt=field_art(lua,'moonfly',('ready','kick','green','flame','cocoon','down'),
-                                 idle='moonfly-idle-sprites.json')
     moongecko=lua.execute((ROOT/'field-moongecko.lua').read_text(encoding='utf-8'))(core)
-    core.moongeckoFieldArt=field_art(lua,'moongecko',('ready','tail','leap','charge','down','anchor'),
-                                   idle='moongecko-idle-sprites.json')
     spiritspeaker=lua.execute((ROOT/'field-spiritspeaker.lua').read_text(encoding='utf-8'))(core)
-    core.spiritspeakerFieldArt=field_art(lua,'spiritspeaker',('ready','sweep','cast','ritual','reflection','down'),
-                                      idle='spiritspeaker-field-ready-sprites-v1.json')
     fallen_vigil=lua.execute((ROOT/'field-fallen-vigil.lua').read_text(encoding='utf-8'))(core)
-    core.fallenVigilFieldArt=field_art(lua,'fallen-vigil',('ready','lunge','throw','monitor','down','star'),
-                                     idle='fallen-vigil-field-ready-sprites-v1.json')
     flugel=lua.execute((ROOT/'field-flugel.lua').read_text(encoding='utf-8'))(core)
-    core.flugelFieldArt=field_art(lua,'flugel',('ready','slash','dive','charge','down','orb'),
-                                idle='flugel-field-ready-sprites-v1.json')
     drifting_snow=lua.execute((ROOT/'field-drifting-snow.lua').read_text(encoding='utf-8'))(core)
-    core.driftingSnowFieldArt=field_art(lua,'drifting-snow',('ready','slash','cast','coffin','down','spear'),
-                                      idle='drifting-snow-field-ready-sprites-v1.json')
     immortal_construct=lua.execute((ROOT/'field-immortal-construct.lua').read_text(encoding='utf-8'))(core)
-    core.immortalConstructFieldArt=field_art(lua,'immortal-construct',('ready','rake','wing','bloom','down','seed'),
-                                           idle='immortal-construct-field-ready-sprites-v1.json')
     wavebinder=lua.execute((ROOT/'field-wavebinder.lua').read_text(encoding='utf-8'))(core)
-    core.wavebinderFieldArt=field_art(lua,'wavebinder',('ready','sweep','throw','drink','down','anchor'),
-                                    idle='wavebinder-field-ready-sprites-v1.json')
-    core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
-                                     idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
-    core.rimebiterFieldArt=field_art(lua,'rimebiter',('tail','breath','leap'),idle='rimebiter-idle-sprites.json')
-    core.bolteaterFieldArt=field_art(lua,'bolteater',('tail','breath','leap'),idle='bolteater-idle-sprites.json')
-    core.ruinSerpentFieldArt=field_art(lua,'ruin-serpent',('idle','roll','dive','emerge','bombs','drill'))
-    core.wolflordFieldArt=field_art(lua,'wolflord',('idle','ram','tail','jaw','recover','skull'))
-    core.hydroHypostasisFieldArt=field_art(lua,'hydro-hypostasis',('dolphin','ray','rain','recover'),
-                                          idle='hydro-hypostasis-idle-sprites.json')
-    core.pyroHypostasisFieldArt=field_art(lua,'pyro-hypostasis',('boar','snake','fist','recover'),
-                                          idle='pyro-hypostasis-idle-sprites.json')
-    core.cryoHypostasisFieldArt=field_art(lua,'cryo-hypostasis',('wheel','clap','fall','recover'),
-                                          idle='cryo-hypostasis-idle-sprites.json')
-    core.thunderFieldArt=field_art(lua,'thunder',('wing','feathers','dash','recover'))
-    core.arrayFieldArt=field_art(lua,'array',('blade','wheel','rocket','core'))
     snow_sweeper=lua.execute((ROOT/'field-snow-sweeper.lua').read_text(encoding='utf8'))(core)
-    core.snowSweeperArt=field_art(lua,'snow-sweeper',('idle','plow','vent'))
     frost_antler=lua.execute((ROOT/'field-frost-antler.lua').read_text(encoding='utf8'))(core)
-    core.frostAntlerArt=field_art(lua,'frost-antler',('idle','scrape','exposed'))
     windward_tower=lua.execute((ROOT/'field-windward-tower.lua').read_text(encoding='utf8'))(core)
-    core.windwardTowerArt=field_art(lua,'windward-tower',('idle','braced','open'))
     rubble_sifter=lua.execute((ROOT/'field-rubble-sifter.lua').read_text(encoding='utf8'))(core)
-    core.rubbleSifterArt=field_art(lua,'rubble-sifter',('idle','heating','open'))
     prism_walker=lua.execute((ROOT/'field-prism-walker.lua').read_text(encoding='utf8'))(core)
-    core.prismWalkerArt=field_art(lua,'prism-walker',('idle',))
     ice_crawler=lua.execute((ROOT/'field-ice-crawler.lua').read_text(encoding='utf8'))(core)
-    core.iceCrawlerArt=field_art(lua,'ice-crawler',('idle','open'))
     rime_hare=lua.execute((ROOT/'field-rime-hare.lua').read_text(encoding='utf8'))(core)
-    core.rimeHareArt=field_art(lua,'rime-hare',('idle',))
     tea_boulder=lua.execute((ROOT/'field-tea-boulder.lua').read_text(encoding='utf8'))(core)
-    core.teaBoulderArt=field_art(lua,'tea-boulder',('idle',))
     plate_tail=lua.execute((ROOT/'field-plate-tail.lua').read_text(encoding='utf8'))(core)
-    core.plateTailArt=field_art(lua,'plate-tail',('idle',))
     field_display=lua.execute((ROOT/'field-display.lua').read_text(encoding='utf8'))
     ruin_guardian=lua.execute((ROOT/'field-ruin-guardian.lua').read_text(encoding='utf8'))
-    wind_ring=ruin_guardian(core,field_art(lua,'wind-ring',('idle',)).idle)
-    bell_gate=ruin_guardian(core,field_art(lua,'bellgate',('idle',)).idle)
-    canopy_fungus=ruin_guardian(core,field_art(lua,'canopy-fungus',('idle',)).idle)
+    wind_ring=ruin_guardian(core,core.windRingFieldArt)
+    bell_gate=ruin_guardian(core,core.bellGateFieldArt)
+    canopy_fungus=ruin_guardian(core,core.canopyFungusFieldArt)
     core.trolleyArt=field_art(lua,'mirage-trolley',('idle',),idle='mirage-trolley-sprites-v1.json').idle
     core.parcelMekaArt=field_art(lua,'parcel-meka',('idle',),idle='parcel-meka-sprites-v1.json').idle
     core.stageWaveArt=field_art(lua,'stage-wave',('idle',),idle='stage-wave-sprites-v1.json').idle
     core.grandFinaleArt=field_art(lua,'grand-finale',('idle',)).idle
     core.natlanRaceFlagArt=field_art(lua,'natlan-race-flag',('idle',),idle='natlan-race-flag-sprites-v1.json').idle
     core.natlanTrialRaftArt=field_art(lua,'natlan-trial-raft',('idle',),idle='natlan-trial-raft-sprites-v1.json').idle
-    river_racer=field_display(core,field_art(lua,'river-racer',('idle',)).idle)
+    river_racer=field_display(core,core.riverRacerFieldArt)
     river_racer.damageFactor=duel.damageFactor
     river_racer.storyDriven=True
     river_racer.adoptCoop=duel.adoptCoop
     river_racer.stepCoop=duel.stepCoop
     river_racer.finishPractice=duel.finishPractice
     moon_crab=lua.execute((ROOT/'field-moon-crab.lua').read_text(encoding='utf8'))(core)
-    core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
     core.nightTrialTotemArt=field_art(lua,'night-trial-totem',('idle',))
     branch_legend=lua.execute((ROOT/'field-branch-legend.lua').read_text(encoding='utf-8'))(core)
