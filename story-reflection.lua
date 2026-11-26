@@ -34,11 +34,11 @@ return function(C)
   draws[#draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
  end
 
- local function sample(draws,x,y,lit,mode,profile)
+ local function sample(layer,x,y,lit,mode,profile)
+  local draws=layer.draws
   rect(draws,x-24,y-6,48,8,'#574d63')
   rect(draws,x-16,y+2,32,7,'#383e57')
-  local rock={draws=draws}
-  C.drawFieldDisplayArt(rock,C.appraisalArt.stone,x,y-6,30,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.appraisalArt.stone,x,y-6,30,mode,profile,false)
   if lit then
    rect(draws,x-10,y-31,14,3,'#fff3b9')
    rect(draws,x+3,y-28,8,3,'#fbe29a')
@@ -48,7 +48,8 @@ return function(C)
   end
  end
 
- function reflection.draw(s,f,draws,item,near,progress,mode,profile,replay)
+ function reflection.draw(s,f,layer,item,near,progress,mode,profile,replay)
+  local draws=layer.draws
   local config=item.reflect
   local state=current(s,item,progress,replay)
   local face=config.faces[state.angle]
@@ -63,7 +64,7 @@ return function(C)
      for k=1,11 do rect(draws,x+dx*k/12-4,y-26+dy*k/12,8,3,'#b3f9f3c8') end
     end
     local hit=state.lit and i==state.angle
-    if receiver.moonSample then sample(draws,x+dx,y+dy,hit,mode,profile)
+    if receiver.moonSample then sample(layer,x+dx,y+dy,hit,mode,profile)
     else rect(draws,x+dx-7,y-33+dy,14,17,hit and '#fff1ad' or '#6c637e') end
     draws[#draws+1]={kind='text',x=x+dx,y=y-(receiver.moonSample and 53 or 40)+dy,text=receiver.label,size=13,color='#f1e9cd'}
    end

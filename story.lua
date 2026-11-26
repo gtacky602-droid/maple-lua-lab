@@ -2645,7 +2645,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       elseif state and state.count>=q.goal-1 then
        local mirror=q.itinerary[q.goal-1]
        if mirror.node==n.id then
-        reflection.draw(s,f,markers,mirror,not s.paused and canInspect(s.actors[s.active],mirror),state,mode,profile,true)
+        reflection.draw(s,f,layer,mirror,not s.paused and canInspect(s.actors[s.active],mirror),state,mode,profile,true)
        end
       end
      end
@@ -2813,6 +2813,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      markers[#markers+1]={kind='text',x=guide.x-s.camera,y=guide.y-94,size=15,color='#ffe7a2',text=guide.name}
     end
    end
+   local questProps=markerLayer(s,f,markers,mode)
    for _,q in ipairs(itineraries) do
     local state=s.story.quests[q.id]
     local milestone=nextMilestone(s,q)
@@ -2828,10 +2829,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       for _,option in ipairs(milestone.choices) do
        local x,y=option.x-s.camera,option.y
        if x>=-25 and x<=985 then
-        if option.detourGift then coastDetour.drawGift(markers,x,y,option.id,mode,profile)
-        elseif option.scentArt then emilieScent.choice({draws=markers},s,option,mode,profile)
-        elseif option.magicChoice then lyneyMagic.choice(stageProps or {draws=markers},s,option,mode,profile)
-        elseif option.diveChoice then freminetDive.choice(stageProps or {draws=markers},s,option,mode,profile)
+        if option.detourGift then coastDetour.drawGift(questProps,x,y,option.id,mode,profile)
+        elseif option.scentArt then emilieScent.choice(questProps,s,option,mode,profile)
+        elseif option.magicChoice then lyneyMagic.choice(questProps,s,option,mode,profile)
+        elseif option.diveChoice then freminetDive.choice(questProps,s,option,mode,profile)
         else
          markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
          markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
@@ -2847,13 +2848,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      elseif milestone and milestone.airflow and milestone.node==s.story.node then
      airflow.observe(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
     elseif milestone and milestone.reflect and milestone.node==s.story.node then
-      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone),state,mode,profile)
+      reflection.draw(s,f,questProps,milestone,not s.paused and canInspect(s.actors[s.active],milestone),state,mode,profile)
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
-     if milestone.scentProp then emilieScent.prop({draws=markers},s,milestone,mode,profile) end
-     if milestone.surveyGuide then wandererSurvey.guide({draws=markers},s,milestone.surveyGuide,mode,profile) end
+     if milestone.scentProp then emilieScent.prop(questProps,s,milestone,mode,profile) end
+     if milestone.surveyGuide then wandererSurvey.guide(questProps,s,milestone.surveyGuide,mode,profile) end
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
@@ -2949,6 +2950,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
    end
+   if questProps.rectBatches and #questProps.rectBatches>0 then f.rectBatches=questProps.rectBatches end
    -- Navigation and quest objects precede actors, enemies, and effects.
    for _,hint in ipairs(n.hints or {}) do
     if not f.storyNearbyMilestone and not s.paused and not s.lift and not s.story.discovered[hint.group]

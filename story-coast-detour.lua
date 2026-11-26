@@ -9,12 +9,13 @@ return function(C)
   return x-s.camera
  end
 
- function detour.drawGift(draws,x,y,id,mode,profile)
+ function detour.drawGift(layer,x,y,id,mode,profile)
+  local draws=layer.draws
   rect(draws,x-30,y-25,60,10,'#674d52')
   rect(draws,x-28,y-25,56,3,'#a98260')
   rect(draws,x-24,y-15,4,15,'#594451')
   rect(draws,x+20,y-15,4,15,'#594451')
-  C.drawFieldDisplayArt({draws=draws},C.coastalGifts[id],x,y-25,35,mode,profile,false)
+  C.drawFieldDisplayArt(layer,C.coastalGifts[id],x,y-25,35,mode,profile,false)
  end
 
  function detour.rest(s,q,state,emitCue)
