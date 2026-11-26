@@ -236,6 +236,9 @@ export function atlasQuestObjectives(frame,q,node){
    return;
   }
   const choices=step?.kind==='choice'||step?.kind==='guideChoice'?step.choices.length:0;
+  if(q.kind==='boss'&&status==='active'&&room?.weeklySceneOf&&room.weeklySceneOf===frame.storyGraph.bossNodes?.[q.target]){
+   objectives.push({text:room.name+'で戦闘を続ける',points:[{label:'現在の戦闘エリア',url:bossFieldPoint(node).url}]});return;
+  }
   if(q.kind==='boss' && status==='active' && node===questTargetNode(q,frame.storyGraph)){
    objectives.push({text,points:[bossFieldPoint(frame.storyGraph.bossNodes?.[q.target]??node)]});return;
   }
@@ -573,7 +576,9 @@ export function trackedQuest(f,id,selectedWorksite){
   if(guard)return {...route,pointUrl:guard.url,pointLabel:'残っている魔物の位置を見る',text:q.name+' ｜ '+next+' ｜ '+route.text};
  }
  if(status==='active' && q.kind==='boss' && route.node){
-  const point=bossFieldPoint(f.storyGraph.bossNodes?.[q.target]??route.node);
+  const inner=f.storyGraph.nodes.find(n=>n.id===route.node)?.weeklySceneOf;
+  const arena=inner?route.node:(f.storyGraph.bossNodes?.[q.target]??route.node);
+  const point=inner?{url:bossFieldPoint(arena).url,label:'現在の戦闘エリアを見る'}:bossFieldPoint(arena);
   return {...route,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
  if(status==='active' && q.rail){

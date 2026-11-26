@@ -44,6 +44,12 @@ export function questDestinations(f,q,status,preferredNode){
  const graph=f.storyGraph;
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
+ if(status==='active'&&q.kind==='boss'){
+  const current=graph.nodes.find(n=>n.id===f.story.node);
+  if(current?.weeklySceneOf&&current.weeklySceneOf===graph.bossNodes?.[q.target]){
+   return {candidates:[current.id]};
+  }
+ }
  let branches;
  if(milestone?.kind==='paths'||optional){
   const pending=pendingQuestPaths(q,f.story.quests?.[q.id]);
