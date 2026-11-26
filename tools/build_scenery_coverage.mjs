@@ -38,10 +38,24 @@ try{
    }
   }
   await Promise.all(Array.from({length:3},decode));
-  return {nodes,keys:scenes.size,files:files.size,definitions:Object.keys(sceneryDefinitions).length};
+  const baseFiles=Object.fromEntries(nodes.map(n=>[n.id,sceneryDefinitions[n.scenery].file]));
+  return {nodes,baseFiles,keys:scenes.size,files:files.size,definitions:Object.keys(sceneryDefinitions).length};
  });
  const graph=JSON.parse(await fs.readFile(new URL('../content/story-graph.json',import.meta.url)));
  assert.deepEqual(result.nodes.map(n=>n.id),graph.nodes.map(n=>n.id));
+ const assets=new URL('../assets/',import.meta.url);
+ const measuredFiles={};
+ for(const file of (await fs.readdir(assets)).filter(name=>name.endsWith('-background-generation.json'))){
+  const manifest=JSON.parse(await fs.readFile(new URL(file,assets)));
+  for(const scene of manifest.scenes??[]){
+   if(scene.phase || !scene.node)continue;
+   for(const id of [scene.node,...scene.sharedNodes??[]]){
+    assert.ok(!Object.hasOwn(measuredFiles,id),'Duplicate background binding: '+id);
+    measuredFiles[id]=scene.source;
+   }
+  }
+ }
+ assert.deepEqual(measuredFiles,result.baseFiles,'Measured sources must match the displayed base scenery');
  const counts=Object.fromEntries(['regional_temporary_image','fallback_mondstadt','unconfirmed_concept_image'].map(k=>[k,result.nodes.filter(n=>n.status===k).length]));
  const data={
   updated:new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo'}).format(new Date()),

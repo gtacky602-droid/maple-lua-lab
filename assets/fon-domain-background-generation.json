@@ -3,7 +3,7 @@
   "scenes": [
     {
       "node": "sites-hunt-50067",
-      "sharedNodes": ["luachra-legend-shelf"],
+      "sharedNodes": ["luachra-legend-shelf", "bygone-wp-68600", "bygone-wp-68608", "bygone-wp-68615"],
       "kind": "reef",
       "key": "fontaineSunkenReef",
       "source": "fon-domain-reef-background-v1.png",

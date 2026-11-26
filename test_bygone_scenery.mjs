@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {backgroundMeasurements} from './scenery-measurements.js';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const base=process.env.LAB_URL || 'http://127.0.0.1:9125/';
@@ -22,6 +23,9 @@ try{
  for(const [id,scenery] of expected){
   const node=graph.nodes.find(n=>n.id===id);
   assert.ok(node.swim && regions.includes(node.region));
+  const reference=scenery==='thalattaRift'?'swords-of-the-gorge-legend-rift':'sites-hunt-50067';
+  assert.ok(backgroundMeasurements[reference]);
+  assert.equal(backgroundMeasurements[id],backgroundMeasurements[reference]);
   await page.goto(new URL('map-art.html?placements=live&node='+id+'&tier=4096&compare=background',base).href);
   await page.waitForFunction(key=>window.mapArt?.ready && window.mapArt.background===key &&
      window.mapArt.backgroundState==='ready' && window.mapArt.decodedBackgroundRectangles===4096,scenery);
