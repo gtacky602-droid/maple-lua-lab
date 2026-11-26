@@ -31,6 +31,9 @@ export function initDailyBoard(dispatch){
   node.append(element('h3',entry.name));
   node.append(element('p',`${kind} ｜ ${entry.giver} ｜ ${entry.region}`));
   node.append(element('p',entry.target));
+  const guide=element('a','対象例のフィールドとドット絵');
+  guide.href='daily-field-guide.html?'+new URLSearchParams({quest:entry.id});guide.target='_blank';guide.rel='noopener';
+  node.append(guide);
   const targets=(entry.targetNodes??[]).map(id=>mapNodes.get(id)).filter(Boolean);
   if(targets.length){
    const label=element('label','討伐・調査地点 ');

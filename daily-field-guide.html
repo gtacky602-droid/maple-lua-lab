@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>日替わり依頼の対象図鑑</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#151c25;color:#edf2ed}body{margin:auto;max-width:1080px;padding:24px clamp(14px,4vw,44px)}a{color:#8fe0db}h1{font-size:clamp(1.5rem,4vw,2.3rem);margin:.8em 0 .55em}header,nav,.filters{display:flex;align-items:center;gap:12px;flex-wrap:wrap}select{display:block;font:inherit;max-width:100%;padding:7px;border:1px solid #588280;background:#203339;color:inherit;border-radius:5px}label{max-width:100%;font-size:.9rem;color:#d0dedb}article{border-block:1px solid #364c51;margin:20px 0;padding:0 0 18px}h2{margin-bottom:.3em}p{line-height:1.65;margin:.4em 0}nav{margin-top:12px}.art{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}figure{margin:0;min-width:0}canvas{display:block;background:#23303c;width:100%;height:auto;image-rendering:pixelated}figcaption{font-size:.88rem;padding:.5em 0;color:#d3e3df}small{display:block;color:#bed0cd}#error{color:#ffbda9}@media(max-width:550px){body{padding:14px}.art{gap:4px}figcaption{font-size:.8rem}}
+</style>
+<main><a href="./">ラボに戻る</a><h1>日替わり依頼の対象図鑑</h1>
+<div class="filters"><label>受注地域<select id="region"></select></label><label>依頼<select id="quest"></select></label></div>
+<article><h2 id="name"></h2><p id="conditions"></p><p id="objective"></p><p id="reward"></p><nav><a id="hubMap">受注拠点を見る</a><a id="fieldMap">対象例のフィールドを見る</a></nav></article>
+<h2 id="example">対象例の待機ドット絵</h2><p id="place"></p>
+<div class="art"><figure><canvas id="source" width="240" height="180"></canvas><figcaption>元絵</figcaption></figure>
+<figure><canvas id="h48c32" width="240" height="180"></canvas><figcaption>32色版 <small></small></figcaption></figure>
+<figure><canvas id="h32c16" width="240" height="180"></canvas><figcaption>16色版 <small></small></figcaption></figure></div>
+<p id="error" role="status"></p></main><script type="module" src="daily-field-guide.js"></script></html>
