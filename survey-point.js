@@ -3,6 +3,29 @@ export function puzzleStep(step){
  return step?.kind==='inspect'&&(step.resonanceOrder||step.shadowChoice||step.paperFold);
 }
 const colleiHeights={root:72,stones:43,shelter:112,bench:51,barrier:43};
+function wandererGuide(x,y,left){
+ return {name:'放浪者',file:'wanderer-idle-'+(left?'left':'right')+'-sprites-v3.json',height:88,x,y};
+}
+function wandererSurveyProps(quest,index,node){
+ const heights={root:46,stone:66,ring:69,lever:62,leverOn:62,sign:91};
+ const props=[];
+ for(const [i,mark] of quest.itinerary.slice(0,index+1).entries()){
+  if(mark.node!==node||!mark.surveyProp)continue;
+  const key=mark.assistLever&&i<index?'leverOn':mark.surveyProp;
+  props.push({name:mark.name,file:'quest-packed/sum-wanderer-sign-'+key+'-sprites-v1.json',
+   height:heights[key],x:mark.x,y:mark.y});
+ }
+ if(node===quest.target){
+  const assist=quest.surveyAssist,solved=index>=quest.goal-1;
+  if(!solved)for(const guard of assist.guards){
+   props.push({name:'キノコン',file:'field-packed/dendro-fungus-idle-sprites.json',height:47,
+    x:guard.x,y:guard.y+Math.sin(guard.x)*6});
+  }
+  if(solved)props.push(wandererGuide(assist.endX,assist.endY,true));
+  else if(quest.itinerary[index].assistLever)props.push(wandererGuide(assist.startX,assist.startY,false));
+ }
+ return props;
+}
 function choiceProp(option,kind){
  let pose,height,offsetY=0;
  if(kind==='guideChoice'){
@@ -133,7 +156,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  if(step?.kind!=='inspect')return null;
  const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x) && Number.isFinite(p.y));
  if(!point)return null;
- const props=[];
+ const props=quest.surveyAssist?wandererSurveyProps(quest,index,node):[];
  const ingredientHeights={flower:45,dry:43,wood:35};
  if(ingredientHeights[step.scentProp]){
   props.push({name:point.name,file:'quest-packed/fon-emilie-scent-'+step.scentProp+'-sprites-v1.json',
@@ -141,8 +164,7 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  }
  if(step.surveyGuide){
   const guide=step.surveyGuide;
-  props.push({name:'放浪者',file:'wanderer-idle-'+(guide.left?'left':'right')+'-sprites-v3.json',
-   height:88,x:guide.x,y:guide.y});
+  props.push(wandererGuide(guide.x,guide.y,guide.left));
  }
  const prop=step.returnClue??(step.returnPickup?{art:'crate',height:51}:null);
  return {quest:quest.id,step:index+1,node,x:point.x,y:point.y,name:point.name??step.name??step.objective,

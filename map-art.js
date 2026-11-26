@@ -405,14 +405,17 @@ try{
   gatePreview.reset(node(),nodes,false,Boolean(afterReport(node())));
   render();
  };
- function sceneFrame(n,camera,gate){
+ function sceneFrame(n,camera,gate,survey){
   const dark=darkRoom(n);
   const platforms=[...n.platforms];
   if(dark)platforms.push(n.localLight.bridge);
   if(landingDeck&&n===openingNode)platforms.push(landingDeck);
   const rule=gate?.requires;
-  const steps=rule?.count&&questsById.get(rule.quest)?.itinerary;
-  for(const step of steps?steps.slice(0,rule.count):[]){
+  const surveyQuest=survey?.step&&questsById.get(survey.quest);
+  const questSteps=survey?.path?surveyQuest?.paths?.find(path=>path.id===survey.path)?.steps:surveyQuest?.itinerary;
+  const openSteps=questSteps?questSteps.slice(0,survey.step-1):
+   rule?.count?questsById.get(rule.quest)?.itinerary?.slice(0,rule.count):[];
+  for(const step of openSteps??[]){
    if(step.node!==n.id)continue;
    for(const deck of [...(step.bridges??[]),...(step.bridge?[step.bridge]:[])]){
     const previous=platforms.findIndex(p=>p===deck||(deck.track&&p.track===deck.track));
@@ -537,7 +540,7 @@ try{
  function render(){
   const revision=++renderRevision;
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
-  const n=node(),camera=Number($('camera').value),profile=$('profile').value,frame=sceneFrame(n,camera,gatePreview.selectedGate());
+  const n=node(),camera=Number($('camera').value),profile=$('profile').value,frame=sceneFrame(n,camera,gatePreview.selectedGate(),selectedSurveyPoint);
   showDuel(n,gatePreview.selectedGate(),profile);
   let items=liveView?liveItems:placements();
   if(selectedSurveyPoint?.absent)items=items.filter(item=>!selectedSurveyPoint.absent.includes(item.id));
