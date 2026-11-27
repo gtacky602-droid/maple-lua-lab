@@ -72,6 +72,7 @@ s.actors[1].y = 380
 assert core.frame(s).storyNearbyClue.name == '水スライム'
 s.actors[1].y = 480
 fungus = s.enemies[1]
+s.actors[1].x = fungus.x - 80
 assert core.frame(s).storyNearbyClue.name == 'キノコン'
 core.action(s, 'pause')
 core.action(s, 'story_collect')

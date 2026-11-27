@@ -5,6 +5,7 @@
   "scope_complete": false,
   "liyue_entry_hunts": {"registeredHunts":126,"newlyClassified":3,"regularEnemiesAdded":26,"entryPeaks":[15,15,15],"portalArrivalsChecked":22,"ingredientSitesChecked":2,"record":"evidence/liyue-entry-density-20261128.json"},
   "inazuma_entry_hunts": {"registeredHunts":128,"newlyClassified":2,"regularEnemiesAdded":19,"entryPeaks":[15,15],"portalArrivalsChecked":11,"record":"evidence/inazuma-entry-density-20261128.json"},
+  "sumeru_entry_hunts": {"registeredHunts":131,"newlyClassified":3,"regularEnemiesAdded":28,"entryPeaks":[15,15,15],"portalArrivalsChecked":24,"waypointArrivalsChecked":2,"record":"evidence/sumeru-entry-density-20261128.json"},
   "mondstadt_entry_hunts": {"registeredHunts":123,"newlyClassified":4,"introEnemiesAdded":42,"entryPeaks":[16,16,15,16],"portalArrivalsChecked":29,"record":"evidence/mondstadt-entry-density-20261128.json"},
   "ordinary_hunt_density": {"measuredHunts":119,"populationLayoutsChanged":100,"entryPeakViewportRange":[15,20],"eliteRoutes":7,"patrolAreasAdjusted":8,"record":"evidence/hunt-density-20261128.json"},
   "standard_current_quest_recheck": {"startedWithReports":265,"newReports":11,"reports":276,"activeEncounterClearsPreserved":142,"browserDifficultyRecordsRestored":84,"record":"evidence/standard-current-quest-recheck-20261128.json"},

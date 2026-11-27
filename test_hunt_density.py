@@ -70,6 +70,18 @@ def verify_intro_contact(lua, core, node, rows):
                 cooldownSeconds=sample.contactCooldown)
 
 
+def check_landing(state, placements):
+    ordinary_ids = {row['id'] for row in placements if ordinary(row)}
+    positions = [(a.x, a.y) for a in state.actors.values()]
+    for enemy in state.enemies.values():
+        if enemy.spawnId not in ordinary_ids:
+            continue
+        for x, y in positions:
+            assert abs(enemy.y-y)>=45 or x<=enemy.patrolMin-60 or x>=enemy.patrolMax+60, (
+                state.story.node,enemy.spawnId,x,y)
+    return positions
+
+
 def verify_intro_arrivals(lua, core, graph, placements, targets):
     # A completed save opens the authored routes. Each probe uses the real portal
     # action so a lift or a boat can choose a different arrival than a walk.
@@ -89,16 +101,26 @@ def verify_intro_arrivals(lua, core, graph, placements, targets):
             if state.lift:
                 finish_transfer(core, state, ceil(state.lift.remaining * 60) + 2)
             assert state.story.node == destination, (stage['id'],destination,state.storyNotice)
-            ordinary_ids = {row['id'] for row in placements[destination] if ordinary(row)}
-            positions = [(a.x, a.y) for a in state.actors.values()]
-            for enemy in state.enemies.values():
-                if enemy.spawnId not in ordinary_ids:
-                    continue
-                for x, y in positions:
-                    assert abs(enemy.y-y)>=45 or x<=enemy.patrolMin-60 or x>=enemy.patrolMax+60, (
-                        stage['id'],destination,enemy.spawnId,x,y)
+            positions = check_landing(state, placements[destination])
             arrivals.append(dict(origin=stage['id'], destination=destination, positions=positions))
     return arrivals
+
+
+def verify_intro_waypoints(lua, core, graph, placements, targets):
+    checkpoint = validate_save(read('evidence/remaining-survey-save.json'))
+    waypoints = []
+    for stage in graph['nodes']:
+        destination = stage['id']
+        if destination not in targets or not stage.get('waypoint'):
+            continue
+        state = core.restore(lua.table_from(checkpoint, recursive=True), 12)
+        core.enterStoryNode(state, stage['checkpoint'])
+        core.action(state, 'story_fast:' + destination)
+        assert state.story.node == destination, (destination,state.storyNotice)
+        positions = check_landing(state, placements[destination])
+        assert positions[0] == (stage['waypoint']['x'],stage['waypoint']['y'])
+        waypoints.append(dict(node=destination,positions=positions))
+    return waypoints
 
 
 def measure():
@@ -142,7 +164,8 @@ def measure():
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
                 unsafePortalArrivals=sorted(unsafe), unsafeIngredientSites=unsafe_ingredients,
-                introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,contact))
+                introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,contact),
+                introWaypointArrivals=verify_intro_waypoints(lua,core,graph,placements,contact))
 
 
 if __name__ == '__main__':

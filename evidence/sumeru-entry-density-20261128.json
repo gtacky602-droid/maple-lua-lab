@@ -1,0 +1,625 @@
+{
+  "base": "df61e7a175707f4aee589e02318fdc4fbafb4eec",
+  "fields": {
+    "sumeru-entry": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 300
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 219
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 12,
+        "cooldownSeconds": 3.8
+      },
+      "browser": {
+        "node": "sumeru-entry",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 219
+          },
+          "after": {
+            "total": 15,
+            "visible": 15,
+            "camera": 219
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 15772,
+        "h48c32": 9388,
+        "h32c16": 3938
+      }
+    },
+    "sumeru-field": {
+      "before": {
+        "ordinary": 5,
+        "peak": 5,
+        "camera": 275
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 275
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 12,
+        "cooldownSeconds": 3.8
+      },
+      "browser": {
+        "node": "sumeru-field",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 275
+          },
+          "after": {
+            "total": 16,
+            "visible": 16,
+            "camera": 275
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 16503,
+        "h48c32": 9806,
+        "h32c16": 4105
+      }
+    },
+    "sum-kaveh-timberyard": {
+      "before": {
+        "ordinary": 7,
+        "peak": 6,
+        "camera": 503
+      },
+      "after": {
+        "ordinary": 16,
+        "peak": 15,
+        "camera": 352
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 12,
+        "cooldownSeconds": 3.8
+      },
+      "browser": {
+        "node": "sum-kaveh-timberyard",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 7,
+            "camera": 352
+          },
+          "after": {
+            "total": 17,
+            "visible": 16,
+            "camera": 352
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 20146,
+        "h48c32": 12199,
+        "h32c16": 5199
+      }
+    }
+  },
+  "ordinaryHunts": 131,
+  "eliteRoutes": 7,
+  "viewWidth": 960,
+  "portalArrivalsIncludingNamedPatrols": [
+    {
+      "origin": "inazuma-town",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          60,
+          480
+        ],
+        [
+          20,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sumeru-hub",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sumeru-hub",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sumeru-field",
+      "destination": "sum-kaveh-timberyard",
+      "positions": [
+        [
+          124,
+          480
+        ],
+        [
+          84,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-kaveh-timberyard",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          230,
+          480
+        ],
+        [
+          190,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sumeru-jadeplume-grove",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "electro-regisvine-field-cave",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "aeonblight-field-chamber",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "dendro-hypostasis-field-den",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "asimon-field-ruins",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "wenut-field-cavern",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "baptist-field-sanctuary",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fontaine-entry",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "tunigi-camp",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "veluriyam-hub",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "veluriyam-bottle-yard",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-28702",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          805,
+          480
+        ],
+        [
+          765,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-28704",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          950,
+          480
+        ],
+        [
+          910,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-28729",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          599,
+          480
+        ],
+        [
+          559,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-28731",
+      "destination": "sumeru-field",
+      "positions": [
+        [
+          340,
+          480
+        ],
+        [
+          300,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-28734",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          275,
+          480
+        ],
+        [
+          235,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-28737",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          665,
+          480
+        ],
+        [
+          625,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-hunt-28752",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          366,
+          380
+        ],
+        [
+          326,
+          380
+        ]
+      ]
+    },
+    {
+      "origin": "sites-corridor-sumeru-bridge",
+      "destination": "sumeru-entry",
+      "positions": [
+        [
+          932,
+          350
+        ],
+        [
+          892,
+          350
+        ]
+      ]
+    }
+  ],
+  "waypointArrivalsIncludingNamedPatrols": [
+    {
+      "node": "sumeru-entry",
+      "positions": [
+        [
+          465,
+          480
+        ],
+        [
+          425,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "sumeru-field",
+      "positions": [
+        [
+          550,
+          480
+        ],
+        [
+          510,
+          480
+        ]
+      ]
+    }
+  ],
+  "movedNamedPatrol": {
+    "id": "sumeru-field-1",
+    "oldX": 300,
+    "newX": 411
+  },
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "ed8d7ca3ccda25344a07260d5aa63efaacb89f0d87df29bbd62baca7255f3f75"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 2035.33,
+        "level": 60,
+        "total": 2740517,
+        "questXp": 1551496,
+        "killXp": 1189021,
+        "kills": 2784
+      },
+      "wipes": 0,
+      "inputSaveSha256": "2bce17b8dc64e428a1289b262844ee5a988d0dd4fbed3946181ca610c6f189c8"
+    },
+    "sumeru": {
+      "arrival": {
+        "id": "fontaine-hub",
+        "seconds": 7075.63,
+        "level": 80,
+        "total": 10034573,
+        "questXp": 3968218,
+        "killXp": 6066355,
+        "kills": 6059
+      },
+      "wipes": 0,
+      "inputSaveSha256": "1e39793c60fbb22ffa1b585d66df9b42141350f47eba2bb58c08447017faf7f3"
+    }
+  },
+  "completedSumeruQuests": [
+    "sumeru-leaf-crossing",
+    "sumeru-forest-levels",
+    "sumeru-observatory-map",
+    "sum-collei-guide",
+    "sum-wanderer-observation",
+    "sum-mapped-north-quay"
+  ],
+  "sumeruRecoveryTrips": 41,
+  "browserMapAndTravel": {
+    "importedLevel": 80,
+    "arrivalLevel": 80,
+    "route": [
+      [
+        "sumeru-field",
+        "walk"
+      ],
+      [
+        "fontaine-entry",
+        "walk"
+      ],
+      [
+        "fontaine-hub",
+        "walk"
+      ]
+    ],
+    "completedQuests": [
+      "sumeru-leaf-crossing",
+      "sumeru-forest-levels",
+      "sumeru-observatory-map",
+      "sum-collei-guide",
+      "sum-wanderer-observation",
+      "sum-mapped-north-quay"
+    ],
+    "hunts": [
+      "sumeru-entry",
+      "sumeru-field",
+      "sum-kaveh-timberyard",
+      "sumeru-north-forest-floor",
+      "sumeru-north-bank-terraces"
+    ],
+    "firstFontaineQuestAccepted": "fontaine-moon-parcel",
+    "importedXp": 10026448,
+    "arrivalXp": 10034573,
+    "travelKillXp": 8125,
+    "errors": []
+  },
+  "browserDaily": {
+    "townOffers": 5,
+    "normalGRecordsLiveFungus": true,
+    "normalCombatCompletesOtherSpecies": true,
+    "sameSpeciesOutsideTargetFieldDoesNotCount": true,
+    "workyardWalkAndHunt": true,
+    "atlasObservations": [
+      "キノコン（記録済み）　出現位置を見る",
+      "水スライム（未記録）　出現位置を見る",
+      "炎スライム（未記録）　出現位置を見る"
+    ],
+    "speciesRecordSurvivesOldSave": true,
+    "claimCannotReplay": true,
+    "mobileFits": true,
+    "reward": {
+      "xp": 9590,
+      "mora": 410
+    },
+    "errors": []
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5687,
+    "liveEntriesChecked": 5687,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  }
+}

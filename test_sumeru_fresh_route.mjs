@@ -31,11 +31,15 @@ try {
  await page.locator('#game').click();
  await page.keyboard.press('KeyM');
  await atlas.waitFor();
- const hunts=['sumeru-north-forest-floor','sumeru-north-bank-terraces'];
+ const hunts=['sumeru-entry','sumeru-field','sum-kaveh-timberyard',
+  'sumeru-north-forest-floor','sumeru-north-bank-terraces'];
  await page.locator('#atlasLayer').selectOption('hunt');
  for(const id of hunts){
   await page.locator('#atlasField').selectOption(id);
-  await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,id);
+  await page.waitForFunction(id=>{
+   const map=window.lab.frame.worldMap;
+   return map?.layer==='hunt'&&map.selected?.id===id&&map.selected.huntKind==='field';
+  },id);
   assert.equal((await frame()).worldMap.guide.status,'ready');
  }
  await page.locator('#atlasLayer').selectOption('all');

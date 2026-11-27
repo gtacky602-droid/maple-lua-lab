@@ -960,48 +960,27 @@
       {"id": "inazuma-thicket-3", "kind": 1, "art": "hilichurl", "x": 1130, "platform": 0, "hp": 24}
     ],
     "sumeru-entry": [
-      {
-        "id": "sumeru-entry-1",
-        "kind": 1,
-        "art": "dendro-fungus",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "sumeru-entry-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "sumeru-entry-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "sumeru-entry-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
-      {
-        "id": "sumeru-entry-5",
-        "kind": 1,
-        "art": "dendro-fungus",
-        "x": 300,
-        "platform": 1
-      },
+      {"id": "sumeru-entry-1", "kind": 1, "art": "dendro-fungus", "x": 350, "platform": 0, "patrolMin": 335, "patrolMax": 365},
+      {"id": "sumeru-entry-2", "kind": 1, "art": "hydro-slime", "x": 534, "platform": 0, "patrolMin": 525, "patrolMax": 565},
+      {"id": "sumeru-entry-3", "kind": 2, "art": "pyro-slime", "x": 850, "platform": 0, "patrolMin": 725, "patrolMax": 850},
+      {"id": "sumeru-entry-4", "kind": 1, "art": "hydro-slime", "x": 1120, "platform": 0, "patrolMin": 1010, "patrolMax": 1180},
+      {"id": "sumeru-entry-5", "kind": 1, "art": "dendro-fungus", "x": 249, "platform": 1, "patrolMin": 204, "patrolMax": 266},
       {
         "id": "sumeru-entry-6",
         "kind": 2,
         "art": "pyro-slime",
         "x": 575,
         "platform": 2
-      }
+      },
+      {"id": "sumeru-entry-regular-1", "x": 550, "platform": 0, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 525, "patrolMax": 565},
+      {"id": "sumeru-entry-regular-2", "x": 770, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 725, "patrolMax": 850},
+      {"id": "sumeru-entry-regular-3", "x": 219, "platform": 1, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 204, "patrolMax": 266},
+      {"id": "sumeru-entry-regular-4", "x": 485, "platform": 2, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-entry-regular-5", "x": 650, "platform": 2, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-entry-regular-6", "x": 782, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 764, "patrolMax": 832},
+      {"id": "sumeru-entry-regular-7", "x": 824, "platform": 3, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 764, "patrolMax": 832},
+      {"id": "sumeru-entry-regular-8", "x": 1003, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 992, "patrolMax": 1016},
+      {"id": "sumeru-entry-regular-9", "x": 1045, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 1010, "patrolMax": 1180}
     ],
     "sum-visitors-meadow": [
       {"id":"sum-visitor-pack-1","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":589,"platform":0,"hp":17,"pursuit":{"range":150,"leash":174,"speed":42}},
@@ -1020,36 +999,10 @@
       {"id":"sum-visitor-fast-3","kind":1,"art":"dendro-fungus","name":"すばやいキノコン","x":844,"platform":0,"hp":20,"pursuit":{"range":246,"leash":286,"speed":148}}
     ],
     "sumeru-field": [
-      {
-        "id": "sumeru-field-1",
-        "kind": 1,
-        "art": "dendro-fungus",
-        "x": 300,
-        "platform": 0,
-        "name": "雨林の道の大キノコン",
-        "dailyElite": true
-      },
-      {
-        "id": "sumeru-field-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "sumeru-field-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "sumeru-field-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "sumeru-field-1", "kind": 1, "art": "dendro-fungus", "x": 411, "platform": 0, "name": "雨林の道の大キノコン", "dailyElite": true, "patrolMin": 400, "patrolMax": 425},
+      {"id": "sumeru-field-2", "kind": 1, "art": "hydro-slime", "x": 446, "platform": 0, "patrolMin": 435, "patrolMax": 450},
+      {"id": "sumeru-field-3", "kind": 2, "art": "pyro-slime", "x": 892, "platform": 0, "patrolMin": 865, "patrolMax": 1180},
+      {"id": "sumeru-field-4", "kind": 1, "art": "hydro-slime", "x": 1120, "platform": 0, "patrolMin": 865, "patrolMax": 1180},
       {
         "id": "sumeru-field-5",
         "kind": 1,
@@ -1063,17 +1016,36 @@
         "art": "pyro-slime",
         "x": 560,
         "platform": 2
-      }
+      },
+      {"id": "sumeru-field-regular-1", "x": 683, "platform": 0, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 659, "patrolMax": 705},
+      {"id": "sumeru-field-regular-2", "x": 954, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 865, "patrolMax": 1180},
+      {"id": "sumeru-field-regular-3", "x": 1038, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 865, "patrolMax": 1180},
+      {"id": "sumeru-field-regular-4", "x": 332, "platform": 1, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-field-regular-5", "x": 458, "platform": 2, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-field-regular-6", "x": 647, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-field-regular-7", "x": 793, "platform": 3, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-field-regular-8", "x": 925, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-field-regular-9", "x": 1083, "platform": 4, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sumeru-field-regular-10", "x": 1184, "platform": 4, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8}
     ],
     "sum-kaveh-timberyard": [
-      {"id":"sum-yard-fungus-west","kind":1,"art":"dendro-fungus","x":352,"platform":0,"hp":35},
-      {"id":"sum-yard-slime-west","kind":1,"art":"hydro-slime","x":503,"platform":0,"hp":26},
+      {"id": "sum-yard-fungus-west", "kind": 1, "art": "dendro-fungus", "x": 352, "platform": 0, "hp": 35, "patrolMin": 184, "patrolMax": 1656},
+      {"id": "sum-yard-slime-west", "kind": 1, "art": "hydro-slime", "x": 503, "platform": 0, "hp": 26, "patrolMin": 184, "patrolMax": 1656},
       {"id":"sum-yard-fungus-ledge","kind":1,"art":"dendro-fungus","x":538,"platform":1,"hp":32},
       {"id":"sum-yard-slime-upper","kind":2,"art":"pyro-slime","x":790,"platform":2,"hp":30},
-      {"id":"sum-yard-elite","kind":1,"art":"fanged-beast","x":964,"platform":0,"hp":64,"name":"資材置き場に居座る牙獣","dailyElite":true},
+      {"id": "sum-yard-elite", "kind": 1, "art": "fanged-beast", "x": 964, "platform": 0, "hp": 64, "name": "資材置き場に居座る牙獣", "dailyElite": true, "patrolMin": 184, "patrolMax": 1656},
       {"id":"sum-yard-slime-ledge","kind":1,"art":"hydro-slime","x":1164,"platform":3,"hp":28},
-      {"id":"sum-yard-fungus-east","kind":1,"art":"dendro-fungus","x":1278,"platform":0,"hp":33},
-      {"id":"sum-yard-slime-east","kind":2,"art":"pyro-slime","x":1448,"platform":0,"hp":27}
+      {"id": "sum-yard-fungus-east", "kind": 1, "art": "dendro-fungus", "x": 1278, "platform": 0, "hp": 33, "patrolMin": 184, "patrolMax": 1656},
+      {"id": "sum-yard-slime-east", "kind": 2, "art": "pyro-slime", "x": 1448, "platform": 0, "hp": 27, "patrolMin": 184, "patrolMax": 1656},
+      {"id": "sum-kaveh-timberyard-regular-1", "x": 421, "platform": 0, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 184, "patrolMax": 1656},
+      {"id": "sum-kaveh-timberyard-regular-2", "x": 488, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sum-kaveh-timberyard-regular-3", "x": 613, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 184, "patrolMax": 1656},
+      {"id": "sum-kaveh-timberyard-regular-4", "x": 670, "platform": 1, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sum-kaveh-timberyard-regular-5", "x": 720, "platform": 2, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sum-kaveh-timberyard-regular-6", "x": 863, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sum-kaveh-timberyard-regular-7", "x": 1054, "platform": 0, "art": "dendro-fungus", "kind": 1, "hp": 31, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 184, "patrolMax": 1656},
+      {"id": "sum-kaveh-timberyard-regular-8", "x": 1110, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 26, "contactDamage": 12, "contactCooldown": 3.8},
+      {"id": "sum-kaveh-timberyard-regular-9", "x": 1199, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 184, "patrolMax": 1656}
     ],
     "fontaine-entry": [
       {

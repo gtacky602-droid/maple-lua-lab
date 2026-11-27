@@ -57,6 +57,13 @@ async function load(snapshot){
  await at(hub);
 }
 
+async function holdCompanionAttacks(){
+ if(!(await frame()).holdAllyFire){
+  await page.locator('#allyFire').click();
+  await wait(()=>window.lab.frame.holdAllyFire);
+ }
+}
+
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8934/');
  await wait(()=>window.lab?.frame);
@@ -75,6 +82,7 @@ try{
  await wait(()=>window.lab.frame.daily.activeSlots.length===3);
  await page.locator('#saveProgress').click();
  await wait(()=>document.getElementById('saveStatus').textContent.includes('冒険を保存しました'));
+ await holdCompanionAttacks();
  await gate(1380,field);
  await held('KeyD',()=>window.lab.frame.storyNearbyClue?.label==='キノコンを観察する');
  assert.match(await collect.textContent(),/G：キノコンを観察する/);
@@ -87,6 +95,7 @@ try{
  await page.reload();
  await wait(()=>window.lab?.frame);
  await load(null);
+ await holdCompanionAttacks();
  assert.deepEqual(record(await frame()).species.filter(entry=>entry.recorded).map(entry=>entry.name),['キノコン']);
  await openBoard();
  await card(species,'active').locator('select').selectOption(field);

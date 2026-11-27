@@ -2063,6 +2063,7 @@
     },
     {
       "id": "sumeru-entry",
+      "huntKind": "field",
       "name": "スメール・地域の入口",
       "region": "スメール",
       "level": 60,
@@ -2408,6 +2409,7 @@
     },
     {
       "id": "sumeru-field",
+      "huntKind": "field",
       "name": "スメール・雨林の道",
       "region": "スメール",
       "level": 60,
@@ -2503,7 +2505,7 @@
       }
     },
     {
-      "id":"sum-kaveh-timberyard","name":"スメール・工房の資材置き場","region":"スメール","level":60,"hub":false,
+      "id":"sum-kaveh-timberyard","huntKind":"field","name":"スメール・工房の資材置き場","region":"スメール","level":60,"hub":false,
       "width":1680,"checkpoint":"sumeru-hub",
       "platforms":[{"x":0,"y":480,"w":1680},{"x":390,"y":389,"w":350,"rootShelf":true},{"x":651,"y":300,"w":291,"rootShelf":true},{"x":1015,"y":391,"w":376,"rootShelf":true}],
       "exits":[{"to":"sumeru-field","x":63,"arrivalX":230}]
