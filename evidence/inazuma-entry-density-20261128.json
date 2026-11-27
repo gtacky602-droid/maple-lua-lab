@@ -1,0 +1,350 @@
+{
+  "base": "e7f0348ab85e690d6e09a8a23159d040f3629388",
+  "fields": {
+    "inazuma-road": {
+      "before": {
+        "ordinary": 5,
+        "peak": 5,
+        "camera": 290
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 290
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 11,
+        "cooldownSeconds": 4.0
+      },
+      "browser": {
+        "node": "inazuma-road",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 290
+          },
+          "after": {
+            "total": 16,
+            "visible": 16,
+            "camera": 290
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 21305,
+        "h48c32": 12336,
+        "h32c16": 5313
+      }
+    },
+    "inazuma-shore-hunt": {
+      "before": {
+        "ordinary": 7,
+        "peak": 6,
+        "camera": 530
+      },
+      "after": {
+        "ordinary": 16,
+        "peak": 15,
+        "camera": 360
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 11,
+        "cooldownSeconds": 4.0
+      },
+      "browser": {
+        "node": "inazuma-shore-hunt",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 7,
+            "camera": 360
+          },
+          "after": {
+            "total": 17,
+            "visible": 16,
+            "camera": 360
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 22082,
+        "h48c32": 12775,
+        "h32c16": 5522
+      }
+    }
+  },
+  "ordinaryHunts": 128,
+  "eliteRoutes": 7,
+  "viewWidth": 960,
+  "questField": {
+    "node": "inazuma-lantern-trail",
+    "enemies": 4,
+    "quest": "inazuma-moving-lantern"
+  },
+  "arrivalChecksIncludingNamedPatrols": [
+    {
+      "origin": "inazuma-port",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "inazuma-road",
+      "destination": "inazuma-shore-hunt",
+      "positions": [
+        [
+          1595,
+          480
+        ],
+        [
+          1555,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "inazuma-town",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "inazuma-town",
+      "destination": "inazuma-shore-hunt",
+      "positions": [
+        [
+          120,
+          480
+        ],
+        [
+          80,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "inazuma-shore-hunt",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          230,
+          480
+        ],
+        [
+          190,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "enkanomiya-camp",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "maguu-approach",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "array-approach",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "thunder-approach",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "ina-wp-12729",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          640,
+          480
+        ],
+        [
+          600,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "ina-wp-12740",
+      "destination": "inazuma-road",
+      "positions": [
+        [
+          530,
+          480
+        ],
+        [
+          490,
+          480
+        ]
+      ]
+    }
+  ],
+  "movedNamedPatrol": {
+    "id": "inazuma-road-1",
+    "oldX": 620,
+    "newX": 773
+  },
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "bfd3e1540edb5bfe2d1e349af5070114058cb1a293c66f2c2d558043695562b7"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 2035.33,
+        "level": 60,
+        "total": 2739718,
+        "questXp": 1551496,
+        "killXp": 1188222,
+        "kills": 2783
+      },
+      "wipes": 0,
+      "inputSaveSha256": "ddec54a32701e646b3380fd443a7164c25a36c2700f8feadf3cd8b20100081b1"
+    }
+  },
+  "inazumaRoundTrip": true,
+  "inazumaBoatSeconds": 4.8,
+  "browserMapAndFerry": {
+    "importedLevel": 60,
+    "completedQuests": [
+      "inazuma-moving-lantern",
+      "inazuma-torii-maze",
+      "inazuma-lantern-contest",
+      "ayaka-join",
+      "ina-sayu-quiet-route",
+      "ina-walking-teahouse"
+    ],
+    "huntFields": [
+      "inazuma-road",
+      "inazuma-shore-hunt"
+    ],
+    "route": [
+      [
+        "sumeru-entry",
+        "boat"
+      ],
+      [
+        "sumeru-hub",
+        "walk"
+      ]
+    ],
+    "firstSumeruQuestAccepted": "sumeru-leaf-crossing",
+    "arrivalLevel": 60,
+    "importedXp": 2738919,
+    "totalXp": 2740517,
+    "travelKillXp": 1598,
+    "errors": []
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5659,
+    "liveEntriesChecked": 5659,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "browserDailyBoard": {
+    "townOffers": 5,
+    "sharedLiyueLimits": true,
+    "walkedToShoreAndBack": true,
+    "nobushiKillAndAreaOverlap": true,
+    "namedEliteVisible": true,
+    "placementComparisonProfiles": 3,
+    "oldSaveRetainsProgress": true,
+    "oldSaveCannotReclaim": true,
+    "mobileFits": true,
+    "reward": {
+      "xp": 29920,
+      "mora": 1970
+    },
+    "errors": []
+  }
+}
