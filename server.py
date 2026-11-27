@@ -47,7 +47,7 @@ STATIC_JSON = frozenset(ROOT / directory / name for directory, names in (
     ('content', ('story-graph.json', 'enemy-spawns.json', 'map-catalog.json', 'world-atlas.json',
                  'field-boss-spawns.json', 'weekly-boss-spawns.json', 'enemy-placement-drafts.json',
                  'enemy-art-layout.json', 'boss-arena-index.json', 'field-boss-openings.json',
-                 'group-legend-openings.json', 'stygian-openings.json', 'weekly-opening-parts.json',
+                 'group-legend-openings.json', 'stygian-openings.json', 'weekly-opening-parts.json', 'weekly-opening-visuals.json',
                  'worksite-props.json', 'toyac-quest-previews.json')),
 ) for name in names)
 PACKED_JSON_DIRS = frozenset(ROOT / 'assets' / name for name in (

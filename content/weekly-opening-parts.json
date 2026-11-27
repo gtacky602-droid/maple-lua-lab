@@ -157,6 +157,7 @@
     "parts": [
       {
         "anchorX": 0.37372013651877134,
+        "bodyBand": 0.251,
         "file": "narwhal-phantom-idle-sprites-v1.json",
         "flip": true,
         "h": 140,

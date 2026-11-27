@@ -295,6 +295,14 @@ def expand_rectangles(frame):
                                  color=color, rotation=draw['rotation'])
             else:
                 column = draw['gridWidth']-x-width if draw['flip'] else x
+                band = draw.get('bodyBand')
+                if band is not None:
+                    grid_height = draw['gridHeight']
+                    cut = grid_height*.28
+                    def body_row(row):
+                        return row*(band/.28) if row<=cut else grid_height*band+(row-cut)*((1-band)/.72)
+                    height = body_row(y+height)-body_row(y)
+                    y = body_row(y)
                 rectangle = dict(
                     kind='rect',
                     x=draw['x']+column*draw['w']/draw['gridWidth'],

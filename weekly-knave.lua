@@ -435,7 +435,7 @@ return function(C)
     end
    end
   end
-  C.drawFieldDisplayArt(back,C.knaveWeeklyArt[double and 'double' or 'single'],e.x-s.camera,e.y,height,mode,profile,e.dir<0)
+  C.drawTallerHumanArt(back,C.knaveWeeklyArt[double and 'double' or 'single'],e.x-s.camera,e.y,height,mode,profile,e.dir<0,nil,w.clock/60)
   table.move(f.draws,1,#f.draws,#back.draws+1,back.draws);f.draws=back.draws
   local function rect(x,y,width,height,color,opacity)
    f.draws[#f.draws+1]={kind='rect',x=x-s.camera,y=y,w=width,h=height,color=color,opacity=opacity}

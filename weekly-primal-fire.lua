@@ -504,6 +504,56 @@ return function(C)
    rect(a-3,b-width/2,7,3,color)
   end
  end
+ -- Horizontal pixel bands sketch a long, notched fan. Mirror the same runs
+ -- and offset each wing independently; the dragon body never owns these pixels.
+ local featherBands={
+  {29,0,5,3,1},{25,3,8,3,1},{22,6,9,3,2},{29,6,9,3,1},
+  {19,9,13,3,2},{31,9,6,3,1},{15,12,17,3,2},{27,12,11,3,1},
+  {12,15,21,3,2},{24,15,14,3,1},{9,18,24,3,2},{22,18,14,3,1},
+  {6,21,24,3,2},{17,21,19,3,1},{5,24,25,3,3},{13,24,21,3,1},
+  {2,27,25,3,2},{9,27,23,3,1},{0,30,17,3,3},{8,30,19,3,2},
+  {2,33,15,3,2},{13,33,10,3,1},{5,36,11,3,1},{8,39,5,3,1},
+  {18,28,8,2,3},{21,25,8,2,3},{25,22,6,2,3},
+  {31,9,7,3,2},{35,12,7,3,1},{31,15,13,3,1},{33,18,8,3,2},
+  {5,29,8,2,4},{7,31,5,2,4},{9,27,5,2,4},
+  {39,4,6,3,1},{35,7,8,3,1},{36,10,9,3,2},
+  {39,13,7,3,1},{41,16,9,3,1},{39,19,12,3,2},
+  {35,22,13,3,1},{31,25,11,3,2},{25,28,10,3,1},
+  {49,17,7,3,1},{45,20,12,3,1},{44,23,8,3,2},{39,26,9,3,1},
+  {34,29,9,3,2},{29,32,7,3,1},{23,35,7,3,1}
+ }
+ local warmWing={'#321b3f','#b94a38','#ffad56','#ffebaf'}
+ local coolWing={'#28234f','#594eb5','#a991ff','#d9ecff'}
+ local function wings(rect,art,x,y,h,tick,lift,opacity)
+  local width=h*art.box[3]/art.box[4]
+  local anchor=art.anchorX or .5
+  local phase=math.floor(tick/6)*6
+  for side=-1,1,2 do
+   local flap=math.sin(phase/14+side*.31)
+   local sx,sy=h/126,h/117
+   -- The tail widens the sprite box at the base. Place the wings beside the
+   -- upper body, above the coil, while retaining a silhouette gap.
+   local inner=x+side*(width*(side<0 and anchor*.78 or (1-anchor)*.73)+32+math.floor(6*(1+flap)))
+   local top=y-math.floor(h*(.64+lift*.06)+flap*9+42*sy)
+   local colors=side<0 and warmWing or coolWing
+   for _,band in ipairs(featherBands) do
+    local u,v,w,rows,tone=table.unpack(band)
+    local dx=math.floor((u+(42-v)*lift*.16)*sx)
+    local rw=math.max(1,math.floor(w*sx))
+    local px=math.floor((side<0 and inner-dx-rw or inner+dx)+.5)
+    local py=top+math.floor(v*sy)
+    local rh=math.floor((v+rows)*sy)-math.floor(v*sy)
+    rect(px,py,rw,rh,colors[tone],opacity)
+   end
+  end
+ end
+ function C.primalOpeningWings(spec)
+  local marks={}
+  wings(function(x,y,w,h,color)
+   marks[#marks+1]={kind='rect',x=x-spec.center,y=y-spec.floorY,w=w,h=h,color=color}
+  end,C.primalWeeklyArt.idle,spec.center,spec.floorY,spec.artHeight,0,.20,1)
+  return marks
+ end
  function controller.observe(f,s,w,spec,mode,profile)
   local b,e,c=f.weeklyBoss,w.primary,w.cast
   b.x,b.y,b.damageable=e.x,e.y,e.hp>0 and not e.invulnerable
@@ -526,9 +576,13 @@ return function(C)
   end
   local slump=c and c.key=='WG17' and math.min(1,c.t/60,(600-c.t)/60) or 0
   local mist=c and ((c.key=='WG04' and c.t>=144 and c.t<210) or (c.key=='WG13' and c.t>=126 and c.t<336))
-  local height=spec.artHeight-64*slump
-  C.drawFieldDisplayArt(back,C.primalWeeklyArt.idle,e.x-s.camera,e.y,height,mode,profile,false,nil,nil,mist and .53 or 1)
   local lift=w.phase=='warning' and .58 or w.phase=='active' and -.14 or .20
+  local breath=not c and math.floor(3*math.sin(w.clock/16)) or 0
+  local height=spec.artHeight-64*slump+breath
+  local art=C.primalWeeklyArt.idle
+  local opacity=mist and .53 or 1
+  wings(rear,art,e.x,e.y,height,w.clock,lift,opacity)
+  C.drawFieldDisplayArt(back,art,e.x-s.camera,e.y,height,mode,profile,false,nil,nil,opacity)
   blade(rear,e.x-82,e.y-125+36*slump,-1,lift,ember,'#af4f38',13)
   local grow=c and c.key=='WG08' and clamp(math.floor((c.t-216)/5),0,13) or 0
   if w.form==2 or grow>0 then

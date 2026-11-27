@@ -42,6 +42,7 @@ return function(C)
   w.padY=padY
  end
  function dragon.spawn(s,w,spec)
+  w.visualTime=0
   w.guard,w.cycle,w.index,w.notice=spec.guard,0,1,spec.noticeTicks
   w.stage,w.pose,w.perch,w.crystalX='flight','hover',2,spec.platforms[2].x+spec.platforms[2].w/2+40
   w.projectiles,w.hazard,w.guardHits,w.breaks,w.falls={},nil,0,0,0
@@ -155,6 +156,7 @@ return function(C)
   end
  end
  function dragon.prepare(s,w,spec,_,dt)
+  w.visualTime=w.visualTime+dt
   if w.phase=='available' then w.phase='notice' end
   local n=math.max(1,math.floor(dt*60+.5))
   if w.phase=='notice' then w.notice=w.notice-n;if w.notice<=0 then w.phase='combat' end;return end
@@ -321,12 +323,13 @@ return function(C)
   b.label=w.phase=='respawn' and '浄化・再挑戦待ち' or b.exposed and '首の結晶へ・踏み場へ通常ジャンプ' or
    w.stage=='takeoff' and '起き上がる・足元へゆっくり降りる' or guarded(w) and '前脚を攻撃して体勢を崩す' or c and c.move.title or '空を舞っている'
   if w.primary.hp<=0 then return end
-  local layer,foreground={draws={}},{draws={}}
+  local layer={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches}
+  local foreground={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches}
   local bodyX,bodyY,bodyH,flip=spec.center,spec.floorY-spec.openingPose.hover,spec.artHeight,false
   local pose=w.pose
   if c and (c.move.kind=='bite' or c.move.kind=='breath') then
    flip=(c.dir or -1)>0
-   bodyX,bodyY,bodyH=center+(flip and -32 or 32),c.move.kind=='bite' and 506 or 500,210
+   bodyX,bodyY,bodyH=center+(flip and -32 or 32),c.move.kind=='bite' and 506 or 500,231
    pose=c.move.kind=='bite' and 'perch-body' or 'breath-body'
   end
   if c and c.move.kind=='exposure' then bodyX,bodyY,bodyH=w.crystalX,512,125 end
@@ -335,6 +338,7 @@ return function(C)
    bodyX=c.dir<0 and c.right-(c.right-c.left)*q or c.left+(c.right-c.left)*q
    bodyY,bodyH,flip=490,130,c.dir>0
   end
+  if pose=='hover' then bodyY=bodyY+math.floor(3*math.sin(w.visualTime*3)+.5) end
   C.drawDvalinWeeklyArt(layer,bodyX,bodyY,pose,bodyH,mode,profile,flip)
   if c then
    local m,t=c.move,c.tick

@@ -489,9 +489,11 @@ return function(C)
    end
   end
   if not e.underground then
-   local h=armor and 144 or (stage=='collapse' and w.stageTick>=48 or c and c.downUntil) and 87 or spec.artHeight
+   local h=armor and (166+(not c and math.floor(2*math.sin(w.clock/20)+.5) or 0))
+    or (stage=='collapse' and w.stageTick>=48 or c and c.downUntil) and 96 or spec.artHeight
    local art=armor and C.raidenWeeklyArt.armored or C.raidenWeeklyArt.normal
-   C.drawFieldDisplayArt(f,art,e.x-s.camera,e.y,h,mode,profile,armor and e.dir>0 or not armor and e.dir<0)
+   if armor then C.drawFieldDisplayArt(f,art,e.x-s.camera,e.y,h,mode,profile,e.dir>0)
+   else C.drawTallerHumanArt(f,art,e.x-s.camera,e.y,h,mode,profile,e.dir<0,nil,w.clock/60) end
    if not armor then
     local polearm=spec.openingPose.heldArt
     local handX,handY=e.x+e.dir*h*polearm.gripX,e.y-h*polearm.gripY
@@ -515,7 +517,7 @@ return function(C)
     b.targets[#b.targets+1]={kind='shade',x=obj.x,selected=obj==shade,
      clue=c.t>=spec.objects.shadeClue and (obj.index==c.correct and '╳' or '／') or nil}
     local normal=C.raidenWeeklyArt.normal
-    C.drawFieldDisplayArt(f,normal,obj.x-s.camera,y,106,mode,profile,obj.x>480,nil,nil,.58)
+    C.drawTallerHumanArt(f,normal,obj.x-s.camera,y,106,mode,profile,obj.x>480,.58,w.clock/60)
     if c.t>=spec.objects.shadeClue then
      label(obj.x,y-118,obj.index==c.correct and '╳' or '／',pale)
     end

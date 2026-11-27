@@ -15,7 +15,8 @@ def sprite_part(entity_id, name, species, filename, d):
     art = json.loads((ROOT/'assets'/filename).read_text('utf8'))
     assert (art['source'],art['box']) == (d['source'],d['box'])
     return dict(id=entity_id,name=name,species=species,file=filename,x=d['x'],y=d['y'],
-                flip=d['flip'],h=d['h'],anchorX=d['anchorX'])
+                flip=d['flip'],h=d['h'],anchorX=d['anchorX'],
+                **({'bodyBand': d['bodyBand']} if 'bodyBand' in d else {}))
 
 
 def primitives(part, draws):
@@ -87,10 +88,15 @@ def build():
             assert all(any(d==actual for actual in combat) for d in draws),(node,quality)
             ref[quality]=draws
         (work/(node+'.json')).write_text(json.dumps(ref,separators=(',',':')),'utf8')
-    return scenes
+    state=core.new(12)
+    core.action(state,'story_start')
+    core.enterStoryNode(state,'primal-fire-sundered-forge')
+    _,spec=core.currentWeeklyBoss(state)
+    return scenes, {'primal_fire':native(core.primalOpeningWings(spec))}
 
 
 if __name__=='__main__':
-    result=build()
+    result,visuals=build()
     (ROOT/'content/weekly-opening-parts.json').write_text(json.dumps(result,ensure_ascii=False,sort_keys=True,indent=2)+'\n','utf8')
+    (ROOT/'content/weekly-opening-visuals.json').write_text(json.dumps(visuals,separators=(',',':'))+'\n','utf8')
     print({n:[p['name'] for p in scene['parts']] for n,scene in result.items()})

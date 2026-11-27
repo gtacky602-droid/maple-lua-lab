@@ -356,12 +356,14 @@ return function(C,D)
   local y=spec.floorY
   if stage=='dark' or stage=='expose' and w.stageTick<52 then
    if not e.underground or stage=='expose' then
-    local h=stage=='expose' and math.max(31,spec.artHeight-w.stageTick*3) or spec.artHeight
+    local h=stage=='expose' and math.max(31,spec.artHeight-w.stageTick*3)
+     or spec.artHeight+(not c and math.floor(2*math.sin(w.clock/20)+.5) or 0)
     C.drawFieldDisplayArt(backdrop,C.apepWeeklyArt.dark,e.x-s.camera,y,h,mode,profile,e.dir>0)
    end
   elseif stage=='prime' or stage=='shelter' or stage=='weak' or stage=='rebirth' and w.stageTick>=60 then
    if not e.underground or stage=='rebirth' then
-    local h=stage=='weak' and 154 or stage=='rebirth' and math.min(222,64+w.stageTick) or 222
+    local breath=not c and math.floor(2*math.sin(w.clock/20)) or 0
+    local h=stage=='weak' and 168 or stage=='rebirth' and math.min(248,64+w.stageTick) or 248+breath
     C.drawFieldDisplayArt(backdrop,C.apepWeeklyArt.prime,e.x-s.camera,y,h,mode,profile,false)
    end
   end

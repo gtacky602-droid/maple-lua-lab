@@ -462,13 +462,13 @@ return function(C,M)
   if not inside then
    local down=w.phase=='exposure';local hover=down and 0 or 15+math.sin(w.clock/25)*3
    orbits(rear,e.x,y-109-hover,w.clock,down)
-   C.drawFieldDisplayArt(back,art,e.x-s.camera,e.y-hover,down and 136 or 148,mode,profile,e.dir>0)
+   C.drawTallerHumanArt(back,art,e.x-s.camera,e.y-hover,down and 136 or 148,mode,profile,e.dir>0,nil,w.clock/60)
   end
   for i,shadow in ipairs(w.shadows) do
    v.shadows[#v.shadows+1]={x=shadow.x,hp=shadow.hp,max=shadow.maxhp,id=shadow.id}
    if shadow.hp>0 then
     rear(shadow.x-18,y-3,36,3,M.ice)
-    C.drawFieldDisplayArt(back,art,shadow.x-s.camera,y,spec.rift.shadowArt.height,mode,profile,false,nil,nil,spec.rift.shadowArt.opacity)
+    C.drawTallerHumanArt(back,art,shadow.x-s.camera,y,spec.rift.shadowArt.height,mode,profile,false,spec.rift.shadowArt.opacity,w.clock/60)
     local glow=({M.ice,M.violet,M.water})[i]
     rear(shadow.x-5,y-140,10,9,glow);rear(shadow.x-3,y-144,6,17,glow)
    end
