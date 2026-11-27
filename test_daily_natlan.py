@@ -64,10 +64,10 @@ assert not core.frame(s).storyNearbyPortal.available
 s = begin()
 write_json('work/daily-nat-level-fixture.json', checkpoint(s))
 gate(s, 280, river)
-assert len(s.enemies) == 7 and not core.frame(s).storyWater
+assert len(s.enemies) == 17 and not core.frame(s).storyWater
 gate(s, 62, hub)
 gate(s, 1380, quarry)
-assert len(s.enemies) == 8
+assert len(s.enemies) == 18
 gate(s, 64, ridge)
 gate(s, 552, quarry)
 gate(s, 1610, hub)
