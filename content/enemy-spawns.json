@@ -1719,6 +1719,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 300,
+        "patrolMin": 275,
+        "patrolMax": 325,
         "platform": 0
       },
       {
@@ -1726,6 +1728,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 510,
+        "patrolMin": 480,
+        "patrolMax": 540,
         "platform": 0
       },
       {
@@ -1733,6 +1737,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
+        "patrolMin": 820,
+        "patrolMax": 880,
         "platform": 0
       },
       {
@@ -1740,6 +1746,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 1120,
+        "patrolMin": 1090,
+        "patrolMax": 1150,
         "platform": 0
       },
       {
@@ -1747,6 +1755,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 310,
+        "patrolMin": 283,
+        "patrolMax": 337,
         "platform": 1
       },
       {
@@ -1754,6 +1764,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 650,
+        "patrolMin": 618,
+        "patrolMax": 682,
         "platform": 2
       }
     ],
@@ -3247,18 +3259,18 @@
       {"id":"aurora-mineral-terraces-2-14","x":1540,"platform":2,"hp":14,"art":"sail-shell-crawler","kind":1}
     ],
     "dornman-wind-stairs": [
-      {"id":"dornman-wind-stairs-1","x":268,"platform":0,"hp":24,"art":"sail-shell-crawler","kind":1},
-      {"id":"dornman-wind-stairs-2","x":604,"platform":0,"hp":24,"art":"sail-shell-crawler","kind":2},
-      {"id":"dornman-wind-stairs-3","x":876,"platform":2,"hp":24,"art":"sail-shell-crawler","kind":1},
-      {"id":"dornman-wind-stairs-4","x":1150,"platform":0,"hp":24,"art":"sail-shell-crawler","kind":2},
-      {"id":"dornman-wind-stairs-5","x":1530,"platform":3,"hp":24,"art":"sail-shell-crawler","kind":1}
+      {"id":"dornman-wind-stairs-1","x":268,"platform":0,"hp":24,"art":"sail-shell-crawler","kind":1,"patrolMin":245,"patrolMax":291},
+      {"id":"dornman-wind-stairs-2","x":604,"platform":0,"hp":24,"art":"sail-shell-crawler","kind":2,"patrolMin":579,"patrolMax":629},
+      {"id":"dornman-wind-stairs-3","x":903,"platform":2,"hp":24,"art":"sail-shell-crawler","kind":1,"patrolMin":881,"patrolMax":921},
+      {"id":"dornman-wind-stairs-4","x":1150,"platform":0,"hp":24,"art":"sail-shell-crawler","kind":2,"patrolMin":1125,"patrolMax":1175},
+      {"id":"dornman-wind-stairs-5","x":1530,"platform":3,"hp":24,"art":"sail-shell-crawler","kind":1,"patrolMin":1505,"patrolMax":1555}
     ],
     "dornman-flag-trestle": [
-      {"id":"dornman-flag-trestle-1","x":278,"platform":0,"hp":30,"art":"sail-shell-crawler","kind":1},
-      {"id":"dornman-flag-trestle-2","x":484,"platform":0,"hp":30,"art":"sail-shell-crawler","kind":2},
-      {"id":"dornman-flag-trestle-3","x":835,"platform":1,"hp":30,"art":"sail-shell-crawler","kind":1},
-      {"id":"dornman-flag-trestle-4","x":1260,"platform":0,"hp":30,"art":"sail-shell-crawler","kind":2},
-      {"id":"dornman-flag-trestle-5","x":1510,"platform":2,"hp":30,"art":"sail-shell-crawler","kind":1}
+      {"id":"dornman-flag-trestle-1","x":278,"platform":0,"hp":30,"art":"sail-shell-crawler","kind":1,"patrolMin":253,"patrolMax":303},
+      {"id":"dornman-flag-trestle-2","x":484,"platform":0,"hp":30,"art":"sail-shell-crawler","kind":2,"patrolMin":459,"patrolMax":509},
+      {"id":"dornman-flag-trestle-3","x":835,"platform":1,"hp":30,"art":"sail-shell-crawler","kind":1,"patrolMin":810,"patrolMax":860},
+      {"id":"dornman-flag-trestle-4","x":1260,"platform":0,"hp":30,"art":"sail-shell-crawler","kind":2,"patrolMin":1235,"patrolMax":1285},
+      {"id":"dornman-flag-trestle-5","x":1540,"platform":2,"hp":30,"art":"sail-shell-crawler","kind":1,"patrolMin":1520,"patrolMax":1560}
     ],
     "dawn-vein-mine": [
       {"id":"dawn-vein-mine-1-1","x":177,"platform":0,"hp":13,"kind":2,"art":"snow-mantle-beetle"},

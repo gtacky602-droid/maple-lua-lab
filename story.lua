@@ -2576,6 +2576,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     movingPlatforms.observe(s,f,props,n.riverCrossing,mode,profile)
     if props.rectBatches and #props.rectBatches>0 then f.rectBatches=props.rectBatches end
    end
+   flagCourse.signals(s,markers,n.signalFlags)
    duel.frame(s,f,markers,n.duel)
    if n.snowMatch or n.returnBox or n.returnBoxArchive or n.nightBanner then
     local layer=markerLayer(s,f,markers,mode)

@@ -38,7 +38,12 @@ first=route(flags)
 assert [(leg['id'],leg['level'],leg['mode']) for leg in first['stops']]==[(stairs,160,'walk'),(flags,168,'lift')]
 walk.cross(stairs);walk.cross(flags)
 assert s.story.node==flags
+assert [(a.x,a.y) for a in s.actors.values()]==[(1000,374),(960,374)]
+walk.cross(stairs)
+assert [(a.x,a.y) for a in s.actors.values()]==[(1720,399),(1680,399)]
+walk.cross(flags)
 walk.cross(camp)
+assert [(a.x,a.y) for a in s.actors.values()]==[(478,480),(438,480)]
 s=core.restore(lua.table_from(save(),recursive=True),12)
 assert s.story.node==camp and s.story.visited[flags]
 (ROOT/'evidence/dornman-map-shortcut.json').write_text(json.dumps(save(),ensure_ascii=False,sort_keys=True)+'\n',encoding='utf8')
@@ -46,4 +51,4 @@ shortcut=route(flags)
 assert [leg['id'] for leg in shortcut['stops']]==[flags]
 walk=TrailWalk(lua,core,s,edges,exits)
 walk.cross(flags)
-print('Lv1 exploration stays accessible; Lv167 waits for Lv168; first ascent via Lv160 stairs and lift; restored shortcut walked.')
+print('Lv1 exploration, Lv168 gate, reciprocal raised lift landings, and restored ground shortcut verified.')
