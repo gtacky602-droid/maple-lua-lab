@@ -795,7 +795,7 @@
       }
     },
     {
-      "id": "liyue-entry",
+      "id": "liyue-entry","huntKind":"field",
       "name": "璃月・北の入口",
       "region": "璃月",
       "level": 20,
@@ -1077,7 +1077,7 @@
       ]
     },
     {
-      "id": "liyue-river-trail",
+      "id": "liyue-river-trail","huntKind":"field",
       "name": "璃月・川沿いの荷運び道",
       "region": "璃月",
       "level": 20,
@@ -1338,7 +1338,7 @@
       "clearedBy": "beidou-join"
     },
     {
-      "id": "liyue-field",
+      "id": "liyue-field","huntKind":"field",
       "name": "璃月・岩間の狩場",
       "region": "璃月",
       "level": 20,

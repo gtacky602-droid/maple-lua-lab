@@ -14,6 +14,7 @@ const drive=waypointDriver(page,nodes);
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const atlas=page.locator('#worldAtlas');
 const errors=[];
+const huntFields=['liyue-entry','liyue-field','liyue-river-trail'];
 page.on('pageerror',error=>errors.push(error.message));
 
 try {
@@ -30,6 +31,16 @@ try {
  await page.locator('#game').click();
  await page.keyboard.press('KeyM');
  await atlas.waitFor();
+ await page.locator('#atlasLayer').selectOption('hunt');
+ for(const id of huntFields){
+  await page.locator('#atlasField').selectOption(id);
+  await page.waitForFunction(node=>{
+   const map=window.lab.frame.worldMap;
+   return map?.layer==='hunt'&&map.selected?.id===node&&map.selected.huntKind==='field';
+  },id);
+  assert.equal((await frame()).worldMap.guide.status,'ready');
+ }
+ await page.locator('#atlasLayer').selectOption('all');
  await page.locator('#atlasRegion').selectOption('region-03');
  await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-03');
  await page.locator('#atlasField').selectOption(destination);
@@ -52,7 +63,7 @@ try {
  await page.waitForFunction(id=>window.lab.frame.story.quests[id]?.status==='active',firstQuest);
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/liyue-fresh-route-browser.json',JSON.stringify({
-  importedLevel:40,verifiedQuests:quests,route:guide.stops.map(stop=>stop.id),
+  importedLevel:40,verifiedQuests:quests,huntFields,route:guide.stops.map(stop=>stop.id),
   autoArrived:true,firstInazumaQuestAccepted:firstQuest,totalXp:arrived.progression.total,errors
  },null,2)+'\n');
  console.log('Chrome passed the earned Lv40 save, ferry guide, boarding, arrival and Inazuma quest.');
