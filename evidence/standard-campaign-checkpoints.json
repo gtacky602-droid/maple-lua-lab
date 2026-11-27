@@ -1,8 +1,9 @@
 {
-  "command": "python test_cap_fresh_route.py --replay",
+  "command": "python test_fontaine_fresh_route.py (Lv1–80); reran Fontaine, Natlan, Nod and Snez with --checkpoint; python test_cap_fresh_route.py",
   "profile": "standard",
   "startLevel": 1,
-  "worldGraphSha256": "f47436aa98f529bc6e53f935eda93a962f43866da998f8639ab06ad4812e47e7",
+  "verifiedThroughLevel": 200,
+  "worldGraphSha256": "82956853d9f9a206638e84250c3b1e7776fbf8d37d1fcda758d896c197c90900",
   "checkpoints": [
     {
       "segment": "mondstadt",
@@ -11,7 +12,7 @@
       "totalExp": 20729,
       "completedQuests": 6,
       "kills": 510,
-      "saveSha256": "6a72b368b4447e86c8c130435223619a5c9a020fa06b122226100aeb6ac80b5b"
+      "saveSha256": "b66325a5294221e5f560ae48934fcd96d5af5c1bb41e80a0c063454a3441222c"
     },
     {
       "segment": "liyue",
@@ -20,7 +21,7 @@
       "totalExp": 383914,
       "completedQuests": 13,
       "kills": 1169,
-      "saveSha256": "d4824ef85e2a25e389d85d45d17a9c960a36bb05a944e7c45c786bdd8d3971b7"
+      "saveSha256": "eab0a26a73c0e967b5d2e86af22c58caa2f15410299e3f6b8920304ebe727463"
     },
     {
       "segment": "inazuma",
@@ -29,7 +30,7 @@
       "totalExp": 2738763,
       "completedQuests": 19,
       "kills": 2715,
-      "saveSha256": "1b45fcc98908c7e9094530cbf19b056ab0a4e2363865dd7572b48951fdf5e97a"
+      "saveSha256": "19326fe09db89211d238f8341dba85bc7207a86d8a317787b83f19b0e4943701"
     },
     {
       "segment": "sumeru",
@@ -38,52 +39,57 @@
       "totalExp": 10032327,
       "completedQuests": 25,
       "kills": 5986,
-      "saveSha256": "f68c323cf73f7591c8437b1150bdc8ea4303b8e43679e3967ff59d745f0c946c"
+      "saveSha256": "230bc9c04b915347ee16c45fb1825c08a4ec0c7a9fc650b15f2f469a05bc1c30"
     },
     {
       "segment": "fontaine",
       "arrival": "natlan-hub",
       "level": 100,
-      "totalExp": 37652833,
+      "totalExp": 37646830,
       "completedQuests": 31,
-      "kills": 9652,
-      "saveSha256": "b84ecddaf4612a1cbfbd5453e7fc17510849a2ebc25db9b95ded1ed906fee3f1"
+      "kills": 9650,
+      "saveSha256": "29c02d2ce571bffd5b8dbcfebad4ea678785f05a2c38024b0b2b5b30f15d978a",
+      "sourceSha256": "230bc9c04b915347ee16c45fb1825c08a4ec0c7a9fc650b15f2f469a05bc1c30"
     },
     {
       "segment": "natlan",
       "arrival": "nod-town",
       "level": 120,
-      "totalExp": 110443194,
+      "totalExp": 110588280,
       "completedQuests": 37,
-      "kills": 15624,
-      "saveSha256": "8c348eca300122a8ea72cfa05a6da740defd65874d2bff601336ef78864ee082"
+      "kills": 15638,
+      "saveSha256": "2b04909ed2f085aaca752f8688b8ac276a0266a03ce1698afeb22b83198052ca",
+      "sourceSha256": "29c02d2ce571bffd5b8dbcfebad4ea678785f05a2c38024b0b2b5b30f15d978a"
     },
     {
       "segment": "nod",
       "arrival": "snezhnaya-hub",
       "level": 140,
-      "totalExp": 362048528,
+      "totalExp": 362015007,
       "completedQuests": 43,
-      "kills": 23189,
-      "saveSha256": "0fa6ed4aa83cdb749bfb61c61131c5c1cc7154e34fb3b09bba791ec02eab3c6d"
+      "kills": 23193,
+      "saveSha256": "b9415dc873c3fb6395de09f31636098dadb45e46102d3f40d7d687612d1c0925",
+      "sourceSha256": "2b04909ed2f085aaca752f8688b8ac276a0266a03ce1698afeb22b83198052ca"
     },
     {
       "segment": "snez",
       "arrival": "white-pass-station",
       "level": 160,
-      "totalExp": 1222853920,
+      "totalExp": 1222892278,
       "completedQuests": 51,
-      "kills": 39662,
-      "saveSha256": "80869e8f4e6124f511e88f81649ea6e2bec1ce48b736b2d6319ce42127ad0096"
+      "kills": 39674,
+      "saveSha256": "b2f54e050c49f4bc17ffdcea5e580987246ea9152d0bbe7a067b1b6966324ece",
+      "sourceSha256": "b9415dc873c3fb6395de09f31636098dadb45e46102d3f40d7d687612d1c0925"
     },
     {
       "segment": "cap",
       "arrival": "white-pass-station",
       "level": 200,
-      "totalExp": 11499249275,
+      "totalExp": 11501386375,
       "completedQuests": 56,
-      "kills": 114815,
-      "saveSha256": "7a8c89b074483aa164d41fbeabe10ef7743c890ea6b589f5b38787acf0ba3732"
+      "kills": 114854,
+      "saveSha256": "10d843fedda2a9c614991ebe2e40fe32a8af13213e486716d506edf8886e09af",
+      "sourceSha256": "b2f54e050c49f4bc17ffdcea5e580987246ea9152d0bbe7a067b1b6966324ece"
     }
   ]
 }
