@@ -7,7 +7,7 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:63000});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const setMode=mode=>page.evaluate(mode=>{window.knaveMode=mode},mode);
-const canvas=page.locator('#game'),prefix='evidence/knave-weekly';
+const canvas=page.locator('#game'),prefix=process.env.KNAVE_EVIDENCE_PREFIX||'evidence/knave-weekly';
 const hub='fontaine-hub',arena='knave-crimson-court',quest='knave-weekly-commission',id='boss-29091001';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -132,6 +132,8 @@ try{
  const interrupted=await frame();
  assert.equal(interrupted.events.filter(e=>e.kind==='knave:WK09').length,1);
  assert.equal(interrupted.weeklyBoss.knave.actors[0].feather,false);
+ assert.deepEqual(interrupted.weeklyBoss.knave.feastResult,{kind:'interrupted',actor:1});
+ await page.waitForFunction(()=>document.querySelector('#weeklyKnaveHint').textContent.includes('旅人が羽印で赤宴を中断'));
  await page.locator('.game').screenshot({path:`${prefix}-interrupt.png`});
  await setMode('finish');
  await wait(()=>{

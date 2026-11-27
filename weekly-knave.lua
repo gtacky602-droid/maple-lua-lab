@@ -129,7 +129,8 @@ return function(C)
    order.resolved=true
    local d=ledger(w,a)
    if d.feather==order.feather and window and c.t>=window[1] and c.t<window[2] then
-    d.feather=nil;ownLog(s,w,'WK09',a.id,1);start(s,w,spec,'WK17')
+    d.feather=nil;ownLog(s,w,'WK09',a.id,1)
+    start(s,w,spec,'WK17').interruptedBy=a
    end
   end
   if C.afterElementHit then C.afterElementHit(s,cast,e,cast.applicationElement or element,element,n) end
@@ -421,6 +422,12 @@ return function(C)
   local b={form=w.form,card=c and c.key,title=title,tick=c and c.t,actors=rows,active=a.id,x=e.x,nearLamp=lampAt(spec,a),
    hold=hold and math.max(0,hold.next-w.clock),window=window and c.t>=window[1] and c.t<window[2],
    exposure=w.phase=='exposure' and 252-c.t,airborne=c and c.key=='WK18' and e.invulnerable}
+  if c and c.interruptedBy then
+   local owner=c.interruptedBy
+   b.feastResult={kind='interrupted',actor=s.actors[owner.id]==owner and owner.id or nil}
+  elseif c and c.key=='WK15' and c.t>=c.move.windows[#c.move.windows][2] then
+   b.feastResult={kind='ended'}
+  end
   v.knave=b
   local back={draws={}}
   local double=w.form==2 or c and c.key=='WK11' and c.t>=96

@@ -1,0 +1,172 @@
+[
+  {
+    "controller": "knave",
+    "case": "knave-interrupt",
+    "label": "羽印で赤宴を中断",
+    "ticks": 5611,
+    "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+    "bossHp": 2400,
+    "loadout": {
+      "sold": [
+        1203,
+        1204,
+        1167,
+        1168,
+        1156,
+        1170,
+        1102,
+        1134,
+        1166,
+        1155,
+        1169,
+        1114,
+        1123,
+        1191,
+        1144,
+        1153
+      ],
+      "removed": [
+        30,
+        55,
+        70,
+        71,
+        73,
+        78,
+        1068,
+        1086
+      ],
+      "attack": [
+        25,
+        3
+      ],
+      "maxHp": [
+        104140,
+        103576
+      ]
+    },
+    "forms": [
+      1,
+      2
+    ],
+    "contract": {
+      "tick": 703,
+      "amount": 26035.0,
+      "maxHp": 104140
+    },
+    "firstPayment": {
+      "tick": 851,
+      "amount": 5207.0
+    },
+    "handoff": {
+      "tick": 3830,
+      "moveTick": 96,
+      "hp": 88286,
+      "debt": 52070.0,
+      "feather": true
+    },
+    "result": {
+      "tick": 4082,
+      "interrupted": true,
+      "hp": 86204,
+      "debt": 52070.0,
+      "feather": false
+    },
+    "feastHits": [],
+    "exposureTicks": 216,
+    "exposureDamage": 192.0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ]
+  },
+  {
+    "controller": "knave",
+    "case": "knave-evade",
+    "label": "赤宴の範囲から離れる",
+    "ticks": 5754,
+    "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+    "bossHp": 2400,
+    "loadout": {
+      "sold": [
+        1203,
+        1204,
+        1167,
+        1168,
+        1156,
+        1170,
+        1102,
+        1134,
+        1166,
+        1155,
+        1169,
+        1114,
+        1123,
+        1191,
+        1144,
+        1153
+      ],
+      "removed": [
+        30,
+        55,
+        70,
+        71,
+        73,
+        78,
+        1068,
+        1086
+      ],
+      "attack": [
+        25,
+        3
+      ],
+      "maxHp": [
+        104140,
+        103576
+      ]
+    },
+    "forms": [
+      1,
+      2
+    ],
+    "contract": {
+      "tick": 703,
+      "amount": 26035.0,
+      "maxHp": 104140
+    },
+    "firstPayment": {
+      "tick": 851,
+      "amount": 5207.0
+    },
+    "handoff": {
+      "tick": 3830,
+      "moveTick": 96,
+      "hp": 88286,
+      "debt": 52070.0,
+      "feather": true
+    },
+    "result": {
+      "tick": 3981,
+      "interrupted": false,
+      "hp": 87245,
+      "debt": 52070.0,
+      "feather": true
+    },
+    "feastHits": [],
+    "exposureTicks": 0,
+    "exposureDamage": 0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ]
+  }
+]
