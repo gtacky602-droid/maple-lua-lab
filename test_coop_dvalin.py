@@ -261,6 +261,12 @@ if __name__ == '__main__':
     prepare(core, fixture, TOWN)
     data = validate_save(native(core.checkpoint(fixture)))
     (ROOT/'work/dvalin-weekly-fixture.json').write_text(json.dumps(data),encoding='utf8')
+    fixture.story.quests['amber-join'] = lua.table_from(
+        {'status':'complete', 'count':4, 'cycles':1,
+         'recovered':{'basket':True, 'toolbox':True, 'crate':True}}, recursive=True)
+    fixture.actors[2].hp = fixture.actors[2].maxhp
+    browser_fixture = validate_save(native(core.checkpoint(fixture)))
+    (ROOT/'work/dvalin-weekly-party-fixture.json').write_text(json.dumps(browser_fixture), encoding='utf8')
     test_lua(lua, core)
     check_adoption(lua,core)
     result = {'lua':dict(participants=4, sharedPostureAndCrystal=True, perPartyFootingAndDamage=True,

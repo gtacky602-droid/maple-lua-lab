@@ -20,8 +20,12 @@ async function resume(){await canvas.click();await page.keyboard.press('KeyP');a
 const progress=setInterval(async()=>{try{await fs.writeFile('work/dvalin-browser-progress.json',JSON.stringify({at:new Date().toISOString(),frame:await page.evaluate(()=>({t:window.lab?.frame.t,boss:window.lab?.frame.weeklyBoss,actors:window.lab?.frame.actors,result:window.dvalinResult}))},null,2))}catch{}},5000);progress.unref();
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8847/');await page.waitForFunction(()=>window.lab?.frame);
- await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),await fs.readFile('work/dvalin-weekly-fixture.json','utf8'));
- await page.locator('#loadProgress').click();await page.waitForFunction(()=>window.lab.frame.story.node==='mond-town');
+ await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),await fs.readFile('work/dvalin-weekly-party-fixture.json','utf8'));
+ await page.locator('#loadProgress').click();
+ await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
+ await page.waitForFunction(()=>window.lab.frame.story.node==='mond-town');
+ const starting=await frame();
+ assert.ok(starting.story.quests['amber-join']?.status==='complete'&&starting.companion.id==='amber'&&starting.actors[1].hp>0,'The browser fixture must have Amber available');
  const row=page.locator(`[data-quest="${quest}"]`);await row.getByRole('button',{name:'受注',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
  await page.keyboard.press('KeyM');

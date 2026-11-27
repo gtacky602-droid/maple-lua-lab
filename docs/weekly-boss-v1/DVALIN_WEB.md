@@ -44,4 +44,4 @@
 
 通常攻撃のみ・同行戦闘不能・回復なしのLua操作検査は186.6秒、残HP112、7ダウン、落下0でWD01〜08を通過。アンバー単独の踏み場到達検査は結晶へ87ダメージ、1tickの横移動最大3.5px。瞬間移動を到達の証拠にしていない。
 
-`LAB_URL=http://127.0.0.1:8848 node test_dvalin_weekly.mjs`：ChromeでUI受注・門移動・実入力の戦闘・AIと操作キャラの踏み場到達・PNG/矩形の同時刻比較・帰還報告・待ち時間保存を検査。結果は [Lua](../../evidence/dvalin-weekly-lua.json)、[Chrome](../../evidence/dvalin-weekly-browser.json)、[回帰](../../evidence/dvalin-weekly-regressions.json) を参照。描画命令数の削減は幻境実機FPSの保証ではない。
+最初に `python -X utf8 test_coop_dvalin.py` でアンバー同行のテスト用セーブを生成する。 `LAB_URL=http://127.0.0.1:8848 node test_dvalin_weekly.mjs`：ChromeでUI受注・門移動・実入力の戦闘・AIと操作キャラの踏み場到達・PNG/矩形の同時刻比較・帰還報告・待ち時間保存を検査。結果は [Lua](../../evidence/dvalin-weekly-lua.json)、[Chrome](../../evidence/dvalin-weekly-browser.json)、[回帰](../../evidence/dvalin-weekly-regressions.json) を参照。描画命令数の削減は幻境実機FPSの保証ではない。
