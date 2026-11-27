@@ -64,7 +64,7 @@ local function beidou(C,s,b,a,bait)
 end
 
 -- A repeatable input sequence for comparing encounters on earned saves.
-return function(C,s,encounter,kind,budget,route)
+return function(C,s,encounter,kind,budget,route,options)
  local phases,moves,events={},{},{}
  local phaseSeen,moveSeen,eventSeen={},{},{}
  local begin,damage,hits,returns=s.t,s.damage,s.hits,s.returns
@@ -97,7 +97,8 @@ return function(C,s,encounter,kind,budget,route)
   end
   record(phases,phaseSeen,stage,tick)
   local cast=encounter.cast or encounter.boss and encounter.boss.move
-  record(moves,moveSeen,cast and (cast.key or cast.id or cast.move and cast.move.id),tick)
+  local move=cast and (cast.key or cast.id or cast.move and cast.move.id)
+  record(moves,moveSeen,move,tick)
   for i=#s.events,1,-1 do
    local e=s.events[i]
    if e.seq<=seq then break end
@@ -111,6 +112,7 @@ return function(C,s,encounter,kind,budget,route)
    end
   end
   seq=s.seq
+  if options and options.sample then options.sample(tick,stage,move,cast and (cast.t or cast.tick)) end
  end
  local function status()
   if kind=='weekly' then return encounter.waitUntil and 'clear' or 'fighting' end
@@ -146,6 +148,7 @@ return function(C,s,encounter,kind,budget,route)
   elseif encounter.match=='beidou' and route~='basic' then
    input=beidou(C,s,b,a,route=='bait')
   elseif jump then C.action(s,'jump') end
+  if options and options.canAttack and not options.canAttack() then input.attack=false end
   C.step(s,1/60,input)
   tick=tick+1
   observe(tick)
