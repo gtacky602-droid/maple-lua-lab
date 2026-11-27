@@ -39,8 +39,37 @@ def ordinary(placement):
                 or placement.get('respawnSeconds', 6) >= 12 or placement.get('questPhase', 0))
 
 
+def verify_intro_contact(lua, core, node, rows):
+    state = core.new(12)
+    core.action(state, 'story_start')
+    core.enterStoryNode(state, node)
+    by_id = {e.spawnId: e for e in state.enemies.values()}
+    for row in rows:
+        enemy = by_id[row['id']]
+        assert enemy.contactDamage == row['contactDamage'] and enemy.contactCooldown == row['contactCooldown']
+    sample = by_id[rows[0]['id']]
+    state.enemies = lua.table_from([sample])
+    player = state.actors[1]
+    partner = state.actors[2]
+    partner.hp = 0
+    player.x, player.y = sample.x - 130, sample.y
+    full_hp = player.hp
+    sample.cd = 0
+    idle = lua.table()
+    for _ in range(140):
+        core.step(state, 1/60, idle)
+    assert player.hp == full_hp and sample.warning == 0, node
+    player.x = sample.x
+    for _ in range(40):
+        core.step(state, 1/60, idle)
+    assert full_hp - player.hp == sample.contactDamage, node
+    assert sample.contactCooldown - .05 <= sample.cd <= sample.contactCooldown, node
+    return dict(configured=len(rows), distantHit=False, closeDamage=full_hp-player.hp,
+                cooldownSeconds=sample.contactCooldown)
+
+
 def measure():
-    _, core = runtime()
+    lua, core = runtime()
     state = core.new(12)
     core.action(state, 'story_start')
     placements = read('content/enemy-spawns.json')['nodes']
@@ -49,7 +78,7 @@ def measure():
         for edge in stage['exits']:
             if 'arrivalX' in edge:
                 arrivals[edge['to']].append((edge['arrivalX'], edge.get('arrivalY', 480), stage['id']))
-    rows, routes = [], []
+    rows, routes, contact = [], [], {}
     unsafe = set()
     for region, node in hunt_points():
         core.enterStoryNode(state, node)
@@ -60,6 +89,9 @@ def measure():
         if not spawned:
             routes.append(dict(region=region, node=node, enemies=len(state.enemies)))
             continue
+        low_pressure = [row for row in placements[node] if row.get('contactCooldown')]
+        if low_pressure:
+            contact[node] = verify_intro_contact(lua, core, node, low_pressure)
         peak, camera = peak_view((enemy.x for enemy in spawned.values()), state.worldwidth)
         for x, y, other in arrivals[node]:
             for enemy in spawned.values():
@@ -67,7 +99,7 @@ def measure():
                     unsafe.add((other, node))
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
-                unsafePortalArrivals=sorted(unsafe))
+                unsafePortalArrivals=sorted(unsafe), introContact=contact)
 
 
 if __name__ == '__main__':

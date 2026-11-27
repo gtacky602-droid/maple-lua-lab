@@ -73,9 +73,9 @@ try{
  await hunt.goto(await page.locator('#trackedSurveyPoint').evaluate(link=>link.href));
  await hunt.waitForFunction(()=>window.mapArt?.ready);
  const slimes=await hunt.evaluate(()=>mapArt.placements.map(e=>e.species).sort());
- assert.deepEqual(slimes,[...Array(3).fill('hydro-slime-reference'),...Array(2).fill('pyro-slime-reference')]);
+ assert.deepEqual(slimes,[...Array(6).fill('hydro-slime-reference'),...Array(5).fill('pyro-slime-reference')]);
  await hunt.locator('#dailyTargetPreview a').click();
- await hunt.waitForFunction(()=>window.mapArt?.ready&&mapArt.count===6);
+ await hunt.waitForFunction(()=>window.mapArt?.ready&&mapArt.count===16);
  await hunt.close();
  await walk(1330);
  await gate('モンド・南の街道').click();

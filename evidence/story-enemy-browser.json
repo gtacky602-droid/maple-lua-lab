@@ -1,14 +1,9 @@
 {
   "result": {
     "node": "mond-road",
-    "total": 6,
+    "total": 16,
     "hilichurl": {
-      "kind": "boss_sprite",
-      "flip": false,
-      "y": 480,
-      "w": 41.67741935483871,
-      "x": 291.8333333333332,
-      "source": "hilichurl-idle-source-v1.png",
+      "anchorX": 0.4638655462184874,
       "box": [
         290,
         126,
@@ -16,9 +11,15 @@
         1085
       ],
       "h": 76,
-      "anchorX": 0.4638655462184874
+      "flip": false,
+      "w": 41.67741935483871,
+      "y": 480,
+      "kind": "boss_sprite",
+      "source": "hilichurl-idle-source-v1.png",
+      "x": 300
     }
   },
   "errors": [],
+  "huntLayer": true,
   "method": "walked from story start to adjacent portal using keyboard; three referenced enemy sources and PNG/rect runtime frames checked; old slime atlas absent"
 }

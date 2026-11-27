@@ -544,7 +544,7 @@ function C.advanceEnemies(s,dt,actors,decoys,owners)
     if e.warning<=0 then
      if near and near.owner then event(owners and owners[near] or s,'decoy_hit',near.owner,e.id,0)
      elseif near then C.damageActor(owners and owners[near] or s,near,e.contactDamage or 14,e,true,true) end
-     e.cd=3.2
+    e.cd=e.contactCooldown or 3.2
     end
    end
    if near==nil and not attracted and e.root<=0 then

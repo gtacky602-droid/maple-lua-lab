@@ -1200,6 +1200,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       e.patrolMax=math.min(e.patrolMax,n.width-margin)
      end
      e.level=placement.level or n.level;e.respawnSeconds=placement.respawnSeconds
+     e.contactDamage=placement.contactDamage;e.contactCooldown=placement.contactCooldown
      e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end
      if C.applyOrdinaryFieldHp then C.applyOrdinaryFieldHp(e,n,placement) end
      s.enemies[#s.enemies+1]=e

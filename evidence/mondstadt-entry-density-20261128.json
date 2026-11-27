@@ -1,0 +1,587 @@
+{
+  "base": "04e0d590f3da959666b619314e6d6e891d772e77",
+  "registeredHunts": 123,
+  "ordinaryAdded": 42,
+  "beforeSha256": "329ec41f43a288b186e44dc73c7705d91bc215600c5fcdfd310cad4dc37c34de",
+  "afterSha256": "ec9a5217cf7b7206bbfa76391f912693288ab555466a34ef0e203ad3a073d019",
+  "openingHunts": [
+    {
+      "region": "region-01",
+      "node": "mond-road",
+      "ordinary": 16,
+      "peak": 16,
+      "camera": 285,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 6,
+        "cooldownSeconds": 4.8
+      }
+    },
+    {
+      "region": "region-01",
+      "node": "mond-old-ground",
+      "ordinary": 16,
+      "peak": 16,
+      "camera": 285,
+      "contact": {
+        "configured": 8,
+        "distantHit": false,
+        "closeDamage": 6,
+        "cooldownSeconds": 4.8
+      }
+    },
+    {
+      "region": "region-01",
+      "node": "mond-hill",
+      "ordinary": 17,
+      "peak": 15,
+      "camera": 410,
+      "contact": {
+        "configured": 14,
+        "distantHit": false,
+        "closeDamage": 6,
+        "cooldownSeconds": 4.8
+      }
+    },
+    {
+      "region": "region-01",
+      "node": "mond-border",
+      "ordinary": 16,
+      "peak": 16,
+      "camera": 240,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 6,
+        "cooldownSeconds": 4.8
+      }
+    }
+  ],
+  "authoredQuestEncounters": {
+    "mond-roadside-rest": [
+      "mond-rest-slime",
+      "mond-rest-hilichurl"
+    ],
+    "mond-bennett-depth": [
+      "mond-bennett-depth-slime",
+      "mond-bennett-depth-pyro"
+    ],
+    "mond-watchtower": [
+      "mond-watchtower-1",
+      "mond-watchtower-2",
+      "mond-watchtower-3",
+      "mond-watchtower-4",
+      "mond-watchtower-5"
+    ]
+  },
+  "portalArrivals": {
+    "scope": "A restored late adventure was placed beside each documented gate; the Lua portal action performed the actual arrival.",
+    "reached": [
+      {
+        "origin": "mond-town",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-road",
+        "destination": "mond-border",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-road",
+        "destination": "mond-hill",
+        "arrival": [
+          [
+            1600,
+            480
+          ],
+          [
+            1560,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-roadside-rest",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-old-road",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-old-road",
+        "destination": "mond-old-ground",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-old-canopy",
+        "destination": "mond-hill",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-old-ground",
+        "destination": "mond-hill",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-hill",
+        "destination": "mond-old-ground",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-hill",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-bennett-ledge",
+        "destination": "mond-hill",
+        "arrival": [
+          [
+            1600,
+            480
+          ],
+          [
+            1560,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-bennett-depth",
+        "destination": "mond-old-ground",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-watchtower",
+        "destination": "mond-hill",
+        "arrival": [
+          [
+            1600,
+            480
+          ],
+          [
+            1560,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-border",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "liyue-entry",
+        "destination": "mond-border",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "dragonspine-camp",
+        "destination": "mond-border",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "dornman-camp",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "golden-hub",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "anemo-approach",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "cryo-approach",
+        "destination": "mond-border",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "electro-approach",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "dvalin-sky-arena",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "andrius-wolf-ring",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "golden-mainland-coast",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            1280,
+            480
+          ],
+          [
+            1240,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-wp-13",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            240,
+            480
+          ],
+          [
+            200,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "mond-wp-19",
+        "destination": "mond-border",
+        "arrival": [
+          [
+            390,
+            480
+          ],
+          [
+            350,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "sites-hunt-7157",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            670,
+            390
+          ],
+          [
+            630,
+            390
+          ]
+        ]
+      },
+      {
+        "origin": "sites-lookout-10009",
+        "destination": "mond-border",
+        "arrival": [
+          [
+            540,
+            480
+          ],
+          [
+            500,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "sites-corridor-mond-forest",
+        "destination": "mond-road",
+        "arrival": [
+          [
+            792,
+            340
+          ],
+          [
+            832,
+            340
+          ]
+        ]
+      }
+    ],
+    "stillGated": [],
+    "unsafeOrdinaryArrivals": []
+  },
+  "chromeSameCamera": {
+    "node": "mond-road",
+    "records": {
+      "before": {
+        "total": 6,
+        "visible": 6,
+        "camera": 285
+      },
+      "after": {
+        "total": 16,
+        "visible": 16,
+        "camera": 285
+      }
+    }
+  },
+  "runtimeDrawQuantities": {
+    "node": "mond-road",
+    "camera": 285,
+    "profiles": {
+      "before": {
+        "legacy": {
+          "rectangles": 8548,
+          "drawJsonBytes": 139804,
+          "gzipBytes": 25636
+        },
+        "h48c32": {
+          "rectangles": 5008,
+          "drawJsonBytes": 84016,
+          "gzipBytes": 16398
+        },
+        "h32c16": {
+          "rectangles": 2092,
+          "drawJsonBytes": 37510,
+          "gzipBytes": 7425
+        }
+      },
+      "after": {
+        "legacy": {
+          "rectangles": 17976,
+          "drawJsonBytes": 141147,
+          "gzipBytes": 25713
+        },
+        "h48c32": {
+          "rectangles": 10479,
+          "drawJsonBytes": 85363,
+          "gzipBytes": 16483
+        },
+        "h32c16": {
+          "rectangles": 4283,
+          "drawJsonBytes": 38857,
+          "gzipBytes": 7509
+        }
+      }
+    }
+  },
+  "openedAndReportedAmberInChrome": true,
+  "enteredHuntLayerInChrome": true,
+  "localLv20": {
+    "seconds": 598.35,
+    "wipes": 0,
+    "restored": true
+  },
+  "eliteRoutes": 7,
+  "localCoop": {
+    "two": {
+      "twoPlayers": true,
+      "partyActors": 4,
+      "sharedEnemies": 16,
+      "unchangedEnemyMaxHp": 15,
+      "contributionsFromBoth": true,
+      "sharedDeath": true,
+      "rewardOncePerParty": true,
+      "distinctStoryAndDailyProgress": true,
+      "personalDropTargetSets": true,
+      "openMapKeepsRoomTicking": true,
+      "reconnectPreservesSlotAndRewards": true,
+      "personalSaveRestores": true,
+      "httpSamples": 54,
+      "medianHttpMs": 3.82,
+      "medianFrameBytes": 31085
+    },
+    "four": {
+      "fourPlayers": true,
+      "partyActors": 8,
+      "sharedEnemies": 16,
+      "fixedEnemyMaxHp": 15,
+      "fullRoomRejectsFifth": true,
+      "sequentialFourContributions": true,
+      "rewardOncePerParty": true,
+      "independentStoryAndDailyProgress": true,
+      "independentDropSets": true,
+      "fourthPlayerRejoined": true,
+      "livingActorsInAnotherView": 6,
+      "packedDrawsMatchEveryRectangleInThreeProfiles": true
+    }
+  }
+}

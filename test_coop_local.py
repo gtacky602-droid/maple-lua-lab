@@ -150,7 +150,7 @@ def run_two_players(url):
     joined = guest.frame(['coop_join:'+code])
     assert joined['coop']['peers'][0]['online']
     assert joined['coop']['enemies'] == opened['coop']['enemies']
-    assert len(joined['coop']['enemies']) == solo['total'] == 6
+    assert len(joined['coop']['enemies']) == solo['total'] == 16
     assert joined['coop']['enemies'][0]['maxhp'] == 15
 
     with LOCK:
@@ -209,7 +209,7 @@ def run_two_players(url):
 
     samples = host.replies[3:-4] + guest.replies[3:-4]
     return dict(
-        twoPlayers=True, partyActors=4, sharedEnemies=6, unchangedEnemyMaxHp=15,
+        twoPlayers=True, partyActors=4, sharedEnemies=solo['total'], unchangedEnemyMaxHp=15,
         contributionsFromBoth=True, sharedDeath=True, rewardOncePerParty=True,
         distinctStoryAndDailyProgress=True, personalDropTargetSets=True, openMapKeepsRoomTicking=True,
         reconnectPreservesSlotAndRewards=True, personalSaveRestores=True,
@@ -343,12 +343,16 @@ def run_four_players(url):
             party = client.last_frame['coop']
             assert party['capacity'] == 4
             assert len(party['peers']) == 3 and all(len(peer['actors']) == 2 for peer in party['peers'])
-            assert len(party['enemies']) == 6 and party['enemies'][0]['maxhp'] == 15
+            assert len(party['enemies']) == 16 and party['enemies'][0]['maxhp'] == 15
         verify_rectangles(clients)
         with LOCK:
+            shared = SESSIONS[clients[0].sid]['state'].enemies
+            for enemy in shared.values():
+                if enemy.id != shared[2].id:
+                    enemy.invulnerable = True  # Observe settlement for one shared target.
             for i, client in enumerate(clients, 1):
                 s = SESSIONS[client.sid]['state']
-                s.actors[1].x, s.actors[1].atk = 420, 2
+                s.actors[1].x, s.actors[1].atk = s.enemies[2].home - 85, 2
                 s.actors[1].dir = 1
                 s.inventory.rng = i*100
         for i, client in enumerate(clients, 1):
@@ -382,7 +386,7 @@ def run_four_players(url):
         sample_frames(clients, network, .2)
         assert all(c.last_frame['kills'] == 1 for c in clients)
     return dict(
-        fourPlayers=True, partyActors=8, sharedEnemies=6, fixedEnemyMaxHp=15,
+        fourPlayers=True, partyActors=8, sharedEnemies=16, fixedEnemyMaxHp=15,
         fullRoomRejectsFifth=True, sequentialFourContributions=True, rewardOncePerParty=True,
         independentStoryAndDailyProgress=True, independentDropSets=True, fourthPlayerRejoined=True,
         livingActorsInAnotherView=6,
