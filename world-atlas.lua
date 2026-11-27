@@ -140,14 +140,12 @@ return function(C, atlas)
   rectangle(out,x-47,y+18,5,3,shade[4]);rectangle(out,x+45,y+11,7,3,shade[4])
  end
 
- local function pin(out,point)
+ local function pin(out,point,onRoute)
   local color=point.current and '#dc735b' or point.selected and '#ffdf91' or
     point.mode=='draft' and '#f4d8a4' or point.boss and '#8b4167' or point.pocketRole=='rare_pocket' and '#7872b7' or point.huntKind and '#996045' or point.visited and '#397972' or '#526671'
   local size=(point.current or point.selected or point.major or point.boss) and 7 or point.huntKind and 5 or 4
-  local x,y=point.x,point.y
-  polygon(out,{{x,y-size-2},{x+size+2,y},{x,y+size+2},{x-size-2,y}},'#273f4b')
-  polygon(out,{{x,y-size},{x+size,y},{x,y+size},{x-size,y}},color)
-  if point.visited or point.current or point.huntKind=='elite' then rectangle(out,x-1,y-1,3,3,'#f7e8ae') end
+  out[#out+1]={kind='pin',x=point.x,y=point.y,size=size,color=color,
+   dot=point.visited or point.current or point.huntKind=='elite',onRoute=onRoute,highlight=point.current or point.selected}
  end
 
  local function route_mode(edge,from,to)
@@ -619,6 +617,7 @@ return function(C, atlas)
       local mode=route_mode(edge,node,nodes[edge.to])
       line(out,point.x,point.y,target.x,target.y,route_colors[mode],direct_motion(mode) and 1.5 or 2.5,
         (not direct_motion(mode) or edge.requires) and {4,4} or nil)
+      out[#out].context=true
       linked[point.id]=linked[point.id] or {}
       linked[point.id][edge.to]=true
      end
@@ -661,8 +660,10 @@ return function(C, atlas)
   end
   local guide=selected and itinerary(s,nodes,selected.id)
   local stops=guide and guide.stops or {}
+  local routePoints={}
   local inaccessible=false
   for _,leg in ipairs(stops) do
+   routePoints[leg.from]=true;routePoints[leg.id]=true
    inaccessible=inaccessible or leg.reason~=nil
    local a,b=where[leg.from],where[leg.id]
    if (map.layer=='boss' or map.layer=='hunt') and places[leg.from]==region.id and places[leg.id]==region.id then
@@ -675,11 +676,14 @@ return function(C, atlas)
    end
   end
   for _,point in ipairs(points) do
-   if not point.current and not point.selected then pin(out,point) end
+   if not point.current and not point.selected and not routePoints[point.id] then pin(out,point) end
+  end
+  for _,point in ipairs(points) do
+   if routePoints[point.id] and not point.current and not point.selected then pin(out,point,true) end
   end
   for _,point in ipairs(points) do
    if point.current or point.selected then
-    pin(out,point)
+    pin(out,point,true)
     local x=math.max(115,math.min(w-115,point.x))
     if point.current and selected and selected.id~=point.id and math.abs(selected.y-point.y)<24
       and math.abs(selected.x-point.x)<180 then
@@ -687,6 +691,8 @@ return function(C, atlas)
     else
      label(out,x,point.y-13,point.boss and point.boss.name or point.name,'#263f4d',14)
     end
+    out[#out].pinX=point.x;out[#out].pinY=point.y
+    out[#out].currentPin=point.current and selected and point.id~=selected.id or nil
    end
   end
   return points, selected, routes, guide
