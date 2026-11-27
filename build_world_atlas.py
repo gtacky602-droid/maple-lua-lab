@@ -254,11 +254,15 @@ def build(plan_output=None, atlas_output=None):
     for source in nodes.values():
         for edge in source['exits']:
             entrances[edge['to']].append((source, edge))
-    runtime_routes = defaultdict(set)
+    runtime_routes = defaultdict(dict)
     for target, links in entrances.items():
         for start, edge in links:
             if route := edge.get('studioRoute'):
-                runtime_routes[route, edge['studioMode']].add((start['id'], target))
+                source = start['id']
+                voyage = nodes[target].get('voyage', {})
+                landing = voyage.get('destination') if voyage.get('source') == source else None
+                steps = [source, target, landing] if landing else [source, target]
+                runtime_routes[route, edge['studioMode']][source, steps[-1]] = steps
     stages_by_field = {field: link['stage_id'] for field, link in field_links.items()}
     removed_stage_pairs = {
         frozenset(stages_by_field.get(op['before'][key]) for key in ('a', 'b'))
@@ -498,10 +502,10 @@ def build(plan_output=None, atlas_output=None):
         paths = {}
         note = source.get('note','')
         start, end = (stages_by_field.get(field) for field in (a, b))
-        live = runtime_routes.get((source['id'], source['mode']), set())
+        live = runtime_routes.get((source['id'], source['mode']), {})
         if (start, end) in live and (end, start) in live:
             finding = 'field_studio_lab_connection'
-            paths = {'forward': [start, end], 'return': [end, start]}
+            paths = {'forward': live[start, end], 'return': live[end, start]}
         elif source['id'] in changed_layout:
             if any(nodes[field_links[id]['stage_id']]['region'] in suspended_regions
                    for id in (a,b) if id in field_links):

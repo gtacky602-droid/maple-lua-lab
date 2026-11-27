@@ -1,5 +1,8 @@
 """Drive story gates using the same movement, jump and portal actions as the browser."""
 
+from math import ceil
+
+
 class TrailWalk:
     def __init__(self, lua, core, state, edges, exits):
         self.core, self.state, self.edges, self.exits = core, state, edges, exits
@@ -93,6 +96,30 @@ class TrailWalk:
                     expected_x = min(anchor + (anchor-expected_x), max(p.x+p.w for p in supports))
             assert (self.actor.x, self.actor.y) == (expected_x, edge.get('arrivalY', 480))
         self.crossings.add((origin, target))
+
+    def follow_atlas(self, destination):
+        self.core.action(self.state, 'world_map_focus:' + destination)
+        view = self.core.frame(self.state, 'sprite', 'legacy').worldMap
+        assert view and view.selected and view.selected.id == destination, (self.state.story.node, destination)
+        guide = view.guide
+        assert guide and guide.status in ('ready', 'here'), (self.state.story.node, destination, guide and guide.reason)
+        self.core.action(self.state, 'world_map_close')
+        visited = []
+        for stop in guide.stops.values():
+            assert self.state.story.node == stop['from']
+            if stop.automaticArrival:
+                voyage = self.state.voyage
+                assert voyage and voyage.destination == stop.id
+                for _ in range(ceil(max(0, voyage.arrives - self.state.t) * 60) + 1):
+                    if self.state.story.node == stop.id:
+                        break
+                    self.core.step(self.state, 1 / 60, self.idle)
+                assert self.state.story.node == stop.id
+            else:
+                self.cross(stop.id, stop.gateX)
+            visited.append(stop.id)
+        assert self.state.story.node == destination
+        return visited
 
     def explore(self):
         visited = {self.state.story.node}

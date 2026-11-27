@@ -1,5 +1,7 @@
 """Play Fontaine from the checkpoint earned by the preceding fresh route."""
 
+from argparse import ArgumentParser
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -18,14 +20,17 @@ def read(path):
 
 
 hub = 'fontaine-hub'
-after_revisits = '--after-revisits' in sys.argv
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--after-revisits', action='store_true')
+parser.add_argument('--checkpoint', action='store_true', help='Use the existing earned Lv80 checkpoint')
+args = parser.parse_args()
+after_revisits = args.after_revisits
 work = ROOT / 'work' / ('fontaine-revisits-route' if after_revisits else 'fontaine-fresh-route')
 work.mkdir(parents=True, exist_ok=True)
-if after_revisits:
-    checkpoint = validate_save(read('evidence/sumeru-revisit-save.json'))
-else:
+if not (after_revisits or args.checkpoint):
     subprocess.run([sys.executable, str(ROOT / 'test_sumeru_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-    checkpoint = validate_save(read('work/sumeru-fresh-route/fontaine-save.json'))
+source = (ROOT / ('evidence/sumeru-revisit-save.json' if after_revisits else 'work/sumeru-fresh-route/fontaine-save.json')).read_bytes()
+checkpoint = validate_save(json.loads(source))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == (81 if after_revisits else 80)
 
 graph = read('content/story-graph.json')
@@ -341,8 +346,8 @@ assert blocked.to == natlan_entry and not blocked.available and blocked.level ==
 act('story_nearby_portal')
 assert state.story.node == field
 
-entry, inlet, mountain = 'fontaine-entry', 'fon-wp-50035', 'fon-wp-50036'
-cross(hub, entry, inlet)
+inlet, mountain = 'fon-wp-50035', 'fon-wp-50036'
+path_to_beryl = trail.follow_atlas(inlet)
 bank, hills, beryl = 'fontaine-beryl-bank', 'fontaine-beryl-foothills', 'sites-hunt-50034'
 for stage, required in ((bank, 91), (hills, 95), (beryl, 99)):
     act('world_map_toggle')
@@ -359,7 +364,7 @@ recovery_trips = 0
 hunting = []
 for stage, parent, threshold in ((bank, inlet, 95), (hills, mountain, 99), (beryl, inlet, 100)):
     if state.story.node != parent:
-        cross(parent)
+        trail.follow_atlas(parent)
     exp_per_enemy = LEVELS[nodes[stage]['level'] - 1]['normal_enemy_base_exp']
     totals = dict(stage=stage, sorties=0, kills=0, xp=0, ticks=0)
     for _ in range(90):
@@ -395,7 +400,7 @@ for stage, parent, threshold in ((bank, inlet, 95), (hills, mountain, 99), (bery
     hunting.append(totals)
     mark('lv' + str(threshold))
 
-cross(entry, hub)
+path_from_beryl = trail.follow_atlas(hub)
 ready = validate_save(native(core.checkpoint(state)))
 (work / 'natlan-ready-save.json').write_text(json.dumps(ready, ensure_ascii=False) + '\n', encoding='utf8')
 act('world_map_toggle')
@@ -420,7 +425,9 @@ core.action(restored, 'story_accept:' + next_quest)
 assert restored.story.quests[next_quest].status == 'active'
 
 (work / 'natlan-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
-result = dict(route=milestones, completedQuests=quests, hunts=hunting, recoveryTrips=recovery_trips,
+result = dict(sourceSha256=sha256(source).hexdigest(), route=milestones, completedQuests=quests,
+              pathToBeryl=path_to_beryl, pathBackFromBeryl=path_from_beryl,
+              hunts=hunting, recoveryTrips=recovery_trips,
               partyWipes=state.returns, noWorkfloorWallInStoreroom=True, savedAndRestored=True,
               firstNatlanQuestAvailable=next_quest,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')

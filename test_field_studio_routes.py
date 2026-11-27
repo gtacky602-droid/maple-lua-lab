@@ -27,6 +27,8 @@ def verify():
 
     counts = Counter()
     conditional = []
+    ferry_trips = []
+    advance = lua.eval('function(C,s,n) for _=1,n do C.step(s,1/60,{}) end end')
     problems = []
     for row in report['routes']:
         a, b = row['stages']
@@ -36,7 +38,25 @@ def verify():
             counts['removed_pairs'] += 1
             continue
         field_ids = frozenset(nodes[id].get('mapPoint') or nodes[id].get('designField') for id in (a, b))
-        assert reviewed[field_ids]['finding'] == 'field_studio_lab_connection'
+        review = reviewed[field_ids]
+        assert review['finding'] == 'field_studio_lab_connection'
+        if row['result'] == 'retained_existing_ferry':
+            assert all(pair not in edges for pair in pairs)
+            for start, deck, end in review['runtime_paths'].values():
+                gate = edges[start, deck]
+                assert gate['studioRoute'] == row['id'] and gate['studioMode'] == row['mode']
+                core.enterStoryNode(state, start)
+                walk.cross(deck)
+                voyage = state.voyage
+                assert voyage.destination == end and voyage.total == 90
+                advance(core, state, 5399)
+                assert state.story.node == deck
+                advance(core, state, 1)
+                assert state.story.node == end and not state.voyage
+                counts['directions_linked'] += 1
+                counts['ferry_directions_ridden'] += 1
+                ferry_trips.append({'from': start, 'deck': deck, 'to': end, 'seconds': voyage.total})
+            continue
         for start, end in pairs:
             gates = [edge for edge in exits[start]
                      if edge['to'] == end and edge.get('studioRoute') == row['id']]
@@ -109,7 +129,7 @@ def verify():
         assert record.status == 'complete'
         reported.append({'quest': qid, 'level': state.progression.level, 'steps': record.count})
     return {'revision': report['editor_revision'], 'counts': counts, 'conditional': conditional,
-            'quests_reported': reported,
+            'ferry_trips': ferry_trips, 'quests_reported': reported,
             'setup': 'Lv200 restored save for gates, fresh level-specific fixtures for quests. Movement and portal actions with enemy damage suppressed.'}
 
 

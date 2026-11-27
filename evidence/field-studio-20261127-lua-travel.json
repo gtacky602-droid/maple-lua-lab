@@ -3,7 +3,8 @@
   "counts": {
     "removed_pairs": 90,
     "directions_linked": 434,
-    "directions_walked": 260,
+    "directions_walked": 258,
+    "ferry_directions_ridden": 2,
     "visited_shortcuts_checked": 1
   },
   "conditional": [
@@ -11,6 +12,20 @@
       "from": "nod-wp-88162",
       "to": "nod-wp-88170",
       "first_visit_via": "nod-wp-88169"
+    }
+  ],
+  "ferry_trips": [
+    {
+      "from": "natlan-port",
+      "deck": "natlan-voyage",
+      "to": "nod-port",
+      "seconds": 90
+    },
+    {
+      "from": "nod-port",
+      "deck": "natlan-voyage-return",
+      "to": "natlan-port",
+      "seconds": 90
     }
   ],
   "quests_reported": [

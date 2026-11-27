@@ -398,14 +398,15 @@ expected = [release, branch, echo, seven, personal]
 assert all(roundtrip['story']['quests'][id]['status']=='complete' for id in expected), expected
 progression.update(
     method='Earned Lv160 checkpoint from Lv1. Normal travel, optional growth quests, field skills, and auto battle.',
-    startingLevel=160, endLevel=p.level, totalExp=p.total, kills=state.kills-initial['kills'],
+    sourceSha256=sha256(source).hexdigest(), startingLevel=160, endLevel=p.level,
+    totalExp=p.total, kills=state.kills-initial['kills'],
     partyWipes=state.returns, growthQuests=expected,
     cap=dict(node=chain[-1], kills=state.kills-before['kills'], extraExp=delta, seconds=round(ticks/60,2),
              overflow=p.overflowXp, restored=True),
 )
 write_progress('lv200-post-cap')
 if draft:
-    progression.update(sourceSha256=sha256(source).hexdigest(), draftBalance=True)
+    progression['draftBalance'] = True
 if options.after_revisits:
     for id,record in initial['story']['quests'].items():
         if record['status']=='complete':

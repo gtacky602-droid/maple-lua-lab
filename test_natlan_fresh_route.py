@@ -21,6 +21,7 @@ def read(path):
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--draft-gear', choices=('carried', 'empty', 'empty-late-refresh'),
                     help='Use the existing Lv100 checkpoint; start with carried gear or an empty bag')
+parser.add_argument('--checkpoint', action='store_true', help='Use the existing earned Lv100 checkpoint')
 parser.add_argument('--after-revisits', action='store_true', help='Continue the earned eight-quest Fontaine adventure')
 args = parser.parse_args()
 if args.after_revisits and args.draft_gear:
@@ -32,7 +33,7 @@ hub = 'natlan-hub'
 suffix = '-after-revisits' if args.after_revisits else f'-draft-{args.draft_gear}' if draft else ''
 work = ROOT / 'work' / ('natlan-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-if not draft and not args.after_revisits:
+if not (draft or args.after_revisits or args.checkpoint):
     subprocess.run([sys.executable, str(ROOT / 'test_fontaine_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
 source_file = 'evidence/fontaine-revisit-save.json' if args.after_revisits else 'work/fontaine-fresh-route/natlan-save.json'
 source = (ROOT/source_file).read_bytes()
@@ -368,9 +369,9 @@ def clear_backlog():
 
 
 clear_backlog()
-rocky_road, port, ship = 'natlan-field', 'natlan-port', 'natlan-voyage'
+quarry, rocky_road, port, ship = 'natlan-quarry-road', 'natlan-field', 'natlan-port', 'natlan-voyage'
 destination, approach, nod = 'nod-port', 'nod-field', 'nod-town'
-cross(rocky_road, port)
+cross(quarry, rocky_road, port)
 near(720)
 closed = frame().storyNearbyPortal
 assert closed.to == ship and not closed.available and closed.level == 120
@@ -378,7 +379,7 @@ act('story_nearby_portal')
 assert state.story.node == port and not state.voyage
 
 red_clay, rock_shelves, domain = 'natlan-terrace-red-clay', 'natlan-east-valley-rocks', 'sites-hunt-73159'
-cross(rocky_road, hub, entry, ridge, slope_side, boulder)
+cross(rocky_road, quarry, hub, entry, ridge, slope_side, boulder)
 for stage, required in ((red_clay, 110), (rock_shelves, 115), (domain, 119)):
     act('world_map_toggle')
     act('world_map_layer:hunt')
@@ -475,12 +476,12 @@ act('world_map_toggle')
 act('world_map_region:region-07')
 act('world_map_select:' + nod)
 guide = frame().worldMap.guide
-expected = [rocky_road, port, ship, destination, approach, nod]
+expected = [quarry, rocky_road, port, ship, destination, approach, nod]
 assert guide.status == 'ready' and [stop.id for stop in guide.stops.values()] == expected
-assert [stop.mode for stop in guide.stops.values()] == ['walk', 'walk', 'boat', 'boat', 'walk', 'walk']
-assert guide.stops[4].hint == '出航から90秒で着岸'
+assert [stop.mode for stop in guide.stops.values()] == ['walk', 'walk', 'walk', 'boat', 'boat', 'walk', 'walk']
+assert guide.stops[5].hint == '出航から90秒で着岸'
 act('world_map_close')
-cross(rocky_road, port)
+cross(quarry, rocky_road, port)
 ready = validate_save(native(core.checkpoint(state)))
 (work / 'nod-ready-save.json').write_text(json.dumps(ready, ensure_ascii=False) + '\n', encoding='utf8')
 cross(ship)
@@ -525,14 +526,14 @@ wait_clock(core, stopover)
 assert stopover.story.node == destination and not stopover.voyage
 
 (work / 'nod-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
-result = dict(route=milestones, completedQuests=quests, hunts=hunting, equippedEarnedArtifactIds=equipment,
+result = dict(sourceSha256=sha256(source).hexdigest(), route=milestones, completedQuests=quests, hunts=hunting, equippedEarnedArtifactIds=equipment,
               recoveryTrips=recovery_trips, inventoryTrips=inventory_trips,
               partyWipes=state.returns, ferrySeconds=seconds, stopoverResumeSeconds=40,
               seaSaveRestoredToPort=True, mapPausesVoyage=True, savedAndRestored=True,
               firstNodQuestAvailable=next_quest,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
 if draft:
-    result.update(draftGear=args.draft_gear, sourceSha256=sha256(source).hexdigest(), gearOnArrival=arrival_equipment,
+    result.update(draftGear=args.draft_gear, gearOnArrival=arrival_equipment,
                   beforeWall=before_wall, afterWall=after_wall, gearOnDeparture=equipment_snapshot(),
                   artifactRecovery=recovered_gear, gearUpdates=gear_updates)
     assert restored.story.quests[wall_quest].status == 'complete'

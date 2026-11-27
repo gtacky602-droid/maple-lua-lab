@@ -3693,7 +3693,9 @@
         {
           "to": "natlan-voyage",
           "x": 720,
-          "rideLabel": "オシカ・ナタ経由のナド・クライ行きに乗る"
+          "rideLabel": "オシカ・ナタ経由のナド・クライ行きに乗る",
+          "studioRoute": "SITE-EDGE:teyvat:79059:teyvat:88141",
+          "studioMode": "special_road"
         },
         {
           "to": "nat-resort-pier",
@@ -3739,14 +3741,6 @@
           "arrivalY": 480,
           "studioRoute": "SITE-EDGE:teyvat:79059:teyvat:79544",
           "studioMode": "road"
-        },
-        {
-          "to": "nod-port",
-          "x": 178,
-          "arrivalX": 234,
-          "arrivalY": 480,
-          "studioRoute": "SITE-EDGE:teyvat:79059:teyvat:88141",
-          "studioMode": "special_road"
         }
       ],
       "checkpoint": "natlan-port",
@@ -4005,7 +3999,9 @@
           "x": 60,
           "arrivalX": 160,
           "arrivalY": 480,
-          "rideLabel": "オシカ・ナタ経由のナタ行きに乗る"
+          "rideLabel": "オシカ・ナタ経由のナタ行きに乗る",
+          "studioRoute": "SITE-EDGE:teyvat:79059:teyvat:88141",
+          "studioMode": "special_road"
         },
         {
           "to": "nod-field",
@@ -4016,14 +4012,6 @@
           "x": 550,
           "arrivalX": 1362,
           "arrivalY": 480
-        },
-        {
-          "to": "natlan-port",
-          "x": 234,
-          "arrivalX": 178,
-          "arrivalY": 480,
-          "studioRoute": "SITE-EDGE:teyvat:79059:teyvat:88141",
-          "studioMode": "special_road"
         }
       ],
       "mapPoint": "teyvat:88141",

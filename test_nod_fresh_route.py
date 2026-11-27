@@ -19,6 +19,7 @@ def read(path):
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--draft-balance', action='store_true',
                     help='Continue the existing Lv120 checkpoint earned in the draft Natlan recovery route')
+parser.add_argument('--checkpoint', action='store_true', help='Use the existing earned Lv120 checkpoint')
 parser.add_argument('--after-revisits',action='store_true',help='Continue the earned eight-quest Natlan adventure')
 args=parser.parse_args()
 draft=args.draft_balance
@@ -28,7 +29,7 @@ suffix = '-after-revisits' if args.after_revisits else '-draft' if draft else ''
 hub = 'nod-town'
 work = ROOT / 'work' / ('nod-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-if not draft and not args.after_revisits:
+if not (draft or args.after_revisits or args.checkpoint):
     subprocess.run([sys.executable, str(ROOT / 'test_natlan_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
 source_dir = 'natlan-fresh-route-draft-empty' if draft else 'natlan-fresh-route'
 source_file = ROOT/'evidence/natlan-revisit-save.json' if args.after_revisits else ROOT/'work'/source_dir/'nod-save.json'
@@ -354,9 +355,10 @@ for stage, required in ((spruce, 130), (frost, 133), (switchback, 136)):
 recovery_trips, inventory_trips = 0, 0
 recovery_by_actor = dict(traveler=0, companion=0)
 hunting = []
+return_to_hub = []
 for stage, parent, threshold in ((spruce, forest_path, 133), (frost, west, 136), (switchback, hub, 140)):
     if parent == hub:
-        cross(statue, hub)
+        return_to_hub = trail.follow_atlas(hub)
     elif state.story.node != parent:
         cross(parent)
     exp_per_enemy = LEVELS[nodes[stage]['level'] - 1]['normal_enemy_base_exp']
@@ -433,12 +435,13 @@ snow_trail.cross('white-pass-cut')
 assert restored.story.node == 'white-pass-cut' and len(restored.enemies) == 28
 
 (work / 'snezhnaya-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
-result = dict(route=milestones, completedQuests=quests, hunts=hunting, recoveryTrips=recovery_trips,
+result = dict(sourceSha256=sha256(source).hexdigest(), route=milestones, completedQuests=quests,
+              hunts=hunting, pathBackFromWestHighland=return_to_hub, recoveryTrips=recovery_trips,
               inventoryTrips=inventory_trips, partyWipes=state.returns, savedAndRestored=True,
               nextChapter=dict(id=ticket, requiredLevel=141, availableHunt='white-pass-cut'),
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
 if draft:
-    result.update(sourceSha256=sha256(source).hexdigest(), gearOnArrival=arrival_gear, vaultReward=vault_reward,
+    result.update(gearOnArrival=arrival_gear, vaultReward=vault_reward,
                   gearOnDeparture=gear_snapshot(), recoveryByActor=recovery_by_actor)
 if args.after_revisits:
     for id,record in checkpoint['story']['quests'].items():

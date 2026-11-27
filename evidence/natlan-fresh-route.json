@@ -1,94 +1,95 @@
 {
+  "sourceSha256": "29c02d2ce571bffd5b8dbcfebad4ea678785f05a2c38024b0b2b5b30f15d978a",
   "route": [
     {
       "id": "natlan-ridge-flag",
       "seconds": 29.78,
       "level": 101,
-      "total": 41409672,
+      "total": 41420004,
       "questXp": 19435689,
-      "killXp": 21973983,
+      "killXp": 21984315,
       "kills": 9651
     },
     {
       "id": "natlan-two-trials",
       "seconds": 83.8,
       "level": 103,
-      "total": 45807390,
+      "total": 45817722,
       "questXp": 23799423,
-      "killXp": 22007967,
+      "killXp": 22018299,
       "kills": 9659
     },
     {
       "id": "natlan-sunset-duel",
       "seconds": 115.73,
       "level": 109,
-      "total": 60657884,
+      "total": 60668216,
       "questXp": 38649917,
-      "killXp": 22007967,
+      "killXp": 22018299,
       "kills": 9660
     },
     {
       "id": "natlan-kachina-charms",
       "seconds": 130.92,
       "level": 109,
-      "total": 61984654,
+      "total": 61994986,
       "questXp": 39969041,
-      "killXp": 22015613,
+      "killXp": 22025945,
       "kills": 9662
     },
     {
       "id": "natlan-mualani-surf",
       "seconds": 143.7,
       "level": 109,
-      "total": 63389521,
+      "total": 63399853,
       "questXp": 41373908,
-      "killXp": 22015613,
+      "killXp": 22025945,
       "kills": 9662
     },
     {
       "id": "natlan-kinich-ambush",
       "seconds": 170.97,
       "level": 110,
-      "total": 65223596,
+      "total": 65233928,
       "questXp": 43181221,
-      "killXp": 22042375,
+      "killXp": 22052707,
       "kills": 9663
     },
     {
       "id": "lv115",
-      "seconds": 3113.37,
+      "seconds": 3069.28,
       "level": 115,
-      "total": 83452661,
+      "total": 83442760,
       "questXp": 43181221,
-      "killXp": 40271440,
-      "kills": 12602
+      "killXp": 40261539,
+      "kills": 12598
     },
     {
       "id": "lv119",
-      "seconds": 5236.2,
+      "seconds": 5192.12,
       "level": 119,
-      "total": 104292029,
+      "total": 104282128,
       "questXp": 43181221,
-      "killXp": 61110808,
-      "kills": 15056
+      "killXp": 61100907,
+      "kills": 15052
     },
     {
       "id": "lv120",
-      "seconds": 5437.52,
+      "seconds": 5393.75,
       "level": 120,
-      "total": 110486504,
+      "total": 110476603,
       "questXp": 43181221,
-      "killXp": 67305283,
-      "kills": 15623
+      "killXp": 67295382,
+      "kills": 15619
     },
     {
       "id": "nod-town",
-      "seconds": 5567.47,
+      "seconds": 5528.97,
       "level": 120,
-      "total": 110567809,
+      "total": 110588280,
       "questXp": 43181221,
-      "killXp": 67386588,
-      "kills": 15637
+      "killXp": 67407059,
+      "kills": 15638
     }
   ],
   "completedQuests": [
@@ -103,9 +104,9 @@
     {
       "stage": "natlan-terrace-red-clay",
       "sorties": 38,
-      "kills": 2824,
-      "xp": 17503152,
-      "seconds": 2809.18
+      "kills": 2811,
+      "xp": 17422578,
+      "seconds": 2754.05
     },
     {
       "stage": "natlan-east-valley-rocks",
@@ -117,9 +118,9 @@
     {
       "stage": "sites-hunt-73159",
       "sorties": 4,
-      "kills": 534,
-      "xp": 5833950,
-      "seconds": 182.47
+      "kills": 538,
+      "xp": 5877650,
+      "seconds": 182.78
     }
   ],
   "equippedEarnedArtifactIds": {
