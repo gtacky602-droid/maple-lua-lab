@@ -9,6 +9,10 @@
 
 既存の[若陀龍王の待機候補](../../evidence/azhdaha-reference-audit.json)を本体に用い、元素の結晶、予告、露出尾は試作描画で表現した。背景は璃月の仮画像。本番では3D配置を想定する。四足の動きと尾の専用作画、装飾音、装備別と幻境実機での検査は後続。
 
+本体の背には第一元素、尾には第二元素の発光模様が出る。炎は上に伸びる亀裂、水は波、雷は折れ線、氷は結晶の形。吸収の開始時に発光し、吸収後も残る。地上に残る露出尾にも第二元素の模様が出る。
+
+獲得済みセーブのコピーから最高難度4組を再現するには、`test_earned_azhdaha_branches.py --from-save work/current-atlas-recheck/current-atlas-save.json --output-dir work/azhdaha-absorption-frames` を実行する。ラボを配信中に `node test_earned_weekly_frames.mjs work/azhdaha-absorption-frames work/azhdaha-absorption-gallery` を実行すると、20場面を3画質で並べた画像と一覧ができる。 [再戦・命中・画質の記録](../../evidence/azhdaha-absorption-branches-20261127.json)
+
 共闘では同じ難度・元素の組み合わせを選んだ参加者が、HP・地脈の吸収・尾・安全帯を共有する。刻印と盾は被弾したキャラクターごとに判定する。 [入場ルートと共闘の検証](../COOP_WEB_PREVIEW.md#若陀龍王の週ボス戦)
 
 [Luaの検証](../../evidence/azhdaha-weekly-lua.json)で四組の選択、二度の吸収、全カードの時間割、三つの安全帯の移動、刻印、尾での討伐、報告と保存を確認した。[Chromeの検証](../../evidence/azhdaha-weekly-browser.json)は水＋雷で入場し、二度の吸収・尾への進行、討伐、報告とセーブ再開までを対象とした。[吸収のPNG版](../../evidence/azhdaha-weekly-png.png)と[軽量矩形版](../../evidence/azhdaha-weekly-light.png)は同じ戦闘時点の比較。 [尾戦の画面](../../evidence/azhdaha-weekly-tail.png)

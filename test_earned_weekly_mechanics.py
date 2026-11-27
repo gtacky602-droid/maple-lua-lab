@@ -79,12 +79,14 @@ def equipment(trip):
                 maxHp=[a.maxhp for a in trip.state.actors.values()])
 
 
-def replay(source, engine, driver, spec, output):
+def expert_rematch(source, engine, spec, lobby_action=None):
     trip = SurveyJourney(source, engine, select_traveler=True)
     start = trip.snapshot()
-    key, node, controller = (spec[k] for k in ('id', 'node', 'controller'))
+    key, node = spec['id'], spec['node']
     hub = next(q['hub'] for q in quests.values() if q.get('target') == spec['storyChallenge'])
     trip.warp(hub)
+    if lobby_action:
+        trip.act(lobby_action)
     loadout = equipment(trip)
     origin, gate = next((n['id'], g) for n in nodes.values() for g in n['exits'] if g['to'] == node)
     trip.travel(origin)
@@ -101,6 +103,34 @@ def replay(source, engine, driver, spec, output):
     state = trip.state
     slot, _ = trip.core.currentWeeklyBoss(state)
     assert slot.mode.id == 'expert' and slot.primary.maxhp == mode.hp and trip.core.canAttack(state)
+    return trip, slot, start, loadout, mode, record_key, prior
+
+
+def verify_repeat(trip, before, start, mode, record_key, prior):
+    state = trip.state
+    award = trip.frame().weeklyBoss.reward
+    assert award and not award.first
+    assert (state.progression.total - before[0], state.mora - before[1]) == (mode.xp, mode.mora)
+    trip.restore()
+    saved = trip.snapshot()
+    assert saved['endgame']['weekly'][record_key]['clears'] == prior + 1
+    assert saved['story']['quests'] == start['story']['quests']
+    assert saved['story']['visited'] == start['story']['visited']
+    assert trip.state.returns == 0
+
+
+def capture_scene(trip, tick, stage, move, move_tick):
+    sprite = trip.core.frame(trip.state, 'sprite', 'legacy')
+    return dict(tick=tick, node=trip.state.story.node, camera=sprite.camera,
+                platforms=native(sprite.platforms), stage=str(stage), move=move, moveTick=move_tick,
+                view=native(sprite.weeklyBoss), png=native(sprite.draws),
+                profiles={profile: rectangle_frame(trip, profile) for profile in profiles})
+
+
+def replay(source, engine, driver, spec, output):
+    key, controller = spec['id'], spec['controller']
+    trip, slot, start, loadout, mode, record_key, prior = expert_rematch(source, engine, spec)
+    state = trip.state
     before = state.progression.total, state.mora
     seen = set()
     frames = {}
@@ -115,12 +145,7 @@ def replay(source, engine, driver, spec, output):
         phases = ids - cue_ticks.keys()
         candidates = phases | ({move} if move in cue_ticks and move_tick == cue_ticks[move] else set())
         for name in sorted((candidates & samples[controller]) - frames.keys()):
-            sprite = trip.core.frame(state, 'sprite', 'legacy')
-            view = native(sprite.weeklyBoss)
-            frames[name] = dict(tick=tick, node=state.story.node, camera=sprite.camera,
-                                platforms=native(sprite.platforms), stage=str(stage), move=move, moveTick=move_tick,
-                                view=view, png=native(sprite.draws),
-                                profiles={profile: rectangle_frame(trip, profile) for profile in profiles})
+            frames[name] = capture_scene(trip, tick, stage, move, move_tick)
 
     options = trip.lua.table(sample=sample, canAttack=lambda: ready_at is not None)
     result = native(driver(trip.core, state, slot, 'weekly', 60 * 600, 'mechanics', options))
@@ -130,15 +155,7 @@ def replay(source, engine, driver, spec, output):
         result[category] = result[category] or []
     observed = {str(row['id']) for category in ('phases', 'moves', 'events') for row in result[category]}
     assert expected[controller] <= observed, (controller, expected[controller] - observed, result)
-    award = trip.frame().weeklyBoss.reward
-    assert award and not award.first
-    assert (state.progression.total - before[0], state.mora - before[1]) == (mode.xp, mode.mora)
-    trip.restore()
-    saved = trip.snapshot()
-    assert saved['endgame']['weekly'][record_key]['clears'] == prior + 1
-    assert saved['story']['quests'] == start['story']['quests']
-    assert saved['story']['visited'] == start['story']['visited']
-    assert trip.state.returns == 0
+    verify_repeat(trip, before, start, mode, record_key, prior)
     assert frames.keys() == samples[controller], (controller, samples[controller] - frames.keys())
     assert all(row['png'] and all(p['packed']['draws'] for p in row['profiles'].values()) for row in frames.values())
     (output / f'{controller}-frames.json').write_text(

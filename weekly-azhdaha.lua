@@ -3,6 +3,16 @@ return function(C)
  local action,frame,avoid=C.action,C.frame,C.aiAvoidTarget
  local labels={geo='岩',pyro='炎',hydro='水',electro='雷',cryo='氷'}
  local colors={geo='#dba05c',pyro='#ff794e',hydro='#64bfff',electro='#bd91f1',cryo='#b5edff'}
+ local seams={
+  pyro={{2,0,1},{1,1,2},{1,2,3},{0,3,4},{0,4,5},{1,5,3}},
+  hydro={{0,1,2},{3,1,2},{1,2,3},{0,3,2},{3,3,2},{1,4,3}},
+  electro={{3,0,2},{2,1,2},{1,2,3},{2,3,2},{1,4,2},{0,5,2}},
+  cryo={{2,0,1},{1,1,3},{0,2,5},{1,3,3},{2,4,1},{2,5,1}},
+ }
+ local bodySeams={
+  {{.49,.57,3},{.60,.52,3},{.69,.58,2.5}}, -- Back plates
+  {{.84,.31,3},{.86,.47,3},{.81,.63,2.5}}, -- Tail trunk
+ }
  local options={{'pyro','cryo'},{'pyro','electro'},{'hydro','cryo'},{'hydro','electro'}}
  local firstMoves={WZ01=true,WZ02=true,WZ07=true,WZ10=true}
  local secondMoves={WZ03=true,WZ04=true,WZ05=true,WZ06=true,WZ11=true,WZ12=true,WZ14=true}
@@ -421,11 +431,22 @@ return function(C)
   view.label=c and (c.id=='WZ09' and '地脈を吸収・'..labels[c.infusion]..
     (c.t<c.move.recovery and '／防御中' or '／反撃の隙')
     or c.t>=c.move.recovery and '反撃の隙' or c.move.title) or labels[w.form==1 and 'geo' or w.pair[w.form-1]]..'の構え'
-  local function rect(x,y,width,height,color)
-   f.draws[#f.draws+1]={kind='rect',x=x-s.camera,y=y,w=width,h=height,color=color}
+  local function rect(x,y,width,height,color,opacity)
+   f.draws[#f.draws+1]={kind='rect',x=x-s.camera,y=y,w=width,h=height,color=color,opacity=opacity}
   end
   local function text(x,y,value,color)
    f.draws[#f.draws+1]={kind='text',x=x-s.camera,y=y,text=value,color=color,size=15}
+  end
+  local function seam(x,y,unit,element,opacity)
+   local rows=seams[element]
+   local left,top=x-2.5*unit,y-3*unit
+   for _,row in ipairs(rows) do
+    rect(left+row[1]*unit-1,top+row[2]*unit-1,row[3]*unit+2,unit+2,'#292333',opacity)
+   end
+   for _,row in ipairs(rows) do
+    rect(left+row[1]*unit,top+row[2]*unit,row[3]*unit,unit,colors[element],opacity)
+   end
+   rect(x-unit,y-unit,unit,unit,'#fff3d4',opacity)
   end
   if e.hp<=0 then
    local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
@@ -506,17 +527,28 @@ return function(C)
     local a,b=x+leaf[1],y+leaf[2]
     rect(a-4,b-3,11,9,color);rect(a,b-6,7,3,'#fff1be')
    end
+   seam(x-43,y-92,3,w.pair[2])
+   seam(x+31,y-120,3,w.pair[2])
    text(x,y-173,'露出した尾',color)
   elseif e.underground then
    rect(e.x-88,e.y-9,176,9,'#806859')
   else
-   C.drawFieldDisplayArt(f,C.azhdahaWeeklyArt.idle,e.x-s.camera,e.y,e.drawHeight,mode,profile,e.dir>0)
-   for i=1,2 do
-    if i<w.form or c and c.infusion==w.pair[i] then
-     local x=e.x-e.dir*(30+i*39);local y=e.y-125-i*8
-     rect(x-6,y-12,12,24,colors[w.pair[i]])
-     rect(x-10,y-7,20,13,colors[w.pair[i]])
-     rect(x-4,y-14,8,6,'#fcf4cf')
+   local art=C.azhdahaWeeklyArt.idle
+   local flip=e.dir>0
+   C.drawFieldDisplayArt(f,art,e.x-s.camera,e.y,e.drawHeight,mode,profile,flip)
+   local width=e.drawHeight*art.box[3]/art.box[4]
+   local anchor=art.anchorX or .5
+   local left=e.x-width*(flip and (1-anchor) or anchor)
+   local top=e.y-e.drawHeight
+   for i,spots in ipairs(bodySeams) do
+    local element=w.pair[i]
+    local charging=c and c.infusion==element and i>=w.form
+    if i<w.form or charging then
+     local opacity=charging and math.min(1,.35+c.t/85) or 1
+     for _,spot in ipairs(spots) do
+      local x=left+(flip and (1-spot[1]) or spot[1])*width
+      seam(x,top+spot[2]*e.drawHeight,spot[3]*e.drawHeight/176,element,opacity)
+     end
     end
    end
    if c and c.id=='WZ09' then text(e.x,e.y-188,'吸収・'..labels[c.infusion],colors[c.infusion]) end
