@@ -1,5 +1,6 @@
 """Continue the unmodified Mondstadt checkpoint through Liyue with ordinary actions."""
 
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -20,7 +21,8 @@ work = ROOT / 'work' / 'liyue-fresh-route'
 work.mkdir(parents=True, exist_ok=True)
 # Always derive the starting save so a previous test cannot hide a change in the route.
 subprocess.run([sys.executable, str(ROOT / 'test_mondstadt_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-checkpoint = validate_save(read('work/mondstadt-fresh-route/liyue-save.json'))
+source_bytes = (ROOT/'work/mondstadt-fresh-route/liyue-save.json').read_bytes()
+checkpoint = validate_save(json.loads(source_bytes))
 assert checkpoint['story']['node'] == 'liyue-harbor' and checkpoint['progression']['level'] == 20
 
 nodes = {node['id']: node for node in read('content/story-graph.json')['nodes']}
@@ -406,7 +408,7 @@ assert restored.story.node == 'inazuma-port' and restored.progression.total == s
 quests = [row['id'] for row in milestones if row['id'] in saved['story']['quests']]
 assert len(quests) == 7 and all(restored.story.quests[id].cycles == 1 for id in quests)
 (work / 'inazuma-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
-result = dict(route=milestones, hunting=sorties, mealsBought=meals_bought, mealsEaten=meals_eaten,
+result = dict(sourceSha256=sha256(source_bytes).hexdigest(), route=milestones, hunting=sorties, mealsBought=meals_bought, mealsEaten=meals_eaten,
               ferrySeconds=travel_seconds, partyWipes=state.returns, savedAndRestored=True,
               scope='Continuation of the new Mondstadt adventure. Scripted Lua inputs and auto-battle for hunting.')
 (ROOT / 'evidence/liyue-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

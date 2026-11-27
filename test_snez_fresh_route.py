@@ -331,6 +331,7 @@ cross(end)
 mark(end)
 assert len(state.enemies) > 0
 cross(station)
+mark(station)
 finished = save('white-pass-save')
 restored = core.restore(lua.table_from(finished, recursive=True), 12)
 done = [mitya, ticket, footprints, trail_quest, snow, footwork, rest, summit]

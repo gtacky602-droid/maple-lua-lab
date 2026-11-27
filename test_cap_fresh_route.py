@@ -200,7 +200,7 @@ def hunt(index, level):
     enter(index)
     assert_locked(chain[index+1], level)
     start_xp, start_kills, start_time = state.progression.killXp, state.kills, state.t
-    work_ticks = 0
+    work_ticks = auto_kills = 0
     for attempt in range(320):
         if state.progression.level >= level:
             break
@@ -208,6 +208,7 @@ def hunt(index, level):
         before = state.kills
         toggle_auto(True)
         work_ticks += farm(core, state, level, 5400, idle, draft)
+        auto_kills += state.kills-before
         toggle_auto(False)
         if state.progression.level >= level:
             break
@@ -224,10 +225,11 @@ def hunt(index, level):
             print(stage, 'progress', state.progression.level, state.kills-start_kills, flush=True)
     assert state.progression.level == level, (stage, state.progression.level, level)
     progression['hunts'].append(dict(node=stage, toLevel=level, kills=state.kills-start_kills,
-                                    exp=state.progression.killXp-start_xp, autoSeconds=round(work_ticks/60,2),
+                                    exp=state.progression.killXp-start_xp, autoKills=auto_kills,
+                                    autoSeconds=round(work_ticks/60,2),
                                     seconds=round(state.t-start_time,2)))
-    cross(chain[index+1])
     write_progress('lv'+str(level))
+    cross(chain[index+1])
     fast(station)
 
 

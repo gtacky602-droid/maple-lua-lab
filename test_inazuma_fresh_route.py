@@ -1,5 +1,6 @@
 """Continue the untouched Mondstadt–Liyue checkpoint through Inazuma."""
 
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -20,7 +21,8 @@ def read(path):
 work = ROOT / 'work' / 'inazuma-fresh-route'
 work.mkdir(parents=True, exist_ok=True)
 subprocess.run([sys.executable, str(ROOT / 'test_liyue_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-checkpoint = validate_save(read('work/liyue-fresh-route/inazuma-save.json'))
+source_bytes = (ROOT/'work/liyue-fresh-route/inazuma-save.json').read_bytes()
+checkpoint = validate_save(json.loads(source_bytes))
 assert checkpoint['story']['node'] == 'inazuma-port' and checkpoint['progression']['level'] == 40
 
 nodes = {node['id']: node for node in read('content/story-graph.json')['nodes']}
@@ -388,7 +390,7 @@ return_trip.cross(entry)
 return_trip.cross(town)
 
 (work / 'sumeru-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
-result = dict(route=milestones, hunting=sorties, recoveryTrips=recovery_trips, boatSeconds=boat_seconds,
+result = dict(sourceSha256=sha256(source_bytes).hexdigest(), route=milestones, hunting=sorties, recoveryTrips=recovery_trips, boatSeconds=boat_seconds,
               boatRoundTrip=True, partyWipes=state.returns, savedAndRestored=True,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
 (ROOT / 'evidence/inazuma-fresh-route.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
