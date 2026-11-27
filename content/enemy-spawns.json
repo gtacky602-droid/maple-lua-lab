@@ -1135,34 +1135,10 @@
       {"id": "fontaine-outskirts-loading-regular-10", "x": 1252, "platform": 0, "art": "sled-maintenance-cart", "kind": 1, "hp": 38, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 183, "patrolMax": 1786}
     ],
     "natlan-entry": [
-      {
-        "id": "natlan-entry-1",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "natlan-entry-2",
-        "kind": 1,
-        "art": "hunter-seeker",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "natlan-entry-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "natlan-entry-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "natlan-entry-1", "kind": 1, "art": "hydro-slime", "x": 232, "platform": 0, "patrolMin": 220, "patrolMax": 240},
+      {"id": "natlan-entry-2", "kind": 1, "art": "hunter-seeker", "x": 510, "platform": 0, "patrolMin": 500, "patrolMax": 862},
+      {"id": "natlan-entry-3", "kind": 2, "art": "pyro-slime", "x": 850, "platform": 0, "patrolMin": 500, "patrolMax": 862},
+      {"id": "natlan-entry-4", "kind": 1, "art": "hydro-slime", "x": 1040, "platform": 0, "patrolMin": 1022, "patrolMax": 1045},
       {
         "id": "natlan-entry-5",
         "kind": 1,
@@ -1176,39 +1152,22 @@
         "art": "pyro-slime",
         "x": 550,
         "platform": 2
-      }
+      },
+      {"id": "natlan-entry-regular-1", "x": 560, "platform": 0, "art": "hunter-seeker", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 500, "patrolMax": 862},
+      {"id": "natlan-entry-regular-2", "x": 712, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 500, "patrolMax": 862},
+      {"id": "natlan-entry-regular-3", "x": 790, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 500, "patrolMax": 862},
+      {"id": "natlan-entry-regular-4", "x": 247, "platform": 1, "art": "hunter-seeker", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-entry-regular-5", "x": 360, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-entry-regular-6", "x": 495, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-entry-regular-7", "x": 632, "platform": 2, "art": "hunter-seeker", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-entry-regular-8", "x": 924, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-entry-regular-9", "x": 1170, "platform": 4, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4}
     ],
     "natlan-field": [
-      {
-        "id": "natlan-field-1",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "natlan-field-2",
-        "kind": 1,
-        "art": "hunter-seeker",
-        "x": 510,
-        "platform": 0,
-        "name": "岩場を巡る遺跡機兵",
-        "dailyElite": true
-      },
-      {
-        "id": "natlan-field-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "natlan-field-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "natlan-field-1", "kind": 1, "art": "hydro-slime", "x": 403, "platform": 0, "patrolMin": 382, "patrolMax": 430},
+      {"id": "natlan-field-2", "kind": 1, "art": "hunter-seeker", "x": 621, "platform": 0, "name": "岩場を巡る遺跡機兵", "dailyElite": true, "patrolMin": 616, "patrolMax": 625},
+      {"id": "natlan-field-3", "kind": 2, "art": "pyro-slime", "x": 811, "platform": 0, "patrolMin": 790, "patrolMax": 829},
+      {"id": "natlan-field-4", "kind": 1, "art": "hydro-slime", "x": 1120, "platform": 0, "patrolMin": 989, "patrolMax": 1171},
       {
         "id": "natlan-field-5",
         "kind": 1,
@@ -1222,26 +1181,56 @@
         "art": "pyro-slime",
         "x": 560,
         "platform": 2
-      }
+      },
+      {"id": "natlan-field-regular-1", "x": 345, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-2", "x": 477, "platform": 2, "art": "hunter-seeker", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-3", "x": 630, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-4", "x": 751, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-5", "x": 875, "platform": 3, "art": "hunter-seeker", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-6", "x": 1018, "platform": 4, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-7", "x": 1090, "platform": 4, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-8", "x": 1194, "platform": 4, "art": "hunter-seeker", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-field-regular-9", "x": 1020, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 989, "patrolMax": 1171},
+      {"id": "natlan-field-regular-10", "x": 1162, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 989, "patrolMax": 1171}
     ],
     "natlan-quarry-road": [
-      {"id":"nat-quarry-pebble-west","kind":1,"art":"pebble-courier","x":350,"platform":0,"hp":36},
-      {"id":"nat-quarry-beast-west","kind":1,"art":"fanged-beast","x":542,"platform":0,"hp":43},
+      {"id": "nat-quarry-pebble-west", "kind": 1, "art": "pebble-courier", "x": 350, "platform": 0, "hp": 36, "patrolMin": 185, "patrolMax": 1510},
+      {"id": "nat-quarry-beast-west", "kind": 1, "art": "fanged-beast", "x": 542, "platform": 0, "hp": 43, "patrolMin": 185, "patrolMax": 1510},
       {"id":"nat-quarry-pebble-ledge","kind":1,"art":"pebble-courier","x":611,"platform":1,"hp":35},
       {"id":"nat-quarry-slime-upper","kind":2,"art":"pyro-slime","x":815,"platform":2,"hp":31},
-      {"id":"nat-quarry-elite","kind":1,"art":"fanged-beast","x":971,"platform":0,"hp":72,"name":"採掘路に居座る牙獣","dailyElite":true},
+      {"id": "nat-quarry-elite", "kind": 1, "art": "fanged-beast", "x": 971, "platform": 0, "hp": 72, "name": "採掘路に居座る牙獣", "dailyElite": true, "patrolMin": 922, "patrolMax": 1030},
       {"id":"nat-quarry-pebble-east","kind":1,"art":"pebble-courier","x":1178,"platform":3,"hp":36},
-      {"id":"nat-quarry-slime-east","kind":2,"art":"pyro-slime","x":1332,"platform":0,"hp":34},
-      {"id":"nat-quarry-beast-east","kind":1,"art":"fanged-beast","x":1537,"platform":0,"hp":42}
+      {"id": "nat-quarry-slime-east", "kind": 2, "art": "pyro-slime", "x": 1332, "platform": 0, "hp": 34, "patrolMin": 185, "patrolMax": 1510},
+      {"id": "nat-quarry-beast-east", "kind": 1, "art": "fanged-beast", "x": 1495, "platform": 0, "hp": 42, "patrolMin": 185, "patrolMax": 1510},
+      {"id": "natlan-quarry-road-regular-1", "x": 430, "platform": 0, "art": "pebble-courier", "kind": 1, "hp": 39, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1510},
+      {"id": "natlan-quarry-road-regular-2", "x": 493, "platform": 1, "art": "pebble-courier", "kind": 1, "hp": 39, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-quarry-road-regular-3", "x": 635, "platform": 0, "art": "fanged-beast", "kind": 1, "hp": 43, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1510},
+      {"id": "natlan-quarry-road-regular-4", "x": 700, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-quarry-road-regular-5", "x": 742, "platform": 1, "art": "pebble-courier", "kind": 1, "hp": 39, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-quarry-road-regular-6", "x": 884, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-quarry-road-regular-7", "x": 1020, "platform": 0, "art": "fanged-beast", "kind": 1, "hp": 43, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1510},
+      {"id": "natlan-quarry-road-regular-8", "x": 1109, "platform": 3, "art": "pebble-courier", "kind": 1, "hp": 39, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-quarry-road-regular-9", "x": 1241, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 37, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-quarry-road-regular-10", "x": 1280, "platform": 0, "art": "fanged-beast", "kind": 1, "hp": 43, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1510}
     ],
     "natlan-riverside-range": [
-      {"id":"nat-river-crawler-west","kind":1,"art":"sail-shell-crawler","x":326,"platform":0,"hp":38},
-      {"id":"nat-river-slime-west","kind":1,"art":"hydro-slime","x":483,"platform":0,"hp":31},
+      {"id": "nat-river-crawler-west", "kind": 1, "art": "sail-shell-crawler", "x": 326, "platform": 0, "hp": 38, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "nat-river-slime-west", "kind": 1, "art": "hydro-slime", "x": 483, "platform": 0, "hp": 31, "patrolMin": 185, "patrolMax": 1516},
       {"id":"nat-river-pebble-ledge","kind":1,"art":"pebble-courier","x":621,"platform":1,"hp":35},
-      {"id":"nat-river-elite","kind":1,"art":"sail-shell-crawler","x":886,"platform":0,"hp":68,"name":"浅瀬道を守る帆殻の魔物","dailyElite":true},
+      {"id": "nat-river-elite", "kind": 1, "art": "sail-shell-crawler", "x": 886, "platform": 0, "hp": 68, "name": "浅瀬道を守る帆殻の魔物", "dailyElite": true, "patrolMin": 832, "patrolMax": 948},
       {"id":"nat-river-slime-ledge","kind":1,"art":"hydro-slime","x":1086,"platform":2,"hp":33},
-      {"id":"nat-river-crawler-east","kind":1,"art":"sail-shell-crawler","x":1177,"platform":0,"hp":40},
-      {"id":"nat-river-slime-east","kind":1,"art":"hydro-slime","x":1365,"platform":0,"hp":32}
+      {"id": "nat-river-crawler-east", "kind": 1, "art": "sail-shell-crawler", "x": 1177, "platform": 0, "hp": 40, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "nat-river-slime-east", "kind": 1, "art": "hydro-slime", "x": 1365, "platform": 0, "hp": 32, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "natlan-riverside-range-regular-1", "x": 409, "platform": 0, "art": "sail-shell-crawler", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "natlan-riverside-range-regular-2", "x": 495, "platform": 1, "art": "pebble-courier", "kind": 1, "hp": 39, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-riverside-range-regular-3", "x": 559, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "natlan-riverside-range-regular-4", "x": 722, "platform": 1, "art": "sail-shell-crawler", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-riverside-range-regular-5", "x": 785, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "natlan-riverside-range-regular-6", "x": 961, "platform": 0, "art": "sail-shell-crawler", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1516},
+      {"id": "natlan-riverside-range-regular-7", "x": 1029, "platform": 2, "art": "pebble-courier", "kind": 1, "hp": 39, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-riverside-range-regular-8", "x": 1160, "platform": 2, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-riverside-range-regular-9", "x": 1248, "platform": 2, "art": "sail-shell-crawler", "kind": 1, "hp": 42, "contactDamage": 14, "contactCooldown": 3.4},
+      {"id": "natlan-riverside-range-regular-10", "x": 1258, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 34, "contactDamage": 14, "contactCooldown": 3.4, "patrolMin": 185, "patrolMax": 1516}
     ],
     "ochkanatlan-ruins": [
       {

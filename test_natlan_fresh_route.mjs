@@ -31,13 +31,18 @@ try {
  await page.locator('#game').click();
  await page.keyboard.press('KeyM');
  await atlas.waitFor();
- const hunts=['natlan-terrace-red-clay','natlan-east-valley-rocks'];
+ const hunts=['natlan-entry','natlan-field','natlan-quarry-road','natlan-riverside-range',
+  'natlan-terrace-red-clay','natlan-east-valley-rocks'];
  await page.locator('#atlasLayer').selectOption('hunt');
  for(const id of hunts){
   await page.locator('#atlasField').selectOption(id);
-  await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,id);
+  await page.waitForFunction(id=>{
+   const map=window.lab.frame.worldMap;
+   return map?.layer==='hunt'&&map.selected?.id===id&&map.selected.huntKind==='field';
+  },id);
   assert.equal((await frame()).worldMap.guide.status,'ready');
  }
+ assert.equal(await page.locator('#atlasField option[value="natlan-flag-slope"]').count(),0);
  await page.locator('#atlasLayer').selectOption('all');
  await page.locator('#atlasRegion').selectOption('region-07');
  await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-07');

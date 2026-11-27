@@ -1,0 +1,795 @@
+{
+  "base": "fcae1b5daac6a12cddd146d00af6a2cb5e5b4b1e",
+  "fields": {
+    "natlan-entry": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 290
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 232
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 14,
+        "cooldownSeconds": 3.4
+      },
+      "browser": {
+        "node": "natlan-entry",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 232
+          },
+          "after": {
+            "total": 15,
+            "visible": 15,
+            "camera": 232
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 29917,
+        "h48c32": 18491,
+        "h32c16": 8199
+      }
+    },
+    "natlan-field": {
+      "before": {
+        "ordinary": 5,
+        "peak": 5,
+        "camera": 290
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 290
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 14,
+        "cooldownSeconds": 3.4
+      },
+      "browser": {
+        "node": "natlan-field",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 290
+          },
+          "after": {
+            "total": 16,
+            "visible": 16,
+            "camera": 290
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 30677,
+        "h48c32": 18938,
+        "h32c16": 8395
+      }
+    },
+    "natlan-quarry-road": {
+      "before": {
+        "ordinary": 7,
+        "peak": 5,
+        "camera": 611
+      },
+      "after": {
+        "ordinary": 17,
+        "peak": 15,
+        "camera": 430
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 14,
+        "cooldownSeconds": 3.4
+      },
+      "browser": {
+        "node": "natlan-quarry-road",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 6,
+            "camera": 430
+          },
+          "after": {
+            "total": 18,
+            "visible": 16,
+            "camera": 430
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 37142,
+        "h48c32": 23162,
+        "h32c16": 10194
+      }
+    },
+    "natlan-riverside-range": {
+      "before": {
+        "ordinary": 6,
+        "peak": 5,
+        "camera": 483
+      },
+      "after": {
+        "ordinary": 16,
+        "peak": 15,
+        "camera": 409
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 14,
+        "cooldownSeconds": 3.4
+      },
+      "browser": {
+        "node": "natlan-riverside-range",
+        "records": {
+          "before": {
+            "total": 7,
+            "visible": 6,
+            "camera": 409
+          },
+          "after": {
+            "total": 17,
+            "visible": 16,
+            "camera": 409
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 22900,
+        "h48c32": 13810,
+        "h32c16": 5554
+      }
+    }
+  },
+  "ordinaryHunts": 138,
+  "eliteRoutes": 7,
+  "viewWidth": 960,
+  "portalArrivalsIncludingNamedPatrols": [
+    {
+      "origin": "fontaine-field",
+      "destination": "natlan-entry",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-hub",
+      "destination": "natlan-quarry-road",
+      "positions": [
+        [
+          1610,
+          480
+        ],
+        [
+          1570,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-hub",
+      "destination": "natlan-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-hub",
+      "destination": "natlan-riverside-range",
+      "positions": [
+        [
+          125,
+          480
+        ],
+        [
+          85,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-kinich-hunt",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          929,
+          480
+        ],
+        [
+          889,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-field",
+      "destination": "natlan-quarry-road",
+      "positions": [
+        [
+          125,
+          480
+        ],
+        [
+          85,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-quarry-road",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          552,
+          480
+        ],
+        [
+          512,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "qucusaur-field-cavern",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "yumka-field-ravine",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "config-device-field-workshop",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "papilla-field-hollow",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "atocpan-lava-field",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-port",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "spiritspeaker-field-grotto",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-flag-summit",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-72413",
+      "destination": "natlan-entry",
+      "positions": [
+        [
+          340,
+          480
+        ],
+        [
+          300,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-72428",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          322,
+          480
+        ],
+        [
+          282,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-72429",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          730,
+          480
+        ],
+        [
+          690,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-72451",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          151,
+          480
+        ],
+        [
+          111,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-72453",
+      "destination": "natlan-field",
+      "positions": [
+        [
+          1271,
+          480
+        ],
+        [
+          1231,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-41824",
+      "destination": "natlan-entry",
+      "positions": [
+        [
+          962,
+          480
+        ],
+        [
+          922,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-west-desert-border",
+      "destination": "natlan-entry",
+      "positions": [
+        [
+          1145,
+          480
+        ],
+        [
+          1105,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivalsIncludingNamedPatrols": [
+    {
+      "node": "natlan-entry",
+      "positions": [
+        [
+          440,
+          480
+        ],
+        [
+          400,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "natlan-field",
+      "positions": [
+        [
+          530,
+          480
+        ],
+        [
+          490,
+          480
+        ]
+      ]
+    }
+  ],
+  "movedNamedPatrol": {
+    "id": "natlan-field-2",
+    "oldX": 510,
+    "newX": 621
+  },
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "1db1bb108c96e294c8e238ff84f915c651865c86a3cffab40efe3f63908290e8"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 2035.33,
+        "level": 60,
+        "total": 2740517,
+        "questXp": 1551496,
+        "killXp": 1189021,
+        "kills": 2784
+      },
+      "wipes": 0,
+      "inputSaveSha256": "a3511955b9522302d80d2f4e6f98730c59645c5ee6a7c9aad895ce24a8649819"
+    },
+    "sumeru": {
+      "arrival": {
+        "id": "fontaine-hub",
+        "seconds": 7075.63,
+        "level": 80,
+        "total": 10034573,
+        "questXp": 3968218,
+        "killXp": 6066355,
+        "kills": 6059
+      },
+      "wipes": 0,
+      "inputSaveSha256": "ebf94af8ce375d3051caffe05b9166c2f0e3b30782a5d3c5657bba24f99a6868"
+    },
+    "fontaine": {
+      "arrival": {
+        "id": "natlan-hub",
+        "seconds": 6484.62,
+        "level": 100,
+        "total": 37615277,
+        "questXp": 15666763,
+        "killXp": 21948514,
+        "kills": 9715
+      },
+      "wipes": 0,
+      "inputSaveSha256": "dc800d00385c17e4b242b47ca5b07e4f68c0b012eef44f43a6e71ef4624065f3"
+    },
+    "natlan": {
+      "arrival": {
+        "id": "nod-town",
+        "seconds": 7871.73,
+        "level": 120,
+        "total": 110593163,
+        "questXp": 43181221,
+        "killXp": 67411942,
+        "kills": 15726
+      },
+      "wipes": 0,
+      "inputSaveSha256": "2b89aa98a13437b3f3e40742ea53d4f23c5686cab61d13d8ad9993abc6b3506b"
+    }
+  },
+  "completedNatlanQuests": [
+    "natlan-ridge-flag",
+    "natlan-two-trials",
+    "natlan-sunset-duel",
+    "natlan-kachina-charms",
+    "natlan-mualani-surf",
+    "natlan-kinich-ambush"
+  ],
+  "natlanRecoveryTrips": 0,
+  "browserMapAndTravel": {
+    "importedLevel": 120,
+    "arrivalLevel": 120,
+    "route": [
+      [
+        "natlan-voyage",
+        "boat"
+      ],
+      [
+        "nod-port",
+        "boat"
+      ],
+      [
+        "nod-field",
+        "walk"
+      ],
+      [
+        "nod-town",
+        "walk"
+      ]
+    ],
+    "hunts": [
+      "natlan-entry",
+      "natlan-field",
+      "natlan-quarry-road",
+      "natlan-riverside-range",
+      "natlan-terrace-red-clay",
+      "natlan-east-valley-rocks"
+    ],
+    "completedQuests": [
+      "natlan-ridge-flag",
+      "natlan-two-trials",
+      "natlan-sunset-duel",
+      "natlan-kachina-charms",
+      "natlan-mualani-surf",
+      "natlan-kinich-ambush"
+    ],
+    "ferrySeconds": 90,
+    "autoLanded": true,
+    "mapPausedVoyage": true,
+    "firstNodQuestAccepted": "nod-first-treasure",
+    "travelKillXp": 37128,
+    "errors": []
+  },
+  "browserDaily": {
+    "townOffers": 5,
+    "walkedBothFieldsAndReturned": true,
+    "normalAttacksCountAtCorrectArea": true,
+    "namedElitesInBothFields": true,
+    "threeQuarryObjectivesOverlap": true,
+    "mapPlacementComparisonProfiles": 3,
+    "staleSaveRetainsProgress": true,
+    "rewardsDoNotReplay": true,
+    "mobileFits": true,
+    "reward": {
+      "xp": 586230,
+      "mora": 6950
+    },
+    "errors": []
+  },
+  "riversideCharactersComparedInChrome": {
+    "camera": 409,
+    "light": {
+      "locations": {
+        "shape": {
+          "x": 800,
+          "y": 360
+        },
+        "color": {
+          "x": 800,
+          "y": 360
+        }
+      },
+      "union": 31627,
+      "overlap": 30056,
+      "overlapPercent": 95.03272520314921,
+      "meanRgbError": 24.618933546269187
+    },
+    "rows": [
+      [
+        "標準",
+        "19,460",
+        "98.4%",
+        "10.24 / 255",
+        "—"
+      ],
+      [
+        "中間・32色",
+        "11,764",
+        "97.2%",
+        "18.47 / 255",
+        "-39.5%"
+      ],
+      [
+        "最軽量・16色",
+        "4,673",
+        "95.0%",
+        "24.62 / 255",
+        "-76.0%"
+      ]
+    ]
+  },
+  "flagCourse": {
+    "stage": "natlan-flag-slope",
+    "originalSpawns": 5,
+    "questReported": true
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5754,
+    "liveEntriesChecked": 5754,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "nightTrialsFromEarnedSave": {
+    "levelAtStart": 165,
+    "draftBalance": true,
+    "clearsAfterReload": {
+      "legend-natlan_undead": {
+        "node": "night-trial-undead",
+        "entrance": "temple-east-totem-pond",
+        "zone": "story:temple-east-totem-pond",
+        "clears": 1
+      },
+      "legend-natlan_chimalli": {
+        "node": "night-trial-chimalli",
+        "entrance": "temple-northwest-totem-ravine",
+        "zone": "story:temple-northwest-totem-ravine",
+        "clears": 1
+      },
+      "legend-natlan_tlatzacuilotl": {
+        "node": "night-trial-tlatzacuilotl",
+        "entrance": "sulfurous-totem-cave",
+        "zone": "story:sulfurous-totem-cave",
+        "clears": 1
+      },
+      "legend-natlan_ichcahuipilli": {
+        "node": "night-trial-ichcahuipilli",
+        "entrance": "witztli-sealed-stone-bank",
+        "zone": "story:witztli-sealed-stone-bank",
+        "clears": 1
+      },
+      "legend-natlan_atlatl": {
+        "node": "night-trial-atlatl",
+        "entrance": "ancient-excavation-upper-ledge",
+        "zone": "story:ancient-excavation-upper-ledge",
+        "clears": 1
+      },
+      "legend-natlan_cihuacoatl": {
+        "node": "night-trial-cihuacoatl",
+        "entrance": "canopy-square-plateau",
+        "zone": "story:canopy-square-plateau",
+        "clears": 1
+      },
+      "legend-natlan_fallen_dawnstar": {
+        "node": "night-trial-fallen-dawnstar",
+        "entrance": "night-wind-seaward-fork",
+        "zone": "story:night-wind-seaward-fork",
+        "clears": 1
+      },
+      "legend-natlan_ironbeard": {
+        "node": "night-trial-ironbeard",
+        "entrance": "flower-feather-smiths-ridge",
+        "zone": "story:flower-feather-smiths-ridge",
+        "clears": 1
+      },
+      "legend-natlan_potapo": {
+        "node": "night-trial-potapo",
+        "entrance": "stadium-west-waterfall-foot",
+        "zone": "story:stadium-west-waterfall-foot",
+        "clears": 1
+      },
+      "legend-natlan_tupayo": {
+        "node": "night-trial-tupayo",
+        "entrance": "flower-feather-statue-back-cliff",
+        "zone": "story:flower-feather-statue-back-cliff",
+        "clears": 1
+      },
+      "legend-natlan_reji": {
+        "node": "night-trial-reji",
+        "entrance": "tetenanco-seaward-foot",
+        "zone": "story:tetenanco-seaward-foot",
+        "clears": 1
+      },
+      "legend-natlan_tupu": {
+        "node": "night-trial-tupu",
+        "entrance": "collective-eastern-headland",
+        "zone": "story:collective-eastern-headland",
+        "clears": 1
+      }
+    }
+  },
+  "voyageLua": {
+    "ferrySeconds": 90.0,
+    "stopoverResumeSeconds": 40,
+    "seaSaveRestoredToPort": true,
+    "mapPausesVoyage": true
+  }
+}

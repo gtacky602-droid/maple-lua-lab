@@ -116,7 +116,9 @@ try{
  popup.on('pageerror',error=>errors.push(error.message));
  await popup.waitForFunction(()=>window.mapArt?.ready);
  assert.equal(await popup.locator('#node').inputValue(),quarry);
- for(const [location,expectedCount,asset] of [[quarry,8,'fanged-beast'],[river,7,'sail-shell-crawler']]){
+ for(const [location,expectedCount,asset,expectedSpecies] of [
+  [quarry,18,'fanged-beast',6],[river,17,'sail-shell-crawler',7]
+ ]){
   await popup.selectOption('#node',location);
   await popup.click('#loadLive');
   await popup.waitForFunction(count=>window.mapArt.count===count,expectedCount);
@@ -124,7 +126,7 @@ try{
    await popup.selectOption('#profile',profile);
    const comparison=await popup.evaluate(()=>window.mapArt);
    assert.ok(comparison.grounded&&comparison.backgroundState==='ready');
-   assert.equal(comparison.placements.filter(enemy=>enemy.species===asset).length,3);
+   assert.equal(comparison.placements.filter(enemy=>enemy.species===asset).length,expectedSpecies);
   }
  }
  await popup.close();
