@@ -120,19 +120,22 @@ restore = core.restore(lua.table_from(after, recursive=True), 12)
 roundtrip = validate_save(native(core.checkpoint(restore)))
 assert roundtrip['progression'] == after['progression']
 assert roundtrip['endgame'] == after['endgame']
+assert roundtrip['inventory'] == after['inventory']
+assert roundtrip.get('weapons') == after.get('weapons')
 assert roundtrip['story']['quests'] == after['story']['quests']
 growth = read(ROOT / 'evidence' / f'cap-fresh-route{suffix}.json')['growthQuests'] + [abyss, stygian, weekly]
 assert all(roundtrip['story']['quests'][id]['status'] == 'complete' for id in growth)
 exp = after['progression']['total'] - saved['progression']['total']
 assert exp > 0 and after['progression']['level'] == 200 and after['progression']['xp'] == 0
 assert after['progression']['overflowXp'] - saved['progression']['overflowXp'] == exp
-proof = dict(completedQuests=[abyss, stygian, weekly], abyssRooms=rooms, abyssStars=stars,
+proof = dict(sourceSha256=sha256(source).hexdigest(), completedQuests=[abyss, stygian, weekly],
+             abyssRooms=rooms, abyssStars=stars,
              abyssRewardSet=reward.setId, abyssRewardRarity=reward.rarity, farkaTrialCleared=True,
              weeklyBoss='andrius', weeklyAttackRegistered=True, weeklyDefeated=boss.primary.hp==0,
              extraExpAtCap=exp, savedAndRestored=True)
 if draft:
     assert roundtrip['weapons'] == saved['weapons']
-    proof.update(sourceSha256=sha256(source).hexdigest(), draftBalance=True)
+    proof['draftBalance'] = True
 (work / 'lv200-challenges-save.json').write_text(json.dumps(after, ensure_ascii=False) + '\n', encoding='utf8')
 (ROOT / 'evidence' / f'cap-fresh-challenges{suffix}.json').write_text(
     json.dumps(proof, indent=2) + '\n', encoding='utf8')

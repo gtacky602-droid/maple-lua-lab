@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
@@ -8,7 +9,9 @@ const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
 const draft=process.env.DRAFT_BALANCE==='1';
 const suffix=draft?'-draft':'';
 const file=`work/cap-fresh-route${suffix}/lv200-save.json`;
-const saved=JSON.parse(await fs.readFile(file,'utf8'));
+const bytes=await fs.readFile(file);
+const saved=JSON.parse(bytes);
+const sourceSha256=createHash('sha256').update(bytes).digest('hex');
 const proof=JSON.parse(await fs.readFile(`evidence/cap-fresh-route${suffix}.json`,'utf8'));
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1240,height:920}});
@@ -19,6 +22,12 @@ const status=page.locator('#progressionStatus');
 const errors=[];
 const station='white-pass-station',cap=proof.cap.node;
 page.on('pageerror',error=>errors.push(error.message));
+
+async function checkpoint() {
+ await page.locator('#saveProgress').click();
+ await page.waitForFunction(()=>document.getElementById('saveStatus').textContent.includes('保存しました'));
+ return page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
+}
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8971/');
@@ -65,18 +74,23 @@ try{
  assert.equal(gained.overflowXp-atCap.progression.overflowXp,delta);
  assert.equal(gained.baseXp-atCap.progression.baseXp,delta);
  await status.screenshot({path:`evidence/cap-fresh-exp${suffix}.png`});
- await page.locator('#saveProgress').click();
- await page.waitForFunction(()=>document.getElementById('saveStatus').textContent.includes('保存しました'));
+ const last=await checkpoint();
  await page.reload();
  await page.waitForFunction(()=>window.lab?.frame);
  await page.locator('#loadProgress').click();
  await drive.waitNode(station);
  const restored=(await frame()).progression;
  assert.deepEqual(restored,gained);
+ const reloaded=await checkpoint();
+ assert.deepEqual(reloaded.inventory,last.inventory);
+ assert.deepEqual(reloaded.weapons,last.weapons);
+ assert.deepEqual(reloaded.story.quests,last.story.quests);
+ const equippedItems=reloaded.inventory.items.filter(item=>item.owner>0).length;
+ const completedQuests=Object.values(reloaded.story.quests).filter(q=>q.status==='complete').length;
  assert.deepEqual(errors,[]);
  await fs.writeFile(`evidence/cap-fresh-route-browser${suffix}.json`,JSON.stringify({
-  imported:start.progression,route,growthQuests:proof.growthQuests,cap:restored,
-  addedExp:delta,gameSaveReload:true,errors
+  sourceSha256,imported:start.progression,route,growthQuests:proof.growthQuests,cap:restored,
+  addedExp:delta,gameSaveReload:true,equippedItems,completedQuests,inventoryAndQuestsRestored:true,errors
  },null,2)+'\n');
  console.log('Chrome passed the earned Lv200 save, all nine gates, post-cap EXP and reload.');
 }finally{

@@ -1,0 +1,1130 @@
+{
+  "tested_from": "40f9c9e7d5e2e42e04bfe2d1758a0f03525ad325",
+  "scope": "Web Lua. Existing earned saves were used for rank-clears; dedicated Lua mechanics tests use scenario fixtures.",
+  "stygian": {
+    "source": {
+      "file": "evidence/remaining-survey-save.json",
+      "sha256": "8f7bfde54113a6bb3dc8d1859da4bf55eb7f822ca37c959e80b5240a9f9970ac"
+    },
+    "script": "test_stygian_tier_expedition.py",
+    "newDifficultyClears": [
+      {
+        "match": "beidou",
+        "mode": "hard",
+        "mora": 2270,
+        "node": "liyue-stygian-deck",
+        "ticks": 195,
+        "xp": 166428
+      },
+      {
+        "match": "beidou",
+        "mode": "master",
+        "mora": 3820,
+        "node": "liyue-stygian-deck",
+        "ticks": 229,
+        "xp": 1169660
+      },
+      {
+        "match": "beidou",
+        "mode": "extreme",
+        "mora": 6100,
+        "node": "liyue-stygian-deck",
+        "ticks": 173,
+        "xp": 30937308
+      },
+      {
+        "match": "capitano",
+        "mode": "hard",
+        "mora": 5400,
+        "node": "sne-stygian-frost-court",
+        "ticks": 529,
+        "xp": 18607176
+      },
+      {
+        "match": "capitano",
+        "mode": "master",
+        "mora": 7100,
+        "node": "sne-stygian-frost-court",
+        "ticks": 529,
+        "xp": 46232132
+      },
+      {
+        "match": "capitano",
+        "mode": "extreme",
+        "mora": 9200,
+        "node": "sne-stygian-frost-court",
+        "ticks": 529,
+        "xp": 107189496
+      },
+      {
+        "match": "xbalanque",
+        "mode": "hard",
+        "mora": 3570,
+        "node": "natlan-solar-court",
+        "ticks": 487,
+        "xp": 6514500
+      },
+      {
+        "match": "xbalanque",
+        "mode": "master",
+        "mora": 5640,
+        "node": "natlan-solar-court",
+        "ticks": 469,
+        "xp": 22837398
+      },
+      {
+        "match": "xbalanque",
+        "mode": "extreme",
+        "mora": 7950,
+        "node": "natlan-solar-court",
+        "ticks": 469,
+        "xp": 76177563
+      },
+      {
+        "match": "rerir",
+        "mode": "hard",
+        "mora": 30700,
+        "node": "nod-stygian-hunt",
+        "ticks": 792,
+        "xp": 10782494
+      },
+      {
+        "match": "rerir",
+        "mode": "master",
+        "mora": 45400,
+        "node": "nod-stygian-hunt",
+        "ticks": 792,
+        "xp": 44030641
+      },
+      {
+        "match": "rerir",
+        "mode": "extreme",
+        "mora": 61700,
+        "node": "nod-stygian-hunt",
+        "ticks": 792,
+        "xp": 97224086
+      },
+      {
+        "match": "ronova",
+        "mode": "hard",
+        "mora": 80600,
+        "node": "sne-stygian-last-gate",
+        "ticks": 5817,
+        "xp": 42815658
+      },
+      {
+        "match": "ronova",
+        "mode": "master",
+        "mora": 110600,
+        "node": "sne-stygian-last-gate",
+        "ticks": 5761,
+        "xp": 77161999
+      },
+      {
+        "match": "ronova",
+        "mode": "extreme",
+        "mora": 148300,
+        "node": "sne-stygian-last-gate",
+        "ticks": 5705,
+        "xp": 130289518
+      },
+      {
+        "match": "wanderer",
+        "mode": "hard",
+        "mora": 14700,
+        "node": "sumeru-stygian-windcourt",
+        "ticks": 1953,
+        "xp": 751011
+      },
+      {
+        "match": "wanderer",
+        "mode": "master",
+        "mora": 22600,
+        "node": "sumeru-stygian-windcourt",
+        "ticks": 1935,
+        "xp": 2791566
+      },
+      {
+        "match": "wanderer",
+        "mode": "extreme",
+        "mora": 39200,
+        "node": "sumeru-stygian-windcourt",
+        "ticks": 1911,
+        "xp": 24723908
+      },
+      {
+        "match": "farka",
+        "mode": "hard",
+        "mora": 11300,
+        "node": "mond-stygian-dual-court",
+        "ticks": 1957,
+        "xp": 48656
+      },
+      {
+        "match": "farka",
+        "mode": "master",
+        "mora": 26400,
+        "node": "mond-stygian-dual-court",
+        "ticks": 1837,
+        "xp": 777161
+      },
+      {
+        "match": "farka",
+        "mode": "extreme",
+        "mora": 51300,
+        "node": "mond-stygian-dual-court",
+        "ticks": 1908,
+        "xp": 18258666
+      }
+    ]
+  },
+  "weekly": {
+    "source": {
+      "file": "evidence/stygian-tier-expedition-save.json",
+      "sha256": "2e3208871fa213b4430c7cbd28c4978abd3fef43ca4efb047aa01f681200ccc8"
+    },
+    "script": "test_weekly_tier_expedition.py",
+    "newDifficultyClears": [
+      {
+        "id": "boss-29010101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "dvalin-sky-arena",
+        "ticks": 663,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29010101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "dvalin-sky-arena",
+        "ticks": 663,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29010101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "dvalin-sky-arena",
+        "ticks": 663,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29020101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "andrius-wolf-ring",
+        "ticks": 60,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29020101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "andrius-wolf-ring",
+        "ticks": 60,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29020101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "andrius-wolf-ring",
+        "ticks": 60,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29030101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "childe-golden-house-arena",
+        "ticks": 480,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29030101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "childe-golden-house-arena",
+        "ticks": 480,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29030101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "childe-golden-house-arena",
+        "ticks": 480,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29040101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "azhdaha-dragon-seal-arena",
+        "ticks": 50,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29040101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "azhdaha-dragon-seal-arena",
+        "ticks": 40,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29040101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "azhdaha-dragon-seal-arena",
+        "ticks": 40,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29050101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "signora-ten-shrine-arena",
+        "ticks": 3910,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29050101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "signora-ten-shrine-arena",
+        "ticks": 3889,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29050101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "signora-ten-shrine-arena",
+        "ticks": 3889,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29060201",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "raiden-thunder-echo-arena",
+        "ticks": 25,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29060201",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "raiden-thunder-echo-arena",
+        "ticks": 25,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29060201",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "raiden-thunder-echo-arena",
+        "ticks": 25,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29070101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "shouki-godmaking-arena",
+        "ticks": 2312,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29070101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "shouki-godmaking-arena",
+        "ticks": 2260,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29070101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "shouki-godmaking-arena",
+        "ticks": 2260,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29080101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "apep-oasis-heart-arena",
+        "ticks": 1432,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29080101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "apep-oasis-heart-arena",
+        "ticks": 1453,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29080101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "apep-oasis-heart-arena",
+        "ticks": 1453,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29090101",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "narwhal-star-sea",
+        "ticks": 20,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29090101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "narwhal-star-sea",
+        "ticks": 20,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29090101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "narwhal-star-sea",
+        "ticks": 20,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29091001",
+        "mode": "standard",
+        "mora": 1094775,
+        "node": "knave-crimson-court",
+        "ticks": 292,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29091001",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "knave-crimson-court",
+        "ticks": 297,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29091001",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "knave-crimson-court",
+        "ticks": 297,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29091101",
+        "mode": "standard",
+        "mora": 1151975,
+        "node": "primal-fire-sundered-forge",
+        "ticks": 1,
+        "xp": 725452
+      },
+      {
+        "id": "boss-29091101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "primal-fire-sundered-forge",
+        "ticks": 1,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29091101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "primal-fire-sundered-forge",
+        "ticks": 1,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29122000",
+        "mode": "standard",
+        "mora": 1268575,
+        "node": "mond-gate-chess-court",
+        "ticks": 1594,
+        "xp": 1200557
+      },
+      {
+        "id": "boss-29122000",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "mond-gate-chess-court",
+        "ticks": 1594,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29122000",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "mond-gate-chess-court",
+        "ticks": 1594,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29130201",
+        "mode": "standard",
+        "mora": 1570525,
+        "node": "nod-false-moon-court",
+        "ticks": 10,
+        "xp": 3486467
+      },
+      {
+        "id": "boss-29130201",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "nod-false-moon-court",
+        "ticks": 25,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29130201",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "nod-false-moon-court",
+        "ticks": 25,
+        "xp": 32560274
+      },
+      {
+        "id": "boss-29150101",
+        "mode": "standard",
+        "mora": 1918500,
+        "node": "sumeru-heretic-lattice",
+        "ticks": 269,
+        "xp": 5911296
+      },
+      {
+        "id": "boss-29150101",
+        "mode": "advanced",
+        "mora": 2640240,
+        "node": "sumeru-heretic-lattice",
+        "ticks": 266,
+        "xp": 12955323
+      },
+      {
+        "id": "boss-29150101",
+        "mode": "expert",
+        "mora": 3590160,
+        "node": "sumeru-heretic-lattice",
+        "ticks": 266,
+        "xp": 32560274
+      }
+    ],
+    "expertRematches": [
+      {
+        "id": "boss-29010101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "dvalin-sky-arena",
+        "ticks": 663,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29020101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "andrius-wolf-ring",
+        "ticks": 60,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29030101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "childe-golden-house-arena",
+        "ticks": 480,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29040101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "azhdaha-dragon-seal-arena",
+        "ticks": 40,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29050101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "signora-ten-shrine-arena",
+        "ticks": 3889,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29060201",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "raiden-thunder-echo-arena",
+        "ticks": 25,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29070101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "shouki-godmaking-arena",
+        "ticks": 2260,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29080101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "apep-oasis-heart-arena",
+        "ticks": 1453,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29090101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "narwhal-star-sea",
+        "ticks": 20,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29091001",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "knave-crimson-court",
+        "ticks": 297,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29091101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "primal-fire-sundered-forge",
+        "ticks": 1,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29122000",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "mond-gate-chess-court",
+        "ticks": 1594,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29130201",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "nod-false-moon-court",
+        "ticks": 25,
+        "xp": 18999684
+      },
+      {
+        "id": "boss-29150101",
+        "mode": "expert",
+        "mora": 1538640,
+        "node": "sumeru-heretic-lattice",
+        "ticks": 266,
+        "xp": 18999684
+      }
+    ],
+    "newClearsAtOrBelow60Ticks": 18,
+    "mechanicsFixturesForShortClears": {
+      "andrius": {
+        "report": "evidence/andrius-weekly-lua.json",
+        "checks": [
+          "normalAttackWithoutHealing",
+          "ordinaryWindBladeJumpsAndLandings",
+          "aiUpperLanding",
+          "aiMaxHorizontalStep",
+          "provisionalOriginalResistancesAndMixedComponents",
+          "closeAttackWindows",
+          "actualLeapAndLockedLanding",
+          "tailFacingAndThreePieceCap",
+          "oneSafeHP50Transition",
+          "transitionTwoDashesLandingAnd504Counter",
+          "upperFloorOrdinaryJumpAndRoarSafe",
+          "lowWaveMatchesFloorHeight",
+          "windBladesSpawns",
+          "threeLockedRainPointsAndTwoFiniteEdges",
+          "edgeFloorOneSecondCooldown",
+          "roarRespectsExistingHurtImmunity",
+          "onePhantomNoAddRewards",
+          "lethalDamagePrecedesTransition",
+          "unfinishedSaveExitWipeAndVictoryReportRespawn",
+          "sameSceneCommands"
+        ]
+      },
+      "azhdaha": {
+        "report": "evidence/azhdaha-weekly-lua.json",
+        "checks": [
+          "phase_pairs",
+          "attack_timelines",
+          "burrow_target_disabled",
+          "shield_break_no_mark_and_cleanse",
+          "mark_seven_ticks",
+          "fire_at_most_two",
+          "scale_impact_then_36_ticks",
+          "electro_three_safe_lanes_walked",
+          "cryo_group_once",
+          "tail_lethal_with_one_reward",
+          "lethal_before_absorption",
+          "normal_only_solo"
+        ]
+      },
+      "raiden": {
+        "report": "evidence/raiden-weekly-lua.json",
+        "checks": [
+          "live_card_duration",
+          "early_lethal_no_hp_lock",
+          "eye_four_normals_and_safe_lane",
+          "shade_aoe_nearest_only",
+          "final_wave_jumped",
+          "flower_five_normals",
+          "reject_old_reaction_and_ai",
+          "dome_and_drain_once",
+          "unprotected_standard_damage",
+          "missing_flower_cancel",
+          "electro_flower_single_hit",
+          "armor_zero_cancels_flower",
+          "armor_four_per_second_budget",
+          "vulnerable_down_ticks",
+          "no_repair_heal",
+          "exit_cleans_old_trial",
+          "weekly_report_and_restore"
+        ]
+      },
+      "narwhal": {
+        "report": "evidence/narwhal-weekly-lua.json",
+        "checks": [
+          "live_timings",
+          "shared_segments",
+          "hostility_one_per_cast_low_hp_cancel",
+          "eye_eight_real_hits",
+          "real_story_scene_and_preserved_hp_ct",
+          "kernel_ground_reach_four_new_casts",
+          "kernel_half_open_ticks",
+          "kernel_failed_transition",
+          "shadow_hp_separate_and_second_halves",
+          "return_damage_once",
+          "exposure_ticks",
+          "scene_exit_resets_trial",
+          "scene_casts_cleared",
+          "low_hp_uses_close_range_moves",
+          "return_lethal_and_report_restore"
+        ]
+      },
+      "primal-fire": {
+        "report": "evidence/primal-fire-weekly-lua.json",
+        "checks": [
+          "manifest_cards",
+          "shared_hp_contact_dedup",
+          "physical_g12_from_tick_60",
+          "per_actor_barrier_gap",
+          "failed_large_orb_tick",
+          "deadline_tick_rejects_new_hit",
+          "buds_remove_owned_shots_and_fail_into_palm",
+          "exposure_ticks",
+          "erosion_owner_and_heal_independence",
+          "ground_has_300_tick_life",
+          "actual_floor_left",
+          "last_floor_width",
+          "cuts_spaced_by_at_least_600_ticks",
+          "fall_and_ledge_use_real_physics",
+          "fall_after_victory_returns_to_safe_floor",
+          "three_pillars_inside_final_floor",
+          "reward_report_restore"
+        ]
+      },
+      "false-moon": {
+        "report": "evidence/false-moon-weekly-lua.json",
+        "checks": [
+          "riftShadowPlacements",
+          "manifest_cards",
+          "rule_window",
+          "old_dash_and_normal_excluded",
+          "old_macro_root_excluded_new_root_detected",
+          "boundary_420_allows_movement",
+          "buffered_old_jump_excluded_fresh_jump_detected",
+          "logical_facing_only",
+          "owner_only_sentence_after_swap",
+          "cover_contains_actor",
+          "confirmation_can_cancel",
+          "late_confirmation_cannot_cross_deadline",
+          "two_real_scenes_and_no_hp_ct_gauge_reset",
+          "early_return_only_pays_killed_shadows",
+          "settlement_once_and_cap",
+          "exposure_ticks",
+          "rewind_heal_once",
+          "lethal_hit_priority",
+          "quest_report_restore"
+        ]
+      }
+    }
+  },
+  "originalWeeklies": {
+    "source": {
+      "file": "evidence/all-legends-expedition-save.json",
+      "sha256": "62a2e45570bc4b18a94216d7d516164108bbf5bbf7ab20bd90d05292ae3b9285"
+    },
+    "script": "test_original_weekly_expedition.py",
+    "clears": [
+      {
+        "id": "original-tide-surveyor",
+        "moves": [
+          "TS01"
+        ],
+        "name": "測潮機関士",
+        "node": "tide-calibration-hall",
+        "quest": "surveyor-inspection",
+        "questName": "夜間の潮位点検",
+        "rewards": [
+          531,
+          340
+        ],
+        "seconds": 1.25
+      },
+      {
+        "id": "original-twin-shuttle-loom",
+        "moves": [
+          "LW01"
+        ],
+        "name": "双杼織機",
+        "node": "buried-weaving-room",
+        "quest": "loom-stopped",
+        "questName": "夜明けまでに織機を止める",
+        "rewards": [
+          531,
+          360
+        ],
+        "seconds": 1.95
+      }
+    ],
+    "reports": [
+      {
+        "mora": 420,
+        "quest": "surveyor-inspection",
+        "xp": 1800
+      },
+      {
+        "mora": 450,
+        "quest": "loom-stopped",
+        "xp": 2100
+      }
+    ]
+  },
+  "localHttpRanking": {
+    "script": "test_exp_ranking.py",
+    "scope": "Separate profiles in a temporary localhost database; Lua award fixtures.",
+    "passed": {
+      "twoProfiles": true,
+      "rankedBaseXP": 11462335280,
+      "boostedTotal": 11462335613,
+      "restartPersistence": true,
+      "weekChange": true,
+      "dailyLedgersIsolated": true,
+      "replayUsesHighWater": true
+    }
+  },
+  "localhostCoop": {
+    "stygianFourClientLaunch": {
+      "script": "test_coop_stygian_mode_launches.py",
+      "scope": "Local HTTP join and combat launch. A reported Lv200 save was restored for each party and the actors were placed at each gate. Gathering time was advanced inside the Lua room.",
+      "difficultyLaunches": 28,
+      "results": [
+        {
+          "match": "beidou",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 690,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "beidou",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 1250,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "beidou",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 1830,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "beidou",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 2860,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "capitano",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 2430,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "capitano",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 3250,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "capitano",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 4150,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "capitano",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 5400,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "xbalanque",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 1780,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "xbalanque",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 2510,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "xbalanque",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 3410,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "xbalanque",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 4480,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "rerir",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 2180,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "rerir",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 3050,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "rerir",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 4240,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "rerir",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 5500,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "ronova",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 5460,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "ronova",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 7340,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "ronova",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 9610,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "ronova",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 12300,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "wanderer",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 1550,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "wanderer",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 2340,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "wanderer",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 3380,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "wanderer",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 4850,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "farka",
+          "mode": "normal",
+          "parties": 4,
+          "configuredHp": 670,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "farka",
+          "mode": "hard",
+          "parties": 4,
+          "configuredHp": 1880,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "farka",
+          "mode": "master",
+          "parties": 4,
+          "configuredHp": 3460,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        },
+        {
+          "match": "farka",
+          "mode": "extreme",
+          "parties": 4,
+          "configuredHp": 5520,
+          "sharedBoss": true,
+          "gatheringCompleted": true,
+          "recordsUnchangedAtLaunch": true
+        }
+      ]
+    },
+    "primalFire": {
+      "script": "test_coop_primal_fire.py",
+      "lua": {
+        "participants": 4,
+        "oneErosionQueuePerActor": true,
+        "persistsOnSwapAndNotExit": true,
+        "threeSharedCuts": [
+          128,
+          216,
+          304
+        ],
+        "physicalFallsOnlyWhenOffLedge": true,
+        "gatesSharedAndCooldownPerActor": true,
+        "sameRootRejected": true,
+        "closingBoundarySuccessBeforeAndFailureAtDeadline": true,
+        "sharedPillars": true,
+        "exposure": 480,
+        "catastropheOncePerActor": true,
+        "wipeRestoresFloorAndHp": true
+      },
+      "http": {
+        "participants": 2,
+        "normalInputsShareGate": true,
+        "cutGeometryShared": true,
+        "retreatFreezesTrial": true,
+        "returnedToSameCutAndGate": true,
+        "sharedHp": 2900,
+        "personalXp": 637200,
+        "personalMora": 3400,
+        "ownQuestAndSaves": true
+      }
+    }
+  }
+}

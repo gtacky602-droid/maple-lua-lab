@@ -391,8 +391,7 @@ restored = core.restore(lua.table_from(cap, recursive=True), 12)
 roundtrip = validate_save(native(core.checkpoint(restored)))
 assert roundtrip['progression'] == cap['progression'] and roundtrip['inventory'] == cap['inventory']
 assert roundtrip['story']['quests'] == cap['story']['quests']
-if draft:
-    assert roundtrip['weapons'] == cap['weapons']
+assert roundtrip.get('weapons') == cap.get('weapons')
 assert cap_field_save['progression'] == cap['progression']
 expected = [release, branch, echo, seven, personal]
 assert all(roundtrip['story']['quests'][id]['status']=='complete' for id in expected), expected
