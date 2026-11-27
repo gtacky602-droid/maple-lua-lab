@@ -566,7 +566,7 @@ return function(C, atlas)
       or map.layer=='hunt' and (p.huntKind or p.huntLevels or p.id==state.node)) then
     local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
       recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
-      huntLevels=p.huntLevels,huntKind=p.huntKind,pocketRole=p.pocketRole,boss=p.boss,
+      huntLevels=p.huntLevels,huntKind=p.huntKind,pocketRole=p.pocketRole,boss=p.boss,questField=node.questField,
       current=p.id==state.node,selected=p.id==map.selected,
       waypoint=node.waypoint~=nil,
       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
@@ -636,7 +636,7 @@ return function(C, atlas)
      routes[#routes+1]={stopWindow=C.storyStopWindow(s,selected.id,edge),wind=C.storyGateWind(s,selected.id,edge),sealState=C.gateFixtureState(s,selected.id,edge),routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
-       huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
+       huntKind=positions[edge.to] and positions[edge.to].huntKind,questField=nodes[edge.to].questField,restricted=edge.requires~=nil,
        reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),boarding=C.boardingSchedule(edge),
        automaticArrival=automatic_arrival(nodes[selected.id],edge)}
     end

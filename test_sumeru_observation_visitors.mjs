@@ -202,6 +202,23 @@ try{
   await load();
   await gate(332,meadow);
   assert.equal((await frame()).total,0);
+  await key('KeyM');
+  await page.locator('#worldAtlas').waitFor();
+  await wait(node=>window.lab.frame.worldMap?.selected?.id===node,meadow);
+  assert.match(await page.locator('#atlasPlaceLevel').innerText(),/依頼の進行地点/);
+  const map=(await frame()).worldMap;
+  assert.equal(map.selected.entryEnemyCount,0);
+  const comparison=page.locator('#atlasBackgroundCompare');
+  const absent=new URL(await comparison.evaluate(a=>a.href)).searchParams.getAll('absent');
+  assert.deepEqual(absent,['sum-visitor-pack-1','sum-visitor-pack-2','sum-visitor-pack-3','sum-visitor-pack-4']);
+  const [preview]=await Promise.all([page.waitForEvent('popup'),comparison.click()]);
+  preview.on('pageerror',error=>errors.push(error.message));
+  await preview.waitForFunction(()=>window.mapArt?.liveView&&window.mapArt.backgroundState==='ready');
+  assert.equal(await preview.evaluate(()=>window.mapArt.placements.length),0);
+  await preview.close();
+  await page.bringToFront();
+  await page.keyboard.press('Escape');
+  await page.locator('#worldAtlas').waitFor({state:'hidden'});
   await gate(1340,terrace);
   assert.equal((await frame()).total,0);
   await gate(1449,store);
@@ -215,7 +232,7 @@ try{
   assert.deepEqual(errors,[]);
   const proof={scenes:[grass,heights,depot],battleKills:again.kills,returns:again.returns,
     mutedProgressAndWebAudioReplay:true,sameInstrumentBeforeAndAfter:true,realJumps:true,
-    specimenCarryAndWithdrawal:true,storedAndClearedAfterReload:true,commands,reward,errors};
+    specimenCarryAndWithdrawal:true,storedAndClearedAfterReload:true,clearedMeadowPreview:true,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

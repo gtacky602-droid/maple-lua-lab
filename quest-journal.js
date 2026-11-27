@@ -87,7 +87,7 @@ function cargoStops(q,state,node,frame){
 function trailStops(q,state,node){
  const {clues,meeting,guard}=q.trail;
  const sites=state.count===0?clues.filter(c=>c.node===node):meeting&&state.count===1&&node===q.target?[meeting]:[];
- if(sites.length)return sites.map(s=>({label:s.name,url:surveyPointUrl(worksitePoint(q,s.id,node))}));
+ if(sites.length)return sites.map(s=>({label:s.name,approachHint:s.approachHint,url:surveyPointUrl(worksitePoint(q,s.id,node))}));
  return node===q.target&&state.count===(meeting?2:1)?remainingEnemyPoints({node,enemy:guard}):[];
 }
 
@@ -176,7 +176,7 @@ export function atlasQuestObjectives(frame,q,node){
  if(status==='active'){
   const sites=pendingFieldSites(q,state).filter(site=>site.node===node);
   if(sites.length)return [{text:questObjective(q,frame.storyGraph,state),points:sites.map(site=>({
-   label:site.name,url:surveyPointUrl(worksitePoint(q,site.id,node))
+   label:site.name,approachHint:site.approachHint,url:surveyPointUrl(worksitePoint(q,site.id,node))
   }))}];
  }
  if(q.sights&&state.sights&&node===q.target){

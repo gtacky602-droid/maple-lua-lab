@@ -1,0 +1,845 @@
+{
+  "base": "9d0ae10f8cc8e881054c6056e6e36cacf4b54916",
+  "questFields": {
+    "liyue-cliff-planks": {
+      "name": "璃月・山腹の桟道",
+      "level": 20,
+      "initialPopulation": 4,
+      "adjustments": {
+        "liyue-cliff-planks-1": {
+          "before": {
+            "x": 485,
+            "platform": 0
+          },
+          "after": {
+            "x": 622,
+            "platform": 0,
+            "patrolMin": 602,
+            "patrolMax": 642
+          }
+        },
+        "liyue-cliff-planks-2": {
+          "before": {
+            "x": 740,
+            "platform": 2
+          },
+          "after": {
+            "x": 998,
+            "platform": 3,
+            "patrolMin": 978,
+            "patrolMax": 1018
+          }
+        },
+        "liyue-cliff-planks-3": {
+          "before": {
+            "x": 1175,
+            "platform": 3
+          },
+          "after": {
+            "x": 1175,
+            "platform": 3,
+            "patrolMin": 1155,
+            "patrolMax": 1195
+          }
+        },
+        "liyue-cliff-planks-4": {
+          "before": {
+            "x": 1490,
+            "platform": 5
+          },
+          "after": {
+            "x": 1490,
+            "platform": 5,
+            "patrolMin": 1470,
+            "patrolMax": 1510
+          }
+        }
+      },
+      "objectives": [
+        {
+          "id": "rest-tag",
+          "x": 720,
+          "y": 305,
+          "hint": "地上からは西の低い足場を経由し、二段目へ上がる"
+        },
+        {
+          "id": "herb",
+          "x": 560,
+          "y": 305,
+          "hint": "地上からは西の低い足場を経由し、二段目へ上がる"
+        },
+        {
+          "id": "tool-mark",
+          "x": 905,
+          "y": 305,
+          "hint": "地上からは西の低い足場を経由し、二段目へ上がる"
+        }
+      ]
+    },
+    "sum-visitors-meadow": {
+      "name": "スメール・観測器の草地",
+      "level": 60,
+      "initialPopulation": 4,
+      "adjustments": {
+        "sum-visitor-pack-1": {
+          "before": {
+            "x": 589,
+            "platform": 0
+          },
+          "after": {
+            "x": 589,
+            "platform": 0,
+            "patrolMin": 410,
+            "patrolMax": 900
+          }
+        },
+        "sum-visitor-pack-2": {
+          "before": {
+            "x": 629,
+            "platform": 0
+          },
+          "after": {
+            "x": 629,
+            "platform": 0,
+            "patrolMin": 410,
+            "patrolMax": 900
+          }
+        },
+        "sum-visitor-pack-3": {
+          "before": {
+            "x": 672,
+            "platform": 0
+          },
+          "after": {
+            "x": 672,
+            "platform": 0,
+            "patrolMin": 410,
+            "patrolMax": 900
+          }
+        },
+        "sum-visitor-pack-4": {
+          "before": {
+            "x": 709,
+            "platform": 0
+          },
+          "after": {
+            "x": 709,
+            "platform": 0,
+            "patrolMin": 410,
+            "patrolMax": 900
+          }
+        }
+      },
+      "populationAfterReport": 0
+    },
+    "natlan-flag-slope": {
+      "name": "旗取りの広い坂道",
+      "level": 100,
+      "initialPopulation": 5,
+      "adjustments": {
+        "ridge-slope-beast-1": {
+          "before": {
+            "x": 381,
+            "platform": 0
+          },
+          "after": {
+            "x": 318,
+            "platform": 0,
+            "patrolMin": 298,
+            "patrolMax": 338
+          }
+        },
+        "ridge-slope-beast-2": {
+          "before": {
+            "x": 682,
+            "platform": 0
+          },
+          "after": {
+            "x": 682,
+            "platform": 0,
+            "patrolMin": 662,
+            "patrolMax": 702
+          }
+        },
+        "ridge-slope-pebble-1": {
+          "before": {
+            "x": 993,
+            "platform": 1
+          },
+          "after": {
+            "x": 993,
+            "platform": 1,
+            "patrolMin": 973,
+            "patrolMax": 1013
+          }
+        },
+        "ridge-slope-pebble-2": {
+          "before": {
+            "x": 1352,
+            "platform": 2
+          },
+          "after": {
+            "x": 1352,
+            "platform": 2,
+            "patrolMin": 1332,
+            "patrolMax": 1372
+          }
+        },
+        "ridge-slope-beast-3": {
+          "before": {
+            "x": 1514,
+            "platform": 0
+          },
+          "after": {
+            "x": 1514,
+            "platform": 0,
+            "patrolMin": 1494,
+            "patrolMax": 1534
+          }
+        }
+      },
+      "relayMarkers": [
+        {
+          "order": 1,
+          "x": 445,
+          "y": 480
+        },
+        {
+          "order": 2,
+          "x": 1445,
+          "y": 391
+        }
+      ]
+    }
+  },
+  "registeredHunts": 165,
+  "realPortalArrivals": [
+    {
+      "origin": "liyue-harbor",
+      "destination": "liyue-cliff-planks",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-river-trail",
+      "destination": "liyue-cliff-planks",
+      "positions": [
+        [
+          340,
+          395
+        ],
+        [
+          300,
+          395
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-quarry-post",
+      "destination": "liyue-cliff-planks",
+      "positions": [
+        [
+          1600,
+          480
+        ],
+        [
+          1560,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sumeru-hub",
+      "destination": "sum-visitors-meadow",
+      "positions": [
+        [
+          123,
+          480
+        ],
+        [
+          83,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-visitors-terrace",
+      "destination": "sum-visitors-meadow",
+      "positions": [
+        [
+          1272,
+          480
+        ],
+        [
+          1232,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-flag-staging",
+      "destination": "natlan-flag-slope",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-flag-cleft",
+      "destination": "natlan-flag-slope",
+      "positions": [
+        [
+          1684,
+          391
+        ],
+        [
+          1644,
+          391
+        ]
+      ]
+    }
+  ],
+  "earnedCliff": {
+    "sourceSha256": "10ea4b9260602ee55c4742ace2d7acbe177a651bdaaad0ac118b3e5d515c2a2a",
+    "itineraries": [
+      {
+        "start": "liyue-harbor",
+        "destination": "liyue-cliff-planks",
+        "stops": [
+          {
+            "id": "liyue-cliff-planks",
+            "previewX": 490,
+            "hint": "上段の入口",
+            "level": 20,
+            "mode": "walk",
+            "label": "徒歩",
+            "region": "region-02",
+            "previewY": 350,
+            "from": "liyue-harbor",
+            "approach": "現在地から右へ",
+            "name": "璃月・山腹の桟道"
+          }
+        ]
+      },
+      {
+        "start": "liyue-harbor",
+        "destination": "liyue-cliff-planks",
+        "stops": [
+          {
+            "id": "liyue-cliff-planks",
+            "previewX": 490,
+            "hint": "上段の入口",
+            "level": 20,
+            "mode": "walk",
+            "label": "徒歩",
+            "region": "region-02",
+            "previewY": 350,
+            "from": "liyue-harbor",
+            "approach": "現在地から右へ",
+            "name": "璃月・山腹の桟道"
+          }
+        ]
+      },
+      {
+        "start": "liyue-quarry-post",
+        "destination": "liyue-harbor",
+        "stops": [
+          {
+            "id": "liyue-harbor",
+            "previewX": 1700,
+            "hint": "移動に2秒",
+            "level": 20,
+            "from": "liyue-quarry-post",
+            "mode": "lift",
+            "label": "昇降機",
+            "region": "region-02",
+            "sealState": "open",
+            "routeFixture": "hoist",
+            "approach": "現在地から右へ",
+            "name": "璃月・港の広場"
+          }
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "quest": "liyue-caravan-search",
+        "xp": 35235,
+        "mora": 380
+      },
+      {
+        "quest": "liyue-harbor-meal",
+        "xp": 7931,
+        "mora": 180
+      },
+      {
+        "quest": "liyue-stone-marks",
+        "xp": 16443,
+        "mora": 240
+      }
+    ],
+    "battles": [
+      {
+        "node": "liyue-quarry-post",
+        "targets": [
+          "liyue-quarry-post-1"
+        ],
+        "xp": 161,
+        "kills": 1
+      }
+    ],
+    "locks": [],
+    "returns": 0,
+    "lockedBefore": "「山道に消えた商隊」か「山のごちそう、港の一皿」を受注してください。",
+    "points": [
+      [
+        560,
+        305
+      ],
+      [
+        720,
+        305
+      ],
+      [
+        905,
+        305
+      ]
+    ],
+    "cliffLiftRoundTrip": true,
+    "walked": [
+      [
+        "liyue-cliff-planks",
+        "liyue-harbor"
+      ],
+      [
+        "liyue-cliff-planks",
+        "liyue-quarry-post"
+      ],
+      [
+        "liyue-cliff-planks",
+        "liyue-river-trail"
+      ],
+      [
+        "liyue-craftsmen-overlook",
+        "liyue-quarry-post"
+      ],
+      [
+        "liyue-field",
+        "liyue-harbor"
+      ],
+      [
+        "liyue-harbor",
+        "liyue-cliff-planks"
+      ],
+      [
+        "liyue-harbor",
+        "liyue-field"
+      ],
+      [
+        "liyue-harbor",
+        "liyue-quarry-post"
+      ],
+      [
+        "liyue-harbor",
+        "liyue-river-trail"
+      ],
+      [
+        "liyue-quarry-post",
+        "liyue-craftsmen-overlook"
+      ],
+      [
+        "liyue-quarry-post",
+        "liyue-harbor"
+      ],
+      [
+        "liyue-river-trail",
+        "liyue-cliff-planks"
+      ]
+    ]
+  },
+  "earnedRegionalRoutes": {
+    "meadow": {
+      "sourceSha256": "bb481026ab7670116638e0c7823b4acad2aeb3accecc0d9828dba135a78b190e",
+      "itineraries": [
+        {
+          "start": "sumeru-hub",
+          "destination": "sum-visitors-meadow",
+          "stops": [
+            {
+              "previewX": 332,
+              "from": "sumeru-hub",
+              "level": 60,
+              "mode": "walk",
+              "region": "region-04",
+              "name": "スメール・観測器の草地",
+              "approach": "現在地から右へ",
+              "id": "sum-visitors-meadow",
+              "label": "徒歩"
+            }
+          ]
+        },
+        {
+          "start": "sum-visitors-meadow",
+          "destination": "sum-visitors-terrace",
+          "stops": [
+            {
+              "previewX": 1340,
+              "from": "sum-visitors-meadow",
+              "level": 60,
+              "mode": "walk",
+              "region": "region-04",
+              "name": "スメール・標本台の段丘",
+              "approach": "現在地から右へ",
+              "id": "sum-visitors-terrace",
+              "label": "徒歩"
+            }
+          ]
+        },
+        {
+          "start": "sum-visitors-terrace",
+          "destination": "sum-visitors-store",
+          "stops": [
+            {
+              "previewX": 1449,
+              "from": "sum-visitors-terrace",
+              "level": 60,
+              "mode": "walk",
+              "region": "region-04",
+              "name": "スメール・標本の保管所",
+              "approach": "現在地から右へ",
+              "id": "sum-visitors-store",
+              "label": "徒歩"
+            }
+          ]
+        },
+        {
+          "start": "sum-visitors-store",
+          "destination": "sumeru-hub",
+          "stops": [
+            {
+              "previewX": 1547,
+              "from": "sum-visitors-store",
+              "level": 60,
+              "mode": "walk",
+              "region": "region-04",
+              "name": "スメール・樹陰の広場",
+              "approach": "現在地から右へ",
+              "id": "sumeru-hub",
+              "label": "徒歩"
+            }
+          ]
+        },
+        {
+          "start": "sumeru-hub",
+          "destination": "sum-visitors-meadow",
+          "stops": [
+            {
+              "previewX": 332,
+              "from": "sumeru-hub",
+              "level": 60,
+              "mode": "walk",
+              "region": "region-04",
+              "name": "スメール・観測器の草地",
+              "approach": "現在地から右へ",
+              "id": "sum-visitors-meadow",
+              "label": "徒歩"
+            }
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "sum-fungus-visitors",
+          "xp": 164740,
+          "mora": 2000
+        }
+      ],
+      "battles": [],
+      "locks": [],
+      "returns": 0,
+      "clearedMeadowAfterReload": true,
+      "startLevel": 80
+    },
+    "flagSlope": {
+      "sourceSha256": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345",
+      "itineraries": [
+        {
+          "start": "natlan-hub",
+          "destination": "natlan-flag-staging",
+          "stops": [
+            {
+              "approach": "現在地から右へ",
+              "region": "region-06",
+              "label": "徒歩",
+              "from": "natlan-hub",
+              "name": "旗取りのスタート広場",
+              "level": 100,
+              "previewX": 885,
+              "mode": "walk",
+              "hint": "旗取りのスタート広場",
+              "id": "natlan-flag-staging"
+            }
+          ]
+        },
+        {
+          "start": "natlan-flag-staging",
+          "destination": "natlan-flag-slope",
+          "stops": [
+            {
+              "approach": "現在地から右へ",
+              "region": "region-06",
+              "label": "徒歩",
+              "from": "natlan-flag-staging",
+              "name": "旗取りの広い坂道",
+              "level": 100,
+              "previewX": 880,
+              "mode": "walk",
+              "hint": "広い坂道・敵が多い",
+              "id": "natlan-flag-slope"
+            }
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "natlan-ridge-flag",
+          "xp": 3768926,
+          "mora": 6200
+        }
+      ],
+      "battles": [],
+      "locks": [],
+      "returns": 0,
+      "untimedReportReloaded": true,
+      "startLevel": 100
+    }
+  },
+  "browser": {
+    "cliff": {
+      "closedReason": "「山道に消えた商隊」か「山のごちそう、港の一皿」を受注してください。",
+      "active": [
+        "herb",
+        "rest-tag"
+      ],
+      "afterCaravan": [
+        "herb",
+        "tool-mark"
+      ],
+      "herbCollectedAfterTwoJumps": true,
+      "afterReports": [],
+      "toolMark": [
+        905,
+        305
+      ],
+      "errors": []
+    },
+    "meadow": {
+      "scenes": [
+        {
+          "key": "sumeruVisitorsMeadow",
+          "file": "sum-fungus-visitors-meadow-background-v1.png",
+          "state": "ready"
+        },
+        {
+          "key": "sumeruVisitorsTerrace",
+          "file": "sum-fungus-visitors-terrace-background-v1.png",
+          "state": "ready"
+        },
+        {
+          "key": "sumeruVisitorsStore",
+          "file": "sum-fungus-visitors-store-background-v1.png",
+          "state": "ready"
+        }
+      ],
+      "battleKills": 10,
+      "returns": 0,
+      "mutedProgressAndWebAudioReplay": true,
+      "sameInstrumentBeforeAndAfter": true,
+      "realJumps": true,
+      "specimenCarryAndWithdrawal": true,
+      "storedAndClearedAfterReload": true,
+      "clearedMeadowPreview": true,
+      "commands": {
+        "png": 22,
+        "standard": 11561,
+        "light": 2867
+      },
+      "reward": [
+        164740,
+        2000,
+        3
+      ],
+      "errors": []
+    },
+    "flagSlope": {
+      "bothRoutes": true,
+      "normalJumps": true,
+      "altMarkAfterReload": true,
+      "animatedBridge": true,
+      "firstRunUntimed": true,
+      "viewMap": true,
+      "bothRelayMapLinks": true,
+      "optionalTimeAndReload": true,
+      "shortcutAndReadback": true,
+      "ticks": 1535,
+      "reward": [
+        3768926,
+        6200,
+        4
+      ],
+      "commands": {
+        "png": 28,
+        "standard": 4446,
+        "light": 1140
+      },
+      "scenes": [
+        {
+          "key": "natlanRaceRidge",
+          "file": "natlan-race-ridge-background-v1.png",
+          "state": "ready"
+        },
+        {
+          "key": "natlanRaceSummit",
+          "file": "natlan-race-summit-background-v1.png",
+          "state": "ready"
+        }
+      ],
+      "errors": []
+    }
+  },
+  "sameCameraVisualComparison": {
+    "liyue-cliff-planks": {
+      "before": {
+        "total": 4,
+        "visible": 3,
+        "camera": 470,
+        "backgroundFile": "liyue-quarry-background-v1.png"
+      },
+      "after": {
+        "total": 4,
+        "visible": 3,
+        "camera": 470,
+        "backgroundFile": "liyue-quarry-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 640,
+              "y": 180
+            },
+            "color": {
+              "x": 480,
+              "y": 135
+            }
+          },
+          "union": 5059,
+          "overlap": 4989,
+          "overlapPercent": 98.61632733741847,
+          "meanRgbError": 22.875392530233178
+        },
+        "rows": [
+          [
+            "標準",
+            "3,078",
+            "94.1%",
+            "18.07 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "1,799",
+            "99.5%",
+            "6.65 / 255",
+            "-41.6%"
+          ],
+          [
+            "最軽量・16色",
+            "724",
+            "98.6%",
+            "22.88 / 255",
+            "-76.5%"
+          ]
+        ]
+      }
+    },
+    "natlan-flag-slope": {
+      "before": {
+        "total": 5,
+        "visible": 3,
+        "camera": 270,
+        "backgroundFile": "natlan-race-ridge-background-v1.png"
+      },
+      "after": {
+        "total": 5,
+        "visible": 3,
+        "camera": 270,
+        "backgroundFile": "natlan-race-ridge-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 720,
+              "y": 360
+            },
+            "color": {
+              "x": 0,
+              "y": 405
+            }
+          },
+          "union": 18510,
+          "overlap": 18390,
+          "overlapPercent": 99.3517017828201,
+          "meanRgbError": 19.672412543048758
+        },
+        "rows": [
+          [
+            "標準",
+            "10,022",
+            "98.1%",
+            "10.45 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "6,357",
+            "95.9%",
+            "18.10 / 255",
+            "-36.6%"
+          ],
+          [
+            "最軽量・16色",
+            "2,849",
+            "99.4%",
+            "19.67 / 255",
+            "-71.6%"
+          ]
+        ]
+      }
+    }
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5668,
+    "liveEntriesChecked": 5668,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "remainingQuestFields": 16
+}

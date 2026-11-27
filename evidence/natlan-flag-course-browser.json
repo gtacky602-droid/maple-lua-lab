@@ -5,18 +5,19 @@
   "animatedBridge": true,
   "firstRunUntimed": true,
   "viewMap": true,
+  "bothRelayMapLinks": true,
   "optionalTimeAndReload": true,
   "shortcutAndReadback": true,
-  "ticks": 1471,
+  "ticks": 1535,
   "reward": [
     3768926,
     6200,
     4
   ],
   "commands": {
-    "png": 22,
-    "standard": 4440,
-    "light": 1134
+    "png": 28,
+    "standard": 4446,
+    "light": 1140
   },
   "scenes": [
     {

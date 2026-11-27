@@ -722,7 +722,8 @@ try{
   const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
-  $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
+  const fieldLabel=legendNames.has(n.id)?'地方伝説の任意戦':n.hub?'拠点':n.questField?'依頼の進行地点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成';
+  $('cameraValue').value=camera;$('context').textContent=`${afterReport(n)?.name??n.name} ／ 幅${n.width}px ／ ${fieldLabel} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   if(metrics?.locations && !afterReport(n)) $('context').append(` この仮背景は${metrics.locations}地点で共用しています。`);
   if(landing&&n===openingNode)$('context').append(' 旅人の到着位置（'+landing.x+', '+landing.y+'）を水色の目印で表示しています。');
   if(landingDeck&&n===openingNode&&frame.platforms.includes(landingDeck))$('context').append(' 「'+landingQuest.name+'」で開いた足場に到着します。');

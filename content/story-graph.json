@@ -1141,6 +1141,7 @@
       "name": "璃月・山腹の桟道",
       "region": "璃月",
       "level": 20,
+      "questField": true,
       "hub": false,
       "width": 1760,
       "checkpoint": "liyue-harbor",
@@ -2340,6 +2341,7 @@
     },
     {
       "id":"sum-visitors-meadow","name":"スメール・観測器の草地","region":"スメール","level":60,"hub":false,
+      "questField":true,
       "width":1410,"checkpoint":"sumeru-hub","clearedBy":"sum-fungus-visitors","clearCount":2,
       "platforms":[{"x":0,"y":480,"w":1410}],
       "visitorSite":{"message":"草地ではキノコンが一か所に集まります。まとまった群れを退けて観測器を調べます。",
@@ -7630,7 +7632,7 @@
       "exits":[{"to":"fon-magic-wings","x":56,"arrivalX":1460},{"to":"fontaine-hub","x":1216,"arrivalX":1131,"returnOnly":true,"rideLabel":"水辺の広場へ","requires":{"quest":"fon-lyney-magic","count":7}}]},
     {"id":"fontaine-grand-stage","name":"グラン・フィナーレの主舞台","region":"フォンテーヌ","level":80,"width":1720,"exits":[{"to":"fontaine-grand-stage-approach","x":56,"arrivalX":1630,"arrivalY":480},{"to":"fontaine-hub","x":1602,"requires":{"quest":"fontaine-grand-finale","count":6},"returnOnly":true,"y":390}],"platforms":[{"x":0,"y":480,"w":1720,"stageDeck":true},{"x":512,"y":391,"w":392,"stageDeck":true},{"x":1260,"y":390,"w":421,"stageDeck":true}],"hub":false,"checkpoint":"fontaine-stage-watch","peaceful":true,"magicScene":{"quest":"fon-lyney-magic","role":"finale","x":1088,"y":425,"desk":{"x":1046,"y":480}},"theater":{"quest":"fontaine-grand-finale","finale":{"x":976,"y":480,"height":167,"exposedAt":4,"stoppedAt":5,"performedAt":6,"rehearsed":{"quest":"fon-furina-cues","spotX":1232,"waveX":1325,"console":{"x":1325,"y":390},"stageY":385,"quietSeconds":1.48,"waveDelay":0.66,"bowDelay":1.35},"performance":{"x":1447,"y":390,"delay":1.48,"window":2.2},"curtain":{"y":109,"w":296,"h":211}}}},
     {"id":"natlan-flag-staging","name":"旗取りのスタート広場","region":"ナタ","level":100,"width":1600,"exits":[{"to":"natlan-hub","x":56,"returnOnly":true},{"to":"natlan-flag-slope","x":880,"requires":{"quest":"natlan-ridge-flag","count":1},"rideLabel":"広い坂道・敵が多い"},{"to":"natlan-flag-ledges","x":1316,"requires":{"quest":"natlan-ridge-flag","count":1},"rideLabel":"岩棚道・ジャンプが多い"}],"platforms":[{"x":0,"y":480,"w":1600,"raceRock":true},{"x":505,"y":390,"w":266,"raceRock":true}],"flagCourse":{"quest":"natlan-ridge-flag","board":{"x":382,"y":480}},"hub":true,"checkpoint":"natlan-flag-staging","peaceful":true},
-    {"id":"natlan-flag-slope","name":"旗取りの広い坂道","region":"ナタ","level":100,"width":1870,"exits":[{"to":"natlan-flag-staging","x":55,"arrivalX":800,"arrivalY":480},{"to":"natlan-flag-cleft","x":1756,"y":391,"arrivalX":166,"arrivalY":391,"requires":{"quest":"natlan-ridge-flag","count":3}}],"platforms":[{"x":0,"y":480,"w":1870,"raceRock":true},{"x":771,"y":391,"w":489,"raceRock":true},{"x":1221,"y":391,"w":649,"raceRock":true}],"flagCourse":{"quest":"natlan-ridge-flag","marks":[{"order":1,"x":445,"y":480},{"order":2,"x":1445,"y":391}]},"hub":false,"checkpoint":"natlan-flag-staging","peaceful":false},
+    {"id":"natlan-flag-slope","questField":true,"name":"旗取りの広い坂道","region":"ナタ","level":100,"width":1870,"exits":[{"to":"natlan-flag-staging","x":55,"arrivalX":800,"arrivalY":480},{"to":"natlan-flag-cleft","x":1756,"y":391,"arrivalX":166,"arrivalY":391,"requires":{"quest":"natlan-ridge-flag","count":3}}],"platforms":[{"x":0,"y":480,"w":1870,"raceRock":true},{"x":771,"y":391,"w":489,"raceRock":true},{"x":1221,"y":391,"w":649,"raceRock":true}],"flagCourse":{"quest":"natlan-ridge-flag","marks":[{"order":1,"x":445,"y":480},{"order":2,"x":1445,"y":391}]},"hub":false,"checkpoint":"natlan-flag-staging","peaceful":false},
     {"id":"natlan-flag-ledges","name":"旗取りの岩棚道","region":"ナタ","level":100,"width":1570,"exits":[{"to":"natlan-flag-staging","x":52,"arrivalX":1237,"arrivalY":480},{"to":"natlan-flag-cleft","x":1452,"y":302,"rideLabel":"低い岩棚から二段登る","arrivalX":166,"arrivalY":391,"requires":{"quest":"natlan-ridge-flag","count":3}}],"platforms":[{"x":0,"y":480,"w":412,"raceRock":true},{"x":752,"y":480,"w":256,"raceRock":true},{"x":312,"y":390,"w":414,"raceRock":true},{"x":687,"y":390,"w":402,"raceRock":true},{"x":936,"y":302,"w":425,"raceRock":true},{"x":1331,"y":302,"w":239,"raceRock":true}],"flagCourse":{"quest":"natlan-ridge-flag","marks":[{"order":1,"x":560,"y":390},{"order":2,"x":1170,"y":302}]},"hub":false,"checkpoint":"natlan-flag-staging","peaceful":false,"fallReturn":{"x":360,"y":480,"notice":"谷へ落ちたので手前へ戻りました。低い岩棚から登れます。"}},
     {"id":"natlan-flag-cleft","name":"カチーナの切れ目足場","region":"ナタ","level":100,"width":1730,"exits":[{"to":"natlan-flag-slope","x":79,"y":391,"arrivalX":1684,"arrivalY":391,"rideLabel":"広い坂道へ戻る"},{"to":"natlan-flag-ledges","x":277,"y":391,"arrivalX":1370,"arrivalY":302,"rideLabel":"岩棚道へ戻る"},{"to":"natlan-flag-summit","x":1580,"y":391,"arrivalX":175,"arrivalY":480,"requires":{"quest":"natlan-ridge-flag","count":4}}],"platforms":[{"x":0,"y":480,"w":904,"raceRock":true},{"x":0,"y":391,"w":935,"raceRock":true},{"x":1320,"y":391,"w":410,"raceRock":true}],"flagCourse":{"quest":"natlan-ridge-flag","guide":{"x":698,"y":391,"edgeX":872,"deckX":848,"deckWidth":550,"deckY":391}},"hub":false,"checkpoint":"natlan-flag-staging","peaceful":true,"fallReturn":{"x":824,"y":391,"notice":"岩の切れ目から足場の手前へ戻りました。カチーナが下ろす足場を待てます。"}},
     {"id":"natlan-flag-summit","name":"二つの旗を望む頂上","region":"ナタ","level":100,"width":1640,"exits":[{"to":"natlan-flag-cleft","x":58,"arrivalX":1510,"arrivalY":391},{"to":"natlan-field","x":810,"requires":{"quest":"natlan-ridge-flag","count":5},"rideLabel":"旗の下の岩場狩場"},{"to":"natlan-hub","x":1526,"y":390,"requires":{"quest":"natlan-ridge-flag","count":5},"returnOnly":true},{"to":"natlan-high-trial-steps","x":969,"y":390,"requires":{"quest":"natlan-two-trials","count":1},"rideLabel":"高台の旗へ"},{"to":"natlan-river-float-run","x":1055,"requires":{"quest":"natlan-two-trials","count":1},"rideLabel":"水辺の旗へ"},{"to":"natlan-duel-entry","x":1292,"y":390,"requires":{"quest":"natlan-two-trials","count":2},"rideLabel":"夕映え会場へ"}],"platforms":[{"x":0,"y":480,"w":1640,"raceRock":true},{"x":668,"y":390,"w":972,"raceRock":true}],"flagCourse":{"quest":"natlan-ridge-flag","goal":{"x":1105,"y":390}},"hub":true,"checkpoint":"natlan-flag-staging","peaceful":true,"pathsQuest":"natlan-two-trials"},
@@ -9445,6 +9447,7 @@
             "node": "liyue-cliff-planks",
             "x": 720,
             "y": 305,
+            "approachHint": "地上からは西の低い足場を経由し、二段目へ上がる",
             "line": "荷札には全員で詰所へ向かうと書かれています。"
           }
         ],
@@ -9502,7 +9505,7 @@
         "marketStall": {"x": 925, "y": 480, "quest": "liyue-market-opening", "count": 3},
         "ingredients": [
           {"id": "fish", "name": "川魚", "node": "liyue-river-trail", "x": 365, "y": 480},
-          {"id": "herb", "name": "山の香草", "node": "liyue-cliff-planks", "x": 560, "y": 305},
+          {"id": "herb", "name": "山の香草", "node": "liyue-cliff-planks", "x": 560, "y": 305, "approachHint": "地上からは西の低い足場を経由し、二段目へ上がる"},
           {"id": "mushroom", "name": "木陰のキノコ", "node": "liyue-field", "x": 270, "y": 480}
         ],
         "flavors": [
@@ -9561,7 +9564,7 @@
       "stone": {
         "marks": [
           {"id": "cut-wall", "name": "川沿いの壁の彫り跡", "node": "liyue-river-trail", "x": 1250, "y": 480},
-          {"id": "tool-mark", "name": "桟道の道具の印", "node": "liyue-cliff-planks", "x": 905, "y": 305},
+          {"id": "tool-mark", "name": "桟道の道具の印", "node": "liyue-cliff-planks", "x": 905, "y": 305, "approachHint": "地上からは西の低い足場を経由し、二段目へ上がる"},
           {"id": "paving-mark", "name": "詰所の石畳の印", "node": "liyue-quarry-post", "x": 420, "y": 480}
         ],
         "mural": {"id": "craft-mural", "name": "職人の壁画", "x": 488, "y": 397},

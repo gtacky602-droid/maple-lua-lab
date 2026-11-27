@@ -13,6 +13,7 @@
   "hidden_region_hunts": {"registeredHunts":160,"newlyClassified":16,"ordinaryEnemiesBeforePerField":48,"ordinaryEnemiesAfterPerField":36,"peakBefore":25,"peakAfter":19,"portalArrivalsChecked":28,"record":"evidence/hidden-region-hunts-20261128.json"},
   "chasm_snowfield_hunts": {"registeredHunts":163,"newlyClassified":3,"regularEnemiesAdded":28,"entryPeaks":[19,17,15],"portalArrivalsChecked":10,"waypointArrivalsChecked":3,"record":"evidence/chasm-snowfield-hunts-20261128.json"},
   "quest_daily_fields": {"registeredHunts":165,"newlyClassified":2,"regularEnemiesAdded":23,"entryPeaks":[16,16],"portalArrivalsChecked":3,"permanentReports":3,"dailyClaims":4,"record":"evidence/quest-daily-fields-20261128.json"},
+  "quest_approach_fields": {"checkedQuestFields":3,"permanentReports":5,"portalArrivalsChecked":7,"registeredHunts":165,"record":"evidence/quest-approach-fields-20261128.json"},
   "mondstadt_entry_hunts": {"registeredHunts":123,"newlyClassified":4,"introEnemiesAdded":42,"entryPeaks":[16,16,15,16],"portalArrivalsChecked":29,"record":"evidence/mondstadt-entry-density-20261128.json"},
   "ordinary_hunt_density": {"measuredHunts":119,"populationLayoutsChanged":100,"entryPeakViewportRange":[15,20],"eliteRoutes":7,"patrolAreasAdjusted":8,"record":"evidence/hunt-density-20261128.json"},
   "standard_current_quest_recheck": {"startedWithReports":265,"newReports":11,"reports":276,"activeEncounterClearsPreserved":142,"browserDifficultyRecordsRestored":84,"record":"evidence/standard-current-quest-recheck-20261128.json"},

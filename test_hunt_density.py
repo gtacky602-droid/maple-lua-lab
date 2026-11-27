@@ -16,7 +16,10 @@ MINE_AND_SNOW_ARRIVALS = {
     'chasm-wp-25268', 'chasm-wp-25269', 'chasm-wp-25270',
     'spine-lee-walk', 'dragonspine-depth',
 }
-QUEST_FIELD_ARRIVALS = {'liyue-loading-yard','inazuma-lantern-trail'}
+QUEST_FIELD_ARRIVALS = {
+    'liyue-loading-yard','inazuma-lantern-trail','liyue-cliff-planks',
+    'sum-visitors-meadow','natlan-flag-slope',
+}
 
 
 def read(path):
