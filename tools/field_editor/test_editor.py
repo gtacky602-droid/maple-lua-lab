@@ -41,12 +41,37 @@ class ModelTests(unittest.TestCase):
     def test_official_51_coordinates_immutable_and_zero_edges(self):
         m=next(m for m in self.s.maps if m['map_id']=='region-01-map')
         ns=[self.s.nodes[i] for i in m['node_ids']]
-        self.assertEqual(51,len(ns));self.assertEqual(45,sum(n['kind']=='waypoint' for n in ns));self.assertEqual(6,sum(n['kind']=='statue' for n in ns))
+        self.assertEqual(64,len(ns));self.assertEqual(45,sum(n['kind']=='waypoint' for n in ns));self.assertEqual(6,sum(n['kind']=='statue' for n in ns))
         self.assertFalse(self.s.data['field_edges'])
-        catalog={n['id']:n for n in json.loads((ROOT/'content/map-catalog.json').read_text())['nodes']}
-        self.assertEqual(catalog,self.s.nodes)
+        catalog={n['id']:n for n in json.loads((ROOT/'content/map-catalog.json').read_text(encoding='utf-8'))['nodes']}
+        self.assertEqual(catalog, {i: self.s.nodes[i] for i in catalog})
+        self.assertEqual(13, sum(n['kind'] == 'domain' for n in ns))
+        self.assertEqual(74, sum(n['kind'] == 'domain' for n in self.s.nodes.values()))
         with self.assertRaises(DesignError):self.propose([{'collection':'map_nodes','id':self.a,'changes':{'x':0}}])
         with self.assertRaises(DesignError):self.propose([{'collection':'field_definitions','id':self.a,'changes':{'x':0}}])
+
+    def test_custom_waypoint_is_visible_to_map_queries_only_after_approval(self):
+        field_id = 'waypoint-new'
+        p = {'map_id': 'region-01-map', 'x': 123.25, 'y': -456}
+        op = {'collection': 'field_definitions', 'id': field_id,
+              'changes': {'name': 'ワープ狩場', 'waypoint_position': p}}
+        for invalid in ({**op, 'id': self.a}, {**op, 'changes': {'waypoint_position': {**p, 'x': True}}},
+                        {**op, 'changes': {'waypoint_position': {**p, 'map_id': 'missing'}}}):
+            with self.assertRaises(DesignError):
+                self.propose([invalid])
+        draft = self.propose([op])
+        self.assertNotIn(field_id, self.s.export(p['map_id'])['map_nodes'])
+        self.s.approve(draft['proposal_id'], 0)
+        reloaded = Store(self.path)
+        node = reloaded.field(field_id)['map_node']
+        self.assertTrue(node['custom'])
+        self.assertEqual(('waypoint', 123.25, -456), (node['kind'], node['x'], node['y']))
+        self.assertNotIn(field_id, reloaded.nodes)
+        self.assertIn(field_id, reloaded.export('all', 'runtime')['map_nodes'])
+        from .chatgpt_tools import call_tool
+        listing = call_tool(reloaded, 'list_fields', {'map_id': p['map_id'], 'limit': 100}, False)
+        self.assertEqual(65, listing['total'])
+        self.assertTrue(next(f for f in listing['items'] if f['field_id'] == field_id)['custom'])
 
     def test_region_level_guides_not_individual_enemy_assignments(self):
         maps={m['region_id']:m for m in self.s.maps}
@@ -89,6 +114,23 @@ class ModelTests(unittest.TestCase):
             with self.subTest(value=value),self.assertRaises(DesignError):self.propose([{'collection':'field_definitions','id':self.a,'changes':{'recommended_level':value}}])
         mid=self.monster()
         with self.assertRaises(DesignError):self.propose([{'collection':'field_spawns','id':'bad','changes':spawn(self.a,mid,level_override=8)}])
+
+    def test_remove_pending_connection_preserves_other_changes_and_invalidates_old_review(self):
+        p = self.propose([
+            {'collection': 'field_edges', 'id': 'first', 'changes': connection(self.a, self.b)},
+            {'collection': 'field_edges', 'id': 'second', 'changes': connection(self.a, self.c)},
+        ])
+        replacement = self.s.remove_pending_connection(p['proposal_id'], 'first')
+        self.assertNotEqual(p['proposal_id'], replacement['proposal_id'])
+        self.assertEqual(['second'], [o['id'] for o in replacement['operations']])
+        self.assertEqual({'second'}, {row['id'] for row in replacement['diff']})
+        reopened = Store(self.path)
+        self.assertEqual(0, reopened.data['revision'])
+        self.assertFalse(reopened.data['field_edges'])
+        with self.assertRaises(DesignError):
+            reopened.approve(p['proposal_id'], 0)
+        self.assertIsNone(reopened.remove_pending_connection(replacement['proposal_id'], 'second'))
+        self.assertEqual({}, Store(self.path).data['proposals'])
 
     def test_connection_direction_conditions_endpoints_persist(self):
         self.apply([{'collection':'field_edges','id':'edge-test','changes':connection(self.a,self.b,direction='one_way',kind='level',conditions={'requires_discovery':True,'min_level':8})}])
@@ -189,14 +231,14 @@ class ModelTests(unittest.TestCase):
 
     def test_csv_markdown_json_and_api_operation(self):
         self.apply([{'collection':'field_definitions','id':self.a,'changes':{'name':'=SUM(A1)','recommended_level':8}}])
-        self.assertIn("'=SUM(A1)",self.s.export('region-01-map','csv'));self.assertIn('rev',self.s.export('region-01-map','markdown'));self.assertEqual(51,len(self.s.export('region-01-map')['field_definitions']))
+        self.assertIn("'=SUM(A1)",self.s.export('region-01-map','csv'));self.assertIn('rev',self.s.export('region-01-map','markdown'));self.assertEqual(64,len(self.s.export('region-01-map')['field_definitions']))
         result=operation(self.s,'get_field',{'field_id':self.a});self.assertEqual(8,result['recommended_level'])
         result=operation(self.s,'update_field',{'base_revision':1,'reason':'external tool','field_id':self.a,'changes':{'recommended_level':9}});self.assertEqual('proposed',result['status']);self.assertEqual(8,self.s.field(self.a)['recommended_level'])
 
     def test_published_json_schema_matches_data_and_rejects_unknown_fields(self):
         try:import jsonschema
         except ImportError:self.skipTest('Optional jsonschema package not installed')
-        schema=json.loads((ROOT/'tools/field_editor/schemas/schema.json').read_text());jsonschema.validate(self.s.snapshot(),schema)
+        schema=json.loads((ROOT/'tools/field_editor/schemas/schema.json').read_text(encoding='utf-8'));jsonschema.validate(self.s.snapshot(),schema)
         bad=self.s.snapshot();bad['field_definitions'][self.a]['official_x']=0
         with self.assertRaises(jsonschema.ValidationError):jsonschema.validate(bad,schema)
         for m in self.s.maps:jsonschema.Draft202012Validator({'$ref':'#/$defs/map_definition','$defs':schema['$defs']}).validate(m)
@@ -220,6 +262,9 @@ class HTTPTests(unittest.TestCase):
         status,boot=self.req('/api/bootstrap',headers={'Sec-Fetch-Site':'same-origin'});self.assertEqual(200,status);self.assertIn('ui_token',boot)
         status,data=self.req('/api/operations',{'operation':'get_field','arguments':{'field_id':'teyvat:3'}},{'Authorization':'Bearer test-proposal-token'});self.assertEqual(200,status);self.assertNotIn('ui_token',data)
         status,_=self.req('/api/approve',{'proposal_id':'none','revision':0},{'Authorization':'Bearer test-proposal-token','X-Editor-UI':self.server.ui_token});self.assertEqual(403,status)
+        status, _ = self.req('/api/proposals/remove-connection', {'proposal_id': 'none', 'edge_id': 'a'},
+                             {'Authorization': 'Bearer test-proposal-token'})
+        self.assertEqual(403, status)
         status,_=self.req('/api/operations',{'operation':'get_field','arguments':{'field_id':'teyvat:3'}},{'Authorization':'Bearer test-proposal-token','Origin':'https://evil.example'});self.assertEqual(403,status)
         self.assertEqual(404,self.req('/.env')[0]);self.assertEqual(404,self.req('/content/enemy-spawns.json')[0])
     def test_common_api_proposal_approval_reopen(self):

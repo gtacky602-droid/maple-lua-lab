@@ -1,0 +1,3115 @@
+{
+  "2": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=2",
+      "sha256": "f6a440d76a8ea293d66d355fd4c624149bd77eeefd7c5563c9b58e7ab0e4df10"
+    },
+    "floors": [
+      {
+        "id": 1,
+        "group_id": 41,
+        "name": "捨身の道・遺跡の上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251210/9e8276385a2cddf68f7a24871c99d247_4323556770620240324.png",
+        "bounds": [
+          -5459.584183673469,
+          4336.5,
+          -4934.632142857143,
+          4828.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 2,
+        "group_id": 41,
+        "name": "捨身の道・遺跡の下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251210/71a0346452d8f70c49516e0cb5bd4c88_547117680943307676.png",
+        "bounds": [
+          -5182.601731601731,
+          4585,
+          -4954.207792207792,
+          4822
+        ],
+        "entrances": []
+      },
+      {
+        "id": 3,
+        "group_id": 97,
+        "name": "忘れられし道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241103/b117edd0ec07f1375260583c1b3b26b9_677579143251380714.png",
+        "bounds": [
+          -6772,
+          845,
+          -6306,
+          1159
+        ],
+        "entrances": []
+      },
+      {
+        "id": 13,
+        "group_id": 55,
+        "name": "ウェネトトンネル・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/5bebaaccdaa1fef4807800fb09ce057f_5592839961372250799.png",
+        "bounds": [
+          -5581.332995951418,
+          2935,
+          -5053.966599190284,
+          3429.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 14,
+        "group_id": 55,
+        "name": "ウェネトトンネル・中層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/ae63d1e07223d08a710cf35e86f19b4d_3006663368257965349.png",
+        "bounds": [
+          -5294,
+          2932.5,
+          -5078.023746701847,
+          3315
+        ],
+        "entrances": []
+      },
+      {
+        "id": 15,
+        "group_id": 55,
+        "name": "ウェネトトンネル・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/4ee56d9441a08390a2b22e41f6d5fbc7_6200507525646869765.png",
+        "bounds": [
+          -5267.860000000001,
+          2933.4849999999997,
+          -5140.14,
+          3140.515
+        ],
+        "entrances": []
+      },
+      {
+        "id": 16,
+        "group_id": 58,
+        "name": "オアシストンネル",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241013/e19c7629289230ab5ae6c4fb3eff489d_7219907365961377646.png",
+        "bounds": [
+          -5756,
+          2407.5,
+          -5264,
+          2688.5
+        ],
+        "entrances": [
+          "teyvat:41836"
+        ]
+      },
+      {
+        "id": 19,
+        "group_id": 64,
+        "name": "荒海遺跡・地下一階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250806/6124dcd2fa03a68bc949c61ce7648b9b_2886143710208677065.png",
+        "bounds": [
+          3415.2613361484005,
+          4518.729697265625,
+          3619.056338028169,
+          4730
+        ],
+        "entrances": []
+      },
+      {
+        "id": 20,
+        "group_id": 64,
+        "name": "荒海遺跡・地下二階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250806/9363c544e7c4eed0d12c009041af6b8d_4972719349333765229.png",
+        "bounds": [
+          3413.3718048128344,
+          4355.0925,
+          3821.628195187166,
+          4730.9075
+        ],
+        "entrances": []
+      },
+      {
+        "id": 21,
+        "group_id": 56,
+        "name": "ジュラバド廃都の神殿・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260520/8a873d13a287fa3b574048e294818de0_2505962093223544638.png",
+        "bounds": [
+          -6645.610000000001,
+          3856.54,
+          -6226.39,
+          4311.46
+        ],
+        "entrances": []
+      },
+      {
+        "id": 22,
+        "group_id": 56,
+        "name": "ジュラバド廃都の神殿・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260520/2235c381a63b4f63044e9bbc61336be8_4608849552711608421.png",
+        "bounds": [
+          -6651.25,
+          3868.725,
+          -6196.75,
+          4227.275
+        ],
+        "entrances": []
+      },
+      {
+        "id": 23,
+        "group_id": 57,
+        "name": "アペプ行宮の花園",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241103/ac8ed45272325dd7243aef13dabf3134_387745023126840435.png",
+        "bounds": [
+          -6563.639999999999,
+          2347,
+          -6211.44,
+          2726.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 24,
+        "group_id": 53,
+        "name": "甘露の池",
+        "url": "https://act.hoyoverse.com/map_manage/20230816/436e61fde4979b7272ea46c55aef8509_5425834182960245655.png",
+        "bounds": [
+          -6702.639999999999,
+          1856.3600000000001,
+          -6535.36,
+          2023.64
+        ],
+        "entrances": []
+      },
+      {
+        "id": 34,
+        "group_id": 9,
+        "name": "デーヴァーンタカ山・巨像の下",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241210/ddfcc15d4f4c1214347a25cd1b992061_7439105169560527601.png",
+        "bounds": [
+          -3173.4401135631447,
+          3801.0625,
+          -2764.5598864368553,
+          4190.9375
+        ],
+        "entrances": []
+      },
+      {
+        "id": 36,
+        "group_id": 11,
+        "name": "雨の果て",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250218/4b0438524e2b79e64f91b07341154bca_6778557928666583916.png",
+        "bounds": [
+          -4175.4297986577185,
+          4010.75,
+          -3881.570201342282,
+          4310.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 37,
+        "group_id": 12,
+        "name": "旧窟の裏道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250731/01143e057280f8338c9e44b53304aed2_3335200857459981327.png",
+        "bounds": [
+          -3460.5,
+          3729,
+          -3160.5,
+          3879
+        ],
+        "entrances": []
+      },
+      {
+        "id": 40,
+        "group_id": 18,
+        "name": "かつてのヴァナラーナ・失夢の国土",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250421/fc36ff7ce73aa0fcbb3478b6ff20e758_7442686774966664077.png",
+        "bounds": [
+          -4734,
+          2834.25,
+          -4420,
+          3002.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 41,
+        "group_id": 19,
+        "name": "山中洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/ae59f7652466e5fa76a5dbcca1e616e6_8448155257466735829.png",
+        "bounds": [
+          -4132.956431686047,
+          3055.7328125,
+          -3809.0435683139535,
+          3316.2671874999996
+        ],
+        "entrances": []
+      },
+      {
+        "id": 42,
+        "group_id": 20,
+        "name": "メロピデ要塞・居房エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/bd823f4691e502fa9e601a5fef90152e_304713401379016455.png",
+        "bounds": [
+          -5612.5,
+          -2273.75,
+          -5277.5,
+          -1990.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 43,
+        "group_id": 21,
+        "name": "ヴァナラーナ・南側の小径",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250728/34993d31cf19c6d11855d05347a20b64_2861255535084400073.png",
+        "bounds": [
+          -4218.7327302631575,
+          2547.4612500000003,
+          -3927.2672697368425,
+          2776.53875
+        ],
+        "entrances": []
+      },
+      {
+        "id": 44,
+        "group_id": 22,
+        "name": "マッシュラプトルの巣窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240819/bf23ae443a36b57e3963d029a8e87cb1_6747695293811746776.png",
+        "bounds": [
+          -4755.405765895954,
+          2319.405,
+          -4514.325867052023,
+          2665.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 45,
+        "group_id": 23,
+        "name": "チャトラカム洞窟・北側の地下遺跡",
+        "url": "https://act.hoyoverse.com/map_manage/20231106/0f7b7284a96609daa3b79c226a3209cc_3561440948927130950.png",
+        "bounds": [
+          -3846.2390572390573,
+          2028.2290820312496,
+          -3519.2609427609423,
+          2326.27091796875
+        ],
+        "entrances": []
+      },
+      {
+        "id": 46,
+        "group_id": 26,
+        "name": "迅電樹の木陰",
+        "url": "https://act.hoyoverse.com/map_manage/20230905/ed62bca6153d5278505f9586642669f4_2511987300900788264.png",
+        "bounds": [
+          -3027.5418642611685,
+          2060.9425,
+          -2778.4581357388315,
+          2350.0575000000003
+        ],
+        "entrances": []
+      },
+      {
+        "id": 48,
+        "group_id": 31,
+        "name": "キングデシェレトの霊廟の北西側・岩窟の下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/646300fe055d088e076196c407775a29_1878945875791756755.png",
+        "bounds": [
+          -6774.203958057029,
+          4234.8715625,
+          -6568.796041942971,
+          4612.1284375000005
+        ],
+        "entrances": []
+      },
+      {
+        "id": 50,
+        "group_id": 33,
+        "name": "ダーリの谷内部・南東の洞窟",
+        "url": "https://act.hoyoverse.com/map_manage/20231106/1e3453fe177c0c994f2d39ada4dec991_5723979975843957197.png",
+        "bounds": [
+          -5241.048866219008,
+          24.876875000000013,
+          -5038.951133780992,
+          279.12312499999996
+        ],
+        "entrances": []
+      },
+      {
+        "id": 51,
+        "group_id": 39,
+        "name": "ダーリの谷・北西の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251224/8c30d0b8cef8c9353f1b43476fbc8e75_4084227157700799944.png",
+        "bounds": [
+          -5453,
+          5066,
+          -4951,
+          5595
+        ],
+        "entrances": []
+      },
+      {
+        "id": 53,
+        "group_id": 43,
+        "name": "ダーリの谷内部・北東の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/e60e3fb4ac27bc51d80af23995d4c111_823705619005482095.png",
+        "bounds": [
+          -7702.78256513026,
+          1490,
+          -7026.973947895792,
+          1990.625
+        ],
+        "entrances": []
+      },
+      {
+        "id": 55,
+        "group_id": 49,
+        "name": "ダーリの谷内部・洞窟の上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250901/d6f216d9d8fa6c1cf471f467bd3943cb_5569292479672504036.png",
+        "bounds": [
+          -5085,
+          -634,
+          -4792.96,
+          -317.46
+        ],
+        "entrances": []
+      },
+      {
+        "id": 57,
+        "group_id": 51,
+        "name": "キングデシェレトの霊廟の南西側・岩窟エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/1572834021dd4cac60eab9f3ff0146c7_4493077048274136241.png",
+        "bounds": [
+          -6702.435483870968,
+          4617.75,
+          -6189.217741935484,
+          5207.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 59,
+        "group_id": 60,
+        "name": "アル・ムアザン宮殿",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261028/c29e06485163af93e511e4c57502a577_8337730521805224322.png",
+        "bounds": [
+          -6378.57362689394,
+          2579.8125,
+          -5555.426373106061,
+          3374.1875
+        ],
+        "entrances": []
+      },
+      {
+        "id": 60,
+        "group_id": 61,
+        "name": "アル・スークル宮殿",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260609/45f4a2e352188d1d92e07ecd7dd601ea_722068972273783015.png",
+        "bounds": [
+          -6337.056068757192,
+          4280.395156250001,
+          -5948.943931242807,
+          5141.60484375
+        ],
+        "entrances": []
+      },
+      {
+        "id": 61,
+        "group_id": 62,
+        "name": "「千年真珠の海駿王庭」",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251028/8f57b334361ae86596c55dcec582e7ea_6408223952365778789.png",
+        "bounds": [
+          -5920,
+          -2708,
+          -5356,
+          -2327
+        ],
+        "entrances": []
+      },
+      {
+        "id": 64,
+        "group_id": 71,
+        "name": "アル・ヌハスの都",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/826953a24cfee90041acad13a0ebe45d_4064600578302798526.png",
+        "bounds": [
+          -7349,
+          1062,
+          -6967.245544554456,
+          1568
+        ],
+        "entrances": []
+      },
+      {
+        "id": 65,
+        "group_id": 72,
+        "name": "アフラシアブ洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251224/d2f724a15edd99f7280b0b4262ff2747_8350476570505000962.png",
+        "bounds": [
+          -7707.738177623991,
+          1189,
+          -6752.498128604382,
+          2064.4175
+        ],
+        "entrances": []
+      },
+      {
+        "id": 67,
+        "group_id": 75,
+        "name": "沈眠の洞窟",
+        "url": "https://act.hoyoverse.com/map_manage/20230815/d5fbbc784cc86bdb5413dc7fbfd97f9b_6958428021905119336.png",
+        "bounds": [
+          3409.3349731663684,
+          6585.0625,
+          3511.9333631484787,
+          6728.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 70,
+        "group_id": 78,
+        "name": "水月洞天",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240421/a8ce24f1a0814245fcc65c806eca26db_9061171484760207634.png",
+        "bounds": [
+          350.8653846153851,
+          5815.5625,
+          468.1346153846149,
+          5952.9375
+        ],
+        "entrances": []
+      },
+      {
+        "id": 78,
+        "group_id": 90,
+        "name": "万水の源・グレート・フォンテーヌ・レイク",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260727/9ebe9a1d26607e46cb73be8787f4eb53_1503467146778924386.png",
+        "bounds": [
+          -5992,
+          -2744,
+          -3394.144879815607,
+          294
+        ],
+        "entrances": []
+      },
+      {
+        "id": 79,
+        "group_id": 12,
+        "name": "ディフ旧窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250731/b5bbcc1e2adcd94221304f71285c8182_5167978574393080960.png",
+        "bounds": [
+          -3574.15,
+          3838.01,
+          -3303.85,
+          4091.99
+        ],
+        "entrances": []
+      },
+      {
+        "id": 80,
+        "group_id": 18,
+        "name": "かつてのヴァナラーナ・失夢の国土",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250421/644a765d624e89b73ec1553b08b2abb1_2222858590853579073.png",
+        "bounds": [
+          -4896.192005208333,
+          2843.17,
+          -4467.807994791667,
+          3224.83
+        ],
+        "entrances": []
+      },
+      {
+        "id": 81,
+        "group_id": 91,
+        "name": "安眠の地",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250119/40df5c94dafad75ccfb19038eb5297ed_6602597124927588191.png",
+        "bounds": [
+          -5874.059964200477,
+          -1572.4375,
+          -5591.940035799523,
+          -1153.5625
+        ],
+        "entrances": []
+      },
+      {
+        "id": 82,
+        "group_id": 91,
+        "name": "高塔の頂・回旋式回廊",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250119/1df6eb5b7e92bd0ff74cce16ccd26127_8617876234599064329.png",
+        "bounds": [
+          -5705,
+          -1607,
+          -5513,
+          -1458
+        ],
+        "entrances": []
+      },
+      {
+        "id": 83,
+        "group_id": 91,
+        "name": "回旋式回廊を飛び出した先",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250119/24d2b918a205847543342620ff80c5f0_7460642428522826978.png",
+        "bounds": [
+          -5744,
+          -1696.5,
+          -5558,
+          -1349.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 84,
+        "group_id": 92,
+        "name": "エリナスの内部・北エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/4002b3be67c267bffbf0ca76a61ec539_5879140757853367607.png",
+        "bounds": [
+          -5878.697674418605,
+          -641,
+          -5338,
+          134
+        ],
+        "entrances": []
+      },
+      {
+        "id": 85,
+        "group_id": 92,
+        "name": "エリナスの内部・南エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/a9767cb4c80b7a937ad4b7481b71ec17_8760381394197366410.png",
+        "bounds": [
+          -5861.17,
+          -184.77999999999997,
+          -5282.83,
+          200.77999999999997
+        ],
+        "entrances": []
+      },
+      {
+        "id": 86,
+        "group_id": 32,
+        "name": "秘儀聖殿・ホール",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/cd524fd29f0955ad7a50f30d6ffde826_5286349038701446932.png",
+        "bounds": [
+          -5877,
+          4600.75,
+          -5730,
+          4745.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 87,
+        "group_id": 32,
+        "name": "秘儀聖殿・地下エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/ce77b1ed6d4ad75cb3a138e70ec913f8_7338436979272692731.png",
+        "bounds": [
+          -6054.25,
+          4541.75,
+          -5874.25,
+          4786.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 88,
+        "group_id": 32,
+        "name": "秘儀聖殿・地下深部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/247ff77d00e72c1c0d9d69e5ddccef68_149485337881534713.png",
+        "bounds": [
+          -6046.25,
+          4710.75,
+          -5979.25,
+          4766.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 89,
+        "group_id": 32,
+        "name": "秘儀聖殿・密室",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/c87617368eb993816cedd3521d90edc8_179034030488936470.png",
+        "bounds": [
+          -6023.75,
+          4645.5,
+          -5918.75,
+          4701.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 91,
+        "group_id": 39,
+        "name": "ダーリの谷内部・洞窟の上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251224/d1a611b49c5264ada5fb3e47667736cc_1655585301716273565.png",
+        "bounds": [
+          -5460,
+          5261,
+          -5328.805059523809,
+          5597.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 92,
+        "group_id": 99,
+        "name": "水中廃墟・周辺区域",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260514/568c0522e3dc8374df580ccbf354027f_8716676436330254902.png",
+        "bounds": [
+          -5390,
+          -1074,
+          -5112,
+          -876
+        ],
+        "entrances": []
+      },
+      {
+        "id": 93,
+        "group_id": 99,
+        "name": "水中廃墟・中心エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260514/d8ff70710bf3153c34b00a18c31b3784_7847206822110186888.png",
+        "bounds": [
+          -5171.5,
+          -1039.5,
+          -4844.5,
+          -756.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 94,
+        "group_id": 99,
+        "name": "水中廃墟・北エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260514/0cf6da6c539473692c44551c6f30bb3a_1313299430934646766.png",
+        "bounds": [
+          -5075,
+          -1532.5,
+          -4833,
+          -879.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 95,
+        "group_id": 55,
+        "name": "ウェネトトンネル・上部通路",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/ae0b3d4c87bde9e374cebe1b6216ba42_6356674626757583351.png",
+        "bounds": [
+          -5351.724169960475,
+          3227.5,
+          -5061.413043478261,
+          3491.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 96,
+        "group_id": 60,
+        "name": "ダマーヴァンド山の遺跡・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261028/4c9027ca5da3261abaca89d2d6274ba2_2924483895951477452.png",
+        "bounds": [
+          -6860.039806996381,
+          2563.5,
+          -5597,
+          3395
+        ],
+        "entrances": []
+      },
+      {
+        "id": 99,
+        "group_id": 52,
+        "name": "サーンドル河",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/fbb1ed2c84ffdeb4099818c5b175eb90_4479242131433072526.png",
+        "bounds": [
+          -5412.578341013825,
+          -1275.5,
+          -5136.584677419355,
+          -1060.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 100,
+        "group_id": 51,
+        "name": "キングデシェレトの霊廟の南西側・中層の通路",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/6df4648715283ac2fda52731fae13a1e_5765332656068058233.png",
+        "bounds": [
+          -6541.5,
+          4767.25,
+          -6401.5,
+          4950.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 101,
+        "group_id": 51,
+        "name": "キングデシェレトの霊廟の南西側・下層の遺跡",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250219/6b7065dbf28ba8529692faf4754ec9ae_6901255476871984367.png",
+        "bounds": [
+          -6594.275,
+          4862.9400000000005,
+          -6403.724999999999,
+          5021.56
+        ],
+        "entrances": []
+      },
+      {
+        "id": 102,
+        "group_id": 31,
+        "name": "キングデシェレトの霊廟の北西側・岩窟の中層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/355e6e348f8eaf20d813fa913f85b4a4_4536828577111680601.png",
+        "bounds": [
+          -6811.669039145907,
+          4268.75,
+          -6227.330960854092,
+          4827.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 103,
+        "group_id": 31,
+        "name": "キングデシェレトの霊廟の北西側・岩窟の下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/612144239e21dbe3e3f1850eebc46287_5161508697713617425.png",
+        "bounds": [
+          -6657.262536764706,
+          4404.5675,
+          -6354.737463235294,
+          4813.432500000001
+        ],
+        "entrances": []
+      },
+      {
+        "id": 104,
+        "group_id": 61,
+        "name": "キングデシェレトの霊廟の東側・岩窟エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260609/0c69598d1ca826a0ad9b77ee2a224626_3404449800277709610.png",
+        "bounds": [
+          -6182.464847560976,
+          4765.50625,
+          -5989.535152439024,
+          4970.493750000001
+        ],
+        "entrances": []
+      },
+      {
+        "id": 105,
+        "group_id": 72,
+        "name": "アフラシアブ洞窟・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251224/c0895775ed9f13c465947565da0b739b_3510487915206374327.png",
+        "bounds": [
+          -7121.424778761062,
+          1768.25,
+          -6684.5,
+          1995.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 106,
+        "group_id": 71,
+        "name": "アル・ヌハスの都・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/528b2d50bdb75d21382c8338df160cf2_8476297083472425563.png",
+        "bounds": [
+          -7359.585,
+          1321.755,
+          -7164.915,
+          1510.2450000000001
+        ],
+        "entrances": []
+      },
+      {
+        "id": 107,
+        "group_id": 19,
+        "name": "山中洞窟・第2層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/63a980dd2da22b86940fb20667399bb9_1563726627359771021.png",
+        "bounds": [
+          -4083.31,
+          3088.15,
+          -3818.69,
+          3310.35
+        ],
+        "entrances": []
+      },
+      {
+        "id": 108,
+        "group_id": 19,
+        "name": "山中洞窟・第3層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/6c038c9b467bb7ce06b93e5ec3c2de51_8765183896877129205.png",
+        "bounds": [
+          -4249.26517571885,
+          2911.8084375000003,
+          -4026.709391972843,
+          3227.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 109,
+        "group_id": 19,
+        "name": "山中洞窟・第4層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/c31081d1618a3a78d38d64549b595dd0_5577417620572353081.png",
+        "bounds": [
+          -4146.395,
+          3091.255,
+          -3814.105,
+          3292.245
+        ],
+        "entrances": []
+      },
+      {
+        "id": 110,
+        "group_id": 20,
+        "name": "メロピデ要塞・管理エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/3796c8da15b1ee1c8dd038224b7fafc8_6816958463390882449.png",
+        "bounds": [
+          -5503.3150000000005,
+          -2190.045,
+          -5219.185,
+          -1951.4550000000002
+        ],
+        "entrances": []
+      },
+      {
+        "id": 111,
+        "group_id": 20,
+        "name": "メロピデ要塞・生産エリア・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/231075f1047e2530c664e76b879a2ab1_2208111206271294603.png",
+        "bounds": [
+          -5443.855,
+          -2191.31,
+          -5266.6449999999995,
+          -2054.69
+        ],
+        "entrances": []
+      },
+      {
+        "id": 112,
+        "group_id": 20,
+        "name": "メロピデ要塞・生産エリア・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/9617f75dd6beb9be086f1883e7584fc3_888493261056099342.png",
+        "bounds": [
+          -5485,
+          -2231.25,
+          -5266,
+          -2053.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 113,
+        "group_id": 20,
+        "name": "メロピデ要塞・廃棄された生産エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/e8c57e1105a016feec2963d94aa24f8c_1096917484869339708.png",
+        "bounds": [
+          -5563.88,
+          -2532.52,
+          -5321.12,
+          -2173.48
+        ],
+        "entrances": []
+      },
+      {
+        "id": 114,
+        "group_id": 100,
+        "name": "水中の岩道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260720/49e98ee7fea6fbe3675360a6f4ec10ab_7102698188469205986.png",
+        "bounds": [
+          -5518,
+          -2570,
+          -5112,
+          -1873
+        ],
+        "entrances": []
+      },
+      {
+        "id": 122,
+        "group_id": 20,
+        "name": "メロピデ要塞・受付",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260511/0f34fab5186c5936ca1501752c769bed_1663065013724942528.png",
+        "bounds": [
+          -5309,
+          -2133,
+          -5184,
+          -1973
+        ],
+        "entrances": []
+      },
+      {
+        "id": 128,
+        "group_id": 108,
+        "name": "エリニュス島・地下洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240822/7f3eabd2687350c8b6eebae9bce96fb0_8414265057187719878.png",
+        "bounds": [
+          -4172.5,
+          -1343,
+          -3826.5,
+          -1000
+        ],
+        "entrances": []
+      },
+      {
+        "id": 129,
+        "group_id": 108,
+        "name": "エリニュス島・地下水脈",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240822/004f9c840788f38475508e7cfdf3647a_810527382176179691.png",
+        "bounds": [
+          -4227,
+          -1835.5,
+          -3759,
+          -1060.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 130,
+        "group_id": 108,
+        "name": "オートクレール",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240822/a883e154ea86cc354f33b62f3465184e_5917220082642731232.png",
+        "bounds": [
+          -4473,
+          -1621.75,
+          -4070,
+          -1266.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 135,
+        "group_id": 110,
+        "name": "荒野の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250610/8399e424466a96602d67a1500365caee_6497531990272425499.png",
+        "bounds": [
+          -4211.303333333333,
+          -608.75,
+          -3969.5,
+          -307.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 136,
+        "group_id": 110,
+        "name": "謎の遺跡",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250610/8d8592072c7d4ae1f1721f7de6ca22d7_7532324797778772042.png",
+        "bounds": [
+          -4128.5,
+          -697.5,
+          -3991.5,
+          -512.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 137,
+        "group_id": 111,
+        "name": "水と土の目・上部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20231221/61ffd435252ff91142206ce733529205_8569485656918761027.png",
+        "bounds": [
+          -3891,
+          -1126.5,
+          -3796,
+          -1013.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 138,
+        "group_id": 111,
+        "name": "水と土の目・殿堂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20231221/46258d7c54c11398ce32d043979ac9b1_2812699414610071828.png",
+        "bounds": [
+          -3888.075782828283,
+          -1124.185,
+          -3640.4242171717174,
+          -926.3149999999998
+        ],
+        "entrances": []
+      },
+      {
+        "id": 139,
+        "group_id": 111,
+        "name": "水と土の洞窟・周辺通路",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20231221/83cb58cded6e485380cb330958431736_8075557426902980128.png",
+        "bounds": [
+          -3766.5,
+          -1153.5,
+          -3565.5,
+          -946.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 140,
+        "group_id": 112,
+        "name": "荒野の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260813/fc2a12a4bbafdc92da397f4f9b27bec6_3637306616843313448.png",
+        "bounds": [
+          -4719.695,
+          -185.49,
+          -4579.304999999999,
+          -36.00999999999999
+        ],
+        "entrances": []
+      },
+      {
+        "id": 141,
+        "group_id": 112,
+        "name": "謎の遺跡",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260813/fc6ba74aae41d945cae64e4f04ec79e9_898029600148856604.png",
+        "bounds": [
+          -4873.195,
+          -132.82999999999998,
+          -4631.804999999999,
+          85.32999999999998
+        ],
+        "entrances": []
+      },
+      {
+        "id": 142,
+        "group_id": 113,
+        "name": "タルパの産着",
+        "url": "https://act.hoyoverse.com/map_manage/20231110/35a6a1a0bac09f2c463daded2acdf084_2307495856324368995.png",
+        "bounds": [
+          -6140.25,
+          -1208.25,
+          -5789.25,
+          -944.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 147,
+        "group_id": 117,
+        "name": "万種母樹",
+        "url": "https://act.hoyoverse.com/map_manage/20231108/01f4d689e8dd6f0d9296f872f3908064_8358952627084807290.png",
+        "bounds": [
+          -6560,
+          1632,
+          -6349,
+          1837
+        ],
+        "entrances": []
+      },
+      {
+        "id": 150,
+        "group_id": 119,
+        "name": "沈瓏淵府",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240911/c7a718f9e70f10d265175c875db63a7f_3883355791388929558.png",
+        "bounds": [
+          -3193.5,
+          258,
+          -2805.5,
+          618
+        ],
+        "entrances": []
+      },
+      {
+        "id": 151,
+        "group_id": 120,
+        "name": "錦落の庭",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20240421/468a5eb02ff727608710c53e99713823_7259495069836584276.png",
+        "bounds": [
+          -3755.5,
+          692.5,
+          -3371.5,
+          934.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 153,
+        "group_id": 122,
+        "name": "王山庁・正堂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/8a7aac418eaf5ec60a1c2d2d04ac71ee_7372761752834355864.png",
+        "bounds": [
+          -3011.5,
+          79,
+          -2792.5,
+          307
+        ],
+        "entrances": []
+      },
+      {
+        "id": 154,
+        "group_id": 122,
+        "name": "王山庁・秘閣",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260625/94b0f9bb84112d461635394f29a81397_6048403423114102950.png",
+        "bounds": [
+          -2963,
+          4.25,
+          -2721,
+          218.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 162,
+        "group_id": 129,
+        "name": "色褪せた城・最下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241108/58c8f4eefe8ee23fef1da6b0eadd7691_7824486262150245731.png",
+        "bounds": [
+          -5019.75,
+          1001,
+          -4536.75,
+          1174
+        ],
+        "entrances": []
+      },
+      {
+        "id": 163,
+        "group_id": 129,
+        "name": "色褪せた城・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241108/b7460924af6eee7e2afdd0022109f2ae_537020172302316849.png",
+        "bounds": [
+          -4684,
+          1016,
+          -4527,
+          1156
+        ],
+        "entrances": []
+      },
+      {
+        "id": 164,
+        "group_id": 129,
+        "name": "色褪せた城・中層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241108/606531a9445b1993fc0abf77c116d4fc_4453367036925503085.png",
+        "bounds": [
+          -4699,
+          998,
+          -4546,
+          1190
+        ],
+        "entrances": []
+      },
+      {
+        "id": 165,
+        "group_id": 129,
+        "name": "色褪せた城・展示館",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241108/1533e26bbcf4a960d73963f8bd5a725e_3354279742024322950.png",
+        "bounds": [
+          -4713,
+          1067.5,
+          -4454,
+          1268.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 173,
+        "group_id": 133,
+        "name": "煙山中心部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241108/6bb0a25671e4a0781a4d4e3af654dbe8_8009499527285203226.png",
+        "bounds": [
+          -9856,
+          3639,
+          -9594,
+          3886
+        ],
+        "entrances": [
+          "teyvat:72450"
+        ]
+      },
+      {
+        "id": 174,
+        "group_id": 134,
+        "name": "万岩の地",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241108/2341be7bb58ec971400786d6275351a0_4141683507766478002.png",
+        "bounds": [
+          -9524,
+          3458,
+          -9138,
+          3826
+        ],
+        "entrances": []
+      },
+      {
+        "id": 175,
+        "group_id": 135,
+        "name": "聖火競技場・市場と神殿",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250806/91a87def60a4e105e7c0ed8e260bf84b_3916591247141986059.png",
+        "bounds": [
+          -9887,
+          4139,
+          -9748,
+          4281
+        ],
+        "entrances": []
+      },
+      {
+        "id": 176,
+        "group_id": 135,
+        "name": "聖火競技場・戦士の休憩所",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250806/6119b458fe9e4b31ded4f645c46eb1de_246280011885645010.png",
+        "bounds": [
+          -9888,
+          4180,
+          -9797,
+          4231.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 178,
+        "group_id": 137,
+        "name": "コアテペック山の底",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/14c56ba07b093aa219cbdb62e45f74f2_1062647677851851316.png",
+        "bounds": [
+          -9419,
+          4016,
+          -8980,
+          4346
+        ],
+        "entrances": []
+      },
+      {
+        "id": 181,
+        "group_id": 140,
+        "name": "岩山の中",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/598f245bf03657ca4449d18d8a1d11b5_3436507418759030804.png",
+        "bounds": [
+          -9241.5,
+          4482.5,
+          -8992.5,
+          4744.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 183,
+        "group_id": 142,
+        "name": "「こだまの子」集落",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250811/90c0347c8609f1b99f7a0cf455f4f907_4915753725993266543.png",
+        "bounds": [
+          -8579,
+          3544,
+          -8110,
+          3822
+        ],
+        "entrances": []
+      },
+      {
+        "id": 184,
+        "group_id": 143,
+        "name": "静寂の浮遊島",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251229/3acc296fd5e5f246c6ffe4946b1d7c5c_7034178786659702049.png",
+        "bounds": [
+          -9461,
+          4948,
+          -9057,
+          5395
+        ],
+        "entrances": [
+          "teyvat:72447",
+          "teyvat:72449"
+        ]
+      },
+      {
+        "id": 185,
+        "group_id": 144,
+        "name": "地下マグマ流・上流",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250616/6fb8e793b9e15d3b46cc68d0403f946a_8254434712521741473.png",
+        "bounds": [
+          -9398,
+          4984,
+          -9270,
+          5161
+        ],
+        "entrances": []
+      },
+      {
+        "id": 186,
+        "group_id": 144,
+        "name": "地下マグマ流・下流",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250616/7970e21d9b0b1978f7a4012c6d65ede8_4034327275019997445.png",
+        "bounds": [
+          -9505,
+          4976,
+          -9204,
+          5240
+        ],
+        "entrances": []
+      },
+      {
+        "id": 187,
+        "group_id": 145,
+        "name": "採掘研究所・通路",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/f2da79bad5deb356cfcb8d43da1d5036_4111063270545792029.png",
+        "bounds": [
+          -8487,
+          4350,
+          -8345,
+          4537
+        ],
+        "entrances": []
+      },
+      {
+        "id": 188,
+        "group_id": 145,
+        "name": "採掘研究所・実験エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/f3981d937741bcd6f38bc2be92238f91_4247912603273700474.png",
+        "bounds": [
+          -8613,
+          4344,
+          -8198,
+          4671
+        ],
+        "entrances": []
+      },
+      {
+        "id": 189,
+        "group_id": 146,
+        "name": "山脈の亀裂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250901/892feef96931b82f4c0c0f23d48064bb_6777006216662304319.png",
+        "bounds": [
+          -9556,
+          3539,
+          -8813,
+          4049
+        ],
+        "entrances": []
+      },
+      {
+        "id": 190,
+        "group_id": 146,
+        "name": "水没遺跡",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250901/8ff8d219a73fb85216474fd198039705_5332781363792967969.png",
+        "bounds": [
+          -9499,
+          3927,
+          -9301,
+          4200
+        ],
+        "entrances": []
+      },
+      {
+        "id": 191,
+        "group_id": 147,
+        "name": "聖道試練の遺跡・エントランスホール",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/15c449f1d7f87dab1cb0d0552bfa7e9a_2088971514859696459.png",
+        "bounds": [
+          -8818,
+          3630,
+          -8717,
+          3708
+        ],
+        "entrances": []
+      },
+      {
+        "id": 192,
+        "group_id": 147,
+        "name": "聖道試練の遺跡・誓いの分かれ道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/e67e67316b5d14d899f9b0d050b6a826_8014638879966790669.png",
+        "bounds": [
+          -8984,
+          3606,
+          -8652,
+          4053
+        ],
+        "entrances": []
+      },
+      {
+        "id": 193,
+        "group_id": 148,
+        "name": "フレイムグレネードの樹の根本・ポカポカ洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250330/a6dfcf1b4b49f4a65191f0d2170e1b83_9205952717672369499.png",
+        "bounds": [
+          -8955,
+          4031,
+          -8468,
+          4422
+        ],
+        "entrances": []
+      },
+      {
+        "id": 194,
+        "group_id": 148,
+        "name": "フレイムグレネードの樹の根本・地熱の奔流",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250330/1d3ccb0809857dd860df098c80847800_2354739476237972176.png",
+        "bounds": [
+          -8920,
+          3942.5,
+          -8552,
+          4387.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 195,
+        "group_id": 149,
+        "name": "湿地の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20241212/cecf167c5e121a6175bf70c0794ec41b_662953795542529362.png",
+        "bounds": [
+          -9193.7,
+          4850.695,
+          -8951.300000000001,
+          5215.304999999999
+        ],
+        "entrances": []
+      },
+      {
+        "id": 198,
+        "group_id": 152,
+        "name": "侵蝕された石室",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250331/f18d1404f571664c2d6e905f887bcdfb_2556599135883310175.png",
+        "bounds": [
+          -10236,
+          3417,
+          -9966,
+          3875
+        ],
+        "entrances": []
+      },
+      {
+        "id": 202,
+        "group_id": 154,
+        "name": "伝説の天蛇の船",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251224/e12f1cfe92ee0442592d306cbfe3fc66_8662294345174743849.png",
+        "bounds": [
+          -10965,
+          2362,
+          -10616,
+          2669
+        ],
+        "entrances": []
+      },
+      {
+        "id": 203,
+        "group_id": 155,
+        "name": "ナーサリー・オブ・ナイトメア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250331/df1becf2fb559d12d81d50d2e7f41c9f_8355528697519235415.png",
+        "bounds": [
+          -11695,
+          1454,
+          -11242,
+          2134
+        ],
+        "entrances": []
+      },
+      {
+        "id": 206,
+        "group_id": 157,
+        "name": "横溢する古道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250912/f834eeb6294d0d82e91385565734e293_3549746299489550712.png",
+        "bounds": [
+          -10684,
+          2595,
+          -10504,
+          2827
+        ],
+        "entrances": []
+      },
+      {
+        "id": 207,
+        "group_id": 157,
+        "name": "水没した地下遺跡",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250912/b138932681849212ae52a388274b878f_3500083352355446524.png",
+        "bounds": [
+          -10676,
+          2558,
+          -10397,
+          2769
+        ],
+        "entrances": []
+      },
+      {
+        "id": 208,
+        "group_id": 157,
+        "name": "古の一族が統治していた場所",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250912/32ba6bd3f9d2c0007cdfa92142c115dc_4609117903091373897.png",
+        "bounds": [
+          -10473,
+          2595,
+          -10191,
+          2856
+        ],
+        "entrances": []
+      },
+      {
+        "id": 209,
+        "group_id": 157,
+        "name": "古代遺跡の歩道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250912/55bc9b00766f097e39f5cc97b186a4d7_580911588972912882.png",
+        "bounds": [
+          -10464,
+          2411,
+          -10229,
+          2699
+        ],
+        "entrances": []
+      },
+      {
+        "id": 210,
+        "group_id": 157,
+        "name": "統律の心―中心部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250912/ba5a69bb4a1a29e67a7b8fbe80ef3a68_2275517407009830282.png",
+        "bounds": [
+          -10540,
+          2643,
+          -10276,
+          2922
+        ],
+        "entrances": []
+      },
+      {
+        "id": 219,
+        "group_id": 162,
+        "name": "暗流の峡谷",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250331/1de060860dd25eaf7620ffb0da0e664f_4121742383039561203.png",
+        "bounds": [
+          -10818,
+          2390,
+          -10662,
+          2548
+        ],
+        "entrances": [
+          "teyvat:80033"
+        ]
+      },
+      {
+        "id": 220,
+        "group_id": 163,
+        "name": "隠世修行の地",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250331/e1eee66a32209b06a8321769e6287687_3514235859604181842.png",
+        "bounds": [
+          -10482,
+          4083,
+          -10176,
+          4321
+        ],
+        "entrances": [
+          "teyvat:81381"
+        ]
+      },
+      {
+        "id": 226,
+        "group_id": 165,
+        "name": "「天焔の冠」",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260327/9a3e5fc0bce4f980f4d35eb8910d8561_4954767793221652048.png",
+        "bounds": [
+          -11377,
+          5070,
+          -11012,
+          5567
+        ],
+        "entrances": [
+          "teyvat:82568",
+          "teyvat:82567"
+        ]
+      },
+      {
+        "id": 228,
+        "group_id": 167,
+        "name": "流火の実験場・表層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260327/d5ce60ab1cd61c701402047af0cd01db_8340823935955827163.png",
+        "bounds": [
+          -10534,
+          4964,
+          -10230,
+          5324
+        ],
+        "entrances": []
+      },
+      {
+        "id": 229,
+        "group_id": 167,
+        "name": "流火の実験場・深層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260327/35374e8dbc87f8ee06e38c93f16a9bfd_666224395784104676.png",
+        "bounds": [
+          -10535,
+          4965.5,
+          -10231,
+          5325.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 230,
+        "group_id": 168,
+        "name": "溶岩の裂け目",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251229/57c3a93c19dbdd1d1a7c9fb263d93f5a_3028855397902489256.png",
+        "bounds": [
+          -10807,
+          4468,
+          -10410,
+          4734
+        ],
+        "entrances": [
+          "teyvat:82573"
+        ]
+      },
+      {
+        "id": 234,
+        "group_id": 172,
+        "name": "パイン峠内部の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251021/1db2b12b8ffe7c51f3a41eef477fba14_4255395054467435578.png",
+        "bounds": [
+          -14816,
+          931,
+          -14631,
+          1180
+        ],
+        "entrances": []
+      },
+      {
+        "id": 235,
+        "group_id": 172,
+        "name": "パイン峠内部の洞窟・北",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251021/43f4e3ab4d4a6f27bd9ef583ec34280a_6829059416353242141.png",
+        "bounds": [
+          -15002,
+          678,
+          -14586,
+          993
+        ],
+        "entrances": []
+      },
+      {
+        "id": 236,
+        "group_id": 172,
+        "name": "パイン峠内部の洞窟・西",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251021/a09ff414ba288f05661493656342ca8b_5015554468896342976.png",
+        "bounds": [
+          -15136,
+          750,
+          -14723,
+          1273
+        ],
+        "entrances": []
+      },
+      {
+        "id": 239,
+        "group_id": 173,
+        "name": "銀月の庭",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260609/18a72ba9cd4c31dc8d272b404d57c6a3_5663980494112912883.png",
+        "bounds": [
+          -12047,
+          93,
+          -11814,
+          381
+        ],
+        "entrances": []
+      },
+      {
+        "id": 242,
+        "group_id": 176,
+        "name": "「カニの主の宮殿・上層」",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251126/0c5efb4e9b5a700d506b5713f76ece3c_3730812890439295476.png",
+        "bounds": [
+          -11340,
+          405,
+          -11028,
+          632
+        ],
+        "entrances": []
+      },
+      {
+        "id": 243,
+        "group_id": 176,
+        "name": "「カニの主の宮殿・下層」",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251126/f6cc1b8d6d626f2a267bd344105870ef_3467164914266289938.png",
+        "bounds": [
+          -11352,
+          343,
+          -11009,
+          550
+        ],
+        "entrances": []
+      },
+      {
+        "id": 248,
+        "group_id": 181,
+        "name": "廃棄された工房",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250928/7277108575a4ca100b779faab3036e4e_131147537784834955.png",
+        "bounds": [
+          -9985.5,
+          15,
+          -9799.5,
+          199
+        ],
+        "entrances": []
+      },
+      {
+        "id": 249,
+        "group_id": 182,
+        "name": "絶海の下",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250928/399e31f71a636afb74dacad0c6518c3f_753925958642171918.png",
+        "bounds": [
+          -9808,
+          32,
+          -9416,
+          290
+        ],
+        "entrances": []
+      },
+      {
+        "id": 250,
+        "group_id": 183,
+        "name": "ペルーシッド岩窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250928/d6609658f4a6e1992e628e91474720b2_1493871574180100282.png",
+        "bounds": [
+          -10190,
+          -305,
+          -9952,
+          -45
+        ],
+        "entrances": []
+      },
+      {
+        "id": 252,
+        "group_id": 185,
+        "name": "L5-クーヴァキ実験設計局・最上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251230/79431714bc558f0d63a2c01d04f658c4_1523316569230970867.png",
+        "bounds": [
+          -10764,
+          -1094,
+          -10547,
+          -848
+        ],
+        "entrances": [
+          "teyvat:88171"
+        ]
+      },
+      {
+        "id": 253,
+        "group_id": 186,
+        "name": "地下研究所",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260121/6c0a8210957d201e82c1d0a93b8ae815_4912056898495022332.png",
+        "bounds": [
+          -11026,
+          -1036,
+          -10822,
+          -916
+        ],
+        "entrances": []
+      },
+      {
+        "id": 254,
+        "group_id": 185,
+        "name": "L4-クーヴァキ実験設計局・廃棄物処理場",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251230/1ff7ba32c1d3c1c621a953a035bf2ce4_3873604668219054453.png",
+        "bounds": [
+          -10717,
+          -1118,
+          -10456,
+          -834
+        ],
+        "entrances": []
+      },
+      {
+        "id": 255,
+        "group_id": 185,
+        "name": "L3-クーヴァキ実験設計局・南エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251230/5c2efc76b635dd5027033bd3cf322cb1_5249452148693045240.png",
+        "bounds": [
+          -10666,
+          -916,
+          -10513,
+          -752
+        ],
+        "entrances": []
+      },
+      {
+        "id": 256,
+        "group_id": 185,
+        "name": "L2-クーヴァキ実験設計局・中層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251230/3a36d4b3e7dda59a4eac66bd8d5bf1d2_7040453101324400050.png",
+        "bounds": [
+          -10681,
+          -997.5,
+          -10492,
+          -817.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 257,
+        "group_id": 185,
+        "name": "L1-クーヴァキ実験設計局・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20251230/a00fd8f1ed216c7da03479976c01a788_7360770991846405699.png",
+        "bounds": [
+          -10774,
+          -1069,
+          -10515,
+          -812
+        ],
+        "entrances": []
+      },
+      {
+        "id": 260,
+        "group_id": 188,
+        "name": "トレーニング場",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/0d61b84532233606f592da46e0f40c4c_8132410141258236720.png",
+        "bounds": [
+          -10318,
+          -1159.5,
+          -10195,
+          -983.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 261,
+        "group_id": 189,
+        "name": "放棄された避難所・メンテナンスエリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260609/f08169c202dfb7d23246edf8fd4c5fe7_4383050441020612883.png",
+        "bounds": [
+          -10630,
+          -3069,
+          -10449,
+          -2959
+        ],
+        "entrances": []
+      },
+      {
+        "id": 262,
+        "group_id": 189,
+        "name": "放棄された避難所・研究エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260609/249f0c96dc66dbe83c4c5ced4d273091_6358543563295191848.png",
+        "bounds": [
+          -10748,
+          -3172,
+          -10524,
+          -2813
+        ],
+        "entrances": []
+      },
+      {
+        "id": 263,
+        "group_id": 189,
+        "name": "放棄された避難所・監視部屋",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260609/0cd922b3f26b0c0ebdfd6837553ea4ea_4957641058180467504.png",
+        "bounds": [
+          -10762,
+          -3047,
+          -10568,
+          -2973
+        ],
+        "entrances": []
+      },
+      {
+        "id": 265,
+        "group_id": 191,
+        "name": "最後の宝の隠し場所・入り口",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/a5ce88062468b2f63ee25656285c495f_3342061460807464081.png",
+        "bounds": [
+          -10278,
+          -3425.5,
+          -10050,
+          -3237.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 266,
+        "group_id": 191,
+        "name": "最後の宝の隠し場所・ホール",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/a5e351f75b5b0f942f7dea8d87bb7750_5260993096084044418.png",
+        "bounds": [
+          -10278.5,
+          -3357,
+          -10147.5,
+          -3188
+        ],
+        "entrances": []
+      },
+      {
+        "id": 267,
+        "group_id": 191,
+        "name": "最後の宝の隠し場所・最奥",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/9554ae185cdba4d8283ab40574a29e6a_5168094624778991939.png",
+        "bounds": [
+          -10322,
+          -3248,
+          -10107,
+          -3037
+        ],
+        "entrances": []
+      },
+      {
+        "id": 268,
+        "group_id": 192,
+        "name": "残照の岩窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260226/97b2ec977f46afa4e2c96de0e374ee5c_1356483737330744082.png",
+        "bounds": [
+          -10551,
+          -3605,
+          -10300,
+          -3286
+        ],
+        "entrances": []
+      },
+      {
+        "id": 271,
+        "group_id": 195,
+        "name": "キプマキの底",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/7e8cea2865f65d50b6e6aadbf3750019_667785531529346070.png",
+        "bounds": [
+          -10699.5,
+          -4171,
+          -10498.5,
+          -3982
+        ],
+        "entrances": []
+      },
+      {
+        "id": 272,
+        "group_id": 195,
+        "name": "苦難の道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/81284bcab6568232b3e4bdd27827b96e_8861435578936908280.png",
+        "bounds": [
+          -10732,
+          -4117,
+          -10528,
+          -3917
+        ],
+        "entrances": []
+      },
+      {
+        "id": 273,
+        "group_id": 195,
+        "name": "果てなき深谷",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260127/2c3eeb69e85ca562d71b7876f11390a1_7653087879301778236.png",
+        "bounds": [
+          -10756.5,
+          -4211,
+          -10563.5,
+          -3973
+        ],
+        "entrances": []
+      },
+      {
+        "id": 276,
+        "group_id": 196,
+        "name": "西風騎士団の遺跡・地下一階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260416/515b08d206e87a54944f9ee726a3b255_77082292579645098.png",
+        "bounds": [
+          -602,
+          -1373,
+          -365,
+          -1117
+        ],
+        "entrances": []
+      },
+      {
+        "id": 277,
+        "group_id": 196,
+        "name": "西風騎士団の遺跡・地下二階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260416/631f40a46ac3cc05f00c83abb606a92f_6293479178930985060.png",
+        "bounds": [
+          -541,
+          -1530,
+          -301,
+          -1258
+        ],
+        "entrances": []
+      },
+      {
+        "id": 278,
+        "group_id": 196,
+        "name": "西風騎士団の遺跡・地下三階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260416/83de16d8498382d15f12a84ee3cc3443_3378470210445600543.png",
+        "bounds": [
+          -578.5,
+          -1408,
+          -388.5,
+          -1243
+        ],
+        "entrances": []
+      },
+      {
+        "id": 296,
+        "group_id": 205,
+        "name": "ドゥナナ前哨ステーション・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260703/f0e64471c94337669662e1181be38201_6793852301652246262.png",
+        "bounds": [
+          -9551,
+          -3571,
+          -8990,
+          -3148
+        ],
+        "entrances": []
+      },
+      {
+        "id": 297,
+        "group_id": 205,
+        "name": "ドゥナナ前哨ステーション・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260703/1c2ed177c6ae18aaee1481e89bf18ace_4900301763182420448.png",
+        "bounds": [
+          -9674,
+          -3557,
+          -9227,
+          -3270
+        ],
+        "entrances": []
+      },
+      {
+        "id": 320,
+        "group_id": 221,
+        "name": "空洞の夢が殻を破る場所",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/659823ed3904855790ccf1aba2d0d2e2_4096684820222177160.png",
+        "bounds": [
+          -9857,
+          -6602,
+          -9364,
+          -6218
+        ],
+        "entrances": []
+      },
+      {
+        "id": 321,
+        "group_id": 222,
+        "name": "告解の礼拝堂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/9ed35bab79e15c274f63bbb45613a1ac_2424092818486678832.png",
+        "bounds": [
+          -9433,
+          -6524,
+          -9129,
+          -6249
+        ],
+        "entrances": []
+      },
+      {
+        "id": 322,
+        "group_id": 222,
+        "name": "隠された場所へと通じる道",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/adb16f62ccc05100d29c6da153a892da_9139714439903049482.png",
+        "bounds": [
+          -9378,
+          -6398,
+          -9257,
+          -6285
+        ],
+        "entrances": []
+      },
+      {
+        "id": 324,
+        "group_id": 224,
+        "name": "融雪導水路・出入口",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/214bf57c403a601371db352b591cfe43_3431171913440408106.png",
+        "bounds": [
+          -9279,
+          -6805.25,
+          -9112,
+          -6645.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 325,
+        "group_id": 224,
+        "name": "融雪導水路・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/35492c5dd5a589ac6cfacd25766c4a65_5325498301119076027.png",
+        "bounds": [
+          -9333,
+          -6919.5,
+          -9053,
+          -6653.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 326,
+        "group_id": 224,
+        "name": "融雪導水路・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/3aa69c94665661d786e80763df7587f8_3313267085814035462.png",
+        "bounds": [
+          -9314,
+          -6821,
+          -9118,
+          -6643
+        ],
+        "entrances": []
+      },
+      {
+        "id": 328,
+        "group_id": 226,
+        "name": "列車墓地",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/f1e42354b5a8b053c4b07f132db986b1_4120037611794300946.png",
+        "bounds": [
+          -9305,
+          -6678,
+          -8539,
+          -6016
+        ],
+        "entrances": []
+      },
+      {
+        "id": 329,
+        "group_id": 227,
+        "name": "ギャングに占拠された洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/ee557bd868d13e7e53af425bcc1b30c3_8754084485096725693.png",
+        "bounds": [
+          -7712.5,
+          -7859,
+          -7340.5,
+          -7532
+        ],
+        "entrances": []
+      },
+      {
+        "id": 331,
+        "group_id": 229,
+        "name": "セントラルステーション・ホーム階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260929/fe056c7c9ccb0fa793631be16d5814dd_5734448539914642922.png",
+        "bounds": [
+          -7738,
+          -7179,
+          -7447,
+          -6894
+        ],
+        "entrances": []
+      },
+      {
+        "id": 332,
+        "group_id": 229,
+        "name": "セントラルステーション・出口階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260929/2db9d0f348855bf7863b053ac447315f_1703464341936128237.png",
+        "bounds": [
+          -7833,
+          -7187,
+          -7420,
+          -6809
+        ],
+        "entrances": []
+      },
+      {
+        "id": 333,
+        "group_id": 230,
+        "name": "巨大なる炎の環状通路",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/ad972d716fcac592d7db5514438bcb15_1321088287195154504.png",
+        "bounds": [
+          -7559.5,
+          -7396.5,
+          -7338.5,
+          -7196.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 334,
+        "group_id": 230,
+        "name": "巨大なる炎の炉心",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/44c3c8f927ffcae6c81200f71d4d2020_6707714312878555495.png",
+        "bounds": [
+          -7613,
+          -7440.5,
+          -7218,
+          -7084.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 335,
+        "group_id": 231,
+        "name": "真氷の山の洞窟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/3409fc6317af4ee645a31d83bbf8f324_4980516490038653889.png",
+        "bounds": [
+          -7559,
+          -6553,
+          -7146,
+          -6135
+        ],
+        "entrances": []
+      },
+      {
+        "id": 336,
+        "group_id": 231,
+        "name": "真氷の山の奥",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/e8d02cd29ca202c64fb1fbb0b9496d0f_4342564692589326867.png",
+        "bounds": [
+          -7395,
+          -6537,
+          -7085,
+          -6238
+        ],
+        "entrances": []
+      },
+      {
+        "id": 338,
+        "group_id": 233,
+        "name": "山中の館の前堂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/f6ed68b6a7825ee039ad9ab6f76f9b12_1951292995512332689.png",
+        "bounds": [
+          -7075,
+          -6070.5,
+          -6823,
+          -5825.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 339,
+        "group_id": 233,
+        "name": "山中の館の二階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/a94ec40892ac28d4a4db4ba495e03a16_6289575916373174187.png",
+        "bounds": [
+          -7132,
+          -6142,
+          -6716,
+          -5756
+        ],
+        "entrances": []
+      },
+      {
+        "id": 340,
+        "group_id": 233,
+        "name": "山中の館の天頂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/57079690f44feac4c6717e3572168df6_3510995634904578667.png",
+        "bounds": [
+          -7055,
+          -6091,
+          -6843,
+          -5898
+        ],
+        "entrances": []
+      },
+      {
+        "id": 341,
+        "group_id": 233,
+        "name": "山中の館の三階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/46722dc638dddee7be7e9e3762c14d0c_2106511334727742890.png",
+        "bounds": [
+          -7047.5,
+          -6066,
+          -6759.5,
+          -5799
+        ],
+        "entrances": []
+      },
+      {
+        "id": 342,
+        "group_id": 233,
+        "name": "雲上の宮殿",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261103/4064136b7362d1d190b2712aad28e44e_8233744005861776718.png",
+        "bounds": [
+          -7304.5,
+          -6120.5,
+          -6585.5,
+          -5445.5
+        ],
+        "entrances": [
+          "teyvat:100684"
+        ]
+      },
+      {
+        "id": 343,
+        "group_id": 234,
+        "name": "昔の皇帝の宮殿の広間",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/e44049124e1443aec6d8d76cdafa2d74_3296513444736960480.png",
+        "bounds": [
+          -6416,
+          -8143,
+          -6088,
+          -7810
+        ],
+        "entrances": []
+      },
+      {
+        "id": 344,
+        "group_id": 234,
+        "name": "空中の回廊",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/6fd0ed882001cc46cd4e3029dd007c96_5849625583733999795.png",
+        "bounds": [
+          -6427,
+          -8293,
+          -6076,
+          -7964
+        ],
+        "entrances": []
+      },
+      {
+        "id": 345,
+        "group_id": 234,
+        "name": "螺旋の高塔",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/1e644e7ed77ba3508c9a5911efdf2a8e_5422813031285650651.png",
+        "bounds": [
+          -6446,
+          -8309.5,
+          -6021,
+          -7957.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 346,
+        "group_id": 234,
+        "name": "隠されし扉を叩く場所",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/c7b1c519d364f7ef7e47d08e2e633113_7394674761121302871.png",
+        "bounds": [
+          -6327,
+          -8185,
+          -6025,
+          -7866
+        ],
+        "entrances": []
+      },
+      {
+        "id": 347,
+        "group_id": 234,
+        "name": "かつての憂いなき庭園",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260922/19f50f6d1ae4d7d7261bc9cb2899d25f_6905705046883017044.png",
+        "bounds": [
+          -6460,
+          -8262.5,
+          -6030,
+          -7871.5
+        ],
+        "entrances": [
+          "teyvat:100691"
+        ]
+      },
+      {
+        "id": 349,
+        "group_id": 235,
+        "name": "ノヴォキッチェヴ",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261105/9f54ae193444f867d15cee3ef83afbf2_3178456274059034397.png",
+        "bounds": [
+          -5903,
+          -8186,
+          -4423,
+          -6798
+        ],
+        "entrances": []
+      },
+      {
+        "id": 350,
+        "group_id": 235,
+        "name": "地底駅",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261105/44b9c8020169226b249bd3f808a26451_2909051077392035289.png",
+        "bounds": [
+          -5240,
+          -7477,
+          -4857,
+          -7148
+        ],
+        "entrances": [
+          "teyvat:106220"
+        ]
+      },
+      {
+        "id": 351,
+        "group_id": 236,
+        "name": "クルースニク鉱区",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261105/e62ea5e7e9b82c2f7d2c4e3e6abbd7cc_1705302206463109838.png",
+        "bounds": [
+          -5276,
+          -8057,
+          -4184,
+          -7155
+        ],
+        "entrances": []
+      },
+      {
+        "id": 352,
+        "group_id": 237,
+        "name": "鉱洞最深部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/d3ad7ccb866a1883f33fa1a04617422d_8033164641793348313.png",
+        "bounds": [
+          -4835,
+          -8021,
+          -4083,
+          -7316
+        ],
+        "entrances": []
+      },
+      {
+        "id": 353,
+        "group_id": 238,
+        "name": "隠された秘密の地",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/6c31c4b71221cd15c73e11989fce1791_7416919781599796286.png",
+        "bounds": [
+          -4822,
+          -6804,
+          -4149,
+          -6309
+        ],
+        "entrances": []
+      },
+      {
+        "id": 354,
+        "group_id": 239,
+        "name": "災厄によって開かれた亀裂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/ab0da0b7c070c7aea1efac3aa5ce6fb5_6738502665048909053.png",
+        "bounds": [
+          -4859.5,
+          -8466,
+          -4150.5,
+          -7774
+        ],
+        "entrances": []
+      },
+      {
+        "id": 356,
+        "group_id": 239,
+        "name": "晶鉱樹洞",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/a3076b1c478a5ea8ce9579693709ded1_526993976463318835.png",
+        "bounds": [
+          -5301,
+          -8679,
+          -4402,
+          -7872
+        ],
+        "entrances": []
+      },
+      {
+        "id": 357,
+        "group_id": 239,
+        "name": "滝へと流れる河",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/41dc4c6be64f8bf6f43744a102caf278_4937033332705026431.png",
+        "bounds": [
+          -5302,
+          -8353,
+          -4587,
+          -7722
+        ],
+        "entrances": []
+      },
+      {
+        "id": 359,
+        "group_id": 240,
+        "name": "地下の支流",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/434e2fc118b030ce7d438afc53265839_651737677143430301.png",
+        "bounds": [
+          -5472,
+          -9012,
+          -4492,
+          -8141
+        ],
+        "entrances": []
+      },
+      {
+        "id": 360,
+        "group_id": 240,
+        "name": "支流の隠れ家",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/e9c99cafee3ccbe6f1230b12cb52d016_2621625216778803654.png",
+        "bounds": [
+          -5510,
+          -8817,
+          -4786,
+          -8157
+        ],
+        "entrances": []
+      },
+      {
+        "id": 361,
+        "group_id": 241,
+        "name": "山体の裂け目",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/805e05378da2e9ffc110b26f1b37d942_5185049681566512328.png",
+        "bounds": [
+          -4299,
+          -7646,
+          -3528,
+          -6980
+        ],
+        "entrances": []
+      },
+      {
+        "id": 362,
+        "group_id": 242,
+        "name": "グレイシャル・ミラーパレス",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/c2cd6cdbafc51a7940f77c3c0692b2bb_6131584393353642585.png",
+        "bounds": [
+          -4255,
+          -7699,
+          -2696,
+          -6443
+        ],
+        "entrances": [
+          "teyvat:106213"
+        ]
+      },
+      {
+        "id": 363,
+        "group_id": 243,
+        "name": "古の鱗窟_L1",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/c5bb49eda3c69535ef07ad4203774748_1592563893340021584.png",
+        "bounds": [
+          -3372.5,
+          -7484,
+          -2325.5,
+          -6598
+        ],
+        "entrances": []
+      },
+      {
+        "id": 364,
+        "group_id": 243,
+        "name": "古の鱗窟_L2",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/59931217033414dbc8904eef4dee546e_6404688291648171754.png",
+        "bounds": [
+          -3213,
+          -7413,
+          -2363,
+          -6677
+        ],
+        "entrances": []
+      },
+      {
+        "id": 369,
+        "group_id": 246,
+        "name": "影に沈む塔の谷",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/fa04276816a9e037aea68da120d4d840_274831689554395148.png",
+        "bounds": [
+          -4851,
+          -7396,
+          -4312,
+          -7003
+        ],
+        "entrances": []
+      },
+      {
+        "id": 370,
+        "group_id": 247,
+        "name": "鉱石の底に浮かぶ影の地",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20261104/9d4e2dfb60785493af07366cc5274892_8899657141791539356.png",
+        "bounds": [
+          -4789,
+          -7478,
+          -3983,
+          -6741
+        ],
+        "entrances": [
+          "teyvat:106201",
+          "teyvat:106200"
+        ]
+      }
+    ]
+  },
+  "7": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=7",
+      "sha256": "5fb0b9b25c3cc8aa3c9f69c3f6163ce159e954c2c1ef1a76b977964b27e369a5"
+    },
+    "floors": []
+  },
+  "9": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=9",
+      "sha256": "5fb0b9b25c3cc8aa3c9f69c3f6163ce159e954c2c1ef1a76b977964b27e369a5"
+    },
+    "floors": []
+  },
+  "10": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=10",
+      "sha256": "5fb0b9b25c3cc8aa3c9f69c3f6163ce159e954c2c1ef1a76b977964b27e369a5"
+    },
+    "floors": []
+  },
+  "34": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=34",
+      "sha256": "25705bdb82d378049400cbfa5c3566babfdc06a9f0fc25f44459765cb54ff9dc"
+    },
+    "floors": [
+      {
+        "id": 157,
+        "group_id": 125,
+        "name": "旧ポルタス・アンティクス・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/a6e33c4af9876580c60730106b85885b_3317804070569065697.png",
+        "bounds": [
+          -738.25,
+          -395.25,
+          -490.25,
+          -149.25
+        ],
+        "entrances": []
+      },
+      {
+        "id": 158,
+        "group_id": 126,
+        "name": "カピトリウム・諧律院",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/c2ca2910f57db3d635d2fff7061954c8_1933758682727407140.png",
+        "bounds": [
+          -38.25,
+          64.5,
+          162.75,
+          270.5
+        ],
+        "entrances": [
+          "map34:68607"
+        ]
+      },
+      {
+        "id": 159,
+        "group_id": 127,
+        "name": "カピトリウム・かつての宮殿",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/0b30b535ca2580cda193c7aaa14193b7_9117092618165827302.png",
+        "bounds": [
+          300.5,
+          -115.5,
+          572.5,
+          117.5
+        ],
+        "entrances": []
+      },
+      {
+        "id": 160,
+        "group_id": 128,
+        "name": "黄金の宮殿・上層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/60154dc7d3f2398e9e2207b637ef9616_4461953744875671083.png",
+        "bounds": [
+          354,
+          -138.5,
+          514,
+          18.5
+        ],
+        "entrances": [
+          "map34:68614"
+        ]
+      },
+      {
+        "id": 161,
+        "group_id": 128,
+        "name": "黄金の宮殿・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/47efcf32be76b3437744dff9f2d5be8e_2308455714964092289.png",
+        "bounds": [
+          383,
+          -192,
+          472,
+          -46
+        ],
+        "entrances": [
+          "map34:68613"
+        ]
+      },
+      {
+        "id": 166,
+        "group_id": 125,
+        "name": "旧ポルタス・アンティクス・下層",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/addaccdb54bf4291fc96544218a67bb0_6624264283882568959.png",
+        "bounds": [
+          -649,
+          -357.75,
+          -430,
+          -202.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 167,
+        "group_id": 130,
+        "name": "海柱の路",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/3c246447cd3199810a28dad52c1e8c60_2011562551282750081.png",
+        "bounds": [
+          -991,
+          -46,
+          -668,
+          176
+        ],
+        "entrances": []
+      },
+      {
+        "id": 168,
+        "group_id": 131,
+        "name": "パレス・カエサレウム",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20250130/718f9b9a5cbe5f1acc2ca3597031dedf_1613322369758561883.png",
+        "bounds": [
+          -809,
+          -121,
+          -506,
+          303
+        ],
+        "entrances": []
+      }
+    ]
+  },
+  "36": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=36",
+      "sha256": "430cbd3d26c1e117c10841e36dd2d2c12e4419415957eca4d5dbd2fd4833e916"
+    },
+    "floors": [
+      {
+        "id": 221,
+        "group_id": 164,
+        "name": "古の聖山・龍の巣",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260629/fbb2e1976d1c592086444d38a1343c32_7949677023269000467.png",
+        "bounds": [
+          -943,
+          -740,
+          864,
+          629
+        ],
+        "entrances": []
+      },
+      {
+        "id": 222,
+        "group_id": 164,
+        "name": "審議の庭",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260629/a7f868d8e14fa885dc5183dd13c350a9_2275270940413793484.png",
+        "bounds": [
+          -189,
+          -142,
+          132,
+          240
+        ],
+        "entrances": []
+      },
+      {
+        "id": 223,
+        "group_id": 164,
+        "name": "聖山の心",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260629/34d6db202e93a384aaac0774d6288854_6103021732247408005.png",
+        "bounds": [
+          96,
+          -590,
+          982,
+          253
+        ],
+        "entrances": [
+          "map36:84121"
+        ]
+      }
+    ]
+  },
+  "37": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=37",
+      "sha256": "69b0ca6048b2114ec768342fc1c620714450ebc43dedfdef7cfcafe6f1c27c42"
+    },
+    "floors": [
+      {
+        "id": 279,
+        "group_id": 197,
+        "name": "大方広の間・図書館一階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/799542ff1f43b48bec26df7fd457995f_6750215786015494242.png",
+        "bounds": [
+          -842,
+          289,
+          -633,
+          380
+        ],
+        "entrances": []
+      },
+      {
+        "id": 280,
+        "group_id": 197,
+        "name": "大方広の間・図書館二階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/6bd2f692991b9c6e67e9c3cd27e49799_8020620698677558378.png",
+        "bounds": [
+          -976,
+          161,
+          -651,
+          492
+        ],
+        "entrances": []
+      },
+      {
+        "id": 281,
+        "group_id": 197,
+        "name": "大方広の間・図書館三階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/b7650071dcb53ea0fe29e10a4c2cea2c_8350772514136831409.png",
+        "bounds": [
+          -846,
+          329,
+          -742,
+          370
+        ],
+        "entrances": []
+      },
+      {
+        "id": 282,
+        "group_id": 197,
+        "name": "大方広の間・図書館四階",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/36c969c36b51c1a96278e821475b775d_8681131041212737326.png",
+        "bounds": [
+          -861,
+          293,
+          -732.22,
+          394.52
+        ],
+        "entrances": []
+      },
+      {
+        "id": 283,
+        "group_id": 198,
+        "name": "砂上の楼閣・蜃気楼",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260429/8ed7bf9bd239b6c41e04a7cbfb19c891_5039264057252585628.png",
+        "bounds": [
+          -92,
+          -720,
+          108.44999999999999,
+          -469.20000000000005
+        ],
+        "entrances": [
+          "map37:96379"
+        ]
+      },
+      {
+        "id": 284,
+        "group_id": 199,
+        "name": "空の神殿・前堂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/98125833608fd257cc4e190e7c06ac1d_4662234562263514189.png",
+        "bounds": [
+          -96,
+          316,
+          362,
+          858
+        ],
+        "entrances": [
+          "map37:96380"
+        ]
+      },
+      {
+        "id": 285,
+        "group_id": 199,
+        "name": "空の神殿・後堂",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/980cd5f5d70f4d013eb094892de60be7_5827430664816133105.png",
+        "bounds": [
+          122,
+          349,
+          285,
+          492
+        ],
+        "entrances": []
+      },
+      {
+        "id": 286,
+        "group_id": 200,
+        "name": "無想の間",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260409/76a87f4ecdf18d6d20e9156a401e4038_6643758720681960572.png",
+        "bounds": [
+          -448.54999999999995,
+          -416.05,
+          328.54999999999995,
+          266.05
+        ],
+        "entrances": [
+          "map37:96381"
+        ]
+      },
+      {
+        "id": 288,
+        "group_id": 201,
+        "name": "正覚の間",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/5b189c8e31db8a6e657f5c183b9c6eb8_1955504841967321046.png",
+        "bounds": [
+          -31,
+          -29,
+          31,
+          31
+        ],
+        "entrances": []
+      },
+      {
+        "id": 289,
+        "group_id": 201,
+        "name": "メモリーコア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260413/cc9941dd8e8ac07fd00a5ba20ad1ddce_336296081723171968.png",
+        "bounds": [
+          -36.300000000000004,
+          -35.75,
+          37.800000000000004,
+          49.75
+        ],
+        "entrances": []
+      },
+      {
+        "id": 290,
+        "group_id": 202,
+        "name": "非有非無の檻・偏観",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260409/99b4b84dbb48cd36ccdad69c0b1ef78e_5579981176129788918.png",
+        "bounds": [
+          -90.05,
+          -77,
+          3.049999999999997,
+          18
+        ],
+        "entrances": [
+          "map37:96382"
+        ]
+      },
+      {
+        "id": 291,
+        "group_id": 202,
+        "name": "非有非無の檻",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260409/1550a03e7258bdd6c5f8f7596e5951e9_3626408777231481064.png",
+        "bounds": [
+          -44,
+          -44,
+          49.099999999999994,
+          49.099999999999994
+        ],
+        "entrances": [
+          "map37:96383"
+        ]
+      }
+    ]
+  },
+  "40": {
+    "source": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=40",
+      "sha256": "66b2fd2c5b790bfd15abd9aeb24f681d044c30a4b92b5c417484c8a768922790"
+    },
+    "floors": [
+      {
+        "id": 299,
+        "group_id": 206,
+        "name": "月心の深穴",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/462b75eaef630e0f6151dd8379f9643d_4253770223893432216.png",
+        "bounds": [
+          -668,
+          -582,
+          709.1400000000003,
+          535.4000000000001
+        ],
+        "entrances": []
+      },
+      {
+        "id": 300,
+        "group_id": 206,
+        "name": "暗面基地・輸送ポート",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/6de60bc4b907f1a6efdf275d72adaa5a_3249016336726368754.png",
+        "bounds": [
+          -39,
+          -141,
+          255.51999999999998,
+          126.13999999999999
+        ],
+        "entrances": []
+      },
+      {
+        "id": 301,
+        "group_id": 207,
+        "name": "星海生物捕捉ステーション",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260720/b88eb433ca9cc816b853ccef3e4d6f9e_5028291993135172902.png",
+        "bounds": [
+          4332,
+          -738,
+          5328.04,
+          224.74
+        ],
+        "entrances": []
+      },
+      {
+        "id": 303,
+        "group_id": 209,
+        "name": "水の浮島",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260713/a90d30334199950476a965e55cbdb65e_8625387867491624824.png",
+        "bounds": [
+          4708,
+          2,
+          4887.08,
+          167.76
+        ],
+        "entrances": [
+          "map40:99300"
+        ]
+      },
+      {
+        "id": 304,
+        "group_id": 210,
+        "name": "ウージエン生態圏・地下の洞穴",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260715/dacbefd3a6deceef91aeade290810a06_4701153579769453863.png",
+        "bounds": [
+          4640.375,
+          -204.375,
+          4960.625,
+          100.875
+        ],
+        "entrances": []
+      },
+      {
+        "id": 306,
+        "group_id": 212,
+        "name": "地下エネルギーステーション",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/b6540021157239e5d361d26a1a667749_2541693439881844418.png",
+        "bounds": [
+          5355.57,
+          330.40999999999997,
+          5661.929999999999,
+          631.59
+        ],
+        "entrances": []
+      },
+      {
+        "id": 309,
+        "group_id": 214,
+        "name": "ウージエン生態圏・動力機関室",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/284e75ca50606dc7156b1e8593b33dc4_1091916197409874258.png",
+        "bounds": [
+          4742.26,
+          -273.15999999999997,
+          5002.74,
+          17.659999999999968
+        ],
+        "entrances": []
+      },
+      {
+        "id": 310,
+        "group_id": 214,
+        "name": "ウージエン生態圏・動力中枢部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/093175d5f3d7b41cf7d0385c1e28466d_4215569552378934980.png",
+        "bounds": [
+          4786,
+          -284,
+          4953.98,
+          -115.28
+        ],
+        "entrances": []
+      },
+      {
+        "id": 311,
+        "group_id": 214,
+        "name": "ウージエン生態圏・動力中枢部",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/d187698804ea0d4bccb1b09177b66d12_2830816201340335701.png",
+        "bounds": [
+          4748,
+          -258,
+          4998.12,
+          -22.680000000000035
+        ],
+        "entrances": []
+      },
+      {
+        "id": 312,
+        "group_id": 214,
+        "name": "天の舟",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/81ecf1e480c4cd2051639e30be3d84a5_8628560896042399735.png",
+        "bounds": [
+          4765,
+          -194,
+          4965.54,
+          -3.080000000000041
+        ],
+        "entrances": []
+      },
+      {
+        "id": 313,
+        "group_id": 215,
+        "name": "マーゴの温室・入口",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260728/375abd647638deb280adb4b9a0a31262_3617277238192644332.png",
+        "bounds": [
+          4913.8,
+          -19.370000000000005,
+          5124.7,
+          184.87
+        ],
+        "entrances": []
+      },
+      {
+        "id": 314,
+        "group_id": 215,
+        "name": "マーゴの温室・培養エリア",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260728/f91076b23ef07d927e1984a09f113f8a_594428653484125325.png",
+        "bounds": [
+          4867.91,
+          -90.46000000000001,
+          5187.59,
+          174.46
+        ],
+        "entrances": []
+      },
+      {
+        "id": 315,
+        "group_id": 216,
+        "name": "ヌールの石柱群",
+        "url": "https://act-upload.hoyoverse.com/map_manage/20260707/0a77e001a7f044c0a1e55be99a223afe_6935803586686229316.png",
+        "bounds": [
+          6124.76,
+          -231.505,
+          6329.74,
+          -47.245000000000005
+        ],
+        "entrances": []
+      }
+    ]
+  }
+}

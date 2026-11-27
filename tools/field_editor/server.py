@@ -10,22 +10,30 @@ import os
 import secrets
 import threading
 from urllib.parse import parse_qs, unquote, urlparse
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
 from urllib.error import HTTPError, URLError
 
-from .model import ROOT, Store, DesignError, require
+from .model import ROOT, Store, DesignError, floor_image_url, require
 from .commands import operation, compile_japanese
+from .remote_mcp import RemoteMCP
 
 WEB = Path(__file__).parent / 'web'
 MAX_BODY = 4 * 1024 * 1024
 TILE_LOCK = threading.Lock()
 
 
+class FloorImageRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        require(floor_image_url(newurl), 'Unapproved floor image redirect')
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 class EditorServer(ThreadingHTTPServer):
     daemon_threads = True
 
-    def __init__(self, address, store, token=None):
+    def __init__(self, address, store, token=None, *, remote_mcp=None):
         self.store = store
+        self.remote_mcp = remote_mcp
         self.ui_token = secrets.token_urlsafe(32)
         self.api_token = token or os.getenv('FIELD_EDITOR_TOKEN')
         super().__init__(address, Handler)
@@ -81,20 +89,35 @@ class Handler(BaseHTTPRequestHandler):
         require(isinstance(value, dict), 'JSON must be an object')
         return value
 
+    def chatgpt_status(self):
+        remote = self.server.remote_mcp
+        status = remote.status() if remote else {
+            'enabled': False, 'endpoint': None, 'tunnel_id': None, 'allow_proposals': False,
+            'last_contact': None, 'authentication': 'unconfigured',
+        }
+        return {**status, 'revision': self.server.store.snapshot()['revision']}
+
     def do_GET(self):
         try:
             self.check_origin()
             u = urlparse(self.path); path = u.path; q = parse_qs(u.query)
             store = self.server.store
             if path == '/api/health': return self.send(200, {'ok': True, 'revision': store.data['revision']})
+            if path == '/api/chatgpt/session':
+                if self.headers.get('Authorization') or self.headers.get('Sec-Fetch-Site') != 'same-origin':
+                    raise DesignError('Open the local ChatGPT settings page', 403)
+                return self.send(200, {'ui_token': self.server.ui_token})
             if path == '/api/bootstrap':
                 # Browser-only bootstrap. Bearer agents receive no approval credential.
                 if self.headers.get('Authorization') or self.headers.get('Sec-Fetch-Site') != 'same-origin': raise DesignError('Open the local editor page to initialize a UI session; agents use documented API operations', 403)
-                return self.send(200, {'ui_token': self.server.ui_token, 'maps': store.maps, 'map_sources': store.sources, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
+                return self.send(200, {'ui_token': self.server.ui_token, 'custom_waypoints': True, 'remove_pending_connection': True, 'maps': store.maps, 'map_sources': store.sources, 'map_floors': store.floors, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
+            if path.startswith('/floors/'):
+                return self.floor_image(path)
             if path.startswith('/tiles/'):
                 return self.tile(path)
             if path.startswith('/api/'):
-                self.authorize()
+                self.authorize(approve=path == '/api/chatgpt/status')
+                if path == '/api/chatgpt/status': return self.send(200, self.chatgpt_status())
                 if path == '/api/project': return self.send(200, store.snapshot())
                 if path == '/api/fields': return self.send(200, store.list_fields(q.get('region_id', [None])[0], q.get('query', [''])[0]))
                 if path.startswith('/api/fields/'): return self.send(200, store.field(unquote(path[len('/api/fields/'):])) )
@@ -105,6 +128,10 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send(200, out.encode('utf8') if isinstance(out, str) else out, {'markdown': 'text/markdown; charset=utf-8', 'csv': 'text/csv; charset=utf-8'}.get(fmt, 'application/json; charset=utf-8'))
                 return self.send(404, {'error': 'Unknown API route'})
             assets = {'/': ('index.html', 'text/html; charset=utf-8'), '/index.html': ('index.html', 'text/html; charset=utf-8'), '/app.js': ('app.js', 'text/javascript; charset=utf-8'), '/map.js': ('map.js', 'text/javascript; charset=utf-8'), '/style.css': ('style.css', 'text/css; charset=utf-8'), '/favicon.ico': ('favicon.svg', 'image/svg+xml'), '/favicon.svg': ('favicon.svg', 'image/svg+xml')}
+            assets.update({
+                '/chatgpt': ('chatgpt.html', 'text/html; charset=utf-8'),
+                '/chatgpt.js': ('chatgpt.js', 'text/javascript; charset=utf-8'),
+            })
             if path in assets:
                 file, mime = assets[path]; return self.send(200, (WEB / file).read_bytes(), mime)
             if path in ('/schema.json', '/openapi.json'):
@@ -115,9 +142,19 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             path = urlparse(self.path).path
-            self.authorize(approve=path in ('/api/approve', '/api/undo'))
+            self.authorize(approve=path in ('/api/approve', '/api/undo', '/api/chatgpt/test', '/api/chatgpt/stop', '/api/proposals/remove-connection'))
             req = self.request_json(); store = self.server.store
+            if path in ('/api/chatgpt/test', '/api/chatgpt/stop'):
+                remote = self.server.remote_mcp
+                if remote is None:
+                    raise DesignError('ChatGPT MCP is not configured', 409)
+                if path == '/api/chatgpt/stop':
+                    remote.stop_access()
+                    return self.send(200, self.chatgpt_status())
+                return self.send(200, {'ok': remote.test_access(), **self.chatgpt_status()})
             if path == '/api/proposals': return self.send(201, store.propose(req))
+            if path == '/api/proposals/remove-connection':
+                return self.send(200, {'proposal': store.remove_pending_connection(req['proposal_id'], req['edge_id'])})
             if path == '/api/approve': return self.send(200, store.approve(req['proposal_id'], req['revision'], req.get('overwrite_approved', False)))
             if path == '/api/operations': return self.send(200, operation(store, req['operation'], req.get('arguments', {})))
             if path == '/api/compile':
@@ -143,6 +180,35 @@ class Handler(BaseHTTPRequestHandler):
         if isinstance(e, DesignError): return self.send(e.status, {'error': str(e), **e.details})
         if isinstance(e, (ValueError, TypeError, KeyError, AttributeError, json.JSONDecodeError)): return self.send(400, {'error': 'Invalid request: ' + str(e)})
         self.send(500, {'error': 'Internal error; no design transaction was committed'})
+
+    def floor_image(self, path):
+        parts = path.split('/')
+        require(len(parts) == 4, 'Invalid floor image path')
+        map_id, floor_id = map(int, parts[2:])
+        floor = self.server.store.floors.get(str(map_id), {}).get(floor_id)
+        require(floor is not None, 'Official floor image unavailable')
+        url = floor['url']
+        require(floor_image_url(url), 'Unapproved floor image host')
+        key = hashlib.sha256(url.encode()).hexdigest()
+        cache = self.server.store.root / 'work/field-editor-tiles' / 'floors'
+        target = cache / (key + '.png')
+        if target.exists():
+            return self.send(200, target.read_bytes(), 'image/png')
+        try:
+            opener = build_opener(FloorImageRedirect())
+            request = Request(url, headers={'User-Agent': 'FieldDesignEditor/1 (local design preview)'})
+            with opener.open(request, timeout=15) as response:
+                raw = response.read(12 * 1024 * 1024 + 1)
+            require(len(raw) <= 12 * 1024 * 1024 and raw.startswith(bytes.fromhex('89504e470d0a1a0a')), 'Invalid floor image')
+        except (HTTPError, URLError, TimeoutError):
+            return self.send(502, {'error': 'Official floor image unavailable'})
+        with TILE_LOCK:
+            cache.mkdir(parents=True, exist_ok=True)
+            if not target.exists():
+                tmp = target.with_suffix('.tmp')
+                tmp.write_bytes(raw)
+                tmp.replace(target)
+        return self.send(200, raw, 'image/png')
 
     def tile(self, path):
         parts = path.split('/')
@@ -178,10 +244,40 @@ def main():
     parser.add_argument('--port', type=int, default=int(os.getenv('PORT', '8770')))
     parser.add_argument('--data', type=Path, help='Alternate isolated project JSON (tests/preview)')
     parser.add_argument('--strictPort', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('--mcp-port', type=int, help='Enable private Streamable HTTP on 127.0.0.1:PORT')
+    parser.add_argument('--mcp-allow-proposals', action='store_true', help='Expose the pending-proposal tool')
+    parser.add_argument('--tunnel-id', help='Show the Secure MCP Tunnel ID in local settings')
     args = parser.parse_args()
-    server = EditorServer((args.host, args.port), Store(args.data))
-    print(f'Field editor: http://{args.host}:{server.server_port}', flush=True)
-    server.serve_forever()
+    if args.mcp_port is not None and args.host not in ('127.0.0.1', 'localhost'):
+        parser.error('ChatGPT MCP requires the editor UI to bind to loopback')
+    if args.mcp_port is None and (args.mcp_allow_proposals or args.tunnel_id):
+        parser.error('--mcp-allow-proposals and --tunnel-id require --mcp-port')
+
+    store = Store(args.data)
+    remote = None
+    if args.mcp_port is not None:
+        try:
+            remote = RemoteMCP(args.mcp_port, store, os.getenv('FIELD_EDITOR_MCP_TOKEN'),
+                               allow_proposals=args.mcp_allow_proposals, tunnel_id=args.tunnel_id)
+        except (OSError, ValueError) as exc:
+            parser.error(str(exc))
+    try:
+        with EditorServer((args.host, args.port), store, remote_mcp=remote) as server:
+            if remote:
+                thread = threading.Thread(target=remote.serve_forever, daemon=True)
+                thread.start()
+                print(f'ChatGPT MCP (local relay target): {remote.endpoint}', flush=True)
+            print(f'Field editor: http://{args.host}:{server.server_port}', flush=True)
+            try:
+                server.serve_forever()
+            except KeyboardInterrupt:
+                pass
+            finally:
+                if remote:
+                    remote.shutdown()
+    finally:
+        if remote:
+            remote.server_close()
 
 
 if __name__ == '__main__': main()

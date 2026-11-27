@@ -17,7 +17,7 @@ def handle(message):
         elif method == 'ping': result = {}
         elif method == 'tools/list':
             from pathlib import Path
-            schemas = json.loads((Path(__file__).parent / 'schemas/tools.json').read_text())
+            schemas = json.loads((Path(__file__).parent / 'schemas/tools.json').read_text(encoding='utf-8'))
             result = {'tools': [{'name': n, 'description': ('Read current repository design. ' if n in READ_TOOLS else 'Create a proposal for local user review; does not approve or apply. ') + n, 'inputSchema': schemas[n], 'annotations': {'readOnlyHint': n in READ_TOOLS, 'destructiveHint': False, 'idempotentHint': n in READ_TOOLS}} for n in READ_TOOLS + WRITE_TOOLS]}
         elif method == 'tools/call':
             p = message['params']; name = p['name']
@@ -38,6 +38,8 @@ def handle(message):
 
 
 def main():
+    sys.stdin.reconfigure(encoding='utf-8')
+    sys.stdout.reconfigure(encoding='utf-8')
     for line in sys.stdin:
         try:
             if len(line) > 4 * 1024 * 1024: raise ValueError('Message too large')

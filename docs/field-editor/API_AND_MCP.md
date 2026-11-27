@@ -8,7 +8,7 @@
 | JSON/Markdownの受け渡し | ChatGPTに相談し、生成した変更JSONをユーザー/Codexが取り込む | ネットワーク接続・LLM APIキー不要 |
 | CodexのローカルMCP stdio | 正本参照、接続/敵登録/配置/削除/履歴取得、変更案作成 | 同じPCでMCP実行、起動中のAPI、同一のAPIトークン |
 | ChatGPT Actions等のHTTPS API | 到達可能なAPIへ参照/変更案の送信 | 所有者が構成する認証付きHTTPSプロキシ、権限設定・トークン |
-| ChatGPTのリモートMCP | 今回のstdio MCPには直接接続不可 | 別途認証付きStreamable HTTPブリッジ/コネクターが必要 |
+| ChatGPTのリモートMCP | 参照・整合性検査。許可された場合に変更案の作成 | 専用Streamable HTTP待受とSecure MCP Tunnel。[Windowsでの接続手順](CHATGPT_SETUP.md) |
 
 **ChatGPTのWeb会話から `127.0.0.1` やユーザーのローカルファイルに直接アクセスできるとは仮定していません。** このエディタの設計チャットは限定したオフライン構文変換で、OpenAI等のLLM APIを呼び出していません。
 
@@ -113,7 +113,7 @@ env_vars = ["FIELD_EDITOR_TOKEN"]
 
 ## HTTPSで接続する場合
 
-今回、外部公開・トンネル・ChatGPT接続の有効化は行っていません。ChatGPT Actionsに使用するには、ユーザーが所有する到達可能なHTTPSエンドポイントと認証設定が必要です。
+リモートMCPの第一候補はSecure MCP Tunnelです。HTTPSでリモートMCPを構成する場合は [ChatGPT連携手順](CHATGPT_SETUP.md#secure-mcp-tunnelを使えない場合) を参照してください。以下はChatGPT Actionsなどから既存HTTP APIを使う場合の手順です。ユーザーが所有する到達可能なHTTPSエンドポイントと認証設定が必要です。
 
 1. ローカルUIはloopbackのまま維持します。
 2. 認証付きHTTPSプロキシで**参照・提案用のAPIルートだけ**公開します。`/api/bootstrap`、`/api/approve`、`/api/undo`、静的UIへの外部アクセスを許可しない構成にします。

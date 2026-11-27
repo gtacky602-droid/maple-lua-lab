@@ -315,6 +315,57 @@
         }
       }
     },
+    "/api/proposals/remove-connection": {
+      "post": {
+        "summary": "Remove a new connection from a pending proposal in the local editor",
+        "operationId": "proposals_remove-connection",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "localUI": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "proposal_id": {
+                    "type": "string"
+                  },
+                  "edge_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "proposal_id",
+                  "edge_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/compile": {
       "post": {
         "summary": "Compile supported Japanese commands or return candidate IDs",
@@ -740,6 +791,30 @@
                                 "items": {
                                   "type": "string"
                                 }
+                              },
+                              "waypoint_position": {
+                                "type": "object",
+                                "required": [
+                                  "map_id",
+                                  "x",
+                                  "y"
+                                ],
+                                "properties": {
+                                  "map_id": {
+                                    "type": "string"
+                                  },
+                                  "x": {
+                                    "type": "number",
+                                    "exclusiveMinimum": -10000000.0,
+                                    "exclusiveMaximum": 10000000.0
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "exclusiveMinimum": -10000000.0,
+                                    "exclusiveMaximum": 10000000.0
+                                  }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "additionalProperties": false
@@ -1847,6 +1922,30 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "waypoint_position": {
+                    "type": "object",
+                    "required": [
+                      "map_id",
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "map_id": {
+                        "type": "string"
+                      },
+                      "x": {
+                        "type": "number",
+                        "exclusiveMinimum": -10000000.0,
+                        "exclusiveMaximum": 10000000.0
+                      },
+                      "y": {
+                        "type": "number",
+                        "exclusiveMinimum": -10000000.0,
+                        "exclusiveMaximum": 10000000.0
+                      }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "additionalProperties": false
@@ -1868,7 +1967,8 @@
                     "region_id",
                     "required_route",
                     "respawn_seconds",
-                    "terrain"
+                    "terrain",
+                    "waypoint_position"
                   ]
                 },
                 "additionalProperties": {
