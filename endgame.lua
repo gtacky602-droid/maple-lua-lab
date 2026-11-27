@@ -24,12 +24,31 @@ return function(C,abyss,weekly,matches,controllers)
  local function personalBest(s,collection,id,elapsed)
   local ticksUsed=math.min(10^9,ticks(elapsed))
   local entry=collection[id]
-  if not entry then entry={clears=0};collection[id]=entry end
+  if not entry then
+   entry={clears=0};collection[id]=entry
+   s.clearRecordRevision=(s.clearRecordRevision or 0)+1
+  end
   entry.clears=math.min(1000000,entry.clears+1)
   if entry.bestTicks and ticksUsed>=entry.bestTicks then return false,entry end
   entry.bestTicks=ticksUsed
   entry.companion=s.companion or 'amber'
   return true,entry
+ end
+ function C.atlasClearedBosses(s)
+  local data=s.endgame or {}
+  local cleared={}
+  for id,record in pairs(data.bosses or {}) do
+   if record.clears>0 then cleared[id]=true end
+  end
+  for key,record in pairs(data.weekly or {}) do
+   local id=key:match('^([^:]+):')
+   if id and record.clears>0 then cleared[id]=true end
+  end
+  for key,record in pairs(data.stygian or {}) do
+   local spec=matches[key:match('^([^:]+):')]
+   if spec and record.clears>0 then cleared[spec.challenge]=true end
+  end
+  return cleared
  end
  function C.recordChallengeBoss(s,id,started)
   if not started or not s.story or not (s.story.active or s.endgameRun or s.bossJourney) then return end

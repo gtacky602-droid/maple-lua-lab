@@ -369,6 +369,35 @@ return function(C, atlas)
   return out
  end
 
+ local function region_progress(nodes,graph,s,options,selectedRegion)
+  local result={visited=0,total=0,reported=0,quests=0,cleared=0,bosses=0}
+  local cleared=C.atlasClearedBosses(s)
+  local included={}
+  for _,option in ipairs(options) do
+   if not selectedRegion or option.id==selectedRegion.id then
+    included[option.id]=true
+    result.visited=result.visited+option.visited
+    result.total=result.total+option.total
+    for _,point in ipairs(regions[option.id].points) do
+     if point.boss and nodes[point.id] then
+      result.bosses=result.bosses+1
+      if cleared[point.boss.id] then result.cleared=result.cleared+1 end
+     end
+    end
+   end
+  end
+  for _,quest in ipairs(graph.quests) do
+   if included[places[quest.hub]] and not quest.legacyOnly then
+    result.quests=result.quests+1
+    local record=s.story.quests[quest.id]
+    if record and (record.status=='complete' or (record.cycles or 0)>0) then
+     result.reported=result.reported+1
+    end
+   end
+  end
+  return result
+ end
+
  local function starting_gates(s,node,routeLevel)
   local gates={}
   if s.lift or s.story.node~=node.id then return gates end
@@ -674,7 +703,8 @@ return function(C, atlas)
   local result={width=w,height=h,region=region and region.id or 'world',layer=map.layer,
     options=options,draws={},revision=map.revision,location=nodes[f.story.node] and nodes[f.story.node].name,
     currentRegion=places[f.story.node],
-    hasHunts=region and region.hasHunts or false}
+    hasHunts=region and region.hasHunts or false,
+    progress=region_progress(nodes,f.storyGraph,s,options,region)}
   if region then
    result.points,result.selected,result.routes,result.guide=local_map(result.draws, region, nodes, s, map)
   else
@@ -791,13 +821,15 @@ return function(C, atlas)
   local map=s.worldMap
   if map then
    local node,transfer=s.story.node,s.lift and s.lift.destination
-   if map.view and (map.node~=node or map.transfer~=transfer or map.graphRevision~=f.storyGraphRevision) then
+   if map.view and (map.node~=node or map.transfer~=transfer or map.graphRevision~=f.storyGraphRevision
+      or map.clearRecordRevision~=s.clearRecordRevision) then
     map.revision=map.revision+1
     map.view=nil
    end
    if not map.view then
     map.view=build(f,s,map)
     map.node,map.transfer,map.graphRevision=node,transfer,f.storyGraphRevision
+    map.clearRecordRevision=s.clearRecordRevision
    end
    f.worldMap=map.view
   end
