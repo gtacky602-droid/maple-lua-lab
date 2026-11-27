@@ -139,6 +139,10 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
             quest = quests[weapon['quest']]
             quest['weaponReward'] = weapon['name']
             weapon['questName'] = quest['name']
+            if 'starterFlower' in weapon:
+                if quest.get('join') != weapon.get('bound') or quest.get('starter'):
+                    raise ValueError(f"Conflicting starter equipment on {quest['id']}")
+                quest['starter'] = {'weapon': {'name': weapon['name'], 'atk': 0}, 'flower': weapon['starterFlower']}
             if quest.get('regionUnavailable'):
                 weapon['regionUnavailable'] = True
     skill_catalog = json.loads((ROOT/'content/skill-catalog.json').read_text(encoding='utf8'))

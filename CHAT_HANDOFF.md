@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 同行者8人の加入報酬と入門装備を確認
+
+加入依頼の報告で、アンバーと北斗に専用武器と入門の花がそろう。花のHP +10はほか6人と同じ試作値。装備画面には、現在使っている武器と武器ATKを表示する。獲得済みLv200セーブで8人を依頼手帳から選び、報告待ちを再現したLuaセッションで武器の解放、報酬の一度限りの加算、花だけを装備した際の最大HP150を確認した。Chromeでは綾華の武器を持ち替えた編成を、保存と再読込を経て適用した。 [Luaの記録](evidence/companion-starters-lua.json) ／ [Chromeの記録](evidence/companion-starters-browser.json)
+
 ## ノヴォキッチェヴの地下2区画に仮背景を追加
 
 凍止設備の通路は、凍った配管と巻き上げ機を描いた背景。吹き溜まりの連絡坑は、雪が吹き込む石アーチの背景。ラボ内の6地点をM地図から開き、元画像と4,096・6,144矩形版を表示した。採用済みの道をLuaで15区間進み、巻き上げ機の足場、上段の門と最深室からの帰還、依頼4件の報告と再開を確認した。背景はラボ用で、本番は3D配置の方針。 [背景の比較](evidence/novokichev-terrain-comparison.png) ／ [移動と依頼の記録](evidence/novokichev-travel-lua.json) ／ [画像生成と圧縮の記録](assets/novokichev-interiors-background-generation.json)
