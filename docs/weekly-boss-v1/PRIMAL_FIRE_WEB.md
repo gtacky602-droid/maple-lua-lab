@@ -11,6 +11,12 @@
 
 ## 検証と比較
 
+獲得済みLv200セーブで最上級に入り、最初の刺剣の障壁に通常攻撃を12回当てた。破壊後、HUDに反撃開始と残り時間が出る。期限を待つと受付終了と大玉の予告が表示される。Chromeで地上に留まった旅人は波3回で計78ダメージ、大玉で29ダメージを受けた。両方の試走で床幅は880→792→704→616pxと変わり、その後に討伐して周回報酬と勝数の復元を確認した。床を3回確認するため、試走では段階ごとに攻撃を一時控えた。
+
+障壁の開始・結果、反撃開始と終了、足場切断を含む14場面で、元画像、中間画質 `h48c32`、軽量版 `h32c16` を比較した。矩形をまとめる前後で同一画質の描画命令を展開すると、位置・寸法・色・順序は全28組で一致。Chromeで最上級の同一停止フレームを中間画質にして切り替えた際、gzip応答は158,645 Bから105,780 Bになり、Canvasの全画素が一致した。 [最上級再戦・描画・転送の実測](../../evidence/primal-gate-branches-20261128.json)
+
+最上級の再戦は、同戦勝利済みのLv200セーブを `test_earned_primal_gate.py --from-save SAVE.json --output-dir work/primal-gate-replay` に渡す。ラボを起動し、`node test_earned_weekly_frames.mjs work/primal-gate-replay work/primal-gate-comparison` で3画質の比較を作成する。
+
 Pで一時停止し、画像・標準矩形・軽量を切り替えると、同じ体勢と床寸法で見比べられる。障壁が開いた同一場面は標準16,349件、軽量4,399件で描画コマンドが73.1%減った。軽量では角の細い筋や鱗の色差が粗くなる。 [画像](../../evidence/primal-fire-weekly-png.png)・[標準](../../evidence/primal-fire-weekly-standard.png)・[軽量](../../evidence/primal-fire-weekly-light.png)
 
 Chromeで通常攻撃による障壁ダウン、三回の床切断、討伐、依頼報告、保存再開を確認した。落下復帰と蝕破の交代後の解決はLuaで確認した。全編成の難度、全技の回避経路、遠隔接続と実機への移植は検証範囲に残る。 [Lua回帰](../../evidence/primal-fire-weekly-lua.json)・[Chromeのプレイ記録](../../evidence/primal-fire-weekly-browser.json)

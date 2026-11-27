@@ -327,10 +327,16 @@ return function(C)
  end
  local function castTick(s,w,spec,c)
   local m,k=c.move,c.key
-  if c.success then start(s,w,spec,'WG17');return end
+  if c.success then
+   start(s,w,spec,'WG17').trial={card=c.key,outcome='broken'}
+   return
+  end
   c.t=c.t+1
   if c.t>=m.total then
-   if m.failure then start(s,w,spec,m.failure);return end
+   if m.failure then
+    start(s,w,spec,m.failure).trial={card=k,outcome='expired'}
+    return
+   end
    dropObjects(s,w);w.cast=nil;w.phase='available';w.rest=spec.restTicks;targetable(w,true)
    if ordinary[k] then w.normalCount=w.normalCount+1 end
    return
@@ -338,7 +344,10 @@ return function(C)
   for _,t in ipairs(m.locks) do if c.t==t then lock(s,w,spec,c) end end
   if trials[k] and c.t==spec.gate.opens then
    targetable(w,false);addObjects(s,w,spec,c)
-  elseif k=='WG05' and c.t==m.accept[2] then dropObjects(s,w);targetable(w,true);log(s,w,'WG05:failed') end
+  elseif k=='WG05' and c.t==m.accept[2] then
+   dropObjects(s,w);targetable(w,true);log(s,w,'WG05:failed')
+   c.trial={card=k,outcome='expired'}
+  end
   if k=='WG08' and c.t==300 then w.form=2;w.index=1;w.cutPending=true;targetable(w,false);log(s,w,'WG08:commit') end
   if k=='WG09' and c.t==spec.arena.cutTick then cut(s,w,spec,c) end
   if k=='WG04' and c.t>=54 and c.t<=84 then locate(w,spec,c.x+(c.travel-c.x)*(c.t-54)/30) end
@@ -505,7 +514,7 @@ return function(C)
    cutAt=c and c.key=='WG09' and spec.arena.cutTick,actors={},objects={},warnings={},ground={}}
   b.primal=v
   if e.hp<=0 then return end
-  local back={draws={}};local rear=painter(back,s)
+  local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches};local rear=painter(back,s)
   if c and c.key=='WG15' and c.t<192 then
    local radius=math.min(76,14+c.t*.55)
    for dy=-72,72,6 do
@@ -568,7 +577,9 @@ return function(C)
    v.warnings[#v.warnings+1]=z
   end
   v.closing=c.move.accept and c.move.accept[2] or trials[c.key] and c.move.total
+  v.trial=c.trial
   v.exposure=w.phase=='exposed' and c.move.exposure[2]-c.t
+  if c.key=='WG17' and c.t<c.move.exposure[1] then v.exposureOpensIn=c.move.exposure[1]-c.t end
   for _,o in ipairs(w.objects) do
    local h=o.kind=='pillar' and 121 or o.kind=='gate' and 78 or 45
    local radius=o.kind=='gate' and 33 or 18
@@ -582,7 +593,10 @@ return function(C)
   for _,p in ipairs(c.shots) do
    rect(p.x-p.r,p.y-7,2*p.r,14,p.color);rect(p.x-6,p.y-5,12,10,pale)
   end
-  if c.key=='WG05' and c.t>=780 and c.t<840 then rect(c.x-15,e.y-152,30,30,violet,.85) end
+  if c.key=='WG05' and c.trial and c.t<c.move.projectiles[1].spawn_ticks[1] then
+   v.largeOrbWarning=true
+   rect(c.x-15,e.y-152,30,30,violet,.85)
+  end
  end
  return controller
 end

@@ -6,7 +6,7 @@ const browser=await chromium.launch({headless:true,channel:'chrome',args:['--dis
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg,timeout=65000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const canvas=page.locator('#game'),prefix='evidence/primal-fire-weekly';
+const canvas=page.locator('#game'),prefix=process.env.LAB_WEEKLY_EVIDENCE || 'evidence/primal-fire-weekly';
 const hub='natlan-hub',node='primal-fire-sundered-forge',quest='primal-fire-weekly-commission',id='boss-29091101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -48,6 +48,7 @@ try{
  assert.ok((await page.locator('#weeklyPrimalHint').textContent()).includes('障壁'));
  const png=await capture('png');
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(()=>window.lab.frame.commands>12000);
  const standard=await frame(),legacy=await capture('standard');
  await page.locator('#renderMode').selectOption('h32c16');
@@ -99,6 +100,8 @@ try{
  await wait(()=>window.lab.frame.weeklyBoss?.phase==='exposed');
  const exposed=await frame();
  assert.equal(exposed.weeklyBoss.hp,gate.weeklyBoss.hp);
+ const trialStatus=await page.locator('#weeklyPrimalHint').textContent();
+ assert.match(trialStatus,/障壁を破壊.+反撃できる時間/);
  assert.ok(exposed.events.some(e=>e.kind==='primal:WG05:gate'&&e.actor===1&&e.value===1));
  assert.equal(exposed.events.filter(e=>e.kind==='primal:WG17').length,1);
  await page.locator('.game').screenshot({path:prefix+'-exposed.png'});
@@ -135,7 +138,7 @@ try{
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({scenery,trials,cuts,physicalBarrierConfirmed:true,
-  firstExposedTicks:exposed.weeklyBoss.primal.exposure,commands:{png:gate.commands,standard:standard.commands,light:reduced.commands},
+  trialStatus,firstExposedTicks:exposed.weeklyBoss.primal.exposure,commands:{png:gate.commands,standard:standard.commands,light:reduced.commands},
   viewport390:true,clearReportRestore:true,remainingHp:finished.actors[0].hp,errors},null,2)+'\n');
  console.log('Primal Fire Chrome: gate, three real cuts, defeat, report, save and visual profiles passed');
 }catch(error){

@@ -1,0 +1,324 @@
+{
+  "baseCommit": "1d06587ad6c09938d24dd29e818c6d336ea02518",
+  "routeSetup": "Two copies of a level-200 earned save, each started from the expert weekly desk. Only ordinary directional and attack inputs after entering. Later boss damage is paced to reach all three arena cuts.",
+  "beforeAfterCombatTraceIdentical": true,
+  "fights": [
+    {
+      "controller": "primal_fire",
+      "case": "primal-barrier-broken",
+      "label": "蝕まれし源焔の主・障壁破壊",
+      "ticks": 9116,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "barrier": {
+        "tick": 861,
+        "moveTick": 457,
+        "event": "primal:WG05:broken",
+        "contacts": [
+          {
+            "moveTick": 61,
+            "units": 11
+          },
+          {
+            "moveTick": 97,
+            "units": 10
+          },
+          {
+            "moveTick": 133,
+            "units": 9
+          },
+          {
+            "moveTick": 169,
+            "units": 8
+          },
+          {
+            "moveTick": 205,
+            "units": 7
+          },
+          {
+            "moveTick": 241,
+            "units": 6
+          },
+          {
+            "moveTick": 277,
+            "units": 5
+          },
+          {
+            "moveTick": 313,
+            "units": 4
+          },
+          {
+            "moveTick": 349,
+            "units": 3
+          },
+          {
+            "moveTick": 385,
+            "units": 2
+          },
+          {
+            "moveTick": 421,
+            "units": 1
+          },
+          {
+            "moveTick": 457,
+            "units": 0
+          }
+        ],
+        "hits": [
+          {
+            "moveTick": 180,
+            "loss": 26
+          },
+          {
+            "moveTick": 360,
+            "loss": 26
+          }
+        ],
+        "bossHp": 2900
+      },
+      "exposureTicks": 480,
+      "floors": [
+        {
+          "tick": 3573,
+          "hp": 2084,
+          "left": 128,
+          "width": 792
+        },
+        {
+          "tick": 6133,
+          "hp": 1340,
+          "left": 216,
+          "width": 704
+        },
+        {
+          "tick": 8431,
+          "hp": 620,
+          "left": 304,
+          "width": 616
+        }
+      ],
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "primal_fire",
+      "case": "primal-barrier-expired",
+      "label": "蝕まれし源焔の主・時間切れ",
+      "ticks": 9079,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "barrier": {
+        "tick": 1184,
+        "moveTick": 780,
+        "event": "primal:WG05:failed",
+        "contacts": [],
+        "hits": [
+          {
+            "moveTick": 180,
+            "loss": 26
+          },
+          {
+            "moveTick": 360,
+            "loss": 26
+          },
+          {
+            "moveTick": 540,
+            "loss": 26
+          }
+        ],
+        "bossHp": 2900
+      },
+      "exposureTicks": 0,
+      "floors": [
+        {
+          "tick": 3536,
+          "hp": 2084,
+          "left": 128,
+          "width": 792
+        },
+        {
+          "tick": 6096,
+          "hp": 1340,
+          "left": 216,
+          "width": 704
+        },
+        {
+          "tick": 8394,
+          "hp": 620,
+          "left": 304,
+          "width": 616
+        }
+      ],
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "comparisonScenes": 14,
+  "matchedExpandedRectangleStreams": 28,
+  "matchingChromeColorErrorProfiles": 28,
+  "profiles": {
+    "h48c32": {
+      "previousBytes": 14697807,
+      "currentBytes": 3077821,
+      "matchedStreams": 14,
+      "closerToOriginalThanOtherProfileScenes": 14,
+      "reductionPercent": 79.06
+    },
+    "h32c16": {
+      "previousBytes": 6399365,
+      "currentBytes": 1349489,
+      "matchedStreams": 14,
+      "closerToOriginalThanOtherProfileScenes": 0,
+      "reductionPercent": 78.91
+    }
+  },
+  "chrome": "158.0.8127.38",
+  "browserPackedTransfer": {
+    "boss": "boss-29091101",
+    "profile": "h48c32",
+    "time": 1.8499999999999983,
+    "canvasIdentical": true,
+    "packed": {
+      "gzipBytes": 105780,
+      "draws": 36
+    },
+    "plain": {
+      "gzipBytes": 158645,
+      "draws": 9521
+    }
+  },
+  "luaRegression": {
+    "manifest_cards": [
+      "WG01",
+      "WG02",
+      "WG03",
+      "WG04",
+      "WG05",
+      "WG06",
+      "WG07",
+      "WG08",
+      "WG09",
+      "WG10",
+      "WG11",
+      "WG12",
+      "WG13",
+      "WG14",
+      "WG15",
+      "WG16",
+      "WG17",
+      "WG18"
+    ],
+    "shared_hp_contact_dedup": true,
+    "physical_g12_from_tick_60": true,
+    "per_actor_barrier_gap": 24,
+    "failed_large_orb_tick": 840,
+    "deadline_tick_rejects_new_hit": 780,
+    "buds_remove_owned_shots_and_fail_into_palm": true,
+    "exposure_ticks": 480,
+    "erosion_owner_and_heal_independence": true,
+    "ground_has_300_tick_life": true,
+    "actual_floor_left": [
+      40,
+      128,
+      216,
+      304
+    ],
+    "last_floor_width": 616,
+    "cuts_spaced_by_at_least_600_ticks": true,
+    "fall_and_ledge_use_real_physics": true,
+    "fall_after_victory_returns_to_safe_floor": true,
+    "three_pillars_inside_final_floor": true,
+    "reward_report_restore": true
+  },
+  "coopRegression": {
+    "lua": {
+      "participants": 4,
+      "oneErosionQueuePerActor": true,
+      "persistsOnSwapAndNotExit": true,
+      "threeSharedCuts": [
+        128,
+        216,
+        304
+      ],
+      "physicalFallsOnlyWhenOffLedge": true,
+      "gatesSharedAndCooldownPerActor": true,
+      "sameRootRejected": true,
+      "closingBoundarySuccessBeforeAndFailureAtDeadline": true,
+      "sharedPillars": true,
+      "exposure": 480,
+      "catastropheOncePerActor": true,
+      "wipeRestoresFloorAndHp": true
+    },
+    "http": {
+      "participants": 2,
+      "normalInputsShareGate": true,
+      "cutGeometryShared": true,
+      "retreatFreezesTrial": true,
+      "returnedToSameCutAndGate": true,
+      "sharedHp": 2900,
+      "personalXp": 637200,
+      "personalMora": 3400,
+      "ownQuestAndSaves": true
+    }
+  },
+  "browserClear": {
+    "scenery": {
+      "key": "sunderedForge",
+      "file": "sundered-forge-background-v1.png",
+      "state": "ready"
+    },
+    "trials": [
+      "WG05",
+      "WG14",
+      "WG16"
+    ],
+    "cuts": [
+      {
+        "left": 40,
+        "width": 880,
+        "collisionLeft": 40
+      },
+      {
+        "left": 128,
+        "width": 792,
+        "collisionLeft": 128
+      },
+      {
+        "left": 216,
+        "width": 704,
+        "collisionLeft": 216
+      },
+      {
+        "left": 304,
+        "width": 616,
+        "collisionLeft": 304
+      }
+    ],
+    "physicalBarrierConfirmed": true,
+    "trialStatus": "足場 10/10 ｜ 障壁を破壊 ｜ 反撃できる時間 7.4秒",
+    "firstExposedTicks": 480,
+    "commands": {
+      "png": 55,
+      "standard": 16329,
+      "light": 4379
+    },
+    "viewport390": true,
+    "clearReportRestore": true,
+    "remainingHp": 1228,
+    "errors": []
+  },
+  "browserExpired": {
+    "open": "足場 10/10 ｜ 障壁 12/12 ｜ 残り 12秒",
+    "closed": "足場 10/10 ｜ 障壁の受付終了 ｜ 大玉に注意",
+    "cutAtDeadline": 0,
+    "exposureAtDeadline": false,
+    "travelerWaveDamage": [
+      26,
+      26,
+      26
+    ],
+    "travelerLargeOrbDamage": 29
+  }
+}
