@@ -34,13 +34,14 @@ canvas{display:block;flex:none;margin-inline:auto;image-rendering:pixelated}
 <main>
 <nav><a href="characters-art.html">人物素材</a><a href="index.html">Luaラボ</a></nav>
 <h1>旅人の低頭身比較</h1>
-<p>現行・B案・C案を、表示高88pxと足元の位置をそろえて比較します。</p>
+<p>表示高88pxと足元をそろえて比較します。頭身は、跳ねた髪を除く頭頂から靴底までを、頭頂からあごまでで割った目視の概算です。ラボの目安は2.8〜3.2頭身です。</p>
 <fieldset id="controls" disabled>
 <legend>表示設定</legend>
-<label>向き <select id="direction"><option value="right">右向き</option><option value="front">正面</option><option value="back">背面</option></select></label>
+<label>向き <select id="direction"><option value="right">右向き</option><option value="left">左向き</option><option value="front">正面</option><option value="back">背面</option></select></label>
 <label>仮背景 <select id="backdrop"><option value="plain">無地</option><option value="mond">モンド</option><option value="liyue">璃月</option><option value="inazuma">稲妻</option><option value="fontaine">フォンテーヌ</option></select></label>
 <label>矩形版 <select id="profile"><option value="legacy">標準・88px</option><option value="h48c32">中間・66px</option><option value="h32c16" selected>軽量・44px</option></select></label>
 <label>倍率 <select id="zoom"><option value="1">実寸</option><option value="2">2倍</option><option value="3">3倍</option></select></label>
+<label><input type="checkbox" id="headGuides">計測線（黄は頭頂、水色はあご）</label>
 </fieldset>
 <section id="cards" aria-label="旅人の待機絵"></section>
 <p id="status" role="status">素材を読み込んでいます</p>
