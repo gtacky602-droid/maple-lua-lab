@@ -1,0 +1,429 @@
+{
+  "baseCommit": "4def2ab1c316d6a2f323a862399c600fcad946aa",
+  "method": "Extreme rematches from the same earned Lv200 save via regular movement, jump, drop and attack inputs. One pilot uses the safe gate from the first finale. The other opens but stays outside the first two gates, switches back to the Traveler after the pair returns and takes the next safe gate. Both land a normal attack in the first safe recovery, win and restore the repeat reward record.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "ronova",
+      "case": "ronova-gate",
+      "label": "最初の終告を安全門でしのぐ",
+      "ticks": 14695,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "phaseStartHp": [
+        12300,
+        9225,
+        5535,
+        1845
+      ],
+      "movesSeen": [
+        "RN01",
+        "RN02",
+        "RN03",
+        "RN04",
+        "RN05",
+        "RN06",
+        "RN10",
+        "RN07",
+        "RN11",
+        "RN12",
+        "RN08"
+      ],
+      "roadMarks": 4,
+      "verdicts": [
+        {
+          "serial": 35,
+          "tick": 840,
+          "safe": true,
+          "collected": 2,
+          "x": 230.0,
+          "gateX": 224,
+          "hpBefore": 103421,
+          "hpAfter": 103421,
+          "life": 88,
+          "lamps": 5,
+          "activeAfter": 1
+        },
+        {
+          "serial": 39,
+          "tick": 840,
+          "safe": true,
+          "collected": 2,
+          "x": 230.0,
+          "gateX": 224,
+          "hpBefore": 103279,
+          "hpAfter": 103279,
+          "life": 76,
+          "lamps": 5,
+          "activeAfter": 1
+        }
+      ],
+      "lamp": null,
+      "returned": null,
+      "recoveryTicks": 270,
+      "counterDamage": 52,
+      "reward": {
+        "mora": 85100,
+        "bag": true,
+        "rank": 5,
+        "first": false,
+        "set": "黄金の劇団",
+        "xp": 96022584
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "ronova",
+      "case": "ronova-return",
+      "label": "裁定で倒れ、灯で戻ってから安全門へ",
+      "ticks": 19090,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "phaseStartHp": [
+        12300,
+        9225,
+        5535,
+        1845
+      ],
+      "movesSeen": [
+        "RN01",
+        "RN02",
+        "RN03",
+        "RN04",
+        "RN05",
+        "RN06",
+        "RN10",
+        "RN07",
+        "RN11",
+        "RN12",
+        "RN08"
+      ],
+      "roadMarks": 4,
+      "verdicts": [
+        {
+          "serial": 35,
+          "tick": 840,
+          "safe": false,
+          "collected": 2,
+          "x": 856.5,
+          "gateX": 224,
+          "hpBefore": 103421,
+          "hpAfter": 0,
+          "life": 88,
+          "lamps": 5,
+          "activeAfter": 2
+        },
+        {
+          "serial": 39,
+          "tick": 840,
+          "safe": false,
+          "collected": 2,
+          "x": 854.5,
+          "gateX": 224,
+          "hpBefore": 103042,
+          "hpAfter": 0,
+          "life": 76,
+          "lamps": 4,
+          "activeAfter": 2
+        },
+        {
+          "serial": 43,
+          "tick": 840,
+          "safe": true,
+          "collected": 2,
+          "x": 475.0,
+          "gateX": 480,
+          "hpBefore": 104089,
+          "hpAfter": 104089,
+          "life": 88,
+          "lamps": 4,
+          "activeAfter": 1
+        },
+        {
+          "serial": 47,
+          "tick": 840,
+          "safe": true,
+          "collected": 2,
+          "x": 230.0,
+          "gateX": 224,
+          "hpBefore": 104054,
+          "hpAfter": 104054,
+          "life": 88,
+          "lamps": 4,
+          "activeAfter": 1
+        }
+      ],
+      "lamp": {
+        "tick": 13939,
+        "lamps": 4,
+        "bossHp": 1845,
+        "stage": 4,
+        "moveTick": 840,
+        "partyBefore": [
+          0,
+          103042
+        ],
+        "waitTicks": 120
+      },
+      "returned": {
+        "tick": 14059,
+        "bossHp": 1845,
+        "stage": 4,
+        "moveTick": 840,
+        "life": 100,
+        "protectionTicks": 120,
+        "lamps": 4
+      },
+      "recoveryTicks": 270,
+      "counterDamage": 52,
+      "reward": {
+        "xp": 96022584,
+        "mora": 85100,
+        "rank": 5,
+        "bag": true,
+        "first": false,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    }
+  ],
+  "comparisonScenes": 13,
+  "profiles": {
+    "h48c32": {
+      "beforeBytes": 9458461,
+      "afterBytes": 2311138,
+      "matchedCommands": 13,
+      "matchedChromeCanvases": 13,
+      "reductionPercent": 75.57
+    },
+    "h32c16": {
+      "beforeBytes": 3469831,
+      "afterBytes": 1108710,
+      "matchedCommands": 13,
+      "matchedChromeCanvases": 13,
+      "reductionPercent": 68.05
+    }
+  },
+  "rerirGalleryRegressionScenes": 24,
+  "chromeVersion": "158.0.8127.38",
+  "luaRegression": {
+    "cards": [
+      "RN01",
+      "RN02",
+      "RN03",
+      "RN04",
+      "RN05",
+      "RN06",
+      "RN07",
+      "RN08",
+      "RN09",
+      "RN10",
+      "RN11",
+      "RN12"
+    ],
+    "peak_hp": 12300,
+    "life_separate_from_hp": true,
+    "aid_interrupt_and_completion": true,
+    "shadow_split_and_third_optional_return_echo": true,
+    "all_four_threshold_stages": true,
+    "safe_gate_at_840_and_recovery_864": true,
+    "partner_death_does_not_spend_lamp": true,
+    "five_returns_and_spectate_on_sixth_wipe": true,
+    "wait_and_protection_ticks": 120,
+    "hp_phase_ct_and_shared_light_gauge_preserved": true,
+    "stale_verdict_cancelled": true,
+    "life_one_no_split": true,
+    "missed_return_verdict_at_708": true,
+    "record_and_save": true
+  },
+  "coopRegression": {
+    "players": 2,
+    "trials": {
+      "hp": 5460,
+      "lifeLossPerPair": 18,
+      "ownEchoesAndAid": true,
+      "independentTrials": [
+        "RN03",
+        "RN06",
+        "RN08",
+        "RN12"
+      ],
+      "gatePositions": [
+        224,
+        736
+      ],
+      "clearBeforeWipe": true,
+      "rewards": [
+        {
+          "rank": 5,
+          "bag": true,
+          "xp": 14558781,
+          "first": true,
+          "mora": 54300,
+          "set": "黄金の劇団"
+        },
+        {
+          "rank": 5,
+          "bag": true,
+          "xp": 14558781,
+          "first": true,
+          "mora": 54300,
+          "set": "剣闘士のフィナーレ"
+        }
+      ],
+      "savedClears": 1
+    },
+    "returns": {
+      "lampsPerPair": 5,
+      "finalReturnAtZero": true,
+      "blockedOldVerdict": true,
+      "protectedReturn": true,
+      "sharedClockHeldWhileAllDown": true,
+      "clockActiveWithSurvivor": true,
+      "reconnectPreservedLamps": true,
+      "spectateThenFail": true
+    }
+  },
+  "browserRoutes": {
+    "gate": {
+      "background": {
+        "key": "lastJudgment",
+        "file": "false-moon-rift-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "moves": [
+          "RN01",
+          "RN02",
+          "RN03",
+          "RN04",
+          "RN05",
+          "RN06",
+          "RN07",
+          "RN12",
+          "RN08"
+        ],
+        "authority": 0,
+        "lamps": 0,
+        "returns": 0,
+        "pickups": {
+          "RN03": 3,
+          "RN06": 2,
+          "RN08": 2
+        },
+        "down": 0,
+        "road": 4,
+        "lifeMin": 46,
+        "lifeMax": 100,
+        "gate": true,
+        "wing": true
+      },
+      "questReportSaveRestore": true,
+      "lampsAtWin": 5,
+      "viewport390": true,
+      "verdictText": "安全門で裁定をしのいだ",
+      "commands": {
+        "png": 160,
+        "standard": 12499,
+        "light": 3386
+      },
+      "transfer": {
+        "plainDraws": 3386,
+        "packedDraws": 160,
+        "plainGzip": 53779,
+        "packedGzip": 42304,
+        "identicalCanvas": true
+      },
+      "errors": []
+    },
+    "return": {
+      "background": {
+        "key": "lastJudgment",
+        "file": "false-moon-rift-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "moves": [
+          "RN01",
+          "RN02",
+          "RN03",
+          "RN04",
+          "RN05",
+          "RN06",
+          "RN07",
+          "RN12",
+          "RN08",
+          "RN07",
+          "RN04",
+          "RN05",
+          "RN08",
+          "RN02",
+          "RN06",
+          "RN12",
+          "RN08"
+        ],
+        "authority": 2,
+        "lamps": 1,
+        "returns": 1,
+        "pickups": {
+          "RN03": 3,
+          "RN06": 2,
+          "RN08": 2
+        },
+        "down": 0,
+        "road": 4,
+        "lifeMin": 46,
+        "lifeMax": 100,
+        "gate": true,
+        "wing": true
+      },
+      "questReportSaveRestore": true,
+      "lampsAtWin": 4,
+      "viewport390": true,
+      "verdictText": "安全門で裁定をしのいだ",
+      "commands": {
+        "png": 160,
+        "standard": 12867,
+        "light": 3505
+      },
+      "transfer": {
+        "plainDraws": 3505,
+        "packedDraws": 160,
+        "plainGzip": 56902,
+        "packedGzip": 42831,
+        "identicalCanvas": true
+      },
+      "errors": []
+    }
+  }
+}

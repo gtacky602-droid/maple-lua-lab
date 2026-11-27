@@ -191,11 +191,16 @@ return function(C,G,M)
   v.aidTicks=r.aid and r.aid.finish-r.age or nil
   v.aidCooldown=r.aidCooldown
   v.card,v.tick,v.hint=c and c.key,c and c.t or r.age-r.phaseAt,hint(r,c,p)
+  if c and c.key=='RN08' then v.finalVerdict=p.finalVerdict end
   if c and c.t>=c.recover and (c.key=='RN08' or c.key=='RN12') then v.pose='RN09' end
   if r.lastDown and r.age-r.lastDown.at<=12 then v.lastDown=r.lastDown end
   f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,phase=v.phase,
    label=c and c.data.title or v.stageName}
   local back={draws={}}
+  if mode=='rect' and s.packRectArt then
+   back.rectIndex,back.rectBatches={},f.rectBatches or {}
+   f.rectBatches=back.rectBatches
+  end
   local rect=painter(back,s.camera)
   local inFinale=c and c.key=='RN08'
   local open=r.status=='clear' and .08 or v.pose and .10 or inFinale and 1 or .38+r.stage*.10

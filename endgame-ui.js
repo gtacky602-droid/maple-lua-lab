@@ -146,6 +146,18 @@ export function rerirTrialText(fight){
  return count+(result.damage?` ｜ 最終衝撃が命中・${result.damage}ダメージ`:' ｜ 最終衝撃の被ダメージなし');
 }
 
+const ronovaVerdictResults={
+ gate:'安全門で裁定をしのいだ',down:'終告の裁定で戦闘不能',
+ avoided:'終告の裁定を回避した','prior-down':'先に戦闘不能になったため裁定を免れた'
+};
+
+export function ronovaVerdictText(fight){
+ if(fight.match!=='ronova'||fight.card!=='RN08')return '';
+ if(fight.finalVerdict)return ronovaVerdictResults[fight.finalVerdict];
+ if(fight.gate)return fight.gate.inside?'安全門の内側':'安全門へ移動';
+ return '';
+}
+
 export function stygianFinaleText(fight){
  const labels=stygianFinaleLabels[fight.match];
  const damage=fight.finale?.damage;
@@ -280,10 +292,11 @@ export function initEndgameUI(action){
    const active=fight.status==='fighting';
    const roadProgress=fight.road?.total!==undefined;
    const finale=stygianFinaleText(fight);
+   const verdict=ronovaVerdictText(fight);
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
-    &&!roadProgress&&fight.windMarks===undefined&&!finale);
+    &&!roadProgress&&fight.windMarks===undefined&&!finale&&!verdict);
    if(!mechanic.hidden){
-    mechanic.textContent=finale || rerirTrialText(fight) || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
+    mechanic.textContent=finale || rerirTrialText(fight) || verdict || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
      : fight.windMarks!==undefined ? `風標 ${fight.windMarks} / ${fight.windGoal}${fight.markTime?` ｜ 残り ${Math.ceil(fight.markTime/60)}秒`:''}`
      : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
      : `結界 ${fight.ward} / 2`);
