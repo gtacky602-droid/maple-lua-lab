@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {narwhalJourneyText,raidenFlowerText} from './endgame-ui.js';
+import {narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -581,12 +581,7 @@ function hud(f,calls,renderMs){
  }
  $('weeklyPrimal').hidden=!primal||field.phase==='respawn';
  if(primal&&field.phase!=='respawn'){
-  const objects=Array.isArray(primal.objects)?primal.objects:[];
-  const objectNames={gate:'障壁',bud:'芽',pillar:'柱'};
-  const trial=objects.length?objects.map((o,i)=>`${objectNames[o.kind]}${objects.length>1?i+1:''} ${o.units}/${o.max}`).join(' ｜ '):'';
-  $('weeklyPrimalHint').textContent=[`足場 ${10-primal.cuts}/10`,trial,trial?`残り ${Math.ceil((primal.closing-primal.tick)/60)}秒`:
-   primal.exposure?`反撃できる時間 ${(primal.exposure/60).toFixed(1)}秒`:
-   primal.cutAt&&primal.tick<primal.cutAt?'左端が崩れます。白線より右へ':''].filter(Boolean).join(' ｜ ');
+  $('weeklyPrimalHint').textContent=primalTrialText(primal);
   $('weeklyPrimalErosion').textContent=primal.actors.map(a=>`${a.id===1?'旅人':'同行'} 蝕破 ${a.count}/4${a.count?`（次の損傷まで ${(a.remaining/60).toFixed(1)}秒）`:''}`).join(' ｜ ');
  }
  $('weeklyKnave').hidden=!knave;
