@@ -6,6 +6,7 @@ from field_pose_files import enemy_pose_files, legend_pose_files
 import common_boss_art as boss_parts
 from packed_poses import deferred_grid, load_pose_pack, read_packed_pose, shared_pack
 from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
+from story_scope import suspended_stage_returns
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
@@ -120,11 +121,10 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     sights = lua.execute((ROOT / 'story-sights.lua').read_text(encoding='utf-8'))(core)
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
-    suspended_regions = story_data.get('suspendedRegions', {})
-    suspended_nodes = {node['id'] for node in story_data['nodes'] if node['region'] in suspended_regions}
+    suspended_nodes = suspended_stage_returns(story_data)
     for node in story_data['nodes']:
         if node['id'] in suspended_nodes:
-            node['resumeAt'] = suspended_regions[node['region']]
+            node['resumeAt'] = suspended_nodes[node['id']]
     weapons = json.loads((ROOT/'content/weapon-settings.json').read_text(encoding='utf8'))
     if draft_balance:
         balance = json.loads((ROOT/'content/field-balance-draft.json').read_text(encoding='utf8'))

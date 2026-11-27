@@ -1,0 +1,17 @@
+{
+  "legacySaveResumedIn": "nod-town",
+  "legacyWeaponRestored": "SW08",
+  "suspendedEncounter": "original-prism-walker",
+  "noChallengeOrTravelLink": true,
+  "artLinkKept": true,
+  "playableFilterHidesEncounter": true,
+  "activeCoopMaps": 392,
+  "excludedCoopSites": [
+    "ナド・クライ特別地域（仮）・入口拠点",
+    "照り返しの波打ち際",
+    "月映りの庭（仮）",
+    "庭の外周・静かな道"
+  ],
+  "roomCreatedIn": "nod-town",
+  "pageErrors": []
+}

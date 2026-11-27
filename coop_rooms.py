@@ -5,9 +5,14 @@ import json
 import secrets
 
 from runtime import ROOT, native
+from story_scope import suspended_stage_returns
 
 
 RULES = json.loads((ROOT / 'content/coop-preview.json').read_text(encoding='utf8'))
+_story_graph = json.loads((ROOT / 'content/story-graph.json').read_text(encoding='utf8'))
+_suspended_nodes = suspended_stage_returns(_story_graph)
+RULES['nodes'] = {id: name for id, name in RULES['nodes'].items() if id not in _suspended_nodes}
+del _story_graph, _suspended_nodes
 TICK = 1 / 60
 MAX_TICKS = 6
 
