@@ -2,7 +2,10 @@ return function(C)
  local wolf={}
  local avoid=C.aiAvoidTarget
  local ice,wind,pale,ink='#74ddff','#b9f4d9','#efffff','#233855'
+ local roarPulses,roarHeight={108,138,168},390
+ local phantomRadius=25
  local function clamp(x,a,b)return math.max(a,math.min(b,x))end
+ local function roarBounds(x)return clamp(x-240,40,920),clamp(x+240,40,920)end
  local function actorKey(s,a) return s.actorOwners and a or a.id end
  local function lerp(a,b,q)return a+(b-a)*q end
  local function active(s)
@@ -89,10 +92,11 @@ return function(C)
     end
    end
    for i,offset in ipairs({-120,0,120})do c.points[i]=clamp(x+offset,left,right)end
-  elseif m=='roar' then c.left,c.right=clamp(c.origin-240,40,920),clamp(c.origin+240,40,920)
+  elseif m=='roar' then c.left,c.right=roarBounds(c.origin)
   elseif m=='phantom' then
    c.entry=x<480 and 800 or 160;c.finish=c.entry==800 and 160 or 800
-   c.left,c.right=120,840;c.phantomDir=c.finish>c.entry and 1 or -1
+   c.left,c.right=math.min(c.entry,c.finish)-phantomRadius,math.max(c.entry,c.finish)+phantomRadius
+   c.phantomDir=c.finish>c.entry and 1 or -1
   end
  end
  local function transitionPosition(w,c,spec)
@@ -216,10 +220,10 @@ return function(C)
     area(s,w,c.seen[i],c.points[i]-25,c.points[i]+25,c.floorY-110,m.damage,c.floorY)
    end end
   elseif m.kind=='roar' then
-   for i,at in ipairs({108,138,168})do if t>=at and t<at+12 then area(s,w,c.seen[i],c.left,c.right,390,m.damage,nil,'anemo')end end
+   for i,at in ipairs(roarPulses)do if t>=at and t<at+12 then area(s,w,c.seen[i],c.left,c.right,roarHeight,m.damage,nil,'anemo')end end
   elseif m.kind=='phantom' and t>=72 and t<=120 then
    local x=lerp(c.entry,c.finish,clamp((t-72+1)/48,0,1));c.phantomX=x
-   capsule(s,w,c.seen[1],c.lastPhantomX or c.entry,x,446,25,m.damage,'anemo');c.lastPhantomX=x
+   capsule(s,w,c.seen[1],c.lastPhantomX or c.entry,x,446,phantomRadius,m.damage,'anemo');c.lastPhantomX=x
   end
   hazard(s,w,spec)
   if t>=c.total then
@@ -266,7 +270,7 @@ return function(C)
    return x
   end
   local left,right=c.left,c.right
-  if m=='roar' then left,right=clamp(c.origin-240,40,920),clamp(c.origin+240,40,920)end
+  if m=='roar' then left,right=roarBounds(c.origin)end
   if (m=='dash' or m=='roar') and left and a.x>left-24 and a.x<right+24 then
    if a.y<=spec.platforms[2].y+3 then return nil end
    return escape(s,w,a,spec,left,right)
@@ -302,19 +306,32 @@ return function(C)
   end
   b.hazards={};for _,h in ipairs(w.hazards)do b.hazards[#b.hazards+1]={left=h.left,right=h.right,remaining=h.remaining}end
   if e.hp<=0 then return end
-  local layer={draws={}};local pose=c and recovery(c) and 'ready' or w.pose or 'ready';local variant=w.awakened and 'awake' or 'normal'
+  local layer={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches}
+  local pose=c and recovery(c) and 'ready' or w.pose or 'ready';local variant=w.awakened and 'awake' or 'normal'
   if variant=='normal' and (pose=='rise' or pose=='howl')then pose='ready' end
   local height=spec.artHeight
   if c and c.move.kind=='interlude' and e.y==320 then height=110 end
   C.drawAndriusWeeklyArt(layer,e.x-s.camera,e.y,variant..'-'..pose,height,mode,profile,e.dir>0)
   if c then
    local m,t=c.move.kind,c.tick
-   local tellEnd=({swipe=72,tail=84,spin=108,leap=120,dash=108,roar=180})[m]
+   local tellEnd=({swipe=72,tail=84,spin=108,leap=120,dash=108})[m]
    if c.left and tellEnd and t<tellEnd then
-    line(layer,c.left,c.right,476,m=='roar' and wind or ice)
-    if m=='roar' then
-     text(layer,c.center,355,'咆哮・上段 / 範囲外 SAFE',pale)
-     for _,p in ipairs(spec.platforms)do if p.y<480 then line(layer,p.x,p.x+p.w,p.y-3,wind);text(layer,p.x+p.w/2,p.y-15,'SAFE',wind)end end
+    line(layer,c.left,c.right,476,ice)
+   end
+   if m=='roar' and t<180 then
+    local left,right=roarBounds(c.origin)
+    local pulse
+    for i,at in ipairs(roarPulses) do if t>=at and t<at+12 then pulse=i;break end end
+    local edge=pulse and '#ffd2a0' or wind
+    line(layer,left,right,roarHeight,edge)
+    line(layer,left,right,spec.floorY-4,edge)
+    rect(layer,left,roarHeight,3,spec.floorY-roarHeight,edge)
+    rect(layer,right-3,roarHeight,3,spec.floorY-roarHeight,edge)
+    text(layer,c.origin,220,pulse and ('北風の咆哮 '..pulse..'/3') or '咆哮の範囲',pale,15)
+    for _,p in ipairs(spec.platforms)do if p.y<roarHeight then
+     line(layer,p.x,p.x+p.w,p.y-3,wind)
+     text(layer,p.x+p.w/2,p.y-15,'上段は安全',wind)
+    end
     end
    end
    if recovery(c) then text(layer,e.x,e.y-200,'反撃の好機',wind)end
@@ -335,7 +352,10 @@ return function(C)
     if t>=342 and t<468 then line(layer,spec.center-100,spec.center+100,476,ice);text(layer,480,390,'着地予告',pale)end
     if t>=504 then text(layer,e.x,280,'反撃の好機',wind)end
    elseif m=='rain' and c.points then
-    line(layer,40,92.8,476,ice);line(layer,867.2,920,476,ice);text(layer,480,465,'中央へ / 端に冷気',pale)
+    if t<132 then
+     line(layer,40,92.8,476,'#6599c0');line(layer,867.2,920,476,'#6599c0')
+     text(layer,67,460,'冷気床の予兆',ice);text(layer,893,460,'冷気床の予兆',ice)
+    end
     for i,x in ipairs(c.points)do
      local at=96+i*36
      if t<at+12 then
@@ -346,8 +366,14 @@ return function(C)
      end
     end
    elseif m=='phantom' and c.entry then
-    if t<120 then line(layer,c.left,c.right,476,wind);text(layer,c.entry,420,c.phantomDir>0 and '→' or '←',pale,28)end
-    if c.phantomX and t<=120 then C.drawAndriusWeeklyArt(layer,c.phantomX,480,'awake-run',100,mode,profile,c.phantomDir>0)end
+    if t<=120 then
+     line(layer,c.left,c.right,476,wind)
+     text(layer,c.entry,420,c.phantomDir>0 and '→' or '←',pale,28)
+     if c.phantomX then
+      C.drawAndriusWeeklyArt(layer,c.phantomX,480,'awake-run',100,mode,profile,c.phantomDir>0,.6)
+      rect(layer,c.phantomX-phantomRadius,473,phantomRadius*2,5,'#ffd2a0')
+     end
+    end
    end
    for _,p in pairs(c.bolts)do if not p.ended then
     local color=m=='blades' and wind or ice

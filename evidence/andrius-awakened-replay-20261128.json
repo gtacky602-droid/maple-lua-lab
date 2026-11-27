@@ -1,0 +1,333 @@
+{
+  "baseCommit": "4a26f85a2b532bc265396a085c0d241d90e4bc62",
+  "saveSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+  "boss": "boss-29020101",
+  "setup": "Earned level-200 save copy, normal field gates and expert desk. Reduced attack, companion attacks held, player pauses attacks at the phase boundary and until all three late skills complete.",
+  "combatTraceMatchedBeforeAfter": true,
+  "seconds": 67.42,
+  "ticks": 4045,
+  "moves": [
+    {
+      "tick": 49,
+      "id": "WA01"
+    },
+    {
+      "tick": 187,
+      "id": "WA02"
+    },
+    {
+      "tick": 343,
+      "id": "WA03"
+    },
+    {
+      "tick": 559,
+      "id": "WA04"
+    },
+    {
+      "tick": 763,
+      "id": "WA05"
+    },
+    {
+      "tick": 1465,
+      "id": "WA06"
+    },
+    {
+      "tick": 2089,
+      "id": "WA07"
+    },
+    {
+      "tick": 2329,
+      "id": "WA08"
+    },
+    {
+      "tick": 2737,
+      "id": "WA09"
+    },
+    {
+      "tick": 3073,
+      "id": "WA10"
+    },
+    {
+      "tick": 3325,
+      "id": "WA11"
+    }
+  ],
+  "phases": [
+    {
+      "tick": 0,
+      "id": "P1"
+    },
+    {
+      "tick": 1465,
+      "id": "INTERLUDE"
+    },
+    {
+      "tick": 2088,
+      "id": "P2"
+    },
+    {
+      "tick": 4045,
+      "id": "finished"
+    }
+  ],
+  "travelerHpLossDuringLateCasts": {
+    "WA09": [
+      {
+        "tick": 168,
+        "hpLost": 18
+      }
+    ],
+    "WA10": [
+      {
+        "tick": 108,
+        "hpLost": 12
+      },
+      {
+        "tick": 168,
+        "hpLost": 12
+      }
+    ],
+    "WA11": [
+      {
+        "tick": 94,
+        "hpLost": 18
+      }
+    ]
+  },
+  "expertClearsBeforeAndAfterReload": [
+    2,
+    3
+  ],
+  "verifiedSaveState": [
+    "repeat XP and Mora",
+    "quest stages unchanged",
+    "visited fields unchanged"
+  ],
+  "comparedScenes": 9,
+  "matchedExpandedRectangleStreams": 18,
+  "chrome": "158.0.8127.38",
+  "profileDrawingJson": {
+    "h48c32": {
+      "priorBytes": 12445002,
+      "newBytes": 2639798,
+      "reductionPercent": 78.79
+    },
+    "h32c16": {
+      "priorBytes": 5204970,
+      "newBytes": 1145552,
+      "reductionPercent": 77.99
+    }
+  },
+  "liveChromeOpening": {
+    "boss": "boss-29020101",
+    "profile": "h48c32",
+    "time": 10.516666666666769,
+    "canvasIdentical": true,
+    "packed": {
+      "gzipBytes": 111786,
+      "draws": 10
+    },
+    "plain": {
+      "gzipBytes": 160454,
+      "draws": 10296
+    }
+  },
+  "localCoopRegression": {
+    "lua": {
+      "participants": 4,
+      "oneInterlude": true,
+      "individualRushAndLanding": true,
+      "independentBladeCapsAndHazards": true,
+      "adoptedColdFloorCooldown": true,
+      "realHeightSafety": true,
+      "individualRewards": true,
+      "lethalHitPrecedesInterlude": true
+    },
+    "http": {
+      "participants": 3,
+      "rank": "entry",
+      "underlevelEntryRejection": true,
+      "rankedAndStoryWorldsSeparate": true,
+      "rankedJoinMigration": true,
+      "emptyInterludePreserved": true,
+      "personalRankRewards": [
+        {
+          "first": true,
+          "xp": 31241,
+          "mora": 272250,
+          "clears": 1
+        },
+        {
+          "first": false,
+          "xp": 29700,
+          "mora": 181500,
+          "clears": 2
+        }
+      ]
+    }
+  },
+  "localCollisionRegression": {
+    "normalAttackWithoutHealing": {
+      "seconds": 147.08,
+      "hp": 116,
+      "transitions": 1,
+      "falls": 0,
+      "moves": [
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA05",
+        "WA06",
+        "WA07",
+        "WA08",
+        "WA09",
+        "WA10",
+        "WA11"
+      ]
+    },
+    "ordinaryWindBladeJumpsAndLandings": 2,
+    "aiUpperLanding": true,
+    "aiMaxHorizontalStep": 3.5,
+    "provisionalOriginalResistancesAndMixedComponents": true,
+    "closeAttackWindows": {
+      "WA01": 20,
+      "WA02": 19,
+      "WA03": 24,
+      "WA04": 25,
+      "WA05": 22
+    },
+    "actualLeapAndLockedLanding": true,
+    "tailFacingAndThreePieceCap": true,
+    "oneSafeHP50Transition": true,
+    "transitionTwoDashesLandingAnd504Counter": true,
+    "upperFloorOrdinaryJumpAndRoarSafe": true,
+    "lowWaveMatchesFloorHeight": true,
+    "windBladesSpawns": [
+      96,
+      186,
+      276
+    ],
+    "threeLockedRainPointsAndTwoFiniteEdges": true,
+    "edgeFloorOneSecondCooldown": true,
+    "roarRespectsExistingHurtImmunity": true,
+    "onePhantomNoAddRewards": true,
+    "lethalDamagePrecedesTransition": true,
+    "unfinishedSaveExitWipeAndVictoryReportRespawn": true,
+    "sameSceneCommands": {
+      "png": 100,
+      "standard": 16679,
+      "light": 4505
+    }
+  },
+  "scenes": [
+    {
+      "capture": "WA09-予兆",
+      "battleTick": 2840,
+      "h48c32": {
+        "priorBytes": 1095130,
+        "newBytes": 243871
+      },
+      "h32c16": {
+        "priorBytes": 384640,
+        "newBytes": 103445
+      }
+    },
+    {
+      "capture": "WA09-落下と冷気床",
+      "battleTick": 2869,
+      "h48c32": {
+        "priorBytes": 1095914,
+        "newBytes": 243980
+      },
+      "h32c16": {
+        "priorBytes": 385424,
+        "newBytes": 103554
+      }
+    },
+    {
+      "capture": "WA10-予兆",
+      "battleTick": 3117,
+      "h48c32": {
+        "priorBytes": 1176029,
+        "newBytes": 256592
+      },
+      "h32c16": {
+        "priorBytes": 508706,
+        "newBytes": 113384
+      }
+    },
+    {
+      "capture": "WA10-一波",
+      "battleTick": 3181,
+      "h48c32": {
+        "priorBytes": 1179742,
+        "newBytes": 256597
+      },
+      "h32c16": {
+        "priorBytes": 512419,
+        "newBytes": 113389
+      }
+    },
+    {
+      "capture": "WA10-二波",
+      "battleTick": 3211,
+      "h48c32": {
+        "priorBytes": 1179742,
+        "newBytes": 256597
+      },
+      "h32c16": {
+        "priorBytes": 512419,
+        "newBytes": 113389
+      }
+    },
+    {
+      "capture": "WA10-三波",
+      "battleTick": 3241,
+      "h48c32": {
+        "priorBytes": 1179087,
+        "newBytes": 255942
+      },
+      "h32c16": {
+        "priorBytes": 511764,
+        "newBytes": 112734
+      }
+    },
+    {
+      "capture": "WA11-予兆",
+      "battleTick": 3379,
+      "h48c32": {
+        "priorBytes": 1178301,
+        "newBytes": 252975
+      },
+      "h32c16": {
+        "priorBytes": 510978,
+        "newBytes": 109767
+      }
+    },
+    {
+      "capture": "WA11-疾走",
+      "battleTick": 3405,
+      "h48c32": {
+        "priorBytes": 2178959,
+        "newBytes": 436622
+      },
+      "h32c16": {
+        "priorBytes": 938721,
+        "newBytes": 187945
+      }
+    },
+    {
+      "capture": "WA11-接触",
+      "battleTick": 3418,
+      "h48c32": {
+        "priorBytes": 2182098,
+        "newBytes": 436622
+      },
+      "h32c16": {
+        "priorBytes": 939899,
+        "newBytes": 187945
+      }
+    }
+  ]
+}

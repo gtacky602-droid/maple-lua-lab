@@ -102,7 +102,8 @@ try{
  await page.evaluate(()=>{window.andriusFight=true});await resume();
  const interlude=await freeze('WA06',120);assert.equal(interlude.weeklyBoss.transitions,1);await canvas.screenshot({path:prefix+'-interlude.png'});await resume();
  const png=await freeze('WA08',80);assert.ok(png.weeklyBoss.awakened&&png.weeklyBoss.stage==='P2');await canvas.screenshot({path:prefix+'-png.png'});
- await page.locator('#renderMode').selectOption('rect');await page.waitForFunction(()=>window.lab.frame.commands>1000);const standard=await frame();
+ await page.locator('#renderMode').selectOption('rect');await page.locator('#packRectArt').uncheck();
+ await page.waitForFunction(()=>window.lab.frame.commands>1000);const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');await page.waitForFunction(n=>window.lab.frame.commands<n*.65,standard.commands);const light=await frame();
  assert.deepEqual([standard.t,light.t],[png.t,png.t]);await canvas.screenshot({path:prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');await page.evaluate(()=>{window.andriusFight=false});await resume();

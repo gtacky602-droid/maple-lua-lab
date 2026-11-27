@@ -3,8 +3,13 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
-const [save, output] = process.argv.slice(2);
-assert(save && output, 'Usage: node test_weekly_rect_transfer.mjs SAVE OUTPUT_JSON');
+const [save, output, boss = 'raiden'] = process.argv.slice(2);
+const encounters = new Map([
+  ['raiden', {id:'boss-29060201', hub:'inazuma-town', gateX:1305, spritePrefix:'raiden-weekly-normal-'}],
+  ['andrius', {id:'boss-29020101', hub:'mond-town', approach:'mond-road', gateX:940, spritePrefix:'andrius-weekly-normal-'}],
+]);
+const encounter = encounters.get(boss);
+assert(save && output && encounter, 'Usage: node test_weekly_rect_transfer.mjs SAVE OUTPUT_JSON [raiden|andrius]');
 const {nodes} = JSON.parse(await fs.readFile('content/story-graph.json', 'utf8'));
 const browser = await chromium.launch({headless:true, channel:'chrome'});
 try {
@@ -16,19 +21,20 @@ try {
   await page.getByRole('button', {name:'本編ルートへ', exact:true}).click();
   await page.locator('#importSave').setInputFiles(save);
   await page.waitForFunction(() => window.lab.frame.progression?.level === 200);
-  await drive.warp('inazuma-town');
-  await drive.walk(1305);
+  await drive.warp(encounter.hub);
+  if (encounter.approach) await drive.cross(encounter.approach);
+  await drive.walk(encounter.gateX);
   await page.locator('#weeklyDifficulty').selectOption('expert');
   await page.locator('#weeklyChallengeStart').click();
-  await page.waitForFunction(() => window.lab.frame.weeklyBoss?.id === 'boss-29060201');
+  await page.waitForFunction(id => window.lab.frame.weeklyBoss?.id === id, encounter.id);
   await page.locator('#pause').click();
   await page.waitForFunction(() => window.lab.frame.paused);
-  const {time, sprite} = await page.evaluate(async () => {
+  const {time, sprite} = await page.evaluate(async prefix => {
     const {loadScenery} = await import('./scenery.js');
     const frame = window.lab.frame;
     await loadScenery(frame);
-    return {time:frame.t, sprite:frame.draws.find(draw => draw.source === 'raiden-weekly-normal-source-v1.png')};
-  });
+    return {time:frame.t, sprite:frame.draws.find(draw => draw.source?.startsWith(prefix))};
+  }, encounter.spritePrefix);
   assert(sprite);
 
   async function capture(packed, change) {
