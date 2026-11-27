@@ -1,5 +1,6 @@
 """Play the Sumeru story from the checkpoint earned by the preceding fresh route."""
 
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -21,7 +22,8 @@ work.mkdir(parents=True, exist_ok=True)
 predecessor = 'test_inazuma_revisits.py' if after_revisits else 'test_inazuma_fresh_route.py'
 subprocess.run([sys.executable, str(ROOT/predecessor)], stdout=subprocess.DEVNULL, check=True)
 source = 'epilogue-sumeru.json' if after_revisits else 'sumeru-save.json'
-checkpoint = validate_save(read('work/inazuma-fresh-route/'+source))
+source_bytes = (ROOT/'work/inazuma-fresh-route'/source).read_bytes()
+checkpoint = validate_save(json.loads(source_bytes))
 assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 60
 
 graph = read('content/story-graph.json')
@@ -283,7 +285,7 @@ core.action(restored, 'story_accept:' + next_quest)
 assert restored.story.quests[next_quest].status == 'active'
 
 (work / 'fontaine-save.json').write_text(json.dumps(saved, ensure_ascii=False) + '\n', encoding='utf8')
-result = dict(route=milestones, completedQuests=quests, hunts=sorties, recoveryTrips=recovery_trips,
+result = dict(sourceSha256=sha256(source_bytes).hexdigest(), route=milestones, completedQuests=quests, hunts=sorties, recoveryTrips=recovery_trips,
               partyWipes=state.returns, savedAndRestored=True, firstFontaineQuestAvailable=next_quest,
               scope='Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.')
 if after_revisits:

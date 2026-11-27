@@ -1,9 +1,9 @@
 {
-  "command": "python test_fontaine_fresh_route.py (Lv1–80); reran Fontaine, Natlan, Nod and Snez with --checkpoint on consecutively earned saves",
+  "command": "python -m tools.standard_replay_report --through 160",
   "profile": "standard",
   "startLevel": 1,
   "verifiedThroughLevel": 160,
-  "worldGraphSha256": "82956853d9f9a206638e84250c3b1e7776fbf8d37d1fcda758d896c197c90900",
+  "worldGraphSha256": "d670a016250b4882b3370de38b73d572a6bdfc31f305619ee221c788ccd85ab8",
   "checkpoints": [
     {
       "segment": "mondstadt",
@@ -12,7 +12,7 @@
       "totalExp": 20729,
       "completedQuests": 6,
       "kills": 510,
-      "saveSha256": "b66325a5294221e5f560ae48934fcd96d5af5c1bb41e80a0c063454a3441222c"
+      "saveSha256": "cdb5f29e51563e834c338695156a41432f5dae3708aa327025218bbff17d7f56"
     },
     {
       "segment": "liyue",
@@ -21,7 +21,8 @@
       "totalExp": 383914,
       "completedQuests": 13,
       "kills": 1169,
-      "saveSha256": "eab0a26a73c0e967b5d2e86af22c58caa2f15410299e3f6b8920304ebe727463"
+      "saveSha256": "52992b13cb7527f7f8c7c0ec6ec14092aa906e91ed238010dd3feccfc1e84935",
+      "sourceSha256": "cdb5f29e51563e834c338695156a41432f5dae3708aa327025218bbff17d7f56"
     },
     {
       "segment": "inazuma",
@@ -30,7 +31,8 @@
       "totalExp": 2738763,
       "completedQuests": 19,
       "kills": 2715,
-      "saveSha256": "19326fe09db89211d238f8341dba85bc7207a86d8a317787b83f19b0e4943701"
+      "saveSha256": "01938b65a19eaec309ad573ff6d3d6eb93f1f848c3e5559ffcde731014af8830",
+      "sourceSha256": "52992b13cb7527f7f8c7c0ec6ec14092aa906e91ed238010dd3feccfc1e84935"
     },
     {
       "segment": "sumeru",
@@ -39,7 +41,8 @@
       "totalExp": 10032327,
       "completedQuests": 25,
       "kills": 5986,
-      "saveSha256": "230bc9c04b915347ee16c45fb1825c08a4ec0c7a9fc650b15f2f469a05bc1c30"
+      "saveSha256": "c65439fe161e2c76a27f72dcf527b8fd8f43fb6ec53d140b65a7d2351e503ac0",
+      "sourceSha256": "01938b65a19eaec309ad573ff6d3d6eb93f1f848c3e5559ffcde731014af8830"
     },
     {
       "segment": "fontaine",
@@ -48,8 +51,8 @@
       "totalExp": 37646830,
       "completedQuests": 31,
       "kills": 9650,
-      "saveSha256": "29c02d2ce571bffd5b8dbcfebad4ea678785f05a2c38024b0b2b5b30f15d978a",
-      "sourceSha256": "230bc9c04b915347ee16c45fb1825c08a4ec0c7a9fc650b15f2f469a05bc1c30"
+      "saveSha256": "700f343f52988c197ffdae0989ac6c95cb3edb882392552740e20286658f51c9",
+      "sourceSha256": "c65439fe161e2c76a27f72dcf527b8fd8f43fb6ec53d140b65a7d2351e503ac0"
     },
     {
       "segment": "natlan",
@@ -58,8 +61,8 @@
       "totalExp": 110588280,
       "completedQuests": 37,
       "kills": 15638,
-      "saveSha256": "2b04909ed2f085aaca752f8688b8ac276a0266a03ce1698afeb22b83198052ca",
-      "sourceSha256": "29c02d2ce571bffd5b8dbcfebad4ea678785f05a2c38024b0b2b5b30f15d978a"
+      "saveSha256": "1933b20172ff79a9bf82d36636ea268c2858b3e8c1b333343ec57ebb71513bab",
+      "sourceSha256": "700f343f52988c197ffdae0989ac6c95cb3edb882392552740e20286658f51c9"
     },
     {
       "segment": "nod",
@@ -68,8 +71,8 @@
       "totalExp": 362015007,
       "completedQuests": 43,
       "kills": 23193,
-      "saveSha256": "b9415dc873c3fb6395de09f31636098dadb45e46102d3f40d7d687612d1c0925",
-      "sourceSha256": "2b04909ed2f085aaca752f8688b8ac276a0266a03ce1698afeb22b83198052ca"
+      "saveSha256": "502240a540eec7d4ca0913f42441b048d7be1894dacf8bddcced74e5b922755c",
+      "sourceSha256": "1933b20172ff79a9bf82d36636ea268c2858b3e8c1b333343ec57ebb71513bab"
     },
     {
       "segment": "snez",
@@ -78,8 +81,138 @@
       "totalExp": 1222892278,
       "completedQuests": 51,
       "kills": 39674,
-      "saveSha256": "b2f54e050c49f4bc17ffdcea5e580987246ea9152d0bbe7a067b1b6966324ece",
-      "sourceSha256": "b9415dc873c3fb6395de09f31636098dadb45e46102d3f40d7d687612d1c0925"
+      "saveSha256": "ac14a188ee1903de4d09e97823cbe6c211b7113c5aaf1325ddb7245a8fc74f27",
+      "sourceSha256": "502240a540eec7d4ca0913f42441b048d7be1894dacf8bddcced74e5b922755c"
     }
-  ]
+  ],
+  "pace": {
+    "designSource": "docs/balance/EXPERIENCE_50H_V01.json",
+    "clock": "Lua simulation time during the scripted campaign",
+    "otherRouteScope": "Travel, quests, boss fights, recovery, inventory and miscellaneous replay time.",
+    "rateScenario": "Replay hunt kill count at the draft rate for each band, plus measured other route time.",
+    "totals": {
+      "replaySeconds": 42124.1,
+      "huntSeconds": 38070.85,
+      "otherRouteSeconds": 4053.25,
+      "huntKills": 37606,
+      "designSeconds": 99000.0,
+      "designHuntSeconds": 44172.0,
+      "designOtherRouteSeconds": 54828.0,
+      "atDesignHuntRateSeconds": 44753.6
+    },
+    "bands": [
+      {
+        "fromLevel": 1,
+        "toLevel": 20,
+        "replaySeconds": 696.23,
+        "huntSeconds": 506.16,
+        "otherRouteSeconds": 190.07,
+        "huntKills": 465,
+        "replayKillsPerHuntMinute": 55.12,
+        "designSeconds": 3600,
+        "designHuntSeconds": 720.0,
+        "designOtherRouteSeconds": 2880.0,
+        "designKillsPerHuntMinute": 40,
+        "atDesignHuntRateSeconds": 887.57
+      },
+      {
+        "fromLevel": 20,
+        "toLevel": 40,
+        "replaySeconds": 1006.4,
+        "huntSeconds": 701.77,
+        "otherRouteSeconds": 304.63,
+        "huntKills": 607,
+        "replayKillsPerHuntMinute": 51.9,
+        "designSeconds": 5400.0,
+        "designHuntSeconds": 1512.0,
+        "designOtherRouteSeconds": 3888.0,
+        "designKillsPerHuntMinute": 45,
+        "atDesignHuntRateSeconds": 1113.96
+      },
+      {
+        "fromLevel": 40,
+        "toLevel": 60,
+        "replaySeconds": 1694.73,
+        "huntSeconds": 1349.49,
+        "otherRouteSeconds": 345.24,
+        "huntKills": 1482,
+        "replayKillsPerHuntMinute": 65.89,
+        "designSeconds": 7200,
+        "designHuntSeconds": 2520.0,
+        "designOtherRouteSeconds": 4680.0,
+        "designKillsPerHuntMinute": 50,
+        "atDesignHuntRateSeconds": 2123.64
+      },
+      {
+        "fromLevel": 60,
+        "toLevel": 80,
+        "replaySeconds": 4783.17,
+        "huntSeconds": 4220.11,
+        "otherRouteSeconds": 563.06,
+        "huntKills": 3151,
+        "replayKillsPerHuntMinute": 44.8,
+        "designSeconds": 9000.0,
+        "designHuntSeconds": 3330.0,
+        "designOtherRouteSeconds": 5670.0,
+        "designKillsPerHuntMinute": 50,
+        "atDesignHuntRateSeconds": 4344.26
+      },
+      {
+        "fromLevel": 80,
+        "toLevel": 100,
+        "replaySeconds": 4770.65,
+        "huntSeconds": 4176.52,
+        "otherRouteSeconds": 594.13,
+        "huntKills": 3542,
+        "replayKillsPerHuntMinute": 50.88,
+        "designSeconds": 12600.0,
+        "designHuntSeconds": 5040.0,
+        "designOtherRouteSeconds": 7560.0,
+        "designKillsPerHuntMinute": 52,
+        "atDesignHuntRateSeconds": 4681.05
+      },
+      {
+        "fromLevel": 100,
+        "toLevel": 120,
+        "replaySeconds": 5528.97,
+        "huntSeconds": 4974.03,
+        "otherRouteSeconds": 554.94,
+        "huntKills": 5775,
+        "replayKillsPerHuntMinute": 69.66,
+        "designSeconds": 16200.0,
+        "designHuntSeconds": 7290.0,
+        "designOtherRouteSeconds": 8910.0,
+        "designKillsPerHuntMinute": 55,
+        "atDesignHuntRateSeconds": 6854.94
+      },
+      {
+        "fromLevel": 120,
+        "toLevel": 140,
+        "replaySeconds": 7873.6,
+        "huntSeconds": 7306.06,
+        "otherRouteSeconds": 567.54,
+        "huntKills": 7293,
+        "replayKillsPerHuntMinute": 59.89,
+        "designSeconds": 19800.0,
+        "designHuntSeconds": 9900.0,
+        "designOtherRouteSeconds": 9900.0,
+        "designKillsPerHuntMinute": 55,
+        "atDesignHuntRateSeconds": 8523.54
+      },
+      {
+        "fromLevel": 140,
+        "toLevel": 160,
+        "replaySeconds": 15770.35,
+        "huntSeconds": 14836.71,
+        "otherRouteSeconds": 933.64,
+        "huntKills": 15291,
+        "replayKillsPerHuntMinute": 61.84,
+        "designSeconds": 25200,
+        "designHuntSeconds": 13860.0,
+        "designOtherRouteSeconds": 11340.0,
+        "designKillsPerHuntMinute": 60,
+        "atDesignHuntRateSeconds": 16224.64
+      }
+    ]
+  }
 }
