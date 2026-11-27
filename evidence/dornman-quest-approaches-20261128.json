@@ -1,0 +1,405 @@
+{
+  "base": "144b8d0e8e9c6557cd6952a4b1c893c81ab145c6",
+  "portalConnectionsAndDeparturesPreserved": true,
+  "portalArrivals": [
+    {
+      "origin": "dornman-camp",
+      "destination": "dornman-depth",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "dornman-camp",
+      "destination": "dornman-wind-stairs",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "dornman-camp",
+      "destination": "dornman-flag-trestle",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "dornman-wind-stairs",
+      "destination": "dornman-flag-trestle",
+      "positions": [
+        [
+          1000,
+          374
+        ],
+        [
+          960,
+          374
+        ]
+      ]
+    },
+    {
+      "origin": "dornman-flag-trestle",
+      "destination": "dornman-wind-stairs",
+      "positions": [
+        [
+          1720,
+          399
+        ],
+        [
+          1680,
+          399
+        ]
+      ]
+    },
+    {
+      "origin": "dornman-windworks",
+      "destination": "dornman-flag-trestle",
+      "positions": [
+        [
+          1600,
+          480
+        ],
+        [
+          1560,
+          480
+        ]
+      ]
+    }
+  ],
+  "ordinaryHunts": 165,
+  "earned": {
+    "freshSurvey": {
+      "levelAtEntry": 1,
+      "restored": true,
+      "barrier": 30
+    },
+    "flags": {
+      "sourceSha256": "fa9c6f9456388ee818249284ef7718b3e9dff8894aa23c79742b187db4783cd0",
+      "itineraries": [
+        {
+          "start": "mond-town",
+          "destination": "dornman-camp",
+          "stops": [
+            {
+              "mode": "walk",
+              "previewX": 1380,
+              "id": "mond-road",
+              "region": "region-01",
+              "name": "モンド・南の街道",
+              "level": 1,
+              "approach": "現在地から右へ",
+              "from": "mond-town",
+              "label": "徒歩"
+            },
+            {
+              "mode": "walk",
+              "id": "dornman-camp",
+              "region": "branch-06",
+              "level": 1,
+              "previewX": 720,
+              "name": "ドーンマンポート・入口拠点",
+              "from": "mond-road",
+              "label": "徒歩"
+            }
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "windward-lookouts",
+          "xp": 6500000,
+          "mora": 4600
+        },
+        {
+          "quest": "windward-flags",
+          "xp": 9250000,
+          "mora": 6400
+        }
+      ],
+      "battles": [],
+      "locks": [],
+      "returns": 0,
+      "levelAtEntry": 180,
+      "deliveredRectangles": {
+        "legacy": 12,
+        "h48c32": 12,
+        "h32c16": 12
+      },
+      "undelivered": 0,
+      "savedPartial": true,
+      "restored": true,
+      "allFiveInspectionsSafeForTwoSeconds": true
+    },
+    "towerChain": [
+      {
+        "quest": "windward-lookouts",
+        "xp": 6500000,
+        "mora": 4600
+      },
+      {
+        "quest": "windward-flags",
+        "xp": 9250000,
+        "mora": 6400
+      },
+      {
+        "quest": "windward-tower-clear",
+        "xp": 5312539,
+        "mora": 741600
+      }
+    ]
+  },
+  "flagsBrowser": {
+    "quest": "windward-flags",
+    "journeys": [
+      [
+        "dornman-camp",
+        "dornman-wind-stairs",
+        "walk"
+      ],
+      [
+        "dornman-wind-stairs",
+        "dornman-flag-trestle",
+        "lift"
+      ],
+      [
+        "dornman-flag-trestle",
+        "dornman-camp",
+        "walk"
+      ],
+      [
+        "dornman-camp",
+        "dornman-flag-trestle",
+        "walk"
+      ]
+    ],
+    "initialLiftLanding": [
+      1000,
+      374
+    ],
+    "groundShortcutLanding": [
+      160,
+      480
+    ],
+    "flagsRaisedAfterDelivery": true,
+    "pixels": [
+      [
+        [
+          200,
+          241,
+          239,
+          255
+        ],
+        [
+          255,
+          230,
+          160,
+          255
+        ]
+      ],
+      [
+        [
+          200,
+          241,
+          239,
+          255
+        ],
+        [
+          255,
+          230,
+          160,
+          255
+        ]
+      ]
+    ],
+    "persistedAfterReport": true,
+    "errors": []
+  },
+  "sameCameraChrome": {
+    "dornman-depth": {
+      "before": {
+        "total": 6,
+        "visible": 6,
+        "camera": 250,
+        "backgroundFile": "dornman-background-v1.png"
+      },
+      "after": {
+        "total": 6,
+        "visible": 6,
+        "camera": 250,
+        "backgroundFile": "dornman-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 0,
+              "y": 450
+            },
+            "color": {
+              "x": 0,
+              "y": 450
+            }
+          },
+          "union": 10792,
+          "overlap": 10402,
+          "overlapPercent": 96.38621200889548,
+          "meanRgbError": 15.3223098122156
+        },
+        "rows": [
+          [
+            "標準",
+            "4,608",
+            "99.2%",
+            "6.14 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "2,632",
+            "98.3%",
+            "9.99 / 255",
+            "-42.9%"
+          ],
+          [
+            "最軽量・16色",
+            "1,042",
+            "96.4%",
+            "15.32 / 255",
+            "-77.4%"
+          ]
+        ]
+      }
+    },
+    "dornman-wind-stairs": {
+      "before": {
+        "total": 5,
+        "visible": 4,
+        "camera": 600,
+        "backgroundFile": "coastal-lookout-background-v1.png"
+      },
+      "after": {
+        "total": 5,
+        "visible": 4,
+        "camera": 600,
+        "backgroundFile": "coastal-lookout-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 880,
+              "y": 360
+            },
+            "color": {
+              "x": 880,
+              "y": 360
+            }
+          },
+          "union": 8762,
+          "overlap": 8272,
+          "overlapPercent": 94.40766948185346,
+          "meanRgbError": 32.47477433913604
+        },
+        "rows": [
+          [
+            "標準",
+            "7,060",
+            "98.6%",
+            "10.54 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "4,312",
+            "96.5%",
+            "25.90 / 255",
+            "-38.9%"
+          ],
+          [
+            "最軽量・16色",
+            "1,652",
+            "94.4%",
+            "32.47 / 255",
+            "-76.6%"
+          ]
+        ]
+      }
+    },
+    "dornman-flag-trestle": {
+      "before": {
+        "total": 5,
+        "visible": 3,
+        "camera": 600,
+        "backgroundFile": "coastal-lookout-background-v1.png"
+      },
+      "after": {
+        "total": 5,
+        "visible": 3,
+        "camera": 600,
+        "backgroundFile": "coastal-lookout-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 640,
+              "y": 450
+            },
+            "color": {
+              "x": 640,
+              "y": 450
+            }
+          },
+          "union": 6923,
+          "overlap": 6535,
+          "overlapPercent": 94.3954932832587,
+          "meanRgbError": 32.681866870696254
+        },
+        "rows": [
+          [
+            "標準",
+            "5,295",
+            "98.6%",
+            "10.85 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "3,234",
+            "96.5%",
+            "26.00 / 255",
+            "-38.9%"
+          ],
+          [
+            "最軽量・16色",
+            "1,239",
+            "94.4%",
+            "32.68 / 255",
+            "-76.6%"
+          ]
+        ]
+      }
+    }
+  }
+}

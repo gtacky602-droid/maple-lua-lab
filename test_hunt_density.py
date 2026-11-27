@@ -22,6 +22,7 @@ QUEST_FIELD_ARRIVALS = {
     'nod-spruce-clearing','nod-patrol-bend',
     'chenyu-depth','chenyu-tea-terraces','chenyu-cart-road',
     'enkanomiya-depth','enkan-guide-shelf',
+    'dornman-depth','dornman-wind-stairs','dornman-flag-trestle',
 }
 
 

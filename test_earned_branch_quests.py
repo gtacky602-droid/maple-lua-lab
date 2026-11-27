@@ -177,6 +177,14 @@ def windward(trip=None):
 
     trip.act('story_accept:' + second)
     trip.travel(FLAGS)
+    spec = next(n['signalFlags'] for n in graph['nodes'] if n['id'] == FLAGS)
+
+    def signal_count(frame):
+        rectangles = {(d.x,d.y,d.w,d.h,d.color) for d in frame.draws.values() if d.kind == 'rect'}
+        return sum((flag['x']-frame.camera+x,flag['y']+y,w,h,color) in rectangles
+                   for flag in spec['flags'] for x,y,w,h,color in flag['rects'])
+
+    assert signal_count(trip.frame()) == 0
     trip.mark(second, 1)
     trip.restore()
     assert trip.state.story.node == DORN and trip.state.story.quests[second].count == 1
@@ -184,6 +192,9 @@ def windward(trip=None):
     legs = trip.travel(FLAGS)
     assert legs[-1]['mode'] == 'lift' and '渡り廊下' in legs[-1]['hint'] and trip.actor.y == 374
     trip.mark(second, 2)
+    for mode, profile in (('sprite','legacy'),('rect','h48c32'),('rect','h32c16')):
+        frame = trip.core.frame(trip.state, mode, profile)
+        assert signal_count(frame) == sum(len(flag['rects']) for flag in spec['flags']), profile
     trip.travel(DORN)
     trip.report(second)
 

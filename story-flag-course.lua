@@ -14,6 +14,19 @@ return function(C)
   draws[#draws+1]={kind='text',text=label,x=x,y=y,color='#fff1bd',size=14}
  end
 
+ function course.signals(s,draws,spec)
+  local state=spec and s.story.quests[spec.quest]
+  if not state or state.count<spec.after then return end
+  for _,flag in ipairs(spec.flags) do
+   local x=flag.x-s.camera
+   if x>=-32 and x<=978 then
+    for _,r in ipairs(flag.rects) do
+     rect(draws,x+r[1],flag.y+r[2],r[3],r[4],r[5])
+    end
+   end
+  end
+ end
+
  local function elapsed(s,run)
   return math.max(1,math.min(10^9,math.floor((s.t-run.started)*60+.5)))
  end

@@ -175,6 +175,8 @@ export function surveyPoint(quest,index,node,room,pathId,choice){
  const point=[step,...step.alternatives??[]].find(p=>p.node===node && Number.isFinite(p.x) && Number.isFinite(p.y));
  if(!point)return null;
  const fixtures=[];
+ const signals=room?.signalFlags;
+ if(signals?.quest===quest.id && index>=signals.after)fixtures.push(...signals.flags);
  if(step.outcrop){
   const ink={faint:'#8199af',partial:'#536e91',clear:'#24456c'}[step.outcrop];
   const rects=[[-23,-30,46,30,'#68869b'],[-17,-39,34,27,'#b9d8e3']];
