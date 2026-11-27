@@ -2,6 +2,7 @@ import {questDestinations,stopTiming,windTiming} from './quest-route.js';
 import {entranceKey} from './arena-entrances.js';
 import {atlasQuestObjectives,questStatus,questStatusLabels} from './quest-journal.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
+import {atlasCamera,atlasZoomMax} from './atlas-camera.js';
 
 const groupNames = {
  main: '通常地域', high_level_branch: '高難度地域', hidden_world: '隠し世界', official_layer: '別地図',
@@ -46,8 +47,59 @@ export function initAtlas(action, clearKeys) {
  const itineraryNote = document.getElementById('atlasItineraryNote');
  const itineraryStops = document.getElementById('atlasItineraryStops');
  const ctx = canvas.getContext('2d');
- let view, signature, regionSignature;
+ const viewTools = document.getElementById('atlasViewTools');
+ const zoomIn = document.getElementById('atlasZoomIn');
+ const zoomOut = document.getElementById('atlasZoomOut');
+ const zoomReset = document.getElementById('atlasZoomReset');
+ const fitRoute = document.getElementById('atlasFitRoute');
+ let view, signature, regionSignature, localRoute = [], pendingDraw;
  let reportedRooms=new Set();
+ const camera = atlasCamera(canvas, () => {
+  renderZoom();
+  requestDraw();
+ });
+ const resize = new ResizeObserver(requestDraw);
+ resize.observe(canvas);
+
+ function requestDraw() {
+  if (pendingDraw || !view || !dialog.open) return;
+  pendingDraw = requestAnimationFrame(() => {
+   pendingDraw = undefined;
+   if (view && dialog.open) draw();
+  });
+ }
+
+ function renderZoom() {
+  zoomOut.disabled = zoomReset.disabled = camera.scale === 1;
+  zoomIn.disabled = camera.scale >= atlasZoomMax;
+  const percent = Math.round(camera.scale * 100);
+  if (zoomReset.textContent !== percent + '%') {
+   zoomReset.textContent = percent + '%';
+   zoomReset.setAttribute('aria-label',`現在の倍率 ${percent}パーセント。100パーセントに戻す`);
+  }
+  canvas.classList.toggle('zoomed',camera.scale > 1);
+ }
+
+ function updateViewTools() {
+  viewTools.hidden = view.region === 'world';
+  const routeIds = new Set(entries(view.guide?.stops).flatMap(stop => [stop.from,stop.id]));
+  localRoute = entries(view.points).filter(point => routeIds.has(point.id));
+  fitRoute.disabled = !view.selected;
+  fitRoute.textContent = localRoute.length > 1 ? '道順を拡大' : '地点を拡大';
+  renderZoom();
+ }
+
+ zoomIn.onclick = () => camera.zoom(camera.scale * 1.45);
+ zoomOut.onclick = () => camera.zoom(camera.scale / 1.45);
+ zoomReset.onclick = () => camera.reset();
+ fitRoute.onclick = () => {
+  if (view?.selected) camera.focus(localRoute.length > 1 ? localRoute : [view.selected]);
+ };
+ canvas.addEventListener('wheel', event => {
+  if (!view || viewTools.hidden || !event.deltaY) return;
+  const factor = event.deltaY < 0 ? 1.18 : 1/1.18;
+  if (camera.zoom(camera.scale * factor,camera.localPoint(event))) event.preventDefault();
+ }, {passive:false});
 
  function send(key) {
   clearKeys();
@@ -75,7 +127,11 @@ export function initAtlas(action, clearKeys) {
  back.onclick = () => send('world_map_region:world');
  region.onchange = () => send('world_map_region:' + region.value);
  layer.onchange = () => send('world_map_layer:' + layer.value);
- current.onclick = () => send('world_map_here');
+ current.onclick = () => {
+  const point = entries(view?.points).find(item => item.current);
+  if (point && camera.scale>1) camera.panTo(point);
+  send('world_map_here');
+ };
  field.onchange = () => {
   if (view.region === 'world' && view.layer === 'boss' && field.value) send('world_map_boss:' + field.value);
   else choose(field.value);
@@ -87,13 +143,12 @@ export function initAtlas(action, clearKeys) {
   if (id) send((view.region === 'world' ? 'world_map_region:' : 'world_map_select:') + id);
  }
  canvas.addEventListener('click', event => {
-  if (!view) return;
-  const box = canvas.getBoundingClientRect();
-  const x = (event.clientX - box.left) * canvas.width / box.width;
-  const y = (event.clientY - box.top) * canvas.height / box.height;
-  let closest, distance = view.region === 'world' ? 56 : 17;
+  if (!view || camera.dragged) return;
+  const {x,y} = camera.localPoint(event);
+  let closest, distance = view.region === 'world' ? 56 : Math.max(17, 12 * canvas.width / canvas.clientWidth);
   for (const point of entries(view.points)) {
-   const d = Math.hypot(x - point.x, y - point.y);
+   const pin = camera.project(point);
+   const d = Math.hypot(x - pin.x, y - pin.y);
    if (d < distance) {
     closest = point;
     distance = d;
@@ -426,11 +481,37 @@ export function initAtlas(action, clearKeys) {
   routes.replaceChildren(...links);
  }
 
+ function diamond(x,y,radius,color) {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.moveTo(x,y-radius);ctx.lineTo(x+radius,y);ctx.lineTo(x,y+radius);ctx.lineTo(x-radius,y);
+  ctx.closePath();
+  ctx.fill();
+ }
+
  function draw() {
+  const zoomed = camera.scale > 1;
+  const traceRoute = zoomed && localRoute.length > 1;
+  const ratio = canvas.width / canvas.clientWidth;
+  const currentPoint = entries(view.points).find(point => point.current);
+  const ink = Math.min(camera.scale,1.35) / camera.scale;
+  ctx.setTransform(camera.scale,0,0,camera.scale,camera.left,camera.top);
   for (const command of view.draws) {
    ctx.fillStyle = command.color;
    if (command.kind === 'rect') ctx.fillRect(command.x, command.y, command.w, command.h);
-   else if (command.kind === 'poly') {
+   else if (command.kind === 'pin') {
+    const {x,y,size,color,dot,onRoute,highlight} = command;
+    const routeStop = traceRoute && onRoute && !highlight;
+    const radius = (routeStop ? Math.max(6,size) : size) * ink;
+    ctx.globalAlpha = traceRoute && !onRoute ? .46 : 1;
+    diamond(x,y,radius+2*ink,'#273f4b');
+    diamond(x,y,radius,routeStop ? '#ffe196' : color);
+    if (dot) {
+     ctx.fillStyle = '#f7e8ae';
+     ctx.fillRect(x-ink,y-ink,3*ink,3*ink);
+    }
+    ctx.globalAlpha = 1;
+   } else if (command.kind === 'poly') {
     ctx.beginPath();
     for (const [i, [x,y]] of command.points.entries()) {
      if (i) ctx.lineTo(x,y);
@@ -441,21 +522,50 @@ export function initAtlas(action, clearKeys) {
    } else if (command.kind === 'line') {
     ctx.beginPath();
     ctx.strokeStyle = command.color;
-    ctx.lineWidth = command.width;
-    ctx.setLineDash(command.dash ?? []);
+    ctx.lineWidth = command.width * ink;
+    ctx.globalAlpha = traceRoute && command.context ? .24 : 1;
+    ctx.setLineDash((command.dash ?? []).map(length => length * ink));
     ctx.moveTo(command.x,command.y);
     ctx.lineTo(command.toX,command.toY);
     ctx.stroke();
+    ctx.globalAlpha = 1;
    } else if (command.kind === 'label') {
-    ctx.font = `700 ${command.size}px "Yu Gothic UI", sans-serif`;
+    ctx.save();
+    let {x,y,size,text} = command;
+    if (zoomed) {
+     ctx.resetTransform();
+     const pin = command.pinX == null ? camera.project(command) : camera.project({x:command.pinX,y:command.pinY});
+     if (pin.x<0 || pin.y<0 || pin.x>canvas.width || pin.y>canvas.height) {
+      ctx.restore();
+      continue;
+     }
+     size = Math.max(size,13 * ratio);
+     x = pin.x;
+     let belowPin = command.y > command.pinY;
+     if (command.currentPin) text = '現在地';
+     if (currentPoint && view.selected && currentPoint.id !== view.selected.id &&
+         Math.abs(currentPoint.y - view.selected.y) * camera.scale < size * 3.5) {
+      belowPin = command.currentPin ? currentPoint.y > view.selected.y : view.selected.y >= currentPoint.y;
+     }
+     y = command.pinY == null ? pin.y : pin.y + (belowPin ? size*1.3 : -size*.55);
+     y = Math.max(size,Math.min(canvas.height - 6,y));
+    }
+    ctx.font = `700 ${size}px "Yu Gothic UI", sans-serif`;
+    const maxWidth = canvas.width - 24;
+    if (zoomed) {
+     const half = Math.min(maxWidth,ctx.measureText(text).width) / 2 + 10;
+     x = Math.max(half,Math.min(canvas.width-half,x));
+    }
     ctx.textAlign = 'center';
     ctx.strokeStyle = '#f3e0b3';
-    ctx.lineWidth = 4;
+    ctx.lineWidth = Math.max(4,size / 4);
     ctx.setLineDash([]);
-    ctx.strokeText(command.text,command.x,command.y);
-    ctx.fillText(command.text,command.x,command.y);
+    ctx.strokeText(text,x,y,maxWidth);
+    ctx.fillText(text,x,y,maxWidth);
+    ctx.restore();
    }
   }
+  ctx.resetTransform();
  }
 
  return function update(frame) {
@@ -467,6 +577,7 @@ export function initAtlas(action, clearKeys) {
    view = undefined;
    return;
   }
+  const lastRegion = view?.region, lastSelection = view?.selected?.id;
   view = frame.worldMap;
   if (!dialog.open) {
    dialog.showModal();
@@ -478,6 +589,9 @@ export function initAtlas(action, clearKeys) {
   signature = next;
   if (canvas.width !== view.width) canvas.width = view.width;
   if (canvas.height !== view.height) canvas.height = view.height;
+  if (lastRegion !== view.region) camera.reset();
+  else if (view.selected && lastSelection !== view.selected.id) camera.reveal(view.selected);
+  updateViewTools();
   current.textContent = '現在地へ';
   current.title = view.location;
   back.disabled = view.region === 'world';

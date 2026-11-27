@@ -46,7 +46,22 @@
  border: 1px solid #dbc99e; border-radius: 9px; overflow: hidden;
 }
 .atlas-paper { min-width: 0; background: #c8b38f }
-.world-atlas-canvas { width: 100%; aspect-ratio: 9/5; border: 0; image-rendering: auto }
+.atlas-view-tools:not([hidden]) {
+ display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: space-between; align-items: center;
+ padding: 6px 8px; color: var(--atlas-ink); background: #2c464e; border-bottom: 1px solid #698582;
+}
+.atlas-view-tools button { min-height: 36px; color: var(--atlas-ink); background: #203a42; border-color: #74928d }
+.atlas-view-tools button:enabled:hover { background: #476268 }
+.atlas-view-tools button:focus-visible, .world-atlas-canvas:focus-visible { outline: 2px solid #f3d792; outline-offset: -3px }
+.atlas-zoom-controls { display: flex; align-items: center; gap: 4px; margin-inline-start: auto }
+.atlas-zoom-controls button { min-width: 38px; padding-inline: 6px }
+#atlasZoomReset { min-width: 57px; font-variant-numeric: tabular-nums }
+.world-atlas-canvas { display: block; width: 100%; aspect-ratio: 9/5; border: 0; image-rendering: auto }
+.world-atlas-canvas.zoomed { cursor: grab; touch-action: none }
+.world-atlas-canvas.panning { cursor: grabbing }
+@media (pointer: coarse) {
+ .atlas-view-tools button { min-width: 44px; min-height: 44px }
+}
 .atlas-legend {
  display: flex; flex-wrap: wrap; gap: 5px 14px; margin: 0; padding: 11px 12px;
  color: #323d3d; font-size: 11px; background: #eddbb6; border-top: 1px solid #a7936e;

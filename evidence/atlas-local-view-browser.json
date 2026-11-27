@@ -1,0 +1,35 @@
+{
+  "views": [
+    {
+      "viewport": [
+        1280,
+        930
+      ],
+      "routeFit": true,
+      "pinHit": true,
+      "mousePan": true,
+      "keyboardPan": true,
+      "wheel": true,
+      "currentRecenters": true,
+      "resize": true,
+      "reset": true,
+      "clockPaused": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "routeFit": true,
+      "touchPan": true,
+      "touchZoomButtons": true,
+      "noOverflow": true,
+      "gatePreview": {
+        "from": "natlan-hub",
+        "to": "natlan-quarry-road",
+        "x": 1380,
+        "opened": true
+      }
+    }
+  ]
+}
