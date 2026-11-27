@@ -189,6 +189,10 @@ def interruption(lua,core):
     assert events(host,'WK09')==[1] and not events(guest,'WK09')
     assert all(len(events(s,'WK17'))==1 for s in parties)
     assert host.hits>0 and guest.hits>0
+    assert view(core,host).feastResult.kind=='interrupted'
+    assert view(core,host).feastResult.actor==2
+    assert all(view(core,s).feastResult.kind=='interrupted' and view(core,s).feastResult.actor is None
+               for s in parties[1:])
     run(step,spec.moves.WK10.windows[1][1]-c.t)
     assert not any(events(s,'WK10:hit') for s in parties) and view(core,host).exposure>0
 

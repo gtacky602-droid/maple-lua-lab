@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
+import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,knaveContractText,knaveFeastText,narwhalJourneyText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -558,12 +558,11 @@ function hud(f,calls,renderMs){
  $('weeklyKnave').hidden=!knave;
  if(knave){
   const selected=knave.actors[knave.active-1];
-  $('weeklyKnaveActors').textContent=knave.actors.map(a=>`${a.id===1?'旅人':'同行'} 契約 ${a.debt} / ${a.cap}${a.feather?' ◇ 羽印':''}`).join(' ｜ ');
+  $('weeklyKnaveActors').textContent=knaveContractText(knave);
   $('weeklyKnaveLamp').hidden=!(knave.nearLamp&&selected.debt);
   $('weeklyKnaveLamp').textContent=knave.hold?`返済灯を保持中 ｜ 次まで ${(knave.hold/60).toFixed(1)}秒`:'返済灯を長押し（G）';
   $('weeklyKnaveStrike').hidden=!selected.feather;
-  $('weeklyKnaveHint').textContent=[knave.title,knave.window?'赤宴を中断できる':knave.exposure?`反撃できる時間 ${(knave.exposure/60).toFixed(1)}秒`:
-   knave.airborne?'高空。地面の赤い予告から離れる':selected.debt?'回復するか、両端の返済灯へ':''].filter(Boolean).join(' ｜ ');
+  $('weeklyKnaveHint').textContent=knaveFeastText(knave);
  }
  phases.hidden=!field?.phaseHp||field.phase==='respawn';
  temperature.hidden=field?.temperature===undefined||field.phase==='respawn'||field.hp===0;

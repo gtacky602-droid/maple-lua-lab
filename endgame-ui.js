@@ -1,5 +1,23 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+export function knaveContractText(view){
+ return view.actors.map(a=>`${a.id===1?'旅人':'同行'} 契約 ${a.debt} / ${a.cap}${a.feather?' ◇ 羽印':''}`).join(' ｜ ');
+}
+
+export function knaveFeastText(view){
+ const result=view.feastResult;
+ if(result?.kind==='interrupted'){
+  const owner=result.actor===1?'旅人':result.actor===2?'同行キャラ':'味方';
+  return owner+'が羽印で赤宴を中断'+(view.exposure?` ｜ 反撃できる時間 ${(view.exposure/60).toFixed(1)}秒`:'');
+ }
+ const selected=view.actors[view.active-1];
+ const canInterrupt=view.window&&selected.feather;
+ if(result?.kind==='ended')return '前方奔流が収まった'+(canInterrupt?' ｜ 羽印で反撃に移れる（H）':'');
+ const hint=canInterrupt?'償還の一撃（H）で中断':
+  view.airborne?'高空。地面の赤い予告から離れる':selected.debt?'回復するか、両端の返済灯へ':'';
+ return [view.title,hint].filter(Boolean).join(' ｜ ');
+}
+
 export function shoukiTrialText(view){
  const result=view.trialResult;
  if(!result)return '';
