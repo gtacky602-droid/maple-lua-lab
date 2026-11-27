@@ -1,0 +1,16 @@
+{
+  "beforeReport": "cap-revisit-save.json",
+  "afterReport": "remaining-survey-save.json",
+  "unacceptedRoute": "natlan-hub",
+  "activeRoute": "tepeacac-waterfall-wall",
+  "verifiedFixedRewards": 15,
+  "upgrade": {
+    "id": "SW08",
+    "before": 1500,
+    "after": 1700,
+    "cost": 80000
+  },
+  "restoredUpgradeAndEquippedWeapon": true,
+  "fieldEditsLocked": true,
+  "mobileWidth": 390
+}

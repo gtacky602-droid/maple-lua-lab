@@ -1,10 +1,14 @@
+import {questDestinations} from './quest-route.js';
+import {questStatus,questStatusLabels} from './quest-journal.js';
+
 export function initWeaponUI(action,companionNames){
  const panel=document.getElementById('weaponPanel');
  const root=document.getElementById('weaponRows');
  const equipped=document.getElementById('weaponEquipped');
  const status=document.getElementById('weaponStatus');
  const number=new Intl.NumberFormat('ja-JP');
- let signature='';
+ let signature='',graph;
+ let questsById,nodesById;
  const label=owner=>owner==='traveler'?'旅人':companionNames[owner];
 
  function button(row,text,command,disabled){
@@ -20,7 +24,23 @@ export function initWeaponUI(action,companionNames){
   const view=frame.weaponView;
   panel.hidden=!view;
   if(!view||!panel.open)return;
-  const next=JSON.stringify([view,frame.mora]);
+  if(graph!==frame.storyGraph){
+   graph=frame.storyGraph;
+   questsById=new Map((graph?.quests??[]).map(q=>[q.id,q]));
+   nodesById=new Map((graph?.nodes??[]).map(n=>[n.id,n]));
+  }
+  const progress=frame.story?.quests;
+  const sources=new Map();
+  for(const item of view.options){
+   if(item.owned)continue;
+   const quest=questsById?.get(item.quest);
+   if(!quest)continue;
+   const state=questStatus(quest,progress?.[quest.id],progress,frame.progression?.level??0,frame.growthEligibility);
+   const {candidates}=questDestinations(frame,quest,state);
+   const targets=[...new Set(candidates)].filter(id=>nodesById.has(id));
+   sources.set(item.id,{state,targets,level:quest.level});
+  }
+  const next=JSON.stringify([view,frame.mora,[...sources]]);
   if(signature===next)return;
   signature=next;
   const byId=new Map(view.options.map(item=>[item.id,item]));
@@ -41,7 +61,12 @@ export function initWeaponUI(action,companionNames){
     const nextAttack=item.nextAtk===item.atk?'同じ':number.format(item.nextAtk);
     const growth=item.cost!=null?` ／ +${item.level+1}で武器ATK ${nextAttack}`:' ／ 強化上限';
     detail.textContent=`${item.name} +${item.level} ／ ${item.type} ／ 武器ATK ${number.format(item.atk)}${holder}${growth}`;
-   }else detail.textContent=`${item.name} ／ ${item.type} ／ 入手先「${item.questName}」`;
+   }else{
+    const source=sources.get(item.id);
+    const state=source?' ／ '+questStatusLabels[source.state]:'';
+    const level=source?.level?'・受注Lv'+source.level:'';
+    detail.textContent=`${item.name} ／ ${item.type} ／ 入手先「${item.questName}」${state}${level}`;
+   }
    row.append(detail);
    if(item.owned){
     if(item.traveler&&item.equippedTo!=='traveler'){
@@ -52,6 +77,12 @@ export function initWeaponUI(action,companionNames){
     }
     if(item.cost!=null){
      button(row,`強化 ${number.format(item.cost)}モラ`,`weapon_upgrade:${item.id}`,!view.editable||frame.mora<item.cost);
+    }
+   }else{
+    const source=sources.get(item.id);
+    const destination=source?.state==='active'?'次の目的地・':'受注・報告先・';
+    for(const id of source?.targets??[]){
+     button(row,destination+nodesById.get(id).name,'world_map_focus:'+id,false);
     }
    }
    root.append(row);

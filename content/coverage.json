@@ -8343,6 +8343,7 @@
     "browser_evidence": "evidence/party-presets-browser.json"
   },
   "weapon_progression": {
+    "quest_routes_and_earned_save_browser": "evidence/weapon-quest-routes-browser.json",
     "status": "local_prototype",
     "traveler_weapons": 8,
     "companion_starters": 8,
