@@ -9394,6 +9394,7 @@
       "evidence/coop-stygian-wanderer-http.json",
       "evidence/coop-stygian-wanderer-browser.json"
     ],
+    "beidou_higher_mode_clears": {"modes":["hard","master","extreme"],"parties":4,"credited_parties":2,"idle_parties":2,"scope":"Lua inputs through guard, baited reply, returning wave and recovery; local HTTP checked rewards, inventory and restored saves for all four parties.","evidence":"evidence/coop-beidou-higher-mode-clears.json"},
     "pending": [
       "full co-op playthroughs for every Stygian difficulty",
       "shared combat outside the supported maps",

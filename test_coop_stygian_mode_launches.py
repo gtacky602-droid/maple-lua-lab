@@ -18,7 +18,8 @@ def start_match(clients, seed, match, spec, gate, difficulty, sets):
         assert entered['story']['node'] == spec['node'] and entered['coop']['eligible']
     code = clients[0].frame(['coop_create'])['coop']['code']
     for client in clients[1:]:
-        assert client.frame(['coop_join:' + code])['coop']['code'] == code
+        joined = client.frame(['coop_join:' + code])['coop']
+        assert joined.get('code') == code, joined.get('notice')
     mode = difficulty['id']
     for client, reward_set in zip(clients, sets, strict=True):
         waiting = client.frame([f'stygian_start:{match}:{mode}:{reward_set}'])

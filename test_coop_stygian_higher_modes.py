@@ -1,4 +1,4 @@
-"""Clear all three higher Farka modes in a four-party room with directional/attack inputs."""
+"""Clear higher Stygian modes in four-party rooms with directional and attack inputs."""
 import json
 
 from runtime import ROOT, native
@@ -7,7 +7,7 @@ from test_coop_local import Client, LOCK, SESSIONS, lab
 from test_coop_stygian_mode_launches import start_match
 
 
-DRIVE = """
+FARKA_INPUTS = """
 function(C, room, budget)
  local run=room.stygianRun
  local peakStage=run.stage
@@ -40,23 +40,84 @@ function(C, room, budget)
 end
 """
 
+BEIDOU_INPUTS = """
+function(C, room, budget)
+ local run=room.stygianRun
+ local boss=run.boss
+ local seen={}
+ for tick=1,budget do
+  for i,member in ipairs(room.members) do
+   local s=member.state
+   local a=s.actors[s.active]
+   if i<=2 and a.hp>0 then
+    local dx=boss.x-a.x
+    local dir=i==1 and 1 or -1
+    local target=math.max(26,math.min(934,boss.x-dir*68))
+    local offset=target-a.x
+    local move=math.abs(offset)>11 and offset or (dx*a.dir<0 and dx or 0)
+    local danger=boss.move
+    if danger and a.x>=danger.lo-8 and a.x<=danger.hi+8 then
+     local left,right=danger.lo-24,danger.hi+24
+     local escape=left>24 and (right>936 or a.x-left<right-a.x) and left or right
+     move=math.max(24,math.min(936,escape))-a.x
+     if danger.height<=70 and a.ground then C.action(s,'jump') end
+    end
+    local opening=boss.phase=='recover' or boss.phase=='guard' and i==1
+    member.input={left=move<0,right=move>0,attack=opening and math.abs(dx)<=111 and dx*a.dir>=0}
+   else member.input=nil end
+  end
+  C.stepCoop(room,1/60)
+  seen[boss.phase]=true
+  if boss.move then seen[boss.move.key]=true end
+  if run.status~='fighting' then
+   for _,member in ipairs(room.members) do member.input=nil end
+   return {ticks=tick,status=run.status,seen=seen,remaining=boss.hp}
+  end
+ end
+ return {ticks=budget,status=run.status,seen=seen,remaining=boss.hp}
+end
+"""
 
-def check_clears(url):
+
+def beidou_seed(url, seed):
+    client = Client(url)
+    client.frame(restore=seed)
+    client.frame(['story_fast:liyue-harbor'])
+    offensive_slots = [item['id'] for item in seed['inventory']['items']
+                       if item['owner'] == 1 and item['slot'] in (2, 3, 4, 5)]
+    actions = ['weapon_equip:traveler:SW07']
+    actions += ['artifact_remove:' + str(item_id) for item_id in offensive_slots]
+    frame = client.frame(actions, checkpoint=True)
+    assert frame['checkpoint']['weapons']['equipped']['traveler'] == 'SW07'
+    assert all(item['owner'] == 0 for item in frame['checkpoint']['inventory']['items']
+               if item['id'] in offensive_slots)
+    assert 100 <= frame['actors'][0]['atk'] <= 300
+    # Each local party needs its own daily profile when a fixture is reused.
+    checkpoint = frame['checkpoint']
+    checkpoint.pop('daily', None)
+    prepared = validate_save(checkpoint)
+    client.release()
+    return prepared
+
+
+def check_clears(url, match, inputs, prepare=None):
     matches = json.loads((ROOT / 'content/stygian-matches.json').read_bytes())['matches']
-    spec = matches['farka']
+    spec = matches[match]
     graph = json.loads((ROOT / 'content/story-graph.json').read_bytes())
     hub = next(node for node in graph['nodes'] if node['id'] == spec['hub'])
     gate = next(exit for exit in hub['exits'] if exit['to'] == spec['node'])
     seed = validate_save(json.loads((ROOT / 'evidence/remaining-survey-save.json').read_bytes()))
+    if prepare:
+        seed = prepare(url, seed)
     clients = [Client(url) for _ in range(4)]
     results = []
     for difficulty in spec['modes']:
         mode = difficulty['id']
         if mode == 'normal':
             continue
-        key = 'farka:' + mode
-        start_match(clients, seed, 'farka', spec, gate, difficulty,
-                    ['troupe', 'gladiator', 'troupe', 'gladiator'])
+        key = f'{match}:{mode}'
+        sets = ['troupe', 'gladiator', 'troupe', 'gladiator']
+        start_match(clients, seed, match, spec, gate, difficulty, sets)
         for client in clients:
             ready = client.frame()
             if ready['active'] != 1:
@@ -71,9 +132,12 @@ def check_clears(url):
             env = SESSIONS[clients[0].sid]
             room = env['state'].coop
             run = room.stygianRun
-            round_result = native(env['lua'].eval(DRIVE)(env['core'], room, 10000))
+            round_result = native(env['lua'].eval(inputs)(env['core'], room, 10000))
             assert round_result['status'] == 'clear', (key, round_result)
-            assert round_result['stage'] == 3 and round_result['chains'][difficulty['firstChain']]
+            if match == 'farka':
+                assert round_result['stage'] == 3 and round_result['chains'][difficulty['firstChain']]
+            if match == 'beidou':
+                assert {'guard', 'baited', 'wake', 'recover'} <= round_result['seen'].keys(), round_result
             expected = [run.rules.xp + run.rules.firstXp, run.rules.mora + run.rules.firstMora]
             contributions = [member.state.endgameRun.skills.normal or 0 for member in room.members.values()]
             assert all(amount>0 for amount in contributions[:2]) and contributions[2:] == [0, 0], contributions
@@ -82,31 +146,45 @@ def check_clears(url):
             clear = client.frame(checkpoint=True)
             assert clear['boss']['hp'] == 0 and clear['endgameRun']['status'] == 'clear'
             save = validate_save(clear['checkpoint'])
+            known_items = {item['id'] for item in before[index]['inventory']['items']}
+            new_items = [item for item in save['inventory']['items'] if item['id'] not in known_items]
             if index < 2:
                 reward = clear['endgameRun']['matchReward']
                 assert reward['first'] and [reward['xp'], reward['mora']] == expected
                 assert save['endgame']['stygian'][key]['clears'] == 1
+                assert reward['bag'] and len(new_items) == 1 and new_items[0]['setId'] == sets[index]
                 rewards.append(reward['set'])
             else:
                 assert 'matchReward' not in clear['endgameRun'] and key not in save['endgame']['stygian']
-                assert save['mora'] == before[index]['mora']
+                assert not new_items and save['mora'] == before[index]['mora']
+                assert save['progression']['total'] == before[index]['progression']['total']
             assert save['story']['quests'] == seed['story']['quests']
             client.frame(['endgame_exit'])
             client.frame(['coop_leave'])
             restored = client.frame(restore=save, checkpoint=True)['checkpoint']
             assert restored['endgame']['stygian'] == save['endgame']['stygian']
+            assert restored['inventory']['items'] == save['inventory']['items']
         assert len(set(rewards)) == 2
         results.append(dict(mode=mode,maxHp=difficulty['hp'],combat=round_result,parties=4,
-                            damage=contributions,rewards=rewards,restored=True))
+                            damage=contributions,rewards=rewards,restored=True,inventoryVerified=True))
         print(key, round_result['ticks'], contributions, flush=True)
     return results
 
 
 if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('match', choices=('farka', 'beidou'))
+    match = parser.parse_args().match
+    inputs, prepare = (FARKA_INPUTS, None) if match == 'farka' else (BEIDOU_INPUTS, beidou_seed)
     with lab() as url:
-        results = check_clears(url)
-    (ROOT / 'evidence/coop-farka-higher-mode-clears.json').write_text(json.dumps({
-        'scope': 'Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.',
+        results = check_clears(url, match, inputs, prepare)
+    scope = 'Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.'
+    if match == 'beidou':
+        scope += ' SW07 was equipped and four artifact slots were cleared in town to observe recovery windows.'
+    (ROOT / f'evidence/coop-{match}-higher-mode-clears.json').write_text(json.dumps({
+        'scope': scope,
         'allyAttackToggleVerified': True,
         'matches': results,
     }, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
