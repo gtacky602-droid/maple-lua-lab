@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
+import {falseMoonEncounterText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -546,18 +546,8 @@ function hud(f,calls,renderMs){
  const falseMoon=field?.falseMoon;
  $('weeklyFalseMoon').hidden=!falseMoon||field.phase==='respawn';
  if(falseMoon&&field.phase!=='respawn'){
-  const v=falseMoon,r=v.rule;
-  const votes=v.vote?` ｜ 同意 ${v.vote.count} / ${v.vote.required}`:'';
-  const law=r?.kind==='away'?`博士に背を向ける（${r.away==='left'?'左':'右'}向き）`:'移動・回避・ジャンプを止める';
-  const hint=r?v.tick<420?`${r.state==='rule'?'判定中':'準備'} ｜ ${law} ｜ ${Math.ceil(r.remaining/60)}秒${r.violated?' ｜ 違反':''}`:
-   r.violated?'判定終了 ｜ 罰の予告から離れる':'禁令をクリア':
-   v.exposure?`反撃できる時間 ${(v.exposure/60).toFixed(1)}秒`:
-   v.card==='WM08'?v.cover?'保護範囲の内側':'柱の青い枠の中へ':
-   v.confirm?`異界へ移るまで ${(v.confirm/60).toFixed(1)}秒${votes}`:
-   v.card==='WM13'?'盤面中央の裂け目で入場を確認'+votes:
-   v.card==='WM14'?'異界へ移動中'+votes:
-   v.card==='WM15'?`擬影 ${v.pendingDamage} / 3 ｜ 残り ${v.seconds}秒 ｜ 右端から帰還可${votes}`:'';
-  $('weeklyFalseMoonHint').textContent=hint;
+  const v=falseMoon;
+  $('weeklyFalseMoonHint').textContent=falseMoonEncounterText(v);
   $('weeklyFalseMoonUse').hidden=!v.canUse;
   $('weeklyFalseMoonUse').textContent=v.scene==='inner'?'外界へ戻る（H）':'異界へ入る（H）';
   $('weeklyFalseMoonCancel').hidden=!(v.vote?v.vote.mine:v.confirm);

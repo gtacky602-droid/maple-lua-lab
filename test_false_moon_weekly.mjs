@@ -118,6 +118,7 @@ try{
  await page.locator('.game').screenshot({path:prefix+'-ward.png'});
  await wait(()=>window.lab.frame.events.some(e=>e.kind==='false-moon:WM08:ward'&&e.actor===1));
  const shielded=await frame();
+ assert.equal(await page.locator('#weeklyFalseMoonHint').textContent(),'柱で衝撃を防いだ');
  assert.equal(shielded.events.filter(e=>e.kind==='false-moon:WM09:violation:walk').length,1);
  assert.equal(shielded.events.filter(e=>e.kind==='false-moon:WM12').length,1);
  await wait(()=>window.lab.frame.weeklyBoss?.falseMoon.card==='WM13');
@@ -144,6 +145,7 @@ try{
  assert.equal(shadow.weeklyBoss.falseMoon.shadows.length,3);
  const png=await capture('png');
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(()=>window.lab.frame.commands>10000);
  const standard=await frame(),normal=await capture('standard');
  await page.locator('#renderMode').selectOption('h32c16');
@@ -166,6 +168,7 @@ try{
  assert.equal(returned.events.filter(e=>e.kind==='false-moon:WM15:shadow').length,3);
  assert.deepEqual(returned.events.filter(e=>e.kind==='false-moon:WM16:loss').map(e=>e.value),[408]);
  assert.equal(returned.weeklyBoss.falseMoon.limit,408);
+ assert.match(await page.locator('#weeklyFalseMoonHint').textContent(),/博士に408ダメージ.*反撃できる時間/);
  await page.locator('.game').screenshot({path:prefix+'-return.png'});
  await mode('away');
  await wait(()=>window.lab.frame.events.some(e=>e.kind==='false-moon:WM10:success'));

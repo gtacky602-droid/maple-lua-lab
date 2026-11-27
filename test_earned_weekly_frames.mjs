@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {narwhalJourneyText, primalTrialText, raidenFlowerText} = await import('./endgame-ui.js');
+      const {falseMoonEncounterText, narwhalJourneyText, primalTrialText, raidenFlowerText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
@@ -140,14 +140,15 @@ try {
         const grid = document.createElement('div');
         grid.className = 'profiles';
         section.append(label);
-        const {flower, move, narwhal, narwhalStage, primal} = sample.view;
+        const {falseMoon, flower, move, narwhal, narwhalStage, primal} = sample.view;
         const flowerText = flower && 'inside' in flower ? raidenFlowerText(flower, move) : '';
         const journeyText = narwhal ? narwhalJourneyText(narwhal, narwhalStage) : '';
         const primalText = primal ? primalTrialText(primal) : '';
-        if (flowerText || journeyText || primalText) {
+        const falseMoonText = falseMoon ? falseMoonEncounterText(falseMoon) : '';
+        if (flowerText || journeyText || primalText || falseMoonText) {
           const status = document.createElement('p');
           status.className = 'mechanic';
-          status.textContent = flowerText || journeyText || primalText;
+          status.textContent = flowerText || journeyText || primalText || falseMoonText;
           section.append(status);
         }
         section.append(grid);
@@ -174,7 +175,8 @@ try {
             packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
         }
         comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles,
-          ...(flowerText && {flowerText}), ...(journeyText && {journeyText}), ...(primalText && {primalText})};
+          ...(flowerText && {flowerText}), ...(journeyText && {journeyText}),
+          ...(primalText && {primalText}), ...(falseMoonText && {falseMoonText})};
       }
       return comparison;
     }, {frames, nodes, title:label});

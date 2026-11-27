@@ -39,6 +39,7 @@ return function(C)
   local party=s.actorOwners and s.actorOwners[a] or s
   local damage=C.damageActor(party,a,n,source or w.primary,true,true)
   if damage>0 then C.combatEvent(party,'false-moon:'..key..':hit',a.id,w.primary.id,damage) end
+  return damage
  end
  function M.lock(s,w,spec,c,i)
   local a=M.target(s,c.origin)
@@ -113,10 +114,15 @@ return function(C)
       for _,z in ipairs(zones) do
        if M.inside(a,z) then
         c.seen[i][a]=true
-        if c.key=='WM08' and i==2 and M.coverAt(spec,a) then
-         local party=s.actorOwners and s.actorOwners[a] or s
-         C.combatEvent(party,'false-moon:WM08:ward',a.id,w.primary.id,M.coverAt(spec,a))
-        else M.hurt(s,w,spec,c.key,a,c.key=='WM08' and i==2 and spec.damage.shock or spec.damage.base) end
+        if c.key=='WM08' and i==2 then
+         local cover=M.coverAt(spec,a)
+         local damage=0
+         if cover then
+          local party=s.actorOwners and s.actorOwners[a] or s
+          C.combatEvent(party,'false-moon:WM08:ward',a.id,w.primary.id,cover)
+         else damage=M.hurt(s,w,spec,c.key,a,spec.damage.shock) end
+         c.wardResults[a]={protected=cover~=nil,damage=damage}
+        else M.hurt(s,w,spec,c.key,a,spec.damage.base) end
         break
        end
       end

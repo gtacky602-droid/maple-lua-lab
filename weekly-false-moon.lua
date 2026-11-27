@@ -124,6 +124,7 @@ return function(C,M)
    c.rewindLoss=w.rewindLoss;w.rewindLoss=nil;w.rewindUsed=true
   end
   if key=='WM13' or key=='WM15' then c.votes=weakKeys() end
+  if key=='WM08' then c.wardResults=weakKeys() end
   w.cast=c;w.phase='warning';w.contactTick=nil
   log(s,w,key)
   return c
@@ -288,10 +289,11 @@ return function(C,M)
    end
   end
  end
- local function settle(s,w,spec)
+ local function settle(s,w,spec,c)
   if w.paidCycle==w.cycle then return end
   w.paidCycle=w.cycle
   local n=math.min(w.primary.hp,w.budget,w.innerCount*math.floor(w.primary.maxhp*spec.moves.WM15.per_kill_main_maxhp_fraction))
+  c.settlement=n
   w.budget=w.budget-n
   forParties(s,w,function(party)
    local id=w.shadowContributors[party]
@@ -339,7 +341,7 @@ return function(C,M)
    w.phase='returning'
    local exposed=c.t>=c.move.exposure[1] and c.t<c.move.exposure[2]
    if c.t==c.move.scene_commit_tick then switch(s,w,spec,false) end
-   if c.t==c.move.settlement_tick then settle(s,w,spec) end
+   if c.t==c.move.settlement_tick then settle(s,w,spec,c) end
    if w.primary.hp<=0 then return end
    targetable(w.primary,exposed)
    if exposed then w.phase='exposure' end
@@ -454,7 +456,7 @@ return function(C,M)
    shadows={},wards={},warnings={}}
   b.falseMoon=v
   if e.hp<=0 then return end
-  local back={draws={}};local rear=painter(back,s)
+  local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches};local rear=painter(back,s)
   local art=C.falseMoonWeeklyArt.idle;local y=spec.floorY
   local inside=v.scene=='inner'
   if not inside then
@@ -500,6 +502,7 @@ return function(C,M)
     for i=1,8 do rect(e.x-80+i*17,y-207-math.abs(i-4)*5,10,7,M.ice,.68) end
    end
    v.cover=M.coverAt(spec,a)~=nil and c.t>=opens and c.t<closes
+   v.wardResult=c.wardResults[a]
   elseif rules[c.key] then
    local window=c.move.rule_window
    local record=c.players[s]
@@ -525,6 +528,7 @@ return function(C,M)
    v.canUse=c.t>=spec.rift.enterTick and c.t+c.move.confirmation_ticks<c.move.total and not c.confirm and
     not voteActor(s,c) and riftNear(spec,a,spec.rift.x)
    v.confirm=c.confirm and c.confirm-c.t
+   if c.t>=spec.rift.enterTick then v.riftRemaining=math.max(0,c.move.total-c.move.confirmation_ticks-c.t) end
    if c.t>=spec.rift.enterTick then
     rect(spec.rift.x-23,y-103,46,103,'#473661');rect(spec.rift.x-13,y-92,26,89,M.violet,.78)
    end
@@ -544,8 +548,10 @@ return function(C,M)
      if at-c.t<=spec.rift.shadowWarn then box(rect,shadowWave(spec,shadow),at==c.t) end
     end
    end
-  elseif c.key=='WM16' and w.phase=='exposure' then
-   v.exposure=c.move.exposure[2]-c.t
+  elseif c.key=='WM16' then
+   v.returnLoss=c.settlement
+   v.exposureEnded=c.t>=c.move.exposure[2]
+   if w.phase=='exposure' then v.exposure=c.move.exposure[2]-c.t end
   end
  end
  return controller

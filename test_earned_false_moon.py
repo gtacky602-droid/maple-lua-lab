@@ -1,0 +1,147 @@
+"""Replay ward protection and the three first-rift choices on earned expert saves."""
+
+from argparse import ArgumentParser
+import json
+from pathlib import Path
+
+from runtime import runtime
+from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+
+
+def replay(source, output, take_cover, shadow_goal):
+    spec = next(b for b in read('content/weekly-boss-spawns.json')['weeklyBosses']
+                if b['controller'] == 'false_moon')
+    trip, slot, start, _, mode, key, prior = expert_rematch(source.resolve(), runtime(), spec)
+    state, hero = trip.state, trip.actor
+    before = state.progression.total, state.mora
+    rift = spec['rift']
+    moves = spec['moves']
+    shock_at = moves['WM08']['windows'][1][0]
+    settlement_at = moves['WM16']['settlement_tick']
+    frames, scenes, pulse_hits = {}, [], []
+    ward, settlement, declined = None, None, None
+    exposure, cycle, released = 0, 0, False
+    initial_hp = slot.primary.hp
+    last_scene = state.story.node
+
+    def sample(label, tick, cast):
+        frames[label] = capture_scene(trip, tick, slot.stage, cast.key, cast.t)
+
+    for tick in range(1, 60 * 360 + 1):
+        cast = slot.cast
+        card = cast.key if cast else None
+        goal, target = hero.x, None
+        if card == 'WM08' and not ward:
+            goal = 160 if take_cover else 330
+        elif card == 'WM13' and not released:
+            goal = rift['x']
+            if (shadow_goal is not None and not cast.confirm and cast.t >= rift['enterTick']
+                    and abs(goal - hero.x) < rift['radius'] - 10):
+                trip.act('encounter_interact')
+                sample('裂け目・入場確認', tick - 1, cast)
+        elif card == 'WM15' and slot.innerCount < shadow_goal:
+            target = next(e for e in slot.shadows.values() if e.hp > 0)
+        elif card == 'WM15':
+            goal = rift['exitX']
+            if abs(goal - hero.x) < rift['radius'] - 10:
+                trip.act('encounter_interact')
+                sample('右端の出口から帰還', tick - 1, cast)
+        elif released and card not in ('WM09', 'WM10') and not slot.primary.invulnerable:
+            target = slot.primary
+        dx = target.x - hero.x if target else 0
+        if target:
+            goal = target.x - 70 if target.x > 150 else target.x + 70
+            if abs(goal - hero.x) <= 9 and dx * hero.dir < 0:
+                goal = hero.x + (24 if dx > 0 else -24)
+        controls = trip.lua.table(left=goal < hero.x - 9, right=goal > hero.x + 9,
+                                  attack=bool(target) and abs(dx) < 115 and dx * hero.dir > 0)
+        hp_before = hero.hp
+        boss_before = slot.primary.hp
+        seq_before = state.events[len(state.events)].seq if len(state.events) else 0
+        trip.tick(1, controls)
+        if slot.waitUntil:
+            break
+        assert not state.returns and hero.hp > 0
+
+        move = slot.cast
+        if move and move.key == 'WM08' and move.t == shock_at and not ward:
+            event = 'false-moon:WM08:ward' if take_cover else 'false-moon:WM08:hit'
+            current = next(e for e in state.events.values()
+                           if e.seq > seq_before and e.actor == hero.id and e.kind == event)
+            assert hp_before - hero.hp == (0 if take_cover else current.value)
+            ward = dict(tick=tick, moveTick=move.t, x=hero.x, hpLoss=hp_before - hero.hp, event=event)
+            sample('青い枠で衝撃を防ぐ' if take_cover else '保護の外で衝撃が命中', tick, move)
+        if move and move.key == 'WM13' and not released:
+            if hero.hp < hp_before:
+                assert any(e.seq > seq_before and e.actor == hero.id and e.kind == 'false-moon:WM13:hit'
+                           for e in state.events.values())
+                pulse_hits.append(dict(moveTick=move.t, loss=hp_before - hero.hp))
+            if shadow_goal is None and move.t == moves['WM13']['total'] - moves['WM13']['confirmation_ticks']:
+                sample('裂け目・受付終了', tick, move)
+        if shadow_goal is None and not released and card == 'WM13' and not move:
+            declined = dict(tick=tick, bossHp=slot.primary.hp, scene=state.story.node)
+            assert slot.primary.hp == initial_hp and slot.epoch == 0
+            released = True
+        if state.story.node != last_scene:
+            scenes.append(dict(tick=tick, node=state.story.node, epoch=slot.epoch))
+            sample('異界へ移動' if state.story.node == spec['innerNode'] else '外界へ帰還', tick, move)
+            last_scene = state.story.node
+        if move and move.key == 'WM15' and move.t == 1:
+            sample('異界の三擬影', tick, move)
+        if move and move.key == 'WM16':
+            if move.t == settlement_at:
+                losses = [e.value for e in state.events.values() if e.kind == 'false-moon:WM16:loss']
+                expected = shadow_goal * int(slot.primary.maxhp * moves['WM15']['per_kill_main_maxhp_fraction'])
+                assert losses == [expected] and boss_before - slot.primary.hp == expected
+                settlement = dict(tick=tick, defeated=slot.innerCount, bossHpBefore=boss_before,
+                                  bossHpAfter=slot.primary.hp, loss=expected)
+                cycle = slot.cycle
+            if not released and not slot.primary.invulnerable:
+                exposure += 1
+                if exposure == 1:
+                    sample('帰還後の反撃・開始', tick, move)
+            elif exposure and not released:
+                sample('帰還後の反撃・終了', tick, move)
+                released = True
+    else:
+        raise AssertionError(('time budget', slot.stage, slot.primary.hp, slot.innerCount, slot.cast and slot.cast.key))
+
+    assert released and ward
+    ward_label = '青い枠で衝撃を防ぐ' if take_cover else '保護の外で衝撃が命中'
+    assert frames[ward_label]['view']['falseMoon']['wardResult'] == {
+        'protected': take_cover, 'damage': ward['hpLoss'],
+    }
+    if shadow_goal is None:
+        assert declined and not scenes and not settlement and not exposure
+        assert slot.epoch == 0 and pulse_hits
+        assert frames['裂け目・受付終了']['view']['falseMoon']['riftRemaining'] == 0
+        case, label = 'false-moon-missed', '裂け目を見送る'
+    else:
+        assert [s['node'] for s in scenes] == [spec['innerNode'], spec['node']]
+        assert settlement and settlement['defeated'] == shadow_goal and cycle == slot.cycle == 1
+        opens, closes = moves['WM16']['exposure']
+        assert exposure == closes - opens
+        returned = frames['帰還後の反撃・開始']['view']['falseMoon']
+        assert returned['exposure'] == exposure and returned['returnLoss'] == settlement['loss']
+        assert frames['帰還後の反撃・終了']['view']['falseMoon']['exposureEnded']
+        case = 'false-moon-full' if shadow_goal == 3 else 'false-moon-early'
+        label = '擬影を3体倒して帰還' if shadow_goal == 3 else '擬影を1体倒して早期帰還'
+    verify_repeat(trip, before, start, mode, key, prior)
+    (output / f'{case}-frames.json').write_text(
+        json.dumps(frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf8')
+    print(case, tick, ward, settlement, declined, 'exposure', exposure, flush=True)
+    return dict(controller='false_moon', case=case, label=label, ticks=tick, sourceSha256=trip.source,
+                ward=ward, scenes=scenes, pulses=pulse_hits, settlement=settlement, missedRift=declined,
+                exposureTicks=exposure, expertClears=[prior, prior + 1])
+
+
+if __name__ == '__main__':
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('--from-save', type=Path, required=True)
+    parser.add_argument('--output-dir', type=Path, required=True)
+    args = parser.parse_args()
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    results = [replay(args.from_save, args.output_dir, covered, count)
+               for covered, count in ((True, 3), (False, 1), (False, None))]
+    (args.output_dir / 'weekly-mechanics.json').write_text(
+        json.dumps(results, ensure_ascii=False, indent=2) + '\n', 'utf8')
