@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
@@ -8,6 +9,7 @@ const page = await browser.newPage({viewport:{width:1280,height:1020}});
 const drive = waypointDriver(page,{});
 const status = page.locator('#endgameRunStatus');
 const upper = page.locator('#abyssUpper');
+const output = process.env.ABYSS_TEST_DIR || 'work/abyss-upper-standard';
 const errors = [];
 page.on('pageerror',error => errors.push(error.message));
 
@@ -32,17 +34,18 @@ async function liveTargets() {
 try {
  await page.goto(process.env.LAB_URL || 'http://127.0.0.1:9099/');
  await page.waitForFunction(() => window.lab?.frame,undefined,{timeout:90000});
- await importTown('work/nod-fresh-route-draft/snezhnaya-save.json',140);
+ await importTown(path.join(output,'locked-browser-save.json'),140);
  await upper.waitFor();
  assert.ok(await upper.isDisabled());
  assert.match(await upper.textContent(),/Lv160/);
- await importTown('work/abyss-upper-browser-save.json',200);
+ await importTown(path.join(output,'upper-browser-save.json'),200);
  await page.locator('#abyssUpper:enabled').waitFor();
+ assert.match(await upper.textContent(),/上層（試作）/);
  await page.locator('#abyssSet').selectOption('troupe');
  await upper.click();
  await page.waitForFunction(() => window.lab.frame.endgameRun?.room === 1);
  await status.filter({hasText:/上層 1\/3・二段の前哨/}).waitFor();
- await page.locator('.game').screenshot({path:'evidence/abyss-upper-room-browser.png'});
+ await page.locator('.game').screenshot({path:path.join(output,'abyss-upper-room-browser.png')});
 
  for(let turn=0;turn<30;turn++){
   const {actor,enemies,run} = await liveTargets();
@@ -73,8 +76,8 @@ try {
  await page.waitForFunction(() => !window.lab.frame.endgameRun && window.lab.frame.story.node === 'mond-town');
  await page.locator('#abyssUpper:enabled').waitFor();
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/abyss-upper-browser.json',JSON.stringify({
-  blockedAt:140,enteredAt:200,clearedFirstRoom:true,enteredSecondRoom:true,returnedToTown:true,errors,
+ await fs.writeFile(path.join(output,'abyss-upper-browser.json'),JSON.stringify({
+  profile:'standard',blockedAt:140,enteredAt:200,clearedFirstRoom:true,enteredSecondRoom:true,returnedToTown:true,errors,
  },null,2)+'\n');
  console.log('Chrome passed the upper abyss lock, first room, next-room control and return.');
 }catch(error){

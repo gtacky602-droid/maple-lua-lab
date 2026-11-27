@@ -459,7 +459,7 @@ export function initEndgameUI(action){
    button.hidden=!mode;
    if(!mode)continue;
    button.disabled=!mode.available;
-   button.textContent=`深境螺旋・${mode.name}${mode.draft?'（比較版）':''}${mode.soloBlock?'・ソロ専用':mode.level&&!mode.available?`・Lv${mode.level}〜`:''}`;
+   button.textContent=`深境螺旋・${mode.name}${mode.provisional?'（試作）':''}${mode.soloBlock?'・ソロ専用':mode.level&&!mode.available?`・Lv${mode.level}〜`:''}`;
    const best=all?.abyss?.[id];
    if(best)results.push(`螺旋${mode.name} 星${best.bestStars}・${record(best)}`);
   }

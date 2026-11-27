@@ -4,7 +4,7 @@
     "entry": {"name": "入門", "limit": 180, "threeStars": 65, "twoStars": 110, "healthFactor": 1, "extraPerGroup": 0, "mora": 650, "itemLevel": 21, "rarity": 3},
     "elite": {"name": "精鋭", "limit": 240, "threeStars": 90, "twoStars": 150, "healthFactor": 3, "extraPerGroup": 1, "mora": 2400, "itemLevel": 48, "rarity": 4},
     "upper": {
-      "name": "上層", "level": 160, "draft": true, "limit": 180, "threeStars": 48, "twoStars": 80,
+      "name": "上層", "level": 160, "solo": true, "provisional": true, "limit": 180, "threeStars": 48, "twoStars": 80,
       "healthFactor": 1, "extraPerGroup": 0, "mora": 300000, "itemLevel": 184, "rarity": 5,
       "rooms": [
         {"name":"二段の前哨","platforms":[{"x":0,"y":480,"w":960},{"x":300,"y":392,"w":370}],"groups":[

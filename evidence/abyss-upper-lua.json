@@ -1,23 +1,40 @@
 {
+  "profile": "standard",
   "lockedLevel": 140,
   "timeoutSeconds": 180.0,
   "noFailureReward": true,
   "retryStartsFirstRoom": true,
+  "soloGateChecked": true,
   "clears": [
     {
       "level": 160,
-      "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+      "sourceSha256": "ac14a188ee1903de4d09e97823cbe6c211b7113c5aaf1325ddb7245a8fc74f27",
       "roomTargets": [
         16,
         18,
         13
       ],
       "splitSeconds": [
-        20.433,
-        47.733,
-        101.85
+        13.867,
+        40.283,
+        57.017
       ],
-      "stars": 1,
+      "stars": 2,
+      "gearBefore": {
+        "attack": 1244,
+        "hp": 7134
+      },
+      "gearAtEntry": {
+        "attack": 38860,
+        "hp": 33624,
+        "fittedBagItems": [
+          376,
+          388,
+          232,
+          209,
+          176
+        ]
+      },
       "companion": "amber",
       "reward": {
         "mora": 300000,
@@ -30,7 +47,7 @@
     },
     {
       "level": 200,
-      "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "sourceSha256": "2aba8a85c409da1f8a3eff3c3a283ee571153ad89fc52e20919bb1ec33ff46a4",
       "roomTargets": [
         16,
         18,
@@ -38,10 +55,19 @@
       ],
       "splitSeconds": [
         6.45,
-        15.933,
-        25.433
+        14.183,
+        25.517
       ],
       "stars": 3,
+      "gearBefore": {
+        "attack": 141656,
+        "hp": 120802
+      },
+      "gearAtEntry": {
+        "attack": 141656,
+        "hp": 120802,
+        "fittedBagItems": []
+      },
       "companion": "amber",
       "reward": {
         "mora": 300000,
@@ -53,5 +79,5 @@
       "saved": true
     }
   ],
-  "comparisonRecordSurvivesStandardImport": true
+  "recordSurvivesComparisonImport": true
 }
