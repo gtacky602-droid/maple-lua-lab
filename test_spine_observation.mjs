@@ -202,6 +202,21 @@ try{
   await gate(1020,shelf);
   await gate(1560,notch);
   await gate(1440,lee);
+  const leeFrame=await frame();
+  assert.equal(leeFrame.total,16);
+  assert.ok(leeFrame.platforms.some(p=>p.x===640&&p.y===293&&p.w===430));
+  await page.keyboard.press('KeyM');
+  await page.locator('#worldAtlas').waitFor();
+  await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='branch-01');
+  await page.selectOption('#atlasLayer','hunt');
+  await page.waitForFunction(()=>window.lab.frame.worldMap?.layer==='hunt');
+  await page.selectOption('#atlasField',lee);
+  await page.waitForFunction(id=>window.lab.frame.worldMap.layer==='hunt'
+    &&window.lab.frame.worldMap.selected?.id===id
+    &&window.lab.frame.worldMap.selected.huntKind==='field',lee);
+  assert.equal(await page.locator('#atlasField option[value="dragonspine-depth"]').count(),0);
+  await page.keyboard.press('Escape');
+  await page.locator('#worldAtlas').waitFor({state:'hidden'});
   await gate(1560,shelter);
   console.log('Three observation angles and both trails connected');
 
@@ -230,7 +245,7 @@ try{
   assert.ok(resumed.draws.some(d=>d.text==='稜線の観測記録・展示中'));
   assert.deepEqual(errors,[]);
   const proof={threeAngles:true,threeQuests:true,gustDisablesCrossing:true,calmLift:true,
-    alternateLeeRoute:true,battle,commands,firstReport,savedExhibit:true,errors};
+    alternateLeeRoute:true,leeHuntVisibleOnMap:true,leeUpperShelf:true,battle,commands,firstReport,savedExhibit:true,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

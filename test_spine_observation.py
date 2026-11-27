@@ -111,7 +111,18 @@ report(s,second,(20400,920,2))
 gate(s,1020,shelf);gate(s,1560,notch)
 gate(s,614,shelter,y=387,opened=False)
 gate(s,1440,lee)
-assert len(s.enemies)==4
+assert len(s.enemies)==16
+assert {e.spawnId for e in s.enemies.values() if e.y==480}=={'spine-lee-beetle-1','spine-lee-beetle-3'}
+assert sum(e.y==389 for e in s.enemies.values())==6
+assert sum(e.y==392 for e in s.enemies.values())==3
+assert sum(e.y==293 for e in s.enemies.values())==5
+move(s,745,389)
+core.action(s,'jump')
+for _ in range(90):
+    core.step(s,1/60,lua.table(jump=True))
+    if s.actors[1].ground and s.actors[1].y==293:
+        break
+assert s.actors[1].ground and s.actors[1].y==293
 gate(s,1560,shelter)
 core.action(s,'story_accept:'+third)
 gate(s,1130,ridge)
@@ -155,6 +166,7 @@ check_original_boss_retry(lua, core, s, boss, third, lambda state: gate(state, 1
 
 proof=dict(legacyLevelOneAccess=True,optionalBarrierTest=True,shelfThreeAngles=True,observationsSaved=True,
     gustGateRejected=True,calmLift=True,pauseFreezesWind=True,leeRouteOpenInGust=True,
+    leeGroundEnemies=2,leeRaisedEnemies=14,leeUpperShelfReachable=True,
     twoBossTelegraphs=True,zeroImprintRecovery=True,belowLedgeOnly=True,exhibitSaved=True,
     firstReport=[6649,153675,3],noSecondPayout=True)
 (ROOT/'evidence/spine-observation-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')

@@ -1,0 +1,1030 @@
+{
+  "base": "ae1dc96f26a388be26b76560bd52ec57fa843e7e",
+  "registeredHunts": 163,
+  "viewWidth": 960,
+  "fields": {
+    "chasm-wp-25268": {
+      "name": "層岩巨淵・巨淵主鉱区の北側",
+      "level": 20,
+      "before": {
+        "ordinary": 12,
+        "peak": 12,
+        "camera": 285
+      },
+      "after": {
+        "ordinary": 20,
+        "peak": 19,
+        "camera": 230
+      },
+      "platforms": {
+        "0": 10,
+        "1": 4,
+        "2": 3,
+        "3": 2,
+        "4": 1
+      },
+      "killAndRespawn": {
+        "enemy": "chasm-wp-25268-11",
+        "xp": 23,
+        "respawnTicks": 363
+      }
+    },
+    "chasm-wp-25269": {
+      "name": "層岩巨淵・巨淵主鉱区の南側",
+      "level": 20,
+      "before": {
+        "ordinary": 12,
+        "peak": 12,
+        "camera": 285
+      },
+      "after": {
+        "ordinary": 20,
+        "peak": 17,
+        "camera": 220
+      },
+      "platforms": {
+        "0": 10,
+        "1": 4,
+        "2": 3,
+        "3": 2,
+        "4": 1
+      },
+      "killAndRespawn": {
+        "enemy": "chasm-wp-25269-11",
+        "xp": 23,
+        "respawnTicks": 363
+      }
+    },
+    "spine-lee-walk": {
+      "name": "雪壁の風よけ道",
+      "level": 52,
+      "before": {
+        "ordinary": 4,
+        "peak": 4,
+        "camera": 348
+      },
+      "after": {
+        "ordinary": 16,
+        "peak": 15,
+        "camera": 508
+      },
+      "platforms": {
+        "0": 2,
+        "1": 6,
+        "2": 3,
+        "3": 5
+      },
+      "killAndRespawn": {
+        "enemy": "spine-lee-beetle-2",
+        "xp": 1497,
+        "respawnTicks": 363
+      }
+    }
+  },
+  "portalArrivals": [
+    {
+      "origin": "dragonspine-camp",
+      "destination": "dragonspine-depth",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "cryo-hypostasis-field-basin",
+      "destination": "dragonspine-depth",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-wp-25267",
+      "destination": "chasm-wp-25268",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-wp-25267",
+      "destination": "chasm-wp-25270",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-wp-25268",
+      "destination": "chasm-wp-25269",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-wp-25269",
+      "destination": "chasm-wp-25268",
+      "positions": [
+        [
+          1440,
+          480
+        ],
+        [
+          1400,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-wp-25271",
+      "destination": "chasm-wp-25270",
+      "positions": [
+        [
+          234,
+          480
+        ],
+        [
+          194,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-wp-25277",
+      "destination": "chasm-wp-25269",
+      "positions": [
+        [
+          1600,
+          480
+        ],
+        [
+          1560,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "spine-wind-notch",
+      "destination": "spine-lee-walk",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "spine-shelter",
+      "destination": "spine-lee-walk",
+      "positions": [
+        [
+          1470,
+          480
+        ],
+        [
+          1430,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivals": [
+    {
+      "node": "chasm-wp-25268",
+      "positions": [
+        [
+          800,
+          480
+        ],
+        [
+          760,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "chasm-wp-25269",
+      "positions": [
+        [
+          880,
+          480
+        ],
+        [
+          840,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "chasm-wp-25270",
+      "positions": [
+        [
+          800,
+          480
+        ],
+        [
+          760,
+          480
+        ]
+      ]
+    }
+  ],
+  "explorationNodes": {
+    "chasm-wp-25270": 12,
+    "dragonspine-depth": 6
+  },
+  "remainingQuestReferencedFields": 22,
+  "remainingDailyAndQuestReferencedFields": [
+    "mond-watchtower",
+    "liyue-loading-yard",
+    "inazuma-lantern-trail"
+  ],
+  "allChasmPathsAndReports": {
+    "marker_count": 15,
+    "visited_stages": [
+      "chasm-depth",
+      "chasm-wp-25264",
+      "chasm-wp-25266",
+      "chasm-wp-25267",
+      "chasm-wp-25268",
+      "chasm-wp-25269",
+      "chasm-wp-25270",
+      "chasm-wp-25271",
+      "chasm-wp-25272",
+      "chasm-wp-25273",
+      "chasm-wp-25274",
+      "chasm-wp-25275",
+      "chasm-wp-25276",
+      "chasm-wp-25277",
+      "chasm-wp-26463"
+    ],
+    "directed_gates_walked": [
+      [
+        "chasm-camp",
+        "chasm-depth"
+      ],
+      [
+        "chasm-depth",
+        "chasm-camp"
+      ],
+      [
+        "chasm-depth",
+        "chasm-wp-25264"
+      ],
+      [
+        "chasm-depth",
+        "chasm-wp-25266"
+      ],
+      [
+        "chasm-wp-25264",
+        "chasm-depth"
+      ],
+      [
+        "chasm-wp-25264",
+        "chasm-wp-25267"
+      ],
+      [
+        "chasm-wp-25266",
+        "chasm-depth"
+      ],
+      [
+        "chasm-wp-25266",
+        "chasm-wp-25267"
+      ],
+      [
+        "chasm-wp-25267",
+        "chasm-wp-25264"
+      ],
+      [
+        "chasm-wp-25267",
+        "chasm-wp-25266"
+      ],
+      [
+        "chasm-wp-25267",
+        "chasm-wp-25268"
+      ],
+      [
+        "chasm-wp-25267",
+        "chasm-wp-25270"
+      ],
+      [
+        "chasm-wp-25268",
+        "chasm-wp-25267"
+      ],
+      [
+        "chasm-wp-25268",
+        "chasm-wp-25269"
+      ],
+      [
+        "chasm-wp-25269",
+        "chasm-wp-25268"
+      ],
+      [
+        "chasm-wp-25269",
+        "chasm-wp-25277"
+      ],
+      [
+        "chasm-wp-25270",
+        "chasm-wp-25267"
+      ],
+      [
+        "chasm-wp-25270",
+        "chasm-wp-25271"
+      ],
+      [
+        "chasm-wp-25271",
+        "chasm-wp-25270"
+      ],
+      [
+        "chasm-wp-25271",
+        "chasm-wp-25273"
+      ],
+      [
+        "chasm-wp-25271",
+        "chasm-wp-25274"
+      ],
+      [
+        "chasm-wp-25271",
+        "chasm-wp-26463"
+      ],
+      [
+        "chasm-wp-25272",
+        "chasm-wp-25273"
+      ],
+      [
+        "chasm-wp-25273",
+        "chasm-wp-25271"
+      ],
+      [
+        "chasm-wp-25273",
+        "chasm-wp-25272"
+      ],
+      [
+        "chasm-wp-25274",
+        "chasm-wp-25271"
+      ],
+      [
+        "chasm-wp-25274",
+        "chasm-wp-26463"
+      ],
+      [
+        "chasm-wp-25275",
+        "chasm-wp-25276"
+      ],
+      [
+        "chasm-wp-25276",
+        "chasm-wp-25275"
+      ],
+      [
+        "chasm-wp-25276",
+        "chasm-wp-25277"
+      ],
+      [
+        "chasm-wp-25276",
+        "chasm-wp-26463"
+      ],
+      [
+        "chasm-wp-25277",
+        "chasm-wp-25269"
+      ],
+      [
+        "chasm-wp-25277",
+        "chasm-wp-25276"
+      ],
+      [
+        "chasm-wp-26463",
+        "chasm-wp-25271"
+      ],
+      [
+        "chasm-wp-26463",
+        "chasm-wp-25274"
+      ],
+      [
+        "chasm-wp-26463",
+        "chasm-wp-25276"
+      ],
+      [
+        "liyue-field",
+        "chasm-camp"
+      ],
+      [
+        "liyue-harbor",
+        "liyue-field"
+      ]
+    ],
+    "reported_quests": [
+      "chasm-survey",
+      "chasm-wetland-survey",
+      "chasm-stonehall-survey",
+      "chasm-west-survey"
+    ],
+    "save_restored": true,
+    "method": "Normal Lua portal and movement inputs from a Lv20 Liyue hub fixture; all Chasm passages and all four quest rewards."
+  },
+  "dragonspineObservationLua": {
+    "legacyLevelOneAccess": true,
+    "optionalBarrierTest": true,
+    "shelfThreeAngles": true,
+    "observationsSaved": true,
+    "gustGateRejected": true,
+    "calmLift": true,
+    "pauseFreezesWind": true,
+    "leeRouteOpenInGust": true,
+    "leeGroundEnemies": 2,
+    "leeRaisedEnemies": 14,
+    "leeUpperShelfReachable": true,
+    "twoBossTelegraphs": true,
+    "zeroImprintRecovery": true,
+    "belowLedgeOnly": true,
+    "exhibitSaved": true,
+    "firstReport": [
+      6649,
+      153675,
+      3
+    ],
+    "noSecondPayout": true
+  },
+  "earnedDragonspine": {
+    "sourceSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+    "itineraries": [
+      {
+        "start": "mond-town",
+        "destination": "dragonspine-camp",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "mond-town",
+            "mode": "walk",
+            "region": "region-01",
+            "level": 1,
+            "id": "mond-road",
+            "previewX": 1380,
+            "label": "徒歩",
+            "name": "モンド・南の街道"
+          },
+          {
+            "level": 1,
+            "label": "徒歩",
+            "from": "mond-road",
+            "mode": "walk",
+            "region": "region-01",
+            "id": "mond-border",
+            "previewX": 1380,
+            "name": "モンド・国境の道"
+          },
+          {
+            "level": 1,
+            "label": "徒歩",
+            "from": "mond-border",
+            "mode": "walk",
+            "region": "branch-01",
+            "id": "dragonspine-camp",
+            "previewX": 720,
+            "name": "ドラゴンスパイン・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "dragonspine-camp",
+        "destination": "spine-observation-shelf",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "dragonspine-camp",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 42,
+            "id": "spine-observation-shelf",
+            "previewX": 1020,
+            "label": "徒歩",
+            "name": "霜筋の観測棚"
+          }
+        ]
+      },
+      {
+        "start": "dragonspine-camp",
+        "destination": "dragonspine-camp",
+        "stops": []
+      },
+      {
+        "start": "dragonspine-camp",
+        "destination": "spine-wind-notch",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "dragonspine-camp",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 42,
+            "id": "spine-observation-shelf",
+            "previewX": 1020,
+            "label": "徒歩",
+            "name": "霜筋の観測棚"
+          },
+          {
+            "level": 52,
+            "label": "徒歩",
+            "from": "spine-observation-shelf",
+            "mode": "walk",
+            "region": "branch-01",
+            "id": "spine-wind-notch",
+            "previewX": 1560,
+            "name": "風待ちの岩棚"
+          }
+        ]
+      },
+      {
+        "start": "spine-wind-notch",
+        "destination": "spine-shelter",
+        "stops": [
+          {
+            "previewY": 387,
+            "approach": "現在地から右へ",
+            "wind": {
+              "calm": false,
+              "seconds": 4
+            },
+            "from": "spine-wind-notch",
+            "mode": "lift",
+            "level": 52,
+            "region": "branch-01",
+            "label": "昇降機",
+            "id": "spine-shelter",
+            "previewX": 614,
+            "hint": "上段の入口・風が弱い間に通る・移動に0.8秒",
+            "name": "峰下の観測小屋"
+          }
+        ]
+      },
+      {
+        "start": "spine-shelter",
+        "destination": "dragonspine-camp",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "spine-shelter",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 1,
+            "id": "dragonspine-camp",
+            "previewX": 56,
+            "label": "徒歩",
+            "name": "ドラゴンスパイン・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "dragonspine-camp",
+        "destination": "spine-wind-notch",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "dragonspine-camp",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 42,
+            "id": "spine-observation-shelf",
+            "previewX": 1020,
+            "label": "徒歩",
+            "name": "霜筋の観測棚"
+          },
+          {
+            "level": 52,
+            "label": "徒歩",
+            "from": "spine-observation-shelf",
+            "mode": "walk",
+            "region": "branch-01",
+            "id": "spine-wind-notch",
+            "previewX": 1560,
+            "name": "風待ちの岩棚"
+          }
+        ]
+      },
+      {
+        "start": "spine-wind-notch",
+        "destination": "spine-lee-walk",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "spine-wind-notch",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 52,
+            "id": "spine-lee-walk",
+            "previewX": 1440,
+            "label": "徒歩",
+            "name": "雪壁の風よけ道"
+          }
+        ]
+      },
+      {
+        "start": "spine-lee-walk",
+        "destination": "spine-shelter",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "spine-lee-walk",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 52,
+            "id": "spine-shelter",
+            "previewX": 1560,
+            "label": "徒歩",
+            "name": "峰下の観測小屋"
+          }
+        ]
+      },
+      {
+        "start": "spine-shelter",
+        "destination": "spine-trace-ridge",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "spine-shelter",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 60,
+            "id": "spine-trace-ridge",
+            "previewX": 1130,
+            "label": "徒歩",
+            "name": "霜紋の稜線"
+          }
+        ]
+      },
+      {
+        "start": "spine-trace-ridge",
+        "destination": "spine-shelter",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "spine-trace-ridge",
+            "mode": "walk",
+            "region": "branch-01",
+            "level": 52,
+            "id": "spine-shelter",
+            "previewX": 57,
+            "label": "徒歩",
+            "name": "峰下の観測小屋"
+          }
+        ]
+      },
+      {
+        "start": "spine-shelter",
+        "destination": "spine-shelter",
+        "stops": []
+      }
+    ],
+    "reports": [
+      {
+        "quest": "spine-noon-pattern",
+        "xp": 12100,
+        "mora": 540
+      },
+      {
+        "quest": "spine-wind-route",
+        "xp": 20400,
+        "mora": 920
+      },
+      {
+        "quest": "spine-ridge-record",
+        "xp": 6649,
+        "mora": 153675
+      }
+    ],
+    "battles": [
+      {
+        "node": "spine-observation-shelf",
+        "targets": [
+          "spine-shelf-near-beetle",
+          "spine-shelf-upper-beetle",
+          "spine-shelf-far-beetle"
+        ],
+        "xp": 24,
+        "kills": 3
+      },
+      {
+        "node": "spine-trace-ridge",
+        "targets": [
+          "original-rime-hare"
+        ],
+        "xp": 1199,
+        "kills": 1
+      }
+    ],
+    "locks": [],
+    "returns": 0,
+    "restoredReports": [
+      "spine-noon-pattern",
+      "spine-wind-route",
+      "spine-ridge-record"
+    ],
+    "level": 200
+  },
+  "chasmBrowser": {
+    "huntNodes": [
+      "chasm-wp-25268",
+      "chasm-wp-25269"
+    ],
+    "population": 20,
+    "wetlandExcludedFromHunts": true,
+    "journeys": [
+      [
+        "chasm-camp",
+        "chasm-depth",
+        "walk"
+      ],
+      [
+        "chasm-depth",
+        "chasm-wp-25264",
+        "walk"
+      ],
+      [
+        "chasm-wp-25264",
+        "chasm-wp-25267",
+        "walk"
+      ],
+      [
+        "chasm-wp-25267",
+        "chasm-wp-25268",
+        "walk"
+      ],
+      [
+        "chasm-wp-25268",
+        "chasm-wp-25269",
+        "walk"
+      ],
+      [
+        "chasm-wp-25268",
+        "chasm-wp-25267",
+        "walk"
+      ],
+      [
+        "chasm-wp-25267",
+        "chasm-wp-25270",
+        "walk"
+      ],
+      [
+        "chasm-wp-25270",
+        "chasm-wp-25271",
+        "walk"
+      ],
+      [
+        "chasm-wp-25271",
+        "chasm-wp-25270",
+        "walk"
+      ]
+    ],
+    "warp": [
+      800,
+      480
+    ],
+    "returnPoint": [
+      234,
+      480
+    ],
+    "surveyReportedAndRestored": true,
+    "errors": []
+  },
+  "dragonspineBrowser": {
+    "threeAngles": true,
+    "threeQuests": true,
+    "gustDisablesCrossing": true,
+    "calmLift": true,
+    "alternateLeeRoute": true,
+    "leeHuntVisibleOnMap": true,
+    "leeUpperShelf": true,
+    "battle": {
+      "won": true,
+      "seconds": 54.45,
+      "hp": 72,
+      "bossHp": 0,
+      "moves": [
+        "RH01",
+        "RH02"
+      ],
+      "returns": 0
+    },
+    "commands": {
+      "png": 18,
+      "standard": 7467,
+      "light": 1956
+    },
+    "firstReport": [
+      6649,
+      153675,
+      3
+    ],
+    "savedExhibit": true,
+    "errors": []
+  },
+  "sameCameraBrowser": {
+    "chasm-wp-25268": {
+      "before": {
+        "total": 12,
+        "visible": 12,
+        "camera": 230,
+        "backgroundFile": "chasm-background-v1.png"
+      },
+      "after": {
+        "total": 20,
+        "visible": 19,
+        "camera": 230,
+        "backgroundFile": "chasm-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "color": {
+              "x": 80,
+              "y": 405
+            }
+          },
+          "union": 30080,
+          "overlap": 30080,
+          "overlapPercent": 100,
+          "meanRgbError": 26.169060283687944
+        },
+        "rows": [
+          [
+            "標準",
+            "22,325",
+            "91.6%",
+            "23.86 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "13,148",
+            "100.0%",
+            "4.37 / 255",
+            "-41.1%"
+          ],
+          [
+            "最軽量・16色",
+            "5,320",
+            "100.0%",
+            "26.17 / 255",
+            "-76.2%"
+          ]
+        ]
+      }
+    },
+    "chasm-wp-25269": {
+      "before": {
+        "total": 12,
+        "visible": 12,
+        "camera": 220,
+        "backgroundFile": "chasm-background-v1.png"
+      },
+      "after": {
+        "total": 20,
+        "visible": 17,
+        "camera": 220,
+        "backgroundFile": "chasm-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "color": {
+              "x": 240,
+              "y": 405
+            }
+          },
+          "union": 26502,
+          "overlap": 26502,
+          "overlapPercent": 100,
+          "meanRgbError": 26.197331019042586
+        },
+        "rows": [
+          [
+            "標準",
+            "19,975",
+            "91.6%",
+            "23.75 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "11,764",
+            "100.0%",
+            "4.37 / 255",
+            "-41.1%"
+          ],
+          [
+            "最軽量・16色",
+            "4,760",
+            "100.0%",
+            "26.20 / 255",
+            "-76.2%"
+          ]
+        ]
+      }
+    },
+    "spine-lee-walk": {
+      "before": {
+        "total": 4,
+        "visible": 3,
+        "camera": 508,
+        "backgroundFile": "dragonspine-background-v1.png"
+      },
+      "after": {
+        "total": 16,
+        "visible": 15,
+        "camera": 508,
+        "backgroundFile": "dragonspine-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 800,
+              "y": 360
+            },
+            "color": {
+              "x": 160,
+              "y": 360
+            }
+          },
+          "union": 38374,
+          "overlap": 36932,
+          "overlapPercent": 96.24224735497994,
+          "meanRgbError": 24.58624860103253
+        },
+        "rows": [
+          [
+            "標準",
+            "27,525",
+            "98.3%",
+            "12.29 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "17,055",
+            "97.7%",
+            "18.33 / 255",
+            "-38.0%"
+          ],
+          [
+            "最軽量・16色",
+            "7,425",
+            "96.2%",
+            "24.59 / 255",
+            "-73.0%"
+          ]
+        ]
+      }
+    }
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5645,
+    "liveEntriesChecked": 5645,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "platformTemplates": {
+    "fields": 1528,
+    "platformInstances": 5452,
+    "distinctLayouts": 634,
+    "distinctPlatforms": 1563,
+    "compactJsonBytes": 174725,
+    "standaloneLuaBytes": 76456
+  }
+}

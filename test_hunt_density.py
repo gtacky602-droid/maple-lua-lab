@@ -12,6 +12,10 @@ from savegame import validate_save
 from story_scope import suspended_stage_returns
 
 VIEW_WIDTH = 960
+MINE_AND_SNOW_ARRIVALS = {
+    'chasm-wp-25268', 'chasm-wp-25269', 'chasm-wp-25270',
+    'spine-lee-walk', 'dragonspine-depth',
+}
 
 
 def read(path):
@@ -164,7 +168,7 @@ def measure():
                 if abs(enemy.y - item['y']) < 45 and enemy.patrolMin - 60 < item['x'] < enemy.patrolMax + 60:
                     unsafe_ingredients.append((item['id'], node, enemy.spawnId))
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
-    targets = set(contact) | {row['node'] for row in rows if row['node'] in hidden}
+    targets = set(contact) | {row['node'] for row in rows if row['node'] in hidden} | MINE_AND_SNOW_ARRIVALS
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
                 unsafePortalArrivals=sorted(unsafe), unsafeIngredientSites=unsafe_ingredients,
                 introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,targets),

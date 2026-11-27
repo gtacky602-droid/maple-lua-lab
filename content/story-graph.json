@@ -6027,7 +6027,8 @@
         "kind": "waypoint",
         "x": 800,
         "y": 480
-      }
+      },
+      "huntKind": "field"
     },
     {
       "id": "chasm-wp-25269",
@@ -6083,7 +6084,8 @@
         "kind": "waypoint",
         "x": 880,
         "y": 480
-      }
+      },
+      "huntKind": "field"
     },
     {
       "id": "chasm-wp-25270",
@@ -7550,7 +7552,7 @@
     {"id":"novo-ice-vault","atlasLayer":"below","name":"氷殻の最深室","level":200,"width":1730,"hub":false,"region":"ノヴォキッチェヴ（仮構造）","checkpoint":"novokichev-camp","branch":true,"lightReference":50,"platforms":[{"x":0,"y":480,"w":1730},{"x":252,"y":385,"w":158},{"x":1412,"y":388,"w":205}],"exits":[{"to":"novo-drift-passage","x":55},{"to":"novokichev-camp","x":1660,"requires":{"quest":"novo-return-report","count":3}}],"peaceful":true},
     {"id":"spine-observation-shelf","name":"霜筋の観測棚","level":42,"width":1630,"hub":false,"region":"ドラゴンスパイン","branch":true,"lightReference":3,"checkpoint":"dragonspine-camp","platforms":[{"x":0,"y":480,"w":1630},{"x":633,"y":389,"w":405}],"exits":[{"to":"dragonspine-camp","x":55},{"to":"spine-wind-notch","x":1560}],"clearedBy":"spine-noon-pattern","clearCount":1},
     {"id":"spine-wind-notch","name":"風待ちの岩棚","level":52,"width":1510,"hub":false,"region":"ドラゴンスパイン","branch":true,"lightReference":3,"checkpoint":"dragonspine-camp","platforms":[{"x":0,"y":480,"w":1510},{"x":449,"y":387,"w":316}],"exits":[{"to":"spine-observation-shelf","x":56},{"to":"spine-shelter","x":614,"y":387,"liftSeconds":0.8,"wind":{"period":7.2,"calmStart":3.8,"calmEnd":6.0}},{"to":"spine-lee-walk","x":1440}],"peaceful":true},
-    {"id":"spine-lee-walk","name":"雪壁の風よけ道","level":52,"width":1630,"hub":false,"region":"ドラゴンスパイン","branch":true,"lightReference":3,"checkpoint":"dragonspine-camp","platforms":[{"x":0,"y":480,"w":1630},{"x":480,"y":389,"w":405},{"x":1114,"y":392,"w":270}],"exits":[{"to":"spine-wind-notch","x":62},{"to":"spine-shelter","x":1560}]},
+    {"id":"spine-lee-walk","name":"雪壁の風よけ道","level":52,"width":1630,"hub":false,"region":"ドラゴンスパイン","branch":true,"lightReference":3,"checkpoint":"dragonspine-camp","platforms":[{"x":0,"y":480,"w":1630},{"x":480,"y":389,"w":405},{"x":1114,"y":392,"w":270},{"x":640,"y":293,"w":430}],"exits":[{"to":"spine-wind-notch","x":62},{"to":"spine-shelter","x":1560}],"huntKind":"field"},
     {"id":"spine-shelter","name":"峰下の観測小屋","level":52,"width":1200,"hub":true,"region":"ドラゴンスパイン","branch":true,"lightReference":3,"checkpoint":"spine-shelter","platforms":[{"x":0,"y":480,"w":1200},{"x":391,"y":389,"w":255}],"exits":[{"to":"dragonspine-camp","x":56,"requires":{"quest":"spine-wind-route","count":2}},{"to":"spine-lee-walk","x":285},{"to":"spine-trace-ridge","x":1130}]},
     {"id":"spine-trace-ridge","name":"霜紋の稜線","level":60,"width":1670,"hub":false,"region":"ドラゴンスパイン","branch":true,"lightReference":3,"checkpoint":"spine-shelter","platforms":[{"x":0,"y":480,"w":1670},{"x":364,"y":384,"w":148},{"x":1055,"y":391,"w":251},{"x":1370,"y":382,"w":190}],"exits":[{"to":"spine-shelter","x":57}],"peaceful":true},
     {"id":"chenyu-tea-terraces","name":"茶畑の段丘道","level":82,"width":1870,"hub":false,"region":"沈玉の谷","branch":true,"lightReference":8,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1870},{"x":585,"y":390,"w":431},{"x":1262,"y":384,"w":371}],"exits":[{"to":"chenyu-camp","x":55},{"to":"chenyu-tea-pavilion","x":1537,"y":384,"rideLabel":"展望亭への登り道"},{"to":"chenyu-cart-road","x":1793}]},
