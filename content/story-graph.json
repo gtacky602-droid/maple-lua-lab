@@ -2530,6 +2530,7 @@
     {"id":"baptist-field-sanctuary","name":"スメール・三環の祭場","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1590,"platforms":[{"x":0,"y":480,"w":1590}],"exits":[{"to":"sumeru-entry","x":65}],"checkpoint":"sumeru-hub"},
     {
       "id": "fontaine-entry",
+      "huntKind": "field",
       "name": "フォンテーヌ・地域の入口",
       "region": "フォンテーヌ",
       "level": 80,
@@ -2800,6 +2801,7 @@
     },
     {
       "id": "fontaine-field",
+      "huntKind": "field",
       "name": "フォンテーヌ・水路沿い",
       "region": "フォンテーヌ",
       "level": 80,
@@ -2902,7 +2904,7 @@
       }
     },
     {
-      "id":"fontaine-outskirts-loading","name":"フォンテーヌ・郊外の搬入口","region":"フォンテーヌ","level":80,"hub":false,
+      "id":"fontaine-outskirts-loading","huntKind":"field","name":"フォンテーヌ・郊外の搬入口","region":"フォンテーヌ","level":80,"hub":false,
       "width":1810,"checkpoint":"fontaine-hub",
       "platforms":[{"x":0,"y":480,"w":1810},{"x":402,"y":392,"w":369},{"x":660,"y":301,"w":360},{"x":1180,"y":392,"w":400}],
       "exits":[{"to":"fontaine-field","x":62,"arrivalX":194}]

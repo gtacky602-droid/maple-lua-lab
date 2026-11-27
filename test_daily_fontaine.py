@@ -66,7 +66,7 @@ s.actors[1].x = 194
 assert core.frame(s).storyNearbyPortal.to == yard
 core.action(s, 'story_nearby_portal')
 assert s.story.node == yard and s.actors[1].x == 123
-assert len(s.enemies) == 8
+assert len(s.enemies) == 18
 defeat(s, yard, 'fon-loading-meka-west', 2)
 assert counts(s) == {sum_survey: 0, gathering: 1, meka: 1}
 

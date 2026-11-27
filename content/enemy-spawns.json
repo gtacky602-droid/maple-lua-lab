@@ -1048,34 +1048,10 @@
       {"id": "sum-kaveh-timberyard-regular-9", "x": 1199, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 184, "patrolMax": 1656}
     ],
     "fontaine-entry": [
-      {
-        "id": "fontaine-entry-1",
-        "kind": 1,
-        "art": "armored-crab",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "fontaine-entry-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "fontaine-entry-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "fontaine-entry-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "fontaine-entry-1", "kind": 1, "art": "armored-crab", "x": 300, "platform": 0, "patrolMin": 294, "patrolMax": 340},
+      {"id": "fontaine-entry-2", "kind": 1, "art": "hydro-slime", "x": 510, "platform": 0, "patrolMin": 500, "patrolMax": 582},
+      {"id": "fontaine-entry-3", "kind": 2, "art": "pyro-slime", "x": 757, "platform": 0, "patrolMin": 742, "patrolMax": 778},
+      {"id": "fontaine-entry-4", "kind": 1, "art": "hydro-slime", "x": 1120, "platform": 0, "patrolMin": 1110, "patrolMax": 1180},
       {
         "id": "fontaine-entry-5",
         "kind": 1,
@@ -1089,39 +1065,22 @@
         "art": "pyro-slime",
         "x": 650,
         "platform": 2
-      }
+      },
+      {"id": "fontaine-entry-regular-1", "x": 549, "platform": 0, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 500, "patrolMax": 582},
+      {"id": "fontaine-entry-regular-2", "x": 944, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 938, "patrolMax": 950},
+      {"id": "fontaine-entry-regular-3", "x": 1160, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 1110, "patrolMax": 1180},
+      {"id": "fontaine-entry-regular-4", "x": 236, "platform": 1, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-entry-regular-5", "x": 397, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-entry-regular-6", "x": 551, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-entry-regular-7", "x": 746, "platform": 2, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-entry-regular-8", "x": 887, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-entry-regular-9", "x": 1030, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6}
     ],
     "fontaine-field": [
-      {
-        "id": "fontaine-field-1",
-        "kind": 1,
-        "art": "armored-crab",
-        "x": 620,
-        "platform": 0,
-        "name": "水路沿いの重甲ヤドカニ",
-        "dailyElite": true
-      },
-      {
-        "id": "fontaine-field-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "fontaine-field-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "fontaine-field-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "fontaine-field-1", "kind": 1, "art": "armored-crab", "x": 718, "platform": 0, "name": "水路沿いの重甲ヤドカニ", "dailyElite": true, "patrolMin": 685, "patrolMax": 735},
+      {"id": "fontaine-field-2", "kind": 1, "art": "hydro-slime", "x": 384, "platform": 0, "patrolMin": 254, "patrolMax": 420},
+      {"id": "fontaine-field-3", "kind": 2, "art": "pyro-slime", "x": 914, "platform": 0, "patrolMin": 895, "patrolMax": 974},
+      {"id": "fontaine-field-4", "kind": 1, "art": "hydro-slime", "x": 1150, "platform": 0, "patrolMin": 1134, "patrolMax": 1170},
       {
         "id": "fontaine-field-5",
         "kind": 1,
@@ -1144,17 +1103,36 @@
         "x": 1070,
         "platform": 3,
         "expRole": "normal"
-      }
+      },
+      {"id": "fontaine-field-regular-1", "x": 282, "platform": 0, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 254, "patrolMax": 420},
+      {"id": "fontaine-field-regular-2", "x": 960, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 895, "patrolMax": 974},
+      {"id": "fontaine-field-regular-3", "x": 1170, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 1134, "patrolMax": 1170},
+      {"id": "fontaine-field-regular-4", "x": 232, "platform": 1, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-field-regular-5", "x": 405, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-field-regular-6", "x": 556, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-field-regular-7", "x": 774, "platform": 2, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-field-regular-8", "x": 939, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-field-regular-9", "x": 1154, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6}
     ],
     "fontaine-outskirts-loading": [
-      {"id":"fon-loading-meka-west","kind":1,"art":"sled-maintenance-cart","x":360,"platform":0,"hp":38},
-      {"id":"fon-loading-crab","kind":1,"art":"armored-crab","x":540,"platform":0,"hp":38},
+      {"id": "fon-loading-meka-west", "kind": 1, "art": "sled-maintenance-cart", "x": 360, "platform": 0, "hp": 38, "patrolMin": 183, "patrolMax": 1786},
+      {"id": "fon-loading-crab", "kind": 1, "art": "armored-crab", "x": 540, "platform": 0, "hp": 38, "patrolMin": 183, "patrolMax": 1786},
       {"id":"fon-loading-meka-deck","kind":1,"art":"sled-maintenance-cart","x":575,"platform":1,"hp":36},
       {"id":"fon-loading-meka-upper","kind":2,"art":"sled-maintenance-cart","x":872,"platform":2,"hp":38},
-      {"id":"fon-loading-meka-elite","kind":1,"art":"sled-maintenance-cart","x":1000,"platform":0,"hp":66,"name":"搬入口の精鋭メカ","dailyElite":true},
+      {"id": "fon-loading-meka-elite", "kind": 1, "art": "sled-maintenance-cart", "x": 1000, "platform": 0, "hp": 66, "name": "搬入口の精鋭メカ", "dailyElite": true, "patrolMin": 930, "patrolMax": 1035},
       {"id":"fon-loading-slime-deck","kind":1,"art":"hydro-slime","x":1305,"platform":3,"hp":27},
-      {"id":"fon-loading-meka-east","kind":2,"art":"sled-maintenance-cart","x":1450,"platform":0,"hp":41},
-      {"id":"fon-loading-slime-east","kind":2,"art":"pyro-slime","x":1625,"platform":0,"hp":31}
+      {"id": "fon-loading-meka-east", "kind": 2, "art": "sled-maintenance-cart", "x": 1450, "platform": 0, "hp": 41, "patrolMin": 183, "patrolMax": 1786},
+      {"id": "fon-loading-slime-east", "kind": 2, "art": "pyro-slime", "x": 1625, "platform": 0, "hp": 31, "patrolMin": 183, "patrolMax": 1786},
+      {"id": "fontaine-outskirts-loading-regular-1", "x": 425, "platform": 0, "art": "sled-maintenance-cart", "kind": 1, "hp": 38, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 403, "patrolMax": 465},
+      {"id": "fontaine-outskirts-loading-regular-2", "x": 490, "platform": 1, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-outskirts-loading-regular-3", "x": 620, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 183, "patrolMax": 1786},
+      {"id": "fontaine-outskirts-loading-regular-4", "x": 672, "platform": 1, "art": "sled-maintenance-cart", "kind": 1, "hp": 38, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-outskirts-loading-regular-5", "x": 705, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 34, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-outskirts-loading-regular-6", "x": 935, "platform": 2, "art": "sled-maintenance-cart", "kind": 1, "hp": 38, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-outskirts-loading-regular-7", "x": 1082, "platform": 0, "art": "armored-crab", "kind": 1, "hp": 37, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 183, "patrolMax": 1786},
+      {"id": "fontaine-outskirts-loading-regular-8", "x": 1208, "platform": 3, "art": "sled-maintenance-cart", "kind": 1, "hp": 38, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-outskirts-loading-regular-9", "x": 1280, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 32, "contactDamage": 13, "contactCooldown": 3.6},
+      {"id": "fontaine-outskirts-loading-regular-10", "x": 1252, "platform": 0, "art": "sled-maintenance-cart", "kind": 1, "hp": 38, "contactDamage": 13, "contactCooldown": 3.6, "patrolMin": 183, "patrolMax": 1786}
     ],
     "natlan-entry": [
       {

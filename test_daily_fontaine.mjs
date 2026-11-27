@@ -103,12 +103,12 @@ try{
  await popup.waitForFunction(()=>window.mapArt?.ready);
  assert.equal(await popup.locator('#node').inputValue(),yard);
  await popup.click('#loadLive');
- await popup.waitForFunction(()=>window.mapArt.count===8);
+ await popup.waitForFunction(()=>window.mapArt.count===18);
  for(const profile of ['legacy','h48c32','h32c16']){
   await popup.selectOption('#profile',profile);
   const comparison=await popup.evaluate(()=>window.mapArt);
   assert.ok(comparison.grounded&&comparison.backgroundState==='ready');
-  assert.equal(comparison.placements.filter(enemy=>enemy.species==='sled-maintenance-cart').length,5);
+  assert.equal(comparison.placements.filter(enemy=>enemy.species==='sled-maintenance-cart').length,10);
  }
  await popup.close();
  await returnToHub();
