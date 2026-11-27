@@ -1,0 +1,120 @@
+{
+  "verifiedAgainst": "8dd2982ce48b97dffc6c362258866c37c3289133",
+  "graphSha256": "d670a016250b4882b3370de38b73d572a6bdfc31f305619ee221c788ccd85ab8",
+  "startReports": 265,
+  "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+  "replayReports": 276,
+  "replaySaveSha256": "0c741ef63e45e42a30554c83bf4718d02e1ba71492936d9124a129daeeb4a618",
+  "payouts": [
+    {
+      "mora": 130,
+      "quest": "mond-return-box-quest",
+      "xp": 290
+    },
+    {
+      "mora": 170,
+      "quest": "mond-night-banner-quest",
+      "xp": 967
+    },
+    {
+      "mora": 850,
+      "quest": "ina-window-fireworks",
+      "xp": 57595
+    },
+    {
+      "mora": 1550,
+      "quest": "ina-itto-three-games",
+      "xp": 106600
+    },
+    {
+      "mora": 2000,
+      "quest": "sum-fungus-visitors",
+      "xp": 164740
+    },
+    {
+      "mora": 5900,
+      "quest": "natlan-xilonen-springs",
+      "xp": 2325046
+    },
+    {
+      "mora": 6300,
+      "quest": "natlan-iansan-self-test",
+      "xp": 2991093
+    },
+    {
+      "mora": 4200,
+      "quest": "fon-lyney-magic",
+      "xp": 1028841
+    },
+    {
+      "mora": 4550,
+      "quest": "fon-freminet-dive",
+      "xp": 1323568
+    },
+    {
+      "mora": 5400,
+      "quest": "nod-moon-rumor",
+      "xp": 5637939
+    },
+    {
+      "mora": 6800,
+      "quest": "nod-moon-bloom",
+      "xp": 7253017
+    }
+  ],
+  "returns": 0,
+  "sameQuestRecordsAsRankedCheckpoint": true,
+  "activeEncounterClears": {
+    "field": 63,
+    "legend": 56,
+    "weekly": 16,
+    "stygian": 7
+  },
+  "browser": {
+    "sourceSha256": "b6d0c5a15bf0583225b4d8b57224966bbfe49fa2f0fbf9e9ec3fa2a78d3206f6",
+    "checkpoint": "sumeru-hub",
+    "level": 200,
+    "reports": 276,
+    "weeklyRecords": 56,
+    "stygianRecords": 28,
+    "guide": [
+      {
+        "from": "sumeru-hub",
+        "id": "sumeru-field",
+        "label": "徒歩"
+      },
+      {
+        "from": "sumeru-field",
+        "id": "fontaine-entry",
+        "label": "徒歩"
+      },
+      {
+        "from": "fontaine-entry",
+        "id": "fontaine-hub",
+        "label": "徒歩"
+      },
+      {
+        "from": "fontaine-hub",
+        "id": "fontaine-field",
+        "label": "徒歩"
+      },
+      {
+        "from": "fontaine-field",
+        "id": "natlan-entry",
+        "label": "徒歩"
+      },
+      {
+        "from": "natlan-entry",
+        "id": "natlan-hub",
+        "label": "徒歩"
+      },
+      {
+        "from": "natlan-hub",
+        "id": "natlan-iansan-training",
+        "label": "徒歩"
+      }
+    ],
+    "restoredFromBrowserSave": true,
+    "errors": []
+  }
+}

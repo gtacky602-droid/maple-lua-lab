@@ -288,8 +288,8 @@ return function(C,abyss,weekly,matches,controllers)
      s.storyNotice='深境螺旋・'..spec.name..'はLv'..spec.level..'から挑戦できます。'
      return
     end
-    if spec.draft and s.coop then
-     s.storyNotice='比較版の上層はソロで挑戦できます。'
+    if spec.solo and s.coop then
+     s.storyNotice='深境螺旋・'..spec.name..'はソロで挑戦できます。'
      return
     end
     local origin=s.story.node
@@ -450,9 +450,10 @@ return function(C,abyss,weekly,matches,controllers)
   elseif s.story and s.story.active and s.story.node=='mond-town' then
    f.endgameDesk={weekly={},abyss={}}
    for id,spec in pairs(abyss.modes) do
+    local soloBlock=spec.solo and s.coop~=nil
     f.endgameDesk.abyss[id]={name=spec.name,level=spec.level,
-     available=not spec.level or s.progression.level>=spec.level and not s.coop,
-     draft=spec.draft,soloBlock=spec.draft and s.coop~=nil}
+     available=(not spec.level or s.progression.level>=spec.level) and not soloBlock,
+     provisional=spec.provisional,soloBlock=soloBlock}
    end
    for _,boss in ipairs(weekly) do
     f.endgameDesk.weekly[#f.endgameDesk.weekly+1]={id=boss.id,name=boss.name,level=boss.level,node=boss.node}

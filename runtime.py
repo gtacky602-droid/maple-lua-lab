@@ -485,8 +485,6 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
     abyss=json.loads((ROOT/'content/abyss-settings.json').read_text(encoding='utf8'))
-    if not draft_balance:
-        abyss['modes'] = {id: mode for id, mode in abyss['modes'].items() if not mode.get('draft')}
     def stygian_layers(parts):
         files={key:file for key,file in parts.items() if isinstance(file,str)}
         layers=field_art(lua,'',(),variants=files,prepare_grid=prepare_grid,packed_archive='stygian-poses.zip')
