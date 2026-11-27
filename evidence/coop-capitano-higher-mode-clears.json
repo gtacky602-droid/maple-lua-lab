@@ -1,0 +1,120 @@
+{
+  "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+  "allyAttackToggleVerified": true,
+  "matches": [
+    {
+      "mode": "hard",
+      "maxHp": 3250,
+      "combat": {
+        "status": "clear",
+        "remaining": 0,
+        "windows": {
+          "CP05": [
+            54
+          ],
+          "CP09": [
+            138,
+            210,
+            282,
+            348
+          ],
+          "CP01": [
+            36,
+            54
+          ]
+        },
+        "ticks": 1237,
+        "stage": 3
+      },
+      "parties": 4,
+      "damage": [
+        2112,
+        1138,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "master",
+      "maxHp": 4150,
+      "combat": {
+        "ticks": 1233,
+        "status": "clear",
+        "remaining": 0,
+        "stage": 3,
+        "windows": {
+          "CP09": [
+            138,
+            210,
+            282,
+            348
+          ],
+          "CP05": [
+            54
+          ],
+          "CP01": [
+            36,
+            54
+          ]
+        }
+      },
+      "parties": 4,
+      "damage": [
+        2697,
+        1453,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "extreme",
+      "maxHp": 5400,
+      "combat": {
+        "status": "clear",
+        "remaining": 0,
+        "windows": {
+          "CP09": [
+            138,
+            210,
+            282,
+            348
+          ],
+          "CP05": [
+            54
+          ],
+          "CP01": [
+            36,
+            54
+          ]
+        },
+        "ticks": 1233,
+        "stage": 3
+      },
+      "parties": 4,
+      "damage": [
+        3510,
+        1890,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    }
+  ]
+}

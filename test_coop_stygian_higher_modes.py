@@ -7,11 +7,15 @@ from test_coop_local import Client, LOCK, SESSIONS, lab
 from test_coop_stygian_mode_launches import start_match
 
 
-FARKA_INPUTS = """
+STAGED_INPUTS = """
 function(C, room, budget)
  local run=room.stygianRun
  local peakStage=run.stage
- local chains={}
+ local chains,windows={},{}
+ local recoveryOnly=run.match~='farka'
+ local waitForFinale=run.match=='xbalanque'
+ local party=room.members[1].state
+ local lastEvent=party.seq
  for tick=1,budget do
   local boss=run.boss
   for i, member in ipairs(room.members) do
@@ -24,16 +28,48 @@ function(C, room, budget)
     local offset=target-a.x
     local move=math.abs(offset)>12 and offset or (dx*a.dir<0 and dx or 0)
     local jump=dy< -68 and math.abs(dx)<145 and a.ground
+    local opening=true
+    if recoveryOnly and run.cast then
+     local cast=run.cast.child or run.cast
+     opening=cast.t>=cast.data.recovery
+     if not opening then
+      local zones=cast.shapes or cast.areas
+      local zone=zones and zones[1]
+      if zone and a.x>=zone.left-8 and a.x<=zone.right+8 then
+       local left,right=zone.left-24,zone.right+24
+       local escape=left>=24 and (right>936 or a.x-left<right-a.x) and left or right
+       move=math.max(24,math.min(936,escape))-a.x
+      end
+     end
+    end
+    if waitForFinale and run.stage==3 and not run.solo.XB08 and (not run.cast or run.cast.key~='XB08') then
+     opening=false
+    end
     member.input={left=move<0,right=move>0,jump=jump,
-     attack=(run.stage==i or run.stage==3) and not boss.invulnerable and math.abs(dx)<=111 and math.abs(dy)<85 and dx*a.dir>=0}
+     attack=opening and (run.stage==i or run.stage==3) and not boss.invulnerable
+      and math.abs(dx)<=111 and math.abs(dy)<85 and dx*a.dir>=0}
    else member.input=nil end
   end
   C.stepCoop(room,1/60)
   if run.stage>peakStage then peakStage=run.stage end
   if run.cast and run.cast.variant then chains[run.cast.variant]=true end
+  if recoveryOnly then
+   for index=#party.events,1,-1 do
+    local event=party.events[index]
+    if event.seq<=lastEvent then break end
+    local move=event.kind:match('^stygian:'..run.match..':(%u+%d+):window$')
+    if move then
+     windows[move]=windows[move] or {}
+     table.insert(windows[move],event.tick)
+    end
+   end
+   lastEvent=party.seq
+  end
   if run.status~='fighting' then
    for _,member in ipairs(room.members) do member.input=nil end
-   return {ticks=tick,status=run.status,stage=peakStage,chains=chains,remaining=boss.hp}
+   local result={ticks=tick,status=run.status,stage=peakStage,remaining=boss.hp}
+   if recoveryOnly then result.windows=windows else result.chains=chains end
+   return result
   end
  end
  return {ticks=budget,status=run.status,stage=peakStage,chains=chains,remaining=run.boss.hp}
@@ -138,6 +174,14 @@ def check_clears(url, match, inputs, prepare=None):
                 assert round_result['stage'] == 3 and round_result['chains'][difficulty['firstChain']]
             if match == 'beidou':
                 assert {'guard', 'baited', 'wake', 'recover'} <= round_result['seen'].keys(), round_result
+            if match == 'capitano':
+                windows = round_result['windows']
+                assert round_result['stage'] == 3 and {'CP01', 'CP05', 'CP09'} <= windows.keys()
+                assert set(windows['CP09']) == {138, 210, 282, 348}, windows
+            if match == 'xbalanque':
+                windows = round_result['windows']
+                assert round_result['stage'] == 3 and {'XB01', 'XB06', 'XB08'} <= windows.keys(), windows
+                assert set(windows['XB08']) == {144, 228, 300, 390}, windows
             expected = [run.rules.xp + run.rules.firstXp, run.rules.mora + run.rules.firstMora]
             contributions = [member.state.endgameRun.skills.normal or 0 for member in room.members.values()]
             assert all(amount>0 for amount in contributions[:2]) and contributions[2:] == [0, 0], contributions
@@ -175,9 +219,9 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('match', choices=('farka', 'beidou'))
+    parser.add_argument('match', choices=('farka', 'beidou', 'capitano', 'xbalanque'))
     match = parser.parse_args().match
-    inputs, prepare = (FARKA_INPUTS, None) if match == 'farka' else (BEIDOU_INPUTS, beidou_seed)
+    inputs, prepare = (BEIDOU_INPUTS, beidou_seed) if match == 'beidou' else (STAGED_INPUTS, None)
     with lab() as url:
         results = check_clears(url, match, inputs, prepare)
     scope = 'Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.'

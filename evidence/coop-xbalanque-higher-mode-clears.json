@@ -1,0 +1,129 @@
+{
+  "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+  "allyAttackToggleVerified": true,
+  "matches": [
+    {
+      "mode": "hard",
+      "maxHp": 2510,
+      "combat": {
+        "remaining": 0,
+        "stage": 3,
+        "ticks": 1519,
+        "status": "clear",
+        "windows": {
+          "XB08": [
+            144,
+            228,
+            300,
+            390
+          ],
+          "XB06": [
+            90
+          ],
+          "XB04": [
+            78
+          ],
+          "XB01": [
+            36,
+            54
+          ]
+        }
+      },
+      "parties": 4,
+      "damage": [
+        1631,
+        879,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "master",
+      "maxHp": 3410,
+      "combat": {
+        "ticks": 1492,
+        "stage": 3,
+        "status": "clear",
+        "windows": {
+          "XB05": [
+            84
+          ],
+          "XB08": [
+            144,
+            228,
+            300,
+            390
+          ],
+          "XB06": [
+            90
+          ],
+          "XB01": [
+            36,
+            54
+          ]
+        },
+        "remaining": 0
+      },
+      "parties": 4,
+      "damage": [
+        1193,
+        2217,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "extreme",
+      "maxHp": 4480,
+      "combat": {
+        "ticks": 1482,
+        "windows": {
+          "XB01": [
+            36,
+            54
+          ],
+          "XB05": [
+            84
+          ],
+          "XB06": [
+            90
+          ],
+          "XB08": [
+            144,
+            228,
+            300,
+            390
+          ]
+        },
+        "status": "clear",
+        "stage": 3,
+        "remaining": 0
+      },
+      "parties": 4,
+      "damage": [
+        2912,
+        1568,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    }
+  ]
+}
