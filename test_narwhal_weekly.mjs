@@ -123,6 +123,7 @@ try{
  await page.locator('.game').screenshot({path:prefix+'-kernel.png'});
  const raw=await capture('png');
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(()=>window.lab.frame.commands>1000);
  const standard=await frame(),normal=await capture('standard');
  await page.locator('#renderMode').selectOption('h32c16');
@@ -141,6 +142,7 @@ try{
  assert.equal(interrupted.events.filter(e=>e.kind==='narwhal:WV11:kernel-hit').length,4);
  assert.equal(interrupted.events.find(e=>e.kind==='narwhal:WV13:kernel-loss').value,190);
  assert.equal(interrupted.weeklyBoss.hp,kernel.weeklyBoss.hp);
+ assert.match(await page.locator('#weeklyNarwhalHint').textContent(),/幻影に190ダメージ/);
  await wait(outer=>{
   const f=window.lab.frame,b=f.weeklyBoss;
   return f.story.node===outer&&b?.narwhal.exposure>=590;

@@ -10,6 +10,21 @@ export function raidenFlowerText(flower,move){
  return flower.limit?'花蕊が現れるまで待つ':'充填受付終了';
 }
 
+const narwhalForms={WV12:'獣の突進','WV12.vishap':'竜の跳躍','WV12.jellyfish':'クラゲの水弾'};
+
+export function narwhalJourneyText(journey,stage){
+ const v=journey;
+ if(v.kernelStagger)return `核を中断 ｜ 幻影に${v.kernelStagger.loss}ダメージ・残り${Math.ceil(v.kernelStagger.ticks/60)}秒`;
+ if(v.incoming)return `核の受付終了 ｜ ${narwhalForms[v.incoming]}`;
+ if(v.exposure)return `反撃できる時間 残り${Math.ceil(v.exposure/60)}秒`;
+ if(v.returnLoss!==undefined)return `星海へ帰還 ｜ 鯨に${v.returnLoss}ダメージ`;
+ if(stage==='swallow')return '腹中へ移動中';
+ if(stage==='expel')return '星海へ帰還中';
+ if(v.scene==='inner')return '幻影を倒すと星海へ帰還';
+ if(v.low)return '鯨が衰弱。以後は星海で戦う';
+ return v.queued?'現在の技の後に腹中へ':'';
+}
+
 export function initEndgameUI(action){
  const renderArtifactDomain=initArtifactDomainUI(action);
  const get=id=>document.getElementById(id);
