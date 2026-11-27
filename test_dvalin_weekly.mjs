@@ -6,7 +6,7 @@ import {dvalinGate,driveDvalin} from './tools/browser_dvalin_test.mjs';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1160,height:910}});
 const canvas=page.locator('#game'),id='boss-29010101',quest='dvalin-weekly-commission';
-const prefix='evidence/dvalin-weekly',errors=[],frame=()=>page.evaluate(()=>window.lab.frame);
+const prefix=process.env.DVALIN_EVIDENCE_PREFIX||'evidence/dvalin-weekly',errors=[],frame=()=>page.evaluate(()=>window.lab.frame);
 page.on('pageerror',e=>errors.push(e.message));page.setDefaultTimeout(45000);
 const gate=(x,node)=>dvalinGate(page,x,node);
 async function freeze(move,tick){
@@ -45,11 +45,17 @@ try{
  const perch=await freeze('WD02',50);assert.equal(perch.weeklyBoss.maxhp,600);
  await canvas.screenshot({path:prefix+'-perch.png'});await page.evaluate(()=>{window.dvalinFight=true});await resume();
  const png=await freeze('WD08',170);assert.ok(png.weeklyBoss.exposed);
+ assert.equal(png.weeklyBoss.crystal.remaining,462-png.weeklyBoss.tick);
+ await page.waitForFunction(()=>document.querySelector('#fieldBossLabel').textContent.includes('残り'));
  await canvas.screenshot({path:prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');await page.waitForFunction(()=>window.lab.frame.commands>1000);const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');await page.waitForFunction(n=>window.lab.frame.commands<n*.65,standard.commands);const light=await frame();
  assert.deepEqual([standard.t,light.t],[png.t,png.t]);await canvas.screenshot({path:prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');await resume();
+ const landing=await freeze('WD08',462);
+ assert.ok(landing.weeklyBoss.crystal.damage>0);
+ await page.waitForFunction(()=>document.querySelector('#fieldBossLabel').textContent.includes('踏み場が降下'));
+ await page.locator('.game').screenshot({path:prefix+'-crystal-result.png'});await resume();
  const floor=await freeze('WD05',100);assert.ok(floor.draws.some(d=>d.text==='SAFE'));
  await canvas.screenshot({path:prefix+'-floor.png'});await resume();
  await page.waitForFunction(()=>window.dvalinResult,undefined,{timeout:300000});

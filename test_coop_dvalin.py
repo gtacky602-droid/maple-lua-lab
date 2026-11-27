@@ -135,6 +135,9 @@ def test_lua(lua, core):
     assert slot.primary.hp == 600
     crystal_strike(lua, core, host, slot, 24)
     crystal_strike(lua, core, guest, slot, 24)
+    for state in (host, guest):
+        view = core.frame(state).weeklyBoss.crystal
+        assert view.remaining == 420 and view.damage == 600-slot.primary.hp
     assert all(core.frame(s).weeklyBoss.hp == 556 for s in states)
     assert validate_save(native(core.checkpoint(host)))['weeklyBosses'][BOSS]['hp'] == 600
 

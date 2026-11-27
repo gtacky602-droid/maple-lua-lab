@@ -1,6 +1,7 @@
 return function(C)
  local dragon={}
  local resolve,avoid=C.resolveCast,C.aiAvoidTarget
+ local crystalOpen,crystalClose=42,462
  local teal,pale,purple,ink='#51ddda','#e3ffff','#c775f1','#223554'
  local function actorKey(s,a) return s.actorOwners and a or a.id end
  local function clamp(x,a,b) return math.max(a,math.min(b,x)) end
@@ -20,7 +21,7 @@ return function(C)
   return m.kind=='bite' and t>=120 and t<192 or m.kind=='breath' and t>=72 and t<324
  end
  local function expose(w)
-  return w.cast and w.cast.move.kind=='exposure' and w.cast.tick>=42 and w.cast.tick<462
+  return w.cast and w.cast.move.kind=='exposure' and w.cast.tick>=crystalOpen and w.cast.tick<crystalClose
  end
  local function removeParts(s)
   for i=#s.enemies,1,-1 do if s.enemies[i].weeklyPart then table.remove(s.enemies,i) end end
@@ -114,6 +115,7 @@ return function(C)
   end
   local m=spec.moves[id]
   w.cast={move=m,tick=0,seen={{},{},{}},bolts={},dir=1}
+  if m.kind=='exposure' then w.cast.startingHp=w.primary.hp end
   w.stage=m.kind=='exposure' and 'guard-break' or 'flight'
  end
  local function target(s)
@@ -165,8 +167,8 @@ return function(C)
   if t==m.lock then lock(s,w,spec,c,target(s)) end
   w.pose=({dive='glide',bite='perch',breath='breath',bolts='hover',floor='roar',giant='roar',rain='hover',exposure='down'})[m.kind]
   if m.kind=='exposure' then
-   w.stage=t<42 and 'guard-break' or t<462 and 'exposed' or 'takeoff'
-   local y=t<462 and spec.stepY or spec.stepY+(spec.floorY-spec.stepY)*clamp((t-462)/72,0,1)
+   w.stage=t<crystalOpen and 'guard-break' or t<crystalClose and 'exposed' or 'takeoff'
+   local y=t<crystalClose and spec.stepY or spec.stepY+(spec.floorY-spec.stepY)*clamp((t-crystalClose)/72,0,1)
    platforms(s,w,spec,y)
   else w.stage=guarded(w) and 'perch' or 'flight' end
   updateParts(w,spec)
@@ -315,6 +317,10 @@ return function(C)
   local b=f.weeklyBoss;b.stage=w.stage;b.guard=w.guard;b.maxGuard=spec.guard;b.guardHits=w.guardHits
   b.cycle=w.cycle;b.breaks=w.breaks;b.move=c and c.move.id;b.tick=c and c.tick;b.exposed=not not expose(w)
   b.crystal={x=w.crystalX,y=spec.crystalY,active=b.exposed};b.falls=w.falls
+  if c and c.startingHp then
+   b.crystal.damage=c.startingHp-w.primary.hp
+   if b.exposed then b.crystal.remaining=crystalClose-c.tick end
+  end
   b.padY=w.padY
   if c and c.zone then b.attack={zone=c.zone,left=c.left,right=c.right,center=c.center,dir=c.dir,
    biteLeft=c.biteLeft,biteRight=c.biteRight,targets=c.targets,points=c.points}end

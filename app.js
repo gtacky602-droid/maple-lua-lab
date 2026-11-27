@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,knaveContractText,knaveFeastText,narwhalJourneyText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
+import {apepDomeText,childeDropText,dvalinCrystalText,falseMoonEncounterText,gateEncounterText,hereticChantText,knaveContractText,knaveFeastText,narwhalJourneyText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -574,7 +574,7 @@ function hud(f,calls,renderMs){
  fieldPanel.hidden=!field;
  if(field){
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:field.phase==='cleared'||oasis?.defense||journey?.scene==='inner'?field.label:
-   `HP ${Math.ceil(field.hp)} / ${field.maxhp} ｜ ${field.label}`;
+   `HP ${Math.ceil(field.hp)} / ${field.maxhp} ｜ ${dvalinCrystalText(field)||field.label}`;
   const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
   const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷',pyro:'炎'};
   const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
