@@ -36,7 +36,7 @@ def hunt_points():
 
 def ordinary(placement):
     return not (placement.get('dailyElite') or placement.get('expRole') in ('elite', 'named')
-                or placement.get('respawnSeconds', 6) >= 12 or placement.get('questPhase', 0))
+                or (placement.get('respawnSeconds') or 6) >= 12 or placement.get('questPhase', 0))
 
 
 def verify_intro_contact(lua, core, node, rows):

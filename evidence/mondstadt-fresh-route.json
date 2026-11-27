@@ -2,84 +2,84 @@
   "route": [
     {
       "id": "amber-join",
-      "seconds": 24.87,
+      "seconds": 19.82,
       "level": 3,
-      "total": 85,
+      "total": 93,
       "questXp": 76,
-      "killXp": 9,
-      "kills": 9
+      "killXp": 17,
+      "kills": 17
     },
     {
       "id": "mond-old-trail",
-      "seconds": 48.82,
+      "seconds": 43.77,
       "level": 9,
-      "total": 2578,
+      "total": 2598,
       "questXp": 2562,
-      "killXp": 16,
-      "kills": 16
+      "killXp": 36,
+      "kills": 36
     },
     {
       "id": "mond-watchtower-clear",
-      "seconds": 68.75,
+      "seconds": 63.92,
       "level": 16,
-      "total": 12509,
+      "total": 12532,
       "questXp": 12485,
-      "killXp": 24,
-      "kills": 19
+      "killXp": 47,
+      "kills": 42
     },
     {
       "id": "mond-rest-stop",
-      "seconds": 83.27,
+      "seconds": 78.43,
       "level": 16,
-      "total": 12540,
+      "total": 12564,
       "questXp": 12511,
-      "killXp": 29,
-      "kills": 24
+      "killXp": 53,
+      "kills": 48
     },
     {
       "id": "mond-bennett-cave",
-      "seconds": 117.1,
+      "seconds": 112.27,
       "level": 17,
-      "total": 13515,
+      "total": 13543,
       "questXp": 13478,
-      "killXp": 37,
-      "kills": 28
+      "killXp": 65,
+      "kills": 56
     },
     {
       "id": "mond-windmill",
-      "seconds": 131.8,
+      "seconds": 126.97,
       "level": 18,
-      "total": 15519,
+      "total": 15547,
       "questXp": 15482,
-      "killXp": 37,
-      "kills": 28
+      "killXp": 65,
+      "kills": 56
     },
     {
       "id": "liyue-level-gate",
-      "seconds": 143.77,
+      "seconds": 138.93,
       "level": 18,
-      "total": 15525,
+      "total": 15554,
       "questXp": 15482,
-      "killXp": 43,
-      "kills": 34
+      "killXp": 72,
+      "kills": 63
     },
     {
       "id": "lv20",
-      "seconds": 588.17,
+      "seconds": 579.32,
       "level": 20,
-      "total": 20659,
+      "total": 20648,
       "questXp": 15482,
-      "killXp": 5177,
-      "kills": 504
+      "killXp": 5166,
+      "kills": 533
     },
     {
       "id": "liyue-harbor",
-      "seconds": 607.43,
+      "seconds": 598.35,
       "level": 20,
-      "total": 20712,
+      "total": 20754,
       "questXp": 15482,
-      "killXp": 5230,
-      "kills": 509
+      "killXp": 5272,
+      "kills": 543
     }
   ],
   "hunt": {
@@ -91,16 +91,16 @@
         "xp": 1771
       },
       {
-        "seconds": 258.57,
-        "kills": 305,
-        "xp": 3355
+        "seconds": 254.55,
+        "kills": 301,
+        "xp": 3311
       }
     ],
-    "seconds": 417.07,
-    "kills": 466,
-    "xp": 5126,
+    "seconds": 413.05,
+    "kills": 462,
+    "xp": 5082,
     "recoveryTrips": 1,
-    "gateToLv20Seconds": 444.4
+    "gateToLv20Seconds": 440.38
   },
   "partyWipes": 0,
   "savedAndRestored": true,

@@ -583,5 +583,69 @@
       "livingActorsInAnotherView": 6,
       "packedDrawsMatchEveryRectangleInThreeProfiles": true
     }
+  },
+  "atlasRebuildMatched": true,
+  "editorSnapshotUnchanged": true,
+  "untaggedSurvey": {
+    "scope": "Unlabelled active fields at least 1,200px wide with four or more authored ordinary enemies; entry in separate Lua fixtures.",
+    "fields": 62,
+    "peakBelowTwelve": 43,
+    "belowTwelveByRegion": {
+      "璃月": 5,
+      "稲妻": 3,
+      "スメール": 3,
+      "フォンテーヌ": 3,
+      "ナタ": 5,
+      "オシカ・ナタ": 2,
+      "ナド・クライ": 3,
+      "スネージナヤ": 3,
+      "ドラゴンスパイン": 2,
+      "沈玉の谷": 3,
+      "淵下宮": 2,
+      "トゥニギの黒淵": 1,
+      "往日の海": 1,
+      "ドーンマンポート": 3,
+      "ノヴォキッチェヴ（仮構造）": 1,
+      "金リンゴ群島": 1,
+      "ヴェルーリヤ・ミラージュ": 1,
+      "シムランカ": 1
+    },
+    "liyueCandidates": [
+      {
+        "node": "liyue-entry",
+        "peak": 5
+      },
+      {
+        "node": "liyue-loading-yard",
+        "peak": 7
+      },
+      {
+        "node": "liyue-river-trail",
+        "peak": 10
+      },
+      {
+        "node": "liyue-cliff-planks",
+        "peak": 3
+      },
+      {
+        "node": "liyue-field",
+        "peak": 6
+      }
+    ]
+  },
+  "freshCampaign": {
+    "verifiedThroughLevel": 200,
+    "handoffs": 8,
+    "checkpoints": 9,
+    "replaySeconds": 118710.58,
+    "huntSeconds": 110388.33,
+    "otherRouteSeconds": 8322.25,
+    "previousReplaySeconds": 118335.41,
+    "reportedQuests": 56,
+    "partyWipes": 0,
+    "capAddedExp": 21338352,
+    "browserAddedExp": 1481830,
+    "browserReload": true,
+    "record": "evidence/standard-campaign-checkpoints.json"
   }
 }
