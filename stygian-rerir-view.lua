@@ -56,7 +56,8 @@ return function(C,G,M)
   if c.key=='RR05' then
    if c.lamp then
     if c.t<c.lamp.at+12 then return '灯が霧を割る' end
-    return run.fog.ward==0 and '結界が消えた。反撃の時間' or '灯が通った。次の襲撃に備える'
+    local result=run.fog.ward==0 and '結界が消えた' or '灯が通った'
+    return string.format('%s。反撃の隙 %.1f秒',result,(c.lamp.stop-c.t)/60)
    end
    if c.t>=84 and c.t<132 then return '赤い輪郭が見えた。灯を掲げる（H）' end
    local attempt=run.lampAttempt
@@ -67,6 +68,7 @@ return function(C,G,M)
    return c.t<84 and '足跡が示す側を見て、灯の合図を待つ' or '蹴りの範囲から離れる'
   end
   if c.path and c.t<1080 then
+   if progress.burstDamage then return 'レリルの着地を待つ' end
    if c.t<120 then return '上空の試練。淡金の光を三つ集める' end
    if c.t<960 then return progress.collected<3 and '上段はジャンプで登る。赤い落下帯を避ける' or '三つそろった。淡金の輪で最後の衝撃を防ぐ' end
    return progress.collected==3 and '淡金の輪で最終衝撃に備える' or 'レリルが最終衝撃を溜めている'
@@ -152,7 +154,10 @@ return function(C,G,M)
   elseif c and c.path then
    v.trial,v.collected=c.path,progress.collected
    v.protected=progress.protected
-   if not c.pickupsByMember then v.protected=c.burst.complete end
+   if progress.burstDamage then
+    local actor=s.actors[s.active]
+    v.trialResult={protected=progress.protected,damage=progress.burstDamage[actor.id] or 0}
+   end
    if run.status=='fighting' then
     v.pickups={}
     for i,p in ipairs(progress.pickups) do v.pickups[i]={x=p.x,y=p.y,owner=p.owner} end
@@ -162,6 +167,10 @@ return function(C,G,M)
   if run.status=='failed' then return end
 
   local back={draws={}}
+  if mode=='rect' and s.packRectArt then
+   back.rectIndex,back.rectBatches={},f.rectBatches or {}
+   f.rectBatches=back.rectBatches
+  end
   local rect=paint(back,s.camera)
   if v.ward then
    local density=run.phase=='fog-entry' and math.min(1,run.age/36) or c.lamp and .35 or 1

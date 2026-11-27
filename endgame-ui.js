@@ -137,6 +137,15 @@ const stygianFinaleLabels={
  xbalanque:{title:'烈日激突',steps:['終点の拳','左の火帯','右の火帯','締めの太陽拳']}
 };
 
+export function rerirTrialText(fight){
+ if(!fight.trial)return '';
+ const count=`第${fight.trial}局面 ｜ 光 ${fight.collected} / 3`;
+ const result=fight.trialResult;
+ if(!result)return count;
+ if(result.protected)return count+' ｜ 最終衝撃を防いだ';
+ return count+(result.damage?` ｜ 最終衝撃が命中・${result.damage}ダメージ`:' ｜ 最終衝撃の被ダメージなし');
+}
+
 export function stygianFinaleText(fight){
  const labels=stygianFinaleLabels[fight.match];
  const damage=fight.finale?.damage;
@@ -274,8 +283,7 @@ export function initEndgameUI(action){
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
     &&!roadProgress&&fight.windMarks===undefined&&!finale);
    if(!mechanic.hidden){
-    mechanic.textContent=finale || (fight.trial ? `第${fight.trial}局面 ｜ 光 ${fight.collected} / 3`
-     : roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
+    mechanic.textContent=finale || rerirTrialText(fight) || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
      : fight.windMarks!==undefined ? `風標 ${fight.windMarks} / ${fight.windGoal}${fight.markTime?` ｜ 残り ${Math.ceil(fight.markTime/60)}秒`:''}`
      : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
      : `結界 ${fight.ward} / 2`);
