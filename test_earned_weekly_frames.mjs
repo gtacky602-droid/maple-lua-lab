@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {capitanoFinaleText, falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText} = await import('./endgame-ui.js');
+      const {falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, stygianFinaleText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
@@ -147,7 +147,7 @@ try {
         const falseMoonText = falseMoon ? falseMoonEncounterText(falseMoon) : '';
         const gateText = gate ? gateEncounterText(gate) : '';
         const hereticText = heretic ? hereticChantText(heretic) : '';
-        const finaleText = finale ? [sample.view.hint, capitanoFinaleText(finale)].filter(Boolean).join(' ｜ ') : '';
+        const finaleText = finale ? [sample.view.hint, stygianFinaleText(sample.view)].filter(Boolean).join(' ｜ ') : '';
         if (flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText) {
           const status = document.createElement('p');
           status.className = 'mechanic';

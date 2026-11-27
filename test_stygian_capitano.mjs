@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
@@ -144,22 +145,8 @@ try{
  assert.deepEqual([original.t,standard.t,light.t],[original.t,original.t,original.t]);
  assert.deepEqual(original.endgameRun,light.endgameRun);
  assert.equal(new Set([png,rect,low]).size,3);
- async function packing(packed, change){
-  const pending=page.waitForResponse(res=>{
-   if(!res.url().endsWith('/api/frame'))return false;
-   const request=res.request().postDataJSON();
-   return request?.profile==='h48c32'&&request.packRectArt===packed;
-  });
-  await change();
-  const response=await pending;
-  assert.ok(response.ok());
-  assert.equal(response.headers()['content-encoding'],'gzip');
-  const snapshot=await response.json();
-  await wait(n=>window.lab.frame.draws.length===n,snapshot.draws.length);
-  return {snapshot,raster:await canvas.evaluate(el=>el.toDataURL()),gzipBytes:Number(response.headers()['content-length'])};
- }
- const expanded=await packing(false,()=>page.locator('#renderMode').selectOption('h48c32'));
- const grouped=await packing(true,()=>page.locator('#packRectArt').check());
+ const expanded=await captureRectTransfer(page,'h48c32',false,()=>page.locator('#renderMode').selectOption('h48c32'));
+ const grouped=await captureRectTransfer(page,'h48c32',true,()=>page.locator('#packRectArt').check());
  assert.equal(grouped.snapshot.t,expanded.snapshot.t);
  const body=original.draws.find(d=>d.source?.startsWith('capitano-battle-'));
  const batch=grouped.snapshot.draws.find(d=>d.kind==='rect_runs'&&d.h===body.h&&

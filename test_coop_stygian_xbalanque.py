@@ -80,7 +80,8 @@ def play(url):
         place(t.actors[1], 200)
         at('XB08', 220)
         bands = [native(core.frame(p, 'sprite').endgameRun.safe) for p in (s, t)]
-        assert bands[0] == bands[1] and bands[0]['left'] < 480 < bands[0]['right']
+        assert bands[0]['left'] == bands[1]['left'] < 480 < bands[0]['right'] == bands[1]['right']
+        assert [band['inLane'] for band in bands] == [True, False]
         for party in (s, t):
             party.actors[1].inv = 0
         at('XB08', 240)
@@ -143,7 +144,9 @@ def play(url):
     restored = host.frame(restore=saved['checkpoint'])
     assert restored['story']['node'] == HUB and restored['endgame']['stygian'][KEY]['clears'] == 2
     return dict(players=2, normalHP=1780, fireballsPerPlayer=counts, landingLockSlot=jumper,
-                sharedSafeLane=bands[0], fireBandsHitGroups=[2, 3], finalPunchOnlyHitsFront=True,
+                sharedSafeLane={key: bands[0][key] for key in ('left', 'right')},
+                individualSafeLane=[band['inLane'] for band in bands],
+                fireBandsHitGroups=[2, 3], finalPunchOnlyHitsFront=True,
                 finaleTargetSlot=marked, lockedFinalDirection=direction, comboSecondChild=combo.child.key,
                 rewards=results, repeatReward=repeat, personalQuest=True, savedClears=2)
 

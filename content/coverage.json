@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "xbalanque_solar_clash": {"extremeReplays":2,"finaleWindows":[144,228,300,390],"damageAllFour":272,"safeLaneWidthPx":140.8,"recoveryTicks":180,"chainsObserved":["C","B","A"],"comparisonScenes":20,"matchedExpandedRectangleStreams":40,"record":"evidence/xbalanque-solar-clash-20261128.json"},
   "capitano_finale_branches": {"extremeReplays":2,"finaleWindows":[138,210,282,348],"travelContactDamage":0,"allHitDamage":300,"recoveryTicks":240,"comparisonScenes":14,"matchedExpandedRectangleStreams":28,"record":"evidence/capitano-finale-branches-20261128.json"},
   "heretic_chant_branches": {"expertReplays":3,"anchorHitsToBreak":3,"chantHitsToInterrupt":24,"exposureTicks":720,"shockDamage":125,"wallPushWithoutDamagePx":30.8,"comparisonScenes":17,"matchedExpandedRectangleStreams":34,"record":"evidence/heretic-chant-branches-20261128.json"},
   "gate_lure_branches": {"expertReplays":2,"frostCompletionsPerFight":2,"tsunamiDamageOnMiss":90,"exposureTicksOnCollision":360,"hpTransfersPerFight":2,"comparisonScenes":17,"matchedExpandedRectangleStreams":34,"record":"evidence/gate-lure-branches-20261128.json"},

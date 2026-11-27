@@ -21,6 +21,12 @@
 
 ## 絵と検証
 
+獲得済みLv200の同じセーブで極限を2戦。中央の安全路は左右の火帯に挟まれた幅140.8pxの区間で、HUDはキャラの当たり範囲が火帯から外れているときに「中央の安全路にいる」と表示する。終点の拳と締めの太陽拳もかわした試走は被ダメージ0。4段すべてを受けた試走では、終点の拳、左の火帯、右の火帯、締めの太陽拳が各68で計272ダメージだった。
+
+両戦で烈日激突の後の3秒間に通常攻撃が通り、周回報酬と再読込後の極限勝数を確認した。回避側では攻撃を一時控え、連携Cの落下から太陽の拳、Bの三連から火球、Aの二連から三連も通した。
+
+極限勝利済みのLv200セーブで `test_earned_xbalanque_clash.py --from-save SAVE.json --output-dir work/xbalanque-replay` を実行すると再試走できる。ラボを起動し、`node test_earned_weekly_frames.mjs work/xbalanque-replay work/xbalanque-comparison` で元絵・中間・軽量を比較できる。20場面で圧縮前後の描画命令を展開すると、残像の表示情報も含めて全40組が一致した。 [極限再戦と描画計測](../../evidence/xbalanque-solar-clash-20261128.json)
+
 少年の84px表示を保つため、既存の立ち絵とゲーム画面、複数角度のモデル画像を参照して左右別の構えと直拳を作った。頬の印と腕の羽は右側、太腿の帯は左側。火は拳に合わせて別に描く。夕暮れの岩場はブラウザーで表示する仮背景。本番は3D配置を使う方針。 [素材記録](../../assets/xbalanque-stygian-generation-v1.json) [伝説任務の公式案内](https://genshin.hoyoverse.com/ja/news/detail/127791)
 
 Luaで八つの技、連携三通りの発動時刻と子技の後隙、火球の消去、時間制限なしの勝利・保存を確認。Chromeの通常難度では、左右の火帯を地上の中央でかわし、最後の太陽拳を避けて、勝利・依頼報告・保存後の再開まで確認した。 [Lua検証](../../evidence/stygian-xbalanque-lua.json) [Chrome検証](../../evidence/stygian-xbalanque-browser.json)

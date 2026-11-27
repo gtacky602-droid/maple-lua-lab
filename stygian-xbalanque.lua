@@ -205,8 +205,8 @@ return function(C,G,M)
   if not c then return '間合いを取る' end
   if c.t>=c.data.recovery then return string.format('反撃の隙 %.1f秒',(c.data.total-c.t)/60) end
   if c.key=='XB08' then
-   if c.t<156 then return '一拍目　疾走の終点から離れる' end
-   if c.t<312 then return '二拍目　左右の炎。中央の空白へ' end
+   if c.t<c.data.leads[2] then return '一拍目　疾走の終点から離れる' end
+   if c.t<c.data.leads[4] then return '二拍目　左右の火帯。中央の安全路へ' end
    return '三拍目　太陽拳の正面から離れる'
   end
   return hints[c.key]
@@ -229,7 +229,12 @@ return function(C,G,M)
   f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,
    phase=v.phase,label=cast and cast.data.title or v.stageName}
   if run.status=='failed' then return end
-  local back={draws={}};local rect=painter(back,s)
+  local back={draws={}}
+  if mode=='rect' and s.packRectArt then
+   back.rectIndex,back.rectBatches={},f.rectBatches or {}
+   f.rectBatches=back.rectBatches
+  end
+  local rect=painter(back,s)
   local clock=(run.shared and run.shared.elapsed or s.t)*60+(run.endAge or 0)
   local fireHeight=25+run.stage*10+(c and c.key=='XB08' and c.t<420 and 8 or 0)
   if c and c.key=='XB08' and c.t>=420 then fireHeight=29 end
@@ -270,6 +275,15 @@ return function(C,G,M)
   rect=painter(f,s)
   local cues=M.cues(spec,c)
   local d=c.data
+  if c.finaleDamage then
+   local actor=s.actors[s.active]
+   local damage={}
+   for i,w in ipairs(d.windows) do
+    if c.t<w[2] then break end
+    damage[i]=c.finaleDamage[i] and c.finaleDamage[i][actor] or 0
+   end
+   v.finale={damage=damage}
+  end
   local lock=(d.finalAim and c.t>=d.finalAim) and d.locks[2] or d.locks[1]
   v.areas={};v.projectiles=#c.shots;v.locked=c.t>=lock;v.ground=spec.arena.floor
   if c.targetMember then v.targetSlot=c.targetMember.id end
@@ -291,17 +305,21 @@ return function(C,G,M)
    end
    v.areas[#v.areas+1]={left=g.left,right=g.right,top=g.top,bottom=g.bottom,index=z.index,active=z.active}
   end
-  if c.key=='XB08' and c.t<420 then
-   v.beat=c.t<156 and 1 or c.t<312 and 2 or 3
+  if c.key=='XB08' and c.t<d.recovery then
+   v.beat=c.t<d.leads[2] and 1 or c.t<d.leads[4] and 2 or 3
    for i=1,3 do
     local x=438+i*19
     rect(x,41,12,8,i==v.beat and M.white or M.ash,.88)
    end
-   if c.t>=156 and c.t<312 then
-    local l,r=spec.arena.left+4.2*spec.arena.unit,spec.arena.left+5.8*spec.arena.unit
-    v.safe={left=l,right=r}
-    rect(l,477,r-l,3,'#9ae4a8',.93)
-    rect(l,466,2,13,'#9ae4a8');rect(r-2,466,2,13,'#9ae4a8')
+   if v.beat==2 then
+    local left,right=c.areas[2],c.areas[3]
+    local actor=s.actors[s.active]
+    local feet={x=actor.x,y=v.ground,hp=actor.hp}
+    local l,r=left.right,right.left
+    local inLane=feet.x>l and feet.x<r and not G.bodyContact(left,feet) and not G.bodyContact(right,feet)
+    v.safe={left=l,right=r,inLane=inLane}
+    rect(l,v.ground-3,r-l,3,'#9ae4a8',.93)
+    rect(l,v.ground-14,2,13,'#9ae4a8');rect(r-2,v.ground-14,2,13,'#9ae4a8')
    end
   end
   for _,p in ipairs(c.shots) do

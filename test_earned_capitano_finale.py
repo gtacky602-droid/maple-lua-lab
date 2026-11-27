@@ -4,48 +4,24 @@ from argparse import ArgumentParser
 import json
 from pathlib import Path
 
-from runtime import native, runtime
-from test_earned_survey_itineraries import SurveyJourney
-from test_earned_weekly_mechanics import equipment, read, rectangle_frame
+from test_earned_stygian_rematch import StygianRematch
 
 
 def replay(source, output, evade):
-    spec = read('content/stygian-matches.json')['matches']['capitano']
+    trip = StygianRematch(source, 'capitano')
+    spec = trip.spec
     finale = spec['moves']['CP09']
-    trip = SurveyJourney(source.resolve(), runtime(), select_traveler=True)
-    start = trip.snapshot()
-    loadout = equipment(trip)
     state, hero = trip.state, trip.actor
-    bag = state.inventory['items']
-    spares = sorted((item for item in bag.values() if not item.owner and not item.locked),
-                    key=lambda item: (item.rarity, item.itemLv, item.id))
-    if len(bag) == 80:
-        trip.act(f'artifact_sell:{spares[0].id}')
-    old_items = {item.id for item in bag.values()}
-    trip.warp(spec['hub'])
-    trip.travel(spec['node'])
-    mode = next(row for row in trip.frame().stygianDesk.modes.values() if row.id == 'extreme')
-    assert mode.available and mode.record.clears > 0
-    prior = mode.record.clears
-    before = state.progression.total, state.mora
-    trip.act('stygian_start:capitano:extreme:troupe')
-    run = state.endgameRun
+    run = trip.run
     boss = run.boss
     arena = spec['arena']
-    frames, stages, hits, windows, positions = {}, [], [], [], []
+    stages, hits, windows, positions = [], [], [], []
     path = None
     recovery = 0
     return_damage = 0
     completed = False
     first_serial = None
     edge_gap = 218 if evade else 65
-
-    def sample(label, tick, cast):
-        frame = trip.frame()
-        frames[label] = dict(tick=tick, node=state.story.node, camera=frame.camera,
-                             platforms=native(frame.platforms), stage=str(run.stage), move=cast.key,
-                             moveTick=cast.t, view=native(frame.endgameRun), png=native(frame.draws),
-                             profiles={key: rectangle_frame(trip, key) for key in ('h48c32', 'h32c16')})
 
     for tick in range(1, 60 * run.rules.limit + 1):
         cast = run.cast
@@ -61,7 +37,7 @@ def replay(source, output, evade):
                 if path is None:
                     path = dict(origin=cast.origin, landing=cast.land, direction=cast.dir)
                     assert abs(path['landing'] - path['origin']) > 5
-                    sample('走路固定', tick - 1, cast)
+                    trip.capture('走路固定', tick - 1, cast)
                 middle = finale['windows'][0][1] <= cast.t < finale['windows'][2][1]
                 gap = 118 if middle else edge_gap
                 jump = 195 <= cast.t < 225 if evade else 267 <= cast.t < 293
@@ -96,18 +72,18 @@ def replay(source, output, evade):
                     windows.append(event.tick)
                     area = cast.shapes[i]
                     positions.append(dict(group=i, x=hero.x, y=hero.y, left=area.left, right=area.right))
-                    sample(('終点の一閃', '低い氷線', '高い氷線', '最後の扇')[i-1], tick, cast)
+                    trip.capture(('終点の一閃', '低い氷線', '高い氷線', '最後の扇')[i-1], tick, cast)
                 elif event.kind == 'stygian:capitano:CP09:contact' and event.actor == hero.id:
                     assert event.value == hp_before - hero.hp
                     hits.append(dict(group=event.group, tick=event.tick, damage=event.value))
             if finale['dash'][0] <= cast.t < finale['dash'][1]:
                 assert hp_before == hero.hp
                 if cast.t == finale['dash'][0] + 7:
-                    sample('疾走・終点の手前', tick, cast)
+                    trip.capture('疾走・終点の手前', tick, cast)
             if finale['recovery'] <= cast.t < finale['total']:
                 recovery += 1
                 if recovery == 1:
-                    sample('反撃開始', tick, cast)
+                    trip.capture('反撃開始', tick, cast)
                 if boss.hp < boss_before:
                     return_damage += boss_before - boss.hp
             if not run.cast:
@@ -121,27 +97,17 @@ def replay(source, output, evade):
     assert all(row['left'] + 10 < row['x'] < row['right'] - 10 for row in mid), mid
     expected_groups = [] if evade else [1, 2, 3, 4]
     assert [row['group'] for row in hits] == expected_groups, (hits, positions, path)
-    assert frames['反撃開始']['view']['finale']['damage'] == ([0] * 4 if evade else [75] * 4)
-    reward = native(trip.frame().endgameRun.matchReward)
-    assert not reward['first'] and reward['bag']
-    assert (reward['xp'], reward['mora']) == (mode.xp, mode.mora)
-    assert (state.progression.total - before[0], state.mora - before[1]) == (mode.xp, mode.mora)
-    new_items = [item for item in bag.values() if item.id not in old_items]
-    assert len(new_items) == 1 and new_items[0].setId == 'troupe'
-    trip.restore()
-    saved = trip.snapshot()
-    assert saved['endgame']['stygian']['capitano:extreme']['clears'] == prior + 1
-    assert saved['story']['quests'] == start['story']['quests']
-    assert saved['story']['visited'] == start['story']['visited']
+    assert trip.frames['反撃開始']['view']['finale']['damage'] == ([0] * 4 if evade else [75] * 4)
+    reward = trip.verify_clear()
     case = 'capitano-evade' if evade else 'capitano-hit'
     label = '隊長の終式・四段を回避' if evade else '隊長の終式・四段が命中'
     (output / f'{case}-frames.json').write_text(
-        json.dumps(frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf8')
+        json.dumps(trip.frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf8')
     print(case, tick, path, hits, positions, recovery, return_damage, reward, flush=True)
     return dict(controller='capitano', case=case, label=label, ticks=tick, sourceSha256=trip.source,
                 stageOrder=stages, path=path, windows=windows, positions=positions, hits=hits,
                 recoveryTicks=recovery, recoveryDamageDealt=return_damage, reward=reward,
-                extremeClears=[prior, prior + 1], loadout=loadout)
+                extremeClears=[trip.prior, trip.prior + 1], loadout=trip.loadout)
 
 
 if __name__ == '__main__':

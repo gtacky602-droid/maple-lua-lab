@@ -1,0 +1,515 @@
+{
+  "baseCommit": "9ec0841d310d79cdbea76ab1668160085f1935da",
+  "routeSetup": "Two copies of an earned Lv200 save. Extreme rematches via the regular desk and ordinary inputs, with companion attacks held. The first pilot avoids Solar Clash and waits through all three chain variants; the other takes all four hits. Both attack during the opening and clear.",
+  "beforeAfterCombatTraceIdentical": true,
+  "fights": [
+    {
+      "controller": "xbalanque",
+      "case": "xbalanque-center",
+      "label": "烈日激突・中央の安全路で回避",
+      "ticks": 6962,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stageOrder": [
+        1,
+        2,
+        3
+      ],
+      "path": {
+        "origin": 384.44,
+        "landing": 319.0,
+        "direction": -1
+      },
+      "windows": [
+        144,
+        228,
+        300,
+        390
+      ],
+      "positions": [
+        {
+          "group": 1,
+          "x": 336.5,
+          "y": 480,
+          "left": 204.6,
+          "right": 319.0
+        },
+        {
+          "group": 2,
+          "x": 473.0,
+          "y": 480,
+          "left": 40,
+          "right": 409.6
+        },
+        {
+          "group": 3,
+          "x": 473.0,
+          "y": 480,
+          "left": 550.4,
+          "right": 920
+        },
+        {
+          "group": 4,
+          "x": 301.5,
+          "y": 480,
+          "left": 319.0,
+          "right": 671.0
+        }
+      ],
+      "hits": [],
+      "recoveryTicks": 180,
+      "recoveryDamageDealt": 52,
+      "chainOrder": [
+        "C",
+        "B",
+        "A"
+      ],
+      "chains": {
+        "C": [
+          {
+            "key": "XB05",
+            "start": 0
+          },
+          {
+            "key": "XB06",
+            "start": 180
+          }
+        ],
+        "B": [
+          {
+            "key": "XB02",
+            "start": 0
+          },
+          {
+            "key": "XB03",
+            "start": 156
+          }
+        ],
+        "A": [
+          {
+            "key": "XB01",
+            "start": 0
+          },
+          {
+            "key": "XB02",
+            "start": 108
+          }
+        ]
+      },
+      "reward": {
+        "xp": 56142396,
+        "rank": 5,
+        "mora": 5180,
+        "bag": true,
+        "first": false,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ],
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      }
+    },
+    {
+      "controller": "xbalanque",
+      "case": "xbalanque-firebands",
+      "label": "烈日激突・火帯と拳が命中",
+      "ticks": 4350,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stageOrder": [
+        1,
+        2,
+        3
+      ],
+      "path": {
+        "origin": 384.44,
+        "landing": 319.0,
+        "direction": -1
+      },
+      "windows": [
+        144,
+        228,
+        300,
+        390
+      ],
+      "positions": [
+        {
+          "group": 1,
+          "x": 301.5,
+          "y": 480,
+          "left": 204.6,
+          "right": 319.0
+        },
+        {
+          "group": 2,
+          "x": 375.0,
+          "y": 480,
+          "left": 40,
+          "right": 409.6
+        },
+        {
+          "group": 3,
+          "x": 571.0,
+          "y": 480,
+          "left": 550.4,
+          "right": 920
+        },
+        {
+          "group": 4,
+          "x": 571.0,
+          "y": 480,
+          "left": 319.0,
+          "right": 671.0
+        }
+      ],
+      "hits": [
+        {
+          "group": 1,
+          "tick": 144,
+          "damage": 68
+        },
+        {
+          "group": 2,
+          "tick": 228,
+          "damage": 68
+        },
+        {
+          "group": 3,
+          "tick": 300,
+          "damage": 68
+        },
+        {
+          "group": 4,
+          "tick": 390,
+          "damage": 68
+        }
+      ],
+      "recoveryTicks": 180,
+      "recoveryDamageDealt": 52,
+      "chainOrder": [],
+      "chains": {},
+      "reward": {
+        "xp": 56142396,
+        "set": "黄金の劇団",
+        "first": false,
+        "mora": 5180,
+        "rank": 5,
+        "bag": true
+      },
+      "extremeClears": [
+        1,
+        2
+      ],
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      }
+    }
+  ],
+  "comparisonScenes": 20,
+  "capitanoSharedHarnessTraceIdentical": true,
+  "intermediateCloserToPngAtScenes": 20,
+  "matchedExpandedRectangleStreams": 40,
+  "matchingChromeColorErrorProfiles": 40,
+  "profiles": {
+    "h48c32": {
+      "previousBytes": 4099701,
+      "currentBytes": 1478155,
+      "matchedStreams": 20,
+      "packedAfterimageDraws": 4,
+      "reductionPercent": 63.94
+    },
+    "h32c16": {
+      "previousBytes": 1688147,
+      "currentBytes": 703734,
+      "matchedStreams": 20,
+      "packedAfterimageDraws": 4,
+      "reductionPercent": 58.31
+    }
+  },
+  "chrome": "158.0.8127.38",
+  "luaRegression": {
+    "cards": [
+      "XB01",
+      "XB02",
+      "XB03",
+      "XB04",
+      "XB05",
+      "XB06",
+      "XB07",
+      "XB08"
+    ],
+    "rank_levels": [
+      112,
+      138,
+      163,
+      188
+    ],
+    "locked_direction": true,
+    "ground_beam_single_contact": true,
+    "three_fireballs": true,
+    "jump_root_height_px": 149.6,
+    "landing_only_contact_tick": 84,
+    "parent_card_lengths": {
+      "A": 318,
+      "B": 456,
+      "C": 420
+    },
+    "child_recoveries_and_exact_offsets": true,
+    "first_solo_before_chain": true,
+    "finale_windows": [
+      144,
+      228,
+      300,
+      390
+    ],
+    "central_safe_width_U": 1.6,
+    "lane_indicator_requires_body_clearance": true,
+    "finale_recovery": 180,
+    "three_ordinary_cards_between_finales": true,
+    "no_limit_late_record_restores": true,
+    "clear_cancels_live_child_projectile": true,
+    "standing_end_pose_84px": true
+  },
+  "coopRegression": {
+    "players": 2,
+    "normalHP": 1780,
+    "fireballsPerPlayer": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "landingLockSlot": 1,
+    "sharedSafeLane": {
+      "left": 409.6,
+      "right": 550.4
+    },
+    "individualSafeLane": [
+      true,
+      false
+    ],
+    "fireBandsHitGroups": [
+      2,
+      3
+    ],
+    "finalPunchOnlyHitsFront": true,
+    "finaleTargetSlot": 1,
+    "lockedFinalDirection": 1,
+    "comboSecondChild": "XB02",
+    "rewards": [
+      {
+        "xp": 1161407,
+        "bag": true,
+        "mora": 2530,
+        "rank": 4,
+        "first": true,
+        "set": "黄金の劇団"
+      },
+      {
+        "xp": 1161407,
+        "bag": true,
+        "mora": 2530,
+        "rank": 4,
+        "first": true,
+        "set": "剣闘士のフィナーレ"
+      }
+    ],
+    "repeatReward": {
+      "xp": 1043955,
+      "bag": true,
+      "mora": 1640,
+      "rank": 4,
+      "first": false,
+      "set": "黄金の劇団"
+    },
+    "personalQuest": true,
+    "savedClears": 2
+  },
+  "browserRoutes": {
+    "evade": {
+      "background": {
+        "key": "solarSparringCourt",
+        "file": "xbalanque-court-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "XB01",
+          "XB04",
+          "XB06",
+          "XB08"
+        ],
+        "centralLeft": true,
+        "centralRight": true,
+        "groundedCentral": true,
+        "guard": true,
+        "punch": true,
+        "left": true,
+        "right": true
+      },
+      "noCountdown": true,
+      "standingEnd": true,
+      "avoidedAllFinaleWindows": true,
+      "finaleDamage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "finaleHud": "烈日激突 ｜ 4段の被ダメージなし",
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "transferCompression": {
+        "profile": "h32c16",
+        "canvasIdentical": true,
+        "packed": 1497,
+        "plain": 1497,
+        "packedGzipBytes": 24294,
+        "plainGzipBytes": 30510
+      },
+      "commands": {
+        "png": 54,
+        "standard": 5614,
+        "light": 1497
+      },
+      "errors": []
+    },
+    "hit": {
+      "background": {
+        "key": "solarSparringCourt",
+        "file": "xbalanque-court-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "XB01",
+          "XB04",
+          "XB06",
+          "XB08"
+        ],
+        "centralLeft": false,
+        "centralRight": false,
+        "groundedCentral": true,
+        "guard": true,
+        "punch": true,
+        "left": true,
+        "right": true
+      },
+      "noCountdown": true,
+      "standingEnd": true,
+      "avoidedAllFinaleWindows": false,
+      "finaleDamage": [
+        49,
+        49,
+        49,
+        49
+      ],
+      "finaleHud": "烈日激突 ｜ 被弾 4 / 4・計196ダメージ",
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "transferCompression": {
+        "profile": "h32c16",
+        "canvasIdentical": true,
+        "packed": 1498,
+        "plain": 1498,
+        "packedGzipBytes": 24334,
+        "plainGzipBytes": 29506
+      },
+      "commands": {
+        "png": 55,
+        "standard": 5615,
+        "light": 1498
+      },
+      "errors": []
+    }
+  }
+}
