@@ -3,96 +3,96 @@
   "profile": "standard",
   "startLevel": 1,
   "verifiedThroughLevel": 200,
-  "worldGraphSha256": "6b440a6997c63b9fa0e54ca1f342ab8e3a058488b9fff76abc8bc86a75ffd70d",
+  "worldGraphSha256": "03a30d02bc6220128be9a9f08d3f0f27175a4dc9235d4568cac701c07e9aa5b2",
   "checkpoints": [
     {
       "segment": "mondstadt",
       "arrival": "liyue-harbor",
       "level": 20,
-      "totalExp": 20754,
+      "totalExp": 20800,
       "completedQuests": 6,
-      "kills": 543,
-      "saveSha256": "58f1aad47ca4e383e22ce8d52c446296ca03140013d5c5c7954631d30fb190d8"
+      "kills": 545,
+      "saveSha256": "bb863bc0632cc3f671f3b9a3278f94ab06104f46050d2f5d0bfd6a237c2e48bd"
     },
     {
       "segment": "liyue",
       "arrival": "inazuma-port",
       "level": 40,
-      "totalExp": 384240,
+      "totalExp": 384332,
       "completedQuests": 13,
-      "kills": 1204,
-      "saveSha256": "b82f03fe9a9dab7a0a65a08d51a20600fe38360bf2eec0230304dec218bf67ad",
-      "sourceSha256": "58f1aad47ca4e383e22ce8d52c446296ca03140013d5c5c7954631d30fb190d8"
+      "kills": 1217,
+      "saveSha256": "27dbf6a736507b9045e28a68d0b6113434570484c847dbd0129d5c2185886acf",
+      "sourceSha256": "bb863bc0632cc3f671f3b9a3278f94ab06104f46050d2f5d0bfd6a237c2e48bd"
     },
     {
       "segment": "inazuma",
       "arrival": "sumeru-hub",
       "level": 60,
-      "totalExp": 2738735,
+      "totalExp": 2740517,
       "completedQuests": 19,
-      "kills": 2749,
-      "saveSha256": "7f368abaf76f4d723f583a6078c8aafbfe4e69cfd55e02939c457f19848b4092",
-      "sourceSha256": "b82f03fe9a9dab7a0a65a08d51a20600fe38360bf2eec0230304dec218bf67ad"
+      "kills": 2784,
+      "saveSha256": "d148337cae6f3b950c115c0e2c32179585da6e449a41af3e0e858de2b8fe1c6f",
+      "sourceSha256": "27dbf6a736507b9045e28a68d0b6113434570484c847dbd0129d5c2185886acf"
     },
     {
       "segment": "sumeru",
       "arrival": "fontaine-hub",
       "level": 80,
-      "totalExp": 10044468,
+      "totalExp": 10034573,
       "completedQuests": 25,
-      "kills": 6025,
-      "saveSha256": "0bc1e811b6ddd5dad7541a9573a5a2f96fa33ccc2bf67e494b1fc3b2095d3a86",
-      "sourceSha256": "7f368abaf76f4d723f583a6078c8aafbfe4e69cfd55e02939c457f19848b4092"
+      "kills": 6059,
+      "saveSha256": "bb481026ab7670116638e0c7823b4acad2aeb3accecc0d9828dba135a78b190e",
+      "sourceSha256": "d148337cae6f3b950c115c0e2c32179585da6e449a41af3e0e858de2b8fe1c6f"
     },
     {
       "segment": "fontaine",
       "arrival": "natlan-hub",
       "level": 100,
-      "totalExp": 37628208,
+      "totalExp": 37615277,
       "completedQuests": 31,
-      "kills": 9684,
-      "saveSha256": "16050d27ccad5aac43e8ef629c8eb15b4a6fb22ecb182b42f170963cc7027c59",
-      "sourceSha256": "0bc1e811b6ddd5dad7541a9573a5a2f96fa33ccc2bf67e494b1fc3b2095d3a86"
+      "kills": 9715,
+      "saveSha256": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345",
+      "sourceSha256": "bb481026ab7670116638e0c7823b4acad2aeb3accecc0d9828dba135a78b190e"
     },
     {
       "segment": "natlan",
       "arrival": "nod-town",
       "level": 120,
-      "totalExp": 110528049,
+      "totalExp": 110639573,
       "completedQuests": 37,
-      "kills": 15669,
-      "saveSha256": "6efdebef17e8951a5969cf64efbbea65eccb11f73bf19cf84a50d05d91898e77",
-      "sourceSha256": "16050d27ccad5aac43e8ef629c8eb15b4a6fb22ecb182b42f170963cc7027c59"
+      "kills": 15731,
+      "saveSha256": "0990e8bb71d5e3d2a7feffcd9373f9c72bcdb567c3cbbabfadac057df9468c90",
+      "sourceSha256": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345"
     },
     {
       "segment": "nod",
       "arrival": "snezhnaya-hub",
       "level": 140,
-      "totalExp": 362071022,
+      "totalExp": 362301448,
       "completedQuests": 43,
-      "kills": 23229,
-      "saveSha256": "3810bb8c8bb54e314190157e953760762fca732acb9e67dfc28b725a2e726992",
-      "sourceSha256": "6efdebef17e8951a5969cf64efbbea65eccb11f73bf19cf84a50d05d91898e77"
+      "kills": 23295,
+      "saveSha256": "2aef22995eca4cf339c10e7381ed8b84b245172bf841dde8c923aa0f44742586",
+      "sourceSha256": "0990e8bb71d5e3d2a7feffcd9373f9c72bcdb567c3cbbabfadac057df9468c90"
     },
     {
       "segment": "snez",
       "arrival": "white-pass-station",
       "level": 160,
-      "totalExp": 1222878897,
+      "totalExp": 1222970327,
       "completedQuests": 51,
-      "kills": 39704,
-      "saveSha256": "45231b783c81d73b18d6335d4cc6f6f762e71e3108f83211a729c0fc9b23b840",
-      "sourceSha256": "3810bb8c8bb54e314190157e953760762fca732acb9e67dfc28b725a2e726992"
+      "kills": 39771,
+      "saveSha256": "8e911fb38dda2aa9ea58c13d4b7c98511f7c57f7944d55d71b1e0dcf649d545b",
+      "sourceSha256": "2aef22995eca4cf339c10e7381ed8b84b245172bf841dde8c923aa0f44742586"
     },
     {
       "segment": "cap",
       "arrival": "white-pass-station",
       "level": 200,
-      "totalExp": 11501348654,
+      "totalExp": 11498005332,
       "completedQuests": 56,
-      "kills": 114910,
-      "saveSha256": "764bc5e246c2078461be827c60d9df5e6961c95235e2eb693d17a05216ee6f72",
-      "sourceSha256": "45231b783c81d73b18d6335d4cc6f6f762e71e3108f83211a729c0fc9b23b840"
+      "kills": 114949,
+      "saveSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+      "sourceSha256": "8e911fb38dda2aa9ea58c13d4b7c98511f7c57f7944d55d71b1e0dcf649d545b"
     }
   ],
   "pace": {
@@ -101,14 +101,14 @@
     "otherRouteScope": "Travel, quests, boss fights, recovery, inventory and miscellaneous replay time.",
     "rateScenario": "Replay hunt kill count at the draft rate for each band, plus measured other route time.",
     "totals": {
-      "replaySeconds": 118710.58,
-      "huntSeconds": 110388.33,
-      "otherRouteSeconds": 8322.25,
-      "huntKills": 105145,
+      "replaySeconds": 118626.79,
+      "huntSeconds": 110270.08,
+      "otherRouteSeconds": 8356.71,
+      "huntKills": 105035,
       "designSeconds": 180000.0,
       "designHuntSeconds": 98136.0,
       "designOtherRouteSeconds": 81864.0,
-      "atDesignHuntRateSeconds": 116495.95
+      "atDesignHuntRateSeconds": 116415.68
     },
     "bands": [
       {
@@ -128,128 +128,128 @@
       {
         "fromLevel": 20,
         "toLevel": 40,
-        "replaySeconds": 866.63,
-        "huntSeconds": 523.5,
-        "otherRouteSeconds": 343.13,
-        "huntKills": 572,
-        "replayKillsPerHuntMinute": 65.56,
+        "replaySeconds": 863.28,
+        "huntSeconds": 520.36,
+        "otherRouteSeconds": 342.92,
+        "huntKills": 570,
+        "replayKillsPerHuntMinute": 65.72,
         "designSeconds": 5400.0,
         "designHuntSeconds": 1512.0,
         "designOtherRouteSeconds": 3888.0,
         "designKillsPerHuntMinute": 45,
-        "atDesignHuntRateSeconds": 1105.8
+        "atDesignHuntRateSeconds": 1102.92
       },
       {
         "fromLevel": 40,
         "toLevel": 60,
-        "replaySeconds": 1892.73,
-        "huntSeconds": 1516.18,
-        "otherRouteSeconds": 376.55,
-        "huntKills": 1453,
-        "replayKillsPerHuntMinute": 57.5,
+        "replaySeconds": 2035.33,
+        "huntSeconds": 1634.74,
+        "otherRouteSeconds": 400.59,
+        "huntKills": 1446,
+        "replayKillsPerHuntMinute": 53.07,
         "designSeconds": 7200,
         "designHuntSeconds": 2520.0,
         "designOtherRouteSeconds": 4680.0,
         "designKillsPerHuntMinute": 50,
-        "atDesignHuntRateSeconds": 2120.15
+        "atDesignHuntRateSeconds": 2135.79
       },
       {
         "fromLevel": 60,
         "toLevel": 80,
-        "replaySeconds": 7209.1,
-        "huntSeconds": 6589.66,
-        "otherRouteSeconds": 619.44,
-        "huntKills": 3211,
-        "replayKillsPerHuntMinute": 29.24,
+        "replaySeconds": 7075.63,
+        "huntSeconds": 6452.75,
+        "otherRouteSeconds": 622.88,
+        "huntKills": 3197,
+        "replayKillsPerHuntMinute": 29.73,
         "designSeconds": 9000.0,
         "designHuntSeconds": 3330.0,
         "designOtherRouteSeconds": 5670.0,
         "designKillsPerHuntMinute": 50,
-        "atDesignHuntRateSeconds": 4472.64
+        "atDesignHuntRateSeconds": 4459.28
       },
       {
         "fromLevel": 80,
         "toLevel": 100,
-        "replaySeconds": 6629.82,
-        "huntSeconds": 5798.47,
-        "otherRouteSeconds": 831.35,
-        "huntKills": 3508,
-        "replayKillsPerHuntMinute": 36.3,
+        "replaySeconds": 6484.62,
+        "huntSeconds": 5667.5,
+        "otherRouteSeconds": 817.12,
+        "huntKills": 3526,
+        "replayKillsPerHuntMinute": 37.33,
         "designSeconds": 12600.0,
         "designHuntSeconds": 5040.0,
         "designOtherRouteSeconds": 7560.0,
         "designKillsPerHuntMinute": 52,
-        "atDesignHuntRateSeconds": 4879.04
+        "atDesignHuntRateSeconds": 4885.58
       },
       {
         "fromLevel": 100,
         "toLevel": 120,
-        "replaySeconds": 7753.13,
-        "huntSeconds": 6960.89,
-        "otherRouteSeconds": 792.24,
-        "huntKills": 5303,
-        "replayKillsPerHuntMinute": 45.71,
+        "replaySeconds": 7871.73,
+        "huntSeconds": 7065.73,
+        "otherRouteSeconds": 806.0,
+        "huntKills": 5267,
+        "replayKillsPerHuntMinute": 44.73,
         "designSeconds": 16200.0,
         "designHuntSeconds": 7290.0,
         "designOtherRouteSeconds": 8910.0,
         "designKillsPerHuntMinute": 55,
-        "atDesignHuntRateSeconds": 6577.33
+        "atDesignHuntRateSeconds": 6551.82
       },
       {
         "fromLevel": 120,
         "toLevel": 140,
-        "replaySeconds": 12435.17,
-        "huntSeconds": 11517.67,
-        "otherRouteSeconds": 917.5,
-        "huntKills": 7177,
-        "replayKillsPerHuntMinute": 37.39,
+        "replaySeconds": 12303.72,
+        "huntSeconds": 11410.82,
+        "otherRouteSeconds": 892.9,
+        "huntKills": 7184,
+        "replayKillsPerHuntMinute": 37.77,
         "designSeconds": 19800.0,
         "designHuntSeconds": 9900.0,
         "designOtherRouteSeconds": 9900.0,
         "designKillsPerHuntMinute": 55,
-        "atDesignHuntRateSeconds": 8746.95
+        "atDesignHuntRateSeconds": 8729.99
       },
       {
         "fromLevel": 140,
         "toLevel": 160,
-        "replaySeconds": 14539.35,
-        "huntSeconds": 13652.62,
-        "otherRouteSeconds": 886.73,
-        "huntKills": 15333,
-        "replayKillsPerHuntMinute": 67.38,
+        "replaySeconds": 14437.9,
+        "huntSeconds": 13561.92,
+        "otherRouteSeconds": 875.98,
+        "huntKills": 15254,
+        "replayKillsPerHuntMinute": 67.49,
         "designSeconds": 25200,
         "designHuntSeconds": 13860.0,
         "designOtherRouteSeconds": 11340.0,
         "designKillsPerHuntMinute": 60,
-        "atDesignHuntRateSeconds": 16219.73
+        "atDesignHuntRateSeconds": 16129.98
       },
       {
         "fromLevel": 160,
         "toLevel": 180,
-        "replaySeconds": 27667.25,
-        "huntSeconds": 26542.1,
-        "otherRouteSeconds": 1125.15,
-        "huntKills": 28651,
-        "replayKillsPerHuntMinute": 64.77,
+        "replaySeconds": 27942.42,
+        "huntSeconds": 26782.84,
+        "otherRouteSeconds": 1159.58,
+        "huntKills": 28596,
+        "replayKillsPerHuntMinute": 64.06,
         "designSeconds": 34200.0,
         "designHuntSeconds": 21204.0,
         "designOtherRouteSeconds": 12996.0,
         "designKillsPerHuntMinute": 60,
-        "atDesignHuntRateSeconds": 29776.15
+        "atDesignHuntRateSeconds": 29755.58
       },
       {
         "fromLevel": 180,
         "toLevel": 200,
-        "replaySeconds": 39119.05,
-        "huntSeconds": 36874.19,
-        "otherRouteSeconds": 2244.86,
-        "huntKills": 39475,
-        "replayKillsPerHuntMinute": 64.23,
+        "replaySeconds": 39013.81,
+        "huntSeconds": 36760.37,
+        "otherRouteSeconds": 2253.44,
+        "huntKills": 39533,
+        "replayKillsPerHuntMinute": 64.53,
         "designSeconds": 46800,
         "designHuntSeconds": 32760.0,
         "designOtherRouteSeconds": 14040.0,
         "designKillsPerHuntMinute": 60,
-        "atDesignHuntRateSeconds": 41719.86
+        "atDesignHuntRateSeconds": 41786.44
       }
     ]
   }

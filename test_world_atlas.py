@@ -250,10 +250,27 @@ for boss_id in v72['normal'] + v72['local_legends']:
     v72_gates.append({'boss': boss_id, 'approach': source, 'arena': arena,
                       'x': gate['x'], 'y': gate.get('y', 480), 'walked_out_and_back': True})
 
+field_stages = {point['field']: point['id'] for region in atlas['regions']
+                for point in region['points'] if 'field' in point}
+route_save = validate_save(read('evidence/remaining-survey-save.json'))
+existing_routes = []
+for review in reviews.values():
+    if review['finding'] != 'unverified_travel_choice':
+        continue
+    a, b = (field_stages[field] for field in review['fields'])
+    for origin, destination in ((a, b), (b, a)):
+        s = core.restore(lua.table_from(route_save, recursive=True), 12)
+        core.enterStoryNode(s, origin)
+        walk = TrailWalk(lua, core, s, edges, exits)
+        traversed = walk.follow_atlas(destination)
+        assert traversed and traversed[-1] == destination and s.returns == 0, (origin, destination)
+        existing_routes.append({'from': origin, 'to': destination, 'traversed': traversed})
+
 result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fields),
           'draft_entrance_proposals':len(drafts),'sites_only_route_reviews':len(plan['sites_only_route_review']),
           'live_exteriors_with_unverified_source_entrance':sorted(pending),
           'route_findings':dict(Counter(row['finding'] for row in plan['sites_only_route_review'])),
+          'existing_routes_for_unverified_choices':existing_routes,
           'separately_labelled_level_mismatches':len(plan['level_differences']),
           'bosses_by_kind': dict(Counter(row['kind'] for row in active_roster.values())),
           'suspended_boss_stages': sorted(suspended & roster.keys()), 'v72_boss_round_trips': v72_gates,

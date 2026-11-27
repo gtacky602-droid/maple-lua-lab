@@ -3,74 +3,74 @@
     {
       "node": "aurora-ice-cut",
       "toLevel": 165,
-      "kills": 7626,
-      "exp": 429625962,
-      "autoKills": 7311,
-      "autoSeconds": 6730.85,
-      "seconds": 6929.8
+      "kills": 7624,
+      "exp": 429513288,
+      "autoKills": 7314,
+      "autoSeconds": 6877.22,
+      "seconds": 7077.35
     },
     {
       "node": "aurora-ice-shelf",
       "toLevel": 170,
-      "kills": 7674,
-      "exp": 583715070,
-      "autoKills": 7245,
-      "autoSeconds": 6762.92,
-      "seconds": 7006.75
+      "kills": 7684,
+      "exp": 584452329,
+      "autoKills": 7281,
+      "autoSeconds": 6714.77,
+      "seconds": 6969.98
     },
     {
       "node": "aurora-steam-channel",
       "toLevel": 175,
-      "kills": 7468,
-      "exp": 755800883,
-      "autoKills": 7014,
-      "autoSeconds": 6561.93,
-      "seconds": 6820.43
+      "kills": 7451,
+      "exp": 754582062,
+      "autoKills": 6971,
+      "autoSeconds": 6595.4,
+      "seconds": 6854.27
     },
     {
       "node": "aurora-mineral-terraces",
       "toLevel": 180,
-      "kills": 7566,
-      "exp": 971427463,
-      "autoKills": 7081,
-      "autoSeconds": 6486.4,
-      "seconds": 6754.48
+      "kills": 7552,
+      "exp": 969738965,
+      "autoKills": 7030,
+      "autoSeconds": 6595.45,
+      "seconds": 6879.57
     },
     {
       "node": "dawn-vein-mine",
       "toLevel": 185,
-      "kills": 10633,
-      "exp": 1227628554,
-      "autoKills": 9789,
-      "autoSeconds": 9169.75,
-      "seconds": 9611.92
+      "kills": 10626,
+      "exp": 1227570754,
+      "autoKills": 9839,
+      "autoSeconds": 9204.95,
+      "seconds": 9631.82
     },
     {
       "node": "dawn-vein-deep",
       "toLevel": 190,
-      "kills": 10840,
-      "exp": 1582387284,
-      "autoKills": 9899,
-      "autoSeconds": 9228.08,
-      "seconds": 9685.25
+      "kills": 10828,
+      "exp": 1581100173,
+      "autoKills": 9911,
+      "autoSeconds": 9215.65,
+      "seconds": 9680.58
     },
     {
       "node": "dawn-glass-ridge",
       "toLevel": 195,
-      "kills": 10927,
-      "exp": 2018319571,
-      "autoKills": 9924,
-      "autoSeconds": 9236.63,
-      "seconds": 9723.63
+      "kills": 10924,
+      "exp": 2019030268,
+      "autoKills": 9931,
+      "autoSeconds": 9203.62,
+      "seconds": 9695.02
     },
     {
       "node": "dawn-glass-divide",
       "toLevel": 200,
-      "kills": 11148,
-      "exp": 2577402528,
-      "autoKills": 9863,
-      "autoSeconds": 9239.73,
-      "seconds": 9819.58
+      "kills": 11151,
+      "exp": 2577349583,
+      "autoKills": 9852,
+      "autoSeconds": 9136.15,
+      "seconds": 9725.37
     }
   ],
   "milestones": [
@@ -78,97 +78,97 @@
       "id": "release-and-exploration",
       "node": "white-pass-station",
       "level": 160,
-      "exp": 1225666941,
-      "kills": 39732,
+      "exp": 1225758369,
+      "kills": 39797,
       "seconds": 30.1
     },
     {
       "id": "lv165",
       "node": "aurora-ice-cut",
       "level": 165,
-      "exp": 1656532317,
-      "kills": 47380,
-      "seconds": 6970.88
+      "exp": 1656511071,
+      "kills": 47443,
+      "seconds": 7118.43
     },
     {
       "id": "lv170",
       "node": "aurora-ice-shelf",
       "level": 170,
-      "exp": 2243954214,
-      "kills": 55115,
-      "seconds": 14002.63
+      "exp": 2243985507,
+      "kills": 55175,
+      "seconds": 14110.1
     },
     {
       "id": "live-light-echo",
       "node": "white-pass-station",
       "level": 170,
-      "exp": 2250068657,
-      "kills": 55177,
-      "seconds": 14029.83
+      "exp": 2251162540,
+      "kills": 55253,
+      "seconds": 14141.93
     },
     {
       "id": "lv175",
       "node": "aurora-steam-channel",
       "level": 175,
-      "exp": 3010605694,
-      "kills": 62710,
-      "seconds": 20876.8
+      "exp": 3010634213,
+      "kills": 62770,
+      "seconds": 21022.73
     },
     {
       "id": "lv180",
       "node": "aurora-mineral-terraces",
       "level": 180,
-      "exp": 3989213401,
-      "kills": 70364,
-      "seconds": 27667.25
+      "exp": 3989148930,
+      "kills": 70427,
+      "seconds": 27942.42
     },
     {
       "id": "live-seven-strike",
       "node": "white-pass-station",
       "level": 180,
-      "exp": 4001667060,
-      "kills": 70482,
-      "seconds": 27712.75
+      "exp": 4001164520,
+      "kills": 70543,
+      "seconds": 27988.25
     },
     {
       "id": "lv185",
       "node": "dawn-vein-mine",
       "level": 185,
-      "exp": 5238065225,
-      "kills": 81224,
-      "seconds": 37366.52
+      "exp": 5237959731,
+      "kills": 81283,
+      "seconds": 37661.92
     },
     {
       "id": "lv190",
       "node": "dawn-vein-deep",
       "level": 190,
-      "exp": 6831961141,
-      "kills": 92203,
-      "seconds": 47108.75
+      "exp": 6831930623,
+      "kills": 92259,
+      "seconds": 47400.87
     },
     {
       "id": "lv195",
       "node": "dawn-glass-ridge",
       "level": 195,
-      "exp": 8866227245,
-      "kills": 103306,
-      "seconds": 56895.68
+      "exp": 8866261889,
+      "kills": 103352,
+      "seconds": 57160.13
     },
     {
       "id": "lv200",
       "node": "dawn-glass-divide",
       "level": 200,
-      "exp": 11462605987,
-      "kills": 114640,
-      "seconds": 66786.3
+      "exp": 11462428345,
+      "kills": 114693,
+      "seconds": 66956.23
     },
     {
       "id": "lv200-post-cap",
       "node": "white-pass-station",
       "level": 200,
-      "exp": 11501348654,
-      "kills": 114910,
-      "seconds": 66918.3
+      "exp": 11498005332,
+      "kills": 114949,
+      "seconds": 67087.73
     }
   ],
   "equipment": [
@@ -400,20 +400,29 @@
     {
       "level": 176,
       "slot": 1,
+      "actor": 2,
+      "oldMain": 43818,
+      "newMain": 46661,
+      "itemLv": 192,
+      "item": 612
+    },
+    {
+      "level": 176,
+      "slot": 1,
       "actor": 1,
       "oldMain": 49688,
-      "newMain": 58144,
-      "itemLv": 199,
-      "item": 611
+      "newMain": 51274,
+      "itemLv": 195,
+      "item": 629
     },
     {
       "level": 176,
       "slot": 1,
       "actor": 2,
-      "oldMain": 43818,
-      "newMain": 54601,
-      "itemLv": 197,
-      "item": 612
+      "oldMain": 46661,
+      "newMain": 49688,
+      "itemLv": 194,
+      "item": 603
     },
     {
       "level": 176,
@@ -436,11 +445,20 @@
     {
       "level": 177,
       "slot": 1,
-      "actor": 2,
-      "oldMain": 54601,
+      "actor": 1,
+      "oldMain": 51274,
       "newMain": 58144,
       "itemLv": 199,
       "item": 651
+    },
+    {
+      "level": 177,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 49688,
+      "newMain": 54601,
+      "itemLv": 197,
+      "item": 646
     },
     {
       "level": 179,
@@ -464,7 +482,7 @@
       "level": 180,
       "slot": 1,
       "actor": 2,
-      "oldMain": 58144,
+      "oldMain": 54601,
       "newMain": 60000,
       "itemLv": 200,
       "item": 705
@@ -614,15 +632,6 @@
       "item": 904
     },
     {
-      "level": 190,
-      "slot": 2,
-      "actor": 1,
-      "oldMain": 76851,
-      "newMain": 88180,
-      "itemLv": 214,
-      "item": 900
-    },
-    {
       "level": 191,
       "slot": 1,
       "actor": 1,
@@ -643,7 +652,7 @@
     {
       "level": 191,
       "slot": 2,
-      "actor": 2,
+      "actor": 1,
       "oldMain": 76851,
       "newMain": 78994,
       "itemLv": 210,
@@ -666,6 +675,15 @@
       "newMain": 78994,
       "itemLv": 210,
       "item": 909
+    },
+    {
+      "level": 191,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 76851,
+      "newMain": 78994,
+      "itemLv": 210,
+      "item": 924
     },
     {
       "level": 192,
@@ -697,7 +715,7 @@
     {
       "level": 196,
       "slot": 2,
-      "actor": 2,
+      "actor": 1,
       "oldMain": 78994,
       "newMain": 81196,
       "itemLv": 211,
@@ -707,7 +725,7 @@
       "level": 197,
       "slot": 2,
       "actor": 1,
-      "oldMain": 88180,
+      "oldMain": 81196,
       "newMain": 90639,
       "itemLv": 215,
       "item": 1033
@@ -716,16 +734,16 @@
       "level": 197,
       "slot": 2,
       "actor": 2,
-      "oldMain": 81196,
-      "newMain": 88180,
-      "itemLv": 214,
-      "item": 900
+      "oldMain": 78994,
+      "newMain": 81196,
+      "itemLv": 211,
+      "item": 1022
     },
     {
       "level": 197,
       "slot": 2,
       "actor": 2,
-      "oldMain": 88180,
+      "oldMain": 81196,
       "newMain": 90639,
       "itemLv": 215,
       "item": 1051
@@ -770,11 +788,11 @@
   "rests": 0,
   "inventoryStops": 28,
   "method": "Earned Lv160 checkpoint from Lv1. Normal travel, optional growth quests, field skills, and auto battle.",
-  "sourceSha256": "45231b783c81d73b18d6335d4cc6f6f762e71e3108f83211a729c0fc9b23b840",
+  "sourceSha256": "8e911fb38dda2aa9ea58c13d4b7c98511f7c57f7944d55d71b1e0dcf649d545b",
   "startingLevel": 160,
   "endLevel": 200,
-  "totalExp": 11501348654,
-  "kills": 75206,
+  "totalExp": 11498005332,
+  "kills": 75178,
   "partyWipes": 0,
   "growthQuests": [
     "growth-light-release",
@@ -785,10 +803,10 @@
   ],
   "cap": {
     "node": "dawn-crystal-field",
-    "kills": 72,
-    "extraExp": 21338352,
+    "kills": 60,
+    "extraExp": 17781960,
     "seconds": 60.0,
-    "overflow": 39013424,
+    "overflow": 35670102,
     "restored": true
   }
 }

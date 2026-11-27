@@ -1,0 +1,1096 @@
+{
+  "base": "5411b38199d80a980328b47d6e0489ee70f7c99d",
+  "fields": {
+    "snezhnaya-entry": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 300
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 190
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 16,
+        "cooldownSeconds": 3.2
+      },
+      "browser": {
+        "node": "snezhnaya-entry",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 190
+          },
+          "after": {
+            "total": 15,
+            "visible": 15,
+            "camera": 190
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 15117,
+        "h48c32": 9191,
+        "h32c16": 3769
+      }
+    },
+    "snezhnaya-field": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 300
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 260
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 16,
+        "cooldownSeconds": 3.2
+      },
+      "browser": {
+        "node": "snezhnaya-field",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 260
+          },
+          "after": {
+            "total": 15,
+            "visible": 15,
+            "camera": 260
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 15141,
+        "h48c32": 9215,
+        "h32c16": 3793
+      }
+    },
+    "sne-survey-outskirts": {
+      "before": {
+        "ordinary": 7,
+        "peak": 5,
+        "camera": 577
+      },
+      "after": {
+        "ordinary": 17,
+        "peak": 15,
+        "camera": 431
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 16,
+        "cooldownSeconds": 3.2
+      },
+      "browser": {
+        "node": "sne-survey-outskirts",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 6,
+            "camera": 431
+          },
+          "after": {
+            "total": 18,
+            "visible": 16,
+            "camera": 431
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 26723,
+        "h48c32": 16611,
+        "h32c16": 7126
+      }
+    }
+  },
+  "ordinaryHunts": 144,
+  "eliteRoutes": 7,
+  "viewWidth": 960,
+  "portalArrivalsIncludingNamedPatrols": [
+    {
+      "origin": "nod-town",
+      "destination": "snezhnaya-entry",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "snezhnaya-hub",
+      "destination": "snezhnaya-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "snezhnaya-hub",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "novokichev-camp",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "wingspan-camp",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "flugel-tundra-basin",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "drifting-snow-court",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "immortal-construct-root-hollow",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "snow-rail-transfer",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "winter-frontier-switchback",
+      "destination": "snezhnaya-entry",
+      "positions": [
+        [
+          295,
+          380
+        ],
+        [
+          255,
+          380
+        ]
+      ]
+    },
+    {
+      "origin": "white-pass-cut",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sne-survey-shed",
+      "destination": "sne-survey-outskirts",
+      "positions": [
+        [
+          123,
+          480
+        ],
+        [
+          83,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sne-wp-100647",
+      "destination": "snezhnaya-entry",
+      "positions": [
+        [
+          235,
+          480
+        ],
+        [
+          195,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sne-wp-100650",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          625,
+          480
+        ],
+        [
+          585,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sne-wp-100660",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          972,
+          380
+        ],
+        [
+          932,
+          380
+        ]
+      ]
+    },
+    {
+      "origin": "sne-wp-100663",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          1135,
+          480
+        ],
+        [
+          1095,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-wp-92887",
+      "destination": "snezhnaya-entry",
+      "positions": [
+        [
+          430,
+          480
+        ],
+        [
+          390,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-hunt-100707",
+      "destination": "snezhnaya-field",
+      "positions": [
+        [
+          150,
+          480
+        ],
+        [
+          110,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-northern-fault-pass",
+      "destination": "snezhnaya-entry",
+      "positions": [
+        [
+          1130,
+          480
+        ],
+        [
+          1090,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivalsIncludingNamedPatrols": [
+    {
+      "node": "snezhnaya-entry",
+      "positions": [
+        [
+          500,
+          480
+        ],
+        [
+          460,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "snezhnaya-field",
+      "positions": [
+        [
+          548,
+          480
+        ],
+        [
+          508,
+          480
+        ]
+      ]
+    }
+  ],
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "bb863bc0632cc3f671f3b9a3278f94ab06104f46050d2f5d0bfd6a237c2e48bd"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 2035.33,
+        "level": 60,
+        "total": 2740517,
+        "questXp": 1551496,
+        "killXp": 1189021,
+        "kills": 2784
+      },
+      "wipes": 0,
+      "inputSaveSha256": "27dbf6a736507b9045e28a68d0b6113434570484c847dbd0129d5c2185886acf"
+    },
+    "sumeru": {
+      "arrival": {
+        "id": "fontaine-hub",
+        "seconds": 7075.63,
+        "level": 80,
+        "total": 10034573,
+        "questXp": 3968218,
+        "killXp": 6066355,
+        "kills": 6059
+      },
+      "wipes": 0,
+      "inputSaveSha256": "d148337cae6f3b950c115c0e2c32179585da6e449a41af3e0e858de2b8fe1c6f"
+    },
+    "fontaine": {
+      "arrival": {
+        "id": "natlan-hub",
+        "seconds": 6484.62,
+        "level": 100,
+        "total": 37615277,
+        "questXp": 15666763,
+        "killXp": 21948514,
+        "kills": 9715
+      },
+      "wipes": 0,
+      "inputSaveSha256": "bb481026ab7670116638e0c7823b4acad2aeb3accecc0d9828dba135a78b190e"
+    },
+    "natlan": {
+      "arrival": {
+        "id": "nod-town",
+        "seconds": 7871.73,
+        "level": 120,
+        "total": 110639573,
+        "questXp": 43181221,
+        "killXp": 67458352,
+        "kills": 15731
+      },
+      "wipes": 0,
+      "inputSaveSha256": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345"
+    },
+    "nod": {
+      "arrival": {
+        "id": "snezhnaya-hub",
+        "seconds": 12303.72,
+        "level": 140,
+        "total": 362301448,
+        "questXp": 129973387,
+        "killXp": 232328061,
+        "kills": 23295
+      },
+      "wipes": 0,
+      "inputSaveSha256": "0990e8bb71d5e3d2a7feffcd9373f9c72bcdb567c3cbbabfadac057df9468c90"
+    },
+    "snez": {
+      "arrival": {
+        "id": "white-pass-station",
+        "node": "white-pass-station",
+        "seconds": 14437.9,
+        "level": 160,
+        "total": 1222970327,
+        "killXp": 800432741,
+        "questXp": 422537586
+      },
+      "wipes": 0,
+      "inputSaveSha256": "2aef22995eca4cf339c10e7381ed8b84b245172bf841dde8c923aa0f44742586"
+    }
+  },
+  "completedSnezhnayaQuests": [
+    "sne-mitya-observation",
+    "white-pass-ticket",
+    "white-pass-footprints",
+    "white-pass-trail",
+    "sne-snow-match-quest",
+    "white-pass-footwork",
+    "white-pass-rest",
+    "white-pass-summit"
+  ],
+  "snezhnayaRecoveryTrips": 0,
+  "browserMapAndTravel": {
+    "trainGuide": [
+      {
+        "previewX": 800,
+        "level": 140,
+        "mode": "rail",
+        "approach": "現在地から右へ",
+        "hint": "出発から9秒で雪原の終着駅に到着",
+        "name": "白虹行きの列車",
+        "region": "region-08",
+        "from": "snezhnaya-hub",
+        "label": "鉄道",
+        "id": "white-pass-coach"
+      },
+      {
+        "from": "white-pass-coach",
+        "level": 140,
+        "mode": "rail",
+        "label": "鉄道",
+        "name": "雪原の終着駅",
+        "region": "region-08",
+        "automaticArrival": true,
+        "hint": "発車から9秒で到着",
+        "id": "white-pass-station"
+      }
+    ],
+    "boardLabel": "F：列車に乗る",
+    "trainSeconds": 9,
+    "persistedQuests": [
+      "sne-mitya-observation",
+      "white-pass-ticket",
+      "white-pass-footprints",
+      "white-pass-trail",
+      "sne-snow-match-quest",
+      "white-pass-footwork",
+      "white-pass-rest",
+      "white-pass-summit"
+    ],
+    "mainHunts": [
+      "snezhnaya-entry",
+      "snezhnaya-field",
+      "sne-survey-outskirts"
+    ],
+    "firstHunt": "aurora-ice-cut",
+    "huntLevels": {
+      "white-pass-cut": 140,
+      "white-pass-woods": 148,
+      "white-pass-ridge": 155,
+      "aurora-ice-cut": 160,
+      "aurora-ice-shelf": 165,
+      "aurora-steam-channel": 170,
+      "aurora-mineral-terraces": 175,
+      "dawn-vein-mine": 180,
+      "dawn-vein-deep": 185,
+      "dawn-glass-ridge": 190,
+      "dawn-glass-divide": 195,
+      "dawn-crystal-field": 200
+    },
+    "capGuide": [
+      {
+        "previewX": 861,
+        "mode": "walk",
+        "id": "aurora-ice-cut",
+        "region": "region-08",
+        "from": "white-pass-station",
+        "label": "徒歩",
+        "name": "極光谷・氷の切通し",
+        "level": 160,
+        "approach": "現在地から右へ"
+      },
+      {
+        "previewX": 1780,
+        "mode": "walk",
+        "id": "aurora-ice-shelf",
+        "region": "region-08",
+        "from": "aurora-ice-cut",
+        "label": "徒歩",
+        "name": "極光谷・氷棚",
+        "reason": "必要Lv165",
+        "level": 165
+      },
+      {
+        "previewX": 1810,
+        "mode": "walk",
+        "id": "aurora-steam-channel",
+        "region": "region-08",
+        "from": "aurora-ice-shelf",
+        "label": "徒歩",
+        "name": "湯気谷・温泉水路",
+        "reason": "必要Lv170",
+        "level": 170
+      },
+      {
+        "previewX": 1790,
+        "mode": "walk",
+        "id": "aurora-mineral-terraces",
+        "region": "region-08",
+        "from": "aurora-steam-channel",
+        "label": "徒歩",
+        "name": "湯気谷・鉱泉段丘",
+        "reason": "必要Lv175",
+        "level": 175
+      },
+      {
+        "previewX": 1790,
+        "mode": "walk",
+        "id": "dawn-vein-mine",
+        "region": "region-08",
+        "from": "aurora-mineral-terraces",
+        "label": "徒歩",
+        "name": "星脈坑・凍てた坑口",
+        "reason": "必要Lv180",
+        "level": 180
+      },
+      {
+        "previewX": 1760,
+        "mode": "walk",
+        "id": "dawn-vein-deep",
+        "region": "region-08",
+        "from": "dawn-vein-mine",
+        "label": "徒歩",
+        "name": "星脈坑・群青の採掘路",
+        "reason": "必要Lv185",
+        "level": 185
+      },
+      {
+        "previewX": 1790,
+        "mode": "walk",
+        "id": "dawn-glass-ridge",
+        "region": "region-08",
+        "from": "dawn-vein-deep",
+        "label": "徒歩",
+        "name": "暁晶尾根・露頭の道",
+        "reason": "必要Lv190",
+        "level": 190
+      },
+      {
+        "previewX": 1790,
+        "mode": "walk",
+        "id": "dawn-glass-divide",
+        "region": "region-08",
+        "from": "dawn-glass-ridge",
+        "label": "徒歩",
+        "name": "暁晶尾根・稜線の段丘",
+        "reason": "必要Lv195",
+        "level": 195
+      },
+      {
+        "previewX": 1790,
+        "mode": "walk",
+        "id": "dawn-crystal-field",
+        "region": "region-08",
+        "from": "dawn-glass-divide",
+        "label": "徒歩",
+        "name": "極地の暁晶原",
+        "reason": "必要Lv200",
+        "level": 200
+      }
+    ],
+    "verifiedAtLv": 160,
+    "lightReleaseKeyQ": true,
+    "blockedGate": "aurora-ice-shelf",
+    "errors": []
+  },
+  "browserDaily": {
+    "townOffers": 5,
+    "companionGiverVisible": true,
+    "walkedToOutskirtsAndReturned": true,
+    "threeObjectivesOverlap": true,
+    "namedEliteVisible": true,
+    "mapPlacementComparisonProfiles": 3,
+    "staleSaveRetainsProgress": true,
+    "rewardsDoNotReplay": true,
+    "mobileFits": true,
+    "reward": {
+      "xp": 2945020,
+      "mora": 11250
+    },
+    "errors": []
+  },
+  "surveyRoadCharactersComparedInChrome": {
+    "camera": 431,
+    "light": {
+      "locations": {
+        "shape": {
+          "x": 480,
+          "y": 405
+        },
+        "color": {
+          "x": 480,
+          "y": 405
+        }
+      },
+      "union": 39514,
+      "overlap": 38057,
+      "overlapPercent": 96.3126992964519,
+      "meanRgbError": 22.08107137539305
+    },
+    "rows": [
+      [
+        "標準",
+        "23,283",
+        "98.8%",
+        "8.37 / 255",
+        "—"
+      ],
+      [
+        "中間・32色",
+        "14,565",
+        "97.4%",
+        "16.01 / 255",
+        "-37.4%"
+      ],
+      [
+        "最軽量・16色",
+        "6,245",
+        "96.3%",
+        "22.08 / 255",
+        "-73.2%"
+      ]
+    ]
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5809,
+    "liveEntriesChecked": 5809,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "growthPracticeInChrome": {
+    "reports": 4,
+    "emptyBagImprintAtLevel1": true,
+    "separateCombatGauge": true,
+    "pairPower": [
+      26,
+      50
+    ],
+    "barrierTestDamage": [
+      57,
+      100
+    ],
+    "mobilePreviewFits": true,
+    "moonInOrdinaryField": "月感電",
+    "starInOrdinaryField": "星嵐の種",
+    "savesReportAndOptionalLesson": true,
+    "errors": []
+  },
+  "growthPracticeFromEarnedSave": {
+    "sourceSha256": "8e911fb38dda2aa9ea58c13d4b7c98511f7c57f7944d55d71b1e0dcf649d545b",
+    "sourceLevel": 160,
+    "stage": "snezhnaya-field",
+    "skill": "SK57",
+    "companion": "mitya",
+    "quest": "growth-star-practice",
+    "reported": true,
+    "partyWipes": 0
+  },
+  "ledgeContact": {
+    "configured": 2,
+    "distantHit": false,
+    "closeDamage": 16,
+    "cooldownSeconds": 3.2
+  },
+  "worldAtlasBossCounts": {
+    "normal": 63,
+    "weekly": 16,
+    "stygian": 7,
+    "legend": 56
+  },
+  "laterHuntReview": {
+    "scope": "Active M-map stages with at least four targetable ordinary enemies in opening Lua state and no hunt or boss classification. Quest and daily references are data links. Routes were tested from each authored checkpoint on an earned save.",
+    "candidates": 46,
+    "below12": 27,
+    "byRegion": {
+      "モンド本土": 1,
+      "璃月": 2,
+      "稲妻": 1,
+      "スメール": 2,
+      "ナタ": 1,
+      "ナド・クライ": 2,
+      "ドラゴンスパイン": 2,
+      "沈玉の谷": 3,
+      "淵下宮": 2,
+      "往日の海": 1,
+      "ドーンマンポート": 3,
+      "オシカ・ナタ": 3,
+      "ノヴォキッチェヴ（構造未確定）": 1,
+      "金リンゴ群島": 8,
+      "ヴェルーリヤ・ミラージュ": 6,
+      "シムランカ": 5,
+      "層岩巨淵・地下鉱区": 3
+    },
+    "approaches": {
+      "arrived": 46
+    }
+  },
+  "growthPracticeInLua": {
+    "imprint_lesson_level": 1,
+    "first_star_cost": 200000,
+    "empty_bag_dry_run": true,
+    "active_pair": [
+      26,
+      50
+    ],
+    "barriers": [
+      3,
+      8,
+      10,
+      13,
+      25,
+      30,
+      35,
+      40,
+      50
+    ],
+    "companion_hp_cooldowns_and_gauge": true,
+    "lunar_reactions": {
+      "SK05": "月結晶",
+      "SK09": "月感電",
+      "SK13": "月開花"
+    },
+    "moon_skill_levels": [
+      127,
+      133
+    ],
+    "star_skill_levels": [
+      149,
+      155
+    ],
+    "star_partners": [
+      "wanderer",
+      "beidou",
+      "mitya"
+    ],
+    "save_and_duplicate_report_verified": true
+  },
+  "snowMatch": {
+    "draws": 0,
+    "opponent": 3,
+    "player": 5,
+    "best": 5,
+    "losses": 0,
+    "wins": 1
+  },
+  "adoptedMapRouteReview": [
+    {
+      "fields": [
+        "map37:96380",
+        "teyvat:95801"
+      ],
+      "directions": [
+        {
+          "from": "nat-wp-96380",
+          "to": "mond-wp-95801",
+          "stopsWalked": 37,
+          "modes": [
+            "boat",
+            "lift",
+            "walk"
+          ]
+        },
+        {
+          "from": "mond-wp-95801",
+          "to": "nat-wp-96380",
+          "stopsWalked": 37,
+          "modes": [
+            "boat",
+            "lift",
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "fields": [
+        "teyvat:116",
+        "teyvat:28"
+      ],
+      "directions": [
+        {
+          "from": "mond-border",
+          "to": "mond-wp-28",
+          "stopsWalked": 5,
+          "modes": [
+            "walk"
+          ]
+        },
+        {
+          "from": "mond-wp-28",
+          "to": "mond-border",
+          "stopsWalked": 5,
+          "modes": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "fields": [
+        "teyvat:16",
+        "teyvat:18"
+      ],
+      "directions": [
+        {
+          "from": "mond-roadside-rest",
+          "to": "mond-wp-18",
+          "stopsWalked": 3,
+          "modes": [
+            "walk"
+          ]
+        },
+        {
+          "from": "mond-wp-18",
+          "to": "mond-roadside-rest",
+          "stopsWalked": 3,
+          "modes": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "fields": [
+        "teyvat:16",
+        "teyvat:19"
+      ],
+      "directions": [
+        {
+          "from": "mond-roadside-rest",
+          "to": "mond-wp-19",
+          "stopsWalked": 3,
+          "modes": [
+            "walk"
+          ]
+        },
+        {
+          "from": "mond-wp-19",
+          "to": "mond-roadside-rest",
+          "stopsWalked": 3,
+          "modes": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "fields": [
+        "teyvat:19",
+        "teyvat:20"
+      ],
+      "directions": [
+        {
+          "from": "mond-wp-19",
+          "to": "mond-wp-20",
+          "stopsWalked": 4,
+          "modes": [
+            "walk"
+          ]
+        },
+        {
+          "from": "mond-wp-20",
+          "to": "mond-wp-19",
+          "stopsWalked": 4,
+          "modes": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "fields": [
+        "teyvat:6603",
+        "teyvat:6608"
+      ],
+      "directions": [
+        {
+          "from": "mond-wp-6603",
+          "to": "mond-wp-6608",
+          "stopsWalked": 2,
+          "modes": [
+            "walk"
+          ]
+        },
+        {
+          "from": "mond-wp-6608",
+          "to": "mond-wp-6603",
+          "stopsWalked": 2,
+          "modes": [
+            "walk"
+          ]
+        }
+      ]
+    }
+  ],
+  "mainRegionHuntAdditions": {
+    "base": "04e0d590f3da959666b619314e6d6e891d772e77",
+    "ordinaryAdded": 237,
+    "stageCount": 25,
+    "byRegion": {
+      "region-01": 4,
+      "region-02": 3,
+      "region-03": 2,
+      "region-04": 3,
+      "region-05": 3,
+      "region-06": 4,
+      "region-07": 3,
+      "region-08": 3
+    },
+    "editorRevision": 1
+  },
+  "regionalQuestRecheck": {
+    "completed": 276,
+    "reports": 11,
+    "returns": 0,
+    "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757"
+  },
+  "campaignCap": {
+    "summary": "evidence/standard-campaign-checkpoints.json",
+    "lastCheckpoint": {
+      "segment": "cap",
+      "arrival": "white-pass-station",
+      "level": 200,
+      "totalExp": 11498005332,
+      "completedQuests": 56,
+      "kills": 114949,
+      "saveSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+      "sourceSha256": "8e911fb38dda2aa9ea58c13d4b7c98511f7c57f7944d55d71b1e0dcf649d545b"
+    },
+    "totals": {
+      "replaySeconds": 118626.79,
+      "huntSeconds": 110270.08,
+      "otherRouteSeconds": 8356.71,
+      "huntKills": 105035,
+      "designSeconds": 180000.0,
+      "designHuntSeconds": 98136.0,
+      "designOtherRouteSeconds": 81864.0,
+      "atDesignHuntRateSeconds": 116415.68
+    },
+    "levels": 200,
+    "handoffs": 8,
+    "wipes": 0,
+    "cap": {
+      "node": "dawn-crystal-field",
+      "kills": 60,
+      "extraExp": 17781960,
+      "seconds": 60.0,
+      "overflow": 35670102,
+      "restored": true
+    },
+    "browserExtraExp": 2074562,
+    "browserReload": true,
+    "postCapQuests": [
+      "growth-abyss",
+      "growth-stygian",
+      "growth-weekly"
+    ]
+  }
+}

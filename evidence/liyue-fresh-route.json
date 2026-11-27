@@ -1,104 +1,104 @@
 {
-  "sourceSha256": "58f1aad47ca4e383e22ce8d52c446296ca03140013d5c5c7954631d30fb190d8",
+  "sourceSha256": "bb863bc0632cc3f671f3b9a3278f94ab06104f46050d2f5d0bfd6a237c2e48bd",
   "route": [
     {
       "id": "liyue-market-delivery",
       "seconds": 11.65,
       "level": 22,
-      "total": 31729,
+      "total": 31775,
       "questXp": 26411,
-      "killXp": 5318,
-      "kills": 545
+      "killXp": 5364,
+      "kills": 547
     },
     {
       "id": "liyue-caravan-search",
       "seconds": 27.93,
       "level": 26,
-      "total": 67309,
+      "total": 67378,
       "questXp": 61646,
-      "killXp": 5663,
-      "kills": 554
+      "killXp": 5732,
+      "kills": 557
     },
     {
       "id": "liyue-market-opening",
       "seconds": 50.48,
       "level": 34,
-      "total": 208199,
+      "total": 208268,
       "questXp": 202349,
-      "killXp": 5850,
-      "kills": 557
+      "killXp": 5919,
+      "kills": 560
     },
     {
       "id": "beidou-join",
       "seconds": 64.87,
       "level": 34,
-      "total": 212174,
+      "total": 212243,
       "questXp": 206174,
-      "killXp": 6000,
-      "kills": 561
+      "killXp": 6069,
+      "kills": 564
     },
     {
       "id": "liyue-book-rescue",
       "seconds": 97.02,
       "level": 35,
-      "total": 228767,
+      "total": 228896,
       "questXp": 222617,
-      "killXp": 6150,
-      "kills": 571
+      "killXp": 6279,
+      "kills": 578
     },
     {
       "id": "liyue-hauling-shortcut",
       "seconds": 111.27,
       "level": 36,
-      "total": 257179,
+      "total": 257308,
       "questXp": 251029,
-      "killXp": 6150,
-      "kills": 571
+      "killXp": 6279,
+      "kills": 578
     },
     {
       "id": "inazuma-level-gate",
       "seconds": 123.03,
       "level": 36,
-      "total": 257239,
+      "total": 257443,
       "questXp": 251029,
-      "killXp": 6210,
-      "kills": 575
+      "killXp": 6414,
+      "kills": 587
     },
     {
       "id": "liyue-harbor-meal",
       "seconds": 145.35,
       "level": 37,
-      "total": 265260,
+      "total": 265479,
       "questXp": 258960,
-      "killXp": 6300,
-      "kills": 581
+      "killXp": 6519,
+      "kills": 594
     },
     {
       "id": "lv38",
-      "seconds": 460.42,
+      "seconds": 458.95,
       "level": 38,
-      "total": 296530,
+      "total": 296867,
       "questXp": 258960,
-      "killXp": 37570,
-      "kills": 846
+      "killXp": 37907,
+      "kills": 860
     },
     {
       "id": "lv40",
-      "seconds": 835.55,
+      "seconds": 832.2,
       "level": 40,
-      "total": 384240,
+      "total": 384332,
       "questXp": 258960,
-      "killXp": 125280,
-      "kills": 1204
+      "killXp": 125372,
+      "kills": 1217
     },
     {
       "id": "inazuma-port",
-      "seconds": 866.63,
+      "seconds": 863.28,
       "level": 40,
-      "total": 384240,
+      "total": 384332,
       "questXp": 258960,
-      "killXp": 125280,
-      "kills": 1204
+      "killXp": 125372,
+      "kills": 1217
     }
   ],
   "hunting": [
@@ -124,7 +124,7 @@
       "stage": "liyue-quarry-scree",
       "kills": 63,
       "xp": 7434,
-      "seconds": 56.83
+      "seconds": 55.57
     },
     {
       "stage": "sites-hunt-7218",
@@ -152,9 +152,9 @@
     },
     {
       "stage": "sites-hunt-7218",
-      "kills": 62,
-      "xp": 15190,
-      "seconds": 51.73
+      "kills": 60,
+      "xp": 14700,
+      "seconds": 49.85
     }
   ],
   "mealsBought": 0,

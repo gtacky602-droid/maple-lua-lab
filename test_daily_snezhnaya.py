@@ -71,7 +71,7 @@ assert next(offer.companion for offer in core.frame(s).daily.dailyChoices.values
 write_json('work/daily-sne-level-fixture.json', checkpoint(s))
 gate(s, 417, shed)
 gate(s, 535, outskirts)
-assert len(s.enemies) == 8
+assert len(s.enemies) == 18
 gate(s, 63, shed)
 gate(s, 63, hub)
 for quest in (patrol, survey, tour):

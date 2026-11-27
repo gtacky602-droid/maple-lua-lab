@@ -1,5 +1,5 @@
 {
-  "sourceSha256": "10d843fedda2a9c614991ebe2e40fe32a8af13213e486716d506edf8886e09af",
+  "sourceSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
   "completedQuests": [
     "growth-abyss",
     "growth-stygian",
@@ -17,6 +17,6 @@
   "weeklyBoss": "andrius",
   "weeklyAttackRegistered": true,
   "weeklyDefeated": true,
-  "extraExpAtCap": 3176,
+  "extraExpAtCap": 3179,
   "savedAndRestored": true
 }

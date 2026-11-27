@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## スネージナヤの雪原・凍った街道・観測路を通常狩場にする
+
+雪原の入口、凍った街道、郊外の観測路をM地図の「狩場・任意戦」へ追加した。通常敵を計28体追加し、横幅960pxの最多画角は順に6→15体、6→15体、5→15体。新規通常敵の接触ダメージ16と再攻撃待ち3.2秒はラボの試作値。門19経路とワープ2地点で着地と巡回範囲を照合した。 [狩場・日課・進行の検証](evidence/snezhnaya-entry-density-20261128.json)
+
+新規Lv1からLv200まで再走し、Lua内32.95時間、依頼56件、全滅0回。8回のセーブ受け渡しをSHA-256で照合した。白峠の列車は9秒。上限到達後は暁晶原で60秒間狩り、17,781,960 EXPを記録した。Chromeで終着駅に帰ってEXP・装備・依頼を読み直した。 [現行の9区間と計測](evidence/standard-campaign-checkpoints.json) · [上限到達後のChrome検査](evidence/cap-fresh-route-browser.json)
+
 ## ナド・クライ本編の月明かりの道・部品置き場・林の外周を通常狩場にする
 
 月明かりの道、月浜の部品置き場、トウヒ林の外周をM地図の「狩場・任意戦」へ追加した。通常敵を計27体追加し、横幅960pxの最多画角は順に7→15体、5→15体、6→15体。部品置き場の台車メカと林の外周の雪甲虫は各4体増えた。新規通常敵の接触ダメージ15と再攻撃待ち3.2秒はラボの試作値。
@@ -52,7 +58,7 @@ Luaの門処理で璃月の22経路を通り、通常敵の巡回範囲と着地
 
 南の街道の同じ画角で、配置変更前は6体、変更後は16体。変更後の描画を標準矩形から軽量16色に切り替えると、展開後の矩形は17,976個から4,283個になった。ローカルの2人・4人部屋では16体の共有、同じ敵への攻撃の加算、各プレイヤーの報酬と依頼の個別記録、再接続を確認した。
 
-変更後の標準版はLv1からLv200までLua内32.98時間、依頼56件、全滅0回で完走。上限到達後に暁晶原で1分戦い、21,338,352 EXPを記録した。 [9地点のセーブと計測](evidence/standard-campaign-checkpoints.json)
+変更後の標準版はLv1からLv200までLua内32.98時間、依頼56件、全滅0回で完走。上限到達後に暁晶原で1分戦い、21,338,352 EXPを記録した。 [当時の9区間と計測](https://github.com/gtacky602-droid/maple-lua-lab/blob/2552a9f7c05d3c4c74d7ba5a86620ef2fb2706b9/evidence/standard-campaign-checkpoints.json)
 
 ## 通常狩場の敵密度と入口の巡回範囲を調整
 
@@ -246,7 +252,7 @@ Chromeで戦闘描画のみを反復した中央値は中間画質8.2 ms、軽�
 
 ## 最新経路でLv200到達と上限超過EXPを確認
 
-モンドLv1から引き継いだ標準バランスのセーブでLv200に到達し、依頼56件を報告。到達後の60秒の狩りで21,338,352 EXPが増え、Lv200のまま白虹峠の終着駅に帰還。LuaとChromeでEXP・聖遺物・依頼記録を読み直した。同じLv200セーブから深境螺旋の3部屋、ファルカの試練、北風の王狼の成長依頼を報告し、復元した。 [連続セーブの照合](evidence/standard-campaign-checkpoints.json) ／ [Chromeの保存・再読込](evidence/cap-fresh-route-browser.json) ／ [到達後の成長依頼](evidence/cap-fresh-challenges.json)
+モンドLv1から引き継いだ標準バランスのセーブでLv200に到達し、依頼56件を報告。到達後の60秒の狩りで21,338,352 EXPが増え、Lv200のまま白虹峠の終着駅に帰還。LuaとChromeでEXP・聖遺物・依頼記録を読み直した。同じLv200セーブから深境螺旋の3部屋、ファルカの試練、北風の王狼の成長依頼を報告し、復元した。 [当時の連続セーブの照合](https://github.com/gtacky602-droid/maple-lua-lab/blob/5411b38199d80a980328b47d6e0489ee70f7c99d/evidence/standard-campaign-checkpoints.json) ／ [当時のChromeの保存・再読込](https://github.com/gtacky602-droid/maple-lua-lab/blob/5411b38199d80a980328b47d6e0489ee70f7c99d/evidence/cap-fresh-route-browser.json) ／ [当時の到達後の成長依頼](https://github.com/gtacky602-droid/maple-lua-lab/blob/5411b38199d80a980328b47d6e0489ee70f7c99d/evidence/cap-fresh-challenges.json)
 
 別の獲得済みセーブでは幽境の上位21戦、週ボスの上位42戦・最高難度再戦14回、璃月の独自週ボス2戦を確認。獲得装備で1秒以内に倒した18戦があるため、該当6ボスの仕掛けは場面を用意したLua試験で確認した。4クライアントのローカルHTTPで幽境7戦×4難度の共闘の開始と共有HPも確認。 [戦闘・報酬・共闘の記録](evidence/standard-endgame-recheck-20261127.json)
 

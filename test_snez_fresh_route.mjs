@@ -17,6 +17,7 @@ const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
 
 const hub='snezhnaya-hub', coach='white-pass-coach', station='white-pass-station';
+const mainHunts=['snezhnaya-entry','snezhnaya-field','sne-survey-outskirts'];
 const aurora='aurora-ice-cut', iceShelf='aurora-ice-shelf', cap='dawn-crystal-field';
 const huntLevels={
  'white-pass-cut':140,'white-pass-woods':148,'white-pass-ridge':155,
@@ -58,6 +59,13 @@ try {
  assert.equal(before.story.quests['white-pass-ticket'].status,'complete');
  assert.equal(before.voyage,undefined);
  await openMap();
+ await page.locator('#atlasLayer').selectOption('hunt');
+ for(const id of mainHunts){
+  const map=await guide(id);
+  assert.equal(map.selected.huntKind,'field');
+  assert.equal(map.guide.status,'ready');
+ }
+ await page.locator('#atlasLayer').selectOption('all');
  const trainGuide=(await guide(station)).guide;
  assert.equal(trainGuide.status,'ready');
  assert.deepEqual(trainGuide.stops.map(s=>[s.id,s.mode]),[[coach,'rail'],[station,'rail']]);
@@ -130,7 +138,7 @@ try {
  assert.deepEqual(errors,[]);
  await fs.writeFile(`evidence/snez-fresh-route-browser${suffix}.json`,JSON.stringify({
   trainGuide:trainGuide.stops,boardLabel:'F：列車に乗る',trainSeconds:vehicle.total,
-  persistedQuests:proof.completedQuests,firstHunt:aurora,huntLevels,capGuide:later.stops,
+  persistedQuests:proof.completedQuests,mainHunts,firstHunt:aurora,huntLevels,capGuide:later.stops,
   verifiedAtLv:soFar.progression.level,lightReleaseKeyQ:true,blockedGate:iceShelf,errors
  },null,2)+'\n');
  console.log('Chrome passed the earned White Pass saves, rail guide and every Lv140–200 hunt marker.');

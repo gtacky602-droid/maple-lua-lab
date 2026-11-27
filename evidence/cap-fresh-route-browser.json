@@ -1,17 +1,17 @@
 {
-  "sourceSha256": "764bc5e246c2078461be827c60d9df5e6961c95235e2eb693d17a05216ee6f72",
+  "sourceSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
   "imported": {
-    "total": 11501348654,
-    "overflowXp": 39013424,
-    "baseXp": 11501348654,
-    "questRewarded": false,
-    "lastKills": 114910,
-    "questXp": 429087586,
+    "overflowXp": 35670102,
+    "killXp": 11068917746,
     "curve": "maplesea-reference-v02",
-    "killXp": 11072261068,
-    "level": 200,
+    "total": 11498005332,
+    "baseXp": 11498005332,
+    "questXp": 429087586,
     "xp": 0,
-    "curveAdjustment": 0
+    "lastKills": 114949,
+    "curveAdjustment": 0,
+    "questRewarded": false,
+    "level": 200
   },
   "route": [
     "aurora-ice-cut",
@@ -32,19 +32,19 @@
     "growth-next-goal"
   ],
   "cap": {
-    "total": 11517884665,
-    "overflowXp": 55549435,
-    "baseXp": 11517884665,
-    "questRewarded": false,
-    "lastKills": 115097,
-    "questXp": 429087586,
+    "overflowXp": 52585259,
+    "killXp": 11085832903,
     "curve": "maplesea-reference-v02",
-    "killXp": 11088797079,
-    "level": 200,
+    "total": 11514920489,
+    "baseXp": 11514920489,
+    "questXp": 429087586,
     "xp": 0,
-    "curveAdjustment": 0
+    "lastKills": 115142,
+    "curveAdjustment": 0,
+    "questRewarded": false,
+    "level": 200
   },
-  "addedExp": 1481830,
+  "addedExp": 2074562,
   "gameSaveReload": true,
   "equippedItems": 10,
   "completedQuests": 56,

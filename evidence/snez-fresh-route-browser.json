@@ -1,20 +1,26 @@
 {
   "trainGuide": [
     {
+      "previewX": 800,
+      "level": 140,
+      "mode": "rail",
+      "approach": "現在地から右へ",
+      "hint": "出発から9秒で雪原の終着駅に到着",
+      "name": "白虹行きの列車",
       "region": "region-08",
       "from": "snezhnaya-hub",
       "label": "鉄道",
-      "mode": "rail",
-      "name": "白虹行きの列車",
       "id": "white-pass-coach"
     },
     {
-      "region": "region-08",
-      "hint": "発車から9秒で到着",
       "from": "white-pass-coach",
-      "label": "鉄道",
+      "level": 140,
       "mode": "rail",
+      "label": "鉄道",
       "name": "雪原の終着駅",
+      "region": "region-08",
+      "automaticArrival": true,
+      "hint": "発車から9秒で到着",
       "id": "white-pass-station"
     }
   ],
@@ -29,6 +35,11 @@
     "white-pass-footwork",
     "white-pass-rest",
     "white-pass-summit"
+  ],
+  "mainHunts": [
+    "snezhnaya-entry",
+    "snezhnaya-field",
+    "sne-survey-outskirts"
   ],
   "firstHunt": "aurora-ice-cut",
   "huntLevels": {
@@ -47,84 +58,103 @@
   },
   "capGuide": [
     {
-      "from": "white-pass-station",
-      "region": "region-08",
+      "previewX": 861,
+      "mode": "walk",
       "id": "aurora-ice-cut",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "white-pass-station",
+      "label": "徒歩",
       "name": "極光谷・氷の切通し",
-      "label": "徒歩"
+      "level": 160,
+      "approach": "現在地から右へ"
     },
     {
-      "from": "aurora-ice-cut",
-      "region": "region-08",
+      "previewX": 1780,
+      "mode": "walk",
       "id": "aurora-ice-shelf",
-      "reason": "必要Lv165",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "aurora-ice-cut",
+      "label": "徒歩",
       "name": "極光谷・氷棚",
-      "label": "徒歩"
+      "reason": "必要Lv165",
+      "level": 165
     },
     {
-      "from": "aurora-ice-shelf",
-      "region": "region-08",
+      "previewX": 1810,
+      "mode": "walk",
       "id": "aurora-steam-channel",
-      "reason": "必要Lv170",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "aurora-ice-shelf",
+      "label": "徒歩",
       "name": "湯気谷・温泉水路",
-      "label": "徒歩"
+      "reason": "必要Lv170",
+      "level": 170
     },
     {
-      "from": "aurora-steam-channel",
-      "region": "region-08",
+      "previewX": 1790,
+      "mode": "walk",
       "id": "aurora-mineral-terraces",
-      "reason": "必要Lv175",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "aurora-steam-channel",
+      "label": "徒歩",
       "name": "湯気谷・鉱泉段丘",
-      "label": "徒歩"
+      "reason": "必要Lv175",
+      "level": 175
     },
     {
-      "from": "aurora-mineral-terraces",
-      "region": "region-08",
+      "previewX": 1790,
+      "mode": "walk",
       "id": "dawn-vein-mine",
-      "reason": "必要Lv180",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "aurora-mineral-terraces",
+      "label": "徒歩",
       "name": "星脈坑・凍てた坑口",
-      "label": "徒歩"
+      "reason": "必要Lv180",
+      "level": 180
     },
     {
-      "from": "dawn-vein-mine",
-      "region": "region-08",
+      "previewX": 1760,
+      "mode": "walk",
       "id": "dawn-vein-deep",
-      "reason": "必要Lv185",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "dawn-vein-mine",
+      "label": "徒歩",
       "name": "星脈坑・群青の採掘路",
-      "label": "徒歩"
+      "reason": "必要Lv185",
+      "level": 185
     },
     {
-      "from": "dawn-vein-deep",
-      "region": "region-08",
+      "previewX": 1790,
+      "mode": "walk",
       "id": "dawn-glass-ridge",
-      "reason": "必要Lv190",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "dawn-vein-deep",
+      "label": "徒歩",
       "name": "暁晶尾根・露頭の道",
-      "label": "徒歩"
+      "reason": "必要Lv190",
+      "level": 190
     },
     {
-      "from": "dawn-glass-ridge",
-      "region": "region-08",
+      "previewX": 1790,
+      "mode": "walk",
       "id": "dawn-glass-divide",
-      "reason": "必要Lv195",
-      "mode": "walk",
+      "region": "region-08",
+      "from": "dawn-glass-ridge",
+      "label": "徒歩",
       "name": "暁晶尾根・稜線の段丘",
-      "label": "徒歩"
+      "reason": "必要Lv195",
+      "level": 195
     },
     {
-      "from": "dawn-glass-divide",
-      "region": "region-08",
-      "id": "dawn-crystal-field",
-      "reason": "必要Lv200",
+      "previewX": 1790,
       "mode": "walk",
+      "id": "dawn-crystal-field",
+      "region": "region-08",
+      "from": "dawn-glass-divide",
+      "label": "徒歩",
       "name": "極地の暁晶原",
-      "label": "徒歩"
+      "reason": "必要Lv200",
+      "level": 200
     }
   ],
   "verifiedAtLv": 160,
