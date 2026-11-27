@@ -17,8 +17,9 @@ const version = browser.version();
 const result = {};
 const gallery = [];
 try {
-  for (const {controller} of rows) {
-    const samples = await read(path.join(source, controller + '-frames.json'));
+  for (const {controller, case:caseId = controller, label = names[controller]} of rows) {
+    assert.match(caseId, /^[\w-]+$/);
+    const samples = await read(path.join(source, caseId + '-frames.json'));
     const frames = Object.entries(samples).sort((a, b) => a[1].tick - b[1].tick);
     const page = await browser.newPage({viewport:{width:1500, height:800}});
     const errors = [];
@@ -162,14 +163,15 @@ try {
         comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles};
       }
       return comparison;
-    }, {frames, nodes, title:names[controller]});
+    }, {frames, nodes, title:label});
     assert.deepEqual(errors, []);
-    const image = controller + '.png';
+    const image = caseId + '.png';
     await page.locator('#comparison').screenshot({path:path.join(output, image)});
-    result[controller] = {image, frames:rendered};
-    gallery.push(`<li><a href="${image}">${names[controller]}（${frames.length}場面）</a></li>`);
+    result[caseId] = {image, frames:rendered};
+    const safeLabel = label.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+    gallery.push(`<li><a href="${image}">${safeLabel}（${frames.length}場面）</a></li>`);
     await page.close();
-    console.log(controller, frames.length, 'scenes with three render profiles');
+    console.log(caseId, frames.length, 'scenes with three render profiles');
   }
   await fs.writeFile(path.join(output, 'weekly-frame-comparison.json'), JSON.stringify(result, null, 2) + '\n');
   await fs.writeFile(path.join(output, 'browser-version.txt'), version + '\n');

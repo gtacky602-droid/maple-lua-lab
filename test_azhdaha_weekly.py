@@ -238,6 +238,12 @@ fight=start()
 assert core.giveArtifact(fight,2,36,3)
 act(fight,'artifact_equip:1')
 (ROOT/'work/azhdaha-weekly-gear.json').write_text(json.dumps(saved(fight),ensure_ascii=False),encoding='utf8')
+preview=restore(fight)
+# Keep the visual smoke test alive through the tail phase with its original attack gear.
+assert core.giveArtifact(preview,1,80,4)
+act(preview,'artifact_equip:2')
+assert preview.actors[1].maxhp>fight.actors[1].maxhp
+(ROOT/'work/azhdaha-weekly-visual-gear.json').write_text(json.dumps(saved(preview),ensure_ascii=False),encoding='utf8')
 act(fight,'story_accept:'+quest)
 place(fight.actors[1],635)
 act(fight,'story_portal:'+node)

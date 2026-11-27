@@ -5,8 +5,8 @@ import {chromium} from 'playwright';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:85000});
-const canvas=page.locator('#game'),prefix='evidence/azhdaha-weekly';
+const wait=(predicate,arg,timeout=85000)=>page.waitForFunction(predicate,arg,{timeout});
+const canvas=page.locator('#game'),prefix=process.env.AZHDAHA_PROOF_PREFIX||'evidence/azhdaha-weekly';
 const node='azhdaha-dragon-seal-arena',hub='liyue-harbor',quest='azhdaha-weekly-commission',id='boss-29040101';
 const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
@@ -20,7 +20,7 @@ async function freeze(kind){
   if(!ready)return false;
   window.lab.action('pause');
   return true;
- },kind);
+ },kind,kind==='tail'?110000:85000);
  await wait(()=>window.lab.frame.paused);
  return frame();
 }
@@ -35,9 +35,13 @@ try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8944/');
  await wait(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/azhdaha-weekly-gear.json','utf8'));
+  await fs.readFile('work/azhdaha-weekly-visual-gear.json','utf8'));
  await page.locator('#loadProgress').click();
  await wait(hub=>window.lab.frame.story.node===hub,hub);
+ if(!(await frame()).holdAllyFire){
+  await page.locator('#allyFire').click();
+  await wait(()=>window.lab.frame.holdAllyFire);
+ }
  const row=page.locator(`[data-quest="${quest}"]`);
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
@@ -58,7 +62,7 @@ try{
   const {backgroundReady,sceneryStatus}=await import('./scenery.js');await backgroundReady;
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([scene.key,scene.state],['liyuequarry','ready']);
+ assert.deepEqual([scene.key,scene.state],['liyueSealedCavern','ready']);
  await page.evaluate(()=>{
   const held=new Set();
   const set=(code,on)=>{
@@ -74,7 +78,9 @@ try{
    }
    if(!f.paused){
     const dx=b.x-a.x;
-    let goal=b.x+(dx<0?76:-76),attacks=b.damageable&&(b.form<3||window.azhdahaFinish);
+    const threshold=b.maxhp*(3-b.form)/3;
+    let goal=b.x+(dx<0?76:-76);
+    const attacks=b.damageable&&(window.azhdahaFinish||b.form<3&&b.hp>threshold);
     if(b.move==='WZ09'&&!b.damageable){
      const sides=[b.x-320,b.x+320].filter(x=>x>=28&&x<=1028).sort((left,right)=>Math.abs(left-a.x)-Math.abs(right-a.x));
      goal=sides[0];
@@ -98,6 +104,7 @@ try{
  await wait(()=>document.getElementById('fieldBossLabel').textContent.includes('地脈を吸収・水'));
  await canvas.screenshot({path:prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(()=>window.lab.frame.commands>1000);
  const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');

@@ -1,0 +1,406 @@
+{
+  "baseCommit": "9ab1f68bb067b6014c978a13bdb506cfb267fed4",
+  "sourceSaveSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+  "baseArt": "assets/azhdaha-idle-source-v1.png",
+  "setup": "Four independent level-200 save copies, normal harbor element selection and highest-rank entry, reduced attack, companion attacks held. Player attacks wait until the selected phase-specific moves finish.",
+  "unchangedCombatTraceBeforeAfter": true,
+  "completedExpertPairs": 4,
+  "authoredRuntimeMoveVariantsCompleted": [
+    "WZ01",
+    "WZ02",
+    "WZ03",
+    "WZ04",
+    "WZ04.infused",
+    "WZ05",
+    "WZ05.cryo",
+    "WZ05.electro",
+    "WZ06",
+    "WZ07",
+    "WZ08",
+    "WZ09",
+    "WZ10",
+    "WZ10.hydro",
+    "WZ11",
+    "WZ11.cryo",
+    "WZ12",
+    "WZ12.cryo",
+    "WZ14"
+  ],
+  "comparedFrames": 20,
+  "matchedExpandedPackedCommands": 40,
+  "drawingJsonByProfile": {
+    "h48c32": {
+      "priorBytes": 5250970,
+      "newBytes": 5342334,
+      "increasePercent": 1.74
+    },
+    "h32c16": {
+      "priorBytes": 2350402,
+      "newBytes": 2441766,
+      "increasePercent": 3.89
+    }
+  },
+  "pairs": [
+    {
+      "elements": [
+        "pyro",
+        "cryo"
+      ],
+      "ticks": 9742,
+      "seconds": 162.37,
+      "phaseTransitions": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 986,
+          "id": 2
+        },
+        {
+          "tick": 4642,
+          "id": 3
+        }
+      ],
+      "highestRankClearsBeforeAndAfterReload": [
+        2,
+        3
+      ],
+      "completedVariants": [
+        "WZ01",
+        "WZ02",
+        "WZ03",
+        "WZ04",
+        "WZ04.infused",
+        "WZ05",
+        "WZ05.cryo",
+        "WZ06",
+        "WZ07",
+        "WZ08",
+        "WZ09",
+        "WZ10",
+        "WZ11.cryo",
+        "WZ12.cryo",
+        "WZ14"
+      ],
+      "hits": {
+        "WZ10:pyro": 2,
+        "WZ11:cryo": 1,
+        "WZ12:cryo": 3,
+        "WZ14:cryo": 3
+      },
+      "markApplications": {
+        "pyro": 11,
+        "cryo": 7
+      },
+      "scaleImpactsAndFollowUps": [
+        4,
+        4
+      ],
+      "tailSafeLaneDisplayed": false,
+      "sampleTicks": {
+        "WZ09-1": 680,
+        "WZ10": 3376,
+        "WZ09-2": 4336,
+        "WZ11": 7892,
+        "WZ12": 8723
+      }
+    },
+    {
+      "elements": [
+        "pyro",
+        "electro"
+      ],
+      "ticks": 9742,
+      "seconds": 162.37,
+      "phaseTransitions": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 986,
+          "id": 2
+        },
+        {
+          "tick": 4642,
+          "id": 3
+        }
+      ],
+      "highestRankClearsBeforeAndAfterReload": [
+        2,
+        3
+      ],
+      "completedVariants": [
+        "WZ01",
+        "WZ02",
+        "WZ03",
+        "WZ04",
+        "WZ04.infused",
+        "WZ05",
+        "WZ05.electro",
+        "WZ06",
+        "WZ07",
+        "WZ08",
+        "WZ09",
+        "WZ10",
+        "WZ11",
+        "WZ12",
+        "WZ14"
+      ],
+      "hits": {
+        "WZ10:pyro": 2,
+        "WZ11:electro": 2,
+        "WZ12:electro": 2,
+        "WZ14:electro": 5
+      },
+      "markApplications": {
+        "pyro": 11,
+        "electro": 8
+      },
+      "scaleImpactsAndFollowUps": [
+        4,
+        4
+      ],
+      "tailSafeLaneDisplayed": true,
+      "sampleTicks": {
+        "WZ09-1": 680,
+        "WZ10": 3376,
+        "WZ09-2": 4336,
+        "WZ11": 7892,
+        "WZ12": 8723
+      }
+    },
+    {
+      "elements": [
+        "hydro",
+        "cryo"
+      ],
+      "ticks": 9742,
+      "seconds": 162.37,
+      "phaseTransitions": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 986,
+          "id": 2
+        },
+        {
+          "tick": 4642,
+          "id": 3
+        }
+      ],
+      "highestRankClearsBeforeAndAfterReload": [
+        2,
+        3
+      ],
+      "completedVariants": [
+        "WZ01",
+        "WZ02",
+        "WZ03",
+        "WZ04",
+        "WZ04.infused",
+        "WZ05",
+        "WZ05.cryo",
+        "WZ06",
+        "WZ07",
+        "WZ08",
+        "WZ09",
+        "WZ10.hydro",
+        "WZ11.cryo",
+        "WZ12.cryo",
+        "WZ14"
+      ],
+      "hits": {
+        "WZ10:hydro": 4,
+        "WZ11:cryo": 1,
+        "WZ12:cryo": 3,
+        "WZ14:cryo": 3
+      },
+      "markApplications": {
+        "hydro": 13,
+        "cryo": 7
+      },
+      "scaleImpactsAndFollowUps": [
+        4,
+        4
+      ],
+      "tailSafeLaneDisplayed": false,
+      "sampleTicks": {
+        "WZ09-1": 680,
+        "WZ10": 3376,
+        "WZ09-2": 4336,
+        "WZ11": 7892,
+        "WZ12": 8723
+      }
+    },
+    {
+      "elements": [
+        "hydro",
+        "electro"
+      ],
+      "ticks": 9742,
+      "seconds": 162.37,
+      "phaseTransitions": [
+        {
+          "tick": 0,
+          "id": 1
+        },
+        {
+          "tick": 986,
+          "id": 2
+        },
+        {
+          "tick": 4642,
+          "id": 3
+        }
+      ],
+      "highestRankClearsBeforeAndAfterReload": [
+        2,
+        3
+      ],
+      "completedVariants": [
+        "WZ01",
+        "WZ02",
+        "WZ03",
+        "WZ04",
+        "WZ04.infused",
+        "WZ05",
+        "WZ05.electro",
+        "WZ06",
+        "WZ07",
+        "WZ08",
+        "WZ09",
+        "WZ10.hydro",
+        "WZ11",
+        "WZ12",
+        "WZ14"
+      ],
+      "hits": {
+        "WZ10:hydro": 4,
+        "WZ11:electro": 2,
+        "WZ12:electro": 2,
+        "WZ14:electro": 5
+      },
+      "markApplications": {
+        "hydro": 13,
+        "electro": 8
+      },
+      "scaleImpactsAndFollowUps": [
+        4,
+        4
+      ],
+      "tailSafeLaneDisplayed": true,
+      "sampleTicks": {
+        "WZ09-1": 680,
+        "WZ10": 3376,
+        "WZ09-2": 4336,
+        "WZ11": 7892,
+        "WZ12": 8723
+      }
+    }
+  ],
+  "luaRegression": {
+    "phase_pairs": {
+      "pyro:cryo": [
+        "WZ04.infused",
+        "cryo"
+      ],
+      "pyro:electro": [
+        "WZ04.infused",
+        "electro"
+      ],
+      "hydro:cryo": [
+        "WZ04.infused",
+        "cryo"
+      ],
+      "hydro:electro": [
+        "WZ04.infused",
+        "electro"
+      ]
+    },
+    "attack_timelines": {
+      "WZ01": 144,
+      "WZ02": 300,
+      "WZ03": 132,
+      "WZ04": 126,
+      "WZ05": 192,
+      "WZ06": 150,
+      "WZ07": 228,
+      "WZ08": 384,
+      "WZ10": 420,
+      "WZ11": 312,
+      "WZ12": 564,
+      "WZ14": 288,
+      "WZ04.infused": 198,
+      "WZ05.electro": 192,
+      "WZ05.cryo": 192,
+      "WZ10.hydro": 420,
+      "WZ11.cryo": 312,
+      "WZ12.cryo": 564
+    },
+    "burrow_target_disabled": true,
+    "shield_break_no_mark_and_cleanse": true,
+    "mark_seven_ticks": true,
+    "fire_at_most_two": true,
+    "scale_impact_then_36_ticks": true,
+    "electro_three_safe_lanes_walked": true,
+    "cryo_group_once": true,
+    "tail_lethal_with_one_reward": true,
+    "lethal_before_absorption": true,
+    "normal_only_solo": {
+      "seconds": 24.42,
+      "hp": 114,
+      "atk": 47,
+      "returns": 0
+    }
+  },
+  "localCoopRegression": {
+    "lua": {
+      "participants": 4,
+      "sharedAbsorptionAndTail": true,
+      "headAndFissureOneHitPerActor": true,
+      "shieldBreakPreventsMark": true,
+      "shieldCleansesOnlyOwner": true,
+      "swapKeepsMarkOnOriginalActor": true,
+      "sevenMarkPulsesWithinEightSeconds": true,
+      "tailSingleHitboxAndCleanup": true,
+      "roomDeathClock": true,
+      "respawnKeepsPair": true,
+      "soloContactsPreservedOnAdoption": true
+    },
+    "http": {
+      "participants": 3,
+      "pairSelectionPreservedOnJoin": true,
+      "separatePairWorlds": true,
+      "distinctRankWithSamePair": true,
+      "emptyInfusionPreserved": true,
+      "individualRewardsAndQuest": true
+    }
+  },
+  "liveChromeSolo": {
+    "entry": true,
+    "chosenPair": [
+      "hydro",
+      "electro"
+    ],
+    "bothAbsorptionsAndTargetableTail": true,
+    "normalKeyBattleAndReport": true,
+    "savedRespawn": true,
+    "remainingHp": 735,
+    "viewport390": true,
+    "scene": {
+      "key": "liyueSealedCavern",
+      "file": "li-sealed-cavern-background-v1.png",
+      "state": "ready"
+    },
+    "sameStateCommands": {
+      "png": 68,
+      "standard": 22153,
+      "light": 6325
+    },
+    "errors": []
+  }
+}
