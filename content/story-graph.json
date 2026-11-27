@@ -4872,7 +4872,8 @@
         },
         {
           "to": "enkan-guide-shelf",
-          "x": 942
+          "x": 942,
+          "rideLabel": "帰路しるべの棚へ"
         },
         {
           "to": "enkan-lamp-chamber",
@@ -4915,6 +4916,7 @@
       "region": "淵下宮",
       "level": 40,
       "hub": false,
+      "questField": true,
       "width": 1440,
       "platforms": [
         {
@@ -4941,7 +4943,10 @@
       "exits": [
         {
           "to": "enkanomiya-camp",
-          "x": 60
+          "x": 60,
+          "arrivalX": 1342,
+          "arrivalY": 480,
+          "rideLabel": "探索路から入口拠点へ"
         },
         {
           "to": "bathysmal-field-sanctum",
@@ -7567,7 +7572,7 @@
     {"id":"chenyu-tea-lift","name":"茶荷の昇降台","level":88,"width":1490,"hub":false,"region":"沈玉の谷","branch":true,"lightReference":8,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1490}],"exits":[{"to":"chenyu-camp","x":55},{"to":"chenyu-tea-lift","x":570,"requires":{"quest":"chenyu-loading-landing","count":1,"before":3},"liftSeconds":1.15,"arrivalX":650,"arrivalY":312,"rideLabel":"高い試験台"},{"to":"chenyu-tea-pavilion","x":1245,"y":385,"requires":{"quest":"chenyu-loading-landing","count":3},"liftSeconds":1.35,"arrivalX":375,"arrivalY":390,"rideLabel":"展望亭横の中継台"}],"peaceful":true},
     {"id":"chenyu-tea-pavilion","name":"谷を望む茶亭","level":82,"width":1400,"hub":true,"region":"沈玉の谷","branch":true,"lightReference":8,"checkpoint":"chenyu-tea-pavilion","platforms":[{"x":0,"y":480,"w":1400},{"x":294,"y":390,"w":420}],"exits":[{"to":"chenyu-cart-road","x":55,"arrivalX":1540,"arrivalY":480,"rideLabel":"谷沿いの荷車道へ戻る"},{"to":"chenyu-camp","x":560,"y":390,"requires":{"quest":"chenyu-loading-landing","count":4}},{"to":"chenyu-boulder-gully","x":1325}]},
     {"id":"chenyu-boulder-gully","name":"段丘の岩陰","level":95,"width":1720,"hub":false,"region":"沈玉の谷","branch":true,"lightReference":8,"checkpoint":"chenyu-tea-pavilion","platforms":[{"x":0,"y":480,"w":1720},{"x":511,"y":396,"w":134,"cover":true},{"x":1280,"y":393,"w":127,"cover":true}],"exits":[{"to":"chenyu-tea-pavilion","x":57}],"peaceful":true},
-    {"id":"enkan-guide-shelf","name":"帰路しるべの棚","level":100,"width":1620,"hub":false,"region":"淵下宮","branch":true,"lightReference":10,"checkpoint":"enkanomiya-camp","platforms":[{"x":0,"y":480,"w":1620},{"x":452,"y":388,"w":254},{"x":771,"y":390,"w":318}],"exits":[{"to":"enkanomiya-camp","x":55}]},
+    {"id":"enkan-guide-shelf","name":"帰路しるべの棚","level":100,"width":1620,"hub":false,"questField":true,"region":"淵下宮","branch":true,"lightReference":10,"checkpoint":"enkanomiya-camp","platforms":[{"x":0,"y":480,"w":1620},{"x":452,"y":388,"w":254},{"x":771,"y":390,"w":318}],"exits":[{"to":"enkanomiya-camp","x":55,"arrivalX":887,"arrivalY":480,"rideLabel":"棚の手前から入口拠点へ"}]},
     {"id":"enkan-lamp-chamber","name":"照り影の灯室","level":105,"width":960,"hub":false,"region":"淵下宮","branch":true,"lightReference":10,"checkpoint":"enkanomiya-camp","platforms":[{"x":0,"y":480,"w":960},{"x":388,"y":390,"w":118}],"exits":[{"to":"enkanomiya-camp","x":55},{"to":"enkan-route-gallery","x":896,"y":390,"darkOnly":true,"requires":{"quest":"enkan-shadow-crossing","count":2}}],"peaceful":true,"localLight":{"controls":[{"x":224,"y":480},{"x":763,"y":390,"darkOnly":true}],"bridge":{"x":548,"y":390,"w":374,"shadowBridge":true},"safeX":478,"safeY":480}},
     {"id":"enkan-route-gallery","name":"道順記録の小間","level":105,"width":1280,"hub":true,"region":"淵下宮","branch":true,"lightReference":10,"checkpoint":"enkan-route-gallery","platforms":[{"x":0,"y":480,"w":1280},{"x":451,"y":395,"w":258}],"exits":[{"to":"enkanomiya-camp","x":55,"requires":{"quest":"enkan-shadow-crossing","count":3},"returnOnly":true},{"to":"enkan-lamp-chamber","x":230},{"to":"enkan-tablet-hollow","x":1210}]},
     {"id":"enkan-tablet-hollow","name":"石版裏の窪み","level":110,"width":1770,"hub":false,"region":"淵下宮","branch":true,"lightReference":10,"checkpoint":"enkan-route-gallery","platforms":[{"x":0,"y":480,"w":1770},{"x":510,"y":395,"w":140,"cover":true},{"x":1300,"y":395,"w":130,"cover":true}],"exits":[{"to":"enkan-route-gallery","x":58}],"peaceful":true},
