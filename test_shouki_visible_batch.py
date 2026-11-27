@@ -28,9 +28,15 @@ for camera in (0, 80, 173):
         assert body['y'] + body['h'] == 480
         assert list(expand_rectangles(packet)) == reference
         runs = packet['rectBatches'][-1]
-        old = dict(draws=reference[:len(runs)] + packet['draws'][1:], rectBatches=packet['rectBatches'][:-1])
-        before, after = sizes(old), sizes(packet)
-        assert after['gzip'] < before['gzip']
-        results.append(dict(camera=camera, profile=profile, visible=len(runs), before=before, after=after))
+        body_runs = [[*run[:4], body['palette'][run[4]-1]] for run in runs]
+        legacy_draw = {k:v for k,v in body.items() if k != 'palette'}
+        batches = packet['rectBatches'][:-1]
+        hex_packet = dict(draws=[legacy_draw]+packet['draws'][1:], rectBatches=batches+[body_runs])
+        expanded = dict(draws=reference[:len(runs)]+packet['draws'][1:], rectBatches=batches)
+        plain, before, after = sizes(expanded), sizes(hex_packet), sizes(packet)
+        assert after['json'] < before['json'] < plain['json']
+        assert after['gzip'] < before['gzip'] < plain['gzip']
+        results.append(dict(camera=camera, profile=profile, visible=len(runs), colors=len(body['palette']),
+                            plain=plain, before=before, after=after))
 (ROOT/'evidence/shouki-visible-batch-sizes.json').write_text(json.dumps(results, indent=2)+'\n', encoding='utf8')
 print(results[:3])

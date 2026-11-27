@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
@@ -9,6 +10,7 @@ const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
 const prefix=process.env.SHOUKI_OUTPUT||'evidence/shouki-weekly-floor-contact';
 const regressionPrefix=process.env.SHOUKI_OUTPUT||'work/shouki-weekly-floor-contact';
+const timeoutRoute=process.env.LAB_SHOUKI_TRIAL==='timeout';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -60,11 +62,16 @@ try{
  await page.locator('.game').screenshot({path:prefix+'-upper.png'});
  const upperPng=await capture('upper-png');
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(()=>window.lab.frame.draws[0]?.kind==='rect');
  const upperStandard=await frame(),upperRect=await capture('upper-standard');
- await page.locator('#renderMode').selectOption('h32c16');
- await wait(n=>window.lab.frame.commands<n*.7,upperStandard.commands);
- const upperLight=await frame();
+ const upperRaw=await captureRectTransfer(page,'h32c16',false,()=>page.locator('#renderMode').selectOption('h32c16'));
+ const upperIndexed=await captureRectTransfer(page,'h32c16',true,()=>page.locator('#packRectArt').check());
+ assert.equal(upperRaw.raster,upperIndexed.raster);
+ const upperLight=upperRaw.snapshot,packedTorso=upperIndexed.snapshot.draws[0];
+ assert.equal(packedTorso.kind,'rect_runs');
+ assert.equal(packedTorso.y+packedTorso.h,480);
+ assert.ok(packedTorso.palette.length>0&&upperIndexed.gzipBytes<upperRaw.gzipBytes);
  const upperReduced=await capture('upper-light');
  assert.equal(new Set([upperPng,upperRect,upperReduced]).size,3);
  for(const rendered of [upperStandard,upperLight]){
@@ -76,7 +83,7 @@ try{
  await page.evaluate(()=>window.lab.action('pause'));
  await wait(()=>!window.lab.frame.paused);
  await canvas.click();
- await page.evaluate(()=>{
+ await page.evaluate(timeoutRoute=>{
   const held=new Set();
   let lastClick=-10,lastDodge=-10;
   function key(code,on){
@@ -106,9 +113,9 @@ try{
     }else if(b.shoukiStage==='p2'){
      if(!window.shoukiRealShot)goal=v.charge<100?nearest(list(v.blocks))?.x??235:a.x;
      else if(v.charge<100&&list(v.blocks).length>0&&v.shield>0)goal=nearest(list(v.blocks)).x;
-     else target=b.x;
+     else if(!window.shoukiTimedOut||window.shoukiFinish||b.hp===b.phaseHp[1].max)target=b.x;
     }else if(b.shoukiStage==='trial'){
-     target=nearest(list(v.targets))?.x;
+     if(!timeoutRoute||window.shoukiTimedOut||v.trialLeft>2)target=nearest(list(v.targets))?.x;
     }else if(b.shoukiStage==='collapse'&&b.damageable&&window.shoukiFinish)target=b.x;
     if(target!==undefined)goal=target+(a.x<target?-65:65);
     const delta=goal-a.x,dx=target===undefined?0:target-a.x;
@@ -128,7 +135,7 @@ try{
    requestAnimationFrame(run);
   }
   requestAnimationFrame(run);
- });
+ },timeoutRoute);
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.device?.id==='left'&&window.lab.frame.weeklyBoss.shouki.charge===100);
  await page.keyboard.press('KeyH');
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.left);
@@ -161,6 +168,29 @@ try{
  assert.ok(Math.abs(trial.weeklyBoss.shouki.core.y-(480-1160*113/723))<0.001);
  assert.ok(trial.weeklyBoss.shouki.core.y>21&&trial.weeklyBoss.shouki.targets.every(p=>p.y===480&&p.x>0&&p.x<960));
  await page.locator('.game').screenshot({path:regressionPrefix+'-trial.png'});
+ let timeoutResult;
+ if(timeoutRoute){
+  await wait(()=>{
+   const f=window.lab.frame;
+   const result=f.weeklyBoss?.shouki?.trialResult;
+   if(f.paused||result?.kind!=='timeout'||result.damage===undefined)return false;
+   window.lab.action('pause');return true;
+  });
+  await wait(()=>window.lab.frame.paused);
+  const failed=await frame();
+  assert.deepEqual(failed.weeklyBoss.shouki.trialResult,{kind:'timeout',remainingPods:2,damage:72,resumed:false});
+  await wait(()=>document.querySelector('#weeklyShoukiHint').textContent.includes('72ダメージ'));
+  timeoutResult={pulse:failed.weeklyBoss.shouki.trialResult,hud:await controls.locator('#weeklyShoukiHint').textContent()};
+  await page.locator('.game').screenshot({path:regressionPrefix+'-timeout.png'});
+  await page.evaluate(()=>{window.shoukiTimedOut=true;});
+  await canvas.click();
+  await page.keyboard.press('KeyP');
+  await wait(()=>window.lab.frame.weeklyBoss?.shouki?.trialResult?.resumed&&window.lab.frame.weeklyBoss.damageable);
+  assert.equal((await frame()).weeklyBoss.shouki.shield,0);
+  timeoutResult.resumedArmor=0;
+  await wait(()=>window.lab.frame.weeklyBoss?.shoukiStage==='p2'&&window.lab.frame.weeklyBoss.hp<1040);
+  timeoutResult.resumedDamage=true;
+ }
  await wait(()=>{
   const f=window.lab.frame,b=f.weeklyBoss;
   if(f.paused||!b?.shouki.exposure||b.shoukiStage!=='collapse')return false;
@@ -172,7 +202,8 @@ try{
  assert.ok(down.weeklyBoss.damageable&&down.weeklyBoss.shouki.exposure>=590);
  assert.ok(down.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===1160&&d.y===480));
  assert.ok(down.events.some(e=>e.kind==='shouki:WN14:core-hit'));
- assert.equal(down.events.filter(e=>e.kind==='shouki:WN15:destroyed').length,4);
+ assert.equal(down.events.filter(e=>e.kind==='shouki:WN15:destroyed').length,timeoutRoute?6:4);
+ await wait(()=>document.querySelector('#weeklyShoukiHint').textContent.includes('胸部に命中'));
  assert.ok(await page.locator('#status').evaluate(el=>!el.classList.contains('error')));
  await page.locator('.game').screenshot({path:regressionPrefix+'-exposure.png'});
  const png=await capture('png');
@@ -211,19 +242,21 @@ try{
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,manualMatrix:true,twoPhases:true,
-  reservedAndCancelled:true,keyboardTerminal:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
+  reservedAndCancelled:true,keyboardTerminal:true,terminalHitArmor:true,manualTrialParts:timeoutRoute?6:4,
+  terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,timeoutResult,
   art:{upper:upper.h,upperWidth:upper.w,torsoSourceEnd:737,torsoBottom:upper.y,floor:480,waistClearance:480-upper.y,armored:torso.h,trial:1160,collapse:1160,
    upperLeft:upper.x-upper.w/2,upperTop:upper.y-upper.h,armoredTop:torso.y-torso.h,
    machineBehindParty:true,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
   clearReportRestore:true,remainingHp:finished.actors[0].hp,viewport390:true,scene,
   upperCommands:{png:opening.commands,standard:upperStandard.commands,light:upperLight.commands},
+  upperTransfer:{rawGzip:upperRaw.gzipBytes,packedGzip:upperIndexed.gzipBytes,pixelMatch:true},
   commands:{png:down.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Shouki Chrome: matrix, terminal controls, four parts, collapse, clear, report and save passed');
 }catch(error){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error({node:f?.story?.node,t:f?.t,boss:f?.weeklyBoss,actors:f?.actors?.map(a=>[a.x,a.y,a.hp]),returns:f?.returns,
   events:f?.events?.filter(e=>e.kind.startsWith('shouki:')).slice(-18),status:await page.locator('#status').textContent(),errors});
- await page.screenshot({path:'work/shouki-weekly-failure.png'});
+ await page.screenshot({path:regressionPrefix+'-test-failure.png'});
  throw error;
 }finally{
  await browser.close();

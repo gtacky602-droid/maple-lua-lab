@@ -195,7 +195,7 @@ return function(C)
  function controller.spawn(s,w,spec)
   w.clock=0;w.remainder=0;w.charge=0;w.shield=0;w.serial=0
   w.hands={};w.targets={};w.deviceCd={};w.suppressed={}
-  w.index=1;w.elementIndex=0;w.needTrial=true;w.trialCasts=0;w.trialLeftAt=nil;w.trialFailed=false
+  w.index=1;w.elementIndex=0;w.needTrial=true;w.trialCasts=0;w.trialLeftAt=nil;w.trialFailed=false;w.trialResult=nil
   w.autoAt=nil;w.shieldSpent=weakKeys();w.shieldOwners=weakKeys();w.wasGround=weakKeys()
   posture(s,w,spec,'p1');w.rest=spec.noticeTicks
   w.primary.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,spec,cast,mult,color,element) end
@@ -215,7 +215,7 @@ return function(C)
  end
  function controller.cleanup(s,w)
   cleanupCast(s,w);clearParts(s,w.hands);w.hands={}
-  remove(s,w.primary);w.primary.underground=true;w.charge=0
+  remove(s,w.primary);w.primary.underground=true;w.charge=0;w.trialResult=nil
  end
  function controller.leaveCoop(s,w)
   w.assists[s]=nil
@@ -257,14 +257,16 @@ return function(C)
   if c.id=='WN13' and i==1 then return 'hydro' end
   return c.element
  end
- local function damage(s,w,spec,c,i,b,element)
+ local function damage(s,w,spec,c,i,b,element,result)
   local hit=c.hits[i]
   if not hit then hit={};c.hits[i]=hit end
   for _,a in ipairs(s.actors) do
    if inside(a,b) and not hit[a] then
     hit[a]=true
     local party=actorParty(s,a)
-    if C.damageActor(party,a,c.move.damage,{id=w.primary.id,x=(b.lo+b.hi)/2,y=b.y,damageElement=element},true,true)>0 then
+    local dealt=C.damageActor(party,a,c.move.damage,{id=w.primary.id,x=(b.lo+b.hi)/2,y=b.y,damageElement=element},true,true)
+    if result then result[a]=dealt end
+    if dealt>0 then
      ownEvent(party,w,c.id..':hit',a.id,i)
     end
    end
@@ -435,6 +437,7 @@ return function(C)
      if w.stage=='trial' and w.trialLeft==0 then
       if present then ownEvent(party,w,'WN14:core-hit',q.owner);contribution(party,w,q.owner) end
       posture(s,w,spec,'collapse','WN17');w.trialLeftAt=w.clock;w.trialCasts=0;w.trialFailed=false
+      w.trialResult={kind='core-hit'}
       return
      elseif w.stage=='p2' and w.shield>0 then
       w.shield=math.max(0,w.shield-spec.charge.shotDamage)
@@ -475,19 +478,25 @@ return function(C)
    if t>=spec.trial.deadline then
     posture(s,w,spec,'failure','WN16')
     w.failed={id='WN16',move=spec.moves.WN16,hits={}}
+    w.trialResult={kind='timeout',remainingPods=w.trialLeft}
    end
    return
   elseif name=='failure' then
    local card=spec.moves.WN16
-   if t==card.windows[1][1] then damage(s,w,spec,w.failed,1,band(480,540,spec.floorY,480),'electro') end
+   if t==card.windows[1][1] then
+    local received=weakKeys()
+    damage(s,w,spec,w.failed,1,band(480,540,spec.floorY,480),'electro',received)
+    w.trialResult.damage=received
+   end
    if t>=card.total then
     posture(s,w,spec,'p2');w.needTrial=false;w.trialLeftAt=w.clock;w.trialCasts=0
+    w.trialResult.untilTick=w.clock+120
    end
    return
   elseif name=='collapse' then
    local on=t>=60 and t<spec.moves.WN17.recovery
    e.invulnerable=not on;e.noAutoTarget=not on
-   if t>=spec.moves.WN17.total then posture(s,w,spec,'p2');w.needTrial=false end
+   if t>=spec.moves.WN17.total then posture(s,w,spec,'p2');w.needTrial=false;w.trialResult=nil end
    return
   end
   environment(s,w,spec)
@@ -500,7 +509,7 @@ return function(C)
    if w.shield==0 and (w.needTrial or w.trialCasts>=spec.trial.retryCasts and
        w.clock>=w.trialLeftAt+spec.trial.retryTicks and w.trialFailed) then
     posture(s,w,spec,'trial','WN15');w.trialLeft=#spec.trial.positions;w.needTrial=false
-    w.trialFailed=true
+    w.trialFailed=true;w.trialResult=nil
     return
    end
   end
@@ -564,6 +573,11 @@ return function(C)
     assist=assist and assist.index}
   if name=='collapse' and b.damageable then state.exposure=spec.moves.WN17.recovery-w.stageTick end
   if name=='overload' and b.damageable then state.exposure=420-w.stageTick end
+  local trial=w.trialResult
+  if trial and (not trial.untilTick or w.clock<trial.untilTick) then
+   state.trialResult={kind=trial.kind,remainingPods=trial.remainingPods,
+    damage=trial.damage and (trial.damage[actor(s)] or 0),resumed=name=='p2'}
+  end
   if device then
    state.device={id=device.id,title=device.title,cooldown=math.max(0,(w.deviceCd[device.id] or 0)-w.clock)}
   end

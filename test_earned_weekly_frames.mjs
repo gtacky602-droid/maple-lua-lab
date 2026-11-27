@@ -39,8 +39,8 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {apepDomeText, beidouReplyText, childeDropText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
-      const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
+      const {apepDomeText, beidouReplyText, childeDropText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, shoukiTrialText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
+      const {drawCombatRect, drawCombatRuns, drawPaletteBatch, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
       const heading = document.createElement('h1');
@@ -157,7 +157,8 @@ try {
         const apepText = sample.view.apep ? apepDomeText(sample.view.apep) : '';
         const signoraText = signoraSealStrikeText(sample.view.sealStrike) ||
           signoraReleaseText(sample.view.deviceRelease, sample.view.deviceLabel);
-        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText || ronovaText || wandererText || farkaText || beidouText || childeText || apepText || signoraText;
+        const shoukiText = sample.view.shouki ? shoukiTrialText(sample.view.shouki) : '';
+        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText || ronovaText || wandererText || farkaText || beidouText || childeText || apepText || signoraText || shoukiText;
         if (mechanic) {
           const status = document.createElement('p');
           status.className = 'mechanic';
@@ -176,6 +177,20 @@ try {
         const profiles = {};
         for (const [index, [key, variant]] of variants.entries()) {
           const packed = paint(grid, key, frame, variant.packed);
+          const body = sample.view.shouki && variant.packed.draws.find(draw => draw.palette);
+          if (body) {
+            const {palette, ...oldBody} = body;
+            const rows = variant.packed.rectBatches[body.batch-1];
+            const oldRows = rows.map(([x,y,w,h,ink]) => [x,y,w,h,palette[ink-1]]);
+            const ctx = canvasContext(), cache = new Map();
+            drawPaletteBatch(ctx, oldBody, oldRows, cache);
+            const prior = ctx.getImageData(0, 0, width, height).data;
+            ctx.clearRect(0, 0, width, height);
+            drawPaletteBatch(ctx, body, rows, cache);
+            if (!ctx.getImageData(0, 0, width, height).data.every((value,i) => value === prior[i])) {
+              throw Error('Indexed colors changed the composited torso: ' + id + ' ' + key);
+            }
+          }
           let differentPixels = 0, rgbAbsoluteError = 0;
           for (let i = 0; i < sprite.length; i += 4) {
             const error = Math.abs(sprite[i] - packed[i]) + Math.abs(sprite[i+1] - packed[i+1])
@@ -186,7 +201,7 @@ try {
           profiles[key] = {differentPixels, rgbAbsoluteError, unpackedCommands:variant.unpackedCount,
             packedCommands:variant.packed.draws.length, unpackedBytes:variant.unpackedBytes,
             packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
-          if (sample.view.apep||sample.view.signoraStage||sample.view.id==='boss-29030101'||['rerir','ronova','wanderer','farka','capitano','beidou'].includes(sample.view.match)) {
+          if (sample.view.shouki||sample.view.apep||sample.view.signoraStage||sample.view.id==='boss-29030101'||['rerir','ronova','wanderer','farka','capitano','beidou'].includes(sample.view.match)) {
             const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', packed));
             profiles[key].canvasSha256 = Array.from(digest, byte => byte.toString(16).padStart(2, '0')).join('');
           }
@@ -197,7 +212,7 @@ try {
           ...(hereticText && {hereticText}), ...(finaleText && {finaleText}), ...(rerirText && {rerirText}),
           ...(ronovaText && {ronovaText}), ...(wandererText && {wandererText}), ...(farkaText && {farkaText}),
           ...(beidouText && {beidouText}), ...(childeText && {childeText}), ...(apepText && {apepText}),
-          ...(signoraText && {signoraText})};
+          ...(signoraText && {signoraText}), ...(shoukiText && {shoukiText})};
       }
       return comparison;
     }, {frames, nodes, title:label});

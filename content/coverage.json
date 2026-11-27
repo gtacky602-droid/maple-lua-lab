@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "shouki_trial_outcomes": {"expertReplays":2,"bossHP":1630,"timeoutDamage":72,"remainingPodsAtTimeout":2,"resumedArmor":0,"resumedDamage":808,"exposureTicks":600,"comparisonScenes":32,"matchedChromeCanvases":64,"record":"evidence/shouki-trial-outcomes-20261128.json"},
   "signora_moth_release": {"expertReplays":2,"bossHP":1280,"mothHits":[25,25,25,25],"fireTilesAfterRelease":1,"fireTilesWithPassiveCooling":2,"recoveryTicks":120,"comparisonScenes":25,"matchedChromeCanvases":50,"record":"evidence/signora-moth-release-20261128.json"},
   "apep_final_pulse": {"expertReplays":2,"bossHP":1580,"finalPulseDamage":[0,54],"exposureTicks":480,"comparisonScenes":22,"matchedChromeCanvases":44,"record":"evidence/apep-dome-results-20261128.json"},
   "childe_riptide_lock": {"expertReplays":3,"bossHP":960,"lockTick":84,"impactTick":144,"lateDamage":[0,26],"recoveryTicks":[60,120],"comparisonScenes":22,"matchedExpandedRectangleStreams":44,"record":"evidence/childe-riptide-lock-20261128.json"},

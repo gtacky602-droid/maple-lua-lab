@@ -11,7 +11,8 @@ local function walkTo(a,x)
  return {left=x<a.x-8,right=x>a.x+8}
 end
 
-local function shouki(C,s,w,spec,a)
+local function shouki(C,s,w,spec,a,route)
+ if route=='trial-timeout' and w.stage=='trial' and not w.trialLeftAt and w.trialLeft<=2 then return {} end
  if w.stage=='p2' and w.shield>0 or w.stage=='trial' and w.trialLeft==0 then
   if w.aim then
    if not w.aim.confirmed then C.action(s,'encounter_confirm') end
@@ -143,8 +144,8 @@ return function(C,s,encounter,kind,budget,route,options)
    left=slide and dx<0,right=slide and dx>0,jump=jump,
    attack=not aim.waiting and gap<(a.id==1 and 114 or 335)+aim.half and math.abs(dy)<83,
   }
-  if spec and spec.controller=='shouki' and route=='mechanics' then
-   input=shouki(C,s,encounter,spec,a)
+  if spec and spec.controller=='shouki' and (route=='mechanics' or route=='trial-timeout') then
+   input=shouki(C,s,encounter,spec,a,route)
   elseif encounter.match=='beidou' and route~='basic' then
    input=beidou(C,s,b,a,route=='bait')
   elseif jump then C.action(s,'jump') end

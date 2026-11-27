@@ -281,6 +281,8 @@ def expand_rectangles(frame):
             yield draw
             continue
         for x, y, width, height, color in frame['rectBatches'][draw['batch']-1]:
+            if 'palette' in draw:
+                color = draw['palette'][color-1]
             if 'rotation' in draw:
                 sx, sy = draw['w']/draw['gridWidth'], draw['h']/draw['gridHeight']
                 left = -draw['w']*draw['anchorX']+x*sx

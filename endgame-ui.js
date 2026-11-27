@@ -1,5 +1,16 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+export function shoukiTrialText(view){
+ const result=view.trialResult;
+ if(!result)return '';
+ if(result.kind==='core-hit'){
+  return '端末弾が胸部に命中'+(view.exposure?` ｜ 攻撃できる時間 残り${Math.ceil(view.exposure/60)}秒`:'');
+ }
+ if(result.resumed)return '装甲0で戦闘再開 ｜ 足元から本体を攻撃';
+ if(result.damage===undefined)return '時間切れ。刹那生滅が来る';
+ return result.damage?`刹那生滅が命中・${result.damage}ダメージ`:'刹那生滅の被ダメージなし';
+}
+
 export function signoraSealStrikeText(strike){
  if(!strike)return '';
  const source={moth:'紅蓮蛾の一撃',pyro:'炎の一撃',plain:'繭への一撃'}[strike.source];

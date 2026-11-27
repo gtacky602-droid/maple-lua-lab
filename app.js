@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
+import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -662,9 +662,9 @@ function hud(f,calls,renderMs){
    const combatHint=field.shoukiStage==='p1'?(info||(
     v.charge===v.max?'元素装置に近づいて起動':'充填ブロックを拾う'))+hands:
     field.shoukiStage==='p2'?(field.damageable?'足元から本体を攻撃':v.canAim?'端末で胸部を照準':'充填ブロックを拾う'):'';
-   $('weeklyShoukiHint').textContent=v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
+   $('weeklyShoukiHint').textContent=shoukiTrialText(v)||(v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
     aim?(aim.fired?'端末を発射':!aim.mine?'端末が使用中':aim.confirmed?'端末を発射準備中':'Hで射撃を確定・Escで中止'):
-    trial||combatHint;
+    trial||combatHint);
    use.hidden=!device&&!v.canAim;
    use.disabled=!!device&&(device.cooldown>0||v.charge<v.max)||f.paused||f.auto;
    use.textContent=device?device.title+'装置を起動（H）':'端末を構える（H）';
