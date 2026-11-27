@@ -20,6 +20,7 @@ QUEST_FIELD_ARRIVALS = {
     'liyue-loading-yard','inazuma-lantern-trail','liyue-cliff-planks',
     'sum-visitors-meadow','natlan-flag-slope','tunigi-depth','bygone-depth',
     'nod-spruce-clearing','nod-patrol-bend',
+    'chenyu-depth','chenyu-tea-terraces','chenyu-cart-road',
 }
 
 
