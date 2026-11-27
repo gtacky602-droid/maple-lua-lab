@@ -248,6 +248,14 @@ act(fight,'artifact_equip:1')
 fixture=checkpoint(fight)
 fixture['story']['quests'].pop(quest)
 (ROOT/'work/childe-weekly-gear.json').write_text(json.dumps(fixture,ensure_ascii=False),encoding='utf8')
+# A test flower lets the traveler sustain several moves while waiting for WC10.
+riptide = core.restore(lua.table_from(fixture, recursive=True))
+flower_id = riptide.inventory.nextId
+assert core.giveArtifact(riptide, 1, 100, 3)
+act(riptide, f'artifact_equip:{flower_id}')
+assert riptide.actors[1].hp >= 2000
+(ROOT/'work/childe-riptide-gear.json').write_text(
+    json.dumps(checkpoint(riptide), ensure_ascii=False), encoding='utf8')
 place(fight.actors[1],1040)
 act(fight,'story_portal:'+node)
 assert fight.story.node==node

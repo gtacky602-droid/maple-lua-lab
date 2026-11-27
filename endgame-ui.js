@@ -1,5 +1,16 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+export function childeDropText(drop){
+ const outcome=drop.cleansed==='after'?'断流解除済み。落撃地点は固定':'追雷の落下地点が固定';
+ let status;
+ if(drop.phase==='cancelled')status=drop.cleansed==='before'?'固定前に断流を解除。追雷中止':'追雷中止';
+ else if(drop.phase==='tracking')status=drop.targeted?'追尾中。金灯で追雷を止める':'味方を追尾中。落撃の予告から離れる';
+ else if(drop.phase==='locked')status=outcome+'。予告位置から離れる';
+ else if(drop.damage===undefined)status='固定地点に落撃';
+ else status=drop.damage>0?`落撃が命中・${drop.damage}ダメージ`:'落撃の被ダメージなし';
+ return status+(drop.recovery?` ｜ 反撃の隙 ${(drop.recovery/60).toFixed(1)}秒`:'');
+}
+
 const raidenSlashResults={protected:'花蕊で大太刀を防いだ',hit:'大太刀が命中',unharmed:'大太刀の被ダメージなし'};
 
 export function raidenFlowerText(flower,move){

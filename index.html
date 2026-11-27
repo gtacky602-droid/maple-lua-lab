@@ -79,8 +79,8 @@
 #weeklyGate button{justify-self:start;touch-action:none}
 #weeklyFalseMoon{display:grid;gap:6px;margin-top:8px}
 #weeklyFalseMoon[hidden]{display:none}
-#weeklyHeretic{display:block;margin-top:8px}
-#weeklyHeretic[hidden]{display:none}
+#weeklyHeretic,#weeklyChilde{display:block;margin-top:8px}
+#weeklyHeretic[hidden],#weeklyChilde[hidden]{display:none}
 #weeklyFalseMoon button{justify-self:start}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
@@ -308,6 +308,7 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
  <progress id="fieldBossHp" aria-label="ボスのHP" style="width:min(100%,280px);accent-color:#efbd78"></progress>
  <p id="weeklyChallengeResult" role="status" style="margin:4px 0 0" hidden></p>
  <div id="weeklyPhases" hidden aria-label="形態別のHP"></div>
+ <small id="weeklyChilde" hidden></small>
  <div id="weeklyTemperature" hidden>
   <label><span id="weeklyTempText"></span> <meter id="weeklyTempMeter" min="0" max="100" high="80"></meter></label>
   <small id="weeklyDevices"></small>

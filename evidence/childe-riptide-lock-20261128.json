@@ -1,0 +1,440 @@
+{
+  "baseCommit": "0ecce128abac0d142a3d0b95d67e60a9974b8c1b",
+  "method": "Three standard expert rematches on independent copies of an earned level 200 save. The traveler moves through the normal stage inputs, earns the lightning mark from WC07, and reaches the left lamp before or after the WC10 position locks. The companion attack is held and gear is reduced to permit observation. The test checks the repeat payout, the incremented expert clear and preserved story after reloading.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "childe",
+      "case": "childe-early",
+      "label": "地点固定前に断流解除",
+      "ticks": 2776,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 960,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "transformations": [
+        {
+          "form": 2,
+          "hp": 720
+        },
+        {
+          "form": 3,
+          "hp": 420
+        }
+      ],
+      "mark": {
+        "tick": 541,
+        "move": "WC07",
+        "actor": 1
+      },
+      "lock": null,
+      "cleanse": {
+        "tick": 1690,
+        "moveTick": 27,
+        "x": 41.0
+      },
+      "impact": null,
+      "recoveryTicks": 60,
+      "recoveryDamage": 32,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "childe",
+      "case": "childe-late-evade",
+      "label": "固定後に解除して落撃を回避",
+      "ticks": 2927,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 960,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "transformations": [
+        {
+          "form": 2,
+          "hp": 720
+        },
+        {
+          "form": 3,
+          "hp": 420
+        }
+      ],
+      "mark": {
+        "tick": 541,
+        "move": "WC07",
+        "actor": 1
+      },
+      "lock": {
+        "tick": 1747,
+        "moveTick": 84,
+        "x": 135.5
+      },
+      "cleanse": {
+        "tick": 1774,
+        "moveTick": 111,
+        "x": 41.0
+      },
+      "impact": {
+        "tick": 1807,
+        "moveTick": 144,
+        "x": 135.5,
+        "heroX": 34.0,
+        "damage": 0,
+        "reapplied": false
+      },
+      "recoveryTicks": 120,
+      "recoveryDamage": 32,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "childe",
+      "case": "childe-late-hit",
+      "label": "固定後に解除して落撃が命中",
+      "ticks": 2926,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 960,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "transformations": [
+        {
+          "form": 2,
+          "hp": 720
+        },
+        {
+          "form": 3,
+          "hp": 420
+        }
+      ],
+      "mark": {
+        "tick": 541,
+        "move": "WC07",
+        "actor": 1
+      },
+      "lock": {
+        "tick": 1747,
+        "moveTick": 84,
+        "x": 135.5
+      },
+      "cleanse": {
+        "tick": 1774,
+        "moveTick": 111,
+        "x": 41.0
+      },
+      "impact": {
+        "tick": 1807,
+        "moveTick": 144,
+        "x": 135.5,
+        "heroX": 107.5,
+        "damage": 26,
+        "reapplied": true
+      },
+      "recoveryTicks": 120,
+      "recoveryDamage": 32,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "compression": {
+    "method": "Existing Lua rectangle packing compared with one-record-per-rectangle at the same palette. Frame sizes include draws and rectBatches JSON. Expansion reproduces the ungrouped commands in every case. Chromium hashes compare the canvas produced by the old and new build at each sampled palette.",
+    "scenes": 22,
+    "matchingExpandedStreams": 44,
+    "matchingBeforeAfterChromiumCanvases": 44,
+    "profiles": {
+      "h48c32": {
+        "frames": 22,
+        "unpackedBytes": 8130783,
+        "packedBytes": 1507675,
+        "unpackedRecords": 67724,
+        "packedRecords": 655,
+        "reductionPercent": 81.46
+      },
+      "h32c16": {
+        "frames": 22,
+        "unpackedBytes": 2857695,
+        "packedBytes": 672846,
+        "unpackedRecords": 29660,
+        "packedRecords": 655,
+        "reductionPercent": 76.45
+      }
+    }
+  },
+  "chrome": {
+    "default": {
+      "entry": true,
+      "threeForms": true,
+      "markLeftAfterSwapAndCleanse": true,
+      "actualBattleAndReport": true,
+      "endedHp": 58,
+      "storedBestAndRespawn": true,
+      "viewport390": true,
+      "sameStateCommands": {
+        "png": 25,
+        "standard": 8806,
+        "light": 2268
+      },
+      "backdrop": {
+        "key": "liyueGoldenVault",
+        "file": "li-golden-vault-background-v1.png",
+        "state": "ready"
+      },
+      "errors": []
+    },
+    "early": {
+      "entry": true,
+      "threeForms": true,
+      "actualBattleAndReport": true,
+      "endedHp": 1879,
+      "storedBestAndRespawn": true,
+      "viewport390": true,
+      "sameStateCommands": {
+        "png": 25,
+        "standard": 8806,
+        "light": 2268
+      },
+      "riptide": {
+        "route": "early",
+        "trail": {
+          "mark": true,
+          "lock": null,
+          "cleanse": "before",
+          "resumeAttack": false
+        },
+        "drop": {
+          "cleansed": "before",
+          "recovery": 59,
+          "phase": "cancelled",
+          "targeted": true
+        },
+        "hud": "固定前に断流を解除。追雷中止 ｜ 反撃の隙 1.0秒"
+      },
+      "transfer": {
+        "profile": "h32c16",
+        "pixelMatch": true,
+        "packedBytes": 29819,
+        "rawBytes": 39016,
+        "packedRecords": 25,
+        "rawRecords": 2268
+      },
+      "backdrop": {
+        "key": "liyueGoldenVault",
+        "file": "li-golden-vault-background-v1.png",
+        "state": "ready"
+      },
+      "errors": []
+    },
+    "late-evade": {
+      "entry": true,
+      "threeForms": true,
+      "actualBattleAndReport": true,
+      "endedHp": 1879,
+      "storedBestAndRespawn": true,
+      "viewport390": true,
+      "sameStateCommands": {
+        "png": 27,
+        "standard": 8808,
+        "light": 2270
+      },
+      "riptide": {
+        "route": "late-evade",
+        "trail": {
+          "mark": true,
+          "lock": {
+            "x": 135.5,
+            "tick": 85
+          },
+          "cleanse": "after",
+          "resumeAttack": false
+        },
+        "drop": {
+          "x": 135.5,
+          "phase": "landed",
+          "recovery": 119,
+          "damage": 0,
+          "targeted": true,
+          "cleansed": "after"
+        },
+        "hud": "落撃の被ダメージなし ｜ 反撃の隙 2.0秒"
+      },
+      "transfer": {
+        "profile": "h32c16",
+        "pixelMatch": true,
+        "packedBytes": 29963,
+        "rawBytes": 39177,
+        "packedRecords": 27,
+        "rawRecords": 2270
+      },
+      "backdrop": {
+        "key": "liyueGoldenVault",
+        "file": "li-golden-vault-background-v1.png",
+        "state": "ready"
+      },
+      "errors": []
+    }
+  },
+  "coOp": {
+    "lua": {
+      "participants": 4,
+      "marksAndBoundaryPerParty": true,
+      "marksFollowSwap": true,
+      "rainTargetsMarkedParty": true,
+      "sharedCounterClockWithFreshManualCast": true,
+      "lockedLightningAndOwnerCancellation": true,
+      "oneHitPerActorAndAdoptedHitsPreserved": true,
+      "threeSharedPhasesAndIndividualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "sharedTransitionWhileRoomEmpty": true,
+      "personalRewardsAndAcceptedQuest": true
+    }
+  },
+  "unverified": [
+    "Live remote devices",
+    "All loadouts and encounter patterns",
+    "Native Miliastra"
+  ]
+}

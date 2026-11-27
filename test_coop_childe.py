@@ -149,6 +149,8 @@ def test_lua(lua,core):
     run(step,60)
     spot(guest,spec.edge-1);step()
     assert c.cancelled and c.total==144
+    assert native(core.frame(guest).weeklyBoss.riptideDrop)=={
+        'phase':'cancelled','targeted':True,'cleansed':'before'}
     assert own_marks(core,states)==[None,None,'electro',None]
     run(step,84)
     assert not any(e.kind=='childe:WC10:hit' for s in states for e in s.events.values())
@@ -158,6 +160,10 @@ def test_lua(lua,core):
     c=move(step,slot,spec,'WC10')
     switch(core,guest,2)
     spot(guest,628)
+    tracked=core.frame(host)
+    assert c.land==365
+    assert native(tracked.weeklyBoss.riptideDrop)=={'phase':'tracking','targeted':False,'x':628}
+    assert any(d.kind=='rect' and d.x==628-79-tracked.camera and d.w==158 for d in tracked.draws.values())
     run(step,84)
     assert c.land==628
     spot(guest,spec.edge-1)
@@ -167,6 +173,10 @@ def test_lua(lua,core):
     assert c.land==628 and not c.cancelled
     assert hit()==[[26],[],[26],[]]
     assert own_marks(core,states)==['electro',None,'electro',None]
+    assert native(core.frame(host).weeklyBoss.riptideDrop)=={
+        'phase':'landed','targeted':False,'cleansed':'after','x':628,'damage':26}
+    assert native(core.frame(guest).weeklyBoss.riptideDrop)=={
+        'phase':'landed','targeted':True,'cleansed':'after','x':628,'damage':0}
 
     spot(host,360);spot(observer,365)
     c=move(step,slot,spec,'WC10')
