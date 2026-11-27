@@ -1,0 +1,514 @@
+{
+  "sourceSha256": "2aba8a85c409da1f8a3eff3c3a283ee571153ad89fc52e20919bb1ec33ff46a4",
+  "rooms": {
+    "novokichev-camp": {
+      "legs": [],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 340,
+          "w": 330
+        }
+      ]
+    },
+    "novokichev-depth": {
+      "legs": [
+        {
+          "region": "branch-09",
+          "previewX": 65,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・探索路",
+          "from": "wavebinder-tide-cavern",
+          "approach": "現在地から左へ",
+          "label": "徒歩",
+          "id": "novokichev-depth"
+        }
+      ],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 160,
+          "y": 380,
+          "w": 260
+        },
+        {
+          "x": 460,
+          "y": 280,
+          "w": 280
+        },
+        {
+          "x": 780,
+          "y": 370,
+          "w": 340
+        }
+      ]
+    },
+    "wavebinder-tide-cavern": {
+      "legs": [
+        {
+          "region": "branch-09",
+          "previewX": 1030,
+          "level": 152,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ・西港の潮洞（仮配置）",
+          "from": "novokichev-depth",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "wavebinder-tide-cavern"
+        }
+      ],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        }
+      ]
+    },
+    "novo-frozen-works": {
+      "legs": [
+        {
+          "region": "branch-09",
+          "previewX": 1050,
+          "level": 198,
+          "mode": "walk",
+          "name": "凍止設備の通路",
+          "from": "novokichev-camp",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novo-frozen-works"
+        }
+      ],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1740
+        },
+        {
+          "x": 560,
+          "y": 294,
+          "w": 405
+        },
+        {
+          "x": 352,
+          "y": 388,
+          "w": 322
+        },
+        {
+          "x": 1355,
+          "y": 385,
+          "w": 312
+        }
+      ]
+    },
+    "novo-drift-passage": {
+      "legs": [
+        {
+          "region": "branch-09",
+          "previewX": 1050,
+          "level": 198,
+          "mode": "walk",
+          "name": "凍止設備の通路",
+          "from": "novokichev-camp",
+          "approach": "現在地から左へ",
+          "label": "徒歩",
+          "id": "novo-frozen-works"
+        },
+        {
+          "region": "branch-09",
+          "previewX": 1595,
+          "level": 200,
+          "previewY": 385,
+          "mode": "walk",
+          "name": "吹き溜まりの連絡坑",
+          "from": "novo-frozen-works",
+          "hint": "上段の入口",
+          "label": "徒歩",
+          "id": "novo-drift-passage"
+        }
+      ],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1550
+        },
+        {
+          "x": 610,
+          "y": 389,
+          "w": 365
+        }
+      ]
+    },
+    "novo-ice-vault": {
+      "legs": [
+        {
+          "region": "branch-09",
+          "previewX": 1475,
+          "level": 200,
+          "mode": "walk",
+          "name": "氷殻の最深室",
+          "from": "novo-drift-passage",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novo-ice-vault"
+        }
+      ],
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1730
+        },
+        {
+          "x": 252,
+          "y": 385,
+          "w": 158
+        },
+        {
+          "x": 1412,
+          "y": 388,
+          "w": 205
+        }
+      ]
+    }
+  },
+  "itineraries": [
+    {
+      "start": "snezhnaya-hub",
+      "destination": "novokichev-camp",
+      "stops": [
+        {
+          "region": "region-08",
+          "previewX": 1380,
+          "level": 140,
+          "mode": "walk",
+          "name": "スネージナヤ・凍った街道",
+          "from": "snezhnaya-hub",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "snezhnaya-field"
+        },
+        {
+          "region": "branch-09",
+          "previewX": 720,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+          "from": "snezhnaya-field",
+          "label": "徒歩",
+          "id": "novokichev-camp"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-camp",
+      "destination": "novokichev-depth",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1380,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・探索路",
+          "from": "novokichev-camp",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novokichev-depth"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-depth",
+      "destination": "wavebinder-tide-cavern",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1030,
+          "level": 152,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ・西港の潮洞（仮配置）",
+          "from": "novokichev-depth",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "wavebinder-tide-cavern"
+        }
+      ]
+    },
+    {
+      "start": "wavebinder-tide-cavern",
+      "destination": "novokichev-depth",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 65,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・探索路",
+          "from": "wavebinder-tide-cavern",
+          "approach": "現在地から左へ",
+          "label": "徒歩",
+          "id": "novokichev-depth"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-depth",
+      "destination": "novokichev-camp",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 60,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+          "from": "novokichev-depth",
+          "approach": "現在地から左へ",
+          "label": "徒歩",
+          "id": "novokichev-camp"
+        }
+      ]
+    },
+    {
+      "start": "snezhnaya-hub",
+      "destination": "novokichev-camp",
+      "stops": [
+        {
+          "region": "region-08",
+          "previewX": 1380,
+          "level": 140,
+          "mode": "walk",
+          "name": "スネージナヤ・凍った街道",
+          "from": "snezhnaya-hub",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "snezhnaya-field"
+        },
+        {
+          "region": "branch-09",
+          "previewX": 720,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+          "from": "snezhnaya-field",
+          "label": "徒歩",
+          "id": "novokichev-camp"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-camp",
+      "destination": "novokichev-camp",
+      "stops": []
+    },
+    {
+      "start": "novokichev-camp",
+      "destination": "novo-frozen-works",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1050,
+          "level": 198,
+          "mode": "walk",
+          "name": "凍止設備の通路",
+          "from": "novokichev-camp",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novo-frozen-works"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-camp",
+      "destination": "novo-frozen-works",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1050,
+          "level": 198,
+          "mode": "walk",
+          "name": "凍止設備の通路",
+          "from": "novokichev-camp",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novo-frozen-works"
+        }
+      ]
+    },
+    {
+      "start": "novo-frozen-works",
+      "destination": "novokichev-camp",
+      "stops": [
+        {
+          "approach": "現在地から左へ",
+          "region": "branch-09",
+          "previewX": 1435,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+          "from": "novo-frozen-works",
+          "gateX": 1435,
+          "hint": "右側の門",
+          "label": "徒歩",
+          "id": "novokichev-camp"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-camp",
+      "destination": "novo-drift-passage",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1050,
+          "level": 198,
+          "mode": "walk",
+          "name": "凍止設備の通路",
+          "from": "novokichev-camp",
+          "approach": "現在地から左へ",
+          "label": "徒歩",
+          "id": "novo-frozen-works"
+        },
+        {
+          "region": "branch-09",
+          "previewX": 1595,
+          "level": 200,
+          "previewY": 385,
+          "mode": "walk",
+          "name": "吹き溜まりの連絡坑",
+          "from": "novo-frozen-works",
+          "hint": "上段の入口",
+          "label": "徒歩",
+          "id": "novo-drift-passage"
+        }
+      ]
+    },
+    {
+      "start": "novo-drift-passage",
+      "destination": "novo-ice-vault",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1475,
+          "level": 200,
+          "mode": "walk",
+          "name": "氷殻の最深室",
+          "from": "novo-drift-passage",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novo-ice-vault"
+        }
+      ]
+    },
+    {
+      "start": "novo-ice-vault",
+      "destination": "novokichev-camp",
+      "stops": [
+        {
+          "region": "branch-09",
+          "previewX": 1660,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+          "from": "novo-ice-vault",
+          "approach": "現在地から右へ",
+          "label": "徒歩",
+          "id": "novokichev-camp"
+        }
+      ]
+    },
+    {
+      "start": "novokichev-camp",
+      "destination": "novokichev-camp",
+      "stops": []
+    }
+  ],
+  "reports": [
+    {
+      "quest": "novokichev-survey",
+      "xp": 6000,
+      "mora": 700
+    },
+    {
+      "quest": "novo-expedition-ready",
+      "xp": 19500000,
+      "mora": 9200
+    },
+    {
+      "quest": "novo-equipment-route",
+      "xp": 26800000,
+      "mora": 10800
+    },
+    {
+      "quest": "novo-return-report",
+      "xp": 17133467,
+      "mora": 882270
+    }
+  ],
+  "locks": [
+    {
+      "node": "novokichev-camp",
+      "target": "novo-frozen-works",
+      "reason": "依頼「最深部へ、急がずに」（報告まで 0/1）　ノヴォキッチェヴ（仮構造）・入口拠点：拠点の装備台で旅人と同行者の装備を確かめる"
+    },
+    {
+      "node": "novo-frozen-works",
+      "target": "novo-drift-passage",
+      "reason": "ノヴォキッチェヴ（仮構造）・入口拠点で依頼「凍った設備に、通り道」を報告してください。"
+    }
+  ],
+  "battles": [
+    {
+      "node": "novo-frozen-works",
+      "targets": [
+        "novo-works-hoist-guard"
+      ],
+      "xp": 1975778,
+      "kills": 1
+    },
+    {
+      "node": "novo-frozen-works",
+      "targets": [
+        "novo-works-wheel-guard"
+      ],
+      "xp": 1975778,
+      "kills": 1
+    },
+    {
+      "node": "novo-drift-passage",
+      "targets": [
+        "novo-drift-west-guard",
+        "novo-drift-upper-guard",
+        "novo-drift-east-guard"
+      ],
+      "xp": 6223686,
+      "kills": 3
+    },
+    {
+      "node": "novo-ice-vault",
+      "targets": [
+        "original-ice-crawler"
+      ],
+      "xp": 14818300,
+      "kills": 1
+    }
+  ],
+  "suspendedAbsent": true,
+  "returns": 0
+}

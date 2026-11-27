@@ -1,0 +1,51 @@
+{
+  "tiers": [
+    "source",
+    4096,
+    6144
+  ],
+  "results": [
+    {
+      "id": "novokichev-camp",
+      "key": "novokichev",
+      "file": "novokichev-background-v1.png",
+      "bundle": "shared-scenes-novokichev-native-backgrounds.lua",
+      "packedBytes": 27306
+    },
+    {
+      "id": "novokichev-depth",
+      "key": "novokichev",
+      "file": "novokichev-background-v1.png",
+      "bundle": "shared-scenes-novokichev-native-backgrounds.lua",
+      "packedBytes": 27306
+    },
+    {
+      "id": "wavebinder-tide-cavern",
+      "key": "wavebinderField",
+      "file": "wavebinder-field-background-v1.png",
+      "bundle": "field-arenas-novo-native-backgrounds.lua",
+      "packedBytes": 24604
+    },
+    {
+      "id": "novo-frozen-works",
+      "key": "novoFrozenWorks",
+      "file": "novo-frozen-works-background-v1.png",
+      "bundle": "novokichev-interiors-native-backgrounds.lua",
+      "packedBytes": 26838
+    },
+    {
+      "id": "novo-drift-passage",
+      "key": "novoDriftPassage",
+      "file": "novo-drift-passage-background-v1.png",
+      "bundle": "novokichev-interiors-native-backgrounds.lua",
+      "packedBytes": 24214
+    },
+    {
+      "id": "novo-ice-vault",
+      "key": "novoIceVault",
+      "file": "novo-ice-vault-background-v1.png",
+      "bundle": "field-final-arenas-native-backgrounds.lua",
+      "packedBytes": 28418
+    }
+  ]
+}

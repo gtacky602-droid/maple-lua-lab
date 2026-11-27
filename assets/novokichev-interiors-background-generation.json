@@ -1,0 +1,21 @@
+{
+  "origin": "Built-in ImageGen; two independent original provisional 2D lab backgrounds for the frozen Novokichev subarea. Existing project scenes guided the palette, and the render stays behind authored Lua collision and placements.",
+  "scenes": [
+    {
+      "key": "novoFrozenWorks",
+      "node": "novo-frozen-works",
+      "source": "novo-frozen-works-background-v1.png",
+      "preview": "novo-frozen-works-native-preview-v1.png",
+      "note": "凍止設備の通路のラボ用仮背景",
+      "prompt": "Create one original 16:9 painted video game background for a 2D side-view RPG, frozen industrial service works deep under a snowy mountain. Background plate only. The camera is perpendicular to the traversal lane, wide panorama, readable broad shapes, painterly fantasy environment with pale steel blue, desaturated blue-grey iron, and a few muted amber service lights. Distinct unpowered machinery built into rock in the upper and middle thirds: suspended horizontal pipes, shut valves, an iced-over hoist and old industrial steel braces. The low horizontal quarter from left to right is quiet, dark and empty, with a nearly horizontal unobstructed depth floor, because the game adds walkable platforms and actors separately. Center is legible behind colorful pixel sprites. Avoid a strong vanishing point, any labels or numbers, people, creatures, UI, borders, text, platform tiles, a glowing giant flower, and bright foreground clutter. No reproduction of an existing game location, an original provisional iceworks environment for a game prototype. Opaque landscape image."
+    },
+    {
+      "key": "novoDriftPassage",
+      "node": "novo-drift-passage",
+      "source": "novo-drift-passage-background-v1.png",
+      "preview": "novo-drift-passage-native-preview-v1.png",
+      "note": "吹き溜まりの連絡坑のラボ用仮背景",
+      "prompt": "Create one original 16:9 painted video game background for a 2D side-view RPG, a snowdrift service tunnel in a cold underground branch. Background plate only, horizontal broadside camera for side-scrolling. Repeated rounded rock bays and old low stone arch blocks, a row of different windblown shallow powder drifts along the distant wall, a very soft light blue shaft of winter light from a narrow upper opening at left, small restrained white-blue icicles and traces of a buried charcoal rail. Misty slate blues and icy cerulean, soft desaturated blue-grey shapes that feel markedly quieter and more natural than a factory. Background forms in upper and middle thirds. Keep the lower quarter across the entire frame open, dark and low contrast for separately drawn ground, ledges, and pixel characters. Painted fantasy game backdrop with readable silhouette layers; no people, creatures, weapons, signs, UI, embedded platforms, borders, typography, giant flower, crystal vault, or logos. Original provisional art, opaque single panorama."
+    }
+  ]
+}

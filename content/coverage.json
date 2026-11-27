@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "novokichev_interiors": {"rooms":6,"newLabBackgrounds":2,"luaTravelLegs":15,"questReports":4,"renderComparisons":18,"record":"evidence/novokichev-travel-lua.json","browser":"evidence/novokichev-scenery.json"},
   "encounter_catalog_loading": {"catalogRows":87,"adventureLinks":86,"directTrials":11,"galleryLoadIndependent":true,"exactArtLinks":true,"browser":"evidence/encounter-readiness-test.json"},
   "standard_campaign_pace": {"verifiedThroughLevel":200,"checkpointHandoffs":8,"matchingDecodedCheckpoints":9,"replaySeconds":109022.68,"huntSeconds":101540.26,"otherRouteSeconds":7482.42,"atDesignHuntRateSeconds":116267.77,"designSeconds":180000,"record":"evidence/standard-campaign-checkpoints.json"},
   "dvalin_crystal_windows": {"expertReplays":2,"exposureTicks":420,"firstCrystalDamage":[384,0],"guardBreaks":[2,3],"comparisonScenes":16,"matchedExpandedRectangleStreams":32,"record":"evidence/dvalin-crystal-windows-20261128.json"},

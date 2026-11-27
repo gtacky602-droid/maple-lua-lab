@@ -329,6 +329,14 @@ Chromeでは金リンゴ群島で地図を開き、横穴へ歩いて入って�
 
 Chromeでも、入口拠点から珊瑚の浅い水路へ潜り、案内に従って浮上する往復を確認した。 [獲得セーブからの通行・報酬・復元記録](../evidence/earned-terrain-quests-lua.json) · [Chromeの往復](../evidence/earned-atlas-routes-browser.json) · [地図の画面](../evidence/earned-atlas-bygone-dive.png)
 
+### ノヴォキッチェヴの地下区画
+
+凍止設備の通路では配管と巻き上げ機、吹き溜まりの連絡坑では雪と石アーチで区画を見分けられる。2枚ともImageGenで制作したラボ用の仮背景。入口拠点と探索路は同じ地下の景色を使う。6地点すべてでM地図から背景比較を開き、元画像と4,096・6,144矩形版を表示した。 [6地点の背景比較](../evidence/novokichev-terrain-comparison.png) · [M地図の検査](../evidence/novokichev-scenery.json)
+
+Lv200まで育成したセーブで、地図の案内に従い15区間を移動した。依頼の報告前に閉じる門2か所、設備を操作した後の足場、最深室から拠点への帰り道を確認した。探索路の調査と遠征の依頼4件を報告し、再読込で完了状態を確認した。 [Luaの試走記録](../evidence/novokichev-travel-lua.json)
+
+背景2枚のLuaデータは26,838 Bと24,214 B。512×288の各5段階で、符号化方式を切り替えても復元した画素は一致した。元画像から矩形化する際の色差は、元絵と比べて別に記録した。 [比較画像の生成設定](../assets/novokichev-interiors-background-generation.json) · [圧縮と画質の記録](../evidence/novokichev-interiors-background-compression.json)
+
 ### ドーンマンポートの機関室と霜月の試験室
 
 獲得Lv180のセーブで、ドーンマンポートの見晴らし台3か所、渡り廊下での旗の配達、潮風の機関室での稜風の帆塔機の討伐と通行確認を行った。港に戻って3件を報告し、保存を読み直して討伐後の再出現待ちも確認した。見晴らし道と渡り廊下の昇降機に行き先を表示する。 [ドーンマンポートの依頼](balance/WINDWARD_ROUTE_WEB.md) · [獲得セーブのLuaログ](../evidence/earned-branch-quests-lua.json)

@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "basis": "tools/build_scenery_coverage.mjs resolves host backgrounds for every authored node and decodes every registered PNG/WebP in Chrome.",
   "scope": "Base entry scenery only. Shared lab images are temporary. Story-state overrides, canonical map completeness and production 3D are outside this inventory.",
   "regional_temporary_image": 1510,
   "fallback_mondstadt": 0,
   "unconfirmed_concept_image": 18,
-  "registered_scenes": 428,
-  "base_scenes_used": 427,
-  "decoded_files": 1257,
+  "registered_scenes": 430,
+  "base_scenes_used": 429,
+  "decoded_files": 1263,
   "nodes": [
     {
       "id": "mond-town",
@@ -1610,14 +1610,14 @@
       "name": "凍止設備の通路",
       "region": "ノヴォキッチェヴ（仮構造）",
       "status": "unconfirmed_concept_image",
-      "scenery": "novokichev"
+      "scenery": "novoFrozenWorks"
     },
     {
       "id": "novo-drift-passage",
       "name": "吹き溜まりの連絡坑",
       "region": "ノヴォキッチェヴ（仮構造）",
       "status": "unconfirmed_concept_image",
-      "scenery": "novokichev"
+      "scenery": "novoDriftPassage"
     },
     {
       "id": "novo-ice-vault",
