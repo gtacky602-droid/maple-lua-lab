@@ -1,8 +1,12 @@
 """Walk the atlas to field arenas and carry confirmed first clears into one save."""
 import argparse
+from hashlib import sha256
 import json
+from pathlib import Path
+
 from runtime import ROOT,runtime
-from test_earned_branch_quests import Journey,graph
+from test_earned_branch_quests import graph
+from test_earned_survey_itineraries import SurveyJourney
 
 def read(file):
     return json.loads((ROOT/file).read_bytes())
@@ -15,7 +19,12 @@ hubs=dict(zip(('モンド','璃月','稲妻','スメール','フォンテーヌ'
 regions={n['id']:n['region'] for n in graph['nodes']}
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--legends',action='store_true')
-legends=parser.parse_args().legends
+parser.add_argument('--from-save', type=Path)
+parser.add_argument('--output-dir', type=Path)
+args = parser.parse_args()
+if bool(args.from_save) != bool(args.output_dir):
+    parser.error('--from-save and --output-dir must be provided together')
+legends=args.legends
 hubs.update({'霜月':'nod-town','往日の海':'bygone-camp','古の聖山':'natlan-hub','オシカ・ナタ':'ochkanatlan-dock','空の神殿':'natlan-hub'})
 roster=[s for s in read('content/field-boss-spawns.json')['fieldBosses']
         if not s['id'].startswith('original-') and s['id'].startswith('legend-')==legends]
@@ -23,14 +32,25 @@ prefix='legend' if legends else 'field'
 seed='challenge-expedition-save' if legends else 'growth-expedition-save'
 source=f'evidence/{seed}.json'
 checkpoint=f'work/{prefix}-expedition-progress.json'
+directory = args.output_dir.resolve() if args.output_dir else ROOT / 'evidence'
+if args.from_save:
+    directory.mkdir(parents=True, exist_ok=True)
+    source = args.from_save.resolve()
+    seed = source.name
+    checkpoint = directory / 'expedition-progress.json'
+source_hash = sha256((ROOT / source).read_bytes()).hexdigest()
+initial = read(source)
 engine=runtime()
 rows,missed=[],[]
+already = 0
 for spec in roster:
-    trip=Journey(ROOT/source,engine,select_traveler=True)
+    trip=SurveyJourney(ROOT/source,engine,select_traveler=True)
     s=trip.state
     id,node=spec['id'],spec['node']
     start=trip.snapshot()
-    if start['endgame']['bosses'].get(id,{}).get('clears',0)>0:continue
+    if start['endgame']['bosses'].get(id,{}).get('clears',0)>0:
+        already += 1
+        continue
     hub=hubs[regions[node]]
     try:
         trip.warp(hub)
@@ -72,7 +92,10 @@ for spec in roster:
         reason=detail[2].get('reason') if isinstance(detail,tuple) and len(detail)>2 and isinstance(detail[2],dict) else str(detail)
         missed.append(dict(id=id,node=node,reason=reason or '経路未確認'))
         print('pending',node,str(error)[:160],flush=True)
-assert len(rows)+len(missed)==len(roster)
+assert len(rows)+len(missed)+already==len(roster)
 if not legends:assert not missed,missed
-write(f'evidence/{prefix}-expedition-save.json',read(checkpoint))
-write(f'evidence/{prefix}-expedition-route.json',dict(seed=seed,catalog=len(roster),newClears=rows,pending=missed))
+final = read(source)
+assert final['story']['quests'] == initial['story']['quests']
+write(directory/f'{prefix}-expedition-save.json', final)
+write(directory/f'{prefix}-expedition-route.json',
+      dict(seed=seed,sourceSha256=source_hash,catalog=len(roster),alreadyCleared=already,newClears=rows,pending=missed))

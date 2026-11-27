@@ -1,12 +1,21 @@
-"""Play the nine authored branch chains on one adventure after the regional chapters."""
+"""Finish the active highland quest chains on one earned adventure."""
+from argparse import ArgumentParser
 from hashlib import sha256
 import json
+from pathlib import Path
 import re
 
 from runtime import ROOT, runtime
-from test_earned_branch_quests import Journey, quests
-from test_earned_highland_quests import dragonspine, chenyu, ochkanatlan, moonlit
+from story_scope import suspended_stage_returns
+from test_earned_branch_quests import graph, quests, windward
+from test_earned_highland_quests import dragonspine, chenyu, ochkanatlan
+from test_earned_survey_itineraries import SurveyJourney
 from test_earned_terrain_quests import enkanomiya, tunigi, bygone, novo
+
+routes = {
+    'Q-B01': dragonspine, 'Q-B02': chenyu, 'Q-B03': enkanomiya, 'Q-B04': tunigi,
+    'Q-B05': bygone, 'Q-B06': windward, 'Q-B07': ochkanatlan, 'Q-B09': novo,
+}
 
 
 def completed(save):
@@ -17,21 +26,26 @@ def write(path, value):
     path.write_bytes((json.dumps(value,sort_keys=True,ensure_ascii=False)+'\n').encode('utf8'))
 
 
-def main():
-    seed=ROOT/'evidence/dornman-after-chapters-save.json'
-    initial=json.loads(seed.read_bytes())
-    already=completed(initial)
-    branch={q['id']:q['designId'] for q in quests.values() if re.fullmatch(r'Q-B\d{2}-\d{2}',q.get('designId',''))}
-    regional=[q['id'] for q in quests.values() if re.fullmatch(r'Q-(MON|LIY|INA|SUM|FON|NAT|NOD|SNE)-[MS]\d{2}',q.get('designId',''))]
-    assert len(regional)==64 and all(q in already for q in regional)
-    assert len(branch)==27 and {branch[q] for q in already if q in branch}=={'Q-B06-01','Q-B06-02','Q-B06-03'}
-    work=ROOT/'work/earned-branch-expedition'
+def main(seed, work):
+    raw = seed.read_bytes()
+    initial = json.loads(raw)
+    assert initial['progression']['level'] == 200
+    suspended = suspended_stage_returns(graph)
+    branch = {q['id']: q['designId'] for q in quests.values()
+              if re.fullmatch(r'Q-B\d{2}-\d{2}', q.get('designId', ''))
+              and q['hub'] not in suspended and q.get('target') not in suspended}
+    assert set(routes) == {design_id.rsplit('-', 1)[0] for design_id in branch.values()}
     work.mkdir(parents=True,exist_ok=True)
     source=seed
     evidence=[]
-    for route in (dragonspine,chenyu,enkanomiya,tunigi,bygone,ochkanatlan,moonlit,novo):
-        trip=Journey(source,runtime(),select_traveler=True)
+    engine = runtime()
+    save = initial
+    for region, route in routes.items():
+        trip = SurveyJourney(source, engine, select_traveler=True)
         before=completed(trip.snapshot())
+        expected = {qid for qid, code in branch.items() if code.startswith(region + '-')} - before.keys()
+        if not expected:
+            continue
         bag=trip.state.inventory
         items=list(bag['items'].values())
         recovery=None
@@ -56,19 +70,25 @@ def main():
         after=completed(save)
         assert all(after.get(q)==record for q,record in before.items())
         gained=after.keys()-before.keys()
-        assert len(gained)==3 and gained=={row['quest'] for row in result['reports']}
+        assert gained==expected=={row['quest'] for row in result['reports']}
         assert save['progression']['level']==200 and trip.state.returns==0
-        region=sorted(branch[q] for q in gained)
-        assert [id[-2:] for id in region]==['01','02','03'] and len({id[:5] for id in region})==1
-        evidence.append(dict(region=region[0][:5], quests=region, reports=result['reports'], battles=result['battles'],
-                             supplies=recovery,crossings=sorted(trip.crossings), stop=save['story']['node']))
         source=work/(route.__name__+'.json')
         write(source,save)
-        print(route.__name__,region,save['story']['node'],flush=True)
+        evidence.append(dict(region=region, quests=sorted(branch[q] for q in gained),
+                             reports=result['reports'], battles=result['battles'],
+                             supplies=recovery, crossings=sorted(trip.crossings), stop=save['story']['node'],
+                             inputSha256=trip.source, outputSha256=sha256(source.read_bytes()).hexdigest()))
+        print(route.__name__, len(gained), save['story']['node'], flush=True)
+    after = completed(save)
     assert all(q in after for q in branch)
-    write(ROOT/'evidence/branch-expedition-save.json',save)
-    write(ROOT/'evidence/branch-expedition-route.json',dict(seed=seed.name,sourceSha256=sha256(seed.read_text('utf8').encode('utf8')).hexdigest(),
-          level=200,regions=9,branchReports=27,regionalReports=64,returns=trip.state.returns,stages=evidence))
+    write(work/'branch-expedition-save.json',save)
+    write(work/'branch-expedition-route.json',dict(seed=seed.name,sourceSha256=sha256(raw).hexdigest(),
+          level=200,regions=len(routes),branchReports=len(branch),previousReports=len(completed(initial)),
+          complete=len(after),stages=evidence))
 
 if __name__=='__main__':
-    main()
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('--from-save', type=Path, default=ROOT/'evidence/dornman-after-chapters-save.json')
+    parser.add_argument('--output-dir', type=Path, default=ROOT/'work/earned-branch-expedition')
+    args = parser.parse_args()
+    main(args.from_save.resolve(), args.output_dir.resolve())

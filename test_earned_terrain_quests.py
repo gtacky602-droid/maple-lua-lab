@@ -23,8 +23,8 @@ def start(quest, origin, file='lv165-save.json', *, trip=None):
         trip = Journey(file)
     trip.warp(origin)
     trip.travel(quests[quest]['hub'])
-    assert trip.state.story.quests[quest] is None
-    trip.act('story_accept:' + quest)
+    if trip.state.story.quests[quest] is None:
+        trip.act('story_accept:' + quest)
     return trip
 
 
@@ -60,11 +60,12 @@ def enkanomiya(trip=None):
     shelf, room, gallery = 'enkan-guide-shelf', 'enkan-lamp-chamber', 'enkan-route-gallery'
     first, second, third = 'enkan-safety-leaflet', 'enkan-shadow-crossing', 'enkan-coverless-log'
     trip = start(first, 'inazuma-town', trip=trip)
-    trip.confirm_lock(room, '報告')
-    trip.travel(shelf)
-    for index in (1, 2, 3):
-        trip.mark(first, index)
-    finish(trip, first)
+    if trip.state.story.quests[first].status != 'complete':
+        trip.confirm_lock(room, '報告')
+        trip.travel(shelf)
+        for index in (1, 2, 3):
+            trip.mark(first, index)
+        finish(trip, first)
     trip.act('story_accept:' + second)
     trip.travel(room)
     assert trip.frame().storyLocalLight.mode == 'bright' and len(trip.state.platforms) == 2
@@ -146,7 +147,9 @@ def bygone(trip=None):
     if standalone:
         (ROOT / 'work/earned-bygone-camp.json').write_text(
             json.dumps(trip.snapshot(), ensure_ascii=False)+'\n', encoding='utf8')
-    trip.confirm_lock(hall, '報告')
+    first_done = trip.state.story.quests[first].status == 'complete'
+    if not first_done:
+        trip.confirm_lock(hall, '報告')
     shallows, channel, ruin, pier = 'bygone-wp-68600', 'bygone-wp-68599', 'fon-wp-68345', 'fon-wp-68341'
     out = trip.travel(shallows)[0]
     back = trip.travel(camp)[0]
@@ -158,10 +161,11 @@ def bygone(trip=None):
     assert '島南から遺構に潜る' in trip.travel(ruin)[0]['hint']
     assert '往日の海へ続く' in trip.travel(channel)[0]['hint']
     trip.travel(camp)
-    assert trip.travel(chamber)[-1]['mode'] == 'water'
-    for index in (1, 2, 3, 4):
-        trip.mark(first, index)
-    finish(trip, first)
+    if not first_done:
+        assert trip.travel(chamber)[-1]['mode'] == 'water'
+        for index in (1, 2, 3, 4):
+            trip.mark(first, index)
+        finish(trip, first)
     trip.act('story_accept:' + second)
     trip.travel(hall)
     for x, y in ((1305, 480), (545, 480), (960, 393)):
@@ -188,10 +192,11 @@ def novo(trip=None):
     camp, works, passage, vault = 'novokichev-camp', 'novo-frozen-works', 'novo-drift-passage', 'novo-ice-vault'
     first, second, third = 'novo-expedition-ready', 'novo-equipment-route', 'novo-return-report'
     trip = start(first, 'snezhnaya-hub', 'lv200-save.json', trip=trip)
-    trip.confirm_lock(works, '報告')
-    interact(trip, 450, action='story_expedition_trial')
-    trip.mark(first, 1)
-    finish(trip, first)
+    if trip.state.story.quests[first].status != 'complete':
+        trip.confirm_lock(works, '報告')
+        interact(trip, 450, action='story_expedition_trial')
+        trip.mark(first, 1)
+        finish(trip, first)
     trip.act('story_accept:' + second)
     trip.travel(works)
     trip.mark(second, 1)

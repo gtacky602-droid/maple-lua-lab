@@ -49,15 +49,16 @@ def chenyu(trip=None):
     lift, pavilion = 'chenyu-tea-lift', 'chenyu-tea-pavilion'
     first, second, third = 'chenyu-tea-delivery', 'chenyu-loading-landing', 'chenyu-tea-with-friends'
     trip = start(first, 'liyue-harbor', trip=trip)
-    trip.confirm_lock(lift, '報告')
-    trip.travel(terrace)
-    for index in (1, 2, 3):
-        trip.mark(first, index)
-    assert '展望亭への登り道' in trip.travel(pavilion)[0]['hint']
-    trip.mark(first, 4)
-    trip.travel(road)
-    trip.mark(first, 5)
-    finish(trip, first)
+    if trip.state.story.quests[first].status != 'complete':
+        trip.confirm_lock(lift, '報告')
+        trip.travel(terrace)
+        for index in (1, 2, 3):
+            trip.mark(first, index)
+        assert '展望亭への登り道' in trip.travel(pavilion)[0]['hint']
+        trip.mark(first, 4)
+        trip.travel(road)
+        trip.mark(first, 5)
+        finish(trip, first)
 
     trip.act('story_accept:' + second)
     trip.travel(lift)
@@ -99,11 +100,13 @@ def ochkanatlan(trip=None):
         assert trip.state.voyage and trip.state.voyage.arrives - trip.state.t == 90
         approach = trip.travel(dock)
         assert '30〜50秒の間に途中下船' in approach[0]['hint']
-        trip.act('story_accept:' + first)
-        trip.travel(steps)
-        for index in (1, 2, 3):
-            trip.mark(first, index)
-        finish(trip, first)
+        record = trip.state.story.quests[first]
+        if not record or record.status != 'complete':
+            trip.act('story_accept:' + first)
+            trip.travel(steps)
+            for index in (1, 2, 3):
+                trip.mark(first, index)
+            finish(trip, first)
         return trip
 
     low_proof = None
