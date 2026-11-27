@@ -1,5 +1,5 @@
 {
-  "sourceSha256": "b9415dc873c3fb6395de09f31636098dadb45e46102d3f40d7d687612d1c0925",
+  "sourceSha256": "502240a540eec7d4ca0913f42441b048d7be1894dacf8bddcced74e5b922755c",
   "route": [
     {
       "id": "sne-mitya-observation",
@@ -153,6 +153,15 @@
       "total": 1222723267,
       "killXp": 800185681,
       "questXp": 422537586
+    },
+    {
+      "id": "white-pass-station",
+      "node": "white-pass-station",
+      "seconds": 15770.35,
+      "level": 160,
+      "total": 1222892278,
+      "killXp": 800354692,
+      "questXp": 422537586
     }
   ],
   "hunts": [
@@ -240,9 +249,9 @@
   "trainSeconds": 9.0,
   "snowMatch": {
     "opponent": 3,
-    "player": 5,
-    "losses": 0,
     "wins": 1,
+    "losses": 0,
+    "player": 5,
     "draws": 0,
     "best": 5
   },

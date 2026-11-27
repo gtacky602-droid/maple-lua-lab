@@ -1,94 +1,95 @@
 {
+  "sourceSha256": "52992b13cb7527f7f8c7c0ec6ec14092aa906e91ed238010dd3feccfc1e84935",
   "route": [
     {
       "id": "inazuma-moving-lantern",
       "seconds": 38.58,
       "level": 42,
-      "total": 505610,
+      "total": 506190,
       "questXp": 379916,
-      "killXp": 125694,
+      "killXp": 126274,
       "kills": 1175
     },
     {
       "id": "inazuma-torii-maze",
-      "seconds": 95.08,
+      "seconds": 115.43,
       "level": 45,
-      "total": 695471,
+      "total": 696051,
       "questXp": 566477,
-      "killXp": 128994,
+      "killXp": 129574,
       "kills": 1184
     },
     {
       "id": "inazuma-lantern-contest",
-      "seconds": 139.47,
+      "seconds": 161.18,
       "level": 52,
-      "total": 1418139,
+      "total": 1418719,
       "questXp": 1285779,
-      "killXp": 132360,
+      "killXp": 132940,
       "kills": 1189
     },
     {
       "id": "ayaka-join",
-      "seconds": 161.32,
+      "seconds": 183.03,
       "level": 52,
-      "total": 1462190,
+      "total": 1462770,
       "questXp": 1328114,
-      "killXp": 134076,
+      "killXp": 134656,
       "kills": 1195
     },
     {
       "id": "ina-sayu-quiet-route",
-      "seconds": 180.72,
+      "seconds": 202.43,
       "level": 53,
-      "total": 1541689,
+      "total": 1542269,
       "questXp": 1406469,
-      "killXp": 135220,
+      "killXp": 135800,
       "kills": 1197
     },
     {
       "id": "ina-walking-teahouse",
-      "seconds": 198.77,
+      "seconds": 220.48,
       "level": 54,
-      "total": 1686716,
+      "total": 1687296,
       "questXp": 1551496,
-      "killXp": 135220,
+      "killXp": 135800,
       "kills": 1197
     },
     {
       "id": "sumeru-level-gate",
-      "seconds": 203.83,
+      "seconds": 225.55,
       "level": 54,
-      "total": 1686716,
+      "total": 1687296,
       "questXp": 1551496,
-      "killXp": 135220,
+      "killXp": 135800,
       "kills": 1197
     },
     {
       "id": "lv56",
-      "seconds": 898.7,
+      "seconds": 919.35,
       "level": 56,
-      "total": 1941181,
+      "total": 1941207,
       "questXp": 1551496,
-      "killXp": 389685,
-      "kills": 1657
+      "killXp": 389711,
+      "kills": 1656
     },
     {
       "id": "lv60",
-      "seconds": 1879.65,
+      "seconds": 1676.15,
       "level": 60,
-      "total": 2733635,
+      "total": 2736677,
       "questXp": 1551496,
-      "killXp": 1182139,
-      "kills": 2708
+      "killXp": 1185181,
+      "kills": 2711
     },
     {
       "id": "sumeru-hub",
-      "seconds": 1897.87,
+      "seconds": 1694.73,
       "level": 60,
-      "total": 2736520,
+      "total": 2738763,
       "questXp": 1551496,
-      "killXp": 1185024,
-      "kills": 2713
+      "killXp": 1187267,
+      "kills": 2715
     }
   ],
   "hunting": [
@@ -154,111 +155,87 @@
     },
     {
       "stage": "inazuma-outer-shore",
-      "kills": 30,
-      "xp": 16620,
-      "seconds": 24.58
+      "kills": 29,
+      "xp": 16066,
+      "seconds": 23.52
     },
     {
       "stage": "sites-hunt-18667",
-      "kills": 86,
-      "xp": 64844,
+      "kills": 92,
+      "xp": 69368,
+      "seconds": 70.7
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 82,
+      "xp": 61828,
+      "seconds": 57.03
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 48,
+      "xp": 36192,
+      "seconds": 32.32
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 75,
+      "xp": 56550,
+      "seconds": 47.55
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 113,
+      "xp": 85202,
+      "seconds": 73.43
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 66,
+      "xp": 49764,
+      "seconds": 43.63
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 85,
+      "xp": 64090,
+      "seconds": 58.13
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "kills": 116,
+      "xp": 87464,
       "seconds": 75.02
     },
     {
       "stage": "sites-hunt-18667",
-      "kills": 42,
-      "xp": 31668,
-      "seconds": 38.55
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 74,
-      "xp": 55796,
-      "seconds": 63.05
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 71,
-      "xp": 53534,
-      "seconds": 61.25
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 90,
-      "xp": 67860,
+      "kills": 112,
+      "xp": 84448,
       "seconds": 75.02
     },
     {
       "stage": "sites-hunt-18667",
-      "kills": 42,
-      "xp": 31668,
-      "seconds": 37.08
+      "kills": 69,
+      "xp": 52026,
+      "seconds": 45.83
     },
     {
       "stage": "sites-hunt-18667",
-      "kills": 47,
-      "xp": 35438,
-      "seconds": 42.05
+      "kills": 109,
+      "xp": 82186,
+      "seconds": 74.42
     },
     {
       "stage": "sites-hunt-18667",
-      "kills": 54,
-      "xp": 40716,
-      "seconds": 47.02
+      "kills": 64,
+      "xp": 48256,
+      "seconds": 44.15
     },
     {
       "stage": "sites-hunt-18667",
-      "kills": 51,
-      "xp": 38454,
-      "seconds": 45.33
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 55,
-      "xp": 41470,
-      "seconds": 48.17
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 62,
-      "xp": 46748,
-      "seconds": 55.93
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 73,
-      "xp": 55042,
-      "seconds": 66.23
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 56,
-      "xp": 42224,
-      "seconds": 54.33
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 59,
-      "xp": 44486,
-      "seconds": 54.33
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 67,
-      "xp": 50518,
-      "seconds": 54.55
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 59,
-      "xp": 44486,
-      "seconds": 53.7
-    },
-    {
-      "stage": "sites-hunt-18667",
-      "kills": 45,
-      "xp": 33930,
-      "seconds": 37.3
+      "kills": 7,
+      "xp": 5278,
+      "seconds": 3.8
     }
   ],
   "recoveryTrips": 0,

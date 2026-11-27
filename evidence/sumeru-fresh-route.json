@@ -1,93 +1,94 @@
 {
+  "sourceSha256": "01938b65a19eaec309ad573ff6d3d6eb93f1f848c3e5559ffcde731014af8830",
   "route": [
     {
       "id": "sumeru-leaf-crossing",
       "seconds": 20.55,
-      "level": 61,
-      "total": 3175967,
+      "level": 62,
+      "total": 3178210,
       "questXp": 1989345,
-      "killXp": 1186622,
-      "kills": 2715
+      "killXp": 1188865,
+      "kills": 2717
     },
     {
       "id": "sumeru-forest-levels",
       "seconds": 53.92,
       "level": 64,
-      "total": 3702224,
+      "total": 3704467,
       "questXp": 2515602,
-      "killXp": 1186622,
-      "kills": 2715
+      "killXp": 1188865,
+      "kills": 2717
     },
     {
       "id": "sumeru-observatory-map",
       "seconds": 103.83,
       "level": 68,
-      "total": 4737786,
+      "total": 4740029,
       "questXp": 3548767,
-      "killXp": 1189019,
-      "kills": 2719
+      "killXp": 1191262,
+      "kills": 2721
     },
     {
       "id": "sum-collei-guide",
       "seconds": 125.17,
       "level": 69,
-      "total": 4957790,
+      "total": 4960033,
       "questXp": 3768771,
-      "killXp": 1189019,
-      "kills": 2719
+      "killXp": 1191262,
+      "kills": 2721
     },
     {
       "id": "sum-wanderer-observation",
       "seconds": 144.23,
       "level": 69,
-      "total": 5111037,
+      "total": 5113280,
       "questXp": 3922018,
-      "killXp": 1189019,
-      "kills": 2719
+      "killXp": 1191262,
+      "kills": 2721
     },
     {
       "id": "sum-mapped-north-quay",
       "seconds": 171.6,
       "level": 69,
-      "total": 5157237,
+      "total": 5159480,
       "questXp": 3968218,
-      "killXp": 1189019,
-      "kills": 2719
+      "killXp": 1191262,
+      "kills": 2721
     },
     {
       "id": "lv74",
-      "seconds": 2294.82,
+      "seconds": 2290.37,
       "level": 74,
-      "total": 6755335,
+      "total": 6755284,
       "questXp": 3968218,
-      "killXp": 2787117,
+      "killXp": 2787066,
       "kills": 4107
     },
     {
       "id": "lv79",
-      "seconds": 4458.15,
+      "seconds": 4453.7,
       "level": 79,
-      "total": 9382351,
+      "total": 9382300,
       "questXp": 3968218,
-      "killXp": 5414133,
+      "killXp": 5414082,
       "kills": 5703
     },
     {
       "id": "lv80",
-      "seconds": 4738.98,
+      "seconds": 4767.82,
       "level": 80,
-      "total": 10026562,
+      "total": 10024202,
       "questXp": 3968218,
-      "killXp": 6058344,
-      "kills": 5982
+      "killXp": 6055984,
+      "kills": 5981
     },
     {
       "id": "fontaine-hub",
-      "seconds": 4754.33,
+      "seconds": 4783.17,
       "level": 80,
-      "total": 10034168,
+      "total": 10032327,
       "questXp": 3968218,
-      "killXp": 6065950,
+      "killXp": 6064109,
       "kills": 5986
     }
   ],
@@ -327,12 +328,6 @@
       "kills": 42,
       "xp": 48174,
       "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 2,
-      "xp": 2294,
-      "seconds": 2.92
     },
     {
       "stage": "sumeru-north-bank-terraces",
@@ -600,42 +595,54 @@
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 28,
-      "xp": 64652,
-      "seconds": 31.05
+      "kills": 42,
+      "xp": 96978,
+      "seconds": 40.12
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 39,
-      "xp": 90051,
-      "seconds": 37.5
+      "kills": 59,
+      "xp": 136231,
+      "seconds": 52.92
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 60,
-      "xp": 138540,
-      "seconds": 50.47
+      "kills": 23,
+      "xp": 53107,
+      "seconds": 25.1
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 68,
-      "xp": 157012,
-      "seconds": 57.83
+      "kills": 23,
+      "xp": 53107,
+      "seconds": 26.0
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 31,
-      "xp": 71579,
-      "seconds": 31.3
+      "kills": 43,
+      "xp": 99287,
+      "seconds": 44.22
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 49,
-      "xp": 113141,
+      "kills": 40,
+      "xp": 92360,
       "seconds": 38.95
+    },
+    {
+      "stage": "sites-hunt-28753",
+      "kills": 38,
+      "xp": 87742,
+      "seconds": 36.52
+    },
+    {
+      "stage": "sites-hunt-28753",
+      "kills": 2,
+      "xp": 4618,
+      "seconds": 7.4
     }
   ],
-  "recoveryTrips": 53,
+  "recoveryTrips": 55,
   "partyWipes": 0,
   "savedAndRestored": true,
   "firstFontaineQuestAvailable": "fontaine-moon-parcel",
