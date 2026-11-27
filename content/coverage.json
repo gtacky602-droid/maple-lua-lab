@@ -3,6 +3,7 @@
   "updated": "2026-11-27",
   "goal_status": "active",
   "scope_complete": false,
+  "standard_adventure_campaign": {"storyQuests":276,"reported":276,"activeEncounterWins":142,"weeklyDifficultyRecords":56,"stygianDifficultyRecords":28,"weeklyExpertRematches":14,"record":"evidence/standard-adventure-campaign-20261127.json"},
   "standard_campaign_latest_route": {"startLevel":1,"verifiedThroughLevel":200,"reportedQuests":56,"arrival":"white-pass-station","extraExpAtCap":21338352,"record":"evidence/standard-campaign-checkpoints.json","browser":"evidence/cap-fresh-route-browser.json","challengeLessons":"evidence/cap-fresh-challenges.json"},
   "standard_endgame_recheck": {"stygianHigherTierClears":21,"weeklyHigherTierClears":42,"weeklyExpertRematches":14,"originalWeeklyReports":2,"fourClientStygianLaunches":28,"record":"evidence/standard-endgame-recheck-20261127.json"},
   "field_studio_quest_replay": {"editor_revision":1,"availableStoryQuests":276,"suspendedStoryQuests":4,"legacyOnly":4,"restoredSurveyAndVisitReports":60,"surveyAndVisitLegs":581,"ordinaryHuntsChecked":12,"legendReplays":7,"record":"evidence/field-studio-20261127-quest-replay.json"},

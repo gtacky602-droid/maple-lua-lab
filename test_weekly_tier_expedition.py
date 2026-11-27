@@ -1,5 +1,8 @@
 """Clear every ranked weekly tier using the portals and the carried adventure save."""
+from argparse import ArgumentParser
 import json
+from pathlib import Path
+
 from experience import resolve_weekly_rewards
 from runtime import ROOT, native, runtime
 from test_earned_branch_quests import Journey, graph
@@ -7,7 +10,15 @@ from test_earned_branch_quests import Journey, graph
 def write(path, value):
     path.write_bytes((json.dumps(value, ensure_ascii=False, sort_keys=True)+'\n').encode())
 
-source=ROOT/'evidence/stygian-tier-expedition-save.json'
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save', type=Path)
+parser.add_argument('--output-dir', type=Path)
+args = parser.parse_args()
+if bool(args.from_save) != bool(args.output_dir):
+    parser.error('--from-save and --output-dir must be provided together')
+source = args.from_save.resolve() if args.from_save else ROOT/'evidence/stygian-tier-expedition-save.json'
+directory = args.output_dir or ROOT/'evidence'
+directory.mkdir(parents=True, exist_ok=True)
 trip=Journey(source,runtime(),select_traveler=True)
 seed=trip.snapshot()
 first_drop=trip.state.inventory.nextId
@@ -67,5 +78,5 @@ assert after['story']['quests']==seed['story']['quests']
 assert after['story']['visited']==seed['story']['visited']
 assert after['endgame']['stygian']==seed['endgame']['stygian']
 assert {i['id'] for i in seed['inventory']['items']}<={i['id'] for i in after['inventory']['items']}
-write(ROOT/'evidence/weekly-tier-expedition.json',dict(source=source.name,wins=wins,repeats=repeats))
-write(ROOT/'evidence/weekly-tier-expedition-save.json',after)
+write(directory/'weekly-tier-expedition.json',dict(source=source.name,sourceSha256=trip.source,wins=wins,repeats=repeats))
+write(directory/'weekly-tier-expedition-save.json',after)
