@@ -1,0 +1,446 @@
+{
+  "baseCommit": "de66e141e09475c59246bf00f64ffcc2badafbb2",
+  "routeSetup": "Two copies of the same earned Lv200 save, with reduced equipment and companion attacks held. Each pilot enters the extreme fight from the Stygian desk, reaches the finale with normal inputs and attacks during the recovery.",
+  "beforeAfterCombatTraceIdentical": true,
+  "fights": [
+    {
+      "controller": "capitano",
+      "case": "capitano-evade",
+      "label": "隊長の終式・四段を回避",
+      "ticks": 4579,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stageOrder": [
+        1,
+        2,
+        3
+      ],
+      "path": {
+        "origin": 426.59999999999997,
+        "landing": 496.0,
+        "direction": 1
+      },
+      "windows": [
+        138,
+        210,
+        282,
+        348
+      ],
+      "positions": [
+        {
+          "group": 1,
+          "x": 706.0,
+          "y": 480,
+          "left": 496.0,
+          "right": 654.4
+        },
+        {
+          "group": 2,
+          "x": 622.0,
+          "y": 360.8333333333333,
+          "left": 496.0,
+          "right": 760.0
+        },
+        {
+          "group": 3,
+          "x": 622.0,
+          "y": 480,
+          "left": 496.0,
+          "right": 760.0
+        },
+        {
+          "group": 4,
+          "x": 706.0,
+          "y": 480,
+          "left": 496.0,
+          "right": 689.6
+        }
+      ],
+      "hits": [],
+      "recoveryTicks": 240,
+      "recoveryDamageDealt": 52,
+      "reward": {
+        "xp": 78998004,
+        "mora": 6100,
+        "rank": 5,
+        "bag": true,
+        "first": false,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ],
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      }
+    },
+    {
+      "controller": "capitano",
+      "case": "capitano-hit",
+      "label": "隊長の終式・四段が命中",
+      "ticks": 4579,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stageOrder": [
+        1,
+        2,
+        3
+      ],
+      "path": {
+        "origin": 426.59999999999997,
+        "landing": 496.0,
+        "direction": 1
+      },
+      "windows": [
+        138,
+        210,
+        282,
+        348
+      ],
+      "positions": [
+        {
+          "group": 1,
+          "x": 552.0,
+          "y": 480,
+          "left": 496.0,
+          "right": 654.4
+        },
+        {
+          "group": 2,
+          "x": 608.0,
+          "y": 480,
+          "left": 496.0,
+          "right": 760.0
+        },
+        {
+          "group": 3,
+          "x": 608.0,
+          "y": 360.8333333333333,
+          "left": 496.0,
+          "right": 760.0
+        },
+        {
+          "group": 4,
+          "x": 569.5,
+          "y": 480,
+          "left": 496.0,
+          "right": 689.6
+        }
+      ],
+      "hits": [
+        {
+          "group": 1,
+          "tick": 138,
+          "damage": 75
+        },
+        {
+          "group": 2,
+          "tick": 210,
+          "damage": 75
+        },
+        {
+          "group": 3,
+          "tick": 282,
+          "damage": 75
+        },
+        {
+          "group": 4,
+          "tick": 348,
+          "damage": 75
+        }
+      ],
+      "recoveryTicks": 240,
+      "recoveryDamageDealt": 52,
+      "reward": {
+        "xp": 78998004,
+        "set": "黄金の劇団",
+        "mora": 6100,
+        "bag": true,
+        "first": false,
+        "rank": 5
+      },
+      "extremeClears": [
+        1,
+        2
+      ],
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      }
+    }
+  ],
+  "comparisonScenes": 14,
+  "intermediateCloserToPngAtScenes": 14,
+  "matchedExpandedRectangleStreams": 28,
+  "matchingChromeColorErrorProfiles": 28,
+  "profiles": {
+    "h48c32": {
+      "previousBytes": 8984141,
+      "currentBytes": 2320453,
+      "matchedStreams": 14,
+      "packedAfterimageDraws": 4,
+      "reductionPercent": 74.17
+    },
+    "h32c16": {
+      "previousBytes": 3747769,
+      "currentBytes": 947287,
+      "matchedStreams": 14,
+      "packedAfterimageDraws": 4,
+      "reductionPercent": 74.72
+    }
+  },
+  "chrome": "158.0.8127.38",
+  "luaRegression": {
+    "manifest_cards": [
+      "CP01",
+      "CP02",
+      "CP03",
+      "CP04",
+      "CP05",
+      "CP06",
+      "CP07",
+      "CP08",
+      "CP09"
+    ],
+    "rank_levels": [
+      144,
+      159,
+      176,
+      195
+    ],
+    "coat_change_tick": 60,
+    "intro_end_tick": 120,
+    "direction_lock_honored": true,
+    "path_no_damage": true,
+    "ground_wave_jumped": true,
+    "ground_wave_actual_contact_once": true,
+    "pillar_gaps_min_U": 1.2,
+    "crossed_plate_on_foot_then_four_fragments": true,
+    "stance_unshielded_fixed_168": true,
+    "finale_hits": [
+      138,
+      210,
+      282,
+      348
+    ],
+    "finale_path_no_contact": true,
+    "finale_drop_hint_and_grounding": true,
+    "finale_recovery_ticks": 240,
+    "ordinary_cards_before_repeat": 3,
+    "clear_cancels_mid_dash_and_keeps_record_after_pose": true,
+    "quest_report_restore": true
+  },
+  "coopRegression": {
+    "players": 2,
+    "normalHP": 2430,
+    "extremeHP": 5400,
+    "targetSlot": 2,
+    "dashRoad": {
+      "to": 837.0799999999998,
+      "from": 722.0799999999998,
+      "y": 480
+    },
+    "landingHitOnly": true,
+    "waveHitsPerPlayer": [
+      1,
+      1
+    ],
+    "finaleWindows": [
+      138,
+      210,
+      282,
+      348
+    ],
+    "rewards": [
+      {
+        "mora": 4200,
+        "rank": 4,
+        "bag": true,
+        "xp": 5621013,
+        "set": "黄金の劇団",
+        "first": true
+      },
+      {
+        "mora": 4200,
+        "rank": 4,
+        "bag": true,
+        "xp": 5621013,
+        "set": "剣闘士のフィナーレ",
+        "first": true
+      }
+    ],
+    "repeatReward": {
+      "mora": 2750,
+      "rank": 4,
+      "bag": true,
+      "xp": 4750164,
+      "set": "黄金の劇団",
+      "first": false
+    },
+    "personalQuest": true,
+    "timeoutWithoutReward": true,
+    "savedClears": 2
+  },
+  "browserRoutes": {
+    "evade": {
+      "background": {
+        "key": "frostDrillCourt",
+        "file": "capitano-court-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "cards": [
+        "CP01",
+        "CP05",
+        "CP09"
+      ],
+      "groundWaveMinFeet": 322.9166666666667,
+      "finaleLowMinFeet": 326.52777777777777,
+      "finaleHighFeet": 480,
+      "avoidedAllFinaleWindows": true,
+      "finaleDamage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "finaleHud": "終式 ｜ 4段の被ダメージなし",
+      "lowAndHighFootworkInsideLane": true,
+      "strikePose": true,
+      "transferCompression": {
+        "canvasIdentical": true,
+        "packedGzipBytes": 62912,
+        "plainGzipBytes": 85401
+      },
+      "coatOff": true,
+      "independentRotatingBlade": true,
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "commands": {
+        "png": 31,
+        "standard": 9308,
+        "light": 2376
+      },
+      "errors": []
+    },
+    "hit": {
+      "background": {
+        "key": "frostDrillCourt",
+        "file": "capitano-court-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "cards": [
+        "CP01",
+        "CP05",
+        "CP09"
+      ],
+      "groundWaveMinFeet": 322.9166666666667,
+      "finaleLowMinFeet": 480,
+      "finaleHighFeet": 326.52777777777777,
+      "avoidedAllFinaleWindows": false,
+      "finaleDamage": [
+        53,
+        53,
+        53,
+        53
+      ],
+      "finaleHud": "終式 ｜ 被弾 4 / 4・計212ダメージ",
+      "lowAndHighFootworkInsideLane": true,
+      "strikePose": true,
+      "transferCompression": {
+        "canvasIdentical": true,
+        "packedGzipBytes": 61638,
+        "plainGzipBytes": 78833
+      },
+      "coatOff": true,
+      "independentRotatingBlade": true,
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "commands": {
+        "png": 31,
+        "standard": 9284,
+        "light": 2345
+      },
+      "errors": []
+    }
+  }
+}

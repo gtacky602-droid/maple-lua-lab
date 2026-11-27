@@ -7,6 +7,10 @@ return function(C,G)
  local function hit(s,run,c,a,group)
   local b=run.boss
   local damage=C.damageActor(s,a,c.damage,b,true,true)
+  if c.finaleDamage then
+   local hits=c.finaleDamage[group] or {};c.finaleDamage[group]=hits
+   hits[a]=damage
+  end
   C.combatEvent(s,'stygian:capitano:'..c.key..':contact',a.id,b.id,damage)
   local e=s.events[#s.events];e.group=group;e.tick=c.t;e.cast=c.serial
   if damage>0 then

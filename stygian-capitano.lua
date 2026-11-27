@@ -66,7 +66,7 @@ return function(C,M)
    hit={projectiles={}},sparks={},shots={},damage=math.floor(data.damage*run.rules.attackScale+.5)}
   run.cast=c;run.phase='cast'
   M.plan(s,run,spec,c)
-  if key=='CP09' then run.ordinary=0 end
+  if key=='CP09' then run.ordinary=0;c.finaleDamage={} end
   event(s,b,key,c.serial)
  end
  local function nextMove(s,run,spec)
@@ -192,7 +192,7 @@ return function(C,M)
   return d.angles[1],86
  end
  local stageNames={'氷剣の騎士','深まる凛霜','一振りの誓い'}
- local function hint(run,spec,c)
+ local function hint(s,run,spec,c)
   if run.phase=='enter' then return '外套を脱いで氷剣を構える',spec.dialogue.enter end
   if run.phase=='phase' then
    return '次の型に移る',run.stage==2 and spec.dialogue.p2 or spec.dialogue.p3
@@ -205,8 +205,14 @@ return function(C,M)
   if c.key=='CP07' then return '氷板の前に破片が散る。背後か射線の外へ' end
   if c.key=='CP08' then return c.t<120 and '構え。肩を引いたあとに反撃が来る' or '反撃の範囲から離れる' end
   if c.key=='CP09' then
-   return c.t<150 and '一拍目　疾走の終点から離れる' or c.t<294 and
-    (c.t<222 and '二拍目　低い氷線は跳ぶ' or '二拍目　高い氷線は地上へ') or '三拍目　締めの扇から離れる'
+   if c.t<c.data.leads[2] then return '疾走の終点から離れる' end
+   if c.t<c.data.leads[3] then return '低い氷線はジャンプでかわす' end
+   if c.t<c.data.leads[4] then
+    local actor=s.actors[s.active]
+    if actor.ground and actor.y<spec.arena.floor-24 then return '高い氷線が来る。S＋Spaceで床へ降りる' end
+    return '高い氷線は床でかわす'
+   end
+   return '締めの扇から離れる'
   end
   if c.key=='CP02' then return '三連。遅れて来る三段目まで見る' end
   if c.key=='CP03' then return '走路の終点に出る一閃をかわす' end
@@ -222,11 +228,16 @@ return function(C,M)
   v.phase=isClear and 'defeat' or c and c.t>=c.data.recovery and 'recover' or run.phase
   v.tick=isClear and lowered or c and c.t or run.age
   v.coat=coat;v.card=c and c.key or nil
-  v.hint,v.dialogue=hint(run,spec,c)
+  v.hint,v.dialogue=hint(s,run,spec,c)
   if isClear then v.hint='演武を終えた';v.dialogue=spec.dialogue.clear end
   f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,phase=v.phase,label=c and c.data.title or v.stageName}
   if run.status=='failed' then return end
-  local rear={draws={}};local rect=paint(rear,s)
+  local rear={draws={}}
+  if mode=='rect' and s.packRectArt then
+   rear.rectIndex,rear.rectBatches={},f.rectBatches or {}
+   f.rectBatches=rear.rectBatches
+  end
+  local rect=paint(rear,s)
   local art=C.stygianCapitanoArt
   local side=b.dir==1 and 'right' or 'left'
   local angle,width=swordPose(c,isClear)
@@ -262,6 +273,15 @@ return function(C,M)
   end
   table.move(f.draws,1,#f.draws,#rear.draws+1,rear.draws);f.draws=rear.draws;f.commands=#f.draws
   if not c or b.hp<=0 then return end
+  if c.finaleDamage then
+   local damage={}
+   local actor=s.actors[s.active]
+   for i,w in ipairs(c.data.windows) do
+    if c.t<w[2] then break end
+    damage[i]=c.finaleDamage[i] and c.finaleDamage[i][actor] or 0
+   end
+   v.finale={damage=damage}
+  end
   rect=paint(f,s)
   local cues=M.cue(spec,c)
   v.areas={};v.locked=c.t>=c.data.lock

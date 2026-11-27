@@ -26,7 +26,7 @@ try {
     page.on('pageerror', error => errors.push(error.message));
     await page.route('**/weekly-review-local', route => route.fulfill({
       contentType:'text/html; charset=utf-8',
-      body:`<!doctype html><meta charset="utf-8"><title>週ボスの描画比較</title><style>
+      body:`<!doctype html><meta charset="utf-8"><title>ボス戦の描画比較</title><style>
         body{margin:0;background:#222e37;color:#edf4eb;font:16px system-ui,sans-serif}
         main{width:1440px;box-sizing:border-box;padding:20px;margin:auto}
         h1{margin:0 0 14px;font-size:25px} section{margin:0 0 14px}
@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText} = await import('./endgame-ui.js');
+      const {capitanoFinaleText, falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
@@ -140,17 +140,18 @@ try {
         const grid = document.createElement('div');
         grid.className = 'profiles';
         section.append(label);
-        const {falseMoon, flower, gate, heretic, move, narwhal, narwhalStage, primal} = sample.view;
+        const {falseMoon, finale, flower, gate, heretic, move, narwhal, narwhalStage, primal} = sample.view;
         const flowerText = flower && 'inside' in flower ? raidenFlowerText(flower, move) : '';
         const journeyText = narwhal ? narwhalJourneyText(narwhal, narwhalStage) : '';
         const primalText = primal ? primalTrialText(primal) : '';
         const falseMoonText = falseMoon ? falseMoonEncounterText(falseMoon) : '';
         const gateText = gate ? gateEncounterText(gate) : '';
         const hereticText = heretic ? hereticChantText(heretic) : '';
-        if (flowerText || journeyText || primalText || falseMoonText || gateText || hereticText) {
+        const finaleText = finale ? [sample.view.hint, capitanoFinaleText(finale)].filter(Boolean).join(' ｜ ') : '';
+        if (flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText) {
           const status = document.createElement('p');
           status.className = 'mechanic';
-          status.textContent = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText;
+          status.textContent = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText;
           section.append(status);
         }
         section.append(grid);
@@ -179,7 +180,7 @@ try {
         comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles,
           ...(flowerText && {flowerText}), ...(journeyText && {journeyText}),
           ...(primalText && {primalText}), ...(falseMoonText && {falseMoonText}), ...(gateText && {gateText}),
-          ...(hereticText && {hereticText})};
+          ...(hereticText && {hereticText}), ...(finaleText && {finaleText})};
       }
       return comparison;
     }, {frames, nodes, title:label});
@@ -196,12 +197,12 @@ try {
   await fs.writeFile(path.join(output, 'browser-version.txt'), version + '\n');
   await fs.writeFile(path.join(output, 'index.html'), `<!doctype html>
 <html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>週ボスの描画比較</title>
+<title>ボス戦の描画比較</title>
 <style>
  body{max-width:44rem;margin:3rem auto;padding:0 1.25rem;background:#222e37;color:#edf4eb;font:1rem/1.7 system-ui,sans-serif}
  a{color:#b8dfd4}li{margin:.6rem 0}
 </style>
-<h1>週ボスの描画比較</h1>
+<h1>ボス戦の描画比較</h1>
 <p>各行に同じ再戦場面を並べています。左から元のドット絵、中間画質 h48c32、軽量版 h32c16 です。</p>
 <ul>${gallery.join('\n')}</ul></html>\n`);
 } finally {

@@ -289,8 +289,9 @@ def expand_rectangles(frame):
                 w=width*draw['w']/draw['gridWidth']+.05,
                 h=height*draw['h']/draw['gridHeight']+.05, color=color,
             )
-            if 'opacity' in draw:
-                rectangle['opacity'] = draw['opacity']
+            for key in ('opacity', 'motionOnly', 'translucentFill'):
+                if key in draw:
+                    rectangle[key] = draw[key]
             yield rectangle
 
 
