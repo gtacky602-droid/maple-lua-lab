@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const hub='natlan-hub',arena='natlan-solar-court',quest='stygian-xbalanque-commission';
-const prefix='evidence/stygian-xbalanque',canvas=page.locator('#game'),errors=[];
+const prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/stygian-xbalanque',canvas=page.locator('#game'),errors=[];
+const takeHits=process.env.LAB_XBALANQUE_CLASH==='hit';
 const wait=(fn,arg,timeout=65000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 page.on('pageerror',e=>errors.push(e.message));
@@ -54,10 +56,11 @@ try{
  assert.equal(await page.locator('#stygianClock').textContent(),'');
  await capture('arrival');
 
- await page.evaluate(()=>{
+ await page.evaluate(takeHits=>{
   const held=new Set();
   window.xbTrail={stages:[],cards:[],centralLeft:false,centralRight:false,groundedCentral:true,
    guard:false,punch:false,left:false,right:false};
+  window.xbFinishAllowed=false;
   let goalForFinal,beamGoal;
   function key(code,push){
    if(held.has(code)===push)return;
@@ -87,10 +90,10 @@ try{
     let goal=a.x,t=v.tick;
     if(v.card==='XB08'&&t<420){
      if(t>=156&&t<312){
-      goal=480;
-      if(v.safe&&a.x>=v.safe.left+10&&a.x<=v.safe.right-10){
-       if(t>=228&&t<240)d.centralLeft=true;
-       if(t>=300&&t<312)d.centralRight=true;
+      if(v.safe){
+       goal=takeHits?(t<240?v.safe.left-28:v.safe.right+28):480;
+       if(t>=228&&t<240)d.centralLeft||=v.safe.inLane;
+       if(t>=300&&t<312)d.centralRight||=v.safe.inLane;
        d.groundedCentral&&=a.y>=478;
       }
      }else if(v.locked&&(t<150||t>=330)){
@@ -98,7 +101,8 @@ try{
       const zone=v.areas?.find?.(z=>z.index===index);
       if(zone&&goalForFinal?.index!==index){
        const outside=a.x<zone.left-12||a.x>zone.right+12;
-       goalForFinal={index,x:outside?a.x:leaveZone(zone,a.x)};
+       goalForFinal={index,x:takeHits?Math.max(zone.left+24,Math.min(zone.right-24,a.x)):
+        outside?a.x:leaveZone(zone,a.x)};
       }
       goal=goalForFinal?.x??a.x;
      }
@@ -110,7 +114,8 @@ try{
      const z=v.areas?.[0];
      if(v.locked&&z)beamGoal??=(a.x>=z.left-12&&a.x<=z.right+12?leaveZone(z,a.x):a.x);
      goal=beamGoal??a.x;
-    }else if(v.stage<3&&v.phase!=='enter'&&v.phase!=='phase'||v.card==='XB08'&&v.phase==='recover'){
+    }else if(v.stage<3&&v.phase!=='enter'&&v.phase!=='phase'||
+             v.card==='XB08'&&v.phase==='recover'&&window.xbFinishAllowed){
      goal=b.x-Math.sign(dx||1)*76;
      if(Math.abs(goal-a.x)<10&&Math.sign(dx)!==a.dir)goal=a.x+Math.sign(dx)*19;
      attack=Math.abs(dx)<110&&Math.sign(dx)===a.dir&&a.y>422;
@@ -121,7 +126,7 @@ try{
    requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
- });
+ },takeHits);
  await wait(()=>window.lab.frame.endgameRun?.card==='XB04'&&window.lab.frame.endgameRun.tick>=78);
  await capture('beam');
  await wait(()=>window.lab.frame.endgameRun?.card==='XB08'&&window.lab.frame.endgameRun.tick>=123);
@@ -135,14 +140,25 @@ try{
  assert.equal(original.endgameRun.beat,2);
  assert.ok(original.draws.some(d=>d.source?.startsWith('xbalanque-')&&d.h===84));
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(n=>window.lab.frame.commands>n*5,original.commands);
  const standard=await frame(),rect=await capture('standard');
- await page.locator('#renderMode').selectOption('h32c16');
- await wait(n=>window.lab.frame.commands<n*.7,standard.commands);
- const light=await frame(),low=await capture('light');
+ const expanded=await captureRectTransfer(page,'h32c16',false,()=>page.locator('#renderMode').selectOption('h32c16'));
+ const light=expanded.snapshot,low=await capture('light');
+ assert.ok(light.commands<standard.commands*.7);
  assert.deepEqual([original.t,standard.t,light.t],[original.t,original.t,original.t]);
  assert.deepEqual(original.endgameRun,light.endgameRun);
  assert.equal(new Set([png,rect,low]).size,3);
+ const grouped=await captureRectTransfer(page,'h32c16',true,()=>page.locator('#packRectArt').check());
+ const packed=grouped.snapshot;
+ const body=original.draws.find(d=>d.source?.startsWith('xbalanque-')&&d.h===84);
+ const batch=packed.draws.find(d=>d.kind==='rect_runs'&&d.h===body.h&&
+  Math.abs(d.w-body.w)<1e-6&&Math.abs(d.y+d.h-body.y)<1e-6);
+ assert.ok(batch&&packed.rectBatches[batch.batch-1].length);
+ assert.equal(packed.t,light.t);
+ assert.ok(grouped.gzipBytes<expanded.gzipBytes);
+ assert.equal(grouped.raster,expanded.raster);
+ assert.equal(await capture('packed'),low);
  await page.locator('#renderMode').selectOption('sprite');
  await wait(n=>window.lab.frame.commands<n*2,original.commands);
  await page.setViewportSize({width:390,height:844});
@@ -152,13 +168,20 @@ try{
  await page.keyboard.press('KeyP');
  await wait(()=>window.lab.frame.endgameRun?.card==='XB08'&&window.lab.frame.endgameRun.phase==='recover');
  const opening=await frame();
- const hits=opening.events.filter(e=>e.kind==='stygian:xbalanque:XB08:contact'&&e.actor===1);
- assert.deepEqual(hits,[]);
+ const hits=opening.events.filter(e=>e.kind==='stygian:xbalanque:XB08:contact'&&e.actor===1&&e.value>0);
+ const finaleDamage=opening.endgameRun.finale.damage;
+ assert.deepEqual(hits.map(e=>e.group),takeHits?[1,2,3,4]:[]);
+ assert.deepEqual(finaleDamage,takeHits?[49,49,49,49]:[0,0,0,0]);
+ const finaleHud=await page.locator('#stygianMechanic').textContent();
+ assert.match(finaleHud,takeHits?/被弾 4 \/ 4・計196ダメージ/:/4段の被ダメージなし/);
+ await page.locator('.game').screenshot({path:prefix+'-clash-result.png'});
  assert.deepEqual(opening.events.filter(e=>e.kind==='stygian:xbalanque:XB08:window').map(e=>e.tick),[144,228,300,390]);
  const trail=await page.evaluate(()=>window.xbTrail);
- assert.ok(trail.centralLeft&&trail.centralRight&&trail.groundedCentral&&trail.guard&&trail.punch);
+ assert.deepEqual([trail.centralLeft,trail.centralRight],[!takeHits,!takeHits]);
+ assert.ok(trail.groundedCentral&&trail.guard&&trail.punch);
  assert.deepEqual(trail.stages,[1,2,3]);
  assert.ok(trail.cards.indexOf('XB06')<trail.cards.indexOf('XB08'));
+ await page.evaluate(()=>{window.xbFinishAllowed=true});
  await wait(()=>window.lab.frame.endgameRun?.status==='clear');
  const victory=await frame();
  assert.equal(victory.endgame.stygian['xbalanque:normal'].clears,1);
@@ -181,9 +204,11 @@ try{
  assert.deepEqual((await frame()).endgame.stygian['xbalanque:normal'],victory.endgame.stygian['xbalanque:normal']);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,normalClear:true,trail,noCountdown:true,standingEnd:true,
-  avoidedAllFinaleWindows:true,questReportSaveRestore:true,viewport390:true,
+  avoidedAllFinaleWindows:!takeHits,finaleDamage,finaleHud,questReportSaveRestore:true,viewport390:true,
+  transferCompression:{profile:'h32c16',canvasIdentical:true,packed:packed.commands,plain:light.commands,
+   packedGzipBytes:grouped.gzipBytes,plainGzipBytes:expanded.gzipBytes},
   commands:{png:original.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
- console.log('Xbalanque Chrome: fire lanes, centre refuge, sprites, three phases, victory, reward and save passed');
+ console.log('Xbalanque Chrome:',takeHits?'four hits':'central safe lane','three phases, reward and save passed');
 }catch(err){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error(JSON.stringify({node:f?.story?.node,t:f?.t,boss:f?.boss,run:f?.endgameRun,

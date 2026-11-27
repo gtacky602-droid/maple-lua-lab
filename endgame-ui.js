@@ -132,18 +132,25 @@ export function hereticChantText(v){
  return '';
 }
 
-const capitanoFinaleSteps=['終点の一閃','低い氷線','高い氷線','締めの扇'];
+const stygianFinaleLabels={
+ capitano:{title:'終式',steps:['終点の一閃','低い氷線','高い氷線','締めの扇']},
+ xbalanque:{title:'烈日激突',steps:['終点の拳','左の火帯','右の火帯','締めの太陽拳']}
+};
 
-export function capitanoFinaleText(finale){
- const damage=finale?.damage;
- if(!Array.isArray(damage)||!damage.length)return '';
- if(damage.length<capitanoFinaleSteps.length){
+export function stygianFinaleText(fight){
+ const labels=stygianFinaleLabels[fight.match];
+ const damage=fight.finale?.damage;
+ if(!labels||!Array.isArray(damage)||!damage.length)return '';
+ const lane=fight.safe?
+  (fight.safe.inLane?' ｜ 中央の安全路にいる':' ｜ 中央の安全路へ移動'):'';
+ if(damage.length<labels.steps.length){
   const loss=damage.at(-1);
-  return `${capitanoFinaleSteps[damage.length-1]} ｜ ${loss?`${loss}ダメージ`:'被ダメージなし'}`;
+  return `${labels.steps[damage.length-1]} ｜ ${loss?`${loss}ダメージ`:'被ダメージなし'}${lane}`;
  }
  const total=damage.reduce((sum,value)=>sum+value,0);
  const hits=damage.filter(value=>value>0).length;
- return hits?`終式 ｜ 被弾 ${hits} / ${damage.length}・計${total}ダメージ`:'終式 ｜ 4段の被ダメージなし';
+ return hits?`${labels.title} ｜ 被弾 ${hits} / ${damage.length}・計${total}ダメージ`:
+  `${labels.title} ｜ 4段の被ダメージなし`;
 }
 
 export function initEndgameUI(action){
@@ -263,7 +270,7 @@ export function initEndgameUI(action){
     : fight.dialogue||fight.chain?.join(' → ')||'';
    const active=fight.status==='fighting';
    const roadProgress=fight.road?.total!==undefined;
-   const finale=capitanoFinaleText(fight.finale);
+   const finale=stygianFinaleText(fight);
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
     &&!roadProgress&&fight.windMarks===undefined&&!finale);
    if(!mechanic.hidden){

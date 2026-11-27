@@ -35,6 +35,7 @@ return function(C,G)
   local target=run.target or s.actors[s.active]
   local child={key=key,data=d,owner=target.id,targetActor=target,targetMember=run.targetMember,target=target.x,t=0,new={},shots={},sparks={},
    parent=cast.serial,offset=cast.t,damage=math.floor(d.damage*run.rules.attackScale+.5)}
+  if key=='XB08' then child.finaleDamage={} end
   M.aim(s,run,spec,child)
   return child
  end
@@ -45,6 +46,10 @@ return function(C,G)
  end
  local function hit(s,run,c,a,index)
   local n=C.damageActor(s,a,c.damage,run.boss,true,true)
+  if c.finaleDamage then
+   local hits=c.finaleDamage[index] or {};c.finaleDamage[index]=hits
+   hits[a]=n
+  end
   log(s,run.boss,c,'contact',a.id,n,index)
   if n>0 then c.sparks[#c.sparks+1]={x=a.x,y=a.y-32,t=c.t} end
  end

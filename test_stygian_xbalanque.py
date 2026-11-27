@@ -163,6 +163,10 @@ step(s,98)
 assert final.child.landing==locked and len(final.child.shots)==0
 band=frame(s).endgameRun
 assert abs((band.safe.right-band.safe.left)/88-1.6)<1e-6 and band.beat==2
+assert band.safe.inLane
+place(a,band.safe.left+2)
+assert not frame(s).endgameRun.safe.inLane
+place(a,480)
 step(s,154)
 assert final.t==312 and not any(e.group in (2,3) for e in events(s,'XB08:contact',final.serial))
 assert not len(final.child.shots)
@@ -247,7 +251,8 @@ proof={'cards':list(cards),'rank_levels':[m['level'] for m in spec['modes']],
        'jump_root_height_px':1.7*88,'landing_only_contact_tick':84,
        'parent_card_lengths':{'A':318,'B':456,'C':420},'child_recoveries_and_exact_offsets':True,
        'first_solo_before_chain':True,'finale_windows':[144,228,300,390],
-       'central_safe_width_U':1.6,'finale_recovery':180,'three_ordinary_cards_between_finales':True,
+       'central_safe_width_U':1.6,'lane_indicator_requires_body_clearance':True,
+       'finale_recovery':180,'three_ordinary_cards_between_finales':True,
        'no_limit_late_record_restores':True,'clear_cancels_live_child_projectile':True,'standing_end_pose_84px':True}
 (ROOT/'evidence/stygian-xbalanque-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 print('Xbalanque Lua: eight cards, three parent patterns, landing, centre route, deadline-free clear and save passed')
