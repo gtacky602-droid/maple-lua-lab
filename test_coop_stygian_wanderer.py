@@ -98,6 +98,8 @@ def play(url):
         hp = [actor.hp for actor in (a, b)]
         watch('WD06', 574)
         assert a.hp == hp[0] and b.hp < hp[1]
+        assert view(s)['finalWind'] == {'width': 160, 'damage': 0}
+        assert view(t)['finalWind'] == {'width': 112, 'damage': hp[1] - b.hp}
         assert sum(e.kind == 'stygian:wanderer:WD06:contact' and e.tick >= 560 for e in t.events.values()) == 1
 
         advance(lambda: run.cast is None)

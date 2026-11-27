@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "wanderer_four_winds": {"extremeReplays":3,"sameFloorGateOffsetPx":58,"gateWidthsPx":[160,112],"lastWindDamage":[0,50,0],"finalRecoveryTicks":[240,150],"comparisonScenes":22,"matchedChromeCanvases":44,"record":"evidence/wanderer-four-winds-20261128.json"},
   "ronova_final_verdict": {"extremeReplays":2,"judgmentTick":840,"safeRecoveryTicks":270,"lampWaitTicks":120,"lampProtectionTicks":120,"comparisonScenes":13,"matchedChromeCanvases":26,"record":"evidence/ronova-final-verdict-20261128.json"},
   "rerir_light_trials": {"extremeReplays":2,"lampExposureTicks":[90,180],"trialDamage":[0,82],"firstTrialRecoveryTicks":180,"lastTrialRecoveryTicks":[240,96],"comparisonScenes":24,"matchedChromeCanvases":48,"record":"evidence/rerir-light-trial-branches-20261128.json"},
   "xbalanque_solar_clash": {"extremeReplays":2,"finaleWindows":[144,228,300,390],"damageAllFour":272,"safeLaneWidthPx":140.8,"recoveryTicks":180,"chainsObserved":["C","B","A"],"comparisonScenes":20,"matchedExpandedRectangleStreams":40,"record":"evidence/xbalanque-solar-clash-20261128.json"},

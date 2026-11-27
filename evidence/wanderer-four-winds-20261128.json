@@ -1,0 +1,502 @@
+{
+  "baseCommit": "8c2435bc1fe7fc3d7c300b2034e10d581ed751b3",
+  "method": "Extreme rematches from copies of the same earned Lv200 save with companion attacks held. Both mid-level marks are taken with wind-ring jumps in every run. In the finale the wide and narrow gate pilots stand at the same floor coordinates, 58 px right of the gate center, and the third pilot stands 5 px left of the center of a narrow gate. All routes land a hit in each recovery, win, and restore their repeat reward record.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "wanderer",
+      "case": "wanderer-wide-edge",
+      "label": "風標二つ・門の中心から60px",
+      "ticks": 8544,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "firstAirRecoveryTicks": 156,
+      "firstAirDamage": 221,
+      "marks": [
+        {
+          "tick": 331,
+          "n": 1,
+          "x": 212.5,
+          "y": 372
+        },
+        {
+          "tick": 406,
+          "n": 2,
+          "x": 475.0,
+          "y": 290
+        }
+      ],
+      "gate": {
+        "x": 480,
+        "width": 160
+      },
+      "burstPosition": {
+        "x": 538.0,
+        "y": 480,
+        "offset": 58.0
+      },
+      "contacts": [],
+      "recoveryTicks": 240,
+      "counterDamage": 52,
+      "reward": {
+        "xp": 20893464,
+        "first": false,
+        "rank": 5,
+        "mora": 20500,
+        "bag": true,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "wanderer",
+      "case": "wanderer-narrow-edge",
+      "label": "風標一つ・門の中心から60px",
+      "ticks": 8454,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "firstAirRecoveryTicks": 156,
+      "firstAirDamage": 221,
+      "marks": [
+        {
+          "tick": 331,
+          "n": 1,
+          "x": 212.5,
+          "y": 372
+        }
+      ],
+      "gate": {
+        "x": 480,
+        "width": 112
+      },
+      "burstPosition": {
+        "x": 538.0,
+        "y": 480,
+        "offset": 58.0
+      },
+      "contacts": [
+        {
+          "tick": 560,
+          "damage": 50
+        }
+      ],
+      "recoveryTicks": 150,
+      "counterDamage": 52,
+      "reward": {
+        "set": "黄金の劇団",
+        "xp": 20893464,
+        "mora": 20500,
+        "rank": 5,
+        "bag": true,
+        "first": false
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "wanderer",
+      "case": "wanderer-narrow-center",
+      "label": "風標一つ・門の中央",
+      "ticks": 8454,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "firstAirRecoveryTicks": 156,
+      "firstAirDamage": 221,
+      "marks": [
+        {
+          "tick": 331,
+          "n": 1,
+          "x": 212.5,
+          "y": 372
+        }
+      ],
+      "gate": {
+        "x": 480,
+        "width": 112
+      },
+      "burstPosition": {
+        "x": 475.0,
+        "y": 480,
+        "offset": -5.0
+      },
+      "contacts": [],
+      "recoveryTicks": 150,
+      "counterDamage": 52,
+      "reward": {
+        "set": "黄金の劇団",
+        "bag": true,
+        "xp": 20893464,
+        "first": false,
+        "mora": 20500,
+        "rank": 5
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    }
+  ],
+  "comparisonScenes": 22,
+  "profiles": {
+    "h48c32": {
+      "beforeBytes": 5041826,
+      "afterBytes": 1801210,
+      "matchedCommands": 22,
+      "matchedChromeCanvases": 22,
+      "packedAfterimages": 3,
+      "reductionPercent": 64.27
+    },
+    "h32c16": {
+      "beforeBytes": 2417583,
+      "afterBytes": 907710,
+      "matchedCommands": 22,
+      "matchedChromeCanvases": 22,
+      "packedAfterimages": 3,
+      "reductionPercent": 62.45
+    }
+  },
+  "chromeVersion": "158.0.8127.38",
+  "luaRegression": {
+    "cards": [
+      "WD01",
+      "WD02",
+      "WD03",
+      "WD04",
+      "WD05",
+      "WD06"
+    ],
+    "ranks": [
+      66,
+      92,
+      121,
+      157
+    ],
+    "wind_ring_changes_real_jump_only_on_takeoff": true,
+    "forward_glide_locks_and_has_floor_refuge": true,
+    "marked_platform_requires_landing": true,
+    "two_marks_land_boss_on_platform_for_156_ticks": true,
+    "dive_hits_only_at_locked_landing": true,
+    "finale_gate_widths": [
+      160,
+      112
+    ],
+    "finale_openings_ticks": [
+      240,
+      150
+    ],
+    "regular_cards_between_finales": [
+      "WD05",
+      "WD04",
+      "WD02"
+    ],
+    "failure_cancels_cast": true,
+    "quest_reward_report_and_save": true
+  },
+  "coopRegression": {
+    "players": 2,
+    "hp": 1550,
+    "sharedLockedDash": true,
+    "personalMarkProgress": true,
+    "landingY": 372,
+    "landingRecoveryTicks": 156,
+    "gates": [
+      {
+        "half": 80,
+        "x": 220,
+        "inside": true
+      },
+      {
+        "half": 56,
+        "x": 740,
+        "inside": true
+      }
+    ],
+    "finaleRecoveryTicks": [
+      240,
+      150
+    ],
+    "damageUsesPersonalGate": true,
+    "supportOnlyReward": true,
+    "rewards": [
+      {
+        "first": true,
+        "xp": 132288,
+        "mora": 8400,
+        "set": "黄金の劇団",
+        "bag": true,
+        "rank": 4
+      },
+      {
+        "first": true,
+        "xp": 132288,
+        "mora": 8400,
+        "set": "剣闘士のフィナーレ",
+        "bag": true,
+        "rank": 4
+      }
+    ],
+    "savedClears": 1
+  },
+  "defaultBrowserRegression": {
+    "background": {
+      "key": "windcourt",
+      "file": "wanderer-windcourt-background-v1.png",
+      "state": "ready"
+    },
+    "normalClear": true,
+    "trail": {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "cards": [
+        "WD01",
+        "WD02",
+        "WD03",
+        "WD06"
+      ],
+      "updrafts": 3,
+      "marks": {
+        "WD03": 2,
+        "WD06": 2
+      },
+      "heightAtLastMark": 290,
+      "floorGlide": true,
+      "firstAirHit": true,
+      "airOpening": true,
+      "safeFinal": true,
+      "finalContacts": [],
+      "directions": [
+        "wanderer-idle-left-source-v3.png",
+        "wanderer-idle-right-source-v3.png"
+      ]
+    },
+    "questReportSaveRestore": true,
+    "viewport390": true,
+    "route": null,
+    "gateText": "風標 2 / 2 ｜ 門幅 160px ｜ 安全門の内側",
+    "resultText": "風標 2 / 2 ｜ 門幅 160px ｜ 最後の風の被ダメージなし",
+    "result": {
+      "width": 160,
+      "damage": 0
+    },
+    "commands": {
+      "png": 155,
+      "standard": 5624,
+      "light": 1603
+    },
+    "transfer": {
+      "plainDraws": 1603,
+      "packedDraws": 155,
+      "plainGzip": 30725,
+      "packedGzip": 26011,
+      "identicalCanvas": true
+    },
+    "errors": []
+  },
+  "browserRoutes": {
+    "wide-edge": {
+      "background": {
+        "key": "windcourt",
+        "file": "wanderer-windcourt-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "WD01",
+          "WD02",
+          "WD03",
+          "WD06"
+        ],
+        "updrafts": 3,
+        "marks": {
+          "WD03": 2,
+          "WD06": 2
+        },
+        "heightAtLastMark": 290,
+        "floorGlide": true,
+        "firstAirHit": true,
+        "airOpening": true,
+        "safeFinal": true,
+        "finalContacts": [],
+        "directions": [
+          "wanderer-idle-left-source-v3.png",
+          "wanderer-idle-right-source-v3.png"
+        ]
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "route": {
+        "marks": 2,
+        "offset": 60
+      },
+      "gateText": "風標 2 / 2 ｜ 門幅 160px ｜ 安全門の内側",
+      "resultText": "風標 2 / 2 ｜ 門幅 160px ｜ 最後の風の被ダメージなし",
+      "result": {
+        "width": 160,
+        "damage": 0
+      },
+      "commands": {
+        "png": 155,
+        "standard": 5933,
+        "light": 1703
+      },
+      "transfer": {
+        "plainDraws": 1703,
+        "packedDraws": 155,
+        "plainGzip": 32056,
+        "packedGzip": 26854,
+        "identicalCanvas": true
+      },
+      "errors": []
+    },
+    "narrow-edge": {
+      "background": {
+        "key": "windcourt",
+        "file": "wanderer-windcourt-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "WD01",
+          "WD02",
+          "WD03",
+          "WD06"
+        ],
+        "updrafts": 3,
+        "marks": {
+          "WD03": 2,
+          "WD06": 1
+        },
+        "heightAtLastMark": 0,
+        "floorGlide": true,
+        "firstAirHit": true,
+        "airOpening": true,
+        "safeFinal": false,
+        "finalContacts": [
+          560
+        ],
+        "directions": [
+          "wanderer-idle-left-source-v3.png",
+          "wanderer-idle-right-source-v3.png"
+        ]
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "route": {
+        "marks": 1,
+        "offset": 60
+      },
+      "gateText": "風標 1 / 2 ｜ 門幅 112px ｜ 安全門へ移動",
+      "resultText": "風標 1 / 2 ｜ 門幅 112px ｜ 最後の風が命中・34ダメージ",
+      "result": {
+        "width": 112,
+        "damage": 34
+      },
+      "commands": {
+        "png": 157,
+        "standard": 5626,
+        "light": 1605
+      },
+      "transfer": {
+        "plainDraws": 1605,
+        "packedDraws": 157,
+        "plainGzip": 30974,
+        "packedGzip": 26096,
+        "identicalCanvas": true
+      },
+      "errors": []
+    },
+    "narrow-center": {
+      "background": {
+        "key": "windcourt",
+        "file": "wanderer-windcourt-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "WD01",
+          "WD02",
+          "WD03",
+          "WD06"
+        ],
+        "updrafts": 3,
+        "marks": {
+          "WD03": 2,
+          "WD06": 1
+        },
+        "heightAtLastMark": 0,
+        "floorGlide": true,
+        "firstAirHit": true,
+        "airOpening": true,
+        "safeFinal": true,
+        "finalContacts": [],
+        "directions": [
+          "wanderer-idle-left-source-v3.png",
+          "wanderer-idle-right-source-v3.png"
+        ]
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "route": {
+        "marks": 1,
+        "offset": 0
+      },
+      "gateText": "風標 1 / 2 ｜ 門幅 112px ｜ 安全門の内側",
+      "resultText": "風標 1 / 2 ｜ 門幅 112px ｜ 最後の風の被ダメージなし",
+      "result": {
+        "width": 112,
+        "damage": 0
+      },
+      "commands": {
+        "png": 157,
+        "standard": 5710,
+        "light": 1602
+      },
+      "transfer": {
+        "plainDraws": 1602,
+        "packedDraws": 157,
+        "plainGzip": 31485,
+        "packedGzip": 25746,
+        "identicalCanvas": true
+      },
+      "errors": []
+    }
+  }
+}
