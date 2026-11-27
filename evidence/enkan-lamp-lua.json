@@ -1,6 +1,25 @@
 {
   "legacyLv40Access": true,
+  "leafletEntryLevel": 100,
   "threeSafetyMarks": true,
+  "marksOutsidePatrol": [
+    [
+      315,
+      480
+    ],
+    [
+      880,
+      390
+    ],
+    [
+      1460,
+      480
+    ]
+  ],
+  "returnLandings": [
+    1342,
+    887
+  ],
   "phaseSpecificInspection": true,
   "darkSupportAndExit": true,
   "safeFloorOnRelight": true,

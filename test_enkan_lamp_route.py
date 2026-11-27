@@ -63,14 +63,23 @@ def hit(s,e,strength=100):
 low=session(40)
 gate(low,942,shelf,opened=False)
 gate(low,1380,'enkanomiya-depth')
+gate(low,60,camp)
+assert [(a.x,a.y) for a in low.actors.values()]==[(1342,480),(1302,480)]
+gate(session(99),942,shelf,opened=False)
+gate(session(100),942,shelf)
 
 s=session(110)
 fixture=checkpoint(s)
 gate(s,1125,room,opened=False)
 core.action(s,'story_accept:'+first)
 gate(s,942,shelf)
-for x,y,count in [(315,480,1),(880,390,2),(1460,480,3)]: collect(s,x,y,first,count)
+safe_points=[(315,480,1),(880,390,2),(1460,480,3)]
+for x,y,count in safe_points:
+    assert all(abs(e.y-y)>=45 or x<=e.patrolMin-60 or x>=e.patrolMax+60
+               for e in s.enemies.values()), (x,y)
+    collect(s,x,y,first,count)
 gate(s,55,camp)
+assert [(a.x,a.y) for a in s.actors.values()]==[(887,480),(847,480)]
 report(s,first,(284000,3200,3))
 
 core.action(s,'story_accept:'+second)
@@ -149,7 +158,8 @@ core.action(s,'story_collect')
 assert s.storyNotice.startswith('探検記『') and '同じ道で小間へ戻る' in s.storyNotice
 check_original_boss_retry(lua, core, s, boss, third, lambda state: gate(state, 1210, hollow))
 
-proof=dict(legacyLv40Access=True,threeSafetyMarks=True,phaseSpecificInspection=True,
+proof=dict(legacyLv40Access=True,leafletEntryLevel=100,threeSafetyMarks=True,
+    marksOutsidePatrol=[(x,y) for x,y,_ in safe_points],returnLandings=[1342,887],phaseSpecificInspection=True,
     darkSupportAndExit=True,safeFloorOnRelight=True,saveRetainsCluesAndResetsLamp=True,permanentShortcut=True,
     movingRushStopsAtRealRock=True,behindRockSafe=True,damageInsideRush=True,recordReadableAfterRestore=True,
     firstReport=[103552,371745,5],noSecondPayout=True)

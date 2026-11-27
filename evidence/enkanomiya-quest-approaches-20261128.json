@@ -1,0 +1,280 @@
+{
+  "base": "d0ff4845a281f58983cfe883df2e793e66a6da7b",
+  "portalConnectionsAndDeparturesPreserved": true,
+  "portalArrivals": [
+    {
+      "origin": "enkanomiya-camp",
+      "destination": "enkanomiya-depth",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "enkanomiya-camp",
+      "destination": "enkan-guide-shelf",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "bathysmal-field-sanctum",
+      "destination": "enkanomiya-depth",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "enkan-wp-21573",
+      "destination": "enkanomiya-depth",
+      "positions": [
+        [
+          690,
+          480
+        ],
+        [
+          650,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivals": [
+    {
+      "node": "enkanomiya-depth",
+      "positions": [
+        [
+          470,
+          480
+        ],
+        [
+          430,
+          480
+        ]
+      ]
+    }
+  ],
+  "ordinaryHunts": 165,
+  "earnedRoutes": {
+    "survey": {
+      "lv": 40,
+      "saveSha256": "b77dd129a4ef335ad6733173c072a1e2ace96299a30e3469df7b4abc8167b9d9",
+      "requiredLevelForShelf": 100,
+      "reports": [
+        {
+          "quest": "enkanomiya-survey",
+          "xp": 2000,
+          "mora": 300
+        }
+      ]
+    },
+    "leaflet": {
+      "lv": 100,
+      "saveSha256": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345",
+      "reports": [
+        {
+          "quest": "enkan-safety-leaflet",
+          "xp": 284000,
+          "mora": 3200
+        }
+      ],
+      "inspections": [
+        {
+          "name": "入口側の壁の線",
+          "position": [
+            315,
+            480
+          ],
+          "safeIdleSeconds": 3
+        },
+        {
+          "name": "休める段差",
+          "position": [
+            880,
+            390
+          ],
+          "safeIdleSeconds": 3
+        },
+        {
+          "name": "折り返しの目印",
+          "position": [
+            1460,
+            480
+          ],
+          "safeIdleSeconds": 3
+        }
+      ],
+      "requiredLevelForLamp": 105,
+      "partyWipes": 0
+    },
+    "bothRestored": true
+  },
+  "leafletBrowser": {
+    "markers": [
+      {
+        "step": 1,
+        "name": "入口側の壁の線",
+        "y": 480
+      },
+      {
+        "step": 2,
+        "name": "休める段差",
+        "y": 390
+      },
+      {
+        "step": 3,
+        "name": "折り返しの目印",
+        "y": 480
+      }
+    ],
+    "journeys": [
+      [
+        "enkanomiya-camp",
+        "enkan-guide-shelf",
+        "walk"
+      ],
+      [
+        "enkan-guide-shelf",
+        "enkanomiya-camp",
+        "walk"
+      ]
+    ],
+    "returnGate": 55,
+    "returnX": 887,
+    "quest": "enkan-safety-leaflet",
+    "restored": true,
+    "errors": []
+  },
+  "sameCameraChrome": {
+    "enkanomiya-depth": {
+      "before": {
+        "total": 7,
+        "visible": 7,
+        "camera": 250,
+        "backgroundFile": "enkanomiya-background-v1.png"
+      },
+      "after": {
+        "total": 7,
+        "visible": 7,
+        "camera": 250,
+        "backgroundFile": "enkanomiya-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 720,
+              "y": 315
+            },
+            "color": {
+              "x": 720,
+              "y": 315
+            }
+          },
+          "union": 23721,
+          "overlap": 22923,
+          "overlapPercent": 96.63589224737574,
+          "meanRgbError": 15.765083104305718
+        },
+        "rows": [
+          [
+            "標準",
+            "9,881",
+            "99.4%",
+            "5.90 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "5,802",
+            "97.9%",
+            "9.55 / 255",
+            "-41.3%"
+          ],
+          [
+            "最軽量・16色",
+            "2,539",
+            "96.6%",
+            "15.77 / 255",
+            "-74.3%"
+          ]
+        ]
+      }
+    },
+    "enkan-guide-shelf": {
+      "before": {
+        "total": 5,
+        "visible": 3,
+        "camera": 225,
+        "backgroundFile": "enkanomiya-background-v1.png"
+      },
+      "after": {
+        "total": 5,
+        "visible": 3,
+        "camera": 225,
+        "backgroundFile": "enkanomiya-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 480,
+              "y": 450
+            },
+            "color": {
+              "x": 480,
+              "y": 450
+            }
+          },
+          "union": 8349,
+          "overlap": 7857,
+          "overlapPercent": 94.10707869205893,
+          "meanRgbError": 32.554155530100545
+        },
+        "rows": [
+          [
+            "標準",
+            "7,060",
+            "98.6%",
+            "10.96 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "4,312",
+            "96.3%",
+            "25.95 / 255",
+            "-38.9%"
+          ],
+          [
+            "最軽量・16色",
+            "1,652",
+            "94.1%",
+            "32.55 / 255",
+            "-76.6%"
+          ]
+        ]
+      }
+    }
+  }
+}

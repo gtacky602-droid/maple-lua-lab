@@ -1539,28 +1539,36 @@
         "id": "enkanomiya-depth-1",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 300,
+        "x": 308,
+        "patrolMin": 285,
+        "patrolMax": 330,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
+        "x": 800,
+        "patrolMin": 778,
+        "patrolMax": 822,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-3",
         "kind": 2,
         "art": "pyro-slime",
-        "x": 850,
+        "x": 895,
+        "patrolMin": 870,
+        "patrolMax": 920,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-4",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 1120,
+        "x": 1085,
+        "patrolMin": 1060,
+        "patrolMax": 1110,
         "platform": 0
       },
       {
@@ -1568,6 +1576,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 310,
+        "patrolMin": 286,
+        "patrolMax": 334,
         "platform": 1
       },
       {
@@ -1575,6 +1585,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 650,
+        "patrolMin": 627,
+        "patrolMax": 673,
         "platform": 2
       },
       {
@@ -1583,6 +1595,8 @@
         "name": "アビサルヴィシャップ・原種",
         "art": "primordial-bathysmal-vishap",
         "x": 1010,
+        "patrolMin": 980,
+        "patrolMax": 1050,
         "platform": 3,
         "expRole": "normal"
       }
@@ -3464,11 +3478,11 @@
       {"id":"chenyu-cart-road-8","x":1410,"platform":0,"hp":27,"kind":1,"art":"pebble-courier","patrolMin":1390,"patrolMax":1430}
     ],
     "enkan-guide-shelf": [
-      {"id":"enkan-shelf-crawler-1","x":236,"platform":0,"hp":22,"kind":1,"art":"sail-shell-crawler"},
-      {"id":"enkan-shelf-crawler-2","x":559,"platform":0,"hp":28,"kind":1,"art":"sail-shell-crawler"},
-      {"id":"enkan-shelf-crawler-3","x":721,"platform":0,"hp":24,"kind":1,"art":"sail-shell-crawler"},
-      {"id":"enkan-shelf-crawler-4","x":1190,"platform":0,"hp":24,"kind":1,"art":"sail-shell-crawler"},
-      {"id":"enkan-shelf-crawler-5","x":1280,"platform":0,"hp":28,"kind":1,"art":"sail-shell-crawler"}
+      {"id":"enkan-shelf-crawler-1","x":430,"platform":0,"hp":22,"kind":1,"art":"sail-shell-crawler","patrolMin":409,"patrolMax":452},
+      {"id":"enkan-shelf-crawler-2","x":570,"platform":0,"hp":28,"kind":1,"art":"sail-shell-crawler","patrolMin":545,"patrolMax":595},
+      {"id":"enkan-shelf-crawler-3","x":735,"platform":0,"hp":24,"kind":1,"art":"sail-shell-crawler","patrolMin":710,"patrolMax":760},
+      {"id":"enkan-shelf-crawler-4","x":1190,"platform":0,"hp":24,"kind":1,"art":"sail-shell-crawler","patrolMin":1166,"patrolMax":1214},
+      {"id":"enkan-shelf-crawler-5","x":1280,"platform":0,"hp":28,"kind":1,"art":"sail-shell-crawler","patrolMin":1255,"patrolMax":1305}
     ],
     "tunigi-vent-shelf": [
       {"id":"tunigi-vent-guard-1","x":297,"platform":0,"hp":18,"kind":1,"art":"pebble-courier"},
