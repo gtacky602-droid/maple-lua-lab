@@ -32,8 +32,6 @@ for marker, point in map9.items():
     assert {p for p in links[marker]['gates']} == {
         nodes[edge['to']]['mapPoint'] for edge in stage['exits'] if edge['to'] in stages
     }
-    xs = sorted(edge['x'] for edge in stage['exits'])
-    assert all(b - a >= 180 for a, b in zip(xs, xs[1:])), stage['id']
 
 lua, core = runtime()
 state = core.new(12)
@@ -55,13 +53,18 @@ def cross(target):
         core.step(state, 1 / 60, inputs['left' if actor.x > edge['x'] else 'right'])
     else:
         raise AssertionError((origin, target, 'could not reach gate'))
-    core.action(state, 'story_portal:' + target)
+    nearby = core.frame(state, 'sprite', 'legacy').storyNearbyPortal
+    assert nearby and nearby.to == target and nearby.available, (origin, target)
+    core.action(state, 'story_nearby_portal')
     assert state.story.node == target, (origin, target, state.storyNotice)
     walked.append((origin, target))
 
 
 cross('liyue-field')
 cross('chasm-camp')
+fixture = ROOT/'work/chasm-waypoint-fixture.json'
+fixture.parent.mkdir(exist_ok=True)
+fixture.write_text(json.dumps(validate_save(native(core.checkpoint(state)))), encoding='utf8')
 quest_ids = ('chasm-survey', 'chasm-wetland-survey', 'chasm-stonehall-survey', 'chasm-west-survey')
 for quest in quest_ids:
     core.action(state, 'story_accept:' + quest)

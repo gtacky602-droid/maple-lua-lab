@@ -4,10 +4,12 @@
   "gustDisablesCrossing": true,
   "calmLift": true,
   "alternateLeeRoute": true,
+  "leeHuntVisibleOnMap": true,
+  "leeUpperShelf": true,
   "battle": {
     "won": true,
-    "seconds": 51.98,
-    "hp": 89,
+    "seconds": 54.45,
+    "hp": 72,
     "bossHp": 0,
     "moves": [
       "RH01",
@@ -16,9 +18,9 @@
     "returns": 0
   },
   "commands": {
-    "png": 23,
-    "standard": 7472,
-    "light": 1961
+    "png": 18,
+    "standard": 7467,
+    "light": 1956
   },
   "firstReport": [
     6649,

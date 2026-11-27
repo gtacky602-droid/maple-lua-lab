@@ -1415,42 +1415,54 @@
         "kind": 1,
         "art": "frostarm-lawachurl",
         "x": 365,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 343,
+        "patrolMax": 387
       },
       {
         "id": "dragonspine-depth-2",
         "kind": 1,
         "art": "cryo-slime",
         "x": 510,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 488,
+        "patrolMax": 532
       },
       {
         "id": "dragonspine-depth-3",
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 828,
+        "patrolMax": 872
       },
       {
         "id": "dragonspine-depth-4",
         "kind": 1,
         "art": "hydro-slime",
         "x": 1120,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 1098,
+        "patrolMax": 1142
       },
       {
         "id": "dragonspine-depth-5",
         "kind": 1,
         "art": "cryo-slime",
         "x": 265,
-        "platform": 1
+        "platform": 1,
+        "patrolMin": 243,
+        "patrolMax": 287
       },
       {
         "id": "dragonspine-depth-6",
         "kind": 2,
         "art": "pyro-slime",
         "x": 535,
-        "platform": 2
+        "platform": 2,
+        "patrolMin": 513,
+        "patrolMax": 557
       }
     ],
     "chenyu-depth": [
@@ -1907,85 +1919,181 @@
         "id": "chasm-wp-25268-1",
         "kind": 1,
         "art": "hilichurl",
-        "x": 285,
-        "platform": 0
+        "x": 290,
+        "platform": 0,
+        "patrolMin": 268,
+        "patrolMax": 312
       },
       {
         "id": "chasm-wp-25268-2",
         "kind": 1,
         "art": "hilichurl",
-        "x": 365,
-        "platform": 0
+        "x": 345,
+        "platform": 0,
+        "patrolMin": 323,
+        "patrolMax": 367
       },
       {
         "id": "chasm-wp-25268-3",
         "kind": 1,
         "art": "hilichurl",
-        "x": 450,
-        "platform": 0
+        "x": 430,
+        "platform": 0,
+        "patrolMin": 408,
+        "patrolMax": 452
       },
       {
         "id": "chasm-wp-25268-4",
         "kind": 1,
         "art": "hilichurl",
-        "x": 590,
-        "platform": 0
+        "x": 500,
+        "platform": 0,
+        "patrolMin": 478,
+        "patrolMax": 522
       },
       {
         "id": "chasm-wp-25268-5",
         "kind": 1,
         "art": "hilichurl",
-        "x": 665,
-        "platform": 0
+        "x": 585,
+        "platform": 0,
+        "patrolMin": 563,
+        "patrolMax": 607
       },
       {
         "id": "chasm-wp-25268-6",
         "kind": 1,
         "art": "hilichurl",
-        "x": 765,
-        "platform": 0
+        "x": 650,
+        "platform": 0,
+        "patrolMin": 628,
+        "patrolMax": 672
       },
       {
         "id": "chasm-wp-25268-7",
         "kind": 1,
         "art": "hilichurl",
-        "x": 925,
-        "platform": 0
+        "x": 920,
+        "platform": 0,
+        "patrolMin": 898,
+        "patrolMax": 942
       },
       {
         "id": "chasm-wp-25268-8",
         "kind": 1,
         "art": "hilichurl",
-        "x": 1005,
-        "platform": 0
+        "x": 990,
+        "platform": 0,
+        "patrolMin": 968,
+        "patrolMax": 1012
       },
       {
         "id": "chasm-wp-25268-9",
         "kind": 1,
         "art": "hilichurl",
-        "x": 1085,
-        "platform": 0
+        "x": 1060,
+        "platform": 0,
+        "patrolMin": 1038,
+        "patrolMax": 1082
       },
       {
         "id": "chasm-wp-25268-10",
         "kind": 1,
         "art": "hilichurl",
-        "x": 310,
-        "platform": 1
+        "x": 1160,
+        "platform": 0,
+        "patrolMin": 1138,
+        "patrolMax": 1182
       },
       {
         "id": "chasm-wp-25268-11",
         "kind": 1,
         "art": "hilichurl",
-        "x": 365,
-        "platform": 1
+        "x": 230,
+        "platform": 1,
+        "patrolMin": 208,
+        "patrolMax": 252
       },
       {
         "id": "chasm-wp-25268-12",
         "kind": 1,
         "art": "hilichurl",
-        "x": 561,
-        "platform": 2
+        "x": 320,
+        "platform": 1,
+        "patrolMin": 298,
+        "patrolMax": 342
+      },
+      {
+        "id": "chasm-wp-25268-13",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 410,
+        "platform": 1,
+        "patrolMin": 388,
+        "patrolMax": 432
+      },
+      {
+        "id": "chasm-wp-25268-14",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 500,
+        "platform": 1,
+        "patrolMin": 478,
+        "patrolMax": 516
+      },
+      {
+        "id": "chasm-wp-25268-15",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 535,
+        "platform": 2,
+        "patrolMin": 519,
+        "patrolMax": 557
+      },
+      {
+        "id": "chasm-wp-25268-16",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 610,
+        "platform": 2,
+        "patrolMin": 588,
+        "patrolMax": 632
+      },
+      {
+        "id": "chasm-wp-25268-17",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 695,
+        "platform": 2,
+        "patrolMin": 673,
+        "patrolMax": 717
+      },
+      {
+        "id": "chasm-wp-25268-18",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 830,
+        "platform": 3,
+        "patrolMin": 811,
+        "patrolMax": 852
+      },
+      {
+        "id": "chasm-wp-25268-19",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 910,
+        "platform": 3,
+        "patrolMin": 888,
+        "patrolMax": 932
+      },
+      {
+        "id": "chasm-wp-25268-20",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 1270,
+        "platform": 4,
+        "patrolMin": 1248,
+        "patrolMax": 1292
       }
     ],
     "chasm-wp-25269": [
@@ -1993,85 +2101,181 @@
         "id": "chasm-wp-25269-1",
         "kind": 1,
         "art": "hilichurl",
-        "x": 285,
-        "platform": 0
+        "x": 300,
+        "platform": 0,
+        "patrolMin": 278,
+        "patrolMax": 322
       },
       {
         "id": "chasm-wp-25269-2",
         "kind": 1,
         "art": "hilichurl",
-        "x": 365,
-        "platform": 0
+        "x": 395,
+        "platform": 0,
+        "patrolMin": 373,
+        "patrolMax": 417
       },
       {
         "id": "chasm-wp-25269-3",
         "kind": 1,
         "art": "hilichurl",
-        "x": 450,
-        "platform": 0
+        "x": 495,
+        "platform": 0,
+        "patrolMin": 473,
+        "patrolMax": 517
       },
       {
         "id": "chasm-wp-25269-4",
         "kind": 1,
         "art": "hilichurl",
-        "x": 590,
-        "platform": 0
+        "x": 595,
+        "platform": 0,
+        "patrolMin": 573,
+        "patrolMax": 617
       },
       {
         "id": "chasm-wp-25269-5",
         "kind": 1,
         "art": "hilichurl",
-        "x": 665,
-        "platform": 0
+        "x": 695,
+        "platform": 0,
+        "patrolMin": 673,
+        "patrolMax": 717
       },
       {
         "id": "chasm-wp-25269-6",
         "kind": 1,
         "art": "hilichurl",
-        "x": 765,
-        "platform": 0
+        "x": 1005,
+        "platform": 0,
+        "patrolMin": 983,
+        "patrolMax": 1027
       },
       {
         "id": "chasm-wp-25269-7",
         "kind": 1,
         "art": "hilichurl",
-        "x": 925,
-        "platform": 0
+        "x": 1085,
+        "platform": 0,
+        "patrolMin": 1063,
+        "patrolMax": 1107
       },
       {
         "id": "chasm-wp-25269-8",
         "kind": 1,
         "art": "hilichurl",
-        "x": 1005,
-        "platform": 0
+        "x": 1170,
+        "platform": 0,
+        "patrolMin": 1148,
+        "patrolMax": 1192
       },
       {
         "id": "chasm-wp-25269-9",
         "kind": 1,
         "art": "hilichurl",
-        "x": 1085,
-        "platform": 0
+        "x": 1300,
+        "platform": 0,
+        "patrolMin": 1278,
+        "patrolMax": 1322
       },
       {
         "id": "chasm-wp-25269-10",
         "kind": 1,
         "art": "hilichurl",
-        "x": 310,
-        "platform": 1
+        "x": 1400,
+        "platform": 0,
+        "patrolMin": 1378,
+        "patrolMax": 1422
       },
       {
         "id": "chasm-wp-25269-11",
         "kind": 1,
         "art": "hilichurl",
-        "x": 365,
-        "platform": 1
+        "x": 220,
+        "platform": 1,
+        "patrolMin": 198,
+        "patrolMax": 242
       },
       {
         "id": "chasm-wp-25269-12",
         "kind": 1,
         "art": "hilichurl",
-        "x": 561,
-        "platform": 2
+        "x": 325,
+        "platform": 1,
+        "patrolMin": 303,
+        "patrolMax": 347
+      },
+      {
+        "id": "chasm-wp-25269-13",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 430,
+        "platform": 1,
+        "patrolMin": 408,
+        "patrolMax": 452
+      },
+      {
+        "id": "chasm-wp-25269-14",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 530,
+        "platform": 1,
+        "patrolMin": 508,
+        "patrolMax": 549
+      },
+      {
+        "id": "chasm-wp-25269-15",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 575,
+        "platform": 2,
+        "patrolMin": 554,
+        "patrolMax": 597
+      },
+      {
+        "id": "chasm-wp-25269-16",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 660,
+        "platform": 2,
+        "patrolMin": 638,
+        "patrolMax": 682
+      },
+      {
+        "id": "chasm-wp-25269-17",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 760,
+        "platform": 2,
+        "patrolMin": 738,
+        "patrolMax": 782
+      },
+      {
+        "id": "chasm-wp-25269-18",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 904,
+        "platform": 3,
+        "patrolMin": 885,
+        "patrolMax": 926
+      },
+      {
+        "id": "chasm-wp-25269-19",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 995,
+        "platform": 3,
+        "patrolMin": 973,
+        "patrolMax": 1017
+      },
+      {
+        "id": "chasm-wp-25269-20",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 1480,
+        "platform": 4,
+        "patrolMin": 1458,
+        "patrolMax": 1502
       }
     ],
     "chasm-wp-25270": [
@@ -2079,85 +2283,109 @@
         "id": "chasm-wp-25270-1",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 285,
-        "platform": 0
+        "x": 318,
+        "platform": 0,
+        "patrolMin": 296,
+        "patrolMax": 340
       },
       {
         "id": "chasm-wp-25270-2",
         "kind": 1,
         "art": "hydro-slime",
         "x": 365,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 343,
+        "patrolMax": 387
       },
       {
         "id": "chasm-wp-25270-3",
         "kind": 1,
         "art": "hydro-slime",
         "x": 450,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 428,
+        "patrolMax": 472
       },
       {
         "id": "chasm-wp-25270-4",
         "kind": 1,
         "art": "hydro-slime",
         "x": 590,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 568,
+        "patrolMax": 612
       },
       {
         "id": "chasm-wp-25270-5",
         "kind": 1,
         "art": "hydro-slime",
         "x": 665,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 643,
+        "patrolMax": 687
       },
       {
         "id": "chasm-wp-25270-6",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 765,
-        "platform": 0
+        "x": 770,
+        "platform": 3,
+        "patrolMin": 748,
+        "patrolMax": 792
       },
       {
         "id": "chasm-wp-25270-7",
         "kind": 1,
         "art": "hydro-slime",
         "x": 925,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 903,
+        "patrolMax": 947
       },
       {
         "id": "chasm-wp-25270-8",
         "kind": 1,
         "art": "hydro-slime",
         "x": 1005,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 983,
+        "patrolMax": 1027
       },
       {
         "id": "chasm-wp-25270-9",
         "kind": 1,
         "art": "hydro-slime",
         "x": 1085,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 1063,
+        "patrolMax": 1107
       },
       {
         "id": "chasm-wp-25270-10",
         "kind": 1,
         "art": "hydro-slime",
         "x": 310,
-        "platform": 1
+        "platform": 1,
+        "patrolMin": 288,
+        "patrolMax": 332
       },
       {
         "id": "chasm-wp-25270-11",
         "kind": 1,
         "art": "hydro-slime",
         "x": 365,
-        "platform": 1
+        "platform": 1,
+        "patrolMin": 343,
+        "patrolMax": 387
       },
       {
         "id": "chasm-wp-25270-12",
         "kind": 1,
         "art": "hydro-slime",
         "x": 561,
-        "platform": 2
+        "platform": 2,
+        "patrolMin": 539,
+        "patrolMax": 583
       }
     ],
     "mond-old-ground": [
@@ -3017,10 +3245,22 @@
       {"id":"spine-shelf-far-beetle","x":1130,"platform":0,"hp":27,"kind":2,"art":"snow-mantle-beetle"}
     ],
     "spine-lee-walk": [
-      {"id":"spine-lee-beetle-1","x":348,"platform":0,"hp":26,"kind":2,"art":"snow-mantle-beetle"},
-      {"id":"spine-lee-beetle-2","x":675,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle"},
-      {"id":"spine-lee-beetle-3","x":940,"platform":0,"hp":30,"kind":2,"art":"snow-mantle-beetle"},
-      {"id":"spine-lee-beetle-4","x":1250,"platform":2,"hp":28,"kind":2,"art":"snow-mantle-beetle"}
+      {"id":"spine-lee-beetle-1","x":348,"platform":0,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":326,"patrolMax":370},
+      {"id":"spine-lee-beetle-2","x":648,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":626,"patrolMax":670},
+      {"id":"spine-lee-beetle-3","x":940,"platform":0,"hp":30,"kind":2,"art":"snow-mantle-beetle","patrolMin":918,"patrolMax":962},
+      {"id":"spine-lee-beetle-4","x":1248,"platform":2,"hp":28,"kind":2,"art":"snow-mantle-beetle","patrolMin":1226,"patrolMax":1270},
+      {"id":"spine-lee-beetle-5","x":508,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":504,"patrolMax":530},
+      {"id":"spine-lee-beetle-6","x":578,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":556,"patrolMax":600},
+      {"id":"spine-lee-beetle-7","x":718,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":696,"patrolMax":740},
+      {"id":"spine-lee-beetle-8","x":788,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":766,"patrolMax":810},
+      {"id":"spine-lee-beetle-9","x":858,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":836,"patrolMax":861},
+      {"id":"spine-lee-beetle-10","x":1142,"platform":2,"hp":28,"kind":2,"art":"snow-mantle-beetle","patrolMin":1138,"patrolMax":1164},
+      {"id":"spine-lee-beetle-11","x":1354,"platform":2,"hp":28,"kind":2,"art":"snow-mantle-beetle","patrolMin":1332,"patrolMax":1360},
+      {"id":"spine-lee-beetle-12","x":675,"platform":3,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":664,"patrolMax":697},
+      {"id":"spine-lee-beetle-13","x":765,"platform":3,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":743,"patrolMax":787},
+      {"id":"spine-lee-beetle-14","x":855,"platform":3,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":833,"patrolMax":877},
+      {"id":"spine-lee-beetle-15","x":945,"platform":3,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":923,"patrolMax":967},
+      {"id":"spine-lee-beetle-16","x":1035,"platform":3,"hp":26,"kind":2,"art":"snow-mantle-beetle","patrolMin":1013,"patrolMax":1046}
     ],
     "chenyu-tea-terraces": [
       {"id":"chenyu-tea-terraces-1","x":375,"platform":0,"hp":18,"kind":1,"art":"sail-shell-crawler"},
