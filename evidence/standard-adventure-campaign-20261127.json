@@ -1,0 +1,889 @@
+{
+  "verifiedAgainst": "b471fe7e43a101798c201f8014dac360f7cead22",
+  "balance": "standard",
+  "checkpoints": [
+    {
+      "name": "265-quest checkpoint",
+      "sha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+      "reports": 265
+    },
+    {
+      "name": "regional quests",
+      "sha256": "0c741ef63e45e42a30554c83bf4718d02e1ba71492936d9124a129daeeb4a618",
+      "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+      "reports": 276
+    },
+    {
+      "name": "stygian tiers",
+      "sha256": "5eedd2ac74c46514909b600dd3ae9dd960d40e59d3ce5458438b4cbedf2efa84",
+      "sourceSha256": "0c741ef63e45e42a30554c83bf4718d02e1ba71492936d9124a129daeeb4a618",
+      "reports": 276
+    },
+    {
+      "name": "weekly tiers",
+      "sha256": "b6d0c5a15bf0583225b4d8b57224966bbfe49fa2f0fbf9e9ec3fa2a78d3206f6",
+      "sourceSha256": "5eedd2ac74c46514909b600dd3ae9dd960d40e59d3ce5458438b4cbedf2efa84",
+      "reports": 276
+    }
+  ],
+  "newQuestReports": [
+    {
+      "mora": 130,
+      "quest": "mond-return-box-quest",
+      "xp": 290
+    },
+    {
+      "mora": 170,
+      "quest": "mond-night-banner-quest",
+      "xp": 967
+    },
+    {
+      "mora": 850,
+      "quest": "ina-window-fireworks",
+      "xp": 57595
+    },
+    {
+      "mora": 1550,
+      "quest": "ina-itto-three-games",
+      "xp": 106600
+    },
+    {
+      "mora": 2000,
+      "quest": "sum-fungus-visitors",
+      "xp": 164740
+    },
+    {
+      "mora": 5900,
+      "quest": "natlan-xilonen-springs",
+      "xp": 2325046
+    },
+    {
+      "mora": 6300,
+      "quest": "natlan-iansan-self-test",
+      "xp": 2991093
+    },
+    {
+      "mora": 4200,
+      "quest": "fon-lyney-magic",
+      "xp": 1028841
+    },
+    {
+      "mora": 4550,
+      "quest": "fon-freminet-dive",
+      "xp": 1323568
+    },
+    {
+      "mora": 5400,
+      "quest": "nod-moon-rumor",
+      "xp": 5637939
+    },
+    {
+      "mora": 6800,
+      "quest": "nod-moon-bloom",
+      "xp": 7253017
+    }
+  ],
+  "storyQuests": 276,
+  "regionalQuestRecheck": true,
+  "noRepeatReports": true,
+  "activeEncounters": {
+    "field": 63,
+    "legend": 56,
+    "weekly": 16,
+    "stygian": 7
+  },
+  "rankedWeeklyRecords": 56,
+  "stygianRecords": 28,
+  "newWeeklyClears": [
+    {
+      "id": "boss-29010101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "dvalin-sky-arena",
+      "ticks": 663,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29010101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "dvalin-sky-arena",
+      "ticks": 663,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29010101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "dvalin-sky-arena",
+      "ticks": 663,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29020101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "andrius-wolf-ring",
+      "ticks": 17,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29020101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "andrius-wolf-ring",
+      "ticks": 38,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29020101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "andrius-wolf-ring",
+      "ticks": 16,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29030101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "childe-golden-house-arena",
+      "ticks": 458,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29030101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "childe-golden-house-arena",
+      "ticks": 445,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29030101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "childe-golden-house-arena",
+      "ticks": 445,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29040101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "azhdaha-dragon-seal-arena",
+      "ticks": 10,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29040101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "azhdaha-dragon-seal-arena",
+      "ticks": 25,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29040101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "azhdaha-dragon-seal-arena",
+      "ticks": 25,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29050101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "signora-ten-shrine-arena",
+      "ticks": 3902,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29050101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "signora-ten-shrine-arena",
+      "ticks": 3889,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29050101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "signora-ten-shrine-arena",
+      "ticks": 3889,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29060201",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "raiden-thunder-echo-arena",
+      "ticks": 25,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29060201",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "raiden-thunder-echo-arena",
+      "ticks": 25,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29060201",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "raiden-thunder-echo-arena",
+      "ticks": 25,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29070101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "shouki-godmaking-arena",
+      "ticks": 2217,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29070101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "shouki-godmaking-arena",
+      "ticks": 2260,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29070101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "shouki-godmaking-arena",
+      "ticks": 2260,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29080101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "apep-oasis-heart-arena",
+      "ticks": 1429,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29080101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "apep-oasis-heart-arena",
+      "ticks": 1455,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29080101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "apep-oasis-heart-arena",
+      "ticks": 1455,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29090101",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "narwhal-star-sea",
+      "ticks": 20,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29090101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "narwhal-star-sea",
+      "ticks": 20,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29090101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "narwhal-star-sea",
+      "ticks": 20,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29091001",
+      "mode": "standard",
+      "mora": 1094775,
+      "node": "knave-crimson-court",
+      "ticks": 278,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29091001",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "knave-crimson-court",
+      "ticks": 265,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29091001",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "knave-crimson-court",
+      "ticks": 265,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29091101",
+      "mode": "standard",
+      "mora": 1151975,
+      "node": "primal-fire-sundered-forge",
+      "ticks": 1,
+      "xp": 725452
+    },
+    {
+      "id": "boss-29091101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "primal-fire-sundered-forge",
+      "ticks": 1,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29091101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "primal-fire-sundered-forge",
+      "ticks": 1,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29122000",
+      "mode": "standard",
+      "mora": 1268575,
+      "node": "mond-gate-chess-court",
+      "ticks": 1574,
+      "xp": 1200557
+    },
+    {
+      "id": "boss-29122000",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "mond-gate-chess-court",
+      "ticks": 1574,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29122000",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "mond-gate-chess-court",
+      "ticks": 1574,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29130201",
+      "mode": "standard",
+      "mora": 1570525,
+      "node": "nod-false-moon-court",
+      "ticks": 10,
+      "xp": 3486467
+    },
+    {
+      "id": "boss-29130201",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "nod-false-moon-court",
+      "ticks": 25,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29130201",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "nod-false-moon-court",
+      "ticks": 25,
+      "xp": 32560274
+    },
+    {
+      "id": "boss-29150101",
+      "mode": "standard",
+      "mora": 1918500,
+      "node": "sumeru-heretic-lattice",
+      "ticks": 269,
+      "xp": 5911296
+    },
+    {
+      "id": "boss-29150101",
+      "mode": "advanced",
+      "mora": 2640240,
+      "node": "sumeru-heretic-lattice",
+      "ticks": 266,
+      "xp": 12955323
+    },
+    {
+      "id": "boss-29150101",
+      "mode": "expert",
+      "mora": 3590160,
+      "node": "sumeru-heretic-lattice",
+      "ticks": 266,
+      "xp": 32560274
+    }
+  ],
+  "weeklyExpertRematches": [
+    {
+      "id": "boss-29010101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "dvalin-sky-arena",
+      "ticks": 663,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29020101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "andrius-wolf-ring",
+      "ticks": 33,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29030101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "childe-golden-house-arena",
+      "ticks": 445,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29040101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "azhdaha-dragon-seal-arena",
+      "ticks": 25,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29050101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "signora-ten-shrine-arena",
+      "ticks": 3889,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29060201",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "raiden-thunder-echo-arena",
+      "ticks": 25,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29070101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "shouki-godmaking-arena",
+      "ticks": 2260,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29080101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "apep-oasis-heart-arena",
+      "ticks": 1455,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29090101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "narwhal-star-sea",
+      "ticks": 20,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29091001",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "knave-crimson-court",
+      "ticks": 265,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29091101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "primal-fire-sundered-forge",
+      "ticks": 1,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29122000",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "mond-gate-chess-court",
+      "ticks": 1574,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29130201",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "nod-false-moon-court",
+      "ticks": 25,
+      "xp": 18999684
+    },
+    {
+      "id": "boss-29150101",
+      "mode": "expert",
+      "mora": 1538640,
+      "node": "sumeru-heretic-lattice",
+      "ticks": 266,
+      "xp": 18999684
+    }
+  ],
+  "newStygianClears": [
+    {
+      "match": "beidou",
+      "mode": "hard",
+      "mora": 2270,
+      "node": "liyue-stygian-deck",
+      "ticks": 195,
+      "xp": 166428
+    },
+    {
+      "match": "beidou",
+      "mode": "master",
+      "mora": 3820,
+      "node": "liyue-stygian-deck",
+      "ticks": 183,
+      "xp": 1169660
+    },
+    {
+      "match": "beidou",
+      "mode": "extreme",
+      "mora": 6100,
+      "node": "liyue-stygian-deck",
+      "ticks": 173,
+      "xp": 30937308
+    },
+    {
+      "match": "capitano",
+      "mode": "hard",
+      "mora": 5400,
+      "node": "sne-stygian-frost-court",
+      "ticks": 529,
+      "xp": 18607176
+    },
+    {
+      "match": "capitano",
+      "mode": "master",
+      "mora": 7100,
+      "node": "sne-stygian-frost-court",
+      "ticks": 529,
+      "xp": 46232132
+    },
+    {
+      "match": "capitano",
+      "mode": "extreme",
+      "mora": 9200,
+      "node": "sne-stygian-frost-court",
+      "ticks": 529,
+      "xp": 107189496
+    },
+    {
+      "match": "xbalanque",
+      "mode": "hard",
+      "mora": 3570,
+      "node": "natlan-solar-court",
+      "ticks": 487,
+      "xp": 6514500
+    },
+    {
+      "match": "xbalanque",
+      "mode": "master",
+      "mora": 5640,
+      "node": "natlan-solar-court",
+      "ticks": 469,
+      "xp": 22837398
+    },
+    {
+      "match": "xbalanque",
+      "mode": "extreme",
+      "mora": 7950,
+      "node": "natlan-solar-court",
+      "ticks": 469,
+      "xp": 76177563
+    },
+    {
+      "match": "rerir",
+      "mode": "hard",
+      "mora": 30700,
+      "node": "nod-stygian-hunt",
+      "ticks": 792,
+      "xp": 10782494
+    },
+    {
+      "match": "rerir",
+      "mode": "master",
+      "mora": 45400,
+      "node": "nod-stygian-hunt",
+      "ticks": 791,
+      "xp": 44030641
+    },
+    {
+      "match": "rerir",
+      "mode": "extreme",
+      "mora": 61700,
+      "node": "nod-stygian-hunt",
+      "ticks": 791,
+      "xp": 97224086
+    },
+    {
+      "match": "ronova",
+      "mode": "hard",
+      "mora": 80600,
+      "node": "sne-stygian-last-gate",
+      "ticks": 5817,
+      "xp": 42815658
+    },
+    {
+      "match": "ronova",
+      "mode": "master",
+      "mora": 110600,
+      "node": "sne-stygian-last-gate",
+      "ticks": 5761,
+      "xp": 77161999
+    },
+    {
+      "match": "ronova",
+      "mode": "extreme",
+      "mora": 148300,
+      "node": "sne-stygian-last-gate",
+      "ticks": 5705,
+      "xp": 130289518
+    },
+    {
+      "match": "wanderer",
+      "mode": "hard",
+      "mora": 14700,
+      "node": "sumeru-stygian-windcourt",
+      "ticks": 1956,
+      "xp": 751011
+    },
+    {
+      "match": "wanderer",
+      "mode": "master",
+      "mora": 22600,
+      "node": "sumeru-stygian-windcourt",
+      "ticks": 1938,
+      "xp": 2791566
+    },
+    {
+      "match": "wanderer",
+      "mode": "extreme",
+      "mora": 39200,
+      "node": "sumeru-stygian-windcourt",
+      "ticks": 1914,
+      "xp": 24723908
+    },
+    {
+      "match": "farka",
+      "mode": "hard",
+      "mora": 11300,
+      "node": "mond-stygian-dual-court",
+      "ticks": 1957,
+      "xp": 48656
+    },
+    {
+      "match": "farka",
+      "mode": "master",
+      "mora": 26400,
+      "node": "mond-stygian-dual-court",
+      "ticks": 1849,
+      "xp": 777161
+    },
+    {
+      "match": "farka",
+      "mode": "extreme",
+      "mora": 51300,
+      "node": "mond-stygian-dual-court",
+      "ticks": 1908,
+      "xp": 18258666
+    }
+  ],
+  "soldUnequippedSpareIds": [
+    1163,
+    1162,
+    1160,
+    1159,
+    1161,
+    1165,
+    1164
+  ],
+  "firstClearsWithinOneSecond": [
+    {
+      "boss": "boss-29020101",
+      "mode": "standard",
+      "ticks": 17
+    },
+    {
+      "boss": "boss-29020101",
+      "mode": "advanced",
+      "ticks": 38
+    },
+    {
+      "boss": "boss-29020101",
+      "mode": "expert",
+      "ticks": 16
+    },
+    {
+      "boss": "boss-29040101",
+      "mode": "standard",
+      "ticks": 10
+    },
+    {
+      "boss": "boss-29040101",
+      "mode": "advanced",
+      "ticks": 25
+    },
+    {
+      "boss": "boss-29040101",
+      "mode": "expert",
+      "ticks": 25
+    },
+    {
+      "boss": "boss-29060201",
+      "mode": "standard",
+      "ticks": 25
+    },
+    {
+      "boss": "boss-29060201",
+      "mode": "advanced",
+      "ticks": 25
+    },
+    {
+      "boss": "boss-29060201",
+      "mode": "expert",
+      "ticks": 25
+    },
+    {
+      "boss": "boss-29090101",
+      "mode": "standard",
+      "ticks": 20
+    },
+    {
+      "boss": "boss-29090101",
+      "mode": "advanced",
+      "ticks": 20
+    },
+    {
+      "boss": "boss-29090101",
+      "mode": "expert",
+      "ticks": 20
+    },
+    {
+      "boss": "boss-29091101",
+      "mode": "standard",
+      "ticks": 1
+    },
+    {
+      "boss": "boss-29091101",
+      "mode": "advanced",
+      "ticks": 1
+    },
+    {
+      "boss": "boss-29091101",
+      "mode": "expert",
+      "ticks": 1
+    },
+    {
+      "boss": "boss-29130201",
+      "mode": "standard",
+      "ticks": 10
+    },
+    {
+      "boss": "boss-29130201",
+      "mode": "advanced",
+      "ticks": 25
+    },
+    {
+      "boss": "boss-29130201",
+      "mode": "expert",
+      "ticks": 25
+    }
+  ],
+  "atlas": {
+    "active": 1516,
+    "physicallyVisited": 789,
+    "connectedByDirectStoryExitsIgnoringGateConditions": 1501,
+    "requiresScriptedTransitionReview": [
+      "narwhal-inner-echo",
+      "nod-false-moon-rift",
+      "sites-mirage-fair-in",
+      "sites-sim-05",
+      "sites-sim-06",
+      "sites-sim-06-side-arena",
+      "sites-sim-07",
+      "sites-sim-08",
+      "sites-sim-08-side-arena",
+      "sites-star-rail-in",
+      "sites-vlm-05",
+      "sites-vlm-06",
+      "sites-vlm-07",
+      "sites-vlm-08",
+      "veluriyam-rail-end"
+    ]
+  },
+  "browser": {
+    "sourceSha256": "b6d0c5a15bf0583225b4d8b57224966bbfe49fa2f0fbf9e9ec3fa2a78d3206f6",
+    "checkpoint": "sumeru-hub",
+    "level": 200,
+    "reports": 276,
+    "weeklyRecords": 56,
+    "stygianRecords": 28,
+    "guide": [
+      {
+        "from": "sumeru-hub",
+        "id": "sumeru-field",
+        "label": "徒歩"
+      },
+      {
+        "from": "sumeru-field",
+        "id": "fontaine-entry",
+        "label": "徒歩"
+      },
+      {
+        "from": "fontaine-entry",
+        "id": "fontaine-hub",
+        "label": "徒歩"
+      },
+      {
+        "from": "fontaine-hub",
+        "id": "fontaine-field",
+        "label": "徒歩"
+      },
+      {
+        "from": "fontaine-field",
+        "id": "natlan-entry",
+        "label": "徒歩"
+      },
+      {
+        "from": "natlan-entry",
+        "id": "natlan-hub",
+        "label": "徒歩"
+      },
+      {
+        "from": "natlan-hub",
+        "id": "natlan-iansan-training",
+        "label": "徒歩"
+      }
+    ],
+    "restoredFromBrowserSave": true,
+    "errors": []
+  }
+}
