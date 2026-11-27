@@ -83,10 +83,10 @@ function run() {
     && typeof proposal.reviewed_at === 'string' && Number.isFinite(Date.parse(proposal.reviewed_at));
   if (command === 'routes') {
     if (!reviewed) conflicts.push({ reason: 'review_required' });
-    const routes = conflicts.length ? [] : inspectRoutes(applicable, current,
+    const report = conflicts.length ? { routes: [], connectivity: null } : inspectRoutes(applicable, current,
       read(path.join(root, 'content/story-graph.json')),
       read(path.join(world, 'atlas-route-plan.json')));
-    console.log(JSON.stringify({ baseMatches, reviewed, routes, alreadyPresent, conflicts }, null, 2));
+    console.log(JSON.stringify({ baseMatches, reviewed, ...report, alreadyPresent, conflicts }, null, 2));
     if (conflicts.length) process.exitCode = 1;
     return;
   }
