@@ -5,6 +5,7 @@
       "toLevel": 165,
       "kills": 7622,
       "exp": 429400614,
+      "autoKills": 7262,
       "autoSeconds": 6744.13,
       "seconds": 6964.37
     },
@@ -13,6 +14,7 @@
       "toLevel": 170,
       "kills": 7677,
       "exp": 583969503,
+      "autoKills": 7282,
       "autoSeconds": 6805.22,
       "seconds": 7047.17
     },
@@ -21,6 +23,7 @@
       "toLevel": 175,
       "kills": 7456,
       "exp": 754751883,
+      "autoKills": 6984,
       "autoSeconds": 6552.83,
       "seconds": 6819.72
     },
@@ -29,6 +32,7 @@
       "toLevel": 180,
       "kills": 7557,
       "exp": 970411887,
+      "autoKills": 7033,
       "autoSeconds": 6563.63,
       "seconds": 6844.88
     },
@@ -37,6 +41,7 @@
       "toLevel": 185,
       "kills": 10631,
       "exp": 1227550773,
+      "autoKills": 9798,
       "autoSeconds": 9178.75,
       "seconds": 9619.45
     },
@@ -45,6 +50,7 @@
       "toLevel": 190,
       "kills": 10827,
       "exp": 1581322460,
+      "autoKills": 9926,
       "autoSeconds": 9284.72,
       "seconds": 9750.23
     },
@@ -53,6 +59,7 @@
       "toLevel": 195,
       "kills": 11046,
       "exp": 2023035765,
+      "autoKills": 9914,
       "autoSeconds": 9097.63,
       "seconds": 9627.48
     },
@@ -61,6 +68,7 @@
       "toLevel": 200,
       "kills": 11014,
       "exp": 2570959618,
+      "autoKills": 9886,
       "autoSeconds": 9242.5,
       "seconds": 9774.73
     }
@@ -76,19 +84,19 @@
     },
     {
       "id": "lv165",
-      "node": "aurora-ice-shelf",
+      "node": "aurora-ice-cut",
       "level": 165,
-      "exp": 1657204825,
-      "kills": 47351,
-      "seconds": 7014.65
+      "exp": 1656545686,
+      "kills": 47338,
+      "seconds": 7007.77
     },
     {
       "id": "lv170",
-      "node": "aurora-steam-channel",
+      "node": "aurora-ice-shelf",
       "level": 170,
-      "exp": 2245040957,
-      "kills": 55088,
-      "seconds": 14087.9
+      "exp": 2243942461,
+      "kills": 55072,
+      "seconds": 14080.62
     },
     {
       "id": "live-light-echo",
@@ -100,19 +108,19 @@
     },
     {
       "id": "lv175",
-      "node": "aurora-mineral-terraces",
+      "node": "aurora-steam-channel",
       "level": 175,
-      "exp": 3012171818,
-      "kills": 62688,
-      "seconds": 20965.52
+      "exp": 3010793738,
+      "kills": 62673,
+      "seconds": 20959.48
     },
     {
       "id": "lv180",
-      "node": "dawn-vein-mine",
+      "node": "aurora-mineral-terraces",
       "level": 180,
-      "exp": 3991408005,
-      "kills": 70346,
-      "seconds": 27851.68
+      "exp": 3989297415,
+      "kills": 70328,
+      "seconds": 27844.67
     },
     {
       "id": "live-seven-strike",
@@ -124,35 +132,35 @@
     },
     {
       "id": "lv185",
-      "node": "dawn-vein-deep",
+      "node": "dawn-vein-mine",
       "level": 185,
-      "exp": 5239231638,
-      "kills": 81195,
-      "seconds": 37558.65
+      "exp": 5237964990,
+      "kills": 81183,
+      "seconds": 37551.68
     },
     {
       "id": "lv190",
-      "node": "dawn-glass-ridge",
+      "node": "dawn-vein-deep",
       "level": 190,
-      "exp": 6834165885,
-      "kills": 92176,
-      "seconds": 47366.27
+      "exp": 6831875696,
+      "kills": 92159,
+      "seconds": 47360.2
     },
     {
       "id": "lv195",
-      "node": "dawn-glass-divide",
+      "node": "dawn-glass-ridge",
       "level": 195,
-      "exp": 8874230454,
-      "kills": 103399,
-      "seconds": 57058.8
+      "exp": 8870619798,
+      "kills": 103378,
+      "seconds": 57051.07
     },
     {
       "id": "lv200",
-      "node": "dawn-crystal-field",
+      "node": "dawn-glass-divide",
       "level": 200,
-      "exp": 11465890837,
-      "kills": 114612,
-      "seconds": 66904.07
+      "exp": 11462599252,
+      "kills": 114597,
+      "seconds": 66898.58
     },
     {
       "id": "lv200-post-cap",
@@ -762,7 +770,7 @@
   "rests": 0,
   "inventoryStops": 28,
   "method": "Earned Lv160 checkpoint from Lv1. Normal travel, optional growth quests, field skills, and auto battle.",
-  "sourceSha256": "b2f54e050c49f4bc17ffdcea5e580987246ea9152d0bbe7a067b1b6966324ece",
+  "sourceSha256": "ac14a188ee1903de4d09e97823cbe6c211b7113c5aaf1325ddb7245a8fc74f27",
   "startingLevel": 160,
   "endLevel": 200,
   "totalExp": 11501386375,
