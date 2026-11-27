@@ -36,6 +36,10 @@ return function(C)
  local function clearMark(s,w)
   if not w.marks[s] then return end
   w.marks[s]=nil;w.cleanseUntil[s]=s.t+.2
+  local c=w.cast
+  if c and c.id=='WC10' and c.target==s and not c.cleansed then
+   c.cleansed=c.tick<c.move.locks[1] and 'before' or 'after'
+  end
   log(s,w,'cleanse',s.active)
  end
  local function markedActor(s,w,element)
@@ -130,6 +134,7 @@ return function(C)
   for _,delta in ipairs(offsets) do list[#list+1]=clamp(x+delta,left,right) end
   return list
  end
+ local function dropX(x) return clamp(x,126,834) end
  local function locate(s,w,spec,c,lockIndex,tracking)
   local e=w.primary
   local a
@@ -154,7 +159,7 @@ return function(C)
    local goal=clamp(c.origin+c.dir*245,94,866)
    c.segments[lockIndex]={start=c.origin,finish=goal}
   elseif c.id=='WC10' then
-   c.land=clamp(x,126,834)
+   c.land=dropX(x)
   elseif c.id=='WC11' and lockIndex==1 then
    c.finish=clamp(c.origin+c.dir*220,110,850)
   elseif c.id=='WC12' and lockIndex==2 then
@@ -190,6 +195,10 @@ return function(C)
   hit[a]=true
   local party=owner(s,a)
   local damage=C.damageActor(party,a,amount,{id=w.primary.id,x=w.primary.x,damageElement=element},true,true)
+  if c.id=='WC10' then
+   c.dropDamage=c.dropDamage or {}
+   c.dropDamage[a]=damage
+  end
   if damage>0 then
    log(party,w,c.id..':hit',a.id,index)
    if a.id==party.active then
@@ -204,7 +213,7 @@ return function(C)
  local function wave(s,w,c,index,shape,element)
   for _,a in ipairs(s.actors) do if contains(shape,a) then hurt(s,w,c,index,a,element,c.move.damage) end end
  end
- local function shapeFor(c,index)
+ local function shapeFor(c,index,previewX)
   local id=c.id
   if id=='WC02' then return box(c.points[index],79,c.rainY,106)
   elseif id=='WC04' then return index==2 and c.spin and box(c.origin,220,c.floor,106) or slash(c,141)
@@ -215,7 +224,7 @@ return function(C)
    return index==5 and box(c.finish,229,c.floor,106)
      or slash({floor=c.floor,origin=c.finish,dir=c.dir},index==4 and 194 or 141)
   elseif id=='WC09' then local p=c.segments[index];return p and lane(c,p.start,p.finish)
-  elseif id=='WC10' then return box(c.land,158,c.floor,114)
+  elseif id=='WC10' then return box(previewX or c.land,158,c.floor,114)
   elseif id=='WC11' then return lane(c,c.origin,c.finish)
   elseif id=='WC12' then return index==1 and slash(c,194) or box(c.points[index-3],62,c.floor,132)
   end
@@ -326,7 +335,7 @@ return function(C)
   end
  end
 
- local function warnings(c)
+ local function warnings(c,previewX)
   local list={}
   if c.cancelled or c.tick>=c.recovery then return list end
   for i,win in ipairs(c.move.windows) do
@@ -338,7 +347,7 @@ return function(C)
     elseif c.id=='WC12' and i>3 then show=c.tick>=186
     elseif c.id=='WC08' and i>=4 then show=c.tick>=(i==4 and 162 or 204)
     elseif c.id=='WC04' and i==2 and c.spin then show=c.tick>=66 end
-    local shape=show and shapeFor(c,i)
+    local shape=show and shapeFor(c,i,previewX)
     if shape then list[#list+1]={shape=shape,active=c.tick>=win[1],at=win[1]} end
    end
   end
@@ -373,6 +382,21 @@ return function(C)
   bed.moveTick=w.shift and w.shift.tick or c and c.tick or nil
   bed.label=w.shift and (w.shift.timing.title..'・変身中') or c and
    (c.cancelled and '落撃中止・反撃の隙' or c.tick>=c.recovery and '反撃の隙' or c.move.title) or '構え'
+  local previewX
+  if c and c.id=='WC10' then
+   local tracking=c.tick<c.move.locks[1]
+   local target=tracking and not c.cancelled and castTarget(s,c)
+   if target then previewX=dropX(target.x) end
+   local active,close=c.move.windows[1][1],c.move.windows[1][2]
+   local damage=c.dropDamage and c.dropDamage[s.actors[s.active]]
+   bed.riptideDrop={
+    phase=c.cancelled and 'cancelled' or tracking and 'tracking' or c.tick>=active and 'landed' or 'locked',
+    x=not c.cancelled and (previewX or c.land) or nil,
+    targeted=c.target==s,cleansed=c.cleansed,
+    damage=damage or not c.cancelled and c.tick>=close and 0 or nil,
+    recovery=c.tick>=c.recovery and c.total-c.tick or nil
+   }
+  end
   local function rect(x,y,ww,h,color)
    f.draws[#f.draws+1]={kind='rect',x=x-s.camera,y=y,w=ww,h=h,color=color}
   end
@@ -387,7 +411,7 @@ return function(C)
   if e.hp<=0 then return end
   local ink=(w.form>1 and '#b595f2' or '#71bffe')
   if c then
-   for _,warn in ipairs(warnings(c)) do local b=warn.shape
+   for _,warn in ipairs(warnings(c,previewX)) do local b=warn.shape
     rect(b.lo,b.y-6,b.hi-b.lo,6,'#352942')
     rect(b.lo+3,b.y-4,math.max(1,b.hi-b.lo-6),3,warn.active and '#fa8d72' or '#ffe5ac')
    end

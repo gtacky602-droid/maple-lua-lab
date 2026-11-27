@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
+import {childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -516,6 +516,10 @@ function hud(f,calls,renderMs){
  }
  const field=f.weeklyBoss||f.fieldBoss,fieldPanel=$('fieldBoss'),fieldLabel=$('fieldBossLabel'),fieldHp=$('fieldBossHp');
  const phases=$('weeklyPhases');
+ const childeHint=$('weeklyChilde');
+ const childeText=field?.riptideDrop&&field.phase!=='respawn'?childeDropText(field.riptideDrop):'';
+ childeHint.hidden=!childeText;
+ if(childeHint.textContent!==childeText)childeHint.textContent=childeText;
  const temperature=$('weeklyTemperature');
  const raiden=$('weeklyRaiden');
  const shouki=$('weeklyShouki');

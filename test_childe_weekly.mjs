@@ -1,13 +1,17 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:52000});
 const canvas=page.locator('#game'),arena='childe-golden-house-arena',hub='liyue-harbor';
-const id='boss-29030101',quest='childe-weekly-commission',prefix='evidence/childe-weekly';
+const id='boss-29030101',quest='childe-weekly-commission';
+const route=process.env.LAB_CHILDE_DROP;
+assert.ok(!route||['early','late-evade'].includes(route));
+const prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/childe-weekly';
 const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
 
@@ -37,10 +41,14 @@ async function resume(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8943/');
  await wait(()=>window.lab?.frame);
- const fixture=await fs.readFile('work/childe-weekly-gear.json','utf8');
+ const fixture=await fs.readFile(route?'work/childe-riptide-gear.json':'work/childe-weekly-gear.json','utf8');
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),fixture);
  await page.locator('#loadProgress').click();
  await wait(node=>window.lab.frame.story.node===node,hub);
+ if(route){
+  await page.locator('#allyFire').click();
+  await wait(()=>window.lab.frame.holdAllyFire);
+ }
  const row=page.locator(`[data-quest="${quest}"]`);
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='active',quest);
@@ -51,19 +59,22 @@ try{
   const {backgroundReady,sceneryStatus}=await import('./scenery.js');await backgroundReady;
   return sceneryStatus(window.lab.frame);
  });
- assert.deepEqual([backdrop.file,backdrop.state],['buried-weaving-background-v1.png','ready']);
+ assert.deepEqual([backdrop.file,backdrop.state],['li-golden-vault-background-v1.png','ready']);
  assert.deepEqual((await frame()).weeklyBoss.phaseHp.map(phase=>phase.max),[240,300,420]);
- await wait(()=>window.lab.frame.weeklyBoss.mark==='hydro');
- await page.keyboard.press('KeyE');
- await wait(()=>window.lab.frame.active===2);
- assert.equal((await frame()).weeklyBoss.mark,'hydro');
- await walk('KeyA',()=>window.lab.frame.actors[1].x<=43);
- await wait(()=>!window.lab.frame.weeklyBoss.mark);
- await wait(()=>window.lab.frame.t>4.4);
- await page.keyboard.press('KeyE');
- await wait(()=>window.lab.frame.active===1);
-
- await page.evaluate(()=>{
+ if(!route){
+  await wait(()=>window.lab.frame.weeklyBoss.mark==='hydro');
+  await page.keyboard.press('KeyE');
+  await wait(()=>window.lab.frame.active===2);
+  assert.equal((await frame()).weeklyBoss.mark,'hydro');
+  await walk('KeyA',()=>window.lab.frame.actors[1].x<=43);
+  await wait(()=>!window.lab.frame.weeklyBoss.mark);
+  await wait(()=>window.lab.frame.t>4.4);
+  await page.keyboard.press('KeyE');
+  await wait(()=>window.lab.frame.active===1);
+ }
+ await canvas.click();
+ await page.evaluate(route=>{
+  const trail=window.childeDropTrail={mark:false,lock:null,cleanse:null,resumeAttack:false};
   const held=new Set();
   const set=(code,on)=>{
    if(held.has(code)===on)return;
@@ -78,16 +89,30 @@ try{
    }
    if(!f.paused){
     const dx=b.x-a.x;
-    const forward=Math.abs(dx)>62||dx*a.dir<0;
-    const jump=(b.move==='WC03'||b.move==='WC09'||b.move==='WC01'&&b.moveTick>=50&&b.moveTick<208)&&a.ground;
+    let left=dx<0&&(Math.abs(dx)>62||dx*a.dir<0);
+    let right=dx>0&&(Math.abs(dx)>62||dx*a.dir<0);
+    let attack=b.damageable&&Math.abs(dx)<120&&dx*a.dir>=0;
+    let jump=(b.move==='WC03'||b.move==='WC09'||b.move==='WC01'&&b.moveTick>=50&&b.moveTick<208)&&a.ground;
+    const shiftingToSecond=b.move==='WC14'&&b.phaseHp[0].hp===0&&b.phaseHp[1].hp===b.phaseHp[1].max;
+    if(route&&!trail.resumeAttack&&(shiftingToSecond||b.form===2)){
+     const drop=b.riptideDrop;
+     if(b.mark==='electro'&&b.move==='WC07')trail.mark=true;
+     if(drop?.phase==='locked'&&!trail.lock)trail.lock={x:drop.x,tick:b.moveTick};
+     if(drop?.cleansed)trail.cleanse=drop.cleansed;
+     let target=trail.mark?133:410;
+     if(drop&&(route==='early'||trail.lock))target=29;
+     left=a.x>target+5;
+     right=a.x<target-5;
+     attack=jump=false;
+     if(a.ground&&a.y<470&&drop?.phase!=='landed')window.lab.action('drop');
+    }
     if(jump)window.lab.action('jump');
-    set('KeyA',forward&&dx<0);set('KeyD',forward&&dx>0);
-    set('KeyJ',b.damageable&&Math.abs(dx)<120&&dx*a.dir>=0);
+    set('KeyA',left);set('KeyD',right);set('KeyJ',attack);
    }else for(const code of [...held])set(code,false);
    requestAnimationFrame(drive);
   };
   requestAnimationFrame(drive);
- });
+ },route);
  const second=await freeze(2);
  await page.locator('#fieldBoss').waitFor({state:'visible'});
  await wait(()=>document.getElementById('fieldBossLabel').textContent.includes('邪眼'));
@@ -95,6 +120,40 @@ try{
  assert.equal(second.weeklyBoss.phaseHp[0].hp,0);
  await page.locator('.game').screenshot({path:prefix+'-electro.png'});
  await resume();
+ let riptide,transfer;
+ if(route){
+  await wait(()=>{
+   const f=window.lab.frame;
+   if(!f.paused&&f.weeklyBoss?.riptideDrop?.recovery>0){
+    window.lab.action('pause');
+    return true;
+   }
+   return false;
+  });
+  await wait(()=>window.lab.frame.paused);
+  const {weeklyBoss:{riptideDrop:drop}}=await frame();
+  const trail=await page.evaluate(()=>window.childeDropTrail);
+  assert.ok(trail.mark);
+  if(route==='early'){
+   assert.equal(trail.lock,null);
+   assert.deepEqual([drop.phase,drop.cleansed,drop.damage],['cancelled','before',undefined]);
+   assert.ok(drop.recovery<=60);
+   await wait(()=>document.querySelector('#weeklyChilde').textContent.includes('追雷中止'));
+  }else{
+   assert.ok(trail.lock&&trail.lock.tick>=84);
+   assert.deepEqual([drop.phase,drop.cleansed,drop.x,drop.damage],['landed','after',trail.lock.x,0]);
+   assert.ok(drop.recovery<=120);
+   await wait(()=>document.querySelector('#weeklyChilde').textContent.includes('被ダメージなし'));
+  }
+  const hud=page.locator('#weeklyChilde');
+  await hud.screenshot({path:prefix+'-riptide.png'});
+  riptide={route,trail,drop,hud:await hud.textContent()};
+  await page.evaluate(()=>{window.childeDropTrail.resumeAttack=true});
+  await resume();
+  await page.locator('#allyFire').click();
+  await wait(()=>!window.lab.frame.holdAllyFire);
+  await canvas.click();
+ }
 
  const third=await freeze(3);
  await wait(()=>document.getElementById('fieldBossLabel').textContent.includes('魔王武装'));
@@ -110,6 +169,16 @@ try{
  assert.deepEqual([standard.t,light.t],[third.t,third.t]);
  assert.equal(light.weeklyBoss.hp,third.weeklyBoss.hp);
  await canvas.screenshot({path:prefix+'-light.png'});
+ if(route){
+  const raw=await captureRectTransfer(page,'h32c16',false,()=>page.locator('#packRectArt').uncheck());
+  const packed=await captureRectTransfer(page,'h32c16',true,()=>page.locator('#packRectArt').check());
+  assert.deepEqual([packed.snapshot.t,raw.snapshot.t],[third.t,third.t]);
+  assert.equal(packed.raster,raw.raster);
+  assert.ok(packed.snapshot.draws.some(draw=>draw.kind==='rect_runs'&&draw.h===144));
+  assert.ok(packed.gzipBytes<raw.gzipBytes&&packed.snapshot.draws.length<raw.snapshot.draws.length);
+  transfer={profile:'h32c16',pixelMatch:true,packedBytes:packed.gzipBytes,rawBytes:raw.gzipBytes,
+   packedRecords:packed.snapshot.draws.length,rawRecords:raw.snapshot.draws.length};
+ }
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.locator('#weeklyPhases').evaluate(el=>el.scrollWidth<=el.clientWidth&&el.getBoundingClientRect().right<=390));
  await page.setViewportSize({width:1240,height:940});
@@ -133,14 +202,14 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,threeForms:true,markLeftAfterSwapAndCleanse:true,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,threeForms:true,...(!route&&{markLeftAfterSwapAndCleanse:true}),
   actualBattleAndReport:true,endedHp:defeated.actors[0].hp,storedBestAndRespawn:true,viewport390:true,
-  sameStateCommands:{png:third.commands,standard:standard.commands,light:light.commands},backdrop,errors},null,2)+'\n');
+  sameStateCommands:{png:third.commands,standard:standard.commands,light:light.commands},riptide,transfer,backdrop,errors},null,2)+'\n');
  console.log('Childe Chrome: entrance, mark and boundary, three forms, same-frame sprite comparison, report and reload passed');
 }catch(error){
  const f=await frame();
  console.error({node:f?.story?.node,t:f?.t,boss:f?.weeklyBoss,turn:f?.active,actors:f?.actors?.map(a=>[a.x,a.hp]),errors});
- await page.screenshot({path:'work/childe-weekly-failure.png'});
+ await page.screenshot({path:route?prefix+'-failure.png':'work/childe-weekly-failure.png'});
  throw error;
 }finally{
  await browser.close();
