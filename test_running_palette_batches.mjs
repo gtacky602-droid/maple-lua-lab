@@ -33,7 +33,7 @@ try{
       const runs=f.rectBatches[d.batch-1];
       const calls=drawPaletteBatch(actual,d,runs,cache);
       drawPaletteBatch(reference,d,runs,fresh);
-      direct+=runs.length;cached+=calls;draws++;if(calls===1)warm++;
+      direct+=runs.length;cached+=calls;draws++;if(calls===(d.bodyBand!=null?2:1))warm++;
      }
      if(actual.canvas.toDataURL()!==reference.canvas.toDataURL())throw Error('Pose mismatch '+direction+' '+i);
     }

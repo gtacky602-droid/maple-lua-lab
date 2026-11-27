@@ -451,7 +451,7 @@ return function(C)
   if e.hp<=0 then
    local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
    if w.defeatAt and now-w.defeatAt<.65 then
-    C.drawFieldDisplayArt(f,C.azhdahaWeeklyArt.idle,e.x-s.camera,e.y,142,mode,profile,e.dir>0)
+    C.drawFieldDisplayArt(f,C.azhdahaWeeklyArt.idle,e.x-s.camera,e.y,142*3.34,mode,profile,e.dir>0)
    end
    return
   end
@@ -535,11 +535,14 @@ return function(C)
   else
    local art=C.azhdahaWeeklyArt.idle
    local flip=e.dir>0
-   C.drawFieldDisplayArt(f,art,e.x-s.camera,e.y,e.drawHeight,mode,profile,flip)
-   local width=e.drawHeight*art.box[3]/art.box[4]
+   local breath=not c and math.floor(2*math.sin(w.clock/20)+.5) or 0
+   local height=e.drawHeight*3.34+breath
+   local layer={draws=f.draws,rectBatches=f.rectBatches,clipToViewport=spec.openingPose.clipToViewport}
+   C.drawFieldDisplayArt(layer,art,e.x-s.camera,e.y,height,mode,profile,flip)
+   local width=height*art.box[3]/art.box[4]
    local anchor=art.anchorX or .5
    local left=e.x-width*(flip and (1-anchor) or anchor)
-   local top=e.y-e.drawHeight
+   local top=e.y-height
    for i,spots in ipairs(bodySeams) do
     local element=w.pair[i]
     local charging=c and c.infusion==element and i>=w.form
@@ -547,7 +550,7 @@ return function(C)
      local opacity=charging and math.min(1,.35+c.t/85) or 1
      for _,spot in ipairs(spots) do
       local x=left+(flip and (1-spot[1]) or spot[1])*width
-      seam(x,top+spot[2]*e.drawHeight,spot[3]*e.drawHeight/176,element,opacity)
+      seam(x,top+spot[2]*height,spot[3]*height/176,element,opacity)
      end
     end
    end

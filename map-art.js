@@ -78,10 +78,10 @@ function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
   cost.total+=runs;
   if(visible){
    if(art.openingPose){
-    const emitted=openingRects(ctx,art.profiles[profile],bounds,x,y,flip,art.clipToViewport,true);
+    const emitted=openingRects(ctx,art.profiles[profile],bounds,x,y,flip,art.clipToViewport,true,art.bodyBand);
     cost.visible+=emitted;
     let standard=rectangleCount(art.profiles.legacy);
-    if(art.clipToViewport)standard=profile==='legacy'?emitted:openingRects(ctx,art.profiles.legacy,bounds,x,y,flip,true,false);
+    if(art.clipToViewport)standard=profile==='legacy'?emitted:openingRects(ctx,art.profiles.legacy,bounds,x,y,flip,true,false,art.bodyBand);
     cost.standard+=standard;
     return;
    }
@@ -172,7 +172,9 @@ try{
    const option=document.createElement('option');option.value=id;option.textContent=name;$('species').append(option);
   }
  }
- const galleryFiles=await json('assets/placement-pose-index.json');
+ const [galleryFiles,openingVisuals]=await Promise.all([
+  json('assets/placement-pose-index.json'),json('content/weekly-opening-visuals.json')
+ ]);
  const idleCandidates=new Map();
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
   const gallery=await json('content/'+file);
@@ -189,7 +191,8 @@ try{
   const pose=boss.openingPose;
   if(pose){
    const data=galleryFiles['weekly/'+pose.file];
-   assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,heldArt:pose.heldArt,clipToViewport:pose.clipToViewport};
+   assets[boss.mapIdleArt]={...data,h:boss.artHeight,hover:pose.hover,openingPose:true,heldArt:pose.heldArt,
+    clipToViewport:pose.clipToViewport,bodyBand:pose.bodyBand,behind:openingVisuals[boss.controller]};
    $('species').append(new Option(boss.name+'（開戦時）',boss.mapIdleArt));
   }
   const shadow=boss.rift?.shadowArt;
@@ -336,7 +339,7 @@ try{
   for(const part of scene.parts){
    const data=part.file?galleryFiles['weekly/'+part.file]:{box:part.box};
    assets[part.species]={...data,h:part.h,hover:0,anchorX:part.anchorX??.5,openingPose:true,
-    marks:part.marks,displayName:part.name};
+    marks:part.marks,bodyBand:part.bodyBand,displayName:part.name};
    $('species').append(new Option(part.name,part.species));
   }
  }
@@ -446,7 +449,7 @@ try{
   const part=openingPart(e),art=placementSource(e,part);
   const boss=arenaPreviews.get(node().id);
   if(part && previewCandidate(e))return {...art,h:part.h,hover:part.hover,openingPose:true,mirrorSource:true};
-  if(part)return {...art,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,weaponMarks:part.weaponMarks,behind:part.behind,rotation:part.rotation,anchorY:part.anchorY,openingPose:true,mirrorSource:true,rear:null};
+  if(part)return {...art,h:part.h,hover:part.hover,anchorX:part.anchorX,marks:part.marks,weaponMarks:part.weaponMarks,behind:part.behind,rotation:part.rotation,anchorY:part.anchorY,bodyBand:part.bodyBand,openingPose:true,mirrorSource:true,rear:null};
   if(boss?.artHeight && e.id===boss.id && e.species===boss.mapIdleArt){
    if(boss.controller==='branchLegend' && boss.openingPose){
     const h=boss.artScale?art.box[3]*boss.artScale:Math.round(boss.artHeight*(boss.poseHeights?.idle??1));

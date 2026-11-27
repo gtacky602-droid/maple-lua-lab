@@ -22,21 +22,29 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   end
   return index
  end
- local function draw(f,assetData,x,y,h,mode,profile,flip,palette,tint,opacity)
+ local function bodyRow(row,height,band)
+  if not band then return row end
+  local cut=height*.28
+  if row<=cut then return row*(band/.28) end
+  return height*band+(row-cut)*((1-band)/.72)
+ end
+ local function draw(f,assetData,x,y,h,mode,profile,flip,palette,tint,opacity,band)
   local w=h*assetData.box[3]/assetData.box[4];local anchor=assetData.anchorX or .5;local left=x-(flip and (1-anchor) or anchor)*w
   if mode=='rect' then
    local asset=assetData.profiles[profile] or assetData.profiles.legacy
    if f.rectIndex and not palette and not f.clipToViewport then
     f.draws[#f.draws+1]={kind='rect_runs',batch=rectBatch(f,asset),x=left,y=y-h,w=w,h=h,
-     gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity}
+     gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity,bodyBand=band}
     return
    end
    local clipped=f.rectBatches and f.clipToViewport and not palette and {} or nil
    local indexed=clipped and indexedRuns(asset)
    for i,r in ipairs(asset.runs) do
     local rx=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width
-    local ry=y-h+r[2]*h/asset.height
-    local rw,rh=r[3]*w/asset.width+.05,r[4]*h/asset.height+.05
+    local row=bodyRow(r[2],asset.height,band)
+    local height=band and bodyRow(r[2]+r[4],asset.height,band)-row or r[4]
+    local ry=y-h+row*h/asset.height
+    local rw,rh=r[3]*w/asset.width+.05,height*h/asset.height+.05
     -- Keep a one-pixel margin for fractional rectangle edges on the 960 x 540 stage.
     if not f.clipToViewport or (rx<961 and rx+rw>-1 and ry<541 and ry+rh>-1) then
      if clipped then clipped[#clipped+1]=indexed.runs[i]
@@ -47,9 +55,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
     local index=#f.rectBatches+1
     f.rectBatches[index]=clipped
     f.draws[#f.draws+1]={kind='rect_runs',batch=index,x=left,y=y-h,w=w,h=h,
-     gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity,palette=indexed.palette}
+     gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity,palette=indexed.palette,bodyBand=band}
    end
-  else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box,tint=tint,opacity=opacity} end
+  else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box,tint=tint,opacity=opacity,bodyBand=band} end
  end
  function C.drawSocketArt(f,art,x,y,w,dir,angle,mode,profile,opacity)
   local h=w*art.box[4]/art.box[3]
@@ -107,6 +115,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  end
  function C.drawFieldDisplayArt(f,art,x,y,height,mode,profile,flip,palette,tint,opacity)
   draw(f,art,x,y,height,mode,profile,flip,palette,tint,opacity)
+ end
+ function C.drawTallerHumanArt(f,art,x,y,height,mode,profile,flip,opacity,time)
+  -- Move the shoulder boundary slightly, keeping overall height and foot position fixed.
+  local band=.25+math.floor(4*math.sin((time or 0)*3)+.5)*.001
+  draw(f,art,x,y,height,mode,profile,flip,nil,nil,opacity,band)
  end
  function C.drawPyroRegisvineArt(f,b,mode,profile) draw(f,pyro,b.x,480,b.phase=='down' and 100 or 200,mode,profile) end
  function C.drawFarkaArt(f,b,mode,profile)
@@ -311,7 +324,7 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawCompanionArt(f,s,a,mode,profile,id)
   local art=C.companionArt[id or s.companion]
   local left=a.dir<0 and art.left
-  draw(f,left or art,a.x-s.camera,a.y,art.height,mode,profile,a.dir<0 and not left)
+  C.drawTallerHumanArt(f,left or art,a.x-s.camera,a.y,art.height,mode,profile,a.dir<0 and not left,nil,s.t)
  end
  function C.drawEnemyIdleArt(f,s,e,mode,profile) local layout=C.enemyArtLayout[e.art];draw(f,C.enemyIdleArt[e.art],e.x-s.camera,e.y-layout.hover,layout.height,mode,profile,false) end
  function C.drawDanukiArt(f,x,y,mode,profile) draw(f,C.danukiArt,x,y,56,mode,profile,false) end
@@ -331,15 +344,15 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.noelleArt[seated and 'seated' or 'standing']
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile)
  end
- function C.drawAmberArt(f,s,a,mode,profile,art) draw(f,art,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
- function C.drawTravelerIdleArt(f,s,a,mode,profile) draw(f,C.travelerIdleArt[a.dir<0 and 'left' or 'right'],a.x-s.camera,a.y,88,mode,profile) end
+ function C.drawAmberArt(f,s,a,mode,profile,art) C.drawTallerHumanArt(f,art,a.x-s.camera,a.y,88,mode,profile,a.dir<0,nil,s.t) end
+ function C.drawTravelerIdleArt(f,s,a,mode,profile) C.drawTallerHumanArt(f,C.travelerIdleArt[a.dir<0 and 'left' or 'right'],a.x-s.camera,a.y,88,mode,profile,false,nil,s.t) end
  function C.drawTravelerRunArt(f,s,a,mode,profile)
   local frames=C.travelerRunArt[a.dir<0 and 'left' or 'right']
   local phase=a.ground and math.floor((a.runDistance or 0)/16)%#frames or 0
   local art=frames[phase+1]
   -- The generated frames share a 100px scale, with small height changes during the stride.
   local h=phase==0 and 88 or 88*art.box[4]/100
-  draw(f,art,a.x-s.camera,a.y,h,mode,profile,false)
+  C.drawTallerHumanArt(f,art,a.x-s.camera,a.y,h,mode,profile,false,nil,s.t)
   if mode~='rect' and a.light>0 then f.draws[#f.draws].glow=true end
  end
  function C.drawArrayArt(f,b,mode,profile)

@@ -502,17 +502,18 @@ return function(C)
   local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches}
   if scene=='outer' then
    if stage~='swallow' or w.stageTick<spec.transition.sceneTick then
-    local h=stage=='weak' and 159 or spec.artHeight
+    local h=stage=='weak' and 178 or spec.artHeight
     local y=spec.floorY-spec.openingPose.hover
+    if stage=='outer' and not c then y=y+math.floor(4*math.sin(w.clock/18)+.5) end
     if c and c.id=='WV02' and c.t>=96 and c.t<156 then y=y-math.sin(math.pi*(c.t-96)/120)*110
-    elseif c and c.id=='WV05' and c.t<spec.eye.expiry then y=y-66;h=188
-    elseif stage=='swallow' then h=214+math.sin(w.stageTick*.017)*38
+    elseif c and c.id=='WV05' and c.t<spec.eye.expiry then y=y-66;h=218
+    elseif stage=='swallow' then h=244+math.sin(w.stageTick*.017)*38
     end
     C.drawFieldDisplayArt(back,C.narwhalWeeklyArt.whale,e.x-s.camera,y,h,mode,profile,e.dir>0)
    end
   elseif shadow and shadow.hp>0 then
    local height=c and c.successUntil and 123 or 140
-   C.drawFieldDisplayArt(back,C.narwhalWeeklyArt.shadow,shadow.x-s.camera,spec.floorY,height,mode,profile,shadow.dir<0)
+   C.drawTallerHumanArt(back,C.narwhalWeeklyArt.shadow,shadow.x-s.camera,spec.floorY,height,mode,profile,shadow.dir<0,nil,w.clock/60)
   end
   if #back.draws>0 then
    table.move(f.draws,1,#f.draws,#back.draws+1,back.draws)

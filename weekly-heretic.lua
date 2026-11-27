@@ -362,7 +362,7 @@ return function(C,M)
   local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches};local rear=painter(back,s)
   if w.form==2 or c and c.key=='WH10' and c.t>=60 then halo(rear,e,c,w.clock) end
   local hover=w.form==2 and w.phase~='exposure' and 12+math.sin(w.clock/22)*3 or 0
-  C.drawFieldDisplayArt(back,C.hereticWeeklyArt.idle,e.x-s.camera,e.y-hover,spec.artHeight,mode,profile,e.dir>0)
+  C.drawTallerHumanArt(back,C.hereticWeeklyArt.idle,e.x-s.camera,e.y-hover,spec.artHeight,mode,profile,e.dir>0,nil,w.clock/60)
   for _,a in ipairs(w.anchors) do
    local y=spec.floorY-.6*spec.board.unit
    v.anchors[#v.anchors+1]={x=a.x,hp=a.hp,maxhp=a.maxhp}

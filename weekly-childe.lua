@@ -101,6 +101,7 @@ return function(C)
   return true
  end
  function controller.spawn(s,w,spec)
+  w.visualTime=0
   w.form,w.index,w.rest=1,1,spec.noticeTicks
   w.remainder=0;w.shift=nil
   w.marks=setmetatable({},{__mode='k'});w.cleanseUntil=setmetatable({},{__mode='k'})
@@ -328,6 +329,7 @@ return function(C)
  end
  function controller.prepare() end
  function controller.finish(s,w,spec,dt)
+  w.visualTime=w.visualTime+dt
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 do
    w.remainder=w.remainder-1
@@ -438,7 +440,7 @@ return function(C)
     rect(c.ring-37,e.y-61,74,9,'#b595f2');rect(c.ring-20,e.y-78,40,11,'#e4dbff')
    end
   end
-  C.drawFieldDisplayArt(f,C.childeWeeklyArt[w.form==3 and 'foul' or 'human'],e.x-s.camera,e.y,e.drawHeight,mode,profile,e.dir>0)
+  C.drawTallerHumanArt(f,C.childeWeeklyArt[w.form==3 and 'foul' or 'human'],e.x-s.camera,e.y,e.drawHeight,mode,profile,e.dir>0,nil,w.visualTime)
   if w.form==2 then
    rect(e.x-34,e.y-82,68,2,'#6b4b99')
    rect(e.x+e.dir*35-11,e.y-57,22,5,'#d9bdff')

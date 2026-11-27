@@ -1,0 +1,483 @@
+{
+  "base": "a94eabfcc002c498aa9cc93be49e5569d31e72ff",
+  "encounters": {
+    "dvalin": {
+      "before": {
+        "x": 480,
+        "y": 330,
+        "h": 220,
+        "w": 242.27848101265823
+      },
+      "after": {
+        "x": 480,
+        "y": 330,
+        "h": 244,
+        "w": 268.7088607594937,
+        "bodyBand": null
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "childe": {
+      "before": {
+        "x": 480,
+        "y": 480,
+        "h": 112,
+        "w": 58.57274119448698
+      },
+      "after": {
+        "x": 480,
+        "y": 480,
+        "h": 112,
+        "w": 58.57274119448698,
+        "bodyBand": 0.25
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "azhdaha": {
+      "before": {
+        "x": 528,
+        "y": 480,
+        "h": 176,
+        "w": 232.50613786591123
+      },
+      "after": {
+        "x": 528,
+        "y": 480,
+        "h": 587.8399999999999,
+        "w": 776.5705004721434,
+        "bodyBand": null
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "signora": {
+      "before": {
+        "x": 480,
+        "y": 480,
+        "h": 120,
+        "w": 63.71182458888019
+      },
+      "after": {
+        "x": 480,
+        "y": 480,
+        "h": 120,
+        "w": 63.71182458888019,
+        "bodyBand": 0.25
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "raiden": {
+      "before": {
+        "x": 480,
+        "y": 480,
+        "h": 112,
+        "w": 70.08711111111111
+      },
+      "after": {
+        "x": 480,
+        "y": 480,
+        "h": 126,
+        "w": 78.848,
+        "bodyBand": 0.25
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "apep": {
+      "before": {
+        "x": 480,
+        "y": 480,
+        "h": 191,
+        "w": 475.3651266766021
+      },
+      "after": {
+        "x": 480,
+        "y": 480,
+        "h": 216,
+        "w": 537.585692995529,
+        "bodyBand": null
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "narwhal": {
+      "before": {
+        "x": 480,
+        "y": 468,
+        "h": 212,
+        "w": 438.21647058823527
+      },
+      "after": {
+        "x": 480,
+        "y": 468,
+        "h": 244,
+        "w": 504.3623529411765,
+        "bodyBand": null
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "knave": {
+      "before": {
+        "x": 480,
+        "y": 480,
+        "h": 112,
+        "w": 88.01991701244813
+      },
+      "after": {
+        "x": 480,
+        "y": 480,
+        "h": 112,
+        "w": 88.01991701244813,
+        "bodyBand": 0.25
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "primal_fire": {
+      "before": {
+        "x": 540,
+        "y": 480,
+        "h": 278,
+        "w": 271.94071490845687
+      },
+      "after": {
+        "x": 540,
+        "y": 480,
+        "h": 314,
+        "w": 307.15605928509154,
+        "bodyBand": null
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 2,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "false_moon": {
+      "before": {
+        "x": 480,
+        "y": 465.0,
+        "h": 148,
+        "w": 106.49081803005008
+      },
+      "after": {
+        "x": 480,
+        "y": 465.0,
+        "h": 148,
+        "w": 106.49081803005008,
+        "bodyBand": 0.25
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    },
+    "heretic": {
+      "before": {
+        "x": 480,
+        "y": 480,
+        "h": 144,
+        "w": 117.57682177348552
+      },
+      "after": {
+        "x": 480,
+        "y": 480,
+        "h": 144,
+        "w": 117.57682177348552,
+        "bodyBand": 0.25
+      },
+      "mechanicsCheckpoints": 21,
+      "motionStates": 3,
+      "packRoundTrips": {
+        "legacy": 3,
+        "h48c32": 3,
+        "h32c16": 3
+      }
+    }
+  },
+  "wingMotion": {
+    "frameCount": 15,
+    "rectanglesPerWing": 50,
+    "minimumGapPx": 29.11,
+    "trajectories": [
+      [
+        [
+          242,
+          166
+        ],
+        [
+          691,
+          160
+        ]
+      ],
+      [
+        [
+          238,
+          161
+        ],
+        [
+          694,
+          156
+        ]
+      ],
+      [
+        [
+          234,
+          156
+        ],
+        [
+          696,
+          153
+        ]
+      ],
+      [
+        [
+          233,
+          154
+        ],
+        [
+          696,
+          152
+        ]
+      ],
+      [
+        [
+          232,
+          152
+        ],
+        [
+          696,
+          153
+        ]
+      ],
+      [
+        [
+          232,
+          152
+        ],
+        [
+          694,
+          155
+        ]
+      ],
+      [
+        [
+          233,
+          154
+        ],
+        [
+          692,
+          159
+        ]
+      ],
+      [
+        [
+          236,
+          158
+        ],
+        [
+          688,
+          164
+        ]
+      ],
+      [
+        [
+          240,
+          163
+        ],
+        [
+          686,
+          168
+        ]
+      ],
+      [
+        [
+          244,
+          168
+        ],
+        [
+          684,
+          172
+        ]
+      ],
+      [
+        [
+          246,
+          172
+        ],
+        [
+          683,
+          174
+        ]
+      ],
+      [
+        [
+          248,
+          175
+        ],
+        [
+          683,
+          175
+        ]
+      ],
+      [
+        [
+          248,
+          175
+        ],
+        [
+          684,
+          173
+        ]
+      ],
+      [
+        [
+          248,
+          174
+        ],
+        [
+          686,
+          170
+        ]
+      ],
+      [
+        [
+          246,
+          171
+        ],
+        [
+          689,
+          166
+        ]
+      ]
+    ]
+  },
+  "summary": {
+    "mechanicsCheckpoints": 231,
+    "packedFrameProfilePairs": 99,
+    "liveOpeningsMatched": [
+      "dvalin",
+      "andrius",
+      "childe",
+      "azhdaha",
+      "signora",
+      "raiden",
+      "shouki",
+      "apep",
+      "narwhal",
+      "knave",
+      "primal_fire",
+      "false_moon",
+      "heretic"
+    ],
+    "openingImageQualities": [
+      "png",
+      "legacy",
+      "h48c32",
+      "h32c16"
+    ],
+    "openingPixelReport": "evidence/weekly-opening-poses-browser.json",
+    "mechanismScenesMatched": [
+      "buried-weaving-room",
+      "mond-gate-chess-court",
+      "narwhal-inner-echo",
+      "tide-calibration-hall"
+    ],
+    "luaWeeklyRegressions": [
+      "dvalin",
+      "azhdaha",
+      "raiden",
+      "apep",
+      "narwhal",
+      "primal_fire",
+      "childe",
+      "signora",
+      "knave",
+      "false_moon",
+      "heretic"
+    ],
+    "runningPaletteCache": [
+      {
+        "direction": "right",
+        "frames": 24,
+        "poses": [
+          "traveler-run-right-source-v3.png",
+          "traveler-run-right-2-source-v1.png",
+          "traveler-run-right-3-source-v1.png",
+          "traveler-run-right-4-source-v1.png"
+        ],
+        "batchDraws": 48,
+        "reused": 43,
+        "directCalls": 23373,
+        "paletteCalls": 2703
+      },
+      {
+        "direction": "left",
+        "frames": 24,
+        "poses": [
+          "traveler-run-left-source-v3.png",
+          "traveler-run-left-2-source-v1.png",
+          "traveler-run-left-3-source-v1.png",
+          "traveler-run-left-4-source-v1.png"
+        ],
+        "batchDraws": 48,
+        "reused": 43,
+        "directCalls": 23041,
+        "paletteCalls": 2650
+      }
+    ]
+  },
+  "unverified": [
+    "Final sprite animation for every action and direction",
+    "Native Miliastra backgrounds and performance"
+  ]
+}

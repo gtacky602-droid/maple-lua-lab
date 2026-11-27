@@ -1,3 +1,5 @@
+import {bodyRow,paintBandedSprite} from './sprite-layers.js';
+
 // Shared source roster for live rendering and same-state comparisons.
 const chizhangMotionSources=['ember','frost'].flatMap(element=>['idle','brace','strike'].map(pose=>`chizhang-${element}-shared-${pose}-v3.png`));
 const geovishapSource='geovishap-shared-idle-v1.png';
@@ -39,7 +41,7 @@ export function drawCombatRect(ctx,draw){
  ctx.restore();
 }
 export function drawCombatRuns(ctx,draw,runs){
- const {x,y,w,h,gridWidth,gridHeight,flip,palette}=draw;
+ const {x,y,w,h,gridWidth,gridHeight,flip,palette,bodyBand:band}=draw;
  if(draw.rotation!==undefined){
   const {anchorX,anchorY,rotation,rotationCos:cos,rotationSin:sin}=draw;
   const sx=w/gridWidth,sy=h/gridHeight;
@@ -54,8 +56,10 @@ export function drawCombatRuns(ctx,draw,runs){
  }
  for(const [left,top,width,height,ink] of runs){
   const column=flip?gridWidth-left-width:left;
+  const row=bodyRow(top,gridHeight,band);
+  const heightRows=band==null?height:bodyRow(top+height,gridHeight,band)-row;
   ctx.fillStyle=palette?palette[ink-1]:ink;
-  ctx.fillRect(x+column*w/gridWidth,y+top*h/gridHeight,width*w/gridWidth+.05,height*h/gridHeight+.05);
+  ctx.fillRect(x+column*w/gridWidth,y+row*h/gridHeight,width*w/gridWidth+.05,heightRows*h/gridHeight+.05);
  }
  return runs.length;
 }
@@ -84,8 +88,9 @@ export function drawPaletteBatch(ctx,draw,runs,cache){
  ctx.save();ctx.imageSmoothingEnabled=false;
  ctx.translate(draw.x+(draw.flip?draw.w:0),draw.y);
  if(draw.flip)ctx.scale(-1,1);
- ctx.drawImage(canvas,0,0,draw.w,draw.h);ctx.restore();
- return buildCalls+1;
+ const copies=paintBandedSprite(ctx,canvas,[0,0,gridWidth,gridHeight],0,0,draw.w,draw.h,draw.bodyBand);
+ ctx.restore();
+ return buildCalls+copies;
 }
 export function combatOpacity(draw){
  return reducedTransparency?.matches ? 1 : (draw.opacity??1);

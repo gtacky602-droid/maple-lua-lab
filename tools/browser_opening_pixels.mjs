@@ -2,6 +2,7 @@ export function compareOpeningPixels(page,png,rect,node,camera=0,ids=['png','rec
  return page.evaluate(async({png,rect,node,camera,ids})=>{
   const {scenery,loadScenery}=await import('./scenery.js');
   const {drawCombatRect,omitCombatDraw,combatOpacity}=await import('./sprite-images.js');
+  const {paintBandedSprite}=await import('./sprite-layers.js');
   const frame={camera,platforms:node.platforms,storySwim:Boolean(node.swim),campaign:{zone:'story:'+node.id},story:{active:true,node:node.id},storyGraph:{nodes:[node]}};
   await loadScenery(frame);
   const render=async(id,draws)=>{
@@ -18,7 +19,7 @@ export function compareOpeningPixels(page,png,rect,node,camera=0,ids=['png','rec
     }else{
      if(!cache.has(d.source)){const img=new Image();img.src='assets/'+d.source;await img.decode();cache.set(d.source,img)}
      ctx.save();ctx.translate(d.x,d.y);if(d.rotation)ctx.rotate(d.rotation);if(d.flip)ctx.scale(-1,1);
-     ctx.drawImage(cache.get(d.source),...d.box,-d.w*(d.anchorX??.5),-d.h*(d.anchorY??1),d.w,d.h);ctx.restore();
+     paintBandedSprite(ctx,cache.get(d.source),d.box,-d.w*(d.anchorX??.5),-d.h*(d.anchorY??1),d.w,d.h,d.bodyBand);ctx.restore();
     }
    }
    const expected=ctx.getImageData(0,0,960,540).data;

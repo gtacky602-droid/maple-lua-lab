@@ -7,19 +7,19 @@
       "state": "ready"
     },
     "opening": {
-      "anchorX": 0.5,
-      "w": 242.27848101265823,
-      "source": "dvalin-weekly-body-source-v1.png",
-      "y": 330,
       "kind": "boss_sprite",
-      "flip": false,
+      "source": "dvalin-weekly-body-source-v1.png",
+      "anchorX": 0.5,
+      "y": 330,
+      "h": 244,
       "box": [
         25,
         25,
         435,
         395
       ],
-      "h": 220,
+      "w": 268.7088607594937,
+      "flip": false,
       "x": 480
     },
     "profiles": {
@@ -60,20 +60,20 @@
       "state": "ready"
     },
     "opening": {
+      "anchorX": 0.5121951219512195,
+      "source": "andrius-weekly-normal-source-v1.png",
       "box": [
         25,
         25,
         492,
         323
       ],
-      "kind": "boss_sprite",
-      "source": "andrius-weekly-normal-source-v1.png",
-      "y": 480,
-      "anchorX": 0.5121951219512195,
-      "w": 274.1795665634675,
+      "flip": false,
       "x": 480,
+      "kind": "boss_sprite",
       "h": 180,
-      "flip": false
+      "w": 274.1795665634675,
+      "y": 480
     },
     "profiles": {
       "legacy": {
@@ -105,6 +105,113 @@
       }
     }
   },
+  "childe": {
+    "node": "childe-golden-house-arena",
+    "background": {
+      "key": "liyueGoldenVault",
+      "file": "li-golden-vault-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "kind": "boss_sprite",
+      "flip": false,
+      "w": 58.57274119448698,
+      "anchorX": 0.3411420204978038,
+      "bodyBand": 0.25,
+      "y": 480,
+      "h": 112,
+      "box": [
+        271,
+        2,
+        683,
+        1306
+      ],
+      "source": "childe-idle-source-v1.png",
+      "x": 480
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 1543,
+        "drawnRuns": 1543,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 924,
+        "drawnRuns": 924,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 413,
+        "drawnRuns": 413,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
+  "azhdaha": {
+    "node": "azhdaha-dragon-seal-arena",
+    "background": {
+      "key": "liyueSealedCavern",
+      "file": "li-sealed-cavern-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "flip": false,
+      "h": 587.8399999999999,
+      "source": "azhdaha-idle-source-v1.png",
+      "box": [
+        48,
+        7,
+        1399,
+        1059
+      ],
+      "kind": "boss_sprite",
+      "w": 776.5705004721434,
+      "anchorX": 0.45961401000714797,
+      "x": 528,
+      "y": 480
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 18545,
+        "drawnRuns": 17062,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 11659,
+        "drawnRuns": 10730,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 5356,
+        "drawnRuns": 4952,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
   "signora": {
     "node": "signora-ten-shrine-arena",
     "background": {
@@ -113,20 +220,21 @@
       "state": "ready"
     },
     "opening": {
+      "anchorX": 0.5022123893805309,
+      "kind": "boss_sprite",
+      "source": "signora-idle-source-v1.png",
       "box": [
         261,
         18,
         678,
         1277
       ],
-      "kind": "boss_sprite",
+      "bodyBand": 0.25,
       "y": 480,
-      "flip": false,
-      "h": 120,
-      "anchorX": 0.5022123893805309,
-      "w": 63.71182458888019,
       "x": 480,
-      "source": "signora-idle-source-v1.png"
+      "w": 63.71182458888019,
+      "h": 120,
+      "flip": false
     },
     "profiles": {
       "legacy": {
@@ -166,20 +274,21 @@
       "state": "ready"
     },
     "opening": {
-      "h": 112,
+      "source": "raiden-weekly-normal-source-v1.png",
+      "flip": true,
+      "w": 78.848,
+      "x": 480,
+      "bodyBand": 0.25,
       "box": [
         216,
         94,
         704,
         1125
       ],
-      "w": 70.08711111111111,
-      "flip": true,
       "kind": "boss_sprite",
-      "x": 480,
-      "anchorX": 0.5667613636363636,
+      "h": 126,
       "y": 480,
-      "source": "raiden-weekly-normal-source-v1.png"
+      "anchorX": 0.5667613636363636
     },
     "profiles": {
       "legacy": {
@@ -219,20 +328,20 @@
       "state": "ready"
     },
     "opening": {
-      "x": 480,
-      "y": 480,
       "source": "shouki-idle-source-v1.png",
-      "anchorX": 0.5,
-      "kind": "boss_sprite",
-      "w": 1392.6417704011064,
       "box": [
         87,
         14,
         868,
         723
       ],
-      "h": 1160,
-      "flip": false
+      "kind": "boss_sprite",
+      "x": 480,
+      "w": 1392.6417704011064,
+      "flip": false,
+      "y": 480,
+      "anchorX": 0.5,
+      "h": 1160
     },
     "profiles": {
       "legacy": {
@@ -254,8 +363,8 @@
         }
       },
       "h32c16": {
-        "sourceRuns": 2125,
-        "drawnRuns": 1392,
+        "sourceRuns": 2287,
+        "drawnRuns": 1458,
         "heldDraws": 0,
         "differentPixels": {
           "png": 0,
@@ -272,20 +381,20 @@
       "state": "ready"
     },
     "opening": {
-      "anchorX": 0.275748502994012,
-      "w": 475.3651266766021,
-      "kind": "boss_sprite",
       "flip": false,
+      "anchorX": 0.275748502994012,
+      "kind": "boss_sprite",
+      "x": 480,
+      "y": 480,
+      "source": "apep-dark-idle-source-v1.png",
       "box": [
         57,
         166,
         1670,
         671
       ],
-      "h": 191,
-      "y": 480,
-      "x": 480,
-      "source": "apep-dark-idle-source-v1.png"
+      "h": 216,
+      "w": 537.585692995529
     },
     "profiles": {
       "legacy": {
@@ -325,10 +434,8 @@
       "state": "ready"
     },
     "opening": {
-      "w": 438.21647058823527,
-      "flip": false,
       "y": 468,
-      "x": 480,
+      "anchorX": 0.5,
       "box": [
         9,
         15,
@@ -336,9 +443,11 @@
         850
       ],
       "source": "narwhal-idle-source-v1.png",
-      "anchorX": 0.5,
       "kind": "boss_sprite",
-      "h": 212
+      "w": 504.3623529411765,
+      "x": 480,
+      "flip": false,
+      "h": 244
     },
     "profiles": {
       "legacy": {
@@ -378,20 +487,21 @@
       "state": "ready"
     },
     "opening": {
-      "anchorX": 0.6800422386483632,
-      "kind": "boss_sprite",
-      "w": 88.01991701244813,
-      "x": 480,
-      "y": 480,
-      "flip": true,
       "box": [
         50,
         49,
         947,
         1205
       ],
+      "y": 480,
+      "kind": "boss_sprite",
+      "h": 112,
+      "w": 88.01991701244813,
+      "anchorX": 0.6800422386483632,
       "source": "knave-weekly-single-source-v1.png",
-      "h": 112
+      "bodyBand": 0.25,
+      "x": 480,
+      "flip": true
     },
     "profiles": {
       "legacy": {
@@ -431,20 +541,20 @@
       "state": "ready"
     },
     "opening": {
+      "opacity": 1,
+      "kind": "boss_sprite",
+      "flip": false,
+      "w": 307.15605928509154,
       "box": [
         144,
         27,
         1122,
         1147
       ],
-      "opacity": 1,
-      "kind": "boss_sprite",
-      "anchorX": 0.5,
-      "source": "gosoythoth-idle-source-v1.png",
-      "h": 278,
-      "flip": false,
+      "h": 314,
       "y": 480,
-      "w": 271.94071490845687,
+      "source": "gosoythoth-idle-source-v1.png",
+      "anchorX": 0.5,
       "x": 540
     },
     "profiles": {
@@ -477,6 +587,60 @@
       }
     }
   },
+  "false_moon": {
+    "node": "nod-false-moon-court",
+    "background": {
+      "key": "falseMoonCourt",
+      "file": "false-moon-court-background-v1.png",
+      "state": "ready"
+    },
+    "opening": {
+      "flip": false,
+      "bodyBand": 0.25,
+      "kind": "boss_sprite",
+      "w": 106.49081803005008,
+      "source": "false-moon-weekly-idle-source-v1.png",
+      "y": 465,
+      "box": [
+        215,
+        63,
+        862,
+        1198
+      ],
+      "h": 148,
+      "x": 480,
+      "anchorX": 0.3433874709976798
+    },
+    "profiles": {
+      "legacy": {
+        "sourceRuns": 3825,
+        "drawnRuns": 3825,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h48c32": {
+        "sourceRuns": 2336,
+        "drawnRuns": 2336,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      },
+      "h32c16": {
+        "sourceRuns": 1074,
+        "drawnRuns": 1074,
+        "heldDraws": 0,
+        "differentPixels": {
+          "png": 0,
+          "rect": 0
+        }
+      }
+    }
+  },
   "heretic": {
     "node": "sumeru-heretic-lattice",
     "background": {
@@ -485,20 +649,21 @@
       "state": "ready"
     },
     "opening": {
-      "x": 480,
-      "w": 117.57682177348552,
+      "source": "heretic-weekly-idle-source-v1.png",
       "kind": "boss_sprite",
-      "y": 480,
       "anchorX": 0.4166666666666667,
-      "flip": false,
+      "w": 117.57682177348552,
+      "h": 144,
       "box": [
         163,
         119,
         930,
         1139
       ],
-      "source": "heretic-weekly-idle-source-v1.png",
-      "h": 144
+      "bodyBand": 0.25,
+      "flip": false,
+      "x": 480,
+      "y": 480
     },
     "profiles": {
       "legacy": {

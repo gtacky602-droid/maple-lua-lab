@@ -35,7 +35,7 @@ try{
  const calls=()=>page.locator('#draws').evaluate(el=>Number(el.textContent.replaceAll(',','')));
  const before=await calls();
  const savings=await page.evaluate(()=>lab.frame.draws.filter(d=>d.kind==='rect_runs')
-  .reduce((n,d)=>n+lab.frame.rectBatches[d.batch-1].length-1,0));
+  .reduce((n,d)=>n+lab.frame.rectBatches[d.batch-1].length-(d.bodyBand!=null?2:1),0));
  assert(savings>0);
  const canvas=page.locator('#game');
  const image=()=>canvas.evaluate(c=>c.toDataURL());

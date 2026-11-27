@@ -571,10 +571,10 @@ return function(C)
     end
     if seal.pressure then rect(seal.pressure.x-31,spec.floorY-6,62,6,'#ffe8ae') end
    elseif w.stageTick>=96 then
-    C.drawFieldDisplayArt(f,C.signoraWeeklyArt.pyro,e.x-s.camera,e.y,144,mode,profile,e.dir>0)
+    C.drawTallerHumanArt(f,C.signoraWeeklyArt.pyro,e.x-s.camera,e.y,144,mode,profile,e.dir>0,nil,w.clock/60)
    end
   elseif not e.underground then
-   C.drawFieldDisplayArt(f,C.signoraWeeklyArt[element],e.x-s.camera,e.y,e.drawHeight,mode,profile,e.dir>0)
+   C.drawTallerHumanArt(f,C.signoraWeeklyArt[element],e.x-s.camera,e.y,e.drawHeight,mode,profile,e.dir>0,nil,w.clock/60)
   end
   if seal then
    local function drawMoth(party,offset)

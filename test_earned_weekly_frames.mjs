@@ -42,6 +42,7 @@ try {
       const {apepDomeText, beidouReplyText, childeDropText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, shoukiTrialText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, drawPaletteBatch, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
+      const {paintBandedSprite}=await import('./sprite-layers.js');
       const root = document.querySelector('main');
       const heading = document.createElement('h1');
       heading.textContent = title;
@@ -84,7 +85,7 @@ try {
             if (d.flip) ctx.scale(-1, 1);
             const left = -d.w * (d.anchorX ?? .5);
             const top = -d.h * (d.anchorY ?? 1);
-            ctx.drawImage(image, ...d.box, left, top, d.w, d.h);
+            paintBandedSprite(ctx,image,d.box,left,top,d.w,d.h,d.bodyBand);
             if (d.glow) {
               ctx.strokeStyle = '#fff3bd';
               ctx.lineWidth = 2;
