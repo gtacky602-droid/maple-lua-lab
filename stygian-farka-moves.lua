@@ -90,6 +90,12 @@ return function(C,G)
     if not seen[key] and G.bodyContact(area,a) then
      seen[key]=true
      local damage=C.damageActor(party,a,c.damage,r.boss,true,true)
+     local chainHits=r.cast.chainHits
+     if chainHits then
+      local hits=chainHits[a] or {}
+      hits[(c.offset>0 and 1 or 0)+i]=damage
+      chainHits[a]=hits
+     end
      log(party,r,c,'contact',i,a.id,damage)
     end
    end

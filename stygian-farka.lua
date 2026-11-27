@@ -64,6 +64,7 @@ return function(C,G,M,view)
   local base=r.spec.cards[key]
   local c={key=key,card=base,title=base.title,t=0,serial=r.serial}
   if key=='FK07' then
+   c.chainHits={}
    c.variant=r.nextChain
    c.second=c.variant=='A' and 'FK04' or 'FK05'
    c.card=c.variant=='B' and base.variants.B or base

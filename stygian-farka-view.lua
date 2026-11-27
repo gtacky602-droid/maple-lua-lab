@@ -81,7 +81,7 @@ return function(C,G,M)
   C.drawFieldDisplayArt(f,body,b.x-s.camera,b.y,h,mode,profile,false)
   drawSword('front',frontDirection,front,fire,94)
  end
- local function prompt(r,parent,c)
+ local function prompt(s,r,parent,c)
   if r.status=='clear' then return '鍛錬を終えた' end
   if r.phase=='enter' then return '剣が動く前に、間合いを見ておけ' end
   if r.phase=='phase' then return labels[r.stage] end
@@ -90,10 +90,12 @@ return function(C,G,M)
    return string.format('反撃の隙 %.1f秒',(parent.card.total_ticks-parent.t)/60)
   end
   if c.t>=c.card.recovery[1] then
-   return string.format('次の構えまで %.1f秒',(r.spec.timing.chainAt-parent.t)/60)
+   return string.format('連係の途中。反撃の隙 %.1f秒',(r.spec.timing.chainAt-parent.t)/60)
   end
   if c.key=='FK05' then
    if c.t<111 then return '一撃目は低い。跳んでかわす' end
+   local a=s.actors[s.active]
+   if a.ground and a.y<r.spec.arena.floor then return '二撃目は高い。下＋Spaceで床へ降りる' end
    return '二撃目は高い。地面に着地する'
   end
   return hints[c.key]
@@ -145,10 +147,17 @@ return function(C,G,M)
   v.stage,v.stageName=r.stage,labels[r.stage]
   v.phase=r.status=='clear' and 'clear' or recover and 'recover' or r.phase
   v.tick,v.card=parent and parent.t or r.age-r.phaseAt,parent and parent.key
-  v.hint=prompt(r,parent,c)
+  v.hint=prompt(s,r,parent,c)
   if parent and parent.second then
    v.variant,v.child,v.childTick=parent.variant,c.key,c.t
    v.chain={spec.cards.FK03.title,spec.cards[parent.second].title}
+   local hits=parent.chainHits[s.actors[s.active]]
+   v.chainResult={}
+   for i,window in ipairs(parent.card.active_windows) do
+    local damage=hits and hits[i]
+    local resolved=parent.t>=window[2]
+    v.chainResult[i]={contact=damage~=nil,damage=damage or resolved and 0 or nil}
+   end
   end
   if r.phase=='enter' then v.dialogue='まずは一歩、剣の外へ出てみろ。' end
   if r.phase=='phase' then v.dialogue=r.stage==2 and '次は二本の刃を見ておけ。' or '低い一撃のあとが肝心だ。' end
@@ -157,6 +166,10 @@ return function(C,G,M)
    label=parent and parent.title or v.stageName}
   if r.status=='failed' then return end
   local back={draws={}}
+  if mode=='rect' and s.packRectArt then
+   back.rectIndex,back.rectBatches={},f.rectBatches or {}
+   f.rectBatches=back.rectBatches
+  end
   blades(back,s,r,c,mode,profile)
   table.move(f.draws,1,#f.draws,#back.draws+1,back.draws)
   f.draws=back.draws

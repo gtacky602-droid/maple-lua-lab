@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
+      const {falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
@@ -151,7 +151,8 @@ try {
         const rerirText = sample.view.match === 'rerir' ? [sample.view.hint, rerirTrialText(sample.view)].filter(Boolean).join(' ｜ ') : '';
         const ronovaText = sample.view.match === 'ronova' ? [sample.view.hint, ronovaVerdictText(sample.view)].filter(Boolean).join(' ｜ ') : '';
         const wandererText = sample.view.match === 'wanderer' ? [sample.view.hint, wandererFinalWindText(sample.view)].filter(Boolean).join(' ｜ ') : '';
-        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText || ronovaText || wandererText;
+        const farkaText = sample.view.match === 'farka' ? [sample.view.hint, farkaChainText(sample.view)].filter(Boolean).join(' ｜ ') : '';
+        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText || ronovaText || wandererText || farkaText;
         if (mechanic) {
           const status = document.createElement('p');
           status.className = 'mechanic';
@@ -180,7 +181,7 @@ try {
           profiles[key] = {differentPixels, rgbAbsoluteError, unpackedCommands:variant.unpackedCount,
             packedCommands:variant.packed.draws.length, unpackedBytes:variant.unpackedBytes,
             packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
-          if (['rerir','ronova','wanderer'].includes(sample.view.match)) {
+          if (['rerir','ronova','wanderer','farka','capitano'].includes(sample.view.match)) {
             const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', packed));
             profiles[key].canvasSha256 = Array.from(digest, byte => byte.toString(16).padStart(2, '0')).join('');
           }
@@ -189,7 +190,7 @@ try {
           ...(flowerText && {flowerText}), ...(journeyText && {journeyText}),
           ...(primalText && {primalText}), ...(falseMoonText && {falseMoonText}), ...(gateText && {gateText}),
           ...(hereticText && {hereticText}), ...(finaleText && {finaleText}), ...(rerirText && {rerirText}),
-          ...(ronovaText && {ronovaText}), ...(wandererText && {wandererText})};
+          ...(ronovaText && {ronovaText}), ...(wandererText && {wandererText}), ...(farkaText && {farkaText})};
       }
       return comparison;
     }, {frames, nodes, title:label});

@@ -40,6 +40,17 @@ export function drawCombatRect(ctx,draw){
 }
 export function drawCombatRuns(ctx,draw,runs){
  const {x,y,w,h,gridWidth,gridHeight,flip}=draw;
+ if(draw.rotation!==undefined){
+  const {anchorX,anchorY,rotation,rotationCos:cos,rotationSin:sin}=draw;
+  const sx=w/gridWidth,sy=h/gridHeight;
+  for(const [column,row,width,height,color] of runs){
+   let left=-w*anchorX+column*sx;
+   if(flip)left=-left-width*sx;
+   const top=-h*anchorY+row*sy;
+   drawCombatRect(ctx,{x:x+cos*left-sin*top,y:y+sin*left+cos*top,w:width*sx+.05,h:height*sy+.05,color,rotation});
+  }
+  return runs.length;
+ }
  for(const [left,top,width,height,color] of runs){
   const column=flip?gridWidth-left-width:left;
   ctx.fillStyle=color;
@@ -50,7 +61,7 @@ export function drawCombatRuns(ctx,draw,runs){
 // Different poses can share a Lua batch number. Keep recent grids across animation frames.
 export function drawPaletteBatch(ctx,draw,runs,cache){
  const {gridWidth,gridHeight}=draw;
- if(gridWidth*gridHeight>65536)return drawCombatRuns(ctx,draw,runs);
+ if(draw.rotation!==undefined||gridWidth*gridHeight>65536)return drawCombatRuns(ctx,draw,runs);
  const key=[gridWidth,gridHeight,runs.length,runs[0],runs[runs.length>>1],runs.at(-1)].join('|');
  const previous=cache.get(key);
  let canvas=previous?.canvas,buildCalls=0;

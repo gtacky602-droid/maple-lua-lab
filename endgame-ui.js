@@ -169,6 +169,18 @@ export function wandererFinalWindText(fight){
  return gate+(fight.safe?.inside?' ｜ 安全門の内側':' ｜ 安全門へ移動');
 }
 
+const farkaChainSteps={A:['突き立て','クロス一撃目','クロス二撃目'],B:['突き立て','低い炎','高い風']};
+
+export function farkaChainText(fight){
+ const steps=farkaChainSteps[fight.variant];
+ if(!steps||!fight.chainResult)return '';
+ return fight.chainResult.flatMap((step,i)=>{
+  if(step.damage===undefined)return [];
+  const result=step.contact?`${step.damage}ダメージ`:'無傷';
+  return [`${steps[i]} ${result}`];
+ }).join(' ｜ ');
+}
+
 export function stygianFinaleText(fight){
  const labels=stygianFinaleLabels[fight.match];
  const damage=fight.finale?.damage;
@@ -304,10 +316,11 @@ export function initEndgameUI(action){
    const roadProgress=fight.road?.total!==undefined;
    const finale=stygianFinaleText(fight);
    const verdict=ronovaVerdictText(fight);
+   const chain=farkaChainText(fight);
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
-    &&!roadProgress&&fight.windMarks===undefined&&!finale&&!verdict);
+    &&!roadProgress&&fight.windMarks===undefined&&!finale&&!verdict&&!chain);
    if(!mechanic.hidden){
-    mechanic.textContent=finale || rerirTrialText(fight) || verdict || wandererFinalWindText(fight) || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
+    mechanic.textContent=finale || rerirTrialText(fight) || verdict || wandererFinalWindText(fight) || chain || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
      : fight.windMarks!==undefined ? `風標 ${fight.windMarks} / ${fight.windGoal}${fight.markTime?` ｜ 残り ${Math.ceil(fight.markTime/60)}秒`:''}`
      : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
      : `結界 ${fight.ward} / 2`);
