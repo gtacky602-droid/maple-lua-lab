@@ -19,6 +19,7 @@ MINE_AND_SNOW_ARRIVALS = {
 QUEST_FIELD_ARRIVALS = {
     'liyue-loading-yard','inazuma-lantern-trail','liyue-cliff-planks',
     'sum-visitors-meadow','natlan-flag-slope','tunigi-depth','bygone-depth',
+    'nod-spruce-clearing','nod-patrol-bend',
 }
 
 

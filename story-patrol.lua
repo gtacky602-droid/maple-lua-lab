@@ -127,7 +127,7 @@ return function(C,canInspect)
   f.storyPatrol={shooterAlive=not not e,ground=ground,lookout=looked and ground>0,
    warning=warning and {x=shot.tx,y=shot.ty,seconds=math.max(0,shot.releaseAt-s.t)} or nil,
    message=warning and '高台からの投石 ｜ 点線で示した位置を狙っています'
-    or looked and ground>0 and '高台を確保 ｜ ここから地上に残った魔物を見渡せます（'..ground..'体）'
+    or looked and ground>0 and '高台を確保 ｜ 灯りの先で足場を降り、地上の魔物を退ける（残り'..ground..'体）'
     or e and '二段の岩棚から投石役に近づけます'
     or ground>0 and '地上に魔物が残っています（'..ground..'体）'
     or '曲がり角は安全です。奥の合流標へ。'}

@@ -1,0 +1,253 @@
+{
+  "base": "99edb05309f2045a675f79936dafcff16efe90d3",
+  "ordinaryHunts": 165,
+  "portalArrivals": [
+    {
+      "origin": "nod-lull-wood",
+      "destination": "nod-spruce-clearing",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-box-inlet",
+      "destination": "nod-spruce-clearing",
+      "positions": [
+        [
+          1480,
+          480
+        ],
+        [
+          1440,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-patrol-shore",
+      "destination": "nod-patrol-bend",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-patrol-post",
+      "destination": "nod-patrol-bend",
+      "positions": [
+        [
+          1653,
+          480
+        ],
+        [
+          1613,
+          480
+        ]
+      ]
+    }
+  ],
+  "earnedRoute": {
+    "sourceSha256": "0990e8bb71d5e3d2a7feffcd9373f9c72bcdb567c3cbbabfadac057df9468c90",
+    "restored": true,
+    "partyWipes": 0,
+    "completed": [
+      "nod-first-treasure",
+      "nod-moon-crossroads",
+      "nod-moon-vault-quest",
+      "columbina-coast-detour",
+      "nod-treasure-appraisal",
+      "nod-lantern-patrol"
+    ],
+    "reports": [
+      {
+        "id": "nod-moon-crossroads",
+        "seconds": 74.95,
+        "level": 123,
+        "total": 137484942,
+        "questXp": 69933770,
+        "killXp": 67551172,
+        "kills": 15741
+      },
+      {
+        "id": "nod-lantern-patrol",
+        "seconds": 163.15,
+        "level": 130,
+        "total": 198059204,
+        "questXp": 129973387,
+        "killXp": 68085817,
+        "kills": 15750
+      }
+    ],
+    "destination": {
+      "id": "snezhnaya-hub",
+      "seconds": 12304.03,
+      "level": 140,
+      "total": 362301448,
+      "questXp": 129973387,
+      "killXp": 232328061,
+      "kills": 23295
+    }
+  },
+  "patrolBrowser": {
+    "cabinScene": {
+      "key": "nodPatrolCabin",
+      "file": "nod-lantern-patrol-cabin-background-v1.png",
+      "state": "ready"
+    },
+    "coastScene": {
+      "key": "nodPatrolCoast",
+      "file": "nod-lantern-patrol-coast-background-v1.png",
+      "state": "ready"
+    },
+    "bothSignposts": true,
+    "warningShown": true,
+    "highBeforeGround": true,
+    "shortcutAfterReload": true,
+    "restAfterReload": true,
+    "remainingAfterShooter": [
+      "nod-patrol-bend-slime-1",
+      "nod-patrol-bend-slime-2",
+      "nod-patrol-bend-slime-3"
+    ],
+    "commands": {
+      "png": 22,
+      "standard": 5319,
+      "light": 1359
+    },
+    "warningCommands": {
+      "png": 36,
+      "standard": 7155,
+      "light": 1802
+    },
+    "reward": [
+      9330761,
+      8400
+    ],
+    "errors": []
+  },
+  "comparison": {
+    "nod-spruce-clearing": {
+      "before": {
+        "total": 4,
+        "visible": 4,
+        "camera": 640,
+        "backgroundFile": "nod-moon-wood-background-v1.png"
+      },
+      "after": {
+        "total": 4,
+        "visible": 4,
+        "camera": 640,
+        "backgroundFile": "nod-moon-wood-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 0,
+              "y": 450
+            },
+            "color": {
+              "x": 0,
+              "y": 450
+            }
+          },
+          "union": 7162,
+          "overlap": 6912,
+          "overlapPercent": 96.50935492879084,
+          "meanRgbError": 14.633101851851851
+        },
+        "rows": [
+          [
+            "標準",
+            "3,152",
+            "99.4%",
+            "5.09 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "1,802",
+            "98.2%",
+            "9.57 / 255",
+            "-42.8%"
+          ],
+          [
+            "最軽量・16色",
+            "714",
+            "96.5%",
+            "14.63 / 255",
+            "-77.3%"
+          ]
+        ]
+      }
+    },
+    "nod-patrol-bend": {
+      "before": {
+        "total": 4,
+        "visible": 4,
+        "camera": 830,
+        "backgroundFile": "nod-lantern-patrol-coast-background-v1.png"
+      },
+      "after": {
+        "total": 4,
+        "visible": 4,
+        "camera": 830,
+        "backgroundFile": "nod-lantern-patrol-coast-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 640,
+              "y": 450
+            },
+            "color": {
+              "x": 160,
+              "y": 225
+            }
+          },
+          "union": 7018,
+          "overlap": 6823,
+          "overlapPercent": 97.22143060701055,
+          "meanRgbError": 17.906590453857053
+        },
+        "rows": [
+          [
+            "標準",
+            "3,479",
+            "97.4%",
+            "10.11 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "2,008",
+            "98.7%",
+            "8.67 / 255",
+            "-42.3%"
+          ],
+          [
+            "最軽量・16色",
+            "801",
+            "97.2%",
+            "17.91 / 255",
+            "-77.0%"
+          ]
+        ]
+      }
+    }
+  }
+}

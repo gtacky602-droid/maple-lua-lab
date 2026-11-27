@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='nod-lantern-patrol',cabin='nod-patrol-cabin',shore='nod-patrol-shore';
-const bend='nod-patrol-bend',post='nod-patrol-post',prefix='evidence/nod-lantern-patrol';
+const bend='nod-patrol-bend',post='nod-patrol-post',prefix=process.env.LAB_PATROL_CAPTURES??'evidence/nod-lantern-patrol';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -117,11 +117,31 @@ async function saveReload(){
   await at(cabin);
 }
 
+async function remainingTargets(){
+  const shooter='nod-patrol-bend-slinger';
+  await page.locator(`[data-quest="${quest}"]`).getByRole('button',{name:'この依頼を追跡',exact:true}).click();
+  await page.locator('#trackedQuestMap').click();
+  const link=page.locator('#atlasQuestPoint');
+  await link.waitFor();
+  assert.equal((await frame()).worldMap.selected.questField,true);
+  assert.equal(await link.innerText(),'残りの討伐対象を見る');
+  const params=new URL(await link.getAttribute('href'),page.url()).searchParams;
+  assert.equal(params.get('subject'),'nod-patrol-bend-slime-1');
+  assert.deepEqual(params.getAll('absent'),[shooter]);
+  const [preview]=await Promise.all([page.waitForEvent('popup'),link.click()]);
+  await preview.waitForFunction(()=>window.mapArt?.ready);
+  const ids=await preview.evaluate(()=>window.mapArt.placements.map(p=>p.id));
+  assert.deepEqual(ids,['nod-patrol-bend-slime-1','nod-patrol-bend-slime-2','nod-patrol-bend-slime-3']);
+  await preview.close();
+  await page.locator('#atlasClose').click();
+  return ids;
+}
+
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8907/');
   await wait(()=>window.lab?.frame);
   const seed=await fs.readFile('work/nod-lantern-patrol-fixture.json','utf8');
-  const lua=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+  const lua=JSON.parse(await fs.readFile('evidence/nod-lantern-patrol-lua.json','utf8'));
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await page.locator('#loadProgress').click();
   await at('nod-town');
@@ -159,7 +179,9 @@ try{
   await wait(()=>window.lab.frame.actors.every(a=>a.walk===0&&a.lock===0));
   const looked=await frame();
   assert.ok(looked.storyPatrol.lookout&&looked.storyPatrol.ground===3);
+  assert.match(looked.storyPatrol.message,/灯りの先で足場を降り/);
   await shot('lookout');
+  const remainingAfterShooter=await remainingTargets();
   await walk(1351);
   await ground(480);
   await auto(true);
@@ -185,7 +207,7 @@ try{
   assert.ok((await frame()).actors.every(a=>a.hp===a.maxhp));
   assert.deepEqual(errors,[]);
   const proof={cabinScene,coastScene,bothSignposts:true,warningShown:true,highBeforeGround:true,
-    shortcutAfterReload:true,restAfterReload:true,commands,warningCommands,reward,errors};
+    shortcutAfterReload:true,restAfterReload:true,remainingAfterShooter,commands,warningCommands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
