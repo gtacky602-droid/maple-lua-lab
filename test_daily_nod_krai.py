@@ -64,11 +64,11 @@ assert not core.frame(s).storyNearbyPortal.available
 s = begin()
 write_json('work/daily-nod-level-fixture.json', checkpoint(s))
 gate(s, 671, forest)
-assert len(s.enemies) == 8
+assert len(s.enemies) == 17
 gate(s, 62, hub)
 gate(s, 60, field)
 gate(s, 617, scrapyard)
-assert len(s.enemies) == 8
+assert len(s.enemies) == 18
 gate(s, 64, field)
 gate(s, 1380, hub)
 core.enterStoryNode(s, 'natlan-hub')

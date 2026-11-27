@@ -4031,6 +4031,7 @@
     },
     {
       "id": "nod-field",
+      "huntKind": "field",
       "name": "ナド・クライ・月明かりの道",
       "region": "ナド・クライ",
       "level": 120,
@@ -4261,13 +4262,13 @@
       }
     },
     {
-      "id":"nod-tide-scrapyard","name":"ナド・クライ・月浜の部品置き場","region":"ナド・クライ","level":120,"hub":false,
+      "id":"nod-tide-scrapyard","huntKind":"field","name":"ナド・クライ・月浜の部品置き場","region":"ナド・クライ","level":120,"hub":false,
       "width":1760,"checkpoint":"nod-town",
       "platforms":[{"x":0,"y":480,"w":1760},{"x":452,"y":393,"w":322},{"x":702,"y":302,"w":335},{"x":1170,"y":398,"w":350}],
       "exits":[{"to":"nod-field","x":64,"arrivalX":617}]
     },
     {
-      "id":"nod-forest-outer","name":"ナド・クライ・トウヒ林の外周","region":"ナド・クライ","level":120,"hub":false,
+      "id":"nod-forest-outer","huntKind":"field","name":"ナド・クライ・トウヒ林の外周","region":"ナド・クライ","level":120,"hub":false,
       "width":1680,"checkpoint":"nod-town",
       "platforms":[{"x":0,"y":480,"w":1680},{"x":379,"y":394,"w":345},{"x":634,"y":298,"w":310},{"x":1040,"y":393,"w":355}],
       "exits":[{"to":"nod-town","x":62,"arrivalX":671}]

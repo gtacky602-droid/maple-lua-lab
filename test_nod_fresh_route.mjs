@@ -34,11 +34,16 @@ try {
  await page.locator('#game').click();
  await page.keyboard.press('KeyM');
  await atlas.waitFor();
- const hunts=['nod-north-spruce-shelves','nod-west-frost-slope','winter-frontier-switchback'];
+ const hunts=['nod-field','nod-tide-scrapyard','nod-forest-outer',
+  'nod-north-spruce-shelves','nod-west-frost-slope','winter-frontier-switchback'];
+ assert.equal(await page.locator('#atlasRegion option[value="branch-08"]').count(),0);
  await page.locator('#atlasLayer').selectOption('hunt');
  for(const id of hunts){
   await page.locator('#atlasField').selectOption(id);
-  await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,id);
+  await page.waitForFunction(id=>{
+   const map=window.lab.frame.worldMap;
+   return map?.layer==='hunt'&&map.selected?.id===id&&map.selected.huntKind==='field';
+  },id);
   assert.equal((await frame()).worldMap.guide.status,'ready');
  }
  await page.locator('#atlasLayer').selectOption('all');
@@ -75,7 +80,7 @@ try {
  await fs.writeFile(`evidence/nod-fresh-route-browser${suffix}.json`,JSON.stringify({
   importedLevel:before.progression.level,arrivalLevel:after.progression.level,route,hunts,
   completedQuests:proof.completedQuests,nextChapter:{id:ticket,requiredLevel:141,availableHunt:hunt},
-  travelKillXp,errors
+  travelKillXp,specialRegionExcluded:true,errors
  },null,2)+'\n');
  console.log('Chrome passed the earned Lv140 save, snow town guide, level-141 gate and reachable hunt.');
 }finally {
