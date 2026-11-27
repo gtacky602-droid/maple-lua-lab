@@ -79,9 +79,11 @@ def sequence(url, difficulty):
             place(b, move.lo - 20)
             a.inv = b.inv = 0
             start = [actor.hp for actor in (a, b)]
-            watch('recover')
+            host_result, guest_result = [v['guardReply'] for v in watch('recover')]
             assert boss.span == 174
             assert a.hp < start[0] and b.hp == start[1]
+            assert host_result == {'kind': 'quiet', 'damage': start[0] - a.hp}
+            assert guest_result == {'kind': 'quiet', 'damage': 0}
             assert len(events(s, 'impact:quiet')) == 1 and not events(t, 'impact:quiet')
             proof = dict(quietOpeningTicks=boss.span, outOfRangeEscaped=True)
         else:
@@ -118,8 +120,10 @@ def sequence(url, difficulty):
             a.y, a.ground = 384, False
             start = [actor.hp for actor in (a, b)]
             a.inv = b.inv = 0
-            watch('recover')
+            host_result, guest_result = [v['guardReply'] for v in watch('recover')]
             assert a.hp == start[0] and b.hp < start[1]
+            assert host_result['kind'] == guest_result['kind'] == 'baited'
+            assert host_result['waveDamage'] == 0 and guest_result['waveDamage'] == start[1] - b.hp
             assert not events(s, 'impact:wake') and len(events(t, 'impact:wake')) == 1
             assert boss.span == 83
             proof = dict(baitedOpeningTicks=boss.span, firstInputReserved=True,
@@ -139,7 +143,7 @@ def sequence(url, difficulty):
         restored = client.frame(restore=f['checkpoint'])
         assert restored['story']['node'] == HUB and restored['endgame']['stygian'][key]['clears'] == 1
     return dict(**proof, hp=hp, hostGuestClockOffset=120, staleAIAttacksIgnored=True,
-                openingShared=True, rewards=rewards, savedClears=1)
+                openingShared=True, individualGuardDamage=True, rewards=rewards, savedClears=1)
 
 
 if __name__ == '__main__':

@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "beidou_guard_replies": {"extremeReplays":4,"bossHP":2860,"quietDamage":51,"baitedDamage":61,"wakeDamage":36,"recoveryTicks":[139,72],"comparisonScenes":20,"matchedChromeCanvases":40,"record":"evidence/beidou-guard-replies-20261128.json"},
   "farka_dual_chain": {"extremeReplays":2,"chainOrder":["B","A"],"recoveryTicks":[90,144],"hitDamage":{"B":[34,37,37],"A":[34,26,0]},"comparisonScenes":22,"matchedChromeCanvases":44,"record":"evidence/farka-dual-chain-20261128.json"},
   "wanderer_four_winds": {"extremeReplays":3,"sameFloorGateOffsetPx":58,"gateWidthsPx":[160,112],"lastWindDamage":[0,50,0],"finalRecoveryTicks":[240,150],"comparisonScenes":22,"matchedChromeCanvases":44,"record":"evidence/wanderer-four-winds-20261128.json"},
   "ronova_final_verdict": {"extremeReplays":2,"judgmentTick":840,"safeRecoveryTicks":270,"lampWaitTicks":120,"lampProtectionTicks":120,"comparisonScenes":13,"matchedChromeCanvases":26,"record":"evidence/ronova-final-verdict-20261128.json"},
@@ -8137,6 +8138,12 @@
       "ronova"
     ],
     "not_implemented": [],
+    "local_extreme_route_replays": {
+      "matches":7,
+      "routes":17,
+      "scope":"Selected PvE mechanics in the standard Lua lab, with repeat wins and records restored from the same earned adventure save.",
+      "records":["farka_dual_chain","beidou_guard_replies","wanderer_four_winds","capitano_finale_branches","xbalanque_solar_clash","rerir_light_trials","ronova_final_verdict"]
+    },
     "legacy_candidates": [
       "beidou",
       "wanderer"

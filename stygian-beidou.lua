@@ -20,6 +20,11 @@ return function(C,G)
  end
  local function prepareAttack(s,run,spec,key,span,x,dialogue)
   local b,a=run.boss,run.target or s.actors[s.active]
+  if key=='quiet' or key=='baited' then
+   b.guardReply={kind=key,hasWave=key=='baited' and run.rules.reprise,impacts={}}
+  elseif key~='wake' then
+   b.guardReply=nil
+  end
   local slot=run.targetMember and run.targetMember.id
   if key=='baited' and b.guardMember then slot=b.guardMember.id
   elseif key=='wake' then slot=b.move.targetSlot end
@@ -41,7 +46,8 @@ return function(C,G)
  end
  local function invite(s,run,spec)
   local b=run.boss
-  b.move=nil;b.line=spec.dialogue.guard;b.guardAt=s.t
+  b.move,b.guardReply=nil,nil
+  b.line=spec.dialogue.guard;b.guardAt=s.t
   b.guardOwner,b.guardMember,b.guardX,b.guardInputAt=nil,nil,nil,nil
   if run.parties then
    -- Each browser keeps its own combat clock, including through disconnects.
@@ -126,6 +132,12 @@ return function(C,G)
    return a.x>=m.lo and a.x<=m.hi and a.y>m.ground-m.height
   end,function(party,a)
    local n=C.damageActor(party,a,m.damage,b,true,true)
+   local reply=b.guardReply
+   if reply then
+    local hits=reply.impacts[a] or {}
+    hits[m.key]=n
+    reply.impacts[a]=hits
+   end
    log(party,b,'impact:'..m.key,a.id,n)
   end)
  end
@@ -234,7 +246,21 @@ return function(C,G)
   f.endgameRun.phase=b.phase;f.endgameRun.tick=b.tick
   if run.status~='fighting' or b.hp<=0 then return end
   local n=b.phase
-  local rear={draws={}};local rect=paint(rear,s)
+  local reply=b.guardReply
+  if reply and (n=='tell' or n=='strike' or n=='recover') then
+   local hits=reply.impacts[s.actors[s.active]] or {}
+   local replyOver=n=='recover' or b.move and b.move.key=='wake'
+    or n=='strike' and b.tick>=spec.timing.impactEnd
+   local waveOver=n=='recover' or n=='strike' and b.move.key=='wake' and b.tick>=spec.timing.impactEnd
+   f.endgameRun.guardReply={kind=reply.kind,damage=hits[reply.kind] or replyOver and 0 or nil,
+    waveDamage=hits.wake or reply.hasWave and waveOver and 0 or nil}
+  end
+  local rear={draws={}}
+  if mode=='rect' and s.packRectArt then
+   rear.rectIndex,rear.rectBatches={},f.rectBatches or {}
+   f.rectBatches=rear.rectBatches
+  end
+  local rect=paint(rear,s)
   local facing=b.dir<0 and 'left' or 'right'
   local guarded=n=='guard' or n=='tell' or n=='feint'
   local pose=guarded and C.stygianBeidouArt.guard[facing] or C.stygianBeidouArt.idle[facing]

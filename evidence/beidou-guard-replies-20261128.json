@@ -1,0 +1,432 @@
+{
+  "baseCommit": "de96ea4cf5d5ed9051db0b549a71438fbc2682d9",
+  "method": "Four rematches from the same earned Lv200 save in the standard runtime, using the same reduced equipment loadout and holding companion attacks. The pilot waits through the first guard or strikes it with a fresh ordinary input, then either avoids the reply or takes it. The bait avoidance route jumps within the horizontal bounds of the return wave. All routes strike in the first recovery, win, and restore the repeat reward record.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "beidou",
+      "case": "beidou-wait-evade",
+      "label": "待って見切りの一閃・回避",
+      "ticks": 4525,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 2860,
+      "phaseStart": {
+        "guard": 119,
+        "quiet": 202
+      },
+      "decision": {
+        "kind": "waited",
+        "tick": 202,
+        "actor": 0,
+        "guardedBossHp": 2860
+      },
+      "positions": {
+        "quiet": {
+          "tick": 260,
+          "x": 406.0,
+          "y": 480,
+          "left": 419.5,
+          "right": 595.5,
+          "top": 410
+        }
+      },
+      "hits": [],
+      "recoveryTicks": 139,
+      "recoveryDamage": 52,
+      "reward": {
+        "first": false,
+        "mora": 3900,
+        "rank": 5,
+        "xp": 24716016,
+        "set": "黄金の劇団",
+        "bag": true
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "beidou",
+      "case": "beidou-wait-hit",
+      "label": "待って見切りの一閃・被弾",
+      "ticks": 4525,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 2860,
+      "phaseStart": {
+        "guard": 119,
+        "quiet": 202
+      },
+      "decision": {
+        "kind": "waited",
+        "tick": 202,
+        "actor": 0,
+        "guardedBossHp": 2860
+      },
+      "positions": {
+        "quiet": {
+          "tick": 260,
+          "x": 507.5,
+          "y": 480,
+          "left": 419.5,
+          "right": 595.5,
+          "top": 410
+        }
+      },
+      "hits": [
+        {
+          "move": "quiet",
+          "tick": 260,
+          "damage": 51
+        }
+      ],
+      "recoveryTicks": 139,
+      "recoveryDamage": 52,
+      "reward": {
+        "rank": 5,
+        "xp": 24716016,
+        "bag": true,
+        "first": false,
+        "mora": 3900,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "beidou",
+      "case": "beidou-bait-evade",
+      "label": "打ち込んで誘い返し・回避",
+      "ticks": 4443,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 2860,
+      "phaseStart": {
+        "guard": 119,
+        "baited": 131,
+        "wake": 187
+      },
+      "decision": {
+        "kind": "baited",
+        "tick": 131,
+        "actor": 1,
+        "guardedBossHp": 2860
+      },
+      "positions": {
+        "baited": {
+          "tick": 175,
+          "x": 339.5,
+          "y": 355.77777777777777,
+          "left": 353.0,
+          "right": 613.0,
+          "top": 362
+        },
+        "wake": {
+          "tick": 245,
+          "x": 479.5,
+          "y": 360.8333333333333,
+          "left": 361.0,
+          "right": 605.0,
+          "top": 426
+        }
+      },
+      "hits": [],
+      "recoveryTicks": 72,
+      "recoveryDamage": 52,
+      "reward": {
+        "bag": true,
+        "first": false,
+        "xp": 24716016,
+        "set": "黄金の劇団",
+        "rank": 5,
+        "mora": 3900
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "beidou",
+      "case": "beidou-bait-hit",
+      "label": "打ち込んで誘い返し・被弾",
+      "ticks": 4443,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 2860,
+      "phaseStart": {
+        "guard": 119,
+        "baited": 131,
+        "wake": 187
+      },
+      "decision": {
+        "kind": "baited",
+        "tick": 131,
+        "actor": 1,
+        "guardedBossHp": 2860
+      },
+      "positions": {
+        "baited": {
+          "tick": 175,
+          "x": 483.0,
+          "y": 480,
+          "left": 353.0,
+          "right": 613.0,
+          "top": 362
+        },
+        "wake": {
+          "tick": 245,
+          "x": 483.0,
+          "y": 480,
+          "left": 361.0,
+          "right": 605.0,
+          "top": 426
+        }
+      },
+      "hits": [
+        {
+          "move": "baited",
+          "tick": 175,
+          "damage": 61
+        },
+        {
+          "move": "wake",
+          "tick": 245,
+          "damage": 36
+        }
+      ],
+      "recoveryTicks": 72,
+      "recoveryDamage": 52,
+      "reward": {
+        "rank": 5,
+        "mora": 3900,
+        "set": "黄金の劇団",
+        "first": false,
+        "xp": 24716016,
+        "bag": true
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    }
+  ],
+  "comparisonScenes": 20,
+  "profiles": {
+    "h48c32": {
+      "beforeBytes": 5809639,
+      "afterBytes": 1833279,
+      "matchedCommands": 20,
+      "matchedChromeCanvases": 20,
+      "reductionPercent": 68.44
+    },
+    "h32c16": {
+      "beforeBytes": 2514315,
+      "afterBytes": 810471,
+      "matchedCommands": 20,
+      "matchedChromeCanvases": 20,
+      "reductionPercent": 67.77
+    }
+  },
+  "chromeVersion": "158.0.8127.38",
+  "luaRegression": {
+    "difficulty_levels": [
+      30,
+      58,
+      103,
+      165
+    ],
+    "story_route_and_difficulty_gates": true,
+    "attempt_loads_at_the_harbor": true,
+    "old_reaction_auto_and_ai_excluded": true,
+    "manual_guard_commits_once": true,
+    "withheld_opening_ticks": 174,
+    "hard_baited_opening_ticks": 83,
+    "hard_wake_and_master_feint": true,
+    "dodge_and_actual_health_loss": true,
+    "first_reward_all_ranks_and_repeat_overflow": true,
+    "time_and_skill_records": true,
+    "quest_report_save_restore": true,
+    "time_limit_and_defeat_no_reward": true
+  },
+  "coopRegression": {
+    "players": 2,
+    "normal": {
+      "quietOpeningTicks": 174,
+      "outOfRangeEscaped": true,
+      "hp": 690,
+      "hostGuestClockOffset": 120,
+      "staleAIAttacksIgnored": true,
+      "openingShared": true,
+      "individualGuardDamage": true,
+      "rewards": [
+        {
+          "mora": 1210,
+          "bag": true,
+          "rank": 3,
+          "xp": 16503,
+          "set": "黄金の劇団",
+          "first": true
+        },
+        {
+          "mora": 1210,
+          "bag": true,
+          "rank": 3,
+          "xp": 16503,
+          "set": "剣闘士のフィナーレ",
+          "first": true
+        }
+      ],
+      "savedClears": 1
+    },
+    "hard": {
+      "baitedOpeningTicks": 83,
+      "firstInputReserved": true,
+      "lockSurvivedReconnect": true,
+      "oneHitPerPairActor": true,
+      "jumpEscapedWake": true,
+      "hp": 1250,
+      "hostGuestClockOffset": 120,
+      "staleAIAttacksIgnored": true,
+      "openingShared": true,
+      "individualGuardDamage": true,
+      "rewards": [
+        {
+          "first": true,
+          "xp": 166428,
+          "set": "黄金の劇団",
+          "rank": 4,
+          "bag": true,
+          "mora": 2270
+        },
+        {
+          "first": true,
+          "xp": 166428,
+          "set": "剣闘士のフィナーレ",
+          "rank": 4,
+          "bag": true,
+          "mora": 2270
+        }
+      ],
+      "savedClears": 1
+    }
+  },
+  "browserRoutes": {
+    "normal": {
+      "background": {
+        "key": "cruxDuelDeck",
+        "file": "beidou-stygian-deck-background-v1.png",
+        "state": "ready"
+      },
+      "mode": "normal",
+      "levels": [
+        30,
+        58,
+        103,
+        165
+      ],
+      "mapRoute": [
+        "liyue-stygian-deck"
+      ],
+      "commands": {
+        "png": 19,
+        "standard": 7826,
+        "light": 2090
+      },
+      "viewport390": true,
+      "quietText": "見切りの一閃 被ダメージなし",
+      "transfer": {
+        "plainDraws": 2090,
+        "packedDraws": 19,
+        "plainGzip": 34854,
+        "packedGzip": 27026,
+        "identicalCanvas": true
+      },
+      "avoidedCounter": true,
+      "manualBaited": true,
+      "independentLeftAndRight": true,
+      "firstReward": {
+        "set": "黄金の劇団",
+        "rank": 3,
+        "bag": true,
+        "mora": 1210,
+        "xp": 16503,
+        "first": true
+      },
+      "questReportSaveRestore": true,
+      "record": {
+        "mainSkill": "normal",
+        "clears": 1,
+        "companion": "amber",
+        "bestTicks": 459
+      },
+      "errors": []
+    },
+    "hard": {
+      "background": {
+        "key": "cruxDuelDeck",
+        "file": "beidou-stygian-deck-background-v1.png",
+        "state": "ready"
+      },
+      "mode": "hard",
+      "levels": [
+        30,
+        58,
+        103,
+        165
+      ],
+      "mapRoute": [
+        "liyue-stygian-deck"
+      ],
+      "commands": {
+        "png": 19,
+        "standard": 7826,
+        "light": 2090
+      },
+      "viewport390": true,
+      "quietText": "見切りの一閃 被ダメージなし",
+      "waveResult": {
+        "reply": {
+          "kind": "baited",
+          "damage": 48,
+          "waveDamage": 29
+        },
+        "text": "誘い返し 48ダメージ ｜ 返し波 29ダメージ"
+      },
+      "secondReward": {
+        "rank": 4,
+        "first": false,
+        "bag": true,
+        "set": "黄金の劇団",
+        "mora": 1450,
+        "xp": 158220
+      },
+      "transfer": {
+        "plainDraws": 2090,
+        "packedDraws": 19,
+        "plainGzip": 36599,
+        "packedGzip": 26916,
+        "identicalCanvas": true
+      },
+      "avoidedCounter": true,
+      "manualBaited": true,
+      "independentLeftAndRight": true,
+      "firstReward": {
+        "rank": 4,
+        "first": true,
+        "bag": true,
+        "set": "黄金の劇団",
+        "mora": 2270,
+        "xp": 166428
+      },
+      "questReportSaveRestore": true,
+      "record": {
+        "bestTicks": 503,
+        "clears": 2,
+        "companion": "amber",
+        "mainSkill": "normal"
+      },
+      "errors": []
+    }
+  }
+}
