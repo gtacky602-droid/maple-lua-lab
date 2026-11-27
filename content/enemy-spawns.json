@@ -618,28 +618,36 @@
         "kind": 1,
         "art": "hilichurl",
         "x": 300,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 300,
+        "patrolMax": 374
       },
       {
         "id": "mond-road-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
+        "x": 540,
+        "platform": 0,
+        "patrolMin": 534,
+        "patrolMax": 1180
       },
       {
         "id": "mond-road-3",
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 534,
+        "patrolMax": 1180
       },
       {
         "id": "mond-road-4",
         "kind": 1,
         "art": "hydro-slime",
         "x": 1120,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 534,
+        "patrolMax": 1180
       },
       {
         "id": "mond-road-5",
@@ -652,9 +660,21 @@
         "id": "mond-road-6",
         "kind": 2,
         "art": "pyro-slime",
-        "x": 655,
-        "platform": 2
-      }
+        "x": 900,
+        "platform": 3,
+        "patrolMin": 892,
+        "patrolMax": 1086
+      },
+      {"id":"mond-road-regular-1","x":355,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":300,"patrolMax":374},
+      {"id":"mond-road-regular-2","x":565,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":534,"patrolMax":1180},
+      {"id":"mond-road-regular-3","x":700,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":534,"patrolMax":1180},
+      {"id":"mond-road-regular-4","x":780,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":534,"patrolMax":1180},
+      {"id":"mond-road-regular-5","x":949,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":534,"patrolMax":1180},
+      {"id":"mond-road-regular-6","x":1025,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":534,"patrolMax":1180},
+      {"id":"mond-road-regular-7","x":285,"platform":1,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-road-regular-8","x":455,"platform":1,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-road-regular-9","x":1035,"platform":3,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":892,"patrolMax":1086},
+      {"id":"mond-road-regular-10","x":965,"platform":3,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":892,"patrolMax":1086}
     ],
     "mond-bennett-depth": [
       {"id": "mond-bennett-depth-slime", "name": "鉱脈の水スライム", "kind": 1, "art": "hydro-slime", "x": 795, "platform": 1, "hp": 16},
@@ -665,29 +685,37 @@
         "id": "mond-border-1",
         "kind": 1,
         "art": "hilichurl",
-        "x": 300,
-        "platform": 0
+        "x": 240,
+        "platform": 0,
+        "patrolMin": 220,
+        "patrolMax": 250
       },
       {
         "id": "mond-border-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
+        "x": 620,
+        "platform": 0,
+        "patrolMin": 600,
+        "patrolMax": 1180
       },
       {
         "id": "mond-border-3",
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 600,
+        "patrolMax": 1180
       },
       {
         "id": "mond-border-4",
         "kind": 1,
         "art": "hydro-slime",
         "x": 1120,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 600,
+        "patrolMax": 1180
       },
       {
         "id": "mond-border-5",
@@ -712,7 +740,17 @@
         "x": 715,
         "platform": 0,
         "hp": 30
-      }
+      },
+      {"id":"mond-border-regular-1","x":690,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":600,"patrolMax":1180},
+      {"id":"mond-border-regular-2","x":780,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":600,"patrolMax":1180},
+      {"id":"mond-border-regular-3","x":965,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":600,"patrolMax":1180},
+      {"id":"mond-border-regular-4","x":1040,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":600,"patrolMax":1180},
+      {"id":"mond-border-regular-5","x":246,"platform":1,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-border-regular-6","x":366,"platform":1,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-border-regular-7","x":482,"platform":2,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-border-regular-8","x":652,"platform":2,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-border-regular-9","x":826,"platform":3,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-border-regular-10","x":999,"platform":3,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8}
     ],
     "liyue-entry": [
       {
@@ -2195,42 +2233,54 @@
         "x": 285,
         "platform": 0,
         "art": "hydro-slime",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 220,
+        "patrolMax": 1180
       },
       {
         "id": "mond-old-ground-2",
         "x": 380,
         "platform": 0,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 220,
+        "patrolMax": 1180
       },
       {
         "id": "mond-old-ground-3",
         "x": 520,
         "platform": 0,
         "art": "pyro-slime",
-        "kind": 2
+        "kind": 2,
+        "patrolMin": 220,
+        "patrolMax": 1180
       },
       {
         "id": "mond-old-ground-4",
         "x": 730,
         "platform": 0,
         "art": "hydro-slime",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 220,
+        "patrolMax": 1180
       },
       {
         "id": "mond-old-ground-5",
         "x": 950,
         "platform": 0,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 220,
+        "patrolMax": 1180
       },
       {
         "id": "mond-old-ground-6",
         "x": 1120,
         "platform": 0,
         "art": "pyro-slime",
-        "kind": 2
+        "kind": 2,
+        "patrolMin": 220,
+        "patrolMax": 1180
       },
       {
         "id": "mond-old-ground-7",
@@ -2255,7 +2305,15 @@
         "x": 1322,
         "platform": 0,
         "hp": 32
-      }
+      },
+      {"id":"mond-old-ground-regular-1","x":330,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1180},
+      {"id":"mond-old-ground-regular-2","x":445,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1180},
+      {"id":"mond-old-ground-regular-3","x":575,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1180},
+      {"id":"mond-old-ground-regular-4","x":815,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1180},
+      {"id":"mond-old-ground-regular-5","x":869,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1180},
+      {"id":"mond-old-ground-regular-6","x":1040,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1180},
+      {"id":"mond-old-ground-regular-7","x":285,"platform":1,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-old-ground-regular-8","x":690,"platform":2,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8}
     ],
     "mond-hill": [
       {
@@ -2263,7 +2321,9 @@
         "x": 700,
         "platform": 0,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 220,
+        "patrolMax": 1500
       },
       {
         "id": "mond-hill-2",
@@ -2278,7 +2338,21 @@
         "platform": 3,
         "art": "pyro-slime",
         "kind": 2
-      }
+      },
+      {"id":"mond-hill-regular-1","x":325,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-2","x":460,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-3","x":565,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-4","x":815,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-5","x":936,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-6","x":1070,"platform":0,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-7","x":1205,"platform":0,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-8","x":1360,"platform":0,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8,"patrolMin":220,"patrolMax":1500},
+      {"id":"mond-hill-regular-9","x":281,"platform":1,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-hill-regular-10","x":480,"platform":1,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-hill-regular-11","x":570,"platform":2,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-hill-regular-12","x":743,"platform":2,"art":"pyro-slime","kind":2,"hp":14,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-hill-regular-13","x":1050,"platform":3,"art":"hilichurl","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8},
+      {"id":"mond-hill-regular-14","x":1330,"platform":4,"art":"hydro-slime","kind":1,"hp":12,"contactDamage":6,"contactCooldown":4.8}
     ],
     "mond-watchtower": [
       {

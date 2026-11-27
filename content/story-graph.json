@@ -218,7 +218,7 @@
       "checkpoint": "mond-town"
     },
     {
-      "id": "mond-road",
+      "id": "mond-road","huntKind":"field",
       "name": "モンド・南の街道",
       "region": "モンド",
       "level": 1,
@@ -475,7 +475,7 @@
       "peaceful": true
     },
     {
-      "id": "mond-old-ground",
+      "id": "mond-old-ground","huntKind":"field",
       "name": "モンド・旧道の下段",
       "region": "モンド",
       "level": 1,
@@ -525,7 +525,7 @@
       "checkpoint": "mond-town"
     },
     {
-      "id": "mond-hill",
+      "id": "mond-hill","huntKind":"field",
       "name": "モンド・風見の丘",
       "region": "モンド",
       "level": 1,
@@ -725,7 +725,7 @@
       ]
     },
     {
-      "id": "mond-border",
+      "id": "mond-border","huntKind":"field",
       "name": "モンド・国境の道",
       "region": "モンド",
       "level": 1,

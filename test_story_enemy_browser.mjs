@@ -20,12 +20,21 @@ try {
  await page.waitForFunction(()=>['hilichurl-idle-source-v1.png','hydro-slime-idle-source-v2.png','pyro-slime-idle-source-v1.png'].every(source=>window.lab.frame.draws.some(d=>d.source===source)));
  if(await page.evaluate(()=>window.lab.frame.draws.some(d=>d.kind==='sprite'&&(d.asset===5||d.asset===7))))throw Error('Old slime atlas still drawn');
  const result=await page.evaluate(()=>({node:window.lab.frame.story.node,total:window.lab.frame.total,hilichurl:window.lab.frame.draws.find(d=>d.source==='hilichurl-idle-source-v1.png')}));
- if(result.total!==6||errors.length)throw Error(JSON.stringify({result,errors}));
+ if(result.total!==16||errors.length)throw Error(JSON.stringify({result,errors}));
  await page.locator('#game').screenshot({path:'evidence/story-enemy-browser.png'});
+ await page.keyboard.press('KeyM');
+ await page.locator('#worldAtlas').waitFor();
+ await page.locator('#atlasLayer').selectOption('hunt');
+ await page.waitForFunction(()=>{
+  const map=window.lab.frame.worldMap;
+  return map?.layer==='hunt'&&map.selected?.id==='mond-road'&&map.selected.huntKind==='field';
+ });
+ await page.keyboard.press('Escape');
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
  await page.selectOption('#renderMode','rect');
  await page.waitForFunction(()=>window.lab.frame.draws.some(d=>d.kind==='rect')&&!window.lab.frame.draws.some(d=>d.source==='hilichurl-idle-source-v1.png'));
  await page.locator('#game').screenshot({path:'evidence/story-enemy-browser-rect.png'});
- await fs.writeFile('evidence/story-enemy-browser.json',JSON.stringify({result,errors,method:'walked from story start to adjacent portal using keyboard; three referenced enemy sources and PNG/rect runtime frames checked; old slime atlas absent'},null,2));
+ await fs.writeFile('evidence/story-enemy-browser.json',JSON.stringify({result,errors,huntLayer:true,method:'walked from story start to adjacent portal using keyboard; three referenced enemy sources and PNG/rect runtime frames checked; old slime atlas absent'},null,2));
  await page.selectOption('#renderMode','sprite');
  await walkThroughPortal('mond-border',1380);
  await walkThroughPortal('dragonspine-camp',720);

@@ -1,95 +1,95 @@
 {
-  "sourceSha256": "e2ff1243394102f4d4802eefbf8d8a9d32bd1c2a03a513f456f558d98d9223f0",
+  "sourceSha256": "6efdebef17e8951a5969cf64efbbea65eccb11f73bf19cf84a50d05d91898e77",
   "route": [
     {
       "id": "columbina-coast-detour",
       "seconds": 27.57,
       "level": 120,
-      "total": 113932692,
+      "total": 113962515,
       "questXp": 46587841,
-      "killXp": 67344851,
-      "kills": 15629
+      "killXp": 67374674,
+      "kills": 15672
     },
     {
       "id": "nod-first-treasure",
       "seconds": 45.1,
       "level": 121,
-      "total": 123693737,
+      "total": 123723560,
       "questXp": 56321040,
-      "killXp": 67372697,
-      "kills": 15632
+      "killXp": 67402520,
+      "kills": 15675
     },
     {
       "id": "nod-moon-crossroads",
       "seconds": 74.95,
       "level": 123,
-      "total": 137343595,
+      "total": 137373418,
       "questXp": 69933770,
-      "killXp": 67409825,
-      "kills": 15636
+      "killXp": 67439648,
+      "kills": 15679
     },
     {
       "id": "nod-moon-vault-quest",
       "seconds": 95.38,
       "level": 128,
-      "total": 184087640,
+      "total": 184117463,
       "questXp": 116260125,
-      "killXp": 67827515,
-      "kills": 15637
+      "killXp": 67857338,
+      "kills": 15680
     },
     {
       "id": "nod-treasure-appraisal",
       "seconds": 129.38,
       "level": 129,
-      "total": 188503557,
+      "total": 188533380,
       "questXp": 120642626,
-      "killXp": 67860931,
-      "kills": 15641
+      "killXp": 67890754,
+      "kills": 15684
     },
     {
       "id": "nod-lantern-patrol",
       "seconds": 162.83,
       "level": 130,
-      "total": 197917857,
+      "total": 197947680,
       "questXp": 129973387,
-      "killXp": 67944470,
-      "kills": 15645
+      "killXp": 67974293,
+      "kills": 15688
     },
     {
       "id": "lv133",
-      "seconds": 3853.8,
+      "seconds": 3847.52,
       "level": 133,
-      "total": 236736301,
+      "total": 236731278,
       "questXp": 129973387,
-      "killXp": 106762914,
-      "kills": 17873
+      "killXp": 106757891,
+      "kills": 17914
     },
     {
       "id": "lv136",
-      "seconds": 9394.63,
+      "seconds": 9465.47,
       "level": 136,
-      "total": 283710973,
+      "total": 283726996,
       "questXp": 129973387,
-      "killXp": 153737586,
-      "kills": 20105
+      "killXp": 153753609,
+      "kills": 20147
     },
     {
       "id": "lv140",
-      "seconds": 12357.03,
+      "seconds": 12428.57,
       "level": 140,
-      "total": 362013813,
+      "total": 361978990,
       "questXp": 129973387,
-      "killXp": 232040426,
-      "kills": 23185
+      "killXp": 232005603,
+      "kills": 23225
     },
     {
       "id": "snezhnaya-hub",
-      "seconds": 12363.63,
+      "seconds": 12435.17,
       "level": 140,
-      "total": 362105845,
+      "total": 362071022,
       "questXp": 129973387,
-      "killXp": 232132458,
-      "kills": 23189
+      "killXp": 232097635,
+      "kills": 23229
     }
   ],
   "completedQuests": [
@@ -104,23 +104,23 @@
     {
       "stage": "nod-north-spruce-shelves",
       "sorties": 47,
-      "kills": 1991,
-      "xp": 34689193,
-      "seconds": 3476.9
+      "kills": 1989,
+      "xp": 34654347,
+      "seconds": 3470.62
     },
     {
       "stage": "nod-west-frost-slope",
       "sorties": 71,
-      "kills": 2195,
-      "xp": 46195970,
-      "seconds": 5182.78
+      "kills": 2192,
+      "xp": 46132832,
+      "seconds": 5252.28
     },
     {
       "stage": "winter-frontier-switchback",
       "sorties": 39,
-      "kills": 2992,
-      "xp": 76065616,
-      "seconds": 2794.57
+      "kills": 2996,
+      "xp": 76167308,
+      "seconds": 2794.77
     }
   ],
   "pathBackFromWestHighland": [

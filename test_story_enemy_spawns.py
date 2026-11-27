@@ -43,14 +43,14 @@ for n in graph['nodes']:
 
 s=c.new(12);c.action(s,'story_start');c.enterStoryNode(s,'mond-road')
 source=c.hilichurlArt.source
+for i,e in s.enemies.items():
+    if i!=1:e.hp=0
 for profile in ['legacy','h48c32','h32c16']:
     png=c.frame(s,'sprite',profile)
     draws=[d for d in png.draws.values() if d.kind=='boss_sprite' and d.source==source]
     assert len(draws)==1 and draws[0].h==76
     # Hide other actors/enemies to count the new asset's rectangles precisely.
     for a in s.actors.values(): a.hp=0
-    for i,e in s.enemies.items():
-        if i!=1:e.hp=0
     rect=c.frame(s,'rect',profile)
     hp=s.enemies[1].hp;s.enemies[1].hp=0
     baseline=c.frame(s,'rect',profile)
