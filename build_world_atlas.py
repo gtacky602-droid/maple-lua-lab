@@ -229,6 +229,11 @@ def build():
 
     legends = {row['encounter_id']: row for row in load('design/world/encounters.json')['legends']}
     group_openings = load('content/group-legend-openings.json')
+    entrances = defaultdict(list)
+    for source in nodes.values():
+        for edge in source['exits']:
+            entrances[edge['to']].append((source, edge))
+    quest_ids = {q['id'] for q in graph['quests']}
     for boss in field_bosses:
         legend = legends.get(boss['id'])
         if legend is None:
@@ -242,6 +247,17 @@ def build():
             entry['aliases'] = [legend['source_enemy_base']]
         if stage in challenges:
             entry['challenge'] = challenges[stage]
+        # An authored atlas parent can carry the gate for the approach just outside an arena.
+        access_edges = [edge for _, edge in entrances[stage]]
+        for source, _ in entrances[stage]:
+            parent = source.get('atlasParent')
+            access_edges.extend(edge for approach, edge in entrances[source['id']]
+                                if approach['id'] == parent and parent != stage)
+        access = sorted({edge['requires']['quest'] for edge in access_edges
+                         if edge.get('requires', {}).get('quest')})
+        assert set(access) <= quest_ids, (stage, access)
+        if access:
+            entry['accessQuests'] = access
         bosses_by_stage[stage] = entry
 
     hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']

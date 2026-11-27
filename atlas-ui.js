@@ -1,4 +1,4 @@
-import {stopTiming,windTiming} from './quest-route.js';
+import {questDestinations,stopTiming,windTiming} from './quest-route.js';
 import {entranceKey} from './arena-entrances.js';
 import {atlasQuestObjectives,questStatus,questStatusLabels} from './quest-journal.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
@@ -248,18 +248,32 @@ export function initAtlas(action, clearKeys) {
    for(const q of frame.storyGraph.quests){
     const battle=challenge&&q.itinerary?.find(step=>step.kind==='boss'&&step.boss===challenge&&step.node===selected.id);
     const commission=challenge&&q.kind==='boss'&&q.target===challenge;
-    if((battle||commission)&&(!q.legacyOnly||quests?.[q.id])){
-     const status=questStatus(q,quests?.[q.id],quests,frame.progression?.level??0,frame.growthEligibility);
+    const access=selected.boss?.accessQuests?.includes(q.id);
+    if((battle||commission||access)&&(!q.legacyOnly||quests?.[q.id])){
+     const progress=quests?.[q.id];
+     const status=questStatus(q,progress,quests,frame.progression?.level??0,frame.growthEligibility);
      const hub=frame.storyGraph.nodes.find(n=>n.id===q.hub);
      const item=document.createElement('li');
-     item.textContent=q.name+' ｜ '+questStatusLabels[status]+(q.level?' ｜ 受注Lv'+q.level:'');
+     item.textContent=q.name+' ｜ '+questStatusLabels[status]+(q.level?' ｜ 受注Lv'+q.level:'')+(access?' ｜ 入口に関わる依頼':'');
      const route=document.createElement('button');
      route.type='button';route.textContent=(hub?.name??q.hub)+'までの道順';
      route.onclick=()=>send('world_map_focus:'+q.hub);
-     if(battle?.objective){
+     const objective=(status==='active'?q.itinerary?.[progress.count]?.objective:null)??battle?.objective;
+     if(objective){
       const goal=document.createElement('p');
-      goal.textContent=battle.objective;
+      goal.textContent=objective;
       item.append(goal);
+     }
+     if(status==='active'){
+      const {candidates}=questDestinations(frame,q,status,selected.id);
+      for(const id of new Set(candidates)){
+       const destination=frame.storyGraph.nodes.find(n=>n.id===id);
+       if(!destination||id===q.hub)continue;
+       const next=document.createElement('button');
+       next.type='button';next.textContent='次の目的地・'+destination.name;
+       next.onclick=()=>send('world_map_focus:'+id);
+       item.append(' ',next);
+      }
      }
      item.append(' ',route);commissions.push(item);
     }

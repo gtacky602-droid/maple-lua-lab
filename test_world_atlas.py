@@ -64,10 +64,17 @@ assert Counter(p['kind'] for stage, p in boss_points.items()
                if p.get('challenge') in commission_targets or (stage, p.get('challenge')) in itinerary_battles) == {
     'normal': 64, 'weekly': 16, 'stygian': 7,
 }
-assert {stage: {key:value for key,value in p.items() if key!='challenge'} for stage,p in boss_points.items()} == {
+assert {stage: {key:value for key,value in p.items() if key not in ('challenge','accessQuests')} for stage,p in boss_points.items()} == {
     stage: {key: row[key] for key in ('id', 'name', 'kind', 'aliases', 'placementPreview') if key in row}
     for stage, row in roster.items()
 }
+access = {stage: p['accessQuests'] for stage, p in boss_points.items() if p.get('accessQuests')}
+assert len(access) == 21 and sum(map(len, access.values())) == 23
+assert all(boss_points[stage]['kind'] == 'legend' for stage in access)
+assert access['night-trial-tlatzacuilotl'] == ['natlan-sulfurous-resonant-stones']
+assert access['ochka-bronzelock-island-court'] == ['ochka-floating-island-spiritway']
+assert access['frost-mushteshir-inner-chamber'] == ['frost-commander-console-test', 'frost-wujian-access-survey']
+assert 'vivianne-legend-bank' not in access
 for entry in plan['draft_field_approaches']:
     stage = entry['anchor']
     assert entry['terminus'] and not entry['runtime_gate']
