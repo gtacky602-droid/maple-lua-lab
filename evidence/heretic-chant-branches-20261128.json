@@ -1,0 +1,372 @@
+{
+  "baseCommit": "30c469b760c23f7f485120718b848e6c161741fb",
+  "routeSetup": "Three copies of the earned Lv200 save entered from the regular expert weekly desk. The traveler uses ordinary inputs to reach the first chant, then interrupts it after breaking one anchor, breaks one anchor but lets the chant expire, or leaves both anchors intact.",
+  "beforeAfterCombatTraceIdentical": true,
+  "fights": [
+    {
+      "controller": "heretic",
+      "case": "heretic-stopped",
+      "label": "結合点を壊して詠唱を中断",
+      "ticks": 8411,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "phases": [
+        "p1",
+        "changing",
+        "p2",
+        "trial",
+        "p2",
+        "trial",
+        "p2"
+      ],
+      "anchorHits": [
+        2,
+        1,
+        0
+      ],
+      "opened": {
+        "tick": 265,
+        "remaining": 1535,
+        "chant": 24
+      },
+      "chantHits": [
+        23,
+        22,
+        21,
+        20,
+        19,
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "stopped": {
+        "tick": 1129,
+        "hp": 2250
+      },
+      "expired": null,
+      "pushes": [],
+      "shockHits": [],
+      "exposureTicks": 720,
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "heretic",
+      "case": "heretic-open-expired",
+      "label": "結合点を壊して時間切れ",
+      "ticks": 8497,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "phases": [
+        "p1",
+        "changing",
+        "p2",
+        "trial",
+        "p2",
+        "trial",
+        "p2"
+      ],
+      "anchorHits": [
+        2,
+        1,
+        0
+      ],
+      "opened": {
+        "tick": 265,
+        "remaining": 1535,
+        "chant": 24
+      },
+      "chantHits": [],
+      "stopped": null,
+      "expired": {
+        "tick": 1800,
+        "hp": 2250,
+        "chant": 24
+      },
+      "pushes": [],
+      "shockHits": [
+        {
+          "tick": 180,
+          "loss": 125
+        }
+      ],
+      "exposureTicks": 0,
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "heretic",
+      "case": "heretic-closed-expired",
+      "label": "結合点を残して時間切れ",
+      "ticks": 8570,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "phases": [
+        "p1",
+        "changing",
+        "p2",
+        "trial",
+        "p2",
+        "trial",
+        "p2"
+      ],
+      "anchorHits": [],
+      "opened": null,
+      "chantHits": [],
+      "stopped": null,
+      "expired": {
+        "tick": 1800,
+        "hp": 2250,
+        "chant": 24
+      },
+      "pushes": [
+        {
+          "tick": 586,
+          "distance": 30.8
+        },
+        {
+          "tick": 1310,
+          "distance": 30.8
+        }
+      ],
+      "shockHits": [
+        {
+          "tick": 180,
+          "loss": 125
+        }
+      ],
+      "exposureTicks": 0,
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "comparisonScenes": 17,
+  "intermediateCloserToPngAtScenes": 17,
+  "matchedExpandedRectangleStreams": 34,
+  "matchingChromeColorErrorProfiles": 34,
+  "profiles": {
+    "h48c32": {
+      "previousBytes": 7357218,
+      "currentBytes": 2040494,
+      "matchedStreams": 17,
+      "reductionPercent": 72.27
+    },
+    "h32c16": {
+      "previousBytes": 3122787,
+      "currentBytes": 979677,
+      "matchedStreams": 17,
+      "reductionPercent": 68.63
+    }
+  },
+  "chrome": "158.0.8127.38",
+  "browserPackedTransfer": {
+    "boss": "boss-29150101",
+    "profile": "h48c32",
+    "time": 1.3000000000000003,
+    "canvasIdentical": true,
+    "packed": {
+      "gzipBytes": 72633,
+      "draws": 8
+    },
+    "plain": {
+      "gzipBytes": 90240,
+      "draws": 5130
+    }
+  },
+  "luaRegression": {
+    "manifest_cards": [
+      "WH01",
+      "WH02",
+      "WH03",
+      "WH04",
+      "WH05",
+      "WH06",
+      "WH07",
+      "WH08",
+      "WH09",
+      "WH10",
+      "WH11",
+      "WH12",
+      "WH13",
+      "WH14",
+      "WH15",
+      "WH16",
+      "WH17",
+      "WH18",
+      "WH19",
+      "WH20"
+    ],
+    "p1_floor_p2_invulnerable_transition": true,
+    "two_cores_any_one": true,
+    "dedup_no_synthetic_reaction_credit": true,
+    "minimum_actor_target_gap_ticks": 12,
+    "first_projectile_volley_single_hit": true,
+    "wall_floor_path_no_push": true,
+    "wall_upper_path_push_30_8_px_no_damage": true,
+    "wall_and_reservations_cleared_on_break": true,
+    "deadline_inclusive_tick": 1800,
+    "exposure_half_open": [
+      60,
+      780
+    ],
+    "ordinary_damage_on_timeout": true,
+    "mimic_only_attacks": true,
+    "two_ordinary_before_repeat": true,
+    "clear_report_restore": true
+  },
+  "coopRegression": {
+    "lua": {
+      "participants": 4,
+      "hp": [
+        1650,
+        2250
+      ],
+      "wallPushPerActor": 30.8,
+      "harmlessWall": true,
+      "upperOpening": true,
+      "sharedCores": true,
+      "independentIntervals": true,
+      "repeatImpactRejected": true,
+      "sameTickMultipleActors": true,
+      "noCopiedEncounterState": true,
+      "mimicHitsPerActor": true,
+      "chantHits": 24,
+      "deadlineInclusive": 1800,
+      "exposureTicks": 720,
+      "wipeResetsTrial": true
+    },
+    "http": {
+      "participants": 2,
+      "roomFreezesOnRetreat": true,
+      "normalHitsShareCore": true,
+      "bothSaved": true,
+      "personalXp": 4398300,
+      "personalMora": 6600,
+      "onlyOwnQuest": true
+    }
+  },
+  "browserRoutes": {
+    "interrupt": {
+      "background": {
+        "key": "hereticLattice",
+        "file": "heretic-lattice-background-v1.png",
+        "state": "ready"
+      },
+      "cards": [
+        "WH02",
+        "WH03",
+        "WH04",
+        "WH10",
+        "WH11",
+        "WH13",
+        "WH19"
+      ],
+      "trial": {
+        "route": "interrupt",
+        "deadline": 1800,
+        "acceptedChantHits": 24
+      },
+      "acceptedChantHits": 24,
+      "deadline": 1800,
+      "clearReportRestore": true,
+      "viewport390": true,
+      "commands": {
+        "png": 113,
+        "standard": 7085,
+        "light": 2097
+      },
+      "errors": []
+    },
+    "expire-open": {
+      "background": {
+        "key": "hereticLattice",
+        "file": "heretic-lattice-background-v1.png",
+        "state": "ready"
+      },
+      "cards": [
+        "WH03",
+        "WH04",
+        "WH05",
+        "WH10",
+        "WH11",
+        "WH13",
+        "WH18",
+        "WH16"
+      ],
+      "trial": {
+        "route": "expire-open",
+        "deadline": 1800,
+        "expired": {
+          "remainingChant": 23,
+          "anchorsBroken": true
+        },
+        "failureDamage": 125
+      },
+      "acceptedChantHits": 0,
+      "deadline": 1800,
+      "clearReportRestore": true,
+      "viewport390": true,
+      "commands": {
+        "png": 113,
+        "standard": 7085,
+        "light": 2097
+      },
+      "errors": []
+    },
+    "expire-closed": {
+      "background": {
+        "key": "hereticLattice",
+        "file": "heretic-lattice-background-v1.png",
+        "state": "ready"
+      },
+      "cards": [
+        "WH03",
+        "WH04",
+        "WH10",
+        "WH11",
+        "WH13",
+        "WH18",
+        "WH16",
+        "WH17"
+      ],
+      "trial": {
+        "route": "expire-closed",
+        "deadline": 1800,
+        "expired": {
+          "remainingChant": 24,
+          "anchorsBroken": false
+        },
+        "failureDamage": 125
+      },
+      "acceptedChantHits": 0,
+      "deadline": 1800,
+      "clearReportRestore": true,
+      "viewport390": true,
+      "commands": {
+        "png": 113,
+        "standard": 6741,
+        "light": 2009
+      },
+      "errors": []
+    }
+  }
+}

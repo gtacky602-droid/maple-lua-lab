@@ -53,7 +53,9 @@ return function(C,M)
   elseif key=='WH19' then
    w.stage='p2';w.phase='stagger'
    ground(e,spec,spec.center)
-  else w.stage=w.form==1 and 'p1' or 'p2'
+  else
+   w.stage=w.form==1 and 'p1' or 'p2'
+   if key=='WH18' then c.failureDamage=weakKeys() end
   end
   log(s,w,key,0,w.trialId)
   return c
@@ -168,7 +170,8 @@ return function(C,M)
   if c.chant==0 and c.t>=c.resolutionTick or c.t>=c.move.total then
    clearTrial(s,w)
    w.lastTrial=w.clock;w.ordinary=0
-   start(s,w,spec,c.chant==0 and 'WH19' or 'WH18')
+   local next=start(s,w,spec,c.chant==0 and 'WH19' or 'WH18')
+   next.trialResult={anchorsBroken=c.brokenAt~=nil,remainingChant=c.chant}
    return
   end
   w.phase=c.brokenAt and 'chant' or 'anchors'
@@ -356,7 +359,7 @@ return function(C,M)
   local v={form=w.form,stage=w.stage,trial=w.trialId,card=c and c.key,tick=c and c.t,anchors={},warnings={}}
   b.heretic=v
   if e.hp<=0 then return end
-  local back={draws={}};local rear=painter(back,s)
+  local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches};local rear=painter(back,s)
   if w.form==2 or c and c.key=='WH10' and c.t>=60 then halo(rear,e,c,w.clock) end
   local hover=w.form==2 and w.phase~='exposure' and 12+math.sin(w.clock/22)*3 or 0
   C.drawFieldDisplayArt(back,C.hereticWeeklyArt.idle,e.x-s.camera,e.y-hover,spec.artHeight,mode,profile,e.dir>0)
@@ -371,6 +374,7 @@ return function(C,M)
   end
   table.move(f.draws,1,#f.draws,#back.draws+1,back.draws);f.draws=back.draws
   if not c then return end
+  v.trialResult=c.trialResult
   local rect=painter(f,s)
   if c.key=='WH13' then
    v.deadline=c.move.total;v.chant=c.chant;v.maxChant=c.move.chant_count
@@ -390,7 +394,11 @@ return function(C,M)
    end
   elseif c.key=='WH19' then
    v.exposure=w.phase=='exposure' and c.move.exposure[2]-c.t or nil
-  else v.warnings=hazards(f,s,spec,c) end
+   v.exposureEnded=c.t>=c.move.exposure[2]
+  else
+   if c.failureDamage then v.failureDamage=c.failureDamage[s.actors[s.active]] end
+   v.warnings=hazards(f,s,spec,c)
+  end
  end
  return controller
 end

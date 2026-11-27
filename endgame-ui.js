@@ -110,6 +110,28 @@ export function gateEncounterText(gate){
  return '';
 }
 
+export function hereticChantText(v){
+ if(v.deadline){
+  const remaining=`残り ${Math.max(0,Math.ceil((v.deadline-v.tick)/60))}秒`;
+  if(v.open)return `結合点を破壊 ｜ 詠唱 ${v.chant} / ${v.maxChant} ｜ 本体へ攻撃 ｜ ${remaining}`;
+  const anchors=Array.isArray(v.anchors)?v.anchors.map(a=>a.hp).join(' / '):'';
+  const gap=v.hole?` ｜ 押し壁の穴は${v.hole.upper?'上段':'床側'}`:'';
+  return anchors?`結合点 左・右 ${anchors} ｜ 片方を壊す ｜ ${remaining}${gap}`:`結合点が現れる ｜ ${remaining}`;
+ }
+ if(v.card==='WH10')return '光背を構築中';
+ if(v.card==='WH19'){
+  if(v.exposure)return `詠唱を中断 ｜ 反撃できる時間 ${(v.exposure/60).toFixed(1)}秒`;
+  return v.exposureEnded?'反撃終了':'詠唱を中断 ｜ 反撃までもうすぐ';
+ }
+ if(v.card==='WH18'){
+  if(v.failureDamage>0)return `腐敗の衝撃が命中 ｜ ${v.failureDamage}ダメージ`;
+  if(v.failureDamage===0)return '腐敗の衝撃の被ダメージなし';
+  const remaining=v.trialResult?.anchorsBroken?`詠唱残り ${v.trialResult.remainingChant}`:'結合点が残った';
+  return `期限切れ ｜ ${remaining} ｜ 衝撃に備える`;
+ }
+ return '';
+}
+
 export function initEndgameUI(action){
  const renderArtifactDomain=initArtifactDomainUI(action);
  const get=id=>document.getElementById(id);

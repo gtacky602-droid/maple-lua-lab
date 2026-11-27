@@ -5,7 +5,9 @@ import {chromium} from 'playwright';
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const hub='sumeru-hub',arena='sumeru-heretic-lattice',quest='heretic-weekly-commission',id='boss-29150101';
-const prefix='evidence/heretic-weekly',canvas=page.locator('#game'),errors=[];
+const prefix=(process.env.LAB_WEEKLY_EVIDENCE || 'evidence')+'/heretic-weekly',canvas=page.locator('#game'),errors=[];
+const route=process.env.LAB_HERETIC_TRIAL || 'interrupt';
+assert.ok(['interrupt','expire-open','expire-closed'].includes(route));
 const wait=(fn,arg,timeout=50000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const mode=m=>page.evaluate(m=>{window.hereticMode=m},m);
@@ -24,6 +26,10 @@ try{
   await fs.readFile('work/heretic-weekly-gear.json','utf8'));
  await page.locator('#loadProgress').click();
  await wait(node=>window.lab.frame.story?.node===node,hub);
+ if(route!=='interrupt'){
+  const allyFire=page.locator('#allyFire');
+  if(await allyFire.getAttribute('aria-pressed')!=='true')await allyFire.click();
+ }
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
@@ -62,7 +68,7 @@ try{
       goal=v.card==='WH13'?475:219;
       jump=v.card==='WH11'&&Math.abs(goal-a.x)<24&&a.y>347;
      }else if(v.form===1&&b.damageable&&b.y>399) target=b.x;
-    }else if(mode==='trial'&&v.card==='WH13'){
+    }else if((mode==='trial'||mode==='finish')&&v.card==='WH13'){
      if(v.open){target=b.x;}
      else if(Array.isArray(v.anchors))target=v.anchors[1]?.x;
      if(a.y<440&&target!==undefined&&Math.abs(target-a.x)<150){
@@ -97,6 +103,7 @@ try{
  assert.equal(original.weeklyBoss.heretic.form,2);
  assert.ok(original.weeklyBoss.heretic.anchors.every(a=>a.hp>0));
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(n=>window.lab.frame.commands>n*5,original.commands);
  const standard=await frame(),rect=await capture('standard');
  await page.locator('#renderMode').selectOption('h32c16');
@@ -113,18 +120,42 @@ try{
  assert.ok(await page.locator('#weeklyHeretic').evaluate(el=>el.scrollWidth<=el.clientWidth&&el.getBoundingClientRect().right<=390));
  await page.setViewportSize({width:1240,height:940});
  await canvas.click();
- await mode('trial');
+ await mode(route==='expire-closed'?'wait':'trial');
  await page.keyboard.press('KeyP');
- await wait(()=>window.lab.frame.weeklyBoss?.heretic.open);
- const opened=await frame();
- assert.equal(opened.weeklyBoss.heretic.deadline,1800);
- assert.equal(opened.weeklyBoss.heretic.anchors.length??0,0);
- await page.locator('.game').screenshot({path:prefix+'-chant.png'});
- await wait(()=>window.lab.frame.weeklyBoss?.heretic.exposure>0);
- const staggered=await frame();
- await page.locator('.game').screenshot({path:prefix+'-exposure.png'});
- assert.equal(staggered.weeklyBoss.hp,opened.weeklyBoss.hp);
- assert.equal(staggered.events.filter(e=>e.kind==='heretic:WH13:chant').length,24);
+ const hint=page.locator('#weeklyHeretic');
+ const trial={route,deadline:original.weeklyBoss.heretic.deadline};
+ if(route!=='expire-closed'){
+  await wait(()=>window.lab.frame.weeklyBoss?.heretic.open);
+  if(route!=='interrupt')await mode('wait');
+  const opened=await frame();
+  assert.equal(opened.weeklyBoss.heretic.deadline,1800);
+  assert.equal(opened.weeklyBoss.heretic.anchors.length??0,0);
+  assert.match(await hint.textContent(),/結合点を破壊/);
+  await page.locator('.game').screenshot({path:prefix+'-chant.png'});
+ }
+ if(route==='interrupt'){
+  await wait(()=>window.lab.frame.weeklyBoss?.heretic.exposure>0);
+  const staggered=await frame();
+  trial.acceptedChantHits=staggered.events.filter(e=>e.kind==='heretic:WH13:chant').length;
+  assert.equal(staggered.weeklyBoss.hp,original.weeklyBoss.hp);
+  assert.equal(trial.acceptedChantHits,24);
+  assert.match(await hint.textContent(),/詠唱を中断.+反撃できる時間/);
+  await page.locator('.game').screenshot({path:prefix+'-exposure.png'});
+ }else{
+  await wait(()=>window.lab.frame.weeklyBoss?.heretic.card==='WH18');
+  const expired=await frame();
+  trial.expired=expired.weeklyBoss.heretic.trialResult;
+  assert.equal(trial.expired.anchorsBroken,route==='expire-open');
+  const failureHint=await hint.textContent();
+  assert.match(failureHint,route==='expire-open'?/期限切れ.+詠唱残り/:/期限切れ.+結合点が残った/);
+  await page.locator('.game').screenshot({path:prefix+'-expired.png'});
+  await wait(()=>window.lab.frame.weeklyBoss?.heretic.failureDamage>0);
+  const hit=await frame();
+  trial.failureDamage=hit.weeklyBoss.heretic.failureDamage;
+  assert.equal(trial.failureDamage,125);
+  assert.equal(await hint.textContent(),'腐敗の衝撃が命中 ｜ 125ダメージ');
+  await page.locator('.game').screenshot({path:prefix+'-shock.png'});
+ }
  await mode('finish');
  await wait(()=>window.lab.frame.weeklyBoss?.phase==='respawn');
  const done=await frame();
@@ -132,7 +163,7 @@ try{
  assert.equal(done.story.quests[quest].count,1);
  assert.equal(done.returns,0);
  const cards=await page.evaluate(()=>window.hereticCards);
- for(const card of ['WH10','WH11','WH13','WH19'])assert.ok(cards.includes(card),card);
+ for(const card of ['WH10','WH11','WH13',route==='interrupt'?'WH19':'WH18'])assert.ok(cards.includes(card),card);
 
  await page.getByRole('button',{name:'拠点へ：スメール・樹陰の広場',exact:true}).click();
  await wait(node=>window.lab.frame.story.node===node,hub);
@@ -147,9 +178,10 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,cards,acceptedChantHits:24,deadline:opened.weeklyBoss.heretic.deadline,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,cards,trial,
+  acceptedChantHits:trial.acceptedChantHits??0,deadline:trial.deadline,
   clearReportRestore:true,viewport390:true,commands:perMode,errors},null,2)+'\n');
- console.log('Heretic Chrome: route, two forms, cores, chant, exposure, defeat, report, and save passed');
+ console.log('Heretic Chrome:',route,'two forms, trial, defeat, report, and save passed');
 }catch(error){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error(JSON.stringify({node:f?.story?.node,t:f?.t,boss:f?.weeklyBoss,actors:f?.actors?.map(a=>[a.x,a.y,a.hp,a.dir]),
