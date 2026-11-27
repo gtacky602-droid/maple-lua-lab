@@ -1,0 +1,218 @@
+{
+  "imported_fields": 979,
+  "live_runtime_fields": 979,
+  "draft_entrance_proposals": 0,
+  "sites_only_route_reviews": 421,
+  "live_exteriors_with_unverified_source_entrance": [],
+  "route_findings": {
+    "use_existing_geo_route": 195,
+    "use_existing_local_detour": 72,
+    "unverified_travel_choice": 1,
+    "use_existing_reviewed_route": 9,
+    "implemented_as_lab_route": 137,
+    "use_existing_regional_detour": 4,
+    "use_existing_level_route": 3
+  },
+  "separately_labelled_level_mismatches": 819,
+  "bosses_by_kind": {
+    "normal": 63,
+    "weekly": 16,
+    "stygian": 7,
+    "legend": 56
+  },
+  "suspended_boss_stages": [
+    "nod-quiet-rim"
+  ],
+  "v72_boss_round_trips": [
+    {
+      "boss": "boss-25134601",
+      "approach": "novokichev-depth",
+      "arena": "wavebinder-tide-cavern",
+      "x": 1030,
+      "y": 480,
+      "walked_out_and_back": true
+    },
+    {
+      "boss": "legend-snez_rowdy_beast_host",
+      "approach": "sne-novokichev-lantern-alley",
+      "arena": "sne-novokichev-ore-yard",
+      "x": 1370,
+      "y": 405,
+      "walked_out_and_back": true
+    },
+    {
+      "boss": "legend-snez_elder_blighttree",
+      "approach": "sne-crystal-prism-gallery",
+      "arena": "sne-crystal-tree-refuge",
+      "x": 1370,
+      "y": 389,
+      "walked_out_and_back": true
+    },
+    {
+      "boss": "legend-snez_ancient_ironquill",
+      "approach": "sne-merciful-fissure",
+      "arena": "sne-ancient-mouse-den",
+      "x": 1420,
+      "y": 393,
+      "walked_out_and_back": true
+    }
+  ],
+  "boss_path_status_from_level_1": {
+    "blocked": 142
+  },
+  "hidden_area_visibility": true,
+  "map_state_not_saved": true,
+  "game_clock_pauses": true,
+  "rendered_by_lua": true,
+  "water_layer_and_levels": true,
+  "chasm_underground_stages": [
+    "chasm-camp",
+    "chasm-depth",
+    "chasm-wp-25264",
+    "chasm-wp-25266",
+    "chasm-wp-25267",
+    "chasm-wp-25268",
+    "chasm-wp-25269",
+    "chasm-wp-25270",
+    "chasm-wp-25271",
+    "chasm-wp-25272",
+    "chasm-wp-25273",
+    "chasm-wp-25274",
+    "chasm-wp-25275",
+    "chasm-wp-25276",
+    "chasm-wp-25277",
+    "chasm-wp-26463",
+    "ruin-serpent-field-pit"
+  ],
+  "side_arena_underground_layer": true,
+  "quest_cave_hidden_before_reveal": true,
+  "level_detours": [
+    {
+      "from": "sites-dragonspine-south-foothill",
+      "to": "mond-wp-6603",
+      "blocked_at": 47,
+      "guide": {
+        "status": "blocked",
+        "reason": "\u5fc5\u8981Lv48",
+        "stops": [
+          {
+            "region": "branch-01",
+            "approach": "\u73fe\u5728\u5730\u304b\u3089\u53f3\u3078",
+            "level": 44,
+            "previewX": 1335,
+            "label": "\u5f92\u6b69",
+            "name": "\u30c9\u30e9\u30b4\u30f3\u30b9\u30d1\u30a4\u30f3\u30fb\u897f\u659c\u9762\u306e\u5ca9\u9593",
+            "from": "sites-dragonspine-south-foothill",
+            "id": "mond-wp-6599",
+            "mode": "walk"
+          },
+          {
+            "region": "branch-01",
+            "level": 42,
+            "previewX": 1372,
+            "label": "\u5f92\u6b69",
+            "id": "mond-wp-6596",
+            "from": "mond-wp-6599",
+            "mode": "walk",
+            "name": "\u30c9\u30e9\u30b4\u30f3\u30b9\u30d1\u30a4\u30f3\u30fb\u96ea\u58c1\u306e\u897f\u8c37"
+          },
+          {
+            "region": "branch-01",
+            "level": 43,
+            "previewX": 1442,
+            "label": "\u5f92\u6b69",
+            "id": "mond-wp-6594",
+            "from": "mond-wp-6596",
+            "mode": "walk",
+            "name": "\u30c9\u30e9\u30b4\u30f3\u30b9\u30d1\u30a4\u30f3\u30fb\u8c37\u3092\u898b\u4e0b\u308d\u3059\u96ea\u68da"
+          },
+          {
+            "region": "branch-01",
+            "level": 35,
+            "previewY": 370,
+            "previewX": 1162,
+            "hint": "\u4e0a\u6bb5\u306e\u5165\u53e3",
+            "label": "\u5f92\u6b69",
+            "id": "mond-wp-6601",
+            "from": "mond-wp-6594",
+            "mode": "walk",
+            "name": "\u30c9\u30e9\u30b4\u30f3\u30b9\u30d1\u30a4\u30f3\u30fb\u5317\u6771\u306e\u8c37\u6238"
+          },
+          {
+            "region": "branch-01",
+            "level": 35,
+            "previewX": 1136,
+            "label": "\u5f92\u6b69",
+            "id": "mond-wp-6537",
+            "from": "mond-wp-6601",
+            "mode": "walk",
+            "name": "\u30c9\u30e9\u30b4\u30f3\u30b9\u30d1\u30a4\u30f3\u30fb\u5cf0\u4e0b\u306e\u96ea\u539f\u3068\u795e\u50cf"
+          },
+          {
+            "region": "branch-01",
+            "level": 48,
+            "previewX": 1142,
+            "reason": "\u5fc5\u8981Lv48",
+            "label": "\u5f92\u6b69",
+            "id": "mond-wp-6603",
+            "from": "mond-wp-6537",
+            "mode": "walk",
+            "name": "\u30c9\u30e9\u30b4\u30f3\u30b9\u30d1\u30a4\u30f3\u30fb\u5cf0\u306e\u6771\u7a1c"
+          }
+        ],
+        "afterTransfer": false,
+        "requiredLevel": 48
+      },
+      "walked_at": 48,
+      "shortcut_at": 60,
+      "shortcut": [
+        "mond-wp-6599",
+        "mond-wp-6606",
+        "mond-wp-6608",
+        "mond-wp-6609",
+        "mond-wp-6603"
+      ]
+    },
+    {
+      "from": "liyue-wp-64843",
+      "to": "liyue-wp-64842",
+      "blocked_at": 22,
+      "guide": {
+        "status": "blocked",
+        "reason": "\u5fc5\u8981Lv23",
+        "stops": [
+          {
+            "region": "branch-02",
+            "approach": "\u73fe\u5728\u5730\u304b\u3089\u53f3\u3078",
+            "level": 21,
+            "previewX": 1292,
+            "label": "\u5f92\u6b69",
+            "name": "\u6c88\u7389\u306e\u8c37\u30fb\u8c37\u306e\u5165\u53e3\u306e\u795e\u50cf",
+            "from": "liyue-wp-64843",
+            "id": "liyue-wp-64825",
+            "mode": "walk"
+          },
+          {
+            "region": "branch-02",
+            "level": 23,
+            "previewX": 76,
+            "reason": "\u5fc5\u8981Lv23",
+            "label": "\u5f92\u6b69",
+            "id": "liyue-wp-64842",
+            "from": "liyue-wp-64825",
+            "mode": "walk",
+            "name": "\u6c88\u7389\u306e\u8c37\u30fb\u8c37\u6771\u306e\u5ddd\u6cbf\u3044"
+          }
+        ],
+        "afterTransfer": false,
+        "requiredLevel": 23
+      },
+      "walked_at": 23,
+      "shortcut_at": 26,
+      "shortcut": [
+        "liyue-wp-64841",
+        "liyue-wp-64842"
+      ]
+    }
+  ]
+}

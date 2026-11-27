@@ -1,10 +1,13 @@
 """Verify the Lua atlas, visible exits, level review, and the imported entrance plan."""
 
+from argparse import ArgumentParser
 from collections import Counter
 import json
+from pathlib import Path
 
 from build_world_atlas import BOSS_STAGE_FIELDS
 from runtime import ROOT, native, runtime
+from savegame import validate_save
 from tools.waypoint_test import TrailWalk
 
 
@@ -16,6 +19,7 @@ atlas = read('content/world-atlas.json')
 plan = read('design/world/atlas-route-plan.json')
 graph = read('content/story-graph.json')
 nodes = {node['id']: node for node in graph['nodes']}
+suspended = {node['id'] for node in nodes.values() if node['region'] in graph.get('suspendedRegions', {})}
 fields = {point['field'] for region in atlas['regions'] for point in region['points'] if 'field' in point}
 drafts = {point['id']: point for region in atlas['regions'] for point in region['draft']}
 assert len(atlas['regions']) == 24
@@ -111,11 +115,13 @@ assert act('here').selected.current
 view = act('region:world')
 assert len(view.points) == 8 and len(view.draws) > 200
 view = act('layer:boss')
-assert {p.id: p.boss.id for p in view.bosses.values()} == {stage: row['id'] for stage, row in roster.items()}
+active_roster = {stage: row for stage, row in roster.items() if stage not in suspended}
+assert {p.id: p.boss.id for p in view.bosses.values()} == {stage: row['id'] for stage, row in active_roster.items()}
 assert view.region == 'world' and len(view.points) == 8
 assert act('boss:mond-road').region == 'world'
+assert act('boss:nod-quiet-rim').region == 'world'
 boss_guides = Counter()
-for stage, row in roster.items():
+for stage, row in active_roster.items():
     view = act('boss:' + stage)
     assert view.layer == 'boss' and view.selected.id == stage and view.selected.boss.kind == row['kind']
     assert all(p.current or p.boss for p in view.points.values())
@@ -211,15 +217,43 @@ for source, target, minimum, shortcut_level, bypass in (
     detours.append({'from': source, 'to': target, 'blocked_at': minimum - 1, 'guide': blocked,
                     'walked_at': minimum, 'shortcut_at': shortcut_level, 'shortcut': shortcut_path})
 
+v72 = read('content/coverage.json')['boss_catalog']['official_v72_addition_check']
+earned = validate_save(read(v72['victories_in']))
+v72_gates = []
+for boss_id in v72['normal'] + v72['local_legends']:
+    arena = next(stage for stage, row in active_roster.items() if row['id'] == boss_id)
+    s = core.restore(lua.table_from(earned, recursive=True), 12)
+    s.auto = False
+    view = act('boss:' + arena)
+    assert view.selected and view.selected.id == arena
+    entrances = native(view.selected.entrances)
+    assert len(entrances) == 1
+    entrance = entrances[0]
+    source = entrance['from']
+    gate = edges[source, arena]
+    assert (entrance['previewX'], entrance['previewY']) == (gate['x'], gate.get('y', 480))
+    assert not entrance.get('reason')
+    act('close')
+    core.enterStoryNode(s, source)
+    walk = TrailWalk(lua, core, s, edges, exits)
+    walk.cross(arena)
+    walk.cross(source)
+    assert s.story.node == source
+    v72_gates.append({'boss': boss_id, 'approach': source, 'arena': arena,
+                      'x': gate['x'], 'y': gate.get('y', 480), 'walked_out_and_back': True})
+
 result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fields),
           'draft_entrance_proposals':len(drafts),'sites_only_route_reviews':len(plan['sites_only_route_review']),
           'live_exteriors_with_unverified_source_entrance':sorted(pending),
           'route_findings':dict(Counter(row['finding'] for row in plan['sites_only_route_review'])),
           'separately_labelled_level_mismatches':len(plan['level_differences']),
-          'bosses_by_kind': dict(Counter(row['kind'] for row in roster.values())),
+          'bosses_by_kind': dict(Counter(row['kind'] for row in active_roster.values())),
+          'suspended_boss_stages': sorted(suspended & roster.keys()), 'v72_boss_round_trips': v72_gates,
           'boss_path_status_from_level_1': dict(boss_guides),
           'hidden_area_visibility':True,'map_state_not_saved':True,'game_clock_pauses':True,
           'rendered_by_lua':True,'water_layer_and_levels':True,'chasm_underground_stages':sorted(chasm),
           'side_arena_underground_layer':True,'quest_cave_hidden_before_reveal':True,'level_detours':detours}
-(ROOT / 'evidence/world-atlas-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--output', type=Path, default=ROOT / 'evidence/active-atlas-entrances-lua.json')
+parser.parse_args().output.write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)
