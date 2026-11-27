@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
+import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -570,7 +570,7 @@ function hud(f,calls,renderMs){
  raiden.hidden=!field?.raidenMeter||field.phase==='respawn'||field.hp===0;
  shouki.hidden=!field?.shouki||field.phase==='respawn'||field.hp===0;
  const oasis=field?.apep;
- apep.hidden=!oasis||field.phase==='respawn'||!(oasis.defense||oasis.domes||oasis.exposure)||field.hp===0;
+ apep.hidden=!oasis||field.phase==='respawn'||!(oasis.defense||oasis.domes||oasis.exposure||oasis.finalPulse)||field.hp===0;
  narwhal.hidden=!journey||field.phase==='respawn'||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
@@ -688,9 +688,7 @@ function hud(f,calls,renderMs){
    const special=[...new Set(units.map(e=>roleNames[e.role]).filter(Boolean))];
    $('weeklyApepHint').textContent=v.failed?'心を守りきれませんでした。':v.defense?
     `残り${units.length}体${special.length?' ｜ '+special.join('、'):''}${v.incoming?' ｜ 次の増殖体が接近中':''}`:
-    v.exposure?`攻撃の好機 ｜ 残り${Math.ceil(v.exposure/60)}秒`:
-    (v.domes[0].open?(v.protected?'保護域の内側':'ドームの内側へ'):'ドームが開くまで待つ')+
-     (v.nextPulse?` ｜ 次の余波まで${Math.ceil(v.nextPulse/60)}秒`:'');
+    apepDomeText(v);
    $('weeklyApepRetry').hidden=!v.failed;
    $('weeklyApepRetry').disabled=f.paused||f.auto;
    const walls=$('weeklyApepWalls'),placed=Array.isArray(v.walls)?v.walls:[];

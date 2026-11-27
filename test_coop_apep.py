@@ -198,6 +198,9 @@ def domes(lua,core,wipe=False):
     assert [s.actors[1].hp==hp for s,hp in zip(parties,before)]==[True,True,False,False]
     run(step,spec.dome.exposureStart)
     assert all(view(core,s).exposure==480 for s in parties)
+    assert [
+        (view(core,s).finalPulse.protected,view(core,s).finalPulse.damage) for s in parties
+    ]==[(True,0),(True,0),(False,54),(False,54)]
     host,guest=parties[:2]
     spot(host,435);spot(guest,530)
     strike(lua,core,host,w.primary,32)
@@ -254,6 +257,9 @@ def via_http(url):
     assert not guest.frame()['weeklyBoss']['apep']['protected']
     with LOCK:
         run(step,spec.dome.expires-w.wave.t+spec.dome.exposureStart)
+    for client,expected in zip(clients,({'protected':True,'damage':0},{'protected':False,'damage':54})):
+        assert client.frame()['weeklyBoss']['apep']['finalPulse']==expected
+    with LOCK:
         spot(states[0],435);spot(states[1],525)
         strike(lua,core,states[0],w.primary,32)
         strike(lua,core,states[1],w.primary)
@@ -277,8 +283,10 @@ if __name__=='__main__':
     result=dict(lua=dict(participants=4,oneSpawnScheduleAndHp=True,oneNetProgressPerTick=True,sharedRetry=True,
                          oneSporeContact=True,interceptionProtectsHeart=True,wallCollisionPerActor=True,
                          independentWallOrders=True,oldAndRepeatedWallHitsRejected=True,wallClearsWithSource=True,
-                         innerSafeAndHighPlatformUnsafe=True,oneHitPerActorPerPulse=True,exposure=480,wipeReset=True),
+                         innerSafeAndHighPlatformUnsafe=True,oneHitPerActorPerPulse=True,exposure=480,
+                         perActorFinalPulse=True,wipeReset=True),
                 http=dict(participants=2,normalInputsShareDefense=True,frozenAndResumedDefense=True,
-                          separateProtection=True,sharedHp=1580,personalXp=EXP,personalMora=1500,ownQuestAndSaves=True))
+                          separateProtection=True,perActorFinalPulse=True,sharedHp=1580,personalXp=EXP,
+                          personalMora=1500,ownQuestAndSaves=True))
     (ROOT/'evidence/coop-apep-lua-http.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
     print(result)

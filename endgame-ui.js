@@ -1,5 +1,16 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+export function apepDomeText(view){
+ const pulse=view.finalPulse;
+ const result=pulse&&(pulse.protected?'ドームで最後の余波を防いだ':
+  pulse.damage>0?`最後の余波が命中・${pulse.damage}ダメージ`:'最後の余波の被ダメージなし');
+ if(view.exposure)return [result,`攻撃の好機 ｜ 残り${Math.ceil(view.exposure/60)}秒`].filter(Boolean).join(' ｜ ');
+ if(result)return result;
+ if(!view.domes?.length)return '';
+ return (view.domes[0].open?(view.protected?'保護域の内側':'ドームの内側へ'):'ドームが開くまで待つ')+
+  (view.nextPulse?` ｜ 次の余波まで${Math.ceil(view.nextPulse/60)}秒`:'');
+}
+
 export function childeDropText(drop){
  const outcome=drop.cleansed==='after'?'断流解除済み。落撃地点は固定':'追雷の落下地点が固定';
  let status;
