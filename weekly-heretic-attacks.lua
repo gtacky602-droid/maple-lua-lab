@@ -29,6 +29,7 @@ return function(C)
  local function hurt(s,w,c,a,amount)
   local party=s.actorOwners and s.actorOwners[a] or s
   local n=C.damageActor(party,a,amount,w.primary,true,true)
+  if c.failureDamage then c.failureDamage[a]=n end
   if n>0 then C.combatEvent(party,'heretic:'..c.key..':hit',a.id,w.primary.id,n) end
  end
  local function impact(s,w,c,group,zones,damage)

@@ -10,9 +10,10 @@ const encounters = new Map([
   ['narwhal', {id:'boss-29090101', hub:'fontaine-hub', gateX:700, spritePrefix:'narwhal-idle-'}],
   ['primal', {id:'boss-29091101', hub:'natlan-hub', gateX:351, spritePrefix:'gosoythoth-idle-'}],
   ['false-moon', {id:'boss-29130201', hub:'nod-town', gateX:210, spritePrefix:'false-moon-weekly-idle-'}],
+  ['heretic', {id:'boss-29150101', hub:'sumeru-hub', gateX:222, spritePrefix:'heretic-weekly-idle-'}],
 ]);
 const encounter = encounters.get(boss);
-assert(save && output && encounter, 'Usage: node test_weekly_rect_transfer.mjs SAVE OUTPUT_JSON [raiden|andrius|narwhal|primal|false-moon]');
+assert(save && output && encounter, 'Usage: node test_weekly_rect_transfer.mjs SAVE OUTPUT_JSON [raiden|andrius|narwhal|primal|false-moon|heretic]');
 const {nodes} = JSON.parse(await fs.readFile('content/story-graph.json', 'utf8'));
 const browser = await chromium.launch({headless:true, channel:'chrome'});
 try {
