@@ -40,6 +40,11 @@ def collect(s, x, y, q, count):
     assert s.story.quests[q].count==count,(q,s.story.quests[q].count,count)
 
 
+def clear_of_patrol(s, x, y):
+    assert all(abs(enemy.y-y)>=45 or x<=enemy.patrolMin-60 or x>=enemy.patrolMax+60
+               for enemy in s.enemies.values()), (s.story.node,x,y)
+
+
 def hit(s,e,strength=100):
     core.resolveCast(s,lua.table_from(dict(id=1,targetId=e.id,x=e.x,y=e.y,atk=strength,dir=1,
         radial=True,mult=1,range=60,limit=1,element='physical',gain=0,color='#ffd083',critRate=0)))
@@ -63,10 +68,16 @@ low=session(20,camp)
 gate(low,950,terraces,opened=False)
 gate(low,1380,'chenyu-depth')
 
-optional=session(95,camp)
+gate(session(81,camp),950,terraces,opened=False)
+optional=session(82,camp)
 gate(optional,950,terraces)
 gate(optional,1793,road)
+assert (optional.actors[1].x,optional.actors[1].y)==(305,480)
+gate(optional,240,terraces)
+assert (optional.actors[1].x,optional.actors[1].y)==(1735,480)
+gate(optional,1793,road)
 gate(optional,1560,pavilion)
+assert (optional.actors[1].x,optional.actors[1].y)==(109,480)
 assert optional.story.quests[first] is None
 
 s=session(95,camp)
@@ -74,6 +85,8 @@ fixture=checkpoint(s)
 gate(s,1198,rig,opened=False)
 core.action(s,'story_accept:'+first)
 gate(s,950,terraces)
+for x,y in ((318,480),(929,390),(1430,480),(1537,384)):
+    clear_of_patrol(s,x,y)
 collect(s,318,480,first,1)
 collect(s,929,480,first,1)
 collect(s,929,390,first,2)
@@ -81,6 +94,8 @@ collect(s,1430,480,first,3)
 gate(s,1537,pavilion,y=384)
 collect(s,660,480,first,4)
 gate(s,55,road)
+assert (s.actors[1].x,s.actors[1].y)==(1540,480)
+clear_of_patrol(s,1234,480)
 collect(s,1234,480,first,5)
 gate(s,55,camp)
 report(s,first,(122000,2100,2))
@@ -171,7 +186,8 @@ assert any(d.text=='茶席・一服の記録' for d in frame.draws.values())
 assert sum(d.color=='#e3e9cc' for d in frame.draws.values())==6
 check_original_boss_retry(lua, core, s, boss, third, lambda state: gate(state, 1325, gully))
 
-proof=dict(legacyLv20Access=True,independentLowRoute=True,threeMarksAndDelivery=True,cartReturn=True,
+proof=dict(legacyLv20Access=True,teaEntryLevel=82,independentLowRoute=True,threeMarksAndDelivery=True,cartReturn=True,
+    groundedCrossings=[305,1735,109,1540],marksOutsidePatrol=True,
     actualLiftRiseAndLanding=True,pauseStopsLift=True,onePlatformAfterSwitch=True,placementSaved=True,
     sameRockGeometryAsScene=True,behindRockSafe=True,inBeamHit=True,restAndCupsSaved=True,
     firstReport=[55165,290472,4],noSecondPayout=True)

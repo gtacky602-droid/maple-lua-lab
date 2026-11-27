@@ -1,0 +1,496 @@
+{
+  "base": "d60364ccf2a8d07d292e740e35479936e1d56af3",
+  "portalConnectionsAndDeparturesPreserved": true,
+  "ordinaryHunts": 165,
+  "portalArrivals": [
+    {
+      "origin": "chenyu-camp",
+      "destination": "chenyu-depth",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chenyu-camp",
+      "destination": "chenyu-tea-terraces",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "suanni-field-sanctum",
+      "destination": "chenyu-depth",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chenyu-tea-terraces",
+      "destination": "chenyu-cart-road",
+      "positions": [
+        [
+          305,
+          480
+        ],
+        [
+          265,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chenyu-cart-road",
+      "destination": "chenyu-tea-terraces",
+      "positions": [
+        [
+          1735,
+          480
+        ],
+        [
+          1695,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chenyu-tea-pavilion",
+      "destination": "chenyu-cart-road",
+      "positions": [
+        [
+          1540,
+          480
+        ],
+        [
+          1500,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-64844",
+      "destination": "chenyu-depth",
+      "positions": [
+        [
+          310,
+          480
+        ],
+        [
+          270,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-64846",
+      "destination": "chenyu-depth",
+      "positions": [
+        [
+          625,
+          480
+        ],
+        [
+          585,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-64848",
+      "destination": "chenyu-depth",
+      "positions": [
+        [
+          1040,
+          480
+        ],
+        [
+          1000,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "branch-hunt-64845",
+      "destination": "chenyu-depth",
+      "positions": [
+        [
+          1160,
+          480
+        ],
+        [
+          1120,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivals": [
+    {
+      "node": "chenyu-depth",
+      "positions": [
+        [
+          455,
+          480
+        ],
+        [
+          415,
+          480
+        ]
+      ]
+    }
+  ],
+  "earnedRoutes": {
+    "visit": {
+      "level": 20,
+      "save": "3396f8d75063e6d1ecb3394598f34e527906b24b7d2529109aa451f6d72c2829",
+      "teaEntryRequiredLevel": 82,
+      "reports": [
+        {
+          "quest": "chenyu-survey",
+          "xp": 1800,
+          "mora": 280
+        }
+      ],
+      "restored": true
+    },
+    "elevated": {
+      "save": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345",
+      "level": 100,
+      "reports": [
+        {
+          "quest": "chenyu-tea-delivery",
+          "xp": 122000,
+          "mora": 2100
+        }
+      ],
+      "crossings": [
+        [
+          "chenyu-camp",
+          "chenyu-tea-terraces"
+        ],
+        [
+          "chenyu-cart-road",
+          "chenyu-camp"
+        ],
+        [
+          "chenyu-tea-pavilion",
+          "chenyu-cart-road"
+        ],
+        [
+          "chenyu-tea-terraces",
+          "chenyu-tea-pavilion"
+        ],
+        [
+          "liyue-entry",
+          "chenyu-camp"
+        ],
+        [
+          "liyue-harbor",
+          "liyue-entry"
+        ]
+      ],
+      "restored": true
+    },
+    "ground": {
+      "save": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345",
+      "level": 100,
+      "reports": [
+        {
+          "quest": "chenyu-tea-delivery",
+          "xp": 122000,
+          "mora": 2100
+        }
+      ],
+      "crossings": [
+        [
+          "chenyu-camp",
+          "chenyu-tea-terraces"
+        ],
+        [
+          "chenyu-cart-road",
+          "chenyu-camp"
+        ],
+        [
+          "chenyu-cart-road",
+          "chenyu-tea-pavilion"
+        ],
+        [
+          "chenyu-cart-road",
+          "chenyu-tea-terraces"
+        ],
+        [
+          "chenyu-tea-pavilion",
+          "chenyu-cart-road"
+        ],
+        [
+          "chenyu-tea-terraces",
+          "chenyu-cart-road"
+        ],
+        [
+          "liyue-entry",
+          "chenyu-camp"
+        ],
+        [
+          "liyue-harbor",
+          "liyue-entry"
+        ]
+      ],
+      "restored": true
+    }
+  },
+  "teaBrowser": {
+    "twoAtlasGates": true,
+    "landings": [
+      {
+        "target": "chenyu-cart-road",
+        "x": 305,
+        "y": 480
+      },
+      {
+        "target": "chenyu-tea-terraces",
+        "x": 1735,
+        "y": 480
+      },
+      {
+        "target": "chenyu-cart-road",
+        "x": 305,
+        "y": 480
+      },
+      {
+        "target": "chenyu-tea-pavilion",
+        "x": 109,
+        "y": 480
+      },
+      {
+        "target": "chenyu-cart-road",
+        "x": 1540,
+        "y": 480
+      }
+    ],
+    "journeys": [
+      [
+        "chenyu-camp",
+        "chenyu-tea-terraces",
+        "walk"
+      ],
+      [
+        "chenyu-tea-terraces",
+        "chenyu-cart-road",
+        "walk"
+      ],
+      [
+        "chenyu-cart-road",
+        "chenyu-tea-terraces",
+        "walk"
+      ],
+      [
+        "chenyu-tea-terraces",
+        "chenyu-cart-road",
+        "walk"
+      ],
+      [
+        "chenyu-cart-road",
+        "chenyu-tea-pavilion",
+        "walk"
+      ],
+      [
+        "chenyu-tea-pavilion",
+        "chenyu-cart-road",
+        "walk"
+      ],
+      [
+        "chenyu-cart-road",
+        "chenyu-camp",
+        "walk"
+      ]
+    ],
+    "reported": "chenyu-tea-delivery"
+  },
+  "sameCameraChrome": {
+    "chenyu-depth": {
+      "before": {
+        "total": 6,
+        "visible": 6,
+        "camera": 250,
+        "backgroundFile": "chenyu-background-v1.png"
+      },
+      "after": {
+        "total": 6,
+        "visible": 6,
+        "camera": 250,
+        "backgroundFile": "chenyu-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 0,
+              "y": 315
+            },
+            "color": {
+              "x": 480,
+              "y": 450
+            }
+          },
+          "union": 10792,
+          "overlap": 10402,
+          "overlapPercent": 96.38621200889548,
+          "meanRgbError": 15.3223098122156
+        },
+        "rows": [
+          [
+            "標準",
+            "4,608",
+            "99.2%",
+            "6.14 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "2,632",
+            "98.3%",
+            "9.99 / 255",
+            "-42.9%"
+          ],
+          [
+            "最軽量・16色",
+            "1,042",
+            "96.4%",
+            "15.32 / 255",
+            "-77.4%"
+          ]
+        ]
+      }
+    },
+    "chenyu-tea-terraces": {
+      "before": {
+        "total": 8,
+        "visible": 6,
+        "camera": 460,
+        "backgroundFile": "chenyu-background-v1.png"
+      },
+      "after": {
+        "total": 8,
+        "visible": 6,
+        "camera": 460,
+        "backgroundFile": "chenyu-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 320,
+              "y": 360
+            },
+            "color": {
+              "x": 320,
+              "y": 360
+            }
+          },
+          "union": 13852,
+          "overlap": 13051,
+          "overlapPercent": 94.21744152468958,
+          "meanRgbError": 28.51582254233392
+        },
+        "rows": [
+          [
+            "標準",
+            "12,092",
+            "97.9%",
+            "12.12 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "7,500",
+            "96.2%",
+            "22.42 / 255",
+            "-38.0%"
+          ],
+          [
+            "最軽量・16色",
+            "3,048",
+            "94.2%",
+            "28.52 / 255",
+            "-74.8%"
+          ]
+        ]
+      }
+    },
+    "chenyu-cart-road": {
+      "before": {
+        "total": 8,
+        "visible": 6,
+        "camera": 430,
+        "backgroundFile": "chenyu-background-v1.png"
+      },
+      "after": {
+        "total": 8,
+        "visible": 6,
+        "camera": 430,
+        "backgroundFile": "chenyu-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 880,
+              "y": 450
+            },
+            "color": {
+              "x": 160,
+              "y": 360
+            }
+          },
+          "union": 13827,
+          "overlap": 13022,
+          "overlapPercent": 94.17805742388082,
+          "meanRgbError": 28.4368248604925
+        },
+        "rows": [
+          [
+            "標準",
+            "12,092",
+            "97.8%",
+            "12.17 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "7,500",
+            "96.3%",
+            "22.29 / 255",
+            "-38.0%"
+          ],
+          [
+            "最軽量・16色",
+            "3,048",
+            "94.2%",
+            "28.44 / 255",
+            "-74.8%"
+          ]
+        ]
+      }
+    }
+  }
+}

@@ -1,8 +1,16 @@
 {
   "legacyLv20Access": true,
+  "teaEntryLevel": 82,
   "independentLowRoute": true,
   "threeMarksAndDelivery": true,
   "cartReturn": true,
+  "groundedCrossings": [
+    305,
+    1735,
+    109,
+    1540
+  ],
+  "marksOutsidePatrol": true,
   "actualLiftRiseAndLanding": true,
   "pauseStopsLift": true,
   "onePlatformAfterSwitch": true,
