@@ -5,7 +5,7 @@ from collections import deque
 
 from runtime import ROOT, runtime
 from test_earned_branch_quests import graph, quests
-from test_earned_survey_itineraries import SurveyJourney as LightSurveyJourney
+from test_earned_survey_itineraries import SurveyJourney
 
 groups={
     'remaining':('boss-commission-tour',[(hub,None,hub) for hub in
@@ -31,38 +31,6 @@ parser.add_argument('--group',choices=groups,default='mond-liyue')
 group=parser.parse_args().group
 seed,regions=groups[group]
 source=ROOT/f'evidence/{seed}-save.json'
-class SurveyJourney(LightSurveyJourney):
-    def approach(self,x,y,target):
-        try:
-            super().approach(x,y,target)
-            return
-        except AssertionError:
-            if self.state.storySwimming or self.actor.hp<=0:
-                raise
-        self.tick(90)
-        shelves=nodes[self.state.story.node]['platforms']
-        def contains(p,px):
-            return p['x']<=px<=p['x']+p['w']
-        starts=[i for i,p in enumerate(shelves) if abs(self.actor.y-p['y'])<10 and contains(p,self.actor.x)]
-        goals={i for i,p in enumerate(shelves) if abs(y-p['y'])<10 and contains(p,x)}
-        queue=deque((i,[]) for i in starts)
-        seen=set(starts)
-        while queue:
-            i,path=queue.popleft()
-            if i in goals:
-                for px,py in path:
-                    super().approach(px,py,target)
-                super().approach(x,y,target)
-                return
-            lower=shelves[i]
-            for j,upper in enumerate(shelves):
-                left=max(lower['x'],upper['x'])
-                right=min(lower['x']+lower['w'],upper['x']+upper['w'])
-                if j not in seen and 0<lower['y']-upper['y']<=110 and right-left>=20:
-                    seen.add(j)
-                    queue.append((j,path+[((left+right)//2,upper['y'])]))
-        raise AssertionError((self.state.story.node,target,x,y,'足場の経路未確認'))
-
 trip=SurveyJourney(source,runtime(),select_traveler=True)
 before=trip.snapshot()
 nodes={n['id']:n for n in graph['nodes']}

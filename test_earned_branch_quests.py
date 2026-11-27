@@ -1,8 +1,10 @@
 """Follow Dornman Port and Frostmoon quests using controls and earned saves."""
 
+from argparse import ArgumentParser
 from hashlib import sha256
 import json
 from math import ceil
+from pathlib import Path
 
 from runtime import ROOT, native, runtime
 from savegame import validate_save
@@ -159,17 +161,19 @@ def windward(trip=None):
         assert trip.state.progression.level == 180
     trip.warp('mond-town')
     trip.travel(DORN)
-    for quest in WIND_QUESTS[1:]:
-        trip.act('story_accept:' + quest)
-        assert trip.state.story.quests[quest] is None
-
     first, second, third = WIND_QUESTS
-    trip.act('story_accept:' + first)
-    trip.travel(WIND_STAIRS)
-    for index in (1, 2, 3):
-        trip.mark(first, index)
-    trip.travel(DORN)
-    trip.report(first)
+    if not trip.state.story.quests[first]:
+        trip.act('story_accept:' + second)
+        assert trip.state.story.quests[second] is None
+        trip.act('story_accept:' + first)
+        trip.travel(WIND_STAIRS)
+        for index in (1, 2, 3):
+            trip.mark(first, index)
+        trip.travel(DORN)
+        trip.report(first)
+    assert trip.state.story.quests[first].status == 'complete'
+    trip.act('story_accept:' + third)
+    assert trip.state.story.quests[third] is None
 
     trip.act('story_accept:' + second)
     trip.travel(FLAGS)
@@ -213,15 +217,17 @@ def frostmoon(trip=None):
     assert trip.state.progression.level == 200
     trip.warp('nod-town')
     trip.travel(FROST)
-    trip.act('story_accept:' + SURVEY)
-    trip.mark(SURVEY, 1)
-    trip.travel(quests[SURVEY]['itinerary'][1]['node'])
-    trip.mark(SURVEY, 2)
-    assert '報告' in trip.guide(HALL)['reason']
-    trip.travel('frost-wujian-south-trail')
-    trip.confirm_lock(PRISM, '報告')
-    trip.travel(FROST)
-    trip.report(SURVEY)
+    if not trip.state.story.quests[SURVEY]:
+        trip.act('story_accept:' + SURVEY)
+        trip.mark(SURVEY, 1)
+        trip.travel(quests[SURVEY]['itinerary'][1]['node'])
+        trip.mark(SURVEY, 2)
+        assert '報告' in trip.guide(HALL)['reason']
+        trip.travel('frost-wujian-south-trail')
+        trip.confirm_lock(PRISM, '報告')
+        trip.travel(FROST)
+        trip.report(SURVEY)
+    assert trip.state.story.quests[SURVEY].status == 'complete'
     trip.act('story_accept:' + TRIAL)
     trip.travel(PRISM)
     trip.fight([trip.state.fieldSlots['legend-frostmoon_prism_slime'].enemy], trip.totals())
@@ -269,7 +275,30 @@ def frostmoon(trip=None):
 
 
 if __name__ == '__main__':
-    proof = {'dornman':windward(), 'frostmoon':frostmoon()}
-    (ROOT / 'evidence/earned-branch-quests-lua.json').write_text(
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('--from-save', type=Path)
+    parser.add_argument('--output-dir', type=Path)
+    args = parser.parse_args()
+    if bool(args.from_save) != bool(args.output_dir):
+        parser.error('--from-save and --output-dir must be provided together')
+    if args.from_save:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        trip = Journey(args.from_save.resolve(), runtime(), select_traveler=True)
+        before = trip.snapshot()['story']['quests']
+        windward(trip)
+        proof = frostmoon(trip)
+        trip.restore()
+        save = trip.snapshot()
+        after = save['story']['quests']
+        reports = {r['quest'] for r in trip.reports}
+        assert all(after[q] == record for q, record in before.items() if record['status'] == 'complete')
+        assert reports == {q for q, record in after.items()
+                           if record['status'] == 'complete' and before.get(q, {}).get('status') != 'complete'}
+        (args.output_dir / 'branch-save.json').write_text(json.dumps(save, ensure_ascii=False) + '\n', 'utf8')
+        output = args.output_dir / 'branch-proof.json'
+    else:
+        proof = {'dornman':windward(), 'frostmoon':frostmoon()}
+        output = ROOT / 'evidence/earned-branch-quests-lua.json'
+    output.write_text(
         json.dumps(proof, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
-    print('Earned branch quests: 5 reports, 7 boss or wave opponents, selected gates and restored progress.')
+    print('Dornman and Frostmoon branch quests passed, including gate selection and saved progress.')
