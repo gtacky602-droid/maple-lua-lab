@@ -13,22 +13,23 @@ const names = Object.fromEntries((await read('content/weekly-boss-spawns.json'))
 const base = process.env.LAB_URL || 'http://127.0.0.1:19752/';
 await fs.mkdir(output, {recursive:true});
 const browser = await chromium.launch({headless:true, channel:'chrome'});
+const version = browser.version();
 const result = {};
 const gallery = [];
 try {
   for (const {controller} of rows) {
     const samples = await read(path.join(source, controller + '-frames.json'));
     const frames = Object.entries(samples).sort((a, b) => a[1].tick - b[1].tick);
-    const page = await browser.newPage({viewport:{width:1320, height:800}});
+    const page = await browser.newPage({viewport:{width:1500, height:800}});
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.route('**/weekly-review-local', route => route.fulfill({
       contentType:'text/html; charset=utf-8',
       body:`<!doctype html><meta charset="utf-8"><title>週ボスの描画比較</title><style>
         body{margin:0;background:#222e37;color:#edf4eb;font:16px system-ui,sans-serif}
-        main{width:1260px;box-sizing:border-box;padding:20px;margin:auto}
+        main{width:1440px;box-sizing:border-box;padding:20px;margin:auto}
         h1{margin:0 0 14px;font-size:25px} section{margin:0 0 14px}
-        h2{margin:6px 0;font-size:16px} .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        h2{margin:6px 0;font-size:16px} .profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
         figure{margin:0;background:#2e3b45} figcaption{padding:4px 8px}
         canvas{display:block;width:100%;image-rendering:pixelated}
       </style><main id="comparison"></main>`,
@@ -36,40 +37,44 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw} =
+      const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
       const heading = document.createElement('h1');
       heading.textContent = title;
       root.append(heading);
-      const loaded = new Map();
-      async function paint(parent, caption, frame, draws, batches) {
+      const width = 960, height = 540;
+      const loaded = await loadImageSet(frames.flatMap(([,sample]) => sample.png
+        .filter(draw => draw.kind === 'boss_sprite').map(draw => draw.source)));
+      function canvasContext() {
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d', {willReadFrequently:true});
+        ctx.imageSmoothingEnabled = false;
+        return ctx;
+      }
+      function paint(parent, caption, frame, commands) {
         const figure = document.createElement('figure');
         const label = document.createElement('figcaption');
         label.textContent = caption;
-        const canvas = document.createElement('canvas');
-        canvas.width = 960;
-        canvas.height = 540;
-        figure.append(label, canvas);
+        const ctx = canvasContext();
+        figure.append(label, ctx.canvas);
         parent.append(figure);
-        const ctx = canvas.getContext('2d', {willReadFrequently:true});
-        ctx.imageSmoothingEnabled = false;
         scenery(ctx, frame);
+        paintDraws(ctx, commands);
+        return ctx.getImageData(0, 0, width, height).data;
+      }
+      function paintDraws(ctx, {draws, rectBatches}) {
         for (const d of draws) {
           if (omitCombatDraw(d)) continue;
           ctx.globalAlpha = combatOpacity(d);
           if (d.kind === 'rect') {
             drawCombatRect(ctx, d);
           } else if (d.kind === 'rect_runs') {
-            drawCombatRuns(ctx, d, batches[d.batch - 1]);
+            drawCombatRuns(ctx, d, rectBatches[d.batch - 1]);
           } else if (d.kind === 'boss_sprite') {
-            if (!loaded.has(d.source)) {
-              const image = new Image();
-              image.src = 'assets/' + d.source;
-              await image.decode();
-              loaded.set(d.source, image);
-            }
-            const image = elementTintedSprite(loaded.get(d.source), d.tint);
+            const image = elementTintedSprite(loaded[d.source], d.tint);
             ctx.save();
             ctx.translate(d.x, d.y);
             if (d.rotation) ctx.rotate(d.rotation);
@@ -103,7 +108,24 @@ try {
           }
         }
         ctx.globalAlpha = 1;
-        return ctx.getImageData(0, 0, 960, 540).data;
+      }
+      function canvasTiming(variants) {
+        const warmup = 3, repeats = 11;
+        const contexts = variants.map(() => canvasContext());
+        const times = variants.map(() => []);
+        for (let rep = 0; rep < warmup + repeats; rep++) {
+          for (let column = 0; column < variants.length; column++) {
+            const index = (column + rep) % variants.length;
+            const ctx = contexts[index];
+            ctx.clearRect(0, 0, width, height);
+            ctx.getImageData(0, 0, 1, 1);
+            const start = performance.now();
+            paintDraws(ctx, variants[index]);
+            ctx.getImageData(0, 0, 1, 1);
+            if (rep >= warmup) times[index].push(performance.now() - start);
+          }
+        }
+        return times.map(samples => samples.sort((a, b) => a - b)[Math.floor(repeats / 2)]);
       }
       const comparison = {};
       for (const [id, sample] of frames) {
@@ -112,23 +134,32 @@ try {
         label.textContent = [sample.view.label && sample.view.label !== id ? `${sample.view.label} (${id})` : id,
           nodes[sample.node].name,
           `${(sample.tick / 60).toFixed(1)}秒`].join(' ／ ');
-        const pair = document.createElement('div');
-        pair.className = 'pair';
-        section.append(label, pair);
+        const grid = document.createElement('div');
+        grid.className = 'profiles';
+        section.append(label, grid);
         root.append(section);
         const frame = {camera:sample.camera, platforms:sample.platforms, story:{active:true, node:sample.node},
           campaign:{zone:'story:' + sample.node}, storyGraph:{nodes:[nodes[sample.node]]}};
         await loadScenery(frame);
-        const sprite = await paint(pair, '元のドット絵', frame, sample.png, []);
-        const packed = await paint(pair, '圧縮描画 h32c16', frame, sample.packed.draws, sample.packed.rectBatches);
-        let differentPixels = 0;
-        for (let i = 0; i < sprite.length; i += 4) {
-          if (sprite[i] !== packed[i] || sprite[i+1] !== packed[i+1] || sprite[i+2] !== packed[i+2]
-              || sprite[i+3] !== packed[i+3]) differentPixels++;
+        const original = {draws:sample.png, rectBatches:[]};
+        const variants = Object.entries(sample.profiles);
+        const sprite = paint(grid, '元のドット絵', frame, original);
+        const [originalMs, ...variantTimes] = canvasTiming([original, ...variants.map(([,variant]) => variant.packed)]);
+        const profiles = {};
+        for (const [index, [key, variant]] of variants.entries()) {
+          const packed = paint(grid, key, frame, variant.packed);
+          let differentPixels = 0, rgbAbsoluteError = 0;
+          for (let i = 0; i < sprite.length; i += 4) {
+            const error = Math.abs(sprite[i] - packed[i]) + Math.abs(sprite[i+1] - packed[i+1])
+              + Math.abs(sprite[i+2] - packed[i+2]);
+            if (error || sprite[i+3] !== packed[i+3]) differentPixels++;
+            rgbAbsoluteError += error;
+          }
+          profiles[key] = {differentPixels, rgbAbsoluteError, unpackedCommands:variant.unpackedCount,
+            packedCommands:variant.packed.draws.length, unpackedBytes:variant.unpackedBytes,
+            packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
         }
-        comparison[id] = {differentPixels, unpackedCommands:sample.unpackedCount,
-          packedCommands:sample.packed.draws.length, unpackedBytes:sample.unpackedBytes,
-          packedBytes:sample.packedBytes};
+        comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles};
       }
       return comparison;
     }, {frames, nodes, title:names[controller]});
@@ -138,9 +169,10 @@ try {
     result[controller] = {image, frames:rendered};
     gallery.push(`<li><a href="${image}">${names[controller]}（${frames.length}場面）</a></li>`);
     await page.close();
-    console.log(controller, frames.length, 'PNG and packed comparisons');
+    console.log(controller, frames.length, 'scenes with three render profiles');
   }
   await fs.writeFile(path.join(output, 'weekly-frame-comparison.json'), JSON.stringify(result, null, 2) + '\n');
+  await fs.writeFile(path.join(output, 'browser-version.txt'), version + '\n');
   await fs.writeFile(path.join(output, 'index.html'), `<!doctype html>
 <html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>週ボスの描画比較</title>
@@ -149,7 +181,7 @@ try {
  a{color:#b8dfd4}li{margin:.6rem 0}
 </style>
 <h1>週ボスの描画比較</h1>
-<p>同じ再戦場面の元のドット絵を左に、軽量版 h32c16 を右に表示します。</p>
+<p>各行に同じ再戦場面を並べています。左から元のドット絵、中間画質 h48c32、軽量版 h32c16 です。</p>
 <ul>${gallery.join('\n')}</ul></html>\n`);
 } finally {
   await browser.close();
