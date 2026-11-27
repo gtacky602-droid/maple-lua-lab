@@ -1074,7 +1074,8 @@
           "to": "liyue-harbor",
           "x": 60
         }
-      ]
+      ],
+      "huntKind": "field"
     },
     {
       "id": "liyue-river-trail","huntKind":"field",
@@ -1954,7 +1955,8 @@
         {"to": "inazuma-town", "x": 70},
         {"to": "inazuma-lantern-clearing", "x": 1605,
          "requires": {"quest": "inazuma-moving-lantern", "count": 4}}
-      ]
+      ],
+      "huntKind": "field"
     },
     {
       "id": "inazuma-lantern-clearing",

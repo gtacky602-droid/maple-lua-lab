@@ -362,6 +362,11 @@ export function initAtlas(action, clearKeys) {
    link.href='daily-field-guide.html?'+new URLSearchParams({quest:q.id});
    link.target='_blank';link.rel='noopener';link.textContent=q.name;
    item.append(q.role==='hub'?'受付・報告（'+q.giver+'）　':'対象の敵が出現　',link);
+   if(q.untilQuestClear){
+    const availability=document.createElement('p');
+    availability.textContent='「'+q.untilQuestClear+'」を進めると、この地点での討伐機会が終了します。';
+    item.append(availability);
+   }
    function placementLink(ids,name,label){
     const params=new URLSearchParams({node:selected.id,placements:'live',dailyName:name});
     for(const id of ids)params.append('target',id);

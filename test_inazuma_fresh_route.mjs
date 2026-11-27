@@ -11,7 +11,7 @@ const boarding=JSON.parse(await fs.readFile(boardingSave,'utf8'));
 const start='inazuma-town',entry='sumeru-entry',hub='sumeru-hub',nextQuest='sumeru-leaf-crossing';
 const storyQuests=new Set(graph.quests.map(quest=>quest.id));
 const completed=run.route.filter(row=>storyQuests.has(row.id)).map(row=>row.id);
-const huntFields=['inazuma-road','inazuma-shore-hunt'];
+const huntFields=['inazuma-road','inazuma-shore-hunt','inazuma-lantern-trail'];
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:940}});
 const drive=waypointDriver(page,nodes);
@@ -45,7 +45,6 @@ try {
   },id);
   assert.equal((await frame()).worldMap.guide.status,'ready');
  }
- assert.equal(await page.locator('#atlasField option[value="inazuma-lantern-trail"]').count(),0);
  await page.locator('#atlasLayer').selectOption('all');
  await page.locator('#atlasRegion').selectOption('region-04');
  await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-04');

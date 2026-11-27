@@ -949,10 +949,23 @@
       {"id": "inazuma-shore-hunt-regular-9", "x": 1190, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 940, "patrolMax": 1465}
     ],
     "inazuma-lantern-trail": [
-      {"id": "inazuma-lantern-trail-1", "kind": 1, "art": "hydro-slime", "x": 365, "platform": 0},
-      {"id": "inazuma-lantern-trail-2", "kind": 2, "art": "pyro-slime", "x": 920, "platform": 0},
-      {"id": "inazuma-lantern-trail-3", "kind": 1, "art": "nobushi", "x": 1230, "platform": 0},
-      {"id": "inazuma-lantern-trail-4", "kind": 1, "art": "hydro-slime", "x": 1325, "platform": 3}
+      {"id": "inazuma-lantern-trail-1", "kind": 1, "art": "hydro-slime", "x": 405, "platform": 0, "patrolMin": 385, "patrolMax": 425},
+      {"id": "inazuma-lantern-trail-2", "kind": 2, "art": "pyro-slime", "x": 920, "platform": 0, "patrolMin": 900, "patrolMax": 940},
+      {"id": "inazuma-lantern-trail-3", "kind": 1, "art": "nobushi", "x": 1230, "platform": 0, "patrolMin": 1210, "patrolMax": 1250},
+      {"id": "inazuma-lantern-trail-4", "kind": 1, "art": "hydro-slime", "x": 1325, "platform": 3, "patrolMin": 1305, "patrolMax": 1345},
+      {"id": "inazuma-lantern-trail-5", "kind": 1, "art": "hydro-slime", "x": 430, "platform": 1, "patrolMin": 424, "patrolMax": 450},
+      {"id": "inazuma-lantern-trail-6", "kind": 2, "art": "pyro-slime", "x": 485, "platform": 1, "patrolMin": 465, "patrolMax": 505},
+      {"id": "inazuma-lantern-trail-7", "kind": 1, "art": "hydro-slime", "x": 540, "platform": 1, "patrolMin": 520, "patrolMax": 560},
+      {"id": "inazuma-lantern-trail-8", "kind": 1, "art": "nobushi", "x": 775, "platform": 1, "patrolMin": 755, "patrolMax": 791},
+      {"id": "inazuma-lantern-trail-9", "kind": 1, "art": "nobushi", "x": 748, "platform": 2, "patrolMin": 744, "patrolMax": 768},
+      {"id": "inazuma-lantern-trail-10", "kind": 1, "art": "hydro-slime", "x": 808, "platform": 2, "patrolMin": 788, "patrolMax": 828},
+      {"id": "inazuma-lantern-trail-11", "kind": 2, "art": "pyro-slime", "x": 868, "platform": 2, "patrolMin": 848, "patrolMax": 888},
+      {"id": "inazuma-lantern-trail-12", "kind": 1, "art": "nobushi", "x": 928, "platform": 2, "patrolMin": 908, "patrolMax": 948},
+      {"id": "inazuma-lantern-trail-13", "kind": 1, "art": "hydro-slime", "x": 1050, "platform": 3, "patrolMin": 1044, "patrolMax": 1070},
+      {"id": "inazuma-lantern-trail-14", "kind": 2, "art": "pyro-slime", "x": 1110, "platform": 3, "patrolMin": 1090, "patrolMax": 1130},
+      {"id": "inazuma-lantern-trail-15", "kind": 1, "art": "nobushi", "x": 1170, "platform": 3, "patrolMin": 1150, "patrolMax": 1190},
+      {"id": "inazuma-lantern-trail-16", "kind": 2, "art": "pyro-slime", "x": 1230, "platform": 3, "patrolMin": 1210, "patrolMax": 1250},
+      {"id": "inazuma-lantern-trail-17", "kind": 1, "art": "nobushi", "x": 1387, "platform": 3, "patrolMin": 1367, "patrolMax": 1391}
     ],
     "inazuma-torii-thicket": [
       {"id": "inazuma-thicket-1", "kind": 1, "art": "hilichurl", "x": 420, "platform": 0, "hp": 20},
@@ -2524,35 +2537,45 @@
         "x": 820,
         "platform": 0,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 800,
+        "patrolMax": 840
       },
       {
         "id": "mond-watchtower-2",
         "x": 500,
         "platform": 0,
         "art": "hydro-slime",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 480,
+        "patrolMax": 520
       },
       {
         "id": "mond-watchtower-3",
         "x": 340,
         "platform": 1,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 320,
+        "patrolMax": 360
       },
       {
         "id": "mond-watchtower-4",
         "x": 675,
         "platform": 2,
         "art": "pyro-slime",
-        "kind": 2
+        "kind": 2,
+        "patrolMin": 655,
+        "patrolMax": 695
       },
       {
         "id": "mond-watchtower-5",
         "x": 950,
         "platform": 3,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 930,
+        "patrolMax": 970
       }
     ],
     "liyue-loading-yard": [
@@ -2561,42 +2584,54 @@
         "x": 470,
         "platform": 0,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 450,
+        "patrolMax": 490
       },
       {
         "id": "liyue-loading-yard-2",
         "x": 545,
         "platform": 0,
         "art": "hydro-slime",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 525,
+        "patrolMax": 565
       },
       {
         "id": "liyue-loading-yard-3",
         "x": 810,
         "platform": 0,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 790,
+        "patrolMax": 830
       },
       {
         "id": "liyue-loading-yard-4",
         "x": 325,
         "platform": 1,
         "art": "hydro-slime",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 305,
+        "patrolMax": 345
       },
       {
         "id": "liyue-loading-yard-5",
         "x": 875,
         "platform": 2,
         "art": "hilichurl",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 855,
+        "patrolMax": 895
       },
       {
         "id": "liyue-loading-yard-6",
         "x": 1080,
         "platform": 3,
         "art": "hydro-slime",
-        "kind": 1
+        "kind": 1,
+        "patrolMin": 1060,
+        "patrolMax": 1100
       },
       {
         "id": "liyue-loading-yard-daily-scout",
@@ -2604,7 +2639,109 @@
         "art": "treasure-scout",
         "x": 1170,
         "platform": 0,
-        "hp": 24
+        "hp": 24,
+        "patrolMin": 1150,
+        "patrolMax": 1190
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-2",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 640,
+        "platform": 0,
+        "hp": 24,
+        "patrolMin": 620,
+        "patrolMax": 660
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-3",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 720,
+        "platform": 0,
+        "hp": 24,
+        "patrolMin": 700,
+        "patrolMax": 740
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-4",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 1005,
+        "platform": 0,
+        "hp": 24,
+        "patrolMin": 985,
+        "patrolMax": 1025
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-5",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 1280,
+        "platform": 0,
+        "hp": 24,
+        "patrolMin": 1260,
+        "patrolMax": 1300
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-6",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 255,
+        "platform": 1,
+        "hp": 24,
+        "patrolMin": 244,
+        "patrolMax": 275
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-7",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 430,
+        "platform": 1,
+        "hp": 24,
+        "patrolMin": 410,
+        "patrolMax": 450
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-8",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 945,
+        "platform": 2,
+        "hp": 24,
+        "patrolMin": 925,
+        "patrolMax": 962
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-9",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 950,
+        "platform": 3,
+        "hp": 24,
+        "patrolMin": 944,
+        "patrolMax": 970
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-10",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 1015,
+        "platform": 3,
+        "hp": 24,
+        "patrolMin": 995,
+        "patrolMax": 1035
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout-11",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 1150,
+        "platform": 3,
+        "hp": 24,
+        "patrolMin": 1130,
+        "patrolMax": 1170
       }
     ],
     "liyue-river-trail": [

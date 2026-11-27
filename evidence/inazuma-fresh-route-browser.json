@@ -8,6 +8,11 @@
     "ina-sayu-quiet-route",
     "ina-walking-teahouse"
   ],
+  "huntFields": [
+    "inazuma-road",
+    "inazuma-shore-hunt",
+    "inazuma-lantern-trail"
+  ],
   "route": [
     [
       "sumeru-entry",
@@ -20,8 +25,8 @@
   ],
   "firstSumeruQuestAccepted": "sumeru-leaf-crossing",
   "arrivalLevel": 60,
-  "importedXp": 2734922,
-  "totalXp": 2737319,
-  "travelKillXp": 2397,
+  "importedXp": 2738687,
+  "totalXp": 2740285,
+  "travelKillXp": 1598,
   "errors": []
 }

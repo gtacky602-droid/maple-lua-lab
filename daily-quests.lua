@@ -1,6 +1,7 @@
 return function(C,config,graph)
  local action,frame,checkpoint,restore,onKill=C.action,C.frame,C.checkpoint,C.restore,C.onKill
  local quests,nodes={},{}
+ local storyQuests={}
  local observedNames={}
  for _,q in ipairs(config.quests) do
   quests[q.id]=q
@@ -11,6 +12,7 @@ return function(C,config,graph)
   end
  end
  for _,node in ipairs(graph.nodes) do nodes[node.id]=node end
+ for _,quest in ipairs(graph.quests) do storyQuests[quest.id]=quest end
 
  local function includes(list,value)
   for _,member in ipairs(list or {}) do if member==value then return true end end
@@ -155,7 +157,12 @@ return function(C,config,graph)
     end
     if #targets>0 then role='field' end
    end
-   if role then result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver,targets=targets,observations=observations} end
+   if role then
+    local clearing=role=='field' and node.clearedBy and not node.keepOtherEnemies
+       and not node.practiceAfterReport and storyQuests[node.clearedBy]
+    result[#result+1]={id=q.id,name=q.name,role=role,giver=q.giver,targets=targets,observations=observations,
+     untilQuestClear=clearing and clearing.name or nil}
+   end
   end
   return result
  end

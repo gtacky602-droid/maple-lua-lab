@@ -16,6 +16,7 @@ MINE_AND_SNOW_ARRIVALS = {
     'chasm-wp-25268', 'chasm-wp-25269', 'chasm-wp-25270',
     'spine-lee-walk', 'dragonspine-depth',
 }
+QUEST_FIELD_ARRIVALS = {'liyue-loading-yard','inazuma-lantern-trail'}
 
 
 def read(path):
@@ -168,7 +169,8 @@ def measure():
                 if abs(enemy.y - item['y']) < 45 and enemy.patrolMin - 60 < item['x'] < enemy.patrolMax + 60:
                     unsafe_ingredients.append((item['id'], node, enemy.spawnId))
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
-    targets = set(contact) | {row['node'] for row in rows if row['node'] in hidden} | MINE_AND_SNOW_ARRIVALS
+    targets = (set(contact) | {row['node'] for row in rows if row['node'] in hidden}
+               | MINE_AND_SNOW_ARRIVALS | QUEST_FIELD_ARRIVALS)
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
                 unsafePortalArrivals=sorted(unsafe), unsafeIngredientSites=unsafe_ingredients,
                 introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,targets),
