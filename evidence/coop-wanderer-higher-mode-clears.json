@@ -1,0 +1,93 @@
+{
+  "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+  "allyAttackToggleVerified": true,
+  "matches": [
+    {
+      "mode": "hard",
+      "maxHp": 2340,
+      "combat": {
+        "landingMarks": 2,
+        "updrafts": 2,
+        "remaining": 0,
+        "ticks": 2828,
+        "stage": 3,
+        "status": "clear",
+        "finalMarks": 2,
+        "landingY": 372,
+        "finaleOpened": true,
+        "finalGate": 80
+      },
+      "parties": 4,
+      "damage": [
+        772,
+        1568,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "master",
+      "maxHp": 3380,
+      "combat": {
+        "landingMarks": 2,
+        "finalGate": 80,
+        "remaining": 0,
+        "ticks": 2799,
+        "status": "clear",
+        "finalMarks": 2,
+        "finaleOpened": true,
+        "landingY": 372,
+        "updrafts": 2,
+        "stage": 3
+      },
+      "parties": 4,
+      "damage": [
+        1115,
+        2265,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "extreme",
+      "maxHp": 4850,
+      "combat": {
+        "landingMarks": 2,
+        "updrafts": 2,
+        "landingY": 372,
+        "remaining": 0,
+        "finalMarks": 2,
+        "ticks": 2773,
+        "stage": 3,
+        "finaleOpened": true,
+        "finalGate": 80,
+        "status": "clear"
+      },
+      "parties": 4,
+      "damage": [
+        1600,
+        3250,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    }
+  ]
+}

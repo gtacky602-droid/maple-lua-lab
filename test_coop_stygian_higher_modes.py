@@ -115,7 +115,153 @@ end
 """
 
 
-def beidou_seed(url, seed):
+WANDERER_INPUTS = """
+function(C,room,budget)
+ local run=room.stygianRun
+ local boss,arena=run.boss,run.spec.arena
+ local proof={stage=1,updrafts=0,landingMarks=0,finalMarks=0}
+ local pilot=room.members[1].state
+ local lastEvent=pilot.seq
+ local function markerInput(a,mark)
+  local target,jump=mark.x,false
+  if mark.y==290 and a.y>290 then
+   local left=a.x<arena.centerX
+   if a.ground and a.y==arena.floor then
+    target=left and arena.risingPads[1] or arena.risingPads[2]
+    jump=math.abs(a.x-target)<10
+   elseif a.ground and a.y==372 then
+    local takeoff=left and 314 or 646
+    if math.abs(a.x-takeoff)<8 then jump=true else target=takeoff end
+   end
+  elseif mark.y==372 and a.ground and a.y==arena.floor then
+   jump=math.abs(a.x-mark.x)<12
+  end
+  return target,jump
+ end
+ for tick=1,budget do
+  local cast=run.cast
+  for index,member in ipairs(room.members) do
+   local state=member.state
+   local actor=state.actors[state.active]
+   local dx,dy=boss.x-actor.x,boss.y-actor.y
+   local side=index==1 and 1 or -1
+   local target=math.max(25,math.min(935,boss.x-side*61))
+   local jump=dy< -68 and math.abs(dx)<145 and actor.ground
+   local attack=(run.stage==index or run.stage==3 and run.finaleOpen) and not boss.invulnerable
+   if index<=2 and cast and cast.marks then
+    local progress=cast.progress[member.id]
+    if index==1 and (cast.key=='WD03' and not cast.drop or cast.key=='WD06' and cast.t<cast.data.gateTick) then
+     local marker
+     for _,mark in ipairs(cast.marks) do
+      if not progress.taken[mark.id] then marker=mark;break end
+     end
+     if marker then target,jump=markerInput(actor,marker) end
+     attack=false
+    end
+    if cast.key=='WD03' and (not cast.drop or cast.t<cast.recover) then attack=false end
+    if cast.key=='WD06' and cast.t<cast.recover then
+     attack=false
+     if progress.gate then target,jump=progress.gate.x,false end
+    end
+   end
+   if index<=2 and actor.hp>0 then
+    local offset=target-actor.x
+    local move=math.abs(offset)>7 and offset or (attack and dx*actor.dir<0 and dx or 0)
+    if jump and actor.ground then C.action(state,'jump') end
+    member.input={left=move<0,right=move>0,jump=jump or not actor.ground and actor.vy<0,
+     attack=attack and math.abs(dx)<=111 and math.abs(dy)<85 and dx*actor.dir>=0}
+   else member.input=nil end
+  end
+  C.stepCoop(room,1/60)
+  proof.stage=math.max(proof.stage,run.stage)
+  if cast and cast.marks then
+   local progress=cast.progress[room.members[1].id]
+   if cast.key=='WD03' then
+    proof.landingMarks=math.max(proof.landingMarks,progress.collected)
+    if cast.drop then proof.landingY=cast.drop.toY end
+   elseif cast.key=='WD06' then
+    proof.finalMarks=math.max(proof.finalMarks,progress.collected)
+    if progress.gate then proof.finalGate=progress.gate.half end
+    proof.finaleOpened=run.finaleOpen
+   end
+  end
+  for index=#pilot.events,1,-1 do
+   local event=pilot.events[index]
+   if event.seq<=lastEvent then break end
+   if event.kind=='stygian:wanderer:updraft' then proof.updrafts=proof.updrafts+1 end
+  end
+  lastEvent=pilot.seq
+  if run.status~='fighting' or tick==budget then
+   for _,member in ipairs(room.members) do member.input=nil end
+   proof.ticks,proof.status,proof.remaining=tick,run.status,boss.hp
+   return proof
+  end
+ end
+end
+"""
+
+
+RERIR_INPUTS = """
+function(C,room,budget)
+ local run,boss=room.stygianRun,room.stygianRun.boss
+ local lamps={}
+ local paths={}
+ local stage=1
+ for tick=1,budget do
+  local cast=run.cast
+  if cast and run.phase=='fog' and not cast.lamp and cast.t==84 then
+   local picker=room.members[run.fog.attempt]
+   C.action(picker.state,'encounter_interact')
+   if cast.lamp then table.insert(lamps,cast.lamp.owner) end
+  end
+  for index,member in ipairs(room.members) do
+   local state=member.state
+   local actor=state.actors[state.active]
+   local dx,dy=boss.x-actor.x,boss.y-actor.y
+   local side=index==1 and 1 or -1
+   local target=math.max(25,math.min(935,boss.x-side*61))
+   local jump=dy< -68 and math.abs(dx)<145 and actor.ground
+   local attack=not boss.invulnerable and (run.stage==1 or not run.trials[2] or run.trials[2]=='done')
+   if cast and cast.path then
+    attack=false
+    if cast.path==index then
+     local progress=cast.pickupsByMember[member]
+     local pickups=progress and progress.pickups or cast.pickups
+     for _,p in ipairs(pickups) do
+      if not p.owner then
+       target=p.x
+       jump=actor.ground and actor.y>p.sole and math.abs(actor.x-p.x)<90
+       break
+      end
+     end
+     if progress then
+      local prior=paths[index] or {collected=0}
+      paths[index]={collected=math.max(prior.collected,progress.collected),
+       protected=prior.protected or progress.protected}
+     end
+    end
+   end
+   if index<=2 and actor.hp>0 then
+    local offset=target-actor.x
+    local move=math.abs(offset)>7 and offset or (attack and dx*actor.dir<0 and dx or 0)
+    if jump and actor.ground then C.action(state,'jump') end
+    member.input={left=move<0,right=move>0,jump=jump or not actor.ground and actor.vy<0,
+     attack=attack and math.abs(dx)<=111 and math.abs(dy)<85 and dx*actor.dir>=0}
+   else member.input=nil end
+  end
+  C.stepCoop(room,1/60)
+  stage=math.max(stage,run.stage)
+  if run.status~='fighting' or tick==budget then
+   for _,member in ipairs(room.members) do member.input=nil end
+   return {ticks=tick,status=run.status,stage=stage,remaining=boss.hp,lamps=lamps,
+    trials=run.trials,paths=paths,phase=run.phase}
+  end
+ end
+end
+"""
+
+
+def recovery_seed(url, seed):
     client = Client(url)
     client.frame(restore=seed)
     client.frame(['story_fast:liyue-harbor'])
@@ -182,6 +328,15 @@ def check_clears(url, match, inputs, prepare=None):
                 windows = round_result['windows']
                 assert round_result['stage'] == 3 and {'XB01', 'XB06', 'XB08'} <= windows.keys(), windows
                 assert set(windows['XB08']) == {144, 228, 300, 390}, windows
+            if match == 'wanderer':
+                assert round_result['stage'] == 3 and round_result['updrafts'] > 0, round_result
+                assert (round_result['landingMarks'], round_result['landingY']) == (2, 372), round_result
+                assert (round_result['finalMarks'], round_result['finalGate']) == (2, 80), round_result
+                assert round_result['finaleOpened']
+            if match == 'rerir':
+                assert round_result['stage'] == 2 and round_result['lamps'] == [1, 2], round_result
+                assert round_result['trials'] == ['done', 'done'], round_result
+                assert round_result['paths'] == [{'collected': 3, 'protected': True}] * 2, round_result
             expected = [run.rules.xp + run.rules.firstXp, run.rules.mora + run.rules.firstMora]
             contributions = [member.state.endgameRun.skills.normal or 0 for member in room.members.values()]
             assert all(amount>0 for amount in contributions[:2]) and contributions[2:] == [0, 0], contributions
@@ -219,14 +374,16 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('match', choices=('farka', 'beidou', 'capitano', 'xbalanque'))
+    parser.add_argument('match', choices=('farka', 'beidou', 'capitano', 'xbalanque', 'wanderer', 'rerir'))
     match = parser.parse_args().match
-    inputs, prepare = (BEIDOU_INPUTS, beidou_seed) if match == 'beidou' else (STAGED_INPUTS, None)
+    inputs = {'beidou': BEIDOU_INPUTS, 'wanderer': WANDERER_INPUTS,
+              'rerir': RERIR_INPUTS}.get(match, STAGED_INPUTS)
+    prepare = recovery_seed if match in ('beidou', 'rerir') else None
     with lab() as url:
         results = check_clears(url, match, inputs, prepare)
     scope = 'Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.'
-    if match == 'beidou':
-        scope += ' SW07 was equipped and four artifact slots were cleared in town to observe recovery windows.'
+    if prepare:
+        scope += ' SW07 was equipped and four artifact slots were cleared in town to observe mechanics.'
     (ROOT / f'evidence/coop-{match}-higher-mode-clears.json').write_text(json.dumps({
         'scope': scope,
         'allyAttackToggleVerified': True,

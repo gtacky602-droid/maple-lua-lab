@@ -1,0 +1,132 @@
+{
+  "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle. SW07 was equipped and four artifact slots were cleared in town to observe mechanics.",
+  "allyAttackToggleVerified": true,
+  "matches": [
+    {
+      "mode": "hard",
+      "maxHp": 3050,
+      "combat": {
+        "phase": "ready",
+        "stage": 2,
+        "lamps": [
+          1,
+          2
+        ],
+        "status": "clear",
+        "remaining": 0,
+        "paths": [
+          {
+            "collected": 3,
+            "protected": true
+          },
+          {
+            "collected": 3,
+            "protected": true
+          }
+        ],
+        "ticks": 4230,
+        "trials": [
+          "done",
+          "done"
+        ]
+      },
+      "parties": 4,
+      "damage": [
+        3338,
+        3252,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "master",
+      "maxHp": 4240,
+      "combat": {
+        "remaining": 0,
+        "phase": "ready",
+        "status": "clear",
+        "trials": [
+          "done",
+          "done"
+        ],
+        "paths": [
+          {
+            "protected": true,
+            "collected": 3
+          },
+          {
+            "protected": true,
+            "collected": 3
+          }
+        ],
+        "ticks": 4752,
+        "lamps": [
+          1,
+          2
+        ],
+        "stage": 2
+      },
+      "parties": 4,
+      "damage": [
+        4744,
+        4456,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    },
+    {
+      "mode": "extreme",
+      "maxHp": 5500,
+      "combat": {
+        "remaining": 0,
+        "ticks": 4767,
+        "trials": [
+          "done",
+          "done"
+        ],
+        "phase": "cast",
+        "stage": 2,
+        "status": "clear",
+        "paths": [
+          {
+            "collected": 3,
+            "protected": true
+          },
+          {
+            "collected": 3,
+            "protected": true
+          }
+        ],
+        "lamps": [
+          1,
+          2
+        ]
+      },
+      "parties": 4,
+      "damage": [
+        6125,
+        5855,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true
+    }
+  ]
+}
