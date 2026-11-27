@@ -598,6 +598,11 @@ export function trackedQuest(f,id,selectedWorksite){
   const point=bossFieldPoint(patrolStep.node,patrolStep.boss);
   return {...route,pointUrl:point.url,pointLabel:point.label,text:q.name+' ｜ '+next+(route.text?' ｜ '+route.text:'')};
  }
+ if(patrolStep?.kind==='kill'&&route.node===patrolStep.node){
+  const remaining=remainingEnemyPoints(patrolStep,st);
+  if(remaining.length)return {...route,pointUrl:remaining[0].url,pointLabel:'残りの討伐対象を見る',
+   text:q.name+' ｜ '+next+'（残り'+remaining.length+'体）'+(route.text?' ｜ '+route.text:'')};
+ }
  if(patrolStep?.cover&&route.node===patrolStep.node){
   const point=surveyPoint(q,st.count,route.node);
   return {...route,pointUrl:surveyPointUrl(point),pointLabel:patrolStep.cover.name+'の位置を見る',
