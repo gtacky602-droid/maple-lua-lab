@@ -1,4 +1,4 @@
-"""Clear higher Stygian modes in four-party rooms with directional and attack inputs."""
+"""Clear Stygian modes in four-party rooms with directional and attack inputs."""
 import json
 
 from runtime import ROOT, native
@@ -261,6 +261,94 @@ end
 """
 
 
+RONOVA_INPUTS = """
+function(C,room,budget)
+ local run,boss=room.stygianRun,room.stygianRun.boss
+ local host=room.members[1].state
+ local arena=run.spec.arena
+ local down,returned=0,0
+ local maxStage,road,finalShadows=1,0,0
+ local gate,finalVerdict
+ local last=host.seq
+ for tick=1,budget do
+  local cast=run.cast
+  for index,member in ipairs(room.members) do
+   local state=member.state
+   local actor=state.actors[state.active]
+   local other=state.actors[3-state.active]
+   local dx,dy=boss.x-actor.x,boss.y-actor.y
+   local side=index==1 and 1 or -1
+   local target=math.max(26,math.min(934,boss.x-side*61))
+   local airTarget
+   local attack=(run.stage==index or run.stage>=3) and not boss.invulnerable
+   if cast and cast.t<cast.recover then attack=false end
+   if cast and cast.members then
+    local progress=cast.members[member.id]
+    if cast.key=='RN03' or cast.key=='RN06' or cast.key=='RN08' then
+     for _,shadow in ipairs(progress.shadows) do
+      if not shadow.taken and not progress.done then
+       target,airTarget=shadow.x,shadow.sole
+       break
+      end
+     end
+     if cast.key=='RN08' and progress.gateX and cast.t<cast.recover then
+      target,airTarget=progress.gateX,nil
+     end
+    elseif cast.key=='RN12' and cast.t<cast.recover then
+     local point=arena.road[progress.passed+1]
+     if point then target,airTarget=point[1],point[2] end
+    elseif cast.key=='RN05' and cast.t<cast.recover then
+     if index==1 and down==0 then target=cast.mark
+     elseif math.abs(actor.x-cast.mark)<90 then
+      target=cast.mark<480 and cast.mark+112 or cast.mark-112
+     end
+    end
+    if index==1 then
+     if cast.key=='RN12' then road=math.max(road,progress.passed) end
+     if cast.key=='RN08' then
+      finalShadows=math.max(finalShadows,progress.found)
+      if progress.gateX then gate=progress.gateX end
+      if progress.verdict then finalVerdict=progress.verdict end
+     end
+    end
+   end
+   if index==1 and other.hp<=0 then
+    target,airTarget,attack=other.x,nil,false
+    if math.abs(actor.x-other.x)<=18 and math.abs(actor.y-other.y)<48 then
+     C.action(state,'encounter_interact')
+    end
+   elseif index==1 and state.active==2 and returned>0 and state.swap<=0 then
+    C.action(state,'swap')
+   end
+   if index<=2 and actor.hp>0 then
+    local offset=target-actor.x
+    local move=math.abs(offset)>7 and offset or (attack and dx*actor.dir<0 and dx or 0)
+    if state.endgameRun.aid then move=0 end
+    local jump=airTarget and actor.ground and actor.y>airTarget and math.abs(offset)<85
+    if jump then C.action(state,'jump') end
+    member.input={left=move<0,right=move>0,jump=jump or not actor.ground and actor.vy<0,
+     attack=attack and not state.endgameRun.aid and math.abs(dx)<=111 and math.abs(dy)<85 and dx*actor.dir>=0}
+   else member.input=nil end
+  end
+  C.stepCoop(room,1/60)
+  maxStage=math.max(maxStage,run.stage)
+  for index=#host.events,1,-1 do
+   local event=host.events[index]
+   if event.seq<=last then break end
+   if event.kind=='stygian:ronova:authority_lethal' then down=down+1 end
+   if event.kind=='stygian:ronova:aid-success' then returned=returned+1 end
+  end
+  last=host.seq
+  if run.status~='fighting' or tick==budget then
+   for _,member in ipairs(room.members) do member.input=nil end
+   return {ticks=tick,status=run.status,stage=maxStage,remaining=boss.hp,down=down,aid=returned,
+    road=road,finalShadows=finalShadows,gate=gate,finalVerdict=finalVerdict,phase=run.phase}
+  end
+ end
+end
+"""
+
+
 def recovery_seed(url, seed):
     client = Client(url)
     client.frame(restore=seed)
@@ -282,7 +370,7 @@ def recovery_seed(url, seed):
     return prepared
 
 
-def check_clears(url, match, inputs, prepare=None):
+def check_clears(url, match, inputs, prepare=None, *, normal_only=False):
     matches = json.loads((ROOT / 'content/stygian-matches.json').read_bytes())['matches']
     spec = matches[match]
     graph = json.loads((ROOT / 'content/story-graph.json').read_bytes())
@@ -295,7 +383,7 @@ def check_clears(url, match, inputs, prepare=None):
     results = []
     for difficulty in spec['modes']:
         mode = difficulty['id']
-        if mode == 'normal':
+        if (mode == 'normal') != normal_only:
             continue
         key = f'{match}:{mode}'
         sets = ['troupe', 'gladiator', 'troupe', 'gladiator']
@@ -319,7 +407,10 @@ def check_clears(url, match, inputs, prepare=None):
             if match == 'farka':
                 assert round_result['stage'] == 3 and round_result['chains'][difficulty['firstChain']]
             if match == 'beidou':
-                assert {'guard', 'baited', 'wake', 'recover'} <= round_result['seen'].keys(), round_result
+                phases = {'guard', 'baited', 'recover'}
+                if difficulty['reprise']:
+                    phases.add('wake')
+                assert phases <= round_result['seen'].keys(), round_result
             if match == 'capitano':
                 windows = round_result['windows']
                 assert round_result['stage'] == 3 and {'CP01', 'CP05', 'CP09'} <= windows.keys()
@@ -337,7 +428,12 @@ def check_clears(url, match, inputs, prepare=None):
                 assert round_result['stage'] == 2 and round_result['lamps'] == [1, 2], round_result
                 assert round_result['trials'] == ['done', 'done'], round_result
                 assert round_result['paths'] == [{'collected': 3, 'protected': True}] * 2, round_result
-            expected = [run.rules.xp + run.rules.firstXp, run.rules.mora + run.rules.firstMora]
+            if match == 'ronova':
+                assert round_result['stage'] == 4 and round_result['road'] == 4, round_result
+                assert round_result['down'] > 0 and round_result['aid'] > 0, round_result
+                assert round_result['finalShadows'] >= 2 and round_result['finalVerdict'], round_result
+            base_reward = [run.rules.xp, run.rules.mora]
+            first_bonus = [run.rules.firstXp, run.rules.firstMora]
             contributions = [member.state.endgameRun.skills.normal or 0 for member in room.members.values()]
             assert all(amount>0 for amount in contributions[:2]) and contributions[2:] == [0, 0], contributions
         rewards = []
@@ -347,14 +443,19 @@ def check_clears(url, match, inputs, prepare=None):
             save = validate_save(clear['checkpoint'])
             known_items = {item['id'] for item in before[index]['inventory']['items']}
             new_items = [item for item in save['inventory']['items'] if item['id'] not in known_items]
+            prior_record = before[index]['endgame']['stygian'].get(key)
             if index < 2:
                 reward = clear['endgameRun']['matchReward']
-                assert reward['first'] and [reward['xp'], reward['mora']] == expected
-                assert save['endgame']['stygian'][key]['clears'] == 1
+                first = prior_record is None
+                expected = [base + (bonus if first else 0) for base, bonus in zip(base_reward, first_bonus)]
+                assert reward['first'] is first and [reward['xp'], reward['mora']] == expected
+                previous_clears = prior_record['clears'] if prior_record else 0
+                assert save['endgame']['stygian'][key]['clears'] == previous_clears + 1
                 assert reward['bag'] and len(new_items) == 1 and new_items[0]['setId'] == sets[index]
                 rewards.append(reward['set'])
             else:
-                assert 'matchReward' not in clear['endgameRun'] and key not in save['endgame']['stygian']
+                assert 'matchReward' not in clear['endgameRun']
+                assert save['endgame']['stygian'].get(key) == prior_record
                 assert not new_items and save['mora'] == before[index]['mora']
                 assert save['progression']['total'] == before[index]['progression']['total']
             assert save['story']['quests'] == seed['story']['quests']
@@ -365,7 +466,8 @@ def check_clears(url, match, inputs, prepare=None):
             assert restored['inventory']['items'] == save['inventory']['items']
         assert len(set(rewards)) == 2
         results.append(dict(mode=mode,maxHp=difficulty['hp'],combat=round_result,parties=4,
-                            damage=contributions,rewards=rewards,restored=True,inventoryVerified=True))
+                            damage=contributions,rewards=rewards,restored=True,inventoryVerified=True,
+                            repeatReward=normal_only))
         print(key, round_result['ticks'], contributions, flush=True)
     return results
 
@@ -374,18 +476,31 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('match', choices=('farka', 'beidou', 'capitano', 'xbalanque', 'wanderer', 'rerir'))
-    match = parser.parse_args().match
-    inputs = {'beidou': BEIDOU_INPUTS, 'wanderer': WANDERER_INPUTS,
-              'rerir': RERIR_INPUTS}.get(match, STAGED_INPUTS)
-    prepare = recovery_seed if match in ('beidou', 'rerir') else None
-    with lab() as url:
-        results = check_clears(url, match, inputs, prepare)
-    scope = 'Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.'
-    if prepare:
-        scope += ' SW07 was equipped and four artifact slots were cleared in town to observe mechanics.'
-    (ROOT / f'evidence/coop-{match}-higher-mode-clears.json').write_text(json.dumps({
-        'scope': scope,
-        'allyAttackToggleVerified': True,
-        'matches': results,
-    }, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+    matches = ('farka', 'beidou', 'capitano', 'xbalanque', 'wanderer', 'rerir', 'ronova')
+    parser.add_argument('match', choices=(*matches, 'all'))
+    parser.add_argument('--normal', action='store_true', help='Run the seeded normal-mode rematches.')
+    options = parser.parse_args()
+    selected = matches if options.match == 'all' else (options.match,)
+    normal_checks = []
+    for match in selected:
+        inputs = {'beidou': BEIDOU_INPUTS, 'wanderer': WANDERER_INPUTS,
+                  'rerir': RERIR_INPUTS, 'ronova': RONOVA_INPUTS}.get(match, STAGED_INPUTS)
+        prepare = recovery_seed if match in ('beidou', 'rerir') else None
+        with lab() as url:
+            results = check_clears(url, match, inputs, prepare, normal_only=options.normal)
+        scope = 'Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.'
+        if prepare:
+            scope += ' SW07 was equipped and four artifact slots were cleared in town to observe mechanics.'
+        if options.normal:
+            normal_checks.append(dict(match=match, scope=scope, **results[0]))
+        else:
+            (ROOT / f'evidence/coop-{match}-higher-mode-clears.json').write_text(json.dumps({
+                'scope': scope,
+                'allyAttackToggleVerified': True,
+                'matches': results,
+            }, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+    if options.normal:
+        suffix = 'all' if options.match == 'all' else options.match
+        (ROOT / f'evidence/coop-{suffix}-normal-rematches.json').write_text(json.dumps({
+            'matches': normal_checks,
+        }, ensure_ascii=False, indent=2) + '\n', encoding='utf8')

@@ -1,0 +1,262 @@
+{
+  "matches": [
+    {
+      "match": "farka",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+      "mode": "normal",
+      "maxHp": 670,
+      "combat": {
+        "ticks": 2238,
+        "stage": 3,
+        "status": "clear",
+        "remaining": 0,
+        "chains": {
+          "A": true
+        }
+      },
+      "parties": 4,
+      "damage": [
+        435,
+        235,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    },
+    {
+      "match": "beidou",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle. SW07 was equipped and four artifact slots were cleared in town to observe mechanics.",
+      "mode": "normal",
+      "maxHp": 690,
+      "combat": {
+        "ticks": 497,
+        "remaining": 0,
+        "status": "clear",
+        "seen": {
+          "strike": true,
+          "baited": true,
+          "recover": true,
+          "intro": true,
+          "tell": true,
+          "guard": true,
+          "approach": true
+        }
+      },
+      "parties": 4,
+      "damage": [
+        419,
+        271,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    },
+    {
+      "match": "capitano",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+      "mode": "normal",
+      "maxHp": 2430,
+      "combat": {
+        "stage": 3,
+        "status": "clear",
+        "windows": {
+          "CP05": [
+            54
+          ],
+          "CP09": [
+            138,
+            210,
+            282,
+            348
+          ],
+          "CP01": [
+            36,
+            54
+          ]
+        },
+        "remaining": 0,
+        "ticks": 1235
+      },
+      "parties": 4,
+      "damage": [
+        1579,
+        851,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    },
+    {
+      "match": "xbalanque",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+      "mode": "normal",
+      "maxHp": 1780,
+      "combat": {
+        "status": "clear",
+        "remaining": 0,
+        "stage": 3,
+        "windows": {
+          "XB04": [
+            78
+          ],
+          "XB08": [
+            144,
+            228,
+            300,
+            390
+          ],
+          "XB01": [
+            36,
+            54
+          ],
+          "XB06": [
+            90
+          ]
+        },
+        "ticks": 1532
+      },
+      "parties": 4,
+      "damage": [
+        1157,
+        623,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    },
+    {
+      "match": "wanderer",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+      "mode": "normal",
+      "maxHp": 1550,
+      "combat": {
+        "finaleOpened": true,
+        "remaining": 0,
+        "ticks": 2881,
+        "status": "clear",
+        "finalMarks": 2,
+        "stage": 3,
+        "updrafts": 2,
+        "landingY": 372,
+        "finalGate": 80,
+        "landingMarks": 2
+      },
+      "parties": 4,
+      "damage": [
+        511,
+        1039,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    },
+    {
+      "match": "rerir",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle. SW07 was equipped and four artifact slots were cleared in town to observe mechanics.",
+      "mode": "normal",
+      "maxHp": 2180,
+      "combat": {
+        "ticks": 4247,
+        "phase": "ready",
+        "lamps": [
+          1,
+          2
+        ],
+        "trials": [
+          "done",
+          "done"
+        ],
+        "paths": [
+          {
+            "collected": 3,
+            "protected": true
+          },
+          {
+            "collected": 3,
+            "protected": true
+          }
+        ],
+        "remaining": 0,
+        "status": "clear",
+        "stage": 2
+      },
+      "parties": 4,
+      "damage": [
+        2451,
+        2199,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    },
+    {
+      "match": "ronova",
+      "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+      "mode": "normal",
+      "maxHp": 5460,
+      "combat": {
+        "gate": 480,
+        "remaining": 0,
+        "aid": 1,
+        "phase": "cast",
+        "status": "clear",
+        "stage": 4,
+        "road": 4,
+        "down": 1,
+        "finalShadows": 3,
+        "finalVerdict": true,
+        "ticks": 5532
+      },
+      "parties": 4,
+      "damage": [
+        1366,
+        4094,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": true
+    }
+  ]
+}

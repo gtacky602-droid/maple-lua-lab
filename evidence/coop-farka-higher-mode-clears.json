@@ -6,13 +6,13 @@
       "mode": "hard",
       "maxHp": 1880,
       "combat": {
-        "remaining": 0,
-        "status": "clear",
+        "stage": 3,
+        "ticks": 2292,
         "chains": {
           "B": true
         },
-        "ticks": 2294,
-        "stage": 3
+        "remaining": 0,
+        "status": "clear"
       },
       "parties": 4,
       "damage": [
@@ -25,19 +25,21 @@
         "黄金の劇団",
         "剣闘士のフィナーレ"
       ],
-      "restored": true
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": false
     },
     {
       "mode": "master",
       "maxHp": 3460,
       "combat": {
-        "remaining": 0,
-        "ticks": 2193,
         "chains": {
           "A": true
         },
+        "remaining": 0,
+        "stage": 3,
         "status": "clear",
-        "stage": 3
+        "ticks": 2192
       },
       "parties": 4,
       "damage": [
@@ -50,19 +52,21 @@
         "黄金の劇団",
         "剣闘士のフィナーレ"
       ],
-      "restored": true
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": false
     },
     {
       "mode": "extreme",
       "maxHp": 5520,
       "combat": {
+        "ticks": 2245,
         "stage": 3,
-        "remaining": 0,
-        "ticks": 2241,
         "status": "clear",
         "chains": {
           "B": true
-        }
+        },
+        "remaining": 0
       },
       "parties": 4,
       "damage": [
@@ -75,7 +79,9 @@
         "黄金の劇団",
         "剣闘士のフィナーレ"
       ],
-      "restored": true
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": false
     }
   ]
 }

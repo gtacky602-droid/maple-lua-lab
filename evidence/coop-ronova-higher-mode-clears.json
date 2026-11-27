@@ -1,0 +1,99 @@
+{
+  "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+  "allyAttackToggleVerified": true,
+  "matches": [
+    {
+      "mode": "hard",
+      "maxHp": 7340,
+      "combat": {
+        "finalVerdict": true,
+        "gate": 480,
+        "aid": 1,
+        "finalShadows": 3,
+        "phase": "cast",
+        "status": "clear",
+        "down": 1,
+        "road": 4,
+        "ticks": 6032,
+        "stage": 4,
+        "remaining": 0
+      },
+      "parties": 4,
+      "damage": [
+        1836,
+        5504,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": false
+    },
+    {
+      "mode": "master",
+      "maxHp": 9610,
+      "combat": {
+        "finalShadows": 3,
+        "ticks": 5971,
+        "remaining": 0,
+        "stage": 4,
+        "gate": 480,
+        "status": "clear",
+        "road": 4,
+        "down": 1,
+        "aid": 1,
+        "finalVerdict": true,
+        "phase": "cast"
+      },
+      "parties": 4,
+      "damage": [
+        2403,
+        7207,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": false
+    },
+    {
+      "mode": "extreme",
+      "maxHp": 12300,
+      "combat": {
+        "stage": 4,
+        "finalShadows": 3,
+        "remaining": 0,
+        "phase": "cast",
+        "ticks": 5915,
+        "finalVerdict": true,
+        "road": 4,
+        "aid": 1,
+        "status": "clear",
+        "down": 1,
+        "gate": 480
+      },
+      "parties": 4,
+      "damage": [
+        3076,
+        9224,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true,
+      "inventoryVerified": true,
+      "repeatReward": false
+    }
+  ]
+}

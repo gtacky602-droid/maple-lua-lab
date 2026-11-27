@@ -9399,8 +9399,9 @@
     "xbalanque_higher_mode_clears": {"modes":["hard","master","extreme"],"parties":4,"credited_parties":2,"idle_parties":2,"scope":"Lua movement and attacks in recovery through three stages and all four XB08 windows; local HTTP verified payout, inventory and restore.","evidence":"evidence/coop-xbalanque-higher-mode-clears.json"},
     "wanderer_higher_mode_clears": {"modes":["hard","master","extreme"],"parties":4,"credited_parties":2,"idle_parties":2,"scope":"Lua movement, jump and normal attacks through updrafts, the forced landing and the widened personal finale gate; local HTTP verified payout, inventory and restore.","evidence":"evidence/coop-wanderer-higher-mode-clears.json"},
     "rerir_higher_mode_clears": {"modes":["hard","master","extreme"],"parties":4,"credited_parties":2,"idle_parties":2,"scope":"Lua inputs through both fog lamps and both trials; separate parties collected three marks and qualified for protection on each path. Local HTTP verified payout, inventory and restore.","evidence":"evidence/coop-rerir-higher-mode-clears.json"},
+    "ronova_higher_mode_clears": {"modes":["hard","master","extreme"],"parties":4,"credited_parties":2,"idle_parties":2,"scope":"Lua inputs through four stages, one authority defeat and partner aid, all four road markers, and a personal finale gate. Local HTTP verified payout, inventory and restore.","evidence":"evidence/coop-ronova-higher-mode-clears.json"},
+    "stygian_four_party_clear_coverage": {"matches":7,"difficulty_clears":28,"first_clears":21,"normal_rematches":7,"parties_per_run":4,"credited_parties":2,"idle_parties":2,"scope":"Local Lua room combat driven by scripted movement, jumps, attacks and mechanics; local HTTP verified payout and saves. Higher-mode records are linked individually.","normal_evidence":"evidence/coop-all-normal-rematches.json","test":"test_coop_stygian_higher_modes.py"},
     "pending": [
-      "full co-op playthroughs for every Stygian difficulty",
       "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]
