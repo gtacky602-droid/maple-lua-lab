@@ -1,0 +1,482 @@
+{
+  "baseCommit": "bbcb661f3638a79a86eb76770310a78d9024e33c",
+  "method": "Two copies of an earned level-200 expert checkpoint. Normal movement and attacks clear the dark phase and defense. Both routes start in the central dome for the first three pulses. For the final pulse, one remains covered and the other walks out. The same equipment policy is used in both. The first full exposure window, repeat rewards, and restored clears are checked.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "apep",
+      "case": "apep-covered",
+      "label": "最後の余波をドームで防ぐ",
+      "ticks": 5678,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 1580,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "stages": [
+        {
+          "stage": "dark",
+          "tick": 0
+        },
+        {
+          "stage": "expose",
+          "tick": 674
+        },
+        {
+          "stage": "defense",
+          "tick": 853
+        },
+        {
+          "stage": "rebirth",
+          "tick": 2113
+        },
+        {
+          "stage": "prime",
+          "tick": 2323
+        },
+        {
+          "stage": "shelter",
+          "tick": 3085
+        },
+        {
+          "stage": "weak",
+          "tick": 3805
+        },
+        {
+          "stage": "prime",
+          "tick": 4405
+        },
+        {
+          "stage": "shelter",
+          "tick": 4957
+        },
+        {
+          "stage": "weak",
+          "tick": 5677
+        }
+      ],
+      "defense": {
+        "lastProgress": 99,
+        "kills": 13
+      },
+      "pulses": [
+        {
+          "t": 240,
+          "group": 1,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        },
+        {
+          "t": 330,
+          "group": 2,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        },
+        {
+          "t": 420,
+          "group": 3,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        },
+        {
+          "t": 540,
+          "group": 4,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        }
+      ],
+      "openingTicks": 480,
+      "damageDuringOpening": 464,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "apep",
+      "case": "apep-outside",
+      "label": "最後の余波がドーム外で命中",
+      "ticks": 5731,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 1580,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "stages": [
+        {
+          "stage": "dark",
+          "tick": 0
+        },
+        {
+          "stage": "expose",
+          "tick": 674
+        },
+        {
+          "stage": "defense",
+          "tick": 853
+        },
+        {
+          "stage": "rebirth",
+          "tick": 2113
+        },
+        {
+          "stage": "prime",
+          "tick": 2323
+        },
+        {
+          "stage": "shelter",
+          "tick": 3085
+        },
+        {
+          "stage": "weak",
+          "tick": 3805
+        },
+        {
+          "stage": "prime",
+          "tick": 4405
+        },
+        {
+          "stage": "shelter",
+          "tick": 4957
+        },
+        {
+          "stage": "weak",
+          "tick": 5677
+        }
+      ],
+      "defense": {
+        "lastProgress": 99,
+        "kills": 13
+      },
+      "pulses": [
+        {
+          "t": 240,
+          "group": 1,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        },
+        {
+          "t": 330,
+          "group": 2,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        },
+        {
+          "t": 420,
+          "group": 3,
+          "x": 475.0,
+          "y": 480,
+          "damage": 0,
+          "protected": true
+        },
+        {
+          "t": 540,
+          "group": 4,
+          "x": 314.0,
+          "y": 480,
+          "damage": 54,
+          "protected": false
+        }
+      ],
+      "openingTicks": 480,
+      "damageDuringOpening": 432,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "compression": {
+    "method": "The earlier packed stream included other art but left both Apep bodies expanded in a separately painted rear layer. The comparison counts draws and batch JSON before and after sharing the frame packing table. The input rectangle streams match exactly after expansion.",
+    "scenes": 22,
+    "matchingExpandedSequences": 44,
+    "matchingChromeCanvases": 44,
+    "profiles": {
+      "h48c32": {
+        "frames": 22,
+        "ungroupedJsonBytes": 23679947,
+        "beforePackedJsonBytes": 18706282,
+        "afterPackedJsonBytes": 4340750,
+        "beforeRecords": 144616,
+        "afterRecords": 704,
+        "reductionPercentFromPreviousPacking": 76.8
+      },
+      "h32c16": {
+        "frames": 22,
+        "ungroupedJsonBytes": 9799237,
+        "beforePackedJsonBytes": 8149362,
+        "afterPackedJsonBytes": 1943644,
+        "beforeRecords": 66476,
+        "afterRecords": 704,
+        "reductionPercentFromPreviousPacking": 76.15
+      }
+    }
+  },
+  "chrome": {
+    "covered": {
+      "entered": true,
+      "phases": [
+        "dark",
+        "expose",
+        "defense",
+        "rebirth",
+        "prime",
+        "shelter",
+        "weak"
+      ],
+      "defenseRetries": 0,
+      "defenseComparison": {
+        "t": 10.450000000000099,
+        "units": [
+          [
+            29080202,
+            96.75999999999999,
+            "melee"
+          ],
+          [
+            29080203,
+            863.24,
+            "ranged"
+          ],
+          [
+            29080204,
+            128.76,
+            "ranged"
+          ],
+          [
+            29080205,
+            831.24,
+            "melee"
+          ]
+        ],
+        "progress": 26,
+        "meterWidth": 14,
+        "commands": {
+          "png": 39,
+          "light": 2063
+        }
+      },
+      "finalPulse": {
+        "damage": 0,
+        "protected": true
+      },
+      "pulseText": "ドームで最後の余波を防いだ",
+      "eightSecondOpening": true,
+      "clearReportRestore": true,
+      "remainingHp": 780,
+      "transfer": {
+        "rawGzip": 70204,
+        "packedGzip": 50040,
+        "pixelMatch": true
+      },
+      "viewport390": true,
+      "scene": {
+        "key": "oasisHeart",
+        "file": "oasis-heart-background-v1.png",
+        "state": "ready"
+      },
+      "commands": {
+        "png": 96,
+        "standard": 16307,
+        "light": 4675
+      },
+      "errors": []
+    },
+    "outside": {
+      "entered": true,
+      "phases": [
+        "dark",
+        "expose",
+        "defense",
+        "rebirth",
+        "prime",
+        "shelter",
+        "weak"
+      ],
+      "defenseRetries": 0,
+      "defenseComparison": {
+        "t": 10.633333333333441,
+        "units": [
+          [
+            29080202,
+            95.38,
+            "melee"
+          ],
+          [
+            29080203,
+            864.62,
+            "ranged"
+          ],
+          [
+            29080204,
+            127.38,
+            "ranged"
+          ],
+          [
+            29080205,
+            832.62,
+            "melee"
+          ]
+        ],
+        "progress": 26,
+        "meterWidth": 14,
+        "commands": {
+          "png": 39,
+          "light": 2063
+        }
+      },
+      "finalPulse": {
+        "damage": 54,
+        "protected": false
+      },
+      "pulseText": "最後の余波が命中・54ダメージ",
+      "eightSecondOpening": true,
+      "clearReportRestore": true,
+      "remainingHp": 726,
+      "transfer": {
+        "rawGzip": 68526,
+        "packedGzip": 49912,
+        "pixelMatch": true
+      },
+      "viewport390": true,
+      "scene": {
+        "key": "oasisHeart",
+        "file": "oasis-heart-background-v1.png",
+        "state": "ready"
+      },
+      "commands": {
+        "png": 96,
+        "standard": 16223,
+        "light": 4678
+      },
+      "errors": []
+    }
+  },
+  "coOp": {
+    "lua": {
+      "participants": 4,
+      "oneSpawnScheduleAndHp": true,
+      "oneNetProgressPerTick": true,
+      "sharedRetry": true,
+      "oneSporeContact": true,
+      "interceptionProtectsHeart": true,
+      "wallCollisionPerActor": true,
+      "independentWallOrders": true,
+      "oldAndRepeatedWallHitsRejected": true,
+      "wallClearsWithSource": true,
+      "innerSafeAndHighPlatformUnsafe": true,
+      "oneHitPerActorPerPulse": true,
+      "exposure": 480,
+      "perActorFinalPulse": true,
+      "wipeReset": true
+    },
+    "http": {
+      "participants": 2,
+      "normalInputsShareDefense": true,
+      "frozenAndResumedDefense": true,
+      "separateProtection": true,
+      "perActorFinalPulse": true,
+      "sharedHp": 1580,
+      "personalXp": 160050,
+      "personalMora": 1500,
+      "ownQuestAndSaves": true
+    }
+  },
+  "unverified": [
+    "Remote co-op devices and all loadouts",
+    "Native Miliastra performance",
+    "Final 3D scenery"
+  ]
+}

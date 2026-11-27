@@ -1,12 +1,14 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:95000});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const canvas=page.locator('#game'),prefix='evidence/apep-weekly';
+const canvas=page.locator('#game'),prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/apep-weekly';
+const outside=process.env.LAB_APEP_DOME==='outside';
 const hub='sumeru-hub',node='apep-oasis-heart-arena',quest='apep-weekly-commission',id='boss-29080101';
 const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
@@ -44,11 +46,12 @@ try{
  assert.equal(opening.draws[0].source,'apep-dark-idle-source-v1.png');
  await page.locator('.game').screenshot({path:prefix+'-dark.png'});
  await canvas.click();
- await page.evaluate(()=>{
+ await page.evaluate(outside=>{
   const held=new Set();
   const arr=v=>Array.isArray(v)?v:[];
   let lastJump=-10,lastDodge=-10,retreat=145;
   let lastFailure=0;
+  let exitX;
   window.apepStages=[];
   window.apepFailures=0;
   function key(code,on){
@@ -85,7 +88,10 @@ try{
     }
     if(b.apepStage==='shelter'){
      const nearest=arr(v.domes).slice().sort((l,r)=>Math.abs(a.x-l.x)-Math.abs(a.x-r.x))[0];
-     goal=a.y<416?480:nearest.x;
+     if(outside&&b.moveTick>=427){
+      exitX??=nearest.x+(nearest.x>480?-112:112);
+      goal=exitX;
+     }else goal=a.y<416?480:nearest.x;
     }
     if((b.apepStage==='weak'||b.apepStage==='prime')&&window.apepFinish&&b.damageable)enemy=b.x;
     if(enemy!==undefined)goal=enemy+(a.x<enemy?-62:62);
@@ -106,7 +112,7 @@ try{
    requestAnimationFrame(run);
   }
   requestAnimationFrame(run);
- });
+ },outside);
  await wait(()=>{
   const f=window.lab.frame;
   if(f.paused || !(f.weeklyBoss?.apep.units?.length>=3))return false;
@@ -123,7 +129,7 @@ try{
  assert.equal(meter.w,Math.floor(54*defense.weeklyBoss.apep.progress/defense.weeklyBoss.apep.max));
  const defenseRaw=await capture('defense-original');
  await page.locator('#renderMode').selectOption('h32c16');
- await wait(n=>window.lab.frame.commands>n,defense.commands);
+ await wait(()=>window.lab.frame.draws.some(draw=>draw.kind==='rect_runs'&&draw.h===44));
  const defenseLight=await frame();
  assert.notEqual(defenseRaw,await capture('defense-16colors'));
  assert.equal(defenseLight.t,defense.t);
@@ -135,26 +141,39 @@ try{
  await wait(n=>window.lab.frame.commands===n,defense.commands);
  await canvas.click();await page.keyboard.press('KeyP');
 
- await wait(()=>{
+ await wait(outside=>{
   const f=window.lab.frame,b=f.weeklyBoss;
-  if(f.paused||b?.apepStage!=='shelter'||b.moveTick<542||!b.apep.protected)return false;
-  if(!f.events.some(e=>e.kind==='apep:WP17:protected'&&e.actor===1&&e.value===4))return false;
+  const pulse=b?.apep?.finalPulse;
+  if(f.paused||b?.apepStage!=='shelter'||pulse?.protected!==!outside)return false;
   window.lab.action('pause');
   return true;
- });
+ },outside);
  await wait(()=>window.lab.frame.paused);
  const dome=await frame();
  assert.equal(dome.weeklyBoss.apep.domes.filter(d=>d.open).length,3);
  assert.equal(dome.draws[0].source,'apep-prime-idle-source-v1.png');
+ const pulse=dome.weeklyBoss.apep.finalPulse;
+ assert.equal(pulse.protected,!outside);
+ assert.equal(pulse.damage,outside?54:0);
+ assert.deepEqual(dome.events.filter(e=>e.kind==='apep:WP17:protected'&&e.actor===1).map(e=>e.value),
+  outside?[1,2,3]:[1,2,3,4]);
+ const hint=page.locator('#weeklyApepHint');
+ await wait(outside=>document.querySelector('#weeklyApepHint').textContent.includes(
+  outside?'54ダメージ':'ドームで最後の余波を防いだ'),outside);
+ const pulseText=await hint.textContent();
  assert.ok(await page.locator('#status').evaluate(el=>!el.classList.contains('error')));
  await page.locator('.game').screenshot({path:prefix+'-dome.png'});
  const raw=await capture('png');
  await page.locator('#renderMode').selectOption('rect');
- await wait(()=>window.lab.frame.commands>1000);
+ await page.locator('#packRectArt').uncheck();
+ await wait(()=>window.lab.frame.commands>1000&&!window.lab.frame.draws.some(draw=>draw.kind==='rect_runs'));
  const standard=await frame(),standardImage=await capture('standard');
- await page.locator('#renderMode').selectOption('h32c16');
- await wait(count=>window.lab.frame.commands<count*.7,standard.commands);
- const light=await frame(),lightImage=await capture('light');
+ const lightRaw=await captureRectTransfer(page,'h32c16',false,()=>page.locator('#renderMode').selectOption('h32c16'));
+ const lightPacked=await captureRectTransfer(page,'h32c16',true,()=>page.locator('#packRectArt').check());
+ assert.equal(lightRaw.raster,lightPacked.raster);
+ assert.ok(lightPacked.gzipBytes<lightRaw.gzipBytes);
+ assert.ok(lightPacked.snapshot.draws.some(draw=>draw.kind==='rect_runs'&&draw.h===222));
+ const light=lightPacked.snapshot,lightImage=await capture('light');
  assert.equal(new Set([raw,standardImage,lightImage]).size,3);
  assert.deepEqual([light.t,standard.t,light.weeklyBoss.hp],[dome.t,dome.t,dome.weeklyBoss.hp]);
  await page.locator('#renderMode').selectOption('sprite');
@@ -164,6 +183,7 @@ try{
  await canvas.click();
  await page.keyboard.press('KeyP');
  await wait(()=>window.lab.frame.weeklyBoss?.apep.exposure>=470);
+ assert.deepEqual((await frame()).weeklyBoss.apep.finalPulse,pulse);
  await page.evaluate(()=>{window.apepFinish=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.phase==='respawn');
  const finished=await frame();
@@ -187,15 +207,16 @@ try{
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entered:true,phases,defenseRetries,defenseComparison,
-  finalPulseProtected:true,eightSecondOpening:true,clearReportRestore:true,remainingHp:finished.actors[0].hp,
+  finalPulse:pulse,pulseText,eightSecondOpening:true,clearReportRestore:true,remainingHp:finished.actors[0].hp,
+  transfer:{rawGzip:lightRaw.gzipBytes,packedGzip:lightPacked.gzipBytes,pixelMatch:true},
   viewport390:true,scene,commands:{png:dome.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
- console.log('Apep Chrome: quest, defense, prime, dome protection, recovery, report and save passed');
+ console.log(`Apep Chrome (${outside?'outside':'covered'}): defense, final pulse, recovery, report and save passed`);
 }catch(error){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error({node:f?.story?.node,t:f?.t,boss:f?.weeklyBoss,actors:f?.actors?.map(a=>[a.x,a.y,a.hp]),returns:f?.returns,
   events:f?.events?.filter(e=>e.kind.startsWith('apep:')).slice(-20),stages:await page.evaluate(()=>window.apepStages),
   status:await page.locator('#status').textContent(),errors});
- await page.screenshot({path:'work/apep-weekly-failure.png'});
+ await page.screenshot({path:prefix+'-failure.png'});
  throw error;
 }finally{
  await browser.close();

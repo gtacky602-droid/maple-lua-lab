@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "apep_final_pulse": {"expertReplays":2,"bossHP":1580,"finalPulseDamage":[0,54],"exposureTicks":480,"comparisonScenes":22,"matchedChromeCanvases":44,"record":"evidence/apep-dome-results-20261128.json"},
   "childe_riptide_lock": {"expertReplays":3,"bossHP":960,"lockTick":84,"impactTick":144,"lateDamage":[0,26],"recoveryTicks":[60,120],"comparisonScenes":22,"matchedExpandedRectangleStreams":44,"record":"evidence/childe-riptide-lock-20261128.json"},
   "beidou_guard_replies": {"extremeReplays":4,"bossHP":2860,"quietDamage":51,"baitedDamage":61,"wakeDamage":36,"recoveryTicks":[139,72],"comparisonScenes":20,"matchedChromeCanvases":40,"record":"evidence/beidou-guard-replies-20261128.json"},
   "farka_dual_chain": {"extremeReplays":2,"chainOrder":["B","A"],"recoveryTicks":[90,144],"hitDamage":{"B":[34,37,37],"A":[34,26,0]},"comparisonScenes":22,"matchedChromeCanvases":44,"record":"evidence/farka-dual-chain-20261128.json"},

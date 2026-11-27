@@ -28,6 +28,7 @@ return function(C,D)
  end
  local function phase(s,w,spec,stage,card)
   D.clear(s,w);w.stage=stage;w.phase=stage;w.stageTick=0;w.cast=nil;w.wave=nil;w.rest=spec.restTicks
+  if stage~='weak' then w.domeResult=nil end
   local live=stage=='dark' or stage=='prime' or stage=='shelter' or stage=='weak'
   relocate(w,spec.center,spec.floorY,135);targetable(w,live)
   if stage=='defense' then D.start(s,w,spec) end
@@ -80,7 +81,7 @@ return function(C,D)
   for _,a in ipairs(s.actors) do a.grapple=nil end
  end
  function controller.cleanup(s,w)
-  D.clear(s,w);w.cast=nil;w.wave=nil;w.actorX=nil
+  D.clear(s,w);w.cast=nil;w.wave=nil;w.actorX=nil;w.domeResult=nil
   for _,e in ipairs(w.parts) do remove(s,e) end
   w.parts={};remove(s,w.primary);w.primary.underground=true
  end
@@ -137,9 +138,11 @@ return function(C,D)
   if hits[a] then return end
   hits[a]=true
   local party=owner(s,a)
-  if C.damageActor(party,a,amount,{id=w.primary.id,x=x,y=spec.floorY,damageElement='dendro'},true,true)>0 then
+  local damage=C.damageActor(party,a,amount,{id=w.primary.id,x=x,y=spec.floorY,damageElement='dendro'},true,true)
+  if damage>0 then
    ownLog(party,w,c.id..':hit',a.id,group)
   end
+  return damage
  end
  local function runCast(s,w,spec,c)
   c.t=c.t+1
@@ -204,12 +207,16 @@ return function(C,D)
    if t>=window[1] and t<window[2] then
     w.phase='active'
     if t==window[1] then
-     local n=group==#config.windows and spec.dome.impact or config.damage
+     local final=group==#config.windows
+     local n=final and spec.dome.impact or config.damage
+     if final then w.domeResult={} end
      wave.id='WP17'
      for _,a in ipairs(s.actors) do if a.hp>0 then
-      if shielded(a,w,spec) then ownLog(owner(s,a),w,'WP17:protected',a.id,group)
-      else hit(s,w,spec,wave,group,a,w.primary.x,n) end
+      local protected,damage=shielded(a,w,spec),0
+      if protected then ownLog(owner(s,a),w,'WP17:protected',a.id,group)
+      else damage=hit(s,w,spec,wave,group,a,w.primary.x,n) or 0 end
       if w.wave~=wave then return end
+      if final then w.domeResult[a]={protected=protected,damage=damage} end
      end end
     end
    end
@@ -316,6 +323,7 @@ return function(C,D)
   end
   local v={defense=stage=='defense' or stage=='failed',failed=stage=='failed',
     progress=stage=='failed' and 0 or nil,max=spec.defense.max}
+  v.finalPulse=w.domeResult and w.domeResult[player(s)]
   b.apep=v
   if stage=='shelter' then
    local t=w.wave.t
@@ -333,7 +341,7 @@ return function(C,D)
    v.exposure=spec.moves.WP18.recovery-w.stageTick
   end
   if e.hp<=0 then return end
-  local backdrop={draws={}}
+  local backdrop={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches}
   local draws=backdrop.draws
   local function rect(x,y,width,height,color,opacity)
    if width>0 then draws[#draws+1]={kind='rect',x=x-s.camera,y=y,w=width,h=height,color=color,opacity=opacity} end
