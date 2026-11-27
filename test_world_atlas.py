@@ -30,9 +30,14 @@ assert not drafts and not plan['draft_field_approaches']
 pending = {point['field'] for region in atlas['regions'] for point in region['points'] if point.get('entrancePending')}
 assert not pending and not plan['unverified_entrance_exteriors']
 assert {site['field'] for site in plan['confirmed_entrance_exteriors']} == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
-assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 137
+snapshot = read('design/world/editor-snapshot.json')
+reviews = {frozenset(row['fields']): row for row in plan['sites_only_route_review']}
+active = {frozenset((edge['a'], edge['b'])) for edge in snapshot['data']['edges']}
+assert reviews.keys() <= active
+if snapshot['editor_revision'] == 0:
+    assert sum(row['finding']=='implemented_as_lab_route' for row in reviews.values()) == 137
+    assert len(reviews) == 421
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
-assert len(plan['sites_only_route_review']) == 421
 roster = {
     stage: row
     for row in read('content/encounters.json')['encounters']
@@ -176,8 +181,8 @@ exits = {id: node['exits'] for id, node in nodes.items()}
 edges = {(id, edge['to']): edge for id, gates in exits.items() for edge in gates}
 detours = []
 for source, target, minimum, shortcut_level, bypass in (
-    ('sites-dragonspine-south-foothill', 'mond-wp-6603', 48, 60,
-     ['mond-wp-6599', 'mond-wp-6596', 'mond-wp-6594', 'mond-wp-6601', 'mond-wp-6537', 'mond-wp-6603']),
+    ('sites-dragonspine-south-foothill', 'mond-wp-6603', 60, None,
+     ['mond-wp-6599', 'mond-wp-6606', 'mond-wp-6608', 'mond-wp-6609', 'mond-wp-6603']),
     ('liyue-wp-64843', 'liyue-wp-64842', 23, 26, ['liyue-wp-64825', 'liyue-wp-64842']),
 ):
     s = core.new(12)
@@ -207,15 +212,18 @@ for source, target, minimum, shortcut_level, bypass in (
         walk.cross(stop)
     assert s.story.node == target
 
-    core.grantExp(s, sum(core.expNeeded(level) for level in range(minimum, shortcut_level)), 'quest')
-    core.enterStoryNode(s, source)
-    shortcut = act('focus:' + target).guide
-    assert shortcut.status == 'ready'
-    shortcut_path = [leg.id for leg in shortcut.stops.values()]
-    assert shortcut_path != bypass and max(nodes[id]['level'] for id in shortcut_path) == shortcut_level
-    act('close')
-    detours.append({'from': source, 'to': target, 'blocked_at': minimum - 1, 'guide': blocked,
-                    'walked_at': minimum, 'shortcut_at': shortcut_level, 'shortcut': shortcut_path})
+    result = {'from': source, 'to': target, 'blocked_at': minimum - 1, 'guide': blocked,
+              'walked_at': minimum, 'walked': bypass}
+    if shortcut_level is not None:
+        core.grantExp(s, sum(core.expNeeded(level) for level in range(minimum, shortcut_level)), 'quest')
+        core.enterStoryNode(s, source)
+        shortcut = act('focus:' + target).guide
+        assert shortcut.status == 'ready'
+        shortcut_path = [leg.id for leg in shortcut.stops.values()]
+        assert shortcut_path != bypass and max(nodes[id]['level'] for id in shortcut_path) == shortcut_level
+        act('close')
+        result.update(shortcut_at=shortcut_level, shortcut=shortcut_path)
+    detours.append(result)
 
 v72 = read('content/coverage.json')['boss_catalog']['official_v72_addition_check']
 earned = validate_save(read(v72['victories_in']))

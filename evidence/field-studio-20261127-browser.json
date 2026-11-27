@@ -1,0 +1,21 @@
+{
+  "opened_with": "M",
+  "label": "特別な道",
+  "path": [
+    "sne-wp-106182",
+    "sne-wp-106204"
+  ],
+  "suspended_region_absent": true,
+  "round_trip": [
+    [
+      "sne-wp-106182",
+      "sne-wp-106204",
+      "walk"
+    ],
+    [
+      "sne-wp-106204",
+      "sne-wp-106182",
+      "walk"
+    ]
+  ]
+}

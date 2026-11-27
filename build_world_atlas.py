@@ -254,6 +254,27 @@ def build(plan_output=None, atlas_output=None):
     for source in nodes.values():
         for edge in source['exits']:
             entrances[edge['to']].append((source, edge))
+    runtime_routes = defaultdict(set)
+    for target, links in entrances.items():
+        for start, edge in links:
+            if route := edge.get('studioRoute'):
+                runtime_routes[route, edge['studioMode']].add((start['id'], target))
+    stages_by_field = {field: link['stage_id'] for field, link in field_links.items()}
+    removed_stage_pairs = {
+        frozenset(stages_by_field.get(op['before'][key]) for key in ('a', 'b'))
+        for revision in snapshot['history'] if revision.get('route_adoption')
+        for op in revision['operations'] if op['type'] == 'edge_delete'
+    }
+
+    def path_current(stages, return_trip=False):
+        for start, end in zip(stages, stages[1:]):
+            for a, b in ((start, end), (end, start)) if return_trip else ((start, end),):
+                if any(edge['to'] == b for edge in nodes[a]['exits']) or nodes[a].get('voyage', {}).get('destination') == b:
+                    continue
+                assert frozenset((a, b)) in removed_stage_pairs, (a, b)
+                return False
+        return True
+
     quest_ids = {q['id'] for q in graph['quests']}
     for boss in field_bosses:
         legend = legends.get(boss['id'])
@@ -306,14 +327,22 @@ def build(plan_output=None, atlas_output=None):
             hunt_entrances.setdefault(stage, host)
     hunt_levels = defaultdict(set)
     for stage, host in hunt_entrances.items():
-        assert any(e['to'] == stage for e in nodes[host]['exits']), (host, stage)
-        hunt_levels[host].add(nodes[stage]['level'])
+        if path_current([host, stage]):
+            hunt_levels[host].add(nodes[stage]['level'])
+        else:
+            alternatives = [start['id'] for start, edge in entrances[stage] if edge.get('studioRoute')]
+            assert alternatives, (host, stage)
+            for start in alternatives:
+                hunt_levels[start].add(nodes[stage]['level'])
     hunting_regions = {mapped_stage[stage] for stage in hunt_kinds.keys() | hunt_levels.keys()}
     for row in hunt_rows:
         host, hunt = nodes[row['host']], nodes[row['stage']]
         assert host['mapPoint'] == row['field'] and hunt['level'] == all_fields[row['field']]['level'] == row['level']
-        assert set(e['to'] for e in hunt['exits']) == {host['id'], *row['pockets']}
-        assert any(e['to'] == hunt['id'] for e in host['exits'])
+        actual = {e['to'] for e in hunt['exits'] if not e.get('studioRoute')}
+        expected = set(row['pockets'])
+        if path_current([host['id'], hunt['id']], return_trip=True):
+            expected.add(host['id'])
+        assert actual <= expected <= {e['to'] for e in hunt['exits']}
         assert all(nodes[id]['huntKind'] == 'elite' for id in row['pockets'])
     markers = {
         point['point_uid']: (point['x_pos'], point['y_pos'])
@@ -378,9 +407,8 @@ def build(plan_output=None, atlas_output=None):
         field, anchor = route['field'], route['anchor_field']
         stage, host = route['stage'], route['approach']
         assert field_links[field]['stage_id'] == stage and field_links[anchor]['stage_id'] == host
-        assert any(exit['to']==stage for exit in nodes[host]['exits'])
-        assert any(exit['to']==host for exit in nodes[stage]['exits'])
-        implemented.add(frozenset((field, anchor)))
+        if path_current([host, stage], return_trip=True):
+            implemented.add(frozenset((field, anchor)))
     layer_review = load('sources/map-research/sites-layer-trails.json')
     source_by_pair = {frozenset((edge['a'],edge['b'])): edge for edge in imported['edges']}
     deleted_pairs = {frozenset((edge['a'], edge['b'])) for edge in deleted_routes.values()}
@@ -402,11 +430,9 @@ def build(plan_output=None, atlas_output=None):
         pair = frozenset(route['fields'])
         stages = route['stages']
         assert [field_links[field]['stage_id'] for field in route['fields']] == [stages[0], stages[-1]]
-        for start, end in zip(stages, stages[1:]):
-            assert any(edge['to']==end for edge in nodes[start]['exits'])
-            assert any(edge['to']==start for edge in nodes[end]['exits'])
-        assert pair not in authored_paths
-        authored_paths[pair] = stages
+        if path_current(stages, return_trip=True):
+            assert pair not in authored_paths
+            authored_paths[pair] = stages
     atlas_review = load('sources/map-research/sites-atlas-connections.json')
     reviewed_routes = load('sources/map-research/sites-return-ferries.json')['routes'] + atlas_review['routes']
     retained_entrances = {frozenset(entry['fields']): entry for entry in atlas_review['retained_regional_entrances']}
@@ -417,24 +443,27 @@ def build(plan_output=None, atlas_output=None):
         assert pair in pending_reasons and all(entrance in nodes for entrance in entry['entrances'])
         approaches = entry.get('regional_approaches', [])
         assert {route['field'] for route in approaches} == pair
-        for route, entrance in zip(approaches, entry['entrances'], strict=True):
-            stages = route['stages']
-            atlas_points[stages[-1]]['approachGate'] = {'from':stages[0], 'to':stages[1]}
-            assert entrance in stages and stages[-1] == field_links[route['field']]['stage_id']
-            for start, end in zip(stages, stages[1:]):
-                assert any(edge['to']==end for edge in nodes[start]['exits'])
-                assert any(edge['to']==start for edge in nodes[end]['exits'])
-    reviewed_routes = [route for route in reviewed_routes if matches_current_source(route)]
+        if all(path_current(route['stages'], return_trip=True) for route in approaches):
+            for route, entrance in zip(approaches, entry['entrances'], strict=True):
+                stages = route['stages']
+                atlas_points[stages[-1]]['approachGate'] = {'from':stages[0], 'to':stages[1]}
+                assert entrance in stages and stages[-1] == field_links[route['field']]['stage_id']
+    retained_entrances = {
+        pair: entry for pair, entry in retained_entrances.items()
+        if pair not in deleted_pairs and all(path_current(route['stages'], return_trip=True)
+                                             for route in entry.get('regional_approaches', []))
+    }
+    reviewed_routes = [route for route in reviewed_routes if matches_current_source(route)
+                       and all(path_current(stages) for stages in route['paths'].values())]
     reviewed_paths = {frozenset(route['fields']): route for route in reviewed_routes}
     assert len(reviewed_paths) == len(reviewed_routes)
     for route in reviewed_routes:
         expected_endpoints = [field_links[field]['stage_id'] for field in route['fields']]
         for name, path in route['paths'].items():
             assert [path[0],path[-1]] == (expected_endpoints if name=='forward' else expected_endpoints[::-1])
-            assert all(any(e['to']==end for e in nodes[start]['exits']) or
-                       nodes[start].get('voyage',{}).get('destination')==end
-                       for start,end in zip(path,path[1:]))
-    retained = {frozenset(route['fields']): route for route in layer_review['retained_detours']}
+
+    retained = {frozenset(route['fields']): route for route in layer_review['retained_detours']
+                if path_current(route['stages'], return_trip=True)}
     exteriors = layer_review['exterior_approaches']
     for site in exteriors:
         field, anchor = site['field'], site['anchor_field']
@@ -455,7 +484,7 @@ def build(plan_output=None, atlas_output=None):
             assert any(edge['to'] == start for edge in nodes[end]['exits'])
     route_pairs = {frozenset(pair): pair for pair in ledger['sites_only_route_pairs']}
     for pair, source in source_by_pair.items():
-        if source['id'] in changed_layout or source['id'] in edited_notes:
+        if source['id'] in changed_layout or source['id'] in edited_notes or (source['id'], source['mode']) in runtime_routes:
             route_pairs.setdefault(pair, (source['a'], source['b']))
     for pair, (a,b) in route_pairs.items():
         if pair in deleted_pairs and pair not in source_by_pair:
@@ -468,7 +497,12 @@ def build(plan_output=None, atlas_output=None):
         level_gap = level_a is not None and level_b is not None and abs(level_a-level_b)>8
         paths = {}
         note = source.get('note','')
-        if source['id'] in changed_layout:
+        start, end = (stages_by_field.get(field) for field in (a, b))
+        live = runtime_routes.get((source['id'], source['mode']), set())
+        if (start, end) in live and (end, start) in live:
+            finding = 'field_studio_lab_connection'
+            paths = {'forward': [start, end], 'return': [end, start]}
+        elif source['id'] in changed_layout:
             if any(nodes[field_links[id]['stage_id']]['region'] in suspended_regions
                    for id in (a,b) if id in field_links):
                 finding = 'suspended_region'

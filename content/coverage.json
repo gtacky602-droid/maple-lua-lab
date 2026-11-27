@@ -11874,7 +11874,10 @@
       "teyvat:98500": "sites-lookout-98500"
     },
     "awaiting_stage": 0,
-    "route_review": "design/world/atlas-route-plan.json"
+    "route_review": "design/world/atlas-route-plan.json",
+    "editor_revision": 1,
+    "adopted_lab_connections": 217,
+    "removed_editor_connections": 90
   },
   "optional_legend_coverage": {
     "scenery_and_quest_checks": {

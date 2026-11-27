@@ -6,7 +6,7 @@
 | --- | --- |
 | 取込元、更新日、件数、照合したコミット | [manifest.json](manifest.json) |
 | 24地域とLv帯、979フィールドのモード・出現Lv・体数・任意戦・安全区画 | [regions.json](regions.json) と [placements/](placements/) |
-| フィールドID・設計名・接続925本・旧配置・採用した変更履歴 | [editor-snapshot.json](editor-snapshot.json) |
+| フィールドID・設計名・接続1,044本・旧配置・採用した変更履歴 | [editor-snapshot.json](editor-snapshot.json) |
 | 863既存ID・176追加ID・分類補正 | [monster-catalog.json](monster-catalog.json) とスナップショットの `data.monsters` |
 | 地方伝説56・通常ボス49戦型・本作独自45・特殊2 | [encounters.json](encounters.json) |
 | クエスト153件の配置方針、既存のWeb敵・ボスを保護する参照 | [quest-bindings.json](quest-bindings.json)、[runtime-preservation-v8.json](runtime-preservation-v8.json) |
@@ -36,7 +36,7 @@
 
 1. 最新の `main` の [editor-snapshot.json](editor-snapshot.json) をダウンロードする。[設計室](https://teyvat-field-studio.tatsuki602.chatgpt.site/) の「差分を確認」→「GitHubとJSONで同期」で読み込む。差分が競合した場合は値を確認し、元の草案を保存してから編集を続ける。競合のある取込は止まり、正常な取込でも前リビジョンの草案はブラウザに残る。
 2. フィールド・接続・敵のLvと体数を編集する。「差分を確認してJSONを出力」で提案を保存する。承認前の草案は「草案と変更履歴を保存」から退避できる。既存の接続を追加・削除した場合は差分に表示される。
-3. 最新の `main` に基づく作業ブランチで、提案を検査する。ID変更・座標変更・接続削除・古いリビジョン・実装データへの変更はこの同期経路の対象外。削除が含まれる提案は確認対象として返る。
+3. 最新の `main` に基づく作業ブランチで、提案を検査する。IDや座標が変更された提案と、古いリビジョンを基にした提案は再照合する。接続だけの差分は `routes` で検査し、削除を含む場合は `apply-routes` で採用する。
 4. 差分に同意した提案をブランチに適用し、GitHubのPRで採用を確認する。GitHub側の変更が確定したら、手順1で新しい版を読み込む。サイト本体は既存プロジェクトを利用する。
 
 ```sh
@@ -53,7 +53,7 @@ python tools/world_design/validate.py
 
 `connectivity` では、差分全体を適用した場合に新たに孤立する地点や、以前はつながっていた地点群の分断を確認できる。計算には地図座標とステージを持つ現行フィールドを使い、設計上の接続を往復として数える。各方向の入口・レベル・依頼条件は、それぞれのルートの記録で確認する。
 
-地図を再生成すると、採用済みスナップショットで削除された接続は現行の経路候補から外れ、`removed_editor_routes` に記録される。追加・通行種別変更は実装前の照合対象として出力される。既存のフィールド移動は `content/story-graph.json` の門で決まるため、地形・帰り道・通行条件を照合してから反映する。
+接続だけを採用する場合は、確認後に `node tools/world_design/transfer.js apply-routes PROPOSAL` を実行する。続けて `python -m tools.world_design.adopt_runtime_routes` で、地図とステージが対応する徒歩道・特別な道をラボに反映し、`python build_world_atlas.py` で地図を更新する。門の位置はラボ用の仮配置。依頼の通行条件、往復経路、削除した門を確認してからPRにまとめる。最新の結果は [接続台帳](atlas-route-plan.json) と [ルート別の変更記録](../../evidence/field-studio-20261127-runtime-routes.json) に載せる。
 
 ## 復元元
 

@@ -43,7 +43,11 @@ const WorldSync = (() => {
     const overrides = {};
     for (const [i, row] of value.history.entries()) {
       if (row?.revision !== i + 1 || !Number.isFinite(Date.parse(row.sites_reviewed_at))) return false;
-      const comparison = compareOperations(row.operations, replay, { protectDeletion: true, knownMonster });
+      if (row.route_adoption && (!Array.isArray(row.operations) || row.operations.some(op => !/^edge_(add|edit|delete)$/.test(op?.type))))
+        return false;
+      const comparison = compareOperations(row.operations, replay, {
+        protectDeletion: true, allowEdgeDeletion: row.route_adoption === true, knownMonster
+      });
       if (comparison.conflicts.length || !comparison.applicable.length || comparison.alreadyPresent.length) return false;
       applyOperations(comparison.applicable, replay);
       for (const op of comparison.applicable.filter(op => op.type === 'plan_edit')) {
@@ -62,13 +66,13 @@ const WorldSync = (() => {
     return maps;
   }
 
-  function compareOperations(operations, state, { protectDeletion = false, knownMonster = () => true } = {}) {
+  function compareOperations(operations, state, { protectDeletion = false, allowEdgeDeletion = false, knownMonster = () => true } = {}) {
     const conflicts = [], applicable = [], alreadyPresent = [];
     if (!Array.isArray(operations) || operations.length > 10000)
       return { conflicts: [{ reason: 'invalid_operations' }], applicable, alreadyPresent };
     const seen = new Set();
     const validRemovals = new Set();
-    if (!protectDeletion) {
+    if (!protectDeletion || allowEdgeDeletion) {
       for (const op of operations) {
         if (op?.type === 'edge_delete' && object(op.before) && same(state.edge.get(op.id), op.before))
           validRemovals.add(op.id);
@@ -121,7 +125,9 @@ const WorldSync = (() => {
         if (kind === 'edge') edgePairs.set(pair(data), data);
         applicable.push(op);
       } else if (action === 'delete') {
-        if (protectDeletion) { conflict('deletion_requires_separate_review', { current, incoming: op.before }); continue; }
+        if (protectDeletion && !(kind === 'edge' && allowEdgeDeletion)) {
+          conflict('deletion_requires_separate_review', { current, incoming: op.before }); continue;
+        }
         if (!current && object(op.before)) { alreadyPresent.push({ type: op.type, id }); continue; }
         if (!object(op.before) || !same(current, op.before)) {
           conflict('delete_record_changed', { current, before: op.before }); continue;

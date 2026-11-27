@@ -237,33 +237,6 @@
     },
     {
       "fields": [
-        "map36:84107",
-        "map36:84113"
-      ],
-      "mode": "cave",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "高低差を確認するための往復枝。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-84107",
-          "nat-wp-84109",
-          "nat-wp-84108",
-          "nat-wp-84112",
-          "nat-wp-84114",
-          "nat-wp-84113"
-        ],
-        "return": [
-          "nat-wp-84113",
-          "nat-wp-84114",
-          "nat-wp-84112",
-          "nat-wp-84108",
-          "nat-wp-84109",
-          "nat-wp-84107"
-        ]
-      }
-    },
-    {
-      "fields": [
         "map36:84109",
         "map36:84114"
       ],
@@ -636,33 +609,6 @@
     },
     {
       "fields": [
-        "map40:99283",
-        "map40:99290"
-      ],
-      "mode": "high_speed_transfer",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "移送点と観測区画をつなぐ案。装置の終点は要照合し、帰りの移送を同時開通。",
-      "runtime_paths": {
-        "forward": [
-          "frost-wp-99283",
-          "frost-wp-99282",
-          "frost-wp-99284",
-          "frost-wp-99285",
-          "frost-wp-99289",
-          "frost-wp-99290"
-        ],
-        "return": [
-          "frost-wp-99290",
-          "frost-wp-99289",
-          "frost-wp-99285",
-          "frost-wp-99284",
-          "frost-wp-99282",
-          "frost-wp-99283"
-        ]
-      }
-    },
-    {
-      "fields": [
         "map40:99285",
         "map40:99301"
       ],
@@ -708,58 +654,6 @@
           "frost-wp-99284",
           "frost-wp-99287",
           "frost-wp-99286"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "map40:99288",
-        "map40:99309"
-      ],
-      "mode": "high_speed_transfer",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "離れた座標群への接続候補。入口・出口・解放条件が確認できるまで保留。",
-      "runtime_paths": {
-        "forward": [
-          "frost-wp-99288",
-          "frost-wp-99291",
-          "frost-wp-99293",
-          "frost-wp-99294",
-          "frost-wp-99297",
-          "frost-wp-99298",
-          "frost-wp-99308",
-          "frost-wp-99309"
-        ],
-        "return": [
-          "frost-wp-99309",
-          "frost-wp-99308",
-          "frost-wp-99298",
-          "frost-wp-99297",
-          "frost-wp-99294",
-          "frost-wp-99293",
-          "frost-wp-99291",
-          "frost-wp-99288"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "map40:99289",
-        "map40:99292"
-      ],
-      "mode": "high_speed_transfer",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "通行可能な装置の対を確認する。普通の地上ポータルではない。",
-      "runtime_paths": {
-        "forward": [
-          "frost-wp-99289",
-          "frost-wp-99290",
-          "frost-wp-99292"
-        ],
-        "return": [
-          "frost-wp-99292",
-          "frost-wp-99290",
-          "frost-wp-99289"
         ]
       }
     },
@@ -1155,45 +1049,12 @@
       "runtime_paths": {
         "forward": [
           "chasm-wp-25264",
-          "chasm-depth",
-          "chasm-wp-25266",
           "chasm-wp-25267",
           "chasm-wp-25270"
         ],
         "return": [
           "chasm-wp-25270",
           "chasm-wp-25267",
-          "chasm-wp-25266",
-          "chasm-depth",
-          "chasm-wp-25264"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "map9:25264",
-        "map9:25271"
-      ],
-      "mode": "cave",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "坑道と水路のつなぎ目を照合。地図で近い別階層への直結は禁止。",
-      "runtime_paths": {
-        "forward": [
-          "chasm-wp-25264",
-          "chasm-depth",
-          "chasm-wp-25266",
-          "chasm-wp-25267",
-          "chasm-wp-25270",
-          "chasm-wp-26463",
-          "chasm-wp-25271"
-        ],
-        "return": [
-          "chasm-wp-25271",
-          "chasm-wp-26463",
-          "chasm-wp-25270",
-          "chasm-wp-25267",
-          "chasm-wp-25266",
-          "chasm-depth",
           "chasm-wp-25264"
         ]
       }
@@ -1236,7 +1097,6 @@
       "runtime_paths": {
         "forward": [
           "chasm-wp-25274",
-          "chasm-wp-25271",
           "chasm-wp-26463",
           "chasm-wp-25276",
           "chasm-wp-25275"
@@ -1245,30 +1105,6 @@
           "chasm-wp-25275",
           "chasm-wp-25276",
           "chasm-wp-26463",
-          "chasm-wp-25271",
-          "chasm-wp-25274"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "map9:25274",
-        "map9:25276"
-      ],
-      "mode": "mine_shaft",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "地上の竪坑から到着し、実際の坑道と昇降路を辿る。岩壁の向こうへ水平ポータルで抜けない。",
-      "runtime_paths": {
-        "forward": [
-          "chasm-wp-25274",
-          "chasm-wp-25271",
-          "chasm-wp-26463",
-          "chasm-wp-25276"
-        ],
-        "return": [
-          "chasm-wp-25276",
-          "chasm-wp-26463",
-          "chasm-wp-25271",
           "chasm-wp-25274"
         ]
       }
@@ -1698,7 +1534,7 @@
         "return": [
           "sne-wp-100658",
           "sne-wp-100657",
-          "sites-corridor-snow-ravine",
+          "sne-wp-100656",
           "sne-wp-100642"
         ]
       }
@@ -1736,18 +1572,16 @@
         "forward": [
           "sne-wp-100643",
           "sne-wp-100666",
-          "white-pass-cut",
-          "snezhnaya-field",
-          "sne-wp-100660",
-          "sne-wp-100688",
+          "white-pass-station",
+          "sne-wp-100648",
+          "sne-wp-100651",
           "sne-wp-100685"
         ],
         "return": [
           "sne-wp-100685",
-          "sne-wp-100688",
-          "sne-wp-100660",
-          "snezhnaya-field",
-          "white-pass-cut",
+          "sne-wp-100651",
+          "sne-wp-100648",
+          "white-pass-station",
           "sne-wp-100666",
           "sne-wp-100643"
         ]
@@ -1794,29 +1628,6 @@
           "sne-wp-100679",
           "sne-wp-100678",
           "sne-wp-100645"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:100646",
-        "teyvat:92892"
-      ],
-      "mode": "mountain_pass",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "北の断層の別室から既設昇降機で地上へ出て、Lv140の峠を越える。地下から国境へ直接抜ける線は設けない。",
-      "runtime_paths": {
-        "forward": [
-          "snezhnaya-entry",
-          "sites-northern-fault-pass",
-          "nod-wp-92889",
-          "nod-wp-92892"
-        ],
-        "return": [
-          "nod-wp-92892",
-          "nod-wp-92889",
-          "sites-northern-fault-pass",
-          "snezhnaya-entry"
         ]
       }
     },
@@ -1893,31 +1704,6 @@
     },
     {
       "fields": [
-        "teyvat:100652",
-        "teyvat:100683"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-100652",
-          "sne-wp-100651",
-          "sne-wp-100685",
-          "sne-wp-100686",
-          "sne-wp-100683"
-        ],
-        "return": [
-          "sne-wp-100683",
-          "sne-wp-100686",
-          "sne-wp-100685",
-          "sne-wp-100651",
-          "sne-wp-100652"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:100653",
         "teyvat:100657"
       ],
@@ -1933,7 +1719,7 @@
         ],
         "return": [
           "sne-wp-100657",
-          "sites-corridor-snow-ravine",
+          "sne-wp-100656",
           "sne-wp-100642",
           "sne-wp-100653"
         ]
@@ -1992,16 +1778,14 @@
       "runtime_paths": {
         "forward": [
           "sne-wp-100657",
-          "sne-wp-100658",
-          "sne-wp-100655",
+          "sne-wp-100703",
           "sne-wp-100654",
           "sne-wp-100684"
         ],
         "return": [
           "sne-wp-100684",
           "sne-wp-100654",
-          "sne-wp-100655",
-          "sne-wp-100658",
+          "sne-wp-100703",
           "sne-wp-100657"
         ]
       }
@@ -2108,18 +1892,16 @@
       "runtime_paths": {
         "forward": [
           "white-pass-woods",
-          "white-pass-cut",
-          "snezhnaya-field",
-          "sne-wp-100650",
+          "white-pass-station",
+          "sne-wp-100648",
           "sne-wp-100649",
           "sne-wp-100696"
         ],
         "return": [
           "sne-wp-100696",
           "sne-wp-100649",
-          "sne-wp-100650",
-          "snezhnaya-field",
-          "white-pass-cut",
+          "sne-wp-100648",
+          "white-pass-station",
           "white-pass-woods"
         ]
       }
@@ -2155,33 +1937,6 @@
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:100669",
-        "teyvat:100695"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-100669",
-          "sne-wp-100668",
-          "sne-wp-100667",
-          "sne-wp-100666",
-          "sne-wp-100643",
-          "sne-wp-100695"
-        ],
-        "return": [
-          "sne-wp-100695",
-          "sne-wp-100643",
-          "sne-wp-100666",
-          "sne-wp-100667",
-          "sne-wp-100668",
-          "sne-wp-100669"
-        ]
-      }
     },
     {
       "fields": [
@@ -2249,34 +2004,6 @@
           "sne-wp-100673",
           "sne-wp-100672",
           "sne-wp-100671"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:100672",
-        "teyvat:100695"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-100672",
-          "snezhnaya-hub",
-          "snezhnaya-field",
-          "white-pass-cut",
-          "sne-wp-100666",
-          "sne-wp-100643",
-          "sne-wp-100695"
-        ],
-        "return": [
-          "sne-wp-100695",
-          "sne-wp-100643",
-          "sne-wp-100666",
-          "white-pass-station",
-          "snezhnaya-hub",
-          "sne-wp-100672"
         ]
       }
     },
@@ -2378,23 +2105,15 @@
         "teyvat:100699"
       ],
       "mode": "road",
-      "finding": "use_existing_geo_route",
+      "finding": "field_studio_lab_connection",
       "terrain_note": "北西の回り道。雪原の通行可能帯と雪崩・壁を照合する。",
       "runtime_paths": {
         "forward": [
           "sne-wp-100677",
-          "sne-wp-100676",
-          "sne-wp-100675",
-          "sne-wp-100669",
-          "sne-wp-100668",
           "sne-wp-100699"
         ],
         "return": [
           "sne-wp-100699",
-          "sne-wp-100668",
-          "sne-wp-100669",
-          "sne-wp-100675",
-          "sne-wp-100676",
           "sne-wp-100677"
         ]
       }
@@ -2423,27 +2142,6 @@
           "sne-wp-100675",
           "sne-wp-100676",
           "sne-wp-100678"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:100680",
-        "teyvat:106182"
-      ],
-      "mode": "rail",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "スノウバーチ方面の鉄路を開通後に使う案。極寒の山脈を徒歩で抜ける線は作らない。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-100680",
-          "sne-wp-100679",
-          "sne-wp-106182"
-        ],
-        "return": [
-          "sne-wp-106182",
-          "sne-wp-100679",
-          "sne-wp-100680"
         ]
       }
     },
@@ -2541,15 +2239,6 @@
     },
     {
       "fields": [
-        "teyvat:100695",
-        "teyvat:100707"
-      ],
-      "mode": "field_approach",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
         "teyvat:101",
         "teyvat:9778"
       ],
@@ -2632,27 +2321,6 @@
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:105",
-        "teyvat:106"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。",
-      "runtime_paths": {
-        "forward": [
-          "liyue-wp-105",
-          "liyue-wp-49",
-          "liyue-wp-106"
-        ],
-        "return": [
-          "liyue-wp-106",
-          "liyue-wp-49",
-          "liyue-wp-105"
-        ]
-      }
     },
     {
       "fields": [
@@ -2751,102 +2419,6 @@
     },
     {
       "fields": [
-        "teyvat:106181",
-        "teyvat:106188"
-      ],
-      "mode": "rail",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "安全な輸送区画で港へ移動する本作の案。高Lv坑道の戦闘を必須にせず、原作の実路線対応を確認。",
-      "runtime_paths": {
-        "forward": [
-          "sne-north-works",
-          "sne-wp-106193",
-          "sne-wp-106189",
-          "sne-wp-106188"
-        ],
-        "return": [
-          "sne-wp-106188",
-          "sne-wp-106189",
-          "sne-wp-106193",
-          "sne-north-works"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:106181",
-        "teyvat:106208"
-      ],
-      "mode": "road",
-      "finding": "use_existing_reviewed_route",
-      "terrain_note": "北の工区から海岸へ下る坂と倉庫前を経由。通行Lv153の神像と海岸を屋外の行程でつなぐ。",
-      "runtime_paths": {
-        "forward": [
-          "sne-north-works",
-          "sne-wp-106194",
-          "sne-wp-106207",
-          "sne-wp-106208"
-        ],
-        "return": [
-          "sne-wp-106208",
-          "sne-wp-106207",
-          "sne-wp-106194",
-          "sne-north-works"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:106181",
-        "teyvat:106209"
-      ],
-      "mode": "road",
-      "finding": "use_existing_regional_detour",
-      "terrain_note": "工区の道路と丘の既存昇降機を使い、北の神像から地下に直行する門を避ける。",
-      "runtime_paths": {
-        "forward": [
-          "sne-north-works",
-          "sne-wp-106194",
-          "sne-wp-106207",
-          "sne-wp-106208",
-          "sne-wp-106209"
-        ],
-        "return": [
-          "sne-wp-106209",
-          "sne-wp-106208",
-          "sne-wp-106207",
-          "sne-wp-106194",
-          "sne-north-works"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:106185",
-        "teyvat:106191"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-106185",
-          "sne-wp-106186",
-          "sne-wp-106220",
-          "sne-wp-106183",
-          "sne-wp-106191"
-        ],
-        "return": [
-          "sne-wp-106191",
-          "sne-wp-106183",
-          "sne-wp-106220",
-          "sne-wp-106186",
-          "sne-wp-106185"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:106187",
         "teyvat:106191"
       ],
@@ -2860,29 +2432,6 @@
           "sne-wp-106191"
         ],
         "return": [
-          "sne-wp-106191",
-          "sne-wp-106192",
-          "sne-wp-106187"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:106187",
-        "teyvat:106193"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-106187",
-          "sne-wp-106188",
-          "sne-wp-106189",
-          "sne-wp-106193"
-        ],
-        "return": [
-          "sne-wp-106193",
           "sne-wp-106191",
           "sne-wp-106192",
           "sne-wp-106187"
@@ -2910,27 +2459,6 @@
     },
     {
       "fields": [
-        "teyvat:106188",
-        "teyvat:106193"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-106188",
-          "sne-wp-106189",
-          "sne-wp-106193"
-        ],
-        "return": [
-          "sne-wp-106193",
-          "sne-wp-106189",
-          "sne-wp-106188"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:106190",
         "teyvat:106200"
       ],
@@ -2940,12 +2468,16 @@
       "runtime_paths": {
         "forward": [
           "sne-wp-106190",
-          "sne-wp-106201",
+          "sne-wp-106220",
+          "sne-wp-106183",
+          "sne-wp-106204",
           "sne-wp-106200"
         ],
         "return": [
           "sne-wp-106200",
-          "sne-wp-106201",
+          "sne-wp-106204",
+          "sne-wp-106183",
+          "sne-wp-106220",
           "sne-wp-106190"
         ]
       }
@@ -2975,29 +2507,6 @@
     },
     {
       "fields": [
-        "teyvat:106200",
-        "teyvat:106203"
-      ],
-      "mode": "cave",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。",
-      "runtime_paths": {
-        "forward": [
-          "sne-wp-106200",
-          "sne-wp-106204",
-          "novokichev-camp",
-          "novokichev-depth"
-        ],
-        "return": [
-          "novokichev-depth",
-          "novokichev-camp",
-          "sne-wp-106204",
-          "sne-wp-106200"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:106201",
         "teyvat:106202"
       ],
@@ -3016,27 +2525,6 @@
           "sne-wp-106204",
           "sne-wp-106200",
           "sne-wp-106201"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:106203",
-        "teyvat:106204"
-      ],
-      "mode": "cave",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。",
-      "runtime_paths": {
-        "forward": [
-          "novokichev-depth",
-          "novokichev-camp",
-          "sne-wp-106204"
-        ],
-        "return": [
-          "sne-wp-106204",
-          "novokichev-camp",
-          "novokichev-depth"
         ]
       }
     },
@@ -3151,48 +2639,8 @@
         "teyvat:28"
       ],
       "mode": "trail",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "酒庄西から北へ続く旧街道を通って廃墟南入口へ。奔狼領の山体を横切らない。",
-      "runtime_paths": {
-        "forward": [
-          "mond-border",
-          "mond-wp-19",
-          "mond-wp-14",
-          "mond-roadside-rest",
-          "mond-wp-20",
-          "mond-wp-21",
-          "mond-wp-28"
-        ],
-        "return": [
-          "mond-wp-28",
-          "mond-wp-21",
-          "mond-wp-20",
-          "mond-roadside-rest",
-          "mond-road",
-          "mond-border"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:116",
-        "teyvat:29"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "アカツキワイナリー西街道→石門。モンドの湖を横切らない。",
-      "runtime_paths": {
-        "forward": [
-          "mond-border",
-          "liyue-entry",
-          "liyue-wp-29"
-        ],
-        "return": [
-          "liyue-wp-29",
-          "liyue-entry",
-          "mond-border"
-        ]
-      }
+      "finding": "unverified_travel_choice",
+      "terrain_note": "酒庄西から北へ続く旧街道を通って廃墟南入口へ。奔狼領の山体を横切らない。"
     },
     {
       "fields": [
@@ -3415,31 +2863,6 @@
     },
     {
       "fields": [
-        "teyvat:13652",
-        "teyvat:16014"
-      ],
-      "mode": "boat",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "離島―セイライの港・浜を結ぶ本作用の航路。海を徒歩で横断しない。",
-      "runtime_paths": {
-        "forward": [
-          "inazuma-port",
-          "inazuma-road",
-          "inazuma-town",
-          "ina-wp-12722",
-          "ina-wp-16014"
-        ],
-        "return": [
-          "ina-wp-16014",
-          "ina-wp-12722",
-          "inazuma-town",
-          "inazuma-road",
-          "inazuma-port"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:14",
         "teyvat:7149"
       ],
@@ -3483,25 +2906,8 @@
         "teyvat:18"
       ],
       "mode": "trail",
-      "finding": "use_existing_level_route",
-      "terrain_note": "清泉町北の分岐 → 東南へ続く街道 → 谷の北口。清泉町の泉から後山を貫かない。",
-      "runtime_paths": {
-        "forward": [
-          "mond-roadside-rest",
-          "mond-road",
-          "mond-wp-13",
-          "mond-wp-18"
-        ],
-        "return": [
-          "mond-wp-18",
-          "mond-wp-13",
-          "mond-road",
-          "mond-border",
-          "mond-wp-19",
-          "mond-wp-14",
-          "mond-roadside-rest"
-        ]
-      }
+      "finding": "unverified_travel_choice",
+      "terrain_note": "清泉町北の分岐 → 東南へ続く街道 → 谷の北口。清泉町の泉から後山を貫かない。"
     },
     {
       "fields": [
@@ -3509,20 +2915,8 @@
         "teyvat:19"
       ],
       "mode": "trail",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "清泉町北の分岐から西南の街道、神像の丘へ。",
-      "runtime_paths": {
-        "forward": [
-          "mond-roadside-rest",
-          "mond-wp-14",
-          "mond-wp-19"
-        ],
-        "return": [
-          "mond-wp-19",
-          "mond-wp-14",
-          "mond-roadside-rest"
-        ]
-      }
+      "finding": "unverified_travel_choice",
+      "terrain_note": "清泉町北の分岐から西南の街道、神像の丘へ。"
     },
     {
       "fields": [
@@ -3709,22 +3103,8 @@
         "teyvat:20"
       ],
       "mode": "slope",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "酒庄側から南岸の陸地を回り、森の東入口へ。",
-      "runtime_paths": {
-        "forward": [
-          "mond-wp-19",
-          "mond-wp-14",
-          "mond-roadside-rest",
-          "mond-wp-20"
-        ],
-        "return": [
-          "mond-wp-20",
-          "mond-roadside-rest",
-          "mond-wp-14",
-          "mond-wp-19"
-        ]
-      }
+      "finding": "unverified_travel_choice",
+      "terrain_note": "酒庄側から南岸の陸地を回り、森の東入口へ。"
     },
     {
       "fields": [
@@ -3902,27 +3282,6 @@
     },
     {
       "fields": [
-        "teyvat:28700",
-        "teyvat:28733"
-      ],
-      "mode": "road",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "川と茸林の入口を結ぶ。茸の上面と根元を同一高さにしない。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-28700",
-          "sites-corridor-sumeru-bridge",
-          "sumeru-entry"
-        ],
-        "return": [
-          "sumeru-entry",
-          "sites-corridor-sumeru-bridge",
-          "sum-wp-28700"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:28701",
         "teyvat:28705"
       ],
@@ -3981,7 +3340,7 @@
         ],
         "return": [
           "sum-wp-28712",
-          "sum-wp-28713",
+          "sum-wp-28711",
           "sum-wp-28703"
         ]
       }
@@ -4016,18 +3375,16 @@
         "teyvat:28704",
         "teyvat:28732"
       ],
-      "mode": "cave",
-      "finding": "implemented_as_lab_route",
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
       "terrain_note": "層岩巨淵の地上西口→洞道→ガンダルヴァー側。地下鉱区の高難度枝を通行必須にしない。",
       "runtime_paths": {
         "forward": [
           "sum-wp-28704",
-          "sites-corridor-chasm-border",
           "liyue-wp-28732"
         ],
         "return": [
           "liyue-wp-28732",
-          "sites-corridor-chasm-border",
           "sum-wp-28704"
         ]
       }
@@ -4080,50 +3437,6 @@
     },
     {
       "fields": [
-        "teyvat:28715",
-        "teyvat:28716"
-      ],
-      "mode": "road",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "南の段丘から森と砂の門へ、地上の小道を新設。Lv66の低い枝へ登る狩場は任意のまま、Lv63で往復できる。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-28715",
-          "sites-sumeru-terrace-road",
-          "sum-wp-28716"
-        ],
-        "return": [
-          "sum-wp-28716",
-          "sites-sumeru-terrace-road",
-          "sum-wp-28715"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:28716",
-        "teyvat:36674"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-28716",
-          "sum-wp-28714",
-          "sum-wp-28715",
-          "sum-wp-36674"
-        ],
-        "return": [
-          "sum-wp-36674",
-          "sum-wp-28715",
-          "sum-wp-28714",
-          "sum-wp-28716"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:28717",
         "teyvat:28757"
       ],
@@ -4142,33 +3455,6 @@
     },
     {
       "fields": [
-        "teyvat:28719",
-        "teyvat:28724"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "港へ向かう南側の街道に合流。山を越える一直線にはしない。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-28719",
-          "sum-wp-28726",
-          "sum-wp-28727",
-          "sum-wp-28725",
-          "sum-wp-28699",
-          "sum-wp-28724"
-        ],
-        "return": [
-          "sum-wp-28724",
-          "sum-wp-28699",
-          "sum-wp-28725",
-          "sum-wp-28727",
-          "sum-wp-28726",
-          "sum-wp-28719"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:28723",
         "teyvat:28724"
       ],
@@ -4179,7 +3465,7 @@
         "forward": [
           "sum-wp-28723",
           "sum-wp-28722",
-          "sum-wp-28699",
+          "sum-wp-28721",
           "sum-wp-28724"
         ],
         "return": [
@@ -4189,15 +3475,6 @@
           "sum-wp-28723"
         ]
       }
-    },
-    {
-      "fields": [
-        "teyvat:28726",
-        "teyvat:28755"
-      ],
-      "mode": "field_approach",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
       "fields": [
@@ -4356,27 +3633,6 @@
     {
       "fields": [
         "teyvat:28749",
-        "teyvat:28750"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "川と茸林の入口を結ぶ。茸の上面と根元を同一高さにしない。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-28749",
-          "sum-wp-28748",
-          "sum-wp-28750"
-        ],
-        "return": [
-          "sum-wp-28750",
-          "sum-wp-28748",
-          "sum-wp-28749"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:28749",
         "teyvat:28751"
       ],
       "mode": "field_approach",
@@ -4436,113 +3692,8 @@
     },
     {
       "fields": [
-        "teyvat:30",
-        "teyvat:50"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "塩の遺構の上面を経由。水面直進・封印された地下への落下を通常路にしない。",
-      "runtime_paths": {
-        "forward": [
-          "liyue-entry",
-          "liyue-wp-32",
-          "liyue-wp-33",
-          "liyue-wp-50"
-        ],
-        "return": [
-          "liyue-wp-50",
-          "liyue-wp-33",
-          "liyue-wp-32",
-          "liyue-entry"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:31",
-        "teyvat:64825"
-      ],
-      "mode": "road",
-      "finding": "use_existing_level_route",
-      "terrain_note": "軽策荘側から谷の入口へ。高難度警告と帰路を先に示す。",
-      "runtime_paths": {
-        "forward": [
-          "oceanid-approach",
-          "liyue-wp-29",
-          "liyue-entry",
-          "chenyu-camp",
-          "liyue-wp-64825"
-        ],
-        "return": [
-          "liyue-wp-64825",
-          "chenyu-camp",
-          "liyue-entry",
-          "liyue-wp-29",
-          "oceanid-approach"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:31",
         "teyvat:7121"
-      ],
-      "mode": "field_approach",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:34",
-        "teyvat:52"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "帰離原側の渡河点→明蘊町の山裾→南側斜面→瑶光の浜。34と35の間は鉱山内ではなく外周坂の照合が必要。",
-      "runtime_paths": {
-        "forward": [
-          "liyue-wp-34",
-          "liyue-wp-50",
-          "liyue-wp-33",
-          "liyue-wp-51",
-          "liyue-field",
-          "liyue-wp-52"
-        ],
-        "return": [
-          "liyue-wp-52",
-          "liyue-field",
-          "liyue-wp-51",
-          "liyue-wp-33",
-          "liyue-wp-50",
-          "liyue-wp-34"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:34",
-        "teyvat:6599"
-      ],
-      "mode": "mountain_pass",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "湿地の北端から西斜面へ向かう山裾の峠。雪線にLv44の入口を置き、雪山の行程を近道で飛ばさない。",
-      "runtime_paths": {
-        "forward": [
-          "liyue-wp-34",
-          "sites-dragonspine-south-foothill",
-          "mond-wp-6599"
-        ],
-        "return": [
-          "mond-wp-6599",
-          "sites-dragonspine-south-foothill",
-          "liyue-wp-34"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:343",
-        "teyvat:7190"
       ],
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
@@ -4577,33 +3728,6 @@
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:36",
-        "teyvat:38"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "川沿いと山裾の道。西の高山頂上とは別の低地回廊を作る。",
-      "runtime_paths": {
-        "forward": [
-          "liyue-wp-36",
-          "liyue-wp-37",
-          "oceanid-approach",
-          "liyue-field",
-          "pyro-approach",
-          "liyue-wp-38"
-        ],
-        "return": [
-          "liyue-wp-38",
-          "pyro-approach",
-          "liyue-field",
-          "oceanid-approach",
-          "liyue-wp-37",
-          "liyue-wp-36"
-        ]
-      }
     },
     {
       "fields": [
@@ -4659,33 +3783,6 @@
     {
       "fields": [
         "teyvat:36683",
-        "teyvat:36698"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-36683",
-          "sum-wp-36678",
-          "sum-wp-36677",
-          "sum-wp-36681",
-          "sum-wp-36682",
-          "sum-wp-36698"
-        ],
-        "return": [
-          "sum-wp-36698",
-          "sum-wp-36682",
-          "sum-wp-36681",
-          "sum-wp-36677",
-          "sum-wp-36678",
-          "sum-wp-36683"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:36683",
         "teyvat:36703"
       ],
       "mode": "field_approach",
@@ -4715,15 +3812,6 @@
     },
     {
       "fields": [
-        "teyvat:36691",
-        "teyvat:36704"
-      ],
-      "mode": "field_approach",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
         "teyvat:36692",
         "teyvat:36694"
       ],
@@ -4733,37 +3821,12 @@
       "runtime_paths": {
         "forward": [
           "sum-wp-36692",
-          "sum-wp-36696",
           "sum-wp-36702",
           "sum-wp-36694"
         ],
         "return": [
           "sum-wp-36694",
           "sum-wp-36702",
-          "sum-wp-36696",
-          "sum-wp-36692"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:36692",
-        "teyvat:72412"
-      ],
-      "mode": "mountain_pass",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "石廟の地上広場から南側の砂岩の谷を越え、Lv100のナタ入口へ。トゥニギ側の高難度分岐は経由しない。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-36692",
-          "sum-wp-36696",
-          "sites-west-desert-border",
-          "natlan-entry"
-        ],
-        "return": [
-          "natlan-entry",
-          "sites-west-desert-border",
-          "sum-wp-36696",
           "sum-wp-36692"
         ]
       }
@@ -4812,7 +3875,7 @@
           "sum-wp-36700",
           "sum-wp-36701",
           "sum-wp-36693",
-          "sum-wp-36696",
+          "sum-wp-36692",
           "sum-wp-36702",
           "sum-wp-36694"
         ]
@@ -4855,20 +3918,16 @@
         "teyvat:38",
         "teyvat:64848"
       ],
-      "mode": "mountain_pass",
-      "finding": "use_existing_geo_route",
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
       "terrain_note": "北西の山裾から南峰の入口へ入る第二の任意入口。峰を直接横断しない。",
       "runtime_paths": {
         "forward": [
           "liyue-wp-38",
-          "liyue-wp-64844",
-          "chenyu-depth",
           "liyue-wp-64848"
         ],
         "return": [
           "liyue-wp-64848",
-          "chenyu-depth",
-          "liyue-wp-64844",
           "liyue-wp-38"
         ]
       }
@@ -4944,35 +4003,6 @@
     },
     {
       "fields": [
-        "teyvat:41826",
-        "teyvat:41829"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "南側外周を使い、中央の砂嵐・地下へ直結しない。ナタへの分岐は西端の谷から。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-41826",
-          "sum-wp-41830",
-          "sum-wp-41832",
-          "sum-wp-41835",
-          "sum-wp-41833",
-          "sum-wp-41831",
-          "sum-wp-41829"
-        ],
-        "return": [
-          "sum-wp-41829",
-          "sum-wp-41831",
-          "sum-wp-41833",
-          "sum-wp-41835",
-          "sum-wp-41832",
-          "sum-wp-41830",
-          "sum-wp-41826"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:41829",
         "teyvat:41830"
       ],
@@ -4984,41 +4014,12 @@
           "sum-wp-41829",
           "sum-wp-41831",
           "sum-wp-41833",
-          "sum-wp-41835",
           "sum-wp-41832",
           "sum-wp-41830"
         ],
         "return": [
           "sum-wp-41830",
           "sum-wp-41832",
-          "sum-wp-41835",
-          "sum-wp-41833",
-          "sum-wp-41831",
-          "sum-wp-41829"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:41829",
-        "teyvat:46515"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
-      "runtime_paths": {
-        "forward": [
-          "sum-wp-41829",
-          "sum-wp-41831",
-          "sum-wp-41833",
-          "sum-wp-41835",
-          "sum-wp-41834",
-          "sum-wp-46515"
-        ],
-        "return": [
-          "sum-wp-46515",
-          "sum-wp-41834",
-          "sum-wp-41835",
           "sum-wp-41833",
           "sum-wp-41831",
           "sum-wp-41829"
@@ -5360,46 +4361,17 @@
         "teyvat:50032",
         "teyvat:50033"
       ],
-      "mode": "boat",
-      "finding": "use_existing_geo_route",
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
       "terrain_note": "忘れられた道の海岸→短い海路→ロマリタイムの下部桟橋→昇降機。船の接続は本作向け。",
       "runtime_paths": {
         "forward": [
           "sum-wp-50032",
-          "sum-wp-46524",
-          "tunigi-depth",
-          "tunigi-camp",
-          "sumeru-field",
           "fontaine-entry"
         ],
         "return": [
           "fontaine-entry",
-          "sumeru-field",
-          "tunigi-camp",
-          "tunigi-depth",
-          "sum-wp-46524",
           "sum-wp-50032"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:50033",
-        "teyvat:68339"
-      ],
-      "mode": "boat",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "水上交通で移動し、港の昇降機と乗降場を経由。航路の追加部分は本作独自案。",
-      "runtime_paths": {
-        "forward": [
-          "fontaine-entry",
-          "fontaine-hub",
-          "nostoi-castle-approach"
-        ],
-        "return": [
-          "nostoi-castle-approach",
-          "fontaine-hub",
-          "fontaine-entry"
         ]
       }
     },
@@ -5411,83 +4383,6 @@
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:50036",
-        "teyvat:50037"
-      ],
-      "mode": "road",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "ベリル島の地上道案。メリュシー村など地下の点を同一路に混ぜない。",
-      "runtime_paths": {
-        "forward": [
-          "fon-wp-50036",
-          "sites-corridor-beryl-ledge",
-          "fon-wp-50037"
-        ],
-        "return": [
-          "fon-wp-50037",
-          "sites-corridor-beryl-ledge",
-          "fon-wp-50036"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:50038",
-        "teyvat:50043"
-      ],
-      "mode": "field_approach",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。",
-      "runtime_paths": {
-        "forward": [
-          "fon-wp-50038",
-          "fon-wp-50039",
-          "fon-wp-50040",
-          "fon-wp-50036",
-          "fon-wp-50043"
-        ],
-        "return": [
-          "fon-wp-50043",
-          "fon-wp-50036",
-          "fon-wp-50040",
-          "fon-wp-50039",
-          "fon-wp-50038"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:50047",
-        "teyvat:50050"
-      ],
-      "mode": "aquabus",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "水上交通で移動し、港の昇降機と乗降場を経由。航路の追加部分は本作独自案。",
-      "runtime_paths": {
-        "forward": [
-          "fon-wp-50047",
-          "fon-wp-55761",
-          "fon-wp-55777",
-          "fon-wp-53854",
-          "fon-wp-53853",
-          "fon-wp-53867",
-          "fon-wp-50056",
-          "fon-wp-50050"
-        ],
-        "return": [
-          "fon-wp-50050",
-          "fon-wp-50056",
-          "fon-wp-53867",
-          "fon-wp-53853",
-          "fon-wp-53854",
-          "fon-wp-55777",
-          "fon-wp-55761",
-          "fon-wp-50047"
-        ]
-      }
     },
     {
       "fields": [
@@ -5507,27 +4402,6 @@
           "fon-wp-55777",
           "fon-wp-55761",
           "fon-wp-50047"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:50050",
-        "teyvat:50053"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "都市の道路・内部昇降機。城壁越しの徒歩短絡を作らない。",
-      "runtime_paths": {
-        "forward": [
-          "fon-wp-50050",
-          "fon-wp-50052",
-          "fon-wp-50053"
-        ],
-        "return": [
-          "fon-wp-50053",
-          "fon-wp-50052",
-          "fon-wp-50050"
         ]
       }
     },
@@ -5722,29 +4596,6 @@
     },
     {
       "fields": [
-        "teyvat:53849",
-        "teyvat:53852"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "西岸の山裾・登り道。要塞内の上下階や水中WPを混ぜない。",
-      "runtime_paths": {
-        "forward": [
-          "fon-wp-53849",
-          "fon-wp-53850",
-          "fon-wp-53867",
-          "fon-wp-53852"
-        ],
-        "return": [
-          "fon-wp-53852",
-          "fon-wp-53867",
-          "fon-wp-53850",
-          "fon-wp-53849"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:53858",
         "teyvat:53860"
       ],
@@ -5843,12 +4694,26 @@
       "runtime_paths": {
         "forward": [
           "fon-wp-55760",
-          "fon-wp-55775",
+          "fon-wp-55767",
+          "fon-wp-50066",
+          "fon-wp-50065",
+          "fon-wp-50064",
+          "fontaine-field",
+          "fon-wp-50047",
+          "fon-wp-50048",
+          "fon-wp-55776",
           "fon-wp-55774"
         ],
         "return": [
           "fon-wp-55774",
-          "fon-wp-55775",
+          "fon-wp-55776",
+          "fon-wp-50048",
+          "fon-wp-50047",
+          "fontaine-field",
+          "fon-wp-50064",
+          "fon-wp-50065",
+          "fon-wp-50066",
+          "fon-wp-55767",
           "fon-wp-55760"
         ]
       }
@@ -5950,37 +4815,6 @@
     },
     {
       "fields": [
-        "teyvat:55766",
-        "teyvat:64837"
-      ],
-      "mode": "boat",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "外海は両岸の乗り場を経由する。下部桟橋から昇降機で東湾へ上がり、別の水路から潜る。通行Lv88。",
-      "runtime_paths": {
-        "forward": [
-          "fon-wp-55766",
-          "fon-wp-55765",
-          "fon-wp-55767",
-          "fon-wp-55760",
-          "sites-lumidouce-landing",
-          "fontaine-ferry-chenyu",
-          "liyue-wp-66769",
-          "liyue-wp-64837"
-        ],
-        "return": [
-          "liyue-wp-64837",
-          "liyue-wp-66769",
-          "chenyu-ferry-fontaine",
-          "sites-lumidouce-landing",
-          "fon-wp-55760",
-          "fon-wp-55767",
-          "fon-wp-55765",
-          "fon-wp-55766"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:55767",
         "teyvat:55769"
       ],
@@ -6011,18 +4845,14 @@
       "runtime_paths": {
         "forward": [
           "fon-wp-55768",
-          "fon-wp-55766",
-          "fon-wp-55765",
-          "fon-wp-55767",
+          "fon-wp-55772",
           "fon-wp-55760",
           "fon-wp-55769"
         ],
         "return": [
           "fon-wp-55769",
           "fon-wp-55760",
-          "fon-wp-55767",
-          "fon-wp-55765",
-          "fon-wp-55766",
+          "fon-wp-55772",
           "fon-wp-55768"
         ]
       }
@@ -6091,29 +4921,6 @@
           "liyue-wp-64829",
           "liyue-wp-64830",
           "liyue-wp-64824"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:64828",
-        "teyvat:64849"
-      ],
-      "mode": "special_gate",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "島・仙域への解放経路。普通の地上道として無条件接続しない。",
-      "runtime_paths": {
-        "forward": [
-          "liyue-wp-64828",
-          "liyue-wp-64826",
-          "liyue-wp-64827",
-          "liyue-wp-64849"
-        ],
-        "return": [
-          "liyue-wp-64849",
-          "liyue-wp-64827",
-          "liyue-wp-64826",
-          "liyue-wp-64828"
         ]
       }
     },
@@ -6255,51 +5062,12 @@
     },
     {
       "fields": [
-        "teyvat:6540",
-        "teyvat:6594"
-      ],
-      "mode": "trail",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "谷底を北西へ回り込む。",
-      "runtime_paths": {
-        "forward": [
-          "mond-wp-6540",
-          "mond-wp-6596",
-          "mond-wp-6594"
-        ],
-        "return": [
-          "mond-wp-6594",
-          "mond-wp-6596",
-          "mond-wp-6540"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:6603",
         "teyvat:6608"
       ],
       "mode": "cave",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "入口の穴 → 洞窟内の足場 → 内側WP。地上の山肌を貫く屋外歩道ではない。",
-      "runtime_paths": {
-        "forward": [
-          "mond-wp-6603",
-          "mond-wp-6537",
-          "mond-wp-6601",
-          "mond-wp-6594",
-          "mond-wp-6596",
-          "mond-wp-6608"
-        ],
-        "return": [
-          "mond-wp-6608",
-          "mond-wp-6596",
-          "mond-wp-6594",
-          "mond-wp-6601",
-          "mond-wp-6537",
-          "mond-wp-6603"
-        ]
-      }
+      "finding": "unverified_travel_choice",
+      "terrain_note": "入口の穴 → 洞窟内の足場 → 内側WP。地上の山肌を貫く屋外歩道ではない。"
     },
     {
       "fields": [
@@ -6364,45 +5132,8 @@
         "teyvat:72438"
       ],
       "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72413",
-          "nat-wp-72414",
-          "nat-wp-72438"
-        ],
-        "return": [
-          "nat-wp-72438",
-          "nat-wp-72414",
-          "nat-wp-72413"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:72413",
-        "teyvat:72761"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72413",
-          "nat-wp-72414",
-          "nat-wp-72438",
-          "nat-wp-72439",
-          "nat-wp-72761"
-        ],
-        "return": [
-          "nat-wp-72761",
-          "nat-wp-72439",
-          "nat-wp-72438",
-          "nat-wp-72414",
-          "nat-wp-72413"
-        ]
-      }
+      "finding": "unverified_travel_choice",
+      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。"
     },
     {
       "fields": [
@@ -6435,27 +5166,6 @@
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:72418",
-        "teyvat:77772"
-      ],
-      "mode": "road",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72418",
-          "sites-toyac-tide-landing",
-          "nat-wp-77772"
-        ],
-        "return": [
-          "nat-wp-77772",
-          "sites-toyac-tide-landing",
-          "nat-wp-72418"
-        ]
-      }
     },
     {
       "fields": [
@@ -6518,37 +5228,6 @@
           "nat-wp-72449",
           "nat-wp-72447",
           "nat-wp-72418",
-          "nat-wp-72419"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:72419",
-        "teyvat:85958"
-      ],
-      "mode": "coastal_ferry",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "南西海岸から沿岸航路で移動。本作の定期船案。長い未確認陸地を徒歩で短絡しない。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72419",
-          "nat-wp-72758",
-          "nat-wp-72421",
-          "nat-wp-82575",
-          "nat-wp-72429",
-          "natlan-field",
-          "natlan-port",
-          "nat-resort-pier"
-        ],
-        "return": [
-          "nat-resort-pier",
-          "natlan-port",
-          "natlan-field",
-          "nat-wp-72429",
-          "nat-wp-82575",
-          "nat-wp-72421",
-          "nat-wp-72758",
           "nat-wp-72419"
         ]
       }
@@ -6648,31 +5327,6 @@
     },
     {
       "fields": [
-        "teyvat:72429",
-        "teyvat:79050"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72429",
-          "natlan-field",
-          "natlan-hub",
-          "nat-wp-72432",
-          "nat-wp-79050"
-        ],
-        "return": [
-          "nat-wp-79050",
-          "nat-wp-72432",
-          "natlan-hub",
-          "natlan-field",
-          "nat-wp-72429"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:72431",
         "teyvat:72435"
       ],
@@ -6682,12 +5336,14 @@
       "runtime_paths": {
         "forward": [
           "natlan-hub",
+          "nat-wp-72450",
           "nat-wp-72432",
           "nat-wp-72435"
         ],
         "return": [
           "nat-wp-72435",
           "nat-wp-72432",
+          "nat-wp-72450",
           "natlan-hub"
         ]
       }
@@ -6742,33 +5398,6 @@
     },
     {
       "fields": [
-        "teyvat:72435",
-        "teyvat:72760"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72435",
-          "nat-wp-72432",
-          "natlan-hub",
-          "natlan-field",
-          "nat-wp-72453",
-          "nat-wp-72760"
-        ],
-        "return": [
-          "nat-wp-72760",
-          "nat-wp-72453",
-          "natlan-field",
-          "natlan-hub",
-          "nat-wp-72432",
-          "nat-wp-72435"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:72436",
         "teyvat:72441"
       ],
@@ -6808,29 +5437,6 @@
           "nat-wp-72452",
           "nat-wp-72433",
           "nat-wp-72436"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:72439",
-        "teyvat:72441"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "渓谷の道路と橋を経由して競技場へ。部族の崖上・洞窟内には寄らず進める主経路。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-72439",
-          "nat-wp-72437",
-          "nat-wp-72434",
-          "nat-wp-72441"
-        ],
-        "return": [
-          "nat-wp-72441",
-          "nat-wp-72434",
-          "nat-wp-72437",
-          "nat-wp-72439"
         ]
       }
     },
@@ -6872,14 +5478,18 @@
           "nat-wp-72443",
           "nat-wp-72413",
           "nat-wp-72414",
-          "nat-wp-72438",
-          "nat-wp-72439",
+          "nat-wp-72440",
+          "nat-wp-72434",
+          "nat-wp-72433",
+          "nat-wp-72436",
           "nat-wp-72761"
         ],
         "return": [
           "nat-wp-72761",
-          "nat-wp-72439",
-          "nat-wp-72438",
+          "nat-wp-72436",
+          "nat-wp-72433",
+          "nat-wp-72434",
+          "nat-wp-72440",
           "nat-wp-72414",
           "nat-wp-72413",
           "nat-wp-72443"
@@ -6945,27 +5555,6 @@
       "mode": "field_approach",
       "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
-        "teyvat:79051",
-        "teyvat:82575"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-79051",
-          "nat-wp-82572",
-          "nat-wp-82575"
-        ],
-        "return": [
-          "nat-wp-82575",
-          "nat-wp-82572",
-          "nat-wp-79051"
-        ]
-      }
     },
     {
       "fields": [
@@ -7054,29 +5643,6 @@
         "return": [
           "ochkanatlan-dock",
           "natlan-voyage-return",
-          "natlan-port",
-          "nat-wp-79060"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:79060",
-        "teyvat:79544"
-      ],
-      "mode": "road",
-      "finding": "use_existing_regional_detour",
-      "terrain_note": "沖の島から舟で港に戻り、北の崖の昇降機から地下道へ入る。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-79060",
-          "natlan-port",
-          "nat-wp-79058",
-          "nat-wp-79544"
-        ],
-        "return": [
-          "nat-wp-79544",
-          "nat-wp-79058",
           "natlan-port",
           "nat-wp-79060"
         ]
@@ -7262,27 +5828,6 @@
     },
     {
       "fields": [
-        "teyvat:82559",
-        "teyvat:82572"
-      ],
-      "mode": "road",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。",
-      "runtime_paths": {
-        "forward": [
-          "nat-wp-82559",
-          "nat-wp-82558",
-          "nat-wp-82572"
-        ],
-        "return": [
-          "nat-wp-82572",
-          "nat-wp-82558",
-          "nat-wp-82559"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:82562",
         "teyvat:82568"
       ],
@@ -7451,31 +5996,6 @@
     },
     {
       "fields": [
-        "teyvat:85958",
-        "teyvat:88143"
-      ],
-      "mode": "coastal_ferry",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "リゾート桟橋から小舟で港へ出て、90秒の船便で往復する。",
-      "runtime_paths": {
-        "forward": [
-          "nat-resort-pier",
-          "natlan-port",
-          "natlan-voyage",
-          "nod-port",
-          "nod-field"
-        ],
-        "return": [
-          "nod-field",
-          "nod-port",
-          "natlan-voyage-return",
-          "natlan-port",
-          "nat-resort-pier"
-        ]
-      }
-    },
-    {
-      "fields": [
         "teyvat:85960",
         "teyvat:85961"
       ],
@@ -7613,15 +6133,6 @@
     },
     {
       "fields": [
-        "teyvat:88122",
-        "teyvat:88144"
-      ],
-      "mode": "field_approach",
-      "finding": "implemented_as_lab_route",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
-    },
-    {
-      "fields": [
         "teyvat:88123",
         "teyvat:88129"
       ],
@@ -7645,31 +6156,6 @@
         "return": [
           "nod-wp-88157",
           "nod-wp-88129"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:88130",
-        "teyvat:88143"
-      ],
-      "mode": "coastal_ferry",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "レンポ―ヒーシの実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。",
-      "runtime_paths": {
-        "forward": [
-          "nod-wp-88130",
-          "nod-wp-88127",
-          "nod-wp-88139",
-          "nod-port",
-          "nod-field"
-        ],
-        "return": [
-          "nod-field",
-          "nod-port",
-          "nod-wp-88139",
-          "nod-wp-88127",
-          "nod-wp-88130"
         ]
       }
     },
@@ -7758,48 +6244,6 @@
           "nod-wp-88158",
           "nod-wp-88152",
           "nod-wp-88151"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:88152",
-        "teyvat:88177"
-      ],
-      "mode": "road",
-      "finding": "use_existing_local_detour",
-      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。",
-      "runtime_paths": {
-        "forward": [
-          "nod-wp-88152",
-          "nod-wp-88154",
-          "nod-wp-88177"
-        ],
-        "return": [
-          "nod-wp-88177",
-          "nod-wp-88154",
-          "nod-wp-88152"
-        ]
-      }
-    },
-    {
-      "fields": [
-        "teyvat:88153",
-        "teyvat:88157"
-      ],
-      "mode": "coastal_ferry",
-      "finding": "use_existing_geo_route",
-      "terrain_note": "レンポ―パハの実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。",
-      "runtime_paths": {
-        "forward": [
-          "nod-wp-88153",
-          "nod-wp-88156",
-          "nod-wp-88157"
-        ],
-        "return": [
-          "nod-wp-88157",
-          "nod-wp-88156",
-          "nod-wp-88153"
         ]
       }
     },
@@ -8244,6 +6688,4053 @@
           "nod-wp-99223",
           "nod-wp-99219",
           "nod-wp-99221"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:92872",
+        "teyvat:99218"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92872",
+          "nod-wp-99218"
+        ],
+        "return": [
+          "nod-wp-99218",
+          "nod-wp-92872"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:6538",
+        "teyvat:6601"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "野営地 → 雪線 → 凍った主登山道。",
+      "runtime_paths": {
+        "forward": [
+          "dragonspine-camp",
+          "mond-wp-6601"
+        ],
+        "return": [
+          "mond-wp-6601",
+          "dragonspine-camp"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:6540",
+        "teyvat:6596"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "北西谷口から西側の登り道で氷原へ。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6540",
+          "mond-wp-6596"
+        ],
+        "return": [
+          "mond-wp-6596",
+          "mond-wp-6540"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:22",
+        "teyvat:95794"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "峡谷東側の陸地を北へ。シードル湖を飛び越えて港へ行く線はない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-22",
+          "mond-wp-95794"
+        ],
+        "return": [
+          "mond-wp-95794",
+          "mond-wp-22"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:95782",
+        "teyvat:98500"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-95782",
+          "sites-lookout-98500"
+        ],
+        "return": [
+          "sites-lookout-98500",
+          "mond-wp-95782"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:116",
+        "teyvat:30"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-border",
+          "liyue-entry"
+        ],
+        "return": [
+          "liyue-entry",
+          "mond-border"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:10009",
+        "teyvat:6540"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-lookout-10009",
+          "mond-wp-6540"
+        ],
+        "return": [
+          "mond-wp-6540",
+          "sites-lookout-10009"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:6540",
+        "teyvat:7137"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6540",
+          "sites-hunt-7137"
+        ],
+        "return": [
+          "sites-hunt-7137",
+          "mond-wp-6540"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:6594",
+        "teyvat:6608"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6594",
+          "mond-wp-6608"
+        ],
+        "return": [
+          "mond-wp-6608",
+          "mond-wp-6594"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:6537",
+        "teyvat:6603"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6537",
+          "mond-wp-6603"
+        ],
+        "return": [
+          "mond-wp-6603",
+          "mond-wp-6537"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:35",
+        "teyvat:52"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-35",
+          "liyue-wp-52"
+        ],
+        "return": [
+          "liyue-wp-52",
+          "liyue-wp-35"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:6606",
+        "teyvat:7173"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6606",
+          "sites-hunt-7173"
+        ],
+        "return": [
+          "sites-hunt-7173",
+          "mond-wp-6606"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:7186",
+        "teyvat:85351"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-7186",
+          "sites-lookout-85351"
+        ],
+        "return": [
+          "sites-lookout-85351",
+          "sites-hunt-7186"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:95799",
+        "teyvat:95803"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-95799",
+          "mond-wp-95803"
+        ],
+        "return": [
+          "mond-wp-95803",
+          "mond-wp-95799"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:101",
+        "teyvat:343"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "primo-approach",
+          "liyue-field"
+        ],
+        "return": [
+          "liyue-field",
+          "primo-approach"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:343",
+        "teyvat:97"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-field",
+          "liyue-wp-97"
+        ],
+        "return": [
+          "liyue-wp-97",
+          "liyue-field"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:343",
+        "teyvat:43"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-field",
+          "liyue-wp-43"
+        ],
+        "return": [
+          "liyue-wp-43",
+          "liyue-field"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100",
+        "teyvat:7190"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-100",
+          "sites-hunt-7190"
+        ],
+        "return": [
+          "sites-hunt-7190",
+          "liyue-wp-100"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106",
+        "teyvat:7220"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-106",
+          "sites-hunt-7220"
+        ],
+        "return": [
+          "sites-hunt-7220",
+          "liyue-wp-106"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:37",
+        "teyvat:64850"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-37",
+          "chenyu-camp"
+        ],
+        "return": [
+          "chenyu-camp",
+          "liyue-wp-37"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:64825",
+        "teyvat:64850"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64825",
+          "chenyu-camp"
+        ],
+        "return": [
+          "chenyu-camp",
+          "liyue-wp-64825"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:1748",
+        "teyvat:44"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-1748",
+          "liyue-wp-44"
+        ],
+        "return": [
+          "liyue-wp-44",
+          "liyue-wp-1748"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28750",
+        "teyvat:28751"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28750",
+          "sites-hunt-28751"
+        ],
+        "return": [
+          "sites-hunt-28751",
+          "sum-wp-28750"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28700",
+        "teyvat:28750"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28700",
+          "sum-wp-28750"
+        ],
+        "return": [
+          "sum-wp-28750",
+          "sum-wp-28700"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28749",
+        "teyvat:66770"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28749",
+          "liyue-wp-66770"
+        ],
+        "return": [
+          "liyue-wp-66770",
+          "sum-wp-28749"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:64826",
+        "teyvat:64828"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64826",
+          "liyue-wp-64828"
+        ],
+        "return": [
+          "liyue-wp-64828",
+          "liyue-wp-64826"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:64826",
+        "teyvat:64849"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64826",
+          "liyue-wp-64849"
+        ],
+        "return": [
+          "liyue-wp-64849",
+          "liyue-wp-64826"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:64827",
+        "teyvat:64849"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64827",
+          "liyue-wp-64849"
+        ],
+        "return": [
+          "liyue-wp-64849",
+          "liyue-wp-64827"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28724",
+        "teyvat:28725"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28724",
+          "sum-wp-28725"
+        ],
+        "return": [
+          "sum-wp-28725",
+          "sum-wp-28724"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28721",
+        "teyvat:28724"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28721",
+          "sum-wp-28724"
+        ],
+        "return": [
+          "sum-wp-28724",
+          "sum-wp-28721"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28721",
+        "teyvat:28755"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28721",
+          "sites-hunt-28755"
+        ],
+        "return": [
+          "sites-hunt-28755",
+          "sum-wp-28721"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28728",
+        "teyvat:28755"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28728",
+          "sites-hunt-28755"
+        ],
+        "return": [
+          "sites-hunt-28755",
+          "sum-wp-28728"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28712",
+        "teyvat:28716"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28712",
+          "sum-wp-28716"
+        ],
+        "return": [
+          "sum-wp-28716",
+          "sum-wp-28712"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28715",
+        "teyvat:36674"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28715",
+          "sum-wp-36674"
+        ],
+        "return": [
+          "sum-wp-36674",
+          "sum-wp-28715"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36682",
+        "teyvat:36685"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36682",
+          "sum-wp-36685"
+        ],
+        "return": [
+          "sum-wp-36685",
+          "sum-wp-36682"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41823",
+        "teyvat:41824"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41823",
+          "sum-wp-41824"
+        ],
+        "return": [
+          "sum-wp-41824",
+          "sum-wp-41823"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36704",
+        "teyvat:41823"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-36704",
+          "sum-wp-41823"
+        ],
+        "return": [
+          "sum-wp-41823",
+          "sites-hunt-36704"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36704",
+        "teyvat:41825"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-36704",
+          "sum-wp-41825"
+        ],
+        "return": [
+          "sum-wp-41825",
+          "sites-hunt-36704"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36691",
+        "teyvat:41825"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36691",
+          "sum-wp-41825"
+        ],
+        "return": [
+          "sum-wp-41825",
+          "sum-wp-36691"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41824",
+        "teyvat:72412"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41824",
+          "natlan-entry"
+        ],
+        "return": [
+          "natlan-entry",
+          "sum-wp-41824"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36682",
+        "teyvat:36698"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36682",
+          "sum-wp-36698"
+        ],
+        "return": [
+          "sum-wp-36698",
+          "sum-wp-36682"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36682",
+        "teyvat:36690"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36682",
+          "sum-wp-36690"
+        ],
+        "return": [
+          "sum-wp-36690",
+          "sum-wp-36682"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36675",
+        "teyvat:36691"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36675",
+          "sum-wp-36691"
+        ],
+        "return": [
+          "sum-wp-36691",
+          "sum-wp-36675"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36691",
+        "teyvat:41819"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36691",
+          "sum-wp-41819"
+        ],
+        "return": [
+          "sum-wp-41819",
+          "sum-wp-36691"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41832",
+        "teyvat:41833"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41832",
+          "sum-wp-41833"
+        ],
+        "return": [
+          "sum-wp-41833",
+          "sum-wp-41832"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41833",
+        "teyvat:41838"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41833",
+          "sum-wp-41838"
+        ],
+        "return": [
+          "sum-wp-41838",
+          "sum-wp-41833"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41837",
+        "teyvat:41838"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41837",
+          "sum-wp-41838"
+        ],
+        "return": [
+          "sum-wp-41838",
+          "sum-wp-41837"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41831",
+        "teyvat:41837"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41831",
+          "sum-wp-41837"
+        ],
+        "return": [
+          "sum-wp-41837",
+          "sum-wp-41831"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:32451",
+        "teyvat:41818"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-32451",
+          "sites-hunt-41818"
+        ],
+        "return": [
+          "sites-hunt-41818",
+          "sum-wp-32451"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28709",
+        "teyvat:32451"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28709",
+          "sum-wp-32451"
+        ],
+        "return": [
+          "sum-wp-32451",
+          "sum-wp-28709"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28709",
+        "teyvat:32452"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28709",
+          "sum-wp-32452"
+        ],
+        "return": [
+          "sum-wp-32452",
+          "sum-wp-28709"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50033",
+        "teyvat:69098"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fontaine-entry",
+          "sum-wp-69098"
+        ],
+        "return": [
+          "sum-wp-69098",
+          "fontaine-entry"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:68345",
+        "teyvat:68346"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-68345",
+          "sites-hunt-68346"
+        ],
+        "return": [
+          "sites-hunt-68346",
+          "fon-wp-68345"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:68343",
+        "teyvat:68345"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-68343",
+          "fon-wp-68345"
+        ],
+        "return": [
+          "fon-wp-68345",
+          "fon-wp-68343"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:68342",
+        "teyvat:68343"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-68342",
+          "fon-wp-68343"
+        ],
+        "return": [
+          "fon-wp-68343",
+          "fon-wp-68342"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:68343",
+        "teyvat:68344"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-68343",
+          "fon-wp-68344"
+        ],
+        "return": [
+          "fon-wp-68344",
+          "fon-wp-68343"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:68339",
+        "teyvat:68341"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nostoi-castle-approach",
+          "fon-wp-68341"
+        ],
+        "return": [
+          "fon-wp-68341",
+          "nostoi-castle-approach"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50033",
+        "teyvat:68340"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fontaine-entry",
+          "fon-wp-68340"
+        ],
+        "return": [
+          "fon-wp-68340",
+          "fontaine-entry"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50033",
+        "teyvat:50034"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fontaine-entry",
+          "sites-hunt-50034"
+        ],
+        "return": [
+          "sites-hunt-50034",
+          "fontaine-entry"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50035",
+        "teyvat:50060"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50035",
+          "fon-wp-50060"
+        ],
+        "return": [
+          "fon-wp-50060",
+          "fon-wp-50035"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50046",
+        "teyvat:50060"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50046",
+          "fon-wp-50060"
+        ],
+        "return": [
+          "fon-wp-50060",
+          "fon-wp-50046"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50035",
+        "teyvat:50037"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50035",
+          "fon-wp-50037"
+        ],
+        "return": [
+          "fon-wp-50037",
+          "fon-wp-50035"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50037",
+        "teyvat:52029"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50037",
+          "fon-wp-52029"
+        ],
+        "return": [
+          "fon-wp-52029",
+          "fon-wp-50037"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50036",
+        "teyvat:52029"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50036",
+          "fon-wp-52029"
+        ],
+        "return": [
+          "fon-wp-52029",
+          "fon-wp-50036"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50038",
+        "teyvat:50044"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50038",
+          "fon-wp-50044"
+        ],
+        "return": [
+          "fon-wp-50044",
+          "fon-wp-50038"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50040",
+        "teyvat:50043"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50040",
+          "fon-wp-50043"
+        ],
+        "return": [
+          "fon-wp-50043",
+          "fon-wp-50040"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50039",
+        "teyvat:50042"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50039",
+          "fon-wp-50042"
+        ],
+        "return": [
+          "fon-wp-50042",
+          "fon-wp-50039"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50041",
+        "teyvat:50063"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50041",
+          "fon-wp-50063"
+        ],
+        "return": [
+          "fon-wp-50063",
+          "fon-wp-50041"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50062",
+        "teyvat:50063"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50062",
+          "fon-wp-50063"
+        ],
+        "return": [
+          "fon-wp-50063",
+          "fon-wp-50062"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50062",
+        "teyvat:56363"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50062",
+          "fon-wp-56363"
+        ],
+        "return": [
+          "fon-wp-56363",
+          "fon-wp-50062"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50061",
+        "teyvat:56363"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50061",
+          "fon-wp-56363"
+        ],
+        "return": [
+          "fon-wp-56363",
+          "fon-wp-50061"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50047",
+        "teyvat:50054"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50047",
+          "fontaine-hub"
+        ],
+        "return": [
+          "fontaine-hub",
+          "fon-wp-50047"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50050",
+        "teyvat:50051"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50050",
+          "fontaine-field"
+        ],
+        "return": [
+          "fontaine-field",
+          "fon-wp-50050"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50054",
+        "teyvat:50077"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fontaine-hub",
+          "fon-wp-50077"
+        ],
+        "return": [
+          "fon-wp-50077",
+          "fontaine-hub"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50053",
+        "teyvat:50077"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50053",
+          "fon-wp-50077"
+        ],
+        "return": [
+          "fon-wp-50077",
+          "fon-wp-50053"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50053",
+        "teyvat:50062"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50053",
+          "fon-wp-50062"
+        ],
+        "return": [
+          "fon-wp-50062",
+          "fon-wp-50053"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50061",
+        "teyvat:51964"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50061",
+          "fon-wp-51964"
+        ],
+        "return": [
+          "fon-wp-51964",
+          "fon-wp-50061"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50058",
+        "teyvat:50077"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50058",
+          "fon-wp-50077"
+        ],
+        "return": [
+          "fon-wp-50077",
+          "fon-wp-50058"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50045",
+        "teyvat:50074"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50045",
+          "fon-wp-50074"
+        ],
+        "return": [
+          "fon-wp-50074",
+          "fon-wp-50045"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50045",
+        "teyvat:55773"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50045",
+          "fon-wp-55773"
+        ],
+        "return": [
+          "fon-wp-55773",
+          "fon-wp-50045"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50048",
+        "teyvat:55775"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50048",
+          "fon-wp-55775"
+        ],
+        "return": [
+          "fon-wp-55775",
+          "fon-wp-50048"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55774",
+        "teyvat:55775"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55774",
+          "fon-wp-55775"
+        ],
+        "return": [
+          "fon-wp-55775",
+          "fon-wp-55774"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55768",
+        "teyvat:55772"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55768",
+          "fon-wp-55772"
+        ],
+        "return": [
+          "fon-wp-55772",
+          "fon-wp-55768"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55768",
+        "teyvat:55770"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55768",
+          "fon-wp-55770"
+        ],
+        "return": [
+          "fon-wp-55770",
+          "fon-wp-55768"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55783",
+        "teyvat:66769"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55783",
+          "liyue-wp-66769"
+        ],
+        "return": [
+          "liyue-wp-66769",
+          "fon-wp-55783"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55774",
+        "teyvat:55785"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55774",
+          "fon-wp-55785"
+        ],
+        "return": [
+          "fon-wp-55785",
+          "fon-wp-55774"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55782",
+        "teyvat:55785"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55782",
+          "fon-wp-55785"
+        ],
+        "return": [
+          "fon-wp-55785",
+          "fon-wp-55782"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:55781",
+        "teyvat:55785"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55781",
+          "fon-wp-55785"
+        ],
+        "return": [
+          "fon-wp-55785",
+          "fon-wp-55781"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53855",
+        "teyvat:55777"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53855",
+          "fon-wp-55777"
+        ],
+        "return": [
+          "fon-wp-55777",
+          "fon-wp-53855"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50068",
+        "teyvat:50071"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50068",
+          "fon-wp-50071"
+        ],
+        "return": [
+          "fon-wp-50071",
+          "fon-wp-50068"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53852",
+        "teyvat:68347"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53852",
+          "sites-hunt-68347"
+        ],
+        "return": [
+          "sites-hunt-68347",
+          "fon-wp-53852"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:50071",
+        "teyvat:53871"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50071",
+          "fon-wp-53871"
+        ],
+        "return": [
+          "fon-wp-53871",
+          "fon-wp-50071"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53849",
+        "teyvat:53871"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53849",
+          "fon-wp-53871"
+        ],
+        "return": [
+          "fon-wp-53871",
+          "fon-wp-53849"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53849",
+        "teyvat:53866"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53849",
+          "fon-wp-53866"
+        ],
+        "return": [
+          "fon-wp-53866",
+          "fon-wp-53849"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53849",
+        "teyvat:53869"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53849",
+          "fon-wp-53869"
+        ],
+        "return": [
+          "fon-wp-53869",
+          "fon-wp-53849"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53865",
+        "teyvat:53869"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53865",
+          "fon-wp-53869"
+        ],
+        "return": [
+          "fon-wp-53869",
+          "fon-wp-53865"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53849",
+        "teyvat:53864"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53849",
+          "fon-wp-53864"
+        ],
+        "return": [
+          "fon-wp-53864",
+          "fon-wp-53849"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53851",
+        "teyvat:53863"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53851",
+          "fon-wp-53863"
+        ],
+        "return": [
+          "fon-wp-53863",
+          "fon-wp-53851"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53851",
+        "teyvat:53870"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53851",
+          "fon-wp-53870"
+        ],
+        "return": [
+          "fon-wp-53870",
+          "fon-wp-53851"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53861",
+        "teyvat:53870"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53861",
+          "fon-wp-53870"
+        ],
+        "return": [
+          "fon-wp-53870",
+          "fon-wp-53861"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53860",
+        "teyvat:53861"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53860",
+          "fon-wp-53861"
+        ],
+        "return": [
+          "fon-wp-53861",
+          "fon-wp-53860"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53855",
+        "teyvat:53857"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53855",
+          "fon-wp-53857"
+        ],
+        "return": [
+          "fon-wp-53857",
+          "fon-wp-53855"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:53857",
+        "teyvat:53859"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53857",
+          "fon-wp-53859"
+        ],
+        "return": [
+          "fon-wp-53859",
+          "fon-wp-53857"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28734",
+        "teyvat:28747"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28734",
+          "sum-wp-28747"
+        ],
+        "return": [
+          "sum-wp-28747",
+          "sum-wp-28734"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28703",
+        "teyvat:28711"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28703",
+          "sum-wp-28711"
+        ],
+        "return": [
+          "sum-wp-28711",
+          "sum-wp-28703"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:28709",
+        "teyvat:28710"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28709",
+          "sum-wp-28710"
+        ],
+        "return": [
+          "sum-wp-28710",
+          "sum-wp-28709"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:36692",
+        "teyvat:36702"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36692",
+          "sum-wp-36702"
+        ],
+        "return": [
+          "sum-wp-36702",
+          "sum-wp-36692"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41819",
+        "teyvat:41822"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41819",
+          "sum-wp-41822"
+        ],
+        "return": [
+          "sum-wp-41822",
+          "sum-wp-41819"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41822",
+        "teyvat:41826"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41822",
+          "sum-wp-41826"
+        ],
+        "return": [
+          "sum-wp-41826",
+          "sum-wp-41822"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41828",
+        "teyvat:41837"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41828",
+          "sum-wp-41837"
+        ],
+        "return": [
+          "sum-wp-41837",
+          "sum-wp-41828"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41832",
+        "teyvat:46515"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41832",
+          "sum-wp-46515"
+        ],
+        "return": [
+          "sum-wp-46515",
+          "sum-wp-41832"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:41826",
+        "teyvat:41830"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41826",
+          "sum-wp-41830"
+        ],
+        "return": [
+          "sum-wp-41830",
+          "sum-wp-41826"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:46517",
+        "teyvat:46518"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46517",
+          "sum-wp-46518"
+        ],
+        "return": [
+          "sum-wp-46518",
+          "sum-wp-46517"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:46518",
+        "teyvat:46519"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46518",
+          "sum-wp-46519"
+        ],
+        "return": [
+          "sum-wp-46519",
+          "sum-wp-46518"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:12720",
+        "teyvat:16014"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-12720",
+          "ina-wp-16014"
+        ],
+        "return": [
+          "ina-wp-16014",
+          "ina-wp-12720"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:12720",
+        "teyvat:18667"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-12720",
+          "sites-hunt-18667"
+        ],
+        "return": [
+          "sites-hunt-18667",
+          "ina-wp-12720"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72439",
+        "teyvat:72761"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72439",
+          "nat-wp-72761"
+        ],
+        "return": [
+          "nat-wp-72761",
+          "nat-wp-72439"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72438",
+        "teyvat:73159"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72438",
+          "sites-hunt-73159"
+        ],
+        "return": [
+          "sites-hunt-73159",
+          "nat-wp-72438"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72439",
+        "teyvat:72454"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72439",
+          "nat-wp-72454"
+        ],
+        "return": [
+          "nat-wp-72454",
+          "nat-wp-72439"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72454",
+        "teyvat:72455"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72454",
+          "nat-wp-72455"
+        ],
+        "return": [
+          "nat-wp-72455",
+          "nat-wp-72454"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72441",
+        "teyvat:72455"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72441",
+          "nat-wp-72455"
+        ],
+        "return": [
+          "nat-wp-72455",
+          "nat-wp-72441"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72437",
+        "teyvat:72439"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72437",
+          "nat-wp-72439"
+        ],
+        "return": [
+          "nat-wp-72439",
+          "nat-wp-72437"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72437",
+        "teyvat:72446"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72437",
+          "nat-wp-72446"
+        ],
+        "return": [
+          "nat-wp-72446",
+          "nat-wp-72437"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72446",
+        "teyvat:72760"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72446",
+          "nat-wp-72760"
+        ],
+        "return": [
+          "nat-wp-72760",
+          "nat-wp-72446"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72453",
+        "teyvat:72760"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72453",
+          "nat-wp-72760"
+        ],
+        "return": [
+          "nat-wp-72760",
+          "nat-wp-72453"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72430",
+        "teyvat:72453"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-field",
+          "nat-wp-72453"
+        ],
+        "return": [
+          "nat-wp-72453",
+          "natlan-field"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72438",
+        "teyvat:72445"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72438",
+          "nat-wp-72445"
+        ],
+        "return": [
+          "nat-wp-72445",
+          "nat-wp-72438"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72414",
+        "teyvat:72440"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72414",
+          "nat-wp-72440"
+        ],
+        "return": [
+          "nat-wp-72440",
+          "nat-wp-72414"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72424",
+        "teyvat:72440"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72424",
+          "nat-wp-72440"
+        ],
+        "return": [
+          "nat-wp-72440",
+          "nat-wp-72424"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72422",
+        "teyvat:72428"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72422",
+          "nat-wp-72428"
+        ],
+        "return": [
+          "nat-wp-72428",
+          "nat-wp-72422"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72421",
+        "teyvat:73160"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72421",
+          "sites-hunt-73160"
+        ],
+        "return": [
+          "sites-hunt-73160",
+          "nat-wp-72421"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72430",
+        "teyvat:72451"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-field",
+          "nat-wp-72451"
+        ],
+        "return": [
+          "nat-wp-72451",
+          "natlan-field"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72451",
+        "teyvat:79050"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72451",
+          "nat-wp-79050"
+        ],
+        "return": [
+          "nat-wp-79050",
+          "nat-wp-72451"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72429",
+        "teyvat:72451"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72429",
+          "nat-wp-72451"
+        ],
+        "return": [
+          "nat-wp-72451",
+          "nat-wp-72429"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72429",
+        "teyvat:82575"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72429",
+          "nat-wp-82575"
+        ],
+        "return": [
+          "nat-wp-82575",
+          "nat-wp-72429"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82558",
+        "teyvat:82573"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82558",
+          "nat-wp-82573"
+        ],
+        "return": [
+          "nat-wp-82573",
+          "nat-wp-82558"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82558",
+        "teyvat:82572"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82558",
+          "nat-wp-82572"
+        ],
+        "return": [
+          "nat-wp-82572",
+          "nat-wp-82558"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82566",
+        "teyvat:82570"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82566",
+          "nat-wp-82570"
+        ],
+        "return": [
+          "nat-wp-82570",
+          "nat-wp-82566"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82565",
+        "teyvat:82566"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82565",
+          "nat-wp-82566"
+        ],
+        "return": [
+          "nat-wp-82566",
+          "nat-wp-82565"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82561",
+        "teyvat:82562"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82561",
+          "nat-wp-82562"
+        ],
+        "return": [
+          "nat-wp-82562",
+          "nat-wp-82561"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82576",
+        "teyvat:82577"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82576",
+          "sites-hunt-82577"
+        ],
+        "return": [
+          "sites-hunt-82577",
+          "nat-wp-82576"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:82576",
+        "teyvat:85349"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82576",
+          "nat-wp-85349"
+        ],
+        "return": [
+          "nat-wp-85349",
+          "nat-wp-82576"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79055",
+        "teyvat:79482"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79055",
+          "nat-wp-79482"
+        ],
+        "return": [
+          "nat-wp-79482",
+          "nat-wp-79055"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72431",
+        "teyvat:72450"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-hub",
+          "nat-wp-72450"
+        ],
+        "return": [
+          "nat-wp-72450",
+          "natlan-hub"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:72432",
+        "teyvat:79544"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72432",
+          "nat-wp-79544"
+        ],
+        "return": [
+          "nat-wp-79544",
+          "nat-wp-72432"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79387",
+        "teyvat:79543"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79387",
+          "nat-wp-79543"
+        ],
+        "return": [
+          "nat-wp-79543",
+          "nat-wp-79387"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79057",
+        "teyvat:79543"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79057",
+          "nat-wp-79543"
+        ],
+        "return": [
+          "nat-wp-79543",
+          "nat-wp-79057"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79058",
+        "teyvat:79542"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79058",
+          "nat-wp-79542"
+        ],
+        "return": [
+          "nat-wp-79542",
+          "nat-wp-79058"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79059",
+        "teyvat:79544"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-port",
+          "nat-wp-79544"
+        ],
+        "return": [
+          "nat-wp-79544",
+          "natlan-port"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79059",
+        "teyvat:88141"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-port",
+          "nod-port"
+        ],
+        "return": [
+          "nod-port",
+          "natlan-port"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:79059",
+        "teyvat:85958"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-port",
+          "nat-resort-pier"
+        ],
+        "return": [
+          "nat-resort-pier",
+          "natlan-port"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88128",
+        "teyvat:88145"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88128",
+          "nod-wp-88145"
+        ],
+        "return": [
+          "nod-wp-88145",
+          "nod-wp-88128"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88140",
+        "teyvat:88145"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88140",
+          "nod-wp-88145"
+        ],
+        "return": [
+          "nod-wp-88145",
+          "nod-wp-88140"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88122",
+        "teyvat:88139"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-88122",
+          "nod-wp-88139"
+        ],
+        "return": [
+          "nod-wp-88139",
+          "sites-hunt-88122"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88122",
+        "teyvat:88127"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-88122",
+          "nod-wp-88127"
+        ],
+        "return": [
+          "nod-wp-88127",
+          "sites-hunt-88122"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88122",
+        "teyvat:88140"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-88122",
+          "nod-wp-88140"
+        ],
+        "return": [
+          "nod-wp-88140",
+          "sites-hunt-88122"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88128",
+        "teyvat:88147"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88128",
+          "nod-wp-88147"
+        ],
+        "return": [
+          "nod-wp-88147",
+          "nod-wp-88128"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88151",
+        "teyvat:88153"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88151",
+          "nod-wp-88153"
+        ],
+        "return": [
+          "nod-wp-88153",
+          "nod-wp-88151"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88156",
+        "teyvat:88157"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88156",
+          "nod-wp-88157"
+        ],
+        "return": [
+          "nod-wp-88157",
+          "nod-wp-88156"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88155",
+        "teyvat:88157"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88155",
+          "nod-wp-88157"
+        ],
+        "return": [
+          "nod-wp-88157",
+          "nod-wp-88155"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88148",
+        "teyvat:88177"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88148",
+          "nod-wp-88177"
+        ],
+        "return": [
+          "nod-wp-88177",
+          "nod-wp-88148"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88169",
+        "teyvat:88170"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88169",
+          "nod-wp-88170"
+        ],
+        "return": [
+          "nod-wp-88170",
+          "nod-wp-88169"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88162",
+        "teyvat:88170"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88162",
+          "nod-wp-88170"
+        ],
+        "return": [
+          "nod-wp-88170",
+          "nod-wp-88162"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88160",
+        "teyvat:88162"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88160",
+          "nod-wp-88162"
+        ],
+        "return": [
+          "nod-wp-88162",
+          "nod-wp-88160"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88123",
+        "teyvat:92426"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-88123",
+          "nod-wp-92426"
+        ],
+        "return": [
+          "nod-wp-92426",
+          "sites-hunt-88123"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88123",
+        "teyvat:88165"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sites-hunt-88123",
+          "nod-wp-88165"
+        ],
+        "return": [
+          "nod-wp-88165",
+          "sites-hunt-88123"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88163",
+        "teyvat:88175"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88163",
+          "nod-wp-88175"
+        ],
+        "return": [
+          "nod-wp-88175",
+          "nod-wp-88163"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:88167",
+        "teyvat:88175"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88167",
+          "nod-wp-88175"
+        ],
+        "return": [
+          "nod-wp-88175",
+          "nod-wp-88167"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:92882",
+        "teyvat:92884"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92882",
+          "nod-wp-92884"
+        ],
+        "return": [
+          "nod-wp-92884",
+          "nod-wp-92882"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:92877",
+        "teyvat:92878"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92877",
+          "nod-wp-92878"
+        ],
+        "return": [
+          "nod-wp-92878",
+          "nod-wp-92877"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:92865",
+        "teyvat:92871"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92865",
+          "nod-wp-92871"
+        ],
+        "return": [
+          "nod-wp-92871",
+          "nod-wp-92865"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:92887",
+        "teyvat:92894"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92887",
+          "nod-wp-92894"
+        ],
+        "return": [
+          "nod-wp-92894",
+          "nod-wp-92887"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100646",
+        "teyvat:92887"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "snezhnaya-entry",
+          "nod-wp-92887"
+        ],
+        "return": [
+          "nod-wp-92887",
+          "snezhnaya-entry"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100653",
+        "teyvat:105872"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100653",
+          "sne-wp-105872"
+        ],
+        "return": [
+          "sne-wp-105872",
+          "sne-wp-100653"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100648",
+        "teyvat:100661"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100648",
+          "white-pass-station"
+        ],
+        "return": [
+          "white-pass-station",
+          "sne-wp-100648"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100661",
+        "teyvat:100695"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "white-pass-station",
+          "sne-wp-100695"
+        ],
+        "return": [
+          "sne-wp-100695",
+          "white-pass-station"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100661",
+        "teyvat:100667"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "white-pass-station",
+          "sne-wp-100667"
+        ],
+        "return": [
+          "sne-wp-100667",
+          "white-pass-station"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100667",
+        "teyvat:100695"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100667",
+          "sne-wp-100695"
+        ],
+        "return": [
+          "sne-wp-100695",
+          "sne-wp-100667"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100659",
+        "teyvat:100695"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100659",
+          "sne-wp-100695"
+        ],
+        "return": [
+          "sne-wp-100695",
+          "sne-wp-100659"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100648",
+        "teyvat:100659"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100648",
+          "sne-wp-100659"
+        ],
+        "return": [
+          "sne-wp-100659",
+          "sne-wp-100648"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100642",
+        "teyvat:100656"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100642",
+          "sne-wp-100656"
+        ],
+        "return": [
+          "sne-wp-100656",
+          "sne-wp-100642"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100655",
+        "teyvat:100702"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100655",
+          "sne-wp-100702"
+        ],
+        "return": [
+          "sne-wp-100702",
+          "sne-wp-100655"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100700",
+        "teyvat:100702"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100700",
+          "sne-wp-100702"
+        ],
+        "return": [
+          "sne-wp-100702",
+          "sne-wp-100700"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100700",
+        "teyvat:100703"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100700",
+          "sne-wp-100703"
+        ],
+        "return": [
+          "sne-wp-100703",
+          "sne-wp-100700"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100654",
+        "teyvat:100703"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100654",
+          "sne-wp-100703"
+        ],
+        "return": [
+          "sne-wp-100703",
+          "sne-wp-100654"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100659",
+        "teyvat:100689"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100659",
+          "sne-wp-100689"
+        ],
+        "return": [
+          "sne-wp-100689",
+          "sne-wp-100659"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100686",
+        "teyvat:100687"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100686",
+          "sne-wp-100687"
+        ],
+        "return": [
+          "sne-wp-100687",
+          "sne-wp-100686"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100687",
+        "teyvat:105012"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100687",
+          "sne-wp-105012"
+        ],
+        "return": [
+          "sne-wp-105012",
+          "sne-wp-100687"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100664",
+        "teyvat:100707"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "snezhnaya-field",
+          "sites-hunt-100707"
+        ],
+        "return": [
+          "sites-hunt-100707",
+          "snezhnaya-field"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100644",
+        "teyvat:100695"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "snezhnaya-hub",
+          "sne-wp-100695"
+        ],
+        "return": [
+          "sne-wp-100695",
+          "snezhnaya-hub"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:100695",
+        "teyvat:106182"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100695",
+          "sne-wp-106182"
+        ],
+        "return": [
+          "sne-wp-106182",
+          "sne-wp-100695"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106182",
+        "teyvat:106204"
+      ],
+      "mode": "special_road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106182",
+          "sne-wp-106204"
+        ],
+        "return": [
+          "sne-wp-106204",
+          "sne-wp-106182"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106203",
+        "teyvat:106205"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "novokichev-depth",
+          "novokichev-camp"
+        ],
+        "return": [
+          "novokichev-camp",
+          "novokichev-depth"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106200",
+        "teyvat:106204"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106200",
+          "sne-wp-106204"
+        ],
+        "return": [
+          "sne-wp-106204",
+          "sne-wp-106200"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106185",
+        "teyvat:106193"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106185",
+          "sne-wp-106193"
+        ],
+        "return": [
+          "sne-wp-106193",
+          "sne-wp-106185"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106207",
+        "teyvat:106208"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106207",
+          "sne-wp-106208"
+        ],
+        "return": [
+          "sne-wp-106208",
+          "sne-wp-106207"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106181",
+        "teyvat:106193"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-north-works",
+          "sne-wp-106193"
+        ],
+        "return": [
+          "sne-wp-106193",
+          "sne-north-works"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106181",
+        "teyvat:106189"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-north-works",
+          "sne-wp-106189"
+        ],
+        "return": [
+          "sne-wp-106189",
+          "sne-north-works"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106187",
+        "teyvat:106188"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106187",
+          "sne-wp-106188"
+        ],
+        "return": [
+          "sne-wp-106188",
+          "sne-wp-106187"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106202",
+        "teyvat:106209"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106202",
+          "sne-wp-106209"
+        ],
+        "return": [
+          "sne-wp-106209",
+          "sne-wp-106202"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "teyvat:106190",
+        "teyvat:106220"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106190",
+          "sne-wp-106220"
+        ],
+        "return": [
+          "sne-wp-106220",
+          "sne-wp-106190"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map7:21582",
+        "map7:21585"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "enkan-wp-21582",
+          "enkan-wp-21585"
+        ],
+        "return": [
+          "enkan-wp-21585",
+          "enkan-wp-21582"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25270",
+        "map9:25271"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25270",
+          "chasm-wp-25271"
+        ],
+        "return": [
+          "chasm-wp-25271",
+          "chasm-wp-25270"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25271",
+        "map9:25274"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25271",
+          "chasm-wp-25274"
+        ],
+        "return": [
+          "chasm-wp-25274",
+          "chasm-wp-25271"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25274",
+        "map9:26463"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25274",
+          "chasm-wp-26463"
+        ],
+        "return": [
+          "chasm-wp-26463",
+          "chasm-wp-25274"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25275",
+        "map9:25276"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25275",
+          "chasm-wp-25276"
+        ],
+        "return": [
+          "chasm-wp-25276",
+          "chasm-wp-25275"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25269",
+        "map9:25277"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25269",
+          "chasm-wp-25277"
+        ],
+        "return": [
+          "chasm-wp-25277",
+          "chasm-wp-25269"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25268",
+        "map9:25269"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25268",
+          "chasm-wp-25269"
+        ],
+        "return": [
+          "chasm-wp-25269",
+          "chasm-wp-25268"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map9:25264",
+        "map9:25267"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25264",
+          "chasm-wp-25267"
+        ],
+        "return": [
+          "chasm-wp-25267",
+          "chasm-wp-25264"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map36:84103",
+        "map36:84107"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "nat-mountain-camp",
+          "nat-wp-84107"
+        ],
+        "return": [
+          "nat-wp-84107",
+          "nat-mountain-camp"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map40:99283",
+        "map40:99284"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99283",
+          "frost-wp-99284"
+        ],
+        "return": [
+          "frost-wp-99284",
+          "frost-wp-99283"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map40:99290",
+        "map40:99292"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99290",
+          "frost-wp-99292"
+        ],
+        "return": [
+          "frost-wp-99292",
+          "frost-wp-99290"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "map40:99298",
+        "map40:99308"
+      ],
+      "mode": "road",
+      "finding": "field_studio_lab_connection",
+      "terrain_note": "地図上で手動指定。経路・通行条件は未確認。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99298",
+          "frost-wp-99308"
+        ],
+        "return": [
+          "frost-wp-99308",
+          "frost-wp-99298"
         ]
       }
     }
@@ -10856,7 +13347,7 @@
     {
       "field": "teyvat:36674",
       "stage": "sum-wp-36674",
-      "access": 73,
+      "access": 65,
       "recommended": 71,
       "safe": false
     },
@@ -10877,7 +13368,7 @@
     {
       "field": "teyvat:36677",
       "stage": "sum-wp-36677",
-      "access": 70,
+      "access": 67,
       "recommended": 71,
       "safe": false
     },
@@ -10891,7 +13382,7 @@
     {
       "field": "teyvat:36681",
       "stage": "sum-wp-36681",
-      "access": 69,
+      "access": 68,
       "recommended": 71,
       "safe": false
     },
@@ -10912,7 +13403,7 @@
     {
       "field": "teyvat:36684",
       "stage": "sum-wp-36684",
-      "access": 71,
+      "access": 66,
       "recommended": 73,
       "safe": false
     },
@@ -10926,7 +13417,7 @@
     {
       "field": "teyvat:36686",
       "stage": "sum-wp-36686",
-      "access": 70,
+      "access": 68,
       "recommended": 73,
       "safe": false
     },
@@ -11407,13 +13898,6 @@
       "safe": true
     },
     {
-      "field": "teyvat:50035",
-      "stage": "fon-wp-50035",
-      "access": 86,
-      "recommended": 82,
-      "safe": false
-    },
-    {
       "field": "teyvat:50040",
       "stage": "fon-wp-50040",
       "access": 83,
@@ -11451,14 +13935,14 @@
     {
       "field": "teyvat:50046",
       "stage": "fon-wp-50046",
-      "access": 85,
+      "access": 83,
       "recommended": 86,
       "safe": false
     },
     {
       "field": "teyvat:50047",
       "stage": "fon-wp-50047",
-      "access": 86,
+      "access": 82,
       "recommended": 84,
       "safe": true
     },
@@ -12725,7 +15209,7 @@
     {
       "field": "teyvat:79054",
       "stage": "nat-wp-79054",
-      "access": 109,
+      "access": 108,
       "recommended": 114,
       "safe": false
     },
@@ -12753,7 +15237,7 @@
     {
       "field": "teyvat:79058",
       "stage": "nat-wp-79058",
-      "access": 109,
+      "access": 107,
       "recommended": 116,
       "safe": false
     },
@@ -13642,7 +16126,7 @@
     {
       "field": "teyvat:92866",
       "stage": "nod-wp-92866",
-      "access": 134,
+      "access": 133,
       "recommended": 138,
       "safe": false
     },
@@ -14109,5 +16593,728 @@
       "access": 160
     }
   ],
-  "scope": "Source entrances and lab layouts are tracked separately. Level recommendations do not override quest gates."
+  "scope": "Source entrances and lab layouts are tracked separately. Level recommendations do not override quest gates.",
+  "removed_editor_routes": [
+    {
+      "id": "WORLD2-E-teyvat_343--teyvat_100",
+      "fields": [
+        "teyvat:343",
+        "teyvat:100"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_52--teyvat_34",
+      "fields": [
+        "teyvat:52",
+        "teyvat:34"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_30--teyvat_50",
+      "fields": [
+        "teyvat:30",
+        "teyvat:50"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_36--teyvat_38",
+      "fields": [
+        "teyvat:36",
+        "teyvat:38"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_110--teyvat_101",
+      "fields": [
+        "teyvat:110",
+        "teyvat:101"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106--teyvat_105",
+      "fields": [
+        "teyvat:106",
+        "teyvat:105"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_343--teyvat_7190",
+      "fields": [
+        "teyvat:343",
+        "teyvat:7190"
+      ],
+      "mode": "field_approach"
+    },
+    {
+      "id": "WORLD2-E-teyvat_13652--teyvat_13669",
+      "fields": [
+        "teyvat:13652",
+        "teyvat:13669"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-teyvat_13652--teyvat_16014",
+      "fields": [
+        "teyvat:13652",
+        "teyvat:16014"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-teyvat_28733--teyvat_28700",
+      "fields": [
+        "teyvat:28733",
+        "teyvat:28700"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_28749--teyvat_28750",
+      "fields": [
+        "teyvat:28749",
+        "teyvat:28750"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_28724--teyvat_28719",
+      "fields": [
+        "teyvat:28724",
+        "teyvat:28719"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_28715--teyvat_28716",
+      "fields": [
+        "teyvat:28715",
+        "teyvat:28716"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_28716--teyvat_36674",
+      "fields": [
+        "teyvat:28716",
+        "teyvat:36674"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_36683--teyvat_36698",
+      "fields": [
+        "teyvat:36683",
+        "teyvat:36698"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_36680--teyvat_36679",
+      "fields": [
+        "teyvat:36680",
+        "teyvat:36679"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_41828--teyvat_41827",
+      "fields": [
+        "teyvat:41828",
+        "teyvat:41827"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_41826--teyvat_41829",
+      "fields": [
+        "teyvat:41826",
+        "teyvat:41829"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_41829--teyvat_46515",
+      "fields": [
+        "teyvat:41829",
+        "teyvat:46515"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_28726--teyvat_28755",
+      "fields": [
+        "teyvat:28726",
+        "teyvat:28755"
+      ],
+      "mode": "field_approach"
+    },
+    {
+      "id": "WORLD2-E-teyvat_36691--teyvat_36704",
+      "fields": [
+        "teyvat:36691",
+        "teyvat:36704"
+      ],
+      "mode": "field_approach"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50035--teyvat_50036",
+      "fields": [
+        "teyvat:50035",
+        "teyvat:50036"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50036--teyvat_50037",
+      "fields": [
+        "teyvat:50036",
+        "teyvat:50037"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50039--teyvat_50040",
+      "fields": [
+        "teyvat:50039",
+        "teyvat:50040"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50050--teyvat_50053",
+      "fields": [
+        "teyvat:50050",
+        "teyvat:50053"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50050--teyvat_50056",
+      "fields": [
+        "teyvat:50050",
+        "teyvat:50056"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_53854--teyvat_53855",
+      "fields": [
+        "teyvat:53854",
+        "teyvat:53855"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_53849--teyvat_53852",
+      "fields": [
+        "teyvat:53849",
+        "teyvat:53852"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_68340--teyvat_68341",
+      "fields": [
+        "teyvat:68340",
+        "teyvat:68341"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50050--teyvat_50047",
+      "fields": [
+        "teyvat:50050",
+        "teyvat:50047"
+      ],
+      "mode": "aquabus"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50033--teyvat_50035",
+      "fields": [
+        "teyvat:50033",
+        "teyvat:50035"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50033--teyvat_68339",
+      "fields": [
+        "teyvat:50033",
+        "teyvat:68339"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50038--teyvat_50043",
+      "fields": [
+        "teyvat:50038",
+        "teyvat:50043"
+      ],
+      "mode": "field_approach"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50044--teyvat_52029",
+      "fields": [
+        "teyvat:50044",
+        "teyvat:52029"
+      ],
+      "mode": "cave"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72761--teyvat_72413",
+      "fields": [
+        "teyvat:72761",
+        "teyvat:72413"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72439--teyvat_72441",
+      "fields": [
+        "teyvat:72439",
+        "teyvat:72441"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72431--teyvat_72430",
+      "fields": [
+        "teyvat:72431",
+        "teyvat:72430"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72438--teyvat_72414",
+      "fields": [
+        "teyvat:72438",
+        "teyvat:72414"
+      ],
+      "mode": "terrace_road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72435--teyvat_72760",
+      "fields": [
+        "teyvat:72435",
+        "teyvat:72760"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72428--teyvat_72759",
+      "fields": [
+        "teyvat:72428",
+        "teyvat:72759"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72418--teyvat_77772",
+      "fields": [
+        "teyvat:72418",
+        "teyvat:77772"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72431--teyvat_72432",
+      "fields": [
+        "teyvat:72431",
+        "teyvat:72432"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72429--teyvat_79050",
+      "fields": [
+        "teyvat:72429",
+        "teyvat:79050"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_79051--teyvat_82575",
+      "fields": [
+        "teyvat:79051",
+        "teyvat:82575"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_82572--teyvat_82559",
+      "fields": [
+        "teyvat:82572",
+        "teyvat:82559"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72419--teyvat_85958",
+      "fields": [
+        "teyvat:72419",
+        "teyvat:85958"
+      ],
+      "mode": "coastal_ferry"
+    },
+    {
+      "id": "WORLD2-E-teyvat_88128--teyvat_88144",
+      "fields": [
+        "teyvat:88128",
+        "teyvat:88144"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_88152--teyvat_88177",
+      "fields": [
+        "teyvat:88152",
+        "teyvat:88177"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_88143--teyvat_88130",
+      "fields": [
+        "teyvat:88143",
+        "teyvat:88130"
+      ],
+      "mode": "coastal_ferry"
+    },
+    {
+      "id": "WORLD2-E-teyvat_88153--teyvat_88157",
+      "fields": [
+        "teyvat:88153",
+        "teyvat:88157"
+      ],
+      "mode": "coastal_ferry"
+    },
+    {
+      "id": "WORLD2-E-teyvat_88144--teyvat_88122",
+      "fields": [
+        "teyvat:88144",
+        "teyvat:88122"
+      ],
+      "mode": "field_approach"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100669--teyvat_100695",
+      "fields": [
+        "teyvat:100669",
+        "teyvat:100695"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100695--teyvat_100672",
+      "fields": [
+        "teyvat:100695",
+        "teyvat:100672"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100652--teyvat_100683",
+      "fields": [
+        "teyvat:100652",
+        "teyvat:100683"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100668--teyvat_100699",
+      "fields": [
+        "teyvat:100668",
+        "teyvat:100699"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100654--teyvat_100655",
+      "fields": [
+        "teyvat:100654",
+        "teyvat:100655"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106181--teyvat_106209",
+      "fields": [
+        "teyvat:106181",
+        "teyvat:106209"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106181--teyvat_106208",
+      "fields": [
+        "teyvat:106181",
+        "teyvat:106208"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100695--teyvat_100707",
+      "fields": [
+        "teyvat:100695",
+        "teyvat:100707"
+      ],
+      "mode": "field_approach"
+    },
+    {
+      "id": "WORLD2-E-teyvat_64828--teyvat_64849",
+      "fields": [
+        "teyvat:64828",
+        "teyvat:64849"
+      ],
+      "mode": "special_gate"
+    },
+    {
+      "id": "WORLD2-E-map7_21582--map7_21583",
+      "fields": [
+        "map7:21582",
+        "map7:21583"
+      ],
+      "mode": "phase_gate"
+    },
+    {
+      "id": "WORLD2-E-teyvat_79544--teyvat_79060",
+      "fields": [
+        "teyvat:79544",
+        "teyvat:79060"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106185--teyvat_106191",
+      "fields": [
+        "teyvat:106185",
+        "teyvat:106191"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106187--teyvat_106193",
+      "fields": [
+        "teyvat:106187",
+        "teyvat:106193"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106193--teyvat_106188",
+      "fields": [
+        "teyvat:106193",
+        "teyvat:106188"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106201--teyvat_106190",
+      "fields": [
+        "teyvat:106201",
+        "teyvat:106190"
+      ],
+      "mode": "cave"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106200--teyvat_106203",
+      "fields": [
+        "teyvat:106200",
+        "teyvat:106203"
+      ],
+      "mode": "cave"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106203--teyvat_106204",
+      "fields": [
+        "teyvat:106203",
+        "teyvat:106204"
+      ],
+      "mode": "cave"
+    },
+    {
+      "id": "WORLD2-E-map9_25270--map9_26463",
+      "fields": [
+        "map9:25270",
+        "map9:26463"
+      ],
+      "mode": "mine_shaft"
+    },
+    {
+      "id": "WORLD2-E-map9_25276--map9_25274",
+      "fields": [
+        "map9:25276",
+        "map9:25274"
+      ],
+      "mode": "mine_shaft"
+    },
+    {
+      "id": "WORLD2-E-map9_25264--map9_25271",
+      "fields": [
+        "map9:25264",
+        "map9:25271"
+      ],
+      "mode": "cave"
+    },
+    {
+      "id": "WORLD2-E-map36_84113--map36_84107",
+      "fields": [
+        "map36:84113",
+        "map36:84107"
+      ],
+      "mode": "cave"
+    },
+    {
+      "id": "WORLD2-E-map40_99290--map40_99283",
+      "fields": [
+        "map40:99290",
+        "map40:99283"
+      ],
+      "mode": "high_speed_transfer"
+    },
+    {
+      "id": "WORLD2-E-map40_99289--map40_99292",
+      "fields": [
+        "map40:99289",
+        "map40:99292"
+      ],
+      "mode": "high_speed_transfer"
+    },
+    {
+      "id": "WORLD2-E-map40_99288--map40_99309",
+      "fields": [
+        "map40:99288",
+        "map40:99309"
+      ],
+      "mode": "high_speed_transfer"
+    },
+    {
+      "id": "WORLD2-E-teyvat_116--teyvat_29",
+      "fields": [
+        "teyvat:116",
+        "teyvat:29"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_6599--teyvat_34",
+      "fields": [
+        "teyvat:6599",
+        "teyvat:34"
+      ],
+      "mode": "mountain_pass"
+    },
+    {
+      "id": "WORLD2-E-teyvat_64837--teyvat_55766",
+      "fields": [
+        "teyvat:64837",
+        "teyvat:55766"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-teyvat_36692--teyvat_72412",
+      "fields": [
+        "teyvat:36692",
+        "teyvat:72412"
+      ],
+      "mode": "mountain_pass"
+    },
+    {
+      "id": "WORLD2-E-teyvat_85958--teyvat_88143",
+      "fields": [
+        "teyvat:85958",
+        "teyvat:88143"
+      ],
+      "mode": "coastal_ferry"
+    },
+    {
+      "id": "WORLD2-E-teyvat_92892--teyvat_100646",
+      "fields": [
+        "teyvat:92892",
+        "teyvat:100646"
+      ],
+      "mode": "mountain_pass"
+    },
+    {
+      "id": "WORLD2-E-teyvat_31--teyvat_64825",
+      "fields": [
+        "teyvat:31",
+        "teyvat:64825"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_100680--teyvat_106182",
+      "fields": [
+        "teyvat:100680",
+        "teyvat:106182"
+      ],
+      "mode": "rail"
+    },
+    {
+      "id": "WORLD2-E-teyvat_106188--teyvat_106181",
+      "fields": [
+        "teyvat:106188",
+        "teyvat:106181"
+      ],
+      "mode": "rail"
+    },
+    {
+      "id": "WORLD2-E-teyvat_36680--teyvat_36691",
+      "fields": [
+        "teyvat:36680",
+        "teyvat:36691"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_72437--teyvat_72445",
+      "fields": [
+        "teyvat:72437",
+        "teyvat:72445"
+      ],
+      "mode": "road"
+    },
+    {
+      "id": "WORLD2-E-teyvat_50033--teyvat_50046",
+      "fields": [
+        "teyvat:50033",
+        "teyvat:50046"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "MONROUTE-E-14-19",
+      "fields": [
+        "teyvat:14",
+        "teyvat:19"
+      ],
+      "mode": "trail"
+    },
+    {
+      "id": "MONROUTE-E-6540-6594",
+      "fields": [
+        "teyvat:6594",
+        "teyvat:6540"
+      ],
+      "mode": "trail"
+    },
+    {
+      "id": "MONROUTE-E-6537-6601",
+      "fields": [
+        "teyvat:6601",
+        "teyvat:6537"
+      ],
+      "mode": "slope"
+    }
+  ],
+  "editor_revision": 1
 }

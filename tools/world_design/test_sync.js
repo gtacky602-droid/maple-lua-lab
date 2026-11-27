@@ -166,13 +166,16 @@ test('CLI export, check, explicit apply, import and stale detection', t => {
   const run = (command, filename) => spawnSync(process.execPath, [
     path.join(temp, 'tools/world_design/transfer.js'), command, filename
   ], { cwd: temp, encoding: 'utf8' });
+  const anchor = { ...snapshot, editor_revision: 0, history: [], placement_overrides: {} };
+  fs.writeFileSync(path.join(temp, 'design/world/editor-snapshot.json'), JSON.stringify(anchor));
   const input = { schema: sync.proposalSchema, review_status: 'draft',
     base_revision_snapshot: snapshot.data.revision_snapshot, base_project_blob_sha: snapshot.data.canonical_sha,
-    base_editor_revision: snapshot.editor_revision, reviewed_at: '2026-11-19T00:00:00Z', operations: [change] };
+    base_editor_revision: anchor.editor_revision, reviewed_at: '2026-11-19T00:00:00Z', operations: [change] };
   fs.writeFileSync(proposal, JSON.stringify(input));
   assert.equal(run('check', proposal).status, 0);
   assert.equal(run('apply', proposal).status, 1);
   fs.writeFileSync(proposal, JSON.stringify({ ...input, review_status: 'reviewed_proposal' }));
+  assert.equal(run('apply-routes', proposal).status, 1);
   assert.equal(run('apply', proposal).status, 0);
   assert.equal(run('export', exportPath).status, 0);
   const reopened = JSON.parse(fs.readFileSync(exportPath));
@@ -183,4 +186,15 @@ test('CLI export, check, explicit apply, import and stale detection', t => {
   const stale = run('check', proposal);
   assert.equal(stale.status, 1);
   assert.equal(JSON.parse(stale.stdout).conflicts[0].reason, 'stale_base');
+
+  const before = anchor.data.edges[0];
+  const deletion = { type: 'edge_delete', id: before.id, before };
+  fs.writeFileSync(proposal, JSON.stringify({ ...input, review_status: 'reviewed_proposal',
+    base_editor_revision: reopened.editor_revision, operations: [deletion] }));
+  assert.equal(run('apply', proposal).status, 1);
+  assert.equal(run('apply-routes', proposal).status, 0);
+  const adopted = JSON.parse(fs.readFileSync(path.join(temp, 'design/world/editor-snapshot.json')));
+  assert.equal(sync.validSnapshot(adopted, anchor.data, [row]), true);
+  assert.equal(adopted.history.at(-1).route_adoption, true);
+  assert.deepEqual(adopted.data.edges, anchor.data.edges.slice(1));
 });
