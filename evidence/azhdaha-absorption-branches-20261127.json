@@ -356,5 +356,51 @@
       "atk": 47,
       "returns": 0
     }
+  },
+  "localCoopRegression": {
+    "lua": {
+      "participants": 4,
+      "sharedAbsorptionAndTail": true,
+      "headAndFissureOneHitPerActor": true,
+      "shieldBreakPreventsMark": true,
+      "shieldCleansesOnlyOwner": true,
+      "swapKeepsMarkOnOriginalActor": true,
+      "sevenMarkPulsesWithinEightSeconds": true,
+      "tailSingleHitboxAndCleanup": true,
+      "roomDeathClock": true,
+      "respawnKeepsPair": true,
+      "soloContactsPreservedOnAdoption": true
+    },
+    "http": {
+      "participants": 3,
+      "pairSelectionPreservedOnJoin": true,
+      "separatePairWorlds": true,
+      "distinctRankWithSamePair": true,
+      "emptyInfusionPreserved": true,
+      "individualRewardsAndQuest": true
+    }
+  },
+  "liveChromeSolo": {
+    "entry": true,
+    "chosenPair": [
+      "hydro",
+      "electro"
+    ],
+    "bothAbsorptionsAndTargetableTail": true,
+    "normalKeyBattleAndReport": true,
+    "savedRespawn": true,
+    "remainingHp": 735,
+    "viewport390": true,
+    "scene": {
+      "key": "liyueSealedCavern",
+      "file": "li-sealed-cavern-background-v1.png",
+      "state": "ready"
+    },
+    "sameStateCommands": {
+      "png": 68,
+      "standard": 22153,
+      "light": 6325
+    },
+    "errors": []
   }
 }
