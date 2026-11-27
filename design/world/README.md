@@ -41,12 +41,15 @@
 
 ```sh
 node tools/world_design/transfer.js check ~/Downloads/teyvat-field-studio-changes.json
+node tools/world_design/transfer.js routes ~/Downloads/teyvat-field-studio-changes.json
 node tools/world_design/transfer.js apply ~/Downloads/teyvat-field-studio-changes.json
 node tools/world_design/transfer.js export /tmp/teyvat-editor-snapshot.json
 python tools/world_design/validate.py
 ```
 
 `check` は照合のみ、`apply` は確認済み提案を設計スナップショットと採用履歴に反映する。配置案のLv帯・出現数上限を検査する。GitHubへ送る差分はスナップショットだけでよい。ブラウザ履歴・地形の校正メタデータはエクスポートに残るので、共有する際は内容を確認する。入力に競合があればファイルへ書き込まない。既存のローカル編集プロジェクトのblobが変わった場合は、先に新旧の設計を照合する。
+
+`routes` は、確認済み差分に含まれる接続の追加・変更・削除を読み取り専用で照合する。地図の両端に対応するステージ、往路・帰路の門と通行条件、記録済みの迂回路を表示する。地図座標のない区画、紐づけが未設定のステージ、ナド・クライ特別地域（仮）はそれぞれ区別できる。記録された経路に現在のステージ間接続が欠けていれば `missing_hops` に表示する。
 
 ## 復元元
 

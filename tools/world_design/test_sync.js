@@ -7,6 +7,7 @@ const path = require('node:path');
 const os = require('node:os');
 const { spawnSync } = require('node:child_process');
 const sync = require('./sync.js');
+const { inspectRoutes } = require('./inspect_routes.js');
 
 const root = path.resolve(__dirname, '../..');
 const snapshot = require('../../design/world/editor-snapshot.json');
@@ -37,6 +38,71 @@ test('coordinates, IDs and deletes require separate decisions', () => {
     state, { protectDeletion: true });
   assert.equal(result.conflicts[0].reason, 'deletion_requires_separate_review');
   assert.deepEqual(state.edge.get(edge.id), edge);
+});
+
+test('route inspection resolves conditional gates and a suspended region without modifying the snapshot', t => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'maple-route-inspect-'));
+  const inputPath = path.join(temp, 'routes.json');
+  t.after(() => { fs.unlinkSync(inputPath); fs.rmdirSync(temp); });
+  const snapshotPath = path.join(root, 'design/world/editor-snapshot.json');
+  const snapshotBefore = fs.readFileSync(snapshotPath);
+  const edge = snapshot.data.edges.find(row => row.id === 'WORLD2-E-map7_21577--map7_21593');
+  const retired = snapshot.data.edges.find(row => row.id === 'WORLD2-E-slot_NSP-01--slot_NSP-02');
+  const additions = ['teyvat:104', 'teyvat:57'];
+  const add = {
+    id: 'SITE-EDGE:' + additions.join(':'), a: additions[0], b: additions[1],
+    mode: 'road', note: '経路の取込テスト', source: 'sites-draft', status: 'proposed'
+  };
+  const operations = [
+    { type: 'edge_delete', id: edge.id, before: edge },
+    { type: 'edge_edit', id: retired.id, changes: {mode: {before: retired.mode, after: 'special_gate'}} },
+    { type: 'edge_add', id: add.id, data: add }
+  ];
+  const proposal = {
+    schema: sync.proposalSchema, review_status: 'reviewed_proposal',
+    base_revision_snapshot: snapshot.data.revision_snapshot, base_project_blob_sha: snapshot.data.canonical_sha,
+    base_editor_revision: snapshot.editor_revision, reviewed_at: '2026-11-27T00:00:00Z', operations
+  };
+  const run = command => spawnSync(process.execPath, [
+    path.join(root, 'tools/world_design/transfer.js'), command, inputPath
+  ], { cwd: root, encoding: 'utf8' });
+  fs.writeFileSync(inputPath, JSON.stringify(proposal));
+  const checked = run('routes');
+  assert.equal(checked.status, 0, checked.stderr || checked.stdout);
+  const [removed, suspended, added] = JSON.parse(checked.stdout).routes;
+  assert.equal(removed.scope, 'map_linked');
+  assert.equal(removed.after, null);
+  assert.equal(removed.direct.forward[0].requires.quest, 'ina-mapped-enkan-beacons');
+  assert.equal(removed.direct.return[0].requires, undefined);
+  assert.deepEqual(removed.recorded_route.paths.forward.missing_hops, []);
+  assert.equal(suspended.scope, 'suspended_region');
+  assert.equal(suspended.after.mode, 'special_gate');
+  assert.equal(added.before, null);
+  assert.equal(added.after.id, add.id);
+
+  fs.writeFileSync(inputPath, JSON.stringify({ ...proposal, base_editor_revision: snapshot.editor_revision + 1 }));
+  const stale = run('routes');
+  assert.equal(stale.status, 1);
+  assert.deepEqual(JSON.parse(stale.stdout).routes, []);
+  assert.deepEqual(fs.readFileSync(snapshotPath), snapshotBefore);
+});
+
+test('route inspection aligns recorded paths with the proposal endpoints', () => {
+  const edge = snapshot.data.edges.find(row => row.id === 'WORLD2-E-map7_21577--map7_21593');
+  const graph = require('../../content/story-graph.json');
+  const state = sync.buildState(snapshot);
+  const plan = {sites_only_route_review: [{
+    fields: [edge.b, edge.a], finding: 'implemented_as_lab_route',
+    runtime_paths: {
+      forward: ['enkan-wp-21593', 'enkan-wp-21577'],
+      return: ['enkan-wp-21577', 'missing-stage', 'enkan-wp-21593']
+    }
+  }]};
+  const [result] = inspectRoutes([{ type: 'edge_delete', id: edge.id, before: edge }], state, graph, plan);
+  assert.deepEqual(result.recorded_route.paths.return.missing_hops, []);
+  assert.deepEqual(result.recorded_route.paths.forward.missing_hops, [
+    ['enkan-wp-21577', 'missing-stage'], ['missing-stage', 'enkan-wp-21593']
+  ]);
 });
 
 test('CLI export, check, explicit apply, import and stale detection', t => {
