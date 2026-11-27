@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "raiden_flower_branches": {"expertReplays":3,"attackableCollapseTicks":480,"browserComparisonScenes":21,"matchedExpandedRectangleStreams":42,"record":"evidence/raiden-flower-branches-20261128.json"},
   "andrius_awakened_replay": {"expertWins":1,"movesObserved":11,"comparedScenes":9,"matchedExpandedRectangleStreams":18,"h48c32PackedJsonBytes":2639798,"h32c16PackedJsonBytes":1145552,"record":"evidence/andrius-awakened-replay-20261128.json"},
   "azhdaha_absorption_replays": {"expertPairs":4,"runtimeMoveVariantsCompleted":19,"browserComparisonScenes":20,"matchedExpandedRectangleSequences":40,"record":"evidence/azhdaha-absorption-branches-20261127.json"},
   "standard_weekly_art_profiles": {"scenes":27,"profilesCompared":3,"matchingExpandedRectangleSequences":54,"h48c32PackedJsonBytes":16653818,"h32c16PackedJsonBytes":7103222,"record":"evidence/standard-weekly-art-profiles-20261127.json"},

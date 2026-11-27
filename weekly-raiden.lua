@@ -304,11 +304,14 @@ return function(C)
     elseif id=='WR06' then
      area(s,w,spec,c,i,{lo=156,hi=804,y=y,h=57})
     elseif id=='WR15' and t==win[1] then
+     c.slashResults={}
      for _,a in ipairs(s.actors) do
+      local before=a.hp
       local protected=c.charges==spec.objects.flowerHits and inDome(a,c.location,spec)
       if protected then
        ownLog(s.actorOwners and s.actorOwners[a] or s,w,'WR15:protected',a.id)
       else deal(s,w,spec,c,i,a,spec.center) end
+      if before>0 then c.slashResults[a]=protected and 'protected' or a.hp<before and 'hit' or 'unharmed' end
      end
      w.armor=math.max(0,w.armor-spec.armor.slashDrain)
      log(s,w,'WR15:drain',0,spec.armor.slashDrain)
@@ -447,9 +450,11 @@ return function(C)
   b.raidenMeter={name=armorMeter and '装甲' or '凶運',value=armorMeter and w.armor or w.omen}
   b.down=stage=='collapse' and math.max(0,spec.moves.WR16.total-math.max(spec.moves.WR16.recovery,w.stageTick)) or nil
   if c and (c.id=='WR14' or c.id=='WR15') then
+   local active=actor(s)
    b.flower={x=c.location,value=c.charges or 0,max=spec.objects.flowerHits,limit=c.id=='WR14' and math.max(0,spec.objects.flowerLockout-c.t) or 0,
      ready=c.opened~=nil and c.t<spec.objects.flowerLockout,
-     protected=c.charges==spec.objects.flowerHits and (c.id=='WR14' or c.t<spec.objects.flowerProtectUntil)}
+     protected=c.charges==spec.objects.flowerHits and (c.id=='WR14' or c.t<spec.objects.flowerProtectUntil),
+     inside=inDome(active,c.location,spec),slashResult=c.slashResults and c.slashResults[active]}
   end
   if e.hp<=0 then return end
   local function rect(x,y,wid,h,color)
@@ -530,6 +535,7 @@ return function(C)
      local angle=math.pi*i/24
      rect(x+r*math.cos(angle)-5,y-126*math.sin(angle)-6,10,7,'#b6f6eb')
     end
+    label(x,y-145,'花蕊の保護域','#b6f6eb')
    end
    if c.id=='WR15' and c.t<90 then
     for i=1,34 do rect(930-i*23,60+i*10,23,11,c.t>=60 and pale or dark) end
