@@ -151,15 +151,19 @@ return function(C,G)
  function M.trialProgress(c,s)
   return c.pickupsByMember and c.pickupsByMember[s.coopMember] or c
  end
- local function collect(s,run,c)
-  local a=s.actors[s.active]
-  if a.hp<=0 or s.auto then return end
+ local function memberProgress(c,s)
   local personal=M.trialProgress(c,s)
   if c.pickupsByMember and personal==c then
    personal={collected=0,pickups={}}
    for i,p in ipairs(c.pickups) do personal.pickups[i]={id=p.id,x=p.x,y=p.y,sole=p.sole} end
    c.pickupsByMember[s.coopMember]=personal
   end
+  return personal
+ end
+ local function collect(s,run,c)
+  local a=s.actors[s.active]
+  if a.hp<=0 or s.auto then return end
+  local personal=memberProgress(c,s)
   for _,p in ipairs(personal.pickups) do
    if not p.owner and math.abs(a.x-p.x)<=24 and a.y>=p.y and a.y-68<=p.y then
     p.owner=s.coopMember and s.coopMember.id or 1
@@ -176,9 +180,9 @@ return function(C,G)
  local function finalBurst(s,run,c,w)
   local anyProtected=false
   for _,party in ipairs(run.parties or {s}) do
-   local personal=M.trialProgress(c,party)
+   local personal=memberProgress(c,party)
    local protected=personal.collected==3
-   if personal~=c then personal.protected=protected end
+   personal.protected,personal.burstDamage=protected,{}
    if protected then
     anyProtected=true
     if c.path==2 and run.parties then party.endgameRun.mechanicContribution=true end
@@ -186,9 +190,11 @@ return function(C,G)
    for _,a in ipairs(party.actors) do
     if a.hp>0 then
      if protected then
+      personal.burstDamage[a.id]=0
       M.log(party,run,c,'protected',a.id,1,w.index)
      else
       local n=C.damageActor(party,a,math.floor(run.spec.damage.collapse*run.rules.damageScale+.5),run.boss,false,true)
+      personal.burstDamage[a.id]=n
       M.log(party,run,c,'collapse',a.id,n,w.index)
      end
     end

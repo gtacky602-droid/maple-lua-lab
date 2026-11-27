@@ -121,6 +121,9 @@ def play(url):
             for i, party in enumerate((s, t)):
                 frame = view(party)
                 assert bool(frame.get('protected')) == (party is winner)
+                assert frame['trialResult'] == {
+                    'protected': party is winner, 'damage': before[i] - party.actors[1].hp,
+                }
                 if party is winner:
                     assert party.actors[1].hp == before[i]
                 else:

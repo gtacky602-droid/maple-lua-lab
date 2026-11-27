@@ -1,0 +1,527 @@
+{
+  "baseCommit": "9e47b9368b23b83449237777c489be950797af88",
+  "method": "Extreme rematches from the same earned Lv200 save through ordinary controls with companion attacks held. Both routes miss the first lamp, fire the next two as the outline turns red, and jump to the central shelf in both trials. One route collects all three lights each time; the other collects two and moves off the shelf after collection closes. Both land a normal attack in each trial opening, clear and restore the repeat reward record.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "rerir",
+      "case": "rerir-protected",
+      "label": "淡金の光を3つ回収",
+      "ticks": 12177,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stageOrder": [
+        1,
+        2
+      ],
+      "fog": {
+        "1": {
+          "wardBefore": 2,
+          "exposedTicks": 0,
+          "inputTick": 43,
+          "wardAfter": 2,
+          "accepted": false
+        },
+        "2": {
+          "wardBefore": 2,
+          "exposedTicks": 90,
+          "inputTick": 84,
+          "wardAfter": 1,
+          "accepted": true
+        },
+        "3": {
+          "wardBefore": 1,
+          "exposedTicks": 180,
+          "inputTick": 84,
+          "wardAfter": 0,
+          "accepted": true
+        }
+      },
+      "trials": {
+        "1": {
+          "pickups": [
+            {
+              "id": 1,
+              "tick": 213,
+              "x": 238.5,
+              "y": 480
+            },
+            {
+              "id": 2,
+              "tick": 290,
+              "x": 473.0,
+              "y": 351.0833333333333
+            },
+            {
+              "id": 3,
+              "tick": 361,
+              "x": 721.5,
+              "y": 480
+            }
+          ],
+          "recoveryTicks": 180,
+          "damageDealt": 52,
+          "collected": 3,
+          "burstTick": 1008,
+          "damage": 0
+        },
+        "2": {
+          "pickups": [
+            {
+              "id": 1,
+              "tick": 120,
+              "x": 732.0,
+              "y": 480
+            },
+            {
+              "id": 2,
+              "tick": 200,
+              "x": 487.0,
+              "y": 351.0833333333333
+            },
+            {
+              "id": 3,
+              "tick": 271,
+              "x": 238.5,
+              "y": 480
+            }
+          ],
+          "recoveryTicks": 240,
+          "damageDealt": 52,
+          "collected": 3,
+          "burstTick": 1008,
+          "damage": 0
+        }
+      },
+      "reward": {
+        "set": "黄金の劇団",
+        "first": false,
+        "bag": true,
+        "mora": 34800,
+        "rank": 5,
+        "xp": 71653572
+      },
+      "extremeClears": [
+        1,
+        2
+      ],
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      }
+    },
+    {
+      "controller": "rerir",
+      "case": "rerir-short",
+      "label": "淡金の光を2つ回収",
+      "ticks": 12033,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stageOrder": [
+        1,
+        2
+      ],
+      "fog": {
+        "1": {
+          "wardBefore": 2,
+          "exposedTicks": 0,
+          "inputTick": 43,
+          "wardAfter": 2,
+          "accepted": false
+        },
+        "2": {
+          "wardBefore": 2,
+          "exposedTicks": 90,
+          "inputTick": 84,
+          "wardAfter": 1,
+          "accepted": true
+        },
+        "3": {
+          "wardBefore": 1,
+          "exposedTicks": 180,
+          "inputTick": 84,
+          "wardAfter": 0,
+          "accepted": true
+        }
+      },
+      "trials": {
+        "1": {
+          "pickups": [
+            {
+              "id": 1,
+              "tick": 213,
+              "x": 238.5,
+              "y": 480
+            },
+            {
+              "id": 2,
+              "tick": 290,
+              "x": 473.0,
+              "y": 351.0833333333333
+            }
+          ],
+          "recoveryTicks": 180,
+          "damageDealt": 52,
+          "collected": 2,
+          "burstTick": 1008,
+          "damage": 82
+        },
+        "2": {
+          "pickups": [
+            {
+              "id": 1,
+              "tick": 178,
+              "x": 721.5,
+              "y": 480
+            },
+            {
+              "id": 2,
+              "tick": 255,
+              "x": 487.0,
+              "y": 351.0833333333333
+            }
+          ],
+          "recoveryTicks": 96,
+          "damageDealt": 52,
+          "collected": 2,
+          "burstTick": 1008,
+          "damage": 82
+        }
+      },
+      "reward": {
+        "mora": 34800,
+        "bag": true,
+        "rank": 5,
+        "xp": 71653572,
+        "first": false,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ],
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      }
+    }
+  ],
+  "comparisonScenes": 24,
+  "profiles": {
+    "h48c32": {
+      "beforeBytes": 9913160,
+      "afterBytes": 2796967,
+      "matchedCommands": 24,
+      "matchedChromeCanvases": 24,
+      "reductionPercent": 71.79
+    },
+    "h32c16": {
+      "beforeBytes": 3539236,
+      "afterBytes": 1254861,
+      "matchedCommands": 24,
+      "matchedChromeCanvases": 24,
+      "reductionPercent": 64.54
+    }
+  },
+  "chromeVersion": "158.0.8127.38",
+  "luaRegression": {
+    "cards": [
+      "RR01",
+      "RR02",
+      "RR03",
+      "RR04",
+      "RR05",
+      "RR06",
+      "RR07",
+      "RR08",
+      "RR09",
+      "RR10",
+      "RR11",
+      "RR12",
+      "RR13"
+    ],
+    "rounds": [
+      2180,
+      2470
+    ],
+    "missed_and_early_lamp_retry": true,
+    "ward_recovery": [
+      90,
+      180
+    ],
+    "first_slam_bolts": [
+      240,
+      246,
+      252,
+      258
+    ],
+    "between_trials": [
+      "RR06",
+      "RR07"
+    ],
+    "trial_bursts_at": 1008,
+    "last_trial_recovery": {
+      "protected": 240,
+      "missed": 96
+    },
+    "pickup_progress_after_swap": true,
+    "finite_damage_on_failure": true,
+    "second_act_kill_precedes_queued_trials": true,
+    "first_act_has_no_clear_or_reward": true,
+    "quest_rewards_and_save": true
+  },
+  "coopRegression": {
+    "players": 2,
+    "hpByAct": [
+      2180,
+      2470
+    ],
+    "lampsDeduplicated": true,
+    "interludeWithoutRewards": true,
+    "offlinePartyEffectsResetAtPhaseChange": true,
+    "independentOrbsAndProtection": true,
+    "recoveryEndWithOneSuccess": 1320,
+    "recoveryEndWithNoSuccess": 1176,
+    "supportOnlyRewarded": true,
+    "personalQuest": true,
+    "rewards": [
+      {
+        "set": "黄金の劇団",
+        "xp": 2023305,
+        "bag": true,
+        "first": true,
+        "mora": 22300,
+        "rank": 4
+      },
+      {
+        "set": "剣闘士のフィナーレ",
+        "xp": 2023305,
+        "bag": true,
+        "first": true,
+        "mora": 22300,
+        "rank": 4
+      }
+    ],
+    "repeatReward": {
+      "set": "黄金の劇団",
+      "xp": 1773239,
+      "bag": true,
+      "first": false,
+      "mora": 12500,
+      "rank": 4
+    },
+    "savedClears": 2
+  },
+  "browserRoutes": {
+    "protected": {
+      "background": {
+        "key": "mistHunt",
+        "file": "false-moon-rift-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2
+        ],
+        "lamps": [
+          1,
+          0
+        ],
+        "air": [
+          1,
+          2
+        ],
+        "pickups": {
+          "1": {
+            "count": 3,
+            "high": true,
+            "jumps": 1
+          },
+          "2": {
+            "count": 3,
+            "high": true,
+            "jumps": 1
+          }
+        },
+        "bursts": {
+          "1": {
+            "protected": true,
+            "damage": 0
+          },
+          "2": {
+            "protected": true,
+            "damage": 0
+          }
+        },
+        "endGauges": {
+          "1": 2180,
+          "2": 2470
+        },
+        "firstMiss": true,
+        "arts": [
+          "rerir-idle-left-source-v1.png",
+          "rerir-idle-right-source-v1.png"
+        ],
+        "interlude": true,
+        "secondResolved": true
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "target": 3,
+      "resultText": "第2局面 ｜ 光 3 / 3 ｜ 最終衝撃を防いだ",
+      "commands": {
+        "png": 144,
+        "standard": 8464,
+        "light": 2262
+      },
+      "transfer": {
+        "plainDraws": 2262,
+        "packedDraws": 144,
+        "plainGzip": 41381,
+        "packedGzip": 34967,
+        "identicalCanvas": true
+      },
+      "errors": []
+    },
+    "short": {
+      "background": {
+        "key": "mistHunt",
+        "file": "false-moon-rift-background-v1.png",
+        "state": "ready"
+      },
+      "normalClear": true,
+      "trail": {
+        "stages": [
+          1,
+          2
+        ],
+        "lamps": [
+          1,
+          0
+        ],
+        "air": [
+          1,
+          2
+        ],
+        "pickups": {
+          "1": {
+            "count": 2,
+            "high": true,
+            "jumps": 1
+          },
+          "2": {
+            "count": 2,
+            "high": true,
+            "jumps": 1
+          }
+        },
+        "bursts": {
+          "1": {
+            "damage": 56,
+            "protected": false
+          },
+          "2": {
+            "damage": 56,
+            "protected": false
+          }
+        },
+        "endGauges": {
+          "1": 2180,
+          "2": 2470
+        },
+        "firstMiss": true,
+        "arts": [
+          "rerir-idle-left-source-v1.png",
+          "rerir-idle-right-source-v1.png"
+        ],
+        "interlude": true,
+        "secondResolved": true
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "target": 2,
+      "resultText": "第2局面 ｜ 光 2 / 3 ｜ 最終衝撃が命中・56ダメージ",
+      "commands": {
+        "png": 99,
+        "standard": 8419,
+        "light": 2217
+      },
+      "transfer": {
+        "plainDraws": 2217,
+        "packedDraws": 99,
+        "plainGzip": 39489,
+        "packedGzip": 33526,
+        "identicalCanvas": true
+      },
+      "errors": []
+    }
+  }
+}

@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, stygianFinaleText} = await import('./endgame-ui.js');
+      const {falseMoonEncounterText, gateEncounterText, hereticChantText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, stygianFinaleText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
@@ -148,10 +148,12 @@ try {
         const gateText = gate ? gateEncounterText(gate) : '';
         const hereticText = heretic ? hereticChantText(heretic) : '';
         const finaleText = finale ? [sample.view.hint, stygianFinaleText(sample.view)].filter(Boolean).join(' ｜ ') : '';
-        if (flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText) {
+        const rerirText = sample.view.match === 'rerir' ? [sample.view.hint, rerirTrialText(sample.view)].filter(Boolean).join(' ｜ ') : '';
+        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText;
+        if (mechanic) {
           const status = document.createElement('p');
           status.className = 'mechanic';
-          status.textContent = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText;
+          status.textContent = mechanic;
           section.append(status);
         }
         section.append(grid);
@@ -176,11 +178,15 @@ try {
           profiles[key] = {differentPixels, rgbAbsoluteError, unpackedCommands:variant.unpackedCount,
             packedCommands:variant.packed.draws.length, unpackedBytes:variant.unpackedBytes,
             packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
+          if (sample.view.match === 'rerir') {
+            const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', packed));
+            profiles[key].canvasSha256 = Array.from(digest, byte => byte.toString(16).padStart(2, '0')).join('');
+          }
         }
         comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles,
           ...(flowerText && {flowerText}), ...(journeyText && {journeyText}),
           ...(primalText && {primalText}), ...(falseMoonText && {falseMoonText}), ...(gateText && {gateText}),
-          ...(hereticText && {hereticText}), ...(finaleText && {finaleText})};
+          ...(hereticText && {hereticText}), ...(finaleText && {finaleText}), ...(rerirText && {rerirText})};
       }
       return comparison;
     }, {frames, nodes, title:label});
