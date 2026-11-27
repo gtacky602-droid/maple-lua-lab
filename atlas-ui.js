@@ -21,6 +21,7 @@ export function initAtlas(action, clearKeys) {
  const current = document.getElementById('atlasCurrent');
  const back = document.getElementById('atlasWorld');
  const region = document.getElementById('atlasRegion');
+ const progress = document.getElementById('atlasRegionProgress');
  const layer = document.getElementById('atlasLayer');
  const huntLayer = layer.querySelector('option[value="hunt"]');
  const huntLegend = document.getElementById('atlasHuntLegend');
@@ -489,6 +490,12 @@ export function initAtlas(action, clearKeys) {
   bossLayer.hidden = bossLayer.disabled = !view.hasBosses;
   bossLegend.hidden = overview || !entries(view.points).some(point => point.boss);
   layer.value = view.layer;
+  const counts = view.progress;
+  progress.textContent = counts ? [
+   `訪問 ${counts.visited}／${counts.total}`,
+   `依頼報告 ${counts.reported}／${counts.quests}`,
+   `ボス討伐 ${counts.cleared}／${counts.bosses}`,
+  ].join('　·　') : '';
   renderRegions();
   renderFields();
   reportedRooms=new Set(entries(frame.storyGraph?.nodes)
