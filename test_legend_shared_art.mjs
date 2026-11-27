@@ -24,7 +24,9 @@ try{
  await page.goto(new URL('/map-art.html?node='+initial+'&placements=live&tier=4096',base).href);
  await page.waitForFunction(()=>window.mapArt?.ready);
  const panel=page.locator('#sharedLegendArt');
- await panel.locator('summary').click();
+ const shortcut=page.locator('#openSharedLegendArt');
+ await shortcut.click();
+ assert(await panel.evaluate(el=>el.open));
  const ids=()=>panel.locator('a[href^="enemies-art.html"]').evaluateAll(links=>links.map(a=>new URL(a.href).searchParams.get('q')));
  const results={};
  for(const [node,expected] of Object.entries(cases)){
@@ -54,6 +56,9 @@ try{
    assert.equal(new Set(views.map(v=>v.width+'x'+v.height)).size,1);
    assert.equal(new Set(views.map(v=>v.pixels)).size,3);
    assert(views.every(v=>v.painted.every(Boolean)));
+   const metrics=await group.locator('.shared-profile-metrics').allTextContents();
+   assert.equal(metrics.length,2);
+   assert(metrics.every(value=>/^通常 [\d.]+%／[\d.]+　地方伝説 [\d.]+%／[\d.]+$/.test(value)));
   }
   if(node==='cineas-legend-chamber'){
    await groups.first().screenshot({path:'evidence/cineas-shared-profiles.png'});
@@ -61,16 +66,20 @@ try{
    assert(await groups.first().evaluate(el=>el.getBoundingClientRect().right<=innerWidth));
    await page.setViewportSize({width:1200,height:900});
   }
-  await panel.locator('#compareSharedProfiles').uncheck();
   if(node===initial){
    const [gallery]=await Promise.all([page.waitForEvent('popup'),panel.locator('a').first().click()]);
    await gallery.waitForFunction(()=>window.charactersGallery?.ready);
+   assert(await gallery.locator('#compareBoth').isChecked());
+   assert.equal(await gallery.locator('#zoom').inputValue(),'1');
+   await panel.locator('#compareSharedProfiles').uncheck();
    assert.deepEqual(await gallery.locator('#cards article:not([hidden])').evaluateAll(cards=>cards.map(c=>c.dataset.id)),[expected[0]]);
    await gallery.close();
    await page.selectOption('#liveSubject','boss-97075');await panel.waitFor({state:'hidden'});
+   assert(await shortcut.isHidden());
    await page.selectOption('#liveSubject','boss-97076');assert.deepEqual(await ids(),[expected[1]]);
    await page.selectOption('#liveSubject','');
   }
+  await panel.locator('#compareSharedProfiles').uncheck();
   if(node.endsWith('-legend-bank')){
    const study=panel.locator('.lake-eye-study');
    await study.locator('canvas[data-ready="true"]').nth(3).waitFor();
