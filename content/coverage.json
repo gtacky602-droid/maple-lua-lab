@@ -464,6 +464,14 @@
     "reviewed_normal_families": 48,
     "reviewed_normal_lineups": 49,
     "reviewed_weekly_encounters": 14,
+    "official_v72_addition_check": {
+      "source": "https://genshin.hoyoverse.com/ja/news/detail/167187",
+      "normal": ["boss-25134601"],
+      "local_legends": ["legend-snez_rowdy_beast_host", "legend-snez_elder_blighttree", "legend-snez_ancient_ironquill"],
+      "all_resolved_to_active_stages": true,
+      "victories_in": "evidence/remaining-survey-save.json",
+      "scope": "The world boss and three local legends announced in the version 7.2 update notice."
+    },
     "complete_roster_verified": false,
     "warning": "Entity records, not encounter count. Paired enemies and alternative forms require grouping. Latest-release coverage not established."
   },
@@ -8121,6 +8129,13 @@
     "catalog": "content/stygian-encounters.json"
   },
   "encounter_worklist": {
+    "individual_packed_sprite_transfer": {
+      "gallery_searches": 5,
+      "identical_canvases": 15,
+      "identity_bytes": 421877,
+      "gzip_bytes": 171602,
+      "evidence": "evidence/packed-sprite-http-browser.json"
+    },
     "catalog": "content/encounters.json",
     "source_entities": 63,
     "candidates": 87,

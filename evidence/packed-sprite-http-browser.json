@@ -1,0 +1,69 @@
+{
+  "scope": "Filtered boss gallery. Encoded bodies of individual packed sprite and palette JSON resources only.",
+  "browser": "Chrome",
+  "identityBytes": 421877,
+  "gzipBytes": 171602,
+  "decodedCanvasEquality": true,
+  "cases": [
+    {
+      "search": "ronova",
+      "requests": 2,
+      "identityBytes": 115472,
+      "gzipBytes": 60198,
+      "canvasCount": 3,
+      "canvasHashes": [
+        "35d34af2c483b5483adcbaeb9a06ddafa2da2a55b9edbe46803553dfb1892d96",
+        "e67851a40f61b548f7d74dd5e9287d4f3a2ce3054299ccada236a499d5fa06ce",
+        "bd33f33cb7fe30651517942042af7b4f7cae113dbe89975b3ebb2d778e8adbf9"
+      ]
+    },
+    {
+      "search": "shouki",
+      "requests": 1,
+      "identityBytes": 88962,
+      "gzipBytes": 40012,
+      "canvasCount": 3,
+      "canvasHashes": [
+        "04fed567ed29faddaf211c4fc00ae0f580aa11bf5ccb1b1466c56a68d63975dc",
+        "309edc5c5ea34cc55744d9a88c2bdefae9afe3218995ed0c9f2c947d1a711da0",
+        "7398bdc0836a7a4a31ce8d3e5ee07eed398eb8139cd795fcfb9ed0e61ffea8a1"
+      ]
+    },
+    {
+      "search": "narwhal",
+      "requests": 1,
+      "identityBytes": 181269,
+      "gzipBytes": 51459,
+      "canvasCount": 3,
+      "canvasHashes": [
+        "868104c9c624bf868cea4741db61f51af34e5f22b43e912e071bf60e96051e93",
+        "bd1d58b54ba99e35af1ca6e21063e7693eb6a7aa89973f51b32fad6083f6ea11",
+        "d2fa58b47cfd86a388889534124b17298697ad390678ffbd2d9190b66252fa4c"
+      ]
+    },
+    {
+      "search": "xbalanque-guard",
+      "requests": 1,
+      "identityBytes": 21692,
+      "gzipBytes": 11595,
+      "canvasCount": 3,
+      "canvasHashes": [
+        "5d2f4f3bbdeda3b05fabb9e675a830c29fa6f409caf1751b12f930ff8ae08c7c",
+        "2eefceda10bbd7cb921bffd39ea78e9bcb2de6c931e4aee137e9cca3b7a0eb5d",
+        "974939b413565afae5aa19866a7629206ff354bb8a7fe7626d7b435f45aaa958"
+      ]
+    },
+    {
+      "search": "legend-blubberbeast-shared",
+      "requests": 2,
+      "identityBytes": 14482,
+      "gzipBytes": 8338,
+      "canvasCount": 3,
+      "canvasHashes": [
+        "a32871152726f7a2e84bb2c444df9a9fd4b6635f374165c707c54b8f412d7869",
+        "5fc0c846b0c9651161500c6557f22cd7da003160b8b2c02671784ce0c6034488",
+        "377eb15a8efc9c8e1b5cdf222c3869e848ed8629b40d4bd3129a0b3d3ecb7184"
+      ]
+    }
+  ]
+}

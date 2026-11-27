@@ -50,9 +50,13 @@ STATIC_JSON = frozenset(ROOT / directory / name for directory, names in (
                  'group-legend-openings.json', 'stygian-openings.json', 'weekly-opening-parts.json',
                  'worksite-props.json', 'toyac-quest-previews.json')),
 ) for name in names)
+PACKED_JSON_DIRS = frozenset(ROOT / 'assets' / name for name in (
+    'base-packed', 'field-boss-packed', 'field-packed', 'motion-packed', 'placement-packed',
+    'placement-palettes', 'quest-packed', 'stygian-packed', 'weekly-packed',
+))
 
 
-@lru_cache(maxsize=len(STATIC_JSON))
+@lru_cache(maxsize=len(STATIC_JSON) + 48)
 def compressed_asset(path, mtime_ns, size):
     # Metadata in the key invalidates the cached representation after a rebuild.
     return compress(path.read_bytes(), compresslevel=3, mtime=0)
@@ -104,7 +108,8 @@ class Handler(SimpleHTTPRequestHandler):
 
     def send_head(self):
         path = Path(self.translate_path(self.path))
-        self.vary_asset_encoding = path in STATIC_JSON
+        self.vary_asset_encoding = path in STATIC_JSON or (
+            path.suffix == '.json' and path.parent in PACKED_JSON_DIRS)
         if not self.vary_asset_encoding or not accepts_gzip(self.headers.get('Accept-Encoding', '')):
             return super().send_head()
         try:
