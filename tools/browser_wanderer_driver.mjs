@@ -1,9 +1,9 @@
-export async function driveWanderer(page,solve=true){
- await page.evaluate(solve=>{
+export async function driveWanderer(page,solve=true,route=null){
+ await page.evaluate(({solve,route})=>{
   const held=new Set(),marked=new Set();
   const d=window.wdTrail={stages:[],cards:[],updrafts:0,marks:{},heightAtLastMark:0,
    floorGlide:false,firstAirHit:false,airOpening:false,safeFinal:false,finalContacts:[],directions:[]};
-  let current,oldTick=-1,jumpEnd=-1,jumpUse,side=0,dropped=false;
+  let current,oldTick=-1,jumpEnd=-1,jumpUse,side=0,dropTick=-20;
   function key(code,push){
    if(held.has(code)===push)return;
    if(push)held.add(code);else held.delete(code);
@@ -16,7 +16,7 @@ export async function driveWanderer(page,solve=true){
     if(d.stages.at(-1)!==v.stage)d.stages.push(v.stage);
     if(current!==v.card||v.tick<oldTick){
      if(v.card)d.cards.push(v.card);
-     current=v.card;jumpEnd=-1;jumpUse=undefined;dropped=false;
+     current=v.card;jumpEnd=-1;jumpUse=undefined;dropTick=-20;
     }
     oldTick=v.tick;
     d.directions=Array.from(new Set([...d.directions,...f.draws.filter(q=>q.source?.startsWith('wanderer-idle-')&&q.h===108&&!q.motionOnly).map(q=>q.source)]));
@@ -25,6 +25,13 @@ export async function driveWanderer(page,solve=true){
     function hop(use){
      if(a.ground&&t>jumpEnd+1){jumpUse=use;jumpEnd=t+48;return true}
      return false;
+    }
+    function descend(){
+     down=true;
+     if(a.ground&&a.y<479&&t>dropTick+8){
+      dropTick=t;jumpEnd=-1;
+      key('KeyS',true);key('Space',false);key('Space',true);key('Space',false);
+     }
     }
     function markRoute(p){
      if(p.y===372){
@@ -49,17 +56,18 @@ export async function driveWanderer(page,solve=true){
     if(v.card==='WD02'&&t>=83&&t<124&&a.y===480)d.floorGlide=true;
     if(v.card==='WD06'&&t<600){
      if(v.safe){
-      goal=v.safe.x;
+      goal=v.safe.x+(route?.offset??0);
+      if(route&&a.y<479)descend();
       if(t>=560&&t<574&&v.safe.inside)d.safeFinal=true;
+     }else if(route&&v.windMarks>=route.marks&&t<438){
+      goal=480;
+      if(a.y<479)descend();
      }else if(p&&t<438){markRoute(p);}
      else{
       if(!solve)goal=265;
       if(t>=49&&t<69&&a.y>472)hop('first-gust');
      }
-     if(t>=574&&a.y<479){
-      down=true;
-      if(a.ground&&!dropped){dropped=true;key('KeyS',true);key('Space',false);key('Space',true);key('Space',false);}
-     }
+     if(t>=574&&a.y<479)descend();
     }else if(p){markRoute(p);}
     else if(v.card==='WD03'&&t<399&&v.phase!=='recover'){
      // Keep the landing area clear until the marks or approach cue appears.
@@ -84,5 +92,5 @@ export async function driveWanderer(page,solve=true){
    requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
- },solve);
+ },{solve,route});
 }

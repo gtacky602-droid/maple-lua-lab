@@ -51,6 +51,7 @@ return function(C,G,M)
   if c.key~='WD06' then return hints[c.key] end
   if c.t<86 then return '四風 1　床の風を跳ぶか足場に上がる' end
   if c.t<438 then return '四風 2　外側と中央上段の風標を踏む' end
+  if c.t>=c.data.windows[2][2] then return '風が過ぎた。床に降りて反撃に備える' end
   return '四風 3　線の間の門へ。地面でも上段でも避けられる'
  end
  local function cues(rect,s,r,c,v)
@@ -93,11 +94,16 @@ return function(C,G,M)
   if c.key=='WD06' then
    v.beat=c.t<86 and 1 or c.t<438 and 2 or c.t<600 and 3 or 4
    for i=1,4 do rect(433+i*17,54,11,5,i==v.beat and bright or ink,.94) end
-   if progress.gate and c.t<574 then
+   if progress.gate then
     local g=progress.gate
     local a=s.actors[s.active]
-    v.safe={x=g.x,half=g.half,inside=math.abs(a.x-g.x)+8<g.half}
-    gate(rect,g,floor)
+    local damage=progress.finalDamage and progress.finalDamage[a.id]
+    local resolved=c.t>=c.data.windows[2][2]
+    v.finalWind={width=2*g.half,damage=damage or resolved and 0 or nil}
+    if not resolved then
+     v.safe={x=g.x,half=g.half,inside=M.insideGate(s,r,c,a)}
+     gate(rect,g,floor)
+    end
    end
   end
  end
@@ -114,6 +120,10 @@ return function(C,G,M)
   f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,phase=v.phase,label=c and c.data.title or labels[r.stage]}
   if r.status=='failed' then return end
   local back={draws={}}
+  if mode=='rect' and s.packRectArt then
+   back.rectIndex,back.rectBatches={},f.rectBatches or {}
+   f.rectBatches=back.rectBatches
+  end
   local rect=painter(back,s.camera)
   pads(rect,r,s)
   local side=b.dir<0 and 'left' or 'right'

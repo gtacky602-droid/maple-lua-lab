@@ -158,6 +158,17 @@ export function ronovaVerdictText(fight){
  return '';
 }
 
+export function wandererFinalWindText(fight){
+ const wind=fight.finalWind;
+ if(!wind)return '';
+ const gate=`風標 ${fight.windMarks} / ${fight.windGoal} ｜ 門幅 ${wind.width}px`;
+ if(wind.damage!==undefined){
+  const result=wind.damage>0?`最後の風が命中・${wind.damage}ダメージ`:'最後の風の被ダメージなし';
+  return gate+' ｜ '+result;
+ }
+ return gate+(fight.safe?.inside?' ｜ 安全門の内側':' ｜ 安全門へ移動');
+}
+
 export function stygianFinaleText(fight){
  const labels=stygianFinaleLabels[fight.match];
  const damage=fight.finale?.damage;
@@ -296,7 +307,7 @@ export function initEndgameUI(action){
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
     &&!roadProgress&&fight.windMarks===undefined&&!finale&&!verdict);
    if(!mechanic.hidden){
-    mechanic.textContent=finale || rerirTrialText(fight) || verdict || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
+    mechanic.textContent=finale || rerirTrialText(fight) || verdict || wandererFinalWindText(fight) || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
      : fight.windMarks!==undefined ? `風標 ${fight.windMarks} / ${fight.windGoal}${fight.markTime?` ｜ 残り ${Math.ceil(fight.markTime/60)}秒`:''}`
      : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
      : `結界 ${fight.ward} / 2`);

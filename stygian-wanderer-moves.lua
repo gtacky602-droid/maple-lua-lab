@@ -160,17 +160,28 @@ return function(C,G)
   log(s,r,c,'gate',nearest)
   return full
  end
+ local function touches(bands,a)
+  for _,z in ipairs(bands) do
+   if G.bodyContact(z,a) then return true end
+  end
+  return false
+ end
+ function M.insideGate(s,r,c,a)
+  return a.hp>0 and not touches(zones(r,c,2,s),a)
+ end
  local function hitWindow(s,r,c,i)
   c.seen[i]=c.seen[i] or {}
   local personal=c.key=='WD06' and i==2
   local bands=not personal and zones(r,c,i,s)
   G.eachContact(s,r,c.seen[i],function(a,_,party)
-   for _,z in ipairs(bands or zones(r,c,i,party)) do
-    if G.bodyContact(z,a) then return true end
-   end
-   return false
+   return touches(bands or zones(r,c,i,party),a)
   end,function(party,a)
    local amount=C.damageActor(party,a,c.damage,r.boss,true,true)
+   if personal then
+    local progress=M.progress(party,c)
+    progress.finalDamage=progress.finalDamage or {}
+    progress.finalDamage[a.id]=amount
+   end
    log(party,r,c,'contact',amount,a.id)
   end)
  end
