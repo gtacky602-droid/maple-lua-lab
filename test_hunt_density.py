@@ -130,6 +130,7 @@ def measure():
     core.action(state, 'story_start')
     placements = read('content/enemy-spawns.json')['nodes']
     graph = read('content/story-graph.json')
+    hidden = {stage['id'] for stage in graph['nodes'] if stage.get('hiddenGroup')}
     arrivals = defaultdict(list)
     ingredients = defaultdict(list)
     for quest in graph['quests']:
@@ -163,10 +164,11 @@ def measure():
                 if abs(enemy.y - item['y']) < 45 and enemy.patrolMin - 60 < item['x'] < enemy.patrolMax + 60:
                     unsafe_ingredients.append((item['id'], node, enemy.spawnId))
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
+    targets = set(contact) | {row['node'] for row in rows if row['node'] in hidden}
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
                 unsafePortalArrivals=sorted(unsafe), unsafeIngredientSites=unsafe_ingredients,
-                introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,contact),
-                introWaypointArrivals=verify_intro_waypoints(lua,core,graph,placements,contact))
+                introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,targets),
+                introWaypointArrivals=verify_intro_waypoints(lua,core,graph,placements,targets))
 
 
 if __name__ == '__main__':

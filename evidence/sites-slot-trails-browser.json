@@ -1,7 +1,7 @@
 {
   "goldenIslandMap": true,
   "roundTripFerry": true,
-  "huntPopulation": 48,
+  "huntPopulation": 36,
   "trainDestinationShown": true,
   "starRailRoundTrip": true,
   "errors": []

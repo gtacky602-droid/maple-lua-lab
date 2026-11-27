@@ -56,9 +56,14 @@ try {
  assert.ok(route.some(r=>r.id==='golden-hub'&&r.label==='舟・寄港'));
  assert.ok(route.some(r=>r.id==='sites-gaa-04'&&r.label==='徒歩'));
  await atlas.screenshot({path:'evidence/sites-slot-islands.png'});
+ await page.locator('#atlasLayer').selectOption('hunt');
+ await page.locator('#atlasField').selectOption('sites-gaa-03');
+ await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='sites-gaa-03'
+   && window.lab.frame.worldMap.selected.huntKind==='field');
+ assert.equal(await page.locator('#atlasField option[value="golden-play"]').count(),0);
  await closeMap();
  await drive.cross('sites-gaa-03');
- await page.waitForFunction(()=>window.lab.frame.total===48);
+ await page.waitForFunction(()=>window.lab.frame.total===36);
  await page.locator('#game').screenshot({path:'evidence/sites-slot-dock.png'});
  await drive.cross('golden-hub');
  console.log('Golden Islands ferry, population and atlas passed.');
@@ -77,7 +82,7 @@ try {
  await drive.waitNode('sites-sim-04');
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/sites-slot-trails-browser.json',JSON.stringify({
-   goldenIslandMap:true,roundTripFerry:true,huntPopulation:48,trainDestinationShown:true,
+   goldenIslandMap:true,roundTripFerry:true,huntPopulation:36,trainDestinationShown:true,
    starRailRoundTrip:true,errors,
  },null,2)+'\n');
  console.log('Golden Islands ferry and spawn count, and Simulanka automatic round-trip rail passed.');

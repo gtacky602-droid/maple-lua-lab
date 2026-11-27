@@ -1,4 +1,4 @@
-"""Traverse all 32 virtual field bindings with Lua movement, ferry, rail and lift actions."""
+"""Check 32 authored bindings and traverse active virtual fields by land and transport."""
 
 from collections import Counter, defaultdict
 import json
@@ -6,6 +6,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from story_scope import suspended_stage_returns
 from tools.waypoint_test import TrailWalk
 
 
@@ -24,6 +25,8 @@ edges = {(id, e['to']): e for id, gates in exits.items() for e in gates}
 placements = read('content/enemy-spawns.json')['nodes']
 review = read('sources/map-research/sites-slot-trails.json')
 fields = review['bindings']
+suspended = suspended_stage_returns(graph)
+active_fields = {key:stage for key,stage in fields.items() if stage not in suspended}
 assert fields == {field:n['id'] for n in nodes.values()
                   if (field := n.get('designField', '')).startswith('slot:')}
 assert len(set(fields.values())) == len(fields) == 32
@@ -160,6 +163,18 @@ def save(state):
     return validate_save(native(core.checkpoint(state)))
 
 
+def check_hunt_filter(state, prefix, story_field):
+    core.action(state,'world_map_toggle')
+    core.action(state,'world_map_layer:hunt')
+    view = core.frame(state).worldMap
+    points = {point.id:point for point in view.points.values()}
+    expected_hunts = {stage for key,stage in active_fields.items()
+                      if key.startswith(prefix) and expected[key]['mode']=='hunt'}
+    assert expected_hunts and all(points[stage].huntKind=='field' for stage in expected_hunts)
+    assert story_field not in points
+    core.action(state,'world_map_close')
+
+
 golden, shore = make(35,'mond-road')
 assert 'sites-gaa-02' not in published(golden)
 shore.inspect(1105)
@@ -173,9 +188,10 @@ assert golden.story.quests['golden-little-boat'].count==3
 shore.cross('golden-hub')
 write('work/sites-slot-browser-fixture.json',save(golden))
 assert sweep(shore,'golden-hub') == {id for key,id in fields.items() if key.startswith('slot:GAA')}
+check_hunt_filter(golden,'slot:GAA','golden-play')
 assert golden.story.quests['golden-little-boat'].count==3
 shore.cross('sites-gaa-02')
-assert len(golden.enemies)==48
+assert len(golden.enemies)==36
 assert all(.15*golden.worldwidth <= e.patrolMin <= e.x <= e.patrolMax <= .85*golden.worldwidth for e in golden.enemies.values())
 enemy=golden.enemies[1]
 a=golden.actors[1]
@@ -215,6 +231,7 @@ core.action(mirage,'story_report:veluriyam-bottle-ticket')
 assert mirage.story.quests['veluriyam-bottle-ticket'].status=='complete'
 core.action(mirage,'story_fast:veluriyam-hub')
 assert sweep(rides,'veluriyam-hub') == {id for key,id in fields.items() if key.startswith('slot:VLM')}
+check_hunt_filter(mirage,'slot:VLM','veluriyam-play')
 rides.cross('sumeru-entry')
 
 paper, rail = make(95,'fontaine-hub')
@@ -229,6 +246,7 @@ assert paper.story.quests['simulanka-open-page'].count==2
 rail.place(639,389)
 rail.cross('simulanka-hub')
 assert sweep(rail,'simulanka-hub') == {id for key,id in fields.items() if key.startswith('slot:SIM')}
+check_hunt_filter(paper,'slot:SIM','simulanka-play')
 assert paper.story.quests['simulanka-open-page'].count==2
 rail.cross('sites-sim-02')
 rail.cross('sites-sim-04')
@@ -243,22 +261,30 @@ rail.cross('simulanka-hub')
 rail.cross('fontaine-hub')
 
 north, frost = make(190,'nod-field')
-frost.cross('nod-special-camp')
-assert sweep(frost,'nod-special-camp') == {id for key,id in fields.items() if key.startswith('slot:NSP')}
-frost.cross('nod-field')
-assert len(optional)==6
-expected_edges={(a,b) for row in review['routes'] for key in ('forward','return')
+if 'nod-special-camp' in suspended:
+    assert not (published(north) & suspended.keys())
+    frost.place(edges['nod-field','nod-special-camp']['x'])
+    core.action(north,'story_portal:nod-special-camp')
+    assert north.story.node=='nod-field'
+else:
+    frost.cross('nod-special-camp')
+    assert sweep(frost,'nod-special-camp') == {id for key,id in fields.items() if key.startswith('slot:NSP')}
+    frost.cross('nod-field')
+assert optional == {pocket['stage'] for key,pocket in review['optional_pockets'].items() if key in active_fields}
+active_routes = [row for row in review['routes'] if all(key in active_fields for key in row['fields'])]
+expected_edges={(a,b) for row in active_routes for key in ('forward','return')
                 for a,b in zip(row[key],row[key][1:])}
 assert traversed==expected_edges
 for state in (golden,mirage,paper,north):
     assert save(state)
 
 write('evidence/sites-slot-trails-lua.json',{
-  'verified_fields':len(fields),'design_pair_round_trips':len(slot_pairs),'directed_transitions':len(traversed),
+  'verified_fields':len(active_fields),'design_pair_round_trips':len(active_routes),'directed_transitions':len(traversed),
+  'static_field_bindings':len(fields),'suspended_entry_rejected':bool(suspended.keys() & set(fields.values())),
   'regular_enemy_placements':spawn_count,'optional_side_battles':sorted(optional),
   'safety_margin_and_respawn':True,'existing_discovery_paths':True,'save_restored_at_hub':True,
   'save_during_new_rail_restored_at_station':True,
   'existing_hidden_quest_progress_unchanged_by_new_paths':True,'level_fixtures': [35,75,95,190],
   'half_open_train_stop_reused':True,'nonstop_train_scroll_both_directions':True,
 })
-print(f'{len(fields)} field bindings and {len(traversed)} directed transitions passed.')
+print(f'{len(fields)} bindings, {len(active_fields)} active fields and {len(traversed)} directed transitions passed.')
