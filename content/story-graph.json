@@ -3014,6 +3014,11 @@
       ],
       "exits": [
         {
+          "to": "natlan-quarry-road",
+          "x": 1380,
+          "arrivalX": 1610
+        },
+        {
           "to": "natlan-solar-court",
           "x": 648,
           "arrivalX": 270
@@ -3646,7 +3651,7 @@
       "id":"natlan-quarry-road","name":"ナタ・赤岩の採掘路","region":"ナタ","level":100,"hub":false,
       "width":1710,"checkpoint":"natlan-hub",
       "platforms":[{"x":0,"y":480,"w":1710},{"x":420,"y":389,"w":350},{"x":647,"y":294,"w":316},{"x":1070,"y":390,"w":370}],
-      "exits":[{"to":"natlan-field","x":64,"arrivalX":552}]
+      "exits":[{"to":"natlan-field","x":64,"arrivalX":552},{"to":"natlan-hub","x":1610,"arrivalX":1380}]
     },
     {
       "id":"natlan-riverside-range","name":"ナタ・川沿いの浅瀬道","region":"ナタ","level":100,"hub":false,

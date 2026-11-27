@@ -65,13 +65,11 @@ async function fixture(name,period){
 }
 
 async function enterQuarry(){
- await gate(1380,ridge);
- await gate(552,quarry);
+ await gate(1380,quarry);
 }
 
 async function leaveQuarry(){
- await gate(64,ridge);
- await gate(60,hub);
+ await gate(1610,hub);
 }
 
 async function hitToAdvance(id){

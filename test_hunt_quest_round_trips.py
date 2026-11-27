@@ -26,12 +26,13 @@ def play(quest):
     rounds = 2 if quest.get('repeatable') else 1
     goal = quest['goal']
     restored_count = None
+    paths = []
 
     for index in range(rounds):
         state = walk.state
         core.action(state, 'story_accept:' + id)
         assert state.story.quests[id].status == 'active' and state.story.quests[id].count == 0
-        travel(walk, target)
+        outbound = travel(walk, target)
         if index == 0:
             defeat_until(walk, id, goal // 2)
             snapshot = save(state)
@@ -44,7 +45,8 @@ def play(quest):
                 actor.inv = 1000
             travel(walk, target)
         defeat_until(walk, id, goal)
-        travel(walk, hub)
+        inbound = travel(walk, hub)
+        paths.append(dict(outbound=outbound, inbound=inbound))
         state = walk.state
         xp, mora = reported_balances(state)
         for _ in range(2):
@@ -56,7 +58,7 @@ def play(quest):
 
     return dict(goal=goal, level=level, reportHub=hub, target=target,
                 restoredMidHuntCount=restored_count, savedCompletedCycles=rounds,
-                xpPerReport=quest['xp'], moraPerReport=quest['mora'])
+                xpPerReport=quest['xp'], moraPerReport=quest['mora'], paths=paths)
 
 def resume_legacy(quest):
     id, hub, target = (quest[key] for key in ('id', 'hub', 'target'))
@@ -87,6 +89,10 @@ if __name__ == '__main__':
     quests = resolve_story_exp(read('content/story-graph.json'))['quests']
     cases = {q['id']: play(q) for q in quests
              if q['kind'] == 'kill' and not q.get('legacyOnly') and not q.get('designId')}
+    natlan = cases['natlan-contract']
+    assert natlan['level'] == 100 and natlan['savedCompletedCycles'] == 2
+    assert all(path['outbound'] == ['natlan-quarry-road', 'natlan-field']
+               and path['inbound'] == ['natlan-quarry-road', 'natlan-hub'] for path in natlan['paths'])
     legacy = {q['id']: resume_legacy(q) for q in quests if q.get('legacyOnly')}
     write('evidence/hunt-quest-round-trips-lua.json', dict(
         cases=cases, count=len(cases), legacyCases=legacy,
