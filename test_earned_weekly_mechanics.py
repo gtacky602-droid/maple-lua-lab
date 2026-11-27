@@ -37,6 +37,24 @@ cue_ticks = {
     'WA04': 74, 'WZ09': 90, 'WZ14': 126, 'WR12': 125, 'WR15': 60, 'WV12': 85,
     'WG08': 92, 'WG09': 184, 'WG17': 90, 'WM13': 180, 'WM15': 90,
 }
+profiles = ('h48c32', 'h32c16')
+
+
+def rectangle_frame(trip, profile):
+    state = trip.state
+    plain = trip.core.frame(state, 'rect', profile)
+    state.packRectArt = True
+    try:
+        packed = trip.core.frame(state, 'rect', profile)
+    finally:
+        state.packRectArt = None
+    rect = native(plain.draws)
+    commands = dict(draws=native(packed.draws), rectBatches=native(packed.rectBatches))
+    assert list(expand_rectangles(commands)) == rect, profile
+    return dict(packed=commands, unpackedCount=len(rect),
+                unpackedBytes=len(json.dumps(dict(draws=rect, rectBatches=[]), ensure_ascii=False,
+                                              separators=(',', ':')).encode()),
+                packedBytes=len(json.dumps(commands, ensure_ascii=False, separators=(',', ':')).encode()))
 
 
 def equipment(trip):
@@ -98,23 +116,11 @@ def replay(source, engine, driver, spec, output):
         candidates = phases | ({move} if move in cue_ticks and move_tick == cue_ticks[move] else set())
         for name in sorted((candidates & samples[controller]) - frames.keys()):
             sprite = trip.core.frame(state, 'sprite', 'legacy')
-            compressed = trip.core.frame(state, 'rect', 'h32c16')
-            state.packRectArt = True
-            try:
-                packed = trip.core.frame(state, 'rect', 'h32c16')
-            finally:
-                state.packRectArt = None
-            rect = native(compressed.draws)
-            batch = dict(draws=native(packed.draws), rectBatches=native(packed.rectBatches))
-            assert list(expand_rectangles(batch)) == rect, (controller, name)
-            unpacked = dict(draws=rect, rectBatches=[])
             view = native(sprite.weeklyBoss)
             frames[name] = dict(tick=tick, node=state.story.node, camera=sprite.camera,
                                 platforms=native(sprite.platforms), stage=str(stage), move=move, moveTick=move_tick,
-                                view=view, png=native(sprite.draws), packed=batch,
-                                unpackedCount=len(rect),
-                                unpackedBytes=len(json.dumps(unpacked, ensure_ascii=False, separators=(',', ':')).encode()),
-                                packedBytes=len(json.dumps(batch, ensure_ascii=False, separators=(',', ':')).encode()))
+                                view=view, png=native(sprite.draws),
+                                profiles={profile: rectangle_frame(trip, profile) for profile in profiles})
 
     options = trip.lua.table(sample=sample, canAttack=lambda: ready_at is not None)
     result = native(driver(trip.core, state, slot, 'weekly', 60 * 600, 'mechanics', options))
@@ -134,7 +140,7 @@ def replay(source, engine, driver, spec, output):
     assert saved['story']['visited'] == start['story']['visited']
     assert trip.state.returns == 0
     assert frames.keys() == samples[controller], (controller, samples[controller] - frames.keys())
-    assert all(row['png'] and row['packed']['draws'] for row in frames.values())
+    assert all(row['png'] and all(p['packed']['draws'] for p in row['profiles'].values()) for row in frames.values())
     (output / f'{controller}-frames.json').write_text(
         json.dumps(frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf-8')
     print(controller, result['ticks'], 'ticks;', len(frames), 'frames', flush=True)

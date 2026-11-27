@@ -356,7 +356,10 @@ return function(C,configs,controllers)
   f.weeklyBoss={id=spec.id,name=spec.name,level=slot.mode and slot.mode.level or spec.level,hp=slot.primary.hp,maxhp=slot.primary.maxhp,
    difficulty=slot.mode and slot.mode.name,reward=personal.reward,
    generation=slot.generation,phase=slot.phase,remaining=wait(room and room.time or s.t,slot)/60}
+  -- The base frame has finished grouping field sprites. Group weekly sprites in the same response.
+  if f.rectBatches then f.rectIndex={} end
   controllers[spec.controller].observe(f,s,slot,spec,mode,profile)
+  f.rectIndex=nil
   f.commands=#f.draws
   return f
  end

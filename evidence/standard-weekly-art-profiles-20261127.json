@@ -1,0 +1,524 @@
+{
+  "baseline": "74bdf803db711efcc1312768702073b0318420b7",
+  "battleSource": "evidence/standard-weekly-mechanics-20261127.json",
+  "battleSaveSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+  "headlessChrome": "158.0.8127.38",
+  "sceneCount": 27,
+  "canvasPixels": [
+    960,
+    540
+  ],
+  "expandedRectangleSequencesMatch": {
+    "h48c32": 27,
+    "h32c16": 27
+  },
+  "medianPngCanvasMsAfter": 0.4,
+  "profiles": {
+    "h48c32": {
+      "unpackedJsonBytes": 29452123,
+      "packedJsonBytesBefore": 23906006,
+      "packedJsonBytesAfter": 16653818,
+      "packedJsonReductionPercent": 30.34,
+      "packedDrawEntriesBefore": 186226,
+      "packedDrawEntriesAfter": 107815,
+      "sumAbsoluteRgbDifferenceFromPng": 40711031,
+      "medianCanvasMsBefore": 8.2,
+      "medianCanvasMsAfter": 8.2
+    },
+    "h32c16": {
+      "unpackedJsonBytes": 12006543,
+      "packedJsonBytesBefore": 10211915,
+      "packedJsonBytesAfter": 7103222,
+      "packedJsonReductionPercent": 30.44,
+      "packedDrawEntriesBefore": 84632,
+      "packedDrawEntriesAfter": 48408,
+      "sumAbsoluteRgbDifferenceFromPng": 47909006,
+      "medianCanvasMsBefore": 3.5,
+      "medianCanvasMsAfter": 3.5
+    }
+  },
+  "measurement": {
+    "drawingJson": "UTF-8 drawing commands and batches, before HTTP compression",
+    "pixelError": "Sum of absolute RGB channel differences from the PNG rendering of the same scene",
+    "timing": "Software-backed Chrome canvas drawing and 1x1 readback. Median of 11 draws per scene after three warmup draws, then median across the 27 scenes. Background, simulation, HTTP, asset decoding and HUD excluded."
+  },
+  "sameFrameBrowserHttp": {
+    "boss": "boss-29060201",
+    "profile": "h48c32",
+    "time": 6.21666666666665,
+    "canvasIdentical": true,
+    "packed": {
+      "gzipBytes": 61664,
+      "draws": 18
+    },
+    "plain": {
+      "gzipBytes": 73679,
+      "draws": 3539
+    }
+  },
+  "bosses": {
+    "andrius": {
+      "identicalComparisonPngSha256": "c3db49c9563974b3a58a03ec311788408bbf33d63467f3b0be0b0fba077e1915",
+      "scenes": [
+        {
+          "id": "P1",
+          "tick": 0,
+          "h48c32": {
+            "rgbAbsoluteError": 2143502,
+            "packedBytesBefore": 1038354,
+            "packedBytesAfter": 1038354,
+            "canvasMs": 9.1
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2449325,
+            "packedBytesBefore": 377349,
+            "packedBytesAfter": 377349,
+            "canvasMs": 3.7
+          }
+        },
+        {
+          "id": "WA04",
+          "tick": 632,
+          "h48c32": {
+            "rgbAbsoluteError": 1937713,
+            "packedBytesBefore": 1012668,
+            "packedBytesAfter": 1012668,
+            "canvasMs": 8.5
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2277505,
+            "packedBytesBefore": 423090,
+            "packedBytesAfter": 423090,
+            "canvasMs": 3.4
+          }
+        },
+        {
+          "id": "INTERLUDE",
+          "tick": 1465,
+          "h48c32": {
+            "rgbAbsoluteError": 1199512,
+            "packedBytesBefore": 961767,
+            "packedBytesAfter": 961767,
+            "canvasMs": 7.9
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1289831,
+            "packedBytesBefore": 409979,
+            "packedBytesAfter": 409979,
+            "canvasMs": 3.5
+          }
+        },
+        {
+          "id": "P2",
+          "tick": 2088,
+          "h48c32": {
+            "rgbAbsoluteError": 2139470,
+            "packedBytesBefore": 1093949,
+            "packedBytesAfter": 1093949,
+            "canvasMs": 9.8
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2236441,
+            "packedBytesBefore": 383459,
+            "packedBytesAfter": 383459,
+            "canvasMs": 4.1
+          }
+        }
+      ]
+    },
+    "azhdaha": {
+      "identicalComparisonPngSha256": "70a7654800ddea9385a88ed3e1baefe2eb576676fba7981e82ffa7f5fdc06e4f",
+      "scenes": [
+        {
+          "id": "1",
+          "tick": 0,
+          "h48c32": {
+            "rgbAbsoluteError": 1705656,
+            "packedBytesBefore": 1447350,
+            "packedBytesAfter": 319154,
+            "canvasMs": 9
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2018057,
+            "packedBytesBefore": 612089,
+            "packedBytesAfter": 142110,
+            "canvasMs": 3.7
+          }
+        },
+        {
+          "id": "2",
+          "tick": 3540,
+          "h48c32": {
+            "rgbAbsoluteError": 1462776,
+            "packedBytesBefore": 1449891,
+            "packedBytesAfter": 315092,
+            "canvasMs": 9.1
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1775107,
+            "packedBytesBefore": 613280,
+            "packedBytesAfter": 140099,
+            "canvasMs": 4.1
+          }
+        },
+        {
+          "id": "3",
+          "tick": 4332,
+          "h48c32": {
+            "rgbAbsoluteError": 1382574,
+            "packedBytesBefore": 1450107,
+            "packedBytesAfter": 315324,
+            "canvasMs": 9.6
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1670140,
+            "packedBytesBefore": 613524,
+            "packedBytesAfter": 140331,
+            "canvasMs": 3.9
+          }
+        },
+        {
+          "id": "WZ09",
+          "tick": 3234,
+          "h48c32": {
+            "rgbAbsoluteError": 1464407,
+            "packedBytesBefore": 1450918,
+            "packedBytesAfter": 316119,
+            "canvasMs": 8.4
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1782279,
+            "packedBytesBefore": 614307,
+            "packedBytesAfter": 141126,
+            "canvasMs": 3.6
+          }
+        },
+        {
+          "id": "WZ14",
+          "tick": 4854,
+          "h48c32": {
+            "rgbAbsoluteError": 1274678,
+            "packedBytesBefore": 1448570,
+            "packedBytesAfter": 315619,
+            "canvasMs": 8.8
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1546414,
+            "packedBytesBefore": 613250,
+            "packedBytesAfter": 140626,
+            "canvasMs": 3.9
+          }
+        }
+      ]
+    },
+    "raiden": {
+      "identicalComparisonPngSha256": "39ae3520daa717e6081879ba624dfaa2eee4b38f8eb0d7171e58242d05ef6d68",
+      "scenes": [
+        {
+          "id": "normal",
+          "tick": 0,
+          "h48c32": {
+            "rgbAbsoluteError": 783010,
+            "packedBytesBefore": 230530,
+            "packedBytesAfter": 85243,
+            "canvasMs": 3.1
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 922945,
+            "packedBytesBefore": 88891,
+            "packedBytesAfter": 37577,
+            "canvasMs": 1.3
+          }
+        },
+        {
+          "id": "armored",
+          "tick": 2462,
+          "h48c32": {
+            "rgbAbsoluteError": 939511,
+            "packedBytesBefore": 665150,
+            "packedBytesAfter": 184816,
+            "canvasMs": 5.4
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1096576,
+            "packedBytesBefore": 315481,
+            "packedBytesAfter": 83716,
+            "canvasMs": 2.4
+          }
+        },
+        {
+          "id": "WR12",
+          "tick": 3247,
+          "h48c32": {
+            "rgbAbsoluteError": 939926,
+            "packedBytesBefore": 665999,
+            "packedBytesAfter": 185665,
+            "canvasMs": 3.9
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1096754,
+            "packedBytesBefore": 316330,
+            "packedBytesAfter": 84565,
+            "canvasMs": 1.7
+          }
+        },
+        {
+          "id": "WR15",
+          "tick": 4910,
+          "h48c32": {
+            "rgbAbsoluteError": 1126257,
+            "packedBytesBefore": 668184,
+            "packedBytesAfter": 187479,
+            "canvasMs": 4.1
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1310314,
+            "packedBytesBefore": 318206,
+            "packedBytesAfter": 86515,
+            "canvasMs": 1.7
+          }
+        }
+      ]
+    },
+    "narwhal": {
+      "identicalComparisonPngSha256": "01a150baaf9fcd1160a4f54adb91c078c23b23e019640df07c0eabe64f2a14a0",
+      "scenes": [
+        {
+          "id": "outer",
+          "tick": 0,
+          "h48c32": {
+            "rgbAbsoluteError": 2545245,
+            "packedBytesBefore": 857944,
+            "packedBytesAfter": 857944,
+            "canvasMs": 6.3
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 3069250,
+            "packedBytesBefore": 329434,
+            "packedBytesAfter": 329434,
+            "canvasMs": 2.5
+          }
+        },
+        {
+          "id": "inner",
+          "tick": 1282,
+          "h48c32": {
+            "rgbAbsoluteError": 986305,
+            "packedBytesBefore": 375149,
+            "packedBytesAfter": 375149,
+            "canvasMs": 3.4
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1120855,
+            "packedBytesBefore": 151656,
+            "packedBytesAfter": 151656,
+            "canvasMs": 1.6
+          }
+        },
+        {
+          "id": "WV12",
+          "tick": 1805,
+          "h48c32": {
+            "rgbAbsoluteError": 942753,
+            "packedBytesBefore": 375801,
+            "packedBytesAfter": 375801,
+            "canvasMs": 4.1
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1075751,
+            "packedBytesBefore": 152308,
+            "packedBytesAfter": 152308,
+            "canvasMs": 1.8
+          }
+        },
+        {
+          "id": "weak",
+          "tick": 2664,
+          "h48c32": {
+            "rgbAbsoluteError": 1684533,
+            "packedBytesBefore": 709690,
+            "packedBytesAfter": 709690,
+            "canvasMs": 6.7
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1933011,
+            "packedBytesBefore": 367727,
+            "packedBytesAfter": 367727,
+            "canvasMs": 3
+          }
+        }
+      ]
+    },
+    "primal_fire": {
+      "identicalComparisonPngSha256": "ae320a9dca2b2336247268437091292b2cbe0f01b099f7b1a6d1f80387875bb7",
+      "scenes": [
+        {
+          "id": "1",
+          "tick": 0,
+          "h48c32": {
+            "rgbAbsoluteError": 2430352,
+            "packedBytesBefore": 1049724,
+            "packedBytesAfter": 1049724,
+            "canvasMs": 8.4
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2921785,
+            "packedBytesBefore": 456003,
+            "packedBytesAfter": 456003,
+            "canvasMs": 3.6
+          }
+        },
+        {
+          "id": "2",
+          "tick": 4419,
+          "h48c32": {
+            "rgbAbsoluteError": 2429975,
+            "packedBytesBefore": 1047254,
+            "packedBytesAfter": 1047254,
+            "canvasMs": 8.3
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2897151,
+            "packedBytesBefore": 456884,
+            "packedBytesAfter": 456884,
+            "canvasMs": 3.5
+          }
+        },
+        {
+          "id": "WG08",
+          "tick": 4211,
+          "h48c32": {
+            "rgbAbsoluteError": 2391202,
+            "packedBytesBefore": 1047847,
+            "packedBytesAfter": 1047847,
+            "canvasMs": 8.5
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2851174,
+            "packedBytesBefore": 457477,
+            "packedBytesAfter": 457477,
+            "canvasMs": 3.8
+          }
+        },
+        {
+          "id": "WG09",
+          "tick": 4688,
+          "h48c32": {
+            "rgbAbsoluteError": 2314746,
+            "packedBytesBefore": 1048169,
+            "packedBytesAfter": 1048169,
+            "canvasMs": 9.5
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 2739894,
+            "packedBytesBefore": 457799,
+            "packedBytesAfter": 457799,
+            "canvasMs": 3.9
+          }
+        },
+        {
+          "id": "WG17",
+          "tick": 6143,
+          "h48c32": {
+            "rgbAbsoluteError": 1627309,
+            "packedBytesBefore": 1046734,
+            "packedBytesAfter": 1046734,
+            "canvasMs": 8.5
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1925081,
+            "packedBytesBefore": 454655,
+            "packedBytesAfter": 454655,
+            "canvasMs": 3.6
+          }
+        }
+      ]
+    },
+    "false_moon": {
+      "identicalComparisonPngSha256": "161e545a70f292b758cf74c0445632fa75720bb6480a5090639a60c10ee5029c",
+      "scenes": [
+        {
+          "id": "outer",
+          "tick": 0,
+          "h48c32": {
+            "rgbAbsoluteError": 1081926,
+            "packedBytesBefore": 334056,
+            "packedBytesAfter": 334056,
+            "canvasMs": 3.7
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1276879,
+            "packedBytesBefore": 131164,
+            "packedBytesAfter": 131164,
+            "canvasMs": 1.7
+          }
+        },
+        {
+          "id": "WM13",
+          "tick": 1347,
+          "h48c32": {
+            "rgbAbsoluteError": 618666,
+            "packedBytesBefore": 336934,
+            "packedBytesAfter": 336934,
+            "canvasMs": 3.4
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 747273,
+            "packedBytesBefore": 140960,
+            "packedBytesAfter": 140960,
+            "canvasMs": 1.6
+          }
+        },
+        {
+          "id": "inner",
+          "tick": 1557,
+          "h48c32": {
+            "rgbAbsoluteError": 1297583,
+            "packedBytesBefore": 1025411,
+            "packedBytesAfter": 1025411,
+            "canvasMs": 7.3
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1624834,
+            "packedBytesBefore": 468689,
+            "packedBytesAfter": 468689,
+            "canvasMs": 3.3
+          }
+        },
+        {
+          "id": "WM15",
+          "tick": 1647,
+          "h48c32": {
+            "rgbAbsoluteError": 1347943,
+            "packedBytesBefore": 1023075,
+            "packedBytesAfter": 1023075,
+            "canvasMs": 8.2
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 1677430,
+            "packedBytesBefore": 468721,
+            "packedBytesAfter": 468721,
+            "canvasMs": 3.6
+          }
+        },
+        {
+          "id": "returning",
+          "tick": 2770,
+          "h48c32": {
+            "rgbAbsoluteError": 513501,
+            "packedBytesBefore": 44781,
+            "packedBytesAfter": 44781,
+            "canvasMs": 1.5
+          },
+          "h32c16": {
+            "rgbAbsoluteError": 576950,
+            "packedBytesBefore": 19203,
+            "packedBytesAfter": 19203,
+            "canvasMs": 0.6
+          }
+        }
+      ]
+    }
+  },
+  "h48c32CloserToPngScenes": 27
+}
