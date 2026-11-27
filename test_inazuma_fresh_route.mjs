@@ -11,6 +11,7 @@ const boarding=JSON.parse(await fs.readFile(boardingSave,'utf8'));
 const start='inazuma-town',entry='sumeru-entry',hub='sumeru-hub',nextQuest='sumeru-leaf-crossing';
 const storyQuests=new Set(graph.quests.map(quest=>quest.id));
 const completed=run.route.filter(row=>storyQuests.has(row.id)).map(row=>row.id);
+const huntFields=['inazuma-road','inazuma-shore-hunt'];
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:940}});
 const drive=waypointDriver(page,nodes);
@@ -33,6 +34,19 @@ try {
  await page.locator('#game').click();
  await page.keyboard.press('KeyM');
  await atlas.waitFor();
+ await page.locator('#atlasRegion').selectOption('region-03');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-03');
+ await page.locator('#atlasLayer').selectOption('hunt');
+ for(const id of huntFields){
+  await page.locator('#atlasField').selectOption(id);
+  await page.waitForFunction(node=>{
+   const map=window.lab.frame.worldMap;
+   return map?.layer==='hunt'&&map.selected?.id===node&&map.selected.huntKind==='field';
+  },id);
+  assert.equal((await frame()).worldMap.guide.status,'ready');
+ }
+ assert.equal(await page.locator('#atlasField option[value="inazuma-lantern-trail"]').count(),0);
+ await page.locator('#atlasLayer').selectOption('all');
  await page.locator('#atlasRegion').selectOption('region-04');
  await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-04');
  await page.locator('#atlasField').selectOption(hub);
@@ -57,7 +71,7 @@ try {
  await page.waitForFunction(id=>window.lab.frame.story.quests[id]?.status==='active',nextQuest);
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/inazuma-fresh-route-browser.json',JSON.stringify({
-  importedLevel:before.progression.level,completedQuests:completed,
+  importedLevel:before.progression.level,completedQuests:completed,huntFields,
   route:guide.stops.map(stop=>[stop.id,stop.mode]),
   firstSumeruQuestAccepted:nextQuest,arrivalLevel:arrived.progression.level,
   importedXp:before.progression.total,totalXp:arrived.progression.total,travelKillXp,errors

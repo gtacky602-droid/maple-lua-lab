@@ -1652,6 +1652,7 @@
     },
     {
       "id": "inazuma-road",
+      "huntKind": "field",
       "name": "稲妻・海辺の街道",
       "region": "稲妻",
       "level": 40,
@@ -1883,7 +1884,7 @@
       }
     },
     {
-      "id":"inazuma-shore-hunt","name":"稲妻・潮風の浜","region":"稲妻","level":40,"hub":false,
+      "id":"inazuma-shore-hunt","huntKind":"field","name":"稲妻・潮風の浜","region":"稲妻","level":40,"hub":false,
       "width":1720,"checkpoint":"inazuma-town",
       "platforms":[{"x":0,"y":480,"w":1720},{"x":480,"y":392,"w":308},{"x":694,"y":302,"w":250},{"x":1040,"y":393,"w":350}],
       "exits":[{"to":"inazuma-town","x":62,"arrivalX":194},{"to":"inazuma-road","x":1658,"arrivalX":230}]

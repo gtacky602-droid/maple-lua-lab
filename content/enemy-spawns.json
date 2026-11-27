@@ -900,36 +900,10 @@
       {"id": "liyue-book-scout-3", "kind": 1, "art": "treasure-scout", "x": 1030, "platform": 0, "hp": 24}
     ],
     "inazuma-road": [
-      {
-        "id": "inazuma-road-1",
-        "kind": 1,
-        "art": "nobushi",
-        "x": 620,
-        "platform": 0,
-        "name": "街道を仕切る野伏",
-        "dailyElite": true
-      },
-      {
-        "id": "inazuma-road-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "inazuma-road-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "inazuma-road-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "inazuma-road-1", "kind": 1, "art": "nobushi", "x": 773, "platform": 0, "name": "街道を仕切る野伏", "dailyElite": true, "patrolMin": 750, "patrolMax": 809},
+      {"id": "inazuma-road-2", "kind": 1, "art": "hydro-slime", "x": 406, "platform": 0, "patrolMin": 300, "patrolMax": 424},
+      {"id": "inazuma-road-3", "kind": 2, "art": "pyro-slime", "x": 850, "platform": 0, "patrolMin": 710, "patrolMax": 911},
+      {"id": "inazuma-road-4", "kind": 1, "art": "hydro-slime", "x": 1120, "platform": 0, "patrolMin": 923, "patrolMax": 1175},
       {
         "id": "inazuma-road-5",
         "kind": 1,
@@ -943,17 +917,36 @@
         "art": "pyro-slime",
         "x": 610,
         "platform": 2
-      }
+      },
+      {"id": "inazuma-road-regular-1", "x": 330, "platform": 0, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 300, "patrolMax": 424},
+      {"id": "inazuma-road-regular-2", "x": 355, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 21, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-road-regular-3", "x": 500, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-road-regular-4", "x": 708, "platform": 2, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-road-regular-5", "x": 752, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 21, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 710, "patrolMax": 911},
+      {"id": "inazuma-road-regular-6", "x": 970, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 923, "patrolMax": 1175},
+      {"id": "inazuma-road-regular-7", "x": 883, "platform": 3, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-road-regular-8", "x": 979, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 21, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-road-regular-9", "x": 1080, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-road-regular-10", "x": 1165, "platform": 0, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 923, "patrolMax": 1175}
     ],
     "inazuma-shore-hunt": [
-      {"id":"ina-shore-nobushi-west","kind":1,"art":"nobushi","x":360,"platform":0,"hp":32},
-      {"id":"ina-shore-slime-west","kind":1,"art":"hydro-slime","x":530,"platform":0,"hp":22},
+      {"id": "ina-shore-nobushi-west", "kind": 1, "art": "nobushi", "x": 360, "platform": 0, "hp": 32, "patrolMin": 225, "patrolMax": 612},
+      {"id": "ina-shore-slime-west", "kind": 1, "art": "hydro-slime", "x": 530, "platform": 0, "hp": 22, "patrolMin": 225, "patrolMax": 612},
       {"id":"ina-shore-nobushi-ledge","kind":1,"art":"nobushi","x":632,"platform":1,"hp":26},
       {"id":"ina-shore-slime-upper","kind":2,"art":"pyro-slime","x":820,"platform":2,"hp":24},
-      {"id":"ina-shore-leader","kind":1,"art":"nobushi","x":943,"platform":0,"hp":49,"name":"浜を仕切る野伏","dailyElite":true},
+      {"id": "ina-shore-leader", "kind": 1, "art": "nobushi", "x": 943, "platform": 0, "hp": 49, "name": "浜を仕切る野伏", "dailyElite": true, "patrolMin": 940, "patrolMax": 1465},
       {"id":"ina-shore-slime-ledge","kind":1,"art":"hydro-slime","x":1125,"platform":3,"hp":22},
-      {"id":"ina-shore-nobushi-east","kind":1,"art":"nobushi","x":1290,"platform":0,"hp":30},
-      {"id":"ina-shore-slime-east","kind":2,"art":"pyro-slime","x":1410,"platform":0,"hp":26}
+      {"id": "ina-shore-nobushi-east", "kind": 1, "art": "nobushi", "x": 1290, "platform": 0, "hp": 30, "patrolMin": 940, "patrolMax": 1465},
+      {"id": "ina-shore-slime-east", "kind": 2, "art": "pyro-slime", "x": 1410, "platform": 0, "hp": 26, "patrolMin": 940, "patrolMax": 1465},
+      {"id": "inazuma-shore-hunt-regular-1", "x": 414, "platform": 0, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 225, "patrolMax": 612},
+      {"id": "inazuma-shore-hunt-regular-2", "x": 488, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 21, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 225, "patrolMax": 612},
+      {"id": "inazuma-shore-hunt-regular-3", "x": 552, "platform": 1, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-shore-hunt-regular-4", "x": 730, "platform": 2, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-shore-hunt-regular-5", "x": 689, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 21, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 615, "patrolMax": 931},
+      {"id": "inazuma-shore-hunt-regular-6", "x": 835, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 615, "patrolMax": 931},
+      {"id": "inazuma-shore-hunt-regular-7", "x": 1030, "platform": 0, "art": "nobushi", "kind": 1, "hp": 24, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 940, "patrolMax": 1465},
+      {"id": "inazuma-shore-hunt-regular-8", "x": 1230, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 21, "contactDamage": 11, "contactCooldown": 4.0},
+      {"id": "inazuma-shore-hunt-regular-9", "x": 1190, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 23, "contactDamage": 11, "contactCooldown": 4.0, "patrolMin": 940, "patrolMax": 1465}
     ],
     "inazuma-lantern-trail": [
       {"id": "inazuma-lantern-trail-1", "kind": 1, "art": "hydro-slime", "x": 365, "platform": 0},
