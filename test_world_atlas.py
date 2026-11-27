@@ -49,7 +49,22 @@ for boss in read('content/field-boss-spawns.json')['fieldBosses']:
                                 'placementPreview': True,
                                 **({'aliases': [source]} if source else {})}
 boss_points = {p['id']: p['boss'] for r in atlas['regions'] for p in r['points'] if 'boss' in p}
-assert boss_points == {
+challenges = {b['node']: b['storyChallenge'] for b in (
+    read('content/field-boss-spawns.json')['fieldBosses'] + read('content/weekly-boss-spawns.json')['weeklyBosses']
+) if b.get('storyChallenge')}
+challenges.update({b['node']: b['challenge'] for b in read('content/stygian-matches.json')['matches'].values()})
+assert {stage: p['challenge'] for stage, p in boss_points.items() if p.get('challenge')} == {
+    stage: challenges[stage] for stage in roster if stage in challenges
+}
+current_quests = [q for q in graph['quests'] if not q.get('legacyOnly')]
+commission_targets = {q['target'] for q in current_quests if q['kind'] == 'boss'}
+itinerary_battles = {(step['node'], step['boss']) for q in current_quests
+                     for step in q.get('itinerary', []) if step['kind'] == 'boss'}
+assert Counter(p['kind'] for stage, p in boss_points.items()
+               if p.get('challenge') in commission_targets or (stage, p.get('challenge')) in itinerary_battles) == {
+    'normal': 64, 'weekly': 16, 'stygian': 7,
+}
+assert {stage: {key:value for key,value in p.items() if key!='challenge'} for stage,p in boss_points.items()} == {
     stage: {key: row[key] for key in ('id', 'name', 'kind', 'aliases', 'placementPreview') if key in row}
     for stage, row in roster.items()
 }

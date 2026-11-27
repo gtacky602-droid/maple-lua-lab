@@ -1,6 +1,6 @@
 import {stopTiming,windTiming} from './quest-route.js';
 import {entranceKey} from './arena-entrances.js';
-import {atlasQuestObjectives} from './quest-journal.js';
+import {atlasQuestObjectives,questStatus,questStatusLabels} from './quest-journal.js';
 import {backgroundMeasurements} from './scenery-measurements.js';
 
 const groupNames = {
@@ -241,9 +241,28 @@ export function initAtlas(action, clearKeys) {
    approach.append(label+(gate.reason?'（'+gate.reason+'）':''),' ',focus);
    appendGateLink(approach,gate.from,gate);
   }
-  const objectives=[];
+  const objectives=[],commissions=[];
   if(selected && frame.storyGraph){
+   const challenge=selected.boss?.challenge;
+   const quests=frame.story.quests;
    for(const q of frame.storyGraph.quests){
+    const battle=challenge&&q.itinerary?.find(step=>step.kind==='boss'&&step.boss===challenge&&step.node===selected.id);
+    const commission=challenge&&q.kind==='boss'&&q.target===challenge;
+    if((battle||commission)&&(!q.legacyOnly||quests?.[q.id])){
+     const status=questStatus(q,quests?.[q.id],quests,frame.progression?.level??0,frame.growthEligibility);
+     const hub=frame.storyGraph.nodes.find(n=>n.id===q.hub);
+     const item=document.createElement('li');
+     item.textContent=q.name+' ｜ '+questStatusLabels[status]+(q.level?' ｜ 受注Lv'+q.level:'');
+     const route=document.createElement('button');
+     route.type='button';route.textContent=(hub?.name??q.hub)+'までの道順';
+     route.onclick=()=>send('world_map_focus:'+q.hub);
+     if(battle?.objective){
+      const goal=document.createElement('p');
+      goal.textContent=battle.objective;
+      item.append(goal);
+     }
+     item.append(' ',route);commissions.push(item);
+    }
     for(const objective of atlasQuestObjectives(frame,q,selected.id)){
      const item=document.createElement('li');
      item.textContent=q.name+'　'+objective.text;
@@ -260,6 +279,9 @@ export function initAtlas(action, clearKeys) {
     }
    }
   }
+  const commissionPanel=document.getElementById('atlasBossCommissions');
+  commissionPanel.hidden=!commissions.length;
+  commissionPanel.querySelector('ul').replaceChildren(...commissions);
   document.getElementById('atlasQuestObjectives').replaceChildren(...objectives);
   document.getElementById('atlasStoryQuests').hidden=!objectives.length;
   const dailies=entries(selected?.dailyQuests);

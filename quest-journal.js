@@ -13,6 +13,7 @@ export function questStatus(q,state,quests,level=Infinity,growthEligibility){
 const rewardNumber=new Intl.NumberFormat('ja-JP');
 const questName=(q,state)=>q.sights&&state&&!state.sights?q.sights.legacyName:q.name;
 const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
+export {labels as questStatusLabels};
 function remainingEnemyPoints(step,progress){
  const targets=step.enemies??(step.enemy?[step.enemy]:[]);
  return targets.flatMap((subject,index)=>{

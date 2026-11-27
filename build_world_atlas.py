@@ -207,8 +207,13 @@ def build():
     opening_stages = set(load('content/field-boss-openings.json'))
     opening_stages.update(load('content/stygian-openings.json'))
     opening_stages.update(load('content/weekly-opening-parts.json'))
-    opening_stages.update(b['node'] for b in load('content/weekly-boss-spawns.json')['weeklyBosses']
-                          if b.get('mapIdleArt'))
+    weekly_bosses = load('content/weekly-boss-spawns.json')['weeklyBosses']
+    field_bosses = load('content/field-boss-spawns.json')['fieldBosses']
+    opening_stages.update(b['node'] for b in weekly_bosses if b.get('mapIdleArt'))
+    challenges = {b['node']: b['storyChallenge'] for b in [*weekly_bosses, *field_bosses]
+                  if b.get('storyChallenge')}
+    challenges.update({b['node']: b['challenge']
+                       for b in load('content/stygian-matches.json')['matches'].values()})
     bosses_by_stage = {}
     for boss in load('content/encounters.json')['encounters']:
         stage = boss.get(BOSS_STAGE_FIELDS[boss['kind']])
@@ -219,10 +224,12 @@ def build():
 
         if stage in opening_stages:
             bosses_by_stage[stage]['placementPreview'] = True
+        if stage in challenges:
+            bosses_by_stage[stage]['challenge'] = challenges[stage]
 
     legends = {row['encounter_id']: row for row in load('design/world/encounters.json')['legends']}
     group_openings = load('content/group-legend-openings.json')
-    for boss in load('content/field-boss-spawns.json')['fieldBosses']:
+    for boss in field_bosses:
         legend = legends.get(boss['id'])
         if legend is None:
             continue
@@ -233,6 +240,8 @@ def build():
             entry['placementPreview'] = True
         if legend.get('source_enemy_base'):
             entry['aliases'] = [legend['source_enemy_base']]
+        if stage in challenges:
+            entry['challenge'] = challenges[stage]
         bosses_by_stage[stage] = entry
 
     hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']

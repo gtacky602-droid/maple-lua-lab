@@ -9407,6 +9407,7 @@
     ]
   },
   "world_map_review": {
+    "boss_commission_links": {"boss_pins":87,"normal":64,"weekly":16,"stygian":7,"linked_quests":88,"reported_in":"evidence/remaining-survey-save.json","scope":"Atlas links standalone commissions and itinerary boss steps to their current status and hub.","regression":"test_atlas_boss_commissions.mjs"},
     "boarding_schedules": {"voyages":13,"intermediateStops":4,"scope":"Boarding gates and atlas itineraries display the destination and riding time, plus alighting windows still ahead. The quest tracker reads the cached story graph.","evidence":"evidence/world-voyage-routes-lua.json"},
     "voyage_stop_countdown": {"directedStops":4,"states":["waiting","open","passed"],"scope":"Solo riding window shared by the story panel, quest route and atlas. A later boarding has its own stop window.","regression":"test_world_voyage_routes.py"},
     "wind_gate_countdown": {"directedGates":6,"states":["gust","calm"],"scope":"Solo quest tracking and current-room atlas routes use the Lua crossing window. The atlas pauses its timer.","regression":"test_world_timed_gates.py"},
