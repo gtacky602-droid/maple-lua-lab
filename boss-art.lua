@@ -273,9 +273,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.surveyorArt[pose]
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)
  end
- function C.drawAndriusWeeklyArt(f,x,y,pose,height,mode,profile,flip)
+ function C.drawAndriusWeeklyArt(f,x,y,pose,height,mode,profile,flip,opacity)
   local art=C.andriusWeeklyArt[pose]
-  draw(f,art,x,y,art.profiles.legacy.height*(height/180),mode,profile,flip)
+  draw(f,art,x,y,art.profiles.legacy.height*(height/180),mode,profile,flip,nil,nil,opacity)
  end
  function C.drawDvalinWeeklyArt(f,x,y,pose,height,mode,profile,flip)
   draw(f,C.dvalinWeeklyArt[pose],x,y,height,mode,profile,flip)

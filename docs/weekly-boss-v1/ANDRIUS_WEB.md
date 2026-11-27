@@ -12,6 +12,7 @@
 - 風刃は追補に従い全408tick、spawn96/186/276、低/高/低、消失上限342。実際にジャンプして着地し、高い刃をやり過ごせることを検査した。初版の12tick差は使わない。
 - 氷波は床に沿う低い判定。氷雨の3地点はロック後に追尾せず、外縁の冷気床は各52.8px、最大360tick、地上だけ毎秒1回。中央の安全経路を残し、冷気が消えるまで外周退避だけの突進/回転を始めない。
 - 咆哮の3pulseも通常の被弾無敵を守る。上段へ無警告に貫通しない。幻影は同時1体の短命な攻撃で、雑魚HPや撃破報酬を持たない。
+- 咆哮は予兆から危険域を枠で示し、判定が出る波に合わせて色と番号を変える。残影は半透明の走る姿と足元の印で区別する。氷雨は外縁の冷気床の予兆と発生後の表示を切り替える。
 
 原作コミュニティの[実戦資料](https://library.keqingmains.com/enemy-data/bosses/weekly-bosses/andrius-boreas)で二形態と移行、近遠の尾、氷/風の攻撃を照合した。原作の全フレーム、回避不能攻撃、時間経過による幻影の無限強化は再現していない。
 
@@ -36,6 +37,8 @@
 保持した3つの正規化アトラスから全描画設定を再生成するには `python tools/build_andrius_weekly_art.py` を実行する。入力ハッシュを照合してからコンパイルする。
 
 ## 検証
+
+獲得済みセーブで最上級の全11技と後半9場面を再現するには、`python -X utf8 test_earned_andrius_awakened.py --from-save work/current-atlas-recheck/current-atlas-save.json --output-dir work/andrius-awakened-frames` を実行する。ラボを配信中に `node test_earned_weekly_frames.mjs work/andrius-awakened-frames work/andrius-awakened-comparison` を実行すると、元絵・中間・軽量版の比較画像ができる。 [最上級の実測と圧縮検証](../../evidence/andrius-awakened-replay-20261128.json)
 
 `python -X utf8 test_andrius_weekly.py`：11行動の窓、固定方向/着地点、HP半分とHP0の優先、移行の2突進/着地/反撃、風刃の2hit上限と実ジャンプ、AIの上段への実移動、床の高さ/寿命、属性と混合技、保存/退出/全滅/報告/再出現を検査。
 
