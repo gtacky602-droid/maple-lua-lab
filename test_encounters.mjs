@@ -1,4 +1,5 @@
 import {chromium} from 'playwright';import fs from 'node:fs/promises';
+const evidenceDir=process.env.LAB_EVIDENCE_DIR||'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
@@ -98,8 +99,15 @@ try{
  const sifter=panel.locator('[data-encounter="original-rubble-sifter"]').getByRole('link',{name:/焚き口の選鉱室/});
  if(await sifter.getAttribute('href')!=='map-art.html?node=ochka-sifting-kiln')throw Error('Sifter stopover route missing');
  await panel.getByLabel('ボス名で検索').fill('玻璃根の歩行晶');
- const walker=panel.locator('[data-encounter="original-prism-walker"]').getByRole('link',{name:/庭の外周/});
- if(await walker.getAttribute('href')!=='map-art.html?node=nod-quiet-rim')throw Error('Prism walker route missing');
+ const walker=panel.locator('[data-encounter="original-prism-walker"]');
+ if(!await walker.getByText(/現行の冒険では休止中/).isVisible())throw Error('Prism walker suspension missing');
+ if(await walker.locator('[data-boss-route], [data-runtime-action], a[href^="map-art.html"]').count())
+  throw Error('Suspended arena has active links');
+ if(!await walker.getByRole('link',{name:/を比較/}).first().isVisible())throw Error('Archived art link missing');
+ const playable=panel.getByLabel('挑戦可能のみ');
+ await playable.check();
+ if(await walker.count())throw Error('Suspended encounter in playable filter');
+ await playable.uncheck();
  await panel.getByLabel('ボス名で検索').fill('氷継ぎの岩這い');
  const crawler=panel.locator('[data-encounter="original-ice-crawler"]').getByRole('link',{name:/氷殻の最深室/});
  if(await crawler.getAttribute('href')!=='map-art.html?node=novo-ice-vault')throw Error('Ice crawler expedition route missing');
@@ -143,6 +151,6 @@ try{
  const dualCourt=panel.locator('[data-encounter="stygian-farka"]').getByRole('link',{name:/二刀の鍛錬場/});
  if(await dualCourt.getAttribute('href')!=='map-art.html?node=mond-stygian-dual-court')throw Error('Farka arena route missing');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
- await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:87,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,canopyFungusFieldRoute:true,grandFinaleFieldRoute:true,riverRacerFieldRoute:true,moonCrabFieldRoute:true,stygianCandidates:7,beidouStygianRoute:true,capitanoStygianRoute:true,xbalanqueStygianRoute:true,rerirStygianRoute:true,ronovaStygianRoute:true,wandererStygianRoute:true,farkaDualCourtRoute:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await panel.screenshot({path:evidenceDir+'/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
+ await fs.writeFile(evidenceDir+'/encounters-browser.json',JSON.stringify({errors,allCandidates:87,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerSuspended:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,canopyFungusFieldRoute:true,grandFinaleFieldRoute:true,riverRacerFieldRoute:true,moonCrabFieldRoute:true,stygianCandidates:7,beidouStygianRoute:true,capitanoStygianRoute:true,xbalanqueStygianRoute:true,rerirStygianRoute:true,ronovaStygianRoute:true,wandererStygianRoute:true,farkaDualCourtRoute:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

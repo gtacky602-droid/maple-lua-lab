@@ -1,5 +1,5 @@
 {
-  "count": 112,
+  "count": 113,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -11,6 +11,7 @@
     "evidence on every row",
     "generated file matches builder",
     "counts retained",
+    "suspension is derived from the story region",
     "Childe has a distinct weekly route",
     "Azhdaha has a distinct weekly route",
     "Signora has a distinct weekly route",

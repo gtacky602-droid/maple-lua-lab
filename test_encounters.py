@@ -21,6 +21,9 @@ check('not implemented rows cannot launch',all(r['action'] is None for r in rows
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
 check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':87,'complete':0})
+check('suspension is derived from the story region',
+      {r['id']:r['suspendedRegion'] for r in rows if 'suspendedRegion' in r}
+      == {'original-prism-walker':'ナド・クライ特別地域（仮）'})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',

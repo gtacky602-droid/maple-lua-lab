@@ -2,6 +2,7 @@
 import json
 
 from experience import LEVELS
+from coop_rooms import CoopRooms, RULES
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 
@@ -45,6 +46,11 @@ def test_nod_krai_special_region():
     assert restored.story.node == 'nod-town'
     assert restored.story.quests['nod-rim-return'].status == 'complete'
     assert core.equippedWeapon(restored, 'traveler') == 'SW08'
+    coop = CoopRooms().view({'state': restored, 'core': core, 'rank_player': None})
+    assert not excluded_nodes.intersection(RULES['nodes'])
+    assert len(coop['sites']) == 392
+    assert 'ナド・クライ特別地域（仮）・入口拠点' not in coop['sites']
+    assert coop['eligible']
     core.action(restored, 'story_fast:nod-special-camp')
     assert restored.story.node == 'nod-town'
     validate_save(native(core.checkpoint(restored)))

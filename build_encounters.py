@@ -3,6 +3,7 @@
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from story_scope import suspended_stage_returns
 
 ROOT = Path(__file__).resolve().parent
 ART_LISTS = ('art_components', 'art_variants')
@@ -97,7 +98,9 @@ def build():
     fields = {spec['id']:spec for spec in read_json('content/field-boss-spawns.json')['fieldBosses']}
     weeklies = {spec['id']:spec for spec in read_json('content/weekly-boss-spawns.json')['weeklyBosses']}
     stygian = {f'stygian-{id}': spec for id,spec in read_json('content/stygian-matches.json')['matches'].items()}
-    nodes = {node['id']:node for node in read_json('content/story-graph.json')['nodes']}
+    graph = read_json('content/story-graph.json')
+    nodes = {node['id']:node for node in graph['nodes']}
+    suspended_nodes = suspended_stage_returns(graph)
     galleries = {
         gallery: {item['id']: item for item in read_json(path)['items']}
         for gallery, path in [('bosses', 'content/boss-art-gallery.json'),
@@ -148,6 +151,9 @@ def build():
             node = nodes[match['node']]
             row['stygianNode'] = node['id']
             row['stygianEntrance'] = f"{node['name']}（Lv{node['level']}）"
+        stage = row.get('weeklyNode') or row.get('fieldNode') or row.get('stygianNode')
+        if stage in suspended_nodes:
+            row['suspendedRegion'] = nodes[stage]['region']
         if row['action'] or field or weekly or match:
             row['status'] = 'partial'
         elif row['kind'] == 'stygian':
