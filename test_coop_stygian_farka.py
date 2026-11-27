@@ -101,14 +101,25 @@ def play(url):
     assert resumed['coop']['code'] == code and resumed['boss']['hp'] == hp
     assert resumed['actors'][0]['hp'] == guest_hp
     with LOCK:
-        t.actors[1].hp = 0
         s.actors[1].inv = 400
-        core.stepCoop(world, 1 / 60)
-        assert t.endgameRun.status == 'spectate' and t.returns == 0 and t.story.node == ARENA
-        assert s.endgameRun.status == 'fighting'
         advance(lambda: run.stage == 2 and run.phase == 'ready')
         strike(h, boss, 99999)
         advance(lambda: run.stage == 3 and run.phase == 'ready')
+        advance(lambda: run.cast and run.cast.key == 'FK07' and run.cast.t == 30)
+        destination = run.cast.child.destination
+        place(s.actors[1], 120 if destination > 480 else 840)
+        place(t.actors[1], destination)
+        t.actors[1].inv = 0
+        guest_before = t.actors[1].hp
+        advance(lambda: run.cast.t == 108)
+        host_view, guest_view = [native(core.frame(p, 'sprite').endgameRun) for p in (s, t)]
+        assert host_view['chainResult'][0] == {'contact': False, 'damage': 0}
+        assert guest_view['chainResult'][0] == {'contact': True, 'damage': guest_before - t.actors[1].hp}
+        assert 0 < t.actors[1].hp < guest_before
+        t.actors[1].hp = 0
+        core.stepCoop(world, 1 / 60)
+        assert t.endgameRun.status == 'spectate' and t.returns == 0 and t.story.node == ARENA
+        assert s.endgameRun.status == 'fighting'
         advance(lambda: run.chainOpen)
         strike(h, boss, 99999)
         advance(lambda: run.status == 'clear')
@@ -162,7 +173,7 @@ def play(url):
     assert reserve.frame(['endgame_exit'])['story']['node'] == HUB
     return dict(contributors=2, normalHP=670, hardHP=1880, warningAndDamageForBoth=True, lateJoinBlocked=True,
                 sameSessionRestoredHP=True, defeatedContributorRewarded=True, idleObserverUnrewarded=True,
-                independentDifficulties=True, allDownReturnsThroughHub=True,
+                independentDifficulties=True, individualChainResults=True, allDownReturnsThroughHub=True,
                 selectedSets=results, rematchReward=second, savedClears=2)
 
 

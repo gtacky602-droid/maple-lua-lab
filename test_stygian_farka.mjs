@@ -1,11 +1,18 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const hub='mond-town',arena='mond-stygian-dual-court',quest='stygian-farka-commission';
-const prefix='evidence/stygian-farka',canvas=page.locator('#game'),errors=[];
+const hitChain=process.env.LAB_FARKA_MODE==='hard';
+const difficulty=hitChain?'hard':'normal';
+const recordKey='farka:'+difficulty;
+const {matches}=JSON.parse(await fs.readFile('content/stygian-matches.json','utf8'));
+const mode=matches.farka.modes.find(row=>row.id===difficulty);
+const prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/stygian-farka'+(hitChain?'-hard':'');
+const canvas=page.locator('#game'),errors=[];
 const wait=(fn,arg,timeout=95000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 page.on('pageerror',e=>errors.push(e.message));
@@ -30,7 +37,7 @@ try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8961/');
  await wait(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/stygian-farka-gear.json','utf8'));
+  await fs.readFile(hitChain?'work/stygian-farka-hard-gear.json':'work/stygian-farka-gear.json','utf8'));
  await page.locator('#loadProgress').click();
  await wait(node=>window.lab.frame.story?.node===node,hub);
  const row=page.locator('[data-quest="'+quest+'"]');
@@ -45,17 +52,17 @@ try{
  await wait(()=>document.getElementById('stygianMode').options.length===4);
  await page.locator('#stygianMode').selectOption('extreme');
  assert.ok(await page.locator('#stygianStart').isDisabled());
- await page.locator('#stygianMode').selectOption('normal');
+ await page.locator('#stygianMode').selectOption(difficulty);
  await page.locator('#stygianSet').selectOption('troupe');
  await page.locator('#stygianStart').click();
  await wait(()=>window.lab.frame.endgameRun?.match==='farka');
  await canvas.click();
  await capture('arrival');
 
- await page.evaluate(()=>{
+ await page.evaluate(hitChain=>{
   const held=new Set(),observed=new Set();
   const d=window.fkTrail={stages:[],cards:[],plunges:[],burstLow:false,burstHigh:false,burstContacts:[],
-   firstChain:null,chainRecovery:false,landedAttack:false,dual:false,dirs:[]};
+   firstChain:null,chainRecovery:false,landedAttack:false,dual:false,dirs:[],allowFinish:false};
   let prior,oldTick,spot,tipLocked,clearX,dropped;
   function key(code,push){
    if(held.has(code)===push)return;
@@ -88,6 +95,7 @@ try{
     if(v.card==='FK07'&&v.child==='FK03'&&t>=114&&t<204&&v.phase==='recover')d.chainRecovery=true;
 
     const a=f.actors[f.active-1],dx=b.x-a.x;
+    const takeHit=hitChain&&v.card==='FK07'&&v.variant==='B';
     const zones=Array.isArray(v.areas)?v.areas:[];
     let goal=a.x;
     const follow=()=>{
@@ -102,8 +110,10 @@ try{
       const lo=zones.find(z=>z.index===1),hi=zones.find(z=>z.index===2);
       if(spot===undefined&&lo&&hi)spot=(Math.max(lo.left,hi.left)+Math.min(lo.right,hi.right))/2;
       goal=spot??a.x;
-      jump=t>=88&&t<127;
-      if(t>=121&&t<160&&a.ground&&a.y<479&&!dropped){dropped=true;drop();}
+      jump=takeHit?t>=151&&t<177:t>=88&&t<127;
+      if((takeHit?t<130:t>=121&&t<160)&&a.ground&&a.y<479&&!dropped){
+       dropped=true;down=true;drop();
+      }
       if(v.card==='FK05'&&lo&&t>=105&&t<111&&lo.left+12<a.x&&a.x<lo.right-12&&a.y<lo.top)d.burstLow=true;
       if(v.card==='FK05'&&hi&&t>=171&&t<177&&hi.left+12<a.x&&a.x<hi.right-12&&a.y>=479&&a.ground)d.burstHigh=true;
      }
@@ -111,8 +121,9 @@ try{
      const z=zones[0];
      if(t>=30&&z){
       tipLocked??=v.destination;
-      clearX??=a.x>z.left-12&&a.x<z.right+12?nearestEscape(a.x,z):a.x;
+      clearX??=takeHit?v.destination:a.x>z.left-12&&a.x<z.right+12?nearestEscape(a.x,z):a.x;
       goal=clearX;
+      if(takeHit&&a.ground&&a.y<479&&!dropped){dropped=true;down=true;drop();}
       if(t>=102&&t<108&&(a.x<z.left-8||a.x>z.right+8)&&v.destination===tipLocked&&!d.plunges.includes(v.card))d.plunges.push(v.card);
      }
     }else if(k==='FK04'&&t<72){
@@ -138,16 +149,17 @@ try{
     for(const e of Object.values(f.events||{})){
      if(observed.has(e.seq))continue;
      observed.add(e.seq);
-     if(e.kind==='stygian:farka:FK05:contact'&&e.actor===1)d.burstContacts.push(e.tick);
+     if(e.kind==='stygian:farka:FK05:contact'&&e.actor===1&&e.tick===e.localTick)d.burstContacts.push(e.tick);
      if(e.kind==='hit'&&e.actor===1&&e.target===990001&&v.phase==='recover')d.landedAttack=true;
     }
     left=goal<a.x-6;right=goal>a.x+6;
+    if(v.stage===3&&!d.allowFinish)attack=false;
    }
    key('KeyA',left);key('KeyD',right);key('KeyS',down);key('Space',jump);key('KeyJ',attack);
    requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
- });
+ },hitChain);
  await wait(()=>window.lab.frame.endgameRun?.card==='FK03'&&window.lab.frame.endgameRun.tick>=83);
  await capture('plunge');
  await wait(()=>window.lab.frame.endgameRun?.card==='FK04'&&window.lab.frame.endgameRun.tick>=48);
@@ -159,35 +171,70 @@ try{
  assert.equal(original.endgameRun.card,'FK05');
  assert.equal(original.draws.filter(q=>q.source==='farka-sword-source-v1.png').length,2);
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(n=>window.lab.frame.commands>n*4,original.commands);
  const standard=await frame(),rect=await capture('standard');
- await page.locator('#renderMode').selectOption('h32c16');
- await wait(n=>window.lab.frame.commands<n*.7,standard.commands);
- const light=await frame(),low=await capture('light');
+ const plain=await captureRectTransfer(page,'h32c16',false,()=>page.locator('#renderMode').selectOption('h32c16'));
+ const light=plain.snapshot,low=await capture('light');
  assert.deepEqual([original.t,standard.t,light.t],[original.t,original.t,original.t]);
  assert.deepEqual(original.endgameRun,light.endgameRun);
  assert.equal(new Set([png,rect,low]).size,3);
+ const packed=await captureRectTransfer(page,'h32c16',true,()=>page.locator('#packRectArt').check());
+ assert.equal(packed.snapshot.t,light.t);
+ assert.equal(packed.raster,plain.raster);
+ const swords=packed.snapshot.draws.filter(d=>d.kind==='rect_runs'&&d.rotation!==undefined);
+ assert.equal(swords.length,2);
+ assert.equal(swords[0].batch,swords[1].batch);
+ assert.ok(packed.snapshot.draws.length<light.draws.length&&packed.gzipBytes<plain.gzipBytes);
+ const rotatedPaletteCanvasIdentical=await page.evaluate(async()=>{
+  const {drawCombatRuns,drawPaletteBatch}=await import('./sprite-images.js');
+  function paint(palette){
+   const canvas=document.createElement('canvas');canvas.width=960;canvas.height=540;
+   const ctx=canvas.getContext('2d'),f=window.lab.frame;
+   for(const d of f.draws.filter(d=>d.kind==='rect_runs'&&d.rotation!==undefined)){
+    const rows=f.rectBatches[d.batch-1];
+    if(palette)drawPaletteBatch(ctx,d,rows,new Map());else drawCombatRuns(ctx,d,rows);
+   }
+   return canvas.toDataURL();
+  }
+  return paint(false)===paint(true);
+ });
+ assert.ok(rotatedPaletteCanvasIdentical);
  await page.locator('#renderMode').selectOption('sprite');
- await wait(n=>window.lab.frame.commands<n*2,original.commands);
+ await wait(()=>window.lab.frame.draws.some(d=>d.source==='farka-sword-source-v1.png'));
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.locator('#stygianBattle').evaluate(el=>el.scrollWidth<=el.clientWidth&&el.getBoundingClientRect().right<=390));
  await page.setViewportSize({width:1240,height:940});
+ const allyFire=page.locator('#allyFire');
+ await allyFire.click();
+ await wait(()=>window.lab.frame.holdAllyFire);
  await canvas.click();
  await page.keyboard.press('KeyP');
- await wait(()=>window.lab.frame.endgameRun?.card==='FK07'&&window.lab.frame.endgameRun.child==='FK04');
+ await wait(child=>window.lab.frame.endgameRun?.card==='FK07'&&window.lab.frame.endgameRun.child===child,hitChain?'FK05':'FK04');
  await capture('chain');
+ await wait(()=>window.lab.frame.endgameRun?.card==='FK07'&&window.lab.frame.endgameRun.phase==='recover');
+ const chain=(await frame()).endgameRun;
+ const chainText=await page.locator('#stygianMechanic').textContent();
+ const damage=chain.chainResult.map(step=>step.damage);
+ assert.deepEqual(damage,hitChain?[26,29,29]:[0,0,0]);
+ assert.ok(chainText.includes(hitChain?'高い風 29ダメージ':'クロス二撃目 無傷'));
+ await page.locator('#stygianBattle').screenshot({path:prefix+'-chain-result.png'});
+ await page.evaluate(()=>{window.fkTrail.allowFinish=true;});
+ await allyFire.click();
+ await canvas.click();
  await wait(()=>window.lab.frame.endgameRun?.status==='clear');
  const victory=await frame(),trail=await page.evaluate(()=>window.fkTrail);
  assert.deepEqual(trail.stages,[1,2,3]);
  assert.ok(trail.dual&&trail.landedAttack&&trail.burstLow&&trail.burstHigh&&trail.chainRecovery);
  assert.equal(trail.dirs.length,2);
- assert.equal(trail.firstChain,'A');
+ assert.equal(trail.firstChain,hitChain?'B':'A');
  assert.deepEqual(trail.burstContacts,[]);
- assert.ok(trail.plunges.includes('FK03')&&trail.plunges.includes('FK07'));
- assert.equal(victory.endgame.stygian['farka:normal'].clears,1);
+ assert.ok(trail.plunges.includes('FK03'));
+ if(!hitChain)assert.ok(trail.plunges.includes('FK07'));
+ assert.equal(victory.endgame.stygian[recordKey].clears,1);
  assert.equal(victory.story.quests[quest].count,1);
  assert.equal(victory.returns,0);
- assert.equal(victory.endgameRun.matchReward.mora,2400);
+ assert.equal(victory.endgameRun.matchReward.mora,mode.mora+mode.firstMora);
  await capture('clear');
  await page.getByRole('button',{name:'挑戦入口に戻る',exact:true}).click();
  await wait(()=>window.lab.frame.stygianDesk);
@@ -200,16 +247,18 @@ try{
  await wait(()=>window.lab?.frame);
  await page.locator('#loadProgress').click();
  await wait(q=>window.lab.frame.story?.quests[q]?.status==='complete',quest);
- assert.deepEqual((await frame()).endgame.stygian['farka:normal'],victory.endgame.stygian['farka:normal']);
+ assert.deepEqual((await frame()).endgame.stygian[recordKey],victory.endgame.stygian[recordKey]);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,normalClear:true,trail,questReportSaveRestore:true,
-  viewport390:true,commands:{png:original.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
- console.log('Farka Chrome: locked plunge, physical low/high dodge, chained recovery, two swords, reward and save passed');
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,difficulty,clear:true,trail,questReportSaveRestore:true,
+  viewport390:true,chainText,damage,commands:{png:original.commands,standard:standard.commands,light:light.commands},
+  transfer:{plainDraws:light.draws.length,packedDraws:packed.snapshot.draws.length,plainGzip:plain.gzipBytes,
+   packedGzip:packed.gzipBytes,identicalCanvas:true,rotatedPaletteCanvasIdentical},errors},null,2)+'\n');
+ console.log(`Farka Chrome: chain ${chain.variant}, damage ${damage.join('/')}, two swords, reward and save passed`);
 }catch(err){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error(JSON.stringify({node:f?.story?.node,t:f?.t,boss:f?.boss,run:f?.endgameRun,
   actors:f?.actors?.map(a=>[a.x,a.y,a.hp,a.dir]),portal:f?.storyNearbyPortal,trail:await page.evaluate(()=>window.fkTrail),
   events:Array.isArray(f?.events)?f.events.filter(e=>e.kind.startsWith('stygian:farka:')).slice(-14):[],errors},null,2));
- await page.screenshot({path:'work/stygian-farka-failure.png'});
+ await page.screenshot({path:prefix+'-failure.png'});
  throw err;
 }finally{await browser.close()}

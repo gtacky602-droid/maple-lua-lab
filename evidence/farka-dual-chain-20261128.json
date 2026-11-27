@@ -1,0 +1,533 @@
+{
+  "baseCommit": "40f30ee00d45b63207178a3287c5f753c2e7d81b",
+  "method": "Extreme rematches from the same earned Lv200 save with companion attacks held. Both pilots wait for chains B and A, and strike once in each child opening. The first avoids both chains; the second stays inside the plunge and chooses the floor for the low sweep and a jump for the high sweep. Both win and restore their repeat reward record.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "farka",
+      "case": "farka-evade",
+      "label": "突き立てと二本の斬撃を回避",
+      "ticks": 6813,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "chains": {
+        "B": {
+          "serial": 19,
+          "windows": [
+            102,
+            309,
+            375
+          ],
+          "contacts": [],
+          "positions": [
+            {
+              "tick": 102,
+              "x": 393.5,
+              "y": 480,
+              "left": 418.3,
+              "right": 620.7,
+              "top": 427.2,
+              "bottom": 480
+            },
+            {
+              "tick": 309,
+              "x": 439.0,
+              "y": 351.0833333333333,
+              "left": 350.97999999999996,
+              "right": 518.18,
+              "top": 422.8,
+              "bottom": 480
+            },
+            {
+              "tick": 375,
+              "x": 439.0,
+              "y": 480,
+              "left": 333.37999999999994,
+              "right": 518.18,
+              "top": 304,
+              "bottom": 374.4
+            }
+          ],
+          "openings": [
+            90,
+            144
+          ],
+          "counterDamage": [
+            52,
+            52
+          ],
+          "childOrder": [
+            "FK03",
+            "FK05"
+          ],
+          "finished": true
+        },
+        "A": {
+          "serial": 22,
+          "windows": [
+            102,
+            258,
+            270
+          ],
+          "contacts": [],
+          "positions": [
+            {
+              "tick": 102,
+              "x": 218.5,
+              "y": 480,
+              "left": 243.3,
+              "right": 445.7,
+              "top": 427.2,
+              "bottom": 480
+            },
+            {
+              "tick": 258,
+              "x": 355.0,
+              "y": 480,
+              "left": 179.05999999999997,
+              "right": 329.53999999999996,
+              "top": 318.96000000000004,
+              "bottom": 482.64
+            },
+            {
+              "tick": 270,
+              "x": 355.0,
+              "y": 480,
+              "left": 170.25999999999996,
+              "right": 325.14,
+              "top": 327.76,
+              "bottom": 478.24
+            }
+          ],
+          "openings": [
+            90,
+            144
+          ],
+          "counterDamage": [
+            52,
+            52
+          ],
+          "childOrder": [
+            "FK03",
+            "FK04"
+          ],
+          "finished": true
+        }
+      },
+      "reward": {
+        "xp": 15429852,
+        "set": "黄金の劇団",
+        "rank": 5,
+        "mora": 29000,
+        "bag": true,
+        "first": false
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    },
+    {
+      "controller": "farka",
+      "case": "farka-contact",
+      "label": "斬撃の高さに体を合わせて被弾",
+      "ticks": 6813,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "chains": {
+        "B": {
+          "serial": 19,
+          "windows": [
+            102,
+            309,
+            375
+          ],
+          "contacts": [
+            {
+              "tick": 102,
+              "damage": 34
+            },
+            {
+              "tick": 309,
+              "damage": 37
+            },
+            {
+              "tick": 375,
+              "damage": 37
+            }
+          ],
+          "positions": [
+            {
+              "tick": 102,
+              "x": 519.5,
+              "y": 480,
+              "left": 418.3,
+              "right": 620.7,
+              "top": 427.2,
+              "bottom": 480
+            },
+            {
+              "tick": 309,
+              "x": 600.0,
+              "y": 480,
+              "left": 519.5,
+              "right": 686.7,
+              "top": 422.8,
+              "bottom": 480
+            },
+            {
+              "tick": 375,
+              "x": 600.0,
+              "y": 339.1666666666667,
+              "left": 519.5,
+              "right": 704.3,
+              "top": 304,
+              "bottom": 374.4
+            }
+          ],
+          "openings": [
+            90,
+            144
+          ],
+          "counterDamage": [
+            52,
+            52
+          ],
+          "childOrder": [
+            "FK03",
+            "FK05"
+          ],
+          "finished": true
+        },
+        "A": {
+          "serial": 22,
+          "windows": [
+            102,
+            258,
+            270
+          ],
+          "contacts": [
+            {
+              "tick": 102,
+              "damage": 34
+            },
+            {
+              "tick": 258,
+              "damage": 26
+            },
+            {
+              "tick": 270,
+              "damage": 0
+            }
+          ],
+          "positions": [
+            {
+              "tick": 102,
+              "x": 498.5,
+              "y": 480,
+              "left": 397.3,
+              "right": 599.7,
+              "top": 427.2,
+              "bottom": 480
+            },
+            {
+              "tick": 258,
+              "x": 551.0,
+              "y": 480,
+              "left": 513.46,
+              "right": 663.94,
+              "top": 318.96000000000004,
+              "bottom": 482.64
+            },
+            {
+              "tick": 270,
+              "x": 551.0,
+              "y": 414.27777777777777,
+              "left": 517.86,
+              "right": 672.74,
+              "top": 327.76,
+              "bottom": 478.24
+            }
+          ],
+          "openings": [
+            90,
+            144
+          ],
+          "counterDamage": [
+            52,
+            52
+          ],
+          "childOrder": [
+            "FK03",
+            "FK04"
+          ],
+          "finished": true
+        }
+      },
+      "reward": {
+        "mora": 29000,
+        "rank": 5,
+        "xp": 15429852,
+        "first": false,
+        "bag": true,
+        "set": "黄金の劇団"
+      },
+      "extremeClears": [
+        1,
+        2
+      ]
+    }
+  ],
+  "comparisonScenes": 22,
+  "profiles": {
+    "h48c32": {
+      "beforeBytes": 12387642,
+      "afterBytes": 2897233,
+      "matchedCommands": 22,
+      "matchedChromeCanvases": 22,
+      "rotatedDraws": 44,
+      "sharedSwordPair": 22,
+      "reductionPercent": 76.61
+    },
+    "h32c16": {
+      "beforeBytes": 4759549,
+      "afterBytes": 1256568,
+      "matchedCommands": 22,
+      "matchedChromeCanvases": 22,
+      "rotatedDraws": 44,
+      "sharedSwordPair": 22,
+      "reductionPercent": 73.6
+    }
+  },
+  "sharedRendererRegression": {
+    "controller": "capitano",
+    "scenes": 14,
+    "profiles": {
+      "h48c32": {
+        "beforeBytes": 2320453,
+        "afterBytes": 1773987,
+        "matchedCommands": 14,
+        "matchedChromeCanvases": 14,
+        "rotatedDraws": 14,
+        "sharedSwordPair": 0,
+        "reductionPercent": 23.55
+      },
+      "h32c16": {
+        "beforeBytes": 947287,
+        "afterBytes": 798293,
+        "matchedCommands": 14,
+        "matchedChromeCanvases": 14,
+        "rotatedDraws": 14,
+        "sharedSwordPair": 0,
+        "reductionPercent": 15.73
+      }
+    }
+  },
+  "chromeVersion": "158.0.8127.38",
+  "luaRegression": {
+    "cards": [
+      "FK01",
+      "FK02",
+      "FK03",
+      "FK04",
+      "FK05",
+      "FK06",
+      "FK07"
+    ],
+    "ranks": [
+      12,
+      42,
+      89,
+      152
+    ],
+    "upper_ledge_lock": true,
+    "plunge_has_no_contact_before_landing": true,
+    "single_plunge_window": true,
+    "two_burst_sweeps_cleared_in_place": true,
+    "parent_lengths": {
+      "A": 432,
+      "B": 528
+    },
+    "first_child_recovery_114_to_204": true,
+    "parent_adds_no_hit": true,
+    "separate_swords": true,
+    "clear_reward_report_saved": true,
+    "legacy_kept": true
+  },
+  "coopRegression": {
+    "contributors": 2,
+    "normalHP": 670,
+    "hardHP": 1880,
+    "warningAndDamageForBoth": true,
+    "lateJoinBlocked": true,
+    "sameSessionRestoredHP": true,
+    "defeatedContributorRewarded": true,
+    "idleObserverUnrewarded": true,
+    "independentDifficulties": true,
+    "individualChainResults": true,
+    "allDownReturnsThroughHub": true,
+    "selectedSets": [
+      {
+        "bag": true,
+        "mora": 2400,
+        "first": true,
+        "set": "黄金の劇団",
+        "xp": 1657,
+        "rank": 3
+      },
+      {
+        "bag": true,
+        "mora": 2400,
+        "first": true,
+        "set": "剣闘士のフィナーレ",
+        "xp": 1657,
+        "rank": 3
+      }
+    ],
+    "rematchReward": {
+      "bag": true,
+      "mora": 1350,
+      "first": false,
+      "set": "黄金の劇団",
+      "xp": 1620,
+      "rank": 3
+    },
+    "savedClears": 2
+  },
+  "browserRoutes": {
+    "normal": {
+      "background": {
+        "key": "dualCourt",
+        "file": "farka-dual-court-background-v1.png",
+        "state": "ready"
+      },
+      "difficulty": "normal",
+      "clear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "FK01",
+          "FK02",
+          "FK06",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK07"
+        ],
+        "plunges": [
+          "FK03",
+          "FK07"
+        ],
+        "burstLow": true,
+        "burstHigh": true,
+        "burstContacts": [],
+        "firstChain": "A",
+        "chainRecovery": true,
+        "landedAttack": true,
+        "dual": true,
+        "dirs": [
+          "farka-body-left-source-v1.png",
+          "farka-body-right-source-v1.png"
+        ],
+        "allowFinish": true
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "chainText": "突き立て 無傷 ｜ クロス一撃目 無傷 ｜ クロス二撃目 無傷",
+      "damage": [
+        0,
+        0,
+        0
+      ],
+      "commands": {
+        "png": 27,
+        "standard": 9698,
+        "light": 2500
+      },
+      "transfer": {
+        "plainDraws": 2500,
+        "packedDraws": 27,
+        "plainGzip": 42344,
+        "packedGzip": 31754,
+        "identicalCanvas": true,
+        "rotatedPaletteCanvasIdentical": true
+      },
+      "errors": []
+    },
+    "hard": {
+      "background": {
+        "key": "dualCourt",
+        "file": "farka-dual-court-background-v1.png",
+        "state": "ready"
+      },
+      "difficulty": "hard",
+      "clear": true,
+      "trail": {
+        "stages": [
+          1,
+          2,
+          3
+        ],
+        "cards": [
+          "FK01",
+          "FK02",
+          "FK06",
+          "FK03",
+          "FK04",
+          "FK05",
+          "FK07",
+          "FK03"
+        ],
+        "plunges": [
+          "FK03"
+        ],
+        "burstLow": true,
+        "burstHigh": true,
+        "burstContacts": [],
+        "firstChain": "B",
+        "chainRecovery": true,
+        "landedAttack": true,
+        "dual": true,
+        "dirs": [
+          "farka-body-left-source-v1.png",
+          "farka-body-right-source-v1.png"
+        ],
+        "allowFinish": true
+      },
+      "questReportSaveRestore": true,
+      "viewport390": true,
+      "chainText": "突き立て 26ダメージ ｜ 低い炎 29ダメージ ｜ 高い風 29ダメージ",
+      "damage": [
+        26,
+        29,
+        29
+      ],
+      "commands": {
+        "png": 28,
+        "standard": 9699,
+        "light": 2501
+      },
+      "transfer": {
+        "plainDraws": 2501,
+        "packedDraws": 28,
+        "plainGzip": 45052,
+        "packedGzip": 32631,
+        "identicalCanvas": true,
+        "rotatedPaletteCanvasIdentical": true
+      },
+      "errors": []
+    }
+  }
+}

@@ -1,15 +1,18 @@
 return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
+ local function rectBatch(f,asset)
+  local index=f.rectIndex[asset]
+  if not index then
+   index=#f.rectBatches+1
+   f.rectBatches[index],f.rectIndex[asset]=asset.runs,index
+  end
+  return index
+ end
  local function draw(f,assetData,x,y,h,mode,profile,flip,palette,tint,opacity)
   local w=h*assetData.box[3]/assetData.box[4];local anchor=assetData.anchorX or .5;local left=x-(flip and (1-anchor) or anchor)*w
   if mode=='rect' then
    local asset=assetData.profiles[profile] or assetData.profiles.legacy
    if f.rectIndex and not palette and not f.clipToViewport then
-    local index=f.rectIndex[asset]
-    if not index then
-     index=#f.rectBatches+1
-     f.rectBatches[index],f.rectIndex[asset]=asset.runs,index
-    end
-    f.draws[#f.draws+1]={kind='rect_runs',batch=index,x=left,y=y-h,w=w,h=h,
+    f.draws[#f.draws+1]={kind='rect_runs',batch=rectBatch(f,asset),x=left,y=y-h,w=w,h=h,
      gridWidth=asset.width,gridHeight=asset.height,flip=not not flip,opacity=opacity}
     return
    end
@@ -43,6 +46,12 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   end
   local co,si=math.cos(theta),math.sin(theta)
   local runs=art.profiles[profile] or art.profiles.legacy
+  if f.rectIndex and not f.clipToViewport then
+   f.draws[#f.draws+1]={kind='rect_runs',batch=rectBatch(f,runs),x=x,y=y,w=w,h=h,
+    gridWidth=runs.width,gridHeight=runs.height,flip=dir<0,opacity=opacity,
+    anchorX=ax,anchorY=ay,rotation=theta,rotationCos=co,rotationSin=si}
+   return
+  end
   local sx,sy=w/runs.width,h/runs.height
   for _,r in ipairs(runs.runs) do
    local left=-w*ax+r[1]*sx

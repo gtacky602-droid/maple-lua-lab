@@ -281,14 +281,25 @@ def expand_rectangles(frame):
             yield draw
             continue
         for x, y, width, height, color in frame['rectBatches'][draw['batch']-1]:
-            column = draw['gridWidth']-x-width if draw['flip'] else x
-            rectangle = dict(
-                kind='rect',
-                x=draw['x']+column*draw['w']/draw['gridWidth'],
-                y=draw['y']+y*draw['h']/draw['gridHeight'],
-                w=width*draw['w']/draw['gridWidth']+.05,
-                h=height*draw['h']/draw['gridHeight']+.05, color=color,
-            )
+            if 'rotation' in draw:
+                sx, sy = draw['w']/draw['gridWidth'], draw['h']/draw['gridHeight']
+                left = -draw['w']*draw['anchorX']+x*sx
+                if draw['flip']:
+                    left = -left-width*sx
+                top = -draw['h']*draw['anchorY']+y*sy
+                cos, sin = draw['rotationCos'], draw['rotationSin']
+                rectangle = dict(kind='rect', x=draw['x']+cos*left-sin*top,
+                                 y=draw['y']+sin*left+cos*top, w=width*sx+.05, h=height*sy+.05,
+                                 color=color, rotation=draw['rotation'])
+            else:
+                column = draw['gridWidth']-x-width if draw['flip'] else x
+                rectangle = dict(
+                    kind='rect',
+                    x=draw['x']+column*draw['w']/draw['gridWidth'],
+                    y=draw['y']+y*draw['h']/draw['gridHeight'],
+                    w=width*draw['w']/draw['gridWidth']+.05,
+                    h=height*draw['h']/draw['gridHeight']+.05, color=color,
+                )
             for key in ('opacity', 'motionOnly', 'translucentFill'):
                 if key in draw:
                     rectangle[key] = draw[key]
