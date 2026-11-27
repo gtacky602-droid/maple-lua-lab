@@ -69,7 +69,9 @@ test('route inspection resolves conditional gates and a suspended region without
   fs.writeFileSync(inputPath, JSON.stringify(proposal));
   const checked = run('routes');
   assert.equal(checked.status, 0, checked.stderr || checked.stdout);
-  const [removed, suspended, added] = JSON.parse(checked.stdout).routes;
+  const report = JSON.parse(checked.stdout);
+  const [removed, suspended, added] = report.routes;
+  assert(report.connectivity.field_count > 0);
   assert.equal(removed.scope, 'map_linked');
   assert.equal(removed.after, null);
   assert.equal(removed.direct.forward[0].requires.quest, 'ina-mapped-enkan-beacons');
@@ -98,11 +100,56 @@ test('route inspection aligns recorded paths with the proposal endpoints', () =>
       return: ['enkan-wp-21577', 'missing-stage', 'enkan-wp-21593']
     }
   }]};
-  const [result] = inspectRoutes([{ type: 'edge_delete', id: edge.id, before: edge }], state, graph, plan);
+  const {routes:[result]} = inspectRoutes([{ type: 'edge_delete', id: edge.id, before: edge }], state, graph, plan);
   assert.deepEqual(result.recorded_route.paths.return.missing_hops, []);
   assert.deepEqual(result.recorded_route.paths.forward.missing_hops, [
     ['enkan-wp-21577', 'missing-stage'], ['missing-stage', 'enkan-wp-21593']
   ]);
+});
+
+test('a verified deletion permits a replacement edge in either operation order', () => {
+  const state = sync.buildState(snapshot);
+  const previous = snapshot.data.edges.find(row => row.id === 'WORLD2-E-map7_21577--map7_21593');
+  const id = 'SITE-EDGE:' + [previous.a, previous.b].sort().join(':');
+  const replace = { type: 'edge_add', id, data: {
+    id, a: previous.a, b: previous.b, source: 'sites-draft',
+    mode: 'special_gate', note: '接続を引き直す', status: 'proposed',
+  } };
+  const remove = { type: 'edge_delete', id: previous.id, before: previous };
+  for (const ops of [[replace, remove], [remove, replace]]) {
+    const report = sync.compareOperations(ops, state);
+    assert.deepEqual(report.conflicts, []);
+    assert.equal(report.applicable.length, 2);
+  }
+  const stale = {...remove, before:{...previous, note:'古い内容'}};
+  assert.deepEqual(sync.compareOperations([replace, stale], state).conflicts.map(row => row.reason),
+    ['existing_record','delete_record_changed']);
+  assert.deepEqual(state.edge.get(previous.id), previous);
+});
+
+test('net route changes reveal a separated area even if the number of components is unchanged', () => {
+  const fieldIds = ['a', 'b', 'c', 'd', 'x'];
+  const state = {
+    field: new Map(fieldIds.map((id, i) => [id, {id, map: 1, x: i, y: 0, name: id, region: 'test'}])),
+    edge: new Map([
+      ['ab', {id:'ab', a:'a', b:'b'}], ['bc', {id:'bc', a:'b', b:'c'}],
+      ['bx', {id:'bx', a:'b', b:'x'}], ['cx', {id:'cx', a:'c', b:'x'}],
+    ]),
+  };
+  const graph = {
+    nodes: fieldIds.map(id => ({id, region:id==='x'?'suspended':'test', mapPoint:id, exits:[]})),
+    suspendedRegions: {suspended:'a'},
+  };
+  const plan = {sites_only_route_review:[]};
+  const remove = {type:'edge_delete', id:'bc', before:state.edge.get('bc')};
+  const isolated = inspectRoutes([remove], state, graph, plan).connectivity;
+  assert.deepEqual(isolated, {field_count:4, before_components:2, after_components:3,
+    newly_isolated:['c'], split_components:[[['a','b'],['c']]]});
+  const join = {type:'edge_add', id:'cd', data:{id:'cd', a:'c', b:'d'}};
+  const rejoined = inspectRoutes([join, remove], state, graph, plan).connectivity;
+  assert.equal(rejoined.after_components, 2);
+  assert.deepEqual(rejoined.newly_isolated, []);
+  assert.deepEqual(rejoined.split_components, [[['a','b'],['c']]]);
 });
 
 test('CLI export, check, explicit apply, import and stale detection', t => {

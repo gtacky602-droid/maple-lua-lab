@@ -67,7 +67,15 @@ const WorldSync = (() => {
     if (!Array.isArray(operations) || operations.length > 10000)
       return { conflicts: [{ reason: 'invalid_operations' }], applicable, alreadyPresent };
     const seen = new Set();
-    const edgePairs = new Map([...state.edge.values()].map(edge => [pair(edge), edge]));
+    const validRemovals = new Set();
+    if (!protectDeletion) {
+      for (const op of operations) {
+        if (op?.type === 'edge_delete' && object(op.before) && same(state.edge.get(op.id), op.before))
+          validRemovals.add(op.id);
+      }
+    }
+    const edgePairs = new Map([...state.edge.values()]
+      .filter(edge => !validRemovals.has(edge.id)).map(edge => [pair(edge), edge]));
     for (const op of operations) {
       const [kind, action] = op?.type === 'field' ? ['field', 'edit'] : String(op?.type || '').split('_');
       const id = op?.id ?? op?.data?.id;
