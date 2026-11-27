@@ -156,8 +156,10 @@ def trials(url):
         f.place(t, 224)
         f.at('RN08', 840)
         assert s.actors[s.active].hp > 0 and t.actors[t.active].hp == 0 and y.verdict
+        assert f.view(s)['finalVerdict'] == 'gate' and f.view(t)['finalVerdict'] == 'down'
         f.step()
         assert b.wipe.wait == 120 and b.lamps == 4 and not a.wipe and not x.waived
+        assert f.view(t)['finalVerdict'] == 'down'
         f.at('RN08', 864)
         assert f.run.finaleOpen
         strike(f.host, f.boss, 999999)

@@ -271,11 +271,19 @@ return function(C,G,A)
    p.verdict=true
    if c.key=='RN06' and p.done or
       c.key=='RN08' and (p.downGeneration~=r.generation or p.found>=2 and M.gate(s,r,c)) then
+    if c.key=='RN08' then
+     p.finalVerdict=p.downGeneration~=r.generation and 'prior-down' or 'gate'
+    end
     log(s,r,c,'verdict-safe',p.found)
     return
    end
   end
-  if A.down(s,r,a,'authority_lethal',c) then p.verdict=true end
+  local wasStanding=a.hp>0
+  local down=A.down(s,r,a,'authority_lethal',c)
+  if down then p.verdict=true end
+  if c.key=='RN08' then
+   p.finalVerdict=down and 'down' or wasStanding and 'avoided' or 'prior-down'
+  end
  end
  function M.tick(s,r,c)
   local locks=c.data.lock_ticks
