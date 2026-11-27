@@ -31,7 +31,7 @@ try {
         main{width:1440px;box-sizing:border-box;padding:20px;margin:auto}
         h1{margin:0 0 14px;font-size:25px} section{margin:0 0 14px}
         h2{margin:6px 0;font-size:16px} .profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-        .flower{margin:4px 0 8px;color:#b8dfd4}
+        .mechanic{margin:4px 0 8px;color:#b8dfd4}
         figure{margin:0;background:#2e3b45} figcaption{padding:4px 8px}
         canvas{display:block;width:100%;image-rendering:pixelated}
       </style><main id="comparison"></main>`,
@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {raidenFlowerText} = await import('./endgame-ui.js');
+      const {narwhalJourneyText, raidenFlowerText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const root = document.querySelector('main');
@@ -140,13 +140,13 @@ try {
         const grid = document.createElement('div');
         grid.className = 'profiles';
         section.append(label);
-        let flowerText = null;
-        const flower = sample.view.flower;
-        if (flower && 'inside' in flower) {
-          flowerText = raidenFlowerText(flower, sample.view.move);
+        const {flower, move, narwhal, narwhalStage} = sample.view;
+        const flowerText = flower && 'inside' in flower ? raidenFlowerText(flower, move) : '';
+        const journeyText = narwhal ? narwhalJourneyText(narwhal, narwhalStage) : '';
+        if (flowerText || journeyText) {
           const status = document.createElement('p');
-          status.className = 'flower';
-          status.textContent = flowerText;
+          status.className = 'mechanic';
+          status.textContent = flowerText || journeyText;
           section.append(status);
         }
         section.append(grid);
@@ -172,7 +172,8 @@ try {
             packedCommands:variant.packed.draws.length, unpackedBytes:variant.unpackedBytes,
             packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
         }
-        comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles, ...(flowerText && {flowerText})};
+        comparison[id] = {tick:sample.tick, originalCombatCanvasMs:originalMs, profiles,
+          ...(flowerText && {flowerText}), ...(journeyText && {journeyText})};
       }
       return comparison;
     }, {frames, nodes, title:label});

@@ -66,6 +66,7 @@ return function(C)
    local e=w.primary
    e.aura=nil;e.burning=nil;e.applicationClocks=nil
   end
+  if stage=='expel' then w.returnLoss=nil end
   if stage~='inner' then remove(s,w.shadow) end
   locate(w,spec.center,spec.floorY)
   target(w,stage=='outer')
@@ -230,6 +231,7 @@ return function(C)
      remove(state,obj);w.special=nil;c.successUntil=c.t+rule.stagger;w.phase='stagger'
      local e=w.shadow
      local loss=math.min(e.hp,math.floor(e.maxhp*rule.lossRatio+.5))
+     c.kernelLoss=loss
      e.hp=e.hp-loss;log(state,w,'WV13:kernel-loss',cast.id,loss)
      if e.hp==0 then completeShadow(state,w,spec,cast.id)
      else e.invulnerable=false;e.underground=false;e.noAutoTarget=false end
@@ -373,6 +375,7 @@ return function(C)
     w.returned=w.entries
     local e=w.primary
     local n=math.min(e.hp,math.floor(e.maxhp*tr.lossRatio+.5))
+    w.returnLoss=n
     log(s,w,'WV14:return-loss',w.returnOwner,n)
     local party=w.returnParty;w.returnParty=nil
     if n==e.hp then
@@ -486,13 +489,17 @@ return function(C)
   if stage=='weak' and w.stageTick>=spec.transition.weakOpen and w.stageTick<spec.transition.weakClose then
    b.exposure=spec.transition.weakClose-w.stageTick
   end
+  if stage=='expel' or stage=='weak' then b.returnLoss=w.returnLoss end
   if w.special and c then
    b.object={kind=c.id=='WV11' and 'kernel' or 'eye',x=w.special.x,y=w.special.y,
      hp=w.special.hp,max=w.special.maxhp,time=math.max(0,(c.id=='WV11' and spec.kernel.close or spec.eye.close)-c.t)}
   end
-  if c and c.id=='WV11' and not c.successUntil and c.t>=spec.kernel.close then b.incoming=c.variant end
+  if c and c.id=='WV11' then
+   if c.successUntil then b.kernelStagger={loss=c.kernelLoss,ticks=c.successUntil-c.t}
+   elseif c.t>=spec.kernel.close then b.incoming=c.variant end
+  end
   if e.hp<=0 then return end
-  local back={draws={}}
+  local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches}
   if scene=='outer' then
    if stage~='swallow' or w.stageTick<spec.transition.sceneTick then
     local h=stage=='weak' and 159 or spec.artHeight

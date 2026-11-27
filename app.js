@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {raidenFlowerText} from './endgame-ui.js';
+import {narwhalJourneyText,raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -751,11 +751,7 @@ function hud(f,calls,renderMs){
     $('weeklyNarwhalObjectMeter').max=object.max;
     $('weeklyNarwhalObjectMeter').value=n;
    }
-   const forms={WV12:'獣の突進','WV12.vishap':'竜の跳躍','WV12.jellyfish':'クラゲの水弾'};
-   $('weeklyNarwhalHint').textContent=v.incoming?`核の受付終了 ｜ ${forms[v.incoming]}`:
-    v.exposure?`反撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
-    field.narwhalStage==='swallow'?'腹中へ移動中':field.narwhalStage==='expel'?'星海へ帰還中':
-    v.scene==='inner'?'幻影を倒すと星海へ帰還':v.low?'鯨が衰弱。以後は星海で戦う':v.queued?'現在の技の後に腹中へ':'';
+   $('weeklyNarwhalHint').textContent=narwhalJourneyText(v,field.narwhalStage);
   }
  }
  const cargo=f.storyNearbyCargo??f.storyNearbyParcel,clue=f.storyNearbyClue;
