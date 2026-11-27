@@ -1,0 +1,615 @@
+{
+  "verifiedAgainst": "29a4d5db5f9c25fedda2d0ae7d4c2d8cb5c4d0a9",
+  "balance": "standard",
+  "source": {
+    "sha256": "e67fde43944c1254453446cdd72fd3e2a371b5b9ccc1e828720b66b7fbfedfeb",
+    "level": 200,
+    "completed": 59
+  },
+  "result": {
+    "sha256": "c28928477fd4dfa6735b5776821d03d0cee5e00a2b5fe75790288a8984dea207",
+    "level": 200,
+    "activeQuests": 276,
+    "completed": 235,
+    "remaining": 41
+  },
+  "method": "One earned adventure carried between phases. Quest progress, rewards and clears use Lua movement, battle, inspect, travel and report commands.",
+  "phases": [
+    {
+      "phase": "survey",
+      "inputSha256": "e67fde43944c1254453446cdd72fd3e2a371b5b9ccc1e828720b66b7fbfedfeb",
+      "outputSha256": "369a7f0c715524ff93651106b0570f9268542a0cb361ea33b07f19ce68f991d5",
+      "completed": 121,
+      "newReports": [
+        "bygone-survey",
+        "chasm-stonehall-survey",
+        "chasm-survey",
+        "chasm-west-survey",
+        "chasm-wetland-survey",
+        "chenyu-survey",
+        "dornman-survey",
+        "dragonspine-survey",
+        "enkanomiya-survey",
+        "fon-beryl-thermal-vents",
+        "fon-erinnyes-root-water-survey",
+        "fon-hidden-lab-access",
+        "fon-mapped-bygone-current",
+        "fon-mapped-depth-samples",
+        "fon-mapped-north-lock",
+        "fon-mapped-nostoi-record",
+        "fon-morte-sluice-survey",
+        "fontaine-entry-check",
+        "golden-explore",
+        "golden-little-boat",
+        "ina-mapped-enkan-beacons",
+        "ina-mapped-seirai-ferry",
+        "ina-mapped-undersea-floor",
+        "inazuma-delivery",
+        "liyue-entry-check",
+        "liyue-mapped-chasm-shaft",
+        "liyue-mapped-east-shore",
+        "liyue-mapped-hidden-cave",
+        "mond-border-check",
+        "mond-mapped-islet",
+        "mond-mapped-lakeside",
+        "mond-mapped-snowline",
+        "nat-mapped-mountain-layers",
+        "nat-mapped-ochka-supplies",
+        "nat-mapped-resort-canal",
+        "nat-mapped-sky-lift",
+        "nat-mapped-valley-trail",
+        "natlan-ancient-excavation-wall",
+        "natlan-entry-check",
+        "natlan-rainbow-cave-keys",
+        "nod-mapped-frostmoon-shadow",
+        "nod-mapped-harbor-lamp",
+        "nod-mapped-north-bay",
+        "nod-mapped-paha-shadow",
+        "novokichev-survey",
+        "ochkanatlan-survey",
+        "simulanka-explore",
+        "simulanka-open-page",
+        "sne-mapped-east-wall",
+        "sne-mapped-four-tower-floors",
+        "sne-mapped-track-walk",
+        "sne-mapped-works-wire",
+        "snezhnaya-entry-check",
+        "sum-mapped-desert-wind",
+        "sum-mapped-tunigi-water",
+        "sum-mapped-twin-shaft",
+        "sumeru-entry-check",
+        "tunigi-survey",
+        "veluriyam-bottle-ticket",
+        "veluriyam-explore",
+        "veluriyam-trolley-lookout",
+        "wingspan-survey"
+      ],
+      "physicalOrTransportLegs": 573
+    },
+    {
+      "phase": "hunt",
+      "inputSha256": "369a7f0c715524ff93651106b0570f9268542a0cb361ea33b07f19ce68f991d5",
+      "outputSha256": "b34cf316b966c1cc0e0567fce4eadc1abd42bf71979bef35749afa0093184635",
+      "completed": 133,
+      "newReports": [
+        "emilie-join",
+        "fontaine-contract",
+        "inazuma-contract",
+        "liyue-contract",
+        "liyue-supply",
+        "mond-contract",
+        "mond-patrol",
+        "natlan-contract",
+        "nod-contract",
+        "snezhnaya-contract",
+        "snow-rail-clear",
+        "sumeru-contract"
+      ]
+    },
+    {
+      "phase": "notes",
+      "inputSha256": "b34cf316b966c1cc0e0567fce4eadc1abd42bf71979bef35749afa0093184635",
+      "outputSha256": "52eefa2d944dac6fdb45ec6b6e424f8675e14a7eb796456d0e4432e2f01f707a",
+      "completed": 152,
+      "newReports": [
+        "bygone-stone-rubbings",
+        "chenyu-tea-delivery",
+        "enkan-safety-leaflet",
+        "frost-wujian-access-survey",
+        "natlan-atocpan-landmarks",
+        "natlan-seaward-signs",
+        "natlan-southern-trail-survey",
+        "natlan-two-pillar-trails",
+        "nod-bonemos-offerings",
+        "nod-bureau-lift-check",
+        "novo-expedition-ready",
+        "ochka-stopover-survey",
+        "sky-pavilion-notes",
+        "sne-crystal-stream-survey",
+        "sne-rescue-three-mice",
+        "sne-suspicious-lantern",
+        "sne-svetloredovka-cavern-check",
+        "threadline-survey",
+        "windward-lookouts"
+      ],
+      "physicalOrTransportLegs": 198
+    },
+    {
+      "phase": "commissions",
+      "inputSha256": "52eefa2d944dac6fdb45ec6b6e424f8675e14a7eb796456d0e4432e2f01f707a",
+      "outputSha256": "c2f27660c3db46f5bfc8b56b9271e3e03af2d82e7fe0b4b0f741ac660c58bda5",
+      "completed": 224,
+      "newReports": [
+        "aeonblight-commission",
+        "andrius-weekly-commission",
+        "anemo-commission",
+        "apep-weekly-commission",
+        "array-commission",
+        "asimon-commission",
+        "azhdaha-weekly-commission",
+        "baptist-commission",
+        "bathysmal-commission",
+        "battleship-commission",
+        "childe-weekly-commission",
+        "config-device-commission",
+        "cryo-commission",
+        "cryo-hypostasis-commission",
+        "dendro-hypostasis-commission",
+        "drifting-snow-commission",
+        "dvalin-weekly-commission",
+        "electro-commission",
+        "electro-regisvine-commission",
+        "emperor-commission",
+        "fallen-vigil-commission",
+        "false-moon-weekly-commission",
+        "field-generator-commission",
+        "flugel-commission",
+        "frostnight-herra-commission",
+        "gate-weekly-commission",
+        "geo-commission",
+        "heretic-weekly-commission",
+        "hydro-hypostasis-commission",
+        "icewind-coppelia-commission",
+        "icewind-coppelius-commission",
+        "immortal-construct-commission",
+        "jadeplume-commission",
+        "knave-weekly-commission",
+        "knuckle-duckle-commission",
+        "lava-dragon-commission",
+        "legatus-commission",
+        "loom-stopped",
+        "maguu-commission",
+        "moonfly-commission",
+        "moongecko-commission",
+        "narwhal-weekly-commission",
+        "oceanid-commission",
+        "overseer-commission",
+        "papilla-commission",
+        "primal-fire-weekly-commission",
+        "primo-commission",
+        "pyro-commission",
+        "pyro-hypostasis-commission",
+        "qucusaur-commission",
+        "raiden-weekly-commission",
+        "ruin-serpent-commission",
+        "seahorse-commission",
+        "shouki-weekly-commission",
+        "signora-weekly-commission",
+        "spiritspeaker-commission",
+        "stygian-beidou-commission",
+        "stygian-capitano-commission",
+        "stygian-farka-commission",
+        "stygian-rerir-commission",
+        "stygian-ronova-commission",
+        "stygian-wanderer-commission",
+        "stygian-xbalanque-commission",
+        "suanni-commission",
+        "surveyor-inspection",
+        "thunder-commission",
+        "tulpa-commission",
+        "wavebinder-commission",
+        "wenut-commission",
+        "whisperer-nightmares-commission",
+        "wolflord-commission",
+        "yumka-commission"
+      ],
+      "reportsByType": {
+        "stygian": 7,
+        "weekly": 16,
+        "field": 49
+      }
+    },
+    {
+      "phase": "growth",
+      "inputSha256": "c2f27660c3db46f5bfc8b56b9271e3e03af2d82e7fe0b4b0f741ac660c58bda5",
+      "outputSha256": "7c8a8b0f08173f05c7020954cfc18ae933a74fb2c5eb6523d3cd5d798ff1a1fa",
+      "completed": 232,
+      "newReports": [
+        "growth-first-imprint",
+        "growth-inherit-gear",
+        "growth-lunar-practice",
+        "growth-pair-imprint",
+        "growth-partner-swap",
+        "growth-star-practice",
+        "growth-targeted-gear",
+        "growth-upgrade-gear"
+      ]
+    },
+    {
+      "phase": "branch",
+      "inputSha256": "7c8a8b0f08173f05c7020954cfc18ae933a74fb2c5eb6523d3cd5d798ff1a1fa",
+      "outputSha256": "c28928477fd4dfa6735b5776821d03d0cee5e00a2b5fe75790288a8984dea207",
+      "completed": 235,
+      "newReports": [
+        "frost-commander-console-test",
+        "windward-flags",
+        "windward-tower-clear"
+      ],
+      "testRoomExitGates": [
+        94,
+        1460,
+        94,
+        1460
+      ]
+    }
+  ],
+  "browser": {
+    "sourceSha256": "c28928477fd4dfa6735b5776821d03d0cee5e00a2b5fe75790288a8984dea207",
+    "completed": 235,
+    "total": 276,
+    "mMapRoute": [
+      {
+        "from": "nod-town",
+        "id": "snezhnaya-entry",
+        "label": "徒歩"
+      },
+      {
+        "from": "snezhnaya-entry",
+        "id": "nod-wp-92887",
+        "label": "特別な道"
+      },
+      {
+        "from": "nod-wp-92887",
+        "id": "nod-wp-92894",
+        "label": "徒歩"
+      },
+      {
+        "from": "nod-wp-92894",
+        "id": "nod-wp-92880",
+        "label": "徒歩"
+      },
+      {
+        "from": "nod-wp-92880",
+        "id": "nod-wp-92879",
+        "label": "徒歩"
+      },
+      {
+        "from": "nod-wp-92879",
+        "id": "nod-wp-92877",
+        "label": "徒歩"
+      },
+      {
+        "from": "nod-wp-92877",
+        "id": "nod-wp-92873",
+        "label": "徒歩"
+      },
+      {
+        "from": "nod-wp-92873",
+        "id": "nod-wp-92872",
+        "label": "徒歩"
+      },
+      {
+        "from": "nod-wp-92872",
+        "id": "nod-wp-99218",
+        "label": "舟・寄港"
+      },
+      {
+        "from": "nod-wp-99218",
+        "id": "nod-wp-99223",
+        "label": "舟・寄港"
+      },
+      {
+        "from": "nod-wp-99223",
+        "id": "nod-wp-99219",
+        "label": "舟・寄港"
+      },
+      {
+        "from": "nod-wp-99219",
+        "id": "frostmoon-camp",
+        "label": "昇降機"
+      }
+    ],
+    "unreportedInazuma": 2,
+    "saveAndReload": true,
+    "errors": []
+  },
+  "pending": [
+    {
+      "id": "mond-return-box-quest",
+      "name": "返却箱の小さな逃亡者",
+      "hub": "mond-town",
+      "kind": "itinerary",
+      "requires": "amber-join"
+    },
+    {
+      "id": "mond-night-banner-quest",
+      "name": "断罪の皇女と、夜の大怪鳥",
+      "hub": "mond-town",
+      "kind": "itinerary",
+      "requires": "mond-old-trail"
+    },
+    {
+      "id": "liyue-stone-marks",
+      "name": "ただの石にも、旅はある",
+      "hub": "liyue-harbor",
+      "kind": "stone",
+      "requires": "liyue-caravan-search"
+    },
+    {
+      "id": "ina-window-fireworks",
+      "name": "遠くの人にも、届く一発",
+      "hub": "inazuma-town",
+      "kind": "itinerary",
+      "requires": "inazuma-moving-lantern"
+    },
+    {
+      "id": "ina-itto-three-games",
+      "name": "荒瀧天下一・本気の三番勝負！",
+      "hub": "inazuma-town",
+      "kind": "itinerary",
+      "requires": "inazuma-torii-maze"
+    },
+    {
+      "id": "sum-fungus-visitors",
+      "name": "観測器に、お客さん？",
+      "hub": "sumeru-hub",
+      "kind": "itinerary",
+      "requires": "sumeru-leaf-crossing"
+    },
+    {
+      "id": "sum-kaveh-model",
+      "name": "模型の中では、大冒険",
+      "hub": "sumeru-hub",
+      "kind": "itinerary",
+      "requires": "sumeru-forest-levels"
+    },
+    {
+      "id": "sum-nahida-map",
+      "name": "教科書にない、大発見",
+      "hub": "sumeru-hub",
+      "kind": "itinerary",
+      "requires": "sumeru-forest-levels"
+    },
+    {
+      "id": "natlan-xilonen-springs",
+      "name": "試作品、思い切り使ってみて",
+      "hub": "natlan-hub",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "natlan-iansan-self-test",
+      "name": "昨日の自分に、挑戦状！",
+      "hub": "natlan-hub",
+      "kind": "itinerary",
+      "requires": "natlan-two-trials"
+    },
+    {
+      "id": "threadline-restore",
+      "name": "糸道に灯を戻す",
+      "hub": "liyue-harbor",
+      "kind": "itinerary",
+      "requires": "threadline-survey"
+    },
+    {
+      "id": "snow-rail-pressure",
+      "name": "止まらない除雪機",
+      "hub": "snezhnaya-hub",
+      "kind": "itinerary",
+      "requires": "snow-rail-clear"
+    },
+    {
+      "id": "ochka-wall-marks",
+      "name": "岩の隙間に、置いてきた印",
+      "hub": "ochkanatlan-dock",
+      "kind": "itinerary",
+      "requires": "ochka-stopover-survey"
+    },
+    {
+      "id": "ochka-sifter-clear",
+      "name": "出航前の、もうひと仕事",
+      "hub": "ochkanatlan-dock",
+      "kind": "itinerary",
+      "requires": "ochka-wall-marks"
+    },
+    {
+      "id": "novo-equipment-route",
+      "name": "凍った設備に、通り道",
+      "hub": "novokichev-camp",
+      "kind": "itinerary",
+      "requires": "novo-expedition-ready"
+    },
+    {
+      "id": "novo-return-report",
+      "name": "雪の向こうの、帰還報告",
+      "hub": "novokichev-camp",
+      "kind": "itinerary",
+      "requires": "novo-equipment-route"
+    },
+    {
+      "id": "spine-noon-pattern",
+      "name": "雪に消える、昼の絵",
+      "hub": "dragonspine-camp",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "spine-wind-route",
+      "name": "ベネット式・吹雪の抜け方",
+      "hub": "dragonspine-camp",
+      "kind": "itinerary",
+      "requires": "spine-noon-pattern"
+    },
+    {
+      "id": "spine-ridge-record",
+      "name": "頂上より、もう一枚",
+      "hub": "spine-shelter",
+      "kind": "itinerary",
+      "requires": "spine-wind-route"
+    },
+    {
+      "id": "chenyu-loading-landing",
+      "name": "雲の上にも、置き場所を",
+      "hub": "chenyu-camp",
+      "kind": "itinerary",
+      "requires": "chenyu-tea-delivery"
+    },
+    {
+      "id": "chenyu-tea-with-friends",
+      "name": "一杯ぶんの、大冒険",
+      "hub": "chenyu-tea-pavilion",
+      "kind": "itinerary",
+      "requires": "chenyu-loading-landing"
+    },
+    {
+      "id": "enkan-shadow-crossing",
+      "name": "灯りを消すと、道になる",
+      "hub": "enkanomiya-camp",
+      "kind": "itinerary",
+      "requires": "enkan-safety-leaflet"
+    },
+    {
+      "id": "enkan-coverless-log",
+      "name": "表紙のない探検記",
+      "hub": "enkan-route-gallery",
+      "kind": "itinerary",
+      "requires": "enkan-shadow-crossing"
+    },
+    {
+      "id": "tunigi-vent-record",
+      "name": "風が鳴らす、古い返事",
+      "hub": "tunigi-camp",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "tunigi-return-design",
+      "name": "入口よりも、出口の設計",
+      "hub": "tunigi-camp",
+      "kind": "itinerary",
+      "requires": "tunigi-vent-record"
+    },
+    {
+      "id": "tunigi-fragment-return",
+      "name": "出口までが、発掘だ",
+      "hub": "tunigi-camp",
+      "kind": "itinerary",
+      "requires": "tunigi-return-design"
+    },
+    {
+      "id": "bygone-lit-passage",
+      "name": "見える音と、聞こえる道",
+      "hub": "bygone-camp",
+      "kind": "itinerary",
+      "requires": "bygone-stone-rubbings"
+    },
+    {
+      "id": "bygone-sound-book",
+      "name": "最後の一音は、帰ってから",
+      "hub": "bygone-camp",
+      "kind": "itinerary",
+      "requires": "bygone-lit-passage"
+    },
+    {
+      "id": "golden-trace-shadows",
+      "name": "宝箱まで、影をたどって",
+      "hub": "golden-hub",
+      "kind": "itinerary",
+      "requires": "golden-little-boat"
+    },
+    {
+      "id": "simulanka-folded-road",
+      "name": "折り目ひとつで、道になる",
+      "hub": "simulanka-hub",
+      "kind": "itinerary",
+      "requires": "simulanka-open-page"
+    },
+    {
+      "id": "fon-lyney-magic",
+      "name": "秘密を知っても、驚ける？",
+      "hub": "fontaine-hub",
+      "kind": "itinerary",
+      "requires": "fontaine-understage-crew"
+    },
+    {
+      "id": "fon-freminet-dive",
+      "name": "小さな潜航艇の、初めての海",
+      "hub": "fontaine-hub",
+      "kind": "itinerary",
+      "requires": "fontaine-moon-parcel"
+    },
+    {
+      "id": "nod-moon-rumor",
+      "name": "月を盗んだ旅人？",
+      "hub": "nod-rumor-quay",
+      "kind": "itinerary",
+      "requires": "nod-moon-crossroads"
+    },
+    {
+      "id": "nod-moon-bloom",
+      "name": "花見の席が、埋まっています",
+      "hub": "nod-bloom-gate",
+      "kind": "itinerary",
+      "requires": "nod-first-treasure"
+    },
+    {
+      "id": "natlan-toyac-electro-crystals",
+      "name": "岸辺の三つの電気水晶",
+      "hub": "natlan-hub",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "natlan-sulfurous-resonant-stones",
+      "name": "共鳴晶岩の順番",
+      "hub": "natlan-hub",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "natlan-witztli-three-echoes",
+      "name": "大岩に帰る三つの光",
+      "hub": "natlan-hub",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "ochka-floating-island-spiritway",
+      "name": "浮遊島への光の道",
+      "hub": "ochkanatlan-dock",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "nod-hiisi-palace-mirrors",
+      "name": "地下庭の二つの鏡",
+      "hub": "nod-town",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "nod-north-landmark-round",
+      "name": "北部三つの見回り",
+      "hub": "nod-north-harbor",
+      "kind": "itinerary",
+      "requires": null
+    },
+    {
+      "id": "sne-snow-sculptor-bouts",
+      "name": "雪の広場の二つの手合わせ",
+      "hub": "snezhnaya-hub",
+      "kind": "itinerary",
+      "requires": null
+    }
+  ]
+}

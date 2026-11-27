@@ -1,6 +1,10 @@
 """Play the ordinary hunt contracts with the earned level-200 party and standard inputs."""
+from argparse import ArgumentParser
 from collections import defaultdict
 import json
+from pathlib import Path
+
+from runtime import runtime
 from test_earned_branch_quests import Journey, ROOT, quests
 
 CHASE = """
@@ -40,12 +44,16 @@ function(C,s,e)
 end
 """
 
-def play():
-    trip = Journey('lv200-save.json')
+def play(checkpoint=None, output_dir=None):
+    trip = (Journey(checkpoint.resolve(), runtime(), select_traveler=True)
+            if checkpoint else Journey('lv200-save.json'))
+    prior_quests = trip.snapshot()['story']['quests']
     chase = trip.lua.eval(CHASE)
     fields = defaultdict(list)
     for q in quests.values():
         if q['kind']=='kill' and not q.get('legacyOnly') and not q.get('designId'):
+            if checkpoint and prior_quests.get(q['id'], {}).get('status') == 'complete':
+                continue
             fields[q['hub'], q['target']].append(q)
     records, waiting, saved = [], {}, {}
     for (hub, field), batch in fields.items():
@@ -53,7 +61,7 @@ def play():
             trip.warp(hub)
         else:
             trip.travel(hub)
-        for cycle in (1, 2):
+        for cycle in ((1,) if checkpoint else (1, 2)):
             group = [q for q in batch if cycle == 1 or q.get('repeatable')]
             if not group:
                 continue
@@ -61,7 +69,7 @@ def play():
                 trip.act('story_accept:'+q['id'])
                 state = trip.state.story.quests[q['id']]
                 assert state and state.status=='active' and state.count==0, (q['id'], trip.state.storyNotice)
-            if field=='mond-road' and cycle==1:
+            if not checkpoint and field=='mond-road' and cycle==1:
                 (ROOT/'work/earned-mond-hunts.json').write_text(json.dumps(trip.snapshot()), encoding='utf8')
                 trip.travel('mond-border')
                 assert not trip.frame().storyHunts
@@ -117,11 +125,31 @@ def play():
             assert all(trip.state.story.quests[q['id']].cycles==cycle for q in group)
             records.append(dict(field=field,cycle=cycle,quests=[q['id'] for q in group],guidedSpawns=sorted(ids)))
             print(field, cycle, flush=True)
-    assert len(saved)==12 and waiting and trip.state.returns==0
+    assert trip.state.returns == 0
+    if not checkpoint:
+        assert len(saved)==12 and waiting
     data = dict(sourceSha256=trip.source, contracts=records, reports=trip.reports, savedCounts=saved,
-                observedRespawnSeconds=waiting, wrongField='mond-border', routeLegs=sum(len(i['stops']) for i in trip.itineraries),
+                observedRespawnSeconds=waiting, wrongField=None if checkpoint else 'mond-border', routeLegs=sum(len(i['stops']) for i in trip.itineraries),
                 returns=trip.state.returns)
-    (ROOT/'evidence/earned-hunt-contracts.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n', encoding='utf8')
+    output = ROOT / 'evidence/earned-hunt-contracts.json'
+    if checkpoint:
+        snapshot = trip.snapshot()
+        after = snapshot['story']['quests']
+        reports = {r['quest'] for r in trip.reports}
+        assert all(after[q] == record for q, record in prior_quests.items() if record['status'] == 'complete')
+        assert reports == {q for q, record in after.items()
+                           if record['status'] == 'complete' and prior_quests.get(q, {}).get('status') != 'complete'}
+        (output_dir / 'hunt-save.json').write_text(json.dumps(snapshot, ensure_ascii=False) + '\n', 'utf8')
+        output = output_dir / 'hunt-proof.json'
+    output.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
 
 if __name__=='__main__':
-    play()
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('--from-save', type=Path)
+    parser.add_argument('--output-dir', type=Path)
+    args = parser.parse_args()
+    if bool(args.from_save) != bool(args.output_dir):
+        parser.error('--from-save and --output-dir must be provided together')
+    if args.output_dir:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+    play(args.from_save, args.output_dir)

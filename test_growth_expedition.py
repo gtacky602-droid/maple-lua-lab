@@ -1,9 +1,20 @@
 """Report growth lessons using the expedition's earned companions, inventory and skills."""
+from argparse import ArgumentParser
 import json
+from pathlib import Path
+
 from runtime import ROOT,runtime
 from test_earned_branch_quests import Journey,quests
 
-seed=ROOT/'evidence/hidden-expedition-save.json'
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save', type=Path)
+parser.add_argument('--output-dir', type=Path)
+args = parser.parse_args()
+if bool(args.from_save) != bool(args.output_dir):
+    parser.error('--from-save and --output-dir must be provided together')
+seed = args.from_save.resolve() if args.from_save else ROOT / 'evidence/hidden-expedition-save.json'
+if args.output_dir:
+    args.output_dir.mkdir(parents=True, exist_ok=True)
 trip=Journey(seed,runtime(),select_traveler=True)
 s=trip.state
 act=trip.act
@@ -63,5 +74,9 @@ trip.restore()
 final=trip.snapshot()
 assert all(final['story']['quests'][q['id']]['status']=='complete' for q in lessons)
 assert all(final['story']['quests'][k]==v for k,v in initial['story']['quests'].items() if v['status']=='complete')
-for name,data in [('growth-expedition-save',final),('growth-expedition-route',dict(reports=trip.reports,lessons=16,prior=5,returns=trip.state.returns,seed=seed.name))]:
-    (ROOT/'evidence'/f'{name}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())
+directory = args.output_dir or ROOT / 'evidence'
+prior = sum(initial['story']['quests'].get(q['id'], {}).get('status') == 'complete' for q in lessons)
+proof = dict(reports=trip.reports, lessons=len(lessons), prior=prior, returns=trip.state.returns,
+             seed=seed.name, sourceSha256=trip.source)
+for name, data in [('growth-expedition-save', final), ('growth-expedition-route', proof)]:
+    (directory / f'{name}.json').write_text(json.dumps(data, ensure_ascii=False, sort_keys=True) + '\n', 'utf-8')
