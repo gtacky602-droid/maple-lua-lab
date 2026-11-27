@@ -1,5 +1,14 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+export function dvalinCrystalText(view){
+ const crystal=view.crystal;
+ if(crystal?.remaining)return view.label+` ｜ 残り${(crystal.remaining/60).toFixed(1)}秒`;
+ if(view.stage==='takeoff'&&crystal?.damage!==undefined){
+  return crystal.damage>0?`結晶に${crystal.damage}ダメージ ｜ 踏み場が降下`:'結晶が閉じた ｜ 次の体勢崩しへ';
+ }
+ return '';
+}
+
 export function knaveContractText(view){
  return view.actors.map(a=>`${a.id===1?'旅人':'同行'} 契約 ${a.debt} / ${a.cap}${a.feather?' ◇ 羽印':''}`).join(' ｜ ');
 }

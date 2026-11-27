@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {apepDomeText, beidouReplyText, childeDropText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, knaveContractText, knaveFeastText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, shoukiTrialText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
+      const {apepDomeText, beidouReplyText, childeDropText, dvalinCrystalText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, knaveContractText, knaveFeastText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, shoukiTrialText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, drawPaletteBatch, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const {paintBandedSprite}=await import('./sprite-layers.js');
@@ -160,8 +160,9 @@ try {
           signoraReleaseText(sample.view.deviceRelease, sample.view.deviceLabel);
         const knave = sample.view.knave;
         const knaveText = knave ? [knaveFeastText(knave), knaveContractText(knave)].filter(Boolean).join(' ｜ ') : '';
+        const dvalinText = dvalinCrystalText(sample.view);
         const shoukiText = sample.view.shouki ? shoukiTrialText(sample.view.shouki) : '';
-        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText || ronovaText || wandererText || farkaText || beidouText || childeText || apepText || signoraText || shoukiText || knaveText;
+        const mechanic = flowerText || journeyText || primalText || falseMoonText || gateText || hereticText || finaleText || rerirText || ronovaText || wandererText || farkaText || beidouText || childeText || apepText || signoraText || shoukiText || knaveText || dvalinText;
         if (mechanic) {
           const status = document.createElement('p');
           status.className = 'mechanic';

@@ -2,6 +2,7 @@ import copy,json
 from runtime import ROOT,runtime,native
 from experience import LEVELS
 from savegame import validate_save
+from tools.dvalin_test_driver import drive_dvalin
 
 lua,C=runtime();empty=lua.table()
 ID='boss-29010101';QUEST='dvalin-weekly-commission';ARENA='dvalin-sky-arena'
@@ -174,42 +175,8 @@ def solo():
    assert moves==set(spec['moves']) and w.falls==0
    return dict(seconds=round(s.t,2),hp=a.hp,breaks=w.breaks,falls=w.falls,moves=sorted(moves))
   if s.returns:raise AssertionError(('wipe',s.t,b.hp,w.guard))
-  dest=a.x;jump=not a.ground;attack=False;aim=None
-  if c:
-   m,t=c.move.id,c.tick
-   dodge=(m=='WD01' and 52<=t<103) or (m=='WD04' and (99<=t<135 or 145<=t<172)) or (m=='WD06' and 150<=t<193)
-   if dodge:
-    jump=True
-    if a.ground:C.action(s,'jump')
-   if m=='WD08':
-    dest=w.crystalX-30
-    if a.ground and a.y>423 and abs(dest-a.x)<100:C.action(s,'jump')
-    jump=True;attack=42<=t<462;aim=w.crystalX
-   elif m in ['WD02','WD03'] and c.center:
-    dest=c.center+(65 if m=='WD02' else c.dir*75)
-    jump=jump or m=='WD02' and 70<=t<103
-    if jump and a.ground:C.action(s,'jump')
-    attack=True;aim=c.center+65
-    if m=='WD03' and 90<=t<234:
-     beam=c.right-(c.right-c.left)*(t-90)/144 if c.dir<0 else c.left+(c.right-c.left)*(t-90)/144
-     if abs(beam-a.x)<65 and a.ground:C.action(s,'jump');jump=True
-   elif c.zone:
-    safe=spec['platforms'][0 if c.zone!=1 else 1];dest=safe['x']+132
-    if m=='WD07' and c.points:
-     p=spec['platforms'][int(c.zone)-1]
-     dest=max([p['x']+20,p['x']+p['w']-20],key=lambda x:min(abs(x-p) for p in c.points.values()))
-  if w.hazard and (not c or c.move.id!='WD08'):
-   p=spec['platforms'][int(w.hazard.zone)-1]
-   if p['x']<=dest<=p['x']+p['w']:
-    p=spec['platforms'][0 if w.hazard.zone!=1 else 1];dest=p['x']+132
-  dx=dest-a.x;direction=1 if dx>10 else -1 if dx<-10 else 0
-  if direction==0 and aim is not None and (aim-a.x)*a.dir<0:direction=1 if aim>a.x else -1
-  if direction:
-   for p in spec['platforms']:
-    edge=p['x']+p['w'] if direction>0 else p['x']
-    if a.ground and p['x']<=a.x<=p['x']+p['w'] and abs(a.x-edge)<55 and (dest-edge)*direction>25:C.action(s,'jump');jump=True
-  before=a.hp
-  ticks(s,right=direction>0,left=direction<0,jump=jump,attack=attack)
+  controls=drive_dvalin(w,a,spec,lambda:C.action(s,'jump'))
+  ticks(s,**controls)
  else:raise AssertionError(('timeout',s.t,b.hp,w.guard,a.hp))
 
 result=dict(normalAttackWithoutHealing=solo(),aiActualPadLandingAndDamage=ai_damage,aiMaxHorizontalStep=max_step,realScheduledNormalGuard=real_guard,sharedGuardEventDedup=True,crystalWindow=[42,462],
