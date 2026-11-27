@@ -21,169 +21,199 @@
       "destination": "sites-hunt-41818",
       "stops": [
         {
-          "name": "スネージナヤ・雪の町",
+          "approach": "現在地から左へ",
           "label": "徒歩",
-          "id": "snezhnaya-hub",
-          "region": "region-08",
+          "previewX": 52,
           "from": "white-pass-station",
-          "mode": "walk"
+          "level": 140,
+          "mode": "walk",
+          "id": "snezhnaya-hub",
+          "name": "スネージナヤ・雪の町",
+          "region": "region-08"
         },
         {
-          "name": "スネージナヤ・雪原の入口",
           "label": "徒歩",
-          "id": "snezhnaya-entry",
-          "region": "region-08",
+          "previewX": 60,
           "from": "snezhnaya-hub",
-          "mode": "walk"
+          "level": 140,
+          "mode": "walk",
+          "id": "snezhnaya-entry",
+          "name": "スネージナヤ・雪原の入口",
+          "region": "region-08"
         },
         {
-          "name": "ナド・クライ・町の広場",
           "label": "徒歩",
-          "id": "nod-town",
-          "region": "region-07",
+          "previewX": 60,
           "from": "snezhnaya-entry",
-          "mode": "walk"
+          "level": 120,
+          "mode": "walk",
+          "id": "nod-town",
+          "name": "ナド・クライ・町の広場",
+          "region": "region-07"
         },
         {
-          "name": "ナド・クライ・月明かりの道",
           "label": "徒歩",
-          "id": "nod-field",
-          "region": "region-07",
+          "previewX": 60,
           "from": "nod-town",
-          "mode": "walk"
+          "level": 120,
+          "mode": "walk",
+          "id": "nod-field",
+          "name": "ナド・クライ・月明かりの道",
+          "region": "region-07"
         },
         {
-          "name": "ナド・クライ・到着港",
           "label": "徒歩",
-          "id": "nod-port",
-          "region": "region-07",
+          "previewX": 60,
           "from": "nod-field",
-          "mode": "walk"
+          "level": 120,
+          "mode": "walk",
+          "id": "nod-port",
+          "name": "ナド・クライ・到着港",
+          "region": "region-07"
         },
         {
-          "name": "ナタ行き・南行き航海の甲板",
           "label": "舟・寄港",
-          "id": "natlan-voyage-return",
-          "hint": "オシカ・ナタ経由のナタ行きに乗る",
-          "region": "region-07",
+          "previewX": 60,
           "from": "nod-port",
-          "mode": "boat"
+          "level": 120,
+          "mode": "boat",
+          "id": "natlan-voyage-return",
+          "name": "ナタ行き・南行き航海の甲板",
+          "hint": "オシカ・ナタ経由のナタ行きに乗る・30〜50秒にオシカ・ナタ・寄港地で途中下船可、出発から90秒でナタ・花翼の集付近の港（仮）に到着",
+          "region": "region-07"
         },
         {
-          "automaticArrival": true,
-          "name": "ナタ・花翼の集付近の港（仮）",
           "label": "舟・寄港",
-          "id": "natlan-port",
-          "hint": "出航から90秒で着岸",
-          "region": "region-06",
           "from": "natlan-voyage-return",
-          "mode": "boat"
+          "level": 100,
+          "mode": "boat",
+          "id": "natlan-port",
+          "name": "ナタ・花翼の集付近の港（仮）",
+          "automaticArrival": true,
+          "hint": "出航から90秒で着岸",
+          "region": "region-06"
         },
         {
-          "name": "ナタ・岩場の道",
           "label": "徒歩",
-          "id": "natlan-field",
-          "region": "region-06",
+          "previewX": 60,
           "from": "natlan-port",
-          "mode": "walk"
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-field",
+          "name": "ナタ・岩場の道",
+          "region": "region-06"
         },
         {
-          "name": "ナタ・谷の集落",
           "label": "徒歩",
-          "id": "natlan-hub",
-          "region": "region-06",
+          "previewX": 552,
           "from": "natlan-field",
-          "mode": "walk"
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-quarry-road",
+          "name": "ナタ・赤岩の採掘路",
+          "region": "region-06"
         },
         {
-          "name": "ナタ・地域の入口",
           "label": "徒歩",
-          "id": "natlan-entry",
-          "region": "region-06",
+          "previewX": 1610,
+          "from": "natlan-quarry-road",
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-hub",
+          "name": "ナタ・谷の集落",
+          "region": "region-06"
+        },
+        {
+          "label": "徒歩",
+          "previewX": 60,
           "from": "natlan-hub",
-          "mode": "walk"
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-entry",
+          "name": "ナタ・地域の入口",
+          "region": "region-06"
         },
         {
-          "name": "ナタ東端・砂岩の国境谷",
-          "label": "徒歩",
-          "id": "sites-west-desert-border",
-          "hint": "ナタ東端・砂岩の国境谷へ",
-          "region": "region-06",
+          "label": "特別な道",
+          "previewX": 962,
           "from": "natlan-entry",
-          "mode": "walk"
+          "level": 75,
+          "mode": "special",
+          "id": "sum-wp-41824",
+          "name": "ハドラマヴェス砂漠・水庭の入口室",
+          "region": "region-04"
         },
         {
-          "name": "砂漠南部・石廟地上の広場",
-          "label": "徒歩",
-          "id": "sum-wp-36696",
-          "region": "region-04",
-          "from": "sites-west-desert-border",
-          "mode": "walk"
+          "label": "昇降機",
+          "previewX": 1252,
+          "from": "sum-wp-41824",
+          "level": 75,
+          "mode": "lift",
+          "id": "sum-wp-41822",
+          "name": "ハドラマヴェス砂漠・南の古い門",
+          "hint": "水庭の入口の昇降機・移動に1.8秒",
+          "region": "region-04"
         },
         {
-          "name": "砂漠南部・石廟の東の神像",
           "label": "徒歩",
-          "id": "sum-wp-36675",
-          "region": "region-04",
-          "from": "sum-wp-36696",
-          "mode": "walk"
-        },
-        {
-          "name": "砂漠南部・北東の砂段",
-          "label": "徒歩",
-          "id": "sum-wp-36691",
-          "region": "region-04",
-          "from": "sum-wp-36675",
-          "mode": "walk"
-        },
-        {
-          "name": "ハドラマヴェス砂漠・砂嵐の南の神像",
-          "label": "徒歩",
+          "previewX": 1372,
+          "from": "sum-wp-41822",
+          "level": 78,
+          "mode": "walk",
           "id": "sum-wp-41819",
-          "region": "region-04",
-          "from": "sum-wp-36691",
-          "mode": "walk"
+          "name": "ハドラマヴェス砂漠・砂嵐の南の神像",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・南の斜面の分岐",
           "label": "徒歩",
-          "id": "sum-wp-41828",
-          "region": "region-04",
+          "previewX": 508,
           "from": "sum-wp-41819",
-          "mode": "walk"
+          "level": 74,
+          "mode": "walk",
+          "id": "sum-wp-41828",
+          "name": "ハドラマヴェス砂漠・南の斜面の分岐",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・すり鉢東の段丘",
           "label": "徒歩",
-          "id": "sum-wp-41820",
-          "region": "region-04",
+          "previewX": 1372,
           "from": "sum-wp-41828",
-          "mode": "walk"
+          "level": 71,
+          "mode": "walk",
+          "id": "sum-wp-41820",
+          "name": "ハドラマヴェス砂漠・すり鉢東の段丘",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・東の風待ち棚",
           "label": "徒歩",
-          "id": "sum-wp-41838",
-          "region": "region-04",
+          "previewX": 749,
           "from": "sum-wp-41820",
-          "mode": "walk"
+          "level": 75,
+          "mode": "walk",
+          "id": "sum-wp-41838",
+          "name": "ハドラマヴェス砂漠・東の風待ち棚",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・外輪の東の岸",
           "label": "徒歩",
-          "id": "sum-wp-41839",
-          "region": "region-04",
+          "previewX": 1422,
           "from": "sum-wp-41838",
-          "mode": "walk"
+          "level": 78,
+          "mode": "walk",
+          "id": "sum-wp-41839",
+          "name": "ハドラマヴェス砂漠・外輪の東の岸",
+          "region": "region-04"
         },
         {
-          "name": "千尋東の秘境周辺",
           "label": "徒歩",
-          "id": "sites-hunt-41818",
-          "hint": "千尋東の秘境入口",
-          "region": "region-04",
+          "previewX": 1074,
           "from": "sum-wp-41839",
-          "mode": "walk"
+          "level": 79,
+          "mode": "walk",
+          "id": "sites-hunt-41818",
+          "name": "千尋東の秘境周辺",
+          "hint": "千尋東の秘境入口",
+          "region": "region-04"
         }
       ]
     },
@@ -192,179 +222,211 @@
       "destination": "white-pass-station",
       "stops": [
         {
-          "name": "ハドラマヴェス砂漠・外輪の東の岸",
+          "approach": "入口のそばにいます",
           "label": "徒歩",
-          "id": "sum-wp-41839",
-          "hint": "ハドラマヴェス砂漠・外輪の東の岸へ戻る",
-          "region": "region-04",
+          "previewX": 92,
           "from": "sites-hunt-41818",
-          "mode": "walk"
+          "level": 78,
+          "mode": "walk",
+          "id": "sum-wp-41839",
+          "name": "ハドラマヴェス砂漠・外輪の東の岸",
+          "hint": "ハドラマヴェス砂漠・外輪の東の岸へ戻る",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・東の風待ち棚",
           "label": "徒歩",
-          "id": "sum-wp-41838",
-          "region": "region-04",
+          "previewX": 76,
           "from": "sum-wp-41839",
-          "mode": "walk"
+          "level": 75,
+          "mode": "walk",
+          "id": "sum-wp-41838",
+          "name": "ハドラマヴェス砂漠・東の風待ち棚",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・すり鉢東の段丘",
           "label": "徒歩",
-          "id": "sum-wp-41820",
-          "region": "region-04",
+          "previewX": 525,
           "from": "sum-wp-41838",
-          "mode": "walk"
+          "level": 71,
+          "mode": "walk",
+          "id": "sum-wp-41820",
+          "name": "ハドラマヴェス砂漠・すり鉢東の段丘",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・南の斜面の分岐",
           "label": "徒歩",
-          "id": "sum-wp-41828",
-          "region": "region-04",
+          "previewX": 76,
           "from": "sum-wp-41820",
-          "mode": "walk"
+          "level": 74,
+          "mode": "walk",
+          "id": "sum-wp-41828",
+          "name": "ハドラマヴェス砂漠・南の斜面の分岐",
+          "region": "region-04"
         },
         {
-          "name": "ハドラマヴェス砂漠・砂嵐の南の神像",
           "label": "徒歩",
-          "id": "sum-wp-41819",
-          "region": "region-04",
+          "previewX": 508,
           "from": "sum-wp-41828",
-          "mode": "walk"
+          "level": 78,
+          "mode": "walk",
+          "id": "sum-wp-41819",
+          "name": "ハドラマヴェス砂漠・砂嵐の南の神像",
+          "region": "region-04"
         },
         {
-          "name": "砂漠南部・北東の砂段",
           "label": "徒歩",
-          "id": "sum-wp-36691",
-          "region": "region-04",
+          "previewX": 76,
           "from": "sum-wp-41819",
-          "mode": "walk"
+          "level": 75,
+          "mode": "walk",
+          "id": "sum-wp-41822",
+          "name": "ハドラマヴェス砂漠・南の古い門",
+          "region": "region-04"
         },
         {
-          "name": "砂漠南部・石廟の東の神像",
-          "label": "徒歩",
-          "id": "sum-wp-36675",
-          "region": "region-04",
-          "from": "sum-wp-36691",
-          "mode": "walk"
+          "label": "昇降機",
+          "previewX": 76,
+          "from": "sum-wp-41822",
+          "level": 75,
+          "mode": "lift",
+          "id": "sum-wp-41824",
+          "name": "ハドラマヴェス砂漠・水庭の入口室",
+          "hint": "水庭の入口の昇降機・移動に1.8秒",
+          "region": "region-04"
         },
         {
-          "name": "砂漠南部・石廟地上の広場",
-          "label": "徒歩",
-          "id": "sum-wp-36696",
-          "region": "region-04",
-          "from": "sum-wp-36675",
-          "mode": "walk"
-        },
-        {
-          "name": "ナタ東端・砂岩の国境谷",
-          "label": "徒歩",
-          "id": "sites-west-desert-border",
-          "hint": "ナタ東端・砂岩の国境谷へ",
-          "region": "region-06",
-          "from": "sum-wp-36696",
-          "mode": "walk"
-        },
-        {
-          "name": "ナタ・地域の入口",
-          "label": "徒歩",
+          "label": "特別な道",
+          "previewX": 262,
+          "from": "sum-wp-41824",
+          "level": 100,
+          "mode": "special",
           "id": "natlan-entry",
-          "region": "region-06",
-          "from": "sites-west-desert-border",
-          "mode": "walk"
+          "name": "ナタ・地域の入口",
+          "region": "region-06"
         },
         {
-          "name": "ナタ・谷の集落",
           "label": "徒歩",
-          "id": "natlan-hub",
-          "region": "region-06",
+          "previewX": 1380,
           "from": "natlan-entry",
-          "mode": "walk"
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-hub",
+          "name": "ナタ・谷の集落",
+          "region": "region-06"
         },
         {
-          "name": "ナタ・岩場の道",
           "label": "徒歩",
-          "id": "natlan-field",
-          "region": "region-06",
+          "previewX": 1380,
           "from": "natlan-hub",
-          "mode": "walk"
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-quarry-road",
+          "name": "ナタ・赤岩の採掘路",
+          "region": "region-06"
         },
         {
-          "name": "ナタ・花翼の集付近の港（仮）",
           "label": "徒歩",
-          "id": "natlan-port",
-          "region": "region-06",
+          "previewX": 64,
+          "from": "natlan-quarry-road",
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-field",
+          "name": "ナタ・岩場の道",
+          "region": "region-06"
+        },
+        {
+          "label": "徒歩",
+          "previewX": 1380,
           "from": "natlan-field",
-          "mode": "walk"
+          "level": 100,
+          "mode": "walk",
+          "id": "natlan-port",
+          "name": "ナタ・花翼の集付近の港（仮）",
+          "region": "region-06"
         },
         {
-          "name": "北行き航海・甲板",
           "label": "舟・寄港",
-          "id": "natlan-voyage",
-          "hint": "オシカ・ナタ経由のナド・クライ行きに乗る",
-          "region": "region-06",
+          "previewX": 720,
           "from": "natlan-port",
-          "mode": "boat"
+          "level": 120,
+          "mode": "boat",
+          "id": "natlan-voyage",
+          "name": "北行き航海・甲板",
+          "hint": "オシカ・ナタ経由のナド・クライ行きに乗る・30〜50秒にオシカ・ナタ・寄港地で途中下船可、出発から90秒でナド・クライ・到着港に到着",
+          "region": "region-06"
         },
         {
-          "automaticArrival": true,
-          "name": "ナド・クライ・到着港",
           "label": "舟・寄港",
-          "id": "nod-port",
-          "hint": "出航から90秒で着岸",
-          "region": "region-07",
           "from": "natlan-voyage",
-          "mode": "boat"
-        },
-        {
-          "name": "ナド・クライ・月明かりの道",
-          "label": "徒歩",
-          "id": "nod-field",
-          "region": "region-07",
-          "from": "nod-port",
-          "mode": "walk"
-        },
-        {
-          "name": "ナド・クライ・町の広場",
-          "label": "徒歩",
-          "id": "nod-town",
-          "region": "region-07",
-          "from": "nod-field",
-          "mode": "walk"
-        },
-        {
-          "name": "スネージナヤ・雪原の入口",
-          "label": "徒歩",
-          "id": "snezhnaya-entry",
-          "region": "region-08",
-          "from": "nod-town",
-          "mode": "walk"
-        },
-        {
-          "name": "スネージナヤ・雪の町",
-          "label": "徒歩",
-          "id": "snezhnaya-hub",
-          "region": "region-08",
-          "from": "snezhnaya-entry",
-          "mode": "walk"
-        },
-        {
-          "name": "白虹行きの列車",
-          "label": "鉄道",
-          "id": "white-pass-coach",
-          "region": "region-08",
-          "from": "snezhnaya-hub",
-          "mode": "rail"
-        },
-        {
+          "level": 120,
+          "mode": "boat",
+          "id": "nod-port",
+          "name": "ナド・クライ・到着港",
           "automaticArrival": true,
-          "name": "雪原の終着駅",
+          "hint": "出航から90秒で着岸",
+          "region": "region-07"
+        },
+        {
+          "label": "徒歩",
+          "previewX": 1380,
+          "from": "nod-port",
+          "level": 120,
+          "mode": "walk",
+          "id": "nod-field",
+          "name": "ナド・クライ・月明かりの道",
+          "region": "region-07"
+        },
+        {
+          "label": "徒歩",
+          "previewX": 1380,
+          "from": "nod-field",
+          "level": 120,
+          "mode": "walk",
+          "id": "nod-town",
+          "name": "ナド・クライ・町の広場",
+          "region": "region-07"
+        },
+        {
+          "label": "徒歩",
+          "previewX": 1380,
+          "from": "nod-town",
+          "level": 140,
+          "mode": "walk",
+          "id": "snezhnaya-entry",
+          "name": "スネージナヤ・雪原の入口",
+          "region": "region-08"
+        },
+        {
+          "label": "徒歩",
+          "previewX": 1380,
+          "from": "snezhnaya-entry",
+          "level": 140,
+          "mode": "walk",
+          "id": "snezhnaya-hub",
+          "name": "スネージナヤ・雪の町",
+          "region": "region-08"
+        },
+        {
           "label": "鉄道",
-          "id": "white-pass-station",
-          "hint": "発車から9秒で到着",
-          "region": "region-08",
+          "previewX": 800,
+          "from": "snezhnaya-hub",
+          "level": 140,
+          "mode": "rail",
+          "id": "white-pass-coach",
+          "name": "白虹行きの列車",
+          "hint": "出発から9秒で雪原の終着駅に到着",
+          "region": "region-08"
+        },
+        {
+          "label": "鉄道",
           "from": "white-pass-coach",
-          "mode": "rail"
+          "level": 140,
+          "mode": "rail",
+          "id": "white-pass-station",
+          "name": "雪原の終着駅",
+          "automaticArrival": true,
+          "hint": "発車から9秒で到着",
+          "region": "region-08"
         }
       ]
     },

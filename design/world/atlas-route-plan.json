@@ -9557,10 +9557,12 @@
       "runtime_paths": {
         "forward": [
           "natlan-port",
+          "natlan-voyage",
           "nod-port"
         ],
         "return": [
           "nod-port",
+          "natlan-voyage-return",
           "natlan-port"
         ]
       }

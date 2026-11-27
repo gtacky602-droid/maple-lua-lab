@@ -5,7 +5,8 @@
     "removed_direct_gates": 32,
     "removed_design_only": 58,
     "retained_existing_gates": 87,
-    "added_provisional_gates": 130
+    "added_provisional_gates": 129,
+    "retained_existing_ferry": 1
   },
   "routes": [
     {
@@ -2436,7 +2437,7 @@
         "nod-port"
       ],
       "mode": "special_road",
-      "result": "added_provisional_gates"
+      "result": "retained_existing_ferry"
     },
     {
       "id": "SITE-EDGE:teyvat:79059:teyvat:85958",

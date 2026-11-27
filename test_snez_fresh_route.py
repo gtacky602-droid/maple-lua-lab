@@ -353,12 +353,12 @@ gauge = restored.gauge
 core.action(restored, 'light')
 assert restored.actors[1].light == 12 and restored.gauge == gauge - 60
 
-result = dict(route=milestones, hunts=hunts, completedQuests=done, trainSeconds=ride_seconds,
+result = dict(sourceSha256=sha256(source).hexdigest(), route=milestones, hunts=hunts, completedQuests=done, trainSeconds=ride_seconds,
               snowMatch=snow_record, recoveryTrips=recovery_trips, inventoryTrips=inventory_trips,
               partyWipes=state.returns, savedAndRestored=True, unlockedHunt=end, lightReleaseAt160=True,
               scope='Earned Lv140 checkpoint from a new Lv1 adventure. Lua movement and built-in auto battle.')
 if draft:
-    result.update(sourceSha256=sha256(source).hexdigest(), weaponReward=sword_reward, draftBalance=True)
+    result.update(weaponReward=sword_reward, draftBalance=True)
 if options.after_revisits:
     for id,record in start['story']['quests'].items():
         if record['status']=='complete':

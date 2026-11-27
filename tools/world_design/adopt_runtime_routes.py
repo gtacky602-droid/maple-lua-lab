@@ -87,6 +87,15 @@ def gate_position(node, prefer_right):
     return -max(candidates)[2], y
 
 
+def ferry_gate(source, destination, nodes):
+    for gate in source['exits']:
+        voyage = nodes[gate['to']].get('voyage', {})
+        if (voyage.get('kind'), voyage.get('source'), voyage.get('destination')) == (
+            'ferry', source['id'], destination['id'],
+        ):
+            return gate
+
+
 def build():
     snapshot = read('design/world/editor-snapshot.json')
     adoption = snapshot['history'][-1]
@@ -122,6 +131,7 @@ def build():
             raise ValueError(f'Suspended route: {id}')
         forward = [exit for exit in first['exits'] if exit['to'] == second['id']]
         backward = [exit for exit in second['exits'] if exit['to'] == first['id']]
+        ferries = (ferry_gate(first, second, nodes), ferry_gate(second, first, nodes))
         if kind == 'edge_delete':
             if any(exit.keys() & set(GATE_CONDITIONS) for exit in forward + backward):
                 raise ValueError(f'Quest-bound portal needs separate routing: {id}')
@@ -130,6 +140,11 @@ def build():
                 second['exits'] = [exit for exit in second['exits'] if exit['to'] != first['id']]
                 changed.update((first['id'], second['id']))
             result = 'removed_direct_gates' if forward or backward else 'removed_design_only'
+        elif edge['mode'] == 'special_road' and not (forward or backward) and all(ferries):
+            for gate in ferries:
+                gate.update(studioRoute=id, studioMode=edge['mode'])
+            changed.update((first['id'], second['id']))
+            result = 'retained_existing_ferry'
         else:
             if edge['mode'] not in ('road', 'special_road'):
                 raise ValueError(f'Choose a runtime traversal for {id}: {edge["mode"]}')

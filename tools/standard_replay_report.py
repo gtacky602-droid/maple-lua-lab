@@ -15,10 +15,14 @@ CHECKPOINTS = [
 ]
 
 
-def record_standard_replay(root):
+def record_standard_replay(root, command='python test_cap_fresh_route.py --replay', through=200):
+    if through not in {row[2] for row in CHECKPOINTS}:
+        raise ValueError(f'No standard campaign checkpoint at Lv{through}')
     rows = []
     completed = set()
     for region, filename, level, arrival in CHECKPOINTS:
+        if level > through:
+            break
         path = root / 'work' / (region + '-fresh-route') / (filename + '.json')
         raw = path.read_bytes()
         save = json.loads(raw)
@@ -26,12 +30,18 @@ def record_standard_replay(root):
         assert (story['node'], progression['level']) == (arrival, level)
         reported = {qid for qid, state in story['quests'].items() if state['status'] == 'complete'}
         assert completed <= reported, (region, completed - reported)
+        source = json.loads((root / 'evidence' / (region + '-fresh-route.json')).read_bytes()).get('sourceSha256')
+        if level >= 100:
+            assert source == rows[-1]['saveSha256'], (region, source, rows[-1]['saveSha256'])
         rows.append(dict(segment=region, arrival=arrival, level=level,
                          totalExp=progression['total'], completedQuests=len(reported),
-                         kills=save['kills'], saveSha256=sha256(raw).hexdigest()))
+                         kills=save['kills'], saveSha256=sha256(raw).hexdigest(),
+                         **({'sourceSha256':source} if level >= 100 else {})))
         completed = reported
     graph = (root / 'content/story-graph.json').read_bytes()
-    report = dict(command='python test_cap_fresh_route.py --replay', profile='standard',
-                  startLevel=1, worldGraphSha256=sha256(graph).hexdigest(), checkpoints=rows)
-    output = root / 'evidence/standard-campaign-checkpoints.json'
+    report = dict(command=command, profile='standard',
+                  startLevel=1, verifiedThroughLevel=through, worldGraphSha256=sha256(graph).hexdigest(),
+                  checkpoints=rows)
+    name = 'standard-campaign-checkpoints.json' if through == 200 else f'standard-campaign-through-lv{through}.json'
+    output = root / 'evidence' / name
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf8')

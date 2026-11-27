@@ -21,10 +21,10 @@ def long_route():
     trip = Journey('lv200-save.json')
     trip.warp(STATION)
     out = trip.travel(FIELD)
-    assert len(out) == 20 and automatic_legs(out) == [(DECK, LANDING)]
+    assert len(out) >= 15 and automatic_legs(out) == [(DECK, LANDING)]
     assert trip.state.story.node == FIELD
     back = trip.travel(STATION)
-    assert len(back) >= 20 and automatic_legs(back)
+    assert len(back) >= 15 and automatic_legs(back) == [('natlan-voyage', 'nod-port'), ('white-pass-coach', STATION)]
     assert trip.state.story.node == STATION and trip.state.returns == 0
     return {'sourceSha256':trip.source, 'outbound':trip.itineraries[0], 'return':trip.itineraries[1],
             'returnedToStart':True, 'partyWipes':trip.state.returns}
