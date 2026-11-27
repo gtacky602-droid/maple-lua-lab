@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
+import {apepDomeText,childeDropText,falseMoonEncounterText,gateEncounterText,hereticChantText,narwhalJourneyText,primalTrialText,raidenFlowerText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -618,14 +618,18 @@ function hud(f,calls,renderMs){
    $('weeklyTempMeter').value=field.temperature;
    const devices=field.devices.map((ticks,i)=>['左','右'][i]+' '+(ticks?Math.ceil(ticks/60)+'秒':'使用可')).join(' ／ ');
    const held=field.deviceHold?(' ｜ 放出 '+Math.floor(100*field.deviceHold/field.deviceTotal)+'%'):'';
+   const cause=signoraReleaseText(field.deviceRelease,field.deviceLabel)||causes[field.cause];
    $('weeklyDevices').textContent=field.deviceEnabled?
-    field.deviceLabel+'（両端） '+devices+held+(causes[field.cause]?' ｜ '+causes[field.cause]:''):'変身中';
+    field.deviceLabel+'（両端） '+devices+held+(cause?' ｜ '+cause:''):'変身中';
    $('weeklyDeviceButton').hidden=!field.deviceEnabled;
    $('weeklySeal').hidden=!field.seal;
    if(field.seal){
     $('weeklySealHp').max=field.seal.max;$('weeklySealHp').value=field.seal.hp;
     $('weeklySealText').textContent=!field.seal.ready?'結晶化中':field.seal.carrying?'紅蓮蛾を所持。繭に攻撃':'紅蓮蛾を拾って攻撃';
    }
+   const sealResult=$('weeklySealResult');
+   sealResult.textContent=signoraSealStrikeText(field.sealStrike);
+   sealResult.hidden=!sealResult.textContent;
   }
   if(!raiden.hidden){
    const gauge=field.raidenMeter,flower=field.flower,hint=$('weeklyRaidenHint');

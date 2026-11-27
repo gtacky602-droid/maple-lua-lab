@@ -197,6 +197,13 @@ fight = start()
 assert core.giveArtifact(fight,2,45,3)
 act(fight,'artifact_equip:1')
 (ROOT/'work/signora-weekly-gear.json').write_text(json.dumps(save(fight),ensure_ascii=False),encoding='utf8')
+route = restore(fight)
+flower_id = route.inventory.nextId
+assert core.giveArtifact(route,1,100,3)
+act(route,f'artifact_equip:{flower_id}')
+assert route.actors[1].hp>=2000
+(ROOT/'work/signora-weekly-route-gear.json').write_text(
+    json.dumps(save(route),ensure_ascii=False),encoding='utf8')
 act(fight,'story_accept:'+quest)
 place(fight.actors[1],995)
 act(fight,'story_portal:'+node)

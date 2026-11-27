@@ -1,0 +1,395 @@
+{
+  "baseCommit": "727da025fb1d79cefe40ba18b3b68175ddfd4080",
+  "method": "Two expert fights start from separate copies of the same earned level-200 save with reduced gear and companion fire held. Both use four moth charges from normal movement and manual attacks. Both lure the first WS12 rain to the same ground and move to the left brazier. One holds the release input; the other uses proximity cooling. Both fight after the first WS14 tornado, collect the repeat payout and restore the saved clear.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "signora",
+      "case": "signora-release",
+      "label": "霜眼を長押しして火床を消す",
+      "ticks": 3557,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 1280,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "phases": [
+        "cryo",
+        "seal",
+        "transform",
+        "pyro"
+      ],
+      "moths": [
+        {
+          "id": 1,
+          "damage": 25,
+          "remaining": 75
+        },
+        {
+          "id": 2,
+          "damage": 25,
+          "remaining": 50
+        },
+        {
+          "id": 3,
+          "damage": 25,
+          "remaining": 25
+        },
+        {
+          "id": 4,
+          "damage": 25,
+          "remaining": 0
+        }
+      ],
+      "heat": {
+        "t": 295,
+        "temperature": 0.4333333333333333,
+        "cooldown": 887,
+        "floors": [
+          [
+            297.5,
+            480
+          ]
+        ]
+      },
+      "release": {
+        "device": 1,
+        "moveTick": 282,
+        "before": [
+          [
+            205.5,
+            480
+          ],
+          [
+            297.5,
+            480
+          ]
+        ],
+        "after": [
+          [
+            297.5,
+            480
+          ]
+        ],
+        "beforeTemperature": 12.666666666666746,
+        "afterTemperature": 0
+      },
+      "tornado": {
+        "tick": 2590,
+        "moveTick": 420,
+        "duration": 120
+      },
+      "recoveryDamage": 64,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "signora",
+      "case": "signora-passive",
+      "label": "霜眼のそばで冷却する",
+      "ticks": 3557,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 1280,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "phases": [
+        "cryo",
+        "seal",
+        "transform",
+        "pyro"
+      ],
+      "moths": [
+        {
+          "id": 1,
+          "damage": 25,
+          "remaining": 75
+        },
+        {
+          "id": 2,
+          "damage": 25,
+          "remaining": 50
+        },
+        {
+          "id": 3,
+          "damage": 25,
+          "remaining": 25
+        },
+        {
+          "id": 4,
+          "damage": 25,
+          "remaining": 0
+        }
+      ],
+      "heat": {
+        "t": 295,
+        "temperature": 8.000000000000071,
+        "cooldown": 0,
+        "floors": [
+          [
+            205.5,
+            480
+          ],
+          [
+            297.5,
+            480
+          ]
+        ]
+      },
+      "release": null,
+      "tornado": {
+        "tick": 2590,
+        "moveTick": 420,
+        "duration": 120
+      },
+      "recoveryDamage": 64,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "compression": {
+    "method": "Existing rectangle grouping compared with individual rectangle records for the same palette. Expanded commands match in all samples. Each measured palette has the same Chrome canvas hashes and byte totals before and after the HUD change.",
+    "scenes": 25,
+    "matchingExpandedStreams": 50,
+    "matchingBeforeAfterChromeCanvases": 50,
+    "profiles": {
+      "h48c32": {
+        "scenes": 25,
+        "rawJsonBytes": 10254654,
+        "packedJsonBytes": 1919192,
+        "rawRecords": 85840,
+        "packedRecords": 626,
+        "reductionPercent": 81.28
+      },
+      "h32c16": {
+        "scenes": 25,
+        "rawJsonBytes": 3772842,
+        "packedJsonBytes": 839970,
+        "rawRecords": 37154,
+        "packedRecords": 626,
+        "reductionPercent": 77.74
+      }
+    }
+  },
+  "chrome": {
+    "release": {
+      "entry": true,
+      "deviceKeyboardHold": true,
+      "cocoonAndPyro": true,
+      "normalKeyBattleAndReport": true,
+      "savedRespawn": true,
+      "remainingHp": 1993,
+      "viewport390": true,
+      "scene": {
+        "key": "tenshukakuDuel",
+        "file": "tenshukaku-duel-background-v1.png",
+        "state": "ready"
+      },
+      "sealResult": {
+        "strike": {
+          "source": "moth",
+          "damage": 25,
+          "remaining": 0
+        },
+        "hud": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+      },
+      "fireResult": {
+        "route": "release",
+        "temperature": 0.6,
+        "release": {
+          "floors": 1,
+          "side": 1
+        },
+        "fireFloor": 1,
+        "hud": "霜眼（両端） 左 15秒 ／ 右 使用可 ｜ 左の霜眼を放出 ｜ 近くの火床を1か所消した"
+      },
+      "transfer": {
+        "rawGzip": 34760,
+        "packedGzip": 28250,
+        "pixelMatch": true
+      },
+      "sameStateCommands": {
+        "png": 20,
+        "standard": 8351,
+        "light": 2229
+      },
+      "errors": []
+    },
+    "passive": {
+      "entry": true,
+      "deviceKeyboardHold": false,
+      "cocoonAndPyro": true,
+      "normalKeyBattleAndReport": true,
+      "savedRespawn": true,
+      "remainingHp": 1993,
+      "viewport390": true,
+      "scene": {
+        "key": "tenshukakuDuel",
+        "file": "tenshukaku-duel-background-v1.png",
+        "state": "ready"
+      },
+      "sealResult": {
+        "strike": {
+          "source": "moth",
+          "remaining": 0,
+          "damage": 25
+        },
+        "hud": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+      },
+      "fireResult": {
+        "route": "passive",
+        "temperature": 6.666666666666739,
+        "fireFloor": 2,
+        "hud": "霜眼（両端） 左 使用可 ／ 右 使用可"
+      },
+      "transfer": {
+        "rawGzip": 36811,
+        "packedGzip": 28355,
+        "pixelMatch": true
+      },
+      "sameStateCommands": {
+        "png": 20,
+        "standard": 8351,
+        "light": 2229
+      },
+      "errors": []
+    },
+    "default": {
+      "entry": true,
+      "deviceKeyboardHold": true,
+      "cocoonAndPyro": true,
+      "normalKeyBattleAndReport": true,
+      "savedRespawn": true,
+      "remainingHp": 112,
+      "viewport390": true,
+      "scene": {
+        "key": "tenshukakuDuel",
+        "file": "tenshukaku-duel-background-v1.png",
+        "state": "ready"
+      },
+      "transfer": {
+        "rawGzip": 35087,
+        "packedGzip": 28710,
+        "pixelMatch": true
+      },
+      "sameStateCommands": {
+        "png": 20,
+        "standard": 8351,
+        "light": 2229
+      },
+      "errors": []
+    }
+  },
+  "coOp": {
+    "lua": {
+      "participants": 4,
+      "independentTemperatureAndHits": true,
+      "oneLocalReleaseWhenBothHold": true,
+      "deviceCooldownGuaranteesOneReady": true,
+      "sharedFloorsClearLocally": true,
+      "separateMothsAndInputClocks": true,
+      "onePickupPerMoth": true,
+      "manualFreshAttackOnly": true,
+      "independentCocoonHitInterval": true,
+      "oneTransformationAndIndividualRewards": true,
+      "personalHudResults": true
+    },
+    "http": {
+      "participants": 2,
+      "transportedHoldInput": true,
+      "localReleaseOnly": true,
+      "personalHudResults": true,
+      "departureClearsMothButKeepsCocoon": true,
+      "individualRewardsAndQuest": true
+    }
+  },
+  "unverified": [
+    "All equipment and element choices",
+    "Remote co-op devices",
+    "Native Miliastra and final 3D scenery"
+  ]
+}
