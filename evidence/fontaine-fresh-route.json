@@ -1,95 +1,95 @@
 {
-  "sourceSha256": "c65439fe161e2c76a27f72dcf527b8fd8f43fb6ec53d140b65a7d2351e503ac0",
+  "sourceSha256": "b994e25b6157ee0cd3d8885ff24e3794851c9fb6ba0eb6e1267099606be32779",
   "route": [
     {
       "id": "fontaine-moon-parcel",
       "seconds": 36.8,
       "level": 81,
-      "total": 11365664,
+      "total": 11366509,
       "questXp": 5298103,
-      "killXp": 6067561,
-      "kills": 5988
+      "killXp": 6068406,
+      "kills": 5986
     },
     {
       "id": "fontaine-understage-crew",
       "seconds": 71.5,
       "level": 84,
-      "total": 13291062,
+      "total": 13291907,
       "questXp": 7220049,
-      "killXp": 6071013,
-      "kills": 5990
+      "killXp": 6071858,
+      "kills": 5988
     },
     {
       "id": "fon-furina-cues",
       "seconds": 84.98,
       "level": 84,
-      "total": 13901183,
+      "total": 13902028,
       "questXp": 7830170,
-      "killXp": 6071013,
-      "kills": 5990
+      "killXp": 6071858,
+      "kills": 5988
     },
     {
       "id": "fontaine-grand-finale",
       "seconds": 127.8,
       "level": 90,
-      "total": 20476025,
+      "total": 20476870,
       "questXp": 14401560,
-      "killXp": 6074465,
-      "kills": 5993
+      "killXp": 6075310,
+      "kills": 5991
     },
     {
       "id": "fon-emilie-scent",
       "seconds": 159.6,
       "level": 91,
-      "total": 20952359,
+      "total": 20953204,
       "questXp": 14867020,
-      "killXp": 6085339,
-      "kills": 5994
+      "killXp": 6086184,
+      "kills": 5992
     },
     {
       "id": "fon-navia-photo",
       "seconds": 173.08,
       "level": 91,
-      "total": 21752102,
+      "total": 21752947,
       "questXp": 15666763,
-      "killXp": 6085339,
-      "kills": 5994
+      "killXp": 6086184,
+      "kills": 5992
     },
     {
       "id": "lv95",
-      "seconds": 2075.18,
+      "seconds": 2806.92,
       "level": 95,
-      "total": 27139243,
+      "total": 27143688,
       "questXp": 15666763,
-      "killXp": 11472480,
-      "kills": 7492
+      "killXp": 11476925,
+      "kills": 7491
     },
     {
       "id": "lv99",
-      "seconds": 4400.95,
+      "seconds": 5980.43,
       "level": 99,
-      "total": 35252755,
+      "total": 35257200,
       "questXp": 15666763,
-      "killXp": 19585992,
-      "kills": 9244
+      "killXp": 19590437,
+      "kills": 9243
     },
     {
       "id": "lv100",
-      "seconds": 4737.4,
+      "seconds": 6454.5,
       "level": 100,
-      "total": 37605770,
+      "total": 37616172,
       "questXp": 15666763,
-      "killXp": 21939007,
+      "killXp": 21949409,
       "kills": 9639
     },
     {
       "id": "natlan-hub",
-      "seconds": 4770.65,
+      "seconds": 6487.75,
       "level": 100,
-      "total": 37646830,
+      "total": 37631160,
       "questXp": 15666763,
-      "killXp": 21980067,
-      "kills": 9650
+      "killXp": 21964397,
+      "kills": 9644
     }
   ],
   "completedQuests": [
@@ -117,27 +117,27 @@
   "hunts": [
     {
       "stage": "fontaine-beryl-bank",
-      "sorties": 32,
-      "kills": 1453,
-      "xp": 5230800,
-      "seconds": 1751.17
+      "sorties": 39,
+      "kills": 1454,
+      "xp": 5234400,
+      "seconds": 2386.2
     },
     {
       "stage": "fontaine-beryl-foothills",
-      "sorties": 43,
-      "kills": 1703,
-      "xp": 7886593,
-      "seconds": 2136.85
+      "sorties": 54,
+      "kills": 1691,
+      "xp": 7831021,
+      "seconds": 2880.43
     },
     {
       "stage": "sites-hunt-50034",
-      "sorties": 6,
-      "kills": 386,
-      "xp": 2299402,
-      "seconds": 288.5
+      "sorties": 7,
+      "kills": 384,
+      "xp": 2287488,
+      "seconds": 404.53
     }
   ],
-  "recoveryTrips": 63,
+  "recoveryTrips": 76,
   "partyWipes": 0,
   "noWorkfloorWallInStoreroom": true,
   "savedAndRestored": true,

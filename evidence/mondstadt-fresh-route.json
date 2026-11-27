@@ -65,42 +65,42 @@
     },
     {
       "id": "lv20",
-      "seconds": 677.27,
+      "seconds": 588.17,
       "level": 20,
-      "total": 20648,
+      "total": 20659,
       "questXp": 15482,
-      "killXp": 5166,
-      "kills": 503
+      "killXp": 5177,
+      "kills": 504
     },
     {
       "id": "liyue-harbor",
-      "seconds": 696.23,
+      "seconds": 607.43,
       "level": 20,
-      "total": 20729,
+      "total": 20712,
       "questXp": 15482,
-      "killXp": 5247,
-      "kills": 510
+      "killXp": 5230,
+      "kills": 509
     }
   ],
   "hunt": {
     "scene": "sites-hunt-7137",
     "expeditions": [
       {
-        "seconds": 276.13,
-        "kills": 243,
-        "xp": 2673
+        "seconds": 158.5,
+        "kills": 161,
+        "xp": 1771
       },
       {
-        "seconds": 230.03,
-        "kills": 222,
-        "xp": 2442
+        "seconds": 258.57,
+        "kills": 305,
+        "xp": 3355
       }
     ],
-    "seconds": 506.16,
-    "kills": 465,
-    "xp": 5115,
+    "seconds": 417.07,
+    "kills": 466,
+    "xp": 5126,
     "recoveryTrips": 1,
-    "gateToLv20Seconds": 533.5
+    "gateToLv20Seconds": 444.4
   },
   "partyWipes": 0,
   "savedAndRestored": true,

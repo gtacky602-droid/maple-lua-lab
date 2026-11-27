@@ -1168,5 +1168,78 @@
       "afterTotal": 36,
       "afterPeakCamera": 1414
     }
-  ]
+  ],
+  "sameCameraLuaRectangles": {
+    "node": "sites-hunt-7111",
+    "camera": 1376,
+    "profiles": {
+      "before": {
+        "legacy": {
+          "rectangles": 32501,
+          "drawJsonBytes": 125742,
+          "gzipBytes": 22857
+        },
+        "h48c32": {
+          "rectangles": 19467,
+          "drawJsonBytes": 77517,
+          "gzipBytes": 14914
+        },
+        "h32c16": {
+          "rectangles": 7944,
+          "drawJsonBytes": 35166,
+          "gzipBytes": 6706
+        }
+      },
+      "after": {
+        "legacy": {
+          "rectangles": 25701,
+          "drawJsonBytes": 124937,
+          "gzipBytes": 22851
+        },
+        "h48c32": {
+          "rectangles": 15412,
+          "drawJsonBytes": 76707,
+          "gzipBytes": 14908
+        },
+        "h32c16": {
+          "rectangles": 6302,
+          "drawJsonBytes": 34356,
+          "gzipBytes": 6701
+        }
+      }
+    },
+    "includes": "Both party members and visible enemies; background supplied by host."
+  },
+  "reportedAdventureRecheck": {
+    "questReports": 276,
+    "newReports": 11,
+    "returns": 0,
+    "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+    "priorRankedQuestRecordsMatched": true,
+    "outputSha256": "0c741ef63e45e42a30554c83bf4718d02e1ba71492936d9124a129daeeb4a618"
+  },
+  "routeRegression": {
+    "terrainSuitesPassed": 21,
+    "geographicHuntRoundTrips": 71,
+    "eliteRoomRoundTrips": 53,
+    "geographicGateCrossings": 248,
+    "fieldStudioRevision": 1,
+    "verifiedNewDirections": 258,
+    "removedPairs": 90
+  },
+  "freshCampaign": {
+    "verifiedThroughLevel": 200,
+    "handoffs": 8,
+    "checkpoints": 9,
+    "replaySeconds": 118335.41,
+    "huntSeconds": 109950.71,
+    "otherRouteSeconds": 8384.7,
+    "previousReplaySeconds": 109022.68,
+    "reportedQuests": 56,
+    "partyWipes": 0,
+    "capAddedExp": 18374692,
+    "browserAddedExp": 889098,
+    "browserReload": true,
+    "record": "evidence/standard-campaign-checkpoints.json"
+  }
 }

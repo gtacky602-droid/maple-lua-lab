@@ -1,95 +1,95 @@
 {
-  "sourceSha256": "01938b65a19eaec309ad573ff6d3d6eb93f1f848c3e5559ffcde731014af8830",
+  "sourceSha256": "e828f529db2be70cec60c56f961b2aa9b15ef0914feaf766a90c286e124455b3",
   "route": [
     {
       "id": "sumeru-leaf-crossing",
-      "seconds": 20.55,
+      "seconds": 19.33,
       "level": 62,
-      "total": 3178210,
+      "total": 3177315,
       "questXp": 1989345,
-      "killXp": 1188865,
-      "kills": 2717
+      "killXp": 1187970,
+      "kills": 2714
     },
     {
       "id": "sumeru-forest-levels",
-      "seconds": 53.92,
+      "seconds": 52.7,
       "level": 64,
-      "total": 3704467,
+      "total": 3703572,
       "questXp": 2515602,
-      "killXp": 1188865,
-      "kills": 2717
+      "killXp": 1187970,
+      "kills": 2714
     },
     {
       "id": "sumeru-observatory-map",
-      "seconds": 103.83,
+      "seconds": 102.62,
       "level": 68,
-      "total": 4740029,
+      "total": 4739134,
       "questXp": 3548767,
-      "killXp": 1191262,
-      "kills": 2721
+      "killXp": 1190367,
+      "kills": 2718
     },
     {
       "id": "sum-collei-guide",
-      "seconds": 125.17,
+      "seconds": 123.95,
       "level": 69,
-      "total": 4960033,
+      "total": 4959138,
       "questXp": 3768771,
-      "killXp": 1191262,
-      "kills": 2721
+      "killXp": 1190367,
+      "kills": 2718
     },
     {
       "id": "sum-wanderer-observation",
-      "seconds": 144.23,
+      "seconds": 143.02,
       "level": 69,
-      "total": 5113280,
+      "total": 5112385,
       "questXp": 3922018,
-      "killXp": 1191262,
-      "kills": 2721
+      "killXp": 1190367,
+      "kills": 2718
     },
     {
       "id": "sum-mapped-north-quay",
-      "seconds": 171.6,
+      "seconds": 170.38,
       "level": 69,
-      "total": 5159480,
+      "total": 5158585,
       "questXp": 3968218,
-      "killXp": 1191262,
-      "kills": 2721
+      "killXp": 1190367,
+      "kills": 2718
     },
     {
       "id": "lv74",
-      "seconds": 2290.37,
+      "seconds": 3477.82,
       "level": 74,
-      "total": 6755284,
+      "total": 6756568,
       "questXp": 3968218,
-      "killXp": 2787066,
-      "kills": 4107
+      "killXp": 2788350,
+      "kills": 4106
     },
     {
       "id": "lv79",
-      "seconds": 4453.7,
+      "seconds": 6301.92,
       "level": 79,
-      "total": 9382300,
+      "total": 9381938,
       "questXp": 3968218,
-      "killXp": 5414082,
-      "kills": 5703
+      "killXp": 5413720,
+      "kills": 5701
     },
     {
       "id": "lv80",
-      "seconds": 4767.82,
+      "seconds": 6808.7,
       "level": 80,
-      "total": 10024202,
+      "total": 10023840,
       "questXp": 3968218,
-      "killXp": 6055984,
-      "kills": 5981
+      "killXp": 6055622,
+      "kills": 5979
     },
     {
       "id": "fontaine-hub",
-      "seconds": 4783.17,
+      "seconds": 6824.05,
       "level": 80,
-      "total": 10032327,
+      "total": 10033172,
       "questXp": 3968218,
-      "killXp": 6064109,
-      "kills": 5986
+      "killXp": 6064954,
+      "kills": 5984
     }
   ],
   "completedQuests": [
@@ -103,183 +103,147 @@
   "hunts": [
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 46,
-      "xp": 52762,
+      "kills": 30,
+      "xp": 34410,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 44,
-      "xp": 50468,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 21,
-      "xp": 24087,
-      "seconds": 21.4
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 29,
-      "xp": 33263,
-      "seconds": 30.27
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 47,
-      "xp": 53909,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 51,
-      "xp": 58497,
-      "seconds": 47.57
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 47,
-      "xp": 53909,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 45,
-      "xp": 51615,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 10,
-      "xp": 11470,
-      "seconds": 12.7
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 46,
-      "xp": 52762,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 13,
-      "xp": 14911,
-      "seconds": 17.78
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 50,
-      "xp": 57350,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 8,
-      "xp": 9176,
-      "seconds": 8.02
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 46,
-      "xp": 52762,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 26,
-      "xp": 29822,
-      "seconds": 22.03
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 42,
-      "xp": 48174,
-      "seconds": 39.85
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 44,
-      "xp": 50468,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 21,
-      "xp": 24087,
-      "seconds": 19.9
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 40,
-      "xp": 45880,
-      "seconds": 42.53
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 45,
-      "xp": 51615,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 47,
-      "xp": 53909,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 51,
-      "xp": 58497,
+      "kills": 31,
+      "xp": 35557,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
       "kills": 17,
       "xp": 19499,
-      "seconds": 16.47
+      "seconds": 38.83
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 43,
-      "xp": 49321,
+      "kills": 31,
+      "xp": 35557,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 14,
-      "xp": 16058,
-      "seconds": 17.2
+      "kills": 31,
+      "xp": 35557,
+      "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 45,
-      "xp": 51615,
+      "kills": 6,
+      "xp": 6882,
+      "seconds": 13.18
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 31,
+      "xp": 35557,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
       "kills": 30,
       "xp": 34410,
-      "seconds": 32.67
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 43,
-      "xp": 49321,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 22,
-      "xp": 25234,
-      "seconds": 21.98
+      "kills": 27,
+      "xp": 30969,
+      "seconds": 68.02
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 48,
-      "xp": 55056,
-      "seconds": 69.73
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 31,
+      "xp": 35557,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 4,
+      "xp": 4588,
+      "seconds": 6.53
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 23,
+      "xp": 26381,
+      "seconds": 55.97
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 65,
+      "xp": 74555,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 31,
+      "xp": 35557,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 3,
+      "xp": 3441,
+      "seconds": 4.92
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 4,
+      "xp": 4588,
+      "seconds": 5.95
     },
     {
       "stage": "sumeru-north-forest-floor",
@@ -289,21 +253,117 @@
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 12,
-      "xp": 13764,
-      "seconds": 14.55
-    },
-    {
-      "stage": "sumeru-north-forest-floor",
-      "kills": 52,
-      "xp": 59644,
+      "kills": 30,
+      "xp": 34410,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 10,
-      "xp": 11470,
-      "seconds": 11.53
+      "kills": 3,
+      "xp": 3441,
+      "seconds": 6.33
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 12,
+      "xp": 13764,
+      "seconds": 29.83
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 31,
+      "xp": 35557,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 3,
+      "xp": 3441,
+      "seconds": 5.17
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 38,
+      "xp": 43586,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 3,
+      "xp": 3441,
+      "seconds": 5.17
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 41,
+      "xp": 47027,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 24,
+      "xp": 27528,
+      "seconds": 31.52
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
+      "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
@@ -313,336 +373,384 @@
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 45,
-      "xp": 51615,
+      "kills": 10,
+      "xp": 11470,
+      "seconds": 22.15
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 30,
+      "xp": 34410,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 16,
-      "xp": 18352,
-      "seconds": 23.55
+      "kills": 29,
+      "xp": 33263,
+      "seconds": 75.0
     },
     {
       "stage": "sumeru-north-forest-floor",
-      "kills": 42,
-      "xp": 48174,
+      "kills": 31,
+      "xp": 35557,
       "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 3,
+      "xp": 3441,
+      "seconds": 5.17
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 31,
+      "xp": 35557,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-forest-floor",
+      "kills": 20,
+      "xp": 22940,
+      "seconds": 49.43
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 21,
+      "xp": 34566,
+      "seconds": 24.97
     },
     {
       "stage": "sumeru-north-bank-terraces",
       "kills": 57,
       "xp": 93822,
-      "seconds": 75.0
+      "seconds": 64.87
     },
     {
       "stage": "sumeru-north-bank-terraces",
-      "kills": 9,
-      "xp": 14814,
-      "seconds": 10.77
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 48,
-      "xp": 79008,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 15,
-      "xp": 24690,
-      "seconds": 18.55
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 47,
-      "xp": 77362,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 50,
-      "xp": 82300,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 15,
-      "xp": 24690,
-      "seconds": 17.1
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 40,
-      "xp": 65840,
-      "seconds": 43.1
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 53,
-      "xp": 87238,
-      "seconds": 67.68
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 22,
-      "xp": 36212,
-      "seconds": 24.98
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 22,
-      "xp": 36212,
-      "seconds": 24.98
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 22,
-      "xp": 36212,
-      "seconds": 24.98
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 49,
-      "xp": 80654,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 7,
-      "xp": 11522,
-      "seconds": 7.52
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 51,
-      "xp": 83946,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 23,
-      "xp": 37858,
-      "seconds": 24.62
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 48,
-      "xp": 79008,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 16,
-      "xp": 26336,
-      "seconds": 17.78
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 52,
-      "xp": 85592,
-      "seconds": 72.12
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 28,
-      "xp": 46088,
-      "seconds": 27.47
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 55,
-      "xp": 90530,
-      "seconds": 62.45
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 25,
-      "xp": 41150,
-      "seconds": 28.55
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 67,
-      "xp": 110282,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 40,
-      "xp": 65840,
-      "seconds": 45.45
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 49,
-      "xp": 80654,
-      "seconds": 49.02
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 50,
-      "xp": 82300,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 11,
-      "xp": 18106,
-      "seconds": 14.75
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 37,
-      "xp": 60902,
-      "seconds": 36.78
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 53,
-      "xp": 87238,
-      "seconds": 75.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 18,
-      "xp": 29628,
-      "seconds": 18.0
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 51,
-      "xp": 83946,
-      "seconds": 75.0
+      "kills": 58,
+      "xp": 95468,
+      "seconds": 64.87
     },
     {
       "stage": "sumeru-north-bank-terraces",
       "kills": 26,
       "xp": 42796,
-      "seconds": 35.68
+      "seconds": 37.33
     },
     {
       "stage": "sumeru-north-bank-terraces",
-      "kills": 28,
-      "xp": 46088,
-      "seconds": 28.55
+      "kills": 42,
+      "xp": 69132,
+      "seconds": 61.23
     },
     {
       "stage": "sumeru-north-bank-terraces",
-      "kills": 24,
-      "xp": 39504,
-      "seconds": 26.43
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 22,
-      "xp": 36212,
-      "seconds": 24.98
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 23,
-      "xp": 37858,
-      "seconds": 24.98
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 22,
-      "xp": 36212,
-      "seconds": 24.98
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 50,
-      "xp": 82300,
+      "kills": 39,
+      "xp": 64194,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-bank-terraces",
-      "kills": 20,
-      "xp": 32920,
-      "seconds": 25.57
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 35,
-      "xp": 57610,
-      "seconds": 34.1
-    },
-    {
-      "stage": "sumeru-north-bank-terraces",
-      "kills": 49,
-      "xp": 80654,
+      "kills": 22,
+      "xp": 36212,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-bank-terraces",
       "kills": 17,
       "xp": 27982,
-      "seconds": 18.0
+      "seconds": 23.22
     },
     {
       "stage": "sumeru-north-bank-terraces",
-      "kills": 50,
-      "xp": 82300,
+      "kills": 30,
+      "xp": 49380,
+      "seconds": 48.33
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 31,
+      "xp": 51026,
+      "seconds": 43.73
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 58,
+      "xp": 95468,
       "seconds": 75.0
     },
     {
       "stage": "sumeru-north-bank-terraces",
-      "kills": 39,
-      "xp": 64194,
-      "seconds": 49.23
+      "kills": 37,
+      "xp": 60902,
+      "seconds": 42.62
     },
     {
-      "stage": "sites-hunt-28753",
-      "kills": 42,
-      "xp": 96978,
-      "seconds": 40.12
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 35,
+      "xp": 57610,
+      "seconds": 75.0
     },
     {
-      "stage": "sites-hunt-28753",
-      "kills": 59,
-      "xp": 136231,
-      "seconds": 52.92
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 54,
+      "xp": 88884,
+      "seconds": 61.87
     },
     {
-      "stage": "sites-hunt-28753",
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 22,
+      "xp": 36212,
+      "seconds": 30.47
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 37,
+      "xp": 60902,
+      "seconds": 52.03
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 56,
+      "xp": 92176,
+      "seconds": 61.83
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 49,
+      "xp": 80654,
+      "seconds": 58.7
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 22,
+      "xp": 36212,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 31,
+      "xp": 51026,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 12,
+      "xp": 19752,
+      "seconds": 19.38
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 22,
+      "xp": 36212,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
       "kills": 23,
-      "xp": 53107,
-      "seconds": 25.1
+      "xp": 37858,
+      "seconds": 75.0
     },
     {
-      "stage": "sites-hunt-28753",
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 22,
+      "xp": 36212,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 24,
+      "xp": 39504,
+      "seconds": 36.65
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 20,
+      "xp": 32920,
+      "seconds": 30.47
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 45,
+      "xp": 74070,
+      "seconds": 54.05
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 55,
+      "xp": 90530,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
       "kills": 23,
-      "xp": 53107,
-      "seconds": 26.0
+      "xp": 37858,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 24,
+      "xp": 39504,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 4,
+      "xp": 6584,
+      "seconds": 8.7
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 20,
+      "xp": 32920,
+      "seconds": 30.47
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 44,
+      "xp": 72424,
+      "seconds": 54.98
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 32,
+      "xp": 52672,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 21,
+      "xp": 34566,
+      "seconds": 31.62
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 40,
+      "xp": 65840,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 38,
+      "xp": 62548,
+      "seconds": 46.35
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 22,
+      "xp": 36212,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 23,
+      "xp": 37858,
+      "seconds": 32.22
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 37,
+      "xp": 60902,
+      "seconds": 45.72
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 31,
+      "xp": 51026,
+      "seconds": 43.17
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 26,
+      "xp": 42796,
+      "seconds": 38.87
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 22,
+      "xp": 36212,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 35,
+      "xp": 57610,
+      "seconds": 41.93
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 51,
+      "xp": 83946,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 24,
+      "xp": 39504,
+      "seconds": 36.5
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 51,
+      "xp": 83946,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 4,
+      "xp": 6584,
+      "seconds": 7.68
+    },
+    {
+      "stage": "sumeru-north-bank-terraces",
+      "kills": 1,
+      "xp": 1646,
+      "seconds": 3.22
     },
     {
       "stage": "sites-hunt-28753",
       "kills": 43,
       "xp": 99287,
-      "seconds": 44.22
+      "seconds": 75.0
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 40,
-      "xp": 92360,
-      "seconds": 38.95
+      "kills": 44,
+      "xp": 101596,
+      "seconds": 75.0
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 38,
-      "xp": 87742,
-      "seconds": 36.52
+      "kills": 43,
+      "xp": 99287,
+      "seconds": 75.0
     },
     {
       "stage": "sites-hunt-28753",
-      "kills": 2,
-      "xp": 4618,
-      "seconds": 7.4
+      "kills": 42,
+      "xp": 96978,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sites-hunt-28753",
+      "kills": 35,
+      "xp": 80815,
+      "seconds": 65.47
+    },
+    {
+      "stage": "sites-hunt-28753",
+      "kills": 43,
+      "xp": 99287,
+      "seconds": 75.0
+    },
+    {
+      "stage": "sites-hunt-28753",
+      "kills": 21,
+      "xp": 48489,
+      "seconds": 35.13
     }
   ],
-  "recoveryTrips": 55,
+  "recoveryTrips": 45,
   "partyWipes": 0,
   "savedAndRestored": true,
   "firstFontaineQuestAvailable": "fontaine-moon-parcel",
