@@ -6,6 +6,8 @@
 
 悪曜の「追念の花蕊」は通常攻撃5回、または雷を含む攻撃1回で充填できる。大太刀は保護域の内側なら被ダメージ0。外側では通常の被ダメージ計算を通る。装甲崩壊後は8秒の攻撃機会があり、復帰してもHPは回復しない。
 
+充填済みの花蕊には保護域の印が出る。大太刀が来る直前は、操作中のキャラが保護域内か外かをHUDに表示する。発動後はそのキャラの判定結果を表示する。
+
 共闘中に始まる花蕊は中央に出現する。複数のキャラが同じ花を充填し、大太刀の防護はそれぞれの位置で判定する。全員で退避した場合は戦況を維持し、全員が倒れた場合は初期状態から再戦する。 [入口・共闘手順・検証](../COOP_WEB_PREVIEW.md#雷電将軍の週ボス戦)
 
 ## 仮値と素材
@@ -15,6 +17,8 @@
 - 悪曜は既存ラボ用素材、背景は雷鳴の岩峰の仮画像。本番背景は3D配置の方針。連続作画、音、報酬調整、遠隔接続と幻境実機は後続。
 
 ## 検証
+
+獲得済みのLv200セーブを使う最上級の比較は、`python -X utf8 test_earned_raiden_flower.py --from-save work/current-atlas-recheck/current-atlas-save.json --output-dir work/raiden-flower-frames`。ラボ配信中に `node test_earned_weekly_frames.mjs work/raiden-flower-frames work/raiden-flower-comparison` を実行すると、HUDの表示と21場面の元絵・中間・軽量の画像を確認できる。 [3条件の最上級再戦](../../evidence/raiden-flower-branches-20261128.json)
 
 `test_raiden_weekly.py` はWRカードの時刻、雷眼、残影、三杭のジャンプ、旧入力を除いた花蕊の充填、保護外の通常ダメージ、装置不在での中止、480tickのダウン、報告と保存復元を確認する。 `test_raiden_weekly.mjs` はLv48の装備付き試験データを読み、ブラウザの入力で受注・門・追念の花蕊・討伐・報告・保存を確認する。
 

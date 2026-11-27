@@ -1,0 +1,459 @@
+{
+  "baseCommit": "28d4d26d83c38c58ff483d5d4aa80525c23d5d90",
+  "boss": "boss-29060201",
+  "saveSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+  "setup": "Three independent copies of an earned level-200 save, entered from the field through the expert desk. Normal attack or no attack on the flower and normal movement in or out of its radius. The boss is attacked after armor repair and recovery.",
+  "beforeAfterSameCombatResults": [
+    "fully charged and inside",
+    "uncharged and inside"
+  ],
+  "verifiedSaveState": [
+    "repeat XP and Mora",
+    "expert clear count +1 after reload",
+    "quest progress unchanged",
+    "visited fields unchanged"
+  ],
+  "chrome": "158.0.8127.38",
+  "browserComparisonScenes": 21,
+  "matchedExpandedRectangleStreams": 42,
+  "soloLuaRegression": {
+    "live_card_duration": {
+      "WR01": 240,
+      "WR02": 300,
+      "WR03": 222,
+      "WR04": 312,
+      "WR05": 480,
+      "WR05.triple": 480,
+      "WR06": 540,
+      "WR07": 360,
+      "WR10": 300,
+      "WR11": 288,
+      "WR11.sweep": 348,
+      "WR12": 600,
+      "WR13": 360
+    },
+    "early_lethal_no_hp_lock": true,
+    "eye_four_normals_and_safe_lane": true,
+    "shade_aoe_nearest_only": true,
+    "final_wave_jumped": true,
+    "flower_five_normals": true,
+    "reject_old_reaction_and_ai": true,
+    "dome_and_drain_once": true,
+    "unprotected_standard_damage": true,
+    "missing_flower_cancel": true,
+    "electro_flower_single_hit": true,
+    "armor_zero_cancels_flower": true,
+    "armor_four_per_second_budget": true,
+    "vulnerable_down_ticks": 480,
+    "no_repair_heal": true,
+    "exit_cleans_old_trial": true,
+    "weekly_report_and_restore": true
+  },
+  "localCoopRegression": {
+    "lua": {
+      "participants": 4,
+      "independentActorIDs": true,
+      "eyeShared": true,
+      "shadeSelectsFromOwnPosition": true,
+      "armorSharedCap": 4,
+      "oldAndNonManualHitsRejected": true,
+      "flowerCountsPerActor": true,
+      "protected": 2,
+      "hitOutside": 2,
+      "drainAppliedOnce": 30,
+      "downTicks": 480,
+      "wipeResets": true
+    },
+    "http": {
+      "participants": 2,
+      "normalAttacksShared": true,
+      "unoccupiedArenaFreezes": true,
+      "flowerProgressPreserved": true,
+      "personalClearXp": 61050,
+      "personalMora": 980,
+      "sameBossHp": 1500,
+      "acceptedQuestAndSavesVerified": true
+    }
+  },
+  "fights": [
+    {
+      "case": "raiden-protected",
+      "ticks": 10598,
+      "seconds": 176.63,
+      "stages": [
+        {
+          "stage": "normal",
+          "tick": 0,
+          "bossHp": 1500
+        },
+        {
+          "stage": "switch",
+          "tick": 1111,
+          "bossHp": 1500
+        },
+        {
+          "stage": "normal",
+          "tick": 1135,
+          "bossHp": 1500
+        },
+        {
+          "stage": "awaken",
+          "tick": 2282,
+          "bossHp": 1500
+        },
+        {
+          "stage": "armored",
+          "tick": 2462,
+          "bossHp": 1500
+        },
+        {
+          "stage": "collapse",
+          "tick": 7707,
+          "bossHp": 1500
+        },
+        {
+          "stage": "repair",
+          "tick": 8283,
+          "bossHp": 1500
+        },
+        {
+          "stage": "normal",
+          "tick": 8463,
+          "bossHp": 1500
+        },
+        {
+          "stage": "switch",
+          "tick": 9616,
+          "bossHp": 708
+        },
+        {
+          "stage": "normal",
+          "tick": 9640,
+          "bossHp": 684
+        },
+        {
+          "stage": "switch",
+          "tick": 10493,
+          "bossHp": 92
+        },
+        {
+          "stage": "normal",
+          "tick": 10517,
+          "bossHp": 92
+        }
+      ],
+      "charges": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "firstSlash": {
+        "charge": 5,
+        "inside": true,
+        "hpLoss": 0,
+        "event": "raiden:WR15:protected",
+        "moveTick": 60,
+        "elapsedTicks": 4910,
+        "heroX": 198.5,
+        "flowerX": 192
+      },
+      "attackableCollapseTicks": 480,
+      "expertClearsAfterReload": [
+        2,
+        3
+      ],
+      "beforeSlashHud": "保護域内 ｜ 大太刀を防げる",
+      "afterSlashHud": "花蕊で大太刀を防いだ",
+      "comparedScenes": [
+        {
+          "id": "追念の花蕊・75",
+          "tick": 4205
+        },
+        {
+          "id": "追念の花蕊・360",
+          "tick": 4490
+        },
+        {
+          "id": "大太刀の直前",
+          "tick": 4909
+        },
+        {
+          "id": "大太刀の判定",
+          "tick": 4910
+        },
+        {
+          "id": "装甲崩壊・攻撃可能",
+          "tick": 7803
+        },
+        {
+          "id": "装甲修復",
+          "tick": 8403
+        },
+        {
+          "id": "復帰",
+          "tick": 8463
+        }
+      ]
+    },
+    {
+      "case": "raiden-outside",
+      "ticks": 10596,
+      "seconds": 176.6,
+      "stages": [
+        {
+          "stage": "normal",
+          "tick": 0,
+          "bossHp": 1500
+        },
+        {
+          "stage": "switch",
+          "tick": 1111,
+          "bossHp": 1500
+        },
+        {
+          "stage": "normal",
+          "tick": 1135,
+          "bossHp": 1500
+        },
+        {
+          "stage": "awaken",
+          "tick": 2282,
+          "bossHp": 1500
+        },
+        {
+          "stage": "armored",
+          "tick": 2462,
+          "bossHp": 1500
+        },
+        {
+          "stage": "collapse",
+          "tick": 7707,
+          "bossHp": 1500
+        },
+        {
+          "stage": "repair",
+          "tick": 8283,
+          "bossHp": 1500
+        },
+        {
+          "stage": "normal",
+          "tick": 8463,
+          "bossHp": 1500
+        },
+        {
+          "stage": "switch",
+          "tick": 9616,
+          "bossHp": 708
+        },
+        {
+          "stage": "normal",
+          "tick": 9640,
+          "bossHp": 684
+        },
+        {
+          "stage": "switch",
+          "tick": 10500,
+          "bossHp": 92
+        },
+        {
+          "stage": "normal",
+          "tick": 10524,
+          "bossHp": 60
+        }
+      ],
+      "charges": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "firstSlash": {
+        "charge": 5,
+        "inside": false,
+        "hpLoss": 62,
+        "event": "raiden:WR15:hit",
+        "moveTick": 60,
+        "elapsedTicks": 4910,
+        "heroX": 314.0,
+        "flowerX": 192
+      },
+      "attackableCollapseTicks": 480,
+      "expertClearsAfterReload": [
+        2,
+        3
+      ],
+      "beforeSlashHud": "保護域外 ｜ 円の内側へ",
+      "afterSlashHud": "大太刀が命中",
+      "comparedScenes": [
+        {
+          "id": "追念の花蕊・75",
+          "tick": 4205
+        },
+        {
+          "id": "追念の花蕊・360",
+          "tick": 4490
+        },
+        {
+          "id": "大太刀の直前",
+          "tick": 4909
+        },
+        {
+          "id": "大太刀の判定",
+          "tick": 4910
+        },
+        {
+          "id": "装甲崩壊・攻撃可能",
+          "tick": 7803
+        },
+        {
+          "id": "装甲修復",
+          "tick": 8403
+        },
+        {
+          "id": "復帰",
+          "tick": 8463
+        }
+      ]
+    },
+    {
+      "case": "raiden-empty",
+      "ticks": 10598,
+      "seconds": 176.63,
+      "stages": [
+        {
+          "stage": "normal",
+          "tick": 0,
+          "bossHp": 1500
+        },
+        {
+          "stage": "switch",
+          "tick": 1111,
+          "bossHp": 1500
+        },
+        {
+          "stage": "normal",
+          "tick": 1135,
+          "bossHp": 1500
+        },
+        {
+          "stage": "awaken",
+          "tick": 2282,
+          "bossHp": 1500
+        },
+        {
+          "stage": "armored",
+          "tick": 2462,
+          "bossHp": 1500
+        },
+        {
+          "stage": "collapse",
+          "tick": 7707,
+          "bossHp": 1500
+        },
+        {
+          "stage": "repair",
+          "tick": 8283,
+          "bossHp": 1500
+        },
+        {
+          "stage": "normal",
+          "tick": 8463,
+          "bossHp": 1500
+        },
+        {
+          "stage": "switch",
+          "tick": 9616,
+          "bossHp": 708
+        },
+        {
+          "stage": "normal",
+          "tick": 9640,
+          "bossHp": 684
+        },
+        {
+          "stage": "switch",
+          "tick": 10493,
+          "bossHp": 92
+        },
+        {
+          "stage": "normal",
+          "tick": 10517,
+          "bossHp": 92
+        }
+      ],
+      "charges": [],
+      "firstSlash": {
+        "charge": 0,
+        "inside": true,
+        "hpLoss": 62,
+        "event": "raiden:WR15:hit",
+        "moveTick": 60,
+        "elapsedTicks": 4910,
+        "heroX": 198.5,
+        "flowerX": 192
+      },
+      "attackableCollapseTicks": 480,
+      "expertClearsAfterReload": [
+        2,
+        3
+      ],
+      "beforeSlashHud": "保護域なし ｜ 大太刀に備える",
+      "afterSlashHud": "大太刀が命中",
+      "comparedScenes": [
+        {
+          "id": "追念の花蕊・75",
+          "tick": 4205
+        },
+        {
+          "id": "追念の花蕊・360",
+          "tick": 4490
+        },
+        {
+          "id": "大太刀の直前",
+          "tick": 4909
+        },
+        {
+          "id": "大太刀の判定",
+          "tick": 4910
+        },
+        {
+          "id": "装甲崩壊・攻撃可能",
+          "tick": 7803
+        },
+        {
+          "id": "装甲修復",
+          "tick": 8403
+        },
+        {
+          "id": "復帰",
+          "tick": 8463
+        }
+      ]
+    }
+  ],
+  "liveChromeSolo": {
+    "questEntry": true,
+    "ordinaryAndArmored": true,
+    "fivePhysicalFlowerHits": true,
+    "protectedAtSlash": true,
+    "attackableArmorDown": true,
+    "clears": 1,
+    "reportAndRestore": true,
+    "viewport390": true,
+    "scene": {
+      "key": "euthymiaDuel",
+      "file": "euthymia-duel-background-v1.png",
+      "state": "ready"
+    },
+    "remainingHp": 405,
+    "sameStateCommands": {
+      "png": 80,
+      "standard": 13504,
+      "light": 3876
+    },
+    "errors": []
+  }
+}

@@ -9,6 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
+import {raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -667,8 +668,7 @@ function hud(f,calls,renderMs){
    $('weeklyFlower').hidden=!flower;
    if(flower){
     $('weeklyFlowerMeter').max=flower.max;$('weeklyFlowerMeter').value=flower.value;
-    $('weeklyFlowerText').textContent=flower.protected?'保護域の内側へ':field.move==='WR15'?'保護なし・大太刀に備える':
-     flower.ready?`通常攻撃で充填 ${flower.value} / ${flower.max} ｜ 残り${Math.ceil(flower.limit/60)}秒`:flower.limit?'花蕊が現れるまで待つ':'充填受付終了';
+    $('weeklyFlowerText').textContent=raidenFlowerText(flower,field.move);
    }
    const targets=Array.isArray(field.targets)?field.targets:[];
    hint.textContent=field.move==='WR16'?(field.damageable?`攻撃の好機 ｜ 残り${Math.ceil(field.down/60)}秒`:'装甲の崩壊中'):

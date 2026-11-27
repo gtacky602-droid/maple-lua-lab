@@ -194,6 +194,12 @@ ticks(core,s,59)
 assert (a.hp,ally.hp)==before and w.armor==armor
 ticks(core,s,1)
 assert a.hp==before[0] and len(events(s,'WR15:protected'))==1
+flower=core.frame(s,'sprite').weeklyBoss.flower
+assert flower.inside and flower.slashResult=='protected'
+s.active=2
+flower=core.frame(s,'sprite').weeklyBoss.flower
+assert not flower.inside and flower.slashResult=='hit'
+s.active=1
 assert w.armor==armor-spec.armor.slashDrain and len(events(s,'WR15:drain'))==1
 ticks(core,s,48)
 assert not core.frame(s).weeklyBoss.flower.protected

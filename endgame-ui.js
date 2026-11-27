@@ -1,5 +1,15 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+const raidenSlashResults={protected:'花蕊で大太刀を防いだ',hit:'大太刀が命中',unharmed:'大太刀の被ダメージなし'};
+
+export function raidenFlowerText(flower,move){
+ if(flower.slashResult)return raidenSlashResults[flower.slashResult];
+ if(flower.protected)return flower.inside?'保護域内 ｜ 大太刀を防げる':'保護域外 ｜ 円の内側へ';
+ if(move==='WR15')return '保護域なし ｜ 大太刀に備える';
+ if(flower.ready)return `通常攻撃で充填 ${flower.value} / ${flower.max} ｜ 残り${Math.ceil(flower.limit/60)}秒`;
+ return flower.limit?'花蕊が現れるまで待つ':'充填受付終了';
+}
+
 export function initEndgameUI(action){
  const renderArtifactDomain=initArtifactDomainUI(action);
  const get=id=>document.getElementById(id);
