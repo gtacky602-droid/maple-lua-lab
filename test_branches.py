@@ -2,6 +2,7 @@ import json
 from experience import LEVELS
 from runtime import runtime,ROOT,native
 from savegame import validate_save
+from story_scope import suspended_stage_returns
 from tools.waypoint_test import TrailWalk
 lua,c=runtime();checks=[]
 def check(n,v):
@@ -34,6 +35,8 @@ check('branch threshold is independent of entry level',nodes['dornman-depth']['l
 exits={node['id']:node['exits'] for node in g['nodes']}
 edges={(origin,edge['to']):edge for origin,route in exits.items() for edge in route}
 round_trips=[]
+suspended=suspended_stage_returns(g)
+closed_entries=[]
 for level,approach,camp,depth in [
  (1,'mond-road','dornman-camp','dornman-depth'),
  (120,'nod-field','nod-special-camp','nod-special-depth'),
@@ -46,6 +49,14 @@ for level,approach,camp,depth in [
  for actor in state.actors.values():
   actor.inv=1000
  walk=TrailWalk(lua,c,state,edges,exits)
+ if camp in suspended:
+  gate=edges[approach,camp]
+  walk.approach(gate['x'],gate.get('y',480),camp)
+  c.action(state,'story_portal:'+camp)
+  check('a suspended branch rejects entry through its former gate',
+        state.story.node==approach and not state.lift and not state.story.visited[camp])
+  closed_entries.append(dict(origin=approach,destination=camp))
+  continue
  for stop in (camp,depth):
   walk.cross(stop)
  checkpoint=c.checkpoint(state)
@@ -55,7 +66,7 @@ for level,approach,camp,depth in [
  for stop in (camp,approach):
   walk.cross(stop)
  round_trips.append(dict(level=level,stages=[approach,camp,depth],restoredAt=camp))
-checks.append('Dornman, Nod special area and Wingspan entrances, depths, returns and checkpoints')
+checks.append('Open branch entrances, depths, returns and checkpoints')
 
 t=c.new(12);c.action(t,'story_start');c.grantExp(t,sum(c.expNeeded(i) for i in range(1,60)),'quest')
 c.enterStoryNode(t,'tunigi-camp')
@@ -65,4 +76,4 @@ e=t.enemies[2]
 check('Tunigi visit advances survey and loads the authored ground enemy',t.story.node=='tunigi-depth' and t.story.quests[q].count==1 and (e.spawnId,e.art,e.y,e.kind,e.barrier)==('tunigi-depth-2','fanged-beast',480,1,13))
 c.action(t,'story_fast:tunigi-camp');c.action(t,'story_report:'+q)
 check('Tunigi survey completes on return to camp',t.story.quests[q].status=='complete')
-(ROOT/'work/branch-fixture.json').write_text(json.dumps(native(c.checkpoint(r))),encoding='utf8');(ROOT/'evidence/branches-test.json').write_text(json.dumps({'count':len(checks),'checks':checks,'nodes':len(nodes),'quests':len(g['quests']),'roundTrips':round_trips},indent=2));print(len(checks),'branch checks passed')
+(ROOT/'work/branch-fixture.json').write_text(json.dumps(native(c.checkpoint(r))),encoding='utf8');(ROOT/'evidence/branches-test.json').write_text(json.dumps({'count':len(checks),'checks':checks,'nodes':len(nodes),'quests':len(g['quests']),'roundTrips':round_trips,'closedEntries':closed_entries},indent=2));print(len(checks),'branch checks passed')

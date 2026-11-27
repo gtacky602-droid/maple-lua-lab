@@ -1,0 +1,467 @@
+{
+  "fields": {
+    "tunigi-depth": {
+      "level": 80,
+      "saveSha256": "bb481026ab7670116638e0c7823b4acad2aeb3accecc0d9828dba135a78b190e",
+      "steps": [
+        {
+          "origin": "tunigi-camp",
+          "destination": "tunigi-depth",
+          "gate": [
+            1380,
+            480
+          ],
+          "arrival": [
+            160,
+            480
+          ],
+          "underwater": false
+        },
+        {
+          "origin": "tunigi-depth",
+          "destination": "sum-wp-46523",
+          "gate": [
+            250,
+            380
+          ],
+          "arrival": [
+            76,
+            480
+          ],
+          "underwater": false,
+          "liftSeconds": 1.8
+        },
+        {
+          "inspect": "観測洞の水面",
+          "node": "sum-wp-46523",
+          "at": [
+            745,
+            480
+          ]
+        },
+        {
+          "origin": "sum-wp-46523",
+          "destination": "tunigi-depth",
+          "gate": [
+            76,
+            480
+          ],
+          "arrival": [
+            250,
+            380
+          ],
+          "underwater": false,
+          "liftSeconds": 1.8
+        },
+        {
+          "origin": "tunigi-depth",
+          "destination": "sum-wp-46525",
+          "gate": [
+            1317,
+            480
+          ],
+          "arrival": [
+            76,
+            480
+          ],
+          "underwater": false
+        },
+        {
+          "origin": "sum-wp-46525",
+          "destination": "sum-wp-46514",
+          "gate": [
+            709,
+            480
+          ],
+          "arrival": [
+            76,
+            480
+          ],
+          "underwater": false
+        },
+        {
+          "inspect": "泉の水面",
+          "node": "sum-wp-46514",
+          "at": [
+            790,
+            480
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "tunigi-survey",
+          "xp": 2300,
+          "mora": 330
+        },
+        {
+          "quest": "sum-mapped-tunigi-water",
+          "xp": 67000,
+          "mora": 7600
+        }
+      ],
+      "reloadCompleted": true,
+      "waypoint": [
+        [
+          490,
+          480
+        ],
+        [
+          450,
+          480
+        ]
+      ]
+    },
+    "bygone-depth": {
+      "level": 100,
+      "saveSha256": "ea8a6fb09f980d07d96cc10228333e45a6f1a72fdc1d5e4338163da01211b345",
+      "steps": [
+        {
+          "origin": "bygone-camp",
+          "destination": "bygone-depth",
+          "gate": [
+            1380,
+            480
+          ],
+          "arrival": [
+            160,
+            480
+          ],
+          "underwater": false
+        },
+        {
+          "origin": "bygone-depth",
+          "destination": "bygone-wp-68604",
+          "gate": [
+            1088,
+            480
+          ],
+          "arrival": [
+            724,
+            305
+          ],
+          "underwater": true,
+          "waterwaySeconds": 2.4
+        },
+        {
+          "origin": "bygone-wp-68604",
+          "destination": "bygone-wp-68605",
+          "gate": [
+            1372,
+            245
+          ],
+          "arrival": [
+            76,
+            390
+          ],
+          "underwater": true
+        },
+        {
+          "inspect": "調査の目印",
+          "node": "bygone-wp-68605",
+          "at": [
+            797,
+            225
+          ]
+        },
+        {
+          "origin": "bygone-wp-68605",
+          "destination": "bygone-wp-68604",
+          "gate": [
+            76,
+            390
+          ],
+          "arrival": [
+            1372,
+            245
+          ],
+          "underwater": true
+        }
+      ],
+      "reports": [
+        {
+          "quest": "bygone-survey",
+          "xp": 3500,
+          "mora": 450
+        },
+        {
+          "quest": "fon-mapped-bygone-current",
+          "xp": 168000,
+          "mora": 13900
+        }
+      ],
+      "reloadCompleted": true,
+      "waypoint": [
+        [
+          480,
+          480
+        ],
+        [
+          440,
+          480
+        ]
+      ]
+    }
+  },
+  "portalArrivals": [
+    {
+      "origin": "tunigi-camp",
+      "destination": "tunigi-depth",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "bygone-camp",
+      "destination": "bygone-depth",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "bygone-wp-68603",
+      "destination": "bygone-depth",
+      "positions": [
+        [
+          645,
+          480
+        ],
+        [
+          605,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "bygone-wp-68604",
+      "destination": "bygone-depth",
+      "positions": [
+        [
+          1088,
+          480
+        ],
+        [
+          1048,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-46521",
+      "destination": "tunigi-depth",
+      "positions": [
+        [
+          335,
+          480
+        ],
+        [
+          295,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-46523",
+      "destination": "tunigi-depth",
+      "positions": [
+        [
+          250,
+          380
+        ],
+        [
+          210,
+          380
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-46524",
+      "destination": "tunigi-depth",
+      "positions": [
+        [
+          1112,
+          480
+        ],
+        [
+          1072,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-46525",
+      "destination": "tunigi-depth",
+      "positions": [
+        [
+          1317,
+          480
+        ],
+        [
+          1277,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivals": [
+    {
+      "node": "tunigi-depth",
+      "positions": [
+        [
+          490,
+          480
+        ],
+        [
+          450,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "bygone-depth",
+      "positions": [
+        [
+          480,
+          480
+        ],
+        [
+          440,
+          480
+        ]
+      ]
+    }
+  ],
+  "ordinaryHunts": 165,
+  "baseline": "f5bb6fa1c599a5530183811fcfff5e7f3a4b2f84",
+  "fieldStudio": {
+    "revision": 1,
+    "editorOperations": 306,
+    "connectionsChanged": false
+  },
+  "sameCameraChrome": {
+    "tunigi-depth": {
+      "before": {
+        "total": 6,
+        "visible": 6,
+        "camera": 280,
+        "backgroundFile": "tunigi-background-v1.png"
+      },
+      "after": {
+        "total": 6,
+        "visible": 6,
+        "camera": 280,
+        "backgroundFile": "tunigi-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 640,
+              "y": 315
+            },
+            "color": {
+              "x": 400,
+              "y": 405
+            }
+          },
+          "union": 17945,
+          "overlap": 17617,
+          "overlapPercent": 98.17219281136806,
+          "meanRgbError": 17.285935933094926
+        },
+        "rows": [
+          [
+            "標準",
+            "8,262",
+            "98.8%",
+            "7.91 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "4,997",
+            "97.0%",
+            "14.40 / 255",
+            "-39.5%"
+          ],
+          [
+            "最軽量・16色",
+            "2,128",
+            "98.2%",
+            "17.29 / 255",
+            "-74.2%"
+          ]
+        ]
+      }
+    },
+    "bygone-depth": {
+      "before": {
+        "total": 6,
+        "visible": 6,
+        "camera": 280,
+        "backgroundFile": "bygone-background-v1.png"
+      },
+      "after": {
+        "total": 6,
+        "visible": 6,
+        "camera": 280,
+        "backgroundFile": "bygone-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 480,
+              "y": 450
+            },
+            "color": {
+              "x": 480,
+              "y": 450
+            }
+          },
+          "union": 10226,
+          "overlap": 9886,
+          "overlapPercent": 96.67514179542343,
+          "meanRgbError": 14.905893856632275
+        },
+        "rows": [
+          [
+            "標準",
+            "4,608",
+            "99.3%",
+            "5.71 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "2,632",
+            "98.5%",
+            "9.79 / 255",
+            "-42.9%"
+          ],
+          [
+            "最軽量・16色",
+            "1,042",
+            "96.7%",
+            "14.91 / 255",
+            "-77.4%"
+          ]
+        ]
+      }
+    }
+  }
+}

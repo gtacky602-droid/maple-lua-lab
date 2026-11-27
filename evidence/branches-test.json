@@ -1,5 +1,5 @@
 {
-  "count": 16,
+  "count": 17,
   "checks": [
     "low-level player can enter high-light branch",
     "branch encounter carries barrier threshold",
@@ -14,12 +14,13 @@
     "nine requested branch regions represented",
     "every branch depth has a route to a safe camp",
     "branch threshold is independent of entry level",
-    "Dornman, Nod special area and Wingspan entrances, depths, returns and checkpoints",
+    "a suspended branch rejects entry through its former gate",
+    "Open branch entrances, depths, returns and checkpoints",
     "Tunigi visit advances survey and loads the authored ground enemy",
     "Tunigi survey completes on return to camp"
   ],
   "nodes": 1528,
-  "quests": 283,
+  "quests": 284,
   "roundTrips": [
     {
       "level": 1,
@@ -31,15 +32,6 @@
       "restoredAt": "dornman-camp"
     },
     {
-      "level": 120,
-      "stages": [
-        "nod-field",
-        "nod-special-camp",
-        "nod-special-depth"
-      ],
-      "restoredAt": "nod-special-camp"
-    },
-    {
       "level": 140,
       "stages": [
         "snezhnaya-field",
@@ -47,6 +39,12 @@
         "wingspan-lookout"
       ],
       "restoredAt": "wingspan-camp"
+    }
+  ],
+  "closedEntries": [
+    {
+      "origin": "nod-field",
+      "destination": "nod-special-camp"
     }
   ]
 }

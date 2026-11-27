@@ -1580,14 +1580,18 @@
         "id": "tunigi-depth-1",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 300,
+        "x": 610,
+        "patrolMin": 590,
+        "patrolMax": 630,
         "platform": 0
       },
       {
         "id": "tunigi-depth-2",
         "kind": 1,
         "art": "fanged-beast",
-        "x": 510,
+        "x": 725,
+        "patrolMin": 705,
+        "patrolMax": 745,
         "platform": 0
       },
       {
@@ -1595,20 +1599,26 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
+        "patrolMin": 830,
+        "patrolMax": 870,
         "platform": 0
       },
       {
         "id": "tunigi-depth-4",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
+        "x": 994,
+        "patrolMin": 974,
+        "patrolMax": 1014,
+        "platform": 3
       },
       {
         "id": "tunigi-depth-5",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 280,
+        "x": 355,
+        "patrolMin": 335,
+        "patrolMax": 375,
         "platform": 1
       },
       {
@@ -1616,6 +1626,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 585,
+        "patrolMin": 565,
+        "patrolMax": 605,
         "platform": 2
       }
     ],
@@ -1625,13 +1637,17 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 300,
+        "patrolMin": 280,
+        "patrolMax": 320,
         "platform": 0
       },
       {
         "id": "bygone-depth-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
+        "x": 775,
+        "patrolMin": 755,
+        "patrolMax": 795,
         "platform": 0
       },
       {
@@ -1639,13 +1655,17 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
+        "patrolMin": 830,
+        "patrolMax": 870,
         "platform": 0
       },
       {
         "id": "bygone-depth-4",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 1120,
+        "x": 1225,
+        "patrolMin": 1205,
+        "patrolMax": 1245,
         "platform": 0
       },
       {
@@ -1653,6 +1673,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 305,
+        "patrolMin": 285,
+        "patrolMax": 325,
         "platform": 1
       },
       {
@@ -1660,6 +1682,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 620,
+        "patrolMin": 600,
+        "patrolMax": 640,
         "platform": 2
       }
     ],
