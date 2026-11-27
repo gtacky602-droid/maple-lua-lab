@@ -1,5 +1,13 @@
 # ChatGPTへの引き継ぎ
 
+## 火力を抑えて週ボス6体の固有行動を確認
+
+前の上位戦で1秒以内に決着した6体を、踏破済みのLv200セーブの検証用コピーで再戦。武器をSW06に替え、聖遺物は花だけを残し、同行者は攻撃を控えた。雷電の装甲化と終結の一太刀の命中、呑星の鯨の腹中と帰還時のダメージ、源焔の床の切り替え、偽月の裂け目への進入と帰還を記録。全6戦で周回報酬、保存後の勝数、クエストと踏破記録を照合した。 [発生した行動と未確認の行動](evidence/standard-weekly-mechanics-20261127.json)
+
+Chromeで27場面の元絵と軽量版 `h32c16` を並べた。軽量版の描画命令をパレットと連続区間でまとめると、同じ命令を個別に並べた場合に比べJSONが14.95%減った。展開すると全27場面で軽量版の矩形命令列が一致した。元絵と比べると鯨のひれや雷電の装甲の細部には差がある。若陀の吸収属性は目印で分かる一方、胴体の見た目の変化は小さい。
+
+再現は `test_earned_weekly_mechanics.py --from-save work/current-atlas-recheck/current-atlas-save.json --output-dir work/earned-weekly-mechanics`。ラボ配信中に `node test_earned_weekly_frames.mjs work/earned-weekly-mechanics work/earned-weekly-comparison` を実行すると、比較画像と一覧の `index.html` が出る。別ポートを使う場合は `LAB_URL` を指定する。
+
 ## 設計室の接続で現行1,516地点を踏破
 
 276件報告済みのLv200セーブから726地点を新たに訪問し、地上の運搬路を整備した本編で1,515地点に到達。残る璃月の荷揚げ台は、昇降機を整備した別の獲得セーブで通った。専用遷移の15地点も再走し、呑星の鯨の腹中と偽月の裂け目は戦闘中に進入した。ナタの岩棚道から切れ目の足場へは、M地図に二段の登り方を表示する。 [現行の踏破記録](evidence/standard-current-atlas-20261127.json)
