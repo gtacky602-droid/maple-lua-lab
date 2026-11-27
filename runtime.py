@@ -120,17 +120,27 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
     sights = lua.execute((ROOT / 'story-sights.lua').read_text(encoding='utf-8'))(core)
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
+    suspended_regions = story_data.get('suspendedRegions', {})
+    suspended_nodes = {node['id'] for node in story_data['nodes'] if node['region'] in suspended_regions}
+    for node in story_data['nodes']:
+        if node['id'] in suspended_nodes:
+            node['resumeAt'] = suspended_regions[node['region']]
     weapons = json.loads((ROOT/'content/weapon-settings.json').read_text(encoding='utf8'))
     if draft_balance:
         balance = json.loads((ROOT/'content/field-balance-draft.json').read_text(encoding='utf8'))
         for weapon in weapons['items']:
             weapon['atk'] = balance['weaponAttack'].get(weapon['id'], weapon['atk'])
     quests = {quest['id']: quest for quest in story_data['quests']}
+    for quest in quests.values():
+        if quest['hub'] in suspended_nodes or quest.get('target') in suspended_nodes:
+            quest['regionUnavailable'] = True
     for weapon in weapons['items']:
         if 'quest' in weapon:
             quest = quests[weapon['quest']]
             quest['weaponReward'] = weapon['name']
             weapon['questName'] = quest['name']
+            if quest.get('regionUnavailable'):
+                weapon['regionUnavailable'] = True
     skill_catalog = json.loads((ROOT/'content/skill-catalog.json').read_text(encoding='utf8'))
     story_data['regionalSkills'] = {
         skill['id']: {'level': skill['unlock_level'], 'elements': skill['elements']}

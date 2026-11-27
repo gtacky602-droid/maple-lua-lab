@@ -22,6 +22,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
  local graphNodes,graphEdges,graphQuests,phaseNodes={},{},{},{}
+ local currentQuestTotal=0
  local growthQuests,growthEvidence={},{}
  local advancedGrowth={
   SK54={level=127,region='nod-port',alternate='nod-town',mark='lunar-orb'},
@@ -68,13 +69,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  function C.growthBarrierTargets() return barrierTargets end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
-  if q.legacyOnly then graphQuests[#graphQuests+1]=q end
+  if not q.regionUnavailable then
+   if q.legacyOnly then graphQuests[#graphQuests+1]=q else currentQuestTotal=currentQuestTotal+1 end
+  end
   if q.lesson then
    growthQuests[#growthQuests+1]=q
    for _,objective in ipairs(q.lesson) do growthEvidence[objective.id]=true end
    for _,objective in ipairs(q.bonusLesson or {}) do growthEvidence[objective.id]=true end
   end
-  if q.itinerary then itineraries[#itineraries+1]=q end
+  if q.itinerary and not q.regionUnavailable then itineraries[#itineraries+1]=q end
   if q.anyPath then
    for i,step in ipairs(q.itinerary) do if step.kind=='paths' then pathJoins[q.id]=i;break end end
   end
@@ -365,7 +368,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return dx==0 and dy==0
  end
  local function shownNode(s,n)
-  return (not n.hiddenGroup or s.story.discovered[n.hiddenGroup])
+  return not n.resumeAt and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup])
      and (not n.revealAfter or meetsGateRule(s,n.revealAfter))
  end
  function C.atlasNodeVisible(s,id)
@@ -407,7 +410,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if cached and cached.key==key then return cached.graph,cached.revision end
 
   local graph={version=data.version,status=data.status,nodes={},quests={},bossNodes={},
-   currentQuestTotal=#data.quests-#graphQuests,legacyQuestTotal=#graphQuests}
+   currentQuestTotal=currentQuestTotal,legacyQuestTotal=#graphQuests}
   for _,node in ipairs(data.nodes) do
    if shownNode(s,node) then
     local visible=copy(node)
@@ -430,7 +433,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if shownNode(s,nodes[id]) then graph.bossNodes[boss]=id end
   end
   for _,quest in ipairs(data.quests) do
-   if shownNode(s,nodes[quest.hub]) and (not quest.legacyOnly or s.story.quests[quest.id]) then
+   if not quest.regionUnavailable and shownNode(s,nodes[quest.hub]) and (not quest.legacyOnly or s.story.quests[quest.id]) then
     graph.quests[#graph.quests+1]=quest
    end
   end
@@ -1858,7 +1861,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if accept or report then
    if s.paused or not s.story.active then return end
-   local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
+   local id=accept or report;local q=quests[id];if not q or q.regionUnavailable or s.story.node~=q.hub then return end
    local state=s.story.quests[id]
    if accept and not q.legacyOnly and (not state or (q.repeatable and state.status=='complete')) then
     if q.growthRequirement and not growthRequirements[q.growthRequirement](s) then return end
@@ -3002,7 +3005,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if d.story then
    s.story=copy(d.story);setup(s)
    if s.story.active then
-    enter(s,checkpointHub(s,nodes[s.story.node]) or 'mond-town')
+    local node=nodes[s.story.node]
+    enter(s,node.resumeAt or checkpointHub(s,node) or 'mond-town')
    end
   end
   if C.starterEquipment(s,s.companion) then C.refreshArtifactStats(s,true) end
