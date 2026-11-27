@@ -107,11 +107,12 @@ return function(C,config)
    traveler=C.equippedWeapon(s,'traveler'),partner=C.equippedWeapon(s,companion)}
   for _,item in ipairs(config.items) do
    local traveler,partner=compatible('traveler',item),compatible(companion,item)
-   if traveler or partner then
+   local hasWeapon=owned(s,item)
+   if (traveler or partner) and (hasWeapon or not item.regionUnavailable) then
     local level=tier(s,item.id)
     local cost=level<rules.cap and item.upgradeMora*(level+1) or nil
     view.options[#view.options+1]={id=item.id,name=item.name,type=item.type,quest=item.quest,
-     questName=item.questName,owned=not not owned(s,item),level=level,atk=attackValue(item,level),
+     questName=item.questName,owned=not not hasWeapon,level=level,atk=attackValue(item,level),
      nextAtk=cost and attackValue(item,level+1),cost=cost,traveler=traveler or false,partner=partner or false,
      equippedTo=equippedBy(s,item.id)}
    end
