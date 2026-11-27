@@ -3,8 +3,10 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const read=async name=>JSON.parse(await fs.readFile('content/'+name+'.json','utf8'));
-const {nodes}=await read('story-graph');
-const rooms=Object.values(await read('boss-arena-index')).flat();
+const {nodes,suspendedRegions={}}=await read('story-graph');
+const ownRegion=new Map(nodes.map(node=>[node.id,node.region]));
+const rooms=Object.values(await read('boss-arena-index')).flat()
+ .filter(room=>!Object.hasOwn(suspendedRegions,ownRegion.get(room.node)));
 const browser=await chromium.launch({channel:'chrome'});
 try{
  const page=await browser.newPage();

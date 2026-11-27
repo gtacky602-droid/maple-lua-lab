@@ -470,6 +470,7 @@
       "local_legends": ["legend-snez_rowdy_beast_host", "legend-snez_elder_blighttree", "legend-snez_ancient_ironquill"],
       "all_resolved_to_active_stages": true,
       "victories_in": "evidence/remaining-survey-save.json",
+      "round_trip_evidence": "evidence/active-atlas-entrances-lua.json",
       "scope": "The world boss and three local legends announced in the version 7.2 update notice."
     },
     "complete_roster_verified": false,
@@ -8143,11 +8144,14 @@
     "complete": 0,
     "complete_roster_verified": false,
     "atlas_navigation": {
-      "normal": 64,
+      "normal": 63,
       "weekly": 16,
       "stygian": 7,
-      "scope": "Searchable routes to authored fight entrances and Stygian desks.",
-      "evidence": "evidence/world-atlas-lua.json"
+      "local_legends": 56,
+      "scope": "Searchable routes to active fight entrances and Stygian desks, excluding the suspended Nod-Krai branch.",
+      "evidence": "evidence/active-atlas-entrances-lua.json",
+      "browser_entrance_links_checked": 155,
+      "browser_regression": "test_atlas_boss_entrances.mjs"
     },
     "normal_lifecycle": {
       "roster_version": "7.2",
@@ -9442,7 +9446,7 @@
     "boarding_schedules": {"voyages":13,"intermediateStops":4,"scope":"Boarding gates and atlas itineraries display the destination and riding time, plus alighting windows still ahead. The quest tracker reads the cached story graph.","evidence":"evidence/world-voyage-routes-lua.json"},
     "voyage_stop_countdown": {"directedStops":4,"states":["waiting","open","passed"],"scope":"Solo riding window shared by the story panel, quest route and atlas. A later boarding has its own stop window.","regression":"test_world_voyage_routes.py"},
     "wind_gate_countdown": {"directedGates":6,"states":["gust","calm"],"scope":"Solo quest tracking and current-room atlas routes use the Lua crossing window. The atlas pauses its timer.","regression":"test_world_timed_gates.py"},
-    "level_detour_evidence": "evidence/world-atlas-lua.json",
+    "level_detour_evidence": "evidence/active-atlas-entrances-lua.json",
     "level_detour_browser_evidence": "evidence/world-atlas-browser.json",
     "mondstadt_stage_evidence": "design/world/mondstadt-stage-evidence.json",
     "liyue_stage_evidence": "design/world/liyue-stage-evidence.json",
