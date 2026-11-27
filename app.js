@@ -140,8 +140,32 @@ let holds={};document.querySelectorAll('[data-hold]').forEach(b=>{b.onpointerdow
 $('density').onchange=$('reset').onclick=()=>{reset=true;records=[];keys.clear()};
 $('export').onclick=()=>{const data={version:'trial-a-r1',runtime:'Lua 5.3 via Lupa / localhost',scope:'offline only; not Miliastra performance',density:+$('density').value,render:$('renderMode').value,samples:records,events:frame?.events};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='lua-lab-measurement.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
 const playBackgroundTier=$('playBackgroundTier'),playBackgroundStatus=$('playBackgroundStatus');
+const currentStageComparison=$('currentStageComparison'),renderModeControl=$('renderMode');
+let currentComparisonKey='';
+function updateCurrentStageComparison(f){
+ const stage=f?.story?.active?f.story.node:null;
+ currentStageComparison.hidden=!stage;
+ if(!stage)return;
+ const camera=Math.round(f.camera);
+ const mode=renderModeControl.value,tier=playBackgroundTier.value;
+ const light=f.storyLocalLight?.mode,after=Boolean(f.storyScenery);
+ const key=[stage,camera,mode,tier,light,after].join('/');
+ if(key===currentComparisonKey)return;
+ currentComparisonKey=key;
+ const params=new URLSearchParams({node:stage,placements:'live',camera,profile:mode==='rect'||mode==='sprite'?'legacy':mode});
+ if(tier==='0')params.set('background','original');
+ else params.set('tier',tier);
+ if(mode==='sprite')params.set('compare','background');
+ if(after)params.set('phase','after');
+ if(light==='dark')params.set('light','dark');
+ currentStageComparison.href='map-art.html?'+params;
+}
+for(const control of [playBackgroundTier,renderModeControl]){
+ control.addEventListener('change',()=>updateCurrentStageComparison(frame));
+}
 const paletteBatchCache=new Map();
 function draw(f){let calls=0;
+ updateCurrentStageComparison(f);
  const usePalette=$('livePalettePixels').checked && $('packRectArt').checked;ctx.clearRect(0,0,960,540);
  const backgroundStatus=drawPlayScenery(ctx,f,Number(playBackgroundTier.value));
  if(playBackgroundStatus.textContent!==backgroundStatus)playBackgroundStatus.textContent=backgroundStatus;
