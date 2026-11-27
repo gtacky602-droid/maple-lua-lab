@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const root=process.env.LAB_URL||'http://127.0.0.1:8769/';
+const evidenceDir=process.env.LAB_EVIDENCE_DIR||'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1300,height:840}});
 const errors=[];
@@ -29,10 +30,12 @@ try{
  await page.getByRole('link',{name:'旅人の頭身を比較'}).click();
  await page.locator('#cards[data-ready="true"]').waitFor();
  assert.equal(await rendered().count(),3);
+ const label=(variant)=>page.locator(`[data-variant="${variant}"] .measurement`).innerText();
+ assert.deepEqual(await Promise.all(['current','b','c'].map(label)),['約2.8頭身','約2.8頭身','約2.4頭身']);
  const matrix=[];
- for(const direction of ['right','front','back']){
+ for(const direction of ['right','left','front','back']){
   await select('direction',direction);
-  assert.equal(await rendered().count(),direction==='right'?3:2);
+  assert.equal(await rendered().count(),{right:3,left:1,front:2,back:2}[direction]);
   for(const zoom of [1,2,3]){
    await select('zoom',String(zoom));
    for(const profile of ['legacy','h48c32','h32c16']){
@@ -53,6 +56,30 @@ try{
  await select('direction','right');
  await select('zoom','1');
  await select('profile','h32c16');
+ const guideRows=variant=>page.locator(`[data-variant="${variant}"] canvas`).evaluateAll(canvases=>canvases.map(canvas=>{
+  const pixels=canvas.getContext('2d').getImageData(5,0,1,canvas.height).data;
+  const colors={crown:[244,207,123],chin:[154,233,227]};
+  return Object.fromEntries(Object.entries(colors).map(([name,rgb])=>[
+   name,Array.from({length:canvas.height},(_,y)=>y)
+    .find(y=>rgb.every((value,i)=>pixels[y*4+i]===value))??null,
+  ]));
+ }));
+ const clear=await guideRows('current');
+ assert.deepEqual(clear,[{crown:null,chin:null},{crown:null,chin:null}]);
+ await page.check('#headGuides');
+ const guides=await guideRows('current');
+ assert.deepEqual(guides[0],guides[1]);
+ assert(guides[0].crown!==null&&guides[0].chin>guides[0].crown);
+ await select('direction','left');
+ assert.equal(await label('current'),'約2.9頭身');
+ const leftGuides=await guideRows('current');
+ assert.deepEqual(leftGuides[0],leftGuides[1]);
+ assert(leftGuides[0].crown!==null&&leftGuides[0].chin>leftGuides[0].crown);
+ await select('direction','back');
+ assert.match(await label('b'),/背面は輪郭/);
+ assert.deepEqual(await guideRows('b'),clear);
+ await page.uncheck('#headGuides');
+ await select('direction','right');
  const backdrops={};
  for(const backdrop of ['mond','liyue','inazuma','fontaine']){
   await select('backdrop',backdrop);
@@ -64,18 +91,20 @@ try{
  await select('backdrop','mond');
  await page.locator('#cards[data-backdrop="mond"]').waitFor();
  await select('zoom','2');
- await page.locator('main').screenshot({path:'evidence/traveler-proportions-right.png'});
+ await page.check('#headGuides');
+ await page.locator('main').screenshot({path:evidenceDir+'/traveler-proportions-right.png'});
+ await page.uncheck('#headGuides');
  await select('direction','back');
  await select('zoom','2');
  await select('backdrop','inazuma');
  await page.locator('#cards[data-backdrop="inazuma"]').waitFor();
- await page.locator('main').screenshot({path:'evidence/traveler-proportions-back.png'});
+ await page.locator('main').screenshot({path:evidenceDir+'/traveler-proportions-back.png'});
  await page.setViewportSize({width:390,height:844});
  await select('zoom','3');
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth===innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/traveler-proportions-browser.json',JSON.stringify({
-  browser:'Chrome',matrix,backdrops,footAnchorMatched:true,mobileWidth:390,errors,
+ await fs.writeFile(evidenceDir+'/traveler-proportions-browser.json',JSON.stringify({
+  browser:'Chrome',matrix,backdrops,footAnchorMatched:true,guides,mobileWidth:390,errors,
  },null,2)+'\n');
- console.log('Traveler proportions: 27 pose/zoom/profile combinations, four backdrops and mobile passed');
+ console.log('Traveler proportions: 36 pose/zoom/profile combinations, aligned landmarks, four backdrops and mobile passed');
 }finally{await browser.close()}

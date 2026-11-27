@@ -1,0 +1,260 @@
+{
+  "browser": "Chrome",
+  "matrix": [
+    {
+      "direction": "right",
+      "zoom": 1,
+      "profile": "legacy",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 1,
+      "profile": "h48c32",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 1,
+      "profile": "h32c16",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 2,
+      "profile": "legacy",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 2,
+      "profile": "h48c32",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 2,
+      "profile": "h32c16",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 3,
+      "profile": "legacy",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 3,
+      "profile": "h48c32",
+      "visible": 3
+    },
+    {
+      "direction": "right",
+      "zoom": 3,
+      "profile": "h32c16",
+      "visible": 3
+    },
+    {
+      "direction": "left",
+      "zoom": 1,
+      "profile": "legacy",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 1,
+      "profile": "h48c32",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 1,
+      "profile": "h32c16",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 2,
+      "profile": "legacy",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 2,
+      "profile": "h48c32",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 2,
+      "profile": "h32c16",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 3,
+      "profile": "legacy",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 3,
+      "profile": "h48c32",
+      "visible": 1
+    },
+    {
+      "direction": "left",
+      "zoom": 3,
+      "profile": "h32c16",
+      "visible": 1
+    },
+    {
+      "direction": "front",
+      "zoom": 1,
+      "profile": "legacy",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 1,
+      "profile": "h48c32",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 1,
+      "profile": "h32c16",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 2,
+      "profile": "legacy",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 2,
+      "profile": "h48c32",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 2,
+      "profile": "h32c16",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 3,
+      "profile": "legacy",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 3,
+      "profile": "h48c32",
+      "visible": 2
+    },
+    {
+      "direction": "front",
+      "zoom": 3,
+      "profile": "h32c16",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 1,
+      "profile": "legacy",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 1,
+      "profile": "h48c32",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 1,
+      "profile": "h32c16",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 2,
+      "profile": "legacy",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 2,
+      "profile": "h48c32",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 2,
+      "profile": "h32c16",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 3,
+      "profile": "legacy",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 3,
+      "profile": "h48c32",
+      "visible": 2
+    },
+    {
+      "direction": "back",
+      "zoom": 3,
+      "profile": "h32c16",
+      "visible": 2
+    }
+  ],
+  "backdrops": {
+    "mond": [
+      108,
+      186,
+      252,
+      255
+    ],
+    "liyue": [
+      230,
+      220,
+      207,
+      255
+    ],
+    "inazuma": [
+      193,
+      166,
+      250,
+      255
+    ],
+    "fontaine": [
+      94,
+      165,
+      199,
+      255
+    ]
+  },
+  "footAnchorMatched": true,
+  "guides": [
+    {
+      "crown": 31,
+      "chin": 60
+    },
+    {
+      "crown": 31,
+      "chin": 60
+    }
+  ],
+  "mobileWidth": 390,
+  "errors": []
+}
