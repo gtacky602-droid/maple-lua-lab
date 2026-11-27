@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "standard_campaign_pace": {"verifiedThroughLevel":160,"checkpointHandoffs":7,"replaySeconds":42124.10,"huntSeconds":38070.85,"atDesignHuntRateSeconds":44753.60,"designSeconds":99000,"record":"evidence/standard-campaign-through-lv160.json"},
   "dvalin_crystal_windows": {"expertReplays":2,"exposureTicks":420,"firstCrystalDamage":[384,0],"guardBreaks":[2,3],"comparisonScenes":16,"matchedExpandedRectangleStreams":32,"record":"evidence/dvalin-crystal-windows-20261128.json"},
   "knave_red_feast": {"expertReplays":2,"exposureTicks":216,"exposureDamage":192,"featherRetainedOnEvade":true,"record":"evidence/knave-red-feast-expert.json"},
   "weekly_visual_pass": {"enlargedBosses":6,"comparedCombatStates":231,"packedFramesMatched":99,"wingFrames":15,"openingPreviewsMatched":13,"record":"evidence/weekly-visual-pass-20261128.json"},
