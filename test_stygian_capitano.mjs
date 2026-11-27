@@ -5,7 +5,8 @@ import {chromium} from 'playwright';
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const hub='snezhnaya-hub',arena='sne-stygian-frost-court',quest='stygian-capitano-commission';
-const prefix='evidence/stygian-capitano',canvas=page.locator('#game'),errors=[];
+const prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/stygian-capitano',canvas=page.locator('#game'),errors=[];
+const takeHits=process.env.LAB_CAPITANO_FINALE==='hit';
 const wait=(fn,arg,timeout=65000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 page.on('pageerror',e=>errors.push(e.message));
@@ -53,12 +54,13 @@ try{
  await wait(()=>window.lab.frame.endgameRun?.match==='capitano'&&!window.lab.frame.endgameRun.coat);
  assert.ok((await frame()).draws.some(d=>d.source==='capitano-ice-sword-source-v1.png'));
 
- await page.evaluate(()=>{
+ await page.evaluate(takeHits=>{
   const held=new Set();
   const clip=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
   window.cpTrail={stage:[],cards:[],waveY:Infinity,lowY:Infinity,highY:Infinity,lowInside:false,highInside:false,strikePose:false,land:null};
   window.cpDoneWave=false;
-  let position,finalGoal;
+  window.cpFinishAllowed=false;
+  let position,dropIssued=false;
   function key(code,push){
    if(held.has(code)===push)return;
    if(push)held.add(code);else held.delete(code);
@@ -66,7 +68,7 @@ try{
   }
   function loop(){
    const f=window.lab.frame,b=f.boss,v=f.endgameRun,d=window.cpTrail;
-   let left=false,right=false,attack=false,jump=false;
+   let left=false,right=false,attack=false,jump=false,drop=false;
    if(v?.match==='capitano'&&!f.paused&&v.status==='fighting'){
     if(d.stage.at(-1)!==v.stage)d.stage.push(v.stage);
     if(v.card&&d.cards.at(-1)!==v.card)d.cards.push(v.card);
@@ -86,10 +88,14 @@ try{
      if(t>=48&&v.road&&!d.land){
       d.land=v.road.to;
       d.direction=Math.sign(v.road.to-v.road.from)||b.dir;
-      finalGoal=clip(d.land+d.direction*218,42,918);
      }
-     if(finalGoal!==undefined)goal=finalGoal;
-     jump=t>=195&&t<225;
+     const middle=t>=144&&t<294;
+     const gap=middle?118:takeHits?65:218;
+     if(d.land!==null)goal=clip(d.land+d.direction*gap,42,918);
+     jump=takeHits?t>=267&&t<293:t>=195&&t<225;
+     if(!takeHits&&t>=234&&t<268&&!dropIssued&&v.hint.includes('S＋Space')){
+      drop=true;dropIssued=true;
+     }
      if(t>=210&&t<222){
       d.lowY=Math.min(d.lowY,a.y);
       d.lowInside||=v.areas.some(z=>z.index===2&&z.left+10<a.x&&a.x<z.right-10);
@@ -99,18 +105,19 @@ try{
       d.highInside||=v.areas.some(z=>z.index===3&&z.left+10<a.x&&a.x<z.right-10);
      }
      d.strikePose||=f.draws.some(draw=>draw.source?.startsWith('capitano-strike-')&&!draw.motionOnly);
-    }else if(v.phase!=='enter'&&v.phase!=='phase'&&v.stage<3||v.card==='CP09'&&v.phase==='recover'){
+    }else if(v.phase!=='enter'&&v.phase!=='phase'&&v.stage<3||
+             v.card==='CP09'&&v.phase==='recover'&&window.cpFinishAllowed){
      goal=b.x-Math.sign(dx||1)*88;
      if(Math.abs(goal-a.x)<12&&Math.sign(dx)!==a.dir)goal=a.x+Math.sign(dx)*21;
      attack=Math.abs(dx)<115&&Math.sign(dx)===a.dir&&a.y>420;
     }
     left=goal<a.x-9;right=goal>a.x+9;
    }
-   key('KeyA',left);key('KeyD',right);key('KeyJ',attack);key('Space',jump);
+   key('KeyA',left);key('KeyD',right);key('KeyJ',attack);key('KeyS',drop);key('Space',jump||drop);
    requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
- });
+ },takeHits);
  await wait(()=>window.lab.frame.endgameRun?.card==='CP05'&&window.lab.frame.endgameRun.tick>=54);
  await capture('wave');
  await wait(()=>window.cpDoneWave);
@@ -127,6 +134,7 @@ try{
  assert.ok(original.endgameRun.tick<195);
  assert.ok(original.draws.some(d=>d.source==='capitano-ice-sword-source-v1.png'&&d.rotation));
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(n=>window.lab.frame.commands>n*5,original.commands);
  const standard=await frame(),rect=await capture('standard');
  assert.ok(standard.draws.some(d=>d.kind==='rect'&&Math.abs(d.rotation)>0));
@@ -136,6 +144,30 @@ try{
  assert.deepEqual([original.t,standard.t,light.t],[original.t,original.t,original.t]);
  assert.deepEqual(original.endgameRun,light.endgameRun);
  assert.equal(new Set([png,rect,low]).size,3);
+ async function packing(packed, change){
+  const pending=page.waitForResponse(res=>{
+   if(!res.url().endsWith('/api/frame'))return false;
+   const request=res.request().postDataJSON();
+   return request?.profile==='h48c32'&&request.packRectArt===packed;
+  });
+  await change();
+  const response=await pending;
+  assert.ok(response.ok());
+  assert.equal(response.headers()['content-encoding'],'gzip');
+  const snapshot=await response.json();
+  await wait(n=>window.lab.frame.draws.length===n,snapshot.draws.length);
+  return {snapshot,raster:await canvas.evaluate(el=>el.toDataURL()),gzipBytes:Number(response.headers()['content-length'])};
+ }
+ const expanded=await packing(false,()=>page.locator('#renderMode').selectOption('h48c32'));
+ const grouped=await packing(true,()=>page.locator('#packRectArt').check());
+ assert.equal(grouped.snapshot.t,expanded.snapshot.t);
+ const body=original.draws.find(d=>d.source?.startsWith('capitano-battle-'));
+ const batch=grouped.snapshot.draws.find(d=>d.kind==='rect_runs'&&d.h===body.h&&
+  Math.abs(d.w-body.w)<1e-6&&Math.abs(d.y+d.h-body.y)<1e-6);
+ assert.ok(batch&&grouped.snapshot.rectBatches[batch.batch-1].length);
+ assert.ok(grouped.snapshot.draws.some(d=>d.kind==='rect'&&Math.abs(d.rotation)>0));
+ assert.ok(grouped.gzipBytes<expanded.gzipBytes&&grouped.gzipBytes>0);
+ assert.equal(grouped.raster,expanded.raster);
  await page.locator('#renderMode').selectOption('sprite');
  await wait(n=>window.lab.frame.commands<n*2,original.commands);
  await page.setViewportSize({width:390,height:844});
@@ -145,12 +177,20 @@ try{
  await page.keyboard.press('KeyP');
  await wait(()=>window.lab.frame.endgameRun?.card==='CP09'&&window.lab.frame.endgameRun.phase==='recover');
  const opening=await frame();
- assert.ok(!opening.events.some(e=>e.kind==='stygian:capitano:CP09:contact'&&e.actor===1));
+ const finaleHits=opening.events.filter(e=>e.kind==='stygian:capitano:CP09:contact'&&e.actor===1&&e.value>0);
+ const finaleDamage=opening.endgameRun.finale.damage;
+ assert.deepEqual(finaleDamage,takeHits?[53,53,53,53]:[0,0,0,0]);
+ assert.deepEqual(finaleHits.map(e=>e.group),takeHits?[1,2,3,4]:[]);
+ const finaleHud=await page.locator('#stygianMechanic').textContent();
+ assert.match(finaleHud,takeHits?/被弾 4 \/ 4・計212ダメージ/:/4段の被ダメージなし/);
+ await page.locator('.game').screenshot({path:prefix+'-finale-result.png'});
  assert.deepEqual(opening.events.filter(e=>e.kind==='stygian:capitano:CP09:window').map(e=>e.tick),[138,210,282,348]);
  const trail=await page.evaluate(()=>window.cpTrail);
- assert.ok(trail.waveY<420&&trail.lowY<420&&trail.highY>=470);
+ assert.ok(trail.waveY<420);
+ assert.ok(takeHits?trail.lowY>=470&&trail.highY<420:trail.lowY<420&&trail.highY>=470);
  assert.ok(trail.lowInside&&trail.highInside&&trail.strikePose);
  assert.deepEqual(trail.stage,[1,2,3]);
+ await page.evaluate(()=>{window.cpFinishAllowed=true});
  await wait(()=>window.lab.frame.endgameRun?.status==='clear');
  const victory=await frame();
  assert.equal(victory.endgame.stygian['capitano:normal'].clears,1);
@@ -173,10 +213,12 @@ try{
  assert.deepEqual((await frame()).endgame.stygian['capitano:normal'],victory.endgame.stygian['capitano:normal']);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,normalClear:true,stages:trail.stage,cards:trail.cards,
-  groundWaveMinFeet:trail.waveY,finaleLowMinFeet:trail.lowY,finaleHighFeet:trail.highY,avoidedAllFinaleWindows:true,lowAndHighFootworkInsideLane:true,strikePose:true,
+  groundWaveMinFeet:trail.waveY,finaleLowMinFeet:trail.lowY,finaleHighFeet:trail.highY,avoidedAllFinaleWindows:!takeHits,
+  finaleDamage,finaleHud,lowAndHighFootworkInsideLane:true,strikePose:true,
+  transferCompression:{canvasIdentical:true,packedGzipBytes:grouped.gzipBytes,plainGzipBytes:expanded.gzipBytes},
   coatOff:true,independentRotatingBlade:true,questReportSaveRestore:true,viewport390:true,
   commands:{png:original.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
- console.log('Capitano Chrome: entry, coat, jumping and grounding, three stages, finale, reward and save passed');
+ console.log('Capitano Chrome:',takeHits?'four hits':'no finale damage','three stages, reward and save passed');
 }catch(err){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error(JSON.stringify({node:f?.story?.node,t:f?.t,boss:f?.boss,run:f?.endgameRun,

@@ -190,9 +190,18 @@ wait(s,lambda:run.phase=='phase')
 assert run.stage==3
 c=card(s,run,'CP09')
 a.inv=99999
-step(s,138)
+step(s,51)
+place(a,(c.origin+c.land)/2)
+step(s,87)
+assert not any(e.actor==1 and e.tick<138 for e in log(s,'CP09:contact'))
 assert log(s,'CP09:window')[-1].tick==138
-step(s,222)
+step(s,88)
+place(a,212,339)
+assert 'S＋Space' in compare_frame(s).endgameRun.hint
+core.action(s,'drop')
+step(s,44)
+assert a.y==480 and '床でかわす' in compare_frame(s).endgameRun.hint
+step(s,90)
 assert c.t==360 and c.data.total-c.t==240
 assert [e.tick for e in log(s,'CP09:window')]==[138,210,282,348]
 assert compare_frame(s).endgameRun.phase=='recover'
@@ -248,7 +257,8 @@ proof={'manifest_cards':list(spec['moves']), 'rank_levels':[r['level'] for r in 
        'coat_change_tick':60,'intro_end_tick':120,'direction_lock_honored':True,'path_no_damage':True,
        'ground_wave_jumped':True,'ground_wave_actual_contact_once':True,'pillar_gaps_min_U':1.2,
        'crossed_plate_on_foot_then_four_fragments':True,'stance_unshielded_fixed_168':True,
-       'finale_hits':[138,210,282,348],'finale_recovery_ticks':240,'ordinary_cards_before_repeat':3,
+       'finale_hits':[138,210,282,348],'finale_path_no_contact':True,'finale_drop_hint_and_grounding':True,
+       'finale_recovery_ticks':240,'ordinary_cards_before_repeat':3,
        'clear_cancels_mid_dash_and_keeps_record_after_pose':True,'quest_report_restore':True}
 (ROOT/'evidence/stygian-capitano-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 print('Capitano Lua: nine card timings, hit checks, phase gates, projectiles, finale, rewards and persistence passed')
