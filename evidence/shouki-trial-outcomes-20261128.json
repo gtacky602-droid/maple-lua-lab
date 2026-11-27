@@ -1,0 +1,601 @@
+{
+  "baseCommit": "4e88b273a95f92b310abef776e52ee1ff5d02b80",
+  "method": "Two independent expert rematches from an earned level-200 save with the same reduced gear. The direct route destroys four pods and fires at the chest. The alternate route leaves two pods on the first round, takes the deadline pulse, attacks with armor at zero, then shoots the chest on the second trial. Both use ordinary fight inputs and restore the repeat payout and victory count.",
+  "unchangedCombatTrace": true,
+  "fights": [
+    {
+      "controller": "shouki",
+      "case": "shouki-core-hit",
+      "label": "滅度機4基を壊して胸部に命中",
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 1630,
+      "ticks": 4169,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "stages": [
+        {
+          "name": "p1",
+          "tick": 0,
+          "bossHp": 1630,
+          "armor": 0
+        },
+        {
+          "name": "rise",
+          "tick": 709,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "p2",
+          "tick": 948,
+          "bossHp": 1040,
+          "armor": 100
+        },
+        {
+          "name": "trial",
+          "tick": 2159,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "collapse",
+          "tick": 2900,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "p2",
+          "tick": 3620,
+          "bossHp": 528,
+          "armor": 0
+        }
+      ],
+      "pods": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "outcome": {
+        "kind": "core-hit",
+        "tick": 2960,
+        "exposure": 600,
+        "remainingPods": 0
+      },
+      "counterDamage": 512,
+      "resumedDamage": 0,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "shouki",
+      "case": "shouki-timeout",
+      "label": "試練の時間切れから戦闘に復帰",
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "bossHP": 1630,
+      "ticks": 6032,
+      "loadout": {
+        "sold": [
+          1203,
+          1204,
+          1167,
+          1168,
+          1156,
+          1170,
+          1102,
+          1134,
+          1166,
+          1155,
+          1169,
+          1114,
+          1123,
+          1191,
+          1144,
+          1153
+        ],
+        "removed": [
+          30,
+          55,
+          70,
+          71,
+          73,
+          78,
+          1068,
+          1086
+        ],
+        "attack": [
+          25,
+          3
+        ],
+        "maxHp": [
+          104140,
+          103576
+        ]
+      },
+      "stages": [
+        {
+          "name": "p1",
+          "tick": 0,
+          "bossHp": 1630,
+          "armor": 0
+        },
+        {
+          "name": "rise",
+          "tick": 709,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "p2",
+          "tick": 948,
+          "bossHp": 1040,
+          "armor": 100
+        },
+        {
+          "name": "trial",
+          "tick": 2159,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "failure",
+          "tick": 3599,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "p2",
+          "tick": 3959,
+          "bossHp": 1040,
+          "armor": 0
+        },
+        {
+          "name": "trial",
+          "tick": 4859,
+          "bossHp": 232,
+          "armor": 0
+        },
+        {
+          "name": "collapse",
+          "tick": 5691,
+          "bossHp": 232,
+          "armor": 0
+        }
+      ],
+      "pods": [
+        1,
+        2,
+        2,
+        3,
+        4,
+        1
+      ],
+      "outcome": {
+        "kind": "timeout",
+        "tick": 3779,
+        "damage": 72,
+        "remainingPods": 2,
+        "resumedArmor": 0,
+        "resumedAttackable": true,
+        "retry": {
+          "kind": "core-hit",
+          "tick": 5751,
+          "exposure": 600,
+          "remainingPods": 0
+        }
+      },
+      "counterDamage": 232,
+      "resumedDamage": 808,
+      "reward": {
+        "xp": 18999684,
+        "mora": 1538640,
+        "first": false
+      },
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "compression": {
+    "method": "Clip the same visible torso rectangles with the same draw order. The indexed stream uses integer references to an unchanged color palette. Compare total draw-and-batch JSON against the prior packed stream. Every palette expands to the ungrouped stream. The Chrome comparison covers both per-rectangle and cached source-grid compositing.",
+    "scenes": 32,
+    "matchingExpandedStreams": 64,
+    "matchingBeforeAfterChromeCanvases": 64,
+    "matchingCachedChromeCanvases": 64,
+    "profiles": {
+      "h48c32": {
+        "frames": 32,
+        "expandedJsonBytes": 15401391,
+        "priorPackedJsonBytes": 2826355,
+        "indexedJsonBytes": 2405107,
+        "packedRecords": 748,
+        "reductionPercentFromPreviousPacking": 14.9,
+        "reductionPercentFromIndividualRectangles": 84.38
+      },
+      "h32c16": {
+        "frames": 32,
+        "expandedJsonBytes": 8544418,
+        "priorPackedJsonBytes": 1797494,
+        "indexedJsonBytes": 1439926,
+        "packedRecords": 748,
+        "reductionPercentFromPreviousPacking": 19.89,
+        "reductionPercentFromIndividualRectangles": 83.15
+      }
+    },
+    "viewportProbes": [
+      {
+        "camera": 0,
+        "profile": "legacy",
+        "visible": 3061,
+        "colors": 32,
+        "plain": {
+          "json": 453727,
+          "gzip": 65280
+        },
+        "before": {
+          "json": 148431,
+          "gzip": 48587
+        },
+        "after": {
+          "json": 126482,
+          "gzip": 46886
+        }
+      },
+      {
+        "camera": 0,
+        "profile": "h48c32",
+        "visible": 1851,
+        "colors": 32,
+        "plain": {
+          "json": 275888,
+          "gzip": 37714
+        },
+        "before": {
+          "json": 88166,
+          "gzip": 28894
+        },
+        "after": {
+          "json": 75002,
+          "gzip": 27856
+        }
+      },
+      {
+        "camera": 0,
+        "profile": "h32c16",
+        "visible": 1458,
+        "colors": 16,
+        "plain": {
+          "json": 200541,
+          "gzip": 28305
+        },
+        "before": {
+          "json": 56744,
+          "gzip": 18888
+        },
+        "after": {
+          "json": 45570,
+          "gzip": 17954
+        }
+      },
+      {
+        "camera": 80,
+        "profile": "legacy",
+        "visible": 3012,
+        "colors": 32,
+        "plain": {
+          "json": 447962,
+          "gzip": 64891
+        },
+        "before": {
+          "json": 147508,
+          "gzip": 48214
+        },
+        "after": {
+          "json": 125939,
+          "gzip": 46580
+        }
+      },
+      {
+        "camera": 80,
+        "profile": "h48c32",
+        "visible": 1833,
+        "colors": 32,
+        "plain": {
+          "json": 273555,
+          "gzip": 37622
+        },
+        "before": {
+          "json": 87874,
+          "gzip": 28770
+        },
+        "after": {
+          "json": 74842,
+          "gzip": 27754
+        }
+      },
+      {
+        "camera": 80,
+        "profile": "h32c16",
+        "visible": 1466,
+        "colors": 16,
+        "plain": {
+          "json": 201432,
+          "gzip": 28326
+        },
+        "before": {
+          "json": 57010,
+          "gzip": 18958
+        },
+        "after": {
+          "json": 45781,
+          "gzip": 18013
+        }
+      },
+      {
+        "camera": 173,
+        "profile": "legacy",
+        "visible": 2981,
+        "colors": 32,
+        "plain": {
+          "json": 444213,
+          "gzip": 64014
+        },
+        "before": {
+          "json": 146931,
+          "gzip": 47969
+        },
+        "after": {
+          "json": 125573,
+          "gzip": 46288
+        }
+      },
+      {
+        "camera": 173,
+        "profile": "h48c32",
+        "visible": 1818,
+        "colors": 32,
+        "plain": {
+          "json": 271879,
+          "gzip": 37446
+        },
+        "before": {
+          "json": 87616,
+          "gzip": 28668
+        },
+        "after": {
+          "json": 74680,
+          "gzip": 27650
+        }
+      },
+      {
+        "camera": 173,
+        "profile": "h32c16",
+        "visible": 1449,
+        "colors": 16,
+        "plain": {
+          "json": 199341,
+          "gzip": 27751
+        },
+        "before": {
+          "json": 56599,
+          "gzip": 18828
+        },
+        "after": {
+          "json": 45502,
+          "gzip": 17857
+        }
+      }
+    ]
+  },
+  "chrome": {
+    "success": {
+      "entry": true,
+      "manualMatrix": true,
+      "twoPhases": true,
+      "reservedAndCancelled": true,
+      "keyboardTerminal": true,
+      "terminalHitArmor": true,
+      "manualTrialParts": 4,
+      "terminalHitCore": true,
+      "exposureTicks": 598,
+      "art": {
+        "upper": 1160,
+        "upperWidth": 1392.6417704011064,
+        "torsoSourceEnd": 737,
+        "torsoBottom": 480,
+        "floor": 480,
+        "waistClearance": 0,
+        "armored": 1160,
+        "trial": 1160,
+        "collapse": 1160,
+        "upperLeft": -216.32088520055322,
+        "upperTop": -680,
+        "armoredTop": -680,
+        "machineBehindParty": true,
+        "shieldCore": {
+          "x": 480,
+          "y": 298.69986168741355,
+          "exposed": true
+        },
+        "trialCore": {
+          "x": 480,
+          "y": 298.69986168741355,
+          "exposed": false
+        }
+      },
+      "clearReportRestore": true,
+      "remainingHp": 961,
+      "viewport390": true,
+      "scene": {
+        "key": "godmakingHall",
+        "file": "godmaking-hall-background-v1.png",
+        "state": "ready"
+      },
+      "upperCommands": {
+        "png": 39,
+        "standard": 7320,
+        "light": 2540
+      },
+      "upperTransfer": {
+        "rawGzip": 43182,
+        "packedGzip": 30547,
+        "pixelMatch": true
+      },
+      "commands": {
+        "png": 15,
+        "standard": 7380,
+        "light": 2513
+      },
+      "errors": []
+    },
+    "timeout": {
+      "entry": true,
+      "manualMatrix": true,
+      "twoPhases": true,
+      "reservedAndCancelled": true,
+      "keyboardTerminal": true,
+      "terminalHitArmor": true,
+      "manualTrialParts": 6,
+      "terminalHitCore": true,
+      "exposureTicks": 599,
+      "timeoutResult": {
+        "pulse": {
+          "resumed": false,
+          "damage": 72,
+          "remainingPods": 2,
+          "kind": "timeout"
+        },
+        "hud": "刹那生滅が命中・72ダメージ",
+        "resumedArmor": 0,
+        "resumedDamage": true
+      },
+      "art": {
+        "upper": 1160,
+        "upperWidth": 1392.6417704011064,
+        "torsoSourceEnd": 737,
+        "torsoBottom": 480,
+        "floor": 480,
+        "waistClearance": 0,
+        "armored": 1160,
+        "trial": 1160,
+        "collapse": 1160,
+        "upperLeft": -216.32088520055322,
+        "upperTop": -680,
+        "armoredTop": -680,
+        "machineBehindParty": true,
+        "shieldCore": {
+          "exposed": true,
+          "y": 298.69986168741355,
+          "x": 480
+        },
+        "trialCore": {
+          "exposed": false,
+          "y": 298.69986168741355,
+          "x": 480
+        }
+      },
+      "clearReportRestore": true,
+      "remainingHp": 879,
+      "viewport390": true,
+      "scene": {
+        "key": "godmakingHall",
+        "file": "godmaking-hall-background-v1.png",
+        "state": "ready"
+      },
+      "upperCommands": {
+        "png": 39,
+        "standard": 7320,
+        "light": 2540
+      },
+      "upperTransfer": {
+        "rawGzip": 41327,
+        "packedGzip": 30553,
+        "pixelMatch": true
+      },
+      "commands": {
+        "png": 11,
+        "standard": 7376,
+        "light": 2509
+      },
+      "errors": []
+    }
+  },
+  "coOp": {
+    "lua": {
+      "participants": 4,
+      "uniqueBlockPickup": true,
+      "individualFloorAndFields": true,
+      "pairedMatrixOverload": true,
+      "separateShieldCooldowns": true,
+      "foreignTargetAndCancelRejected": true,
+      "swapAndOfflineReleaseReservation": true,
+      "launchedShotSurvivesExit": true,
+      "oldAndMultiHitInputsRejected": true,
+      "perPartyCompanionOrders": true,
+      "independentPodCredit": true,
+      "podSupportQualifiesForReward": true,
+      "coreExposureTicks": 600,
+      "personalTimeoutDamage": true,
+      "wipeReset": true
+    },
+    "http": {
+      "participants": 2,
+      "ownerLeavesBeforeFireWithoutSpending": true,
+      "replacementShoots": true,
+      "sharedTrialFrozenOutsideArena": true,
+      "sharedTrialResult": true,
+      "sharedHp": 1630,
+      "personalXp": 119850,
+      "personalMora": 1370,
+      "ownQuestAndSaves": true
+    }
+  },
+  "unverified": [
+    "Native rendering performance and final 3D scenery",
+    "Remote co-op and all loadouts"
+  ]
+}

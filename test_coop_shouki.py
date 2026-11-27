@@ -195,6 +195,7 @@ def terminal(lua,core):
     assert events(guest,'WN14:core-hit')==[0]
     run(step,60)
     assert all(view(core,s).exposure==600 for s in parties)
+    assert all(view(core,s).trialResult.kind=='core-hit' for s in parties)
     spot(host,440);spot(guest,530)
     strike(lua,core,host,w.primary,30)
     strike(lua,core,guest,w.primary)
@@ -219,6 +220,23 @@ def wipe(lua,core):
     step()
     assert w.stage=='p1' and w.charge==0 and w.primary.hp==1630
     assert all(s.kills==0 and s.returns==1 for s in parties)
+
+
+def timeout_views(lua,core):
+    room,parties,_,w,spec=match(core)
+    step=lambda:core.stepCoop(room,TICK)
+    armored(lua,core,parties[0],w,spec,step)
+    trial(w,spec,step)
+    run(step,spec.trial.deadline-60+179)
+    assert w.stage=='failure' and view(core,parties[0]).trialResult.damage is None
+    for state in parties:
+        spot(state,460)
+    parties[1].actors[1].inv=0.5
+    step()
+    assert [view(core,state).trialResult.damage for state in parties]==[72,0,72,72]
+    run(step,180)
+    assert w.stage=='p2' and w.shield==0
+    assert all(view(core,state).trialResult.resumed for state in parties)
 
 
 def via_http(url):
@@ -274,6 +292,9 @@ def via_http(url):
         core.action(states[0],'encounter_confirm')
         run(step,150)
         assert w.stage=='collapse' and not w.primary.invulnerable
+    for client in clients:
+        assert client.frame()['weeklyBoss']['shouki']['trialResult']['kind']=='core-hit'
+    with LOCK:
         strike(lua,core,states[0],w.primary,30)
         strike(lua,core,states[1],w.primary)
     for i,client in enumerate(clients):
@@ -288,14 +309,17 @@ if __name__=='__main__':
     lua,core=runtime()
     supplies(lua,core)
     terminal(lua,core)
+    timeout_views(lua,core)
     wipe(lua,core)
     with lab() as url:
         via_http(url)
     result=dict(lua=dict(participants=4,uniqueBlockPickup=True,individualFloorAndFields=True,pairedMatrixOverload=True,
                          separateShieldCooldowns=True,foreignTargetAndCancelRejected=True,swapAndOfflineReleaseReservation=True,
                          launchedShotSurvivesExit=True,oldAndMultiHitInputsRejected=True,perPartyCompanionOrders=True,
-                         independentPodCredit=True,podSupportQualifiesForReward=True,coreExposureTicks=600,wipeReset=True),
+                         independentPodCredit=True,podSupportQualifiesForReward=True,coreExposureTicks=600,
+                         personalTimeoutDamage=True,wipeReset=True),
                 http=dict(participants=2,ownerLeavesBeforeFireWithoutSpending=True,replacementShoots=True,
-                          sharedTrialFrozenOutsideArena=True,sharedHp=1630,personalXp=EXP,personalMora=1370,ownQuestAndSaves=True))
+                          sharedTrialFrozenOutsideArena=True,sharedTrialResult=True,
+                          sharedHp=1630,personalXp=EXP,personalMora=1370,ownQuestAndSaves=True))
     (ROOT/'evidence/coop-shouki-lua-http.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
     print(result)
