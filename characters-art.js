@@ -174,7 +174,9 @@ try{
    const save=article.querySelector('.save-comparison');
    if(save)save.disabled=true;
    const both=$('compareBoth')?.checked;
+   const nativeSize=zoom===1&&document.body.hasAttribute('data-character-measure');
    const pair=article.querySelector('.pair');
+   pair.toggleAttribute('data-native',nativeSize);
    if(pair.children.length===3){
     pair.children[1].querySelector('small').textContent=both?'32色版':'矩形版';
     pair.children[2].hidden=!both;
@@ -201,7 +203,10 @@ try{
     for(const [i,canvas] of [...pair.querySelectorAll('canvas')].entries()){
      if(i===2&&!both)continue;
      const selected=i===0?null:both?(i===1?'h48c32':'h32c16'):profile;
-     canvas.width=arena?960:Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=arena?540:Math.max(300,Math.ceil(hover-top+30));
+     canvas.width=arena?960:Math.max(nativeSize?96:340,Math.ceil(halfWidth*2+30));
+     canvas.height=arena?540:Math.max(nativeSize?112:300,Math.ceil(hover-top+30));
+     canvas.style.width=nativeSize?canvas.width+'px':'';
+     canvas.style.maxWidth=nativeSize?'100%':'';
      const floor=arena?.floorY??(canvas.height-15-hover);
      const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(arena?.center??canvas.width/2,floor);
      if(layer)paintSprite(ctx,rear.data,rearImage?.image,layer,selected,palettePixels);
@@ -223,6 +228,10 @@ try{
     const runs=total(profile);
     const standard=total('legacy');
     article.querySelector('.stats').textContent=both?`32色版 ${total('h48c32')}矩形 ／ 16色版 ${total('h32c16')}矩形${rear?'（翼込み）':''}`:`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
+    if(nativeSize&&both&&!arena){
+     const facing=flip?(left?'左向き専用の絵':'右向きの絵を左右反転'):'右向き';
+     article.querySelector('.stats').prepend(`表示高 ${h}px ／ ${facing} ／ `);
+    }
     if(arena)article.querySelector('.stats').textContent='会場の画角 960×540 px ／ 腰の位置は床面 ／ 表示高 '+h.toLocaleString('ja-JP')+' px ／ 画面内にかかる矩形 '+painted.join('・');
    }
    if(bodyImage.decoded&&(!rearImage||rearImage.decoded))draw();
