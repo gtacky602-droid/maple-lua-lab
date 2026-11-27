@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const sync = require('./sync.js');
+const { inspectRoutes } = require('./inspect_routes.js');
 
 const root = path.resolve(__dirname, '../..');
 const world = path.join(root, 'design/world');
@@ -16,7 +17,7 @@ const placementFiles = fs.readdirSync(path.join(world, 'placements')).filter(nam
 const plans = placementFiles.flatMap(name => read(path.join(world, 'placements', name)).fields);
 const rows = plans.flatMap(plan => [...plan.regular_spawns, ...plan.optional_pockets]);
 const current = sync.buildState(snapshot, rows);
-const usage = 'node tools/world_design/transfer.js export FILE | check PROPOSAL | apply PROPOSAL';
+const usage = 'node tools/world_design/transfer.js export FILE | check PROPOSAL | routes PROPOSAL | apply PROPOSAL';
 
 function output(data, filename) {
   const {data: design, ...metadata} = data;
@@ -55,7 +56,7 @@ function validatePlacement(state, edited) {
 
 function run() {
   const [command, filename, ...extra] = process.argv.slice(2);
-  if (!filename || extra.length || !['export', 'check', 'apply'].includes(command)) throw Error(usage);
+  if (!filename || extra.length || !['export', 'check', 'routes', 'apply'].includes(command)) throw Error(usage);
   const projectBlob = execFileSync('git', ['hash-object', 'design/field-editor/project.json'], {
     cwd: root, encoding: 'utf8'
   }).trim();
@@ -72,7 +73,7 @@ function run() {
     && proposal.base_project_blob_sha === snapshot.data.canonical_sha
     && (proposal.base_editor_revision ?? 0) === snapshot.editor_revision;
   const compared = sync.compareOperations(proposal.operations, current, {
-    protectDeletion: true, knownMonster: id => species.has(id)
+    protectDeletion: command !== 'routes', knownMonster: id => species.has(id)
   });
   const { applicable, alreadyPresent, conflicts } = compared;
   if (!baseMatches)
@@ -80,6 +81,15 @@ function run() {
       proposed_editor_revision: proposal.base_editor_revision ?? 0 });
   const reviewed = proposal.review_status === 'reviewed_proposal'
     && typeof proposal.reviewed_at === 'string' && Number.isFinite(Date.parse(proposal.reviewed_at));
+  if (command === 'routes') {
+    if (!reviewed) conflicts.push({ reason: 'review_required' });
+    const routes = conflicts.length ? [] : inspectRoutes(applicable, current,
+      read(path.join(root, 'content/story-graph.json')),
+      read(path.join(world, 'atlas-route-plan.json')));
+    console.log(JSON.stringify({ baseMatches, reviewed, routes, alreadyPresent, conflicts }, null, 2));
+    if (conflicts.length) process.exitCode = 1;
+    return;
+  }
   if (!reviewed || !applicable.length) {
     if (command === 'apply') conflicts.unshift({ reason: reviewed ? 'no_new_changes' : 'review_required' });
   }
