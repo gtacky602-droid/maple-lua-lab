@@ -10,7 +10,7 @@ export function characterDetail(article){
   return marker;
  });
  const details=document.createElement('details');
- details.innerHTML='<summary>全身・部分の画質を測る</summary><p>元PNGで顔や武器を押すと、実寸24×24pxの範囲を比較します。矢印キーでも位置を選べます。</p><button type="button">全身に戻す</button> <button type="button" class="save-comparison" disabled>比較画像をPNGで保存</button> <output></output>';
+ details.innerHTML='<summary>全身・部分の画質を測る</summary><p>元PNGで気になる箇所を押すと、実寸24×24pxの範囲を比較します。矢印キーでも位置を選べます。</p><button type="button">全身に戻す</button> <button type="button" class="save-comparison" disabled>比較画像をPNGで保存</button> <output></output>';
  article.append(details);
  const crops=document.createElement('div');crops.className='character-crops';details.append(crops);
  const output=details.querySelector('output'),reset=details.querySelector('button'),source=canvases[0];
@@ -18,7 +18,7 @@ export function characterDetail(article){
  let focus,zoom,flip,profiles=[],crop;
  save.onclick=()=>{
   const direction=flip?'左向き':'右向き',labels=['元PNG',...profiles];
-  const merged=document.querySelector('#palettePixels').checked;
+  const merged=document.querySelector('#palettePixels')?.checked;
   downloadComparison({canvases:canvases.slice(0,labels.length),labels,
    title:article.querySelector('h2').textContent+' ／ '+direction+'・'+zoom+'倍',
    stats:article.querySelector('.stats').textContent,

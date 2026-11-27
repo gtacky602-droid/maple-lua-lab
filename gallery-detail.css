@@ -1,0 +1,13 @@
+.detail-canvas{position:relative}
+.detail-canvas canvas{display:block}
+.detail-canvas i{position:absolute;box-sizing:border-box;border:1px solid white;outline:1px solid #0d3b45;pointer-events:none}
+details{margin-top:10px}
+summary{cursor:pointer}
+details p{font-size:14px}
+output{font-size:14px}
+.character-crops{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(88px,100%),1fr));gap:8px}
+.character-crops figure{margin:6px 0 0;min-width:0}
+.character-crops canvas{display:block;max-width:144px;aspect-ratio:1}
+.character-crops figcaption{font-size:14px}
+.pair[data-native]{flex-wrap:wrap}
+.pair[data-native]>div{flex:0 1 auto;width:auto;max-width:100%}

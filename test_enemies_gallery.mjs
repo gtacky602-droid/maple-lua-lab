@@ -38,7 +38,7 @@ try{
  }
  const clipped=await page.evaluate(()=>[...document.querySelectorAll('#cards article')].some((card,i)=>{
   const {dimensions,zoom}=window.charactersGallery,d=dimensions[i];
-  return [...card.querySelectorAll('canvas')].some(c=>c.height<d.h*zoom+30||c.width<d.w*zoom+30);
+  return [...card.querySelectorAll('.pair > div:not([hidden]) canvas')].some(c=>c.height<d.h*zoom+30||c.width<d.w*zoom+30);
  }));
  assert(!clipped,'Large asset clipped');
  await page.selectOption('#zoom','2');
@@ -48,7 +48,28 @@ try{
  assert(state.dimensions.every(d=>Math.abs(d.w/d.h-d.ratio)<1e-9),'Aspect ratio mismatch');
  await page.setViewportSize({width:390,height:844});
  const mobileOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
- assert.equal(mobileOverflow,false);assert.deepEqual(errors,[]);
+ assert.equal(mobileOverflow,false);
+ await page.setViewportSize({width:320,height:844});
+ await page.fill('#assetSearch','tainted-water-spouting-phantasm');
+ await page.selectOption('#zoom','1');
+ await page.check('#compareBoth');
+ const card=page.locator('#cards article:visible');
+ assert.equal(await card.count(),1);
+ await card.locator('summary').click();
+ await card.locator('output').filter({hasText:/32色.*形の重なり.*16色.*形の重なり/}).waitFor();
+ const canvases=card.locator('.pair canvas:visible');
+ assert.equal(await canvases.count(),3);
+ assert(await canvases.evaluateAll(items=>items.every(c=>Math.abs(c.width-c.getBoundingClientRect().width)<.01)));
+ const source=canvases.first();
+ await source.focus();
+ await source.press('ArrowUp');
+ assert.equal(await card.locator('.character-crops canvas').count(),3);
+ assert(await card.locator('.character-crops canvas').evaluateAll(items=>items.every(c=>c.width===24&&c.height===24)));
+ const downloadEvent=page.waitForEvent('download');
+ await card.locator('.save-comparison').click();
+ const download=await downloadEvent;
+ assert.match(download.suggestedFilename(),/1x-both-rect-crop-.*png$/);
+ assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/enemies-gallery.json',JSON.stringify({errors,state,combinations:18,mobileOverflow},null,2));
  console.log(`${state.count} enemy candidates, 3 profiles, 3 zooms and both facings passed`);
 }finally{await browser.close()}
