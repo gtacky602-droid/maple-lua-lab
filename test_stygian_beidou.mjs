@@ -1,11 +1,16 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureRectTransfer} from './tools/browser_rect_transfer.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const hub='liyue-harbor',deck='liyue-stygian-deck',quest='stygian-beidou-commission';
-const prefix='evidence/stygian-beidou',canvas=page.locator('#game'),errors=[];
+const hard=process.env.LAB_BEIDOU_MODE==='hard';
+const difficulty=hard?'hard':'normal',recordKey='beidou:'+difficulty;
+const prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/stygian-beidou'+(hard?'-hard':'');
+const rewardPrefix=(process.env.LAB_WEEKLY_EVIDENCE||hard)?prefix+'-clear-rewards':'evidence/stygian-clear-rewards';
+const canvas=page.locator('#game'),errors=[];
 const wait=(fn,arg,timeout=65000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const mode=m=>page.evaluate(m=>{window.beidouMode=m},m);
@@ -31,7 +36,7 @@ try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8955/');
  await wait(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/stygian-beidou-gear.json','utf8'));
+  await fs.readFile(hard?'work/stygian-beidou-hard-gear.json':'work/stygian-beidou-gear.json','utf8'));
  await page.locator('#loadProgress').click();
  await wait(node=>window.lab.frame.story?.node===node,hub);
  const row=page.locator('[data-quest="'+quest+'"]');
@@ -63,13 +68,13 @@ try{
  await page.locator('#stygianMode').selectOption('extreme');
  assert.ok(await page.locator('#stygianStart').isDisabled());
  assert.match(await page.locator('#stygianReward').textContent(),/Lv165/);
- await page.locator('#stygianMode').selectOption('normal');
+ await page.locator('#stygianMode').selectOption(difficulty);
  await page.locator('#stygianSet').selectOption('troupe');
  const prepared=await frame();
- const payout=prepared.stygianDesk.modes.find(entry=>entry.id==='normal');
+ const payout=prepared.stygianDesk.modes.find(entry=>entry.id===difficulty);
  const selection=await page.locator('#stygianReward').textContent();
  assert.match(selection,/EXP.*初回は.*EXP/);
- await page.locator('#stygianDesk').screenshot({path:'evidence/stygian-clear-rewards-selection.png'});
+ await page.locator('#stygianDesk').screenshot({path:rewardPrefix+'-selection.png'});
  await page.locator('#stygianStart').click();
  await wait(()=>window.lab.frame.endgameRun?.phase==='guard'&&window.lab.frame.endgameRun.tick>=40);
  await canvas.click();
@@ -80,16 +85,21 @@ try{
  assert.ok(original.draws.some(draw=>draw.source==='beidou-stygian-left-source-v1.png'));
  await wait(()=>document.getElementById('endgameRunStatus').textContent.includes('攻撃を止めて待つ'));
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(n=>window.lab.frame.commands>n*5,original.commands);
  const standard=await frame(),rect=await capture('standard');
- await page.locator('#renderMode').selectOption('h32c16');
- await wait(n=>window.lab.frame.commands<n*.7,standard.commands);
- const light=await frame(),low=await capture('light');
+ const plain=await captureRectTransfer(page,'h32c16',false,()=>page.locator('#renderMode').selectOption('h32c16'));
+ const light=plain.snapshot,low=await capture('light');
  assert.deepEqual([original.t,standard.t,light.t],[original.t,original.t,original.t]);
  assert.deepEqual(original.endgameRun,light.endgameRun);
  assert.equal(new Set([png,rect,low]).size,3);
+ const packed=await captureRectTransfer(page,'h32c16',true,()=>page.locator('#packRectArt').check());
+ assert.equal(packed.snapshot.t,light.t);
+ assert.equal(packed.raster,plain.raster);
+ assert.ok(packed.snapshot.draws.some(d=>d.kind==='rect_runs'));
+ assert.ok(packed.snapshot.draws.length<light.draws.length&&packed.gzipBytes<plain.gzipBytes);
  await page.locator('#renderMode').selectOption('sprite');
- await wait(n=>window.lab.frame.commands<n*2,original.commands);
+ await wait(()=>window.lab.frame.draws.some(d=>d.source==='beidou-stygian-left-source-v1.png'));
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.locator('#stygianBattle').evaluate(el=>el.scrollWidth<=el.clientWidth&&el.getBoundingClientRect().right<=390));
  await page.setViewportSize({width:1240,height:940});
@@ -120,6 +130,8 @@ try{
      goal=b.x-Math.sign(dx||1)*76;
      if(Math.abs(goal-a.x)<10&&Math.sign(dx)!==a.dir)goal=a.x+Math.sign(dx)*21;
      attack=Math.abs(dx)<115&&Math.sign(dx)===a.dir&&a.y>420;
+    }else if(mode==='absorb'&&v.area){
+     goal=(v.area.left+v.area.right)/2;
     }else if(v.area&&(v.phase==='tell'||v.phase==='strike')){
      if(previousPhase!=='tell'&&previousPhase!=='strike'){
       if(a.x>=v.area.left-9&&a.x<=v.area.right+9){
@@ -146,24 +158,33 @@ try{
  assert.equal(dodged.actors[0].hp,original.actors[0].hp);
  assert.ok(dodged.events.some(e=>e.kind==='stygian:beidou:waited'));
  assert.ok(!dodged.events.some(e=>e.kind==='stygian:beidou:impact:quiet'&&e.actor===1));
+ assert.deepEqual(dodged.endgameRun.guardReply,{kind:'quiet',damage:0});
+ const quietText=await page.locator('#stygianMechanic').textContent();
+ assert.equal(quietText,'見切りの一閃 被ダメージなし');
  await mode('finish');
  await wait(()=>window.lab.frame.endgameRun?.status==='clear');
  const victory=await frame();
  assert.equal(victory.story.quests[quest].count,1);
- assert.equal(victory.endgame.stygian['beidou:normal'].clears,1);
- assert.equal(victory.endgameRun.matchReward.mora,1210);
+ assert.equal(victory.endgame.stygian[recordKey].clears,1);
+ assert.equal(victory.endgameRun.matchReward.mora,payout.mora+payout.firstMora);
  assert.equal(victory.endgameRun.matchReward.set,'黄金の劇団');
  const awarded=payout.xp+payout.firstXp;
  assert.equal(victory.endgameRun.matchReward.xp,awarded);
  assert.equal(victory.progression.baseXp-prepared.progression.baseXp,awarded);
  await wait(()=>document.getElementById('endgameRunStatus').textContent.includes('勝利'));
  assert.ok((await page.locator('#endgameRunStatus').textContent()).includes(`${awarded.toLocaleString()}EXP`));
- await page.locator('#endgameRun').screenshot({path:'evidence/stygian-clear-rewards-result.png'});
+ await page.locator('#endgameRun').screenshot({path:rewardPrefix+'-result.png'});
  assert.ok(victory.events.some(e=>e.kind==='stygian:beidou:opening-hit'));
  await page.getByRole('button',{name:'挑戦入口に戻る',exact:true}).click();
  await wait(()=>window.lab.frame.stygianDesk);
  await wait(()=>document.getElementById('stygianRecord').textContent.includes('1勝'));
  assert.doesNotMatch(await page.locator('#stygianReward').textContent(),/初回/);
+ const allyFire=page.locator('#allyFire');
+ if(hard){
+  await allyFire.click();
+  await wait(()=>window.lab.frame.holdAllyFire);
+  await canvas.click();
+ }
  await mode('bait');
  await page.locator('#stygianStart').click();
  await wait(()=>window.lab.frame.events.filter(e=>e.kind==='stygian:beidou:baited').length===1);
@@ -171,10 +192,30 @@ try{
  assert.equal(baited.events.filter(e=>e.kind==='stygian:beidou:baited')[0].actor,1);
  await wait(()=>window.lab.frame.draws.some(draw=>draw.source==='beidou-stygian-right-source-v2.png'));
  await capture('right');
- await mode('evade');
+ let waveResult,secondReward,lastRecord=victory.endgame.stygian[recordKey];
+ if(hard){
+  await mode('absorb');
+  await wait(()=>window.lab.frame.endgameRun?.card==='wake');
+  await wait(()=>window.lab.frame.endgameRun?.phase==='recover');
+  const reply=(await frame()).endgameRun.guardReply;
+  const text=await page.locator('#stygianMechanic').textContent();
+  assert.deepEqual(reply,{kind:'baited',damage:48,waveDamage:29});
+  assert.equal(text,'誘い返し 48ダメージ ｜ 返し波 29ダメージ');
+  waveResult={reply,text};
+  await page.locator('#stygianBattle').screenshot({path:prefix+'-wake-result.png'});
+  await allyFire.click();
+  await canvas.click();
+  await mode('finish');
+  await wait(()=>window.lab.frame.endgameRun?.status==='clear');
+  const repeat=await frame();
+  secondReward=repeat.endgameRun.matchReward;
+  assert.ok(!secondReward.first&&secondReward.mora===payout.mora&&secondReward.xp===payout.xp);
+  lastRecord=repeat.endgame.stygian[recordKey];
+  assert.equal(lastRecord.clears,2);
+ }else await mode('evade');
  await page.getByRole('button',{name:'挑戦入口に戻る',exact:true}).click();
  await wait(()=>window.lab.frame.stygianDesk);
- assert.equal((await frame()).endgame.stygian['beidou:normal'].clears,1);
+ assert.equal((await frame()).endgame.stygian[recordKey].clears,hard?2:1);
  await portal(hub,85);
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await wait(q=>window.lab.frame.story.quests[q]?.status==='complete',quest);
@@ -184,21 +225,23 @@ try{
  await wait(()=>window.lab?.frame);
  await page.locator('#loadProgress').click();
  await wait(q=>window.lab.frame.story?.quests[q]?.status==='complete',quest);
- const stored=(await frame()).endgame.stygian['beidou:normal'];
- assert.deepEqual(stored,victory.endgame.stygian['beidou:normal']);
+ const stored=(await frame()).endgame.stygian[recordKey];
+ assert.deepEqual(stored,lastRecord);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,mode:'normal',levels:[30,58,103,165],mapRoute,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,mode:difficulty,levels:[30,58,103,165],mapRoute,
   commands:{png:original.commands,standard:standard.commands,light:light.commands},viewport390:true,
+  quietText,waveResult,secondReward,transfer:{plainDraws:light.draws.length,packedDraws:packed.snapshot.draws.length,
+   plainGzip:plain.gzipBytes,packedGzip:packed.gzipBytes,identicalCanvas:true},
   avoidedCounter:true,manualBaited:true,independentLeftAndRight:true,firstReward:victory.endgameRun.matchReward,questReportSaveRestore:true,record:stored,errors},null,2)+'\n');
- await fs.writeFile('evidence/stygian-clear-rewards-browser.json',JSON.stringify({
-  encounter:'beidou:normal',mapRoute,repeatXp:payout.xp,firstXp:payout.firstXp,award:victory.endgameRun.matchReward,
+ await fs.writeFile(rewardPrefix+'-browser.json',JSON.stringify({
+  encounter:recordKey,mapRoute,repeatXp:payout.xp,firstXp:payout.firstXp,award:victory.endgameRun.matchReward,
   baseExpIncrease:awarded,bonusHiddenAfterWin:true,recordSurvivesBrowserReload:true,errors},null,2)+'\n');
- console.log('Beidou Chrome: navigation, rank gates, art modes, waiting or baiting, normal clear, rewards, report and restore passed');
+ console.log(`Beidou Chrome: ${difficulty} navigation, wait and bait, clear, rewards, report and restore passed`);
 }catch(error){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error(JSON.stringify({node:f?.story?.node,t:f?.t,boss:f?.boss,duel:f?.endgameRun,actors:f?.actors?.map(a=>[a.x,a.y,a.hp,a.dir]),
   quest:f?.story?.quests?.[quest],portal:f?.storyNearbyPortal,events:Array.isArray(f?.events)?f.events.filter(e=>e.kind.startsWith('stygian:beidou:')).slice(-18):[],errors},null,2));
- await page.screenshot({path:'work/stygian-beidou-failure.png'});
+ await page.screenshot({path:prefix+'-failure.png'});
  throw error;
 }finally{
  await browser.close();

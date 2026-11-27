@@ -181,6 +181,15 @@ export function farkaChainText(fight){
  }).join(' ｜ ');
 }
 
+export function beidouReplyText(fight){
+ const reply=fight.guardReply;
+ if(!reply)return '';
+ const name=reply.kind==='baited'?'誘い返し':'見切りの一閃';
+ const damageText=damage=>damage>0?`${damage}ダメージ`:'被ダメージなし';
+ const attack=reply.damage===undefined?name:`${name} ${damageText(reply.damage)}`;
+ return reply.waveDamage===undefined?attack:`${attack} ｜ 返し波 ${damageText(reply.waveDamage)}`;
+}
+
 export function stygianFinaleText(fight){
  const labels=stygianFinaleLabels[fight.match];
  const damage=fight.finale?.damage;
@@ -317,10 +326,11 @@ export function initEndgameUI(action){
    const finale=stygianFinaleText(fight);
    const verdict=ronovaVerdictText(fight);
    const chain=farkaChainText(fight);
+   const reply=beidouReplyText(fight);
    mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined
-    &&!roadProgress&&fight.windMarks===undefined&&!finale&&!verdict&&!chain);
+    &&!roadProgress&&fight.windMarks===undefined&&!finale&&!verdict&&!chain&&!reply);
    if(!mechanic.hidden){
-    mechanic.textContent=finale || rerirTrialText(fight) || verdict || wandererFinalWindText(fight) || chain || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
+    mechanic.textContent=finale || rerirTrialText(fight) || verdict || wandererFinalWindText(fight) || chain || reply || (roadProgress ? `通過 ${fight.road.passed} / ${fight.road.total}`
      : fight.windMarks!==undefined ? `風標 ${fight.windMarks} / ${fight.windGoal}${fight.markTime?` ｜ 残り ${Math.ceil(fight.markTime/60)}秒`:''}`
      : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
      : `結界 ${fight.ward} / 2`);
