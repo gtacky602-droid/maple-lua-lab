@@ -1,0 +1,329 @@
+{
+  "baseCommit": "5d999f11a31935411d019eed6c7bb2788a0200e1",
+  "routeSetup": "Two copies of the earned Lv200 save entered from the regular expert weekly desk. Two manual frost holds in each fight, then the traveler lures each charge beyond the queen or into the middle of the board. Only ordinary player inputs after entering.",
+  "beforeAfterCombatTraceIdentical": true,
+  "fights": [
+    {
+      "controller": "game_before_gate",
+      "case": "gate-collision",
+      "label": "クイーンへの誘導に成功",
+      "ticks": 6819,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        "king",
+        "queen",
+        "finish",
+        "royal"
+      ],
+      "remainingPawns": [
+        2,
+        1,
+        0
+      ],
+      "freezeCompletions": [
+        {
+          "tick": 91,
+          "meter": 50
+        },
+        {
+          "tick": 302,
+          "meter": 100
+        }
+      ],
+      "locks": [
+        {
+          "tick": 512,
+          "goal": 677.0,
+          "queen": 568
+        }
+      ],
+      "collision": {
+        "tick": 582,
+        "king": 502.88,
+        "queen": 568
+      },
+      "misses": [],
+      "tsunami": [],
+      "exposureTicks": 360,
+      "transfers": [
+        {
+          "tick": 5344,
+          "hpBefore": [
+            0,
+            1000
+          ],
+          "hpAfter": [
+            500,
+            500
+          ],
+          "remaining": 1
+        },
+        {
+          "tick": 6083,
+          "hpBefore": [
+            0,
+            500
+          ],
+          "hpAfter": [
+            250,
+            250
+          ],
+          "remaining": 0
+        }
+      ],
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "game_before_gate",
+      "case": "gate-missed",
+      "label": "クイーンへの誘導に失敗",
+      "ticks": 6822,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "stages": [
+        "king",
+        "queen",
+        "finish",
+        "royal"
+      ],
+      "remainingPawns": [
+        2,
+        1,
+        0
+      ],
+      "freezeCompletions": [
+        {
+          "tick": 91,
+          "meter": 50
+        },
+        {
+          "tick": 302,
+          "meter": 100
+        }
+      ],
+      "locks": [
+        {
+          "tick": 512,
+          "goal": 428.5,
+          "queen": 568
+        },
+        {
+          "tick": 806,
+          "goal": 428.5,
+          "queen": 568
+        }
+      ],
+      "collision": null,
+      "misses": [
+        596,
+        890
+      ],
+      "tsunami": [
+        {
+          "tick": 960,
+          "loss": 90
+        }
+      ],
+      "exposureTicks": 0,
+      "transfers": [
+        {
+          "tick": 5347,
+          "hpBefore": [
+            0,
+            1000
+          ],
+          "hpAfter": [
+            500,
+            500
+          ],
+          "remaining": 1
+        },
+        {
+          "tick": 6086,
+          "hpBefore": [
+            0,
+            500
+          ],
+          "hpAfter": [
+            250,
+            250
+          ],
+          "remaining": 0
+        }
+      ],
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "comparisonScenes": 17,
+  "scenesWithBothBossSprites": 17,
+  "intermediateCloserToPngAtScenes": 17,
+  "matchedExpandedRectangleStreams": 34,
+  "matchingChromeColorErrorProfiles": 34,
+  "profiles": {
+    "h48c32": {
+      "previousBytes": 21583452,
+      "currentBytes": 4195329,
+      "matchedStreams": 17,
+      "reductionPercent": 80.56
+    },
+    "h32c16": {
+      "previousBytes": 8183944,
+      "currentBytes": 1906160,
+      "matchedStreams": 17,
+      "reductionPercent": 76.71
+    }
+  },
+  "chrome": "158.0.8127.38",
+  "luaRegression": {
+    "manifest_cards": [
+      "WT01",
+      "WT02",
+      "WT03",
+      "WT04",
+      "WT05",
+      "WT06",
+      "WT07",
+      "WT08",
+      "WT09",
+      "WT10",
+      "WT11",
+      "WT12",
+      "WT13",
+      "WT14",
+      "WT15",
+      "WT16",
+      "WT17",
+      "WT18",
+      "WT19",
+      "WT20"
+    ],
+    "one_pawn_per_charge": true,
+    "physical_bishop_shield": true,
+    "separate_royal_bodies": true,
+    "frost_hold_cancellation_and_cooldown": true,
+    "frost_includes_tick_600": true,
+    "lock_and_collision_relative_ticks": [
+      210,
+      258,
+      294
+    ],
+    "latest_retry_tick": 666,
+    "early_miss_can_retry": true,
+    "actual_3_5_second_lure": true,
+    "exposure_ticks": 360,
+    "water_vortex_walk_speed": 0.7,
+    "transfer_conserves_hp_two_uses": true,
+    "simultaneous_royal_defeat_has_one_reward": true,
+    "quest_report_restore": true
+  },
+  "coopRegression": {
+    "lua": {
+      "participants": 4,
+      "sharedPawns": 3,
+      "retargetBeforeLock": true,
+      "fixedPathAfterLock": true,
+      "individualHits": true,
+      "sharedBarrier": 12,
+      "frostExclusive": true,
+      "frostShared": [
+        50,
+        100
+      ],
+      "damageAndExitCancelFrost": true,
+      "wipeRestoresRoom": true,
+      "collision": true,
+      "exposureTicks": 360,
+      "hpConservedAcrossTwoTransfers": true,
+      "sameCastBothPiecesOneClear": true,
+      "spectatorNoReward": true
+    },
+    "http": {
+      "participants": 2,
+      "sharedHp": 3620,
+      "retreatFreezesRoom": true,
+      "eachPlayerHitsOwnTarget": true,
+      "personalXp": 1054500,
+      "personalMora": 4200,
+      "ownQuestAndSaves": true
+    }
+  },
+  "browserSuccess": {
+    "scenery": {
+      "key": "gateCourt",
+      "file": "gate-court-background-v1.png",
+      "state": "ready"
+    },
+    "stages": [
+      "king",
+      "queen",
+      "finish",
+      "royal"
+    ],
+    "pawnsPerCharge": [
+      2,
+      1,
+      0
+    ],
+    "keyboardAndPointerFrost": true,
+    "actualPositionAndCollision": true,
+    "tsunamiDamage": 0,
+    "transfer": "クイーンからキングへ 446 HP ｜ 残り 1回",
+    "reviveTransfer": 446,
+    "transferCompression": {
+      "twoSpriteBatches": true,
+      "canvasIdentical": true,
+      "plainGzipBytes": 154077,
+      "packedGzipBytes": 100158
+    },
+    "clearReportRestore": true,
+    "viewport390": true,
+    "commands": {
+      "png": 37,
+      "standard": 19184,
+      "light": 5267
+    },
+    "errors": []
+  },
+  "browserMiss": {
+    "scenery": {
+      "key": "gateCourt",
+      "file": "gate-court-background-v1.png",
+      "state": "ready"
+    },
+    "stages": [
+      "king",
+      "queen",
+      "finish",
+      "royal"
+    ],
+    "pawnsPerCharge": [
+      2,
+      1,
+      0
+    ],
+    "keyboardAndPointerFrost": true,
+    "actualPositionAndCollision": false,
+    "tsunamiDamage": 90,
+    "transfer": "クイーンからキングへ 458 HP ｜ 残り 1回",
+    "reviveTransfer": 458,
+    "transferCompression": {
+      "twoSpriteBatches": true,
+      "canvasIdentical": true,
+      "plainGzipBytes": 148790,
+      "packedGzipBytes": 100395
+    },
+    "clearReportRestore": true,
+    "viewport390": true,
+    "commands": {
+      "png": 37,
+      "standard": 19184,
+      "light": 5267
+    },
+    "errors": []
+  }
+}

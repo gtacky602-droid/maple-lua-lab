@@ -23,7 +23,7 @@ return function(C)
   end
   return actor,owner
  end
- function M.damage(s,w,spec,c,zones,seen,amount,source)
+ function M.damage(s,w,spec,c,zones,seen,amount,source,outcomes)
   for _,a in ipairs(s.actors) do
    if not seen[a] then
     for _,z in ipairs(zones) do
@@ -31,6 +31,7 @@ return function(C)
       seen[a]=true
       local party=s.actorOwners and s.actorOwners[a] or s
       local dealt=C.damageActor(party,a,amount,source or c.body,true,true)
+      if outcomes then outcomes[a]=dealt end
       if dealt>0 then C.combatEvent(party,'gate:'..c.key..':hurt',a.id,w.primary.id,dealt) end
       break
      end

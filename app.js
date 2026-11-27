@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {falseMoonEncounterText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
+import {falseMoonEncounterText,gateEncounterText,narwhalJourneyText,primalTrialText,raidenFlowerText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -554,15 +554,7 @@ function hud(f,calls,renderMs){
  }
  $('weeklyGate').hidden=!gate||field.phase==='respawn';
  if(gate&&field.phase!=='respawn'){
-  const target=gate.run?.member?(gate.run.mine?' ｜ あなたが誘導':' ｜ 誘導：旅人 '+gate.run.member):'';
-  const hint=gate.card==='WT03'?`ポーン ${gate.shield} / 3 ｜ ポーンの向こう側へ突進を誘導${target}`:
-   gate.card==='WT05'?`雷障壁 ${gate.shield} / ${gate.maxShield} ｜ 通常攻撃でも削れる`:
-   gate.exposure?`反撃できる時間 ${(gate.exposure/60).toFixed(1)}秒`:
-   gate.transfer?`HP譲渡まで ${(gate.transfer/60).toFixed(1)}秒 ｜ 残り ${gate.revives}回`:
-   gate.run&&gate.lure?`凍結完了 ｜ ${gate.run.goal?'走路固定。ジャンプでかわす':'クイーンの向こう側へ'}${target}`:
-   gate.canFrost?`凍結 ${gate.freeze} / 100 ｜ 霜印は盤の両端 ｜ 残り ${Math.ceil((gate.freezeBy-gate.tick+1)/60)}秒${gate.frostOwner&&gate.hold===undefined?' ｜ 旅人 '+gate.frostOwner+'が霜印を使用中':''}`:
-   gate.deadline?`決着まで ${Math.max(0,Math.ceil((gate.deadline-gate.tick)/60))}秒`:'';
-  $('weeklyGateHint').textContent=hint;
+  $('weeklyGateHint').textContent=gateEncounterText(gate);
   $('weeklyGateFrost').hidden=!(gate.canFrost&&gate.nearFrost);
   $('weeklyGateFrost').textContent=gate.hold!==undefined?`霜印を保持中 ${(gate.hold/60).toFixed(1)} / 1.5秒`:
    gate.frostOwner?'ほかの旅人が霜印を使用中':

@@ -80,6 +80,36 @@ export function falseMoonEncounterText(v){
  return '';
 }
 
+export function gateEncounterText(gate){
+ const target=gate.run?.member?(gate.run.mine?' ｜ あなたが誘導':` ｜ 誘導：旅人 ${gate.run.member}`):'';
+ if(gate.card==='WT03')return `ポーン ${gate.shield} / 3 ｜ ポーンの向こう側へ突進を誘導${target}`;
+ if(gate.card==='WT05')return `雷障壁 ${gate.shield} / ${gate.maxShield} ｜ 通常攻撃でも削れる`;
+ if(gate.exposure)return `${gate.lureCollision?'津波を中断 ｜ ':''}反撃できる時間 ${(gate.exposure/60).toFixed(1)}秒`;
+ if(gate.lureCollision)return gate.exposureEnded?'反撃終了':'クイーンに突進が命中 ｜ 津波を中断';
+ if(gate.transfer)return `HP譲渡まで ${(gate.transfer/60).toFixed(1)}秒 ｜ 残り ${gate.revives}回`;
+ if(gate.tsunami)return gate.tsunamiDamage?`津波が命中 ｜ ${gate.tsunamiDamage}ダメージ`:'津波が発生';
+ if(gate.run&&gate.lure){
+  const phase=gate.run.goal?'走路固定。ジャンプでかわす':
+   gate.lureMissed?'突進が外れた。クイーンの向こう側へ再誘導':'凍結完了 ｜ クイーンの向こう側へ';
+  return phase+target;
+ }
+ if(gate.canFrost){
+  const remaining=Math.ceil((gate.freezeBy-gate.tick+1)/60);
+  const owner=gate.frostOwner&&gate.hold===undefined?` ｜ 旅人 ${gate.frostOwner}が霜印を使用中`:'';
+  return `凍結 ${gate.freeze} / 100 ｜ 霜印は盤の両端 ｜ 残り ${remaining}秒${owner}`;
+ }
+ if(gate.deadline){
+  const remaining=Math.max(0,Math.ceil((gate.deadline-gate.tick)/60));
+  return gate.card==='WT17'?`${gate.lureMissed?'誘導失敗':'凍結の受付終了'} ｜ 津波まで ${remaining}秒`:
+   `決着まで ${remaining}秒`;
+ }
+ if(gate.transferResult){
+  const king=gate.transferResult.to==='king';
+  return `${king?'クイーンからキングへ':'キングからクイーンへ'} ${gate.transferResult.amount} HP ｜ 残り ${gate.revives}回`;
+ }
+ return '';
+}
+
 export function initEndgameUI(action){
  const renderArtifactDomain=initArtifactDomainUI(action);
  const get=id=>document.getElementById(id);
