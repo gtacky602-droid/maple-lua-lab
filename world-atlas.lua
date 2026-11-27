@@ -167,12 +167,13 @@ return function(C, atlas)
    return vehicle.kind=='ferry' and 'boat' or 'arrival'
   elseif edge.requiresArrival then return 'arrival'
   elseif edge.wind then return 'wind'
-  elseif from.swim and to.swim then return 'swim' end
+  elseif from.swim and to.swim then return 'swim'
+  elseif edge.studioMode=='special_road' then return 'special' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',swim='遊泳',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
+ local route_labels = {boat='舟・寄港',water='水路',swim='遊泳',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩',special='特別な道'}
  local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',air='#a6e3cf',wall='#eabb75',spiritway='#f0d3ff',phase='#eebcfa',night='#d5a0f5',arrival='#ebf4db',
-                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054',swim='#c2f1ec'}
+                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054',swim='#c2f1ec',special='#f7c6ed'}
 
  local function direct_motion(mode)
   return mode=='walk' or mode=='swim'
@@ -207,6 +208,7 @@ return function(C, atlas)
  local function route_hint(edge,node,destination,actorY)
   local voyage=node.voyage
   local instruction=edge.darkOnly and '灯りを消して足場を出す'
+    or edge.studioRoute and edge.visitedOnly and '初回訪問後に通れる近道'
     or edge.wind and '風が弱い間に通る'
     or edge.windowStart and (('出発から%s〜%s秒の間に%s'):format(edge.windowStart,edge.windowEnd,
       voyage.kind=='trolley' and '途中下車' or '途中下船'))

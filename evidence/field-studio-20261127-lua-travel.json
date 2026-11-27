@@ -1,0 +1,29 @@
+{
+  "revision": 1,
+  "counts": {
+    "removed_pairs": 90,
+    "directions_linked": 434,
+    "directions_walked": 260,
+    "visited_shortcuts_checked": 1
+  },
+  "conditional": [
+    {
+      "from": "nod-wp-88162",
+      "to": "nod-wp-88170",
+      "first_visit_via": "nod-wp-88169"
+    }
+  ],
+  "quests_reported": [
+    {
+      "quest": "mond-mapped-snowline",
+      "level": 60,
+      "steps": 4
+    },
+    {
+      "quest": "nat-mapped-valley-trail",
+      "level": 105,
+      "steps": 4
+    }
+  ],
+  "setup": "Lv200 restored save for gates, fresh level-specific fixtures for quests. Movement and portal actions with enemy damage suppressed."
+}

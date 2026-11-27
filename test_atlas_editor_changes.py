@@ -58,7 +58,7 @@ def test_updated_source_routes():
     assert changed_plan['editor_revision'] == snapshot['editor_revision']
     old_pair = frozenset([removed['a'], removed['b']])
     assert old_pair in original_routes and old_pair not in routes
-    assert changed_plan['removed_editor_routes'] == [
+    assert changed_plan['removed_editor_routes'] == original_plan.get('removed_editor_routes', []) + [
         {'id': removed['id'], 'fields': [removed['a'], removed['b']], 'mode': removed['mode']}]
     for edge in (mode_edit, added):
         row = routes[frozenset([edge['a'], edge['b']])]

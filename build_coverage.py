@@ -80,6 +80,13 @@ def rebuild():
         'official_marker_bindings': len(links), 'provisional_design_bindings': dict(sorted(authored_bindings.items())),
         'awaiting_stage': total_fields - linked_fields, 'route_review': 'design/world/atlas-route-plan.json',
     }
+    route_plan = json.loads((CONTENT.parent / 'design/world/atlas-route-plan.json').read_text(encoding='utf8'))
+    if 'editor_revision' in route_plan:
+        coverage['sites_fields']['editor_revision'] = route_plan['editor_revision']
+        coverage['sites_fields']['adopted_lab_connections'] = sum(
+            row['finding'] == 'field_studio_lab_connection' for row in route_plan['sites_only_route_review']
+        )
+        coverage['sites_fields']['removed_editor_connections'] = len(route_plan.get('removed_editor_routes', []))
     legends_path = 'design/world/encounters.json'
     legend_rows = json.loads((CONTENT.parent / legends_path).read_text(encoding='utf8'))['legends']
     field_specs = json.loads((CONTENT/'field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
