@@ -1,0 +1,594 @@
+{
+  "base": "a2240bdb1e6c2dd61ed430c96187addf1f20640c",
+  "fields": {
+    "nod-field": {
+      "before": {
+        "ordinary": 7,
+        "peak": 7,
+        "camera": 300
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 300
+      },
+      "added": 8,
+      "contact": {
+        "configured": 8,
+        "distantHit": false,
+        "closeDamage": 15,
+        "cooldownSeconds": 3.2
+      },
+      "browser": {
+        "node": "nod-field",
+        "records": {
+          "before": {
+            "total": 7,
+            "visible": 7,
+            "camera": 300
+          },
+          "after": {
+            "total": 15,
+            "visible": 15,
+            "camera": 300
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 17353,
+        "h48c32": 10077,
+        "h32c16": 4167
+      }
+    },
+    "nod-tide-scrapyard": {
+      "before": {
+        "ordinary": 7,
+        "peak": 5,
+        "camera": 617
+      },
+      "after": {
+        "ordinary": 17,
+        "peak": 15,
+        "camera": 438
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 15,
+        "cooldownSeconds": 3.2
+      },
+      "browser": {
+        "node": "nod-tide-scrapyard",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 6,
+            "camera": 438
+          },
+          "after": {
+            "total": 18,
+            "visible": 16,
+            "camera": 438
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 24143,
+        "h48c32": 14710,
+        "h32c16": 6276
+      }
+    },
+    "nod-forest-outer": {
+      "before": {
+        "ordinary": 7,
+        "peak": 6,
+        "camera": 333
+      },
+      "after": {
+        "ordinary": 16,
+        "peak": 15,
+        "camera": 333
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 15,
+        "cooldownSeconds": 3.2
+      },
+      "browser": {
+        "node": "nod-forest-outer",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 7,
+            "camera": 333
+          },
+          "after": {
+            "total": 17,
+            "visible": 16,
+            "camera": 333
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 30505,
+        "h48c32": 18683,
+        "h32c16": 8081
+      }
+    }
+  },
+  "ordinaryHunts": 141,
+  "eliteRoutes": 7,
+  "viewWidth": 960,
+  "portalArrivalsIncludingNamedPatrols": [
+    {
+      "origin": "nod-port",
+      "destination": "nod-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-field",
+      "destination": "nod-tide-scrapyard",
+      "positions": [
+        [
+          124,
+          480
+        ],
+        [
+          84,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-duckle-workyard",
+      "destination": "nod-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-battleship-depot",
+      "destination": "nod-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-herra-terrace",
+      "destination": "nod-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-nightmare-shore",
+      "destination": "nod-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-moonfly-hollow",
+      "destination": "nod-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-gecko-depths",
+      "destination": "nod-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-town",
+      "destination": "nod-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-town",
+      "destination": "nod-forest-outer",
+      "positions": [
+        [
+          126,
+          480
+        ],
+        [
+          86,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-tide-scrapyard",
+      "destination": "nod-field",
+      "positions": [
+        [
+          617,
+          480
+        ],
+        [
+          577,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nod-special-camp",
+      "destination": "nod-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivalsIncludingNamedPatrols": [
+    {
+      "node": "nod-field",
+      "positions": [
+        [
+          515,
+          480
+        ],
+        [
+          475,
+          480
+        ]
+      ]
+    }
+  ],
+  "movedSlimePatrol": {
+    "id": "nod-field-2",
+    "oldX": 510,
+    "newX": 390
+  },
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "dc06cc08fd91a94c7da0547a2fa8209e4afe3d0fdfe5beb3e7aa4173bdf73929"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 2035.33,
+        "level": 60,
+        "total": 2740517,
+        "questXp": 1551496,
+        "killXp": 1189021,
+        "kills": 2784
+      },
+      "wipes": 0,
+      "inputSaveSha256": "98d6ee0467a0b53621b2366eef398fcc679b6e7618d8e9d9dfe10e9eb82e9d9a"
+    },
+    "sumeru": {
+      "arrival": {
+        "id": "fontaine-hub",
+        "seconds": 7075.63,
+        "level": 80,
+        "total": 10034573,
+        "questXp": 3968218,
+        "killXp": 6066355,
+        "kills": 6059
+      },
+      "wipes": 0,
+      "inputSaveSha256": "eb753ea72013e56319748aa3baaac049a2c6b015c9274942b083611423082c6d"
+    },
+    "fontaine": {
+      "arrival": {
+        "id": "natlan-hub",
+        "seconds": 6484.62,
+        "level": 100,
+        "total": 37615277,
+        "questXp": 15666763,
+        "killXp": 21948514,
+        "kills": 9715
+      },
+      "wipes": 0,
+      "inputSaveSha256": "f30f0b18f3489ce228f4d487fc1d74b125a8c8c8f80befbde28bdbea8c39958c"
+    },
+    "natlan": {
+      "arrival": {
+        "id": "nod-town",
+        "seconds": 7871.73,
+        "level": 120,
+        "total": 110639573,
+        "questXp": 43181221,
+        "killXp": 67458352,
+        "kills": 15731
+      },
+      "wipes": 0,
+      "inputSaveSha256": "2f054535f66871a176e0a0d75676c0031bbe86cbb856bf82db5cfc9f8fe9cd56"
+    },
+    "nod": {
+      "arrival": {
+        "id": "snezhnaya-hub",
+        "seconds": 12303.72,
+        "level": 140,
+        "total": 362140392,
+        "questXp": 129973387,
+        "killXp": 232167005,
+        "kills": 23288
+      },
+      "wipes": 0,
+      "inputSaveSha256": "dd69f52d278730087e5a3ca8acc30fcc85241177a7f9009a2d07972535899bfd"
+    }
+  },
+  "completedNodQuests": [
+    "nod-first-treasure",
+    "nod-moon-crossroads",
+    "nod-moon-vault-quest",
+    "columbina-coast-detour",
+    "nod-treasure-appraisal",
+    "nod-lantern-patrol"
+  ],
+  "nodRecoveryTrips": 0,
+  "browserMapAndTravel": {
+    "importedLevel": 140,
+    "arrivalLevel": 140,
+    "route": [
+      [
+        "snezhnaya-entry",
+        "walk"
+      ],
+      [
+        "snezhnaya-hub",
+        "walk"
+      ]
+    ],
+    "hunts": [
+      "nod-field",
+      "nod-tide-scrapyard",
+      "nod-forest-outer",
+      "nod-north-spruce-shelves",
+      "nod-west-frost-slope",
+      "winter-frontier-switchback"
+    ],
+    "completedQuests": [
+      "nod-first-treasure",
+      "nod-moon-crossroads",
+      "nod-moon-vault-quest",
+      "columbina-coast-detour",
+      "nod-treasure-appraisal",
+      "nod-lantern-patrol"
+    ],
+    "nextChapter": {
+      "id": "white-pass-ticket",
+      "requiredLevel": 141,
+      "availableHunt": "white-pass-cut"
+    },
+    "travelKillXp": 92032,
+    "specialRegionExcluded": true,
+    "errors": []
+  },
+  "browserDaily": {
+    "townOffers": 5,
+    "walkedToCoastAndForestAndReturned": true,
+    "killsCountAtCorrectArea": true,
+    "distinctNamedElites": true,
+    "threeScrapyardObjectivesOverlap": true,
+    "mapPlacementComparisonProfiles": 3,
+    "staleSaveRetainsProgress": true,
+    "rewardsDoNotReplay": true,
+    "mobileFits": true,
+    "reward": {
+      "xp": 1188100,
+      "mora": 8360
+    },
+    "errors": []
+  },
+  "forestCharactersComparedInChrome": {
+    "camera": 333,
+    "light": {
+      "locations": {
+        "shape": {
+          "x": 800,
+          "y": 360
+        },
+        "color": {
+          "x": 320,
+          "y": 405
+        }
+      },
+      "union": 46918,
+      "overlap": 45843,
+      "overlapPercent": 97.70876848970545,
+      "meanRgbError": 20.138901613477884
+    },
+    "rows": [
+      [
+        "標準",
+        "27,065",
+        "98.5%",
+        "9.62 / 255",
+        "—"
+      ],
+      [
+        "中間・32色",
+        "16,637",
+        "97.1%",
+        "16.45 / 255",
+        "-38.5%"
+      ],
+      [
+        "最軽量・16色",
+        "7,200",
+        "97.7%",
+        "20.14 / 255",
+        "-73.4%"
+      ]
+    ]
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5781,
+    "liveEntriesChecked": 5781,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "growthPracticeInChrome": {
+    "reports": 4,
+    "emptyBagImprintAtLevel1": true,
+    "separateCombatGauge": true,
+    "pairPower": [
+      26,
+      50
+    ],
+    "barrierTestDamage": [
+      57,
+      100
+    ],
+    "mobilePreviewFits": true,
+    "moonInOrdinaryField": "月感電",
+    "starInOrdinaryField": "星嵐の種",
+    "savesReportAndOptionalLesson": true,
+    "errors": []
+  },
+  "growthPracticeFromEarnedSave": {
+    "sourceSha256": "00b569ea1e1ab398b3fdf8b7852dc3ed891ce4d83bbe5a6a90af2e919ed9cbe2",
+    "sourceLevel": 140,
+    "stage": "nod-field",
+    "skill": "SK54",
+    "milestone": "lunar-orb",
+    "quest": "growth-lunar-practice",
+    "reported": true,
+    "partyWipes": 0
+  },
+  "growthPracticeInLua": {
+    "imprint_lesson_level": 1,
+    "first_star_cost": 200000,
+    "empty_bag_dry_run": true,
+    "active_pair": [
+      26,
+      50
+    ],
+    "barriers": [
+      3,
+      8,
+      10,
+      13,
+      25,
+      30,
+      35,
+      40,
+      50
+    ],
+    "companion_hp_cooldowns_and_gauge": true,
+    "lunar_reactions": {
+      "SK05": "月結晶",
+      "SK09": "月感電",
+      "SK13": "月開花"
+    },
+    "moon_skill_levels": [
+      127,
+      133
+    ],
+    "star_skill_levels": [
+      149,
+      155
+    ],
+    "star_partners": [
+      "wanderer",
+      "beidou",
+      "mitya"
+    ],
+    "save_and_duplicate_report_verified": true
+  },
+  "nextChapter": {
+    "id": "white-pass-ticket",
+    "requiredLevel": 141,
+    "availableHunt": "white-pass-cut"
+  }
+}

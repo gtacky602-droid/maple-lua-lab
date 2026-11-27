@@ -1277,34 +1277,10 @@
       }
     ],
     "nod-field": [
-      {
-        "id": "nod-field-1",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "nod-field-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "nod-field-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "nod-field-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "nod-field-1", "kind": 1, "art": "hydro-slime", "x": 300, "platform": 0, "patrolMin": 220, "patrolMax": 415},
+      {"id": "nod-field-2", "kind": 1, "art": "hydro-slime", "x": 390, "platform": 0, "patrolMin": 220, "patrolMax": 415},
+      {"id": "nod-field-3", "kind": 2, "art": "pyro-slime", "x": 850, "platform": 0, "patrolMin": 677, "patrolMax": 1180},
+      {"id": "nod-field-4", "kind": 1, "art": "hydro-slime", "x": 1120, "platform": 0, "patrolMin": 677, "patrolMax": 1180},
       {
         "id": "nod-field-5",
         "kind": 1,
@@ -1327,27 +1303,54 @@
         "x": 1020,
         "platform": 3,
         "expRole": "normal"
-      }
+      },
+      {"id": "nod-field-regular-1", "x": 370, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-field-regular-2", "x": 540, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-field-regular-3", "x": 745, "platform": 2, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-field-regular-4", "x": 891, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-field-regular-5", "x": 1132, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-field-regular-6", "x": 736, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 677, "patrolMax": 1180},
+      {"id": "nod-field-regular-7", "x": 952, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 677, "patrolMax": 1180},
+      {"id": "nod-field-regular-8", "x": 1170, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 677, "patrolMax": 1180}
     ],
     "nod-tide-scrapyard": [
-      {"id":"nod-scrap-cart-west","kind":1,"art":"sled-maintenance-cart","x":357,"platform":0,"hp":40},
-      {"id":"nod-scrap-slime-west","kind":1,"art":"hydro-slime","x":500,"platform":0,"hp":32},
+      {"id": "nod-scrap-cart-west", "kind": 1, "art": "sled-maintenance-cart", "x": 357, "platform": 0, "hp": 40, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-scrap-slime-west", "kind": 1, "art": "hydro-slime", "x": 500, "platform": 0, "hp": 32, "patrolMin": 184, "patrolMax": 1736},
       {"id":"nod-scrap-cart-ledge","kind":2,"art":"sled-maintenance-cart","x":617,"platform":1,"hp":40},
       {"id":"nod-scrap-pebble-upper","kind":1,"art":"pebble-courier","x":833,"platform":2,"hp":41},
-      {"id":"nod-scrap-elite","kind":1,"art":"ruin-guard","x":985,"platform":0,"hp":85,"name":"廃部品を守る遺跡機兵","dailyElite":true},
+      {"id": "nod-scrap-elite", "kind": 1, "art": "ruin-guard", "x": 985, "platform": 0, "hp": 85, "name": "廃部品を守る遺跡機兵", "dailyElite": true, "patrolMin": 925, "patrolMax": 1045},
       {"id":"nod-scrap-slime-ledge","kind":2,"art":"pyro-slime","x":1301,"platform":3,"hp":35},
-      {"id":"nod-scrap-cart-east","kind":1,"art":"sled-maintenance-cart","x":1388,"platform":0,"hp":43},
-      {"id":"nod-scrap-slime-east","kind":1,"art":"hydro-slime","x":1576,"platform":0,"hp":37}
+      {"id": "nod-scrap-cart-east", "kind": 1, "art": "sled-maintenance-cart", "x": 1388, "platform": 0, "hp": 43, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-scrap-slime-east", "kind": 1, "art": "hydro-slime", "x": 1576, "platform": 0, "hp": 37, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-tide-scrapyard-regular-1", "x": 438, "platform": 0, "art": "sled-maintenance-cart", "kind": 1, "hp": 43, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-tide-scrapyard-regular-2", "x": 510, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-tide-scrapyard-regular-3", "x": 635, "platform": 0, "art": "pebble-courier", "kind": 1, "hp": 43, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-tide-scrapyard-regular-4", "x": 732, "platform": 2, "art": "sled-maintenance-cart", "kind": 1, "hp": 43, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-tide-scrapyard-regular-5", "x": 683, "platform": 1, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-tide-scrapyard-regular-6", "x": 914, "platform": 2, "art": "pebble-courier", "kind": 1, "hp": 43, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-tide-scrapyard-regular-7", "x": 1080, "platform": 0, "art": "sled-maintenance-cart", "kind": 1, "hp": 43, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-tide-scrapyard-regular-8", "x": 1198, "platform": 3, "art": "sled-maintenance-cart", "kind": 1, "hp": 43, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-tide-scrapyard-regular-9", "x": 1260, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 184, "patrolMax": 1736},
+      {"id": "nod-tide-scrapyard-regular-10", "x": 1330, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2}
     ],
     "nod-forest-outer": [
-      {"id":"nod-forest-beetle-west","kind":1,"art":"snow-mantle-beetle","x":333,"platform":0,"hp":39},
-      {"id":"nod-forest-slime-west","kind":1,"art":"hydro-slime","x":501,"platform":0,"hp":33},
+      {"id": "nod-forest-beetle-west", "kind": 1, "art": "snow-mantle-beetle", "x": 333, "platform": 0, "hp": 39, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-slime-west", "kind": 1, "art": "hydro-slime", "x": 501, "platform": 0, "hp": 33, "patrolMin": 186, "patrolMax": 1656},
       {"id":"nod-forest-beetle-ledge","kind":1,"art":"snow-mantle-beetle","x":588,"platform":1,"hp":38},
       {"id":"nod-forest-slime-upper","kind":2,"art":"pyro-slime","x":795,"platform":2,"hp":35},
-      {"id":"nod-forest-elite","kind":1,"art":"fanged-beast","x":934,"platform":0,"hp":80,"name":"林の縁をうろつく牙獣","dailyElite":true},
+      {"id": "nod-forest-elite", "kind": 1, "art": "fanged-beast", "x": 934, "platform": 0, "hp": 80, "name": "林の縁をうろつく牙獣", "dailyElite": true, "patrolMin": 889, "patrolMax": 992},
       {"id":"nod-forest-beetle-east","kind":1,"art":"snow-mantle-beetle","x":1194,"platform":3,"hp":40},
-      {"id":"nod-forest-slime-east","kind":1,"art":"hydro-slime","x":1284,"platform":0,"hp":37},
-      {"id":"nod-forest-beast-east","kind":1,"art":"fanged-beast","x":1498,"platform":0,"hp":49}
+      {"id": "nod-forest-slime-east", "kind": 1, "art": "hydro-slime", "x": 1284, "platform": 0, "hp": 37, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-beast-east", "kind": 1, "art": "fanged-beast", "x": 1498, "platform": 0, "hp": 49, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-outer-regular-1", "x": 408, "platform": 0, "art": "snow-mantle-beetle", "kind": 1, "hp": 42, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-outer-regular-2", "x": 436, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-forest-outer-regular-3", "x": 596, "platform": 0, "art": "snow-mantle-beetle", "kind": 1, "hp": 42, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-outer-regular-4", "x": 698, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-forest-outer-regular-5", "x": 721, "platform": 0, "art": "fanged-beast", "kind": 1, "hp": 46, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-outer-regular-6", "x": 871, "platform": 2, "art": "snow-mantle-beetle", "kind": 1, "hp": 42, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-forest-outer-regular-7", "x": 1038, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 38, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 186, "patrolMax": 1656},
+      {"id": "nod-forest-outer-regular-8", "x": 1110, "platform": 3, "art": "snow-mantle-beetle", "kind": 1, "hp": 42, "contactDamage": 15, "contactCooldown": 3.2},
+      {"id": "nod-forest-outer-regular-9", "x": 1245, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 186, "patrolMax": 1656}
     ],
     "snezhnaya-entry": [
       {

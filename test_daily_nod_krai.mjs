@@ -118,15 +118,17 @@ try{
  popup.on('pageerror',error=>errors.push(error.message));
  await popup.waitForFunction(()=>window.mapArt?.ready);
  assert.equal(await popup.locator('#node').inputValue(),scrapyard);
- for(const [node,asset] of [[scrapyard,'sled-maintenance-cart'],[forest,'snow-mantle-beetle']]){
+ for(const [node,asset,total] of [
+  [scrapyard,'sled-maintenance-cart',18],[forest,'snow-mantle-beetle',17]
+ ]){
   await popup.selectOption('#node',node);
   await popup.click('#loadLive');
-  await popup.waitForFunction(()=>window.mapArt.count===8);
+  await popup.waitForFunction(count=>window.mapArt.count===count,total);
   for(const profile of ['legacy','h48c32','h32c16']){
    await popup.selectOption('#profile',profile);
    const comparison=await popup.evaluate(()=>window.mapArt);
    assert.ok(comparison.grounded&&comparison.backgroundState==='ready');
-   assert.equal(comparison.placements.filter(enemy=>enemy.species===asset).length,3);
+   assert.equal(comparison.placements.filter(enemy=>enemy.species===asset).length,7);
   }
  }
  await popup.close();
