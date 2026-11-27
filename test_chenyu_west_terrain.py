@@ -5,8 +5,8 @@ hub = 'chenyu-camp'
 fields = [
     (64826, 88, 'chenyuWestBank', 36),
     (64827, 89, 'chenyuWestPeak', 36),
-    (64828, 89, 'chenyuFerry', 48),
-    (64829, 85, 'chenyuSouthPass', 48),
+    (64828, 89, 'chenyuFerry', 36),
+    (64829, 85, 'chenyuSouthPass', 36),
 ]
 write_fixture('chenyu-west-terrain', 90, hub, [f'liyue-wp-{n}' for n, *_ in fields])
 report = {}

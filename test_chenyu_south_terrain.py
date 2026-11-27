@@ -3,16 +3,16 @@ from tools.domain_terrain_test import TrailWalk, check_field, core, exits, gates
 
 hub = 'liyue-harbor'
 fields = [
-    (64845, 'chenyu-depth', 81, 'chenyuDepthTrail', 48),
-    (64846, 'liyue-wp-64846', 82, 'chenyuFoothillTurn', 48),
-    (64847, 'liyue-wp-64847', 86, 'chenyuSouthScree', 48),
-    (64848, 'liyue-wp-64848', 88, 'chenyuSouthFork', 48),
-    (64849, 'liyue-wp-64849', 90, 'chenyuWestVault', 48),
+    (64845, 'chenyu-depth', 81, 'chenyuDepthTrail', 36),
+    (64846, 'liyue-wp-64846', 82, 'chenyuFoothillTurn', 36),
+    (64847, 'liyue-wp-64847', 86, 'chenyuSouthScree', 36),
+    (64848, 'liyue-wp-64848', 88, 'chenyuSouthFork', 36),
+    (64849, 'liyue-wp-64849', 90, 'chenyuWestVault', 36),
     (64850, 'chenyu-camp', 76, 'chenyuTrailCamp', 36),
-    (66768, 'liyue-wp-66768', 88, 'chenyuHarborBluff', 48),
-    (66769, 'liyue-wp-66769', 86, 'chenyuCargoWharf', 48),
+    (66768, 'liyue-wp-66768', 88, 'chenyuHarborBluff', 36),
+    (66769, 'liyue-wp-66769', 86, 'chenyuCargoWharf', 36),
     (66770, 'liyue-wp-66770', 90, 'chenyuOuterReef', 36),
-    (66979, 'liyue-wp-66979', 87, 'chenyuHiddenGrotto', 48),
+    (66979, 'liyue-wp-66979', 87, 'chenyuHiddenGrotto', 36),
 ]
 write_fixture('chenyu-south-terrain', 90, hub, [host for _, host, *_ in fields])
 report = {}

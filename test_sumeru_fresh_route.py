@@ -229,7 +229,7 @@ for stage, parent, threshold in ((forest, fork, 74), (bank_hunt, lookout, 79), (
     if state.story.node != parent:
         cross(parent)
     exp_per_enemy = LEVELS[nodes[stage]['level'] - 1]['normal_enemy_base_exp']
-    for _ in range(45):
+    for _ in range(90):
         if state.progression.level >= threshold:
             break
         if trail.actor.hp < 70:

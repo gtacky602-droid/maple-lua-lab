@@ -405,7 +405,7 @@ for stage, parent, threshold in route_hunts:
     enemy_level = nodes[stage]['level']
     exp_per_enemy = LEVELS[enemy_level - 1]['normal_enemy_base_exp']
     min_exp = exp_per_enemy
-    if draft and threshold-enemy_level >= 5:
+    if threshold-enemy_level >= 5:
         min_exp = int(exp_per_enemy * RUNTIME_EXP['gap']['player_higher_by_5_to_10'] + .5)
     totals = dict(stage=stage, sorties=0, kills=0, xp=0, ticks=0)
     if draft and threshold == 120:

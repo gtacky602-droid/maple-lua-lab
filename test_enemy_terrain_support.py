@@ -20,6 +20,8 @@ for node_id, placements in spawns.items():
     for p in placements:
         support = ground[p['platform'] + 1]
         assert support.x + 24 <= p['x'] <= support.x + support.w - 24, (node_id, p)
+        if 'patrolMin' in p or 'patrolMax' in p:
+            assert support.x+24 <= p['patrolMin'] <= p['x'] <= p['patrolMax'] <= support.x+support.w-24
         total += 1
     node = by_id[node_id]
     seen = set()

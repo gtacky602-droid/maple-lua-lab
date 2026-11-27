@@ -35,11 +35,11 @@ try {
   assert.equal(await editor.evaluate(key=>localStorage.getItem(key),storageKey),saved);
   await page.selectOption('#node','sites-hunt-7092');
   await page.waitForFunction(()=>window.mapArt?.node==='sites-hunt-7092' && window.mapArt.decodedBackgroundRectangles===4096);
-  assert.equal(await page.evaluate(()=>window.mapArt.count),48);
+  assert.equal(await page.evaluate(()=>window.mapArt.count),36);
   assert.deepEqual(errors,[]);
   await fs.writeFile('evidence/live-scenery-view.json',JSON.stringify({
     room:stage,viewedEnemy:view.placements[0],camera:view.camera,tier:view.decodedBackgroundRectangles,
-    editorPlacement:draft.placements[0],secondFieldPopulation:48,unchangedSavedDraft:true,errors,
+    editorPlacement:draft.placements[0],secondFieldPopulation:36,unchangedSavedDraft:true,errors,
   },null,2)+'\n');
   console.log('Live scenery comparison opened on the guardian, changed fields and preserved the saved draft.');
 } finally { await browser.close(); }

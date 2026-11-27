@@ -3,7 +3,7 @@
   "huntOnWalkablePlatforms": true,
   "fontaineEnemies": 18,
   "tsurumiFerryRoundTrip": true,
-  "islandEnemies": 48,
+  "islandEnemies": 36,
   "atlasTracksCurrentFieldAndTravelMode": true,
   "errors": []
 }

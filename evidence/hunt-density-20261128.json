@@ -1,0 +1,1245 @@
+{
+  "base": "d606b8822ea1bb193e4d0805ddceac80cd9f0302",
+  "scope": "Ordinary hunt stages shown in the active M-map hunt layer. Lua enemy centers in each possible 960px viewport on entry. Peak excludes the safe approach by construction if it is sparser.",
+  "viewportWidth": 960,
+  "beforeSpawnSha256": "bcd01081de8c8b43177836d61b8a9645f2c61b9d92c50362a738984cab663475",
+  "afterSpawnSha256": "1bf6d16ecfb17f8aa1a3a80ac4f128f5474c905f73e6ed98ee68f0d518cbe31a",
+  "peakHistogramBefore": {
+    "10": 2,
+    "17": 1,
+    "18": 13,
+    "19": 1,
+    "20": 4,
+    "24": 2,
+    "26": 88,
+    "28": 5,
+    "30": 2,
+    "31": 1
+  },
+  "peakHistogramAfter": {
+    "15": 2,
+    "17": 1,
+    "18": 13,
+    "19": 99,
+    "20": 4
+  },
+  "ordinaryHunts": 119,
+  "populationLayoutsChanged": 100,
+  "eliteRoutes": [
+    {
+      "region": "region-03",
+      "node": "sites-hunt-15949",
+      "enemies": 3
+    },
+    {
+      "region": "region-03",
+      "node": "sites-hunt-17223",
+      "enemies": 3
+    },
+    {
+      "region": "region-07",
+      "node": "sites-hunt-92860",
+      "enemies": 3
+    },
+    {
+      "region": "region-08",
+      "node": "sites-hunt-100707",
+      "enemies": 3
+    },
+    {
+      "region": "branch-05",
+      "node": "branch-hunt-68600",
+      "enemies": 2
+    },
+    {
+      "region": "branch-05",
+      "node": "branch-hunt-68603",
+      "enemies": 2
+    },
+    {
+      "region": "branch-05",
+      "node": "branch-hunt-68607",
+      "enemies": 2
+    }
+  ],
+  "patrolAdjusted": [
+    "sites-hunt-28751",
+    "sites-hunt-28755",
+    "sites-hunt-68347",
+    "sites-hunt-73159",
+    "sites-hunt-88122",
+    "white-pass-cut",
+    "white-pass-woods",
+    "winter-frontier-switchback"
+  ],
+  "unsafePortalArrivals": [],
+  "supportedSpawns": {
+    "hostileFields": 344,
+    "authoredPlacements": 5572,
+    "liveEntriesChecked": 5572,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  },
+  "liveMapChrome": {
+    "node": "sites-hunt-7111",
+    "records": {
+      "before": {
+        "total": 48,
+        "visible": 26,
+        "camera": 1376
+      },
+      "after": {
+        "total": 36,
+        "visible": 18,
+        "camera": 1376
+      }
+    }
+  },
+  "perHunt": [
+    {
+      "node": "sites-hunt-7092",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7111",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7137",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7149",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7157",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7186",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7201",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7206",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7210",
+      "region": "region-01",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "liyue-quarry-scree",
+      "region": "region-02",
+      "beforePeak": 24,
+      "afterPeak": 19,
+      "beforeTotal": 36,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7114",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7116",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7121",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7173",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7190",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7215",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7218",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7220",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-9778",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-18048",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-24907",
+      "region": "region-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "inazuma-outer-shore",
+      "region": "region-03",
+      "beforePeak": 28,
+      "afterPeak": 19,
+      "beforeTotal": 42,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-12778",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-12781",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-12784",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-12788",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-12791",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-12794",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-18667",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-20369",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-24906",
+      "region": "region-03",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sumeru-north-forest-floor",
+      "region": "region-04",
+      "beforePeak": 24,
+      "afterPeak": 19,
+      "beforeTotal": 36,
+      "afterTotal": 31,
+      "afterPeakCamera": 1094
+    },
+    {
+      "node": "sumeru-north-bank-terraces",
+      "region": "region-04",
+      "beforePeak": 28,
+      "afterPeak": 19,
+      "beforeTotal": 42,
+      "afterTotal": 34,
+      "afterPeakCamera": 1282
+    },
+    {
+      "node": "sites-hunt-28751",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-28752",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-28753",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-28754",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-28755",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-28756",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-28757",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-36703",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-36704",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-36705",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-41009",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-41694",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-41817",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-41818",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-46531",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-46532",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-46533",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-46534",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-98499",
+      "region": "region-04",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "fontaine-beryl-bank",
+      "region": "region-05",
+      "beforePeak": 28,
+      "afterPeak": 19,
+      "beforeTotal": 42,
+      "afterTotal": 31,
+      "afterPeakCamera": 1099
+    },
+    {
+      "node": "fontaine-beryl-foothills",
+      "region": "region-05",
+      "beforePeak": 30,
+      "afterPeak": 19,
+      "beforeTotal": 45,
+      "afterTotal": 34,
+      "afterPeakCamera": 1282
+    },
+    {
+      "node": "sites-hunt-50034",
+      "region": "region-05",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-50057",
+      "region": "region-05",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-50067",
+      "region": "region-05",
+      "beforePeak": 10,
+      "afterPeak": 15,
+      "beforeTotal": 18,
+      "afterTotal": 18,
+      "afterPeakCamera": 1066
+    },
+    {
+      "node": "sites-hunt-56792",
+      "region": "region-05",
+      "beforePeak": 10,
+      "afterPeak": 15,
+      "beforeTotal": 18,
+      "afterTotal": 18,
+      "afterPeakCamera": 1066
+    },
+    {
+      "node": "sites-hunt-63738",
+      "region": "region-05",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-68346",
+      "region": "region-05",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 32,
+      "afterTotal": 32,
+      "afterPeakCamera": 563
+    },
+    {
+      "node": "sites-hunt-68347",
+      "region": "region-05",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "natlan-east-valley-rocks",
+      "region": "region-06",
+      "beforePeak": 30,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 35,
+      "afterPeakCamera": 1338
+    },
+    {
+      "node": "natlan-terrace-red-clay",
+      "region": "region-06",
+      "beforePeak": 28,
+      "afterPeak": 19,
+      "beforeTotal": 42,
+      "afterTotal": 32,
+      "afterPeakCamera": 1160
+    },
+    {
+      "node": "sites-hunt-73159",
+      "region": "region-06",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-73160",
+      "region": "region-06",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-73161",
+      "region": "region-06",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-81383",
+      "region": "region-06",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-82577",
+      "region": "region-06",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "winter-frontier-switchback",
+      "region": "region-07",
+      "beforePeak": 17,
+      "afterPeak": 17,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 629
+    },
+    {
+      "node": "nod-west-frost-slope",
+      "region": "region-07",
+      "beforePeak": 31,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 34,
+      "afterPeakCamera": 1302
+    },
+    {
+      "node": "nod-north-spruce-shelves",
+      "region": "region-07",
+      "beforePeak": 28,
+      "afterPeak": 19,
+      "beforeTotal": 42,
+      "afterTotal": 32,
+      "afterPeakCamera": 1130
+    },
+    {
+      "node": "sites-hunt-88121",
+      "region": "region-07",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-88122",
+      "region": "region-07",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-88123",
+      "region": "region-07",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-92859",
+      "region": "region-07",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "white-pass-cut",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 27,
+      "afterTotal": 27,
+      "afterPeakCamera": 591
+    },
+    {
+      "node": "white-pass-woods",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 561
+    },
+    {
+      "node": "white-pass-ridge",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 581
+    },
+    {
+      "node": "aurora-ice-cut",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 483
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 503
+    },
+    {
+      "node": "aurora-steam-channel",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 488
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 493
+    },
+    {
+      "node": "dawn-vein-mine",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 485
+    },
+    {
+      "node": "dawn-vein-deep",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 503
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 490
+    },
+    {
+      "node": "dawn-glass-divide",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 587
+    },
+    {
+      "node": "dawn-crystal-field",
+      "region": "region-08",
+      "beforePeak": 18,
+      "afterPeak": 18,
+      "beforeTotal": 28,
+      "afterTotal": 28,
+      "afterPeakCamera": 505
+    },
+    {
+      "node": "sites-hunt-100705",
+      "region": "region-08",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-100706",
+      "region": "region-08",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "sites-hunt-7164",
+      "region": "branch-01",
+      "beforePeak": 19,
+      "afterPeak": 19,
+      "beforeTotal": 36,
+      "afterTotal": 36,
+      "afterPeakCamera": 1412
+    },
+    {
+      "node": "branch-hunt-64824",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64825",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64826",
+      "region": "branch-02",
+      "beforePeak": 20,
+      "afterPeak": 20,
+      "beforeTotal": 36,
+      "afterTotal": 36,
+      "afterPeakCamera": 594
+    },
+    {
+      "node": "branch-hunt-64827",
+      "region": "branch-02",
+      "beforePeak": 20,
+      "afterPeak": 20,
+      "beforeTotal": 36,
+      "afterTotal": 36,
+      "afterPeakCamera": 594
+    },
+    {
+      "node": "branch-hunt-64828",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64829",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64830",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64831",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64832",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64833",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64834",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64835",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64836",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64838",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64839",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64840",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64841",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64842",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64844",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64845",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64846",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64847",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64848",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64849",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-64850",
+      "region": "branch-02",
+      "beforePeak": 20,
+      "afterPeak": 20,
+      "beforeTotal": 36,
+      "afterTotal": 36,
+      "afterPeakCamera": 594
+    },
+    {
+      "node": "branch-hunt-66768",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-66769",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    },
+    {
+      "node": "branch-hunt-66770",
+      "region": "branch-02",
+      "beforePeak": 20,
+      "afterPeak": 20,
+      "beforeTotal": 36,
+      "afterTotal": 36,
+      "afterPeakCamera": 594
+    },
+    {
+      "node": "branch-hunt-66979",
+      "region": "branch-02",
+      "beforePeak": 26,
+      "afterPeak": 19,
+      "beforeTotal": 48,
+      "afterTotal": 36,
+      "afterPeakCamera": 1414
+    }
+  ],
+  "sameCameraLuaRectangles": {
+    "node": "sites-hunt-7111",
+    "camera": 1376,
+    "profiles": {
+      "before": {
+        "legacy": {
+          "rectangles": 32501,
+          "drawJsonBytes": 125742,
+          "gzipBytes": 22857
+        },
+        "h48c32": {
+          "rectangles": 19467,
+          "drawJsonBytes": 77517,
+          "gzipBytes": 14914
+        },
+        "h32c16": {
+          "rectangles": 7944,
+          "drawJsonBytes": 35166,
+          "gzipBytes": 6706
+        }
+      },
+      "after": {
+        "legacy": {
+          "rectangles": 25701,
+          "drawJsonBytes": 124937,
+          "gzipBytes": 22851
+        },
+        "h48c32": {
+          "rectangles": 15412,
+          "drawJsonBytes": 76707,
+          "gzipBytes": 14908
+        },
+        "h32c16": {
+          "rectangles": 6302,
+          "drawJsonBytes": 34356,
+          "gzipBytes": 6701
+        }
+      }
+    },
+    "includes": "Both party members and visible enemies; background supplied by host."
+  },
+  "reportedAdventureRecheck": {
+    "questReports": 276,
+    "newReports": 11,
+    "returns": 0,
+    "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+    "priorRankedQuestRecordsMatched": true,
+    "outputSha256": "0c741ef63e45e42a30554c83bf4718d02e1ba71492936d9124a129daeeb4a618"
+  },
+  "routeRegression": {
+    "terrainSuitesPassed": 21,
+    "geographicHuntRoundTrips": 71,
+    "eliteRoomRoundTrips": 53,
+    "geographicGateCrossings": 248,
+    "fieldStudioRevision": 1,
+    "verifiedNewDirections": 258,
+    "removedPairs": 90
+  },
+  "freshCampaign": {
+    "verifiedThroughLevel": 200,
+    "handoffs": 8,
+    "checkpoints": 9,
+    "replaySeconds": 118335.41,
+    "huntSeconds": 109950.71,
+    "otherRouteSeconds": 8384.7,
+    "previousReplaySeconds": 109022.68,
+    "reportedQuests": 56,
+    "partyWipes": 0,
+    "capAddedExp": 18374692,
+    "browserAddedExp": 889098,
+    "browserReload": true,
+    "record": "evidence/standard-campaign-checkpoints.json"
+  }
+}

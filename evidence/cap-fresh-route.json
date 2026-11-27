@@ -3,74 +3,74 @@
     {
       "node": "aurora-ice-cut",
       "toLevel": 165,
-      "kills": 7622,
-      "exp": 429400614,
-      "autoKills": 7262,
-      "autoSeconds": 6744.13,
-      "seconds": 6964.37
+      "kills": 7626,
+      "exp": 429625962,
+      "autoKills": 7251,
+      "autoSeconds": 6776.12,
+      "seconds": 7003.72
     },
     {
       "node": "aurora-ice-shelf",
       "toLevel": 170,
-      "kills": 7677,
-      "exp": 583969503,
-      "autoKills": 7282,
-      "autoSeconds": 6805.22,
-      "seconds": 7047.17
+      "kills": 7679,
+      "exp": 584045328,
+      "autoKills": 7272,
+      "autoSeconds": 6781.95,
+      "seconds": 7024.3
     },
     {
       "node": "aurora-steam-channel",
       "toLevel": 175,
-      "kills": 7456,
-      "exp": 754751883,
-      "autoKills": 6984,
-      "autoSeconds": 6552.83,
-      "seconds": 6819.72
+      "kills": 7455,
+      "exp": 754575210,
+      "autoKills": 6999,
+      "autoSeconds": 6480.3,
+      "seconds": 6745.72
     },
     {
       "node": "aurora-mineral-terraces",
       "toLevel": 180,
-      "kills": 7557,
-      "exp": 970411887,
-      "autoKills": 7033,
-      "autoSeconds": 6563.63,
-      "seconds": 6844.88
+      "kills": 7556,
+      "exp": 970132749,
+      "autoKills": 7013,
+      "autoSeconds": 6499.5,
+      "seconds": 6796.0
     },
     {
       "node": "dawn-vein-mine",
       "toLevel": 185,
-      "kills": 10631,
-      "exp": 1227550773,
-      "autoKills": 9798,
-      "autoSeconds": 9178.75,
-      "seconds": 9619.45
+      "kills": 10629,
+      "exp": 1228059066,
+      "autoKills": 9824,
+      "autoSeconds": 9195.75,
+      "seconds": 9629.55
     },
     {
       "node": "dawn-vein-deep",
       "toLevel": 190,
-      "kills": 10827,
-      "exp": 1581322460,
-      "autoKills": 9926,
-      "autoSeconds": 9284.72,
-      "seconds": 9750.23
+      "kills": 10835,
+      "exp": 1581808025,
+      "autoKills": 9964,
+      "autoSeconds": 9367.38,
+      "seconds": 9815.8
     },
     {
       "node": "dawn-glass-ridge",
       "toLevel": 195,
-      "kills": 11046,
-      "exp": 2023035765,
-      "autoKills": 9914,
-      "autoSeconds": 9097.63,
-      "seconds": 9627.48
+      "kills": 11057,
+      "exp": 2025352243,
+      "autoKills": 9931,
+      "autoSeconds": 9245.08,
+      "seconds": 9776.88
     },
     {
       "node": "dawn-glass-divide",
       "toLevel": 200,
-      "kills": 11014,
-      "exp": 2570959618,
-      "autoKills": 9886,
-      "autoSeconds": 9242.5,
-      "seconds": 9774.73
+      "kills": 11006,
+      "exp": 2570560036,
+      "autoKills": 9870,
+      "autoSeconds": 9221.97,
+      "seconds": 9761.98
     }
   ],
   "milestones": [
@@ -78,97 +78,97 @@
       "id": "release-and-exploration",
       "node": "white-pass-station",
       "level": 160,
-      "exp": 1226018332,
-      "kills": 39696,
-      "seconds": 32.42
+      "exp": 1225694502,
+      "kills": 39673,
+      "seconds": 30.1
     },
     {
       "id": "lv165",
       "node": "aurora-ice-cut",
       "level": 165,
-      "exp": 1656545686,
-      "kills": 47338,
-      "seconds": 7007.77
+      "exp": 1656503541,
+      "kills": 47320,
+      "seconds": 7044.8
     },
     {
       "id": "lv170",
       "node": "aurora-ice-shelf",
       "level": 170,
-      "exp": 2243942461,
-      "kills": 55072,
-      "seconds": 14080.62
+      "exp": 2243951478,
+      "kills": 55054,
+      "seconds": 14093.57
     },
     {
       "id": "live-light-echo",
       "node": "white-pass-station",
       "level": 170,
-      "exp": 2251018088,
-      "kills": 55148,
-      "seconds": 14113.23
+      "exp": 2251128511,
+      "kills": 55132,
+      "seconds": 14124.72
     },
     {
       "id": "lv175",
       "node": "aurora-steam-channel",
       "level": 175,
-      "exp": 3010793738,
-      "kills": 62673,
-      "seconds": 20959.48
+      "exp": 3010661988,
+      "kills": 62654,
+      "seconds": 20896.97
     },
     {
       "id": "lv180",
       "node": "aurora-mineral-terraces",
       "level": 180,
-      "exp": 3989297415,
-      "kills": 70328,
-      "seconds": 27844.67
+      "exp": 3989147748,
+      "kills": 70311,
+      "seconds": 27733.35
     },
     {
       "id": "live-seven-strike",
       "node": "white-pass-station",
       "level": 180,
-      "exp": 4001730810,
-      "kills": 70445,
-      "seconds": 27890.38
+      "exp": 4001308733,
+      "kills": 70429,
+      "seconds": 27778.5
     },
     {
       "id": "lv185",
       "node": "dawn-vein-mine",
       "level": 185,
-      "exp": 5237964990,
-      "kills": 81183,
-      "seconds": 37551.68
+      "exp": 5238168461,
+      "kills": 81166,
+      "seconds": 37449.9
     },
     {
       "id": "lv190",
       "node": "dawn-vein-deep",
       "level": 190,
-      "exp": 6831875696,
-      "kills": 92159,
-      "seconds": 47360.2
+      "exp": 6831863722,
+      "kills": 92142,
+      "seconds": 47320.07
     },
     {
       "id": "lv195",
       "node": "dawn-glass-ridge",
       "level": 195,
-      "exp": 8870619798,
-      "kills": 103378,
-      "seconds": 57051.07
+      "exp": 8872153252,
+      "kills": 103365,
+      "seconds": 57160.2
     },
     {
       "id": "lv200",
       "node": "dawn-glass-divide",
       "level": 200,
-      "exp": 11462599252,
-      "kills": 114597,
-      "seconds": 66898.58
+      "exp": 11462341306,
+      "kills": 114560,
+      "seconds": 66994.97
     },
     {
       "id": "lv200-post-cap",
       "node": "white-pass-station",
       "level": 200,
-      "exp": 11501386375,
-      "kills": 114854,
-      "seconds": 67029.58
+      "exp": 11496070616,
+      "kills": 114805,
+      "seconds": 67123.2
     }
   ],
   "equipment": [
@@ -179,7 +179,7 @@
       "oldMain": 5265,
       "newMain": 30994,
       "itemLv": 179,
-      "item": 376
+      "item": 377
     },
     {
       "level": 160,
@@ -188,7 +188,7 @@
       "oldMain": 4305,
       "newMain": 24795,
       "itemLv": 179,
-      "item": 380
+      "item": 381
     },
     {
       "level": 160,
@@ -197,7 +197,7 @@
       "oldMain": 1000,
       "newMain": 26077,
       "itemLv": 175,
-      "item": 388
+      "item": 389
     },
     {
       "level": 160,
@@ -206,7 +206,7 @@
       "oldMain": 1000,
       "newMain": 20861,
       "itemLv": 175,
-      "item": 389
+      "item": 390
     },
     {
       "level": 163,
@@ -215,7 +215,7 @@
       "oldMain": 30994,
       "newMain": 32000,
       "itemLv": 180,
-      "item": 394
+      "item": 395
     },
     {
       "level": 163,
@@ -224,7 +224,7 @@
       "oldMain": 24795,
       "newMain": 32000,
       "itemLv": 180,
-      "item": 402
+      "item": 403
     },
     {
       "level": 163,
@@ -233,7 +233,7 @@
       "oldMain": 26077,
       "newMain": 38090,
       "itemLv": 184,
-      "item": 403
+      "item": 404
     },
     {
       "level": 163,
@@ -242,7 +242,7 @@
       "oldMain": 20861,
       "newMain": 26077,
       "itemLv": 175,
-      "item": 388
+      "item": 389
     },
     {
       "level": 163,
@@ -251,7 +251,7 @@
       "oldMain": 26077,
       "newMain": 38090,
       "itemLv": 184,
-      "item": 423
+      "item": 424
     },
     {
       "level": 166,
@@ -260,7 +260,7 @@
       "oldMain": 32000,
       "newMain": 36287,
       "itemLv": 184,
-      "item": 461
+      "item": 462
     },
     {
       "level": 166,
@@ -269,7 +269,7 @@
       "oldMain": 36287,
       "newMain": 37446,
       "itemLv": 185,
-      "item": 473
+      "item": 474
     },
     {
       "level": 166,
@@ -278,7 +278,7 @@
       "oldMain": 32000,
       "newMain": 36287,
       "itemLv": 184,
-      "item": 461
+      "item": 462
     },
     {
       "level": 166,
@@ -287,7 +287,7 @@
       "oldMain": 38090,
       "newMain": 43902,
       "itemLv": 189,
-      "item": 467
+      "item": 468
     },
     {
       "level": 167,
@@ -296,7 +296,7 @@
       "oldMain": 37446,
       "newMain": 42462,
       "itemLv": 189,
-      "item": 487
+      "item": 488
     },
     {
       "level": 167,
@@ -305,7 +305,7 @@
       "oldMain": 36287,
       "newMain": 37446,
       "itemLv": 185,
-      "item": 473
+      "item": 474
     },
     {
       "level": 167,
@@ -314,7 +314,7 @@
       "oldMain": 38090,
       "newMain": 39187,
       "itemLv": 185,
-      "item": 503
+      "item": 504
     },
     {
       "level": 169,
@@ -323,7 +323,7 @@
       "oldMain": 39187,
       "newMain": 43902,
       "itemLv": 189,
-      "item": 530
+      "item": 531
     },
     {
       "level": 170,
@@ -332,7 +332,7 @@
       "oldMain": 43902,
       "newMain": 47806,
       "itemLv": 192,
-      "item": 552
+      "item": 553
     },
     {
       "level": 172,
@@ -341,7 +341,7 @@
       "oldMain": 42462,
       "newMain": 43818,
       "itemLv": 190,
-      "item": 561
+      "item": 562
     },
     {
       "level": 172,
@@ -350,7 +350,7 @@
       "oldMain": 37446,
       "newMain": 42462,
       "itemLv": 189,
-      "item": 487
+      "item": 488
     },
     {
       "level": 172,
@@ -359,7 +359,7 @@
       "oldMain": 42462,
       "newMain": 43818,
       "itemLv": 190,
-      "item": 575
+      "item": 576
     },
     {
       "level": 172,
@@ -368,7 +368,7 @@
       "oldMain": 47806,
       "newMain": 50600,
       "itemLv": 194,
-      "item": 570
+      "item": 571
     },
     {
       "level": 172,
@@ -377,7 +377,7 @@
       "oldMain": 43902,
       "newMain": 47806,
       "itemLv": 192,
-      "item": 552
+      "item": 553
     },
     {
       "level": 174,
@@ -386,7 +386,7 @@
       "oldMain": 43818,
       "newMain": 49688,
       "itemLv": 194,
-      "item": 604
+      "item": 605
     },
     {
       "level": 174,
@@ -395,7 +395,7 @@
       "oldMain": 47806,
       "newMain": 50600,
       "itemLv": 194,
-      "item": 595
+      "item": 596
     },
     {
       "level": 176,
@@ -404,7 +404,7 @@
       "oldMain": 49688,
       "newMain": 58144,
       "itemLv": 199,
-      "item": 612
+      "item": 613
     },
     {
       "level": 176,
@@ -413,7 +413,7 @@
       "oldMain": 43818,
       "newMain": 54601,
       "itemLv": 197,
-      "item": 613
+      "item": 614
     },
     {
       "level": 176,
@@ -422,7 +422,7 @@
       "oldMain": 50600,
       "newMain": 52057,
       "itemLv": 195,
-      "item": 618
+      "item": 619
     },
     {
       "level": 177,
@@ -431,7 +431,7 @@
       "oldMain": 50600,
       "newMain": 52057,
       "itemLv": 195,
-      "item": 636
+      "item": 637
     },
     {
       "level": 177,
@@ -440,7 +440,7 @@
       "oldMain": 54601,
       "newMain": 58144,
       "itemLv": 199,
-      "item": 652
+      "item": 653
     },
     {
       "level": 180,
@@ -449,7 +449,7 @@
       "oldMain": 58144,
       "newMain": 66977,
       "itemLv": 204,
-      "item": 701
+      "item": 702
     },
     {
       "level": 180,
@@ -458,7 +458,7 @@
       "oldMain": 58144,
       "newMain": 60000,
       "itemLv": 200,
-      "item": 706
+      "item": 707
     },
     {
       "level": 180,
@@ -467,7 +467,7 @@
       "oldMain": 52057,
       "newMain": 63393,
       "itemLv": 202,
-      "item": 693
+      "item": 694
     },
     {
       "level": 180,
@@ -476,7 +476,7 @@
       "oldMain": 52057,
       "newMain": 53557,
       "itemLv": 196,
-      "item": 697
+      "item": 698
     },
     {
       "level": 181,
@@ -485,7 +485,7 @@
       "oldMain": 53557,
       "newMain": 53582,
       "itemLv": 204,
-      "item": 713
+      "item": 714
     },
     {
       "level": 181,
@@ -494,7 +494,7 @@
       "oldMain": 66977,
       "newMain": 70765,
       "itemLv": 206,
-      "item": 731
+      "item": 732
     },
     {
       "level": 181,
@@ -503,7 +503,7 @@
       "oldMain": 60000,
       "newMain": 66977,
       "itemLv": 204,
-      "item": 701
+      "item": 702
     },
     {
       "level": 181,
@@ -512,7 +512,7 @@
       "oldMain": 53582,
       "newMain": 60000,
       "itemLv": 200,
-      "item": 722
+      "item": 723
     },
     {
       "level": 182,
@@ -521,7 +521,7 @@
       "oldMain": 60000,
       "newMain": 63393,
       "itemLv": 202,
-      "item": 739
+      "item": 740
     },
     {
       "level": 182,
@@ -530,7 +530,7 @@
       "oldMain": 63393,
       "newMain": 66977,
       "itemLv": 204,
-      "item": 745
+      "item": 746
     },
     {
       "level": 185,
@@ -539,7 +539,7 @@
       "oldMain": 63393,
       "newMain": 66977,
       "itemLv": 204,
-      "item": 788
+      "item": 789
     },
     {
       "level": 186,
@@ -548,7 +548,7 @@
       "oldMain": 66977,
       "newMain": 68845,
       "itemLv": 205,
-      "item": 816
+      "item": 817
     },
     {
       "level": 186,
@@ -557,7 +557,7 @@
       "oldMain": 70765,
       "newMain": 72738,
       "itemLv": 207,
-      "item": 831
+      "item": 832
     },
     {
       "level": 186,
@@ -566,7 +566,7 @@
       "oldMain": 68845,
       "newMain": 72738,
       "itemLv": 207,
-      "item": 825
+      "item": 826
     },
     {
       "level": 187,
@@ -575,25 +575,16 @@
       "oldMain": 66977,
       "newMain": 76851,
       "itemLv": 209,
-      "item": 834
+      "item": 835
     },
     {
       "level": 187,
       "slot": 2,
       "actor": 2,
       "oldMain": 66977,
-      "newMain": 68845,
-      "itemLv": 205,
-      "item": 841
-    },
-    {
-      "level": 187,
-      "slot": 2,
-      "actor": 2,
-      "oldMain": 68845,
       "newMain": 72738,
       "itemLv": 207,
-      "item": 844
+      "item": 845
     },
     {
       "level": 189,
@@ -602,7 +593,7 @@
       "oldMain": 72738,
       "newMain": 76851,
       "itemLv": 209,
-      "item": 859
+      "item": 860
     },
     {
       "level": 190,
@@ -611,7 +602,7 @@
       "oldMain": 72738,
       "newMain": 74533,
       "itemLv": 216,
-      "item": 905
+      "item": 906
     },
     {
       "level": 190,
@@ -620,7 +611,7 @@
       "oldMain": 76851,
       "newMain": 88180,
       "itemLv": 214,
-      "item": 901
+      "item": 902
     },
     {
       "level": 191,
@@ -629,7 +620,7 @@
       "oldMain": 74533,
       "newMain": 78994,
       "itemLv": 210,
-      "item": 910
+      "item": 911
     },
     {
       "level": 191,
@@ -638,7 +629,7 @@
       "oldMain": 72738,
       "newMain": 74533,
       "itemLv": 216,
-      "item": 905
+      "item": 906
     },
     {
       "level": 191,
@@ -647,7 +638,7 @@
       "oldMain": 76851,
       "newMain": 78994,
       "itemLv": 210,
-      "item": 912
+      "item": 913
     },
     {
       "level": 191,
@@ -656,7 +647,7 @@
       "oldMain": 78994,
       "newMain": 88180,
       "itemLv": 214,
-      "item": 927
+      "item": 928
     },
     {
       "level": 191,
@@ -665,7 +656,7 @@
       "oldMain": 74533,
       "newMain": 78994,
       "itemLv": 210,
-      "item": 910
+      "item": 911
     },
     {
       "level": 192,
@@ -674,7 +665,7 @@
       "oldMain": 78994,
       "newMain": 83460,
       "itemLv": 212,
-      "item": 938
+      "item": 939
     },
     {
       "level": 196,
@@ -683,7 +674,7 @@
       "oldMain": 88180,
       "newMain": 104000,
       "itemLv": 220,
-      "item": 1014
+      "item": 1015
     },
     {
       "level": 196,
@@ -692,7 +683,7 @@
       "oldMain": 83460,
       "newMain": 88180,
       "itemLv": 214,
-      "item": 927
+      "item": 928
     },
     {
       "level": 196,
@@ -701,7 +692,7 @@
       "oldMain": 78994,
       "newMain": 81196,
       "itemLv": 211,
-      "item": 1023
+      "item": 1024
     },
     {
       "level": 197,
@@ -710,7 +701,7 @@
       "oldMain": 88180,
       "newMain": 90639,
       "itemLv": 215,
-      "item": 1034
+      "item": 1035
     },
     {
       "level": 197,
@@ -719,7 +710,7 @@
       "oldMain": 81196,
       "newMain": 88180,
       "itemLv": 214,
-      "item": 901
+      "item": 902
     },
     {
       "level": 197,
@@ -728,7 +719,7 @@
       "oldMain": 88180,
       "newMain": 90639,
       "itemLv": 215,
-      "item": 1052
+      "item": 1053
     },
     {
       "level": 198,
@@ -737,7 +728,7 @@
       "oldMain": 88180,
       "newMain": 95764,
       "itemLv": 217,
-      "item": 1064
+      "item": 1065
     },
     {
       "level": 198,
@@ -746,7 +737,7 @@
       "oldMain": 90639,
       "newMain": 95764,
       "itemLv": 217,
-      "item": 1068
+      "item": 1069
     },
     {
       "level": 199,
@@ -755,7 +746,7 @@
       "oldMain": 95764,
       "newMain": 101179,
       "itemLv": 219,
-      "item": 1086
+      "item": 1087
     },
     {
       "level": 199,
@@ -764,17 +755,17 @@
       "oldMain": 90639,
       "newMain": 95764,
       "itemLv": 217,
-      "item": 1068
+      "item": 1069
     }
   ],
   "rests": 0,
   "inventoryStops": 28,
   "method": "Earned Lv160 checkpoint from Lv1. Normal travel, optional growth quests, field skills, and auto battle.",
-  "sourceSha256": "ac14a188ee1903de4d09e97823cbe6c211b7113c5aaf1325ddb7245a8fc74f27",
+  "sourceSha256": "5aa8f44ed47b6e3e7b46d6a511408170865fd435a30be09aaa40aa3d4520336d",
   "startingLevel": 160,
   "endLevel": 200,
-  "totalExp": 11501386375,
-  "kills": 75180,
+  "totalExp": 11496070616,
+  "kills": 75148,
   "partyWipes": 0,
   "growthQuests": [
     "growth-light-release",
@@ -785,10 +776,10 @@
   ],
   "cap": {
     "node": "dawn-crystal-field",
-    "kills": 72,
-    "extraExp": 21338352,
+    "kills": 62,
+    "extraExp": 18374692,
     "seconds": 60.0,
-    "overflow": 39051145,
+    "overflow": 33735386,
     "restored": true
   }
 }

@@ -14,7 +14,7 @@ for number, level, scenery in fields:
 state = start(84, [], hub)
 core.enterStoryNode(state, 'branch-hunt-64842')
 gunners = [enemy for enemy in state.enemies.values() if enemy.art == 'fatui-skirmisher-cryogunner']
-assert len(gunners) == 32
+assert len(gunners) == 24
 gunner = gunners[0]
 for actor in state.actors.values():
     actor.hp = 0

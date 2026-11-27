@@ -2,7 +2,7 @@
 from tools.domain_terrain_test import check_field, nodes, write, write_fixture
 
 routes = [
-    ('chasm-border', 'liyue-harbor', 24907, 'liyue-wp-24909', 38, 'chasmQuarryLedge', 2300, 48),
+    ('chasm-border', 'liyue-harbor', 24907, 'liyue-wp-24909', 38, 'chasmQuarryLedge', 2300, 36),
     ('nostoi-border', 'fontaine-hub', 68346, 'fon-wp-68341', 99, 'nostoiIslandPier', 650, 32),
     ('summit-border', 'mond-town', 7164, 'mond-wp-6609', 60, 'spineSummitSteps', 650, 36),
 ]

@@ -5,7 +5,7 @@ hub = 'sumeru-hub'
 routes = [
     (28751, 28749, 650, 'sumFungalGrove', 'sumSporeHollow'),
     (28754, 28729, 2380, 'sumFieldStation', 'sumServiceBay'),
-    (28755, 28726, 2380, 'sumMossGate', 'sumSentinelCourt'),
+    (28755, 28721, 2380, 'sumMossGate', 'sumSentinelCourt'),
     (28757, 28717, 2380, 'sumFernRavine', 'sumCanopyHangar'),
 ]
 write_fixture('sumeru-forest-terrain', 80, hub, [f'sum-wp-{host}' for _, host, *_ in routes])

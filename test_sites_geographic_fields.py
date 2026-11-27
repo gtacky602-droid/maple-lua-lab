@@ -6,6 +6,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from test_hunt_density import peak_view
 from tools.waypoint_test import TrailWalk
 
 
@@ -26,8 +27,11 @@ atlas = read('content/world-atlas.json')
 positions = {p['id']:p for region in atlas['regions'] for p in region['points']}
 pending = {p['field'] for region in atlas['regions'] for p in region['points'] if p.get('entrancePending')}
 confirmed = {row['field'] for row in read('design/world/atlas-route-plan.json')['confirmed_entrance_exteriors']}
-snapshot = read('design/world/editor-snapshot.json')['data']
+reviewed_snapshot = read('design/world/editor-snapshot.json')
+snapshot = reviewed_snapshot['data']
 source = {edge['id']:edge for edge in snapshot['edges']}
+retired = {op['id']:op['before'] for adoption in reviewed_snapshot['history']
+           for op in adoption['operations'] if op['type']=='edge_delete'}
 review = read('sources/map-research/sites-geographic-fields.json')
 routes = {row['field']:row for row in review['routes']}
 specs = {f['field_id']:f for path in (ROOT/'design/world/placements').glob('*.json')
@@ -35,6 +39,17 @@ specs = {f['field_id']:f for path in (ROOT/'design/world/placements').glob('*.js
 assert len(routes)==71 and pending.isdisjoint(confirmed) and set(review['held'])==pending | confirmed
 assert {f['id'] for f in snapshot['fields'] if f['role']=='hold'} >= pending | confirmed
 assert not {node.get('mapPoint') for node in nodes.values()} & routes.keys()
+guardian_art = {
+    'sites-hunt-7111-pocket-2-guardian': 'hilichurl',
+    'sites-hunt-12791-pocket-2-guardian': 'fanged-beast',
+}
+reviewed_approaches = {
+    'sites-hunt-7190': 'liyue-wp-100',
+    'sites-hunt-28755': 'sum-wp-28721',
+    'sites-hunt-36704': 'sum-wp-41823',
+    'sites-hunt-88122': 'nod-wp-88140',
+    'sites-hunt-100707': 'snezhnaya-field',
+}
 
 lua, core = runtime()
 batch = lua.eval('function(C,s,n) for _=1,n do C.step(s,1/60,{}) end end')
@@ -61,7 +76,7 @@ def verify_spawn(stage, expected):
         p=nodes[stage]['platforms'][e['platform']]
         assert p['x']+24 <= e['x'] <= p['x']+p['w']-24
         assert e['level']==row['level'] and e['respawnSeconds']==row['respawn_seconds']
-        assert e['art']==review['art_proxies'][row['family']]
+        assert e['art']==guardian_art.get(e['id'],review['art_proxies'][row['family']])
         assert e['dailyExclude'] is not row['counts_for_daily_kill']
     return len(data)
 
@@ -70,12 +85,18 @@ crossings=set()
 counts=Counter()
 blocked=ordinary=pockets=0
 for field, row in routes.items():
-    stage, host = row['stage'], row['approach']
-    src=source[row['source_edge']]
+    stage, original_host = row['stage'], row['approach']
+    host = reviewed_approaches.get(stage, original_host)
+    source_edge = row['source_edge']
+    if host == original_host:
+        src = source[source_edge]
+    else:
+        src = retired[source_edge]
+        assert (original_host,stage) not in gates and gates[host,stage]['studioRoute'] in source
     assert {src['a'],src['b']}=={field,row['anchor_field']}
-    assert nodes[host]['mapPoint']==row['anchor_field'] and nodes[stage]['designField']==field
+    assert nodes[original_host]['mapPoint']==row['anchor_field'] and nodes[stage]['designField']==field
     spur_exits=[host,*row['pockets']]
-    assert [edge['to'] for edge in exits[stage] if edge['to'] in spur_exits]==spur_exits
+    assert {edge['to'] for edge in exits[stage]} >= set(spur_exits)
     assert row['recommended']==specs[field]['level'] and row['access']==max(row['recommended'],nodes[host]['level'])
     p=positions[stage]
     assert p['provisional'] and p['recommended']==row['recommended']
@@ -86,7 +107,7 @@ for field, row in routes.items():
     for e in spawns[stage]:
         width=nodes[stage]['width']
         assert .18*width <= e['x'] <= .82*width
-    assert max(Counter(e['x']//960 for e in spawns[stage]).values())<=16
+    assert peak_view((e['x'] for e in spawns[stage]), width)[0] <= 20
     ordinary+=verify_spawn(stage,specs[field]['regular_spawns'])
     assert len(row['pockets'])==len(specs[field]['optional_pockets'])
 

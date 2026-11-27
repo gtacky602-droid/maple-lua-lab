@@ -4,7 +4,7 @@ from tools.domain_terrain_test import check_field, core, nodes, read, start, wri
 hub = 'nod-town'
 routes = [
     (88121, 'nod-wp-88133', 'nodHiisiBridge', 2230),
-    (88122, 'nod-wp-88144', 'nodLempoTerrace', 2230),
+    (88122, 'nod-wp-88140', 'nodLempoTerrace', 2230),
     (88123, 'nod-wp-88129', 'nodPahaShore', 610),
     (92859, 'nod-wp-92885', 'nodNorthPass', 2230),
     (92860, 'nod-wp-92892', 'nodFaultGate', 610),
@@ -14,7 +14,7 @@ write_fixture('nod-islands-terrain', 140, hub, hosts)
 report = {}
 for num, host, scenery, x in routes:
     stage = f'sites-hunt-{num}'
-    report[stage] = check_field(stage, host, hub, 140, scenery, x, population_count=3 if num==92860 else 48)
+    report[stage] = check_field(stage, host, hub, 140, scenery, x, population_count=3 if num==92860 else 36)
 fields = {n['id']:n['scenery'] for n in nodes.values() if n['region']=='ナド・クライ' and n['id'].startswith('sites-hunt-')}
 assert fields == {r['node']:r['key'] for r in read('assets/nod-islands-background-generation.json')['scenes']}
 assert nodes['sites-hunt-92860']['atlasLayer']=='below'

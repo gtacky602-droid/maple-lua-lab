@@ -358,7 +358,7 @@ for stage, threshold in [(scree, 38), (upper, 40)]:
         trail.cross(wharf)
         trail.cross(stage)
         population = len(state.enemies)
-        assert population == (36 if stage == scree else 48)
+        assert population == 36
         assert all(e.expRole == 'normal' for e in state.enemies.values())
         old_kills, old_exp, old_time = state.kills, state.progression.killXp, state.t
         near(455)
