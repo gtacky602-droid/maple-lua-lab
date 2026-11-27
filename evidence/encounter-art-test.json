@@ -1,10 +1,11 @@
 {
-  "rows": 70,
-  "rowsWithArt": 70,
-  "artLinks": 77,
+  "rows": 87,
+  "rowsWithArt": 87,
+  "artLinks": 107,
   "bossPopupsVerified": 6,
   "characterPopupsVerified": 2,
   "mobilePanelOverflow": false,
   "catalogFailuresPreserveOtherLinksAndLaunch": true,
+  "exactArtAndEditableSearch": true,
   "errors": []
 }

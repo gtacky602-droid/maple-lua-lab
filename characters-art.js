@@ -138,7 +138,8 @@ try{
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
   const kind=document.documentElement.dataset.gallery==='bosses'?'boss':'character';
-  const filtered=Boolean(new URL(location.href).searchParams.get('q')?.trim());
+  const params=new URL(location.href).searchParams;
+  const filtered=Boolean(params.get('id')?.trim()||params.get('q')?.trim());
   const [packed,{items}]=await Promise.all([json(filtered?'assets/placement-pose-index.json':'assets/'+kind+'-gallery-packed.json'),json('content/'+catalog)]);
   if(filtered)poseStore=galleryPoses(packed,kind);
   if(shoukiOpening)shoukiOpening.data=filtered?packed['weekly/'+shoukiOpening.file]:await json('assets/weekly-packed/'+shoukiOpening.file);
@@ -153,13 +154,16 @@ try{
  const result=document.createElement('p');result.id='searchResults';result.setAttribute('role','status');
  searchControls.append(searchLabel,clear,result);$('cards').before(searchControls);
  const normalize=s=>s.normalize('NFKC').toLocaleLowerCase('ja');
- search.oninput=render;clear.onclick=()=>{search.value='';render();search.focus()};
+ search.oninput=()=>render(true);
+ clear.onclick=()=>{search.value='';render(true);search.focus()};
  const updateUrl=setupGalleryUrl({search,render});
  let renderVersion=0;
- function render(){
+ function render(editingSearch=false){
   const version=++renderVersion,pending=[],missing=new Set();
   updateArenaLinks?.();const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
-  updateUrl();const dimensions=[];
+  updateUrl(editingSearch===true);
+  const exactId=new URL(location.href).searchParams.get('id');
+  const filtered=Boolean(exactId||terms.length),dimensions=[];
   for(const {id,name,right,left,article,h:sheetHeight,rear,detail} of assets){
    const form=id==='shouki'?$('shoukiForm').value:null;
    const arena=form&&form!=='candidate'?shoukiOpening:null;
@@ -170,7 +174,7 @@ try{
    const {data}=arena??(flip&&left?left:right);
    const h=arena?.artHeight??sheetHeight,ratio=data.box[2]/data.box[3],w=h*ratio;
    dimensions.push({id,h,w,ratio,source:data.source??data.sourceImage,...(rear&&{rearSource:rear.data.source??rear.data.sourceImage})});
-   article.hidden=!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;
+   article.hidden=exactId?id!==exactId:!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;
    const save=article.querySelector('.save-comparison');
    if(save)save.disabled=true;
    const both=$('compareBoth')?.checked;
@@ -249,8 +253,8 @@ try{
    }
   }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:!missing.size&&!pending.length,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
   if(missing.size||pending.length){
-   if(!terms.length&&[...missing].some(pose=>pose!==shoukiOpening?.data))pending.push(poseStore.all());
-   for(const pose of missing)if(terms.length||pose===shoukiOpening?.data)pending.push(poseStore.load(pose));
+   if(!filtered&&[...missing].some(pose=>pose!==shoukiOpening?.data))pending.push(poseStore.all());
+   for(const pose of missing)if(filtered||pose===shoukiOpening?.data)pending.push(poseStore.load(pose));
    Promise.all(pending).then(()=>{
     if(version!==renderVersion)return;
     if(missing.size)render();else window.charactersGallery.ready=true;
