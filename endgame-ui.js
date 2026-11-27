@@ -48,6 +48,38 @@ export function primalTrialText(primal){
  return parts.join(' ｜ ');
 }
 
+export function falseMoonEncounterText(v){
+ const votes=v.vote?` ｜ 同意 ${v.vote.count} / ${v.vote.required}`:'';
+ const r=v.rule;
+ if(r){
+  const law=r.kind==='away'?`博士に背を向ける（${r.away==='left'?'左':'右'}向き）`:'移動・回避・ジャンプを止める';
+  if(v.tick<420)return `${r.state==='rule'?'判定中':'準備'} ｜ ${law} ｜ ${Math.ceil(r.remaining/60)}秒${r.violated?' ｜ 違反':''}`;
+  return r.violated?'判定終了 ｜ 罰の予告から離れる':'禁令をクリア';
+ }
+ if(v.card==='WM08'){
+  if(v.wardResult){
+   if(v.wardResult.protected)return '柱で衝撃を防いだ';
+   return v.wardResult.damage?`衝撃が命中 ｜ ${v.wardResult.damage}ダメージ`:'衝撃の被ダメージなし';
+  }
+  return v.cover?'保護範囲の内側':'柱の青い枠の中へ';
+ }
+ if(v.confirm)return `異界へ移るまで ${(v.confirm/60).toFixed(1)}秒${votes}`;
+ if(v.card==='WM13'){
+  if(v.riftRemaining===undefined)return '盤面中央に裂け目が開く';
+  if(!v.riftRemaining)return '裂け目の受付終了';
+  return `中央の裂け目で入場を確認 ｜ 残り ${Math.ceil(v.riftRemaining/60)}秒${votes}`;
+ }
+ if(v.card==='WM14')return '異界へ移動中'+votes;
+ if(v.card==='WM15')return `倒した擬影 ${v.pendingDamage} / 3 ｜ 残り ${v.seconds}秒 ｜ 右端から帰還可${votes}`;
+ if(v.card==='WM16'){
+  const loss=v.returnLoss>0?`博士に${v.returnLoss}ダメージ`:v.returnLoss===0?'擬影による損傷なし':'';
+  const phase=v.exposure?`反撃できる時間 ${(v.exposure/60).toFixed(1)}秒`:
+   v.exposureEnded?'反撃終了':v.scene==='outer'?'外界へ帰還':'外界へ帰還中';
+  return [loss,phase].filter(Boolean).join(' ｜ ');
+ }
+ return '';
+}
+
 export function initEndgameUI(action){
  const renderArtifactDomain=initArtifactDomainUI(action);
  const get=id=>document.getElementById(id);

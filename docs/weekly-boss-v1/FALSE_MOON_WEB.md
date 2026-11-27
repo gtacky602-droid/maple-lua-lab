@@ -11,6 +11,16 @@
 
 ## ドット絵と検証
 
+同じ獲得済みLv200セーブから、最上級の最初の裂け目を3通りで試した。柱の青い枠に当たり範囲全体が入っていると衝撃を防ぎ、外では旅人に106ダメージが入る。HUDにその結果と、裂け目で入場確認を始められる残り時間が出る。
+
+| 最初の裂け目での行動 | 博士への帰還ダメージ | 帰還後の反撃時間 |
+| --- | ---: | ---: |
+| 擬影を3体倒す | 408 | 6秒 |
+| 擬影を1体倒し、右端でHを押して帰還 | 136 | 6秒 |
+| 受付終了まで外界に留まる | 0 | 0秒 |
+
+3戦とも通常入力で討伐し、周回報酬と再読込後の勝数を照合した。再現には同戦勝利済みのLv200セーブを用意し、`test_earned_false_moon.py --from-save SAVE.json --output-dir work/false-moon-replay` を実行する。ラボを起動し、`node test_earned_weekly_frames.mjs work/false-moon-replay work/false-moon-comparison` で元絵・中間・軽量を並べる。17場面の描画命令は、同じ画質で圧縮前後を照合すると全34組の位置・寸法・色・順序が一致した。 [最上級再戦と計測](../../evidence/false-moon-ward-rift-20261128.json)
+
 本体は約3.15頭身のラボ用スプライト。先行素材の意匠を読み直し、青い腕、赤いレンズ、金の杖で遠目でも識別しやすくした。大きな月輪と三つの月具はLuaで別描画し、擬影は透過と印で区別する。外界と異界の背景は仮画像。本番の背景は3Dで用意する方針。 [生成と圧縮](../../assets/false-moon-weekly-generation-v1.json)・[先行素材の参照記録](../../evidence/doctor-false-moon-reference-audit.json)
 
 Pで一時停止し、画像・標準矩形・軽量を切り替える。異界で三体を表示する同じ場面は、標準の15,711件から軽量4,281件へ描画コマンドが72.8%減った。軽量では髪と杖の細部が簡略化され、擬影を区別する月具の印が残る。 [画像](../../evidence/false-moon-weekly-png.png)・[標準](../../evidence/false-moon-weekly-standard.png)・[軽量](../../evidence/false-moon-weekly-light.png)

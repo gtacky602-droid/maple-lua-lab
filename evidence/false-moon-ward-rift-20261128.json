@@ -1,0 +1,349 @@
+{
+  "baseCommit": "fea098c69eff598ae349de7f01a1824d7ca73bb2",
+  "routeSetup": "Three copies of the same earned Lv200 save on expert. Normal inputs after starting at the regular weekly desk. The early-return pilot uses the exit after one shadow kill. The no-entry pilot waits for the first entrance to close.",
+  "beforeAfterCombatTraceIdentical": true,
+  "fights": [
+    {
+      "controller": "false_moon",
+      "case": "false-moon-full",
+      "label": "擬影を3体倒して帰還",
+      "ticks": 7202,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "ward": {
+        "tick": 1022,
+        "moveTick": 360,
+        "x": 169.0,
+        "hpLoss": 0,
+        "event": "false-moon:WM08:ward"
+      },
+      "scenes": [
+        {
+          "tick": 1467,
+          "node": "nod-false-moon-rift",
+          "epoch": 1
+        },
+        {
+          "tick": 2832,
+          "node": "nod-false-moon-court",
+          "epoch": 2
+        }
+      ],
+      "pulses": [
+        {
+          "moveTick": 180,
+          "loss": 28
+        }
+      ],
+      "settlement": {
+        "tick": 2838,
+        "defeated": 3,
+        "bossHpBefore": 3400,
+        "bossHpAfter": 2992,
+        "loss": 408
+      },
+      "missedRift": null,
+      "exposureTicks": 360,
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "false_moon",
+      "case": "false-moon-early",
+      "label": "擬影を1体倒して早期帰還",
+      "ticks": 7453,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "ward": {
+        "tick": 1022,
+        "moveTick": 360,
+        "x": 323.0,
+        "hpLoss": 106,
+        "event": "false-moon:WM08:hit"
+      },
+      "scenes": [
+        {
+          "tick": 1467,
+          "node": "nod-false-moon-rift",
+          "epoch": 1
+        },
+        {
+          "tick": 2198,
+          "node": "nod-false-moon-court",
+          "epoch": 2
+        }
+      ],
+      "pulses": [
+        {
+          "moveTick": 180,
+          "loss": 28
+        }
+      ],
+      "settlement": {
+        "tick": 2204,
+        "defeated": 1,
+        "bossHpBefore": 3400,
+        "bossHpAfter": 3264,
+        "loss": 136
+      },
+      "missedRift": null,
+      "exposureTicks": 360,
+      "expertClears": [
+        2,
+        3
+      ]
+    },
+    {
+      "controller": "false_moon",
+      "case": "false-moon-missed",
+      "label": "裂け目を見送る",
+      "ticks": 6988,
+      "sourceSha256": "0c6bceee2f597fa4955d15f5aa3a299eef944a5d5fc7d8dc5edb238093bf6add",
+      "ward": {
+        "tick": 1022,
+        "moveTick": 360,
+        "x": 323.0,
+        "hpLoss": 106,
+        "event": "false-moon:WM08:hit"
+      },
+      "scenes": [],
+      "pulses": [
+        {
+          "moveTick": 180,
+          "loss": 28
+        },
+        {
+          "moveTick": 360,
+          "loss": 28
+        },
+        {
+          "moveTick": 540,
+          "loss": 28
+        },
+        {
+          "moveTick": 720,
+          "loss": 28
+        }
+      ],
+      "settlement": null,
+      "missedRift": {
+        "tick": 2067,
+        "bossHp": 3400,
+        "scene": "nod-false-moon-court"
+      },
+      "exposureTicks": 0,
+      "expertClears": [
+        2,
+        3
+      ]
+    }
+  ],
+  "comparisonScenes": 17,
+  "scenesWithBossOrShadows": 15,
+  "matchedExpandedRectangleStreams": 34,
+  "matchingChromeColorErrorProfiles": 34,
+  "intermediateCloserToPngAtSpriteScenes": 15,
+  "profiles": {
+    "h48c32": {
+      "previousBytes": 6913754,
+      "currentBytes": 1617151,
+      "matchedStreams": 17,
+      "reductionPercent": 76.61
+    },
+    "h32c16": {
+      "previousBytes": 3040222,
+      "currentBytes": 749621,
+      "matchedStreams": 17,
+      "reductionPercent": 75.34
+    }
+  },
+  "chrome": "158.0.8127.38",
+  "browserPackedTransfer": {
+    "boss": "boss-29130201",
+    "profile": "h48c32",
+    "time": 1.2500000000000004,
+    "canvasIdentical": true,
+    "packed": {
+      "gzipBytes": 68320,
+      "draws": 46
+    },
+    "plain": {
+      "gzipBytes": 83381,
+      "draws": 4420
+    }
+  },
+  "luaRegression": {
+    "riftShadowPlacements": [
+      [
+        "boss-29130212",
+        216,
+        480
+      ],
+      [
+        "boss-29130213",
+        480,
+        480
+      ],
+      [
+        "boss-29130214",
+        744,
+        480
+      ]
+    ],
+    "manifest_cards": [
+      "WM01",
+      "WM02",
+      "WM03",
+      "WM04",
+      "WM05",
+      "WM06",
+      "WM07",
+      "WM08",
+      "WM09",
+      "WM10",
+      "WM11",
+      "WM12",
+      "WM13",
+      "WM14",
+      "WM15",
+      "WM16",
+      "WM17",
+      "WM18"
+    ],
+    "rule_window": [
+      120,
+      420
+    ],
+    "old_dash_and_normal_excluded": true,
+    "old_macro_root_excluded_new_root_detected": true,
+    "boundary_420_allows_movement": true,
+    "buffered_old_jump_excluded_fresh_jump_detected": true,
+    "logical_facing_only": true,
+    "owner_only_sentence_after_swap": true,
+    "cover_contains_actor": true,
+    "confirmation_can_cancel": true,
+    "late_confirmation_cannot_cross_deadline": true,
+    "two_real_scenes_and_no_hp_ct_gauge_reset": true,
+    "early_return_only_pays_killed_shadows": true,
+    "settlement_once_and_cap": true,
+    "exposure_ticks": 360,
+    "rewind_heal_once": 340,
+    "lethal_hit_priority": true,
+    "quest_report_restore": true
+  },
+  "coopRegression": {
+    "lua": {
+      "participants": 4,
+      "ownMotionAndFacing": true,
+      "onlyOwnSentenceAfterSwap": true,
+      "individualCover": true,
+      "allLivingVotes": true,
+      "deathRecountsVotes": true,
+      "arrivalBeforeCommitReopensVote": true,
+      "roomCreatedDuringEntryRecountsVotes": true,
+      "earlyReturnRequiresAll": true,
+      "carriesHpCooldownAndGauge": true,
+      "earlyReturnLoss": 272,
+      "exposureTicks": 360,
+      "twoFullReturnsCap": 816,
+      "zeroBudgetStillExposes": true,
+      "lethalSettlementOnce": true,
+      "detachedAttackerNoReward": true,
+      "wipeReturnsToOuter": true
+    },
+    "http": {
+      "participants": 3,
+      "oneRoomAcrossScenes": true,
+      "lateJoinToInner": true,
+      "earlyReturnRequiresAll": true,
+      "ownRewards": true,
+      "personalXp": 2964300,
+      "personalMora": 5500
+    }
+  },
+  "browserClear": {
+    "court": {
+      "key": "falseMoonCourt",
+      "file": "false-moon-court-native-tiers-v1.webp",
+      "state": "ready",
+      "tile": [
+        0,
+        0,
+        512,
+        288
+      ]
+    },
+    "other": {
+      "key": "falseMoonRift",
+      "file": "false-moon-rift-native-tiers-v1.webp",
+      "state": "ready",
+      "tile": [
+        0,
+        0,
+        512,
+        288
+      ]
+    },
+    "stages": [
+      "outer",
+      "entering",
+      "inner",
+      "returning",
+      "outer"
+    ],
+    "atlasEntry": [
+      {
+        "id": "nod-false-moon-court",
+        "from": "nod-town",
+        "approach": "入口のそばにいます",
+        "previewX": 210,
+        "mode": "walk",
+        "name": "偽月の再現戦・外界",
+        "level": 132,
+        "region": "region-07",
+        "label": "徒歩"
+      },
+      {
+        "mode": "battle",
+        "id": "nod-false-moon-rift",
+        "name": "偽月の再現戦・異界",
+        "label": "戦闘中に移動",
+        "region": "region-07",
+        "from": "nod-false-moon-court",
+        "hint": "裂け目の予告後、中央でH。共闘は生存組全員の同意で移動"
+      }
+    ],
+    "atlasReturn": [
+      {
+        "mode": "battle",
+        "id": "nod-false-moon-court",
+        "name": "偽月の再現戦・外界",
+        "label": "戦闘中に帰還",
+        "region": "region-07",
+        "from": "nod-false-moon-rift",
+        "hint": "擬影3体を倒すか、右端の出口でH。共闘で出口を使うときは全員が同意"
+      }
+    ],
+    "walkViolationExactlyOnce": true,
+    "coveredShock": true,
+    "cancelAndConfirm": true,
+    "realShadows": 3,
+    "settlement": 408,
+    "lookAwaySuccess": true,
+    "clearReportRestore": true,
+    "viewport390": true,
+    "commands": {
+      "png": 18,
+      "standard": 15711,
+      "light": 4281
+    },
+    "errors": []
+  },
+  "browserMissed": {
+    "hit": "衝撃が命中 ｜ 106ダメージ",
+    "open": "中央の裂け目で入場を確認 ｜ 残り 12秒",
+    "closed": "裂け目の受付終了",
+    "epoch": 0,
+    "exposure": 0
+  }
+}
