@@ -1,0 +1,403 @@
+{
+  "verifiedAgainst": "09221c36d889f7b7497f07699153cb2a34db3e66",
+  "balance": "standard",
+  "sourceSha256": "c28928477fd4dfa6735b5776821d03d0cee5e00a2b5fe75790288a8984dea207",
+  "outputSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+  "startReports": 235,
+  "completedReports": 265,
+  "currentQuestTotal": 276,
+  "activeHighlandReports": 24,
+  "steps": [
+    {
+      "phase": "branch-expedition",
+      "inputSha256": "c28928477fd4dfa6735b5776821d03d0cee5e00a2b5fe75790288a8984dea207",
+      "outputSha256": "4617ed6cc3779ddcc0c050c869b8bad74ef3288a457e38e77f92c063ea426e46",
+      "reports": 251,
+      "newReports": [
+        "bygone-lit-passage",
+        "bygone-sound-book",
+        "chenyu-loading-landing",
+        "chenyu-tea-with-friends",
+        "enkan-coverless-log",
+        "enkan-shadow-crossing",
+        "novo-equipment-route",
+        "novo-return-report",
+        "ochka-sifter-clear",
+        "ochka-wall-marks",
+        "spine-noon-pattern",
+        "spine-ridge-record",
+        "spine-wind-route",
+        "tunigi-fragment-return",
+        "tunigi-return-design",
+        "tunigi-vent-record"
+      ],
+      "newLegendWins": []
+    },
+    {
+      "phase": "hidden-expedition",
+      "inputSha256": "4617ed6cc3779ddcc0c050c869b8bad74ef3288a457e38e77f92c063ea426e46",
+      "outputSha256": "6c8e794444e88b99147a5e8ea53e547a5490861dfd56cddbae6ac73583648c37",
+      "reports": 253,
+      "newReports": [
+        "golden-trace-shadows",
+        "simulanka-folded-road"
+      ],
+      "newLegendWins": []
+    },
+    {
+      "phase": "quest-legends",
+      "inputSha256": "6c8e794444e88b99147a5e8ea53e547a5490861dfd56cddbae6ac73583648c37",
+      "outputSha256": "94fbd7ce9c1e6313b4a4187fa2b3dcb2816343783af59bd34a6a6990f0863390",
+      "reports": 255,
+      "newReports": [
+        "nod-hiisi-palace-mirrors",
+        "nod-north-landmark-round"
+      ],
+      "newLegendWins": [
+        "legend-fontaine_cineas",
+        "legend-fontaine_deianeira_of_snezhevna",
+        "legend-fontaine_iron_viscount",
+        "legend-fontaine_mageblade_corrouge",
+        "legend-mondstadt_maha_vasudevayaputra",
+        "legend-natlan_balachko",
+        "legend-natlan_cihuacoatl",
+        "legend-natlan_tupayo",
+        "legend-nod_crab_tsar",
+        "legend-nod_raskolnikov",
+        "legend-nod_sigurd",
+        "legend-snez_ancient_ironquill",
+        "legend-snez_bandersnatch",
+        "legend-snez_elder_blighttree",
+        "legend-snez_rowdy_beast_host"
+      ]
+    },
+    {
+      "phase": "puzzle-legends",
+      "inputSha256": "94fbd7ce9c1e6313b4a4187fa2b3dcb2816343783af59bd34a6a6990f0863390",
+      "outputSha256": "331ffaefe4bf2cdb931112806d148b044360bdbf095ac31b2e5e5e078abb343f",
+      "reports": 260,
+      "newReports": [
+        "natlan-sulfurous-resonant-stones",
+        "natlan-toyac-electro-crystals",
+        "natlan-witztli-three-echoes",
+        "ochka-floating-island-spiritway",
+        "sne-snow-sculptor-bouts"
+      ],
+      "newLegendWins": [
+        "legend-natlan_bronzelock",
+        "legend-natlan_cocijo",
+        "legend-natlan_ichcahuipilli",
+        "legend-natlan_tlatzacuilotl",
+        "legend-snez_churin"
+      ]
+    },
+    {
+      "phase": "remaining-legends",
+      "inputSha256": "331ffaefe4bf2cdb931112806d148b044360bdbf095ac31b2e5e5e078abb343f",
+      "outputSha256": "7a37d49c8276fbb345e3ff4a0982e534d1e8807c22bf7d96b193df914ef6050a",
+      "reports": 260,
+      "newReports": [],
+      "newLegendWins": [
+        "legend-fontaine_automated_supercomputing_field_generator",
+        "legend-fontaine_chassanion",
+        "legend-fontaine_dobharcu_lord_of_the_hidden",
+        "legend-fontaine_fading_veteran",
+        "legend-fontaine_fairy_knight_twins",
+        "legend-fontaine_liam",
+        "legend-fontaine_luachra_the_brilliant",
+        "legend-fontaine_ninianne_of_the_lake",
+        "legend-fontaine_ocean_circuit_judge",
+        "legend-fontaine_rocky_avildsen",
+        "legend-fontaine_swords_of_the_gorge",
+        "legend-fontaine_vivianne_of_the_lake",
+        "legend-fontaine_yseut",
+        "legend-liyue_rulers_of_chizhang_mountains",
+        "legend-mondstadt_churldric",
+        "legend-natlan_atlatl",
+        "legend-natlan_battlegoat_ironclaw",
+        "legend-natlan_chimalli",
+        "legend-natlan_fallen_dawnstar",
+        "legend-natlan_infinitesimal",
+        "legend-natlan_ironbeard",
+        "legend-natlan_last_tenochtzitoc",
+        "legend-natlan_peak",
+        "legend-natlan_polychrome_tristars",
+        "legend-natlan_potapo",
+        "legend-natlan_reji",
+        "legend-natlan_rilai",
+        "legend-natlan_sappho",
+        "legend-natlan_tupu",
+        "legend-natlan_undead",
+        "legend-nod_hexadecatonic_mandragora",
+        "legend-nod_hiljetta",
+        "legend-nod_homesick_lone_wolf",
+        "legend-snez_furiosa"
+      ]
+    },
+    {
+      "phase": "workshop-quests",
+      "inputSha256": "7a37d49c8276fbb345e3ff4a0982e534d1e8807c22bf7d96b193df914ef6050a",
+      "outputSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+      "reports": 265,
+      "newReports": [
+        "liyue-stone-marks",
+        "snow-rail-pressure",
+        "sum-kaveh-model",
+        "sum-nahida-map",
+        "threadline-restore"
+      ],
+      "newLegendWins": []
+    }
+  ],
+  "activeBossCounts": {
+    "field": 63,
+    "legend": 56,
+    "weekly": 16,
+    "stygian": 7
+  },
+  "bossClears": {
+    "field": {
+      "boss-26110101": 1,
+      "boss-26020101": 1,
+      "boss-20040201": 1,
+      "boss-20040101": 1,
+      "boss-26020201": 1,
+      "boss-20040301": 1,
+      "boss-26050101": 1,
+      "boss-20050101": 1,
+      "boss-25090101": 1,
+      "boss-24021101": 1,
+      "boss-20070101": 1,
+      "boss-20040501": 1,
+      "boss-20040601": 1,
+      "boss-20040401": 1,
+      "boss-22060101": 1,
+      "boss-24010401": 1,
+      "bathysmal-herd": 1,
+      "boss-26020301": 1,
+      "boss-24030301": 1,
+      "boss-20040701": 1,
+      "boss-24050101": 1,
+      "boss-26130101": 1,
+      "boss-22100501": 1,
+      "boss-26160302": 1,
+      "boss-26180101": 1,
+      "boss-24080101": 1,
+      "boss-20051201": 1,
+      "icewind-coppelia": 1,
+      "icewind-coppelius": 1,
+      "boss-26140101": 1,
+      "boss-26190101": 1,
+      "boss-26230301": 1,
+      "boss-26220301": 1,
+      "boss-24090201": 1,
+      "boss-22120101": 1,
+      "boss-26270301": 1,
+      "boss-24090501": 1,
+      "boss-24100101": 1,
+      "boss-23090101": 1,
+      "boss-20081001": 1,
+      "boss-22150101": 1,
+      "boss-26301101": 1,
+      "boss-26302101": 1,
+      "boss-25520101": 1,
+      "boss-24111101": 1,
+      "boss-26310501": 1,
+      "boss-25135202": 1,
+      "boss-25140101": 1,
+      "boss-25134601": 1,
+      "original-snow-sweeper": 1,
+      "original-frost-antler": 1,
+      "original-windward-tower": 1,
+      "original-rubble-sifter": 1,
+      "original-ice-crawler": 1,
+      "original-rime-hare": 1,
+      "original-tea-boulder": 1,
+      "original-plate-tail": 1,
+      "original-wind-ring": 1,
+      "original-bellgate": 1,
+      "original-canopy-fungus": 1,
+      "original-grand-finale": 1,
+      "original-river-racer": 1,
+      "original-moon-crab": 1
+    },
+    "legend": {
+      "legend-liyue_rulers_of_chizhang_mountains": 1,
+      "legend-fontaine_cineas": 1,
+      "legend-fontaine_vivianne_of_the_lake": 1,
+      "legend-fontaine_ninianne_of_the_lake": 1,
+      "legend-fontaine_yseut": 1,
+      "legend-fontaine_automated_supercomputing_field_generator": 1,
+      "legend-fontaine_rocky_avildsen": 1,
+      "legend-fontaine_liam": 1,
+      "legend-fontaine_deianeira_of_snezhevna": 1,
+      "legend-fontaine_ocean_circuit_judge": 1,
+      "legend-fontaine_iron_viscount": 1,
+      "legend-fontaine_fairy_knight_twins": 1,
+      "legend-fontaine_swords_of_the_gorge": 1,
+      "legend-fontaine_fading_veteran": 1,
+      "legend-fontaine_dobharcu_lord_of_the_hidden": 1,
+      "legend-fontaine_luachra_the_brilliant": 1,
+      "legend-fontaine_chassanion": 1,
+      "legend-fontaine_mageblade_corrouge": 1,
+      "legend-natlan_sappho": 1,
+      "legend-natlan_polychrome_tristars": 1,
+      "legend-natlan_balachko": 1,
+      "legend-natlan_cocijo": 1,
+      "legend-natlan_undead": 1,
+      "legend-natlan_chimalli": 1,
+      "legend-natlan_tlatzacuilotl": 1,
+      "legend-natlan_ichcahuipilli": 1,
+      "legend-natlan_atlatl": 1,
+      "legend-natlan_cihuacoatl": 1,
+      "legend-natlan_rilai": 1,
+      "legend-natlan_fallen_dawnstar": 1,
+      "legend-natlan_ironbeard": 1,
+      "legend-natlan_potapo": 1,
+      "legend-natlan_tupayo": 1,
+      "legend-natlan_reji": 1,
+      "legend-natlan_tupu": 1,
+      "legend-natlan_peak": 1,
+      "legend-natlan_battlegoat_ironclaw": 1,
+      "legend-natlan_last_tenochtzitoc": 1,
+      "legend-natlan_infinitesimal": 1,
+      "legend-natlan_bronzelock": 1,
+      "legend-nod_sigurd": 1,
+      "legend-nod_crab_tsar": 1,
+      "legend-nod_raskolnikov": 1,
+      "legend-nod_hexadecatonic_mandragora": 1,
+      "legend-nod_hiljetta": 1,
+      "legend-nod_homesick_lone_wolf": 1,
+      "legend-snez_churin": 1,
+      "legend-snez_bandersnatch": 1,
+      "legend-snez_furiosa": 1,
+      "legend-snez_ancient_ironquill": 1,
+      "legend-snez_elder_blighttree": 1,
+      "legend-snez_rowdy_beast_host": 1,
+      "legend-mondstadt_churldric": 1,
+      "legend-mondstadt_maha_vasudevayaputra": 1,
+      "legend-frostmoon_prism_slime": 1,
+      "legend-frostmoon_mushteshir": 1
+    },
+    "weekly": {
+      "boss-29010101": 1,
+      "boss-29020101": 1,
+      "original-tide-surveyor": 1,
+      "original-twin-shuttle-loom": 2,
+      "boss-29030101": 1,
+      "boss-29040101": 1,
+      "boss-29050101": 1,
+      "boss-29060201": 1,
+      "boss-29070101": 1,
+      "boss-29080101": 1,
+      "boss-29090101": 1,
+      "boss-29091001": 1,
+      "boss-29091101": 1,
+      "boss-29122000": 1,
+      "boss-29130201": 1,
+      "boss-29150101": 1
+    },
+    "stygian": {
+      "beidou": 1,
+      "capitano": 1,
+      "xbalanque": 1,
+      "rerir": 1,
+      "ronova": 1,
+      "wanderer": 1,
+      "farka": 1
+    }
+  },
+  "browser": {
+    "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+    "questReports": 265,
+    "total": 276,
+    "mapRouteFollowed": [
+      {
+        "from": "snezhnaya-hub",
+        "id": "snezhnaya-field",
+        "label": "徒歩"
+      },
+      {
+        "from": "snezhnaya-field",
+        "id": "snow-rail-transfer",
+        "label": "徒歩"
+      },
+      {
+        "from": "snow-rail-transfer",
+        "id": "steam-stabling-depot",
+        "label": "徒歩"
+      }
+    ],
+    "checkpointAfterReload": "snezhnaya-hub",
+    "reloadedThreeBossRecords": true,
+    "errors": []
+  },
+  "remaining": [
+    {
+      "id": "mond-return-box-quest",
+      "name": "返却箱の小さな逃亡者",
+      "hub": "mond-town",
+      "requires": "amber-join"
+    },
+    {
+      "id": "mond-night-banner-quest",
+      "name": "断罪の皇女と、夜の大怪鳥",
+      "hub": "mond-town",
+      "requires": "mond-old-trail"
+    },
+    {
+      "id": "ina-window-fireworks",
+      "name": "遠くの人にも、届く一発",
+      "hub": "inazuma-town",
+      "requires": "inazuma-moving-lantern"
+    },
+    {
+      "id": "ina-itto-three-games",
+      "name": "荒瀧天下一・本気の三番勝負！",
+      "hub": "inazuma-town",
+      "requires": "inazuma-torii-maze"
+    },
+    {
+      "id": "sum-fungus-visitors",
+      "name": "観測器に、お客さん？",
+      "hub": "sumeru-hub",
+      "requires": "sumeru-leaf-crossing"
+    },
+    {
+      "id": "natlan-xilonen-springs",
+      "name": "試作品、思い切り使ってみて",
+      "hub": "natlan-hub",
+      "requires": null
+    },
+    {
+      "id": "natlan-iansan-self-test",
+      "name": "昨日の自分に、挑戦状！",
+      "hub": "natlan-hub",
+      "requires": "natlan-two-trials"
+    },
+    {
+      "id": "fon-lyney-magic",
+      "name": "秘密を知っても、驚ける？",
+      "hub": "fontaine-hub",
+      "requires": "fontaine-understage-crew"
+    },
+    {
+      "id": "fon-freminet-dive",
+      "name": "小さな潜航艇の、初めての海",
+      "hub": "fontaine-hub",
+      "requires": "fontaine-moon-parcel"
+    },
+    {
+      "id": "nod-moon-rumor",
+      "name": "月を盗んだ旅人？",
+      "hub": "nod-rumor-quay",
+      "requires": "nod-moon-crossroads"
+    },
+    {
+      "id": "nod-moon-bloom",
+      "name": "花見の席が、埋まっています",
+      "hub": "nod-bloom-gate",
+      "requires": "nod-first-treasure"
+    }
+  ]
+}

@@ -1,17 +1,30 @@
-"""Finish the seven remaining local legends on the continuous standard-balance save."""
+"""Complete the crystal, route and sparring commissions with their local legends."""
+from argparse import ArgumentParser
 import json
-from runtime import ROOT, runtime
-from test_earned_branch_quests import Journey, frostmoon, graph, quests
+from pathlib import Path
 
-seed=ROOT/'evidence/quest-legend-expedition-save.json'
-trip=Journey(seed,runtime(),select_traveler=True)
+from runtime import ROOT, runtime
+from test_earned_branch_quests import frostmoon, graph, quests
+from test_earned_survey_itineraries import SurveyJourney
+
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save', type=Path)
+parser.add_argument('--output-dir', type=Path)
+args = parser.parse_args()
+if bool(args.from_save) != bool(args.output_dir):
+    parser.error('--from-save and --output-dir must be provided together')
+seed = args.from_save.resolve() if args.from_save else ROOT / 'evidence/quest-legend-expedition-save.json'
+directory = args.output_dir or ROOT / 'evidence'
+directory.mkdir(parents=True, exist_ok=True)
+trip = SurveyJourney(seed, runtime(), select_traveler=True)
 nodes={n['id']:n for n in graph['nodes']}
 roster=json.loads((ROOT/'content/field-boss-spawns.json').read_bytes())['fieldBosses']
 legends={b['node']:b for b in roster if b['id'].startswith('legend-')}
 start=trip.snapshot()
 def cleared(save):
     return {b['id'] for b in legends.values() if save['endgame']['bosses'].get(b['id'],{}).get('clears',0)>0}
-assert len(cleared(start))==49
+if not args.from_save:
+    assert len(cleared(start))==49
 
 def accept(q):
     hub=quests[q]['hub']
@@ -96,15 +109,23 @@ for index,step in enumerate(quests[q]['itinerary'],1):
     assert trip.state.story.quests[q].count==index
 finish(q,'sne-churin-snow-court')
 
-frostmoon(trip)
+if not trip.state.story.quests['frost-commander-console-test']:
+    frostmoon(trip)
 trip.restore()
 save=trip.snapshot()
-assert cleared(save)=={b['id'] for b in legends.values()}
+if not args.from_save:
+    assert cleared(save)=={b['id'] for b in legends.values()}
+else:
+    arenas = ('toyac-cocijo-stone-ring', 'night-trial-tlatzacuilotl', 'night-trial-ichcahuipilli',
+              'ochka-bronzelock-island-court', 'sne-churin-snow-court')
+    assert {legends[node]['id'] for node in arenas} <= cleared(save)
 assert all(save['endgame']['bosses'][k]['clears']>=v['clears'] for k,v in start['endgame']['bosses'].items())
 assert all(trip.state.story.quests[r['quest']].status=='complete' for r in trip.reports)
+assert all(save['story']['quests'][key] == record for key, record in start['story']['quests'].items()
+           if record['status']=='complete')
 new=[dict(id=b['id'],node=b['node'],name=b['name']) for b in legends.values() if b['id'] not in cleared(start)]
-route=dict(seed=seed.name,catalog=len(legends),newClears=new,reports=trip.reports,
+route=dict(seed=seed.name,sourceSha256=trip.source,catalog=len(legends),verifiedClears=len(cleared(save)),newClears=new,reports=trip.reports,
            walks=[dict(start=t['start'],path=[s['id'] for s in t['stops']]) for t in trip.itineraries])
 for suffix,data in [('save',save),('route',route)]:
-    (ROOT/f'evidence/all-legends-expedition-{suffix}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())
-print('all 56 verified after reload')
+    (directory/f'all-legends-expedition-{suffix}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())
+print(len(cleared(save)), 'local legend victories verified after reload')

@@ -1,7 +1,11 @@
 """Open local legend arenas through their authored quest itineraries on standard balance."""
+from argparse import ArgumentParser
 import json
+from pathlib import Path
+
 from runtime import ROOT, runtime
-from test_earned_branch_quests import Journey, graph, quests
+from test_earned_branch_quests import graph, quests
+from test_earned_survey_itineraries import SurveyJourney
 def win_arena(quest,hub,node):
     trip.travel(node)
     boss=bosses[node]
@@ -29,8 +33,16 @@ def win_arena(quest,hub,node):
     assert all(trip.state.story.quests[r['quest']].status=='complete' for r in trip.reports)
     print('clear',len(wins),quest,node,flush=True)
 
-seed = ROOT / 'evidence/legend-expedition-save.json'
-trip = Journey(seed, runtime(), select_traveler=True)
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save', type=Path)
+parser.add_argument('--output-dir', type=Path)
+args = parser.parse_args()
+if bool(args.from_save) != bool(args.output_dir):
+    parser.error('--from-save and --output-dir must be provided together')
+seed = args.from_save.resolve() if args.from_save else ROOT / 'evidence/legend-expedition-save.json'
+directory = args.output_dir or ROOT / 'evidence'
+directory.mkdir(parents=True, exist_ok=True)
+trip = SurveyJourney(seed, runtime(), select_traveler=True)
 roster = json.loads((ROOT/'content/field-boss-spawns.json').read_bytes())['fieldBosses']
 bosses = {b['node']: b for b in roster if b['id'].startswith('legend-')}
 routes = {
@@ -48,6 +60,20 @@ routes = {
     'sne-svetloredovka-cavern-check': ['sne-bandersnatch-ice-cavern'],
     'sne-rescue-three-mice': ['sne-ancient-mouse-den'],
 }
+if args.from_save:
+    routes['nod-north-landmark-round'] = []
+
+
+def survey_paths(q):
+    qid = q['id']
+    for path in q['paths']:
+        for step in path['steps']:
+            trip.travel(step['node'])
+            trip.approach(step['x'], step.get('y', 480), qid)
+            trip.act('story_collect')
+        assert trip.state.story.quests[qid].pathProgress[path['id']].count == len(path['steps'])
+
+
 start = trip.snapshot()
 wins = []
 for quest, arenas in routes.items():
@@ -58,12 +84,19 @@ for quest, arenas in routes.items():
     else:
         trip.warp('natlan-hub' if hub=='nat-sky-camp' else 'fontaine-hub')
         trip.travel(hub)
+    if start['story']['quests'].get(quest, {}).get('status') == 'complete':
+        for node in arenas:
+            if not start['endgame']['bosses'].get(bosses[node]['id'], {}).get('clears'):
+                win_arena(quest, hub, node)
+        continue
     trip.act('story_accept:'+quest)
     for index, step in enumerate(q['itinerary'], 1):
         if step['kind']=='arrive':
             if trip.state.story.node!=step['from']:
                 trip.travel(step['from'])
             trip.travel(step['node'])
+        elif step['kind'] == 'paths':
+            survey_paths(q)
         else:
             assert step['kind']=='inspect',step
             if trip.state.story.node!=step['node']:
@@ -80,7 +113,8 @@ for quest, arenas in routes.items():
     trip.warp(hub)
     trip.report(quest)
     for node in arenas:
-        win_arena(quest,hub,node)
+        if not start['endgame']['bosses'].get(bosses[node]['id'], {}).get('clears'):
+            win_arena(quest,hub,node)
 
 node_names = {node['id']:node['name'] for node in graph['nodes']}
 trials = {
@@ -90,6 +124,8 @@ trials = {
 platforms = {n['id']:n.get('platforms',[]) for n in graph['nodes']}
 climbs = {}
 for host,node in trials.items():
+    if start['endgame']['bosses'].get(bosses[node]['id'], {}).get('clears'):
+        continue
     trip.warp('natlan-hub')
     trip.travel(host)
     steps = [p for p in platforms[host] if p.get('raceRock')]
@@ -103,6 +139,11 @@ guides = {key:dict(name=quests[key]['name'],hub=node_names[quests[key]['hub']],g
 for host,heights in climbs.items():
     guides[host]=dict(hub=node_names[host],name='夜魂の試練',giver='',steps=[
         node_names[host]+'へ向かう',str(len(heights))+'段の岩棚を順番に登る','上段の柱に触れて試練へ入る'])
-for name,data in [('save',trip.snapshot()),('route', dict(seed=seed.name,newClears=wins,guides=guides,climbs=climbs,reports=trip.reports,
+trip.restore()
+final = trip.snapshot()
+assert all(final['story']['quests'][qid]['status'] == 'complete' for qid in routes)
+assert all(final['story']['quests'][qid] == record for qid, record in start['story']['quests'].items()
+           if record['status'] == 'complete')
+for name,data in [('save',final),('route', dict(seed=seed.name,sourceSha256=trip.source,newClears=wins,guides=guides,climbs=climbs,reports=trip.reports,
     walks=[dict(start=leg['start'],path=[s['id'] for s in leg['stops']]) for leg in trip.itineraries]))]:
-    (ROOT/f'evidence/quest-legend-expedition-{name}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())
+    (directory/f'quest-legend-expedition-{name}.json').write_bytes((json.dumps(data,ensure_ascii=False,sort_keys=True)+'\n').encode())

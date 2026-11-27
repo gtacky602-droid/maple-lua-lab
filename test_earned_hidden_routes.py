@@ -3,6 +3,7 @@
 import argparse
 from hashlib import sha256
 import json
+from pathlib import Path
 
 from runtime import ROOT, native, runtime
 from savegame import validate_save
@@ -19,13 +20,23 @@ quests = {q['id']: q for q in graph['quests']}
 exits = {n['id']: n['exits'] for n in graph['nodes']}
 edges = {(id, edge['to']): edge for id, gates in exits.items() for edge in gates}
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--after-branches',action='store_true',help='Continue the expedition with all 27 branch reports')
-after_branches=parser.parse_args().after_branches
-lua, core = runtime(draft_balance=not after_branches)
-seed='evidence/branch-expedition-save.json' if after_branches else 'work/cap-fresh-route-draft/lv200-save.json'
-source = (ROOT / seed).read_bytes()
+parser.add_argument('--after-branches', action='store_true', help='Use the archived branch expedition')
+parser.add_argument('--from-save', type=Path)
+parser.add_argument('--output-dir', type=Path)
+args = parser.parse_args()
+if bool(args.from_save) != bool(args.output_dir) or (args.after_branches and args.from_save):
+    parser.error('Use --after-branches or provide both --from-save and --output-dir')
+after_branches = args.after_branches
+lua, core = runtime(draft_balance=not (after_branches or args.from_save))
+seed = args.from_save.resolve() if args.from_save else ROOT / (
+    'evidence/branch-expedition-save.json' if after_branches else 'work/cap-fresh-route-draft/lv200-save.json')
+source = seed.read_bytes()
 saved = validate_save(json.loads(source))
-assert saved['progression']['level'] == 200 and not saved['story']['discovered']
+assert saved['progression']['level'] == 200
+if not args.from_save:
+    assert not saved['story']['discovered']
+else:
+    args.output_dir.mkdir(parents=True, exist_ok=True)
 state = core.restore(lua.table_from(saved, recursive=True), 12)
 assert state.active == 1 and not state.auto
 walk = TrailWalk(lua, core, state, edges, exits)
@@ -68,7 +79,7 @@ def travel(target):
     assert plan['status'] in ('ready', 'here'), (origin, target, plan)
     for leg in plan['stops']:
         assert state.story.node == leg['from']
-        if (leg['from'], leg['id']) in edges:
+        if not leg.get('automaticArrival') and (leg['from'], leg['id']) in edges:
             walk.cross(leg['id'], leg.get('gateX'))
         else:
             voyage = state.voyage
@@ -181,18 +192,25 @@ def optional_fight(parent, arena):
     assert len(legs) == 1 and '戻る' in legs[0]['hint'], legs
 
 
+def completed(quest):
+    return saved['story']['quests'].get(quest, {}).get('status') == 'complete'
+
+
 first = 'golden-little-boat'
-discover('mond-town', 'mond-road', 1050, 'golden', 'hidden-01', 'golden-mainland-coast')
-assert guide('golden-hub')['status'] == 'blocked'
-gate_waits('golden-hub')
-act('story_accept:' + first)
-for i in (1, 2, 3):
-    marker(first, i)
-assert travel('golden-hub')[-1]['mode'] == 'boat'
-for i in (4, 5, 6):
-    marker(first, i)
-assert travel('golden-mainland-coast')[-1]['mode'] == 'boat'
-report(first)
+if not completed(first):
+    discover('mond-town', 'mond-road', 1050, 'golden', 'hidden-01', 'golden-mainland-coast')
+    assert guide('golden-hub')['status'] == 'blocked'
+    gate_waits('golden-hub')
+    act('story_accept:' + first)
+    for i in (1, 2, 3):
+        marker(first, i)
+    assert travel('golden-hub')[-1]['mode'] == 'boat'
+    for i in (4, 5, 6):
+        marker(first, i)
+    assert travel('golden-mainland-coast')[-1]['mode'] == 'boat'
+    report(first)
+else:
+    warp('mond-town')
 travel('golden-hub')
 side = 'golden-trace-shadows'
 act('story_accept:' + side)
@@ -208,57 +226,63 @@ marker(side, 6)
 travel('golden-hub')
 marker(side, 7)
 report(side)
-golden_save='work/earned-branch-expedition/golden.json' if after_branches else 'work/earned-golden-atlas-checkpoint.json'
-(ROOT / golden_save).write_text(
+golden_save = args.output_dir / 'golden.json' if args.output_dir else ROOT / (
+    'work/earned-branch-expedition/golden.json' if after_branches else 'work/earned-golden-atlas-checkpoint.json')
+golden_save.write_text(
     json.dumps(save(), ensure_ascii=False) + '\n', encoding='utf8')
 for part in ('04', '06', '07'):
     optional_fight('sites-gaa-' + part, 'sites-gaa-' + part + '-side-arena')
 travel('mond-town')
 
+warp('sumeru-hub')
 first = 'veluriyam-bottle-ticket'
-discover('sumeru-hub', 'sumeru-entry', 1050, 'veluriyam', 'hidden-02', 'veluriyam-bottle-yard')
-act('story_accept:' + first)
-marker(first, 1)
-marker(first, 2, 3, 'story_airflow_commit')
-travel('veluriyam-hub')
-marker(first, 3)
-marker(first, 4)
-gate_waits('veluriyam-trolley-out')
-travel('veluriyam-bottle-yard')
-report(first)
+if not completed(first):
+    discover('sumeru-hub', 'sumeru-entry', 1050, 'veluriyam', 'hidden-02', 'veluriyam-bottle-yard')
+    act('story_accept:' + first)
+    marker(first, 1)
+    marker(first, 2, 3, 'story_airflow_commit')
+    travel('veluriyam-hub')
+    marker(first, 3)
+    marker(first, 4)
+    gate_waits('veluriyam-trolley-out')
+    travel('veluriyam-bottle-yard')
+    report(first)
 travel('veluriyam-hub')
 side = 'veluriyam-trolley-lookout'
-act('story_accept:' + side)
-legs = travel('veluriyam-petal-stop')
-assert any('途中下車' in leg.get('hint', '') for leg in legs), legs
-gate_waits('veluriyam-petal-lookout')
-marker(side, 1)
-travel('veluriyam-petal-lookout')
-marker(side, 2)
-travel('veluriyam-petal-stop')
-walk.cross('veluriyam-trolley-back')
-travel('veluriyam-hub')
-assert state.story.quests[side].count == 3
-marker(side, 4)
-report(side)
+if not completed(side):
+    act('story_accept:' + side)
+    legs = travel('veluriyam-petal-stop')
+    assert any('途中下車' in leg.get('hint', '') for leg in legs), legs
+    gate_waits('veluriyam-petal-lookout')
+    marker(side, 1)
+    travel('veluriyam-petal-lookout')
+    marker(side, 2)
+    travel('veluriyam-petal-stop')
+    walk.cross('veluriyam-trolley-back')
+    travel('veluriyam-hub')
+    assert state.story.quests[side].count == 3
+    marker(side, 4)
+    report(side)
 travel('sites-vlm-02')
 fight([state.enemies[1].spawnId])
 travel('sumeru-hub')
 
+warp('fontaine-hub')
 first = 'simulanka-open-page'
-discover('fontaine-hub', 'fontaine-hub', 1050, 'simulanka', 'hidden-03', 'simulanka-book-room')
-act('story_accept:' + first)
-marker(first, 1)
-inspect(497)
-inspect(497, action='story_paper_confirm')
-assert state.story.quests[first].count == 2
-walk.approach(623, 480, 'paper bridge')
-jump_to(639, 389)
-travel('simulanka-hub')
-marker(first, 3)
-marker(first, 4)
-travel('simulanka-book-room')
-report(first)
+if not completed(first):
+    discover('fontaine-hub', 'fontaine-hub', 1050, 'simulanka', 'hidden-03', 'simulanka-book-room')
+    act('story_accept:' + first)
+    marker(first, 1)
+    inspect(497)
+    inspect(497, action='story_paper_confirm')
+    assert state.story.quests[first].count == 2
+    walk.approach(623, 480, 'paper bridge')
+    jump_to(639, 389)
+    travel('simulanka-hub')
+    marker(first, 3)
+    marker(first, 4)
+    travel('simulanka-book-room')
+    report(first)
 travel('simulanka-hub')
 side = 'simulanka-folded-road'
 act('story_accept:' + side)
@@ -295,6 +319,18 @@ assert all(restored.story.quests[entry['quest']].status == 'complete' for entry 
 proof = dict(sourceSha256=sha256(source).hexdigest(), level=state.progression.level,
              trips=trips, crossings=len(walk.crossings), reports=reports, battles=battles, locks=locks,
              resumedAt=restored.story.node, returns=state.returns)
+if args.from_save:
+    final = validate_save(native(core.checkpoint(restored)))
+    prior = {qid: record for qid, record in saved['story']['quests'].items() if record['status'] == 'complete'}
+    hidden = {q['id'] for q in quests.values() if q.get('designId', '').startswith('Q-H')}
+    assert all(final['story']['quests'][qid] == record for qid, record in prior.items())
+    assert {row['quest'] for row in reports} == hidden - prior.keys()
+    assert restored.returns == 0
+    for suffix, data in [('save', final), ('route', proof)]:
+        (args.output_dir / f'hidden-expedition-{suffix}.json').write_text(
+            json.dumps(data, ensure_ascii=False, sort_keys=True) + '\n', encoding='utf-8')
+    print('Returned from three hidden worlds:', len(reports), 'new reports,', len(battles), 'battles', flush=True)
+    raise SystemExit(0)
 if after_branches:
     final=validate_save(native(core.checkpoint(restored)))
     completed={id:record for id,record in saved['story']['quests'].items() if record['status']=='complete'}
