@@ -1,0 +1,2150 @@
+{
+  "base": "babfd9014b0071263febbccdb9342abbd75217f8",
+  "registeredHunts": 160,
+  "fields": {
+    "sites-gaa-02": {
+      "name": "ハラハラ島の浜",
+      "region": "金リンゴ群島",
+      "level": 26,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-02-59-0-ordinary": 32,
+        "PLAN8-slot_GAA-02-59-1-ordinary": 16
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-02-59-0-ordinary": 24,
+        "PLAN8-slot_GAA-02-59-1-ordinary": 12
+      }
+    },
+    "sites-gaa-03": {
+      "name": "危機の島の桟橋",
+      "region": "金リンゴ群島",
+      "level": 28,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-03-55-0-ordinary": 28,
+        "PLAN8-slot_GAA-03-56-1-ordinary": 20
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-03-55-0-ordinary": 21,
+        "PLAN8-slot_GAA-03-56-1-ordinary": 15
+      }
+    },
+    "sites-gaa-04": {
+      "name": "危機の島の登り道",
+      "region": "金リンゴ群島",
+      "level": 29,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-04-59-0-ordinary": 32,
+        "PLAN8-slot_GAA-04-59-1-ordinary": 16
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-04-59-0-ordinary": 24,
+        "PLAN8-slot_GAA-04-59-1-ordinary": 12
+      }
+    },
+    "sites-gaa-05": {
+      "name": "プリン島の浜",
+      "region": "金リンゴ群島",
+      "level": 31,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-05-59-0-ordinary": 24,
+        "PLAN8-slot_GAA-05-55-1-ordinary": 24
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-05-59-0-ordinary": 18,
+        "PLAN8-slot_GAA-05-55-1-ordinary": 18
+      }
+    },
+    "sites-gaa-06": {
+      "name": "プリン島の丘",
+      "region": "金リンゴ群島",
+      "level": 32,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-06-56-0-ordinary": 32,
+        "PLAN8-slot_GAA-06-57-1-ordinary": 16
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-06-56-0-ordinary": 24,
+        "PLAN8-slot_GAA-06-57-1-ordinary": 12
+      }
+    },
+    "sites-gaa-07": {
+      "name": "ボロボロ島の浜",
+      "region": "金リンゴ群島",
+      "level": 34,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-07-55-0-ordinary": 24,
+        "PLAN8-slot_GAA-07-56-1-ordinary": 16,
+        "PLAN8-slot_GAA-07-57-2-ordinary": 8
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-07-55-0-ordinary": 18,
+        "PLAN8-slot_GAA-07-56-1-ordinary": 12,
+        "PLAN8-slot_GAA-07-57-2-ordinary": 6
+      }
+    },
+    "sites-gaa-08": {
+      "name": "島の奥の挑戦広場",
+      "region": "金リンゴ群島",
+      "level": 35,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_GAA-08-55-0-ordinary": 24,
+        "PLAN8-slot_GAA-08-56-1-ordinary": 16,
+        "PLAN8-slot_GAA-08-57-2-ordinary": 8
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_GAA-08-55-0-ordinary": 18,
+        "PLAN8-slot_GAA-08-56-1-ordinary": 12,
+        "PLAN8-slot_GAA-08-57-2-ordinary": 6
+      }
+    },
+    "sites-vlm-02": {
+      "name": "銀瓶の庭の道",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 66,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_VLM-02-221-0-ordinary": 28,
+        "PLAN8-slot_VLM-02-221-1-ordinary": 20
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_VLM-02-221-0-ordinary": 21,
+        "PLAN8-slot_VLM-02-221-1-ordinary": 15
+      }
+    },
+    "sites-vlm-05": {
+      "name": "森の狩場",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 71,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_VLM-05-221-0-ordinary": 24,
+        "PLAN8-slot_VLM-05-221-1-ordinary": 16,
+        "PLAN8-slot_VLM-05-221-2-ordinary": 8
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_VLM-05-221-0-ordinary": 18,
+        "PLAN8-slot_VLM-05-221-1-ordinary": 12,
+        "PLAN8-slot_VLM-05-221-2-ordinary": 6
+      }
+    },
+    "sites-vlm-06": {
+      "name": "隠者の遊園の入口",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 72,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_VLM-06-55-0-ordinary": 28,
+        "PLAN8-slot_VLM-06-56-1-ordinary": 16,
+        "PLAN8-slot_VLM-06-57-2-ordinary": 4
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_VLM-06-55-0-ordinary": 21,
+        "PLAN8-slot_VLM-06-56-1-ordinary": 12,
+        "PLAN8-slot_VLM-06-57-2-ordinary": 3
+      }
+    },
+    "sites-vlm-07": {
+      "name": "遊園の裏道",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 74,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_VLM-07-221-0-ordinary": 24,
+        "PLAN8-slot_VLM-07-221-1-ordinary": 16,
+        "PLAN8-slot_VLM-07-221-2-ordinary": 8
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_VLM-07-221-0-ordinary": 18,
+        "PLAN8-slot_VLM-07-221-1-ordinary": 12,
+        "PLAN8-slot_VLM-07-221-2-ordinary": 6
+      }
+    },
+    "sites-vlm-08": {
+      "name": "舞台の奥の広場",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 75,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_VLM-08-55-0-ordinary": 32,
+        "PLAN8-slot_VLM-08-56-1-ordinary": 12,
+        "PLAN8-slot_VLM-08-57-2-ordinary": 4
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_VLM-08-55-0-ordinary": 24,
+        "PLAN8-slot_VLM-08-56-1-ordinary": 9,
+        "PLAN8-slot_VLM-08-57-2-ordinary": 3
+      }
+    },
+    "sites-sim-02": {
+      "name": "祝福の森・小径",
+      "region": "シムランカ",
+      "level": 86,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_SIM-02-55-0-ordinary": 32,
+        "PLAN8-slot_SIM-02-56-1-ordinary": 16
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_SIM-02-55-0-ordinary": 24,
+        "PLAN8-slot_SIM-02-56-1-ordinary": 12
+      }
+    },
+    "sites-sim-03": {
+      "name": "紙の丘",
+      "region": "シムランカ",
+      "level": 88,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_SIM-03-55-0-ordinary": 28,
+        "PLAN8-slot_SIM-03-56-1-ordinary": 20
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_SIM-03-55-0-ordinary": 21,
+        "PLAN8-slot_SIM-03-56-1-ordinary": 15
+      }
+    },
+    "sites-sim-06": {
+      "name": "積み木の裏道",
+      "region": "シムランカ",
+      "level": 92,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_SIM-06-55-0-ordinary": 28,
+        "PLAN8-slot_SIM-06-56-1-ordinary": 16,
+        "PLAN8-slot_SIM-06-57-2-ordinary": 4
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_SIM-06-55-0-ordinary": 21,
+        "PLAN8-slot_SIM-06-56-1-ordinary": 12,
+        "PLAN8-slot_SIM-06-57-2-ordinary": 3
+      }
+    },
+    "sites-sim-08": {
+      "name": "最後のページの挑戦区画",
+      "region": "シムランカ",
+      "level": 95,
+      "before": {
+        "ordinary": 48,
+        "peak": 25,
+        "camera": 1412
+      },
+      "after": {
+        "ordinary": 36,
+        "peak": 19,
+        "camera": 1414
+      },
+      "encounterPoolBefore": {
+        "PLAN8-slot_SIM-08-55-0-ordinary": 24,
+        "PLAN8-slot_SIM-08-56-1-ordinary": 16,
+        "PLAN8-slot_SIM-08-56-2-ordinary": 8
+      },
+      "encounterPoolAfter": {
+        "PLAN8-slot_SIM-08-55-0-ordinary": 18,
+        "PLAN8-slot_SIM-08-56-1-ordinary": 12,
+        "PLAN8-slot_SIM-08-56-2-ordinary": 6
+      }
+    }
+  },
+  "regions": {
+    "ヴェルーリヤ・ミラージュ": 5,
+    "金リンゴ群島": 7,
+    "シムランカ": 4
+  },
+  "futureFieldCandidates": 27,
+  "ordinaryEnemyRecordsReduced": 192,
+  "portalArrivals": [
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-02",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-03",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-05",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-07",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "veluriyam-hub",
+      "destination": "sites-vlm-02",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "simulanka-hub",
+      "destination": "sites-sim-02",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "veluriyam-petal-stop",
+      "destination": "sites-vlm-02",
+      "positions": [
+        [
+          2770,
+          480
+        ],
+        [
+          2730,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "veluriyam-rail-end",
+      "destination": "sites-vlm-05",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-03",
+      "destination": "sites-gaa-04",
+      "positions": [
+        [
+          78,
+          480
+        ],
+        [
+          38,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-04",
+      "destination": "sites-gaa-03",
+      "positions": [
+        [
+          2760,
+          378
+        ],
+        [
+          2720,
+          378
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-05",
+      "destination": "sites-gaa-06",
+      "positions": [
+        [
+          78,
+          480
+        ],
+        [
+          38,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-06",
+      "destination": "sites-gaa-05",
+      "positions": [
+        [
+          2760,
+          375
+        ],
+        [
+          2720,
+          375
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-07",
+      "destination": "sites-gaa-08",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-08",
+      "destination": "sites-gaa-07",
+      "positions": [
+        [
+          2780,
+          480
+        ],
+        [
+          2740,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-02",
+      "destination": "sites-sim-03",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-03",
+      "destination": "sites-sim-02",
+      "positions": [
+        [
+          640,
+          375
+        ],
+        [
+          600,
+          375
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-04",
+      "destination": "sites-sim-02",
+      "positions": [
+        [
+          2780,
+          480
+        ],
+        [
+          2740,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-05",
+      "destination": "sites-sim-06",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-07",
+      "destination": "sites-sim-08",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-vlm-06",
+      "destination": "sites-vlm-07",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-vlm-07",
+      "destination": "sites-vlm-06",
+      "positions": [
+        [
+          2790,
+          480
+        ],
+        [
+          2750,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-vlm-07",
+      "destination": "sites-vlm-08",
+      "positions": [
+        [
+          76,
+          480
+        ],
+        [
+          36,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-vlm-08",
+      "destination": "sites-vlm-07",
+      "positions": [
+        [
+          2775,
+          480
+        ],
+        [
+          2735,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-04-side-arena",
+      "destination": "sites-gaa-04",
+      "positions": [
+        [
+          2226,
+          480
+        ],
+        [
+          2186,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-06-side-arena",
+      "destination": "sites-gaa-06",
+      "positions": [
+        [
+          2226,
+          480
+        ],
+        [
+          2186,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-gaa-07-side-arena",
+      "destination": "sites-gaa-07",
+      "positions": [
+        [
+          2226,
+          480
+        ],
+        [
+          2186,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-06-side-arena",
+      "destination": "sites-sim-06",
+      "positions": [
+        [
+          2226,
+          480
+        ],
+        [
+          2186,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-sim-08-side-arena",
+      "destination": "sites-sim-08",
+      "positions": [
+        [
+          2226,
+          480
+        ],
+        [
+          2186,
+          480
+        ]
+      ]
+    }
+  ],
+  "questExplorationFields": [
+    "golden-play",
+    "simulanka-play",
+    "veluriyam-play"
+  ],
+  "existingLevel200SaveSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+  "earnedHiddenRun": {
+    "battles": [
+      {
+        "kills": 3,
+        "node": "golden-shadow-grotto",
+        "targets": [
+          "golden-cave-patrol-1",
+          "golden-cave-patrol-2",
+          "golden-cave-patrol-3"
+        ],
+        "xp": 3
+      },
+      {
+        "kills": 1,
+        "node": "sites-gaa-04-side-arena",
+        "targets": [
+          "sites-gaa-04-side-arena-guardian"
+        ],
+        "xp": 25
+      },
+      {
+        "kills": 1,
+        "node": "sites-gaa-06-side-arena",
+        "targets": [
+          "sites-gaa-06-side-arena-guardian"
+        ],
+        "xp": 30
+      },
+      {
+        "kills": 1,
+        "node": "sites-gaa-07-side-arena",
+        "targets": [
+          "sites-gaa-07-side-arena-guardian"
+        ],
+        "xp": 30
+      },
+      {
+        "kills": 1,
+        "node": "sites-vlm-02",
+        "targets": [
+          "sites-vlm-02-1"
+        ],
+        "xp": 28
+      },
+      {
+        "kills": 2,
+        "node": "simulanka-fold-valley",
+        "targets": [
+          "simulanka-fold-guard-1",
+          "simulanka-fold-guard-2"
+        ],
+        "xp": 104
+      },
+      {
+        "kills": 1,
+        "node": "sites-sim-06-side-arena",
+        "targets": [
+          "sites-sim-06-side-arena-guardian"
+        ],
+        "xp": 857
+      },
+      {
+        "kills": 1,
+        "node": "sites-sim-08-side-arena",
+        "targets": [
+          "sites-sim-08-side-arena-guardian"
+        ],
+        "xp": 973
+      }
+    ],
+    "crossings": 62,
+    "level": 200,
+    "locks": [
+      {
+        "node": "golden-mainland-coast",
+        "reason": "潮だまりの船着き場で依頼「地図のすみの、小さな船」を受注してください。",
+        "target": "golden-hub"
+      },
+      {
+        "node": "veluriyam-hub",
+        "reason": "模様瓶の庭で依頼「瓶の向こうの、特別な切符」を報告してください。",
+        "target": "veluriyam-trolley-out"
+      },
+      {
+        "node": "veluriyam-petal-stop",
+        "reason": "依頼「トロッコを降りた、その先に」（開通まで 0/1）　花棚の停留所：終点の一つ手前で途中下車し、花棚の道しるべを調べる",
+        "target": "veluriyam-petal-lookout"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 120,
+        "quest": "golden-little-boat",
+        "xp": 220
+      },
+      {
+        "mora": 210,
+        "quest": "golden-trace-shadows",
+        "xp": 420
+      },
+      {
+        "mora": 510,
+        "quest": "veluriyam-bottle-ticket",
+        "xp": 13400
+      },
+      {
+        "mora": 680,
+        "quest": "veluriyam-trolley-lookout",
+        "xp": 18100
+      },
+      {
+        "mora": 790,
+        "quest": "simulanka-open-page",
+        "xp": 25500
+      },
+      {
+        "mora": 1060,
+        "quest": "simulanka-folded-road",
+        "xp": 33400
+      }
+    ],
+    "resumedAt": "fontaine-hub",
+    "returns": 0,
+    "sourceSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+    "trips": [
+      {
+        "destination": "mond-road",
+        "origin": "mond-town",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "mond-town",
+            "id": "mond-road",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "モンド・南の街道",
+            "previewX": 1380,
+            "region": "region-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-mainland-coast",
+        "origin": "mond-road",
+        "stops": [
+          {
+            "approach": "入口のそばにいます",
+            "from": "mond-road",
+            "id": "golden-mainland-coast",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "潮だまりの船着き場",
+            "previewX": 1124,
+            "region": "region-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-hub",
+        "origin": "golden-mainland-coast",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "golden-mainland-coast",
+            "hint": "島行きの小舟・移動に2.1秒",
+            "id": "golden-hub",
+            "label": "舟・寄港",
+            "level": 1,
+            "mode": "boat",
+            "name": "金リンゴ群島・入口広場",
+            "previewX": 1530,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-mainland-coast",
+        "origin": "golden-hub",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "golden-hub",
+            "hint": "本土へ戻る小舟・移動に2.1秒",
+            "id": "golden-mainland-coast",
+            "label": "舟・寄港",
+            "level": 1,
+            "mode": "boat",
+            "name": "潮だまりの船着き場",
+            "previewX": 248,
+            "region": "region-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-hub",
+        "origin": "golden-mainland-coast",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "golden-mainland-coast",
+            "hint": "島行きの小舟・移動に2.1秒",
+            "id": "golden-hub",
+            "label": "舟・寄港",
+            "level": 1,
+            "mode": "boat",
+            "name": "金リンゴ群島・入口広場",
+            "previewX": 1530,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-shadow-lookouts",
+        "origin": "golden-hub",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "golden-hub",
+            "id": "golden-shadow-lookouts",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "重なり岩の見晴らし道",
+            "previewX": 1222,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-shadow-grotto",
+        "origin": "golden-shadow-lookouts",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "golden-shadow-lookouts",
+            "id": "golden-shadow-grotto",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "岩のあいだの小洞窟",
+            "previewX": 1570,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "golden-hub",
+        "origin": "golden-shadow-grotto",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "golden-shadow-grotto",
+            "id": "golden-shadow-lookouts",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "重なり岩の見晴らし道",
+            "previewX": 53,
+            "region": "hidden-01"
+          },
+          {
+            "from": "golden-shadow-lookouts",
+            "id": "golden-hub",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "金リンゴ群島・入口広場",
+            "previewX": 59,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "sites-gaa-04-side-arena",
+        "origin": "golden-hub",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "golden-hub",
+            "hint": "入江の桟橋を結ぶ連絡船・移動に3.6秒",
+            "id": "sites-gaa-03",
+            "label": "舟・寄港",
+            "level": 28,
+            "mode": "boat",
+            "name": "危機の島の桟橋",
+            "previewX": 614,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-03",
+            "hint": "上段の入口・桟橋の奥の石段",
+            "id": "sites-gaa-04",
+            "label": "徒歩",
+            "level": 29,
+            "mode": "walk",
+            "name": "危機の島の登り道",
+            "previewX": 2760,
+            "previewY": 378,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-04",
+            "hint": "離れた横穴の任意戦へ",
+            "id": "sites-gaa-04-side-arena",
+            "label": "徒歩",
+            "level": 31,
+            "mode": "walk",
+            "name": "群島の狂風のコアの横穴",
+            "previewX": 2226,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "sites-gaa-04",
+        "origin": "sites-gaa-04-side-arena",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-gaa-04-side-arena",
+            "hint": "危機の島の登り道へ戻る",
+            "id": "sites-gaa-04",
+            "label": "徒歩",
+            "level": 29,
+            "mode": "walk",
+            "name": "危機の島の登り道",
+            "previewX": 70,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "sites-gaa-06-side-arena",
+        "origin": "sites-gaa-04",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-gaa-04",
+            "hint": "桟橋の奥の石段",
+            "id": "sites-gaa-03",
+            "label": "徒歩",
+            "level": 28,
+            "mode": "walk",
+            "name": "危機の島の桟橋",
+            "previewX": 78,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-03",
+            "hint": "入江の桟橋を結ぶ連絡船・移動に3.6秒",
+            "id": "golden-hub",
+            "label": "舟・寄港",
+            "level": 1,
+            "mode": "boat",
+            "name": "金リンゴ群島・入口広場",
+            "previewX": 76,
+            "region": "hidden-01"
+          },
+          {
+            "from": "golden-hub",
+            "hint": "プリン島の浜への小舟・移動に3.2秒",
+            "id": "sites-gaa-05",
+            "label": "舟・寄港",
+            "level": 31,
+            "mode": "boat",
+            "name": "プリン島の浜",
+            "previewX": 804,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-05",
+            "hint": "上段の入口・浜の奥の丘道",
+            "id": "sites-gaa-06",
+            "label": "徒歩",
+            "level": 32,
+            "mode": "walk",
+            "name": "プリン島の丘",
+            "previewX": 2760,
+            "previewY": 375,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-06",
+            "hint": "離れた横穴の任意戦へ",
+            "id": "sites-gaa-06-side-arena",
+            "label": "徒歩",
+            "level": 35,
+            "mode": "walk",
+            "name": "群島の遺跡守衛の横穴",
+            "previewX": 2226,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "sites-gaa-06",
+        "origin": "sites-gaa-06-side-arena",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-gaa-06-side-arena",
+            "hint": "プリン島の丘へ戻る",
+            "id": "sites-gaa-06",
+            "label": "徒歩",
+            "level": 32,
+            "mode": "walk",
+            "name": "プリン島の丘",
+            "previewX": 70,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "sites-gaa-07-side-arena",
+        "origin": "sites-gaa-06",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-gaa-06",
+            "hint": "浜の奥の丘道",
+            "id": "sites-gaa-05",
+            "label": "徒歩",
+            "level": 31,
+            "mode": "walk",
+            "name": "プリン島の浜",
+            "previewX": 78,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-05",
+            "hint": "プリン島の浜への小舟・移動に3.2秒",
+            "id": "golden-hub",
+            "label": "舟・寄港",
+            "level": 1,
+            "mode": "boat",
+            "name": "金リンゴ群島・入口広場",
+            "previewX": 76,
+            "region": "hidden-01"
+          },
+          {
+            "from": "golden-hub",
+            "hint": "ボロボロ島へ渡る連絡船・移動に4.1秒",
+            "id": "sites-gaa-07",
+            "label": "舟・寄港",
+            "level": 34,
+            "mode": "boat",
+            "name": "ボロボロ島の浜",
+            "previewX": 989,
+            "region": "hidden-01"
+          },
+          {
+            "from": "sites-gaa-07",
+            "hint": "離れた横穴の任意戦へ",
+            "id": "sites-gaa-07-side-arena",
+            "label": "徒歩",
+            "level": 35,
+            "mode": "walk",
+            "name": "群島のヒルチャール暴徒・炎斧の横穴",
+            "previewX": 2226,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "sites-gaa-07",
+        "origin": "sites-gaa-07-side-arena",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-gaa-07-side-arena",
+            "hint": "ボロボロ島の浜へ戻る",
+            "id": "sites-gaa-07",
+            "label": "徒歩",
+            "level": 34,
+            "mode": "walk",
+            "name": "ボロボロ島の浜",
+            "previewX": 70,
+            "region": "hidden-01"
+          }
+        ]
+      },
+      {
+        "destination": "mond-town",
+        "origin": "sites-gaa-07",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-gaa-07",
+            "hint": "ボロボロ島へ渡る連絡船・移動に4.1秒",
+            "id": "golden-hub",
+            "label": "舟・寄港",
+            "level": 1,
+            "mode": "boat",
+            "name": "金リンゴ群島・入口広場",
+            "previewX": 76,
+            "region": "hidden-01"
+          },
+          {
+            "from": "golden-hub",
+            "id": "mond-road",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "モンド・南の街道",
+            "previewX": 60,
+            "region": "region-01"
+          },
+          {
+            "from": "mond-road",
+            "id": "mond-town",
+            "label": "徒歩",
+            "level": 1,
+            "mode": "walk",
+            "name": "モンド・城門広場",
+            "previewX": 60,
+            "region": "region-01"
+          }
+        ]
+      },
+      {
+        "destination": "sumeru-entry",
+        "origin": "sumeru-hub",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sumeru-hub",
+            "id": "sumeru-entry",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "スメール・地域の入口",
+            "previewX": 60,
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-bottle-yard",
+        "origin": "sumeru-entry",
+        "stops": [
+          {
+            "approach": "入口のそばにいます",
+            "from": "sumeru-entry",
+            "id": "veluriyam-bottle-yard",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "模様瓶の庭",
+            "previewX": 1125,
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-hub",
+        "origin": "veluriyam-bottle-yard",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "veluriyam-bottle-yard",
+            "hint": "瓶の中の広場",
+            "id": "veluriyam-hub",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "ヴェルーリヤ・ミラージュ・入口広場",
+            "previewX": 1260,
+            "region": "hidden-02"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-bottle-yard",
+        "origin": "veluriyam-hub",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "veluriyam-hub",
+            "hint": "瓶の庭へ戻る門",
+            "id": "veluriyam-bottle-yard",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "模様瓶の庭",
+            "previewX": 323,
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-hub",
+        "origin": "veluriyam-bottle-yard",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "veluriyam-bottle-yard",
+            "hint": "瓶の中の広場",
+            "id": "veluriyam-hub",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "ヴェルーリヤ・ミラージュ・入口広場",
+            "previewX": 1260,
+            "region": "hidden-02"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-petal-stop",
+        "origin": "veluriyam-hub",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "veluriyam-hub",
+            "hint": "花棚行きのトロッコ・1.8〜6.3秒に花棚の停留所で途中下車可、出発から8.4秒で水車前の終点に到着",
+            "id": "veluriyam-trolley-out",
+            "label": "鉄道",
+            "level": 60,
+            "mode": "rail",
+            "name": "花棚へ向かうトロッコ",
+            "previewX": 1181,
+            "region": "hidden-02"
+          },
+          {
+            "from": "veluriyam-trolley-out",
+            "hint": "出発から1.8〜6.3秒の間に途中下車",
+            "id": "veluriyam-petal-stop",
+            "label": "鉄道",
+            "level": 60,
+            "mode": "rail",
+            "name": "花棚の停留所",
+            "previewX": 160,
+            "region": "hidden-02"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-petal-lookout",
+        "origin": "veluriyam-petal-stop",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "veluriyam-petal-stop",
+            "hint": "上段の入口・花棚の細道",
+            "id": "veluriyam-petal-lookout",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "花びら越しの展望台",
+            "previewX": 834,
+            "previewY": 390,
+            "region": "hidden-02"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-petal-stop",
+        "origin": "veluriyam-petal-lookout",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "veluriyam-petal-lookout",
+            "id": "veluriyam-petal-stop",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "花棚の停留所",
+            "previewX": 62,
+            "region": "hidden-02"
+          }
+        ]
+      },
+      {
+        "destination": "veluriyam-hub",
+        "origin": "veluriyam-trolley-back",
+        "stops": [
+          {
+            "automaticArrival": true,
+            "from": "veluriyam-trolley-back",
+            "hint": "発車から8.4秒で到着",
+            "id": "veluriyam-hub",
+            "label": "鉄道",
+            "level": 60,
+            "mode": "rail",
+            "name": "ヴェルーリヤ・ミラージュ・入口広場",
+            "region": "hidden-02",
+            "secondsRemaining": 2.0
+          }
+        ]
+      },
+      {
+        "destination": "sites-vlm-02",
+        "origin": "veluriyam-hub",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "veluriyam-hub",
+            "id": "sites-vlm-02",
+            "label": "徒歩",
+            "level": 66,
+            "mode": "walk",
+            "name": "銀瓶の庭の道",
+            "previewX": 640,
+            "region": "hidden-02"
+          }
+        ]
+      },
+      {
+        "destination": "sumeru-hub",
+        "origin": "sites-vlm-02",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-vlm-02",
+            "id": "veluriyam-hub",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "ヴェルーリヤ・ミラージュ・入口広場",
+            "previewX": 76,
+            "region": "hidden-02"
+          },
+          {
+            "from": "veluriyam-hub",
+            "id": "sumeru-entry",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "スメール・地域の入口",
+            "previewX": 60,
+            "region": "region-04"
+          },
+          {
+            "from": "sumeru-entry",
+            "id": "sumeru-hub",
+            "label": "徒歩",
+            "level": 60,
+            "mode": "walk",
+            "name": "スメール・樹陰の広場",
+            "previewX": 1380,
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "fontaine-hub",
+        "origin": "fontaine-hub",
+        "stops": []
+      },
+      {
+        "destination": "simulanka-book-room",
+        "origin": "fontaine-hub",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "fontaine-hub",
+            "id": "simulanka-book-room",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "折り目の読書室",
+            "previewX": 1138,
+            "region": "region-05"
+          }
+        ]
+      },
+      {
+        "destination": "simulanka-hub",
+        "origin": "simulanka-book-room",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "simulanka-book-room",
+            "hint": "上段の入口・ページの向こうの広場",
+            "id": "simulanka-hub",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "シムランカ・入口広場",
+            "previewX": 1350,
+            "previewY": 389,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "simulanka-book-room",
+        "origin": "simulanka-hub",
+        "stops": [
+          {
+            "approach": "入口のそばにいます",
+            "from": "simulanka-hub",
+            "hint": "本の外の読書室",
+            "id": "simulanka-book-room",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "折り目の読書室",
+            "previewX": 313,
+            "region": "region-05"
+          }
+        ]
+      },
+      {
+        "destination": "simulanka-hub",
+        "origin": "simulanka-book-room",
+        "stops": [
+          {
+            "approach": "入口のそばにいます",
+            "from": "simulanka-book-room",
+            "hint": "上段の入口・ページの向こうの広場",
+            "id": "simulanka-hub",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "シムランカ・入口広場",
+            "previewX": 1350,
+            "previewY": 389,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "simulanka-fold-valley",
+        "origin": "simulanka-hub",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "simulanka-hub",
+            "id": "simulanka-fold-valley",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "三枚板の紙の谷",
+            "previewX": 1197,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "simulanka-lantern-perch",
+        "origin": "simulanka-fold-valley",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "simulanka-fold-valley",
+            "hint": "上段の入口・紙の灯りの台",
+            "id": "simulanka-lantern-perch",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "紙の灯りの止まり木",
+            "previewX": 1860,
+            "previewY": 270,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "simulanka-hub",
+        "origin": "simulanka-lantern-perch",
+        "stops": [
+          {
+            "approach": "現在地から右へ",
+            "from": "simulanka-lantern-perch",
+            "hint": "入口広場への近道",
+            "id": "simulanka-hub",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "シムランカ・入口広場",
+            "previewX": 1280,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "sites-sim-06-side-arena",
+        "origin": "simulanka-hub",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "simulanka-hub",
+            "id": "sites-sim-02",
+            "label": "徒歩",
+            "level": 86,
+            "mode": "walk",
+            "name": "祝福の森・小径",
+            "previewX": 668,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-02",
+            "id": "sites-sim-04",
+            "label": "徒歩",
+            "level": 89,
+            "mode": "walk",
+            "name": "星軌の駅",
+            "previewX": 2780,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-04",
+            "hint": "王城行きの星軌便・出発から4.8秒で王城・安全広場に到着",
+            "id": "sites-star-rail-out",
+            "label": "鉄道",
+            "level": 91,
+            "mode": "rail",
+            "name": "王城行きの星軌便",
+            "previewX": 1180,
+            "region": "hidden-03"
+          },
+          {
+            "automaticArrival": true,
+            "from": "sites-star-rail-out",
+            "hint": "発車から4.8秒で到着",
+            "id": "sites-sim-05",
+            "label": "鉄道",
+            "level": 91,
+            "mode": "rail",
+            "name": "王城・安全広場",
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-05",
+            "id": "sites-sim-06",
+            "label": "徒歩",
+            "level": 92,
+            "mode": "walk",
+            "name": "積み木の裏道",
+            "previewX": 1190,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-06",
+            "hint": "離れた横穴の任意戦へ",
+            "id": "sites-sim-06-side-arena",
+            "label": "徒歩",
+            "level": 93,
+            "mode": "walk",
+            "name": "絵本の国のヒルチャール暴徒・炎斧の横穴",
+            "previewX": 2226,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "sites-sim-06",
+        "origin": "sites-sim-06-side-arena",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-sim-06-side-arena",
+            "hint": "積み木の裏道へ戻る",
+            "id": "sites-sim-06",
+            "label": "徒歩",
+            "level": 92,
+            "mode": "walk",
+            "name": "積み木の裏道",
+            "previewX": 70,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "sites-sim-08-side-arena",
+        "origin": "sites-sim-06",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-sim-06",
+            "id": "sites-sim-05",
+            "label": "徒歩",
+            "level": 91,
+            "mode": "walk",
+            "name": "王城・安全広場",
+            "previewX": 76,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-05",
+            "hint": "砕けた海への渡り台・移動に2.9秒",
+            "id": "sites-sim-07",
+            "label": "昇降機",
+            "level": 94,
+            "mode": "lift",
+            "name": "砕けた海の上陸点",
+            "previewX": 686,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-07",
+            "id": "sites-sim-08",
+            "label": "徒歩",
+            "level": 95,
+            "mode": "walk",
+            "name": "最後のページの挑戦区画",
+            "previewX": 1190,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-08",
+            "hint": "離れた横穴の任意戦へ",
+            "id": "sites-sim-08-side-arena",
+            "label": "徒歩",
+            "level": 95,
+            "mode": "walk",
+            "name": "絵本の国のヒルチャールレンジャー・水の横穴",
+            "previewX": 2226,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "sites-sim-08",
+        "origin": "sites-sim-08-side-arena",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-sim-08-side-arena",
+            "hint": "最後のページへ戻る",
+            "id": "sites-sim-08",
+            "label": "徒歩",
+            "level": 95,
+            "mode": "walk",
+            "name": "最後のページの挑戦区画",
+            "previewX": 70,
+            "region": "hidden-03"
+          }
+        ]
+      },
+      {
+        "destination": "fontaine-hub",
+        "origin": "sites-sim-08",
+        "stops": [
+          {
+            "approach": "現在地から左へ",
+            "from": "sites-sim-08",
+            "id": "sites-sim-07",
+            "label": "徒歩",
+            "level": 94,
+            "mode": "walk",
+            "name": "砕けた海の上陸点",
+            "previewX": 76,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-07",
+            "hint": "砕けた海への渡り台・移動に2.9秒",
+            "id": "sites-sim-05",
+            "label": "昇降機",
+            "level": 91,
+            "mode": "lift",
+            "name": "王城・安全広場",
+            "previewX": 76,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-05",
+            "hint": "星軌の駅へ戻る便・出発から4.8秒で星軌の駅に到着",
+            "id": "sites-star-rail-in",
+            "label": "鉄道",
+            "level": 91,
+            "mode": "rail",
+            "name": "星軌の駅へ戻る便",
+            "previewX": 136,
+            "region": "hidden-03"
+          },
+          {
+            "automaticArrival": true,
+            "from": "sites-star-rail-in",
+            "hint": "発車から4.8秒で到着",
+            "id": "sites-sim-04",
+            "label": "鉄道",
+            "level": 89,
+            "mode": "rail",
+            "name": "星軌の駅",
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-04",
+            "id": "sites-sim-02",
+            "label": "徒歩",
+            "level": 86,
+            "mode": "walk",
+            "name": "祝福の森・小径",
+            "previewX": 76,
+            "region": "hidden-03"
+          },
+          {
+            "from": "sites-sim-02",
+            "id": "simulanka-hub",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "シムランカ・入口広場",
+            "previewX": 76,
+            "region": "hidden-03"
+          },
+          {
+            "from": "simulanka-hub",
+            "id": "fontaine-hub",
+            "label": "徒歩",
+            "level": 80,
+            "mode": "walk",
+            "name": "フォンテーヌ・水辺の広場",
+            "previewX": 60,
+            "region": "region-05"
+          }
+        ]
+      }
+    ]
+  },
+  "activeSlotRoutesLua": {
+    "verified_fields": 24,
+    "design_pair_round_trips": 21,
+    "directed_transitions": 48,
+    "static_field_bindings": 32,
+    "suspended_entry_rejected": true,
+    "regular_enemy_placements": 668,
+    "optional_side_battles": [
+      "sites-gaa-04-side-arena",
+      "sites-gaa-06-side-arena",
+      "sites-gaa-07-side-arena",
+      "sites-sim-06-side-arena",
+      "sites-sim-08-side-arena"
+    ],
+    "safety_margin_and_respawn": true,
+    "existing_discovery_paths": true,
+    "save_restored_at_hub": true,
+    "save_during_new_rail_restored_at_station": true,
+    "existing_hidden_quest_progress_unchanged_by_new_paths": true,
+    "level_fixtures": [
+      35,
+      75,
+      95,
+      190
+    ],
+    "half_open_train_stop_reused": true,
+    "nonstop_train_scroll_both_directions": true
+  },
+  "activeSlotRoutesChrome": {
+    "goldenIslandMap": true,
+    "roundTripFerry": true,
+    "huntPopulation": 36,
+    "trainDestinationShown": true,
+    "starRailRoundTrip": true,
+    "errors": []
+  },
+  "activityBrowsers": {
+    "golden-island-route": {
+      "startsAtLevelOne": true,
+      "freshDiscovery": true,
+      "twoWayBoat": true,
+      "threeViews": [
+        0,
+        9.86,
+        31.74
+      ],
+      "threePanelsDiffer": true,
+      "wrongViewRejected": true,
+      "gateConcealedUntilChoice": true,
+      "atlasCaveVisibleAfterPuzzleAndPocketAfterReport": true,
+      "readbackAfterSave": true,
+      "newOptionalGround": true,
+      "dock": {
+        "key": "goldenDock",
+        "file": "golden-dock-background-v1.png",
+        "state": "ready"
+      },
+      "cave": {
+        "key": "goldenGrotto",
+        "file": "golden-grotto-background-v1.png",
+        "state": "ready"
+      },
+      "commands": {
+        "png": 11,
+        "standard": 8510,
+        "light": 2163
+      },
+      "firstReport": [
+        220,
+        120,
+        1
+      ],
+      "secondReport": [
+        420,
+        210,
+        2
+      ],
+      "errors": []
+    },
+    "veluriyam-trolley": {
+      "bottlePersists": true,
+      "wrongPatternRejected": true,
+      "revisit": true,
+      "missedStopReachedTerminal": true,
+      "reverseMidStop": true,
+      "lookoutChest": true,
+      "returnedByRail": true,
+      "readbackAfterReload": true,
+      "track": {
+        "key": "mirageTrack",
+        "file": "mirage-track-background-v1.png",
+        "state": "ready"
+      },
+      "commands": {
+        "png": 8,
+        "standard": 5924,
+        "light": 1480
+      },
+      "firstReport": [
+        13400,
+        510,
+        2
+      ],
+      "secondReport": [
+        18100,
+        680,
+        3
+      ],
+      "errors": []
+    },
+    "simulanka-folds": {
+      "bookDiscovery": true,
+      "frontBack": true,
+      "pageAfterReload": true,
+      "wrongBridgeFailed": true,
+      "safeReturn": true,
+      "lockedFoldsAfterReload": true,
+      "normalJumpAcross": true,
+      "guardsAndChest": true,
+      "souvenir": "boat",
+      "readbackAfterReload": true,
+      "twoWayShortcut": true,
+      "scene": {
+        "key": "paperValley",
+        "file": "paper-valley-background-v1.png",
+        "state": "ready"
+      },
+      "commands": {
+        "png": 18,
+        "standard": 4899,
+        "light": 1318
+      },
+      "firstReport": [
+        25500,
+        790,
+        2
+      ],
+      "secondReport": [
+        33400,
+        1060,
+        3
+      ],
+      "errors": []
+    }
+  },
+  "referenceViews": [
+    {
+      "node": "sites-gaa-03",
+      "records": {
+        "before": {
+          "total": 48,
+          "visible": 25,
+          "camera": 507
+        },
+        "after": {
+          "total": 36,
+          "visible": 19,
+          "camera": 507
+        }
+      }
+    },
+    {
+      "node": "sites-vlm-02",
+      "records": {
+        "before": {
+          "total": 48,
+          "visible": 25,
+          "camera": 507
+        },
+        "after": {
+          "total": 36,
+          "visible": 19,
+          "camera": 507
+        }
+      }
+    },
+    {
+      "node": "sites-sim-02",
+      "records": {
+        "before": {
+          "total": 48,
+          "visible": 25,
+          "camera": 507
+        },
+        "after": {
+          "total": 36,
+          "visible": 19,
+          "camera": 507
+        }
+      }
+    }
+  ],
+  "mirageCharacterArtCompared": {
+    "camera": 507,
+    "light": {
+      "locations": {
+        "color": {
+          "x": 560,
+          "y": 405
+        }
+      },
+      "union": 37807,
+      "overlap": 37807,
+      "overlapPercent": 100,
+      "meanRgbError": 18.412533834122428
+    },
+    "rows": [
+      [
+        "標準",
+        "16,758",
+        "99.6%",
+        "6.72 / 255",
+        "—"
+      ],
+      [
+        "中間・32色",
+        "10,621",
+        "96.6%",
+        "19.15 / 255",
+        "-36.6%"
+      ],
+      [
+        "最軽量・16色",
+        "4,674",
+        "100.0%",
+        "18.41 / 255",
+        "-72.1%"
+      ]
+    ]
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5617,
+    "liveEntriesChecked": 5617,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  }
+}

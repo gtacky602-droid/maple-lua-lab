@@ -1,13 +1,14 @@
 {
-  "verified_fields": 32,
-  "design_pair_round_trips": 28,
-  "directed_transitions": 62,
-  "regular_enemy_placements": 860,
+  "verified_fields": 24,
+  "design_pair_round_trips": 21,
+  "directed_transitions": 48,
+  "static_field_bindings": 32,
+  "suspended_entry_rejected": true,
+  "regular_enemy_placements": 668,
   "optional_side_battles": [
     "sites-gaa-04-side-arena",
     "sites-gaa-06-side-arena",
     "sites-gaa-07-side-arena",
-    "sites-nsp-08",
     "sites-sim-06-side-arena",
     "sites-sim-08-side-arena"
   ],

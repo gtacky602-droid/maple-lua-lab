@@ -169,8 +169,12 @@ try{
 
   await quest(second,'受注','active');
   await gate(1181,outbound);
+  await page.locator('#pause').click();
+  await wait(()=>window.lab.frame.paused&&window.lab.frame.voyage?.kind==='trolley');
   const track=await background();
   assert.deepEqual(track,{key:'mirageTrack',file:'mirage-track-background-v1.png',state:'ready'});
+  await page.locator('#pause').click();
+  await wait(()=>!window.lab.frame.paused);
   await wait(()=>window.lab.frame.voyage?.stopover);
   await wait(()=>document.querySelector('#storyLiftText').textContent.includes('途中下車'));
   const commands=await compare();
