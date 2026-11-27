@@ -6,6 +6,27 @@ from savegame import validate_save
 from test_coop_local import Client, LOCK, SESSIONS, lab
 
 
+def start_match(clients, seed, match, spec, gate, difficulty, sets):
+    for client in clients:
+        client.frame(restore=seed)
+        assert client.frame(['story_fast:' + spec['hub']])['story']['node'] == spec['hub']
+        with LOCK:
+            actor = SESSIONS[client.sid]['state'].actors[1]
+            actor.x, actor.y, actor.vy = gate['x'], gate.get('y', 480), 0
+            actor.ground = True
+        entered = client.frame(['story_nearby_portal'])
+        assert entered['story']['node'] == spec['node'] and entered['coop']['eligible']
+    code = clients[0].frame(['coop_create'])['coop']['code']
+    for client in clients[1:]:
+        assert client.frame(['coop_join:' + code])['coop']['code'] == code
+    mode = difficulty['id']
+    for client, reward_set in zip(clients, sets, strict=True):
+        waiting = client.frame([f'stygian_start:{match}:{mode}:{reward_set}'])
+        assert waiting['endgameRun']['gathering'] > 0, (match, mode)
+        assert waiting['boss']['maxhp'] == difficulty['hp'], (match, mode)
+    return code
+
+
 def check_modes(url):
     matches = json.loads((ROOT / 'content/stygian-matches.json').read_bytes())['matches']
     graph = json.loads((ROOT / 'content/story-graph.json').read_bytes())
@@ -20,25 +41,7 @@ def check_modes(url):
         for difficulty in spec['modes']:
             mode = difficulty['id']
             record_key = f'{match}:{mode}'
-            command = f'stygian_start:{record_key}:troupe'
-            for client in clients:
-                client.frame(restore=seed)
-                assert client.frame(['story_fast:' + spec['hub']])['story']['node'] == spec['hub']
-                with LOCK:
-                    actor = SESSIONS[client.sid]['state'].actors[1]
-                    actor.x, actor.y, actor.vy = gate['x'], gate.get('y', 480), 0
-                    actor.ground = True
-                entered = client.frame(['story_nearby_portal'])
-                assert entered['story']['node'] == spec['node'] and entered['coop']['eligible']
-            code = host.frame(['coop_create'])['coop']['code']
-            for client in clients[1:]:
-                assert client.frame(['coop_join:' + code])['coop']['code'] == code
-            starting_hp = []
-            for client in clients:
-                waiting = client.frame([command])
-                assert waiting['endgameRun']['gathering'] > 0, record_key
-                starting_hp.append(waiting['boss']['maxhp'])
-            assert starting_hp == [difficulty['hp']] * len(clients), (record_key, starting_hp)
+            start_match(clients, seed, match, spec, gate, difficulty, ['troupe'] * len(clients))
 
             with LOCK:
                 env = SESSIONS[host.sid]

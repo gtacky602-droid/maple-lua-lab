@@ -1,0 +1,81 @@
+{
+  "scope": "Lv200 reported save; local HTTP room and save restoration, Lua room inputs for battle.",
+  "allyAttackToggleVerified": true,
+  "matches": [
+    {
+      "mode": "hard",
+      "maxHp": 1880,
+      "combat": {
+        "remaining": 0,
+        "status": "clear",
+        "chains": {
+          "B": true
+        },
+        "ticks": 2294,
+        "stage": 3
+      },
+      "parties": 4,
+      "damage": [
+        1221,
+        659,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true
+    },
+    {
+      "mode": "master",
+      "maxHp": 3460,
+      "combat": {
+        "remaining": 0,
+        "ticks": 2193,
+        "chains": {
+          "A": true
+        },
+        "status": "clear",
+        "stage": 3
+      },
+      "parties": 4,
+      "damage": [
+        2249,
+        1211,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true
+    },
+    {
+      "mode": "extreme",
+      "maxHp": 5520,
+      "combat": {
+        "stage": 3,
+        "remaining": 0,
+        "ticks": 2241,
+        "status": "clear",
+        "chains": {
+          "B": true
+        }
+      },
+      "parties": 4,
+      "damage": [
+        3587,
+        1933,
+        0,
+        0
+      ],
+      "rewards": [
+        "黄金の劇団",
+        "剣闘士のフィナーレ"
+      ],
+      "restored": true
+    }
+  ]
+}

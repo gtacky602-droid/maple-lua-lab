@@ -8534,6 +8534,7 @@
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "stygian_mode_launches": {"matches":7,"difficulty_launches":28,"parties_per_launch":4,"scope":"Local HTTP room entry, shared boss HP and battle launch. Defeat and reward checks remain separate.","evidence":"evidence/coop-stygian-mode-launches.json"},
+    "farka_higher_mode_clears": {"modes":["hard","master","extreme"],"parties":4,"credited_parties":2,"idle_parties":2,"scope":"Directional and normal-attack inputs in the Lua room from the reported Lv200 save; each player collected or was excluded from first-clear rewards as appropriate, then restored their checkpoint through local HTTP.","evidence":"evidence/coop-farka-higher-mode-clears.json"},
     "maps": [
       "mond-town",
       "mond-stygian-dual-court",

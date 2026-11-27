@@ -3,7 +3,7 @@ return function(C,abyss,weekly,matches,controllers)
  local choices={gear=true,discover=true,boss=true}
  local sets={troupe='黄金の劇団',gladiator='剣闘士のフィナーレ'}
  local battleActions={normal=true,skill1=true,skill2=true,skill3=true,skill4=true,light=true,pause=true,
-  swap=true,dodge=true,jump=true,drop=true,auto=true,cancel_macro=true,cancel_channel=true}
+  swap=true,dodge=true,jump=true,drop=true,auto=true,hold_ally_fire=true,cancel_macro=true,cancel_channel=true}
  local finalQuest='growth-next-goal'
  local byNode={}
  for id,spec in pairs(matches) do
