@@ -2,7 +2,7 @@
 import gzip
 from http.client import HTTPConnection
 from threading import Thread
-from server import Handler, LabServer, ROOT, STATIC_JSON
+from server import Handler, LabServer, PACKED_JSON_DIRS, ROOT, STATIC_JSON
 
 with LabServer(('127.0.0.1', 0), Handler, daily_path=':memory:') as server:
     Thread(target=server.serve_forever, daemon=True).start()
@@ -16,7 +16,8 @@ with LabServer(('127.0.0.1', 0), Handler, daily_path=':memory:') as server:
             client.close()
 
     try:
-        for path in sorted(STATIC_JSON):
+        packed_samples = {next(iter(sorted(directory.glob('*.json')))) for directory in PACKED_JSON_DIRS}
+        for path in sorted(STATIC_JSON | packed_samples):
             url = '/' + path.relative_to(ROOT).as_posix() + '?revision=test'
             source = path.read_bytes()
             status, headers, encoded = request(url, 'gzip')
@@ -31,7 +32,9 @@ with LabServer(('127.0.0.1', 0), Handler, daily_path=':memory:') as server:
             status, cached, body = request(url, 'gzip', **{'If-Modified-Since': headers['Last-Modified']})
             assert status == 304 and cached['Vary'] == 'Accept-Encoding' and not body
             print(path.name, len(source), len(encoded))
-        status, headers, body = request('/index.html', 'gzip')
-        assert status == 200 and 'Content-Encoding' not in headers
+        for url in ('/index.html', '/assets/weekly-packed/no-such-pose.json'):
+            status, headers, body = request(url, 'gzip')
+            assert status == (200 if url == '/index.html' else 404)
+            assert 'Content-Encoding' not in headers
     finally:
         server.shutdown()
