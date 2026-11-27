@@ -241,6 +241,7 @@ export function worksitePoint(quest,id,node,stocked=[]){
  const item=worksitePoints(quest).find(s=>s.id===id && s.node===node);
  if(!item)return null;
  const point={quest:quest.id,worksite:item.id,node,x:item.x,y:item.y,name:item.name};
+ if(item.approachHint)point.action=item.approachHint;
  if(quest.book&&id===quest.book.cache.id)point.absent=quest.book.guards;
  if(quest.cargo){
   point.recovered=quest.cargo.filter(p=>stocked.includes(p.id)).map(p=>p.id);

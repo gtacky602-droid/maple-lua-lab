@@ -124,6 +124,19 @@ try{
   await gate(885,staging);
   await inspect(382,1);
   assert.ok(!(await frame()).storyFlagStatus.includes('計測'));
+  await key('KeyM');
+  await page.locator('#worldAtlas').waitFor();
+  await wait(()=>window.lab.frame.worldMap?.region==='region-06');
+  await page.selectOption('#atlasField',slope);
+  await wait(id=>window.lab.frame.worldMap?.selected?.id===id,slope);
+  assert.match(await page.locator('#atlasPlaceLevel').innerText(),/依頼の進行地点/);
+  assert.equal((await frame()).worldMap.selected.entryEnemyCount,5);
+  await page.locator('#atlasQuestObjectives a[href*="step=2"]').waitFor();
+  await page.selectOption('#atlasField',ledges);
+  await wait(id=>window.lab.frame.worldMap?.selected?.id===id,ledges);
+  await page.locator('#atlasQuestObjectives a[href*="step=2"]').waitFor();
+  await page.keyboard.press('Escape');
+  await page.locator('#worldAtlas').waitFor({state:'hidden'});
   await gate(1316,ledges);
   const ridgeScene=await scene();
   assert.deepEqual(ridgeScene,{key:'natlanRaceRidge',file:'natlan-race-ridge-background-v1.png',state:'ready'});
@@ -189,7 +202,7 @@ try{
   await wait(()=>window.lab.frame.storyNotice?.startsWith('頂上の記録'));
   assert.deepEqual(errors,[]);
   const proof={bothRoutes:true,normalJumps:true,altMarkAfterReload:true,animatedBridge:true,firstRunUntimed:true,
-    viewMap:true,optionalTimeAndReload:true,shortcutAndReadback:true,ticks,reward,commands,scenes:[ridgeScene,summitScene],errors};
+    viewMap:true,bothRelayMapLinks:true,optionalTimeAndReload:true,shortcutAndReadback:true,ticks,reward,commands,scenes:[ridgeScene,summitScene],errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

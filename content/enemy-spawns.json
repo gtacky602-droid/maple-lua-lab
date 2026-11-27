@@ -996,10 +996,10 @@
       {"id": "sumeru-entry-regular-9", "x": 1045, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 28, "contactDamage": 12, "contactCooldown": 3.8, "patrolMin": 1010, "patrolMax": 1180}
     ],
     "sum-visitors-meadow": [
-      {"id":"sum-visitor-pack-1","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":589,"platform":0,"hp":17,"pursuit":{"range":150,"leash":174,"speed":42}},
-      {"id":"sum-visitor-pack-2","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":629,"platform":0,"hp":19,"pursuit":{"range":158,"leash":174,"speed":42}},
-      {"id":"sum-visitor-pack-3","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":672,"platform":0,"hp":19,"pursuit":{"range":165,"leash":180,"speed":42}},
-      {"id":"sum-visitor-pack-4","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":709,"platform":0,"hp":22,"pursuit":{"range":162,"leash":178,"speed":42}}
+      {"id":"sum-visitor-pack-1","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":589,"platform":0,"hp":17,"pursuit":{"range":150,"leash":174,"speed":42},"patrolMin":410,"patrolMax":900},
+      {"id":"sum-visitor-pack-2","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":629,"platform":0,"hp":19,"pursuit":{"range":158,"leash":174,"speed":42},"patrolMin":410,"patrolMax":900},
+      {"id":"sum-visitor-pack-3","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":672,"platform":0,"hp":19,"pursuit":{"range":165,"leash":180,"speed":42},"patrolMin":410,"patrolMax":900},
+      {"id":"sum-visitor-pack-4","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":709,"platform":0,"hp":22,"pursuit":{"range":162,"leash":178,"speed":42},"patrolMin":410,"patrolMax":900}
     ],
     "sum-visitors-terrace": [
       {"id":"sum-visitor-tier-1","kind":1,"art":"dendro-fungus","name":"地上のキノコン","x":323,"platform":0,"hp":20},
@@ -2860,30 +2860,38 @@
       {
         "id": "liyue-cliff-planks-1",
         "kind": 1,
-        "x": 485,
+        "x": 622,
         "platform": 0,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 602,
+        "patrolMax": 642
       },
       {
         "id": "liyue-cliff-planks-2",
         "kind": 1,
-        "x": 740,
-        "platform": 2,
-        "art": "hilichurl"
+        "x": 998,
+        "platform": 3,
+        "art": "hilichurl",
+        "patrolMin": 978,
+        "patrolMax": 1018
       },
       {
         "id": "liyue-cliff-planks-3",
         "kind": 1,
         "x": 1175,
         "platform": 3,
-        "art": "hydro-slime"
+        "art": "hydro-slime",
+        "patrolMin": 1155,
+        "patrolMax": 1195
       },
       {
         "id": "liyue-cliff-planks-4",
         "kind": 1,
         "x": 1490,
         "platform": 5,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 1470,
+        "patrolMax": 1510
       }
     ],
     "liyue-quarry-storage": [
@@ -3471,11 +3479,11 @@
       {"id":"fontaine-mainstage-guard-right","kind":1,"x":1347,"platform":0,"hp":38,"art":"sled-maintenance-cart"}
     ],
     "natlan-flag-slope": [
-      {"id":"ridge-slope-beast-1","kind":1,"x":381,"platform":0,"hp":31,"art":"fanged-beast"},
-      {"id":"ridge-slope-beast-2","kind":1,"x":682,"platform":0,"hp":34,"art":"fanged-beast"},
-      {"id":"ridge-slope-pebble-1","kind":1,"x":993,"platform":1,"hp":34,"art":"pebble-courier"},
-      {"id":"ridge-slope-pebble-2","kind":1,"x":1352,"platform":2,"hp":37,"art":"pebble-courier"},
-      {"id":"ridge-slope-beast-3","kind":1,"x":1514,"platform":0,"hp":37,"art":"fanged-beast"}
+      {"id":"ridge-slope-beast-1","kind":1,"x":318,"platform":0,"hp":31,"art":"fanged-beast","patrolMin":298,"patrolMax":338},
+      {"id":"ridge-slope-beast-2","kind":1,"x":682,"platform":0,"hp":34,"art":"fanged-beast","patrolMin":662,"patrolMax":702},
+      {"id":"ridge-slope-pebble-1","kind":1,"x":993,"platform":1,"hp":34,"art":"pebble-courier","patrolMin":973,"patrolMax":1013},
+      {"id":"ridge-slope-pebble-2","kind":1,"x":1352,"platform":2,"hp":37,"art":"pebble-courier","patrolMin":1332,"patrolMax":1372},
+      {"id":"ridge-slope-beast-3","kind":1,"x":1514,"platform":0,"hp":37,"art":"fanged-beast","patrolMin":1494,"patrolMax":1534}
     ],
     "natlan-flag-ledges": [
       {"id":"ridge-ledge-pebble-1","kind":1,"x":840,"platform":1,"hp":35,"art":"pebble-courier"}

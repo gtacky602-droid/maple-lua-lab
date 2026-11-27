@@ -80,6 +80,8 @@ prepared=checkpoint(s)
 s=restore(prepared)
 gate(s,880,slope)
 assert len(s.enemies)==5
+for x,y in [(445,480),(1445,391),*((a.x,a.y) for a in s.actors.values())]:
+    assert all(abs(e.y-y)>=45 or x<=e.patrolMin-60 or x>=e.patrolMax+60 for e in s.enemies.values())
 collect(s,445,2)
 gate(s,1756,cleft,391,open=False)
 move(s,842)

@@ -32,18 +32,23 @@ def enter_overlook(trip):
     near(trip,540,305)
     trip.cross(OVERLOOK)
 
-def play_marks_and_meal():
-    trip=Journey(saves/'earned-worksites-start.json',engine)
+def play_marks_and_meal(trip=None, *, on_cliff=None):
+    standalone=trip is None
+    if standalone:
+        trip=Journey(saves/'earned-worksites-start.json',engine)
     for quest in (STONE,MEAL):
         trip.act('story_accept:'+quest)
         assert len(pending(trip,quest))==3
     trip.cross(RIVER)
     collect(trip,STONE,'cut-wall',1250)
     collect(trip,MEAL,'fish',365)
-    (saves/'earned-worksites-partial.json').write_text(json.dumps(trip.snapshot()),encoding='utf8')
+    if standalone:
+        (saves/'earned-worksites-partial.json').write_text(json.dumps(trip.snapshot()),encoding='utf8')
     trip.restore()
     assert pending(trip,STONE)=={'tool-mark','paving-mark'} and pending(trip,MEAL)=={'herb','mushroom'}
     trip.cross(CLIFF)
+    if on_cliff:
+        on_cliff(trip)
     near(trip,520,395)
     near(trip,520,305)
     collect(trip,MEAL,'herb',560,305)

@@ -23,10 +23,11 @@
   "realJumps": true,
   "specimenCarryAndWithdrawal": true,
   "storedAndClearedAfterReload": true,
+  "clearedMeadowPreview": true,
   "commands": {
-    "png": 28,
-    "standard": 11567,
-    "light": 2882
+    "png": 22,
+    "standard": 11561,
+    "light": 2867
   },
   "reward": [
     164740,

@@ -82,6 +82,8 @@ gate(332, meadow, False)
 collect(231, 1)
 gate(332, meadow)
 assert len(s.enemies) == 4 and {e.y for e in s.enemies.values()} == {480}
+assert all(a.x+60<=e.patrolMin for a in s.actors.values() for e in s.enemies.values())
+assert all(e.patrolMax+60<=1028 for e in s.enemies.values())
 move(1028)
 assert not frame().storyObservationVisitors.toneReady
 action('story_collect')
