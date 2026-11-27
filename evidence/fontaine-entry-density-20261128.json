@@ -1,0 +1,606 @@
+{
+  "base": "7930a368ea5232735188e6231027f01e97347083",
+  "fields": {
+    "fontaine-entry": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 300
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 236
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 13,
+        "cooldownSeconds": 3.6
+      },
+      "browser": {
+        "node": "fontaine-entry",
+        "records": {
+          "before": {
+            "total": 6,
+            "visible": 6,
+            "camera": 236
+          },
+          "after": {
+            "total": 15,
+            "visible": 15,
+            "camera": 236
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 18600,
+        "h48c32": 11076,
+        "h32c16": 4851
+      }
+    },
+    "fontaine-field": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 320
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 232
+      },
+      "added": 9,
+      "contact": {
+        "configured": 9,
+        "distantHit": false,
+        "closeDamage": 13,
+        "cooldownSeconds": 3.6
+      },
+      "browser": {
+        "node": "fontaine-field",
+        "records": {
+          "before": {
+            "total": 7,
+            "visible": 7,
+            "camera": 232
+          },
+          "after": {
+            "total": 16,
+            "visible": 16,
+            "camera": 232
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 19978,
+        "h48c32": 12167,
+        "h32c16": 5418
+      }
+    },
+    "fontaine-outskirts-loading": {
+      "before": {
+        "ordinary": 7,
+        "peak": 5,
+        "camera": 540
+      },
+      "after": {
+        "ordinary": 17,
+        "peak": 15,
+        "camera": 360
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 13,
+        "cooldownSeconds": 3.6
+      },
+      "browser": {
+        "node": "fontaine-outskirts-loading",
+        "records": {
+          "before": {
+            "total": 8,
+            "visible": 6,
+            "camera": 360
+          },
+          "after": {
+            "total": 18,
+            "visible": 16,
+            "camera": 360
+          }
+        }
+      },
+      "expandedLuaRectangles": {
+        "legacy": 19861,
+        "h48c32": 12093,
+        "h32c16": 5202
+      }
+    }
+  },
+  "ordinaryHunts": 134,
+  "eliteRoutes": 7,
+  "viewWidth": 960,
+  "portalArrivalsIncludingNamedPatrols": [
+    {
+      "origin": "sumeru-field",
+      "destination": "fontaine-entry",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fontaine-hub",
+      "destination": "fontaine-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fontaine-hub",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fontaine-field",
+      "destination": "fontaine-outskirts-loading",
+      "positions": [
+        [
+          123,
+          480
+        ],
+        [
+          83,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fontaine-outskirts-loading",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          194,
+          480
+        ],
+        [
+          154,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "emperor-field-cove",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "seahorse-field-cavern",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "field-generator-field-chamber",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "tulpa-field-grotto",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "natlan-entry",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "bygone-camp",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fon-wp-50047",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          1270,
+          480
+        ],
+        [
+          1230,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fon-wp-50050",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          1074,
+          480
+        ],
+        [
+          1034,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fon-wp-50052",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          835,
+          480
+        ],
+        [
+          795,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fon-wp-50064",
+      "destination": "fontaine-field",
+      "positions": [
+        [
+          625,
+          480
+        ],
+        [
+          585,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "fon-wp-68340",
+      "destination": "fontaine-entry",
+      "positions": [
+        [
+          1050,
+          480
+        ],
+        [
+          1010,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-50032",
+      "destination": "fontaine-entry",
+      "positions": [
+        [
+          234,
+          480
+        ],
+        [
+          194,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sum-wp-69098",
+      "destination": "fontaine-entry",
+      "positions": [
+        [
+          878,
+          480
+        ],
+        [
+          838,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-hunt-50034",
+      "destination": "fontaine-entry",
+      "positions": [
+        [
+          682,
+          480
+        ],
+        [
+          642,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivalsIncludingNamedPatrols": [
+    {
+      "node": "fontaine-entry",
+      "positions": [
+        [
+          440,
+          480
+        ],
+        [
+          400,
+          480
+        ]
+      ]
+    },
+    {
+      "node": "fontaine-field",
+      "positions": [
+        [
+          520,
+          480
+        ],
+        [
+          480,
+          480
+        ]
+      ]
+    }
+  ],
+  "movedNamedPatrol": {
+    "id": "fontaine-field-1",
+    "oldX": 620,
+    "newX": 718
+  },
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "d1c5393fc4cecd92ef36fdf40fef16a39055023ff9e8532d08bcbd47f6d157fb"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 2035.33,
+        "level": 60,
+        "total": 2740517,
+        "questXp": 1551496,
+        "killXp": 1189021,
+        "kills": 2784
+      },
+      "wipes": 0,
+      "inputSaveSha256": "b74b48c395170e677ae63e3cb32efac2d8721075b40bc76b32ee301725ac11d7"
+    },
+    "sumeru": {
+      "arrival": {
+        "id": "fontaine-hub",
+        "seconds": 7075.63,
+        "level": 80,
+        "total": 10034573,
+        "questXp": 3968218,
+        "killXp": 6066355,
+        "kills": 6059
+      },
+      "wipes": 0,
+      "inputSaveSha256": "0bac669d13674dcd233f17479e0be5178b7bc84353f9c7ba1a00d000e7a6df15"
+    },
+    "fontaine": {
+      "arrival": {
+        "id": "natlan-hub",
+        "seconds": 6484.62,
+        "level": 100,
+        "total": 37615277,
+        "questXp": 15666763,
+        "killXp": 21948514,
+        "kills": 9715
+      },
+      "wipes": 0,
+      "inputSaveSha256": "8b6fca112c538c32d0eaa6d3a421a94b0b133c3992ec76148157f128077c647a"
+    }
+  },
+  "completedFontaineQuests": [
+    "fontaine-moon-parcel",
+    "fontaine-understage-crew",
+    "fontaine-grand-finale",
+    "fon-furina-cues",
+    "fon-emilie-scent",
+    "fon-navia-photo"
+  ],
+  "fontaineRecoveryTrips": 76,
+  "browserMapAndTravel": {
+    "importedLevel": 100,
+    "arrivalLevel": 100,
+    "route": [
+      [
+        "fontaine-field",
+        "walk"
+      ],
+      [
+        "natlan-entry",
+        "walk"
+      ],
+      [
+        "natlan-hub",
+        "walk"
+      ]
+    ],
+    "completedQuests": [
+      "fontaine-moon-parcel",
+      "fontaine-understage-crew",
+      "fontaine-grand-finale",
+      "fon-furina-cues",
+      "fon-emilie-scent",
+      "fon-navia-photo"
+    ],
+    "hunts": [
+      "fontaine-entry",
+      "fontaine-field",
+      "fontaine-outskirts-loading",
+      "fontaine-beryl-bank",
+      "fontaine-beryl-foothills"
+    ],
+    "firstNatlanQuestAccepted": "natlan-ridge-flag",
+    "importedXp": 37605659,
+    "arrivalXp": 37619525,
+    "travelKillXp": 13866,
+    "retainedLootFromNewHunts": 3,
+    "errors": []
+  },
+  "browserDaily": {
+    "townOffers": 5,
+    "walkedCanalToLoadingYardAndBack": true,
+    "normalAttackCountsThreeObjectives": true,
+    "namedMekaEliteVisible": true,
+    "placementComparisonProfiles": 3,
+    "staleSaveRetainsProgress": true,
+    "rewardsDoNotReplay": true,
+    "mobileFits": true,
+    "reward": {
+      "xp": 69040,
+      "mora": 2550
+    },
+    "errors": []
+  },
+  "loadingYardCharactersComparedInChrome": {
+    "camera": 360,
+    "light": {
+      "locations": {
+        "shape": {
+          "x": 80,
+          "y": 360
+        },
+        "color": {
+          "x": 80,
+          "y": 360
+        }
+      },
+      "union": 34362,
+      "overlap": 33284,
+      "overlapPercent": 96.86281357313311,
+      "meanRgbError": 19.381955293834874
+    },
+    "rows": [
+      [
+        "標準",
+        "16,421",
+        "98.5%",
+        "9.35 / 255",
+        "—"
+      ],
+      [
+        "中間・32色",
+        "10,047",
+        "96.9%",
+        "12.88 / 255",
+        "-38.8%"
+      ],
+      [
+        "最軽量・16色",
+        "4,321",
+        "96.9%",
+        "19.38 / 255",
+        "-73.7%"
+      ]
+    ]
+  },
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5715,
+    "liveEntriesChecked": 5715,
+    "airborneEntriesChecked": 3,
+    "ledgeField": "nod-west-frost-slope",
+    "displacementRespawns": 4
+  }
+}

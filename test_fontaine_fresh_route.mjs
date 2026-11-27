@@ -37,11 +37,15 @@ try {
  await page.locator('#game').click();
  await page.keyboard.press('KeyM');
  await atlas.waitFor();
- const hunts=['fontaine-beryl-bank','fontaine-beryl-foothills'];
+ const hunts=['fontaine-entry',canal,'fontaine-outskirts-loading',
+  'fontaine-beryl-bank','fontaine-beryl-foothills'];
  await page.locator('#atlasLayer').selectOption('hunt');
  for(const id of hunts){
   await page.locator('#atlasField').selectOption(id);
-  await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,id);
+  await page.waitForFunction(id=>{
+   const map=window.lab.frame.worldMap;
+   return map?.layer==='hunt'&&map.selected?.id===id&&map.selected.huntKind==='field';
+  },id);
   assert.equal((await frame()).worldMap.guide.status,'ready');
  }
  await page.locator('#atlasLayer').selectOption('all');
