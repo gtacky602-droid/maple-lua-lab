@@ -1,0 +1,259 @@
+{
+  "scope": "Local HTTP join and combat launch. A reported Lv200 save was restored for each party and the actors were placed at each gate. Gathering time was advanced inside the Lua room.",
+  "matches": 7,
+  "difficultyLaunches": 28,
+  "results": [
+    {
+      "match": "beidou",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 690,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "beidou",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 1250,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "beidou",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 1830,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "beidou",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 2860,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "capitano",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 2430,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "capitano",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 3250,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "capitano",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 4150,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "capitano",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 5400,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "xbalanque",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 1780,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "xbalanque",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 2510,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "xbalanque",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 3410,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "xbalanque",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 4480,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "rerir",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 2180,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "rerir",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 3050,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "rerir",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 4240,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "rerir",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 5500,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "ronova",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 5460,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "ronova",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 7340,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "ronova",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 9610,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "ronova",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 12300,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "wanderer",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 1550,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "wanderer",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 2340,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "wanderer",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 3380,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "wanderer",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 4850,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "farka",
+      "mode": "normal",
+      "parties": 4,
+      "configuredHp": 670,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "farka",
+      "mode": "hard",
+      "parties": 4,
+      "configuredHp": 1880,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "farka",
+      "mode": "master",
+      "parties": 4,
+      "configuredHp": 3460,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    },
+    {
+      "match": "farka",
+      "mode": "extreme",
+      "parties": 4,
+      "configuredHp": 5520,
+      "sharedBoss": true,
+      "gatheringCompleted": true,
+      "recordsUnchangedAtLaunch": true
+    }
+  ]
+}
