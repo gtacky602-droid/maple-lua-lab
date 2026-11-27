@@ -757,22 +757,28 @@
         "id": "liyue-entry-1",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 300,
-        "platform": 0
+        "x": 615,
+        "platform": 0,
+        "patrolMin": 570,
+        "patrolMax": 980
       },
       {
         "id": "liyue-entry-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
+        "x": 710,
+        "platform": 0,
+        "patrolMin": 570,
+        "patrolMax": 980
       },
       {
         "id": "liyue-entry-3",
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 570,
+        "patrolMax": 980
       },
       {
         "id": "liyue-entry-4",
@@ -795,7 +801,17 @@
         "art": "pyro-slime",
         "x": 600,
         "platform": 2
-      }
+      },
+      {"id":"liyue-entry-regular-1","x":788,"platform":0,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4,"patrolMin":570,"patrolMax":980},
+      {"id":"liyue-entry-regular-2","x":900,"platform":0,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4,"patrolMin":570,"patrolMax":980},
+      {"id":"liyue-entry-regular-3","x":960,"platform":0,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4,"patrolMin":570,"patrolMax":980},
+      {"id":"liyue-entry-regular-4","x":237,"platform":1,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-entry-regular-5","x":378,"platform":1,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-entry-regular-6","x":512,"platform":2,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-entry-regular-7","x":679,"platform":2,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-entry-regular-8","x":868,"platform":3,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-entry-regular-9","x":979,"platform":3,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-entry-regular-10","x":1060,"platform":3,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4}
     ],
     "liyue-crux-wharf": [
       {"id": "liyue-crux-pier", "kind": 1, "art": "hydro-slime",
@@ -820,22 +836,28 @@
         "id": "liyue-field-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
+        "x": 622,
+        "platform": 0,
+        "patrolMin": 585,
+        "patrolMax": 666
       },
       {
         "id": "liyue-field-3",
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 826,
+        "patrolMax": 918
       },
       {
         "id": "liyue-field-4",
         "kind": 1,
         "art": "hydro-slime",
         "x": 1120,
-        "platform": 0
+        "platform": 0,
+        "patrolMin": 1078,
+        "patrolMax": 1180
       },
       {
         "id": "liyue-field-5",
@@ -855,10 +877,22 @@
         "id": "liyue-field-daily-scout",
         "kind": 1,
         "art": "treasure-scout",
-        "x": 955,
+        "x": 897,
         "platform": 0,
-        "hp": 24
-      }
+        "hp": 24,
+        "patrolMin": 826,
+        "patrolMax": 918
+      },
+      {"id":"liyue-field-regular-1","x":376,"platform":0,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4,"patrolMin":330,"patrolMax":400},
+      {"id":"liyue-field-regular-2","x":665,"platform":0,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4,"patrolMin":585,"patrolMax":666},
+      {"id":"liyue-field-regular-3","x":1080,"platform":0,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4,"patrolMin":1078,"patrolMax":1180},
+      {"id":"liyue-field-regular-4","x":1150,"platform":0,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4,"patrolMin":1078,"patrolMax":1180},
+      {"id":"liyue-field-regular-5","x":237,"platform":1,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-field-regular-6","x":491,"platform":2,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-field-regular-7","x":641,"platform":2,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-field-regular-8","x":780,"platform":3,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-field-regular-9","x":943,"platform":3,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-field-regular-10","x":1212,"platform":4,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4}
     ],
     "liyue-book-camp": [
       {"id": "liyue-book-scout-1", "kind": 1, "art": "treasure-scout", "x": 420, "platform": 0, "hp": 20},
@@ -2452,70 +2486,90 @@
         "kind": 1,
         "x": 290,
         "platform": 0,
-        "art": "hydro-slime"
+        "art": "hydro-slime",
+        "patrolMin": 220,
+        "patrolMax": 305
       },
       {
         "id": "liyue-river-trail-2",
         "kind": 1,
-        "x": 365,
+        "x": 438,
         "platform": 0,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 425,
+        "patrolMax": 1020
       },
       {
         "id": "liyue-river-trail-3",
         "kind": 1,
         "x": 470,
         "platform": 0,
-        "art": "hydro-slime"
+        "art": "hydro-slime",
+        "patrolMin": 425,
+        "patrolMax": 1020
       },
       {
         "id": "liyue-river-trail-4",
         "kind": 1,
         "x": 520,
         "platform": 0,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 425,
+        "patrolMax": 1020
       },
       {
         "id": "liyue-river-trail-5",
         "kind": 1,
         "x": 790,
         "platform": 0,
-        "art": "hydro-slime"
+        "art": "hydro-slime",
+        "patrolMin": 425,
+        "patrolMax": 1020
       },
       {
         "id": "liyue-river-trail-6",
         "kind": 1,
         "x": 870,
         "platform": 0,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 425,
+        "patrolMax": 1020
       },
       {
         "id": "liyue-river-trail-7",
         "kind": 1,
         "x": 1000,
         "platform": 0,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 425,
+        "patrolMax": 1020
       },
       {
         "id": "liyue-river-trail-8",
         "kind": 1,
         "x": 1210,
         "platform": 0,
-        "art": "hydro-slime"
+        "art": "hydro-slime",
+        "patrolMin": 1180,
+        "patrolMax": 1500
       },
       {
         "id": "liyue-river-trail-9",
         "kind": 1,
         "x": 1400,
         "platform": 0,
-        "art": "hilichurl"
+        "art": "hilichurl",
+        "patrolMin": 1180,
+        "patrolMax": 1500
       },
       {
         "id": "liyue-river-trail-10",
         "kind": 1,
         "x": 1480,
         "platform": 0,
-        "art": "hydro-slime"
+        "art": "hydro-slime",
+        "patrolMin": 1180,
+        "patrolMax": 1500
       },
       {
         "id": "liyue-river-trail-11",
@@ -2530,7 +2584,13 @@
         "x": 555,
         "platform": 2,
         "art": "hilichurl"
-      }
+      },
+      {"id":"liyue-river-trail-regular-1","x":430,"platform":1,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-river-trail-regular-2","x":508,"platform":2,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-river-trail-regular-3","x":655,"platform":2,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-river-trail-regular-4","x":944,"platform":3,"art":"hilichurl","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-river-trail-regular-5","x":1145,"platform":3,"art":"hydro-slime","kind":1,"hp":15,"contactDamage":9,"contactCooldown":4.4},
+      {"id":"liyue-river-trail-regular-6","x":1375,"platform":4,"art":"pyro-slime","kind":2,"hp":17,"contactDamage":9,"contactCooldown":4.4}
     ],
     "liyue-cliff-planks": [
       {

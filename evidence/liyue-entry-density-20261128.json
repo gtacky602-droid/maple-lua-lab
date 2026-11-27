@@ -1,0 +1,557 @@
+{
+  "base": "2552a9f7c05d3c4c74d7ba5a86620ef2fb2706b9",
+  "worldRouteEditorRevision": 1,
+  "adoptedOperationsMatched": 306,
+  "source": "sources/20261116-amendment.md",
+  "viewWidth": 960,
+  "fields": {
+    "liyue-entry": {
+      "before": {
+        "ordinary": 5,
+        "peak": 5,
+        "camera": 300
+      },
+      "after": {
+        "ordinary": 15,
+        "peak": 15,
+        "camera": 237
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 9,
+        "cooldownSeconds": 4.4
+      }
+    },
+    "liyue-river-trail": {
+      "before": {
+        "ordinary": 12,
+        "peak": 10,
+        "camera": 290
+      },
+      "after": {
+        "ordinary": 18,
+        "peak": 15,
+        "camera": 290
+      },
+      "added": 6,
+      "contact": {
+        "configured": 6,
+        "distantHit": false,
+        "closeDamage": 9,
+        "cooldownSeconds": 4.4
+      }
+    },
+    "liyue-field": {
+      "before": {
+        "ordinary": 6,
+        "peak": 6,
+        "camera": 295
+      },
+      "after": {
+        "ordinary": 16,
+        "peak": 15,
+        "camera": 295
+      },
+      "added": 10,
+      "contact": {
+        "configured": 10,
+        "distantHit": false,
+        "closeDamage": 9,
+        "cooldownSeconds": 4.4
+      }
+    }
+  },
+  "preservedQuestEncounters": {
+    "liyue-loading-yard": {
+      "role": "cargo delivery",
+      "enemies": 7
+    },
+    "liyue-cliff-planks": {
+      "role": "herb gathering",
+      "enemies": 4
+    }
+  },
+  "ordinaryHunts": 126,
+  "eliteRoutes": 7,
+  "peakRange": [
+    15,
+    20
+  ],
+  "testedLiyuePortalArrivals": [
+    {
+      "origin": "mond-border",
+      "destination": "liyue-entry",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-harbor",
+      "destination": "liyue-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-harbor",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-harbor",
+      "destination": "liyue-river-trail",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-cliff-planks",
+      "destination": "liyue-river-trail",
+      "positions": [
+        [
+          1120,
+          480
+        ],
+        [
+          1080,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-quarry-post",
+      "destination": "liyue-river-trail",
+      "positions": [
+        [
+          1600,
+          480
+        ],
+        [
+          1560,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-cart-road",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-cart-lift",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-book-camp",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chenyu-camp",
+      "destination": "liyue-entry",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "chasm-camp",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "pyro-approach",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "geo-approach",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "oceanid-approach",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1280,
+          480
+        ],
+        [
+          1240,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "primo-approach",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-29",
+      "destination": "liyue-entry",
+      "positions": [
+        [
+          335,
+          480
+        ],
+        [
+          295,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-32",
+      "destination": "liyue-entry",
+      "positions": [
+        [
+          1080,
+          480
+        ],
+        [
+          1040,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-43",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          1018,
+          480
+        ],
+        [
+          978,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-51",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          525,
+          480
+        ],
+        [
+          485,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-52",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          221,
+          480
+        ],
+        [
+          181,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "liyue-wp-97",
+      "destination": "liyue-field",
+      "positions": [
+        [
+          766,
+          480
+        ],
+        [
+          726,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "sites-corridor-dihua-causeway",
+      "destination": "liyue-entry",
+      "positions": [
+        [
+          510,
+          480
+        ],
+        [
+          470,
+          480
+        ]
+      ]
+    }
+  ],
+  "testedCookingSites": [
+    {
+      "id": "fish",
+      "name": "川魚",
+      "node": "liyue-river-trail",
+      "x": 365,
+      "y": 480
+    },
+    {
+      "id": "mushroom",
+      "name": "木陰のキノコ",
+      "node": "liyue-field",
+      "x": 270,
+      "y": 480
+    }
+  ],
+  "terrainSupport": {
+    "hostileFields": 344,
+    "authoredPlacements": 5640,
+    "liveEntriesChecked": 5640
+  },
+  "sameCameraBrowserComparison": {
+    "node": "liyue-field",
+    "records": {
+      "before": {
+        "total": 7,
+        "visible": 7,
+        "camera": 295
+      },
+      "after": {
+        "total": 17,
+        "visible": 16,
+        "camera": 295
+      }
+    }
+  },
+  "sameCameraLuaArt": {
+    "node": "liyue-field",
+    "camera": 295,
+    "profiles": {
+      "legacy": {
+        "rectanglesExpanded": 23568,
+        "frameJsonBytes": 1448331,
+        "frameGzipBytes": 259244
+      },
+      "h48c32": {
+        "rectanglesExpanded": 13997,
+        "frameJsonBytes": 1327467,
+        "frameGzipBytes": 238272
+      },
+      "h32c16": {
+        "rectanglesExpanded": 5879,
+        "frameJsonBytes": 1224089,
+        "frameGzipBytes": 219030
+      }
+    }
+  },
+  "freshLuaRoute": {
+    "mondstadt": {
+      "arrival": {
+        "id": "liyue-harbor",
+        "seconds": 598.35,
+        "level": 20,
+        "total": 20800,
+        "questXp": 15482,
+        "killXp": 5318,
+        "kills": 545
+      },
+      "wipes": 0,
+      "inputSaveSha256": null
+    },
+    "liyue": {
+      "arrival": {
+        "id": "inazuma-port",
+        "seconds": 863.28,
+        "level": 40,
+        "total": 384332,
+        "questXp": 258960,
+        "killXp": 125372,
+        "kills": 1217
+      },
+      "wipes": 0,
+      "inputSaveSha256": "3edec8d90026989eecaa45f722ff2be558a390be471a8ec71e45388da453d2aa"
+    },
+    "inazuma": {
+      "arrival": {
+        "id": "sumeru-hub",
+        "seconds": 1892.73,
+        "level": 60,
+        "total": 2738827,
+        "questXp": 1551496,
+        "killXp": 1187331,
+        "kills": 2762
+      },
+      "wipes": 0,
+      "inputSaveSha256": "3f9728d2ef1a670f792db79e71ec93bf46925c5ab94b803cedc0929e6065e6d2"
+    }
+  },
+  "browserFerryAndMap": {
+    "importedLevel": 40,
+    "verifiedQuests": [
+      "liyue-market-delivery",
+      "liyue-caravan-search",
+      "liyue-market-opening",
+      "beidou-join",
+      "liyue-book-rescue",
+      "liyue-hauling-shortcut",
+      "liyue-harbor-meal"
+    ],
+    "huntFields": [
+      "liyue-entry",
+      "liyue-field",
+      "liyue-river-trail"
+    ],
+    "route": [
+      "liyue-ferry",
+      "inazuma-port"
+    ],
+    "autoArrived": true,
+    "firstInazumaQuestAccepted": "inazuma-moving-lantern",
+    "totalXp": 384332,
+    "errors": []
+  },
+  "browserCargoGuide": {
+    "quest": "liyue-market-delivery",
+    "mode": "h32c16",
+    "background": 4096,
+    "checks": [
+      {
+        "label": "討伐対象",
+        "color": "129,255,224,255",
+        "observed": "討伐対象　ヒルチャール（右手）"
+      },
+      {
+        "label": "車輪の荷箱",
+        "color": "255,224,129,255",
+        "observed": "車輪の荷箱　Gで回収（右手・上段）"
+      },
+      {
+        "label": "荷車の修理屋",
+        "color": "255,224,129,255",
+        "observed": "荷車の修理屋　店先で荷札を選ぶ（すぐ近く）"
+      }
+    ],
+    "errors": []
+  },
+  "browserPlacementEditor": {
+    "checks": [
+      "referenced slime aliases",
+      "Ruin Guard position and grounding",
+      "replacement undo",
+      "other node retained",
+      "failed fetch retains edits",
+      "export",
+      "empty hub",
+      "390px layout"
+    ],
+    "errors": []
+  },
+  "existingRegionalQuestSaveRegression": {
+    "sourceSha256": "f29ab975b4f18d46649c596d442995d972fc9090798f8323aedd242bb467e757",
+    "reports": 11,
+    "complete": 276,
+    "returns": 0
+  }
+}

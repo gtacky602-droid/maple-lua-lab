@@ -4,9 +4,11 @@ from argparse import ArgumentParser
 from bisect import bisect_left
 from collections import defaultdict
 import json
+from math import ceil
 from pathlib import Path
 
 from runtime import ROOT, runtime
+from savegame import validate_save
 from story_scope import suspended_stage_returns
 
 VIEW_WIDTH = 960
@@ -68,18 +70,54 @@ def verify_intro_contact(lua, core, node, rows):
                 cooldownSeconds=sample.contactCooldown)
 
 
+def verify_intro_arrivals(lua, core, graph, placements, targets):
+    # A completed save opens the authored routes. Each probe uses the real portal
+    # action so a lift or a boat can choose a different arrival than a walk.
+    checkpoint = validate_save(read('evidence/remaining-survey-save.json'))
+    finish_transfer = lua.eval('function(C,s,n) for i=1,n do C.step(s,1/60,{}) if not s.lift then return end end end')
+    arrivals = []
+    for stage in graph['nodes']:
+        for edge in stage['exits']:
+            destination = edge['to']
+            if destination not in targets:
+                continue
+            state = core.restore(lua.table_from(checkpoint, recursive=True), 12)
+            core.enterStoryNode(state, stage['id'])
+            actor = state.actors[state.active]
+            actor.x, actor.y = edge['x'], edge.get('y', 480)
+            core.action(state, 'story_portal:' + destination)
+            if state.lift:
+                finish_transfer(core, state, ceil(state.lift.remaining * 60) + 2)
+            assert state.story.node == destination, (stage['id'],destination,state.storyNotice)
+            ordinary_ids = {row['id'] for row in placements[destination] if ordinary(row)}
+            positions = [(a.x, a.y) for a in state.actors.values()]
+            for enemy in state.enemies.values():
+                if enemy.spawnId not in ordinary_ids:
+                    continue
+                for x, y in positions:
+                    assert abs(enemy.y-y)>=45 or x<=enemy.patrolMin-60 or x>=enemy.patrolMax+60, (
+                        stage['id'],destination,enemy.spawnId,x,y)
+            arrivals.append(dict(origin=stage['id'], destination=destination, positions=positions))
+    return arrivals
+
+
 def measure():
     lua, core = runtime()
     state = core.new(12)
     core.action(state, 'story_start')
     placements = read('content/enemy-spawns.json')['nodes']
+    graph = read('content/story-graph.json')
     arrivals = defaultdict(list)
-    for stage in read('content/story-graph.json')['nodes']:
+    ingredients = defaultdict(list)
+    for quest in graph['quests']:
+        for item in (quest.get('cooking') or {}).get('ingredients', []):
+            ingredients[item['node']].append(item)
+    for stage in graph['nodes']:
         for edge in stage['exits']:
             if 'arrivalX' in edge:
                 arrivals[edge['to']].append((edge['arrivalX'], edge.get('arrivalY', 480), stage['id']))
     rows, routes, contact = [], [], {}
-    unsafe = set()
+    unsafe, unsafe_ingredients = set(), []
     for region, node in hunt_points():
         core.enterStoryNode(state, node)
         assert state.story.node == node
@@ -97,9 +135,14 @@ def measure():
             for enemy in spawned.values():
                 if abs(enemy.y - y) < 45 and enemy.patrolMin - 60 < x < enemy.patrolMax + 100:
                     unsafe.add((other, node))
+        for item in ingredients[node]:
+            for enemy in spawned.values():
+                if abs(enemy.y - item['y']) < 45 and enemy.patrolMin - 60 < item['x'] < enemy.patrolMax + 60:
+                    unsafe_ingredients.append((item['id'], node, enemy.spawnId))
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
-                unsafePortalArrivals=sorted(unsafe), introContact=contact)
+                unsafePortalArrivals=sorted(unsafe), unsafeIngredientSites=unsafe_ingredients,
+                introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,contact))
 
 
 if __name__ == '__main__':
@@ -116,3 +159,4 @@ if __name__ == '__main__':
     if not args.report_only:
         assert not outside, outside
         assert not evidence['unsafePortalArrivals'], evidence['unsafePortalArrivals']
+        assert not evidence['unsafeIngredientSites'], evidence['unsafeIngredientSites']
