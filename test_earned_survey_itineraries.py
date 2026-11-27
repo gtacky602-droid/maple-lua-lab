@@ -1,6 +1,7 @@
 """Walk every visit quest and travel-and-inspect itinerary from earned saves and reload payouts."""
 import json
 
+from story_scope import suspended_stage_returns
 from test_earned_branch_quests import Journey, ROOT, graph
 
 nodes = {n['id']: n for n in graph['nodes']}
@@ -49,7 +50,9 @@ def run():
     trip = SurveyJourney('lv200-save.json')
     assert trip.state.progression.level == 200
     earlier, cases = {}, {}
-    surveys = [q for q in quests.values() if {step['kind'] for step in q.get('itinerary', [])} == {'arrive', 'inspect'}]
+    suspended = suspended_stage_returns(graph)
+    active = [q for q in quests.values() if q['hub'] not in suspended and q.get('target') not in suspended]
+    surveys = [q for q in active if {step['kind'] for step in q.get('itinerary', [])} == {'arrive', 'inspect'}]
     def travel(target):
         if trip.state.story.node != target:
             trip.travel(target)
@@ -78,7 +81,7 @@ def run():
 
     sources = {'sum-mapped-north-quay': 'sumeru-fresh-route/pre-quay-save.json',
                'natlan-ancient-excavation-wall': 'cap-fresh-route/lv165-save.json'}
-    visits = [q for q in quests.values() if q['kind']=='visit']
+    visits = [q for q in active if q['kind']=='visit']
     for q in [*surveys,*visits]:
         id, hub = q['id'], q['hub']
         if id in sources:
@@ -134,7 +137,7 @@ def run():
         cases[id] = walk_objectives(trip,q)
         print(id, cases[id]['objectives'], flush=True)
     trip.restore()
-    assert len(surveys)==37 and len(visits)==24 and set(cases)|set(earlier)=={q['id'] for q in [*visits,*surveys]}
+    assert set(cases) | set(earlier) == {q['id'] for q in [*visits, *surveys]}
     assert all(trip.state.story.quests[r['quest']].status=='complete' and trip.state.story.quests[r['quest']].cycles==1 for r in trip.reports)
     legs=sum(len(r['stops']) for r in trip.itineraries)
     extra_legs=sum(len(route['stops']) for case in earlier.values() for route in case['routes'])

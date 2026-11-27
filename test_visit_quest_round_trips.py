@@ -1,6 +1,7 @@
 """Play each visit quest through its map route, one payout and two reloads."""
 
 from experience import resolve_story_exp
+from story_scope import suspended_stage_returns
 from test_sumeru_borders import core, lua, map_to, new, nodes, read, save, write
 
 
@@ -55,8 +56,10 @@ def play(quest):
 
 
 if __name__ == '__main__':
-    quests = resolve_story_exp(read('content/story-graph.json'))['quests']
-    cases = {quest['id']: play(quest) for quest in quests if quest['kind'] == 'visit'}
+    graph = resolve_story_exp(read('content/story-graph.json'))
+    suspended = suspended_stage_returns(graph)
+    cases = {q['id']: play(q) for q in graph['quests']
+             if q['kind'] == 'visit' and q['hub'] not in suspended and q['target'] not in suspended}
     write('evidence/visit-quest-round-trips-lua.json', dict(
         cases=cases, count=len(cases),
         scope='Level and starting hub are fixtures. The three hidden-area tests start after discovery.',

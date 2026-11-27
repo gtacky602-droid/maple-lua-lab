@@ -5132,8 +5132,32 @@
         "teyvat:72438"
       ],
       "mode": "road",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72413",
+          "natlan-entry",
+          "natlan-hub",
+          "natlan-quarry-road",
+          "natlan-field",
+          "nat-wp-72453",
+          "nat-wp-72760",
+          "nat-wp-72437",
+          "nat-wp-72438"
+        ],
+        "return": [
+          "nat-wp-72438",
+          "nat-wp-72437",
+          "nat-wp-72760",
+          "nat-wp-72453",
+          "natlan-field",
+          "natlan-quarry-road",
+          "natlan-hub",
+          "natlan-entry",
+          "nat-wp-72413"
+        ]
+      }
     },
     {
       "fields": [

@@ -3,6 +3,7 @@
   "updated": "2026-11-26",
   "goal_status": "active",
   "scope_complete": false,
+  "field_studio_quest_replay": {"editor_revision":1,"availableStoryQuests":276,"suspendedStoryQuests":4,"legacyOnly":4,"restoredSurveyAndVisitReports":60,"surveyAndVisitLegs":581,"ordinaryHuntsChecked":12,"legendReplays":7,"record":"evidence/field-studio-20261127-quest-replay.json"},
   "daily_field_guide": {"quests":40,"regions":8,"representativeSprites":13,"profilesCompared":26,"rectangles":21838,"unpackedBytes":477899,"packedBytes":154516,"guide":"daily-field-guide.html"},
   "weekly_tier_expedition": {"rankedBosses":14,"difficultyRecords":56,"newClears":42,"expertRematches":14,"save":"evidence/weekly-tier-expedition-save.json","records":"evidence/weekly-tier-expedition.json"},
   "stygian_tier_expedition": {"matches":7,"difficultyRecords":28,"newClears":21,"save":"evidence/stygian-tier-expedition-save.json","records":"evidence/stygian-tier-expedition.json"},
