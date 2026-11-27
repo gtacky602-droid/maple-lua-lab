@@ -106,7 +106,7 @@ try{
  await popup.waitForFunction(()=>window.mapArt?.ready);
  assert.equal(await popup.locator('#node').inputValue(),outskirts);
  await popup.click('#loadLive');
- await popup.waitForFunction(()=>window.mapArt.count===8);
+ await popup.waitForFunction(()=>window.mapArt.count===18);
  for(const profile of ['legacy','h48c32','h32c16']){
   await popup.selectOption('#profile',profile);
   const comparison=await popup.evaluate(()=>window.mapArt);

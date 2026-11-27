@@ -1353,48 +1353,27 @@
       {"id": "nod-forest-outer-regular-9", "x": 1245, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 41, "contactDamage": 15, "contactCooldown": 3.2, "patrolMin": 186, "patrolMax": 1656}
     ],
     "snezhnaya-entry": [
-      {
-        "id": "snezhnaya-entry-1",
-        "kind": 1,
-        "art": "cryo-slime",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-entry-2",
-        "kind": 1,
-        "art": "cryo-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-entry-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-entry-4",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-entry-5",
-        "kind": 1,
-        "art": "cryo-slime",
-        "x": 300,
-        "platform": 1
-      },
+      {"id": "snezhnaya-entry-1", "kind": 1, "art": "cryo-slime", "x": 300, "platform": 0, "patrolMin": 295, "patrolMax": 330},
+      {"id": "snezhnaya-entry-2", "kind": 1, "art": "cryo-slime", "x": 590, "platform": 0, "patrolMin": 560, "patrolMax": 1030},
+      {"id": "snezhnaya-entry-3", "kind": 2, "art": "pyro-slime", "x": 850, "platform": 0, "patrolMin": 560, "patrolMax": 1030},
+      {"id": "snezhnaya-entry-4", "kind": 1, "art": "hydro-slime", "x": 985, "platform": 0, "patrolMin": 560, "patrolMax": 1030},
+      {"id": "snezhnaya-entry-5", "kind": 1, "art": "cryo-slime", "x": 369, "platform": 1, "patrolMin": 355, "patrolMax": 416},
       {
         "id": "snezhnaya-entry-6",
         "kind": 2,
         "art": "pyro-slime",
         "x": 640,
         "platform": 2
-      }
+      },
+      {"id": "snezhnaya-entry-regular-1", "x": 643, "platform": 0, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 560, "patrolMax": 1030},
+      {"id": "snezhnaya-entry-regular-2", "x": 760, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 40, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 560, "patrolMax": 1030},
+      {"id": "snezhnaya-entry-regular-3", "x": 937, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 560, "patrolMax": 1030},
+      {"id": "snezhnaya-entry-regular-4", "x": 190, "platform": 1, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 184, "patrolMax": 195},
+      {"id": "snezhnaya-entry-regular-5", "x": 407, "platform": 1, "art": "hydro-slime", "kind": 1, "hp": 40, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 355, "patrolMax": 416},
+      {"id": "snezhnaya-entry-regular-6", "x": 527, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-entry-regular-7", "x": 731, "platform": 2, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-entry-regular-8", "x": 900, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 40, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-entry-regular-9", "x": 1085, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2}
     ],
     "snow-rail-transfer": [
       {"id":"snow-rail-cart-1","kind":2,"art":"sled-maintenance-cart","name":"保線カート","x":355,"platform":0,"hp":45},
@@ -1402,34 +1381,10 @@
       {"id":"snow-rail-cart-3","kind":2,"art":"sled-maintenance-cart","name":"保線カート","x":1015,"platform":0,"hp":45}
     ],
     "snezhnaya-field": [
-      {
-        "id": "snezhnaya-field-1",
-        "kind": 1,
-        "art": "cryo-slime",
-        "x": 300,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-field-2",
-        "kind": 1,
-        "art": "hydro-slime",
-        "x": 510,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-field-3",
-        "kind": 2,
-        "art": "pyro-slime",
-        "x": 850,
-        "platform": 0
-      },
-      {
-        "id": "snezhnaya-field-4",
-        "kind": 1,
-        "art": "cryo-slime",
-        "x": 1120,
-        "platform": 0
-      },
+      {"id": "snezhnaya-field-1", "kind": 1, "art": "cryo-slime", "x": 300, "platform": 0, "patrolMin": 220, "patrolMax": 448},
+      {"id": "snezhnaya-field-2", "kind": 1, "art": "hydro-slime", "x": 398, "platform": 0, "patrolMin": 220, "patrolMax": 448},
+      {"id": "snezhnaya-field-3", "kind": 2, "art": "pyro-slime", "x": 850, "platform": 0, "patrolMin": 685, "patrolMax": 1035},
+      {"id": "snezhnaya-field-4", "kind": 1, "art": "cryo-slime", "x": 982, "platform": 0, "patrolMin": 685, "patrolMax": 1035},
       {
         "id": "snezhnaya-field-5",
         "kind": 1,
@@ -1443,7 +1398,16 @@
         "art": "pyro-slime",
         "x": 630,
         "platform": 2
-      }
+      },
+      {"id": "snezhnaya-field-regular-1", "x": 260, "platform": 1, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-field-regular-2", "x": 408, "platform": 1, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-field-regular-3", "x": 519, "platform": 2, "art": "hydro-slime", "kind": 1, "hp": 40, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-field-regular-4", "x": 735, "platform": 2, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "snezhnaya-field-regular-5", "x": 718, "platform": 0, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 685, "patrolMax": 1035},
+      {"id": "snezhnaya-field-regular-6", "x": 898, "platform": 0, "art": "hydro-slime", "kind": 1, "hp": 40, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 685, "patrolMax": 1035},
+      {"id": "snezhnaya-field-regular-7", "x": 858, "platform": 3, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 844, "patrolMax": 872},
+      {"id": "snezhnaya-field-regular-8", "x": 1057, "platform": 3, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 1032, "patrolMax": 1146},
+      {"id": "snezhnaya-field-regular-9", "x": 1123, "platform": 3, "art": "hydro-slime", "kind": 1, "hp": 40, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 1032, "patrolMax": 1146}
     ],
     "dragonspine-depth": [
       {
@@ -3191,14 +3155,24 @@
       {"id":"nod-patrol-bend-slime-3","kind":1,"art":"hydro-slime","x":1569,"platform":0,"hp":26,"pursuit":{"range":223,"leash":365,"speed":80}}
     ],
     "sne-survey-outskirts": [
-      {"id":"sne-outskirts-beetle-west","kind":1,"art":"snow-mantle-beetle","x":342,"platform":0,"hp":39},
-      {"id":"sne-outskirts-slime-west","kind":1,"art":"cryo-slime","x":506,"platform":0,"hp":33},
+      {"id": "sne-outskirts-beetle-west", "kind": 1, "art": "snow-mantle-beetle", "x": 342, "platform": 0, "hp": 39, "patrolMin": 183, "patrolMax": 1676},
+      {"id": "sne-outskirts-slime-west", "kind": 1, "art": "cryo-slime", "x": 506, "platform": 0, "hp": 33, "patrolMin": 183, "patrolMax": 1676},
       {"id":"sne-outskirts-beetle-ledge","kind":1,"art":"snow-mantle-beetle","x":577,"platform":1,"hp":39},
       {"id":"sne-outskirts-slime-upper","kind":1,"art":"cryo-slime","x":804,"platform":2,"hp":36},
-      {"id":"sne-outskirts-elite","kind":2,"art":"frostarm-lawachurl","x":965,"platform":0,"hp":96,"name":"観測路の霜鎧の精鋭","dailyElite":true},
+      {"id": "sne-outskirts-elite", "kind": 2, "art": "frostarm-lawachurl", "x": 965, "platform": 0, "hp": 96, "name": "観測路の霜鎧の精鋭", "dailyElite": true, "patrolMin": 910, "patrolMax": 1020},
       {"id":"sne-outskirts-cart-ledge","kind":2,"art":"sled-maintenance-cart","x":1170,"platform":3,"hp":43},
-      {"id":"sne-outskirts-beetle-east","kind":1,"art":"snow-mantle-beetle","x":1310,"platform":0,"hp":40},
-      {"id":"sne-outskirts-slime-east","kind":1,"art":"cryo-slime","x":1488,"platform":0,"hp":38}
+      {"id": "sne-outskirts-beetle-east", "kind": 1, "art": "snow-mantle-beetle", "x": 1310, "platform": 0, "hp": 40, "patrolMin": 183, "patrolMax": 1676},
+      {"id": "sne-outskirts-slime-east", "kind": 1, "art": "cryo-slime", "x": 1488, "platform": 0, "hp": 38, "patrolMin": 183, "patrolMax": 1676},
+      {"id": "sne-survey-outskirts-regular-1", "x": 431, "platform": 0, "art": "snow-mantle-beetle", "kind": 1, "hp": 45, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 183, "patrolMax": 1676},
+      {"id": "sne-survey-outskirts-regular-2", "x": 475, "platform": 1, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "sne-survey-outskirts-regular-3", "x": 611, "platform": 0, "art": "snow-mantle-beetle", "kind": 1, "hp": 45, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 183, "patrolMax": 1676},
+      {"id": "sne-survey-outskirts-regular-4", "x": 689, "platform": 2, "art": "pyro-slime", "kind": 2, "hp": 43, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "sne-survey-outskirts-regular-5", "x": 661, "platform": 1, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "sne-survey-outskirts-regular-6", "x": 869, "platform": 2, "art": "snow-mantle-beetle", "kind": 1, "hp": 45, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "sne-survey-outskirts-regular-7", "x": 1032, "platform": 0, "art": "sled-maintenance-cart", "kind": 1, "hp": 47, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 183, "patrolMax": 1676},
+      {"id": "sne-survey-outskirts-regular-8", "x": 1104, "platform": 3, "art": "snow-mantle-beetle", "kind": 1, "hp": 45, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "sne-survey-outskirts-regular-9", "x": 1270, "platform": 3, "art": "sled-maintenance-cart", "kind": 1, "hp": 47, "contactDamage": 16, "contactCooldown": 3.2},
+      {"id": "sne-survey-outskirts-regular-10", "x": 1290, "platform": 0, "art": "cryo-slime", "kind": 1, "hp": 41, "contactDamage": 16, "contactCooldown": 3.2, "patrolMin": 183, "patrolMax": 1676}
     ],
     "sne-survey-ridge": [
       {"id":"sne-survey-ice-slime","kind":1,"art":"cryo-slime","x":685,"platform":0,"hp":23,"pursuit":{"range":238,"leash":404,"speed":76}},

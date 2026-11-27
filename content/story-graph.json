@@ -4275,6 +4275,7 @@
     },
     {
       "id": "snezhnaya-entry",
+      "huntKind": "field",
       "name": "スネージナヤ・雪原の入口",
       "region": "スネージナヤ",
       "level": 140,
@@ -4449,6 +4450,7 @@
     },
     {
       "id": "snezhnaya-field",
+      "huntKind": "field",
       "name": "スネージナヤ・凍った街道",
       "region": "スネージナヤ",
       "level": 140,
@@ -7662,7 +7664,7 @@
     {"id":"nod-patrol-post","name":"ナド・クライ・巡回路の合流標","region":"ナド・クライ","level":120,"width":1130,"platforms":[{"x":0,"y":480,"w":1130}],"exits":[{"to":"nod-patrol-bend","x":62,"arrivalX":1653},{"to":"nod-patrol-cabin","x":1019,"requires":{"quest":"nod-lantern-patrol","count":5},"arrivalX":845,"rideLabel":"暖房小屋へ戻る近道"}],"checkpoint":"nod-patrol-cabin","patrol":{"quest":"nod-lantern-patrol","lamps":[{"x":410,"y":480},{"x":974,"y":480}]},"hub":false,"peaceful":true},
     {"id":"sne-survey-shed","name":"スネージナヤ・駅脇の観測小屋","region":"スネージナヤ","level":140,"hub":true,"peaceful":true,"checkpoint":"sne-survey-shed","width":1120,"platforms":[{"x":0,"y":480,"w":1120}],"exits":[{"to":"snezhnaya-hub","x":63,"arrivalX":438},{"to":"sne-survey-outskirts","x":535,"arrivalX":123},{"to":"sne-survey-yard","x":1039,"rideLabel":"観測用の広場へ","requires":{"quest":"sne-mitya-observation","count":1}},{"to":"sne-survey-ridge","x":849,"arrivalX":1517,"arrivalY":386,"rideLabel":"固定した観測台への近道","requires":{"quest":"sne-mitya-observation","count":8}}],"survey":{"quest":"sne-mitya-observation","scout":{"x":367,"y":480,"after":0}}},
     {
-      "id":"sne-survey-outskirts","name":"スネージナヤ・郊外の観測路","region":"スネージナヤ","level":140,"hub":false,
+      "id":"sne-survey-outskirts","huntKind":"field","name":"スネージナヤ・郊外の観測路","region":"スネージナヤ","level":140,"hub":false,
       "width":1700,"checkpoint":"sne-survey-shed",
       "platforms":[{"x":0,"y":480,"w":1700},{"x":420,"y":393,"w":320},{"x":634,"y":298,"w":304},{"x":1050,"y":392,"w":380}],
       "exits":[{"to":"sne-survey-shed","x":63,"arrivalX":535}]

@@ -49,7 +49,8 @@ def verify_intro_contact(lua, core, node, rows):
     for row in rows:
         enemy = by_id[row['id']]
         assert enemy.contactDamage == row['contactDamage'] and enemy.contactCooldown == row['contactCooldown']
-    sample = by_id[rows[0]['id']]
+    sample_row = next((row for row in rows if row.get('platform', 0) == 0), rows[0])
+    sample = by_id[sample_row['id']]
     state.enemies = lua.table_from([sample])
     player = state.actors[1]
     partner = state.actors[2]
@@ -61,7 +62,7 @@ def verify_intro_contact(lua, core, node, rows):
     for _ in range(140):
         core.step(state, 1/60, idle)
     assert player.hp == full_hp and sample.warning == 0, node
-    player.x = sample.x
+    player.x, player.y, player.vy = sample.x, sample.y, 0
     for _ in range(40):
         core.step(state, 1/60, idle)
     assert full_hp - player.hp == sample.contactDamage, node
