@@ -70,6 +70,8 @@ def environment_test(lua,core):
     step()
     views=[core.frame(s).weeklyBoss for s in states]
     assert views[0].temperature==views[1].temperature==0
+    assert [native(v.deviceRelease) for v in views[:2]]==[{'side':1,'floors':1}]*2
+    assert views[2].deviceRelease is None and views[3].deviceRelease is None
     assert views[2].temperature>73 and views[3].temperature>0
     assert all(v.devices[1]==spec.temperature.recharge for v in views)
     assert list(event(host,'WS16:release'))==[1] and not event(guest,'WS16:release')
@@ -160,6 +162,9 @@ def seal_test(lua,core):
     assert seal.tokens[host].id==first and seal.hp==99
     core.resolveCast(guest,seal_strike(lua,core,guest,boss))
     assert seal.hp==74 and event(guest,'moth-used')==[second]
+    assert native(core.frame(host).weeklyBoss.sealStrike)=={'source':'plain','damage':1,'remaining':99}
+    assert native(core.frame(guest).weeklyBoss.sealStrike)=={'source':'moth','damage':25,'remaining':74}
+    assert core.frame(observer).weeklyBoss.sealStrike is None
     run(step,spec.seal.hitInterval)
     core.resolveCast(host,older)
     assert seal.hp==74 and seal.tokens[host].id==first
@@ -207,6 +212,10 @@ def check_http(url):
             spot(state,x)
             core.frame(state)
             slot.climates[state].temperature=60
+        slot.floors=lua.table_from([
+            {'x':205,'y':480,'width':88,'expires':slot.clock+360},
+            {'x':630,'y':480,'width':88,'expires':slot.clock+360},
+        ],recursive=True)
     until=monotonic()+5
     while monotonic()<until:
         sleep(.025)
@@ -218,7 +227,9 @@ def check_http(url):
         raise AssertionError('Held interact did not release the shared device')
     # A response can include ticks after release while the device is recharging.
     assert result['cause']=='release' and 0<=result['temperature']<.25
+    assert result['deviceRelease']=={'side':1,'floors':1}
     assert peer['temperature']>60 and peer['devices'][0]>0
+    assert 'deviceRelease' not in peer
     host.frame()
     with LOCK:
         strike(lua,core,states[0],slot.primary)
@@ -228,6 +239,8 @@ def check_http(url):
         step()
         core.resolveCast(states[0],seal_strike(lua,core,states[0],slot.primary))
         assert slot.seal.hp==75 and slot.seal.tokens[states[1]]
+    assert host.frame()['weeklyBoss']['sealStrike']=={'source':'moth','damage':25,'remaining':75}
+    assert 'sealStrike' not in guest.frame()['weeklyBoss']
     for client in (host,guest):
         assert client.frame()['weeklyBoss']['seal']['hp']==75
         assert cross(client,126,HUB)['coop']['code']==code
@@ -248,7 +261,7 @@ def check_http(url):
         assert saved['weeklyBosses'][BOSS]['hp']==0 and saved['weeklyBosses'][BOSS]['waitTicks']>0
         assert saved['progression']['killXp']==EXP and saved['mora']==860
         assert (saved['story']['quests'].get(QUEST) or {}).get('count')==(1 if index==0 else None)
-    return dict(participants=2,transportedHoldInput=True,localReleaseOnly=True,
+    return dict(participants=2,transportedHoldInput=True,localReleaseOnly=True,personalHudResults=True,
                 departureClearsMothButKeepsCocoon=True,individualRewardsAndQuest=True)
 
 
@@ -260,7 +273,8 @@ if __name__=='__main__':
     result={'lua':dict(participants=4,independentTemperatureAndHits=True,oneLocalReleaseWhenBothHold=True,
                        deviceCooldownGuaranteesOneReady=True,sharedFloorsClearLocally=True,
                        separateMothsAndInputClocks=True,onePickupPerMoth=True,manualFreshAttackOnly=True,
-                       independentCocoonHitInterval=True,oneTransformationAndIndividualRewards=True)}
+                       independentCocoonHitInterval=True,oneTransformationAndIndividualRewards=True,
+                       personalHudResults=True)}
     with lab() as url:
         result['http']=check_http(url)
     (ROOT/'evidence/coop-signora-lua-http.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')

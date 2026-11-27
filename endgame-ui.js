@@ -1,5 +1,18 @@
 import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
+export function signoraSealStrikeText(strike){
+ if(!strike)return '';
+ const source={moth:'紅蓮蛾の一撃',pyro:'炎の一撃',plain:'繭への一撃'}[strike.source];
+ return `${source}で${strike.damage}削った`+(strike.remaining===0?' ｜ 氷の繭が割れた':'');
+}
+
+export function signoraReleaseText(release,device){
+ if(!release)return '';
+ const side=release.side===1?'左':'右';
+ const floor=device==='霜眼'?'火床':'氷床';
+ return `${side}の${device}を放出`+(release.floors?` ｜ 近くの${floor}を${release.floors}か所消した`:'');
+}
+
 export function apepDomeText(view){
  const pulse=view.finalPulse;
  const result=pulse&&(pulse.protected?'ドームで最後の余波を防いだ':

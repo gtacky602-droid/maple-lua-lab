@@ -51,6 +51,7 @@ return function(C)
   w.seal={hp=spec.seal.strength,moths={},serial=0,spent=setmetatable({},{__mode='k'}),
    nextHit=setmetatable({},{__mode='k'}),tokens=setmetatable({},{__mode='k'}),
    nextMoths=spec.seal.opening,nextPressure=spec.seal.pressureFirst}
+  w.sealResults=setmetatable({},{__mode='k'})
   clearEnvironment(w,true)
   body(e,spec.center,spec.floorY,115)
   e.invulnerable=true;e.noAutoTarget=true;e.aura=nil;e.burning=nil;e.applicationClocks=nil
@@ -65,13 +66,16 @@ return function(C)
   local flame=element=='pyro'
   for _,part in ipairs(cast.damageElements or {}) do if part=='pyro' then flame=true end end
   local charge=flame and spec.seal.pyroCharge or spec.seal.plainCharge
+  local source=flame and 'pyro' or 'plain'
   local token=seal.tokens[s]
   if token and inputAt>=token.at then
-   charge=spec.seal.mothCharge;seal.tokens[s]=nil
+   charge=spec.seal.mothCharge;source='moth';seal.tokens[s]=nil
    log(s,w,'moth-used',cast.id,token.id)
   end
   seal.spent[cast]=true;seal.nextHit[s]=w.clock+spec.seal.hitInterval
+  local removed=math.min(seal.hp,charge)
   seal.hp=math.max(0,seal.hp-charge)
+  w.sealResults[s]={source=source,damage=removed,remaining=seal.hp,untilTick=w.clock+90}
   log(s,w,'seal-hit',cast.id,charge)
   C.combatNumber(s,w.primary,charge,'#ffdc8e')
   if s.coop then C.coopContact(s,w.primary,cast.id) end
@@ -103,7 +107,7 @@ return function(C)
  end
  function controller.spawn(s,w,spec)
   w.stage='cryo';w.stageTick=0;w.clock=0;w.remainder=0
-  w.index=1;w.cast=nil;w.rest=spec.noticeTicks;w.seal=nil;w.lastTornado=-math.huge;w.sinceTornado=3
+  w.index=1;w.cast=nil;w.rest=spec.noticeTicks;w.seal=nil;w.sealResults=nil;w.lastTornado=-math.huge;w.sinceTornado=3
   clearEnvironment(w)
   local e=w.primary;e.dir=-1;e.invulnerable=false;e.underground=false
   body(e,spec.center,spec.floorY,spec.artHeight)
@@ -115,12 +119,13 @@ return function(C)
   for _,a in ipairs(s.actors) do a.grapple=nil end
  end
  function controller.cleanup(s,w)
-  remove(s,w);w.cast=nil;w.seal=nil;w.primary.underground=true
+  remove(s,w);w.cast=nil;w.seal=nil;w.sealResults=nil;w.primary.underground=true
   clearEnvironment(w)
  end
  function controller.leaveCoop(party,w)
   w.climates[party]=nil
   if w.seal then w.seal.tokens[party]=nil;w.seal.nextHit[party]=nil end
+  if w.sealResults then w.sealResults[party]=nil end
  end
  local function damage(s,w,spec,c,index,a,amount,element,raises)
   if w.primary.hp<=0 then return end
@@ -215,15 +220,19 @@ return function(C)
   w.devices[device]=w.clock+conf.recharge
   local other=3-device
   if w.clock<w.devices[other] then w.devices[other]=w.clock end
+  local cleared=0
   for i=#w.floors,1,-1 do
    local f=w.floors[i]
-   if f.y==spec.floorY and math.abs(f.x-conf.deviceX[device])<conf.clearRange+f.width/2 then table.remove(w.floors,i) end
+   if f.y==spec.floorY and math.abs(f.x-conf.deviceX[device])<conf.clearRange+f.width/2 then
+    table.remove(w.floors,i);cleared=cleared+1
+   end
   end
   for _,party in ipairs(parties) do
    if inDevice(actor(party),spec,device,conf.deviceRange) then
     local record=climate(w,party)
     record.temperature=0;record.hold=0;record.nextExtreme=nil
     cause(w,record,'release')
+    record.cause.release={side=device,floors=cleared}
    end
   end
   log(holder,w,'WS16:release',holder.active,device)
@@ -421,6 +430,7 @@ return function(C)
   if w.stage=='transform' then
    if w.stageTick>=spec.moves.WS09.total then
     w.stage='pyro';w.phase='available';w.stageTick=0;w.index=1;w.rest=30
+    w.sealResults=nil
     clearEnvironment(w)
     body(w.primary,spec.center,spec.floorY,144);w.primary.noAutoTarget=false;w.primary.invulnerable=false
    end
@@ -498,7 +508,13 @@ return function(C)
   v.devices={math.max(0,w.devices[1]-w.clock),math.max(0,w.devices[2]-w.clock)}
   v.deviceHold=record.hold;v.deviceTotal=spec.temperature.hold
   v.deviceEnabled=w.stage~='transform' and w.phase~='clear'
-  v.cause=record.cause and record.cause.untilTick>w.clock and record.cause.kind or nil
+  local recent=record.cause and record.cause.untilTick>w.clock and record.cause
+  v.cause=recent and recent.kind or nil
+  v.deviceRelease=recent and recent.release or nil
+  local strike=w.sealResults and w.sealResults[s]
+  if strike and strike.untilTick>w.clock then
+   v.sealStrike={source=strike.source,damage=strike.damage,remaining=strike.remaining}
+  end
   if seal then
    v.seal={hp=seal.hp,max=spec.seal.strength,ready=seal.openedAt~=nil,
     carrying=seal.tokens[s]~=nil,moths={}}
