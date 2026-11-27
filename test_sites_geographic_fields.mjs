@@ -55,7 +55,7 @@ try{
 
  await visit('boat','tsurumi-coast');
  await drive.cross('sites-hunt-18667');
- await page.waitForFunction(()=>window.lab.frame.total===48);
+ await page.waitForFunction(()=>window.lab.frame.total===36);
  await showMap('sites-hunt-18667','surface');
  await page.getByRole('button',{name:/舟・寄港・Lv54/}).waitFor();
  await closeMap();
@@ -63,7 +63,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/sites-geographic-fields-browser.json',JSON.stringify({
   fontaineWaterwayRoundTrip:true,huntOnWalkablePlatforms:true,fontaineEnemies:18,
-  tsurumiFerryRoundTrip:true,islandEnemies:48,atlasTracksCurrentFieldAndTravelMode:true,errors
+  tsurumiFerryRoundTrip:true,islandEnemies:36,atlasTracksCurrentFieldAndTravelMode:true,errors
  },null,2)+'\n');
  console.log('Tsurumi ferry, island population, M map and return passed.');
 }catch(error){

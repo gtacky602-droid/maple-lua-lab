@@ -10,7 +10,7 @@ report = {}
 for number, level, scenery in fields:
     stage = f'branch-hunt-{number}'
     report[stage] = check_field(stage, f'liyue-wp-{number}', hub, level, scenery, 690,
-                                population_count=48)
+                                population_count=36)
 
 # Walk from the trading post to the northern overlook through the existing waypoints.
 numbers = [64834, 64833, 64835, 64836, 64840, 64838, 64839, 66979]

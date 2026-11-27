@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "ordinary_hunt_density": {"measuredHunts":119,"populationLayoutsChanged":100,"entryPeakViewportRange":[15,20],"eliteRoutes":7,"patrolAreasAdjusted":8,"record":"evidence/hunt-density-20261128.json"},
   "standard_current_quest_recheck": {"startedWithReports":265,"newReports":11,"reports":276,"activeEncounterClearsPreserved":142,"browserDifficultyRecordsRestored":84,"record":"evidence/standard-current-quest-recheck-20261128.json"},
   "companion_starters": {"joinedCompanions":8,"oneTimeReportsChecked":8,"starterFlowersWithHp":8,"presetReloadVerified":true,"record":"evidence/companion-starters-lua.json","browser":"evidence/companion-starters-browser.json"},
   "novokichev_interiors": {"rooms":6,"newLabBackgrounds":2,"luaTravelLegs":15,"questReports":4,"renderComparisons":18,"record":"evidence/novokichev-travel-lua.json","browser":"evidence/novokichev-scenery.json"},

@@ -41,7 +41,7 @@ for node in NODES:
             counts[quality] = total-baseline
             assert counts[quality] == len(art.profiles[quality].runs) > 0
         renditions[enemy.art] = {'source':art.source,'rectangles':counts}
-assert set(renditions) == ART and sum(seen.values())==92
+assert set(renditions) == ART and sum(seen.values())==78
 result = {'placed':seen,'rendered':renditions,'nodes':NODES}
 (ROOT/'evidence/sites-family-art-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n','utf8')
-print('92 placements, five sprite sources and 15 rectangle profiles verified.')
+print('78 placements, five sprite sources and 15 rectangle profiles verified.')

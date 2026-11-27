@@ -102,7 +102,7 @@ for row in routes:
     cross(walk, host)
     assert native(s.story.quests) == quest_before
 
-assert counts == {'hunt':1344, 'dry_ruin_hunt':6, 'optional':30}
+assert counts == {'hunt':1044, 'dry_ruin_hunt':6, 'optional':30}
 assert len(crossings) == 124
 
 

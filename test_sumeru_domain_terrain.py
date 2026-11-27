@@ -5,7 +5,7 @@ from tools.domain_terrain_test import check_field, nodes, write, write_fixture
 # Field id, approach waypoint, first jump x, field scenery, side-room scenery.
 routes = [
     (36703, 36683, 2380, 'sumRedSandWell', 'sumRedSandRoost'),
-    (36704, 36691, 2380, 'sumeruDesertTombApproach', 'sumRoyalDen'),
+    (36704, 41823, 2380, 'sumeruDesertTombApproach', 'sumRoyalDen'),
     (36705, 36697, 2380, 'sumDuneVault', 'sumDuneCounterweight'),
     (41694, 36680, 2380, 'sumSandMarket', 'sumSandBalances'),
     (41817, 41836, 2380, 'sumSandWindcut', 'sumSandSentry'),
@@ -16,7 +16,7 @@ write_fixture('sumeru-domain-terrain', 80, hub, [f'sum-wp-{host}' for _, host, *
 result = {}
 for field, waypoint, first_x, scenery, side_scenery in routes:
     stage, host = f'sites-hunt-{field}', f'sum-wp-{waypoint}'
-    side_rooms = [edge['to'] for edge in nodes[stage]['exits'] if edge['to'] != host]
+    side_rooms = [edge['to'] for edge in nodes[stage]['exits'] if nodes[edge['to']].get('atlasParent') == stage]
     assert len(side_rooms) == (1 if side_scenery else 0)
     record = check_field(stage, host, hub, 79, scenery, first_x)
     if side_rooms:

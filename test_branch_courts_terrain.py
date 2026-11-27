@@ -7,8 +7,8 @@ routes = [
     (68600, 'bygone-wp-68600', sea, 142, 'bygoneCoralGallery', 2),
     (68603, 'bygone-wp-68603', sea, 151, 'bygoneSiltChamber', 2),
     (68607, 'bygone-wp-68607', sea, 148, 'bygoneSouthSeal', 2),
-    (64825, 'liyue-wp-64825', valley, 75, 'chenyuGateTeaBanks', 48),
-    (64824, 'liyue-wp-64824', valley, 84, 'chenyuSouthLimestone', 48),
+    (64825, 'liyue-wp-64825', valley, 75, 'chenyuGateTeaBanks', 36),
+    (64824, 'liyue-wp-64824', valley, 84, 'chenyuSouthLimestone', 36),
 ]
 for batch, hub, level in [('bygone-hunts', sea, 151), ('chenyu-gates', valley, 86)]:
     hosts = [host for _,host,camp,*_ in routes if camp==hub]

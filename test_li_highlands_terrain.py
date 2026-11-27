@@ -4,7 +4,7 @@ from tools.domain_terrain_test import TrailWalk, check_field, core, exits, gates
 hub = 'liyue-harbor'
 routes = [
     (7173, 'liyue-wp-35', 38, 'liyueMingyunAdit', 610),
-    (7190, 'liyue-field', 38, 'liyueGuiliRuins', 610),
+    (7190, 'liyue-wp-100', 38, 'liyueGuiliRuins', 2230),
     (7215, 'geo-approach', 39, 'liyueGuyunShoal', 610),
     (7218, 'liyue-wp-104', 38, 'liyueGoldenApproach', 610),
     (7220, 'liyue-wp-105', 38, 'liyueTianhengPass', 2230),

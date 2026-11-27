@@ -5,12 +5,12 @@ hub = 'snezhnaya-hub'
 routes = [
     (100705, 'sne-wp-100658', 'sneCentralIcewall', 2230),
     (100706, 'white-pass-cut', 'sneWestCutting', 610),
-    (100707, 'sne-wp-100695', 'sneCityUnderpass', 2230),
+    (100707, 'snezhnaya-field', 'sneCityUnderpass', 610),
 ]
 hosts = [host for _, host, *_ in routes]
 write_fixture('sne-domains-terrain',160,hub,hosts)
 report = {f'sites-hunt-{id}':check_field(f'sites-hunt-{id}',host,hub,159,key,x,
-                                         population_count=3 if id==100707 else 48)
+                                         population_count=3 if id==100707 else 36)
           for id,host,key,x in routes}
 fields = {k:n['scenery'] for k,n in nodes.items() if n['region']=='スネージナヤ' and k.startswith('sites-hunt-')}
 assert fields == {r['node']:r['key'] for r in read('assets/sne-domains-background-generation.json')['scenes']}
@@ -32,8 +32,9 @@ for dest in (trail,outlook,trail,under):
     walk.cross(dest)
 assert walk.actor.y==391
 report['furiosaRoute']={'from':under,'stops':[trail,outlook],'returnY':walk.actor.y,'level':159}
-s=start(158,[host],hub)
-core.action(s,'story_fast:'+host)
+early_host='sne-wp-100695'
+s=start(158,[early_host],hub)
+core.action(s,'story_fast:'+early_host)
 core.action(s,'world_map_focus:'+outlook)
 early=[stop.id for stop in core.frame(s).worldMap.guide.stops.values()]
 assert early==[trail,outlook]

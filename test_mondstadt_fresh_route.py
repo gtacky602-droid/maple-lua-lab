@@ -219,7 +219,7 @@ sorties = []
 while state.progression.level < 20:
     trail.cross('mond-wp-19')
     trail.cross('sites-hunt-7137')
-    assert len(state.enemies) == 48
+    assert len(state.enemies) == 36
     assert all(enemy.storyName and enemy.expRole == 'normal' for enemy in state.enemies.values())
     start_kills, start_xp, start_time = state.kills, state.progression.killXp, state.t
     near(455)

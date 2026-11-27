@@ -330,14 +330,14 @@ def restock():
     assert state.story.node == port
 
 
-for stage, threshold, enemy_level, population in [(outer, 56, 52, 42), (island, 60, 56, 48)]:
+for stage, threshold, enemy_level in [(outer, 56, 52), (island, 60, 56)]:
     access = (tsurumi, stage) if stage == island else (stage,)
     while state.progression.level < threshold:
         if min(a.hp for a in state.actors.values()) < 100:
             restock()
             recovery_trips += 1
         cross_all(*access)
-        assert len(state.enemies) == population
+        assert len(state.enemies) == 36
         assert all(e.expRole == 'normal' and e.level == enemy_level for e in state.enemies.values())
         start_kills, start_xp, start_time = state.kills, state.progression.killXp, state.t
         near(2450 if stage == island else 450)

@@ -9,7 +9,7 @@ report = {}
 for number, level, scenery in fields:
     stage = f'branch-hunt-{number}'
     report[stage] = check_field(stage, f'liyue-wp-{number}', hub, level, scenery, 690,
-                                population_count=48)
+                                population_count=36)
 
 course = ['liyue-wp-64833', 'branch-hunt-64833', 'liyue-wp-64833', 'liyue-wp-64831',
           'branch-hunt-64831', 'liyue-wp-64831', 'liyue-wp-64832', 'branch-hunt-64832',

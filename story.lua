@@ -1192,7 +1192,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       C.moveOrdinaryFlier(e,0)
      end
      if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
-     e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
+     e.patrolMin=math.max(p.x+24,placement.patrolMin or p.x)
+     e.patrolMax=math.min(p.x+p.w-24,placement.patrolMax or p.x+p.w)
      if n.enemySafeFraction then
       local margin=n.width*n.enemySafeFraction
       e.patrolMin=math.max(e.patrolMin,margin)

@@ -52,7 +52,7 @@ def jump_across(walk, src, dest, direction):
     raise AssertionError('Did not land on the adjacent shelf')
 
 
-def check_field(stage, host, hub, level, scenery, first_x, *, raised_gate=False, population_count=48):
+def check_field(stage, host, hub, level, scenery, first_x, *, raised_gate=False, population_count=None):
     state = start(level - 1, [host], hub)
     core.action(state, 'story_fast:' + host)
     walk = TrailWalk(lua, core, state, gates, exits)
@@ -82,7 +82,9 @@ def check_field(stage, host, hub, level, scenery, first_x, *, raised_gate=False,
     margin = floor['w'] * nodes[stage]['enemySafeFraction']
     assert walk.actor.x < margin or walk.actor.x > floor['w'] - margin
     population = placements[stage]
-    assert len(state.enemies) == len(population) == population_count, stage
+    assert len(state.enemies) == len(population), stage
+    if population_count is not None:
+        assert len(population) == population_count, stage
     for enemy, spawn in zip(state.enemies.values(), population, strict=True):
         shelf = platforms[spawn['platform']]
         assert enemy.x == spawn['x'] and enemy.y == shelf['y']
@@ -95,7 +97,7 @@ def check_field(stage, host, hub, level, scenery, first_x, *, raised_gate=False,
             for x in (arrival['arrivalX'], arrival['arrivalX'] - 40):
                 assert abs(enemy.y - y) >= 45 or x <= enemy.patrolMin - 60 or x >= enemy.patrolMax + 60
 
-    from_left = entry['arrivalX'] < floor['w'] / 2
+    from_left = first_x < floor['w'] / 2
     shelves = platforms[1:5] if from_left else platforms[4:0:-1]
     walk.approach(first_x, 480, 'ground below the first shelf')
     if raised_gate:

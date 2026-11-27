@@ -1,10 +1,10 @@
 {
   "placed": {
-    "fatui-skirmisher-cryogunner": 8,
-    "sternshield-crab": 72,
+    "fatui-skirmisher-cryogunner": 6,
+    "sternshield-crab": 62,
     "tainted-water-splitting-phantasm": 3,
     "fatui-frost-operative": 1,
-    "fatui-skirmisher-pyroslinger": 8
+    "fatui-skirmisher-pyroslinger": 6
   },
   "rendered": {
     "fatui-skirmisher-cryogunner": {
@@ -12,7 +12,7 @@
       "rectangles": {
         "legacy": 3207,
         "h48c32": 2006,
-        "h32c16": 951
+        "h32c16": 957
       }
     },
     "sternshield-crab": {
@@ -28,7 +28,7 @@
       "rectangles": {
         "legacy": 425,
         "h48c32": 291,
-        "h32c16": 224
+        "h32c16": 248
       }
     },
     "fatui-frost-operative": {
@@ -44,7 +44,7 @@
       "rectangles": {
         "legacy": 2817,
         "h48c32": 1636,
-        "h32c16": 792
+        "h32c16": 743
       }
     }
   },

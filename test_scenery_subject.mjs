@@ -8,14 +8,14 @@ const browser=await chromium.launch({channel:'chrome'});
 try {
   const page=await browser.newPage({viewport:{width:1420,height:1000}});
   await page.goto(base+'map-art.html?node='+stage+'&placements=live&background=original&profile=h32c16#sceneryDetail');
-  await page.waitForFunction(()=>window.mapArt?.count===48);
-  assert.equal(await page.locator('#liveSubject option').count(),49);
+  await page.waitForFunction(()=>window.mapArt?.count===36);
+  assert.equal(await page.locator('#liveSubject option').count(),37);
   const placements=await page.evaluate(()=>window.mapArt.placements);
-  assert.equal(placements.filter(e=>e.species==='fatui-skirmisher-cryogunner').length,32);
+  assert.equal(placements.filter(e=>e.species==='fatui-skirmisher-cryogunner').length,24);
 
   await page.selectOption('#liveSubject',id);
   assert.equal(await page.evaluate(()=>window.mapArt.shownCount),1);
-  assert.match(await page.locator('#viewportCost').innerText(),/951/);
+  assert.match(await page.locator('#viewportCost').innerText(),/957/);
   const sample=async tab=>tab.evaluate(()=>({
     camera:window.mapArt.camera,x:detailX.value,y:detailY.value,
     png:pngDetail.toDataURL(),rect:rectDetail.toDataURL()
@@ -35,7 +35,7 @@ try {
   await page.selectOption('#profile','legacy');
   assert.match(await page.locator('#viewportCost').innerText(),/3,207/);
   await page.selectOption('#liveSubject','');
-  assert.equal(await page.evaluate(()=>window.mapArt.shownCount),48);
+  assert.equal(await page.evaluate(()=>window.mapArt.shownCount),36);
   assert.deepEqual(await page.evaluate(()=>window.mapArt.placements),placements);
   await page.selectOption('#liveSubject',id);
   await page.selectOption('#node','branch-hunt-64842-pocket-1');
