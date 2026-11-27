@@ -1,14 +1,68 @@
 {
-  "errors": [],
-  "result": [
+  "rooms": [
     {
       "id": "novokichev-camp",
-      "key": "novokichev"
+      "scene": "novokichev",
+      "source": "novokichev-background-v1.png",
+      "atlasHref": "map-art.html?node=novokichev-camp&placements=live&compare=background",
+      "tiers": [
+        4096,
+        6144
+      ]
     },
     {
       "id": "novokichev-depth",
-      "key": "novokichev"
+      "scene": "novokichev",
+      "source": "novokichev-background-v1.png",
+      "atlasHref": "map-art.html?node=novokichev-depth&placements=live&compare=background",
+      "tiers": [
+        4096,
+        6144
+      ]
+    },
+    {
+      "id": "wavebinder-tide-cavern",
+      "scene": "wavebinderField",
+      "source": "wavebinder-field-background-v1.png",
+      "atlasHref": "map-art.html?node=wavebinder-tide-cavern&placements=live&compare=background",
+      "tiers": [
+        4096,
+        6144
+      ]
+    },
+    {
+      "id": "novo-frozen-works",
+      "scene": "novoFrozenWorks",
+      "source": "novo-frozen-works-background-v1.png",
+      "atlasHref": "map-art.html?node=novo-frozen-works&placements=live&compare=background",
+      "tiers": [
+        4096,
+        6144
+      ]
+    },
+    {
+      "id": "novo-drift-passage",
+      "scene": "novoDriftPassage",
+      "source": "novo-drift-passage-background-v1.png",
+      "atlasHref": "map-art.html?node=novo-drift-passage&placements=live&compare=background",
+      "tiers": [
+        4096,
+        6144
+      ]
+    },
+    {
+      "id": "novo-ice-vault",
+      "scene": "novoIceVault",
+      "source": "novo-ice-vault-background-v1.png",
+      "atlasHref": "map-art.html?node=novo-ice-vault&placements=live&compare=background",
+      "tiers": [
+        4096,
+        6144
+      ]
     }
   ],
-  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+  "artScope": "Temporary lab backgrounds for the provisional region",
+  "method": "Opened each background comparison from the live Lua world map after loading the earned adventure save.",
+  "suspendedRegionAbsent": true,
+  "errors": []
 }
