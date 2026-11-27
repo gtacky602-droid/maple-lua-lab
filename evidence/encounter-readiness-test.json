@@ -1,9 +1,16 @@
 {
-  "earlyFailureDisabled": true,
-  "syntheticEarlyClickSafe": true,
+  "catalogEntries": 87,
+  "adventureDestinations": 86,
+  "directTrials": 11,
+  "suspended": [
+    "original-prism-walker"
+  ],
+  "firstFrameFailureGuarded": true,
+  "routeOpenedDuringGalleryDelay": "primo-field-vault",
+  "otherGalleryAvailableDuringDelay": true,
   "variantPreserved": true,
   "recoveredLaunch": "boss_farka",
-  "lateCatalogEnabled": 11,
-  "unimplementedDisabled": 59,
+  "mapLinksSurviveGalleryFailure": true,
+  "viewport390": true,
   "errors": []
 }

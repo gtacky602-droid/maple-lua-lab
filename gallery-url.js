@@ -9,16 +9,18 @@ export function setupGalleryUrl({search,render}){
  function restore(){
   const params=new URL(location.href).searchParams;
   if(pixels)pixels.checked=params.get('pixels')==='1';
-  search.value=params.get('q')??'';
+  search.value=params.get('id')??params.get('q')??'';
   profile.value=allowed(profile,params.get('profile'),'h32c16');
   if(arena)arena.value=allowed(arena,params.get('arena'),'shouki-godmaking-arena');
   zoom.value=allowed(zoom,params.get('zoom'),'2');
   flip.checked=params.get('flip')==='1';
   if(both){both.checked=params.get('both')==='1';profile.disabled=both.checked}
  }
- function update(){
+ function update(editingSearch=false){
   const url=new URL(location.href);
-  for(const [key,value,defaultValue] of [['q',search.value,''],['profile',profile.value,'h32c16'],['zoom',zoom.value,'2'],['flip',flip.checked?'1':'0','0']]){
+  if(editingSearch)url.searchParams.delete('id');
+  const exactId=url.searchParams.get('id');
+  for(const [key,value,defaultValue] of [['q',exactId?'':search.value,''],['profile',profile.value,'h32c16'],['zoom',zoom.value,'2'],['flip',flip.checked?'1':'0','0']]){
    if(value===defaultValue)url.searchParams.delete(key);else url.searchParams.set(key,value);
   }
   if(arena){if(arena.value==='shouki-godmaking-arena')url.searchParams.delete('arena');else url.searchParams.set('arena',arena.value)}
@@ -28,7 +30,7 @@ export function setupGalleryUrl({search,render}){
   if(url.href!==location.href)history.replaceState(history.state,'',url.href);
  }
  restore();
- if(arena)arena.addEventListener('change',update);
+ if(arena)arena.addEventListener('change',()=>update());
  window.addEventListener('popstate',()=>{restore();render()});
  return update;
 }
