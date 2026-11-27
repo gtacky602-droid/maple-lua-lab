@@ -6,7 +6,8 @@ const browser=await chromium.launch({headless:true,channel:'chrome',args:['--dis
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg,timeout=78000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const canvas=page.locator('#game'),prefix='evidence/gate-weekly';
+const canvas=page.locator('#game'),prefix=(process.env.LAB_WEEKLY_EVIDENCE || 'evidence')+'/gate-weekly';
+const miss=process.env.LAB_GATE_LURE==='miss';
 const hub='mond-town',node='mond-gate-chess-court',quest='gate-weekly-commission',id='boss-29122000';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -41,7 +42,7 @@ try{
  });
  assert.deepEqual([scenery.key,scenery.state],['gateCourt','ready']);
 
- await page.evaluate(()=>{
+ await page.evaluate(miss=>{
   const keys=new Set();
   window.gateMode='front';
   window.gateStages=[];
@@ -64,7 +65,7 @@ try{
      else target=v.bodies.find(e=>e.damageable);
     }else if(mode==='frost')goal=84;
     else if(mode==='lure'){
-     goal=686;
+     goal=miss?437:686;
      if(v.run?.t>=237&&v.run?.t<284){jump=true;jumped=true}
      if(jumped&&v.exposure)goal=a.x;
     }else if(mode==='takeKing')target=v.bodies.find(e=>e.kind==='king'&&e.damageable);
@@ -85,7 +86,7 @@ try{
    requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
- });
+ },miss);
  await wait(()=>window.lab.frame.weeklyBoss?.gate?.pawns?.length===3);
  await page.locator('.game').screenshot({path:prefix+'-pawns.png'});
  await wait(()=>window.lab.frame.weeklyBoss?.gate?.card==='WT17');
@@ -98,6 +99,7 @@ try{
  assert.ok(royal.draws.some(d=>d.source==='gate-weekly-queen-source-v1.png'));
  const png=await capture('png');
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await wait(()=>window.lab.frame.commands>14000);
  const standard=await frame(),normal=await capture('standard');
  await page.locator('#renderMode').selectOption('h32c16');
@@ -106,6 +108,33 @@ try{
  assert.deepEqual([standard.t,reduced.t],[royal.t,royal.t]);
  assert.deepEqual(reduced.weeklyBoss,royal.weeklyBoss);
  assert.equal(new Set([png,normal,light]).size,3);
+
+ async function packing(packed, change){
+  const pending=page.waitForResponse(res=>{
+   if(!res.url().endsWith('/api/frame'))return false;
+   const request=res.request().postDataJSON();
+   return request?.profile==='h48c32'&&request.packRectArt===packed;
+  });
+  await change();
+  const response=await pending;
+  assert.ok(response.ok());
+  assert.equal(response.headers()['content-encoding'],'gzip');
+  const snapshot=await response.json();
+  await wait(n=>window.lab.frame.draws.length===n,snapshot.draws.length);
+  return {snapshot,raster:await canvas.evaluate(el=>el.toDataURL()),gzipBytes:Number(response.headers()['content-length'])};
+ }
+ const expanded=await packing(false,()=>page.locator('#renderMode').selectOption('h48c32'));
+ const grouped=await packing(true,()=>page.locator('#packRectArt').check());
+ const bodies=royal.draws.filter(d=>d.source?.startsWith('gate-weekly-'));
+ assert.equal(bodies.length,2);
+ for(const body of bodies){
+  const batch=grouped.snapshot.draws.find(d=>d.kind==='rect_runs'&&d.h===body.h&&
+   Math.abs(d.w-body.w)<1e-6&&Math.abs(d.y+d.h-body.y)<1e-6);
+  assert.ok(batch&&grouped.snapshot.rectBatches[batch.batch-1].length);
+ }
+ assert.equal(grouped.snapshot.t,expanded.snapshot.t);
+ assert.ok(grouped.gzipBytes<expanded.gzipBytes&&grouped.gzipBytes>0);
+ assert.equal(grouped.raster,expanded.raster);
  await page.locator('#renderMode').selectOption('sprite');
  await wait(()=>window.lab.frame.commands<500);
  await page.setViewportSize({width:390,height:844});
@@ -132,17 +161,33 @@ try{
  assert.deepEqual(frozen.events.filter(e=>e.kind==='gate:WT20:complete').map(e=>e.value),[50,100]);
  await canvas.click();
  await mode('lure');
- await wait(()=>window.lab.frame.weeklyBoss?.gate?.run?.goal>=612);
+ await wait(miss=>{
+  const goal=window.lab.frame.weeklyBoss?.gate?.run?.goal;
+  return goal!==undefined&&(miss?goal<612:goal>=612);
+ },miss);
  await page.locator('.game').screenshot({path:prefix+'-lure.png'});
- await wait(()=>window.lab.frame.weeklyBoss?.gate?.exposure>0);
- const exposed=await frame();
- assert.equal(exposed.events.filter(e=>e.kind==='gate:WT17:collision').length,1);
- assert.ok(exposed.weeklyBoss.gate.bodies.every(e=>e.damageable));
- await page.locator('.game').screenshot({path:prefix+'-exposed.png'});
+ const hint=page.locator('#weeklyGateHint');
+ if(miss){
+  await wait(()=>window.lab.frame.weeklyBoss?.gate?.tsunamiDamage>0);
+  const hit=await frame();
+  assert.equal(hit.weeklyBoss.gate.tsunamiDamage,90);
+  assert.equal(hit.events.filter(e=>e.kind==='gate:WT17:collision').length,0);
+  assert.equal(await hint.textContent(),'津波が命中 ｜ 90ダメージ');
+  await page.locator('.game').screenshot({path:prefix+'-tsunami.png'});
+ }else{
+  await wait(()=>window.lab.frame.weeklyBoss?.gate?.exposure>0);
+  const exposed=await frame();
+  assert.equal(exposed.events.filter(e=>e.kind==='gate:WT17:collision').length,1);
+  assert.ok(exposed.weeklyBoss.gate.bodies.every(e=>e.damageable));
+  assert.match(await hint.textContent(),/津波を中断.+反撃できる時間/);
+  await page.locator('.game').screenshot({path:prefix+'-exposed.png'});
+ }
  await mode('takeKing');
  await wait(()=>window.lab.frame.events.some(e=>e.kind==='gate:WT19:transfer'));
  const revived=await frame();
  assert.ok(revived.events.find(e=>e.kind==='gate:WT19:transfer').value>0);
+ const transfer=await hint.textContent();
+ assert.match(transfer,/クイーンからキングへ \d+ HP/);
  await mode('finish');
  await wait(()=>window.lab.frame.weeklyBoss?.phase==='respawn');
  const finished=await frame();
@@ -165,9 +210,11 @@ try{
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({scenery,stages,pawnsPerCharge:[2,1,0],keyboardAndPointerFrost:true,
-  actualPositionAndCollision:true,reviveTransfer:revived.events.find(e=>e.kind==='gate:WT19:transfer').value,
+  actualPositionAndCollision:!miss,tsunamiDamage:miss?90:0,transfer,
+  reviveTransfer:revived.events.find(e=>e.kind==='gate:WT19:transfer').value,
+  transferCompression:{twoSpriteBatches:true,canvasIdentical:true,plainGzipBytes:expanded.gzipBytes,packedGzipBytes:grouped.gzipBytes},
   clearReportRestore:true,viewport390:true,commands:{png:royal.commands,standard:standard.commands,light:reduced.commands},errors},null,2)+'\n');
- console.log('Gate Chrome: pawns, two royal bodies, frost, locked collision, transfer, report and save passed');
+ console.log('Gate Chrome:',miss?'miss and tsunami':'collision and exposure','pawns, frost, two packed sprites, transfer, report and save passed');
 }catch(error){
  const f=await page.evaluate(()=>window.lab?.frame);
  console.error(JSON.stringify({node:f?.story?.node,t:f?.t,boss:f?.weeklyBoss,actors:f?.actors?.map(a=>[a.x,a.y,a.hp]),

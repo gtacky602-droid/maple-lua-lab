@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "gate_lure_branches": {"expertReplays":2,"frostCompletionsPerFight":2,"tsunamiDamageOnMiss":90,"exposureTicksOnCollision":360,"hpTransfersPerFight":2,"comparisonScenes":17,"matchedExpandedRectangleStreams":34,"record":"evidence/gate-lure-branches-20261128.json"},
   "false_moon_ward_rift": {"expertReplays":3,"coveredShockDamage":0,"uncoveredShockDamage":106,"settlementDamage":[408,136,0],"returnExposureTicks":360,"comparisonScenes":17,"matchedExpandedRectangleStreams":34,"record":"evidence/false-moon-ward-rift-20261128.json"},
   "primal_gate_branches": {"expertReplays":2,"barrierHitsToBreak":12,"exposureTicks":480,"floorCutsPerReplay":3,"comparisonScenes":14,"matchedExpandedRectangleStreams":28,"record":"evidence/primal-gate-branches-20261128.json"},
   "narwhal_return_branches": {"expertReplays":2,"returnDamage":440,"exposureTicks":600,"comparisonScenes":13,"matchedExpandedRectangleStreams":26,"record":"evidence/narwhal-return-branches-20261128.json"},

@@ -85,7 +85,7 @@ return function(C,M)
    c.freeze=0;c.ready=0;c.freezeBy=c.move.freeze_completed_by or c.move.deadline_ticks-1
    if key=='WT17' then
     w.king.x=fromU(spec,spec.charge.royalKingU);w.queen.x=fromU(spec,spec.charge.royalQueenU)
-    c.body=w.queen
+    c.body=w.queen;c.tsunamiDamage=weakKeys()
    else w.king.x=spec.center end
   elseif key=='WT19' then
    c.donor=w.king.hp>0 and w.king or w.queen;c.receiver=c.donor==w.king and w.queen or w.king
@@ -318,16 +318,20 @@ return function(C,M)
    elseif t>=window[1] and t<window[2] then
     if chargeMove(s,w,spec,c,run,t-window[1],window[2]-window[1]) then
      contribute(run.party,w,run.actor.id)
-     log(s,w,'WT17:collision',run.actor.id,w.king.x);start(s,w,spec,'WT18');return
+     log(s,w,'WT17:collision',run.actor.id,w.king.x)
+     start(s,w,spec,'WT18').lureCollision=true
+     return
     end
    elseif t==window[2] then
-    c.run=nil;log(s,w,'WT17:miss',run.actor.id,c.t);summonRun(s,w,spec,c)
+    c.run=nil;c.lureMissed=true
+    log(s,w,'WT17:miss',run.actor.id,c.t);summonRun(s,w,spec,c)
    end
   end
   local window=c.move.failure_window
   if c.t>=window[1] and c.t<window[2] then
    cancelHold(w,c,'deadline',s)
-   M.damage(s,w,spec,c,{M.band(spec.board.left,spec.board.right,spec.floorY,350,M.water)},c.seen,spec.damage.catastrophe)
+   M.damage(s,w,spec,c,{M.band(spec.board.left,spec.board.right,spec.floorY,350,M.water)},c.seen,
+    spec.damage.catastrophe,nil,c.tsunamiDamage)
    w.phase='active'
   end
  end
@@ -354,6 +358,7 @@ return function(C,M)
    local n=math.min(math.floor(donor.hp*move.donor_fraction),receiver.maxhp)
    donor.hp=donor.hp-n;receiver.hp=n;receiver.generation=receiver.generation+1;clearAuras(receiver)
    w.reviveLeft=w.reviveLeft-1
+   w.transferResult={amount=n,to=receiver==w.king and 'king' or 'queen',untilTick=w.clock+120}
    log(s,w,'WT19:transfer',0,n)
   else receiver.retired=true;log(s,w,'WT19:retire') end
   syncHP(w,spec);rest(w,spec)
@@ -503,9 +508,10 @@ return function(C,M)
   b.phaseHp=w.stage=='royal' and {{name='キング',hp=k.hp,max=k.maxhp},{name='クイーン',hp=q.hp,max=q.maxhp}} or
    {{name='駒王',hp=k.hp,max=spec.pieceKingHp},{name='女王駒',hp=q.hp,max=spec.pieceQueenHp},{name='王族二体',hp=royalMax(spec),max=royalMax(spec)}}
   local v={stage=w.stage,card=c and c.key,tick=c and c.t,bodies={},warnings={},revives=w.reviveLeft}
+  if w.transferResult and w.clock<w.transferResult.untilTick then v.transferResult=w.transferResult end
   b.gate=v
   if w.primary.hp<=0 then return end
-  local back={draws={}};local backRect=painter(back,s)
+  local back={draws={},rectIndex=f.rectIndex,rectBatches=f.rectBatches};local backRect=painter(back,s)
   local eSplit=c and c.key=='WT09' and c.t>=96
   for _,e in ipairs({k,q}) do
    local kind=e==k and 'king' or 'queen'
@@ -572,10 +578,18 @@ return function(C,M)
     v.lure=fromU(spec,c.move.lure_min_x_U)
     rect(v.lure,y-8,155,3,M.ice,.88)
    end
+   if c.key=='WT17' then
+    v.lureMissed=c.lureMissed
+    v.tsunami=c.t>=c.move.failure_window[1]
+    v.tsunamiDamage=c.tsunamiDamage[a]
+   end
    if c.t>=c.move.deadline_ticks-50 and c.t<c.move.failure_window[2] and not c.run then
     rect(spec.board.left,y-13,spec.board.right-spec.board.left,7,M.water,c.t>=c.move.deadline_ticks and 1 or .7)
    end
-  elseif c.key=='WT18' and w.phase=='exposure' then v.exposure=c.move.exposure[2]-c.t
+  elseif c.key=='WT18' then
+   v.lureCollision=c.lureCollision
+   v.exposureEnded=c.t>=c.move.exposure[2]
+   if w.phase=='exposure' then v.exposure=c.move.exposure[2]-c.t end
   elseif c.key=='WT19' then
    v.transfer=c.move.revive_channel_ticks-c.t
    rect(math.min(k.x,q.x),y-55,math.abs(k.x-q.x),3,M.gold,.75)
