@@ -223,7 +223,11 @@ export function initInventoryUI(action){
   starterText.hidden=!starter;
   if(starter){
    const flower=starter.useFlower?`HP +${starter.flower.hp}`:'バッグの花を装備中';
-   const line=`${starter.weapon.name}（ATK +${starter.weapon.atk}）・${starter.flower.name}（${flower}）`;
+   const weaponView=f.weaponView;
+   const equipped=weaponView?.options.find(option=>option.id===weaponView.partner);
+   const weapon=equipped?`${equipped.name}${equipped.level?' +'+equipped.level:''}（武器ATK ${equipped.atk}）`:
+    `${starter.weapon.name}（ATK +${starter.weapon.atk}）`;
+   const line=`${weapon}・${starter.flower.name}（${flower}）`;
    if(starterText.textContent!==line)starterText.textContent=line;
   }
   const companionId=f.companion?.id??'amber';

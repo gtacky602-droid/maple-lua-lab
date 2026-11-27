@@ -204,7 +204,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  C.frameGrowthBattle=frame
  function C.starterEquipment(s,companion)
-  local q=starterQuests[companion]
+  local q=starterQuests[companion or 'amber']
   if q and s.story and completed(s,q.id) then return q.starter end
  end
  local function meetsGateRule(s,rule)
@@ -1898,7 +1898,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if q.ore then C.grantUpgradeOre(s,q.ore) end
     if not state.sights then s.storyNotice=(not q.sights and q.closing) or (q.sights and q.sights.legacyName or q.name)..'：報酬を受け取りました。' end
     if q.kinichHunt then s.storyNotice=kinichAmbush.report(q,state) end
-    if q.starter and s.companion==q.join then C.refreshArtifactStats(s,true) end
+    if q.starter and (s.companion or 'amber')==q.join then C.refreshArtifactStats(s,true) end
     if q.weaponReward and state.cycles==1 and C.noteWeaponReward then C.noteWeaponReward(s,id) end
    end
    return

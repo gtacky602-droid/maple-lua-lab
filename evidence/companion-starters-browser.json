@@ -1,0 +1,56 @@
+{
+  "journalSelections": [
+    {
+      "id": "amber",
+      "weapon": "START-AMBER",
+      "flower": "アンバーの入門の花",
+      "label": "アンバーの入門弓（武器ATK 3）・アンバーの入門の花（バッグの花を装備中）"
+    },
+    {
+      "id": "beidou",
+      "weapon": "START-BEIDOU",
+      "flower": "北斗の入門の花",
+      "label": "南十字の入門大剣（武器ATK 3）・北斗の入門の花（HP +10）"
+    },
+    {
+      "id": "ayaka",
+      "weapon": "START-AYAKA",
+      "flower": "綾華の入門の花",
+      "label": "綾華の初期刀（武器ATK 4）・綾華の入門の花（HP +10）"
+    },
+    {
+      "id": "wanderer",
+      "weapon": "START-WANDERER",
+      "flower": "根道の記録花",
+      "label": "樹上観測の入門法器（武器ATK 4）・根道の記録花（HP +10）"
+    },
+    {
+      "id": "emilie",
+      "weapon": "START-EMILIE",
+      "flower": "水辺の庭の花",
+      "label": "調香師の入門長柄（武器ATK 4）・水辺の庭の花（HP +10）"
+    },
+    {
+      "id": "kachina",
+      "weapon": "START-KACHINA",
+      "flower": "山道の石花",
+      "label": "山歩きの入門長柄（武器ATK 4）・山道の石花（HP +10）"
+    },
+    {
+      "id": "columbina",
+      "weapon": "START-COLUMBINA",
+      "flower": "浜辺の入門の花",
+      "label": "月明かりの入門の法器（武器ATK 4）・浜辺の入門の花（HP +10）"
+    },
+    {
+      "id": "mitya",
+      "weapon": "START-MITYA",
+      "flower": "雪見の入門の花",
+      "label": "観測用の入門法器（武器ATK 4）・雪見の入門の花（HP +10）"
+    }
+  ],
+  "reloadedPreset": "ayaka:SW02",
+  "sharedLevel": 200,
+  "mobileWidth": 390,
+  "errors": []
+}

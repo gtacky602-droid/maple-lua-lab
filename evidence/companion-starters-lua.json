@@ -1,0 +1,113 @@
+{
+  "sourceSha256": "2aba8a85c409da1f8a3eff3c3a283ee571153ad89fc52e20919bb1ec33ff46a4",
+  "level": 200,
+  "companions": {
+    "amber": {
+      "quest": "amber-join",
+      "weapon": "START-AMBER",
+      "flower": "アンバーの入門の花",
+      "equippedFlowerUsed": true,
+      "savedSelection": "amber",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 76,
+        "mora": 100,
+        "repeatedReward": false
+      }
+    },
+    "beidou": {
+      "quest": "beidou-join",
+      "weapon": "START-BEIDOU",
+      "flower": "北斗の入門の花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "beidou",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 3825,
+        "mora": 150,
+        "repeatedReward": false
+      }
+    },
+    "ayaka": {
+      "quest": "ayaka-join",
+      "weapon": "START-AYAKA",
+      "flower": "綾華の入門の花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "ayaka",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 42335,
+        "mora": 200,
+        "repeatedReward": false
+      }
+    },
+    "wanderer": {
+      "quest": "sum-wanderer-observation",
+      "weapon": "START-WANDERER",
+      "flower": "根道の記録花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "wanderer",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 153247,
+        "mora": 1850,
+        "repeatedReward": false
+      }
+    },
+    "emilie": {
+      "quest": "fon-emilie-scent",
+      "weapon": "START-EMILIE",
+      "flower": "水辺の庭の花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "emilie",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 465460,
+        "mora": 2900,
+        "repeatedReward": false
+      }
+    },
+    "kachina": {
+      "quest": "natlan-kachina-charms",
+      "weapon": "START-KACHINA",
+      "flower": "山道の石花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "kachina",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 1319124,
+        "mora": 4800,
+        "repeatedReward": false
+      }
+    },
+    "columbina": {
+      "quest": "columbina-coast-detour",
+      "weapon": "START-COLUMBINA",
+      "flower": "浜辺の入門の花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "columbina",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 3406620,
+        "mora": 3200,
+        "repeatedReward": false
+      }
+    },
+    "mitya": {
+      "quest": "sne-mitya-observation",
+      "weapon": "START-MITYA",
+      "flower": "雪見の入門の花",
+      "equippedFlowerUsed": false,
+      "savedSelection": "mitya",
+      "maxHpWithStarterFlowerOnly": 150,
+      "report": {
+        "xp": 10267605,
+        "mora": 9200,
+        "repeatedReward": false
+      }
+    }
+  },
+  "reportFixtures": "Earned objectives retained; each target quest reopened only in a disposable Lua session.",
+  "earnedQuestsRetained": true,
+  "partyPresetsRestored": true
+}

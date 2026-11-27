@@ -133,7 +133,7 @@ try{
  await page.waitForFunction(()=>window.lab.frame.companion.id==='ayaka'&&window.lab.frame.starterEquipment?.useFlower);
  assert.equal((await frame()).actors[1].maxhp,150);
  assert.equal((await frame()).progression.questXp-before.progression.questXp,42335);
- assert.match(await page.locator('#starterEquipmentStatus').textContent(),/初期刀.*ATK \+1.*入門の花.*HP \+10/);
+ assert.match(await page.locator('#starterEquipmentStatus').textContent(),/初期刀.*武器ATK 4.*入門の花.*HP \+10/);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
