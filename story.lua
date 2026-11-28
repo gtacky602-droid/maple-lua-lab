@@ -448,9 +448,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if not s.story.active then return nil end
   local a=s.actors[s.active]
   local best,distance=nil,90
+  local swimGate,vertical=nil,math.huge
   for _,edge in ipairs(nodes[s.story.node].exits) do
    local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
-   if dx<distance and nearGate(a,edge) and shownEdge(s,edge) then
+   local offset,dy=C.gateOffset(a,edge)
+   if dx<distance and offset==0 and (dy==0 or s.storySwimming and math.abs(dy)<vertical) and shownEdge(s,edge) then
     local automatic=edge.requiresArrival and s.voyage and s.voyage.destination==edge.to or nil
     local reason=nil
     if s.roofFlight then reason='移動中'
@@ -459,7 +461,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=travelerGateRestriction(s,n) or gateRestriction(s,edge) end
-    best={to=edge.to,name=automatic and fieldName(s,n) or edge.rideLabel or fieldName(s,n),level=n.level,available=not reason,reason=reason,
+    local name=automatic and fieldName(s,n) or edge.rideLabel or fieldName(s,n)
+    if dy~=0 then
+     if not reason then
+      swimGate={to=edge.to,name=name,direction=dy>0 and 'down' or 'up'}
+      vertical=math.abs(dy)
+     end
+    else
+     best={to=edge.to,name=name,level=n.level,available=not reason,reason=reason,
           automaticArrival=automatic,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
           floatingStone=edge.floatingStone,
@@ -469,13 +478,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
           trainBoard=n.voyage and n.voyage.kind=='train' or nil,
           trolleyBoard=n.voyage and n.voyage.kind=='trolley' or nil,
           trolleyStop=s.voyage and s.voyage.kind=='trolley' and edge.windowStart~=nil or nil};distance=dx
-    if edge.wind then
-     local calm,seconds=windWindow(s,edge.wind)
-     best.wind={calm=calm,seconds=seconds}
+     if edge.wind then
+      local calm,seconds=windWindow(s,edge.wind)
+      best.wind={calm=calm,seconds=seconds}
+     end
     end
    end
   end
-  return best
+  return best,not best and swimGate or nil
  end
  local function recoveredAll(q,state)
   for _,item in ipairs(q.cargo) do if not state.recovered[item.id] then return false end end
@@ -1825,7 +1835,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       allowed=true;departure=edge;resume=edge.resumeSeconds or 0
      end
     end
-    if not allowed then s.storyNotice='接続する門の近くまで歩いてください。';return end
+    if not allowed then
+     s.storyNotice=s.storySwimming and '門の近くまで泳ぎ、深さを合わせてください。' or '接続する門の近くまで歩いてください。'
+     return
+    end
    end
    local previous=s.story.node;local spawn,arrival=160,nil
    local cancelledTrial=fast and s.flagTrial~=nil
@@ -2399,7 +2412,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,phase=ride.phase,
                  waterway=ride.waterway or nil,boat=ride.boat or nil,wall=ride.wallTrack and true or nil,
                  spiritway=ride.spiritwayTrack and true or nil,windLift=ride.windLift,floatingStone=ride.floatingStone}
-   else f.storyNearbyPortal=nearbyPortal(s) end
+   else f.storyNearbyPortal,f.storySwimGate=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    if n.waterSurvey then
     local q=quests[n.waterSurvey.quest]

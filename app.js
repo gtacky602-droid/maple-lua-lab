@@ -420,6 +420,8 @@ function updateProgression(f){
  swimHelp.hidden=!swimming;
  if(swimming){
   let instructions=waterCombat?'WASD・方向キーで泳ぐ ｜ Jで水撃 ｜ Space・Shiftで急回避 ｜ Fで退く':'WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG';
+  const swimGate=f.storySwimGate;
+  if(swimGate)instructions+=` ｜ ${swimGate.name}へは${swimGate.direction==='up'?'浮上':'潜水'}`;
   if(waterCounter)instructions+=waterCounter.ready?' ｜ Jで反撃の水撃':' ｜ 薄緑の波はKで受け止める';
   if(waterSonar)instructions+=waterSonar.exposed>0?' ｜ Jで反撃 残り'+(Math.ceil(waterSonar.exposed*10)/10).toFixed(1)+'秒':' ｜ 潜ったら波紋へKで探知';
   if(waterReflect)instructions+=waterReflect.ready&&!waterReflect.cooldown?' ｜ 今Kで泡返し':' ｜ K印の泡に向いてKで泡返し';

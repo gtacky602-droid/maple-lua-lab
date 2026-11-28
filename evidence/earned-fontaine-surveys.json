@@ -1,0 +1,111 @@
+{
+  "source": {
+    "path": "legatus-complete.json",
+    "sha256": "42ba2344c1b99aa22193411e9e306ebc4c2b9f1f64d90ae35f7070d71655b3c4",
+    "level": 92
+  },
+  "reports": {
+    "fon-mapped-depth-samples": {
+      "steps": 6,
+      "xp": 112000,
+      "mora": 11200
+    },
+    "fon-mapped-north-lock": {
+      "steps": 6,
+      "xp": 145000,
+      "mora": 13500
+    }
+  },
+  "crossings": [
+    [
+      "fon-wp-50056",
+      "fon-wp-53867"
+    ],
+    [
+      "fon-wp-50058",
+      "fon-wp-50056"
+    ],
+    [
+      "fon-wp-50064",
+      "fon-wp-50065"
+    ],
+    [
+      "fon-wp-50065",
+      "fon-wp-50064"
+    ],
+    [
+      "fon-wp-50077",
+      "fon-wp-50058"
+    ],
+    [
+      "fon-wp-53849",
+      "fon-wp-53850"
+    ],
+    [
+      "fon-wp-53849",
+      "fon-wp-53864"
+    ],
+    [
+      "fon-wp-53850",
+      "fon-wp-53849"
+    ],
+    [
+      "fon-wp-53850",
+      "fon-wp-53867"
+    ],
+    [
+      "fon-wp-53864",
+      "fon-wp-53849"
+    ],
+    [
+      "fon-wp-53867",
+      "fon-wp-53850"
+    ],
+    [
+      "fontaine-field",
+      "fon-wp-50064"
+    ],
+    [
+      "fontaine-hub",
+      "fon-wp-50077"
+    ],
+    [
+      "fontaine-hub",
+      "fontaine-field"
+    ]
+  ],
+  "depthChecks": [
+    {
+      "origin": "fon-wp-50064",
+      "target": "fon-wp-50065",
+      "direction": "up",
+      "playerY": 345.0,
+      "gateY": 230,
+      "atlasHint": "浅い層の門（今の位置から浮上）"
+    },
+    {
+      "origin": "fon-wp-50064",
+      "target": "fon-wp-50065",
+      "direction": "down",
+      "playerY": 166.39999999999947,
+      "gateY": 230,
+      "atlasHint": "浅い層の門（今の位置から潜る）"
+    },
+    {
+      "origin": "fon-wp-53864",
+      "target": "fon-wp-53849",
+      "direction": "up",
+      "playerY": 447.40000000000026,
+      "gateY": 360,
+      "atlasHint": "中層の門（今の位置から浮上）"
+    }
+  ],
+  "northApproach": [
+    "fon-wp-50077",
+    "fon-wp-50058",
+    "fon-wp-50056",
+    "fon-wp-53867"
+  ],
+  "restoredBothReports": true,
+  "partyWipes": 0
+}

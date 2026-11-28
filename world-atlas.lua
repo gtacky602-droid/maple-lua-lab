@@ -210,7 +210,7 @@ return function(C, atlas)
   return fraction<1/3 and '浅い層' or fraction<2/3 and '中層' or '深い層'
  end
 
- local function route_hint(s,edge,node,destination,actorY)
+ local function route_hint(s,edge,node,destination,actor)
   local voyage=node.voyage
   local lampOff=node.id==s.story.node and s.storyLightMode=='dark'
   local instruction=edge.darkOnly and (lampOff and '消灯中。影の足場へ' or '操作盤でGを押して消灯し、影の足場へ')
@@ -228,14 +228,14 @@ return function(C, atlas)
    if node.swim and node.swim.top and node.swim.bottom then
     depth=swim_layer(node.swim,edge.y)..'の門'
    end
-   if actorY then
-    local dy=edge.y-actorY
-    depth=depth..'（'..(dy>=60 and '今の位置から潜る' or dy<=-60 and '今の位置から浮上' or '今の深さで通れる')..'）'
+   if actor then
+    local _,dy=C.gateOffset(actor,edge)
+    depth=depth..'（'..(dy>0 and '今の位置から潜る' or dy<0 and '今の位置から浮上' or '今の深さで通れる')..'）'
    end
    parts[#parts+1]=depth
   elseif edge.y and edge.y<480 then
    parts[#parts+1]='上段の入口'
-   if edge.approachHint and (not actorY or actorY>edge.y) then parts[#parts+1]=edge.approachHint end
+   if edge.approachHint and (not actor or actor.y>edge.y) then parts[#parts+1]=edge.approachHint end
   end
   if destination.swim and not node.swim and route_mode(edge,node,destination)=='dive' then
    local swim=destination.swim
@@ -456,7 +456,7 @@ return function(C, atlas)
        local parallel=not automatic and parallel_gate_hint(edge,node)
        previous[edge.to]={first=first,from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
         label=edge.floatingStone and '浮石' or route_labels[mode],mode=mode,hint=route_hint(s,edge,node,nextNode,
-         first and id==s.story.node and not s.lift and s.actors[s.active].y or nil),
+         first and id==s.story.node and not s.lift and s.actors[s.active] or nil),
         gateX=parallel and edge.x or nil,automaticArrival=automatic}
        queue[#queue+1]=edge.to
       end
@@ -753,7 +753,7 @@ return function(C, atlas)
       entrances[#entrances+1]={from=source.id,id=arena.id,name=arena.name,sourceName=source.name,sealState=C.gateFixtureState(s,source.id,edge),
        previewX=edge.x,previewY=edge.y or 480,requiredLevel=s.progression.level<arena.level and arena.level or nil,
        reason=C.atlasGateRestriction(s,source.id,edge,math.max(s.progression.level,arena.level)),
-       hint=route_hint(s,edge,source,arena,source.id==s.story.node and s.actors[s.active].y or nil)}
+       hint=route_hint(s,edge,source,arena,source.id==s.story.node and s.actors[s.active] or nil)}
      end
     end
    end
