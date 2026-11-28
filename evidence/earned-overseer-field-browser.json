@@ -1,0 +1,199 @@
+{
+  "inputSha256": "a6ca332ee333f6c116d164851ed62208bc8c3f303e75c7afd73ac5ccfbe26b97",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "atocpan-lava-field",
+      "walk"
+    ],
+    [
+      "atocpan-lava-field",
+      "atocpan-overseer-ruin",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "atocpan-lava-field",
+      "walk"
+    ],
+    [
+      "atocpan-lava-field",
+      "atocpan-overseer-ruin",
+      "walk"
+    ],
+    [
+      "atocpan-overseer-ruin",
+      "atocpan-lava-field",
+      "walk"
+    ],
+    [
+      "atocpan-lava-field",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "originalAttack": 74956
+  },
+  "purge": {
+    "points": [
+      850.6733333333333,
+      762.6733333333333,
+      672.9133333333333
+    ],
+    "hitTick": 136,
+    "flowBefore": 1,
+    "flowAfter": 0,
+    "pausedUntilTick": 208,
+    "flowAtSecondJet": 1,
+    "heroDamage": 0,
+    "recoveryTicks": 144,
+    "hpAfterReload": 1080
+  },
+  "captures": {
+    "wave": {
+      "label": "滑走水刃・低い進路から離れる",
+      "tick": 127,
+      "marks": [],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 4874,
+          "packedDraws": 7,
+          "plainGzip": 96388,
+          "packedGzip": 74108,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2088,
+          "packedDraws": 7,
+          "plainGzip": 54335,
+          "packedGzip": 44241,
+          "identicalPixels": true
+        }
+      }
+    },
+    "purge": {
+      "label": "掃討モード・液流 1／5・1/3の範囲から離れる",
+      "tick": 133,
+      "flow": {
+        "level": 1,
+        "chilledTicks": 0,
+        "max": 5
+      },
+      "marks": [
+        [
+          "1",
+          850.6733333333333
+        ],
+        [
+          "2",
+          762.6733333333333
+        ],
+        [
+          "3",
+          672.9133333333333
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 5062,
+          "packedDraws": 34,
+          "plainGzip": 109737,
+          "packedGzip": 78277,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2195,
+          "packedDraws": 34,
+          "plainGzip": 55110,
+          "packedGzip": 46305,
+          "identicalPixels": true
+        }
+      }
+    },
+    "chilled": {
+      "label": "冷却中・液流 0／5・蓄積停止あと0.8秒・1/3の範囲から離れる",
+      "tick": 163,
+      "flow": {
+        "level": 0,
+        "chilledTicks": 45,
+        "max": 5
+      },
+      "marks": [
+        [
+          "1",
+          850.6733333333333
+        ],
+        [
+          "2",
+          762.6733333333333
+        ],
+        [
+          "3",
+          672.9133333333333
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 5674,
+          "packedDraws": 36,
+          "plainGzip": 107742,
+          "packedGzip": 80268,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2505,
+          "packedDraws": 36,
+          "plainGzip": 58777,
+          "packedGzip": 47863,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 10545,
+    "mora": 420
+  },
+  "reportReward": {
+    "xp": 8200,
+    "mora": 540
+  },
+  "fieldClears": 1,
+  "reported": 137,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

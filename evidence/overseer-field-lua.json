@@ -8,6 +8,10 @@
   },
   "multiHitCountsOneCryoCast": true,
   "cryoReactionExcluded": true,
+  "castStartedBeforePurgeExcluded": true,
+  "firstFlowTick": 110,
+  "coolingTicks": 72,
+  "recoveryTicks": 144,
   "exitAndSaveClearFlowWithoutResettingHp": true,
   "oneRewardAndSave": true,
   "normalAttackWithoutCooling": {
@@ -15,8 +19,8 @@
     "hp": 140
   },
   "sameSceneCommands": {
-    "png": 28,
-    "standard": 12847,
-    "light": 3386
+    "png": 24,
+    "standard": 12843,
+    "light": 3382
   }
 }
