@@ -462,12 +462,22 @@ def validate_runtime_source(config, bosses, moves, migration, data):
             require("ward" not in old, "runtime_source.FDK03: discharge still has a legacy ward")
         else:
             discharge = None
+        short_gloom = boss_id == "boss-20081001" and "gloom" not in old
+        if short_gloom:
+            for move_id in ("FHR02", "FHR03"):
+                target = moves[move_id]
+                timings = {"lock": target["lock"], "active": [event["active"] for event in target["events"]],
+                           "recover": target["recovery"][0], "total": target["total"]}
+                if "air" in target:
+                    timings["air"] = target["air"]
+                fixed_values(old_moves[move_id], timings, "runtime_source." + move_id)
         for move_id, old_move in old_moves.items():
             fields(old_move, ("total", "damage"), "runtime_source." + move_id)
-            if old_move is not discharge and old_move is not cooling and move_id in migration["source_signature_totals"]:
+            promoted = old_move is discharge or old_move is cooling or short_gloom and move_id in ("FHR02", "FHR03")
+            if not promoted and move_id in migration["source_signature_totals"]:
                 exact(old_move["total"], migration["source_signature_totals"][move_id], "runtime_source." + move_id + ".total")
             for table, key in (("source_air_ticks", "air"), ("source_hidden_ticks", "hide")):
-                if move_id in migration[table]:
+                if not promoted and move_id in migration[table]:
                     fields(old_move, (key,), "runtime_source." + move_id)
                     start, end = interval(old_move[key], old_move["total"], "runtime_source." + move_id + "." + key)
                     exact(end - start, migration[table][move_id], "runtime_source." + move_id + "." + key + "_ticks")

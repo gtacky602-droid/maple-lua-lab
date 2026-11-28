@@ -75,7 +75,6 @@ def strike(state, boss, element='physical', **changes):
     core.resolveCast(state, cast(state, boss, element, **changes))
     return hp-boss.hp
 
-
 state, slot, boss, hero = make(fixture=True)
 assert (boss.level, boss.hp, boss.form) == (126, 1200, 'idle')
 base = strike(state, boss)
@@ -92,91 +91,87 @@ assert hero.hp == hp-19 and wing.seen[2][1] and (wing.left, wing.right) == lane
 dive = until(state, slot, 'FHR02', 60)
 locked = dive.center
 spot(hero, locked+60)
-until(state, slot, 'FHR02', 117)
-assert boss.form == 'airborne' and 129 < 480-boss.y < 132
-assert boss.hitBottom == boss.y and boss.hitTop == boss.y-196
+until(state, slot, 'FHR02', 114)
+assert boss.form == 'airborne' and math.isclose(boss.y,480-1.48*88)
+assert boss.hitBottom == boss.y and boss.hitTop < boss.y
 assert strike(state, boss) == 0
 assert strike(state, boss, y=boss.y-20) == base
 spot(hero, locked)
 hp = hero.hp
-until(state, slot, 'FHR02', 150)
+until(state, slot, 'FHR02', 131)
+assert boss.y<480 and hero.hp==hp
+ticks(state)
 assert boss.x == locked and boss.y == 480 and boss.pose == 'land'
 assert hero.hp == hp-27 and dive.seen[1][1]
+until(state, slot, 'FHR02', 176)
+assert core.frame(state).fieldBoss.recoveryTicks == 106
 
+hero.hp=hero.maxhp
 spot(hero,boss.x-96)
-gloom = until(state, slot, 'FHR03', 60)
-assert boss.form == 'gloom'
-reduced = strike(state, boss)
-assert reduced == math.floor(24*100/105*.65) < base
-strike(state, boss, 'cryo', reaction=True, key='reaction:fixture')
-assert boss.gloomCharges == 0
-repeated = cast(state, boss, 'cryo')
-for _ in range(3):
-    core.resolveCast(state, repeated)
-assert boss.gloomCharges == 1
-strike(state, boss, 'lunar')
-assert boss.gloomCharges == 2
+wave = until(state, slot, 'FHR03', 60)
+lane = wave.left,wave.right
+assert boss.form=='shadow' and core.frame(state).fieldBoss.gloom is None
+assert strike(state,boss) == base
+for _ in range(3): strike(state,boss,'cryo')
+assert boss.form=='shadow' and wave.broken is None and boss.gloomCharges==0
+spot(hero,wave.center)
+hp=hero.hp
+until(state,slot,'FHR03',183)
+assert hero.hp==hp and not wave.seen[1][1]
+ticks(state)
+assert hero.hp==hp-24 and wave.seen[1][1]
+until(state,slot,'FHR03',271)
+assert hero.hp==hp-24 and not wave.seen[2][1]
+hero.inv=0
+ticks(state)
+assert hero.hp==hp-48 and wave.seen[2][1] and (wave.left,wave.right)==lane
 png, standard, light = [core.frame(state, mode, profile) for mode, profile in
                         [('sprite','legacy'), ('rect','legacy'), ('rect','h32c16')]]
 assert png.t == standard.t == light.t and light.commands < standard.commands
-assert any(d.source == 'frostnight-herra-field-poses-source-v1.png' for d in png.draws.values())
-assert png.fieldBoss.label.endswith('2／3')
-active_save = validate_save(native(core.checkpoint(state)))
-active_restore = core.restore(lua.table_from(active_save, recursive=True), 12)
-restored_slot = active_restore.fieldSlots[boss_id]
-assert restored_slot.enemy.hp == boss.hp and restored_slot.cast is None
-assert restored_slot.enemy.form == 'idle' and restored_slot.enemy.gloomCharges == 0
-strike(state, boss, 'cryo')
-assert boss.form == 'down' and gloom.broken == 60 and boss.gloomCharges == 0
-assert lua.eval('rawequal')(boss, slot.enemy) and len(state.enemies) == 1
-assert strike(state, boss) == base
-spot(hero, gloom.center)
-hp = hero.hp
-until(state, slot, 'FHR03', 203)
-assert boss.form == 'down' and hero.hp == hp and not gloom.seen[1][1]
+assert [d.text for d in png.draws.values() if d.kind=='text' and d.y==500]==['2']
+until(state,slot,'FHR03',324)
+assert boss.form=='recover' and boss.pose=='down'
+assert core.frame(state).fieldBoss.recoveryTicks==144
+assert strike(state,boss)==base and boss.adaptedElement is None
+until(state,slot,'FHR03',467)
 ticks(state)
-assert boss.form == 'idle' and slot.cast is None
+assert slot.cast is None and boss.form=='idle'
 
-state, slot, boss, hero = make()
-gloom = until(state, slot, 'FHR03', 60)
-for _ in range(3):
-    strike(state, boss, 'hydro', atk=12)
-strike(state, boss, 'pyro', atk=60, applicationElement='hydro')
-spot(hero, gloom.right+80)
-hp = hero.hp
-until(state, slot, 'FHR03', 197)
-assert hero.hp == hp and not gloom.seen[1][1]
-spot(hero, gloom.center)
-until(state, slot, 'FHR03', 285)
-assert hero.hp == hp-24 and gloom.seen[2][1]
-until(state, slot, 'FHR03', 324)
-assert boss.adaptedElement == 'pyro'
-assert core.frame(state,'sprite','legacy').fieldBoss.label.startswith('元素適応・炎')
-assert strike(state, boss, 'pyro') == math.floor(24*100/105*.58)
-assert strike(state, boss, 'hydro') == strike(state, boss) == base
-spot(hero, 65)
-ticks(state, 212)
-assert strike(state, boss, 'pyro') == base
-hp = boss.hp
-snap = validate_save(native(core.checkpoint(state)))
-restored = core.restore(lua.table_from(snap, recursive=True), 12)
-assert restored.fieldSlots[boss_id].enemy.hp == hp
-portal(state, 65, road)
-portal(state, 510, arena)
-assert boss.hp == hp
-boss.hp = 1
-mora = state.mora
-assert strike(state, boss) == 1 and slot.phase == 'respawn'
-assert state.story.quests[quest].count == 1 and state.mora == mora+465
-snap = validate_save(native(core.checkpoint(state)))
-assert snap['fieldBosses'][boss_id]['waitTicks'] == 3600
-restored = core.restore(lua.table_from(snap, recursive=True), 12)
-portal(restored, 65, road)
-portal(restored, 1380, hub)
-xp, mora = restored.progression.questXp, restored.mora
-for _ in range(2):
-    core.action(restored, 'story_report:'+quest)
-assert (restored.progression.questXp-xp, restored.mora-mora) == (9000, 610)
+state,slot,boss,hero=make()
+strike(state,boss)
+until(state,slot,'FHR03',60)
+hp=boss.hp
+snapshot=validate_save(native(core.checkpoint(state)))
+restored=core.restore(lua.table_from(snapshot,recursive=True),12)
+enter(restored)
+fresh=restored.fieldSlots[boss_id]
+assert fresh.enemy.hp==hp and fresh.cast is None and fresh.enemy.form=='idle'
+portal(state,65,road)
+assert slot.cast is None
+portal(state,510,arena)
+assert boss.hp==hp
+hero.hp=hero.maxhp
+spot(hero,boss.x-90)
+until(state,slot,'FHR03',60)
+boss.hp=1
+mora,kills=state.mora,state.kills
+assert strike(state,boss)==1 and slot.phase=='respawn' and slot.cast is None
+assert state.story.quests[quest].count==1 and state.mora==mora+465 and state.kills==kills+1
+snapshot=validate_save(native(core.checkpoint(state)))
+assert snapshot['fieldBosses'][boss_id]['waitTicks']==3600
+restored=core.restore(lua.table_from(snapshot,recursive=True),12)
+xp,mora=restored.progression.questXp,restored.mora
+for _ in range(2): core.action(restored,'story_report:'+quest)
+assert (restored.progression.questXp-xp, restored.mora-mora)==(9000,610)
+
+state,slot,boss,hero=make()
+edge=until(state,slot,'FHR03',1)
+boss.x=edge.origin=397
+spot(hero,335)
+until(state,slot,'FHR03',60)
+assert edge.reposition and edge.left is None and core.frame(state).fieldBoss.lockedWave is None
+ticks(state,90)
+assert boss.x>397 and not edge.seen[1][1]
 
 
 def solo():
@@ -199,10 +194,9 @@ def solo():
     raise AssertionError((state.t, boss.hp, hero.hp))
 
 
-result = dict(fixedWarnedAreas=True, airborneHeightAndLandingDamage=True,
-    normalDamage=dict(base=base, gloom=reduced), chargesOncePerDirectCast=True,
-    brokenGloomStopsWave=True, adaptationByTotalDamageAndExpires=True, saveAndReportOnce=True,
-    normalAttackWithoutDispel=solo(),
-    sameSceneCommands=dict(png=png.commands, standard=standard.commands, light=light.commands))
+result=dict(fixedWarnedAreas=True,airTicks=36,landingTick=132,lockedBothWaves=True,damagePerWave=24,
+    normalDamageSameInShadow=True,noDispelOrAdaptation=True,naturalRecoveryTicks=144,
+    edgeReposition=True,saveAndReportOnce=True,normalAttackSolo=solo(),
+    sameSceneCommands=dict(png=png.commands,standard=standard.commands,light=light.commands))
 (ROOT/'evidence/frostnight-herra-field-lua.json').write_text(json.dumps(result,indent=2)+'\n', encoding='utf8')
 print(result)

@@ -133,11 +133,11 @@ const cases={
   boss:'boss-23090101',quest:'battleship-commission',hp:1170,mora:455,xp:597050,scene:'battleshipField',
   asset:'battleship-field',pose:'poses',label:'cooling-plate',fixture:'battleship-field',report:[8800,590],stance:77,
   evade:{FBT01:[109],FBT02:[111,179],FBT03:[319]}},
- // The level 144 fixture unlocks both Cryo skills and earns 65% of the boss's base EXP.
+ // The level 144 fixture earns 65% of the boss's base EXP.
  herra:{hub:'nod-town',arena:'nod-herra-terrace',approach:'nod-field',
   boss:'boss-20081001',quest:'frostnight-herra-commission',hp:1200,mora:465,xp:440148,scene:'herraField',
-  asset:'frostnight-herra-field',pose:'poses',label:'adaptation',fixture:'frostnight-herra-field',report:[9000,610],stance:76,
-  evade:{FHR01:[103,169],FHR02:[133],FHR03:[179,267]}},
+  asset:'frostnight-herra-field',pose:'poses',label:'twin-waves',fixture:'frostnight-herra-field',report:[9000,610],stance:76,
+  evade:{FHR01:[103,169],FHR02:[127],FHR03:[179,267]}},
  nightmare:{hub:'nod-town',arena:'nod-nightmare-shore',approach:'nod-field',
   boss:'boss-22150101',quest:'whisperer-nightmares-commission',hp:1340,mora:475,xp:768050,scene:'nightmareField',
   asset:'whisperer-nightmares-field',pose:'poses',label:'fishers',fixture:'whisperer-nightmares-field',report:[9200,630],stance:76,
@@ -216,7 +216,7 @@ async function fight(page,side,key,config) {
   const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
   const echoLayouts=new Set();
   const repairLayouts=new Set(),coolingLayouts=new Set(),coolingLayers=new Set();
-  const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
+  const herraLanes=new Set(),herraWaveMarks=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
   const wavebinder=key==='wavebinder';
@@ -233,7 +233,7 @@ async function fight(page,side,key,config) {
   let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
   let echoRecovery=false;
   let machineDown=false;
-  let adaptationEnded=false,gloomDown=false,shieldDown=false,nextIce=-Infinity,iceCasts=0;
+  let herraRecovery=false,shieldDown=false;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
   let vigilDown=false,lastRecord=-Infinity,lionReady=false,wardDown=false,orbsDown=false,lastLionFire=-Infinity;
   let guardReady=false,guardDown=false,chantSeen=false,paidHp=0,lastGuardFire=-Infinity;
@@ -265,7 +265,7 @@ async function fight(page,side,key,config) {
      coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows],
      echoLayouts:[...echoLayouts],echoRecovery,
      repairLayouts:[...repairLayouts],coolingLayouts:[...coolingLayouts],coolingLayers:[...coolingLayers],machineDown,
-     ...(key==='herra'?{adaptedElements:[...adaptedElements],adaptationEnded,gloomDown}:{}),
+     ...(key==='herra'?{herraLanes:[...herraLanes],herraWaveMarks:[...herraWaveMarks],herraRecovery}:{}),
      ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
      ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
      ...(key==='vigil'?{starLayouts:[...starLayouts],vigilDown}:{}),
@@ -517,13 +517,17 @@ async function fight(page,side,key,config) {
     if(b.form==='down'&&b.coolingInterrupted&&!plate&&b.recoveryTicks>0&&sprite) machineDown=true;
    }
    if(key==='herra'){
-    if(b.gloom.adaptedElement&&sprite&&b.label.startsWith('元素適応')&&
-       document.querySelector('#fieldBossLabel')?.textContent.includes('元素適応・')){
-     adaptedElements.add(b.gloom.adaptedElement);
-     visual=true;
+    if(b.form==='shadow'&&b.lockedWave&&!b.gloom&&sprite){
+     const {left,right}=b.lockedWave;
+     const mark=f.draws.find(d=>d.kind==='text'&&d.y===500&&['1','2'].includes(d.text)&&
+      Math.abs(d.x+f.camera-(left+right)/2)<.001);
+     if(mark){
+      herraLanes.add([left,right].map(x=>x.toFixed(3)).join(':'));
+      herraWaveMarks.add(mark.text);
+      visual=b.tick>=184&&b.tick<198;
+     }
     }
-    if(adaptedElements.size&&b.gloom.remainingTicks===0) adaptationEnded=true;
-    if(b.form==='down'&&b.gloom.charges===0&&sprite) gloomDown=true;
+    if(b.move==='FHR03'&&b.form==='recover'&&b.recoveryTicks>0&&sprite) herraRecovery=true;
    }
    if(key==='nightmare'){
     if(b.darkShield.hp>0&&b.summons?.length){
@@ -676,14 +680,6 @@ async function fight(page,side,key,config) {
    if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
     window.lab.action('slot1');nextHeal=f.t+10;
    }
-   if(key==='herra'&&!gloomDown&&b.form==='gloom'&&inReach&&a.ground&&!f.macro&&f.t>=nextIce){
-    if(adaptationEnded||(side===-1&&iceCasts===0)){
-     const first=iceCasts%2===0;
-     window.lab.action(first?'slot1':'slot2');
-     nextIce=f.t+(first ? .85 : 2.6);
-     iceCasts++;
-    }
-   }
    if(key==='lava-dragon'&&b.lavaHeat){
     if(lavaStage==='rock'&&b.move==='FLD02'&&b.tick>=215) lavaStage='heatRock';
     if(lavaStage==='heatRock'&&b.form==='molten') lavaStage='molten';
@@ -714,7 +710,7 @@ async function fight(page,side,key,config) {
    const watchEchoes=key==='spiritspeaker'&&!echoRecovery&&b.hp<520;
    const watchDuck=key==='duckle'&&!machineDown&&!sharedSummon&&b.hp<570;
    const watchShip=key==='battleship'&&!machineDown&&(plate?b.tick<105:b.hp<570);
-   const watchHerra=key==='herra'&&!gloomDown&&b.hp<680;
+   const watchHerra=key==='herra'&&!herraRecovery&&b.hp<680;
    const watchNightmare=key==='nightmare'&&!shieldDown&&!sharedSummon&&b.hp<640;
    const watchCocoon=hasCocoon&&!sharedSummon&&(!escaped||!peerEscaped);
    const watchVigil=key==='vigil'&&!vigilDown&&!sharedSummon;
@@ -860,8 +856,9 @@ async function run(key,config) {
   assert.ok(a.machineDown&&b.machineDown,JSON.stringify(results));
  }
  if(key==='herra'){
-  assert.ok(a.adaptedElements.some(element=>b.adaptedElements.includes(element)),JSON.stringify(results));
-  assert.ok(results.every(result=>result.adaptationEnded&&result.gloomDown),JSON.stringify(results));
+  assert.ok(a.herraLanes.some(lane=>b.herraLanes.includes(lane)),JSON.stringify(results));
+  assert.ok(results.every(result=>result.herraRecovery&&['1','2'].every(number=>result.herraWaveMarks.includes(number))),
+   JSON.stringify(results));
  }
  if(key==='nightmare'){
   assert.ok(a.fisherLayouts.some(layout=>b.fisherLayouts.includes(layout)),JSON.stringify(results));
