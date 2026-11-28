@@ -1,0 +1,105 @@
+{
+  "browser": "Chrome",
+  "trials": {
+    "thunder": {
+      "level": 48,
+      "journeys": [
+        [
+          "inazuma-port",
+          "inazuma-road",
+          "walk"
+        ],
+        [
+          "inazuma-road",
+          "thunder-approach",
+          "walk"
+        ],
+        [
+          "thunder-approach",
+          "thunder-field-crest",
+          "walk"
+        ],
+        [
+          "thunder-field-crest",
+          "thunder-approach",
+          "walk"
+        ],
+        [
+          "thunder-approach",
+          "inazuma-road",
+          "walk"
+        ],
+        [
+          "inazuma-road",
+          "inazuma-port",
+          "walk"
+        ]
+      ],
+      "play": {
+        "cleared": true,
+        "seen": [
+          "FTM01",
+          "FTM02",
+          "FTM03"
+        ],
+        "recoveries": [
+          "FTM01",
+          "FTM02",
+          "FTM03"
+        ],
+        "airborne": true,
+        "returns": 0,
+        "hp": 384,
+        "seconds": 16.52,
+        "recoveryLabel": "雷音権現（Lv48） ｜ HP 22 / 940 ｜ 反撃の隙・翼を下ろす"
+      },
+      "restored": true,
+      "storedCooldown": 2599,
+      "sameFrameCommands": {
+        "png": 14,
+        "standard": 6786,
+        "light": 1712
+      }
+    },
+    "pyro": {
+      "level": 50,
+      "journeys": [
+        [
+          "inazuma-town",
+          "pyro-hypostasis-field-terrace",
+          "walk"
+        ],
+        [
+          "pyro-hypostasis-field-terrace",
+          "inazuma-town",
+          "walk"
+        ]
+      ],
+      "play": {
+        "cleared": true,
+        "seen": [
+          "FHP01",
+          "FHP02",
+          "FHP03"
+        ],
+        "recoveries": [
+          "FHP01",
+          "FHP02",
+          "FHP03"
+        ],
+        "airborne": true,
+        "returns": 0,
+        "hp": 324,
+        "seconds": 23.85,
+        "recoveryLabel": "無相の炎（Lv50） ｜ HP 18 / 990 ｜ 反撃の隙・炎がほどける"
+      },
+      "restored": true,
+      "storedCooldown": 3370,
+      "sameFrameCommands": {
+        "png": 15,
+        "standard": 7602,
+        "light": 1942
+      }
+    }
+  }
+}

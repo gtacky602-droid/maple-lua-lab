@@ -78,7 +78,7 @@ return function(C)
   return t>=m.total
  end
  function thunder.label(b,c)
-  if c and c.tick>=c.move.recover then return '翼を下ろす・息継ぎ' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・翼を下ろす' end
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}

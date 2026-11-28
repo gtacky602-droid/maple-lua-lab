@@ -36,6 +36,16 @@ Chromeでは育成後のセーブから2戦ともM地図の案内を開き、6�
 
 再検証は `python -X utf8 test_earned_inazuma_bosses.py`。到着時のセーブが未作成なら、先に `python -X utf8 test_liyue_fresh_route.py` を実行する。Chromeでは検証ラボの `LAB_URL` を設定して `node test_maguu_field.mjs --earned`、`node test_array_field.mjs --earned`、`node test_earned_inazuma_quest_overlap.mjs` を実行する。
 
+### 雷音権現と無相の炎
+
+Lv47から「荒瀧三番勝負」を終えるとLv48になり、離島から海辺の街道と挑戦入口を経て、雷鳴の岩峰へ入れる。雷音権現の討伐調査は離島で報告する。「歩く茶屋」を報告してLv50になったら、城下の広場の門から燎火の石浜へ入る。無相の炎の討伐調査は城下で受注・報告する。
+
+雷音権現の翼から距離を取り、雷羽三枚と雷走は狙いが定まってから反対側へ回る。無相の炎の炎猪・炎蛇・炎拳も、予告された線や着地点から離れる。両戦のHP欄に「反撃の隙」を表示する。獲得済みの装備で全6行動を被弾せずに避け、通常攻撃で討伐、報告、再読み込みまで確認した。 [Luaの再走記録](../evidence/earned-inazuma-thunder-pyro.json)
+
+Chromeでは各予告を同じフレームで固定して画質を切り替えた。標準から16色への描画命令数は、雷音権現が6,786→1,712、無相の炎が7,602→1,942。M地図から会場に入り、両戦とも全滅せずに報告と復元まで通過した。 [Chromeの再走と同画角の計測](../evidence/earned-inazuma-thunder-pyro-browser.json)
+
+再検証は `python -X utf8 test_earned_inazuma_thunder_pyro.py`。その実行で作成したセーブを使い、`LAB_URL` を設定して `node test_earned_inazuma_thunder_pyro.mjs` でChromeから再走する。
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |
