@@ -1,0 +1,28 @@
+{
+  "sourceSha256": "2f1c1800383e767c62e7658f0d222c8dd0a9705cde349243edf08e904f3cc051",
+  "level": 160,
+  "priorQuests": 102,
+  "practice": false,
+  "consumedGauge": 60,
+  "auraMatchesAndPauses": true,
+  "liveNormalHit": true,
+  "dragonspineObserved": true,
+  "commands": {
+    "png": 32,
+    "standard": 14083,
+    "light": 3808
+  },
+  "rewards": [
+    [
+      1150000,
+      10000,
+      1
+    ],
+    [
+      1300000,
+      12000,
+      1
+    ]
+  ],
+  "errors": []
+}

@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 光界解放と観測を報告し、極光谷の氷棚へ
+
+終着駅のLv160セーブでアルベドとアンバーの依頼を受け、氷の切通しで光界解放中の通常攻撃を当て、ドラゴンスパインで地形を観測した。光界解放中は旅人の周りを小さな光が回り、観測地点には測量台が出る。Chromeで両依頼を報告したセーブからLv165まで進み、M地図の案内で氷棚へ入った。 [二つの成長依頼](docs/balance/GROWTH_LIGHT_WEB.md) · [実戦と観測のChrome検証](evidence/earned-light-aurora-browser.json) · [氷棚のChrome検証](evidence/earned-light-ice-shelf-browser.json)
+
 ## 霜鎧の大角獣を撃退し、極光谷へ
 
 終着駅のLv153セーブから雪棚を越え、霜鎧の大角獣を撃退して第3章を報告した。胸の継ぎ目が開いたときの反撃時間をゲージで表示し、報告後は終着駅に白虹のスケッチが飾られる。Chromeで報告したLv158セーブをLuaでLv160まで進め、極光谷・氷の切通しと光界解放の発動をChromeで確認した。 [章と境界の詳細](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [第3章のChrome記録](evidence/earned-white-pass-summit-browser.json) · [極光谷のChrome記録](evidence/earned-white-pass-aurora-browser.json)

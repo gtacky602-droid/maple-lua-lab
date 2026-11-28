@@ -1,0 +1,14 @@
+{
+  "level": 165,
+  "guide": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf"
+  ],
+  "enemies": 28,
+  "restoredAt": "white-pass-station",
+  "visitedShelf": true,
+  "priorQuests": 104,
+  "companion": "mitya",
+  "weapon": "SW07",
+  "errors": []
+}
