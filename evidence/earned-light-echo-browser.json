@@ -1,0 +1,30 @@
+{
+  "sourceSha256": "f683d25afd5cb8faa2bd39e8cfeca8a57c7c5c1e8634ee7a4c1d0324841acfd2",
+  "level": 170,
+  "guide": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf",
+    "aurora-steam-channel"
+  ],
+  "enemies": 28,
+  "noEchoBeforeSource": true,
+  "liveEchoHit": true,
+  "sourceSkill": "SK09",
+  "echoSkill": "SK59",
+  "recordClearsOnTravel": true,
+  "commands": {
+    "png": 44,
+    "standard": 20941,
+    "light": 5222
+  },
+  "rewards": [
+    1700000,
+    15000,
+    1
+  ],
+  "priorQuests": 104,
+  "visitedChannel": true,
+  "companion": "mitya",
+  "weapon": "SW07",
+  "errors": []
+}

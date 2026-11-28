@@ -53,6 +53,7 @@ export async function initSkillUI(action,configure){
  const catalog=await(await fetch('content/skill-catalog.json')).json();
  const root=document.getElementById('skillEditor'),buttons=document.getElementById('skillSlots');
  const choices=catalog.skills.filter(s=>s.equippable),names=Object.fromEntries(catalog.skills.map(s=>[s.id,s.name]));
+ const echoStatus=document.getElementById('echoStatus');
  const updatePresets=partyPresetControls(action,names);
  const selects=[];let signature='';
  for(let i=0;i<8;i++){
@@ -78,6 +79,8 @@ export async function initSkillUI(action,configure){
   const slots=f.loadout||[],sig=JSON.stringify(slots);
   if(sig!==signature){signature=sig;selects.forEach((row,i)=>row.forEach((e,j)=>e.value=slots[i]?.[j]||''))}
   [...buttons.children].forEach((b,i)=>{b.textContent=`${i+1}: ${(slots[i]||[]).map(id=>names[id]).join(' → ')||'空き'}`;b.disabled=f.active!==1||!(slots[i]?.length)});
+  const source=names[f.echoSource]||(f.echoSource==='skill1'?'旋風斬り':f.echoSource);
+  echoStatus.textContent=source?`光界反響に記録した技：${source}${f.echoReady?' ／ 使用可能':''}`:'光界反響の記録：なし（直接攻撃・照射に対応）';
   document.getElementById('macroStatus').textContent=f.macro?`枠${f.macro.slot}：${f.macro.index}番目を待機中`:'1〜8キーで発動。回避・交代・地点移動で中止。';
   if(f.configuration)document.getElementById('slotStatus').textContent=f.configuration.message;
  }};

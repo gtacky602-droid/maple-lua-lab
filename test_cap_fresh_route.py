@@ -21,11 +21,14 @@ parser.add_argument('--replay', action='store_true', help='Regenerate the upstre
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 parser.add_argument('--checkpoint-165', action='store_true', help='Stop after earning the Lv165 checkpoint')
 parser.add_argument('--after-revisits',action='store_true',help='Continue the adventure with the regional side stories')
-parser.add_argument('--light-source', type=Path, help='Continue the earned Lv160 light quests and reach the ice shelf')
+earned = parser.add_mutually_exclusive_group()
+earned.add_argument('--light-source', type=Path, help='Continue the earned Lv160 light quests and reach the ice shelf')
+earned.add_argument('--echo-source', type=Path, help='Continue the earned Lv165 ice shelf save to the steam channel')
 options = parser.parse_args()
+earned_source = options.light_source or options.echo_source
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
-if options.light_source and (options.replay or options.after_revisits or options.draft_balance):
+if earned_source and (options.replay or options.after_revisits or options.draft_balance):
     parser.error('The earned light-quest route supplies its own standard-balance save')
 draft = options.draft_balance
 suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
@@ -37,19 +40,21 @@ if options.replay:
         command.append('--after-revisits')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / ('earned-light-aurora-shelf' if options.light_source else 'cap-fresh-route' + suffix)
+work = ROOT / 'work' / ('earned-light-echo' if options.echo_source else
+                        'earned-light-aurora-shelf' if options.light_source else 'cap-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
 source_file = ROOT/'evidence/snez-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json'
-source=(options.light_source or source_file).read_bytes()
+source=(earned_source or source_file).read_bytes()
 initial = validate_save(json.loads(source))
 station, snow, town = 'white-pass-station', 'snezhnaya-hub', 'mond-town'
-assert initial['story']['node'] in ((station,town) if options.light_source else (station,))
-assert initial['progression']['level'] == 160
-assert initial['story']['quests']['white-pass-summit']['status'] == 'complete'
 chain = [
     station, 'aurora-ice-cut', 'aurora-ice-shelf', 'aurora-steam-channel', 'aurora-mineral-terraces',
     'dawn-vein-mine', 'dawn-vein-deep', 'dawn-glass-ridge', 'dawn-glass-divide', 'dawn-crystal-field',
 ]
+start_nodes = (station, chain[2]) if options.echo_source else (station, town) if options.light_source else (station,)
+assert initial['story']['node'] in start_nodes
+assert initial['progression']['level'] == (165 if options.echo_source else 160)
+assert initial['story']['quests']['white-pass-summit']['status'] == 'complete'
 release, branch, echo, seven, personal = ('growth-' + key for key in
     ('light-release', 'branch-visit', 'light-echo', 'seven-strike', 'next-goal'))
 exits = {n['id']: n['exits'] for n in read('content/story-graph.json')['nodes']}
@@ -178,18 +183,18 @@ def renew_equipment():
 def resupply():
     toggle_auto(False)
     fast(station)
-    if not options.light_source:
+    if not earned_source:
         renew_equipment()
     items = list(state.inventory['items'].values())
     spare = sorted((item for item in items if item.owner == 0 and not item.locked),
-                   key=lambda item: (bool(options.light_source and item.id in original_items),
+                   key=lambda item: (bool(earned_source and item.id in original_items),
                                      item.rarity, item.itemLv, item.id))
-    capacity = len(items)+len(state.inventory.ground)-80 if options.light_source else len(items)-55
+    capacity = len(items)+len(state.inventory.ground)-80 if earned_source else len(items)-55
     for item in spare[:max(0, capacity)]:
         act('artifact_sell:' + str(item.id))
     act('artifact_recover')
     assert not len(state.inventory.ground) and core.canAttack(state)
-    if not options.light_source:
+    if not earned_source:
         renew_equipment()
 
 
@@ -362,26 +367,37 @@ def gear_goal():
 
 assert core.growthSkillCondition(state, 'SK59')[0] is False
 assert core.growthSkillCondition(state, 'SK60')[0] is False
-if options.light_source:
+if earned_source:
     prior = {id:q for id,q in initial['story']['quests'].items() if q['status']=='complete'}
-    if release not in prior or branch not in prior:
+    if options.echo_source:
+        assert initial['story']['visited'][chain[2]] and echo not in prior
+        index, level = 2, 170
+    else:
+        index, level = 1, 165
+    if options.light_source and (release not in prior or branch not in prior):
         assert release not in prior and branch not in prior
         learn_release()
         save('lua-light-reports')
-    hunt(1,165)
-    checkpoint = save('lv165-save')
+    hunt(index,level)
+    checkpoint = save(f'lv{level}-save')
     resumed = core.restore(lua.table_from(checkpoint,recursive=True),12)
-    assert resumed.story.node==station and resumed.progression.level==165
+    assert resumed.story.node==station and resumed.progression.level==level
     assert resumed.story.quests[release].status==resumed.story.quests[branch].status=='complete'
     assert core.equippedWeapon(resumed,'traveler')=='SW07' and resumed.companion==initial['companion']
     assert all(checkpoint['story']['quests'][id]==q for id,q in prior.items())
     kept={item['id'] for item in checkpoint['inventory']['items']}
     assert all(item['id'] in kept for item in initial['inventory']['items'] if item['owner'] or item.get('locked'))
     assert state.returns==0
+    assert resumed.story.visited[chain[index+1]]
     progression.update(sourceSha256=sha256(source).hexdigest(),level=resumed.progression.level,
-                       shelfEntered=bool(resumed.story.visited['aurora-ice-shelf']),
                        priorQuests=len(prior),inventoryKept=len(kept&original_items),
                        weapon='SW07',companion=resumed.companion,wipes=state.returns)
+    if options.echo_source:
+        assert core.growthSkillCondition(resumed,'SK59') is True
+        assert core.growthSkillCondition(resumed,'SK60')[0] is False
+        progression.update(channelEntered=True, echoUnlocked=True)
+    else:
+        progression['shelfEntered'] = True
     (work/'lua.json').write_text(json.dumps(progression,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     sys.exit(0)
 
