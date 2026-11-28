@@ -26,8 +26,9 @@ earned.add_argument('--light-source', type=Path, help='Continue the earned Lv160
 earned.add_argument('--echo-source', type=Path, help='Continue the earned Lv165 ice shelf save to the steam channel')
 earned.add_argument('--seven-source', type=Path, help='Continue the earned Lv170 echo save to the frozen mine entrance')
 earned.add_argument('--goal-source', type=Path, help='Continue the earned Lv180 gear goal save to Dawn Crystal Ridge')
+earned.add_argument('--cap-source', type=Path, help='Continue the earned Lv190 ridge save through the level cap')
 options = parser.parse_args()
-earned_source = options.light_source or options.echo_source or options.seven_source or options.goal_source
+earned_source = options.cap_source or options.goal_source or options.seven_source or options.echo_source or options.light_source
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
 if earned_source and (options.replay or options.after_revisits or options.draft_balance):
@@ -47,7 +48,9 @@ chain = [
     station, 'aurora-ice-cut', 'aurora-ice-shelf', 'aurora-steam-channel', 'aurora-mineral-terraces',
     'dawn-vein-mine', 'dawn-vein-deep', 'dawn-glass-ridge', 'dawn-glass-divide', 'dawn-crystal-field',
 ]
-if options.goal_source:
+if options.cap_source:
+    work_name, start_nodes, start_level, hunts = 'earned-aurora-cap', (station, chain[7]), 190, (7, 8)
+elif options.goal_source:
     work_name, start_nodes, start_level, hunts = 'earned-postgame-goal', (station, town, chain[5]), 180, (5, 6)
 elif options.seven_source:
     work_name, start_nodes, start_level, hunts = 'earned-seven-strike', (station, snow, chain[3]), 170, (3, 4)
@@ -374,12 +377,30 @@ def gear_goal():
         report(personal)
     fast(station)
 
+def record_cap_hunt():
+    assert state.progression.level == 200 and state.progression.xp == 0
+    assert state.progression.total >= LEVELS[199]['maple_reference_total_exp_to_reach']
+    enter(9)
+    near(265)
+    p = state.progression
+    before = dict(total=p.total, base=p.baseXp, overflow=p.overflowXp, killXp=p.killXp, kills=state.kills)
+    toggle_auto(True)
+    ticks = farm(core, state, 201, 3600, idle, draft)
+    toggle_auto(False)
+    delta = p.total-before['total']
+    assert p.level == 200 and p.xp == 0 and delta > 0
+    assert p.baseXp-before['base']==p.overflowXp-before['overflow']==p.killXp-before['killXp']==delta
+    field_save = save('cap-field-save')
+    fast(station)
+    return field_save, dict(node=chain[-1], kills=state.kills-before['kills'], extraExp=delta,
+                            seconds=round(ticks/60,2), overflow=p.overflowXp, restored=True)
+
 
 assert (core.growthSkillCondition(state, 'SK59') is True) == (start_level >= 170)
 assert (core.growthSkillCondition(state, 'SK60') is True) == (start_level >= 180)
 if earned_source:
     prior = {id:q for id,q in initial['story']['quests'].items() if q['status']=='complete'}
-    if options.goal_source:
+    if options.cap_source or options.goal_source:
         assert initial['story']['visited'][chain[5]] and seven in prior and personal in prior
         assert initial['endgame']['goal']=='gear'
         upgraded_atk = state.actors[1].atk
@@ -407,7 +428,18 @@ if earned_source:
     progression.update(sourceSha256=sha256(source).hexdigest(),level=resumed.progression.level,
                        priorQuests=len(prior),inventoryKept=len(kept&original_items),
                        weapon='SW07',companion=resumed.companion,wipes=state.returns)
-    if options.goal_source:
+    if options.cap_source:
+        assert resumed.story.visited[chain[8]]
+        assert resumed.actors[1].atk==upgraded_atk
+        cap_field_save, cap_run = record_cap_hunt()
+        after = save('lua-after-overflow')
+        returned = core.restore(lua.table_from(after,recursive=True),12)
+        roundtrip = validate_save(native(core.checkpoint(returned)))
+        assert after['progression']==roundtrip['progression']==cap_field_save['progression']
+        assert after['inventory']==roundtrip['inventory'] and after['weapons']==roundtrip['weapons']
+        assert roundtrip['story']['quests']==checkpoint['story']['quests'] and state.returns==0
+        progression.update(travelerAttack=upgraded_atk, cap=cap_run)
+    elif options.goal_source:
         assert resumed.story.visited[chain[6]]
         assert resumed.actors[1].atk==upgraded_atk
         progression.update(deepMineEntered=True, ridgeEntered=True, travelerAttack=upgraded_atk)
@@ -451,20 +483,8 @@ for index, level in enumerate(range(165, 201, 5), start=1):
             fast(station)
         route_checkpoint()
 
-assert state.progression.level == 200 and state.progression.xp == 0
-assert state.progression.total >= LEVELS[199]['maple_reference_total_exp_to_reach']
-enter(9)
-near(265)
+cap_field_save, cap_run = record_cap_hunt()
 p = state.progression
-before = dict(total=p.total, base=p.baseXp, overflow=p.overflowXp, kills=state.kills)
-toggle_auto(True)
-ticks = farm(core, state, 201, 3600, idle, draft)
-toggle_auto(False)
-delta = p.total-before['total']
-assert p.level == 200 and p.xp == 0 and delta > 0
-assert p.baseXp-before['base']==p.overflowXp-before['overflow']==delta
-cap_field_save = save('cap-field-save')
-fast(station)
 cap = save('lv200-save')
 restored = core.restore(lua.table_from(cap, recursive=True), 12)
 roundtrip = validate_save(native(core.checkpoint(restored)))
@@ -479,8 +499,7 @@ progression.update(
     sourceSha256=sha256(source).hexdigest(), startingLevel=160, endLevel=p.level,
     totalExp=p.total, kills=state.kills-initial['kills'],
     partyWipes=state.returns, growthQuests=expected,
-    cap=dict(node=chain[-1], kills=state.kills-before['kills'], extraExp=delta, seconds=round(ticks/60,2),
-             overflow=p.overflowXp, restored=True),
+    cap=cap_run,
 )
 write_progress('lv200-post-cap')
 if draft:

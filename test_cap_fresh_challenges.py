@@ -14,10 +14,14 @@ def read(path):
 
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--draft-balance', action='store_true', help='Continue the earned draft Lv200 save')
-draft = parser.parse_args().draft_balance
+parser.add_argument('--earned', action='store_true', help='Continue the browser-verified Lv200 save')
+options = parser.parse_args()
+draft = options.draft_balance
+if options.earned and draft:
+    parser.error('The earned browser replay uses standard balance')
 suffix = '-draft' if draft else ''
-work = ROOT / 'work' / ('cap-fresh-route' + suffix)
-source = (work / 'lv200-save.json').read_bytes()
+work = ROOT / 'work' / ('earned-aurora-cap' if options.earned else 'cap-fresh-route' + suffix)
+source = (work / ('complete.json' if options.earned else 'lv200-save.json')).read_bytes()
 saved = validate_save(json.loads(source))
 assert saved['progression']['level'] == 200
 assert saved['story']['quests']['growth-next-goal']['status'] == 'complete'
@@ -101,7 +105,7 @@ report(stygian)
 accept(weekly)
 trail.cross('mond-road')
 trail.cross('andrius-wolf-ring')
-boss, _ = core.currentWeeklyBoss(state)
+boss, spec = core.currentWeeklyBoss(state)
 before_hp = boss.primary.hp
 trail.approach(boss.primary.x - 52, boss.primary.y, 'weekly boss')
 for _ in range(10):
@@ -123,8 +127,12 @@ assert roundtrip['endgame'] == after['endgame']
 assert roundtrip['inventory'] == after['inventory']
 assert roundtrip.get('weapons') == after.get('weapons')
 assert roundtrip['story']['quests'] == after['story']['quests']
-growth = read(ROOT / 'evidence' / f'cap-fresh-route{suffix}.json')['growthQuests'] + [abyss, stygian, weekly]
+route_proof = work / 'cap-fresh-route-browser.json' if options.earned else ROOT / 'evidence' / f'cap-fresh-route{suffix}.json'
+growth = read(route_proof)['growthQuests'] + [abyss, stygian, weekly]
 assert all(roundtrip['story']['quests'][id]['status'] == 'complete' for id in growth)
+for id,quest in saved['story']['quests'].items():
+    if quest['status'] == 'complete':
+        assert roundtrip['story']['quests'][id] == quest
 exp = after['progression']['total'] - saved['progression']['total']
 assert exp > 0 and after['progression']['level'] == 200 and after['progression']['xp'] == 0
 assert after['progression']['overflowXp'] - saved['progression']['overflowXp'] == exp
@@ -133,10 +141,15 @@ proof = dict(sourceSha256=sha256(source).hexdigest(), completedQuests=[abyss, st
              abyssRewardSet=reward.setId, abyssRewardRarity=reward.rarity, farkaTrialCleared=True,
              weeklyBoss='andrius', weeklyAttackRegistered=True, weeklyDefeated=boss.primary.hp==0,
              extraExpAtCap=exp, savedAndRestored=True)
+if options.earned:
+    previous = saved.get('endgame', {}).get('bosses', {}).get(spec.id, {}).get('clears', 0)
+    wins = roundtrip['endgame']['bosses'][spec.id]['clears']
+    assert boss.primary.hp==0 and wins==previous+1
+    proof.update(weeklyBossId=spec.id, weeklySavedWins=wins)
 if draft:
     assert roundtrip['weapons'] == saved['weapons']
     proof['draftBalance'] = True
 (work / 'lv200-challenges-save.json').write_text(json.dumps(after, ensure_ascii=False) + '\n', encoding='utf8')
-(ROOT / 'evidence' / f'cap-fresh-challenges{suffix}.json').write_text(
+(work / 'challenges-lua.json' if options.earned else ROOT / 'evidence' / f'cap-fresh-challenges{suffix}.json').write_text(
     json.dumps(proof, indent=2) + '\n', encoding='utf8')
 print(proof)

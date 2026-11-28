@@ -22,6 +22,16 @@ Chromeで剣闘士の羽を比較し、主能力がATK 33から58,320に上が�
 
 報告したセーブから、凍てた坑口を狩ってLv185、群青の採掘路を狩ってLv190に進んだ。M地図の道順で暁晶尾根・露頭の道まで歩き、保存から星脈坑の先を訪れた記録と新しい装備を復元した。 [Lv185・190のLua試走](../../evidence/earned-postgame-ridge-lua.json) · [M地図と保存のChrome検証](../../evidence/earned-postgame-ridge-browser.json)
 
+## Lv190の獲得セーブから上限へ
+
+装備更新を報告したセーブを続け、露頭の道でLv195の稜線の段丘を開き、稜線の段丘でLv200になって極地の暁晶原へ入った。上限後に暁晶原で自動戦闘を60秒続けると、敵115体で34,082,090 EXPを追加した。次のレベル用EXPを0のまま、累計・基礎累計・討伐EXPと上限後EXPに同額が入った。 [Luaの試走](../../evidence/earned-aurora-cap-lua.json)
+
+経験値欄は操作ボタンの近くに表示する。上限までは次のレベルまでのゲージがあり、Lv200に達するとゲージから「MAX」と上限後EXPの表示に切り替わる。ChromeでLv195の表示とLv200の極地の暁晶原への道を確認し、討伐後の数値を保存して再開した。 [Chromeの検証](../../evidence/earned-aurora-cap-browser.json)
+
+Chromeで保存した同じ冒険から、入門螺旋3区画を星3で突破し、選んだ黄金の劇団の聖遺物を受け取った。ファルカの通常模擬戦と北風の王狼も倒し、成長依頼3件を報告。Chromeで読み直して報告110件と討伐・挑戦記録を確認した。 [挑戦のLua試走](../../evidence/earned-aurora-cap-challenges-lua.json) · [挑戦後のChrome再開](../../evidence/earned-aurora-cap-challenges-browser.json)
+
+`python -X utf8 test_cap_fresh_route.py --cap-source work/earned-postgame-goal/complete.json` はLv190からLv195とLv200までを試走する。`node test_cap_fresh_route.mjs --earned` はそのセーブで到着と上限後の討伐を確認する。`python -X utf8 test_cap_fresh_challenges.py --earned` はChromeで保存したデータを引き継ぐ。
+
 ## 新規Lv1のセーブでLv200へ
 
 白虹峠を終えたLv160のセーブを使い、極光谷・湯気谷・星脈坑・暁晶尾根を順に通った。Lv160で光界解放中の通常攻撃を当て、Lv170の湯気谷では雷撃を光界反響で写して次の群れに当てた。Lv180の星脈坑では共有ゲージ100を使って七律開天を発動した。ドラゴンスパインの観測と、敵から拾った聖遺物で花・羽を更新する目標を含め、成長依頼5件を報告した。 [Luaの試走ログ](../../evidence/cap-fresh-route.json)

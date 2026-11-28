@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_aurora_cap": {"levels":[190,195,200],"field":"dawn-crystal-field","reportsAfterChallenges":110,"luaRecord":"evidence/earned-aurora-cap-lua.json","browserRecord":"evidence/earned-aurora-cap-browser.json","challengesLua":"evidence/earned-aurora-cap-challenges-lua.json","challengesBrowser":"evidence/earned-aurora-cap-challenges-browser.json"},
   "earned_postgame_gear_ridge": {"levels":[180,185,190],"goal":"gear","ridge":"dawn-glass-ridge","gearBrowser":"evidence/earned-postgame-gear-browser.json","ridgeLua":"evidence/earned-postgame-ridge-lua.json","ridgeBrowser":"evidence/earned-postgame-ridge-browser.json"},
   "earned_seven_strike": {"levels":[170,175,180],"mine":"dawn-vein-mine","sevenStrikeInCombat":true,"finisherInPractice":true,"preservedQuests":105,"luaRecord":"evidence/earned-seven-strike-lua.json","browserRecord":"evidence/earned-seven-strike-browser.json"},
   "earned_light_echo": {"levels":[165,170],"channel":"aurora-steam-channel","echoInCombat":true,"sourceSkill":"SK09","preservedQuests":104,"luaRecord":"evidence/earned-light-echo-lua.json","browserRecord":"evidence/earned-light-echo-browser.json"},

@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 報告107件のセーブでLv200・極地の暁晶原へ
+
+暁晶尾根のLv190セーブでLv195の稜線の段丘を開き、Lv200で極地の暁晶原へ入った。上限後はLuaで1分・115体の討伐EXPを集計し、ChromeでもM地図の道をすべて歩いて討伐し、保存から累計と上限後EXPを復元した。画面下の経験値欄はLv200で「MAX」と上限後EXPに切り替わる。 [進行と操作](docs/balance/CAP_AND_STOPOVER_WEB.md) · [Lua試走](evidence/earned-aurora-cap-lua.json) · [Chromeでの試走](evidence/earned-aurora-cap-browser.json)
+
+Chromeで保存した同じ冒険で入門螺旋を星3、ファルカ通常模擬戦と北風の王狼を撃破し、成長依頼3件を追加で報告した。Chromeで報告110件と各戦績、白虹峠の剣、ミティヤ同行を読み戻した。 [挑戦のLua検証](evidence/earned-aurora-cap-challenges-lua.json) · [挑戦後のChrome再開](evidence/earned-aurora-cap-challenges-browser.json)
+
 ## アンバーの装備更新を報告し、暁晶尾根へ
 
 七律開天を報告したLv180セーブで「冒険は、まだ終わらない」を受注し、挑戦受付から剣闘士の羽を比較して装備した。比較を開くだけでは進まず、装備後にアンバーへ報告した。同じセーブで星脈坑を進み、Lv185の群青の採掘路とLv190の暁晶尾根・露頭の道に入った。 [操作と道順](docs/balance/CAP_AND_STOPOVER_WEB.md) · [装備と報告](evidence/earned-postgame-gear-browser.json) · [暁晶尾根の保存確認](evidence/earned-postgame-ridge-browser.json)
