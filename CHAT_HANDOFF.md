@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## アンバーの装備更新を報告し、暁晶尾根へ
+
+七律開天を報告したLv180セーブで「冒険は、まだ終わらない」を受注し、挑戦受付から剣闘士の羽を比較して装備した。比較を開くだけでは進まず、装備後にアンバーへ報告した。同じセーブで星脈坑を進み、Lv185の群青の採掘路とLv190の暁晶尾根・露頭の道に入った。 [操作と道順](docs/balance/CAP_AND_STOPOVER_WEB.md) · [装備と報告](evidence/earned-postgame-gear-browser.json) · [暁晶尾根の保存確認](evidence/earned-postgame-ridge-browser.json)
+
 ## 七律開天を星脈坑で実戦
 
 光界反響を報告したLv170セーブから鉱泉段丘をLv175で通り、Lv180の星脈坑・凍てた坑口に入った。Chromeでミティヤから受注し、共通ゲージ100を使って坑口の敵に七律開天を当てた。七色の光柱と、練習場で残った標的一体に出る追撃の光を確認した。 [習得と報告](docs/balance/GROWTH_LIGHT_WEB.md) · [Luaの進行記録](evidence/earned-seven-strike-lua.json) · [Chromeの実戦と練習](evidence/earned-seven-strike-browser.json)

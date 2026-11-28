@@ -298,6 +298,8 @@ export function initEndgameUI(action){
  const weeklyDesk=get('weeklyDesk'),weeklyDifficulty=get('weeklyDifficulty'),weeklyStart=get('weeklyChallengeStart');
  const weeklyDetails=get('weeklyChallengeDetails'),weeklyRecord=get('weeklyChallengeRecord'),weeklyResult=get('weeklyChallengeResult');
  const goals=get('endgameGoals'),goalHelp=get('endgameGoalHelp');
+ const gearCandidates=get('endgameGearCandidates');
+ const gearParts=['','花 HP','羽 ATK','時計 ATK','杯 元素ダメージ','冠 会心ダメージ'];
  const duelDesk=get('stygianDesk'),duelMode=get('stygianMode'),duelStart=get('stygianStart');
  const duelBattle=get('stygianBattle'),duelHp=get('stygianHp');
  const mechanic=get('stygianMechanic'),lamp=get('stygianLamp');
@@ -451,7 +453,7 @@ export function initEndgameUI(action){
   }
   if(desk.hidden)return;
   const all=frame.endgame,quest=frame.story.quests['growth-next-goal'];
-  const signature=JSON.stringify([frame.endgameDesk,all,quest,frame.progression?.level]);
+  const signature=JSON.stringify([frame.endgameDesk,all,quest,frame.progression?.level,frame.companion?.id]);
   if(signature===previousDesk)return;
   previousDesk=signature;
   const graph=frame.storyGraph;
@@ -480,5 +482,27 @@ export function initEndgameUI(action){
   const complete=quest?.count===2;
   goalHelp.textContent=complete?'目標達成。アンバーに報告できます。':all?.goal?`今の目標　${goalLabels[all.goal]}`:'次の目標を一つ選べます。';
   for(const button of goals.querySelectorAll('button'))button.disabled=complete;
+  const gear=frame.endgameDesk.gear;
+  gearCandidates.hidden=!gear;
+  if(gear){
+   const items=Object.values(gear.items);
+   const label=document.createElement('span');
+   const owner=gear.actor===1?'旅人':(companion[frame.companion?.id]??'同行者');
+   label.textContent=items.length?`${owner}が装備できる${gear.set}`:`${owner}の${gear.set}に更新候補がありません。`;
+   gearCandidates.replaceChildren(label,...items.map(item=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.dataset.gearCandidate=item.id;
+    const value=n=>n===undefined?'空き':amount(n)+(item.slot>2?'%':'');
+    button.textContent=`${gearParts[item.slot]} ${value(item.before)} → ${value(item.after)} を比較`;
+    button.onclick=()=>{
+     action(`artifact_compare:${item.id}`);
+     const preview=get('artifactPreview');
+     preview.closest('details').open=true;
+     preview.scrollIntoView({block:'center'});
+    };
+    return button;
+   }));
+  }
  };
 }
