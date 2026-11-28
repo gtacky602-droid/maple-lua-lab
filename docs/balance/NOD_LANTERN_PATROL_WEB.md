@@ -16,3 +16,9 @@
 茶卓の同じフレームでは、描画命令はPNG28件、標準矩形5,325件、軽量16色1,365件でした。軽量16色で標準矩形より74.4%減り、やかんとカップの輪郭が残ります。金属や焼き菓子の細かな陰影は簡略化されます。 [茶卓のPNG](../../evidence/nod-lantern-patrol-tea-png.png) · [茶卓の軽量16色](../../evidence/nod-lantern-patrol-tea-light.png)
 
 `python -X utf8 test_nod_lantern_patrol.py` で二つの灯り、投石の予告と回避、撃破の途中保存、近道と回復を確認できます。ローカルサーバーを8907で起動して `node test_nod_lantern_patrol.mjs` を実行すると、Chromeで受注から報告後の近道往復までを確認できます。 [Luaの結果](../../evidence/nod-lantern-patrol-lua.json) · [Chromeの結果](../../evidence/nod-lantern-patrol-browser.json)
+
+## 花見の獲得セーブから通した巡回
+
+Lv130から受注し、高台の投石役を退けて保存しました。暖房小屋から道を歩き直すと、曲がり角にスライム3体だけが残っていました。報告後はLv131に上がり、以前の依頼93件、所持品80点、コロンビーナの同行を維持しました。近道を往復して茶卓で休めます。
+
+茶卓ではカップから小さな湯気が立ちます。湯気の描画は3矩形で、元PNGと両方の矩形画質で位置が一致します。一時停止中は動かず、再開すると上に動きます。このセーブの同じ茶卓フレームは元PNG25件、標準矩形6,101件、軽量16色1,640件でした。軽量16色で標準矩形より73.1%少なくなりました。 [Lv130からのChrome検証](../../evidence/earned-nod-lantern-patrol-browser.json)

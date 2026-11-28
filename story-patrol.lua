@@ -86,6 +86,15 @@ return function(C,canInspect)
   if ready then
    art(layer,'tea',x-27,y-54,51,mode,profile)
    art(layer,'biscuits',x+63,y-54,27,mode,profile)
+   if x>=-20 and x<=980 then
+    local phase=math.floor(s.t*12+1e-6)
+    for offset=0,2 do
+     local rise=(phase+offset*5)%15
+     local drift=math.floor(rise/3)
+     local color=rise<9 and '#ffe9cba8' or '#ffe9cb59'
+     rect(draws,x-4+drift,y-73-rise*2,4,2,color)
+    end
+   end
    caption(draws,x,y-126,'温かいお茶と焼き菓子')
   end
   if count>=q.goal and not s.paused and canInspect(s.actors[s.active],table) then

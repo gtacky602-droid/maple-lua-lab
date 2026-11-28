@@ -1,0 +1,49 @@
+{
+  "cabinScene": {
+    "key": "nodPatrolCabin",
+    "file": "nod-lantern-patrol-cabin-background-v1.png",
+    "state": "ready"
+  },
+  "coastScene": {
+    "key": "nodPatrolCoast",
+    "file": "nod-lantern-patrol-coast-background-v1.png",
+    "state": "ready"
+  },
+  "bothSignposts": true,
+  "warningShown": true,
+  "highBeforeGround": true,
+  "partialReload": {
+    "stage": "nod-patrol-bend",
+    "remaining": 3,
+    "shooterRestored": false
+  },
+  "shortcutAfterReload": true,
+  "restAfterReload": true,
+  "remainingAfterShooter": [
+    "nod-patrol-bend-slime-1",
+    "nod-patrol-bend-slime-2",
+    "nod-patrol-bend-slime-3"
+  ],
+  "steamMatchesAndPauses": true,
+  "commands": {
+    "png": 25,
+    "standard": 6101,
+    "light": 1640
+  },
+  "warningCommands": {
+    "png": 36,
+    "standard": 7934,
+    "light": 2080
+  },
+  "reward": [
+    9330761,
+    8400
+  ],
+  "sourceSha256": "6a611c1e757e85856dd366c59e3318d10f7c3ac25957ada080e55cacaffb9a80",
+  "levelBefore": 130,
+  "levelAfter": 131,
+  "priorCompleted": 93,
+  "inventoryKept": 80,
+  "companion": "columbina",
+  "errors": []
+}

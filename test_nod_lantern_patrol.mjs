@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='nod-lantern-patrol',cabin='nod-patrol-cabin',shore='nod-patrol-shore';
 const bend='nod-patrol-bend',post='nod-patrol-post',prefix=process.env.LAB_PATROL_CAPTURES??'evidence/nod-lantern-patrol';
+const checkpoint=process.env.LAB_PATROL_CHECKPOINT,saveKey='maple-lua-lab.checkpoint.v1';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -88,11 +90,14 @@ async function comparePaused(name,baseline){
   for(const f of [standard,light]){
     assert.equal(f.t,png.t);
     assert.deepEqual(f.storyPatrol,png.storyPatrol);
+    assert.deepEqual(steam(f),steam(png));
   }
   await shot(name+'-light');
   await menu.selectOption('sprite');
   return {png:png.commands,standard:standard.commands,light:light.commands};
 }
+
+const steam=f=>f.draws.filter(d=>['#ffe9cba8','#ffe9cb59'].includes(d.color));
 
 async function compareTea(){
   await walk(605);
@@ -101,20 +106,25 @@ async function compareTea(){
   await wait(()=>window.lab.frame.paused);
   const f=await frame();
   assert.deepEqual(f.draws.filter(d=>d.source==='nod-lantern-patrol-props-source-v1.png').map(d=>d.h),[51,27]);
+  const marks=steam(f);
+  assert.equal(marks.length,3);
   const commands=await comparePaused('tea','tea-png');
   await key('KeyP');
   await wait(()=>!window.lab.frame.paused);
+  await wait(y=>window.lab.frame.draws.some(d=>d.color?.startsWith('#ffe9cb')&&!y.includes(d.y)),marks.map(d=>d.y));
   return commands;
 }
 
 async function saveReload(){
   await page.locator('#saveProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const saved=await page.evaluate(key=>localStorage.getItem(key),saveKey);
   await page.reload();
   await wait(()=>window.lab?.frame);
   await page.locator('#loadProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
   await at(cabin);
+  return saved;
 }
 
 async function remainingTargets(){
@@ -140,10 +150,15 @@ async function remainingTargets(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8907/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/nod-lantern-patrol-fixture.json','utf8');
+  const seed=await fs.readFile(checkpoint??'work/nod-lantern-patrol-fixture.json','utf8');
+  const input=JSON.parse(seed);
   const lua=JSON.parse(await fs.readFile('evidence/nod-lantern-patrol-lua.json','utf8'));
-  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
+  await page.evaluate(({saveKey,seed})=>localStorage.setItem(saveKey,seed),{saveKey,seed});
   await page.locator('#loadProgress').click();
+  if(checkpoint){
+    await at('nod-bloom-gate');
+    await gate(61,'nod-town');
+  }
   await at('nod-town');
   await gate(550,cabin);
   const cabinScene=await scenery();
@@ -159,6 +174,8 @@ try{
   await walk(1390);
   await ground(480);
   await gate(1470,bend);
+  const allyFire=page.locator('#allyFire');
+  if(await allyFire.getAttribute('aria-pressed')==='false')await allyFire.click();
   await walk(746);
   await wait(()=>window.lab.frame.storyPatrol?.warning?.seconds>.48);
   await key('KeyP');
@@ -182,8 +199,24 @@ try{
   assert.match(looked.storyPatrol.message,/灯りの先で足場を降り/);
   await shot('lookout');
   const remainingAfterShooter=await remainingTargets();
+  let partialReload=null;
+  if(checkpoint){
+    await saveReload();
+    await count(3);
+    await gate(1170,shore);
+    await jump(640,386);
+    await walk(1390);
+    await ground(480);
+    await gate(1470,bend);
+    const patrol=(await frame()).storyPatrol;
+    assert.equal(patrol.shooterAlive,false);
+    assert.equal(patrol.ground,3);
+    assert.equal(patrol.warning,undefined);
+    partialReload={stage:bend,remaining:patrol.ground,shooterRestored:false};
+  }
   await walk(1351);
   await ground(480);
+  if(await allyFire.getAttribute('aria-pressed')==='true')await allyFire.click();
   await auto(true);
   await count(4,65000);
   await auto(false);
@@ -199,15 +232,23 @@ try{
   const after=await frame();
   const reward=[after.progression.questXp-before.progression.questXp,after.mora-before.mora];
   assert.deepEqual(reward,lua.reportReward);
-  await saveReload();
+  const completed=await saveReload(),saved=JSON.parse(completed);
+  const prior=Object.entries(input.story.quests).filter(([,state])=>state.status==='complete');
+  for(const [id,state] of prior)assert.deepEqual(saved.story.quests[id],state,id);
+  for(const item of input.inventory.items)assert.ok(saved.inventory.items.some(i=>i.id===item.id),item.id);
+  assert.equal((await frame()).companion.id,before.companion.id);
   await gate(987,post);
   await gate(1019,cabin);
   await inspect(756);
   await wait(()=>window.lab.frame.storyNotice?.includes('体力を回復しました'));
   assert.ok((await frame()).actors.every(a=>a.hp===a.maxhp));
   assert.deepEqual(errors,[]);
-  const proof={cabinScene,coastScene,bothSignposts:true,warningShown:true,highBeforeGround:true,
-    shortcutAfterReload:true,restAfterReload:true,remainingAfterShooter,commands,warningCommands,reward,errors};
+  if(checkpoint)await fs.writeFile(prefix+'-complete.json',completed+'\n');
+  const proof={cabinScene,coastScene,bothSignposts:true,warningShown:true,highBeforeGround:true,partialReload,
+    shortcutAfterReload:true,restAfterReload:true,remainingAfterShooter,steamMatchesAndPauses:true,
+    commands,warningCommands,reward,sourceSha256:createHash('sha256').update(seed).digest('hex'),
+    levelBefore:input.progression.level,levelAfter:saved.progression.level,priorCompleted:prior.length,
+    inventoryKept:input.inventory.items.length,companion:(await frame()).companion.id,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
