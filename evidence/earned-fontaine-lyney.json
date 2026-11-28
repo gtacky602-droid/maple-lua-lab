@@ -1,0 +1,20 @@
+{
+  "quest": "fon-lyney-magic",
+  "requiresMain2": true,
+  "upperWingRoute": true,
+  "audienceOcclusion": true,
+  "wheelFailureLocksCart": true,
+  "pauseAndEarlyCueHandled": true,
+  "storedPlanReplays": true,
+  "startLevel": 93,
+  "endLevel": 94,
+  "plan": "逆光の影絵",
+  "morteAccepted": true,
+  "mainStageEncore": true,
+  "rewards": [
+    [
+      1028841,
+      4200
+    ]
+  ]
+}

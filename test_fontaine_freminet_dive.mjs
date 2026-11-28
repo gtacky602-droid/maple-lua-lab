@@ -3,7 +3,9 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const hub='fontaine-hub',water='fon-toy-shallows',quest='fon-freminet-dive';
-const prefix='evidence/fon-freminet-dive';
+const earned=process.argv.includes('--earned');
+const work='work/earned-fontaine-acts';
+const prefix=earned?work+'/freminet':'evidence/fon-freminet-dive';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -101,10 +103,12 @@ async function compareWater(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8925/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/fon-freminet-dive-fixture.json','utf8');
+ const source=earned?work+'/freminet-ready.json':'work/fon-freminet-dive-fixture.json';
+ const seed=await fs.readFile(source,'utf8');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load();
  assert.equal((await frame()).active,2);
+ if(earned)assert.equal((await frame()).progression.level,92);
  await questButton('受注');
  await count(0);
  await collect(477,'フレミネと玩具を点検する');
@@ -118,6 +122,7 @@ try{
  assert.deepEqual(background,{key:'fontaineToyShallows',file:'fon-freminet-dive-shallows-background-v1.png',state:'ready'});
  assert.equal((await frame()).active,1);
  assert.equal(await page.locator('#a2').isHidden(),true);
+ assert.equal(await page.locator('#companionStatus').isHidden(),true);
  await collect(291,'泡の向きを確かめる',216);
  await count(2);
  await collect(525,'岩の陰の流れを調べる',368);
@@ -151,31 +156,46 @@ try{
  await collect(961,'泡の列に目印を置く',379);
  await count(5);
  assert.equal((await frame()).storyToyDive.marker,'泡の列');
+ const remaining=(await frame()).storyToyDive.toy.remaining;
+ assert.ok(remaining>0);
+ assert.match(await page.locator('#storyForest').textContent(),/玩具の到着まで \d+\.\d秒/);
  await reload();
  assert.equal((await frame()).active,2);
  assert.equal((await frame()).companion.id,'emilie');
  await gate(484,water);
  await wait(()=>window.lab.frame.storyToyDive?.toy?.arrived===true);
  assert.equal((await frame()).storyToyDive.marker,'泡の列');
+ assert.equal((await frame()).storyToyDive.toy.remaining,undefined);
  await travel(1250,386);
  await collect(1354,'玩具の帰還を見届ける',304);
  await count(6);
  await gate(1547,hub,250);
  assert.equal((await frame()).active,2);
  assert.equal(await page.locator('#a2').isVisible(),true);
+ assert.equal(await page.locator('#companionStatus').isVisible(),true);
  await questButton('報告');
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='complete',quest);
+ if(earned){
+  assert.equal((await frame()).progression.level,93);
+  await reload();
+  const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+  const checkpoint=JSON.parse(saved);
+  assert.equal(checkpoint.story.quests[quest].status,'complete');
+  await fs.writeFile(work+'/freminet-browser-complete.json',saved+'\n');
+ }
  await collect(477,'展示の潜航玩具を見る');
- await wait(()=>window.lab.frame.storyDiveExhibit?.message.includes('次は'));
+ await wait(()=>window.lab.frame.storyDiveExhibit?.message?.includes('次は'));
  await shot('toy-exhibit');
  await gate(484,water);
  await collect(1454,'浅瀬を眺める',177);
- await wait(()=>window.lab.frame.storyToyDive?.message.includes('見晴らし'));
+ await wait(()=>window.lab.frame.storyToyDive?.message?.includes('見晴らし'));
  await shot('free-look');
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-web.json',JSON.stringify({
+ const evidence=earned?'evidence/earned-fontaine-freminet-browser.json':prefix+'-web.json';
+ await fs.writeFile(evidence,JSON.stringify({
   quest,background,pushBackAndSidePass:true,touchMovesVertically:true,checkpointResumesOriginalParty:true,
-  markerSavedAndToyReturned:true,postQuestExhibitAndLookout:true,calls,errors
+  markerSavedAndToyReturned:true,postQuestExhibitAndLookout:true,calls,errors,
+  ...(earned?{source,startLevel:92,endLevel:93,route:'泡の列',arrivalTimer:remaining}: {})
  },null,2)+'\n');
  console.log(quest,calls);
 }catch(error){

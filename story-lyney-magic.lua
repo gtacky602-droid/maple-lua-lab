@@ -158,16 +158,21 @@ return function(C,canInspect)
   if (not wings or state.count>=5) and (scene.role~='finale' or runningShow) then
    birds=sceneStage(layer,s,scene,spec,state.storyChoice,runningShow and elapsed,mode,profile)
   end
-  local phase,note
+  local phase,note,cueRemaining
   if run and run.kind=='wheel' then phase,note='wheel',lines.wheel
   elseif run and not run.started then
-   local ready=s.t-run.entered>=spec.cueDelay
+   local delay=math.max(0,spec.cueDelay-(s.t-run.entered))
+   local ready=delay==0
    local console=q.itinerary[state.count+1]
    box(draws,s,console.x-14,console.y-119,28,20,'#594137')
    box(draws,s,console.x-9,console.y-114,18,10,ready and '#a4e8ae' or '#c09361')
    label(draws,s,console.x,console.y-128,ready and '合図' or '待機')
    phase=ready and 'cue' or 'wait'
    note=ready and lines[state.storyChoice] or (run.early and lines.early or lines.wait)
+   if not ready then
+    cueRemaining=delay
+    note=note..(' ｜ 合図まで %.1f秒'):format(math.ceil(delay*10)/10)
+   end
    if not s.paused then
     f.storyNearbyMilestone={label=ready and (state.storyChoice=='curtain' and '合図に合わせて幕を開ける'
                           or '合図に合わせて逆光を切り替える') or '合図を待つ'}
@@ -178,7 +183,7 @@ return function(C,canInspect)
    if scene.role~='finale' then note=s.storyNotice end
   end
   f.storyLyneyMagic={role=scene.role,phase=phase,variant=state.storyChoice,cartVisible=wings,
-                     birds=birds,chapter=chapter,message=note}
+                     birds=birds,chapter=chapter,cueRemaining=cueRemaining,message=note}
  end
 
  return magic

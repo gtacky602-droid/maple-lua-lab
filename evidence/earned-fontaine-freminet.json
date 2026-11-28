@@ -1,0 +1,22 @@
+{
+  "quest": "fon-freminet-dive",
+  "main1Prerequisite": true,
+  "fourDirectionAndCurrent": true,
+  "boundaryAndManualRecovery": true,
+  "noCombatOrPartyMutation": true,
+  "preservesActiveOnExitAndRestore": true,
+  "routeDurationSeconds": [
+    3.623
+  ],
+  "toyExhibitAndPostQuestSightseeing": true,
+  "startLevel": 92,
+  "endLevel": 93,
+  "route": "泡の列",
+  "source": "bygone-complete.json",
+  "rewards": [
+    [
+      1323568,
+      4550
+    ]
+  ]
+}

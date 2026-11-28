@@ -4,7 +4,9 @@ import {chromium} from 'playwright';
 
 const hub='fontaine-hub',room='fontaine-rehearsal-room',stage='fontaine-grand-stage';
 const wings='fon-magic-wings',seats='fon-magic-seats',quest='fon-lyney-magic';
-const prefix='evidence/fon-lyney-magic';
+const earned=process.argv.includes('--earned');
+const work='work/earned-fontaine-acts';
+const prefix=earned?work+'/lyney':'evidence/fon-lyney-magic';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -106,9 +108,11 @@ async function compareAudience(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8924/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/fon-lyney-magic-fixture.json','utf8');
+ const source=earned?work+'/freminet-browser-complete.json':'work/fon-lyney-magic-fixture.json';
+ const seed=await fs.readFile(source,'utf8');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load(hub);
+ if(earned)assert.equal((await frame()).progression.level,93);
  await questButton('受注');
  await count(0);
  await gate(1240,room);
@@ -144,7 +148,23 @@ try{
  await gate(997,wings);
  assert.equal((await frame()).storyLyneyMagic.variant,'light');
  await collect(1179,'新しい演目の合図を待つ');
- await phase('wait');
+ let cueRemaining;
+ if(earned){
+  await wait(()=>{
+   const {storyLyneyMagic:magic}=window.lab.frame;
+   if(magic?.phase!=='wait'||magic.cueRemaining<=0)return false;
+   window.lab.action('pause');
+   return true;
+  });
+  await wait(()=>window.lab.frame.paused);
+  cueRemaining=(await frame()).storyLyneyMagic.cueRemaining;
+  assert.ok(cueRemaining>0&&cueRemaining<=1);
+  assert.match(await page.locator('#storyForest').textContent(),/合図まで \d+\.\d秒/);
+  await shot('cue-wait');
+  await key('KeyP');
+ }else{
+  await phase('wait');
+ }
  await phase('cue');
  await collect(1179,'合図に合わせて逆光を切り替える');
  await phase('reveal');
@@ -159,6 +179,17 @@ try{
  await questButton('報告');
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='complete',quest);
  await reload(hub);
+ if(earned){
+  assert.equal((await frame()).progression.level,94);
+  const survey='fon-morte-sluice-survey';
+  await page.locator('[data-quest="'+survey+'"]').getByRole('button',{name:'受注',exact:true}).click();
+  await wait(id=>window.lab.frame.story.quests[id]?.status==='active',survey);
+  await page.locator('#saveProgress').click();
+  await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+  assert.equal(JSON.parse(saved).story.quests[survey].status,'active');
+  await fs.writeFile(work+'/acts-browser-complete.json',saved+'\n');
+ }
  await gate(1320,stage);
  await collect(1046,'主舞台の追加演目を見る');
  await phase('reveal');
@@ -166,9 +197,11 @@ try{
  await shot('chapter-encore');
  await phase('idle');
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-web.json',JSON.stringify({
+ const evidence=earned?'evidence/earned-fontaine-lyney-browser.json':prefix+'-web.json';
+ await fs.writeFile(evidence,JSON.stringify({
   quest,wingBackground,seatsBackground,upperAisleAndWheel:true,storedLightPlan:true,
-  audienceShowAndChapterEncore:true,calls,errors
+  audienceShowAndChapterEncore:true,calls,errors,
+  ...(earned?{source,startLevel:93,endLevel:94,plan:'逆光の影絵',cueRemaining,morteAccepted:true}: {})
  },null,2)+'\n');
  console.log(quest,calls);
 }catch(error){

@@ -1,5 +1,6 @@
 from copy import deepcopy
 import json
+import sys
 
 from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
@@ -14,6 +15,9 @@ graph=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
 quests={q['id']:q for q in graph['quests']}
 advance=lua.eval('function(C,s,n,input) for _=1,n do C.step(s,1/60,input) end end')
 idle,up,down,right=(lua.table_from(data) for data in ({},{'up':True},{'down':True},{'right':True}))
+earned='--earned' in sys.argv
+work=ROOT/'work/earned-fontaine-acts'
+source=ROOT/'work/earned-bygone-current/bygone-complete.json'
 
 
 def act(key):
@@ -68,18 +72,28 @@ def displayed(sprite):
                for draw in frame().draws.values())
 
 
-s=core.new(12)
-act('story_start')
-core.grantExp(s,LEVELS[79]['maple_reference_total_exp_to_reach'],'quest')
-core.enterStoryNode(s,hub)
+if earned:
+    work.mkdir(parents=True,exist_ok=True)
+    s=restore(validate_save(json.loads(source.read_bytes())))
+    assert s.progression.level==92 and s.story.quests['fon-mapped-bygone-current'].status=='complete'
+    act('story_fast:'+hub)
+    assert s.story.node==hub and s.story.quests[main1].status=='complete'
+else:
+    s=core.new(12)
+    act('story_start')
+    core.grantExp(s,LEVELS[79]['maple_reference_total_exp_to_reach'],'quest')
+    core.enterStoryNode(s,hub)
+    act('story_accept:'+quest)
+    assert state() is None
+    finished(main1)
 act('companion:emilie')
-act('swap')
+if s.active!=2:
+    act('swap')
 assert s.active==2 and s.companion=='emilie'
-act('story_accept:'+quest)
 assert state() is None
-finished(main1)
 fixture=checkpoint()
-(ROOT/'work/fon-freminet-dive-fixture.json').write_text(json.dumps(fixture,ensure_ascii=False)+'\n',encoding='utf8')
+seed=work/'freminet-ready.json' if earned else ROOT/'work/fon-freminet-dive-fixture.json'
+seed.write_text(json.dumps(fixture,ensure_ascii=False)+'\n',encoding='utf8')
 
 act('story_accept:'+quest)
 gate(484,water,False)
@@ -136,17 +150,24 @@ assert actor.x>940
 assert actor.hp==saved[0] and s.actors[2].hp==saved[2]
 before_choice=checkpoint()
 
-rewards=[]
-for id_,x,y,label in [
+rewards,timers=[],[]
+routes=[
     ('bubbles',961,379,'泡の列に目印を置く'),
     ('coral',1082,437,'珊瑚のくぼみに目印を置く'),
     ('arch',1199,362,'光の入る石窓に目印を置く'),
-]:
+]
+for id_,x,y,label in (routes[:1] if earned else routes):
     s=restore(before_choice)
     assert s.story.node==hub and s.active==2 and s.companion=='emilie'
     gate(484,water)
     collect(x,label,y)
     assert state().count==5 and state().storyChoice==id_
+    remaining=frame().storyToyDive.toy.remaining
+    assert remaining>0
+    act('pause')
+    advance(core,s,40,idle)
+    assert frame().storyToyDive.toy.remaining==remaining
+    act('pause')
     collect(1354,'玩具の到着を待つ',304)
     assert state().count==5
     before_route=checkpoint()
@@ -162,11 +183,15 @@ for id_,x,y,label in [
     assert s.active==2
     gate(484,water)
     assert state().storyChoice==id_ and not frame().storyToyDive.toy.arrived
+    restored_remaining=frame().storyToyDive.toy.remaining
+    assert restored_remaining==remaining
     advance(core,s,80,idle)
     flying=frame().storyToyDive.toy
     assert flying.x>760 and flying.y>325 and not flying.arrived
+    assert 0<flying.remaining<restored_remaining
     advance(core,s,220,idle)
-    assert frame().storyToyDive.toy.arrived
+    assert frame().storyToyDive.toy.arrived and frame().storyToyDive.toy.remaining is None
+    timers.append(round(remaining,3))
     collect(1354,'玩具の帰還を見届ける',304)
     gate(1547,hub,y=250)
     assert s.active==2 and not s.toyDive and s.companion=='emilie'
@@ -185,9 +210,10 @@ for id_,x,y,label in [
     advance(core,s,108,right)
     assert s.actors[1].x>1050 and not s.toyDive.pushed
 
-assert rewards==[[QUEST_REPORT_EXP['Q-FON-S05'],4550]]*3
+assert rewards==[[QUEST_REPORT_EXP['Q-FON-S05'],4550]]*(1 if earned else 3)
 gate(1547,hub,y=250)
-finished(main2)
+if not earned:
+    finished(main2)
 gate(1240,room)
 collect(1109,'展示の潜航玩具を見る')
 advance(core,s,1,idle)
@@ -195,6 +221,15 @@ assert displayed(core.freminetDiveArt.toy)
 
 proof={'quest':quest,'main1Prerequisite':True,'fourDirectionAndCurrent':True,'boundaryAndManualRecovery':True,
        'noCombatOrPartyMutation':True,'preservesActiveOnExitAndRestore':True,
-       'threeSavedRoutesAndEqualReward':rewards,'toyExhibitAndPostQuestSightseeing':True}
-(ROOT/'evidence/fon-freminet-dive-lua.json').write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
+       'routeDurationSeconds':timers,'toyExhibitAndPostQuestSightseeing':True}
+report=ROOT/'evidence/fon-freminet-dive-lua.json'
+if earned:
+    assert s.progression.level==93 and state().storyChoice=='bubbles'
+    gate(1264,hub)
+    (work/'freminet-complete.json').write_text(json.dumps(checkpoint(),ensure_ascii=False)+'\n','utf8')
+    proof.update(startLevel=92,endLevel=93,route='泡の列',source=source.name,rewards=rewards)
+    report=ROOT/'evidence/earned-fontaine-freminet.json'
+else:
+    proof.update(threeSavedRoutesAndEqualReward=rewards)
+report.write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
 print(quest,proof)
