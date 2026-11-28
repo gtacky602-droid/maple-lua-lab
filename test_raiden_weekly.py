@@ -185,6 +185,9 @@ ticks(core,s,spec.moves.WR14.total-c.t)
 assert w.cast.id=='WR15' and w.cast.charges==5 and not len(w.objects)
 c=w.cast
 a,ally=s.actors[1],s.actors[2]
+place(a,x,330)
+flower=core.frame(s,'sprite').weeklyBoss.flower
+assert flower.slashIn==60 and not flower.inside and flower.approach=='ground'
 place(a,x)
 ally.hp,ally.maxhp=140,140
 place(ally,960-x)
@@ -192,10 +195,11 @@ ally.ground=False;ally.y=290
 before=a.hp,ally.hp
 ticks(core,s,59)
 assert (a.hp,ally.hp)==before and w.armor==armor
+assert core.frame(s,'sprite').weeklyBoss.flower.slashIn==1
 ticks(core,s,1)
 assert a.hp==before[0] and len(events(s,'WR15:protected'))==1
 flower=core.frame(s,'sprite').weeklyBoss.flower
-assert flower.inside and flower.slashResult=='protected'
+assert flower.inside and flower.slashResult=='protected' and flower.slashIn is None
 s.active=2
 flower=core.frame(s,'sprite').weeklyBoss.flower
 assert not flower.inside and flower.slashResult=='hit'
@@ -315,7 +319,8 @@ assert again.weeklySlots[uid].primary.hp==0 and again.story.quests[quest].status
 
 result={'live_card_duration':timed,'early_lethal_no_hp_lock':True,'eye_four_normals_and_safe_lane':True,
         'shade_aoe_nearest_only':True,'final_wave_jumped':True,'flower_five_normals':True,'reject_old_reaction_and_ai':True,
-        'dome_and_drain_once':True,'unprotected_standard_damage':True,'missing_flower_cancel':True,
+        'dome_and_drain_once':True,'slash_countdown_and_ground_hint':True,
+        'unprotected_standard_damage':True,'missing_flower_cancel':True,
         'electro_flower_single_hit':True,'armor_zero_cancels_flower':True,'armor_four_per_second_budget':True,
         'vulnerable_down_ticks':480,'no_repair_heal':True,'exit_cleans_old_trial':True,'weekly_report_and_restore':True}
 (ROOT/'evidence/raiden-weekly-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')

@@ -144,6 +144,9 @@ def armor_and_protection(lua,core):
     assert slot.cast.id=='WR15' and slot.cast.charges==5
     for state,x in zip(states,(445,520,235,820)):
         spot(state,x)
+    warnings=[core.frame(state).weeklyBoss.flower for state in states]
+    assert [flower.slashIn for flower in warnings]==[60]*4
+    assert [flower.approach for flower in warnings]==[None,None,'right','left']
     before=[s.actors[1].hp for s in states]
     run(step,65)
     assert [n-s.actors[1].hp for n,s in zip(before,states)]==[0,0,62,62]
@@ -246,7 +249,8 @@ if __name__=='__main__':
         via_http(url)
     result=dict(lua=dict(participants=4,independentActorIDs=True,eyeShared=True,shadeSelectsFromOwnPosition=True,
                          armorSharedCap=4,oldAndNonManualHitsRejected=True,flowerCountsPerActor=True,
-                         protected=2,hitOutside=2,drainAppliedOnce=30,downTicks=480,wipeResets=True),
+                         protected=2,hitOutside=2,drainAppliedOnce=30,downTicks=480,wipeResets=True,
+                         slashCountdownAndDirectionPerParty=True),
                 http=dict(participants=2,normalAttacksShared=True,unoccupiedArenaFreezes=True,
                           flowerProgressPreserved=True,personalClearXp=EXP,personalMora=980,
                           sameBossHp=1500,acceptedQuestAndSavesVerified=True))

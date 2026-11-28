@@ -455,6 +455,13 @@ return function(C)
      ready=c.opened~=nil and c.t<spec.objects.flowerLockout,
      protected=c.charges==spec.objects.flowerHits and (c.id=='WR14' or c.t<spec.objects.flowerProtectUntil),
      inside=inDome(active,c.location,spec),slashResult=c.slashResults and c.slashResults[active]}
+   local flower=b.flower
+   if c.id=='WR15' and c.t<c.move.windows[1][1] then flower.slashIn=c.move.windows[1][1]-c.t end
+   if flower.protected and not flower.inside and active.hp>0 then
+    local delta=c.location-active.x
+    local radius=spec.objects.flowerRadius
+    flower.approach=delta< -radius and 'left' or delta>radius and 'right' or 'ground'
+   end
   end
   if e.hp<=0 then return end
   local function rect(x,y,wid,h,color)

@@ -21,6 +21,7 @@
   "flower_five_normals": true,
   "reject_old_reaction_and_ai": true,
   "dome_and_drain_once": true,
+  "slash_countdown_and_ground_hint": true,
   "unprotected_standard_damage": true,
   "missing_flower_cancel": true,
   "electro_flower_single_hit": true,
