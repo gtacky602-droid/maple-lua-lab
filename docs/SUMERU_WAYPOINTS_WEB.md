@@ -12,7 +12,9 @@
 | ハドラマヴェス砂漠 | 22 |
 | 砂漠北西部 | 20 |
 
-125地点の間で169本を往復できる。昇降機23本、水路3本、渡し舟3本と、谷口の観測洞から工場下層へ通じるラボの保守坑道を含む。砂風の門は2か所あり、通れない間は門の近くで次の通過までの時間を確認できる。8ステージに既存の通常敵を2体ずつ置いた。 [保守坑道の接続記録](../sources/map-research/sites-atlas-connections.json)
+設計室で採用した接続では、125地点の間で184本を往復できる。反映前から18本が加わり、3本が外れた。昇降機23本、水路3本、渡し舟3本と、谷口の観測洞から工場下層へ通じるラボの保守坑道を含む。砂風の門は2か所あり、通れない間は門の近くで次の通過までの時間を確認できる。8ステージに既存の通常敵を2体ずつ置いた。 [採用した接続と削除の記録](../evidence/field-studio-20261127-runtime-routes.json) · [保守坑道の接続記録](../sources/map-research/sites-atlas-connections.json)
+
+枯れた根元の神像の「深層の根室へ続く横穴」はLv72で通れる。依頼「苗畑の浅層と深層」を進めるときは、依頼を追跡して「目的地を地図で見る」を押す。浅層の昇降機が道順に出る。浅層と深層の根を調べ、同じ昇降機で戻ると報告できる。
 
 メイン3章の後は、M地図の「狩場・任意戦」で北の森の林床Lv69と北岸の根段丘Lv74を探せる。どちらも試作狩場で、通常敵はそれぞれ36体、42体。Lv79の既設狩場「北森の秘境周辺」は森林北の分岐の上段から入れる。 [Lv60〜80の試走記録](../evidence/sumeru-fresh-route.json)
 
@@ -37,19 +39,19 @@ Luaで洞道の両方向、ガンダ丘・北岸の木橋、段丘の小道、�
 
 ## 検証
 
-- Luaで125地点と169本の道を両方向に通った。調査クエスト4件の報告、報酬の二重払い防止、訪問・報告状態の保存復元を確認した。8ステージで通常敵の配置も確認した。 [Luaの検証結果](../evidence/sumeru-waypoint-test.json)
-- Chromeで北の港と砂風の依頼を受注から報告まで操作した。砂風が強い間は昇降機が動かず、収まると地下へ進めた。再読み込み後に地下へワープできた。 [Chromeの検証結果](../evidence/sumeru-waypoint-browser.json)
+- Lv69・Lv80の獲得済みセーブを使用して、Luaで125地点・368方向を通り、調査4件を報告した。Lv69で深層の横穴に必要Lv72が表示され、Lv80では通過できた。報酬の二重払い防止と、訪問・報告状態の保存復元を確認した。 [Luaの検証結果](../evidence/sumeru-waypoint-test.json)
+- Chromeで調査4件を受注から報告まで操作した。M地図で深層への横穴を確認し、依頼の追跡から浅層の昇降機を開いた。砂風が収まると昇降機で地下へ進めた。再読み込み後に地下へワープできた。 [Chromeの検証結果](../evidence/sumeru-waypoint-browser.json)
 
 ## ドット絵の比較
 
-「雨林西縁の湖」で旅人・アンバー・キノコン・水スライムが見える状態で一時停止し、「描画」を切り替えた。軽量16色では輪郭と主な色を見分けられ、髪や装飾の細部は粗くなる。［[PNG見本](../evidence/sumeru-waypoint-png.png)・[軽量16色](../evidence/sumeru-waypoint-light.png)］
+「雨林西縁の湖」で旅人・アンバー・キノコン・水スライムが見える状態で一時停止し、「描画」を切り替えた。軽量16色では輪郭と主な色を見分けられ、髪や装飾の細部は粗くなる。現行版の固定画角では、標準5,941回から軽量16色1,477回に描画呼び出しが減った（75.1%減）。 [現行版の計測](../evidence/sumeru-waypoint-browser.json)
 
-| 描画方式 | Luaの描画命令 |
+| 初回の試作 | Luaの描画命令 |
 |---|---:|
 | PNG見本 | 31 |
 | 矩形変換・標準 | 6,081 |
 | 矩形変換・軽量16色 | 1,574 |
 
-この画面では標準の矩形変換から軽量16色にすると、描画命令数が約74％減った。
+[初回のPNG見本](../evidence/sumeru-waypoint-png.png) · [初回の軽量16色](../evidence/sumeru-waypoint-light.png)
 
-Luaの検証は `python -X utf8 test_sumeru_waypoints.py`。その実行で用意される `work/sumeru-waypoint-browser-save.json` は、ラボの「JSONを読み込んで再開」でも開ける。Chromeの検証は `node test_sumeru_waypoints.mjs` を実行する。別ポートの場合は `LAB_URL` を指定する。
+Luaの検証は `python -X utf8 test_sumeru_waypoints.py`。獲得済みセーブで再現するには、`test_sumeru_fresh_route.py` の実行後に `--quay-save work/sumeru-fresh-route/pre-quay-save.json --from-save work/sumeru-fresh-route/fontaine-ready-save.json` を渡す。この検査でChrome用の2本のセーブが `work` に生成される。ラボを起動して `node test_sumeru_waypoints.mjs` を実行する。別ポートの場合は `LAB_URL` を指定する。

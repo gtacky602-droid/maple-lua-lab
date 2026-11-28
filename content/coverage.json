@@ -4,6 +4,7 @@
   "goal_status": "active",
   "scope_complete": false,
   "inazuma_field_studio_replay": {"editorRevision":1,"markersVisited":77,"directedGatesWalked":210,"oneTimeReports":3,"atlasMarkerLinksRefreshed":194,"luaRecord":"evidence/inazuma-waypoint-test.json","browserRecord":"evidence/inazuma-waypoint-browser.json"},
+  "sumeru_field_studio_replay": {"editorRevision":1,"markersVisited":125,"directedGatesWalked":368,"oneTimeReports":4,"undergroundShortcutLevel":72,"luaRecord":"evidence/sumeru-waypoint-test.json","browserRecord":"evidence/sumeru-waypoint-browser.json"},
   "liyue_entry_hunts": {"registeredHunts":126,"newlyClassified":3,"regularEnemiesAdded":26,"entryPeaks":[15,15,15],"portalArrivalsChecked":22,"ingredientSitesChecked":2,"record":"evidence/liyue-entry-density-20261128.json"},
   "inazuma_entry_hunts": {"registeredHunts":128,"newlyClassified":2,"regularEnemiesAdded":19,"entryPeaks":[15,15],"portalArrivalsChecked":11,"record":"evidence/inazuma-entry-density-20261128.json"},
   "sumeru_entry_hunts": {"registeredHunts":131,"newlyClassified":3,"regularEnemiesAdded":28,"entryPeaks":[15,15,15],"portalArrivalsChecked":24,"waypointArrivalsChecked":2,"record":"evidence/sumeru-entry-density-20261128.json"},

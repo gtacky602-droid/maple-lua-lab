@@ -1,7 +1,29 @@
 {
   "marker_count": 125,
-  "reciprocal_routes": 169,
-  "directed_crossings": 338,
+  "reciprocal_routes": 184,
+  "directed_crossings": 368,
+  "travel_modes": {
+    "walk": 306,
+    "lift": 46,
+    "boat": 6,
+    "waterway": 6,
+    "raised": 4
+  },
+  "reviewed_studio_pairs": 29,
+  "editor_deletions_confirmed_absent": 11,
+  "source_saves": {
+    "quay": {
+      "sha256": "6ad9f653b0f8583ee4aaab34a8282e032387aee138728f36ca0741463da7f951",
+      "level": 69,
+      "path": "pre-quay-save.json"
+    },
+    "late": {
+      "sha256": "c4160a5073a3771b06c797203670e4572fc55cf8697197c4d315c2b003d1f259",
+      "level": 80,
+      "path": "fontaine-ready-save.json"
+    }
+  },
+  "party_wipes": 0,
   "mapped_stage_ids": [
     "sum-wp-28699",
     "sum-wp-28700",
@@ -131,6 +153,16 @@
   ],
   "layered_markers": 32,
   "layer_connections": 32,
+  "reviewed_layer_shortcuts": 12,
+  "shaft_shortcut_keeps_required_lift_steps": [
+    "sum-wp-32451",
+    "sum-wp-28709"
+  ],
+  "shaft_shortcut_level_gate": {
+    "current": 69,
+    "required": 72,
+    "reason": "必要レベル 72"
+  },
   "lab_maintenance_tunnel": [
     "sum-wp-46523",
     "sum-wp-46530"
@@ -154,8 +186,8 @@
     "sum-wp-46527"
   ],
   "sumeru_28707_lua_draw_commands": {
-    "sprite:legacy": 24,
-    "rect:legacy": 5065,
-    "rect:h32c16": 1315
+    "sprite:legacy": 18,
+    "rect:legacy": 5059,
+    "rect:h32c16": 1300
   }
 }
