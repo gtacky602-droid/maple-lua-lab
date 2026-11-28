@@ -1,5 +1,5 @@
 return function(C)
- local papilla={}
+ local papilla={packRectArt=true}
  local U=88
  local rootHeight=172
  local rootBottom=.3
@@ -27,7 +27,12 @@ return function(C)
  function papilla.frame(f,b,s,c)
   f.pose=b.pose
   f.flying=b.form=='airborne' or nil
-  if c and c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+  if not c then return end
+  if c.tick>=c.move.recover then
+   f.recoveryTicks=c.move.total-c.tick
+  elseif c.dest then
+   f.destinationX=c.dest
+  end
  end
 
  local function lock(s,m,c,a)
@@ -106,9 +111,15 @@ return function(C)
   if b.form=='recover' then return '動きが止まる・反撃' end
   if b.form=='airborne' then return '菌獣影・着地点から離れる' end
   if b.form=='morphing' then return '根が動く・'..c.move.title end
-  if c and c.move.kind=='wing' and c.tick>=c.move.active[1][2] and c.tick<c.move.active[2][2] then
-   return '機竜影・反対の翼が来る'
+  if not c or not c.left then return end
+  local m,t=c.move,c.tick
+  if t>=m.active[#m.active][2] then return '攻撃終了・動きが止まるまで待つ' end
+  if m.kind=='wing' then
+   if t>=m.active[1][2] then return '機竜影 2/2・反対の翼が来る' end
+   return '機竜影 1/2・予告の帯から離れる'
   end
+  if m.kind=='fungus' then return '菌獣影・着地点から離れる' end
+  return '樹影・正面の帯から離れる'
  end
 
  local function rect(f,x,y,w,h,color)
@@ -116,7 +127,7 @@ return function(C)
  end
  local function warning(f,c,cam,y)
   local m,t=c.move,c.tick
-  for i,w in ipairs(m.active) do
+  for _,w in ipairs(m.active) do
    if t<w[2] then
     local left,right=c.left-cam,c.right-cam
     local top,bottom=y-m.height*U,y-(m.low or 0)*U
@@ -125,9 +136,6 @@ return function(C)
      rect(f,left,top,right-left,3,bright)
     end
     for x=left,right-5,12 do rect(f,x,bottom-3,6,2,lilac) end
-    if #m.active>1 then
-     f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=top-7,text=i..' / 2',size=13,color=bright}
-    end
     break
    end
   end
@@ -149,6 +157,19 @@ return function(C)
    end
   end
   C.drawPapillaFieldArt(f,x,b.y,b.pose,b.drawHeight,mode,profile,(b.facing<0)~=(b.pose=='wing-ready'))
+ end
+
+ function papilla.drawOverlay(f,state,s,c)
+  if not c or not c.left or c.move.kind=='stem' then return end
+  for i,w in ipairs(c.move.active) do
+   if c.tick<w[2] then
+    local x,y=(c.left+c.right)/2-state.camera,s.floorY
+    rect(f,x-17,y+6,34,19,'#2c253a')
+    rect(f,x-17,y+6,34,2,lilac)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,text=c.dest and '着地' or i..'/2',size=13,color=bright}
+    return
+   end
+  end
  end
  return papilla
 end

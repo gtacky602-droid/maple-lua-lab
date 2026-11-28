@@ -1,0 +1,173 @@
+{
+  "inputSha256": "ee6ad1000a8a2f11c05708339422409f197195485f06ce69a07b92b2ebdd602b",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "papilla-field-hollow",
+      "walk"
+    ],
+    [
+      "papilla-field-hollow",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "papilla-field-hollow",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "papilla-field-hollow",
+      "walk"
+    ],
+    [
+      "papilla-field-hollow",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "restoredAttack": 74956
+  },
+  "hp": {
+    "initial": 1050,
+    "stem": 1036,
+    "wing": 1036,
+    "fungus": 1036,
+    "revisited": 1036,
+    "reloaded": 1036
+  },
+  "revisitAndReloadForm": "root",
+  "fungus": {
+    "locked": 762,
+    "actual": 762,
+    "airborneY": 407.86172839506173,
+    "playerDamage": 0,
+    "recoveryTicks": 144
+  },
+  "captures": {
+    "stem": {
+      "t": 90,
+      "hp": 1036,
+      "form": "stem",
+      "label": "樹影・正面の帯から離れる",
+      "badges": [],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3860,
+          "packedDraws": 11,
+          "legacyGzip": 89890,
+          "packedGzip": 67172,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1688,
+          "packedDraws": 11,
+          "legacyGzip": 50860,
+          "packedGzip": 41385,
+          "identicalPixels": true
+        }
+      }
+    },
+    "wing": {
+      "t": 128,
+      "hp": 1036,
+      "form": "wing",
+      "label": "機竜影 1/2・予告の帯から離れる",
+      "badges": [
+        [
+          "1/2",
+          801.4,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4951,
+          "packedDraws": 16,
+          "legacyGzip": 101620,
+          "packedGzip": 74742,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2118,
+          "packedDraws": 16,
+          "legacyGzip": 54361,
+          "packedGzip": 44626,
+          "identicalPixels": true
+        }
+      }
+    },
+    "fungus": {
+      "t": 112,
+      "hp": 1036,
+      "form": "airborne",
+      "label": "菌獣影・着地点から離れる",
+      "badges": [
+        [
+          "着地",
+          762,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4760,
+          "packedDraws": 14,
+          "legacyGzip": 100053,
+          "packedGzip": 74281,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2070,
+          "packedDraws": 14,
+          "legacyGzip": 55617,
+          "packedGzip": 44595,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 8198,
+    "mora": 395
+  },
+  "fieldClears": 1,
+  "reported": 135,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
