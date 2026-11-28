@@ -1,0 +1,154 @@
+{
+  "inputSha256": "0318e4f24ca2929151f905e9b4d70a7995c79ec4a1d0601835a6828021c22f39",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "qucusaur-field-cavern",
+      "walk"
+    ],
+    [
+      "qucusaur-field-cavern",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "natural": {
+    "points": [
+      720,
+      528.16
+    ],
+    "actual": [
+      720,
+      528.16
+    ],
+    "playerDamage": 0,
+    "recoveryTicks": 144
+  },
+  "interrupted": {
+    "featherHpBefore": 14,
+    "breakTick": 99,
+    "groundedTick": 123,
+    "recoveryTicks": 143,
+    "clearedDivePoints": true,
+    "featherRewards": 0,
+    "playerDamage": 0
+  },
+  "captures": {
+    "feather": {
+      "label": "羽根を壊すと飛行が止まる・羽根が消えるまであと1.8秒",
+      "tick": 81,
+      "marks": [
+        [
+          "1",
+          720,
+          501
+        ],
+        [
+          "2",
+          528.16,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3186,
+          "packedDraws": 30,
+          "legacyGzip": 81730,
+          "packedGzip": 61858,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1436,
+          "packedDraws": 30,
+          "legacyGzip": 47350,
+          "packedGzip": 39771,
+          "identicalPixels": true
+        }
+      }
+    },
+    "dive": {
+      "label": "降下 1/2・番号の位置から離れる",
+      "tick": 205,
+      "marks": [
+        [
+          "1",
+          720,
+          501
+        ],
+        [
+          "2",
+          528.16,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3013,
+          "packedDraws": 27,
+          "legacyGzip": 80243,
+          "packedGzip": 60751,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1347,
+          "packedDraws": 27,
+          "legacyGzip": 47072,
+          "packedGzip": 39136,
+          "identicalPixels": true
+        }
+      }
+    },
+    "recovery": {
+      "label": "地上で翼を休める・反撃",
+      "tick": 123,
+      "marks": [],
+      "recoveryTicks": 143,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 2474,
+          "packedDraws": 1,
+          "legacyGzip": 73808,
+          "packedGzip": 56589,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1035,
+          "packedDraws": 1,
+          "legacyGzip": 43515,
+          "packedGzip": 36955,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 6372,
+    "mora": 360
+  },
+  "fieldClears": 1,
+  "reported": 132,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

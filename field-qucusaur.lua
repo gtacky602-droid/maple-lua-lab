@@ -1,5 +1,5 @@
 return function(C)
- local qucusaur={}
+ local qucusaur={packRectArt=true}
  local U=88
  local gold,cream,ink='#ffb456','#ffebbc','#483040'
  local function clamp(x,a,b) return math.max(a,math.min(x,b)) end
@@ -32,8 +32,15 @@ return function(C)
 
  function qucusaur.frame(f,b,s,c)
   if not c then return end
-  if c.breakAt then f.flightInterrupted=true
-  elseif c.first and c.tick<c.move.recover then f.divePoints={c.first,c.second} end
+  local m,t=c.move,c.tick
+  if c.breakAt then
+   f.flightInterrupted=true
+   if b.form=='recover' then f.recoveryTicks=c.breakAt+m.feather.fall+m.feather.rest-t end
+  elseif t>=m.recover then
+   f.recoveryTicks=m.total-t
+  elseif c.first then
+   f.divePoints={c.first,c.second}
+  end
  end
 
  local function lock(c,s,a)
@@ -142,7 +149,21 @@ return function(C)
  function qucusaur.label(b,c)
   if b.form=='falling' then return '羽根が砕ける・落下' end
   if b.form=='recover' then return '地上で翼を休める・反撃' end
-  if c and c.summon then return '金焔形態・羽根を壊すと飛行が止まる' end
+  if not c or c.tick<c.move.lock then return end
+  local m,t=c.move,c.tick
+  if c.summon then
+   local seconds=math.ceil((m.feather.commit-t)/6)/10
+   return string.format('羽根を壊すと飛行が止まる・羽根が消えるまであと%.1f秒',seconds)
+  end
+  if m.kind=='wing' then return '翼爪の横薙ぎ・前方の帯から離れる' end
+  if m.kind=='quills' then
+   local step=t<m.fire[2] and '1/2' or '2/2'
+   return '炎羽 '..step..'・射線から離れる'
+  end
+  if t<m.feather.spawn then return '金焔形態・着地点の番号を確認' end
+  if t<m.active[1][2] then return '降下 1/2・番号の位置から離れる' end
+  if t<m.active[2][2] then return '降下 2/2・番号の位置から離れる' end
+  return '降下終了・翼が止まるまで待つ'
  end
 
  local function rect(f,x,y,w,h,color)
@@ -158,7 +179,6 @@ return function(C)
    rect(f,left,top,right-left,bottom-top,'#ffab5944')
    rect(f,left,top,right-left,2,gold)
   end
-  f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=bottom-14,text=tostring(i),size=13,color=cream}
  end
 
  function qucusaur.draw(f,state,b,s,c,mode,profile)
@@ -205,6 +225,19 @@ return function(C)
    C.drawQucusaurFieldArt(f,x,y,'feather',mode,profile,false)
    rect(f,x-17,y-66,34,5,ink)
    rect(f,x-17,y-66,34*feather.hp/feather.maxhp,5,gold)
+  end
+ end
+
+ function qucusaur.drawOverlay(f,state,s,c)
+  if not c or not c.first or c.breakAt then return end
+  for i,w in ipairs(c.move.active) do
+   if c.tick<w[2] then
+    local x=(i==1 and c.first or c.second)-state.camera
+    local y=s.floorY
+    rect(f,x-10,y+6,20,19,ink)
+    rect(f,x-10,y+6,20,2,gold)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,text=tostring(i),size=13,color=cream}
+   end
   end
  end
  return qucusaur

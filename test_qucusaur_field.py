@@ -33,7 +33,8 @@ def make(fixture=False):
         (ROOT/'work/qucusaur-field-fixture.json').write_text(json.dumps(save),encoding='utf8')
     core.action(state,'story_accept:'+quest)
     assert state.story.quests[quest].status=='active'
-    portal(state,1380,approach)
+    portal(state,1380,'natlan-quarry-road')
+    portal(state,64,approach)
     portal(state,1030,arena)
     state.actors[2].hp=0
     slot=state.fieldSlots[boss_id]
@@ -96,6 +97,9 @@ png,standard,light=snap
 assert png.t==standard.t==light.t and light.commands<standard.commands
 assert sum(1 for d in png.draws.values() if d.source=='qucusaur-field-poses-source-v1.png')==2
 assert png.fieldBoss.summon.id==feather.id
+markers=[d for d in png.draws.values() if d.kind=='text' and d.color=='#ffebbc']
+assert [(d.text,d.y) for d in markers]==[('1',501),('2',501)]
+assert '羽根を壊すと飛行が止まる' in png.fieldBoss.label and '1.8秒' in png.fieldBoss.label
 before=(boss.hp,state.kills,state.mora,state.progression.killXp,state.story.quests[quest].count)
 until(state,slot,'FQT03',185)
 assert hit(state,feather,atk=10)>0 and hit(state,feather,atk=10)>0 and feather.hp==0
@@ -106,6 +110,9 @@ hp=hero.hp
 spot(hero,flight.first)
 until(state,slot,'FQT03',222)
 assert boss.form=='recover' and boss.y==480 and not flight.seen[1][1] and hero.hp==hp
+frame=core.frame(state,'sprite','legacy')
+assert frame.fieldBoss.recoveryTicks==132 and frame.fieldBoss.flightInterrupted
+assert not any(d.kind=='text' and d.color=='#ffebbc' for d in frame.draws.values())
 
 hero.hp=hero.maxhp
 spot_near(hero,boss)
@@ -128,6 +135,7 @@ until(state,slot,'FQT03',301)
 assert flight.seen[2][1] and hero.hp==hp-48 and boss.x==second and boss.y==480
 until(state,slot,'FQT03',322)
 assert boss.form=='recover' and flight.move.total-322==144
+assert core.frame(state,'sprite','legacy').fieldBoss.recoveryTicks==144
 
 hero.hp=hero.maxhp
 spot_near(hero,boss)
