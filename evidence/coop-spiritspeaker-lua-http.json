@@ -3,12 +3,11 @@
     "participants": 4,
     "sharedHp": 1060,
     "sharedLanes": true,
-    "sharedLayers": true,
-    "rejectsPrewindowAndReaction": true,
-    "dedupesCastAcrossHits": true,
-    "preservesLayerStateOnRejoin": true,
+    "bodyDamageDuringEchoes": 19,
+    "perPlayerHitGroups": true,
+    "preservesLanesOnRejoin": true,
     "individualRewards": true,
-    "adoptionPreservesBodyAndReflectionHits": true
+    "adoptionPreservesBodyAndEchoHits": true
   },
   "http": {
     "participants": 2,

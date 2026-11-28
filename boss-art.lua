@@ -289,9 +289,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.moongeckoFieldArt[pose]
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)
  end
- function C.drawSpiritspeakerFieldArt(f,x,y,pose,mode,profile,flip)
+ function C.drawSpiritspeakerFieldArt(f,x,y,pose,mode,profile,flip,opacity)
   local art=C.spiritspeakerFieldArt[pose]
-  draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)
+  draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip,nil,nil,opacity)
  end
  function C.drawFallenVigilFieldArt(f,x,y,pose,mode,profile,flip)
   local art=C.fallenVigilFieldArt[pose]

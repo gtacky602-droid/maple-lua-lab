@@ -1,26 +1,32 @@
 {
   "twoSweepWindowsAndFixedIceCenters": true,
-  "fourDistinctReflections": true,
-  "hiddenBodyUntargetable": true,
-  "distinctCastsBreakWards": true,
-  "pyroRemovesTwoLayers": true,
-  "oldCastsAndReactionsRejected": true,
-  "onlyAllFourRevealBody": true,
-  "downIncreasesDamage": true,
-  "noFalseKillRewards": true,
-  "finalTickBreakCancelsStrike": true,
-  "hiddenBodyTerminalDefeatCancelsStrike": true,
-  "timeoutRevealsBody": true,
-  "saveExitAndDefeatCleanUp": true,
+  "echoesAreNonTargetable": true,
+  "bodyVisibleAndTargetable": true,
+  "fixedEchoWindows": [
+    [
+      144,
+      158
+    ],
+    [
+      216,
+      230
+    ]
+  ],
+  "echoesDoNotConsumeHitLimit": true,
+  "damagePerEcho": 22,
+  "recoveryTicks": 144,
+  "noRecoveryDamageMultiplier": true,
+  "terminalDefeatCancelsSecondEcho": true,
+  "saveExitKeepHpAndClearCast": true,
   "oneRewardAndReport": true,
+  "edgeLanesFaceInward": true,
   "normalAttackWithoutHealing": {
-    "seconds": 112.35,
-    "hp": 30,
-    "reflectionInterruptions": 5
+    "seconds": 79.22,
+    "hp": 140
   },
   "sameSceneCommands": {
-    "png": 17,
-    "standard": 7844,
-    "light": 2105
+    "png": 22,
+    "standard": 18673,
+    "light": 5201
   }
 }

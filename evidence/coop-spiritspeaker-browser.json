@@ -4,19 +4,19 @@
   "bossHp": 1060,
   "results": [
     {
-      "seconds": 23.82,
-      "hp": 102,
+      "seconds": 24.38,
+      "hp": 85,
       "kills": 1,
-      "startingMora": 30,
+      "startingMora": 100,
       "mora": 420,
-      "startingXp": 24850,
+      "startingXp": 44177,
       "xp": 398700,
       "moves": [
         "FSP01",
         "FSP02",
         "FSP03"
       ],
-      "manualDamage": 248,
+      "manualDamage": 222,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -52,29 +52,28 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [
-        "733.600,870.000,1002.000,1138.400"
+      "echoLayouts": [
+        "782.000:861.200,694.000:773.200"
       ],
-      "reflectionLayers": [
-        "-25520102:2,-25520103:2,-25520105:1",
-        "-25520105:1"
-      ],
-      "reflectionBroken": true
+      "echoRecovery": true,
+      "repairLayouts": [],
+      "thermalStates": [],
+      "machineDown": false
     },
     {
-      "seconds": 23.8,
-      "hp": 140,
+      "seconds": 24.38,
+      "hp": 107,
       "kills": 1,
-      "startingMora": 0,
+      "startingMora": 100,
       "mora": 420,
-      "startingXp": 0,
+      "startingXp": 44177,
       "xp": 398700,
       "moves": [
         "FSP01",
         "FSP02",
         "FSP03"
       ],
-      "manualDamage": 228,
+      "manualDamage": 216,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -110,15 +109,13 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [
-        "733.600,870.000,1002.000,1138.400"
+      "echoLayouts": [
+        "782.000:861.200,694.000:773.200"
       ],
-      "reflectionLayers": [
-        "-25520102:2,-25520103:2,-25520105:1",
-        "-25520102:1,-25520103:1,-25520105:1",
-        "-25520105:1"
-      ],
-      "reflectionBroken": true
+      "echoRecovery": true,
+      "repairLayouts": [],
+      "thermalStates": [],
+      "machineDown": false
     }
   ],
   "questCounts": [
@@ -128,14 +125,14 @@
   "saves": [
     {
       "clears": 1,
-      "mora": 450,
-      "xp": 423550,
+      "mora": 520,
+      "xp": 442877,
       "respawn": true
     },
     {
       "clears": 1,
-      "mora": 420,
-      "xp": 398700,
+      "mora": 520,
+      "xp": 442877,
       "respawn": true
     }
   ],
