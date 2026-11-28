@@ -1,0 +1,41 @@
+{
+  "clawAndBox": true,
+  "boxDodged": true,
+  "reflection": true,
+  "crackedHp": 42,
+  "chapterXp": 21294130,
+  "commands": {
+    "png": 63,
+    "standard": 7366,
+    "light": 1988
+  },
+  "vaultScene": {
+    "key": "nodMoonVault",
+    "file": "nod-moon-vault-background-v1.png",
+    "state": "ready"
+  },
+  "clearAndReport": true,
+  "chosen": "flower",
+  "artifactsAndSupplies": true,
+  "rewardAfterReload": true,
+  "cacheOre": 8,
+  "cacheMora": 14500,
+  "fullBagRecovery": {
+    "id": 1,
+    "itemLv": 19,
+    "rarity": 3,
+    "mora": 570
+  },
+  "sourceSha256": "470ef49f8736107ba4bc45afc12bd5cf3a014ab7839c9e66f378f130f6bf1924",
+  "startLevel": 123,
+  "reportedLevel": 128,
+  "priorCompleted": 87,
+  "rewardPreview": {
+    "rowCount": 2,
+    "mobileWidth": 390,
+    "noClaimWhileComparing": true
+  },
+  "repeatGeneration": true,
+  "reportXp": 25032225,
+  "errors": []
+}

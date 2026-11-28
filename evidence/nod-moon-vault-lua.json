@@ -6,6 +6,7 @@
   "reflectionDelayedThreeBands": true,
   "crackedHpRestored": true,
   "newMoveAfterShell": true,
+  "attackCountdownAndBandLabels": true,
   "firstChapterXp": 21294130,
   "basicAmberParty": true,
   "recoverAfterFullBag": true,

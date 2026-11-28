@@ -88,11 +88,27 @@ return function(C)
  end
 
  function crab.label(b,cast)
-  if cast then
-   if cast.move.type=='reflection' then return '床のひし形の列から離れる' end
-   if cast.move.type=='break' then return '殻が崩れ、水晶が露出した' end
+  if not cast then
+   return not b.cracked and '側面と背面に攻撃が通りやすい' or nil
   end
-  if not b.cracked and not cast then return '側面と背面に攻撃が通りやすい' end
+  local move,t=cast.move,cast.tick
+  if move.type=='break' then return '殻が崩れ、水晶が露出した' end
+  if move.type=='reflection' then
+   for i=1,3 do
+    local at=move.windup+move.interval*(i-1)
+    if t<at then
+     return ('反射光 %d/3 まで %.1f秒・岩棚か帯の外へ'):format(i,math.ceil((at-t)/6)/10)
+    end
+    if t<at+move.active then return ('反射光 %d/3・岩棚か帯の外へ'):format(i) end
+   end
+   return '反射光が止んだ・反撃の隙'
+  end
+  local hint=move.type=='box' and '落下位置から横へ' or '低い帯を跳ぶか、帯の外へ'
+  if t<move.windup then
+   return ('%sまで %.1f秒・%s'):format(move.title,math.ceil((move.windup-t)/6)/10,hint)
+  end
+  if t<move.windup+move.active then return move.title..'・'..hint end
+  return move.title..'の後・反撃の隙'
  end
 
  function crab.frame(f,b,_,cast)
