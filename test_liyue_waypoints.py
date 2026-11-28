@@ -1,6 +1,10 @@
 """Verify each mapped Liyue stage by walking its gates and riding the layered routes."""
 
+from argparse import ArgumentParser
+from collections import Counter
+from hashlib import sha256
 import json
+from pathlib import Path
 
 from runtime import ROOT, native, runtime
 from savegame import validate_save
@@ -21,6 +25,7 @@ quests = {q['id']: q for q in graph['quests']}
 catalog = read('content/map-catalog.json')
 cover = read('content/coverage.json')['map_catalog']
 review = read('sources/map-research/liyue-marker-review.json')
+plan = read('design/world/atlas-route-plan.json')
 mapping = review['stage_by_marker']
 points = {p['id']: p for p in catalog['nodes'] if p['map_id'] == 2 and p['area_id'] == 2}
 assert set(mapping) == set(points) == {p for area in review['areas'].values() for p in area}
@@ -30,12 +35,27 @@ assert review['map_version'] == next(m['map_version'] for m in catalog['maps'] i
 assert review['grouped_markers'] == {p['id']:p['point_group'] for p in points.values() if p.get('point_group')}
 shaft = review['surface_to_mine']
 mine = shaft['mine']
-stages = set(mapping.values()) | {mine}
-edges = {(a, e['to']):e for a in stages for e in nodes[a]['exits'] if e['to'] in stages}
-assert len(edges) == 234
+markers = set(mapping.values())
+stages = markers | {mine}
+exits = {k: n['exits'] for k, n in nodes.items()}
+edges = {(a, e['to']): e for a in stages for e in exits[a] if e['to'] in stages}
+all_edges = {(a, e['to']): e for a in exits for e in exits[a]}
 assert set(edges) == {(b, a) for a, b in edges}
-for field, expected in [('boatSeconds', 10), ('waterwaySeconds', 2), ('liftSeconds', 6), ('y', 6)]:
-    assert sum(field in e for e in edges.values()) == expected
+assert len(edges) == sum(e['to'] in stages for a in stages for e in exits[a])
+removed = [row for row in plan['removed_editor_routes'] if all(k in mapping for k in row['fields'])]
+for row in removed:
+    a, b = (mapping[k] for k in row['fields'])
+    assert (a,b) not in edges and (b,a) not in edges, row
+adopted = [row for row in plan['sites_only_route_review']
+           if row['finding']=='field_studio_lab_connection' and all(k in mapping for k in row['fields'])]
+for row in adopted:
+    for path in row['runtime_paths'].values():
+        assert all((a,b) in all_edges for a,b in zip(path,path[1:])), row
+travel_modes = Counter(
+    next((mode for key,mode in (('boatSeconds','boat'),('waterwaySeconds','waterway'),
+                               ('liftSeconds','lift'),('y','raised')) if key in edge), 'walk')
+    for edge in edges.values()
+)
 
 
 def on_platform(stage, x, y):
@@ -53,8 +73,9 @@ for key, stage in mapping.items():
     assert pin['kind'] == spec['kind'] and pin.get('floor') == spec.get('point_group')
     if spec.get('point_group'):
         marker_exits = [gate for gate in n['exits'] if gate['to'] in stages]
-        assert len(marker_exits) == 1
-        assert any(k in marker_exits[0] for k in ('liftSeconds', 'waterwaySeconds'))
+        assert any('liftSeconds' in gate or 'waterwaySeconds' in gate for gate in marker_exits)
+        assert all('liftSeconds' in gate or 'waterwaySeconds' in gate or gate.get('studioRoute')
+                   for gate in marker_exits)
     assert {nodes[e['to']]['mapPoint'] for e in n['exits'] if 'mapPoint' in nodes[e['to']]} == (
         set(cover['stage_links'][key]['gates']))
     assert on_platform(stage, pin['x'], pin['y'])
@@ -63,16 +84,55 @@ assert len(mine_stages) == 15
 assert all(nodes[n]['waypoint']['kind'] == 'waypoint' for n in mine_stages)
 assert 'liftSeconds' in edges[shaft['surface'], mine] and 'liftSeconds' in edges[mine, shaft['surface']]
 
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save', type=Path, help='Earned late-Liyue checkpoint at the harbor')
+args = parser.parse_args()
 lua, core = runtime()
-state = core.new(46)
-core.action(state, 'campaign')
-core.grantExp(state, sum(core.expNeeded(lv) for lv in range(1, 46)), 'quest')
-assert state.progression.level == 46
-core.enterStoryNode(state, 'liyue-harbor')
+source_save = None
+if args.from_save:
+    raw = args.from_save.read_bytes()
+    state = core.restore(lua.table_from(validate_save(json.loads(raw)),recursive=True),46)
+    assert state.story.node=='liyue-harbor' and not state.auto
+    source_save = {'path':args.from_save.name,'level':state.progression.level,'sha256':sha256(raw).hexdigest()}
+else:
+    state = core.new(46)
+    core.action(state, 'campaign')
+    core.grantExp(state, sum(core.expNeeded(lv) for lv in range(1, 46)), 'quest')
+    assert state.progression.level == 46
+    core.enterStoryNode(state, 'liyue-harbor')
 (ROOT / 'work').mkdir(exist_ok=True)
 write('work/liyue-waypoint-browser-save.json', validate_save(native(core.checkpoint(state))))
-trail = TrailWalk(lua, core, state, edges, {k: n['exits'] for k, n in nodes.items()})
+trail = TrailWalk(lua, core, state, edges, exits)
 assert trail.explore() == stages and trail.crossings == set(edges)
+west, shelf, chamber = 'liyue-wp-64826','liyue-wp-64827','liyue-wp-64849'
+stone_routes = []
+for a,b,mode,label in (
+    (west,chamber,'walk','西峰の石室へ続く横穴'),
+    (chamber,west,'walk','西岸の道へ戻る横穴'),
+    (shelf,chamber,'lift','西峰の石室へ降りる昇降機'),
+    (chamber,shelf,'lift','西峰の石棚へ上がる昇降機'),
+):
+    core.action(state,'story_fast:'+a)
+    assert state.story.node == a
+    core.action(state,'world_map_focus:'+b)
+    guide = core.frame(state,'sprite','legacy').worldMap.guide
+    assert guide.status=='ready' and len(guide.stops)==1
+    leg=guide.stops[1]
+    assert (leg['from'],leg.id,leg.mode)==(a,b,mode) and label in leg.hint
+    core.action(state,'world_map_close')
+    trail.cross(b,leg.gateX)
+    stone_routes.append({'from':a,'to':b,'mode':mode,'hint':leg.hint})
+
+detours = []
+detour_walk = TrailWalk(lua,core,state,all_edges,exits)
+for a,b in (('liyue-field','liyue-wp-100'),('liyue-wp-110','primo-approach')):
+    assert (a,b) not in edges
+    core.action(state,'story_fast:'+a)
+    assert state.story.node == a
+    approach = detour_walk.follow_atlas(b)
+    returning = detour_walk.follow_atlas(a)
+    assert len(approach)>1 and len(returning)>1
+    detours.append({'from':a,'to':b,'approach':approach,'returning':returning})
 
 routes = ['liyue-mapped-east-shore', 'liyue-mapped-hidden-cave', 'liyue-mapped-chasm-shaft']
 for id in routes:
@@ -117,11 +177,20 @@ assert (trail.actor.x, trail.actor.y) == (pin['x'], pin['y'])
 checkpoint = validate_save(native(core.checkpoint(state)))
 restored = core.restore(lua.table_from(checkpoint, recursive=True))
 assert all(restored.story.visited[s] for s in stages | {depth['to']})
-assert all(restored.story.quests[id].status == 'complete' for id in routes)
+assert state.returns == 0
+assert all(restored.story.quests[id].status == 'complete' and restored.story.quests[id].cycles==1 for id in routes)
 write('evidence/liyue-waypoint-test.json', {
     'markers': len(mapping),
     'reciprocal_routes': len(trail.crossings) // 2,
     'directed_crossings': len(trail.crossings),
+    'directed_marker_crossings': sum(a in markers and b in markers for a,b in trail.crossings),
+    'travel_modes': travel_modes,
+    'reviewed_studio_pairs': len(adopted),
+    'editor_deletions_confirmed_absent': len(removed),
+    'stone_chamber_routes': stone_routes,
+    'current_detours': detours,
+    'source_save': source_save,
+    'party_wipes': state.returns,
     'stage_ids': sorted(stages),
     'floor_connectors': review['grouped_markers'],
     'reported_quests': routes,
