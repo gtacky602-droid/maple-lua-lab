@@ -127,8 +127,56 @@
     "nod-wp-99222",
     "nod-wp-99223"
   ],
-  "reciprocal_paths": 151,
-  "directed_paths": 302,
+  "reciprocal_paths": 158,
+  "directed_paths": 316,
+  "travel_modes": {
+    "walk": 217,
+    "boat": 26,
+    "lift": 62,
+    "waterway": 4,
+    "raised": 5,
+    "shadow_gate": 2
+  },
+  "reviewed_studio_pairs": 20,
+  "editor_deletions_confirmed_absent": 7,
+  "source_saves": {
+    "voyage": {
+      "path": "nod-ready-save.json",
+      "level": 120,
+      "sha256": "3be3c76bb9b24b906a232db0fbd1670b26afc91a38d31fdcf2193da2b83dacfe"
+    },
+    "survey": {
+      "path": "snow-ready-save.json",
+      "level": 140,
+      "sha256": "b6ea7c2298eb76292a0ccc660ce3acaebb8a44159de661d890c992334aa7a783"
+    }
+  },
+  "party_wipes": 0,
+  "shadow_approach": [
+    "nod-wp-88128",
+    "nod-wp-88147",
+    "nod-wp-88148",
+    "nod-wp-88154",
+    "nod-wp-88155",
+    "nod-wp-88157",
+    "nod-wp-88160",
+    "nod-wp-88162"
+  ],
+  "first_visit_via": [
+    "nod-wp-88169",
+    "nod-wp-88170"
+  ],
+  "after_visit_shortcut": [
+    "nod-wp-88170"
+  ],
+  "rim_detour_after_removal": {
+    "from": "nod-wp-88128",
+    "to": "nod-wp-88144",
+    "stops": [
+      "nod-wp-88145",
+      "nod-wp-88144"
+    ]
+  },
   "arrival_from_existing_natlan_voyage": true,
   "two_dark_gates": [
     {

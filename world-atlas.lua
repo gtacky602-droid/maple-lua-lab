@@ -210,9 +210,10 @@ return function(C, atlas)
   return fraction<1/3 and '浅い層' or fraction<2/3 and '中層' or '深い層'
  end
 
- local function route_hint(edge,node,destination,actorY)
+ local function route_hint(s,edge,node,destination,actorY)
   local voyage=node.voyage
-  local instruction=edge.darkOnly and '灯りを消して足場を出す'
+  local lampOff=node.id==s.story.node and s.storyLightMode=='dark'
+  local instruction=edge.darkOnly and (lampOff and '消灯中。影の足場へ' or '操作盤でGを押して消灯し、影の足場へ')
     or edge.studioRoute and edge.visitedOnly and '初回訪問後に通れる近道'
     or edge.wind and '風が弱い間に通る'
     or edge.windowStart and (('出発から%s〜%s秒の間に%s'):format(edge.windowStart,edge.windowEnd,
@@ -454,7 +455,7 @@ return function(C, atlas)
        local automatic=automatic_arrival(node,edge)
        local parallel=not automatic and parallel_gate_hint(edge,node)
        previous[edge.to]={first=first,from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
-        label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode,
+        label=route_labels[mode],mode=mode,hint=route_hint(s,edge,node,nextNode,
          first and id==s.story.node and not s.lift and s.actors[s.active].y or nil),
         gateX=parallel and edge.x or nil,automaticArrival=automatic}
        queue[#queue+1]=edge.to
@@ -650,7 +651,9 @@ return function(C, atlas)
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,questField=nodes[edge.to].questField,restricted=edge.requires~=nil,
-       reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),boarding=C.boardingSchedule(edge),
+       reason=C.atlasGateRestriction(s,selected.id,edge),
+       hint=edge.darkOnly and route_hint(s,edge,nodes[selected.id],nodes[edge.to]) or parallel_gate_hint(edge,nodes[selected.id]),
+       boarding=C.boardingSchedule(edge),
        automaticArrival=automatic_arrival(nodes[selected.id],edge)}
     end
    end
@@ -750,7 +753,7 @@ return function(C, atlas)
       entrances[#entrances+1]={from=source.id,id=arena.id,name=arena.name,sourceName=source.name,sealState=C.gateFixtureState(s,source.id,edge),
        previewX=edge.x,previewY=edge.y or 480,requiredLevel=s.progression.level<arena.level and arena.level or nil,
        reason=C.atlasGateRestriction(s,source.id,edge,math.max(s.progression.level,arena.level)),
-       hint=route_hint(edge,source,arena,source.id==s.story.node and s.actors[s.active].y or nil)}
+       hint=route_hint(s,edge,source,arena,source.id==s.story.node and s.actors[s.active].y or nil)}
      end
     end
    end
