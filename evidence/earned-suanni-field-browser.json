@@ -1,0 +1,142 @@
+{
+  "inputSha256": "30b29a57a0b53f0cdf0be77488bf398d28e48f191108077ff21142c95417a87d",
+  "level": 200,
+  "journeys": [
+    [
+      "liyue-harbor",
+      "liyue-entry",
+      "walk"
+    ],
+    [
+      "liyue-entry",
+      "chenyu-camp",
+      "walk"
+    ],
+    [
+      "chenyu-camp",
+      "chenyu-depth",
+      "walk"
+    ],
+    [
+      "chenyu-depth",
+      "suanni-field-sanctum",
+      "walk"
+    ],
+    [
+      "suanni-field-sanctum",
+      "chenyu-depth",
+      "walk"
+    ],
+    [
+      "chenyu-depth",
+      "chenyu-camp",
+      "walk"
+    ]
+  ],
+  "fall": {
+    "origin": 857.9166666666667,
+    "locked": 737.5,
+    "landed": 737.5,
+    "airborneY": 411.55555555555554,
+    "heroDuringWind": 737.5,
+    "heroAtLanding": 821.5,
+    "windDamage": 0,
+    "landingAndWaveDamage": 0
+  },
+  "captures": {
+    "warning": {
+      "label": "① 風の輪から離れる → ② 水の着地点",
+      "tick": 61,
+      "y": 480,
+      "markers": [
+        [
+          "1",
+          857.9166666666667,
+          501
+        ],
+        [
+          "2",
+          737.5,
+          522
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 5405,
+          "packedDraws": 35,
+          "legacyGzip": 105453,
+          "packedGzip": 78590,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2360,
+          "packedDraws": 35,
+          "legacyGzip": 57109,
+          "packedGzip": 46660,
+          "identicalPixels": true
+        }
+      }
+    },
+    "airborne": {
+      "label": "② 水の着地点と波から離れる",
+      "tick": 171,
+      "y": 411.55555555555554,
+      "markers": [
+        [
+          "2",
+          737.5,
+          522
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 5762,
+          "packedDraws": 20,
+          "legacyGzip": 118713,
+          "packedGzip": 81133,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2505,
+          "packedDraws": 20,
+          "legacyGzip": 59769,
+          "packedGzip": 47463,
+          "identicalPixels": true
+        }
+      }
+    },
+    "recovery": {
+      "label": "頭が下がる・反撃",
+      "tick": 228,
+      "y": 480,
+      "recoveryTicks": 144,
+      "markers": [],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 5635,
+          "packedDraws": 1,
+          "legacyGzip": 117490,
+          "packedGzip": 80358,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2378,
+          "packedDraws": 1,
+          "legacyGzip": 57838,
+          "packedGzip": 46439,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 177,
+    "mora": 196
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 130,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

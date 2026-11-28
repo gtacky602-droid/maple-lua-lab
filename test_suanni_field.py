@@ -63,26 +63,35 @@ hp = hero.hp
 spot(hero, boss.x-68)
 claw = until(state, slot, 'FSU01', 48)
 assert claw.dir == -1 and claw.sources.physical.damageElement == 'physical'
+assert '前爪 1/2' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 until(state, slot, 'FSU01', 97)
 assert hero.hp == hp-16 and claw.seen[1][1] and not claw.seen[2][1]
 spot(hero, boss.x+92)
 until(state, slot, 'FSU01', 169)
 assert hero.hp == hp-32 and claw.seen[2][1] and claw.dir == -1
+assert '風尾 2/2' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 
 spot(hero, boss.x-82)
 blades = until(state, slot, 'FSU02', 48)
 hp = hero.hp
+assert '双水刃 1/2' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 until(state, slot, 'FSU02', 112)
 assert blades.seen[1][1] and not blades.seen[2][1] and hero.hp == hp-16
 spot(hero, boss.x-93)
 until(state, slot, 'FSU02', 185)
 assert blades.seen[2][1] and hero.hp == hp-32 and blades.dir == -1
+assert '双水刃 2/2' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 
 hero.hp = hero.maxhp
 spot(hero, boss.x-117)
 fall = until(state, slot, 'FSU03', 60)
 locked = fall.dest
 assert math.isclose(locked, boss.x-117)
+opening = core.frame(state, 'sprite', 'legacy').fieldBoss
+assert '風の輪から離れる' in opening.label and opening.destinationX == locked
+labels = [d for d in core.frame(state, 'sprite', 'legacy').draws.values()
+          if d.kind == 'text' and d.color in ('#9df4ce', '#91d6ff')]
+assert [(d.text, d.y) for d in labels] == [('1', 501), ('2', 522)]
 spot(hero, boss.x-42)
 until(state, slot, 'FSU03', 110)
 assert hero.hp == hero.maxhp-17 and fall.seen[1][1]
@@ -94,6 +103,7 @@ assert boss.hitBottom==boss.y-22 and hit(state,boss)==0 and hit(state,boss,boss.
 png, standard, light = [core.frame(state, mode, profile) for mode, profile in
                         [('sprite', 'legacy'), ('rect', 'legacy'), ('rect', 'h32c16')]]
 assert png.t == standard.t == light.t and light.commands < standard.commands
+assert '水の着地点と波から離れる' in png.fieldBoss.label
 assert any(d.kind=='boss_sprite' and d.source=='suanni-field-poses-source-v1.png'
            and math.isclose(d.y,boss.y) for d in png.draws.values())
 spot(hero, locked)
@@ -102,8 +112,11 @@ assert hero.hp == hero.maxhp-37 and fall.seen[2][1] and boss.y == 480 and boss.x
 spot(hero, locked-84)
 until(state, slot, 'FSU03', 218)
 assert hero.hp == hero.maxhp-37 and hero.inv==0
+assert '水波' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 until(state, slot, 'FSU03', 228)
 assert boss.form == 'resting' and fall.move.total-228 == 144
+rest = core.frame(state, 'sprite', 'legacy').fieldBoss
+assert '頭が下がる・反撃' == rest.label and rest.recoveryTicks == 144 and rest.destinationX is None
 
 hero.hp = hero.maxhp
 spot(hero, boss.x-120)
