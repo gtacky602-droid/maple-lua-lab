@@ -89,6 +89,10 @@ wait('FRS02', 78)
 assert boss.underground and not pose_visible() and not core.canTargetEnemy(boss)
 frame = core.frame(state, 'sprite', 'legacy')
 assert frame.fieldBoss.underground and frame.actors[1].hp == actor.hp
+assert '潜行中' in frame.fieldBoss.label and frame.fieldBoss.emergeX == target
+marks = [d for d in frame.draws.values() if d.kind == 'text' and d.color == '#ffd286']
+assert len(marks) == 1 and marks[0].text == '出現' and marks[0].y == 501
+assert math.isclose(marks[0].x + frame.camera, target)
 hp = boss.hp
 hit()
 hit('cryo', y=435)
@@ -98,6 +102,7 @@ for tick in range(79, 114):
     assert boss.x == origin and burrow.dest == target and boss.underground and not pose_visible()
 wait('FRS02', 114)
 assert boss.x == target and pose_visible() and core.canTargetEnemy(boss)
+assert '掘り上げ予告' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 spot(target)
 hp = actor.hp
 wait('FRS02', 137)
@@ -107,6 +112,7 @@ assert actor.hp == hp - 18
 wait('FRS02', 150)
 assert actor.hp == hp - 18
 wait('FRS02', 168)
+assert core.frame(state, 'sprite', 'legacy').fieldBoss.recoveryTicks == 144
 hp = boss.hp
 hit()
 assert boss.hp == hp - 19
@@ -123,6 +129,8 @@ for i, tick in enumerate((108, 150, 192), 1):
     assert actor.hp == hp
     wait('FRS03', tick + 5)
     assert actor.hp == hp - 11 and bombs.seen[i][1]
+    frame = core.frame(state, 'sprite', 'legacy')
+    assert f'{i}/3・床の番号' in frame.fieldBoss.label
 assert list(bombs.landings.values()) == landings
 wait('FRS03', 210)
 standard = core.frame(state, 'rect', 'legacy')

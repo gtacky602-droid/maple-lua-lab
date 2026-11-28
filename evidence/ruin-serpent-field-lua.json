@@ -12,8 +12,8 @@
   "physicalReachesHeadAtRest": true,
   "unrelatedFieldArtStaysUnloaded": true,
   "commands": {
-    "standard": 7391,
-    "light": 2095
+    "standard": 7385,
+    "light": 2089
   },
   "questReportOnce": true,
   "killXp": 2350

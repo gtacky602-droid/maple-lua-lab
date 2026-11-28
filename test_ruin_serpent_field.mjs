@@ -105,6 +105,7 @@ try{
  assert.equal(original.boss,undefined);
  await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='ruin-serpent-field-poses-source-v1.png'));
  const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');
