@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 白虹行きの列車と最初の切符
+
+雪の町に着いたLv140セーブから、雪線の切通しでLv141になり、「この切符は、冒険行き！」を報告した。観測器の途中保存を読み直し、保線カートと上段標識から再開できる。列車の窓に流れる雪は元PNGと復号背景に重なり、一時停止で止まる。乗車中の保存は雪の町、着駅後の保存は終着駅からLv142で再開する。 [依頼と乗り直し](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [Luaの検査](evidence/earned-white-pass-ticket-lua.json) · [Chromeの検査](evidence/earned-white-pass-ticket-browser.json)
+
 ## 灯台巡回のセーブから雪の町へ
 
 Lv131からトウヒ棚、霜斜面、冬越えの折返し道で討伐してLv140に到達し、峠経由で雪の町へ入った。M地図で町北の神像と雪原の折返し口への跳び方を案内する。自動戦闘は下にいる通常敵に近づくため足場を降りられる。白虹峠の最初の依頼はLv141から。雪線の切通しに入って狩りを始められる。 [進行と狩場](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [獲得セーブからのLua検証](evidence/earned-nod-snow-border-lua.json) · [Chromeの記録](evidence/earned-nod-snow-border-browser.json)

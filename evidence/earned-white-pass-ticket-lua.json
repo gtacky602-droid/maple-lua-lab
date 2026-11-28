@@ -1,0 +1,51 @@
+{
+  "sourceSha256": "fdefcd0ee06dad4d427ccd83cde7776e965c5c3d37b09179ebb2c4be6c92e87b",
+  "milestones": [
+    {
+      "id": "lv141",
+      "node": "white-pass-cut",
+      "seconds": 855.4,
+      "level": 141,
+      "total": 384723545,
+      "killXp": 231359193,
+      "questXp": 153364352
+    },
+    {
+      "id": "white-pass-ticket",
+      "node": "snezhnaya-hub",
+      "seconds": 876.82,
+      "level": 142,
+      "total": 414588743,
+      "killXp": 231888377,
+      "questXp": 182700366
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-cut",
+      "target": 141,
+      "kills": 863,
+      "xp": 21236384,
+      "huntSeconds": 785.5,
+      "routeKills": 898,
+      "routeXp": 22179712,
+      "routeSeconds": 846.32
+    }
+  ],
+  "reward": [
+    29336014,
+    740
+  ],
+  "trainSeconds": 9,
+  "pausedTrain": true,
+  "midRideResume": "snezhnaya-hub",
+  "destination": "white-pass-station",
+  "level": 142,
+  "priorQuests": 94,
+  "companion": "columbina",
+  "inventoryKept": 68,
+  "originalInventory": 80,
+  "recoveryTrips": 1,
+  "inventoryTrips": 1,
+  "partyWipes": 0
+}

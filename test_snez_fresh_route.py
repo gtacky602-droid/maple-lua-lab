@@ -2,6 +2,7 @@
 import argparse
 from hashlib import sha256
 import json
+from pathlib import Path
 import subprocess
 import sys
 
@@ -18,22 +19,26 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--checkpoint', action='store_true', help='Reuse the earned Lv140 save instead of replaying from Lv1')
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 parser.add_argument('--after-revisits',action='store_true',help='Continue the adventure with the regional side stories')
+parser.add_argument('--ticket-source', type=Path, help='Replay the first ticket and train from this Lv140 save')
 options = parser.parse_args()
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
+if options.ticket_source and (options.after_revisits or options.draft_balance or options.checkpoint):
+    parser.error('The ticket replay supplies its own standard-balance checkpoint')
 draft = options.draft_balance
 suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
-if not options.checkpoint and not options.after_revisits:
+if not options.checkpoint and not options.after_revisits and not options.ticket_source:
     command = [sys.executable, str(ROOT / 'test_nod_fresh_route.py')]
     if draft:
         command.append('--draft-balance')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / ('snez-fresh-route' + suffix)
+work = ROOT / 'work' / ('earned-white-pass-ticket' if options.ticket_source else 'snez-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
 source_file = ROOT/'evidence/nod-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('nod-fresh-route' + suffix) / 'snezhnaya-save.json'
-source=source_file.read_bytes()
+source=(options.ticket_source or source_file).read_bytes()
 start = validate_save(json.loads(source))
+original_items = {item['id'] for item in start['inventory']['items']}
 hub, road, cut = 'snezhnaya-hub', 'snezhnaya-field', 'white-pass-cut'
 coach, station = 'white-pass-coach', 'white-pass-station'
 woods, ridge, basin = 'white-pass-woods', 'white-pass-ridge', 'white-rainbow-basin'
@@ -127,8 +132,10 @@ def report(id):
 def cleanup():
     items = state.inventory['items']
     spare = sorted((item for item in items.values() if item.owner == 0 and not item.locked),
-                   key=lambda item: (item.rarity, item.itemLv, item.id))
-    for item in spare[:max(0, len(items) - 55)]:
+                   key=lambda item: (bool(options.ticket_source and item.id in original_items),
+                                     item.rarity, item.itemLv, item.id))
+    spare_needed = len(items) + len(state.inventory.ground) - 80 if options.ticket_source else len(items) - 55
+    for item in spare[:max(0, spare_needed)]:
         act('artifact_sell:' + str(item.id))
     act('artifact_recover')
     assert len(state.inventory.ground) == 0 and core.canAttack(state)
@@ -193,46 +200,53 @@ def save(name):
     return checkpoint
 
 
+def recruit_mitya():
+    shed, yard, overlook = 'sne-survey-shed', 'sne-survey-yard', 'sne-survey-ridge'
+    cross(shed)
+    accept(mitya)
+    inspect(311)
+    cross(yard)
+    inspect(349)
+    inspect(942)
+    cross(overlook)
+    for spawn in ('sne-survey-ice-slime', 'sne-survey-hydro-slime'):
+        foe = next((e for e in state.enemies.values() if e.spawnId == spawn), None)
+        while foe and foe.hp > 0:
+            near(foe.x - 28)
+            advance(core, state, 60, held_attack)
+            assert state.t < 100, (spawn, foe.x, foe.hp)
+    assert state.story.quests[mitya].count == 4
+    near(550, 386)
+    near(900, 386)
+    near(900, 291)
+    inspect(1076, 291)
+    inspect(1405, 386)
+    near(1469, 386)
+    for _ in range(2):
+        act('story_survey_confirm')
+        assert state.story.quests[mitya].count == 6
+        act('story_collect')
+    assert frame().storySurveyRig.ready
+    act('story_survey_confirm')
+    inspect(1592, 386)
+    cross(shed)
+    report(mitya)
+    assert frame().storyJoined.mitya
+    cross(hub)
+    cleanup()
+    save('mitya-save')
+
+
 assert core.growthSkillCondition(state, 'SK58')[0] is False
 blocked(ticket)
-shed, yard, overlook = 'sne-survey-shed', 'sne-survey-yard', 'sne-survey-ridge'
-cross(shed)
-accept(mitya)
-inspect(311)
-cross(yard)
-inspect(349)
-inspect(942)
-cross(overlook)
-for spawn in ('sne-survey-ice-slime', 'sne-survey-hydro-slime'):
-    foe = next((e for e in state.enemies.values() if e.spawnId == spawn), None)
-    while foe and foe.hp > 0:
-        near(foe.x - 28)
-        advance(core, state, 60, held_attack)
-        assert state.t < 100, (spawn, foe.x, foe.hp)
-assert state.story.quests[mitya].count == 4
-near(550, 386)
-near(900, 386)
-near(900, 291)
-inspect(1076, 291)
-inspect(1405, 386)
-near(1469, 386)
-for _ in range(2):
-    act('story_survey_confirm')
-    assert state.story.quests[mitya].count == 6
-    act('story_collect')
-assert frame().storySurveyRig.ready
-act('story_survey_confirm')
-inspect(1592, 386)
-cross(shed)
-report(mitya)
-assert frame().storyJoined.mitya
-cross(hub)
-cleanup()
-save('mitya-save')
+if not options.ticket_source:
+    recruit_mitya()
 
 cut_route = (hub, road, cut)
 hunt(cut_route, 260, 141)
 fast(hub)
+if options.ticket_source:
+    save('ticket-start')
 first = accept(ticket)
 cross(road, cut)
 inspect(282)
@@ -240,7 +254,39 @@ cart = next(e for e in state.enemies.values() if e.spawnId == 'white-pass-route-
 fight(lambda: first.count == 2, cart.x - 45)
 inspect(685, 382)
 cross(road, hub)
+before_reward = (state.progression.questXp, state.mora)
 report(ticket)
+
+if options.ticket_source:
+    reward = [state.progression.questXp-before_reward[0], state.mora-before_reward[1]]
+    save('ticket-reported')
+    cross(coach)
+    assert state.voyage.kind == 'train'
+    advance(core, state, 180, trail.idle)
+    elapsed = frame().voyage.elapsed
+    act('pause')
+    advance(core, state, 180, trail.idle)
+    assert frame().voyage.elapsed == elapsed
+    act('pause')
+    train_save = save('train-save')
+    restored = core.restore(lua.table_from(train_save, recursive=True), 12)
+    assert restored.story.node == hub and not restored.voyage and restored.story.quests[ticket].status == 'complete'
+    advance(core, state, 360, trail.idle)
+    assert state.story.node == station and state.voyage is None
+    arrived = save('lua-arrived')
+    assert core.restore(lua.table_from(arrived, recursive=True), 12).story.node == station
+    prior = {id:q for id,q in start['story']['quests'].items() if q['status']=='complete'}
+    assert all(arrived['story']['quests'][id] == q for id,q in prior.items())
+    assert arrived['companion'] == start['companion'] and state.returns == 0
+    kept = {item['id'] for item in arrived['inventory']['items']}
+    assert all(item['id'] in kept for item in start['inventory']['items'] if item['owner'] or item.get('locked'))
+    result = dict(sourceSha256=sha256(source).hexdigest(), milestones=milestones, hunts=hunts,
+                  reward=reward, trainSeconds=9, pausedTrain=True, midRideResume=hub, destination=station,
+                  level=arrived['progression']['level'], priorQuests=len(prior), companion=arrived['companion'],
+                  inventoryKept=len(kept & original_items), originalInventory=len(original_items),
+                  recoveryTrips=recovery_trips, inventoryTrips=inventory_trips, partyWipes=state.returns)
+    (work/'lua.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
+    sys.exit(0)
 
 hunt(cut_route, 260, 145)
 fast(hub)
