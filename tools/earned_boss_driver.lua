@@ -148,6 +148,10 @@ return function(C,s,encounter,kind,budget,route,options)
    input=shouki(C,s,encounter,spec,a,route)
   elseif encounter.match=='beidou' and route~='basic' then
    input=beidou(C,s,b,a,route=='bait')
+  elseif options and options.followAzhdahaSafeLane and spec and spec.controller=='azhdaha' then
+   local cue=C.azhdahaSafeLaneCue(cast)
+   if cue then input=walkTo(a,(cue.lane-.5)*spec.width/3)
+   elseif jump then C.action(s,'jump') end
   elseif jump then C.action(s,'jump') end
   if options and options.canAttack and not options.canAttack() then input.attack=false end
   C.step(s,1/60,input)

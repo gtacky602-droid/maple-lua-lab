@@ -1,0 +1,1648 @@
+[
+  {
+    "controller": "azhdaha",
+    "case": "azhdaha-pyro-cryo",
+    "label": "若陀龍王・炎＋氷",
+    "pair": [
+      "pyro",
+      "cryo"
+    ],
+    "sourceSha256": "4c6342a2cba0d5f2ec410d992252dafe4f7b9ff07f86b93feb4d88d4df22988d",
+    "completeVariants": [
+      "WZ02",
+      "WZ03",
+      "WZ04.infused",
+      "WZ05.cryo",
+      "WZ06",
+      "WZ07",
+      "WZ08",
+      "WZ09",
+      "WZ10",
+      "WZ11.cryo",
+      "WZ12.cryo",
+      "WZ14"
+    ],
+    "variantStarts": {
+      "1:WZ01:geo": 48,
+      "1:WZ09:pyro": 192,
+      "2:WZ09:cryo": 733,
+      "3:WZ04.infused:cryo": 1297,
+      "3:WZ12.cryo:cryo": 1609,
+      "3:WZ03:cryo": 2293,
+      "3:WZ14:cryo": 2521,
+      "3:WZ10:pyro": 2905,
+      "3:WZ02:pyro": 3421,
+      "3:WZ05.cryo:cryo": 3817,
+      "3:WZ06:cryo": 4111,
+      "3:WZ07:pyro": 4393,
+      "3:WZ08:geo": 4777,
+      "3:WZ11.cryo:cryo": 5281
+    },
+    "loadout": {
+      "sold": [
+        1198
+      ],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "repeatReward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "phases": [
+      {
+        "tick": 0,
+        "id": 1
+      },
+      {
+        "tick": 588,
+        "id": 2
+      },
+      {
+        "tick": 1129,
+        "id": 3
+      }
+    ],
+    "partyHp": [
+      90387,
+      0
+    ],
+    "hpRemaining": 0,
+    "node": "azhdaha-dragon-seal-arena",
+    "status": "clear",
+    "maxHp": 1500,
+    "ticks": 5689,
+    "moves": [
+      {
+        "tick": 48,
+        "id": "WZ01"
+      },
+      {
+        "tick": 192,
+        "id": "WZ09"
+      },
+      {
+        "tick": 1297,
+        "id": "WZ04"
+      },
+      {
+        "tick": 1609,
+        "id": "WZ12"
+      },
+      {
+        "tick": 2293,
+        "id": "WZ03"
+      },
+      {
+        "tick": 2521,
+        "id": "WZ14"
+      },
+      {
+        "tick": 2905,
+        "id": "WZ10"
+      },
+      {
+        "tick": 3421,
+        "id": "WZ02"
+      },
+      {
+        "tick": 3817,
+        "id": "WZ05"
+      },
+      {
+        "tick": 4111,
+        "id": "WZ06"
+      },
+      {
+        "tick": 4393,
+        "id": "WZ07"
+      },
+      {
+        "tick": 4777,
+        "id": "WZ08"
+      },
+      {
+        "tick": 5281,
+        "id": "WZ11"
+      }
+    ],
+    "events": [
+      {
+        "count": 1,
+        "tick": 48,
+        "value": 1,
+        "id": "azhdaha:WZ01"
+      },
+      {
+        "count": 1,
+        "tick": 90,
+        "value": 1,
+        "id": "azhdaha:WZ01:lock"
+      },
+      {
+        "count": 1,
+        "tick": 121,
+        "value": 1,
+        "id": "azhdaha:WZ01:hit:geo"
+      },
+      {
+        "count": 2,
+        "tick": 192,
+        "value": 1,
+        "id": "azhdaha:WZ09"
+      },
+      {
+        "count": 2,
+        "tick": 252,
+        "value": 1,
+        "id": "azhdaha:WZ09:lock"
+      },
+      {
+        "count": 22,
+        "tick": 282,
+        "value": 1,
+        "id": "azhdaha:WZ09:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 1297,
+        "value": 3,
+        "id": "azhdaha:WZ04"
+      },
+      {
+        "count": 1,
+        "tick": 1339,
+        "value": 1,
+        "id": "azhdaha:WZ04:lock"
+      },
+      {
+        "count": 1,
+        "tick": 1609,
+        "value": 3,
+        "id": "azhdaha:WZ12"
+      },
+      {
+        "count": 3,
+        "tick": 1753,
+        "value": 1,
+        "id": "azhdaha:WZ12:lock"
+      },
+      {
+        "count": 3,
+        "tick": 1819,
+        "value": 0,
+        "id": "azhdaha:mark:cryo"
+      },
+      {
+        "count": 1,
+        "tick": 1819,
+        "value": 1,
+        "id": "azhdaha:WZ12:hit:cryo"
+      },
+      {
+        "count": 17,
+        "tick": 1879,
+        "value": 0,
+        "id": "azhdaha:mark-tick:cryo"
+      },
+      {
+        "count": 1,
+        "tick": 2293,
+        "value": 3,
+        "id": "azhdaha:WZ03"
+      },
+      {
+        "count": 1,
+        "tick": 2341,
+        "value": 1,
+        "id": "azhdaha:WZ03:lock"
+      },
+      {
+        "count": 1,
+        "tick": 2401,
+        "value": 1,
+        "id": "azhdaha:WZ03:hit:cryo"
+      },
+      {
+        "count": 1,
+        "tick": 2521,
+        "value": 3,
+        "id": "azhdaha:WZ14"
+      },
+      {
+        "count": 1,
+        "tick": 2563,
+        "value": 1,
+        "id": "azhdaha:WZ14:lock"
+      },
+      {
+        "count": 2,
+        "tick": 2699,
+        "value": 1,
+        "id": "azhdaha:WZ14:impact"
+      },
+      {
+        "count": 2,
+        "tick": 2735,
+        "value": 1,
+        "id": "azhdaha:WZ14:secondary"
+      },
+      {
+        "count": 1,
+        "tick": 2905,
+        "value": 3,
+        "id": "azhdaha:WZ10"
+      },
+      {
+        "count": 1,
+        "tick": 2965,
+        "value": 1,
+        "id": "azhdaha:WZ10:lock"
+      },
+      {
+        "count": 3,
+        "tick": 3109,
+        "value": 0,
+        "id": "azhdaha:mark:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 3109,
+        "value": 2,
+        "id": "azhdaha:WZ10:hit:pyro"
+      },
+      {
+        "count": 20,
+        "tick": 3169,
+        "value": 0,
+        "id": "azhdaha:mark-tick:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 3421,
+        "value": 3,
+        "id": "azhdaha:WZ02"
+      },
+      {
+        "count": 1,
+        "tick": 3469,
+        "value": 1,
+        "id": "azhdaha:WZ02:lock"
+      },
+      {
+        "count": 1,
+        "tick": 3514,
+        "value": 1,
+        "id": "azhdaha:WZ02:hit:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 3817,
+        "value": 3,
+        "id": "azhdaha:WZ05"
+      },
+      {
+        "count": 1,
+        "tick": 3865,
+        "value": 1,
+        "id": "azhdaha:WZ05:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4111,
+        "value": 3,
+        "id": "azhdaha:WZ06"
+      },
+      {
+        "count": 1,
+        "tick": 4165,
+        "value": 1,
+        "id": "azhdaha:WZ06:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4393,
+        "value": 3,
+        "id": "azhdaha:WZ07"
+      },
+      {
+        "count": 1,
+        "tick": 4453,
+        "value": 1,
+        "id": "azhdaha:WZ07:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4525,
+        "value": 1,
+        "id": "azhdaha:WZ07:hit:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 4777,
+        "value": 3,
+        "id": "azhdaha:WZ08"
+      },
+      {
+        "count": 4,
+        "tick": 4861,
+        "value": 1,
+        "id": "azhdaha:WZ08:lock"
+      },
+      {
+        "count": 4,
+        "tick": 4921,
+        "value": 1,
+        "id": "azhdaha:WZ08:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 5281,
+        "value": 3,
+        "id": "azhdaha:WZ11"
+      },
+      {
+        "count": 1,
+        "tick": 5323,
+        "value": 1,
+        "id": "azhdaha:WZ11:lock"
+      },
+      {
+        "count": 1,
+        "tick": 5455,
+        "value": 3,
+        "id": "azhdaha:WZ11:hit:cryo"
+      }
+    ],
+    "elapsed": 94.81666666668113,
+    "damage": 1500,
+    "hits": 9,
+    "savedSha256": "615f0cafa12d00a3d9a0edcccee789efdc60b86286c79762cd23dcbcfb641a8c",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "azhdaha",
+    "case": "azhdaha-pyro-electro",
+    "label": "若陀龍王・炎＋雷",
+    "pair": [
+      "pyro",
+      "electro"
+    ],
+    "sourceSha256": "615f0cafa12d00a3d9a0edcccee789efdc60b86286c79762cd23dcbcfb641a8c",
+    "completeVariants": [
+      "WZ02",
+      "WZ03",
+      "WZ04.infused",
+      "WZ05.electro",
+      "WZ06",
+      "WZ07",
+      "WZ08",
+      "WZ09",
+      "WZ10",
+      "WZ11",
+      "WZ12",
+      "WZ14"
+    ],
+    "variantStarts": {
+      "1:WZ01:geo": 48,
+      "1:WZ09:pyro": 192,
+      "2:WZ09:electro": 733,
+      "3:WZ04.infused:electro": 1297,
+      "3:WZ12:electro": 1609,
+      "3:WZ03:electro": 2293,
+      "3:WZ14:electro": 2521,
+      "3:WZ10:pyro": 2905,
+      "3:WZ02:pyro": 3421,
+      "3:WZ05.electro:electro": 3817,
+      "3:WZ06:electro": 4111,
+      "3:WZ07:pyro": 4393,
+      "3:WZ08:geo": 4777,
+      "3:WZ11:electro": 5281
+    },
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "repeatReward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "phases": [
+      {
+        "tick": 0,
+        "id": 1
+      },
+      {
+        "tick": 588,
+        "id": 2
+      },
+      {
+        "tick": 1129,
+        "id": 3
+      }
+    ],
+    "partyHp": [
+      90412,
+      0
+    ],
+    "hpRemaining": 0,
+    "node": "azhdaha-dragon-seal-arena",
+    "status": "clear",
+    "maxHp": 1500,
+    "ticks": 5689,
+    "moves": [
+      {
+        "tick": 48,
+        "id": "WZ01"
+      },
+      {
+        "tick": 192,
+        "id": "WZ09"
+      },
+      {
+        "tick": 1297,
+        "id": "WZ04"
+      },
+      {
+        "tick": 1609,
+        "id": "WZ12"
+      },
+      {
+        "tick": 2293,
+        "id": "WZ03"
+      },
+      {
+        "tick": 2521,
+        "id": "WZ14"
+      },
+      {
+        "tick": 2905,
+        "id": "WZ10"
+      },
+      {
+        "tick": 3421,
+        "id": "WZ02"
+      },
+      {
+        "tick": 3817,
+        "id": "WZ05"
+      },
+      {
+        "tick": 4111,
+        "id": "WZ06"
+      },
+      {
+        "tick": 4393,
+        "id": "WZ07"
+      },
+      {
+        "tick": 4777,
+        "id": "WZ08"
+      },
+      {
+        "tick": 5281,
+        "id": "WZ11"
+      }
+    ],
+    "events": [
+      {
+        "count": 1,
+        "tick": 48,
+        "value": 1,
+        "id": "azhdaha:WZ01"
+      },
+      {
+        "count": 1,
+        "tick": 90,
+        "value": 1,
+        "id": "azhdaha:WZ01:lock"
+      },
+      {
+        "count": 1,
+        "tick": 121,
+        "value": 1,
+        "id": "azhdaha:WZ01:hit:geo"
+      },
+      {
+        "count": 2,
+        "tick": 192,
+        "value": 1,
+        "id": "azhdaha:WZ09"
+      },
+      {
+        "count": 2,
+        "tick": 252,
+        "value": 1,
+        "id": "azhdaha:WZ09:lock"
+      },
+      {
+        "count": 22,
+        "tick": 282,
+        "value": 1,
+        "id": "azhdaha:WZ09:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 1297,
+        "value": 3,
+        "id": "azhdaha:WZ04"
+      },
+      {
+        "count": 1,
+        "tick": 1339,
+        "value": 1,
+        "id": "azhdaha:WZ04:lock"
+      },
+      {
+        "count": 1,
+        "tick": 1609,
+        "value": 3,
+        "id": "azhdaha:WZ12"
+      },
+      {
+        "count": 3,
+        "tick": 1753,
+        "value": 1,
+        "id": "azhdaha:WZ12:lock"
+      },
+      {
+        "count": 1,
+        "tick": 2293,
+        "value": 3,
+        "id": "azhdaha:WZ03"
+      },
+      {
+        "count": 1,
+        "tick": 2341,
+        "value": 1,
+        "id": "azhdaha:WZ03:lock"
+      },
+      {
+        "count": 2,
+        "tick": 2401,
+        "value": 0,
+        "id": "azhdaha:mark:electro"
+      },
+      {
+        "count": 1,
+        "tick": 2401,
+        "value": 1,
+        "id": "azhdaha:WZ03:hit:electro"
+      },
+      {
+        "count": 12,
+        "tick": 2461,
+        "value": 0,
+        "id": "azhdaha:mark-tick:electro"
+      },
+      {
+        "count": 1,
+        "tick": 2521,
+        "value": 3,
+        "id": "azhdaha:WZ14"
+      },
+      {
+        "count": 1,
+        "tick": 2563,
+        "value": 1,
+        "id": "azhdaha:WZ14:lock"
+      },
+      {
+        "count": 2,
+        "tick": 2699,
+        "value": 1,
+        "id": "azhdaha:WZ14:impact"
+      },
+      {
+        "count": 2,
+        "tick": 2735,
+        "value": 1,
+        "id": "azhdaha:WZ14:secondary"
+      },
+      {
+        "count": 1,
+        "tick": 2905,
+        "value": 3,
+        "id": "azhdaha:WZ10"
+      },
+      {
+        "count": 1,
+        "tick": 2965,
+        "value": 1,
+        "id": "azhdaha:WZ10:lock"
+      },
+      {
+        "count": 3,
+        "tick": 3109,
+        "value": 0,
+        "id": "azhdaha:mark:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 3109,
+        "value": 2,
+        "id": "azhdaha:WZ10:hit:pyro"
+      },
+      {
+        "count": 20,
+        "tick": 3169,
+        "value": 0,
+        "id": "azhdaha:mark-tick:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 3421,
+        "value": 3,
+        "id": "azhdaha:WZ02"
+      },
+      {
+        "count": 1,
+        "tick": 3469,
+        "value": 1,
+        "id": "azhdaha:WZ02:lock"
+      },
+      {
+        "count": 1,
+        "tick": 3514,
+        "value": 1,
+        "id": "azhdaha:WZ02:hit:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 3817,
+        "value": 3,
+        "id": "azhdaha:WZ05"
+      },
+      {
+        "count": 1,
+        "tick": 3865,
+        "value": 1,
+        "id": "azhdaha:WZ05:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4111,
+        "value": 3,
+        "id": "azhdaha:WZ06"
+      },
+      {
+        "count": 1,
+        "tick": 4165,
+        "value": 1,
+        "id": "azhdaha:WZ06:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4393,
+        "value": 3,
+        "id": "azhdaha:WZ07"
+      },
+      {
+        "count": 1,
+        "tick": 4453,
+        "value": 1,
+        "id": "azhdaha:WZ07:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4525,
+        "value": 1,
+        "id": "azhdaha:WZ07:hit:pyro"
+      },
+      {
+        "count": 1,
+        "tick": 4777,
+        "value": 3,
+        "id": "azhdaha:WZ08"
+      },
+      {
+        "count": 4,
+        "tick": 4861,
+        "value": 1,
+        "id": "azhdaha:WZ08:lock"
+      },
+      {
+        "count": 4,
+        "tick": 4921,
+        "value": 1,
+        "id": "azhdaha:WZ08:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 5281,
+        "value": 3,
+        "id": "azhdaha:WZ11"
+      },
+      {
+        "count": 1,
+        "tick": 5323,
+        "value": 1,
+        "id": "azhdaha:WZ11:lock"
+      },
+      {
+        "count": 1,
+        "tick": 5377,
+        "value": 1,
+        "id": "azhdaha:WZ11:hit:electro"
+      }
+    ],
+    "elapsed": 94.81666666668414,
+    "damage": 1500,
+    "hits": 9,
+    "safeLaneLead": {
+      "1": {
+        "lane": 1,
+        "ticks": 120,
+        "total": 3,
+        "wave": 1
+      },
+      "2": {
+        "lane": 2,
+        "ticks": 108,
+        "total": 3,
+        "wave": 2
+      },
+      "3": {
+        "lane": 3,
+        "ticks": 108,
+        "total": 3,
+        "wave": 3
+      }
+    },
+    "safeWaves": {
+      "1": {
+        "tick": 180,
+        "lane": 1,
+        "x": 181.0
+      },
+      "2": {
+        "tick": 300,
+        "lane": 2,
+        "x": 520.5
+      },
+      "3": {
+        "tick": 420,
+        "lane": 3,
+        "x": 874.0
+      }
+    },
+    "travelerTailFieldHits": 0,
+    "savedSha256": "c6378bdbd37f401ee0fc21d3f6e56143e10840e2c9d6eab85337be694d72db63",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "azhdaha",
+    "case": "azhdaha-hydro-cryo",
+    "label": "若陀龍王・水＋氷",
+    "pair": [
+      "hydro",
+      "cryo"
+    ],
+    "sourceSha256": "c6378bdbd37f401ee0fc21d3f6e56143e10840e2c9d6eab85337be694d72db63",
+    "completeVariants": [
+      "WZ02",
+      "WZ03",
+      "WZ04.infused",
+      "WZ05.cryo",
+      "WZ06",
+      "WZ07",
+      "WZ08",
+      "WZ09",
+      "WZ10.hydro",
+      "WZ11.cryo",
+      "WZ12.cryo",
+      "WZ14"
+    ],
+    "variantStarts": {
+      "1:WZ01:geo": 48,
+      "1:WZ09:hydro": 192,
+      "2:WZ09:cryo": 733,
+      "3:WZ04.infused:cryo": 1297,
+      "3:WZ12.cryo:cryo": 1609,
+      "3:WZ03:cryo": 2293,
+      "3:WZ14:cryo": 2521,
+      "3:WZ10.hydro:hydro": 2905,
+      "3:WZ02:hydro": 3421,
+      "3:WZ05.cryo:cryo": 3817,
+      "3:WZ06:cryo": 4111,
+      "3:WZ07:hydro": 4393,
+      "3:WZ08:geo": 4777,
+      "3:WZ11.cryo:cryo": 5281
+    },
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "expertClears": [
+      3,
+      4
+    ],
+    "repeatReward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "phases": [
+      {
+        "tick": 0,
+        "id": 1
+      },
+      {
+        "tick": 588,
+        "id": 2
+      },
+      {
+        "tick": 1129,
+        "id": 3
+      }
+    ],
+    "partyHp": [
+      90387,
+      0
+    ],
+    "hpRemaining": 0,
+    "node": "azhdaha-dragon-seal-arena",
+    "status": "clear",
+    "maxHp": 1500,
+    "ticks": 5689,
+    "moves": [
+      {
+        "tick": 48,
+        "id": "WZ01"
+      },
+      {
+        "tick": 192,
+        "id": "WZ09"
+      },
+      {
+        "tick": 1297,
+        "id": "WZ04"
+      },
+      {
+        "tick": 1609,
+        "id": "WZ12"
+      },
+      {
+        "tick": 2293,
+        "id": "WZ03"
+      },
+      {
+        "tick": 2521,
+        "id": "WZ14"
+      },
+      {
+        "tick": 2905,
+        "id": "WZ10"
+      },
+      {
+        "tick": 3421,
+        "id": "WZ02"
+      },
+      {
+        "tick": 3817,
+        "id": "WZ05"
+      },
+      {
+        "tick": 4111,
+        "id": "WZ06"
+      },
+      {
+        "tick": 4393,
+        "id": "WZ07"
+      },
+      {
+        "tick": 4777,
+        "id": "WZ08"
+      },
+      {
+        "tick": 5281,
+        "id": "WZ11"
+      }
+    ],
+    "events": [
+      {
+        "count": 1,
+        "tick": 48,
+        "value": 1,
+        "id": "azhdaha:WZ01"
+      },
+      {
+        "count": 1,
+        "tick": 90,
+        "value": 1,
+        "id": "azhdaha:WZ01:lock"
+      },
+      {
+        "count": 1,
+        "tick": 121,
+        "value": 1,
+        "id": "azhdaha:WZ01:hit:geo"
+      },
+      {
+        "count": 2,
+        "tick": 192,
+        "value": 1,
+        "id": "azhdaha:WZ09"
+      },
+      {
+        "count": 2,
+        "tick": 252,
+        "value": 1,
+        "id": "azhdaha:WZ09:lock"
+      },
+      {
+        "count": 22,
+        "tick": 282,
+        "value": 1,
+        "id": "azhdaha:WZ09:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 1297,
+        "value": 3,
+        "id": "azhdaha:WZ04"
+      },
+      {
+        "count": 1,
+        "tick": 1339,
+        "value": 1,
+        "id": "azhdaha:WZ04:lock"
+      },
+      {
+        "count": 1,
+        "tick": 1609,
+        "value": 3,
+        "id": "azhdaha:WZ12"
+      },
+      {
+        "count": 3,
+        "tick": 1753,
+        "value": 1,
+        "id": "azhdaha:WZ12:lock"
+      },
+      {
+        "count": 3,
+        "tick": 1819,
+        "value": 0,
+        "id": "azhdaha:mark:cryo"
+      },
+      {
+        "count": 1,
+        "tick": 1819,
+        "value": 1,
+        "id": "azhdaha:WZ12:hit:cryo"
+      },
+      {
+        "count": 17,
+        "tick": 1879,
+        "value": 0,
+        "id": "azhdaha:mark-tick:cryo"
+      },
+      {
+        "count": 1,
+        "tick": 2293,
+        "value": 3,
+        "id": "azhdaha:WZ03"
+      },
+      {
+        "count": 1,
+        "tick": 2341,
+        "value": 1,
+        "id": "azhdaha:WZ03:lock"
+      },
+      {
+        "count": 1,
+        "tick": 2401,
+        "value": 1,
+        "id": "azhdaha:WZ03:hit:cryo"
+      },
+      {
+        "count": 1,
+        "tick": 2521,
+        "value": 3,
+        "id": "azhdaha:WZ14"
+      },
+      {
+        "count": 1,
+        "tick": 2563,
+        "value": 1,
+        "id": "azhdaha:WZ14:lock"
+      },
+      {
+        "count": 2,
+        "tick": 2699,
+        "value": 1,
+        "id": "azhdaha:WZ14:impact"
+      },
+      {
+        "count": 2,
+        "tick": 2735,
+        "value": 1,
+        "id": "azhdaha:WZ14:secondary"
+      },
+      {
+        "count": 1,
+        "tick": 2905,
+        "value": 3,
+        "id": "azhdaha:WZ10"
+      },
+      {
+        "count": 1,
+        "tick": 2965,
+        "value": 1,
+        "id": "azhdaha:WZ10:lock"
+      },
+      {
+        "count": 3,
+        "tick": 3107,
+        "value": 0,
+        "id": "azhdaha:mark:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 3107,
+        "value": 2,
+        "id": "azhdaha:WZ10:hit:hydro"
+      },
+      {
+        "count": 20,
+        "tick": 3167,
+        "value": 0,
+        "id": "azhdaha:mark-tick:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 3421,
+        "value": 3,
+        "id": "azhdaha:WZ02"
+      },
+      {
+        "count": 1,
+        "tick": 3469,
+        "value": 1,
+        "id": "azhdaha:WZ02:lock"
+      },
+      {
+        "count": 1,
+        "tick": 3514,
+        "value": 1,
+        "id": "azhdaha:WZ02:hit:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 3817,
+        "value": 3,
+        "id": "azhdaha:WZ05"
+      },
+      {
+        "count": 1,
+        "tick": 3865,
+        "value": 1,
+        "id": "azhdaha:WZ05:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4111,
+        "value": 3,
+        "id": "azhdaha:WZ06"
+      },
+      {
+        "count": 1,
+        "tick": 4165,
+        "value": 1,
+        "id": "azhdaha:WZ06:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4393,
+        "value": 3,
+        "id": "azhdaha:WZ07"
+      },
+      {
+        "count": 1,
+        "tick": 4453,
+        "value": 1,
+        "id": "azhdaha:WZ07:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4525,
+        "value": 1,
+        "id": "azhdaha:WZ07:hit:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 4777,
+        "value": 3,
+        "id": "azhdaha:WZ08"
+      },
+      {
+        "count": 4,
+        "tick": 4861,
+        "value": 1,
+        "id": "azhdaha:WZ08:lock"
+      },
+      {
+        "count": 4,
+        "tick": 4921,
+        "value": 1,
+        "id": "azhdaha:WZ08:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 5281,
+        "value": 3,
+        "id": "azhdaha:WZ11"
+      },
+      {
+        "count": 1,
+        "tick": 5323,
+        "value": 1,
+        "id": "azhdaha:WZ11:lock"
+      },
+      {
+        "count": 1,
+        "tick": 5455,
+        "value": 3,
+        "id": "azhdaha:WZ11:hit:cryo"
+      }
+    ],
+    "elapsed": 94.81666666668414,
+    "damage": 1500,
+    "hits": 9,
+    "savedSha256": "3e50c8a71cac2af89be291b9966d67e8f3282430fca0e40f6ce532266aa71195",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "azhdaha",
+    "case": "azhdaha-hydro-electro",
+    "label": "若陀龍王・水＋雷",
+    "pair": [
+      "hydro",
+      "electro"
+    ],
+    "sourceSha256": "3e50c8a71cac2af89be291b9966d67e8f3282430fca0e40f6ce532266aa71195",
+    "completeVariants": [
+      "WZ02",
+      "WZ03",
+      "WZ04.infused",
+      "WZ05.electro",
+      "WZ06",
+      "WZ07",
+      "WZ08",
+      "WZ09",
+      "WZ10.hydro",
+      "WZ11",
+      "WZ12",
+      "WZ14"
+    ],
+    "variantStarts": {
+      "1:WZ01:geo": 48,
+      "1:WZ09:hydro": 192,
+      "2:WZ09:electro": 733,
+      "3:WZ04.infused:electro": 1297,
+      "3:WZ12:electro": 1609,
+      "3:WZ03:electro": 2293,
+      "3:WZ14:electro": 2521,
+      "3:WZ10.hydro:hydro": 2905,
+      "3:WZ02:hydro": 3421,
+      "3:WZ05.electro:electro": 3817,
+      "3:WZ06:electro": 4111,
+      "3:WZ07:hydro": 4393,
+      "3:WZ08:geo": 4777,
+      "3:WZ11:electro": 5281
+    },
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "expertClears": [
+      4,
+      5
+    ],
+    "repeatReward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "phases": [
+      {
+        "tick": 0,
+        "id": 1
+      },
+      {
+        "tick": 588,
+        "id": 2
+      },
+      {
+        "tick": 1129,
+        "id": 3
+      }
+    ],
+    "partyHp": [
+      90412,
+      0
+    ],
+    "hpRemaining": 0,
+    "node": "azhdaha-dragon-seal-arena",
+    "status": "clear",
+    "maxHp": 1500,
+    "ticks": 5689,
+    "moves": [
+      {
+        "tick": 48,
+        "id": "WZ01"
+      },
+      {
+        "tick": 192,
+        "id": "WZ09"
+      },
+      {
+        "tick": 1297,
+        "id": "WZ04"
+      },
+      {
+        "tick": 1609,
+        "id": "WZ12"
+      },
+      {
+        "tick": 2293,
+        "id": "WZ03"
+      },
+      {
+        "tick": 2521,
+        "id": "WZ14"
+      },
+      {
+        "tick": 2905,
+        "id": "WZ10"
+      },
+      {
+        "tick": 3421,
+        "id": "WZ02"
+      },
+      {
+        "tick": 3817,
+        "id": "WZ05"
+      },
+      {
+        "tick": 4111,
+        "id": "WZ06"
+      },
+      {
+        "tick": 4393,
+        "id": "WZ07"
+      },
+      {
+        "tick": 4777,
+        "id": "WZ08"
+      },
+      {
+        "tick": 5281,
+        "id": "WZ11"
+      }
+    ],
+    "events": [
+      {
+        "count": 1,
+        "tick": 48,
+        "value": 1,
+        "id": "azhdaha:WZ01"
+      },
+      {
+        "count": 1,
+        "tick": 90,
+        "value": 1,
+        "id": "azhdaha:WZ01:lock"
+      },
+      {
+        "count": 1,
+        "tick": 121,
+        "value": 1,
+        "id": "azhdaha:WZ01:hit:geo"
+      },
+      {
+        "count": 2,
+        "tick": 192,
+        "value": 1,
+        "id": "azhdaha:WZ09"
+      },
+      {
+        "count": 2,
+        "tick": 252,
+        "value": 1,
+        "id": "azhdaha:WZ09:lock"
+      },
+      {
+        "count": 22,
+        "tick": 282,
+        "value": 1,
+        "id": "azhdaha:WZ09:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 1297,
+        "value": 3,
+        "id": "azhdaha:WZ04"
+      },
+      {
+        "count": 1,
+        "tick": 1339,
+        "value": 1,
+        "id": "azhdaha:WZ04:lock"
+      },
+      {
+        "count": 1,
+        "tick": 1609,
+        "value": 3,
+        "id": "azhdaha:WZ12"
+      },
+      {
+        "count": 3,
+        "tick": 1753,
+        "value": 1,
+        "id": "azhdaha:WZ12:lock"
+      },
+      {
+        "count": 1,
+        "tick": 2293,
+        "value": 3,
+        "id": "azhdaha:WZ03"
+      },
+      {
+        "count": 1,
+        "tick": 2341,
+        "value": 1,
+        "id": "azhdaha:WZ03:lock"
+      },
+      {
+        "count": 2,
+        "tick": 2401,
+        "value": 0,
+        "id": "azhdaha:mark:electro"
+      },
+      {
+        "count": 1,
+        "tick": 2401,
+        "value": 1,
+        "id": "azhdaha:WZ03:hit:electro"
+      },
+      {
+        "count": 12,
+        "tick": 2461,
+        "value": 0,
+        "id": "azhdaha:mark-tick:electro"
+      },
+      {
+        "count": 1,
+        "tick": 2521,
+        "value": 3,
+        "id": "azhdaha:WZ14"
+      },
+      {
+        "count": 1,
+        "tick": 2563,
+        "value": 1,
+        "id": "azhdaha:WZ14:lock"
+      },
+      {
+        "count": 2,
+        "tick": 2699,
+        "value": 1,
+        "id": "azhdaha:WZ14:impact"
+      },
+      {
+        "count": 2,
+        "tick": 2735,
+        "value": 1,
+        "id": "azhdaha:WZ14:secondary"
+      },
+      {
+        "count": 1,
+        "tick": 2905,
+        "value": 3,
+        "id": "azhdaha:WZ10"
+      },
+      {
+        "count": 1,
+        "tick": 2965,
+        "value": 1,
+        "id": "azhdaha:WZ10:lock"
+      },
+      {
+        "count": 3,
+        "tick": 3107,
+        "value": 0,
+        "id": "azhdaha:mark:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 3107,
+        "value": 2,
+        "id": "azhdaha:WZ10:hit:hydro"
+      },
+      {
+        "count": 20,
+        "tick": 3167,
+        "value": 0,
+        "id": "azhdaha:mark-tick:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 3421,
+        "value": 3,
+        "id": "azhdaha:WZ02"
+      },
+      {
+        "count": 1,
+        "tick": 3469,
+        "value": 1,
+        "id": "azhdaha:WZ02:lock"
+      },
+      {
+        "count": 1,
+        "tick": 3514,
+        "value": 1,
+        "id": "azhdaha:WZ02:hit:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 3817,
+        "value": 3,
+        "id": "azhdaha:WZ05"
+      },
+      {
+        "count": 1,
+        "tick": 3865,
+        "value": 1,
+        "id": "azhdaha:WZ05:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4111,
+        "value": 3,
+        "id": "azhdaha:WZ06"
+      },
+      {
+        "count": 1,
+        "tick": 4165,
+        "value": 1,
+        "id": "azhdaha:WZ06:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4393,
+        "value": 3,
+        "id": "azhdaha:WZ07"
+      },
+      {
+        "count": 1,
+        "tick": 4453,
+        "value": 1,
+        "id": "azhdaha:WZ07:lock"
+      },
+      {
+        "count": 1,
+        "tick": 4525,
+        "value": 1,
+        "id": "azhdaha:WZ07:hit:hydro"
+      },
+      {
+        "count": 1,
+        "tick": 4777,
+        "value": 3,
+        "id": "azhdaha:WZ08"
+      },
+      {
+        "count": 4,
+        "tick": 4861,
+        "value": 1,
+        "id": "azhdaha:WZ08:lock"
+      },
+      {
+        "count": 4,
+        "tick": 4921,
+        "value": 1,
+        "id": "azhdaha:WZ08:hit:geo"
+      },
+      {
+        "count": 1,
+        "tick": 5281,
+        "value": 3,
+        "id": "azhdaha:WZ11"
+      },
+      {
+        "count": 1,
+        "tick": 5323,
+        "value": 1,
+        "id": "azhdaha:WZ11:lock"
+      },
+      {
+        "count": 1,
+        "tick": 5377,
+        "value": 1,
+        "id": "azhdaha:WZ11:hit:electro"
+      }
+    ],
+    "elapsed": 94.81666666668414,
+    "damage": 1500,
+    "hits": 9,
+    "safeLaneLead": {
+      "1": {
+        "lane": 1,
+        "ticks": 120,
+        "total": 3,
+        "wave": 1
+      },
+      "2": {
+        "lane": 2,
+        "ticks": 108,
+        "total": 3,
+        "wave": 2
+      },
+      "3": {
+        "lane": 3,
+        "ticks": 108,
+        "total": 3,
+        "wave": 3
+      }
+    },
+    "safeWaves": {
+      "1": {
+        "tick": 180,
+        "lane": 1,
+        "x": 181.0
+      },
+      "2": {
+        "tick": 300,
+        "lane": 2,
+        "x": 520.5
+      },
+      "3": {
+        "tick": 420,
+        "lane": 3,
+        "x": 874.0
+      }
+    },
+    "travelerTailFieldHits": 0,
+    "savedSha256": "22247a825fba0ba7b094261e6245eee11c0e25f6dc61fdede5d5b9233f1f76e9",
+    "equipmentRestored": true
+  }
+]

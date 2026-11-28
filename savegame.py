@@ -500,12 +500,15 @@ def validate_weapons(state, quests):
 
 
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat','partyPresets','weapons'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat','partyPresets','weapons','azhdahaPair'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
     if data['quest'] not in ('available','hunt','boss','report','complete'):
         raise ValueError('依頼の状態が不正です')
+    if 'azhdahaPair' in data and data['azhdahaPair'] not in (
+            ['pyro','cryo'], ['pyro','electro'], ['hydro','cryo'], ['hydro','electro']):
+        raise ValueError('若陀龍王の元素組み合わせが不正です')
     companion=data.get('companion','amber')
     if companion not in _COMPANIONS: raise ValueError('仲間が不正です')
     if 'partyCombat' in data:

@@ -87,9 +87,12 @@ for row in rows:
 
 branches={}
 for pair in ('pyro:cryo','pyro:electro','hydro:cryo','hydro:electro'):
+    expected=pair.split(':')
+    configured=start(pair)
+    assert saved(configured)['azhdahaPair']==expected
+    assert native(core.frame(restore(configured)).azhdahaLobby.selected)==expected
     s,w,spec=arena(pair)
     act(s,'azhdaha_pair:pyro:cryo')
-    expected=pair.split(':')
     assert native(core.frame(s).weeklyBoss.elementSlots)==expected
     set_form(s,w,3)
     assert [event.value for event in events(s,'WZ09')]==[1,2]
@@ -104,6 +107,18 @@ for pair in ('pyro:cryo','pyro:electro','hydro:cryo','hydro:electro'):
     assert events(s,'WZ04:hit:'+expected[1],1)
     assert w.marks[s.actors[1]].element==expected[1]
     branches[pair]=[c.variant,c.element]
+
+legacy=saved(start('hydro:electro'))
+legacy.pop('azhdahaPair')
+legacy_state=core.restore(lua.table_from(validate_save(legacy),recursive=True))
+assert native(core.frame(legacy_state).azhdahaLobby.selected)==['pyro','cryo']
+for invalid in (None, 'hydro:electro', ['electro','hydro'], ['hydro','hydro']):
+    try:
+        validate_save({**legacy,'azhdahaPair':invalid})
+    except ValueError as error:
+        assert str(error)=='若陀龍王の元素組み合わせが不正です'
+    else:
+        raise AssertionError(invalid)
 
 tested_moves={}
 for row in rows:
@@ -200,7 +215,14 @@ walk_to=lua.eval("""function(C,s,x,n)
   C.step(s,1/60,{right=a.x<x-4,left=a.x>x+4})
  end
 end""")
-ticks(core,s,192)
+ticks(core,s,59)
+assert core.frame(s).weeklyBoss.safeLaneCue is None
+ticks(core,s,1)
+assert native(core.frame(s).weeklyBoss.safeLaneCue)==dict(lane=1,wave=1,total=3,ticks=120)
+ticks(core,s,120)
+assert native(core.frame(s).weeklyBoss.safeLaneCue)==dict(lane=1,wave=1,total=3,ticks=0)
+ticks(core,s,12)
+assert native(core.frame(s).weeklyBoss.safeLaneCue)==dict(lane=2,wave=2,total=3,ticks=108)
 walk_to(core,s,583,120)
 assert core.frame(s).weeklyBoss.x==c.tailX and 352<s.actors[1].x<704
 walk_to(core,s,815,120)

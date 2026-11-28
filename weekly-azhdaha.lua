@@ -1,6 +1,7 @@
 return function(C)
  local boss={}
  local action,frame,avoid=C.action,C.frame,C.aiAvoidTarget
+ local checkpoint,restore=C.checkpoint,C.restore
  local labels={geo='岩',pyro='炎',hydro='水',electro='雷',cryo='氷'}
  local colors={geo='#dba05c',pyro='#ff794e',hydro='#64bfff',electro='#bd91f1',cryo='#b5edff'}
  local seams={
@@ -37,6 +38,16 @@ return function(C)
   local f=frame(s,...)
   if atHarbor(s) then f.azhdahaLobby={choices=options,selected=pair(s)} end
   return f
+ end
+ function C.checkpoint(s)
+  local saved=checkpoint(s)
+  if saved and s.azhdahaPair then saved.azhdahaPair=s.azhdahaPair end
+  return saved
+ end
+ function C.restore(data,...)
+  local s=restore(data,...)
+  s.azhdahaPair=data.azhdahaPair
+  return s
  end
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
  local function mix(a,b,q) return a+(b-a)*q end
@@ -397,6 +408,15 @@ return function(C)
   local group=math.floor(c.t/120)
   if group>=1 and group<=3 and c.t<120*group+72 then return c.safe[group] end
  end
+ function C.azhdahaSafeLaneCue(c)
+  if not c or c.id~='WZ12' or c.element~='electro' then return end
+  for wave,window in ipairs(c.move.windows) do
+   local ticks=window[1]-c.t
+   if c.t<window[2] and ticks<=120 then
+    return {lane=c.safe[wave],wave=wave,total=#c.move.windows,ticks=math.max(0,ticks)}
+   end
+  end
+ end
  function C.aiAvoidTarget(s,a)
   local w,spec=C.currentWeeklyBoss(s)
   if w and spec.controller=='azhdaha' and w.cast then
@@ -424,6 +444,8 @@ return function(C)
   view.elementSlots=w.pair;view.moveslot=c and c.variant or nil;view.move=c and c.id or nil
   view.moveTick=c and c.t or nil;view.tail=w.tailing;view.marks={}
   view.safeLane=safeLane(c)
+  local refuge=C.azhdahaSafeLaneCue(c)
+  view.safeLaneCue=refuge
   for _,a in ipairs(s.actors) do
    local mark=w.marks[a]
    if mark then view.marks[tostring(a.id)]={element=mark.element,ticks=mark.expiry-w.clock} end
@@ -457,11 +479,11 @@ return function(C)
   end
   local color=colors[c and c.element or (w.form==1 and 'geo' or w.pair[w.form-1])]
   if c then
-   if view.safeLane then
+   if refuge then
     local width=spec.width/3
-    local center=(view.safeLane-.5)*width
+    local center=(refuge.lane-.5)*width
     rect(center-48,c.floor-4,96,3,'#7bdabe')
-    text(center,c.floor-18,'安全帯','#bcf8dc')
+    text(center,c.floor-18,refuge.ticks>0 and '次の安全帯' or '安全帯','#bcf8dc')
    end
    for _,warn in ipairs(warns(c,spec)) do local b=warn.shape
     rect(b.lo,b.y-8,b.hi-b.lo,8,'#513b44')

@@ -1,0 +1,13 @@
+{
+  "sourceSha256": "22247a825fba0ba7b094261e6245eee11c0e25f6dc61fdede5d5b9233f1f76e9",
+  "expertWins": 5,
+  "andriusExpertWins": 2,
+  "reported": 111,
+  "pair": [
+    "hydro",
+    "electro"
+  ],
+  "attack": 74956,
+  "remaining": 57.06666666666667,
+  "errors": []
+}
