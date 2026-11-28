@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 足取り稽古、雪合戦、待合室
+
+白虹峠の剣を装備したLv149セーブでオデットの稽古を報告し、タルタリヤに5対2で勝った記録を引き継いでLv153の待合室の依頼まで終えた。稽古台と着地先に印を描き、雪玉は投げ手ごとに色を変えた軌跡と命中位置の「+1」を表示する。 [遊び方と進行](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [雪合戦のChrome試走](evidence/earned-white-pass-snow-browser.json) · [待合室のLua試走](evidence/earned-white-pass-rest-lua.json) · [待合室の保存確認](evidence/earned-white-pass-rest-browser.json)
+
 ## 白虹峠の道標と報酬の剣
 
 巡回を終えたLv145セーブで雪線の切通しを狩り、Lv148で第2章を受注した。樹林の二本杭、岩棚の赤い旗、峠小屋の案内板を確認してLv149に到達。案内板は報告後も読み返せる。終着駅で白虹峠の剣を装備すると旅人の攻撃力は44から327になり、保存後も装備が戻る。 [道と剣の手順](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [Luaの試走](evidence/earned-white-pass-woods-lua.json) · [Chromeの再開と描画](evidence/earned-white-pass-woods-browser.json)

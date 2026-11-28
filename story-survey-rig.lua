@@ -25,6 +25,17 @@ return function(C,canInspect)
    rect(draws,x+10,475,22,3,'#647d92')
    rect(draws,x+29,477,18,3,'#647d92')
    rect(draws,x-14,y-4,28,4,'#697d8d')
+  elseif mark=='dance-start' then
+   rect(draws,x-29,y-8,58,8,'#a58b91')
+   rect(draws,x-29,y-8,58,2,'#e4bdc1')
+   rect(draws,x-6,y-16,3,8,'#f1ccce')
+   rect(draws,x+3,y-16,3,8,'#f1ccce')
+  elseif mark=='dance-landing' then
+   for _,offset in ipairs({-13,6}) do
+    rect(draws,x+offset,y-19,9,13,'#72829e')
+    rect(draws,x+offset+1,y-20,7,3,'#b9d1df')
+    rect(draws,x+offset+2,y-5,5,4,'#72829e')
+   end
   end
  end
 

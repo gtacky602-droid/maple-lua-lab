@@ -1,0 +1,44 @@
+{
+  "scene": {
+    "key": "sneSnowMatch",
+    "file": "sne-snow-match-background-v1.png",
+    "state": "ready"
+  },
+  "coverBlocks": true,
+  "feintShown": true,
+  "flagPoint": true,
+  "opponentHit": true,
+  "coverFalls": true,
+  "noHealthDamage": true,
+  "winSavedAndReplay": true,
+  "venueControls": true,
+  "commands": {
+    "png": 36,
+    "standard": 13591,
+    "light": 3497
+  },
+  "reward": [
+    27085203,
+    12600
+  ],
+  "visibleFlightAndPoint": true,
+  "practice": {
+    "midPracticeRestored": true,
+    "landingRecorded": true,
+    "reward": [
+      16676335,
+      610
+    ]
+  },
+  "snowRecord": {
+    "best": 5,
+    "player": 5,
+    "losses": 0,
+    "opponent": 2,
+    "wins": 1,
+    "draws": 0
+  },
+  "level": 150,
+  "sourceSha256": "26fd15d6af6543c5bc3673d5d4a61ab37fc940ea57b23bfe7bd490e1e77d161c",
+  "errors": []
+}

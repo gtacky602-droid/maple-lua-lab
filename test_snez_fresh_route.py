@@ -23,6 +23,7 @@ replay = parser.add_mutually_exclusive_group()
 replay.add_argument('--ticket-source', type=Path, help='Replay the first ticket and train from this Lv140 save')
 replay.add_argument('--footprints-source', type=Path, help='Continue from a Lv142 station save through the two side quests')
 replay.add_argument('--woods-source', type=Path, help='Replay the second White Pass chapter from a Lv145 patrol save')
+replay.add_argument('--station-side-source', type=Path, help='Continue the earned station side quests through the Lv153 rest request')
 options = parser.parse_args()
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
@@ -32,6 +33,7 @@ work_name, earned_source = next(((name, source) for name, source in (
     ('earned-white-pass-ticket', options.ticket_source),
     ('earned-sne-mitya-footprints', options.footprints_source),
     ('earned-white-pass-woods', options.woods_source),
+    ('earned-white-pass-snow', options.station_side_source),
 ) if source), ('snez-fresh-route' + suffix, None))
 if earned_source and (options.after_revisits or options.draft_balance or options.checkpoint):
     parser.error('Choose one standard-balance checkpoint')
@@ -60,6 +62,9 @@ if options.footprints_source:
 elif options.woods_source:
     assert start['story']['node'] == hub and start['progression']['level'] == 145
     assert start['story']['quests'][footprints]['status'] == 'complete'
+elif options.station_side_source:
+    assert start['story']['node'] == station and 149 <= start['progression']['level'] <= 153
+    assert start['story']['quests'][trail_quest]['status'] == 'complete'
 else:
     assert start['story']['node'] == hub and start['progression']['level'] == 140
 assert start['story']['quests']['nod-moon-vault-quest']['status'] == 'complete'
@@ -254,6 +259,56 @@ def recruit_mitya():
 
 
 cut_route = (hub, road, cut)
+if options.station_side_source:
+    prior = {id:q for id,q in start['story']['quests'].items() if q['status']=='complete'}
+    assert core.equippedWeapon(state,'traveler')=='SW07'
+    if footwork not in prior:
+        accept(footwork)
+        near(450)
+        assert not frame().storyNearbyMilestone
+        inspect(450,390)
+        inspect(670)
+        report(footwork)
+    if snow not in prior:
+        accept(snow)
+        inspect(327)
+        cross('sne-snow-match')
+        inspect(178)
+        act('story_collect')
+        advance(core,state,2200,held_attack)
+        assert state.story.quests[snow].count==3 and not state.snowballRound
+        cross(station)
+        report(snow)
+    snow_record=native(state.story.quests[snow].snowMatchRecord)
+    if state.progression.level<153:
+        blocked(rest)
+    hunt((station,woods),260,153)
+    fast(station)
+    save('rest-ready')
+    accept(rest)
+    inspect(895)
+    cross(woods)
+    inspect(185)
+    cross(station)
+    before=state.progression.questXp,state.mora
+    report(rest)
+    reward=[state.progression.questXp-before[0],state.mora-before[1]]
+    finished=save('complete')
+    restored=core.restore(lua.table_from(finished,recursive=True),12)
+    assert restored.story.node==station and core.equippedWeapon(restored,'traveler')=='SW07'
+    assert all(restored.story.quests[id].status=='complete' for id in (snow,footwork,rest))
+    assert native(restored.story.quests[snow].snowMatchRecord)==snow_record
+    assert all(finished['story']['quests'][id]==q for id,q in prior.items())
+    kept={item['id'] for item in finished['inventory']['items']}
+    assert all(item['id'] in kept for item in start['inventory']['items'] if item['owner'] or item.get('locked'))
+    assert finished['companion']==start['companion'] and state.returns==0
+    record=dict(sourceSha256=sha256(source).hexdigest(), milestones=milestones, hunts=hunts,
+                reward=reward, snowRecord=snow_record, priorQuests=len(prior), level=finished['progression']['level'],
+                weapon='SW07', companion=finished['companion'], inventoryKept=len(kept & original_items),
+                recoveryTrips=recovery_trips, inventoryTrips=inventory_trips, partyWipes=state.returns)
+    (work/'lua.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    sys.exit(0)
+
 if options.woods_source:
     fast(station)
     blocked(trail_quest)
