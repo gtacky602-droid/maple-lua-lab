@@ -22,6 +22,8 @@ def on_platform(stage, x, y):
 graph = read('content/story-graph.json')
 catalog = read('content/map-catalog.json')
 review = read('sources/map-research/snezhnaya-marker-review.json')
+route_plan = read('design/world/atlas-route-plan.json')
+removed_pairs = {frozenset(row['fields']) for row in route_plan.get('removed_editor_routes', [])}
 coverage = read('content/coverage.json')['map_catalog']['stage_links']
 nodes = {n['id']: n for n in graph['nodes']}
 quests = {q['id']: q for q in graph['quests']}
@@ -44,7 +46,8 @@ exits = {name: node['exits'] for name, node in nodes.items()}
 edges = {(a, edge['to']): edge for a in stages for edge in exits[a] if edge['to'] in stages}
 station_return = ('white-pass-station', 'snezhnaya-hub')
 assert edges.pop(station_return)['x'] == 52
-assert len(edges) == 284 and set(edges) == {(b, a) for a, b in edges}
+assert set(edges) == {(b, a) for a, b in edges}
+assert not any(frozenset((nodes[a]['mapPoint'],nodes[b]['mapPoint'])) in removed_pairs for a,b in edges)
 assert {(a, b) for (a, b), edge in edges.items() if edge.get('wind')} == {
     (entry['from'], entry['to']) for entry in review['wind_gates']
 }
@@ -52,8 +55,13 @@ for (a, b), edge in edges.items():
     assert on_platform(nodes[a], edge['x'], edge.get('y', 480)), (a, b)
     if 'arrivalX' in edge:
         assert on_platform(nodes[b], edge['arrivalX'], edge.get('arrivalY', 480)), (a, b)
+retired_terrain_routes = []
 for link in review['floor_connections'] + [review['offshore_route']]:
     a, b, mode = link['from'], link['to'], link['mode']
+    if frozenset((nodes[a]['mapPoint'],nodes[b]['mapPoint'])) in removed_pairs:
+        retired_terrain_routes.append(link)
+        assert (a,b) not in edges and (b,a) not in edges
+        continue
     floor_a, floor_b = (nodes[k]['waypoint'].get('floor') for k in (a, b))
     if mode == 'walk':
         assert floor_a == floor_b and floor_a is not None
@@ -134,7 +142,9 @@ write('evidence/snezhnaya-waypoint-test.json', {
     'markers': len(stages), 'layered_markers': len(review['floor_markers']),
     'reciprocal_paths': len(edges) // 2, 'directed_paths': len(sweep.crossings),
     'stage_ids': sorted(stages), 'arrival_from_nod_krai': True,
-    'wind_gates': review['wind_gates'], 'offshore_trip': review['offshore_route'],
+    'wind_gates': review['wind_gates'], 'offshore_trip': (
+        None if review['offshore_route'] in retired_terrain_routes else review['offshore_route']),
+    'editor_revision': route_plan['editor_revision'], 'retired_terrain_routes': retired_terrain_routes,
     'reported_quests': [track, tower, works, wall], 'restored_visits_and_quests': True,
 })
 print(f'Snezhnaya passed {len(stages)} markers, {len(sweep.crossings)} directed gates and four surveys.')

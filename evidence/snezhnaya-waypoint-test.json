@@ -1,8 +1,8 @@
 {
   "markers": 108,
   "layered_markers": 37,
-  "reciprocal_paths": 142,
-  "directed_paths": 284,
+  "reciprocal_paths": 159,
+  "directed_paths": 318,
   "stage_ids": [
     "novokichev-camp",
     "novokichev-depth",
@@ -124,11 +124,20 @@
       "to": "sne-wp-106211"
     }
   ],
-  "offshore_trip": {
-    "from": "sne-wp-100668",
-    "to": "sne-wp-100699",
-    "mode": "boatSeconds"
-  },
+  "offshore_trip": null,
+  "editor_revision": 1,
+  "retired_terrain_routes": [
+    {
+      "from": "sne-wp-106201",
+      "to": "sne-wp-106190",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100668",
+      "to": "sne-wp-100699",
+      "mode": "boatSeconds"
+    }
+  ],
   "reported_quests": [
     "sne-mapped-track-walk",
     "sne-mapped-four-tower-floors",

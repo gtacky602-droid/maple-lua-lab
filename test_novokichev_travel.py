@@ -36,9 +36,12 @@ def replay(source):
     trip.act('story_accept:'+SURVEY)
     trip.travel(DEPTH)
     assert trip.state.story.quests[SURVEY].count==1
+    assert [(actor.x,actor.y) for actor in trip.state.actors.values()]==[(160,480),(120,480)]
     trip.travel(CAVERN)
     trip.travel(DEPTH)
+    assert [(actor.x,actor.y) for actor in trip.state.actors.values()]==[(1096,480),(1056,480)]
     trip.travel(CAMP)
+    assert [(actor.x,actor.y) for actor in trip.state.actors.values()]==[(1336,480),(1296,480)]
     trip.report(SURVEY)
     assert novo(trip)['reports']
     checkpoint = trip.snapshot()
