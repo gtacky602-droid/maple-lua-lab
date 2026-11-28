@@ -1,0 +1,36 @@
+{
+  "sourceSha256": "711c0ccd584d7116148be42a8476a83b728932e623cf31df5012fa29ad402fdf",
+  "level": 180,
+  "guide": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf",
+    "aurora-steam-channel",
+    "aurora-mineral-terraces",
+    "dawn-vein-mine"
+  ],
+  "enemies": 28,
+  "gaugeSpent": 100,
+  "livePulsesHit": true,
+  "liveFinisherAbsent": true,
+  "singlePracticeFinisher": true,
+  "practiceResourcesIsolated": true,
+  "hits": 20,
+  "damage": 242,
+  "commands": {
+    "png": 92,
+    "standard": 3139,
+    "light": 904,
+    "pillars": 7,
+    "effectCommands": 56
+  },
+  "rewards": [
+    2400000,
+    20000,
+    1
+  ],
+  "priorQuests": 105,
+  "visitedMine": true,
+  "companion": "mitya",
+  "weapon": "SW07",
+  "errors": []
+}

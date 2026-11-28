@@ -24,8 +24,9 @@ parser.add_argument('--after-revisits',action='store_true',help='Continue the ad
 earned = parser.add_mutually_exclusive_group()
 earned.add_argument('--light-source', type=Path, help='Continue the earned Lv160 light quests and reach the ice shelf')
 earned.add_argument('--echo-source', type=Path, help='Continue the earned Lv165 ice shelf save to the steam channel')
+earned.add_argument('--seven-source', type=Path, help='Continue the earned Lv170 echo save to the frozen mine entrance')
 options = parser.parse_args()
-earned_source = options.light_source or options.echo_source
+earned_source = options.light_source or options.echo_source or options.seven_source
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
 if earned_source and (options.replay or options.after_revisits or options.draft_balance):
@@ -40,7 +41,8 @@ if options.replay:
         command.append('--after-revisits')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / ('earned-light-echo' if options.echo_source else
+work = ROOT / 'work' / ('earned-seven-strike' if options.seven_source else
+                        'earned-light-echo' if options.echo_source else
                         'earned-light-aurora-shelf' if options.light_source else 'cap-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
 source_file = ROOT/'evidence/snez-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json'
@@ -51,9 +53,10 @@ chain = [
     station, 'aurora-ice-cut', 'aurora-ice-shelf', 'aurora-steam-channel', 'aurora-mineral-terraces',
     'dawn-vein-mine', 'dawn-vein-deep', 'dawn-glass-ridge', 'dawn-glass-divide', 'dawn-crystal-field',
 ]
-start_nodes = (station, chain[2]) if options.echo_source else (station, town) if options.light_source else (station,)
+start_nodes = (station, snow, chain[3]) if options.seven_source else (
+    (station, chain[2]) if options.echo_source else (station, town) if options.light_source else (station,))
 assert initial['story']['node'] in start_nodes
-assert initial['progression']['level'] == (165 if options.echo_source else 160)
+assert initial['progression']['level'] == (170 if options.seven_source else 165 if options.echo_source else 160)
 assert initial['story']['quests']['white-pass-summit']['status'] == 'complete'
 release, branch, echo, seven, personal = ('growth-' + key for key in
     ('light-release', 'branch-visit', 'light-echo', 'seven-strike', 'next-goal'))
@@ -365,11 +368,16 @@ def gear_goal():
     fast(station)
 
 
-assert core.growthSkillCondition(state, 'SK59')[0] is False
+assert (core.growthSkillCondition(state, 'SK59') is True) == bool(options.seven_source)
 assert core.growthSkillCondition(state, 'SK60')[0] is False
 if earned_source:
     prior = {id:q for id,q in initial['story']['quests'].items() if q['status']=='complete'}
-    if options.echo_source:
+    if options.seven_source:
+        assert initial['story']['visited'][chain[3]] and echo in prior and seven not in prior
+        hunt(3,175)
+        save('lv175-save')
+        index, level = 4, 180
+    elif options.echo_source:
         assert initial['story']['visited'][chain[2]] and echo not in prior
         index, level = 2, 170
     else:
@@ -392,7 +400,11 @@ if earned_source:
     progression.update(sourceSha256=sha256(source).hexdigest(),level=resumed.progression.level,
                        priorQuests=len(prior),inventoryKept=len(kept&original_items),
                        weapon='SW07',companion=resumed.companion,wipes=state.returns)
-    if options.echo_source:
+    if options.seven_source:
+        assert core.growthSkillCondition(resumed,'SK60') is True
+        assert resumed.story.visited[chain[4]]
+        progression.update(terracesEntered=True, mineEntered=True, sevenUnlocked=True)
+    elif options.echo_source:
         assert core.growthSkillCondition(resumed,'SK59') is True
         assert core.growthSkillCondition(resumed,'SK60')[0] is False
         progression.update(channelEntered=True, echoUnlocked=True)

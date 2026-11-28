@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 七律開天を星脈坑で実戦
+
+光界反響を報告したLv170セーブから鉱泉段丘をLv175で通り、Lv180の星脈坑・凍てた坑口に入った。Chromeでミティヤから受注し、共通ゲージ100を使って坑口の敵に七律開天を当てた。七色の光柱と、練習場で残った標的一体に出る追撃の光を確認した。 [習得と報告](docs/balance/GROWTH_LIGHT_WEB.md) · [Luaの進行記録](evidence/earned-seven-strike-lua.json) · [Chromeの実戦と練習](evidence/earned-seven-strike-browser.json)
+
 ## 光界反響を湯気谷の温泉水路で実戦
 
 極光谷・氷棚に入ったLv165セーブからLv170へ進んだ。ミティヤの「光を、もう一度」を受注し、M地図を開いて温泉水路へ歩いた。光界解放中に雷撃を記録し、場所を移して光界反響を当てて報告した。技名と使用可能の表示、薄紫の合図は元PNGでも軽量16色でも使える。 [成長依頼と操作](docs/balance/GROWTH_LIGHT_WEB.md) · [Lv170までのLua試走](evidence/earned-light-echo-lua.json) · [温泉水路と実戦のChrome検証](evidence/earned-light-echo-browser.json)
