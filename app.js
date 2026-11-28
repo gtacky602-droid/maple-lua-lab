@@ -507,6 +507,20 @@ function hud(f,calls,renderMs){
  const note=[fieldNote,raftNote].filter(Boolean).join(' ｜ ');
  forest.hidden=!note;
  if(note&&forest.textContent!==note)forest.textContent=note;
+ const appraisalLog=$('storyAppraisalLog'),readings=f.storyAppraisal?.readings;
+ appraisalLog.hidden=!readings?.length;
+ if(!appraisalLog.hidden){
+  const rows=$('storyAppraisalReadings'),signature=JSON.stringify(readings);
+  if(rows.dataset.readings!==signature){
+   rows.replaceChildren(...readings.map(({name,reading,sorted})=>{
+    const row=document.createElement('li'),part=document.createElement('strong');
+    part.textContent=sorted?name+'（仕分け済み）':name;
+    row.append(part,'　'+reading);
+    return row;
+   }));
+   rows.dataset.readings=signature;
+  }
+ }
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;
  const voyage=f.voyage;
  const lift=f.storyLift??(voyage&&{destination:voyage.destinationName??voyage.destination,seconds:voyage.total??voyage.seconds+voyage.elapsed,remaining:voyage.seconds});
