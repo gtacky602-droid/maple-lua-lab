@@ -10,7 +10,9 @@ const [roots,bank,junction,rootPath,branch,stop,approach,terrace,observatory]=[
   'sumeru-observatory-terrace','sumeru-sky-observatory'];
 const [first,second,third]=['sumeru-leaf-crossing','sumeru-forest-levels','sumeru-observatory-map'];
 const earnedFirst=process.argv.includes('--earned-first');
-const prefix=earnedFirst?'work/earned-sumeru-opening-bosses/leaf-bridge':'evidence/sumeru-canopy';
+const earnedCanopy=process.argv.includes('--earned-canopy');
+const prefix=earnedCanopy?'work/earned-sumeru-canopy-drake/canopy':
+  earnedFirst?'work/earned-sumeru-opening-bosses/leaf-bridge':'evidence/sumeru-canopy';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -156,7 +158,7 @@ async function airflow(selection){
 async function run(){
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8872/');
   await wait(()=>window.lab?.frame);
-  const fixture=await fs.readFile(earnedFirst?prefix+'-ready.json':'work/sumeru-canopy-fixture.json','utf8');
+  const fixture=await fs.readFile(earnedFirst||earnedCanopy?prefix+'-ready.json':'work/sumeru-canopy-fixture.json','utf8');
   const {rewards}=JSON.parse(await fs.readFile('evidence/sumeru-canopy-lua.json','utf8'));
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),fixture);
   await page.click('#loadProgress');
@@ -166,30 +168,38 @@ async function run(){
     assert.equal(start.progression.level,60);
     assert.equal(start.story.quests['jadeplume-commission'].status,'complete');
   }
-  await quest(first,'受注','active');
-  await gate(875,roots);
-  const river=await background();
-  assert.deepEqual(river,{key:'sumeruRiverside',file:'sumeru-riverside-background-v1.png',state:'ready'});
-  await interact(315,first,1);
-  await jump(714,391);
-  await survey('river-canopy','leaf');
-  await interact(714,first,2);
-  await interact(924,first,3);
-  await saveReload();
-  await gate(875,roots);
-  assert.ok((await frame()).platforms.some(p=>p.leafBridge&&p.y===391&&!p.preview));
-  await jump(714,391);
-  await gate(1645,bank);
-  await battleNear(332);
-  await jump(778,390);
-  await battleNear(778);
-  await auto(true);
-  await count(first,4);
-  await auto(false);
-  await interact(1350,first,5);
-  await gate(1529,hub);
-  await report(first,rewards[0]);
-  console.log('Leaf bridge persists after reload, first quest reported');
+  let river;
+  if(earnedCanopy){
+    const start=await frame();
+    assert.equal(start.progression.level,62);
+    assert.equal(start.story.quests[first].status,'complete');
+    assert.equal(start.story.quests['electro-regisvine-commission'].status,'complete');
+  }else{
+    await quest(first,'受注','active');
+    await gate(875,roots);
+    river=await background();
+    assert.deepEqual(river,{key:'sumeruRiverside',file:'sumeru-riverside-background-v1.png',state:'ready'});
+    await interact(315,first,1);
+    await jump(714,391);
+    await survey('river-canopy','leaf');
+    await interact(714,first,2);
+    await interact(924,first,3);
+    await saveReload();
+    await gate(875,roots);
+    assert.ok((await frame()).platforms.some(p=>p.leafBridge&&p.y===391&&!p.preview));
+    await jump(714,391);
+    await gate(1645,bank);
+    await battleNear(332);
+    await jump(778,390);
+    await battleNear(778);
+    await auto(true);
+    await count(first,4);
+    await auto(false);
+    await interact(1350,first,5);
+    await gate(1529,hub);
+    await report(first,rewards[0]);
+    console.log('Leaf bridge persists after reload, first quest reported');
+  }
 
   if(earnedFirst){
     await saveReload();
@@ -235,6 +245,7 @@ async function run(){
   await gate(1007,stop,true);
   await gate(55,hub);
   await report(second,rewards[1]);
+  if(earnedCanopy)assert.equal((await frame()).progression.level,65);
   console.log('Root and branch paths converge, lift round trip verified');
 
   await quest(third,'受注','active');
@@ -267,6 +278,13 @@ async function run(){
   await gate(55,hub);
   await report(third,rewards[2]);
   await saveReload();
+  if(earnedCanopy){
+    const restored=await frame();
+    assert.equal(restored.progression.level,68);
+    assert.equal(restored.story.quests[second].cycles,1);
+    assert.equal(restored.story.quests[third].cycles,1);
+    assert.equal(restored.returns,0);
+  }
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'))
     .endgame.bosses['original-canopy-fungus'].clears),1);
   await gate(1282,observatory);
@@ -275,10 +293,11 @@ async function run(){
   await key('KeyG');
   await wait(()=>window.lab.frame.storyNotice?.startsWith('観測所の地図'));
   assert.deepEqual(errors,[]);
-  const proof={reloadedLeaf:true,walkedLeafBridge:true,wrongAdjustmentRejected:true,upperGate:true,
+  const proof={...(earnedCanopy?{startLevel:62,canopyReportLevel:65,observatoryReportLevel:68}:
+    {reloadedLeaf:true,walkedLeafBridge:true}),wrongAdjustmentRejected:true,upperGate:true,
     bothRoutesConverge:true,liftRoundTrip:true,battle,bossClearSaved:true,readbackAfterReload:true,
-    scenes:[river,canopy],commands,rewards,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+    scenes:[river,canopy].filter(Boolean),commands,rewards:earnedCanopy?rewards.slice(1):rewards,errors};
+  await fs.writeFile(earnedCanopy?'evidence/earned-sumeru-canopy-browser.json':prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }
 

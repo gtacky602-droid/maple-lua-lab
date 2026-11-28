@@ -1,0 +1,48 @@
+{
+  "startLevel": 62,
+  "canopyReportLevel": 65,
+  "observatoryReportLevel": 68,
+  "wrongAdjustmentRejected": true,
+  "upperGate": true,
+  "bothRoutesConverge": true,
+  "liftRoundTrip": true,
+  "battle": {
+    "moves": [
+      "CF01",
+      "CF02"
+    ],
+    "recovered": [
+      "CF01",
+      "CF02"
+    ],
+    "alive": true,
+    "returns": 0
+  },
+  "bossClearSaved": true,
+  "readbackAfterReload": true,
+  "scenes": [
+    {
+      "key": "sumeruCanopy",
+      "file": "sumeru-canopy-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "commands": {
+    "png": 35,
+    "standard": 7648,
+    "light": 2198
+  },
+  "rewards": [
+    [
+      526257,
+      2200,
+      3
+    ],
+    [
+      1033165,
+      3800,
+      4
+    ]
+  ],
+  "errors": []
+}

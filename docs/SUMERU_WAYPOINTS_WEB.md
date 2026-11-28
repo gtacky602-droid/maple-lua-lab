@@ -26,6 +26,14 @@
 
 マッシュラプトルの胞子と迅電樹の落雷は着弾順を「1・2・3」で表示する。迅電樹のHP欄には攻撃中の名前と根元の核の残り回数を並べる。攻撃後は反撃の隙が表示され、核を壊したときはダウンの表示に切り替わる。 [Luaの継続再走](../evidence/earned-sumeru-opening-bosses.json) · [マッシュラプトル](../evidence/earned-sumeru-jadeplume-browser.json) · [葉橋](../evidence/earned-sumeru-leaf-crossing-browser.json) · [迅電樹](../evidence/earned-sumeru-regisvine-browser.json)
 
+## 森の上下ルートから空の観測所と機翼の間へ
+
+「森の上にも、森がある」は上段の操作盤で葉と羽根の両方を動かすと枝道への足場が開く。地上の根道と上の枝道を通って中継所で記録を合わせ、1.55秒の昇降台を往復する。
+
+「空の観測所へ！」では大枝の見張り3体と枝傘の大キノコンを退け、上段の見晴らしから観測所へ進む。報告後も記録台の地図を読み返せる。獲得済みのLv62セーブから、この二つの依頼でLv65、Lv68と進んだ。
+
+機翼の間の門はLv66。今回のドレイク戦にはLv68で入り、討伐でLv69に達した。胸砲の予告中は胸部コアの残り時間をHP欄と胸元のバーに出す。露出は最大1.9秒で、その間にコアへ攻撃が当たると胸砲が止まり、約2.5秒ダウンする。 [Luaの通し検証](../evidence/earned-sumeru-canopy-drake.json) · [森と観測所のChrome検証](../evidence/earned-sumeru-canopy-browser.json) · [ドレイクのChrome検証](../evidence/earned-sumeru-drake-browser.json)
+
 ## 国境・木橋と石廟の出入り
 
 Lv64で、層岩巨淵の西の岩棚から国境洞道を抜けてスメール側の神像へ進める。樹陰の広場へ行く前に神像で保存した場合は、訪問済みの巨淵の拠点から再開できる。稲妻から来てガンダ丘の木橋を渡った先で保存した場合も、樹陰の広場が未訪問なら訪問済みの稲妻の拠点から再開できる。スメール側から巨淵へ渡る帰路にも、通常の拠点が未訪問の場合の再開先を設定した。 [巨淵側からのM地図](../evidence/sumeru-chasm-crossing-atlas.png)

@@ -969,6 +969,7 @@
       "id": "boss-24030301",
       "coop": true,
       "controller": "aeonblight",
+      "showRecovery": true,
       "entity": 24030301,
       "name": "兆載永劫ドレイク",
       "node": "aeonblight-field-chamber",
