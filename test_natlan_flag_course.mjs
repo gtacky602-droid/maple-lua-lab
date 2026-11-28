@@ -4,7 +4,11 @@ import {chromium} from 'playwright';
 
 const hub='natlan-hub',staging='natlan-flag-staging',slope='natlan-flag-slope',ledges='natlan-flag-ledges';
 const cleft='natlan-flag-cleft',summit='natlan-flag-summit',quest='natlan-ridge-flag';
-const prefix='evidence/natlan-flag-course';
+const earned=process.argv.includes('--earned');
+const work='work/earned-natlan-flag';
+if(earned)await fs.mkdir(work,{recursive:true});
+const output=process.env.LAB_FLAG_EVIDENCE??'evidence/natlan-flag-course';
+let prefix=output;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -112,16 +116,32 @@ async function trialStamp(x,count){
   await wait(n=>window.lab.frame.storyFlagStatus?.includes(`中継印 ${n} / 2`),count);
 }
 
-try{
-  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8876/');
-  await wait(()=>window.lab?.frame);
-  const raw=await fs.readFile('work/natlan-flag-course-fixture.json','utf8');
-  const {reward:expectedReward}=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+async function startRoute(raw){
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),raw);
   await page.locator('#loadProgress').click();
+  await wait(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
   await nodeIs(hub);
-  await questButton('受注','active');
+  if(!earned)await questButton('受注','active');
+  assert.equal((await frame()).progression.level,100);
+  assert.equal((await frame()).story.quests[quest].status,'active');
+  await count(0);
+}
+
+async function mapFor(target,expected){
+  await key('KeyM');
+  const map=page.locator('#worldAtlas');
+  await map.waitFor();
+  await wait(()=>window.lab.frame.worldMap?.region==='region-06');
+  await page.selectOption('#atlasField',target);
+  await wait(id=>window.lab.frame.worldMap?.selected?.id===id,target);
+  if(expected){assert.match((await frame()).worldMap.guide.reason,expected);}
+  await page.keyboard.press('Escape');
+  await map.waitFor({state:'hidden'});
+}
+
+async function play(route,expectedReward){
   await gate(885,staging);
+  if(earned)await mapFor(route,/案内板に近づいてG/);
   await inspect(382,1);
   assert.ok(!(await frame()).storyFlagStatus.includes('計測'));
   await key('KeyM');
@@ -134,30 +154,45 @@ try{
   await page.locator('#atlasQuestObjectives a[href*="step=2"]').waitFor();
   await page.selectOption('#atlasField',ledges);
   await wait(id=>window.lab.frame.worldMap?.selected?.id===id,ledges);
+  assert.match(await page.locator('#atlasPlaceLevel').innerText(),/依頼の進行地点/);
+  assert.equal((await frame()).worldMap.selected.entryEnemyCount,1);
   await page.locator('#atlasQuestObjectives a[href*="step=2"]').waitFor();
   await page.keyboard.press('Escape');
   await page.locator('#worldAtlas').waitFor({state:'hidden'});
-  await gate(1316,ledges);
-  const ridgeScene=await scene();
-  assert.deepEqual(ridgeScene,{key:'natlanRaceRidge',file:'natlan-race-ridge-background-v1.png',state:'ready'});
-  await jump(353,390);
-  await inspect(560,2);
+  const rock=route===ledges;
+  const entrance=rock?1316:880;
+  await gate(entrance,route);
+  const courseScene=await scene();
+  assert.equal(courseScene.state,'ready');
+  if(rock){
+   assert.deepEqual(courseScene,{key:'natlanRaceRidge',file:'natlan-race-ridge-background-v1.png',state:'ready'});
+   await jump(353,390);
+  }
+  await inspect(rock?560:445,2);
   await saveReload(staging);
-  await gate(1316,ledges);
-  await jump(353,390);
-  await jump(1008,302);
-  await inspect(1170,3);
-  await gate(1452,cleft);
+  await gate(entrance,route);
+  if(earned)await mapFor(cleft,/中継印を二つ/);
+  if(rock)await jump(353,390);
+  await jump(rock?1008:844,rock?302:391);
+  await inspect(rock?1170:1445,3);
+  await gate(rock?1452:1756,cleft);
+  if(earned)await mapFor(summit,/足場が下りるまで/);
+  assert.match((await frame()).storyFlagStatus,/カチーナのそばでG/);
   await walk(750);
   await key('KeyG');
   await wait(()=>window.lab.frame.storyFlagLowering?.progress>.22);
   await key('KeyP');
   await wait(()=>window.lab.frame.paused);
   assert.ok(!(await frame()).platforms.some(p=>p.raceBridge));
+  const remaining=(await frame()).storyFlagLowering.remaining;
+  const timerText=await page.locator('#storyForest').textContent();
+  assert.match(timerText,/足場を下ろすまで 残り[\d.]+秒/);
   await screenshot('lowering');
+  assert.equal((await frame()).storyFlagLowering.remaining,remaining);
   await key('KeyP');
   await count(4);
   assert.ok((await frame()).platforms.some(p=>p.raceBridge));
+  assert.match((await frame()).storyFlagStatus,/右へ渡って頂上へ/);
   await gate(1580,summit);
   const summitScene=await scene();
   assert.deepEqual(summitScene,{key:'natlanRaceSummit',file:'natlan-race-summit-background-v1.png',state:'ready'});
@@ -168,6 +203,7 @@ try{
   await walk(1055);
   const commands=await compare();
   await inspect(1105,5);
+  assert.match((await frame()).storyFlagStatus,/集落に戻って報告/);
   await gate(1526,hub);
   const before=await frame();
   await questButton('報告','complete');
@@ -175,7 +211,36 @@ try{
   const reward=[after.progression.questXp-before.progression.questXp,
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
   assert.deepEqual(reward,expectedReward);
-  console.log('Untimed climb, two relays, flag and report verified');
+  console.log(`Untimed ${route}, two relays, flag and report verified`);
+  return {route,level:after.progression.level,reward,commands,timerText,scenes:[courseScene,summitScene]};
+}
+
+try{
+  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8876/');
+  await wait(()=>window.lab?.frame);
+  const raw=await fs.readFile(earned?'work/earned-fontaine-natlan/natlan-browser-start.json':'work/natlan-flag-course-fixture.json','utf8');
+  const {reward:expectedReward}=JSON.parse(await fs.readFile('evidence/natlan-flag-course-lua.json','utf8'));
+  if(earned){
+   const results={};
+   for(const [name,route] of [['slope',slope],['ledges',ledges]]){
+    prefix=work+'/'+name;
+    await startRoute(raw);
+    results[name]=await play(route,expectedReward);
+    await saveReload(hub);
+    const f=await frame();
+    assert.equal(f.progression.level,101);
+    assert.equal(f.story.quests[quest].status,'complete');
+    assert.equal(f.story.quests[quest].cycles,1);
+    assert.equal(f.returns,0);
+    assert.equal(f.story.quests[quest].flagBestTicks,undefined);
+    const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+    await fs.writeFile(work+'/'+name+'-browser-complete.json',saved+'\n');
+   }
+   assert.deepEqual(errors,[]);
+   await fs.writeFile('evidence/earned-natlan-flag-browser.json',JSON.stringify({results,reportRestore:true,errors},null,2)+'\n');
+  }else{
+  await startRoute(raw);
+  const {reward,commands,scenes}=await play(ledges,expectedReward);
 
   await gate(885,staging);
   await walk(382);
@@ -202,9 +267,10 @@ try{
   await wait(()=>window.lab.frame.storyNotice?.startsWith('頂上の記録'));
   assert.deepEqual(errors,[]);
   const proof={bothRoutes:true,normalJumps:true,altMarkAfterReload:true,animatedBridge:true,firstRunUntimed:true,
-    viewMap:true,bothRelayMapLinks:true,optionalTimeAndReload:true,shortcutAndReadback:true,ticks,reward,commands,scenes:[ridgeScene,summitScene],errors};
+    viewMap:true,bothRelayMapLinks:true,optionalTimeAndReload:true,shortcutAndReadback:true,ticks,reward,commands,scenes,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
+  }
 }catch(error){
   console.error(await page.evaluate(()=>{
     const f=window.lab?.frame;

@@ -112,7 +112,7 @@ return function(C)
   local gx=guide.x+(guide.edgeX-guide.x)*fraction
   local x,y=gx-s.camera,guide.y
   if active then
-   f.storyFlagLowering={progress=fraction}
+   f.storyFlagLowering={progress=fraction,remaining=math.max(0,active.step.flagLowerSeconds-(s.t-active.started))}
    local lift=guide.deckY-(1-fraction)*104
    local dx=guide.deckX-s.camera
    rect(draws,dx,lift,guide.deckWidth,12,'#8e543b')
@@ -156,7 +156,22 @@ return function(C)
   if run then f.storyFlagStatus='計測中　中継印 '..run.count..' / 2　'..string.format('%.1f秒',elapsed(s,run)/60)
   elseif state.flagBestTicks then f.storyFlagStatus='旗取りの最短記録　'..timeLabel(state.flagBestTicks)
   elseif state.status=='complete' and spec.board then f.storyFlagStatus='旗取りのタイム計測に挑戦できます。'
-  elseif state.status=='active' and state.count>0 then f.storyFlagStatus='中継印 '..count..' / 2' end
+  elseif state.status=='active' and state.count>0 then
+   local lowering=f.storyFlagLowering
+   if lowering then
+    f.storyFlagStatus='カチーナが足場を下ろすまで 残り'..string.format('%.1f秒',math.ceil(lowering.remaining*10)/10)
+   elseif spec.guide and state.count==3 then
+    f.storyFlagStatus='中継印 2 / 2　カチーナのそばでG'
+   elseif spec.guide and state.count>=4 then
+    f.storyFlagStatus='足場がつながりました。右へ渡って頂上へ'
+   elseif spec.goal and state.count==4 then
+    f.storyFlagStatus='上段の旗に近づいてG'
+   elseif spec.goal and state.count>=5 then
+    f.storyFlagStatus='旗を取りました。右の門から集落に戻って報告'
+   else
+    f.storyFlagStatus='中継印 '..count..' / 2'
+   end
+  end
  end
 
  local podium={x=847,y=390}

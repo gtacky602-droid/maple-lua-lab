@@ -1,0 +1,60 @@
+{
+  "results": {
+    "slope": {
+      "route": "natlan-flag-slope",
+      "level": 101,
+      "reward": [
+        3768926,
+        6200,
+        4
+      ],
+      "commands": {
+        "png": 28,
+        "standard": 3941,
+        "light": 1009
+      },
+      "timerText": "カチーナが足場を下ろすまで 残り0.9秒",
+      "scenes": [
+        {
+          "key": "natlanRaceRidge",
+          "file": "natlan-race-ridge-background-v1.png",
+          "state": "ready"
+        },
+        {
+          "key": "natlanRaceSummit",
+          "file": "natlan-race-summit-background-v1.png",
+          "state": "ready"
+        }
+      ]
+    },
+    "ledges": {
+      "route": "natlan-flag-ledges",
+      "level": 101,
+      "reward": [
+        3768926,
+        6200,
+        4
+      ],
+      "commands": {
+        "png": 28,
+        "standard": 3941,
+        "light": 1009
+      },
+      "timerText": "カチーナが足場を下ろすまで 残り1.0秒",
+      "scenes": [
+        {
+          "key": "natlanRaceRidge",
+          "file": "natlan-race-ridge-background-v1.png",
+          "state": "ready"
+        },
+        {
+          "key": "natlanRaceSummit",
+          "file": "natlan-race-summit-background-v1.png",
+          "state": "ready"
+        }
+      ]
+    }
+  },
+  "reportRestore": true,
+  "errors": []
+}
