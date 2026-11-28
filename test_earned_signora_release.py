@@ -1,17 +1,20 @@
 """Compare two earned expert clears with and without releasing the left brazier in fire phase."""
 
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, release):
+def replay(source, output, release, *, weapon='SW06', next_save=None):
     spec = next(row for row in read('content/weekly-boss-spawns.json')['weeklyBosses']
                 if row['controller'] == 'signora')
-    trip, slot, start, loadout, mode, key, prior = expert_rematch(source.resolve(), runtime(), spec)
+    trip, slot, start, loadout, mode, key, prior = expert_rematch(
+        source.resolve(), runtime(), spec, weapon=weapon, trial_flower=next_save is not None)
     state, hero, boss = trip.state, trip.actor, slot.primary
     before = state.progression.total, state.mora
     hp_start = boss.hp
@@ -64,6 +67,8 @@ def replay(source, output, release):
         old_temperature=slot.climates[state].temperature if slot.climates[state] else 0
         hp_before,boss_before=hero.hp,boss.hp
         trip.tick(1,trip.lua.table(left=hero.x>goal+5,right=hero.x<goal-5,attack=attack,interact=hold))
+        if hold and slot.climates[state].hold==15:
+            sample('霜眼の長押し50%',tick)
         if tornado and card and card.id=='WS14' and card.move.recovery<=card.t<card.move.total:
             recovery_damage+=boss_before-boss.hp
         if slot.waitUntil:
@@ -111,26 +116,51 @@ def replay(source, output, release):
         assert recorded_release['device']==1 and recorded_release['afterTemperature']==0
         assert len(recorded_release['before'])-len(recorded_release['after'])==1
         assert frames['左の霜眼を長押しして放出']['view']['deviceRelease']=={'side':1,'floors':1}
+        held=frames['霜眼の長押し50%']
+        assert held['view']['deviceCue']=={'side':1,'inRange':True,'needsGround':False}
+        assert held['view']['deviceHold']==15 and held['view']['deviceTotal']==30
+        assert any(draw.get('color')=='#fff3bd' and draw.get('h')==4 and draw.get('w')==20
+                   for draw in held['png'])
     reward=trip.frame().weeklyBoss.reward
     payout=dict(xp=reward.xp,mora=reward.mora,first=reward.first)
+    party_hp=[actor.hp for actor in state.actors.values()]
     verify_repeat(trip,before,start,mode,key,prior)
     case='signora-release' if release else 'signora-passive'
     label='霜眼を長押しして火床を消す' if release else '霜眼のそばで冷却する'
     (output/f'{case}-frames.json').write_text(json.dumps(
         frames,ensure_ascii=False,separators=(',',':'))+'\n','utf8')
     print(case,tick,moths,heat,recorded_release,tornado,recovery_damage,flush=True)
-    return dict(controller='signora',case=case,label=label,ticks=tick,sourceSha256=trip.source,
-                bossHP=hp_start,loadout=loadout,phases=phases,moths=moths,heat=heat,
-                release=recorded_release,tornado=tornado,recoveryDamage=recovery_damage,
-                reward=payout,expertClears=[prior,prior+1])
+    proof=dict(controller='signora',case=case,label=label,ticks=tick,sourceSha256=trip.source,
+               bossHP=hp_start,loadout=loadout,phases=phases,moths=moths,heat=heat,
+               release=recorded_release,tornado=tornado,recoveryDamage=recovery_damage,
+               reward=payout,expertClears=[prior,prior+1],partyHp=party_hp,returns=0)
+    if next_save:
+        saved=restore_rematch_equipment(trip,start,loadout,'inazuma-town')
+        assert saved['azhdahaPair']==start['azhdahaPair']
+        assert saved['endgame']['bosses']==start['endgame']['bosses']
+        assert saved['endgame']['weekly'][key]['clears']==prior+1
+        assert saved['weeklyBosses'][spec['id']]['waitTicks']>0
+        raw=(json.dumps(saved,ensure_ascii=False)+'\n').encode()
+        next_save.write_bytes(raw)
+        proof.update(savedSha256=sha256(raw).hexdigest(),equipmentRestored=True)
+    return proof
 
 
 if __name__=='__main__':
     parser=ArgumentParser(description=__doc__)
     parser.add_argument('--from-save',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
+    parser.add_argument('--weapon',default='SW06')
+    parser.add_argument('--chain',action='store_true',help='Continue from the previous ranked win')
     args=parser.parse_args()
     args.output_dir.mkdir(parents=True,exist_ok=True)
-    fights=[replay(args.from_save,args.output_dir,release) for release in (True,False)]
+    fights=[]
+    source=args.from_save
+    for release in (True,False):
+        filename='rematch-1-save.json' if release else 'complete.json'
+        next_save=args.output_dir/filename if args.chain else None
+        fights.append(replay(source,args.output_dir,release,weapon=args.weapon,next_save=next_save))
+        if next_save:
+            source=next_save
     (args.output_dir/'weekly-mechanics.json').write_text(
         json.dumps(fights,ensure_ascii=False,indent=2)+'\n','utf8')

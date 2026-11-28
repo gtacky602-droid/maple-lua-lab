@@ -506,8 +506,23 @@ return function(C)
   v.temperature=record.temperature;v.temperatureLabel=element=='cryo' and '極寒' or '灼熱'
   v.deviceLabel=element=='cryo' and '炎心' or '霜眼'
   v.devices={math.max(0,w.devices[1]-w.clock),math.max(0,w.devices[2]-w.clock)}
-  v.deviceHold=record.hold;v.deviceTotal=spec.temperature.hold
+  v.deviceHold=0;v.deviceTotal=spec.temperature.hold
   v.deviceEnabled=w.stage~='transform' and w.phase~='clear'
+  local current=actor(s)
+  if v.deviceEnabled and current.hp>0 then
+   local conf,nearest=spec.temperature,math.huge
+   for i,x in ipairs(conf.deviceX) do
+    local distance=math.abs(current.x-x)
+    if v.devices[i]==0 and distance<nearest then
+     nearest=distance
+     v.deviceCue={side=i,inRange=inDevice(current,spec,i,conf.deviceRange),
+      needsGround=distance<=conf.deviceRange and math.abs(current.y-spec.floorY)>=30}
+    end
+   end
+  end
+  if v.deviceCue and v.deviceCue.inRange and v.deviceCue.side==record.heldDevice and record.holdActor==current then
+   v.deviceHold=record.hold
+  end
   local recent=record.cause and record.cause.untilTick>w.clock and record.cause
   v.cause=recent and recent.kind or nil
   v.deviceRelease=recent and recent.release or nil
@@ -536,6 +551,10 @@ return function(C)
    rect(x-23,spec.floorY-16,46,16,'#4b4b61');rect(x-8,spec.floorY-62,16,48,hue)
    rect(x-15,spec.floorY-49,30,15,hue);rect(x-4,spec.floorY-53,8,10,'#fff3bd')
    text(x,spec.floorY-76,v.deviceLabel,hue)
+   if v.deviceCue and v.deviceCue.side==i and v.deviceHold>0 then
+    rect(x-20,spec.floorY-99,40,4,'#4b4b61')
+    rect(x-20,spec.floorY-99,40*v.deviceHold/v.deviceTotal,4,'#fff3bd')
+   end
   end
   if c then
    for _,warn in ipairs(warnings(c)) do local b=warn.shape

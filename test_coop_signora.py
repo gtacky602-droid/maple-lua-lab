@@ -74,6 +74,8 @@ def environment_test(lua,core):
     assert views[2].deviceRelease is None and views[3].deviceRelease is None
     assert views[2].temperature>73 and views[3].temperature>0
     assert all(v.devices[1]==spec.temperature.recharge for v in views)
+    assert [(v.deviceCue.side,v.deviceCue.inRange) for v in views]==[(2,False),(2,False),(2,False),(2,True)]
+    assert all(v.deviceHold==0 for v in views)
     assert list(event(host,'WS16:release'))==[1] and not event(guest,'WS16:release')
     assert len(slot.floors)==1 and slot.floors[1].x==620
     members[0].input=members[1].input=None
@@ -274,7 +276,7 @@ if __name__=='__main__':
                        deviceCooldownGuaranteesOneReady=True,sharedFloorsClearLocally=True,
                        separateMothsAndInputClocks=True,onePickupPerMoth=True,manualFreshAttackOnly=True,
                        independentCocoonHitInterval=True,oneTransformationAndIndividualRewards=True,
-                       personalHudResults=True)}
+                       personalHudResults=True,localDevicePrompts=True)}
     with lab() as url:
         result['http']=check_http(url)
     (ROOT/'evidence/coop-signora-lua-http.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')

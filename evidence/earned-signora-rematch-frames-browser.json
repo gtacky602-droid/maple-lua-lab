@@ -1,0 +1,700 @@
+{
+  "signora-release": {
+    "image": "signora-release.png",
+    "frames": {
+      "氷形態": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9510,
+            "rgbAbsoluteError": 935085,
+            "unpackedCommands": 3073,
+            "packedCommands": 847,
+            "unpackedBytes": 380290,
+            "packedBytes": 153509,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "a2f64c6bba91e29ff35497919a21474f7a1e4f01d86395030b6605eefbecd0c8"
+          },
+          "h32c16": {
+            "differentPixels": 9521,
+            "rgbAbsoluteError": 1073213,
+            "unpackedCommands": 1373,
+            "packedCommands": 383,
+            "unpackedBytes": 167556,
+            "packedBytes": 67498,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "ba27631c90da6488ee8ac560d9f536fad16d5e2ef481b7772afbe2b2aad1005b"
+          }
+        }
+      },
+      "氷の繭": {
+        "tick": 1743,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5249,
+            "rgbAbsoluteError": 545521,
+            "unpackedCommands": 1853,
+            "packedCommands": 856,
+            "unpackedBytes": 227660,
+            "packedBytes": 126729,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "484fd3064da3066fa2f4e8ed3b144f8d58c56191fbc3cc4ec0d0ee2377e02ce7"
+          },
+          "h32c16": {
+            "differentPixels": 5330,
+            "rgbAbsoluteError": 634529,
+            "unpackedCommands": 839,
+            "packedCommands": 392,
+            "unpackedBytes": 101154,
+            "packedBytes": 56102,
+            "combatCanvasMs": 0.7000000178813934,
+            "canvasSha256": "1a2a30cf3a7de89ca50b31c3a6af62fc287c9c25404e1ec243c02170320bda62"
+          }
+        }
+      },
+      "紅蓮蛾の一撃 1": {
+        "tick": 1883,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6430,
+            "rgbAbsoluteError": 558042,
+            "unpackedCommands": 2256,
+            "packedCommands": 857,
+            "unpackedBytes": 278510,
+            "packedBytes": 135754,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "0bcdaaa48e0deb6b466f6df9cef4a6502d743eede6a76bfe1451010c5a03f54e"
+          },
+          "h32c16": {
+            "differentPixels": 6461,
+            "rgbAbsoluteError": 666252,
+            "unpackedCommands": 983,
+            "packedCommands": 393,
+            "unpackedBytes": 119335,
+            "packedBytes": 59459,
+            "combatCanvasMs": 0.9000000059604645,
+            "canvasSha256": "8a8b24de66ff353149aa46c4fcc2936296fc49725c37bc14045449fe5282ca4d"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った"
+      },
+      "紅蓮蛾の一撃 2": {
+        "tick": 1976,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4936,
+            "rgbAbsoluteError": 461118,
+            "unpackedCommands": 2176,
+            "packedCommands": 855,
+            "unpackedBytes": 266611,
+            "packedBytes": 132907,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "283f8db5236b22d50d46d73bc221ddcde3d6fdec5b979b646f7840d05883f538"
+          },
+          "h32c16": {
+            "differentPixels": 4949,
+            "rgbAbsoluteError": 550070,
+            "unpackedCommands": 953,
+            "packedCommands": 391,
+            "unpackedBytes": 114726,
+            "packedBytes": 58263,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "a78e8dbe50e495d259405c0f0dcd3c32ce492f3061933f15c19f58c624e531f6"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った"
+      },
+      "紅蓮蛾の一撃 3": {
+        "tick": 2069,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4896,
+            "rgbAbsoluteError": 451934,
+            "unpackedCommands": 2258,
+            "packedCommands": 859,
+            "unpackedBytes": 277154,
+            "packedBytes": 135337,
+            "combatCanvasMs": 1.7999999821186066,
+            "canvasSha256": "803972d28ea2d643a8236134b5667845f88692d8ac0b0ee5ec09d78f95873fee"
+          },
+          "h32c16": {
+            "differentPixels": 4911,
+            "rgbAbsoluteError": 551056,
+            "unpackedCommands": 985,
+            "packedCommands": 395,
+            "unpackedBytes": 119370,
+            "packedBytes": 59556,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "7c121c45749a84aab5b2201c2b13620aeccfd1f41e5172928b037795f4b94d9f"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った"
+      },
+      "紅蓮蛾の一撃 4": {
+        "tick": 2162,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4909,
+            "rgbAbsoluteError": 455517,
+            "unpackedCommands": 2178,
+            "packedCommands": 857,
+            "unpackedBytes": 267062,
+            "packedBytes": 133172,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "63298681ff8a192840b813ae8a7e06d6053936fdc5998b2e13401184f86f236c"
+          },
+          "h32c16": {
+            "differentPixels": 4918,
+            "rgbAbsoluteError": 548758,
+            "unpackedCommands": 955,
+            "packedCommands": 393,
+            "unpackedBytes": 115193,
+            "packedBytes": 58515,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "053c9528842c8fa0c44807e5bf39a6dad91ccee41e0ff840fd9c3193f5f1284b"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+      },
+      "焔蝶の羽化": {
+        "tick": 2162,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4909,
+            "rgbAbsoluteError": 455517,
+            "unpackedCommands": 2178,
+            "packedCommands": 857,
+            "unpackedBytes": 267062,
+            "packedBytes": 133172,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "63298681ff8a192840b813ae8a7e06d6053936fdc5998b2e13401184f86f236c"
+          },
+          "h32c16": {
+            "differentPixels": 4918,
+            "rgbAbsoluteError": 548758,
+            "unpackedCommands": 955,
+            "packedCommands": 393,
+            "unpackedBytes": 115193,
+            "packedBytes": 58515,
+            "combatCanvasMs": 0.699999988079071,
+            "canvasSha256": "053c9528842c8fa0c44807e5bf39a6dad91ccee41e0ff840fd9c3193f5f1284b"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+      },
+      "炎形態": {
+        "tick": 2341,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9326,
+            "rgbAbsoluteError": 742269,
+            "unpackedCommands": 4863,
+            "packedCommands": 849,
+            "unpackedBytes": 595980,
+            "packedBytes": 192693,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "70a9f9a06db655869b2668fab6aad5877ef27c4db587c0b2c0ab939c970eeab9"
+          },
+          "h32c16": {
+            "differentPixels": 9319,
+            "rgbAbsoluteError": 890408,
+            "unpackedCommands": 2164,
+            "packedCommands": 385,
+            "unpackedBytes": 260734,
+            "packedBytes": 84529,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "0beb034b9cff3658bad9b4946aaf96dc8f16741a2552a1b4cac772958e3bd1bd"
+          }
+        }
+      },
+      "焼尽の雨で火床が残る": {
+        "tick": 2828,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 11120,
+            "rgbAbsoluteError": 903123,
+            "unpackedCommands": 4869,
+            "packedCommands": 855,
+            "unpackedBytes": 598161,
+            "packedBytes": 193913,
+            "combatCanvasMs": 3.5,
+            "canvasSha256": "964fa61178b53bab2b6de8151768048aa1956857c8d072f3494c48558e18c772"
+          },
+          "h32c16": {
+            "differentPixels": 11189,
+            "rgbAbsoluteError": 1069452,
+            "unpackedCommands": 2170,
+            "packedCommands": 391,
+            "unpackedBytes": 261066,
+            "packedBytes": 85180,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "88571ef25fb772c2939ea7853aa7f38e3e3c91bfe198e5c0382edc201cd83c0d"
+          }
+        }
+      },
+      "霜眼の長押し50%": {
+        "tick": 2914,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10003,
+            "rgbAbsoluteError": 774459,
+            "unpackedCommands": 4869,
+            "packedCommands": 855,
+            "unpackedBytes": 600553,
+            "packedBytes": 193828,
+            "combatCanvasMs": 3.2000000178813934,
+            "canvasSha256": "7367d19e870de292af19fae96377a8589f6152ebb6e4a4b713f01a1565b2176d"
+          },
+          "h32c16": {
+            "differentPixels": 10073,
+            "rgbAbsoluteError": 909585,
+            "unpackedCommands": 2170,
+            "packedCommands": 391,
+            "unpackedBytes": 265722,
+            "packedBytes": 85298,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "1498a16564a020bf2cd2a31ad3e58b7869984edb0d0cfdb7c489c3cf880300cf"
+          }
+        }
+      },
+      "左の霜眼を長押しして放出": {
+        "tick": 2929,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10103,
+            "rgbAbsoluteError": 777317,
+            "unpackedCommands": 4865,
+            "packedCommands": 851,
+            "unpackedBytes": 596791,
+            "packedBytes": 191959,
+            "combatCanvasMs": 3.2999999821186066,
+            "canvasSha256": "cbf4ff550900448b3bac2e7592a42680e98cb561ae8281307ea56d21766ff89a"
+          },
+          "h32c16": {
+            "differentPixels": 10172,
+            "rgbAbsoluteError": 917706,
+            "unpackedCommands": 2166,
+            "packedCommands": 387,
+            "unpackedBytes": 259481,
+            "packedBytes": 82367,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "21c9ee0b5701292a696f258a70eb98a875b953bffccbd86442e70ae2bdad3539"
+          }
+        },
+        "signoraText": "左の霜眼を放出 ｜ 近くの火床を1か所消した"
+      },
+      "装置前の火床と温度": {
+        "tick": 2942,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10132,
+            "rgbAbsoluteError": 777363,
+            "unpackedCommands": 4865,
+            "packedCommands": 851,
+            "unpackedBytes": 597541,
+            "packedBytes": 193964,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "5946dadebefd24996b54f0d25fe9c2f2105a218c3d691a880090657d99c4128d"
+          },
+          "h32c16": {
+            "differentPixels": 10195,
+            "rgbAbsoluteError": 925946,
+            "unpackedCommands": 2166,
+            "packedCommands": 387,
+            "unpackedBytes": 263660,
+            "packedBytes": 85079,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "5f67c35e5b91d55f858b4526d9b94449a582bdcc9f20d0b4e9def15870c7fa21"
+          }
+        },
+        "signoraText": "左の霜眼を放出 ｜ 近くの火床を1か所消した"
+      },
+      "灰燼の竜巻": {
+        "tick": 3487,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 3915,
+            "rgbAbsoluteError": 396711,
+            "unpackedCommands": 1860,
+            "packedCommands": 857,
+            "unpackedBytes": 228386,
+            "packedBytes": 126748,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "f3c9e022f93e96dd835de3bd2cafdb10fb4e1bc1eb9755d8529e4e3b62416121"
+          },
+          "h32c16": {
+            "differentPixels": 3948,
+            "rgbAbsoluteError": 452111,
+            "unpackedCommands": 837,
+            "packedCommands": 393,
+            "unpackedBytes": 100547,
+            "packedBytes": 56145,
+            "combatCanvasMs": 0.5999999940395355,
+            "canvasSha256": "90caaac25edb9cac7fb6cbd7902220df220c9658c1d5f234e044126567559ddc"
+          }
+        }
+      },
+      "竜巻後の反撃開始": {
+        "tick": 3775,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10799,
+            "rgbAbsoluteError": 856656,
+            "unpackedCommands": 5259,
+            "packedCommands": 849,
+            "unpackedBytes": 643601,
+            "packedBytes": 200020,
+            "combatCanvasMs": 3.699999988079071,
+            "canvasSha256": "31df1b4931fda6f056662bd7535a32c5cdcdf6aa15d843a27330cd780833f546"
+          },
+          "h32c16": {
+            "differentPixels": 10838,
+            "rgbAbsoluteError": 1022281,
+            "unpackedCommands": 2310,
+            "packedCommands": 385,
+            "unpackedBytes": 280641,
+            "packedBytes": 87093,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "059e8f7d708c4feee33991eb468a49256eb43f255cfd1d9f063e34a133c528b9"
+          }
+        }
+      }
+    }
+  },
+  "signora-passive": {
+    "image": "signora-passive.png",
+    "frames": {
+      "氷形態": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9509,
+            "rgbAbsoluteError": 943360,
+            "unpackedCommands": 3073,
+            "packedCommands": 847,
+            "unpackedBytes": 379042,
+            "packedBytes": 152934,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "fd1a1247f78b633de7a969737334a4b622e05b772ffab4d2e55b9653f0fc344a"
+          },
+          "h32c16": {
+            "differentPixels": 9535,
+            "rgbAbsoluteError": 1075923,
+            "unpackedCommands": 1373,
+            "packedCommands": 383,
+            "unpackedBytes": 165930,
+            "packedBytes": 66805,
+            "combatCanvasMs": 0.699999988079071,
+            "canvasSha256": "3afa1e02142228222dec07db7c5368702f57584e675f4529d15b2e7faedef8e7"
+          }
+        }
+      },
+      "氷の繭": {
+        "tick": 1699,
+        "originalCombatCanvasMs": 0.10000002384185791,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5243,
+            "rgbAbsoluteError": 528544,
+            "unpackedCommands": 1852,
+            "packedCommands": 855,
+            "unpackedBytes": 226838,
+            "packedBytes": 126330,
+            "combatCanvasMs": 1,
+            "canvasSha256": "ab12ec32d248061e42792e69ea12703c90bc800e77b6f94ce2fca7879b947e17"
+          },
+          "h32c16": {
+            "differentPixels": 5318,
+            "rgbAbsoluteError": 624141,
+            "unpackedCommands": 838,
+            "packedCommands": 391,
+            "unpackedBytes": 101141,
+            "packedBytes": 56047,
+            "combatCanvasMs": 0.5,
+            "canvasSha256": "e25e73079f3feed77688b79c1e2a6643da9dea961cd678d22b83da0d68ccc419"
+          }
+        }
+      },
+      "紅蓮蛾の一撃 1": {
+        "tick": 1839,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6427,
+            "rgbAbsoluteError": 558525,
+            "unpackedCommands": 2256,
+            "packedCommands": 857,
+            "unpackedBytes": 277545,
+            "packedBytes": 135414,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "8d3fd3a64793ef68c4aad2c0cf3c4a041bcfbbcefc2a82581f9fbb138246d3ce"
+          },
+          "h32c16": {
+            "differentPixels": 6450,
+            "rgbAbsoluteError": 664432,
+            "unpackedCommands": 983,
+            "packedCommands": 393,
+            "unpackedBytes": 119220,
+            "packedBytes": 59418,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "6b7d1f29e5c3c0431fe8d99c6973bd818584a03619fd8cf1a5c2277c6e9ce494"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った"
+      },
+      "紅蓮蛾の一撃 2": {
+        "tick": 1932,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4912,
+            "rgbAbsoluteError": 449374,
+            "unpackedCommands": 2176,
+            "packedCommands": 855,
+            "unpackedBytes": 267827,
+            "packedBytes": 133363,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "9b52743d655cd8678aa0c3d986db08eb8e5615ebdda4574c62b863e8629ef011"
+          },
+          "h32c16": {
+            "differentPixels": 4928,
+            "rgbAbsoluteError": 549079,
+            "unpackedCommands": 953,
+            "packedCommands": 391,
+            "unpackedBytes": 115172,
+            "packedBytes": 58407,
+            "combatCanvasMs": 0.7999999821186066,
+            "canvasSha256": "e599e7095fc622f3a16cde368f662a9fd520391fbf7f73cf951c13af99c928c4"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った"
+      },
+      "紅蓮蛾の一撃 3": {
+        "tick": 2025,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4910,
+            "rgbAbsoluteError": 465688,
+            "unpackedCommands": 2258,
+            "packedCommands": 859,
+            "unpackedBytes": 277418,
+            "packedBytes": 135427,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "100dcaf5e7a568cc51ba4f48e2b6009337f38b8650a1a35884a8264545979b66"
+          },
+          "h32c16": {
+            "differentPixels": 4944,
+            "rgbAbsoluteError": 540923,
+            "unpackedCommands": 985,
+            "packedCommands": 395,
+            "unpackedBytes": 118998,
+            "packedBytes": 59444,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "50ac50cf8ddc901aab4f40778e21a7356b3474a85f124f0590130826c561cb98"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った"
+      },
+      "紅蓮蛾の一撃 4": {
+        "tick": 2118,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4918,
+            "rgbAbsoluteError": 448375,
+            "unpackedCommands": 2178,
+            "packedCommands": 857,
+            "unpackedBytes": 266883,
+            "packedBytes": 133026,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "bee0c16c3803e727e035a9c3738a5dd822336b1c6834e211a412c9db8bc654b4"
+          },
+          "h32c16": {
+            "differentPixels": 4933,
+            "rgbAbsoluteError": 551979,
+            "unpackedCommands": 955,
+            "packedCommands": 393,
+            "unpackedBytes": 113044,
+            "packedBytes": 57712,
+            "combatCanvasMs": 0.699999988079071,
+            "canvasSha256": "420a5f91ca7ffc70e283ddb3a819195cccd393098d20327503239097bdf98ccf"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+      },
+      "焔蝶の羽化": {
+        "tick": 2118,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 4918,
+            "rgbAbsoluteError": 448375,
+            "unpackedCommands": 2178,
+            "packedCommands": 857,
+            "unpackedBytes": 266883,
+            "packedBytes": 133026,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "bee0c16c3803e727e035a9c3738a5dd822336b1c6834e211a412c9db8bc654b4"
+          },
+          "h32c16": {
+            "differentPixels": 4933,
+            "rgbAbsoluteError": 551979,
+            "unpackedCommands": 955,
+            "packedCommands": 393,
+            "unpackedBytes": 113044,
+            "packedBytes": 57712,
+            "combatCanvasMs": 0.7000000178813934,
+            "canvasSha256": "420a5f91ca7ffc70e283ddb3a819195cccd393098d20327503239097bdf98ccf"
+          }
+        },
+        "signoraText": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+      },
+      "炎形態": {
+        "tick": 2297,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9299,
+            "rgbAbsoluteError": 735365,
+            "unpackedCommands": 4863,
+            "packedCommands": 849,
+            "unpackedBytes": 599558,
+            "packedBytes": 193142,
+            "combatCanvasMs": 3.399999976158142,
+            "canvasSha256": "e57af5c76b33ef18087f39a639cbd6f289cd5b19d86edb708d9f45bab1902bf4"
+          },
+          "h32c16": {
+            "differentPixels": 9291,
+            "rgbAbsoluteError": 889279,
+            "unpackedCommands": 2164,
+            "packedCommands": 385,
+            "unpackedBytes": 264921,
+            "packedBytes": 84621,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "083dfe106ce3884e51aad5fdab743cc60c6806493b9c8ce259722677f2675b0d"
+          }
+        }
+      },
+      "焼尽の雨で火床が残る": {
+        "tick": 2784,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 11101,
+            "rgbAbsoluteError": 911106,
+            "unpackedCommands": 4869,
+            "packedCommands": 855,
+            "unpackedBytes": 593191,
+            "packedBytes": 193465,
+            "combatCanvasMs": 3.2000000178813934,
+            "canvasSha256": "82b45c1b811f3c5d5adbc967e34f4774cde28a26d9571306001d1df3e36cee60"
+          },
+          "h32c16": {
+            "differentPixels": 11190,
+            "rgbAbsoluteError": 1066561,
+            "unpackedCommands": 2170,
+            "packedCommands": 391,
+            "unpackedBytes": 254141,
+            "packedBytes": 85089,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "fbea19c271b052ba385648d4b7093e4ae48f7b5a7b6aa55de02253b6343a8313"
+          }
+        }
+      },
+      "装置前の火床と温度": {
+        "tick": 2898,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10037,
+            "rgbAbsoluteError": 776580,
+            "unpackedCommands": 4867,
+            "packedCommands": 853,
+            "unpackedBytes": 596532,
+            "packedBytes": 193586,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "0c7f1329143460240cb026d9e98ce548b13a4dfc7991b59d540a92aa3c49af39"
+          },
+          "h32c16": {
+            "differentPixels": 10100,
+            "rgbAbsoluteError": 911930,
+            "unpackedCommands": 2168,
+            "packedCommands": 389,
+            "unpackedBytes": 263437,
+            "packedBytes": 85069,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "2f1b16b65ec2753f323b2028c852fd2553a1900fcfaff63f887bb71cb324ecac"
+          }
+        }
+      },
+      "灰燼の竜巻": {
+        "tick": 3443,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 3916,
+            "rgbAbsoluteError": 387703,
+            "unpackedCommands": 1860,
+            "packedCommands": 857,
+            "unpackedBytes": 229473,
+            "packedBytes": 127204,
+            "combatCanvasMs": 1.300000011920929,
+            "canvasSha256": "7b120b59a1bbf495b0c293e750a2ac4faab8b2359758864df4f8da1a7435afdc"
+          },
+          "h32c16": {
+            "differentPixels": 3928,
+            "rgbAbsoluteError": 447339,
+            "unpackedCommands": 837,
+            "packedCommands": 393,
+            "unpackedBytes": 100904,
+            "packedBytes": 56289,
+            "combatCanvasMs": 0.6000000238418579,
+            "canvasSha256": "29ae9ddb25bc6a2df5378947120d567409c0f78113cdd6298262187fa89641d3"
+          }
+        }
+      },
+      "竜巻後の反撃開始": {
+        "tick": 3731,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10279,
+            "rgbAbsoluteError": 752965,
+            "unpackedCommands": 4429,
+            "packedCommands": 19,
+            "unpackedBytes": 542483,
+            "packedBytes": 99334,
+            "combatCanvasMs": 2.7000000178813934,
+            "canvasSha256": "12eb1ee95339cdc0cc4fe4a251d300e6d57ea72d7999edca17c639cb73db2a8b"
+          },
+          "h32c16": {
+            "differentPixels": 10316,
+            "rgbAbsoluteError": 888969,
+            "unpackedCommands": 1944,
+            "packedCommands": 19,
+            "unpackedBytes": 234055,
+            "packedBytes": 43575,
+            "combatCanvasMs": 1.2000000178813934,
+            "canvasSha256": "f2dc99c161b138cc8ba24bf9b82218f0b6dccff6b0b20d92d53e3f320473f4b6"
+          }
+        }
+      }
+    }
+  }
+}

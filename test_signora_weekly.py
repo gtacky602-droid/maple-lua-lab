@@ -118,12 +118,21 @@ for row in manifest['entries']:
 s, w, spec = arena()
 a, ally = s.actors[1], s.actors[2]
 assert has_art(s,'idle-')
+assert native(core.frame(s).weeklyBoss.deviceCue) == {'side':1,'inRange':True,'needsGround':False}
+place(a,70,368)
+assert native(core.frame(s).weeklyBoss.deviceCue) == {'side':1,'inRange':False,'needsGround':True}
+place(a,70)
 w.climates[s].temperature = 95
 ticks(core,s,29,True)
 assert w.climates[s].hold == 29 and w.climates[s].temperature < 95 and w.devices[1] == 0
+holding_frame=core.frame(s)
+assert any(d.kind=='rect' and d.color=='#fff3bd' and d.h==4 and abs(d.w-40*29/30)<1e-9
+           for d in holding_frame.draws.values())
 ticks(core,s,1,True)
 assert w.climates[s].hold == 0 and w.climates[s].temperature == 0 and w.devices[1] > w.clock
+assert native(core.frame(s).weeklyBoss.deviceCue) == {'side':2,'inRange':False,'needsGround':False}
 place(a,890)
+assert core.frame(s).weeklyBoss.deviceCue.inRange
 ticks(core,s,30,True)
 assert w.devices[1] <= w.clock < w.devices[2] and len(events(s,'WS16:release')) == 2
 w.cast, w.rest = None, 1000
