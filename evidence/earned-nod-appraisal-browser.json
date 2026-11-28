@@ -1,0 +1,34 @@
+{
+  "scenery": {
+    "key": "nodAppraisal",
+    "file": "nod-appraisal-workshop-background-v1.png",
+    "state": "ready"
+  },
+  "upperPartJump": true,
+  "partialMeasurementReload": true,
+  "wrongTrayRetry": true,
+  "readingsAfterReload": {
+    "measured": 3,
+    "sorted": 1,
+    "mobileWidth": 390
+  },
+  "lampDirection": true,
+  "displayAfterReload": true,
+  "yardRevisit": true,
+  "commands": {
+    "png": 14,
+    "standard": 7253,
+    "light": 1829
+  },
+  "reward": [
+    4382501,
+    4100,
+    6
+  ],
+  "sourceSha256": "d3d8b18670496d520abae4a537198b717d5098e2b464e12c5b459bb5fb012258",
+  "startLevel": 128,
+  "reportedLevel": 129,
+  "priorCompleted": 90,
+  "inventoryKept": 80,
+  "errors": []
+}

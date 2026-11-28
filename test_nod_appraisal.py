@@ -79,6 +79,7 @@ interact(s,430)
 gate(s,1575,yard)
 assert len(s.enemies)==3
 assert frame(s).storyAppraisal.collected==0
+assert frame(s).storyAppraisal.readings is None
 
 # The upper item can be reached with a regular jump and collected first.
 move(s,1215)
@@ -103,6 +104,9 @@ interact(s,430)
 assert progress(s).count==2 and frame(s).storyAppraisal.measured==1
 s=restore(s)
 assert s.story.node==workshop and frame(s).storyAppraisal.measured==1
+readings=native(frame(s).storyAppraisal.readings)
+gear=routes[quest]["appraisal"]["items"][0]
+assert readings==[dict(name=gear["name"],reading=gear["reading"],sorted=False)]
 interact(s,430)
 assert "荷重には弱い" in frame(s).storyAppraisal.message
 interact(s,430)
@@ -119,9 +123,11 @@ reject(s,"sorted",3)
 reject(s,"measured",2)
 s=restore(s)
 assert frame(s).storyAppraisal.item=="plate"
+assert [r.sorted for r in frame(s).storyAppraisal.readings.values()]==[True,False,False]
 interact(s,1224)
 interact(s,991)
 assert progress(s).count==4 and frame(s).storyAppraisal.sorted==3 and not frame(s).storyAppraisal.lamp
+assert "右端で月形板の小灯り" in frame(s).storyAppraisal.message
 core.action(s,"story_report:"+quest)
 assert progress(s).status=="active"
 interact(s,1432)
@@ -142,6 +148,7 @@ assert len(s.enemies)==3 and not any(d.source=="nod-appraisal-parts-source-v1.pn
 
 proof=dict(prerequisite=True,partsAnyOrder=True,upperPartNormalJump=True,partialCollectionSaved=True,
            measurementsSaved=True,thinPlateReading=True,retryWithoutLoss=True,sortingSaved=True,
+           onlyMeasuredReadingsShown=True,sortedItemsMarkedAfterReload=True,lampDirectionAfterSorting=True,
            inconsistentSavesRejected=True,lamplitAfterRevisit=True,reportOnce=True,yardRemainsPlayable=True,reward=reward)
 (ROOT/"evidence/nod-appraisal-lua.json").write_text(json.dumps(proof,indent=2)+"\n",encoding="utf8")
 (ROOT/"work/nod-appraisal-fixture.json").write_text(json.dumps(fixture),encoding="utf8")

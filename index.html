@@ -204,6 +204,8 @@
 #storyArtifactChoices{background:#183935;border:1px solid #668577;border-radius:8px;padding:10px 14px;color:#e3f0e9}
 #storyArtifactChoices ul{margin:6px 0;padding-inline-start:22px}
 #storyArtifactChoices p{margin:6px 0}
+#storyAppraisalLog{margin:0;padding:8px 18px 10px;background:#173a3b;color:#e3f0e9}
+#storyAppraisalLog ul{margin:6px 0 0;padding-inline-start:20px;display:grid;gap:5px;font-size:12px;line-height:1.6}
 [data-spring-touch]{display:none}
 @media(max-width:850px){[data-spring-touch]{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
  [data-spring-touch] button{touch-action:none}}
@@ -540,6 +542,10 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
  <section id="ayakaRevisitMap" hidden><h3>綾華ともう一度歩く</h3><p>思い出の場所を選ぶと、地図に印が付きます。綾華と一緒に立ち寄ってみましょう。</p><div></div></section>
 </details>
 <p id="storyForest" hidden style="margin:0;padding:10px 18px;background:#173a3b"></p>
+<details id="storyAppraisalLog" hidden>
+ <summary>判定機の測定記録</summary>
+ <ul id="storyAppraisalReadings"></ul>
+</details>
 <div id="trackedQuest" hidden style="padding:10px 18px;background:#173a3b;overflow-wrap:anywhere"><span id="trackedQuestText"></span> <strong id="trackedHuntHint" hidden></strong> <label id="trackedWorksiteLabel" hidden>次に向かう場所 <select id="trackedWorksite"></select></label> <button id="trackedQuestMap" hidden>目的地を地図で見る</button> <a id="trackedRouteGate" target="_blank" rel="noopener" hidden>次の門の位置を見る</a> <a id="trackedSurveyPoint" target="_blank" rel="noopener" hidden>調査位置を見る</a> <button id="clearTrackedQuest">追跡を解除</button></div>
 <div class="bottom"><div class="gauge">光界・共通ゲージ <span id="gaugeText">60 / 100</span><div class="bar"><i id="gaugeBar"></i></div><small>本編の光界解放は七元素とLv160</small></div><div class="skills"><button class="skill" data-action="normal"><kbd>J</kbd><span>通常攻撃</span><em id="cd-normal"></em></button><button class="skill" data-action="skill1"><kbd>K</kbd><span id="name1">旋風斬り</span><em id="cd-skill1"></em></button><button class="skill" data-action="skill2"><kbd>L</kbd><span id="name2">竜巻</span><em id="cd-skill2"></em></button><button class="skill" data-action="light"><kbd>Q</kbd><span>光界解放</span><em id="cd-light"></em></button><button class="skill" data-action="swap"><kbd>E</kbd><span>操作交代</span></button><button class="skill" data-action="dodge"><kbd>SHIFT</kbd><span>回避</span></button></div>
 <div id="snowMatchControls" hidden><button id="snowMatchThrow" class="skill" data-action="normal"><kbd>J</kbd><span>雪玉を投げる</span></button> <button class="skill" data-action="jump"><kbd>Space</kbd><span>ジャンプ</span></button></div>

@@ -136,17 +136,26 @@ return function(C,canInspect)
   if s.story.node==cfg.yard and stage=='gather' then renderYard(s,f,layer,cfg,log,mode,profile) end
   local current=stage=='sort' and cfg.items[log.sorted+1] or nil
   local measured=log.measured>0 and cfg.items[log.measured] or nil
+  local readings
   local message
   if s.story.node==cfg.yard and stage=='gather' then
    message='拾った部品 '..collected..' / '..n
   elseif s.story.node==q.hub then
+   if log.measured>0 then
+    readings={}
+    for i=1,log.measured do
+     local item=cfg.items[i]
+     readings[i]={name=item.name,reading=item.reading,sorted=i<=log.sorted}
+    end
+   end
    if current then message=current.name..' ｜ '..current.reading
    elseif stage=='measure' then message='測定 '..log.measured..' / '..n..(measured and ' ｜ '..measured.reading or '')
    elseif state.count>=q.goal then message='月形板の小灯り ｜ 持ち主が気に入っています'
+   elseif state.count==q.goal-1 then message='仕分け完了。右端で月形板の小灯りをともす'
    elseif stage=='gather' and collected<n then message='右の回収場で部品を拾う '..collected..' / '..n end
   end
   f.storyAppraisal={stage=stage,collected=collected,measured=log.measured,sorted=log.sorted,
-    item=current and current.id,lamp=state.count>=q.goal,message=message}
+    item=current and current.id,lamp=state.count>=q.goal,message=message,readings=readings}
  end
 
  return appraisal
