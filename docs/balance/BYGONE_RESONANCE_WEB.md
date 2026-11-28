@@ -20,6 +20,8 @@
 
 ## 検証
 
+新規冒険から育成したLv200セーブでも三依頼を順に報告し、再読み込み後に石の橋、潮鐘の門像の勝利記録、音の絵本の三頁を確認した。戦闘の予告を観察する間は同行者の攻撃を控えた。Lv92の継続セーブでは水路の乗り継ぎ場にLv148が必要と表示された。 [獲得済みセーブのLua再走](../../evidence/earned-bygone-resonance.json) · [Chromeの再走](../../evidence/earned-bygone-resonance-browser.json)
+
 Luaで左右の攻撃の時間差、狙った位置に残る攻撃範囲、反撃時間を確認した。Chromeでは共鳴石の順序を解いて橋を渡り、2種類の攻撃と反撃時間を試した。討伐後は上段から最後の記録を持ち帰り、報告後のセーブから絵本の3頁を開いて音を再生した。 [Luaの結果](../../evidence/bygone-resonance-lua.json) · [Chromeの結果](../../evidence/bygone-resonance-browser.json)
 
 門像単体の矩形は標準4,665件から軽量16色で1,094件になった。攻撃を予告した同じフレームでは、記録室全体のLua描画指示が標準8,918件から2,170件になった。 [PNG](../../evidence/bygone-resonance-boss-png.png) · [軽量16色](../../evidence/bygone-resonance-boss-light.png) · [3D参照と素材の内訳](../../evidence/bellgate-art.json)

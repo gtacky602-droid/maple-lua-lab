@@ -1,0 +1,60 @@
+{
+  "threeQuests": true,
+  "waterway": true,
+  "reversedSilent": true,
+  "repairedTones": [
+    330,
+    494,
+    392,
+    523,
+    587
+  ],
+  "wrongOrderResets": true,
+  "mutedOrder": true,
+  "bridgeAfterReload": true,
+  "firstReport": [
+    2297237,
+    660060,
+    7
+  ],
+  "bookAfterReload": true,
+  "bookTones": [
+    330,
+    494,
+    294,
+    392,
+    523,
+    587
+  ],
+  "background": {
+    "key": "bygoneBellArchive",
+    "file": "bygone-resonance-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 24,
+    "standard": 8121,
+    "light": 1991
+  },
+  "battle": {
+    "moves": [
+      "BG02",
+      "BG01"
+    ],
+    "recovered": [
+      "BG02",
+      "BG01"
+    ],
+    "alive": true,
+    "returns": 0
+  },
+  "bossClearSaved": true,
+  "errors": [],
+  "source": "work/earned-bygone-current/ruins-ready.json",
+  "level": 200,
+  "reported": [
+    "bygone-stone-rubbings",
+    "bygone-lit-passage",
+    "bygone-sound-book"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "legacyLv80Access": true,
+  "twoWayWaterway": true,
+  "pauseHoldsCrossing": true,
+  "reversedStoneSilent": true,
+  "turnedStoneNotes": [
+    392,
+    523,
+    587
+  ],
+  "wrongOrderClearsOnlyLights": true,
+  "bridgePersistsAfterLoad": true,
+  "recordOnUpperShelf": true,
+  "battle": {
+    "moves": [
+      "BG01",
+      "BG02"
+    ],
+    "warningAt": 68,
+    "jumpAvoidance": true,
+    "targetedAreaStaysFixed": true,
+    "singleHit": 24,
+    "recoveryFactor": 1.35,
+    "warningZones": [
+      {
+        "top": 428,
+        "right": 851,
+        "active": false,
+        "first": 68,
+        "left": 575
+      },
+      {
+        "top": 428,
+        "right": 1299,
+        "active": false,
+        "first": 110,
+        "left": 1023
+      }
+    ]
+  },
+  "bossClearSaved": true,
+  "bookPages": [
+    [
+      "≈",
+      [
+        330,
+        494
+      ]
+    ],
+    [
+      "◇",
+      [
+        294
+      ]
+    ],
+    [
+      "✧",
+      [
+        392,
+        523,
+        587
+      ]
+    ],
+    [
+      "≈",
+      [
+        330,
+        494
+      ]
+    ]
+  ],
+  "firstReport": [
+    2297237,
+    660060,
+    7
+  ],
+  "oneTimeReport": true,
+  "level": 200,
+  "source": "work/earned-bygone-current/ruins-ready.json",
+  "reported": [
+    "bygone-stone-rubbings",
+    "bygone-lit-passage",
+    "bygone-sound-book"
+  ]
+}

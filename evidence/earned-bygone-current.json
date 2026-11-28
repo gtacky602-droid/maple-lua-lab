@@ -1,0 +1,68 @@
+{
+  "surveys": {
+    "sourceSha256": "cd9b5bd4200ee5ce2b4eacdb7b42b914fb2c114eac8de76207f728429e491e2b",
+    "level": 92,
+    "entry": [
+      {
+        "id": "fontaine-field",
+        "name": "フォンテーヌ・水路沿い",
+        "region": "region-05",
+        "mode": "walk",
+        "label": "徒歩",
+        "from": "fontaine-hub",
+        "level": 80,
+        "approach": "現在地から右へ",
+        "previewX": 1380
+      },
+      {
+        "id": "bygone-camp",
+        "name": "往日の海・入口拠点",
+        "region": "branch-05",
+        "mode": "walk",
+        "level": 80,
+        "label": "徒歩",
+        "from": "fontaine-field",
+        "previewX": 720
+      }
+    ],
+    "depthGates": [
+      {
+        "origin": "bygone-wp-68604",
+        "target": "bygone-wp-68605",
+        "direction": "up",
+        "gateY": 245,
+        "hint": "浅い層の門（今の位置から浮上）・東海の石橋へ続く上の門"
+      },
+      {
+        "origin": "bygone-wp-68605",
+        "target": "bygone-wp-68604",
+        "direction": "down",
+        "gateY": 390,
+        "hint": "深い層の門（今の位置から潜る）・西海の峡谷へ戻る下の門"
+      }
+    ],
+    "reports": [
+      {
+        "quest": "bygone-survey",
+        "xp": 3500,
+        "mora": 450
+      },
+      {
+        "quest": "fon-mapped-bygone-current",
+        "xp": 168000,
+        "mora": 13900
+      }
+    ],
+    "restoredWarp": true,
+    "highLevelGate": {
+      "node": "bygone-camp",
+      "target": "bygone-waterway-pier",
+      "reason": "必要レベル 148"
+    }
+  },
+  "ruinsStart": {
+    "sourceSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+    "level": 200,
+    "arrivedFrom": "fontaine-hub"
+  }
+}

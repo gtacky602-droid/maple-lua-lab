@@ -1,4 +1,5 @@
 import json
+import sys
 
 from experience import LEVELS
 from runtime import ROOT, native, runtime
@@ -13,6 +14,9 @@ camp,pier,chamber,hall,gallery,archive=('bygone-camp','bygone-waterway-pier','by
 first,second,third='bygone-stone-rubbings','bygone-lit-passage','bygone-sound-book'
 boss='original-bellgate'
 advance=lua.eval('function(C,s,n) for _=1,n do C.step(s,1/60,{}) end end')
+earned='--earned' in sys.argv
+earned_dir=ROOT/'work/earned-bygone-current'
+earned_seed=earned_dir/'ruins-ready.json'
 
 
 def session(level):
@@ -68,7 +72,13 @@ def report(s,q,expected):
 low=session(80)
 gate(low,831,pier,opened=False)
 gate(low,1380,'bygone-depth')
-s=session(160)
+if earned:
+    record=validate_save(json.loads(earned_seed.read_bytes()))
+    s=core.restore(lua.table_from(record,recursive=True),12)
+    assert s.progression.level==200 and s.story.node==camp
+    assert all(s.story.quests[q] is None for q in (first,second,third))
+else:
+    s=session(160)
 fixture=checkpoint(s)
 gate(s,1152,hall,opened=False)
 core.action(s,'story_accept:'+first)
@@ -163,6 +173,8 @@ for index in (1,2,3,1):
     assert f.storyResonance.page==index
     pages.append((f.storyResonance.pattern,list(f.storyResonanceCue.notes.values())))
 assert pages==[('≈',[330,494]),('◇',[294]),('✧',[392,523,587]),('≈',[330,494])]
+if earned:
+    (earned_dir/'ruins-complete.json').write_text(json.dumps(checkpoint(s),ensure_ascii=False)+'\n','utf8')
 
 
 def reenter_archive(state):
@@ -176,9 +188,15 @@ proof=dict(legacyLv80Access=True,twoWayWaterway=True,pauseHoldsCrossing=True,
     reversedStoneSilent=True,turnedStoneNotes=[392,523,587],wrongOrderClearsOnlyLights=True,
     bridgePersistsAfterLoad=True,recordOnUpperShelf=True,battle=battle,bossClearSaved=True,bookPages=pages,
     firstReport=[2297237,660060,7],oneTimeReport=True)
-(ROOT/'evidence/bygone-resonance-lua.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-work=ROOT/'work'
-work.mkdir(exist_ok=True)
-(work/'bygone-resonance-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
-(work/'coop-original-bellgate-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
+if earned:
+    proof.update(level=200, source='work/earned-bygone-current/ruins-ready.json',
+                 reported=[first,second,third])
+    report_path=ROOT/'evidence/earned-bygone-resonance.json'
+else:
+    report_path=ROOT/'evidence/bygone-resonance-lua.json'
+    work=ROOT/'work'
+    work.mkdir(exist_ok=True)
+    (work/'bygone-resonance-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+    (work/'coop-original-bellgate-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
+report_path.write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print(proof)
