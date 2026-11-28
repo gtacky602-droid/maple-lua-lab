@@ -14,12 +14,15 @@ HUB, ENTRY, ARENA = 'liyue-harbor', 'primo-approach', 'primo-field-vault'
 QUEST = 'primo-commission'
 SPEC = SPECS[BOSS]
 LEVEL = LEVELS[SPEC['level']-1]
-EXP = LEVEL['normal_enemy_base_exp'] * RUNTIME_EXP['roles']['field_boss']
+SHIELD_LEVEL = LEVELS[95]
+EXP = int(LEVEL['normal_enemy_base_exp'] * RUNTIME_EXP['roles']['field_boss']
+          * RUNTIME_EXP['gap']['player_higher_by_over_40'] + .5)
 HOME = SPEC['home']
 
 
 def prepare(lua, core, state, node, accepted):
-    core.grantExp(state, LEVEL['maple_reference_total_exp_to_reach'], 'quest')
+    core.grantExp(state, SHIELD_LEVEL['maple_reference_total_exp_to_reach'], 'quest')
+    core.enterStoryNode(state, 'fontaine-hub')
     core.enterStoryNode(state, HUB)
     if accepted:
         core.action(state, 'story_accept:'+QUEST)

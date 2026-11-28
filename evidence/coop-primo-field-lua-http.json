@@ -10,7 +10,7 @@
     "soloHitHistorySurvivesAdoption": true,
     "lethalShieldCounterClosesCast": true,
     "respawnElementAtGenerationTwo": "pyro",
-    "xpPerContributor": 8500,
+    "xpPerContributor": 255,
     "moraPerContributor": 165
   },
   "http": {

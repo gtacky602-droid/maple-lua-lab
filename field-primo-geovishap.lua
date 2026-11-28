@@ -1,5 +1,5 @@
 return function(C)
- local primo={}
+ local primo={packRectArt=true}
  local U=88
  local traits=C.primoTraits
  local palettes={}
@@ -116,6 +116,9 @@ return function(C)
   if not cast then return end
   if cast.guardTick then return '盾で受けた・隙＋1秒' end
   if cast.tick>=cast.move.recover then return '息継ぎ' end
+  if cast.move.pattern=='shower' and cast.tick<cast.move.active[1][1] then
+   return '原岩の噴出・盾で受けるか跳び越す'
+  end
   if cast.move.pattern=='claw' then
    return cast.tick<103 and '前爪二連・1/2' or '前爪二連・2/2'
   end
