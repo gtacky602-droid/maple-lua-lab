@@ -21,3 +21,13 @@
 - 最初の予告が出た同じLuaフレームで、標準矩形から軽量16色に切り替えると、赤璋巡岳府君は12,146→3,568件、シネアスは6,365→1,777件。 [標準・軽量の計測](../evidence/sites-branch-legends-lua.json) · [Chromeの比較ログ](../evidence/sites-branch-legends-browser.json)
 
 再検証は `python -X utf8 test_branch_legends.py` のあと、`LAB_URL` に検証ラボのURLを設定して `node test_branch_legends.mjs`。素材の再変換は `python -X utf8 tools/build_branch_legend_art.py` で実行する。
+
+## 開戦時のドット絵を比較
+
+M地図から挑戦場を選び、「この地点のドット絵を比較」→「3設定をまとめて比べる」を開く。配置プレビューの「地方伝説の16色版を比べる」では、56会場の開戦時を描画矩形数か元PNGからの輪郭の差で並べられる。
+
+移即・天虞、異色三連星、鉱荷の集積場の8体は、16色の隣り合う近い色をまとめた。開戦時の矩形数はそれぞれ3,005→2,365、2,602→2,375、2,251→2,128。後者2戦はゲージ6矩形を含む。元PNGと重なる輪郭の面積比は順に96.3%、95.4%、96.8%で、圧縮更新の前後で一致した。 [元PNG・32色・16色の比較](../evidence/legend-light-blend-20261128.png)
+
+待機・構え・攻撃を合わせた24素材を照合し、22素材の矩形数が減った。元PNG、32色、透過マスク、接地位置、指定の差し色を保持した。3戦のLuaで既存の48状態を再生して、敵の姿勢とHP、位置、予告を照合した。 [Luaと素材の検証](../evidence/legend-light-blend-20261128.json) · [M地図とLuaの開戦画面の56会場検証](../evidence/group-legend-openings-browser.json)
+
+素材を再パックする順番は `python -X utf8 tools/build_field_pose_pack.py`、`python -X utf8 tools/build_character_gallery_pack.py --gallery boss`、`python -X utf8 tools/build_field_sprite_index.py`。開戦の比較は `python -X utf8 tools/build_group_legend_openings.py` でLuaの参照フレームを取得し、`LAB_URL` を設定して `node test_group_legend_openings.mjs` と `node test_sprite_profile_table.mjs` を実行する。

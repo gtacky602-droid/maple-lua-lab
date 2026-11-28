@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from palette_rects import pack_grid
 from build_placement_pose_index import build_placement_pose_index
+from legend_light_blend import refine_legend_profiles
 
 root = Path(__file__).resolve().parents[1]
 assets = root / 'assets'
@@ -25,7 +26,7 @@ packed = {}
 source_bytes = 0
 for file in dict.fromkeys(files):
     raw = (assets/file).read_bytes()
-    art = json.loads(raw)
+    art = refine_legend_profiles(file, json.loads(raw))
     source_bytes += len(raw)
     art['profiles'] = {name:dict(pack_grid(grid, compact_positions=gallery == "boss"), colors=grid['colors'])
                        for name,grid in art['profiles'].items()}

@@ -1,24 +1,24 @@
 {
-  "scope": "On-screen body rectangles and opening-pose mask/color comparison to PNG; the camera is centered on the default subject group.",
+  "scope": "On-screen sprite and attached rectangles, with opening-pose mask and color compared to PNG at the default camera.",
   "arenas": {
     "atocpan-battlegoat-ironclaw-field": [
       {
         "profile": "legacy",
-        "rectangles": 3622,
+        "rectangles": 3626,
         "overlap": "100.0%",
-        "error": "2.92 / 255"
+        "error": "2.70 / 255"
       },
       {
         "profile": "h48c32",
-        "rectangles": 2172,
-        "overlap": "96.9%",
-        "error": "11.31 / 255"
+        "rectangles": 2176,
+        "overlap": "97.1%",
+        "error": "10.43 / 255"
       },
       {
         "profile": "h32c16",
-        "rectangles": 940,
-        "overlap": "93.3%",
-        "error": "17.90 / 255"
+        "rectangles": 831,
+        "overlap": "100.0%",
+        "error": "13.23 / 255"
       }
     ],
     "atocpan-peak-cave": [
@@ -76,9 +76,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 3005,
+        "rectangles": 2365,
         "overlap": "96.3%",
-        "error": "16.72 / 255"
+        "error": "16.92 / 255"
       }
     ],
     "cineas-legend-chamber": [
@@ -206,19 +206,19 @@
         "profile": "legacy",
         "rectangles": 3528,
         "overlap": "100.0%",
-        "error": "0.07 / 255"
+        "error": "0.06 / 255"
       },
       {
         "profile": "h48c32",
         "rectangles": 2234,
-        "overlap": "97.8%",
-        "error": "5.94 / 255"
+        "overlap": "97.9%",
+        "error": "5.65 / 255"
       },
       {
         "profile": "h32c16",
         "rectangles": 1088,
-        "overlap": "95.6%",
-        "error": "9.88 / 255"
+        "overlap": "95.8%",
+        "error": "9.39 / 255"
       }
     ],
     "frost-mushteshir-inner-chamber": [
@@ -617,8 +617,8 @@
       {
         "profile": "h32c16",
         "rectangles": 248,
-        "overlap": "96.9%",
-        "error": "1.49 / 255"
+        "overlap": "96.8%",
+        "error": "1.36 / 255"
       }
     ],
     "nod-crab-tsar-palace": [
@@ -944,21 +944,21 @@
     "sne-novokichev-ore-yard": [
       {
         "profile": "legacy",
-        "rectangles": 8170,
+        "rectangles": 8176,
         "overlap": "100.0%",
-        "error": "6.52 / 255"
+        "error": "6.21 / 255"
       },
       {
         "profile": "h48c32",
-        "rectangles": 4931,
-        "overlap": "97.4%",
-        "error": "20.36 / 255"
+        "rectangles": 4937,
+        "overlap": "97.5%",
+        "error": "19.38 / 255"
       },
       {
         "profile": "h32c16",
-        "rectangles": 2245,
-        "overlap": "94.6%",
-        "error": "31.86 / 255"
+        "rectangles": 2128,
+        "overlap": "96.8%",
+        "error": "28.23 / 255"
       }
     ],
     "swords-of-the-gorge-legend-rift": [
@@ -966,19 +966,19 @@
         "profile": "legacy",
         "rectangles": 3900,
         "overlap": "100.0%",
-        "error": "0.14 / 255"
+        "error": "0.13 / 255"
       },
       {
         "profile": "h48c32",
         "rectangles": 2494,
-        "overlap": "97.5%",
-        "error": "5.90 / 255"
+        "overlap": "97.7%",
+        "error": "5.61 / 255"
       },
       {
         "profile": "h32c16",
         "rectangles": 1066,
-        "overlap": "95.2%",
-        "error": "11.24 / 255"
+        "overlap": "95.4%",
+        "error": "10.67 / 255"
       }
     ],
     "tepeakak-sappho-bank": [
@@ -1057,28 +1057,28 @@
       {
         "profile": "h32c16",
         "rectangles": 213,
-        "overlap": "94.5%",
-        "error": "3.33 / 255"
+        "overlap": "94.6%",
+        "error": "3.35 / 255"
       }
     ],
     "witztli-tristars-camp": [
       {
         "profile": "legacy",
-        "rectangles": 9438,
+        "rectangles": 9444,
         "overlap": "100.0%",
-        "error": "4.50 / 255"
+        "error": "4.33 / 255"
       },
       {
         "profile": "h48c32",
-        "rectangles": 5811,
-        "overlap": "97.7%",
-        "error": "18.78 / 255"
+        "rectangles": 5817,
+        "overlap": "97.8%",
+        "error": "18.09 / 255"
       },
       {
         "profile": "h32c16",
-        "rectangles": 2668,
-        "overlap": "95.2%",
-        "error": "29.41 / 255"
+        "rectangles": 2375,
+        "overlap": "95.4%",
+        "error": "25.23 / 255"
       }
     ],
     "yseut-legend-court": [

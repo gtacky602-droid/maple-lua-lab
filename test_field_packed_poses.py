@@ -5,6 +5,7 @@ from zipfile import ZipFile, Path as ZipPath
 from field_pose_files import enemy_pose_files, legend_pose_files
 from packed_pose_test_support import pose_check
 from runtime import ROOT, runtime, read_packed_pose
+from tools.legend_light_blend import FILES, RGB_DISTANCE, rasterize, refine_legend_profiles
 
 def read(path):
     return json.loads((ROOT/path).read_bytes())
@@ -29,7 +30,18 @@ with patch('runtime.read_packed_pose', wraps=read_packed_pose) as reader:
             if filename in seen:
                 assert same(pose,seen[filename]), filename
             else:
-                source = read('assets/'+filename)
+                raw = read('assets/'+filename)
+                source = refine_legend_profiles(filename,raw)
+                if filename in FILES:
+                    old, new = (a['profiles']['h32c16'] for a in (raw, source))
+                    assert len(new['runs']) <= len(old['runs']), filename
+                    assert all(raw['profiles'][p] == source['profiles'][p] for p in ('legacy', 'h48c32')), filename
+                    for row, improved in zip(rasterize(old), rasterize(new), strict=True):
+                        for a, b in zip(row, improved, strict=True):
+                            assert (a is None) == (b is None), filename
+                            if a != b:
+                                assert a not in raw.get('reserved_colors',()), filename
+                                assert sum((x-y)**2 for x,y in zip(bytes.fromhex(a[1:]), bytes.fromhex(b[1:]))) <= RGB_DISTANCE**2, filename
                 check(pose,lua.table_from(source,recursive=True))
                 grids += len(source['profiles'])
                 seen[filename] = pose
