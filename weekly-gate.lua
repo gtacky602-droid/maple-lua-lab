@@ -195,11 +195,15 @@ return function(C,M)
   local a,party=M.target(s)
   if a and a.hp>0 then return {start=t,seen={},actor=a,party=party} end
  end
- local function chargeLock(w,spec,run)
+ local function chargeGoal(w,spec,a)
   local from=w.king.x
   local max=spec.charge.rangeU*spec.board.unit
+  return math.max(from,board(spec,from+clamp(a.x-from,-max,max)))
+ end
+ local function chargeLock(w,spec,run)
+  local from=w.king.x
   run.origin=from
-  run.goal=math.max(from,board(spec,from+clamp(run.actor.x-from,-max,max)))
+  run.goal=chargeGoal(w,spec,run.actor)
   run.prior=from;w.king.dir=run.goal>=from and 1 or -1
  end
  local function chargeMove(s,w,spec,c,run,i,length)
@@ -577,6 +581,7 @@ return function(C,M)
    if c.key=='WT17' and c.run then
     v.lure=fromU(spec,c.move.lure_min_x_U)
     rect(v.lure,y-8,155,3,M.ice,.88)
+    rect(v.lure,y-62,2,54,M.ice,.74)
    end
    if c.key=='WT17' then
     v.lureMissed=c.lureMissed
@@ -598,6 +603,14 @@ return function(C,M)
    local run=c.run
    v.run={t=c.t-run.start,goal=run.goal,owner=run.actor.id,hit=run.hit,
     member=run.party.coopMember and run.party.coopMember.id,mine=run.party==s}
+   if v.lure then
+    if run.goal then
+     v.run.chargeIn=math.max(0,c.move.charge_window_offset[1]-v.run.t)
+    else
+     v.run.lockIn=math.max(0,c.move.lock_offset-v.run.t)
+     v.run.ready=chargeGoal(w,spec,run.actor)>=v.lure
+    end
+   end
    local marked=run.goal or run.actor.x
    local victim=run.actor
    if victim.hp>0 and (run.party==s or run.party.coop==s.coop and v.run.member and

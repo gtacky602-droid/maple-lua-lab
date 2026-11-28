@@ -1,0 +1,498 @@
+{
+  "gate-collision": {
+    "image": "gate-collision.png",
+    "frames": {
+      "霜印 50 / 100": {
+        "tick": 1716,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 35022,
+            "rgbAbsoluteError": 2700598,
+            "unpackedCommands": 10889,
+            "packedCommands": 850,
+            "unpackedBytes": 1452076,
+            "packedBytes": 326885,
+            "combatCanvasMs": 7.0999999940395355,
+            "canvasSha256": "68d3f8aeb7da51cd70fd03a14b7db806d0a322b4874c2adfc3b3e36c118648a9"
+          },
+          "h32c16": {
+            "differentPixels": 35090,
+            "rgbAbsoluteError": 3220852,
+            "unpackedCommands": 5019,
+            "packedCommands": 386,
+            "unpackedBytes": 555804,
+            "packedBytes": 146821,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "9e800dd8b1753ae50c97ab39c30981dde2191a856f5b14640894b98e5cee9de6"
+          }
+        },
+        "gateText": "凍結 50 / 100 ｜ いったんG・ボタンを離す ｜ 残り 8.5秒"
+      },
+      "凍結完了": {
+        "tick": 1927,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 35412,
+            "rgbAbsoluteError": 2717701,
+            "unpackedCommands": 10894,
+            "packedCommands": 855,
+            "unpackedBytes": 1452429,
+            "packedBytes": 327304,
+            "combatCanvasMs": 6.5,
+            "canvasSha256": "8e050723e7e879bf7efa8034c46418253dec6d177793165941dbbceb5d6c1712"
+          },
+          "h32c16": {
+            "differentPixels": 35474,
+            "rgbAbsoluteError": 3247174,
+            "unpackedCommands": 5024,
+            "packedCommands": 391,
+            "unpackedBytes": 557685,
+            "packedBytes": 147872,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "af80714a64afd250bda035f7e82a049dadf742e0b3da8841397519c6a3fe5eaa"
+          }
+        },
+        "gateText": "凍結完了 ｜ 青い線の右へ ｜ 走路固定まで3.5秒"
+      },
+      "誘導位置に到達": {
+        "tick": 2076,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 35324,
+            "rgbAbsoluteError": 2619945,
+            "unpackedCommands": 11290,
+            "packedCommands": 855,
+            "unpackedBytes": 1500213,
+            "packedBytes": 335666,
+            "combatCanvasMs": 6.5,
+            "canvasSha256": "20f3959b186d7ff4ca93fca2041178eb3557b01e7b72de96e043a9fa5fccfbaa"
+          },
+          "h32c16": {
+            "differentPixels": 35383,
+            "rgbAbsoluteError": 3159420,
+            "unpackedCommands": 5170,
+            "packedCommands": 391,
+            "unpackedBytes": 575067,
+            "packedBytes": 150864,
+            "combatCanvasMs": 2.800000011920929,
+            "canvasSha256": "905c1101a6892d93d781432cd0c8c1023fc9d98a349b9f815c4933fa39fb04a5"
+          }
+        },
+        "gateText": "凍結完了 ｜ この位置を維持 ｜ 走路固定まで1.1秒"
+      },
+      "走路固定": {
+        "tick": 2137,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 35877,
+            "rgbAbsoluteError": 2688926,
+            "unpackedCommands": 10888,
+            "packedCommands": 855,
+            "unpackedBytes": 1450290,
+            "packedBytes": 326814,
+            "combatCanvasMs": 6.800000011920929,
+            "canvasSha256": "1ccf4f41887c83235346e6fa60960934e67f9bbcbacf79e4346237248cc1fd7a"
+          },
+          "h32c16": {
+            "differentPixels": 35903,
+            "rgbAbsoluteError": 3246114,
+            "unpackedCommands": 5027,
+            "packedCommands": 391,
+            "unpackedBytes": 557760,
+            "packedBytes": 147712,
+            "combatCanvasMs": 2.2999999821186066,
+            "canvasSha256": "f3dbe8da2843144be2d59a361f037e9f8a3603dddfbca0e3288eb74a6de031ec"
+          }
+        },
+        "gateText": "走路固定 ｜ 突進まで0.8秒"
+      },
+      "クイーンに突進が命中": {
+        "tick": 2207,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 32352,
+            "rgbAbsoluteError": 2527758,
+            "unpackedCommands": 10875,
+            "packedCommands": 842,
+            "unpackedBytes": 1446941,
+            "packedBytes": 325796,
+            "combatCanvasMs": 6,
+            "canvasSha256": "c0b89977765f06d39f37298a377620620b7f25d40e5d85e053e880040826ecc1"
+          },
+          "h32c16": {
+            "differentPixels": 32387,
+            "rgbAbsoluteError": 3033462,
+            "unpackedCommands": 5014,
+            "packedCommands": 378,
+            "unpackedBytes": 555730,
+            "packedBytes": 146707,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "93ba367611d62d96bc7dff9d5292e755029062dcbc0f0ce8b2ddb6a93c0ada62"
+          }
+        },
+        "gateText": "クイーンに突進が命中 ｜ 津波を中断"
+      },
+      "反撃開始": {
+        "tick": 2255,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 27140,
+            "rgbAbsoluteError": 2205890,
+            "unpackedCommands": 10875,
+            "packedCommands": 842,
+            "unpackedBytes": 1435547,
+            "packedBytes": 324230,
+            "combatCanvasMs": 6.299999982118607,
+            "canvasSha256": "9bd2726903043eb98d8dc54a41acc0045b672ec653a1fa8ae69e610b0acff2c7"
+          },
+          "h32c16": {
+            "differentPixels": 27208,
+            "rgbAbsoluteError": 2699042,
+            "unpackedCommands": 5014,
+            "packedCommands": 378,
+            "unpackedBytes": 599969,
+            "packedBytes": 144128,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "27aeaa46027deaaa43667db62e5b105ba66da8d0c99e7f62a0dad55a29984fd1"
+          }
+        },
+        "gateText": "津波を中断 ｜ 反撃できる時間 6.0秒"
+      },
+      "反撃終了": {
+        "tick": 2615,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 27696,
+            "rgbAbsoluteError": 2252470,
+            "unpackedCommands": 10881,
+            "packedCommands": 842,
+            "unpackedBytes": 1449419,
+            "packedBytes": 326147,
+            "combatCanvasMs": 6.4000000059604645,
+            "canvasSha256": "bd118644d36375e4ce9e48cd202df5b2a3d915925d8bd9d1d5b7b6359436276e"
+          },
+          "h32c16": {
+            "differentPixels": 27719,
+            "rgbAbsoluteError": 2739222,
+            "unpackedCommands": 5011,
+            "packedCommands": 378,
+            "unpackedBytes": 554078,
+            "packedBytes": 146040,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "51cae73bb3b6964536836870b3866c711d60634df5d0c9a966ac5545bebeae48"
+          }
+        },
+        "gateText": "反撃終了"
+      },
+      "HP譲渡を開始": {
+        "tick": 2761,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 23802,
+            "rgbAbsoluteError": 1509123,
+            "unpackedCommands": 11204,
+            "packedCommands": 847,
+            "unpackedBytes": 1498357,
+            "packedBytes": 333930,
+            "combatCanvasMs": 7,
+            "canvasSha256": "ab5971ad17817f0a9516a3bc21b827eeef02ee113429c9c934febc35b36dfe9a"
+          },
+          "h32c16": {
+            "differentPixels": 23897,
+            "rgbAbsoluteError": 1846035,
+            "unpackedCommands": 5134,
+            "packedCommands": 383,
+            "unpackedBytes": 584959,
+            "packedBytes": 149899,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "2118058e80bbc757e1a5b3fd791215300f5988d63d54f777c28b310526ec25a6"
+          }
+        },
+        "gateText": "HP譲渡まで 3.0秒 ｜ 残り 2回"
+      },
+      "HP譲渡・1回目": {
+        "tick": 2941,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26212,
+            "rgbAbsoluteError": 2186148,
+            "unpackedCommands": 10885,
+            "packedCommands": 846,
+            "unpackedBytes": 1449071,
+            "packedBytes": 326326,
+            "combatCanvasMs": 7.0999999940395355,
+            "canvasSha256": "47b6dd7652bd67884e112a2d2695a79327916b58cd20c104a099d3d504df7846"
+          },
+          "h32c16": {
+            "differentPixels": 26255,
+            "rgbAbsoluteError": 2589648,
+            "unpackedCommands": 5015,
+            "packedCommands": 382,
+            "unpackedBytes": 554509,
+            "packedBytes": 146459,
+            "combatCanvasMs": 2.699999988079071,
+            "canvasSha256": "7ef21335b8f8dd75972b359c574dfba0b4fcc97634cf6d3d5fe77daf6d5fb290"
+          }
+        },
+        "gateText": "クイーンからキングへ 500 HP ｜ 残り 1回"
+      },
+      "HP譲渡・2回目": {
+        "tick": 3159,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26203,
+            "rgbAbsoluteError": 2190054,
+            "unpackedCommands": 10885,
+            "packedCommands": 846,
+            "unpackedBytes": 1446025,
+            "packedBytes": 324879,
+            "combatCanvasMs": 7.5,
+            "canvasSha256": "10f1503638b18f9ce296a7159f3da9616689a24d01df71df7f5cd1718538e7d0"
+          },
+          "h32c16": {
+            "differentPixels": 26253,
+            "rgbAbsoluteError": 2582657,
+            "unpackedCommands": 5015,
+            "packedCommands": 382,
+            "unpackedBytes": 549978,
+            "packedBytes": 144429,
+            "combatCanvasMs": 3.199999988079071,
+            "canvasSha256": "1775c49dacecda6e4417c6f205761a91a4122970ef97d5c815a121c2a5e0cd48"
+          }
+        },
+        "gateText": "クイーンからキングへ 250 HP ｜ 残り 0回"
+      }
+    }
+  },
+  "gate-missed": {
+    "image": "gate-missed.png",
+    "frames": {
+      "霜印 50 / 100": {
+        "tick": 1716,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 35014,
+            "rgbAbsoluteError": 2700513,
+            "unpackedCommands": 10890,
+            "packedCommands": 851,
+            "unpackedBytes": 1452669,
+            "packedBytes": 327184,
+            "combatCanvasMs": 5.0999999940395355,
+            "canvasSha256": "84660a357a81c24fe1c2c8548fa8a26c72df6f938547a286f2adffd7e7e92936"
+          },
+          "h32c16": {
+            "differentPixels": 35086,
+            "rgbAbsoluteError": 3216279,
+            "unpackedCommands": 5020,
+            "packedCommands": 387,
+            "unpackedBytes": 557329,
+            "packedBytes": 147537,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "da3ba2f20a5864624e28152aec1e76436d543b106a49c245f4a9052feb38c2d6"
+          }
+        },
+        "gateText": "凍結 50 / 100 ｜ いったんG・ボタンを離す ｜ 残り 8.5秒"
+      },
+      "凍結完了": {
+        "tick": 1927,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 35408,
+            "rgbAbsoluteError": 2717177,
+            "unpackedCommands": 10895,
+            "packedCommands": 856,
+            "unpackedBytes": 1452662,
+            "packedBytes": 327425,
+            "combatCanvasMs": 5.399999976158142,
+            "canvasSha256": "4b73a430e5321fbe39d799deed114e744c2839ff06d8ad183b6841e43f73e1bc"
+          },
+          "h32c16": {
+            "differentPixels": 35473,
+            "rgbAbsoluteError": 3250362,
+            "unpackedCommands": 5025,
+            "packedCommands": 392,
+            "unpackedBytes": 555905,
+            "packedBytes": 147121,
+            "combatCanvasMs": 2,
+            "canvasSha256": "07350d387ddbe250fef52538e7111baf8fe3d0da5a51cbdf3165d397fa0d21fc"
+          }
+        },
+        "gateText": "凍結完了 ｜ 青い線の右へ ｜ 走路固定まで3.5秒"
+      },
+      "走路固定": {
+        "tick": 2137,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 37629,
+            "rgbAbsoluteError": 2816503,
+            "unpackedCommands": 10889,
+            "packedCommands": 856,
+            "unpackedBytes": 1450660,
+            "packedBytes": 327100,
+            "combatCanvasMs": 5.5,
+            "canvasSha256": "9bbd3b1eeae0817c8dbe3f006578db70dd67008739b02a4b35f96bba47b4640f"
+          },
+          "h32c16": {
+            "differentPixels": 37742,
+            "rgbAbsoluteError": 3404140,
+            "unpackedCommands": 5028,
+            "packedCommands": 392,
+            "unpackedBytes": 556492,
+            "packedBytes": 147238,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "0f06c96fbeed399d6914aa413b51619d50faab0588c68f93dcd17931c3f6f3a8"
+          }
+        },
+        "gateText": "走路固定 ｜ 突進まで0.8秒"
+      },
+      "突進がクイーンを外れる": {
+        "tick": 2221,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 37912,
+            "rgbAbsoluteError": 2818306,
+            "unpackedCommands": 10889,
+            "packedCommands": 856,
+            "unpackedBytes": 1451140,
+            "packedBytes": 327338,
+            "combatCanvasMs": 5.200000017881393,
+            "canvasSha256": "c594da2c407d3da186c54021596179a53800d64afc35e751878b1bbc11d85c0b"
+          },
+          "h32c16": {
+            "differentPixels": 38014,
+            "rgbAbsoluteError": 3408071,
+            "unpackedCommands": 5028,
+            "packedCommands": 392,
+            "unpackedBytes": 558055,
+            "packedBytes": 147893,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "e58c3de2c05739e5f76942d58bc9ddc183514c497ab99ce472f104a7b6f022f4"
+          }
+        },
+        "gateText": "突進が外れた ｜ 青い線の右へ ｜ 走路固定まで3.5秒"
+      },
+      "津波が命中": {
+        "tick": 2585,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 31732,
+            "rgbAbsoluteError": 2422973,
+            "unpackedCommands": 10884,
+            "packedCommands": 851,
+            "unpackedBytes": 1449485,
+            "packedBytes": 326977,
+            "combatCanvasMs": 5.4000000059604645,
+            "canvasSha256": "b3979267294021f8ec808014aedc8d7b697a7cfc7c0e047d089a2a4c1b79a6d4"
+          },
+          "h32c16": {
+            "differentPixels": 31788,
+            "rgbAbsoluteError": 2982976,
+            "unpackedCommands": 5023,
+            "packedCommands": 387,
+            "unpackedBytes": 557268,
+            "packedBytes": 147532,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "a10abcc7447c49ba9f4f7da42e8345489035fbe9ffeb7cb3941a2fca2454974e"
+          }
+        },
+        "gateText": "津波が命中 ｜ 90ダメージ"
+      },
+      "HP譲渡を開始": {
+        "tick": 2843,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 30878,
+            "rgbAbsoluteError": 1650950,
+            "unpackedCommands": 11205,
+            "packedCommands": 848,
+            "unpackedBytes": 1499501,
+            "packedBytes": 333901,
+            "combatCanvasMs": 5.699999988079071,
+            "canvasSha256": "b6740e1a1e5b38f46125c4bef3bab33aa28e4913a20d540bc04523a2b41c93ba"
+          },
+          "h32c16": {
+            "differentPixels": 30995,
+            "rgbAbsoluteError": 2053580,
+            "unpackedCommands": 5135,
+            "packedCommands": 384,
+            "unpackedBytes": 585751,
+            "packedBytes": 150001,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "dae89c9f7f7324c99ea9ca871b39d582ac46defb7d0b557cd7a4f64e8e4d6a0b"
+          }
+        },
+        "gateText": "HP譲渡まで 3.0秒 ｜ 残り 2回"
+      },
+      "HP譲渡・1回目": {
+        "tick": 3023,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 34261,
+            "rgbAbsoluteError": 2640865,
+            "unpackedCommands": 10886,
+            "packedCommands": 847,
+            "unpackedBytes": 1450618,
+            "packedBytes": 326509,
+            "combatCanvasMs": 5.0999999940395355,
+            "canvasSha256": "7f82f1506650c394b3dde071bbb8dca4ab1a8c7a22c00b9da7d5542a56111ac8"
+          },
+          "h32c16": {
+            "differentPixels": 34277,
+            "rgbAbsoluteError": 3210158,
+            "unpackedCommands": 5016,
+            "packedCommands": 383,
+            "unpackedBytes": 556318,
+            "packedBytes": 147072,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "8cd46b457d46735dbd93ec868ecb1c9bd36c9e478734a5a83e5ec66051b848bd"
+          }
+        },
+        "gateText": "クイーンからキングへ 500 HP ｜ 残り 1回"
+      },
+      "HP譲渡・2回目": {
+        "tick": 3241,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 34255,
+            "rgbAbsoluteError": 2635158,
+            "unpackedCommands": 10886,
+            "packedCommands": 847,
+            "unpackedBytes": 1451704,
+            "packedBytes": 326964,
+            "combatCanvasMs": 5.5,
+            "canvasSha256": "234441cf112e7a05f0d8c27c14fa5e74386341f03f6471d7abcfb4d43bbc7b63"
+          },
+          "h32c16": {
+            "differentPixels": 34272,
+            "rgbAbsoluteError": 3213761,
+            "unpackedCommands": 5016,
+            "packedCommands": 383,
+            "unpackedBytes": 556674,
+            "packedBytes": 147215,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "a2cfd35c81d0d88a1ad6c141e406f3f3b58464df45e12b5c3eb00dd85b1f0fda"
+          }
+        },
+        "gateText": "クイーンからキングへ 250 HP ｜ 残り 0回"
+      }
+    }
+  }
+}

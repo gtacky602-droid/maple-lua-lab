@@ -1,0 +1,209 @@
+[
+  {
+    "controller": "game_before_gate",
+    "case": "gate-collision",
+    "label": "クイーンへの誘導に成功",
+    "ticks": 3367,
+    "sourceSha256": "eac9d9c08a9a04fd553cc12103392adf021d86133ad8245aa31de7086a3feecb",
+    "stages": [
+      "king",
+      "queen",
+      "finish",
+      "royal"
+    ],
+    "remainingPawns": [
+      2,
+      1,
+      0
+    ],
+    "freezeCompletions": [
+      {
+        "tick": 91,
+        "meter": 50
+      },
+      {
+        "tick": 302,
+        "meter": 100
+      }
+    ],
+    "locks": [
+      {
+        "tick": 512,
+        "goal": 677.0,
+        "queen": 568
+      }
+    ],
+    "collision": {
+      "tick": 582,
+      "king": 502.88,
+      "queen": 568
+    },
+    "misses": [],
+    "tsunami": [],
+    "exposureTicks": 360,
+    "transfers": [
+      {
+        "tick": 2941,
+        "hpBefore": [
+          0,
+          1000
+        ],
+        "hpAfter": [
+          500,
+          500
+        ],
+        "remaining": 1
+      },
+      {
+        "tick": 3159,
+        "hpBefore": [
+          0,
+          500
+        ],
+        "hpAfter": [
+          250,
+          250
+        ],
+        "remaining": 0
+      }
+    ],
+    "exposureDamage": 336,
+    "expertClears": [
+      1,
+      2
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90779,
+      150
+    ],
+    "checkpointSha256": "09c516dd144feb736d1ab796f20fa13908a5dc29a6cfd8bd2ebf2ede4cd0f0f3"
+  },
+  {
+    "controller": "game_before_gate",
+    "case": "gate-missed",
+    "label": "クイーンへの誘導に失敗",
+    "ticks": 3470,
+    "sourceSha256": "09c516dd144feb736d1ab796f20fa13908a5dc29a6cfd8bd2ebf2ede4cd0f0f3",
+    "stages": [
+      "king",
+      "queen",
+      "finish",
+      "royal"
+    ],
+    "remainingPawns": [
+      2,
+      1,
+      0
+    ],
+    "freezeCompletions": [
+      {
+        "tick": 91,
+        "meter": 50
+      },
+      {
+        "tick": 302,
+        "meter": 100
+      }
+    ],
+    "locks": [
+      {
+        "tick": 512,
+        "goal": 428.5,
+        "queen": 568
+      },
+      {
+        "tick": 806,
+        "goal": 428.5,
+        "queen": 568
+      }
+    ],
+    "collision": null,
+    "misses": [
+      596,
+      890
+    ],
+    "tsunami": [
+      {
+        "tick": 960,
+        "loss": 90
+      }
+    ],
+    "exposureTicks": 0,
+    "transfers": [
+      {
+        "tick": 3023,
+        "hpBefore": [
+          0,
+          1000
+        ],
+        "hpAfter": [
+          500,
+          500
+        ],
+        "remaining": 1
+      },
+      {
+        "tick": 3241,
+        "hpBefore": [
+          0,
+          500
+        ],
+        "hpAfter": [
+          250,
+          250
+        ],
+        "remaining": 0
+      }
+    ],
+    "exposureDamage": 0,
+    "expertClears": [
+      2,
+      3
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90588,
+      29
+    ],
+    "checkpointSha256": "0499b2956238c4c22b34e1f7dc32632771c61eb2364bf66c24ac469833bd5672"
+  }
+]
