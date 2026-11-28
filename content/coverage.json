@@ -3,6 +3,7 @@
   "updated": "2026-11-29",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_ruin_serpent_field": {"level":200,"boss":"boss-24010401","fieldWins":1,"fixedEmergence":true,"hiddenAttackDamage":0,"emergenceAndBombDamage":0,"bombPoints":3,"reportedQuests":131,"comparisonScenes":3,"browser":"evidence/earned-ruin-serpent-field-browser.json","coop":"evidence/coop-wolflord-serpent-lua-http.json"},
   "earned_suanni_field": {"level":200,"boss":"boss-26190101","fieldWins":1,"fixedLanding":true,"windLandingAndWaveDamage":0,"recoveryTicks":144,"reportedQuests":130,"comparisonScenes":3,"browser":"evidence/earned-suanni-field-browser.json","coop":"evidence/coop-suanni-legatus-lua-http.json"},
   "earned_cryo_hypostasis_field": {"level":200,"boss":"boss-20040501","fieldWins":1,"fixedFallPoints":3,"fallDamage":0,"reportedQuests":129,"comparisonScenes":3,"browser":"evidence/earned-cryo-hypostasis-field-browser.json","coop":"evidence/coop-elemental-cubes-lua-http.json"},
   "earned_pyro_field": {"level":200,"boss":"boss-26020201","fieldWins":1,"groundFlameJumpDamage":0,"nucleusCasts":3,"downTicks":240,"downAfterFlame":true,"reportedQuests":128,"comparisonScenes":3,"browser":"evidence/earned-pyro-field-browser.json","coop":"evidence/coop-regisvine-fields-lua-http.json"},

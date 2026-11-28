@@ -1,5 +1,5 @@
 return function(C)
- local serpent={}
+ local serpent={packRectArt=true}
  local U=88
  local function clamp(x,a,b) return math.min(b,math.max(a,x)) end
  local function place(b,s,scale)
@@ -36,9 +36,14 @@ return function(C)
   C.shareFieldHits(cast.seen,actors)
  end
  function serpent.frame(f,b,s,c)
-  if not c or c.tick<c.move.lock or c.tick>=c.move.active[#c.move.active][2] then return end
-  if c.move.hidden then f.emergeX=c.dest end
-  if c.move.kind=='bombs' then f.bombPoints=c.landings end
+  if not c then return end
+  local m,t=c.move,c.tick
+  if t>=m.recover then
+   f.recoveryTicks=m.total-t
+  elseif t>=m.lock and t<m.active[#m.active][2] then
+   if m.hidden then f.emergeX=c.dest end
+   if m.kind=='bombs' then f.bombPoints=c.landings end
+  end
  end
 
  local function attackBounds(c,i)
@@ -87,9 +92,21 @@ return function(C)
  end
  function serpent.label(b,c)
   if not c then return end
-  if c.tick>=c.move.recover then return '地表に停止・頭に攻撃' end
+  local m,t=c.move,c.tick
+  if t>=m.recover then return '地表に停止・頭に攻撃' end
+  if t<m.lock then return end
   if b.underground then return '潜行中・地面の印から離れる' end
-  if c.move.hidden and c.tick>=c.move.hidden[2] and c.tick<c.move.active[1][1] then return '掘り上げ予告・印から離れる' end
+  if m.hidden then
+   if t<m.hidden[2] then return '短潜行・出現の印から離れる' end
+   if t<m.active[1][1] then return '掘り上げ予告・印から離れる' end
+   if t<m.active[1][2] then return '掘り上げ・印から離れる' end
+   return '掘り上げ終了・頭が止まるまで待つ'
+  end
+  if m.kind=='roll' then return '横転の一薙ぎ・前方の帯から離れる' end
+  for i,window in ipairs(m.active) do
+   if t<window[2] then return '三点の掘削弾 '..i..'/3・床の番号を避ける' end
+  end
+  return '着弾終了・頭が止まるまで待つ'
  end
 
  local function rect(f,x,y,w,h,color)
@@ -127,6 +144,22 @@ return function(C)
    end
   end
   if pose then C.drawRuinSerpentFieldArt(f,x,y,pose,scale,mode,profile,b.facing>0) end
+ end
+
+ function serpent.drawOverlay(f,state,s,c)
+  if not c or c.tick<c.move.lock then return end
+  local m,t=c.move,c.tick
+  if m.kind=='roll' then return end
+  for i,window in ipairs(m.active) do
+   if t<window[2] then
+    local left,right=attackBounds(c,i)
+    local x,y=(left+right)/2-state.camera,s.floorY
+    local width=m.hidden and 34 or 20
+    rect(f,x-width/2,y+6,width,19,'#2f2625')
+    rect(f,x-width/2,y+6,width,2,'#ed9e57')
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,size=13,text=m.hidden and '出現' or tostring(i),color='#ffd286'}
+   end
+  end
  end
  return serpent
 end
