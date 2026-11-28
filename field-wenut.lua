@@ -32,8 +32,13 @@ return function(C)
  function wenut.shareCast(c,actors)
   C.shareFieldHits({c.seen},actors)
  end
+ local function emergenceWindow(c)
+  local hidden=c and c.move.hidden
+  if hidden and c.tick>=c.move.lock and c.tick<hidden[2] then return hidden[2]-c.tick end
+ end
  function wenut.frame(f,b,s,c)
-  if c and c.move.hidden and c.tick>=c.move.lock and c.tick<c.move.hidden[2] then f.emergeX=c.dest end
+  local remaining=emergenceWindow(c)
+  if remaining then f.emergeX=c.dest;f.emergeTicks=remaining end
  end
 
  local function poseAt(c)
@@ -92,7 +97,7 @@ return function(C)
  function wenut.label(b,c)
   if not c then return end
   if b.underground then return '砂の下・出現印に注意' end
-  if c.tick>=c.move.recover then return '頭が下がる・反撃' end
+  if c.tick>=c.move.recover then return '反撃の隙・頭が下がる' end
   if c.move.hidden and c.tick>=c.move.hidden[2] and c.tick<c.move.fire[1] then
    return '頭が出る・風弾に注意'
   end
@@ -113,7 +118,9 @@ return function(C)
    local m,t=c.move,c.tick
    if m.hidden then
     local center=c.dest-camera
-    if t<m.hidden[2] then
+    local remaining=emergenceWindow(c)
+    if remaining then
+     C.drawFieldTimer(f,center,y-90,remaining,m.hidden[2]-m.lock,mint)
      -- Keep the edges visible when a party member stands on the emergence point.
      rect(f,center-45,y-14,12,4,'#5a3b29')
      rect(f,center+33,y-14,12,4,'#5a3b29')

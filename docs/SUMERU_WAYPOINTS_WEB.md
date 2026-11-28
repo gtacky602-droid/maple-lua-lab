@@ -42,6 +42,12 @@ Lv69の継続セーブからスメールの森を経由して枯蔓の洞に入�
 
 半永久統制マトリックスは三点の光柱に着弾順を表示する。透影移動中にも核への通常攻撃が通ることをHPの差で確認した。透明度を抑える設定でも床の印と核の輪郭が見える。 [Luaの継続再走](../evidence/earned-sumeru-dendro-matrix.json) · [無相の草のChrome検証](../evidence/earned-sumeru-dendro-hypostasis-browser.json) · [コレイのChrome検証](../evidence/earned-sumeru-collei-browser.json) · [マトリックスのChrome検証](../evidence/earned-sumeru-asimon-browser.json)
 
+## 閲覧室と絵地図から風蝕の砂洞へ
+
+通常ボス12戦を報告済みのLv70セーブでカーヴェの閲覧室を組み立て、Lv71に到達した。窓や椅子の位置が条件を満たすと模型を確定でき、空の観測所の閲覧室に選んだ配置が反映される。ナヒーダの依頼では高い棚の朝露を調べ、観測所や葉の発見を絵地図に掲示してLv72へ進んだ。設置済みの閲覧室と掲示した地図は読み込み後にも確認できる。
+
+風蝕の砂洞の門はLv72。風蝕ウェネトの砂潜りは出現地点を固定し、床の印の上にバー、HP欄に残り秒数を表示する。地点固定から出現までは最大1秒。そのうち完全に潜行するのは0.6秒で、出現後は二発の風弾を撃つ。三行動と反撃、討伐依頼の報告と再出現待ちの復元を通した。 [Luaの継続再走](../evidence/earned-sumeru-wenut.json) · [カーヴェのChrome検証](../evidence/earned-sumeru-kaveh-browser.json) · [ナヒーダのChrome検証](../evidence/earned-sumeru-nahida-browser.json) · [ウェネトのChrome検証](../evidence/earned-sumeru-wenut-browser.json)
+
 ## 国境・木橋と石廟の出入り
 
 Lv64で、層岩巨淵の西の岩棚から国境洞道を抜けてスメール側の神像へ進める。樹陰の広場へ行く前に神像で保存した場合は、訪問済みの巨淵の拠点から再開できる。稲妻から来てガンダ丘の木橋を渡った先で保存した場合も、樹陰の広場が未訪問なら訪問済みの稲妻の拠点から再開できる。スメール側から巨淵へ渡る帰路にも、通常の拠点が未訪問の場合の再開先を設定した。 [巨淵側からのM地図](../evidence/sumeru-chasm-crossing-atlas.png)

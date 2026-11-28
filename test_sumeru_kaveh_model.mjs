@@ -4,6 +4,8 @@ import {chromium} from 'playwright';
 
 const hub='sumeru-hub',shop='sum-kaveh-workshop',observatory='sumeru-sky-observatory',room='sum-kaveh-reading-room';
 const quest='sum-kaveh-model',prefix='evidence/sum-kaveh-room';
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-sumeru-wenut/kaveh':prefix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),board=page.locator('#readingModel'),errors=[];
@@ -14,7 +16,7 @@ const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:24000});
 const at=node=>wait(node=>window.lab?.frame?.story?.node===node,node);
 const count=n=>wait(({quest,n})=>window.lab.frame.story.quests[quest]?.count===n,{quest,n});
-const shot=(name,locator=page.locator('.game'))=>locator.screenshot({path:prefix+'-'+name+'.png'});
+const shot=(name,locator=page.locator('.game'))=>locator.screenshot({path:output+'-'+name+'.png'});
 
 async function key(code){
   await canvas.click();
@@ -94,7 +96,8 @@ async function compareRoom(){
   await wait(()=>window.lab.frame.paused);
   const png=await frame();
   assert.equal(png.storyKavehRoom.seat,'view');
-  assert.equal(png.draws.filter(d=>d.source==='sum-kaveh-room-props-source-v1.png').length,4);
+  const props=png.draws.filter(d=>d.source==='sum-kaveh-room-props-source-v1.png');
+  assert.equal(props.length,4);
   await shot('room-png');
   const menu=page.locator('#renderMode');
   await menu.selectOption('rect');
@@ -103,8 +106,15 @@ async function compareRoom(){
   await menu.selectOption('h32c16');
   await wait(n=>window.lab.frame.commands<n,standard.commands);
   const light=await frame();
-  assert.equal(light.draws.filter(d=>d.kind==='rect_runs').length,4);
-  assert.equal(light.rectBatches.length,4);
+  for(const prop of props){
+    const anchor=prop.anchorX??.5;
+    const left=prop.x-(prop.flip?1-anchor:anchor)*prop.w;
+    const top=prop.y-prop.h;
+    const same=(a,b)=>Math.abs(a-b)<.001;
+    const draw=light.draws.find(d=>d.kind==='rect_runs'&&same(d.x,left)&&same(d.y,top)&&
+      same(d.w,prop.w)&&same(d.h,prop.h)&&d.flip===prop.flip);
+    assert.ok(draw&&light.rectBatches[draw.batch-1]?.length>0,'Missing lightweight furniture at '+prop.x);
+  }
   await shot('room-light');
   for(const f of [standard,light]){
     assert.equal(f.t,png.t);
@@ -122,9 +132,14 @@ try{
   const proofLua=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8919/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/sum-kaveh-room-fixture.json','utf8');
+  const seed=await fs.readFile(earned?output+'-ready.json':'work/sum-kaveh-room-fixture.json','utf8');
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await load();
+  if(earned){
+   const f=await frame();
+   assert.equal(f.progression.level,70);
+   assert.equal(f.story.quests['asimon-commission'].status,'complete');
+  }
   await questButton('受注','active');
   await gate(702,shop);
   const workshop=await scene();
@@ -194,11 +209,12 @@ try{
   assert.deepEqual([end.storyKavehRoom.shelf,end.storyKavehRoom.seat,end.storyKavehRoom.window,end.storyKavehRoom.storage],
     ['wall','view','outward',8]);
   assert.equal(end.mora,after.mora);
+  if(earned)assert.equal(end.progression.level,71);
   assert.deepEqual(errors,[]);
-  const proof={scenes:[workshop,reading],fourPawnStopsAndReachability:true,allThreePartsAffectTest:true,
+  const proof={...(earned?{startLevel:70,finishLevel:71}:{}),scenes:[workshop,reading],fourPawnStopsAndReachability:true,allThreePartsAffectTest:true,
     draftRestoredInBrowser:true,mobileModelFits:true,escapePreservesModel:true,
     acceptedAfterMainAndRoomRestored:true,commands,reward,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+  await fs.writeFile(earned?'evidence/earned-sumeru-kaveh-browser.json':prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(quest=>{

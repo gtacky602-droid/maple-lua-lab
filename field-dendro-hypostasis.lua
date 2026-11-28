@@ -114,7 +114,7 @@ return function(C)
   C.drawDendroHypostasisFieldArt(f,x,b.y,pose,mode,profile,flip)
   local remaining=coreWindow(c)
   if remaining then
-   C.drawFieldCoreTimer(f,x,b.y-109,remaining,c.move.total-c.move.recover,lime)
+   C.drawFieldTimer(f,x,b.y-109,remaining,c.move.total-c.move.recover,lime)
   end
   if c and c.move.fire then
    for i,fire in ipairs(c.move.fire) do

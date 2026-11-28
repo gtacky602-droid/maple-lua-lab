@@ -159,7 +159,7 @@ return function(C)
   if remaining then
    local point=b.weakpoint
    coreMarker(f,point,camera)
-   C.drawFieldCoreTimer(f,point.x-camera,point.y+point.radius+5,remaining,s.core.close-c.move.lock,white)
+   C.drawFieldTimer(f,point.x-camera,point.y+point.radius+5,remaining,s.core.close-c.move.lock,white)
   end
   if c and c.move.fire then
    local h=y-.75*U
