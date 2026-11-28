@@ -1,0 +1,409 @@
+{
+  "base": "58f6f349d3f2a5b0b6b86099edf52ec6ae1dc32b",
+  "portalConnectionsAndDeparturesPreserved": true,
+  "questFields": [
+    "bygone-depth",
+    "chenyu-cart-road",
+    "chenyu-depth",
+    "chenyu-tea-terraces",
+    "dornman-depth",
+    "dornman-flag-trestle",
+    "dornman-wind-stairs",
+    "enkan-guide-shelf",
+    "enkanomiya-depth",
+    "liyue-cliff-planks",
+    "natlan-flag-slope",
+    "nod-patrol-bend",
+    "nod-spruce-clearing",
+    "novokichev-depth",
+    "ochka-patched-court",
+    "ochka-tide-stairs",
+    "ochkanatlan-ruins",
+    "sum-visitors-meadow",
+    "tunigi-depth"
+  ],
+  "openFieldReviews": [],
+  "questFieldPortalArrivals": 50,
+  "questFieldWaypoints": 6,
+  "ordinaryHunts": 165,
+  "eliteRoutes": 7,
+  "novokichev": {
+    "portalArrivals": [
+      {
+        "origin": "novokichev-camp",
+        "destination": "novokichev-depth",
+        "positions": [
+          [
+            160,
+            480
+          ],
+          [
+            120,
+            480
+          ]
+        ]
+      },
+      {
+        "origin": "wavebinder-tide-cavern",
+        "destination": "novokichev-depth",
+        "positions": [
+          [
+            1096,
+            480
+          ],
+          [
+            1056,
+            480
+          ]
+        ]
+      }
+    ],
+    "waypointArrivals": [
+      {
+        "node": "novokichev-depth",
+        "positions": [
+          [
+            533,
+            480
+          ],
+          [
+            493,
+            480
+          ]
+        ]
+      }
+    ],
+    "earnedLv140": {
+      "sourceSha256": "96922fd3eba39a30bcd3b7e0c860f0cd0af7fa5b3da08612cdeafb457b9dc5ad",
+      "level": 140,
+      "approach": [
+        {
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "snezhnaya-field",
+          "previewX": 1380,
+          "level": 140,
+          "from": "snezhnaya-hub",
+          "name": "スネージナヤ・凍った街道",
+          "approach": "現在地から右へ",
+          "region": "region-08"
+        },
+        {
+          "from": "snezhnaya-field",
+          "label": "徒歩",
+          "id": "novokichev-camp",
+          "previewX": 720,
+          "level": 140,
+          "mode": "walk",
+          "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+          "region": "branch-09"
+        }
+      ],
+      "reported": [
+        {
+          "quest": "novokichev-survey",
+          "xp": 6000,
+          "mora": 700
+        }
+      ],
+      "mustReach152ForCavern": true,
+      "restored": true,
+      "waypoint": [
+        [
+          533,
+          480
+        ],
+        [
+          493,
+          480
+        ]
+      ],
+      "safeIdleSeconds": 3
+    },
+    "browser": {
+      "level": 140,
+      "quest": "novokichev-survey",
+      "portalLegs": [
+        [
+          "novokichev-camp",
+          "novokichev-depth",
+          "walk"
+        ],
+        [
+          "novokichev-depth",
+          "novokichev-camp",
+          "walk"
+        ]
+      ],
+      "cavernRequiredLevel": 152,
+      "returnX": 1336,
+      "waypointLandings": [
+        [
+          533,
+          480
+        ],
+        [
+          493,
+          480
+        ]
+      ],
+      "restored": true,
+      "errors": []
+    },
+    "sameCameraChrome": {
+      "novokichev-depth": {
+        "before": {
+          "total": 6,
+          "visible": 6,
+          "camera": 280,
+          "backgroundFile": "novokichev-background-v1.png"
+        },
+        "after": {
+          "total": 6,
+          "visible": 6,
+          "camera": 280,
+          "backgroundFile": "novokichev-background-v1.png"
+        },
+        "quality": {
+          "light": {
+            "locations": {
+              "shape": {
+                "x": 320,
+                "y": 450
+              },
+              "color": {
+                "x": 320,
+                "y": 450
+              }
+            },
+            "union": 9564,
+            "overlap": 9252,
+            "overlapPercent": 96.73776662484316,
+            "meanRgbError": 14.971861939760773
+          },
+          "rows": [
+            [
+              "標準",
+              "4,608",
+              "99.3%",
+              "5.64 / 255",
+              "—"
+            ],
+            [
+              "中間・32色",
+              "2,632",
+              "98.4%",
+              "9.77 / 255",
+              "-42.9%"
+            ],
+            [
+              "最軽量・16色",
+              "1,042",
+              "96.7%",
+              "14.97 / 255",
+              "-77.4%"
+            ]
+          ]
+        }
+      }
+    },
+    "earnedLv200Reports": [
+      {
+        "quest": "novokichev-survey",
+        "xp": 6000,
+        "mora": 700
+      },
+      {
+        "quest": "novo-expedition-ready",
+        "xp": 19500000,
+        "mora": 9200
+      },
+      {
+        "quest": "novo-equipment-route",
+        "xp": 26800000,
+        "mora": 10800
+      },
+      {
+        "quest": "novo-return-report",
+        "xp": 17133467,
+        "mora": 882270
+      }
+    ]
+  },
+  "snezhnaya": {
+    "markers": 108,
+    "layered_markers": 37,
+    "reciprocal_paths": 159,
+    "directed_paths": 318,
+    "stage_ids": [
+      "novokichev-camp",
+      "novokichev-depth",
+      "sne-east-camp",
+      "sne-north-works",
+      "sne-south-bay",
+      "sne-wp-100642",
+      "sne-wp-100643",
+      "sne-wp-100645",
+      "sne-wp-100647",
+      "sne-wp-100648",
+      "sne-wp-100649",
+      "sne-wp-100650",
+      "sne-wp-100651",
+      "sne-wp-100652",
+      "sne-wp-100653",
+      "sne-wp-100654",
+      "sne-wp-100655",
+      "sne-wp-100656",
+      "sne-wp-100657",
+      "sne-wp-100658",
+      "sne-wp-100659",
+      "sne-wp-100660",
+      "sne-wp-100663",
+      "sne-wp-100666",
+      "sne-wp-100667",
+      "sne-wp-100668",
+      "sne-wp-100669",
+      "sne-wp-100670",
+      "sne-wp-100671",
+      "sne-wp-100672",
+      "sne-wp-100673",
+      "sne-wp-100674",
+      "sne-wp-100675",
+      "sne-wp-100676",
+      "sne-wp-100677",
+      "sne-wp-100678",
+      "sne-wp-100679",
+      "sne-wp-100680",
+      "sne-wp-100681",
+      "sne-wp-100682",
+      "sne-wp-100683",
+      "sne-wp-100684",
+      "sne-wp-100685",
+      "sne-wp-100686",
+      "sne-wp-100687",
+      "sne-wp-100688",
+      "sne-wp-100689",
+      "sne-wp-100690",
+      "sne-wp-100691",
+      "sne-wp-100692",
+      "sne-wp-100693",
+      "sne-wp-100694",
+      "sne-wp-100695",
+      "sne-wp-100696",
+      "sne-wp-100697",
+      "sne-wp-100698",
+      "sne-wp-100699",
+      "sne-wp-100700",
+      "sne-wp-100701",
+      "sne-wp-100702",
+      "sne-wp-100703",
+      "sne-wp-100704",
+      "sne-wp-105012",
+      "sne-wp-105872",
+      "sne-wp-106180",
+      "sne-wp-106182",
+      "sne-wp-106183",
+      "sne-wp-106184",
+      "sne-wp-106185",
+      "sne-wp-106186",
+      "sne-wp-106187",
+      "sne-wp-106188",
+      "sne-wp-106189",
+      "sne-wp-106190",
+      "sne-wp-106191",
+      "sne-wp-106192",
+      "sne-wp-106193",
+      "sne-wp-106194",
+      "sne-wp-106195",
+      "sne-wp-106196",
+      "sne-wp-106197",
+      "sne-wp-106198",
+      "sne-wp-106199",
+      "sne-wp-106200",
+      "sne-wp-106201",
+      "sne-wp-106202",
+      "sne-wp-106204",
+      "sne-wp-106206",
+      "sne-wp-106207",
+      "sne-wp-106208",
+      "sne-wp-106209",
+      "sne-wp-106210",
+      "sne-wp-106211",
+      "sne-wp-106212",
+      "sne-wp-106213",
+      "sne-wp-106215",
+      "sne-wp-106216",
+      "sne-wp-106217",
+      "sne-wp-106218",
+      "sne-wp-106219",
+      "sne-wp-106220",
+      "sne-wp-107298",
+      "snezhnaya-entry",
+      "snezhnaya-field",
+      "snezhnaya-hub",
+      "white-pass-cut",
+      "white-pass-station",
+      "white-pass-woods"
+    ],
+    "arrival_from_nod_krai": true,
+    "wind_gates": [
+      {
+        "from": "sne-wp-100680",
+        "to": "sne-wp-100681"
+      },
+      {
+        "from": "sne-wp-106210",
+        "to": "sne-wp-106211"
+      }
+    ],
+    "offshore_trip": null,
+    "editor_revision": 1,
+    "retired_terrain_routes": [
+      {
+        "from": "sne-wp-106201",
+        "to": "sne-wp-106190",
+        "mode": "liftSeconds"
+      },
+      {
+        "from": "sne-wp-100668",
+        "to": "sne-wp-100699",
+        "mode": "boatSeconds"
+      }
+    ],
+    "reported_quests": [
+      "sne-mapped-track-walk",
+      "sne-mapped-four-tower-floors",
+      "sne-mapped-works-wire",
+      "sne-mapped-east-wall"
+    ],
+    "restored_visits_and_quests": true
+  },
+  "scopeAudit": {
+    "authoredStages": 1528,
+    "activeStages": 1516,
+    "authoredQuests": 284,
+    "activeQuests": 276,
+    "recordedEncounterClears": {
+      "field": 63,
+      "legend": 56,
+      "weekly": 16,
+      "stygian": 7
+    },
+    "clearAndQuestEvidence": "evidence/standard-current-quest-recheck-20261128.json",
+    "rosterSource": "7.2",
+    "catalogRosterComplete": false,
+    "catalogCases": {
+      "source_entities": 63,
+      "encounter_candidates": 87,
+      "partial": 87,
+      "complete": 0
+    },
+    "weeklyComparisonScenes": 27,
+    "weeklyArtEvidence": "evidence/standard-weekly-art-profiles-20261127.json",
+    "remaining": [
+      "Reconcile the pinned roster against in-game encounter listings.",
+      "Exercise uncovered move variants, tests with lower-spec clients and co-op under delay.",
+      "Keep reference art candidates and local performance separate from final asset approval and native verification."
+    ]
+  }
+}

@@ -16,15 +16,7 @@ MINE_AND_SNOW_ARRIVALS = {
     'chasm-wp-25268', 'chasm-wp-25269', 'chasm-wp-25270',
     'spine-lee-walk', 'dragonspine-depth',
 }
-QUEST_FIELD_ARRIVALS = {
-    'liyue-loading-yard','inazuma-lantern-trail','liyue-cliff-planks',
-    'sum-visitors-meadow','natlan-flag-slope','tunigi-depth','bygone-depth',
-    'nod-spruce-clearing','nod-patrol-bend',
-    'chenyu-depth','chenyu-tea-terraces','chenyu-cart-road',
-    'enkanomiya-depth','enkan-guide-shelf',
-    'dornman-depth','dornman-wind-stairs','dornman-flag-trestle',
-    'ochkanatlan-ruins','ochka-tide-stairs','ochka-patched-court',
-}
+QUEST_AND_DAILY_HUNT_ARRIVALS = {'liyue-loading-yard', 'inazuma-lantern-trail'}
 
 
 def read(path):
@@ -177,8 +169,10 @@ def measure():
                 if abs(enemy.y - item['y']) < 45 and enemy.patrolMin - 60 < item['x'] < enemy.patrolMax + 60:
                     unsafe_ingredients.append((item['id'], node, enemy.spawnId))
         rows.append(dict(region=region, node=node, ordinary=len(spawned), peak=peak, camera=camera))
+    quest_fields = {stage['id'] for stage in graph['nodes'] if stage.get('questField')}
     targets = (set(contact) | {row['node'] for row in rows if row['node'] in hidden}
-               | MINE_AND_SNOW_ARRIVALS | QUEST_FIELD_ARRIVALS)
+               | MINE_AND_SNOW_ARRIVALS | QUEST_AND_DAILY_HUNT_ARRIVALS
+               | (quest_fields - suspended_stage_returns(graph).keys()))
     return dict(viewWidth=VIEW_WIDTH, ordinaryHunts=rows, eliteRoutes=routes,
                 unsafePortalArrivals=sorted(unsafe), unsafeIngredientSites=unsafe_ingredients,
                 introContact=contact, introPortalArrivals=verify_intro_arrivals(lua,core,graph,placements,targets),

@@ -1831,13 +1831,17 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 300,
+        "patrolMin": 273,
+        "patrolMax": 327,
         "platform": 0
       },
       {
         "id": "novokichev-depth-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
+        "x": 655,
+        "patrolMin": 625,
+        "patrolMax": 685,
         "platform": 0
       },
       {
@@ -1845,13 +1849,17 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
+        "patrolMin": 824,
+        "patrolMax": 876,
         "platform": 0
       },
       {
         "id": "novokichev-depth-4",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 1120,
+        "x": 1230,
+        "patrolMin": 1208,
+        "patrolMax": 1253,
         "platform": 0
       },
       {
@@ -1859,6 +1867,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 290,
+        "patrolMin": 267,
+        "patrolMax": 313,
         "platform": 1
       },
       {
@@ -1866,6 +1876,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 600,
+        "patrolMin": 574,
+        "patrolMax": 626,
         "platform": 2
       }
     ],

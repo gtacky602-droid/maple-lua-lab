@@ -5579,6 +5579,7 @@
       "region": "ノヴォキッチェヴ（仮構造）",
       "level": 140,
       "hub": false,
+      "questField": true,
       "width": 1440,
       "platforms": [
         {
@@ -5606,12 +5607,16 @@
         {
           "to": "novokichev-camp",
           "x": 60,
+          "arrivalX": 1336,
+          "arrivalY": 480,
+          "rideLabel": "探索路から入口拠点へ",
           "studioRoute": "SITE-EDGE:teyvat:106203:teyvat:106205",
           "studioMode": "road"
         },
         {
           "to": "wavebinder-tide-cavern",
-          "x": 1030
+          "x": 1030,
+          "rideLabel": "西港の潮洞へ"
         }
       ],
       "checkpoint": "novokichev-camp",
@@ -7533,7 +7538,7 @@
     {"id":"flugel-tundra-basin","name":"スネージナヤ・古獣の氷原の西谷","region":"スネージナヤ","level":144,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
     {"id":"drifting-snow-court","name":"スネージナヤ・氷冠の雪庭","region":"スネージナヤ","level":148,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
     {"id":"immortal-construct-root-hollow","name":"スネージナヤ・赤葉の根洞","region":"スネージナヤ","level":142,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
-    {"id":"wavebinder-tide-cavern","atlasLayer":"below","name":"ノヴォキッチェヴ・西港の潮洞（仮配置）","region":"ノヴォキッチェヴ（仮構造）","level":152,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"novokichev-depth","x":65}],"checkpoint":"novokichev-camp","branch":true,"lightReference":50,"barrier":0},
+    {"id":"wavebinder-tide-cavern","atlasLayer":"below","name":"ノヴォキッチェヴ・西港の潮洞（仮配置）","region":"ノヴォキッチェヴ（仮構造）","level":152,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"novokichev-depth","x":65,"arrivalX":1096,"arrivalY":480,"rideLabel":"潮洞の入口から探索路へ"}],"checkpoint":"novokichev-camp","branch":true,"lightReference":50,"barrier":0},
     {"id":"dvalin-sky-arena","name":"モンド・風龍の空域（週ボス試作）","region":"モンド","level":20,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":264},{"x":303.6,"y":480,"w":264},{"x":607.2,"y":480,"w":264}],"exits":[{"to":"mond-road","x":35},{"to":"sites-hunt-7111","x":795,"arrivalX":2590,"arrivalY":388,"rideLabel":"風龍廃墟・中央塔の上段へ戻る"}],"checkpoint":"mond-town","scenery":"dvalinWeekly"},
     {"id":"andrius-wolf-ring","name":"モンド・狼の領の試練場（週ボス試作）","region":"モンド","level":24,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":40,"y":356.8,"w":176},{"x":744,"y":356.8,"w":176}],"exits":[{"to":"mond-road","x":35}],"checkpoint":"mond-town","scenery":"andriusWeekly"},
     {"id":"tide-calibration-hall","name":"潮位較正室","region":"璃月","level":30,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":115,"y":374,"w":150},{"x":695,"y":374,"w":150}],"exits":[{"to":"liyue-harbor","x":42}],"checkpoint":"liyue-harbor","scenery":"tideCalibration"},
