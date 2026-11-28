@@ -1,0 +1,112 @@
+{
+  "browser": "Chrome",
+  "trials": {
+    "hydro": {
+      "level": 52,
+      "journeys": [
+        [
+          "inazuma-port",
+          "watatsumi-landing",
+          "boat"
+        ],
+        [
+          "watatsumi-landing",
+          "hydro-hypostasis-field-cove",
+          "walk"
+        ],
+        [
+          "hydro-hypostasis-field-cove",
+          "watatsumi-landing",
+          "walk"
+        ],
+        [
+          "watatsumi-landing",
+          "inazuma-port",
+          "boat"
+        ]
+      ],
+      "play": {
+        "cleared": true,
+        "seen": [
+          "FHH01",
+          "FHH02",
+          "FHH03"
+        ],
+        "recoveries": [
+          "FHH01",
+          "FHH02",
+          "FHH03"
+        ],
+        "airborne": true,
+        "threeRainMarkers": true,
+        "skulls": [],
+        "returns": 0,
+        "hp": 355,
+        "seconds": 18.55,
+        "recoveryLabel": "無相の水（Lv52） ｜ HP 1 / 1010 ｜ 反撃の隙・水が引く"
+      },
+      "restored": true,
+      "storedCooldown": 3002,
+      "sameFrameCommands": {
+        "png": 24,
+        "standard": 7106,
+        "light": 1850
+      }
+    },
+    "wolflord": {
+      "level": 54,
+      "journeys": [
+        [
+          "inazuma-port",
+          "tsurumi-coast",
+          "boat"
+        ],
+        [
+          "tsurumi-coast",
+          "wolflord-field-ruins",
+          "walk"
+        ],
+        [
+          "wolflord-field-ruins",
+          "tsurumi-coast",
+          "walk"
+        ],
+        [
+          "tsurumi-coast",
+          "inazuma-port",
+          "boat"
+        ]
+      ],
+      "play": {
+        "cleared": true,
+        "seen": [
+          "FWL01",
+          "FWL02",
+          "FWL03"
+        ],
+        "recoveries": [
+          "FWL01",
+          "FWL02",
+          "FWL03"
+        ],
+        "airborne": true,
+        "threeRainMarkers": false,
+        "skulls": [
+          1,
+          2
+        ],
+        "returns": 0,
+        "hp": 362,
+        "seconds": 18.43,
+        "recoveryLabel": "黄金王獣（Lv54） ｜ HP 40 / 1100 ｜ 反撃の隙・頭を下げる"
+      },
+      "restored": true,
+      "storedCooldown": 2998,
+      "sameFrameCommands": {
+        "png": 19,
+        "standard": 9625,
+        "light": 2537
+      }
+    }
+  }
+}

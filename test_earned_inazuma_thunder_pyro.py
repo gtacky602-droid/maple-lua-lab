@@ -101,12 +101,16 @@ def field_fight(trip, boss_id, expected):
             if tick == move.lock:
                 frame = trip.frame().fieldBoss
                 assert frame.move == move.id and frame.label == move.title
-                target = cast.origin + cast.dir*158 if move.kind == 'wing' else cast.origin-cast.dir*72
+                offset = 158 if move.kind == 'wing' else 72 if move.kind == 'tail' else -72
                 lock = dict(move=move.id, hp=actor.hp, aim=cast.dir, origin=cast.origin, destination=cast.dest,
-                            x=target)
+                            x=cast.origin+cast.dir*offset, points=list(cast.points.values()) if cast.points else [])
+                if lock['points']:
+                    assert list(frame.fallPoints.values()) == lock['points']
             if lock and lock['move'] == move.id:
                 assert cast.dir == lock['aim'] and cast.dest == lock['destination']
-                if move.fire:
+                if lock['points']:
+                    assert list(cast.points.values()) == lock['points']
+                if move.fire and cast.projectiles:
                     seen_bolts.update(cast.projectiles.keys())
                     seen_bolts.update(cast.shots.keys())
                 if not aerial and move.air and boss.y < 450:
@@ -115,17 +119,24 @@ def field_fight(trip, boss_id, expected):
                     offset = lock['x']-actor.x
                     direction = 0 if abs(offset) <= 6 else 1 if offset > 0 else -1
                 if move.id not in evaded:
-                    last_active = (max(move.fire.values())+move.life if move.fire
-                                   else max(w[2] for w in move.active.values()))
+                    if move.fire:
+                        final_launch = move.fire if isinstance(move.fire, int) else max(move.fire.values())
+                        last_active = final_launch+move.life
+                    else:
+                        last_active = max(w[2] for w in move.active.values())
                     if tick == last_active:
                         assert actor.hp == lock['hp'], (move.id, actor.hp, lock, actor.x)
                         if move.kind == 'wing':
                             assert abs(actor.x-lock['origin']) > 1.4*88
+                        elif move.kind == 'tail':
+                            assert (actor.x-lock['origin'])*lock['aim'] > 0
                         else:
                             assert (actor.x-lock['origin'])*lock['aim'] < 0
                         evaded[move.id] = dict(warningTick=move.lock, lastActiveTick=last_active,
                                                hp=actor.hp, position=round(actor.x, 2),
                                                bolts=len(seen_bolts) if move.fire else 0)
+                        if lock['points']:
+                            evaded[move.id]['lockedFallPoints'] = lock['points']
             if recovering and move.id not in recovering_moves:
                 frame = trip.frame().fieldBoss
                 assert frame.recovering and '反撃の隙' in frame.label, (move.id, frame.label)
@@ -140,7 +151,6 @@ def field_fight(trip, boss_id, expected):
         counter = counter or bool(attack and recovering and boss.hp < old_hp)
     assert slot.phase == 'respawn' and boss.hp == 0 and state.returns == initial_returns
     assert state.kills == initial_kills+1 and tuple(evaded) == expected and counter and aerial
-    assert evaded[expected[1]]['bolts'] == 3, evaded
     return dict(hpBefore=initial_hp, hpAfter=actor.hp, noDamageInFirstCycle=True, allMoves=list(evaded),
                 dodged=evaded, aerial=True, recoveryLabels=sorted(recovering_moves), counterHit=True,
                 seconds=round(state.t-initial_time, 2), xp=state.progression.killXp-initial_xp,
@@ -170,6 +180,7 @@ def run(source):
         route = [entry['id'] for entry in trip.travel(arena)]
         expected = ('FTM01', 'FTM02', 'FTM03') if name == 'thunder' else ('FHP01', 'FHP02', 'FHP03')
         fight = field_fight(trip, boss, expected)
+        assert fight['dodged'][expected[1]]['bolts'] == 3
         assert trip.state.story.quests[quest].count == 1
         trip.travel(hub)
         trip.report(quest)
