@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## ムアラニの波乗りと返球の案内
+
+ボードの操作欄に浅瀬へ戻った回数を表示する。入り江ではボールの落ちる浜に目印を描き、返球の合図と拾い直しの時間を表示する。カチーナ加入済みのLv109セーブで練習瀬の途中再開、キーボードと幅390pxでの返球、報告と波札の保存復元を通した。 [波乗りと返球の操作](docs/balance/NATLAN_MUALANI_SURF_WEB.md) · [通し検証](evidence/earned-natlan-mualani-surf-browser.json)
+
 ## カチーナの石飾りと採集路の案内
 
 琥珀色の大岩の手前とM地図で、ジャンプを長押しして足場に乗る手順を確認できる。夕映え報告済みのLv109セーブから、魔物一体を倒した保存の再開、石飾りの下書きと展示、カチーナの同行と初期装備をChromeで通した。 [採集手順](docs/balance/NATLAN_KACHINA_CHARMS_WEB.md) · [通し検証](evidence/earned-natlan-kachina-charms-browser.json)

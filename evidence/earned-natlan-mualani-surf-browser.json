@@ -1,0 +1,26 @@
+{
+  "waveFallRecovery": true,
+  "courseSaveAndResume": true,
+  "jumpOverBothWaves": true,
+  "missAndRethrow": true,
+  "landingMarkerAllProfiles": true,
+  "keyboardRally": true,
+  "mobileRallyButton": true,
+  "replayExitAndReport": true,
+  "mementoOnReload": true,
+  "sourceSha256": "f8c9246e539121450238f3266bf4ab6d9dd848111c7811ef3e6fb0d09b975aea",
+  "startLevel": 109,
+  "reportedLevel": 109,
+  "companion": "kachina",
+  "priorCompleted": 81,
+  "reward": [
+    1404867,
+    4900
+  ],
+  "calls": {
+    "png": 15,
+    "rect": 4759,
+    "light": 1389
+  },
+  "errors": []
+}
