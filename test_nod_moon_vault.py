@@ -127,13 +127,16 @@ assert enemy.x < 920
 move(s, enemy.x - 105)
 claw = wait_move(s, "claw")
 assert claw.right == claw.origin and claw.left < claw.right
+assert frame(s).fieldBoss.label == "正面のハサミまで 0.9秒・低い帯を跳ぶか、帯の外へ"
 s.actors[1].inv = 0
 hp = s.actors[1].hp
 step(s, claw.move.windup-1)
 assert s.actors[1].hp == hp
 step(s, 8)
 assert s.actors[1].hp == hp - claw.move.damage
+assert frame(s).fieldBoss.label == "正面のハサミの後・反撃の隙"
 falling = wait_move(s, "box")
+assert frame(s).fieldBoss.label == "箱の落下まで 1.1秒・落下位置から横へ"
 fixed = (falling.left, falling.right)
 move(s, falling.right+42)
 step(s, falling.move.windup+8)
@@ -144,14 +147,17 @@ assert slot(s).cast.move.id == "shell-break" and slot(s).enemy.cracked
 assert slot(s).enemy.hp>0 and slot(s).enemy.hitTop==381
 move(s, slot(s).enemy.x-165)
 reflection=wait_move(s, "reflection")
+assert frame(s).fieldBoss.label == "反射光 1/3 まで 1.1秒・岩棚か帯の外へ"
 fixed=(reflection.left, reflection.right)
 move(s, reflection.origin-274)
 s.actors[1].inv=0
 hp=s.actors[1].hp
 step(s, reflection.move.windup+reflection.move.interval)
 assert s.actors[1].hp==hp and fixed==(reflection.left,reflection.right)
+assert frame(s).fieldBoss.label == "反射光 2/3・岩棚か帯の外へ"
 step(s, reflection.move.interval+4)
 assert s.actors[1].hp==hp-reflection.move.damage
+assert frame(s).fieldBoss.label == "反射光 3/3・岩棚か帯の外へ"
 held_hp=slot(s).enemy.hp
 s=restore(s)
 return_to_arena(s)
@@ -233,6 +239,7 @@ assert progress(restore(alternate)).storyChoice=="flower"
 
 proof=dict(clawDamage=True, sideHitsStillWork=True, bodyWalks=True, boxLocksPosition=True,
            reflectionDelayedThreeBands=True, crackedHpRestored=True, newMoveAfterShell=True,
+           attackCountdownAndBandLabels=True,
            firstChapterXp=chapter_xp, basicAmberParty=True, recoverAfterFullBag=True,
            bothRewardChoices=True, rewardPreviewBeforeClaim=True, supplies=8, cacheMora=14500, reportXp=report,
            chapterRewardAndChestOnlyOnce=True, repeatableAfterReport=True, tabletReadback=True)
