@@ -136,7 +136,7 @@ local function hit(s,a,e,mult,color,element)
  local remaining=max(e.minhp or 0,e.hp-n);s.hits=s.hits+1;s.damage=s.damage+n
  if not e.underground then number(s,e,critical and (tostring(n)..'!') or n,color) end
  event(s,'hit',a.id,e.id,n);s.events[#s.events].element=element;s.events[#s.events].critical=not not critical;s.events[#s.events].reaction=a.reaction or false
- local actual=e.spawnId and not e.noRewards
+ local actual=(e.spawnId or e.growthEvidence) and not e.noRewards
  if actual and (a.growthAI or s.growthAIActor==a.id) and C.noteGrowth then C.noteGrowth(s,'ai-hit') end
  if C.noteGrowthHit and (actual or s.growthPracticeMarks and e.growthPracticeTarget) then C.noteGrowthHit(s,a) end
  if s.coop then C.coopContact(s,e,a.id) end

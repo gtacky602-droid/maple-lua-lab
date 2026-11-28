@@ -1,5 +1,10 @@
 return function(C)
  local detour={}
+ local restCues={
+  biscuit={notes={72,76},label='焼き菓子を分ける'},
+  chime={notes={72,76,79},label='海辺の風鈴'},
+  tea={notes={76,72},label='香草茶でひと休み'},
+ }
 
  local function rect(draws,x,y,w,h,color)
   draws[#draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
@@ -24,7 +29,8 @@ return function(C)
   for _,actor in ipairs(s.actors) do
    if actor.hp>0 then actor.hp=actor.maxhp end
   end
-  emitCue(s,'resonance',gift=='chime' and {72,76,79} or {72,76},'海辺の風鈴')
+  local cue=restCues[gift]
+  emitCue(s,'resonance',cue.notes,cue.label)
  end
 
  function detour.observe(s,f,layer,scene,q,mode,profile)

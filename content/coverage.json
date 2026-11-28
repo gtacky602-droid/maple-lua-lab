@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_columbina_detour": {"startLevel":128,"choice":"tea","giftCues":3,"joined":"columbina","practice":"Q-G07","reaction":"moon-electro","target":"original-moon-crab","luaRecord":"evidence/columbina-detour-lua.json","browserRecord":"evidence/earned-columbina-detour-browser.json"},
   "inazuma_field_studio_replay": {"editorRevision":1,"markersVisited":77,"directedGatesWalked":210,"oneTimeReports":3,"atlasMarkerLinksRefreshed":194,"luaRecord":"evidence/inazuma-waypoint-test.json","browserRecord":"evidence/inazuma-waypoint-browser.json"},
   "sumeru_field_studio_replay": {"editorRevision":1,"markersVisited":125,"directedGatesWalked":368,"oneTimeReports":4,"undergroundShortcutLevel":72,"luaRecord":"evidence/sumeru-waypoint-test.json","browserRecord":"evidence/sumeru-waypoint-browser.json"},
   "fontaine_field_studio_replay": {"editorRevision":1,"markersVisited":117,"directedGatesWalked":340,"oneTimeReports":4,"shoreGatePairsChecked":7,"luaRecord":"evidence/fontaine-waypoint-test.json","browserRecord":"evidence/fontaine-waypoint-browser.json"},

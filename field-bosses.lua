@@ -110,7 +110,8 @@ return function(C,configs,controllers)
  local function spawn(slot,spec,hp)
   slot.enemy={id=spec.entity,fieldBoss=spec.id,boss=true,custom=true,x=spec.home,home=spec.home,y=spec.floorY,
    hp=hp,maxhp=spec.hp,respawn=math.huge,warning=0,cd=0,level=spec.level,
-   rewardMora=spec.mora,expRole=spec.expRole or 'field_boss',resist=spec.resist,immune=spec.immune,hitTop=spec.floorY-spec.artHeight,
+   rewardMora=spec.mora,expRole=spec.expRole or 'field_boss',growthEvidence=not spec.presentationOnly,
+   resist=spec.resist,immune=spec.immune,hitTop=spec.floorY-spec.artHeight,
    hitBottom=spec.floorY,drawHeight=spec.artHeight,facing=-1}
   slot.phase='available';slot.index=1;slot.out=0;slot.delay=0;slot.contact={};slot.cast=nil;slot.waitUntil=nil
   slot.entryAt=nil

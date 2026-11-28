@@ -7,6 +7,30 @@
     "chime",
     "tea"
   ],
+  "restCues": {
+    "biscuit": {
+      "label": "\u713c\u304d\u83d3\u5b50\u3092\u5206\u3051\u308b",
+      "notes": [
+        72,
+        76
+      ]
+    },
+    "chime": {
+      "label": "\u6d77\u8fba\u306e\u98a8\u9234",
+      "notes": [
+        72,
+        76,
+        79
+      ]
+    },
+    "tea": {
+      "label": "\u9999\u8349\u8336\u3067\u3072\u3068\u4f11\u307f",
+      "notes": [
+        76,
+        72
+      ]
+    }
+  },
   "identicalStarterStats": [
     4,
     150
