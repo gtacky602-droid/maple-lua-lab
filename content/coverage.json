@@ -8522,6 +8522,15 @@
       "lua_evidence": "evidence/earned-sumeru-frontier.json",
       "browser_evidence": "evidence/earned-sumeru-frontier-browser.json"
     },
+    "earned_fontaine_delivery": {
+      "start_level": 80,
+      "finish_level": 81,
+      "reported": "fontaine-moon-parcel",
+      "quest_objectives": 7,
+      "offscreen_waiting_cart_marker": true,
+      "lua_evidence": "evidence/earned-fontaine-delivery.json",
+      "browser_evidence": "evidence/earned-fontaine-delivery-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

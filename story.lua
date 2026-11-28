@@ -2903,6 +2903,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       reflection.draw(s,f,questProps,milestone,not s.paused and canInspect(s.actors[s.active],milestone),state,mode,profile)
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
+        and not (milestone.followCart and s.theaterCart)
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
      if milestone.scentProp then emilieScent.prop(questProps,s,milestone,mode,profile) end
@@ -2944,7 +2945,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        markers[#markers+1]={kind='text',x=x,y=captionY,text=caption,color='#fff0b9',size=14}
       end
      end
-     if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
+     if not f.storyNearbyMilestone and not s.paused
          and not (milestone.flagLowerSeconds and s.flagLowering)
          and (not milestone.teaCup or teaCase.allowed(s,q,state))
          and not (milestone.assistLever and s.wandererAssistAt)

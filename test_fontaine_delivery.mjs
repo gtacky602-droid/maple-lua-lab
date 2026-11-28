@@ -4,7 +4,8 @@ import {chromium} from 'playwright';
 
 const hub='fontaine-hub', counter='fontaine-parcel-counter', quay='fontaine-delivery-quay';
 const hall='fontaine-old-scenery-door', loft='fontaine-moon-fly-loft', quest='fontaine-moon-parcel';
-const prefix='evidence/fontaine-delivery';
+const earned=process.argv.includes('--earned');
+const prefix=earned?'work/earned-fontaine-delivery/fontaine-delivery':'evidence/fontaine-delivery';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -80,12 +81,18 @@ async function choose(text){
   await wait(text=>window.lab.frame.storyAirflow?.selection===text,text);
 }
 
-async function compare(){
+async function compare({offscreen=false}={}){
   await key('KeyP');
   await wait(()=>window.lab.frame.paused);
   const png=await frame();
-  assert.ok(png.draws.some(d=>d.source==='parcel-meka-source-v1.png'&&d.h===94));
-  await screenshot('cart-png');
+  assert.equal(png.draws.some(d=>d.source==='parcel-meka-source-v1.png'&&d.h===94),!offscreen);
+  assert.ok(!png.draws.some(d=>d.kind==='text'&&d.text==='メカの出発ベル'));
+  const expected=offscreen?'メカが待機中 →':'メカが待機中';
+  const sign=f=>f.draws.find(d=>d.kind==='text'&&d.text===expected);
+  assert.ok(sign(png));
+  if(offscreen)assert.ok(png.storyTheaterCart.x-png.camera>960&&sign(png).x<960);
+  const name=offscreen?'cart-outside':'cart';
+  await screenshot(name+'-png');
   const menu=page.locator('#renderMode');
   await menu.selectOption('rect');
   await wait(n=>window.lab.frame.commands>n*20,png.commands);
@@ -94,11 +101,13 @@ async function compare(){
   await wait(n=>window.lab.frame.commands<n*.65,standard.commands);
   const light=await frame();
   assert.ok([standard,light].every(f=>f.t===png.t&&f.storyTheaterCart.x===png.storyTheaterCart.x));
-  await screenshot('cart-light');
+  assert.deepEqual(sign(standard),sign(png));
+  assert.deepEqual(sign(light),sign(png));
+  await screenshot(name+'-light');
   await menu.selectOption('sprite');
   await key('KeyP');
   await wait(()=>!window.lab.frame.paused);
-  return {png:png.commands,standard:standard.commands,light:light.commands};
+  return {png:png.commands,standard:standard.commands,light:light.commands,caption:expected};
 }
 
 async function saveReload(){
@@ -114,10 +123,12 @@ async function saveReload(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8873/');
   await wait(()=>window.lab?.frame);
-  const raw=await fs.readFile('work/fontaine-delivery-fixture.json','utf8');
+  const source=earned?'work/earned-sumeru-frontier/fontaine-arrival.json':'work/fontaine-delivery-fixture.json';
+  const raw=await fs.readFile(source,'utf8');
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),raw);
   await page.locator('#loadProgress').click();
   await nodeIs(hub);
+  await wait(()=>window.lab.frame.progression.level===80);
   await questButton('受注','active');
   await gate(855,counter);
   await inspect(320,1);
@@ -141,6 +152,19 @@ try{
   await cartPhase('starting');
   await cartPhase('waitingForPlayer');
   await count(4);
+  let outside;
+  if(earned){
+    await walk(270);
+    outside=await compare({offscreen:true});
+    await saveReload();
+    await count(4);
+    await gate(855,counter);
+    await gate(1180,quay);
+    await cartPhase('waiting');
+    await walk(1178);
+    await key('KeyG');
+    await cartPhase('waitingForPlayer');
+  }
   const commands=await compare();
   await walk(1410);
   await cartPhase('following');
@@ -165,8 +189,17 @@ try{
   const after=await frame();
   const reward=[after.progression.questXp-before.progression.questXp,
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
-  assert.deepEqual(reward,JSON.parse(await fs.readFile(prefix+'-lua.json','utf8')).reward);
+  assert.deepEqual(reward,JSON.parse(await fs.readFile('evidence/fontaine-delivery-lua.json','utf8')).reward);
+  if(earned)assert.equal(after.progression.level,81);
   await saveReload();
+  if(earned){
+    const restored=await frame();
+    assert.equal(restored.story.quests[quest].cycles,1);
+    assert.equal(restored.progression.level,81);
+    for(const id of ['baptist-commission','sum-mapped-desert-wind','sum-mapped-tunigi-water']){
+      assert.equal(restored.story.quests[id].status,'complete');
+    }
+  }
   await gate(995,loft);
   await jump(863,391);
   await wait(()=>window.lab.frame.storyNearbyMilestone?.label==='月飾りの搬送記録を読む');
@@ -174,9 +207,12 @@ try{
   await wait(()=>window.lab.frame.storyNotice?.startsWith('搬送記録'));
   assert.deepEqual(errors,[]);
   const proof={receiptAndThreeClues:true,wrongLeadRejected:true,cartWaitsForPlayer:true,
+    bellMarkerHiddenDuringChase:true,
     actualChaseOpensEntrance:true,twoGuards:true,moonFound:true,shortcutAndReadbackAfterReload:true,
-    scenes:[quayScenery,loftScenery],commands,reward,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+    scenes:[quayScenery,loftScenery],commands,reward,errors,
+    ...(earned?{source,startLevel:80,restoredLevel:81,offscreen:outside,returnedToBellAfterReload:true}:{})};
+  const report=earned?'evidence/earned-fontaine-delivery-browser.json':prefix+'-browser.json';
+  await fs.writeFile(report,JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(()=>{
