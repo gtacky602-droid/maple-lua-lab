@@ -1,0 +1,69 @@
+{
+  "scenery": {
+    "key": "gateCourt",
+    "file": "gate-court-background-v1.png",
+    "state": "ready"
+  },
+  "stages": [
+    "king",
+    "queen",
+    "finish",
+    "royal"
+  ],
+  "cues": {
+    "release": "凍結 50 / 100 ｜ いったんG・ボタンを離す ｜ 残り 8.1秒",
+    "cooldown": "凍結 50 / 100 ｜ 再使用まで2.0秒 ｜ 残り 8.0秒",
+    "move": "凍結完了 ｜ 青い線の右へ ｜ 走路固定まで3.5秒",
+    "position": "凍結完了 ｜ この位置を維持 ｜ 走路固定まで0.6秒"
+  },
+  "pawnsPerCharge": [
+    2,
+    1,
+    0
+  ],
+  "keyboardAndPointerFrost": true,
+  "actualPositionAndCollision": true,
+  "tsunamiDamage": 0,
+  "transfer": "クイーンからキングへ 500 HP ｜ 残り 1回",
+  "reviveTransfer": 500,
+  "transferCompression": {
+    "twoSpriteBatches": true,
+    "canvasIdentical": true,
+    "plainGzipBytes": 160480,
+    "packedGzipBytes": 106443
+  },
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 19,
+    "standard": 17992,
+    "light": 5017
+  },
+  "sourceSha256": "3f1b762113478040ef3e8f3bdd4d3fee692f950d9be8c5fe85b16e222c58fe1f",
+  "guide": [
+    {
+      "label": "徒歩",
+      "mode": "walk",
+      "from": "mond-town",
+      "level": 112,
+      "id": "mond-gate-chess-court",
+      "region": "region-01",
+      "previewX": 442,
+      "approach": "現在地から右へ",
+      "name": "扉の対局・再現盤"
+    }
+  ],
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "payout": {
+    "xp": 570000,
+    "mora": 16100
+  },
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": []
+}

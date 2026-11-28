@@ -22,3 +22,14 @@
 Pで一時停止し、画像・標準矩形・軽量を切り替える。二体戦の同じ場面で、標準19,175件から軽量5,258件へ描画コマンドが72.6%減った。軽量でも王冠と剣、青い杖の区別がつき、金属の細い縁と陰影が簡略化される。 [画像](../../evidence/gate-weekly-png.png)・[標準](../../evidence/gate-weekly-standard.png)・[軽量](../../evidence/gate-weekly-light.png)
 
 Luaで、凍結600ティック目の成立、HP譲渡前後の合計、二体を同時に倒したときの報酬を検証した。Chromeでは受注から三体のポーン、キーボードとマウスでの霜印、クイーンへの誘導、HP譲渡、討伐、報告、保存再開まで確認した。 [Luaの検証](../../evidence/gate-weekly-lua.json)・[Chromeの記録](../../evidence/gate-weekly-browser.json)
+
+## Lv200セーブでの最上級3勝
+
+源焔の主の最上級3勝と依頼報告117件を記録したセーブで、モンド・城門広場から対局の最上級に入った。霜印の入力を離すタイミングと再使用までの時間を表示する。凍結後は青い線を目印に、誘導位置と走路固定までの時間を示す。固定後には突進開始までの時間が出る。
+
+- Chromeの初回はポーン3体を順に消し、Gと画面ボタンで1回ずつ霜印を使って凍結値を100にした。青い線の先に立ってキングをクイーンに当てた。討伐で32,560,274 EXPと3,590,160モラ、アルベドへの報告で570,000 EXPと16,100モラを獲得した。 [最上級初回と報告](../../evidence/earned-gate-first-expert-browser.json)
+- Luaの2連戦では、誘導成功時は津波が止まり、6秒の反撃中にキングへ336ダメージを与えた。手前で固定した場合は再誘導も外れ、津波で旅人に90ダメージが入った。両戦ともクイーンからキングへHPが500、250の順で移り、譲渡の前後で二体の合計HPは同じだった。周回ごとに18,999,684 EXPと1,538,640モラを獲得した。検証中は旅人の聖遺物を一時変更し、同行者の攻撃を止めた。 [2連戦の記録](../../evidence/earned-gate-rematch-lua.json)
+- 80枠が埋まった状態の未回収聖遺物を保持して、元の装備に戻したセーブを保存した。Chromeで対局と源焔の主の最上級各3勝、報告118件を復元した。 [再読込の記録](../../evidence/earned-gate-rematch-browser.json)
+- 2戦の18場面を元絵・中間・軽量で比較した。王族二体が出ている同じフレームで、標準の描画命令17,992件は軽量16色で5,017件になった。中間画質ではキングとクイーンの描画をパックしてもCanvasの画素が一致し、gzip転送量は160,480 Bから106,443 Bになった。 [比較の記録](../../evidence/earned-gate-rematch-frames-browser.json)
+
+最上級初回後のセーブから、`python -X utf8 test_earned_gate_lure.py --from-save work/earned-gate/first/gate-complete.json --output-dir work/earned-gate/replays --chain --weapon SW07` で2戦を再現できる。ラボを起動し、`node test_earned_weekly_frames.mjs work/earned-gate/replays work/earned-gate/comparison` で3画質を比較する。

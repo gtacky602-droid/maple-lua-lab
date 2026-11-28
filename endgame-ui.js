@@ -221,22 +221,31 @@ export function falseMoonEncounterText(v){
 }
 
 export function gateEncounterText(gate){
+ const seconds=ticks=>(Math.max(0,Math.ceil(ticks/6))/10).toFixed(1);
  const target=gate.run?.member?(gate.run.mine?' ｜ あなたが誘導':` ｜ 誘導：旅人 ${gate.run.member}`):'';
  if(gate.card==='WT03')return `ポーン ${gate.shield} / 3 ｜ ポーンの向こう側へ突進を誘導${target}`;
  if(gate.card==='WT05')return `雷障壁 ${gate.shield} / ${gate.maxShield} ｜ 通常攻撃でも削れる`;
- if(gate.exposure)return `${gate.lureCollision?'津波を中断 ｜ ':''}反撃できる時間 ${(gate.exposure/60).toFixed(1)}秒`;
+ if(gate.exposure)return `${gate.lureCollision?'津波を中断 ｜ ':''}反撃できる時間 ${seconds(gate.exposure)}秒`;
  if(gate.lureCollision)return gate.exposureEnded?'反撃終了':'クイーンに突進が命中 ｜ 津波を中断';
  if(gate.transfer)return `HP譲渡まで ${(gate.transfer/60).toFixed(1)}秒 ｜ 残り ${gate.revives}回`;
  if(gate.tsunami)return gate.tsunamiDamage?`津波が命中 ｜ ${gate.tsunamiDamage}ダメージ`:'津波が発生';
  if(gate.run&&gate.lure){
-  const phase=gate.run.goal?'走路固定。ジャンプでかわす':
-   gate.lureMissed?'突進が外れた。クイーンの向こう側へ再誘導':'凍結完了 ｜ クイーンの向こう側へ';
-  return phase+target;
+  const run=gate.run;
+  if(run.goal){
+   const launch=run.chargeIn?`突進まで${seconds(run.chargeIn)}秒`:'ジャンプで突進をかわす';
+   return `走路固定 ｜ ${launch}${target}`;
+  }
+  const result=gate.lureMissed?'突進が外れた':'凍結完了';
+  const position=run.mine?(run.ready?'この位置を維持':'青い線の右へ'):'誘導役は青い線の右へ';
+  const lock=run.lockIn?` ｜ 走路固定まで${seconds(run.lockIn)}秒`:'';
+  return `${result} ｜ ${position}${lock}${target}`;
  }
  if(gate.canFrost){
-  const remaining=Math.ceil((gate.freezeBy-gate.tick+1)/60);
-  const owner=gate.frostOwner&&gate.hold===undefined?` ｜ 旅人 ${gate.frostOwner}が霜印を使用中`:'';
-  return `凍結 ${gate.freeze} / 100 ｜ 霜印は盤の両端 ｜ 残り ${remaining}秒${owner}`;
+  const remaining=seconds(gate.freezeBy-gate.tick+1);
+  const owner=gate.frostOwner&&gate.hold===undefined?`旅人 ${gate.frostOwner}が霜印を使用中`:'';
+  const frost=owner||(gate.releaseRequired?'いったんG・ボタンを離す':
+   gate.frostReady?`再使用まで${seconds(gate.frostReady)}秒`:'霜印は盤の両端');
+  return `凍結 ${gate.freeze} / 100 ｜ ${frost} ｜ 残り ${remaining}秒`;
  }
  if(gate.deadline){
   const remaining=Math.max(0,Math.ceil((gate.deadline-gate.tick)/60));

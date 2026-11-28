@@ -1,17 +1,21 @@
 """Compare the locked royal charge on two expert rematches from an earned save."""
 
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, lure):
+def replay(source, output, lure, *, weapon='SW06', next_save=None):
     spec = next(b for b in read('content/weekly-boss-spawns.json')['weeklyBosses']
                 if b['controller'] == 'game_before_gate')
-    trip, slot, start, _, mode, key, prior = expert_rematch(source.resolve(), runtime(), spec)
+    trip, slot, start, loadout, mode, key, prior = expert_rematch(
+        source.resolve(), runtime(), spec, weapon=weapon, trial_flower=next_save is not None,
+        keep_pending_loot=next_save is not None)
     state, hero = trip.state, trip.actor
     before = state.progression.total, state.mora
     moves, board = spec['moves'], spec['board']
@@ -19,7 +23,7 @@ def replay(source, output, lure):
     threshold = board['left'] + trial['lure_min_x_U'] * board['unit']
     frames, stages, pawns, freezes, locks, misses, tsunami, transfers = {}, [], [], [], [], [], [], []
     collision = None
-    exposure = 0
+    exposure = exposure_damage = 0
     released = False
 
     def sample(label, tick, cast):
@@ -46,22 +50,24 @@ def replay(source, output, lure):
                 jump = trial['charge_window_offset'][0] - 23 <= age < trial['charge_window_offset'][1]
         elif slot.stage != 'royal':
             target = slot.queen if slot.stage == 'queen' else slot.king
+        elif collision and not released and card == 'WT18' and slot.phase == 'exposure' and not exposure_damage:
+            target = slot.king
         elif released and card != 'WT19':
             living = [e for e in (slot.king, slot.queen) if e.hp > 0 and not e.invulnerable]
             if living:
-                target = min(living, key=lambda e: e.hp) if transfers else slot.king
+                target = slot.king if slot.reviveLeft > 0 else min(living, key=lambda e: e.hp)
                 if target.hp <= 0:
                     target = living[0]
 
         dx = target.x - hero.x if target else 0
         if target:
-            offset = 104 if slot.stage == 'royal' and not transfers else 70
+            offset = 104 if slot.stage == 'royal' and slot.reviveLeft > 0 else 70
             goal = max(board['left'] + 18, target.x - offset)
             if abs(goal - hero.x) <= 9 and dx * hero.dir < 0:
                 goal = hero.x + (24 if dx > 0 else -24)
         attack = bool(target) and target.hp > 0 and not target.invulnerable and abs(dx) < 113 and dx * hero.dir > 0
-        if slot.stage == 'royal' and target and not transfers:
-            attack = attack and hero.x < target.x - 87
+        if slot.stage == 'royal' and target and slot.reviveLeft > 0:
+            attack = attack and hero.x < target.x - 87 and slot.queen.x > hero.x + 146
         controls = trip.lua.table(left=goal < hero.x - 9, right=goal > hero.x + 9,
                                   jump=jump, interact=interact, attack=attack)
         revives = slot.reviveLeft
@@ -73,6 +79,12 @@ def replay(source, output, lure):
         assert not state.returns and hero.hp > 0
 
         move = slot.cast
+        if collision and not released and card == 'WT18':
+            exposure_damage += max(0, hp_before[0]-slot.king.hp)
+        if first_trial and cast.run and not cast.run.goal and move and move.key == 'WT17':
+            if hero.x >= threshold and '誘導位置に到達' not in frames:
+                sample('誘導位置に到達', tick, move)
+                assert frames['誘導位置に到達']['view']['gate']['run']['ready']
         watch = card in ('WT03', 'WT19') or first_trial
         fresh = [e for e in state.events.values() if e.seq > seq_before] if watch else []
         if card == 'WT03':
@@ -134,13 +146,29 @@ def replay(source, output, lure):
     if lure:
         opens, closes = moves['WT18']['exposure']
         assert collision and not tsunami and not misses and exposure == closes - opens
+        assert exposure_damage > 0
         assert frames['反撃開始']['view']['gate']['lureCollision']
         assert frames['反撃開始']['view']['gate']['exposure'] == exposure
     else:
         assert not collision and not exposure and misses and tsunami == [
             dict(tick=trial['failure_window'][0], loss=spec['damage']['catastrophe'])]
         assert frames['津波が命中']['view']['gate']['tsunamiDamage'] == tsunami[0]['loss']
+    hp_at_clear = [actor.hp for actor in state.actors.values()]
     verify_repeat(trip, before, start, mode, key, prior)
+    checkpoint = None
+    if next_save:
+        assert not loadout['sold']
+        saved = restore_rematch_equipment(trip, start, loadout, 'mond-town')
+        assert saved['story']['quests']['gate-weekly-commission']['status'] == 'complete'
+        assert len([q for q in saved['story']['quests'].values() if q['status']=='complete']) == 118
+        before_ids = {entry['item']['id'] for entry in start['inventory']['ground']}
+        assert before_ids <= {entry['item']['id'] for entry in saved['inventory']['ground']}
+        for boss, record in start['endgame']['weekly'].items():
+            if boss != key:
+                assert saved['endgame']['weekly'][boss] == record
+        data = (json.dumps(saved, ensure_ascii=False, separators=(',', ':')) + '\n').encode('utf-8')
+        next_save.write_bytes(data)
+        checkpoint = sha256(data).hexdigest()
     case = 'gate-collision' if lure else 'gate-missed'
     label = 'クイーンへの誘導に成功' if lure else 'クイーンへの誘導に失敗'
     (output / f'{case}-frames.json').write_text(
@@ -149,15 +177,23 @@ def replay(source, output, lure):
     return dict(controller='game_before_gate', case=case, label=label, ticks=tick, sourceSha256=trip.source,
                 stages=stages, remainingPawns=pawns, freezeCompletions=freezes, locks=locks,
                 collision=collision, misses=misses, tsunami=tsunami, exposureTicks=exposure,
-                transfers=transfers, expertClears=[prior, prior + 1])
+                transfers=transfers, exposureDamage=exposure_damage, expertClears=[prior, prior + 1],
+                reward=dict(xp=mode.xp, mora=mode.mora), trialLoadout=loadout,
+                survivingHp=hp_at_clear, checkpointSha256=checkpoint)
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
     parser.add_argument('--from-save', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--chain', action='store_true', help='Save each rematch as the source for the next')
+    parser.add_argument('--weapon', default='SW06')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    results = [replay(args.from_save, args.output_dir, successful) for successful in (True, False)]
+    first_save = args.output_dir/'collision-save.json' if args.chain else None
+    final_save = args.output_dir/'complete.json' if args.chain else None
+    first = replay(args.from_save, args.output_dir, True, weapon=args.weapon, next_save=first_save)
+    second = replay(first_save or args.from_save, args.output_dir, False, weapon=args.weapon, next_save=final_save)
+    results = [first, second]
     (args.output_dir / 'weekly-mechanics.json').write_text(
         json.dumps(results, ensure_ascii=False, indent=2) + '\n', 'utf8')

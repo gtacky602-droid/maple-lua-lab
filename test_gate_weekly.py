@@ -129,17 +129,24 @@ step(s,91,interact=True)
 assert c.freeze==50
 cd=c.ready-c.t
 assert cd==120
+frost=core.frame(s).weeklyBoss.gate
+assert frost.releaseRequired and frost.frostReady==120
 step(s,120)
 step(s,91,interact=True)
 assert c.freeze==100 and c.run is not None and w.cast.key=='WT17'
 freeze_tick=c.t
 assert freeze_tick<=600
+run=core.frame(s).weeklyBoss.gate.run
+assert not run.ready and run.lockIn==210
 step(s,163,right=True)
 assert s.actors[1].x>=612
+run=core.frame(s).weeklyBoss.gate.run
+assert run.ready and run.lockIn==47
 step(s,46)
-assert c.run.goal is None
+assert c.run.goal is None and core.frame(s).weeklyBoss.gate.run.lockIn==1
 step(s,1)
 goal=c.run.goal
+assert core.frame(s).weeklyBoss.gate.run.chargeIn==48
 assert goal>=612 and c.t==freeze_tick+210
 step(s,36)
 core.action(s,'jump')
