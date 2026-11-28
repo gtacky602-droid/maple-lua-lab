@@ -147,7 +147,7 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
  return {node,actor,journeys,walk,changeHeight,cross,warp,count,waitNode,accept,report,choices,waypointCount};
 }
 
-export async function verifySumeruBossGuide(page,arena){
+export async function verifySumeruBossGuide(page,arena,approach='sumeru-field'){
  await page.evaluate(()=>document.activeElement.blur());
  await page.keyboard.press('KeyM');
  await page.locator('#worldAtlas').waitFor();
@@ -158,7 +158,7 @@ export async function verifySumeruBossGuide(page,arena){
  await page.waitForFunction(arena=>window.lab.frame.worldMap?.selected?.id===arena,arena);
  const guide=await page.evaluate(()=>window.lab.frame.worldMap.guide);
  assert.equal(guide.status,'ready');
- assert.deepEqual(guide.stops.map(stop=>[stop.id,stop.mode]),[['sumeru-field','walk'],[arena,'walk']]);
+ assert.deepEqual(guide.stops.map(stop=>[stop.id,stop.mode]),[[approach,'walk'],[arena,'walk']]);
  await page.locator('#atlasClose').click();
  await page.locator('#worldAtlas').waitFor({state:'hidden'});
  return guide.stops.map(stop=>stop.id);

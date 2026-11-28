@@ -15,6 +15,10 @@ return function(C,configs,controllers)
    if shared[key] then body.sharedHealth[key]=value else rawset(body,key,value) end
   end
  }
+ function C.drawFieldCoreTimer(f,x,y,remaining,total,color)
+  f.draws[#f.draws+1]={kind='rect',x=x-16,y=y-1,w=32,h=5,color='#302235'}
+  f.draws[#f.draws+1]={kind='rect',x=x-15,y=y,w=30*remaining/total,h=3,color=color}
+ end
  function C.drawFieldImpactNumber(f,x,floorY,index,color)
   local y=floorY-104
   for offset=10,80,14 do

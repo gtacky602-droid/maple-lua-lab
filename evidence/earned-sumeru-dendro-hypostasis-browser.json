@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 18.68,
+    "moves": [
+      "FHD01",
+      "FHD02",
+      "FHD03"
+    ],
+    "dodgeWindows": 6,
+    "finished": true,
+    "hp": 346,
+    "returns": 0
+  },
+  "levelAtEntry": 69,
+  "route": [
+    "sumeru-field",
+    "dendro-hypostasis-field-den"
+  ],
+  "coreCommands": {
+    "png": 14,
+    "standard": 7383,
+    "light": 1853,
+    "remaining": 143
+  },
+  "commissionRestored": true,
+  "fieldKill": {
+    "xp": 53350,
+    "mora": 240
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 18,
+    "standard": 10471,
+    "light": 2780
+  },
+  "threeSeedsInTell": true,
+  "airborneBallVisible": true,
+  "viewport390": true,
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 31.33,
+    "moves": [
+      "FMT01",
+      "FMT02",
+      "FMT03"
+    ],
+    "dodgeWindows": 6,
+    "normalHitDuringCloak": true,
+    "finished": true,
+    "hp": 363,
+    "returns": 0
+  },
+  "levelAtEntry": 70,
+  "route": [
+    "sumeru-entry",
+    "asimon-field-ruins"
+  ],
+  "cloakCommands": {
+    "png": 30,
+    "standard": 8846,
+    "light": 2292
+  },
+  "commissionRestored": true,
+  "fieldKill": {
+    "xp": 61650,
+    "mora": 245
+  },
+  "commissionReport": {
+    "xp": 4200,
+    "mora": 310
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 30,
+    "standard": 8621,
+    "light": 2223
+  },
+  "sameStateOpacity": {
+    "normal": 0.45,
+    "reduced": 1,
+    "tick": 89
+  },
+  "fullPillarHeight": true,
+  "viewport390": true,
+  "errors": []
+}

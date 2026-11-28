@@ -8476,6 +8476,20 @@
       "lua_evidence": "evidence/earned-sumeru-canopy-drake.json",
       "browser_evidence": ["evidence/earned-sumeru-canopy-browser.json", "evidence/earned-sumeru-drake-browser.json"]
     },
+    "earned_sumeru_dendro_matrix": {
+      "start_level": 69,
+      "matrix_gate_level": 70,
+      "encounters_cleared_and_commissions_restored": ["boss-20040701", "boss-24050101"],
+      "progression_quest": "sum-collei-guide",
+      "dendro_post_plunge_counter_ticks": 144,
+      "matrix_normal_hit_during_cloak": true,
+      "lua_evidence": "evidence/earned-sumeru-dendro-matrix.json",
+      "browser_evidence": [
+        "evidence/earned-sumeru-dendro-hypostasis-browser.json",
+        "evidence/earned-sumeru-collei-browser.json",
+        "evidence/earned-sumeru-asimon-browser.json"
+      ]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

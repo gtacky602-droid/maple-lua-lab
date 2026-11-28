@@ -60,13 +60,13 @@ return function(C)
   return t>=m.total
  end
 
- function matrix.label(b,c)
-  if c and c.tick>=c.move.recover then return '外装が緩む・反撃' end
- end
-
  local function cloaked(c)
   local travel=c and c.move.travel
   return travel and c.tick>=travel[1] and c.tick<travel[2]
+ end
+ function matrix.label(b,c)
+  if cloaked(c) then return '透影移動・核に攻撃可能' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・外装が緩む' end
  end
  function matrix.frame(f,b,s,c)
   f.cloaked=not not cloaked(c)
@@ -137,6 +137,13 @@ return function(C)
   end
   C.drawAsimonFieldArt(f,x,y,pose,mode,profile,c and c.dir<0,soft)
   if pose=='cloak' then cloakOutline(f,x,y) end
+  if c and c.move.kind=='pillars' and c.tick>=c.move.lock then
+   for i,window in ipairs(c.move.active) do
+    if c.tick<window[2] then
+     C.drawFieldImpactNumber(f,c.points[i]-camera,y,i,white)
+    end
+   end
+  end
   if pose=='ray' then
    local t=c.tick
    local side=t<c.move.active[1][2] and -1 or 1

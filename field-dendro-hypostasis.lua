@@ -27,8 +27,12 @@ return function(C)
  function dendro.shareCast(c,actors)
   C.shareFieldHits(c.seen,actors)
  end
- function dendro.frame(f,b)
+ local function coreWindow(c)
+  return c and c.tick>=c.move.recover and math.max(0,c.move.total-c.tick) or nil
+ end
+ function dendro.frame(f,b,s,c)
   f.flying=not not b.flying
+  f.coreWindowTicks=coreWindow(c)
  end
  local function bounds(c)
   if c.move.kind=='plunge' then return c.dest-.7*U,c.dest+.7*U end
@@ -62,7 +66,7 @@ return function(C)
   return t>=m.total
  end
  function dendro.label(b,c)
-  if c and c.tick>=c.move.recover then return '核が地表に降りる・反撃' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・核が地表に降りる' end
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
@@ -108,6 +112,10 @@ return function(C)
   end
   local flip=c and c.dir>0 or false
   C.drawDendroHypostasisFieldArt(f,x,b.y,pose,mode,profile,flip)
+  local remaining=coreWindow(c)
+  if remaining then
+   C.drawFieldCoreTimer(f,x,b.y-109,remaining,c.move.total-c.move.recover,lime)
+  end
   if c and c.move.fire then
    for i,fire in ipairs(c.move.fire) do
     local age=c.tick-fire

@@ -1,0 +1,123 @@
+{
+  "sourceSha256": "4a55b5be877bf77e144d11766e3cc2425abec8064e9dd51cfb492b4749ffd611",
+  "matrixGate": {
+    "lockedAt": 69,
+    "requires": 70
+  },
+  "progression": {
+    "levelBefore": 69,
+    "levelAfter": 70,
+    "report": {
+      "quest": "sum-collei-guide",
+      "xp": 220004,
+      "mora": 2100
+    }
+  },
+  "trials": {
+    "dendro-hypostasis": {
+      "levelAtEntry": 69,
+      "levelAfterKill": 69,
+      "moves": {
+        "FHD01": {
+          "lock": 48,
+          "points": [],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FHD02": {
+          "lock": 54,
+          "points": [
+            702.5
+          ],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FHD03": {
+          "lock": 48,
+          "points": [],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        }
+      },
+      "recoveryLabels": [
+        "FHD01",
+        "FHD02",
+        "FHD03"
+      ],
+      "coreWindowTicks": 144,
+      "bolts": [
+        1,
+        2,
+        3
+      ],
+      "airborne": true,
+      "cloaked": false,
+      "normalHitDuringCloak": false,
+      "counterHit": true,
+      "hpBefore": 384,
+      "hpAfter": 344,
+      "seconds": 20.1,
+      "xp": 53350,
+      "mora": 240,
+      "report": {
+        "quest": "dendro-hypostasis-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 3101
+    },
+    "asimon": {
+      "levelAtEntry": 70,
+      "levelAfterKill": 70,
+      "moves": {
+        "FMT01": {
+          "lock": 48,
+          "points": [],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FMT02": {
+          "lock": 48,
+          "points": [
+            621.48,
+            713.0,
+            804.52
+          ],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FMT03": {
+          "lock": 54,
+          "points": [
+            713.0
+          ],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        }
+      },
+      "recoveryLabels": [
+        "FMT01",
+        "FMT02",
+        "FMT03"
+      ],
+      "coreWindowTicks": null,
+      "bolts": [],
+      "airborne": false,
+      "cloaked": true,
+      "normalHitDuringCloak": true,
+      "counterHit": true,
+      "hpBefore": 384,
+      "hpAfter": 299,
+      "seconds": 32.23,
+      "xp": 61650,
+      "mora": 245,
+      "report": {
+        "quest": "asimon-commission",
+        "xp": 4200,
+        "mora": 310
+      },
+      "restoredCooldown": 3340
+    }
+  },
+  "returns": 0
+}

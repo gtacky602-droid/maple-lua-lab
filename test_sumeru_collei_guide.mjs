@@ -3,7 +3,9 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const hub='sumeru-hub',mond='mond-town',trail='sum-collei-trail',fork='sum-collei-rainfork',welcome='sum-collei-welcome';
+const earned=process.argv.includes('--earned');
 const quest='sum-collei-guide',prefix='evidence/sum-collei-guide';
+const output=earned?'work/earned-sumeru-dendro-matrix/collei':prefix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -13,7 +15,7 @@ const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:24000});
 const at=node=>wait(node=>window.lab?.frame?.story?.node===node,node);
 const count=n=>wait(({quest,n})=>window.lab.frame.story.quests[quest]?.count===n,{quest,n});
 const notice=text=>wait(text=>window.lab.frame.storyNotice?.includes(text),text);
-const shot=name=>page.locator('.game').screenshot({path:prefix+'-'+name+'.png'});
+const shot=name=>page.locator('.game').screenshot({path:output+'-'+name+'.png'});
 
 async function key(code){
   await canvas.click();
@@ -112,13 +114,18 @@ async function compare(){
   return {png:png.commands,standard:standard.commands,light:light.commands};
 }
 
-try{
+async function run(){
   const expected=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8918/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/sum-collei-guide-fixture.json','utf8');
+  const seed=await fs.readFile(earned?output+'-ready.json':'work/sum-collei-guide-fixture.json','utf8');
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await load(hub);
+  if(earned){
+    const current=await frame();
+    assert.equal(current.progression.level,69);
+    assert.equal(current.story.quests['dendro-hypostasis-commission'].status,'complete');
+  }
   await questButton('受注','active');
   await page.locator(`[data-quest="${quest}"]`).getByRole('button',{name:'この依頼を追跡'}).click();
   await interact(515,'コレイの案内の練習に付き合う');
@@ -136,7 +143,7 @@ try{
   await preview.waitForFunction(()=>window.mapArt?.ready&&mapArt.backgroundState==='ready');
   assert.match(await preview.locator('#surveyPointNote').innerText(),/高い棚の三つ石.*647, 396/);
   assert.equal(await preview.locator('#profile').inputValue(),'h32c16');
-  await preview.locator('#rect').screenshot({path:prefix+'-stones-field-16.png'});
+  await preview.locator('#rect').screenshot({path:output+'-stones-field-16.png'});
   await preview.close();
   await jump(396);
   await interact(647,'三つ石を目印に選ぶ');
@@ -191,6 +198,20 @@ try{
   assert.deepEqual(reward,expected.reward);
   assert.equal(after.story.quests[quest].colleiLetter,undefined);
   await reload(hub);
+  if(earned){
+    const restored=await frame();
+    assert.equal(restored.progression.level,70);
+    assert.equal(restored.story.quests[quest].status,'complete');
+    assert.equal(restored.story.quests[quest].cycles,1);
+    assert.equal(restored.story.quests['dendro-hypostasis-commission'].status,'complete');
+    assert.equal(restored.returns,0);
+    assert.deepEqual(errors,[]);
+    const proof={browser:'Chrome',startLevel:69,finishLevel:70,rainClosesOriginalRoute:true,
+      detourReachedWelcome:true,restoredReport:true,commands,reward,errors};
+    await fs.writeFile('evidence/earned-sumeru-collei-browser.json',JSON.stringify(proof,null,2)+'\n');
+    console.log(proof);
+    return;
+  }
   await page.locator(`[data-rest-waypoint="${trail}"]`).click();
   await at(trail);
   assert.equal((await frame()).storyColleiGuide.rest,true);
@@ -226,6 +247,10 @@ try{
     optionalLetterAcrossRegionsAndReload:true,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
+}
+
+try{
+  await run();
 }catch(error){
   console.error(await page.evaluate(quest=>{
     const f=window.lab?.frame;

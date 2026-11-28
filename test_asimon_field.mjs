@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {verifySumeruBossGuide} from './tools/browser_waypoint_test.mjs';
 
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-sumeru-dendro-matrix':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='asimon-field';
@@ -41,10 +44,10 @@ async function pause(value){
 }
 
 async function fight(){
- await page.evaluate(()=>{
+ await page.evaluate(earnedRun=>{
   const held=new Set(),moves=new Set(),dodges=new Set();
   const warnings={FMT01:[92,152],FMT02:[104,146,188],FMT03:[140]};
-  let prior='',lastTick=-1,used=new Set();
+  let prior='',lastTick=-1,used=new Set(),pastCloak=false,normalHitDuringCloak=false,priorHp,priorCooldown=0;
   const start=window.lab.frame.t;
   function hold(code,on){
    if(on===held.has(code))return;
@@ -55,13 +58,17 @@ async function fight(){
    const f=window.lab.frame,b=f.fieldBoss,a=f.actors[f.active-1];
    if(!b||b.phase==='respawn'||f.returns>0||f.t-start>130){
     for(const code of [...held])hold(code,false);
-    window.asimonFieldResult={seconds:+(f.t-start).toFixed(2),moves:[...moves],dodgeWindows:dodges.size,finished:b?.phase==='respawn',hp:a.hp,returns:f.returns};
+    window.asimonFieldResult={seconds:+(f.t-start).toFixed(2),moves:[...moves],dodgeWindows:dodges.size,normalHitDuringCloak,finished:b?.phase==='respawn',hp:a.hp,returns:f.returns};
     return;
    }
    if(f.paused){requestAnimationFrame(control);return}
    if(prior!==b.move||b.tick<lastTick){prior=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move)moves.add(b.move);
+   if(b.move==='FMT03'&&b.tick>=180)pastCloak=true;
+   const cooldown=a.cd?.normal??0;
+   if(b.cloaked&&b.hp<priorHp&&cooldown>priorCooldown)normalHitDuringCloak=true;
+   priorHp=b.hp;priorCooldown=cooldown;
    for(const at of warnings[b.move]||[]){
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);dodges.add(b.move+at);hold('ShiftLeft',true);hold('ShiftLeft',false);
@@ -70,20 +77,27 @@ async function fight(){
    const dx=b.x-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',dx<-99||(turn&&dx<0));
    hold('KeyD',dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   hold('KeyJ',(!earnedRun||pastCloak&&(b.cloaked||normalHitDuringCloak))&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },earned);
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(earned?output+'/asimon-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='sumeru-hub',quest);
+ let route;
+ if(earned){
+  const current=await frame();
+  assert.equal(current.progression.level,70);
+  assert.equal(current.story.quests['sum-collei-guide'].status,'complete');
+  route=await verifySumeruBossGuide(page,arena,'sumeru-entry');
+ }
  await gate(60,'sumeru-entry');
  await gate(1210,arena);
  const scenery=await page.evaluate(async()=>{
@@ -102,7 +116,7 @@ try{
  assert.equal(original.fieldBoss.maxhp,1100);
  assert.ok(original.draws.some(d=>d.source==='asimon-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='asimon-field-poses-source-v1.png'));
  const standard=await frame();
@@ -110,7 +124,7 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  await fight();
@@ -122,7 +136,7 @@ try{
   return true;
  });
  await page.waitForFunction(()=>window.lab.frame.paused);
- await canvas.screenshot({path:'evidence/'+prefix+'-pillar.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-pillar.png'});
  await pause(false);
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
@@ -133,7 +147,23 @@ try{
  await page.waitForFunction(()=>window.lab.frame.paused);
  const faded=await frame();
  assert.ok(faded.draws.some(d=>d.source===prefix+'-poses-source-v1.png'&&d.opacity===.45));
- const fadeScreenshot=await canvas.screenshot({path:'evidence/'+prefix+'-faded.png'});
+ assert.match(await page.locator('#fieldBossLabel').innerText(),/透影移動・核に攻撃可能/);
+ const fadeScreenshot=await canvas.screenshot({path:output+'/'+prefix+'-faded.png'});
+ let cloakCommands;
+ if(earned){
+  await page.locator('#renderMode').selectOption('rect');
+  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.kind==='boss_sprite'));
+  const standard=await frame();
+  await page.locator('#renderMode').selectOption('h32c16');
+  await page.waitForFunction(n=>window.lab.frame.commands<n*.72,standard.commands);
+  const light=await frame();
+  assert.deepEqual([standard.t,light.t,light.fieldBoss.destination],[faded.t,faded.t,faded.fieldBoss.destination]);
+  assert.ok(light.draws.some(d=>d.kind==='rect'&&d.opacity===.45));
+  await canvas.screenshot({path:output+'/asimon-cloak-light.png'});
+  cloakCommands={png:faded.commands,standard:standard.commands,light:light.commands};
+  await page.locator('#renderMode').selectOption('sprite');
+  await page.waitForFunction(()=>window.lab.frame.draws.some(d=>d.kind==='boss_sprite'&&d.opacity===.45));
+ }
  const cdp=await page.context().newCDPSession(page);
  await cdp.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-transparency',value:'reduce'}]});
  assert.equal(await page.evaluate(()=>matchMedia('(prefers-reduced-transparency: reduce)').matches),true);
@@ -147,7 +177,7 @@ try{
  await page.locator('#renderMode').selectOption('sprite');
  await page.waitForFunction(()=>window.lab.frame.draws.some(d=>d.kind==='boss_sprite'&&d.opacity===.45));
  const opaque=await frame();
- const opaqueScreenshot=await canvas.screenshot({path:'evidence/'+prefix+'-reduced-transparency.png'});
+ const opaqueScreenshot=await canvas.screenshot({path:output+'/'+prefix+'-reduced-transparency.png'});
  assert.ok(!fadeScreenshot.equals(opaqueScreenshot));
  assert.equal(faded.t,opaque.t);
  const sameStateOpacity={normal:.45,reduced:1,tick:faded.fieldBoss.tick};
@@ -156,9 +186,10 @@ try{
  await page.waitForFunction(()=>window.asimonFieldResult,undefined,{timeout:140000});
  const play=await page.evaluate(()=>window.asimonFieldResult);
  assert.ok(play.finished,JSON.stringify(play));
- assert.deepEqual(play.moves,['FMT01','FMT02','FMT03']);
+ assert.deepEqual([...play.moves].sort(),['FMT01','FMT02','FMT03']);
  assert.ok(play.dodgeWindows>=3);
  assert.equal(play.returns,0);
+ if(earned)assert.ok(play.normalHitDuringCloak);
  const defeated=await frame();
  assert.deepEqual([defeated.progression.killXp-before.progression.killXp,defeated.mora-before.mora],[killXp,245]);
  assert.equal(defeated.story.quests[quest].count,1);
@@ -174,6 +205,17 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(earned){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('町から再開'));
+  const current=await frame();
+  assert.equal(current.story.node,'sumeru-hub');
+  assert.equal(current.story.quests[quest].status,'complete');
+  assert.equal(current.story.quests[quest].cycles,1);
+  assert.equal(current.endgame.bosses[id].clears,1);
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('半永久統制マトリックス');
@@ -183,8 +225,8 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
-  browser:'Chrome',play,fieldKill:{xp:killXp,mora:245},commissionReport:{xp:4200,mora:310},
+ await fs.writeFile(earned?'evidence/earned-sumeru-asimon-browser.json':'evidence/'+prefix+'-browser.json',JSON.stringify({
+  browser:'Chrome',play,...(earned?{levelAtEntry:70,route,cloakCommands,commissionRestored:true}:{}),fieldKill:{xp:killXp,mora:245},commissionReport:{xp:4200,mora:310},
   persistedCooldown:true,
   sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},sameStateOpacity,fullPillarHeight:true,viewport390:true,errors
  },null,2)+'\n');
