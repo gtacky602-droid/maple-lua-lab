@@ -1,0 +1,100 @@
+{
+  "sourceSha256": "c5acf1d58c07cbaaadb4f45dd8b1dfd4416fd49705dd2e66df88d51956fb94a6",
+  "level": 54,
+  "route": [
+    "watatsumi-landing",
+    "ina-wp-15942",
+    "enkanomiya-camp",
+    "enkanomiya-depth",
+    "bathysmal-field-sanctum"
+  ],
+  "rides": [
+    {
+      "origin": "inazuma-port",
+      "destination": "watatsumi-landing",
+      "seconds": 4.2,
+      "restoredMidSailAt": "inazuma-port"
+    },
+    {
+      "origin": "ina-wp-15942",
+      "destination": "enkanomiya-camp",
+      "seconds": 3.8,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "origin": "enkanomiya-camp",
+      "destination": "ina-wp-15942",
+      "seconds": 3.8,
+      "restoredAt": "enkanomiya-camp"
+    },
+    {
+      "origin": "watatsumi-landing",
+      "destination": "inazuma-port",
+      "seconds": 4.2,
+      "restoredMidSailAt": "inazuma-port"
+    }
+  ],
+  "combat": {
+    "sharedInitialHp": 1120,
+    "hpBefore": 384,
+    "hpAfter": 384,
+    "moveOrder": [
+      "FBH01",
+      "FBH02",
+      "FBH03"
+    ],
+    "finalActiveTicks": {
+      "FBH01": 108,
+      "FBH02": 210,
+      "FBH03": 246
+    },
+    "recoveryTicks": {
+      "FBH01": 132,
+      "FBH02": 228,
+      "FBH03": 270
+    },
+    "locks": {
+      "FBH01": {
+        "hp": 384,
+        "tick": 42,
+        "target": 624,
+        "landings": []
+      },
+      "FBH02": {
+        "hp": 384,
+        "tick": 48,
+        "target": 428.0,
+        "landings": []
+      },
+      "FBH03": {
+        "hp": 384,
+        "tick": 54,
+        "target": 471.53999999999996,
+        "landings": [
+          577.54,
+          691.94
+        ]
+      }
+    },
+    "bolts": [
+      1,
+      2
+    ],
+    "airborne": [
+      1,
+      2
+    ],
+    "counterHit": true,
+    "seconds": 23.15,
+    "xp": 15705,
+    "mora": 195
+  },
+  "report": {
+    "quest": "bathysmal-commission",
+    "xp": 4000,
+    "mora": 300
+  },
+  "restoredCooldown": 3135,
+  "finishedAt": "inazuma-port",
+  "returns": 0
+}

@@ -123,7 +123,7 @@ return function(C)
  function herd.label(b,c)
   if not c then return end
   if c.prepare then return '二体が位置を取る' end
-  if c.tick>=c.move.recover then return '二体が伏せる・反撃' end
+  if c.tick>=c.move.recover then return '反撃の隙・二体が伏せる' end
  end
  function herd.frame(f,b,s,c)
   if c and c.landings and c.tick<c.move.recover then
@@ -151,7 +151,9 @@ return function(C)
   for i,body in ipairs({b,b.fieldPartner}) do
    local color=i==1 and ice or thunder
    local pose,lit='idle',false
-   if c and not c.prepare and c.tick<c.move.recover then
+   if c and c.tick>=c.move.recover then
+    pose='recover'
+   elseif c and not c.prepare then
     local m,t=c.move,c.tick
     if m.kind=='tail' and c.chosen==i then
      pose,lit='tail',t<m.active[1][2]

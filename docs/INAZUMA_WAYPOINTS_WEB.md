@@ -54,6 +54,14 @@ Chromeでは各予告を同じフレームで固定して画質を切り替え�
 
 再検証は `python -X utf8 test_earned_inazuma_thunder_pyro.py`。その実行で作成したセーブを使い、`LAB_URL` を設定して `node test_earned_inazuma_thunder_pyro.mjs` でChromeから再走する。
 
+## 海祇島から双影の石庭へ
+
+離島から海祇島の浜へ連絡船で4.2秒、浜から歩いて渦口に着く。渦口の水路は3.8秒で淵下宮の入口拠点へ通じる。Lv54の継続セーブで両方を往復した。入口拠点で「群れの討伐調査」を受け、探索路から双影の石庭へ入る。石庭の門はLv46。移動中に保存した場合は、出発地点側の拠点から再開する。
+
+アビサルヴィシャップの群れは氷と雷でHP1,120を共有する。旋尾の予告から離れ、二発の吐息が届かない位置に退き、跳躍リレーの二つの着地点を避ける。攻撃後は「反撃の隙」が表示され、二体が足元の位置を保ったまま伏せる。Lv54のLua再走では旅人HP384を維持し、入口拠点での報告と保存復元を確認した。 [Luaの再走](../evidence/earned-enkanomiya-bathysmal.json) · [Chromeの再走と描画比較](../evidence/earned-enkanomiya-bathysmal-browser.json)
+
+再検証は離島での報告済みセーブを用意して `python -X utf8 test_earned_enkanomiya_bathysmal.py` を実行する。Chromeは `LAB_URL` を指定して `node test_earned_enkanomiya_bathysmal.mjs` を実行する。
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |
