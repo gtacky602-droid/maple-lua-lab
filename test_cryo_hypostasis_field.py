@@ -46,6 +46,7 @@ hit()
 assert b.hp==hp-19 and math.isclose(480-b.hitBottom,.45*88)
 wheel=wait('FHC01',54)
 dest,origin=wheel.dest,b.x
+assert c.frame(s).fieldBoss.label=='氷輪の直走・走路から離れるか跳び越す'
 spot(b.x+93)
 wait('FHC01',107)
 assert wheel.dest==dest and wheel.dir==-1 and b.x==origin and abs(dest-origin)<=176
@@ -56,6 +57,7 @@ assert b.x==dest and a.hp==hp-18 and wheel.seen[1][1]
 spot(dest)
 wait('FHC01',150)
 assert a.hp==hp-18
+assert c.frame(s).fieldBoss.recoveryTicks==120
 spot(b.x-85)
 palms=wait('FHC02',90)
 assert a.hp==hp-18 and not palms.seen[1][1]
@@ -74,6 +76,7 @@ for i,tick in enumerate((108,144,180),1):
     spot(points[i-1])
     wait('FHC03',tick)
     assert a.hp==hp-12*i and fall.seen[i][1]
+    assert c.frame(s).fieldBoss.label==f'三本の落氷 {i}/3・床の番号を避ける'
 spot(points[2])
 wait('FHC03',198)
 assert a.hp==hp-36 and len(s.enemies)==1

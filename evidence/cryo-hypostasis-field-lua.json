@@ -10,8 +10,8 @@
   "threeDistinctFixedPoints": true,
   "physicalReachesIceImmuneCore": true,
   "commands": {
-    "standard": 5798,
-    "light": 1559
+    "standard": 5792,
+    "light": 1553
   },
   "questReportOnce": true,
   "killXp": 1150
