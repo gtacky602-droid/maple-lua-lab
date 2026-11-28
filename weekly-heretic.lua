@@ -128,6 +128,9 @@ return function(C,M)
   c.ledger=ledger()
   log(s,w,'WH13:ready',0,c.chant)
  end
+ local function fitsWall(a,gap)
+  return a.y<174 or a.y<=gap.bottom+1 and a.y-78>=gap.top
+ end
  local function sweep(s,w,spec,parent,child)
   local wall=child.wall
   local previous=wall.x
@@ -135,7 +138,7 @@ return function(C,M)
   for _,a in ipairs(s.actors) do
    local from=(w.actorBefore and w.actorBefore[a]) or a.x
    local lo,hi=math.min(from-previous,a.x-wall.x),math.max(from-previous,a.x-wall.x)
-   local fits=a.y<174 or a.y<=wall.bottom+1 and a.y-78>=wall.top
+   local fits=fitsWall(a,wall)
    if a.hp>0 and lo<=spec.trial.wallHalfWidth+18 and hi>=-spec.trial.wallHalfWidth-18 and not fits and
       not wall.touched[a] and w.clock-(parent.pushedAt[a] or -math.huge)>=child.move.push_interval_ticks then
     wall.touched[a]=true;parent.pushedAt[a]=w.clock
@@ -388,12 +391,13 @@ return function(C,M)
      local g,wall=c.child.gap,c.child.wall
      local config=c.child.move.moving_walls[1]
      v.hole=(c.child.t<config.spawn_tick+config.ttl_ticks) and
-      {upper=g.upper,top=g.top,bottom=g.bottom,x=wall and wall.x} or nil
+      {upper=g.upper,top=g.top,bottom=g.bottom,x=wall and wall.x,fits=fitsWall(s.actors[s.active],g)} or nil
      drawWall(rect,spec,c.child)
     else v.warnings=hazards(f,s,spec,c.child) end
    end
   elseif c.key=='WH19' then
    v.exposure=w.phase=='exposure' and c.move.exposure[2]-c.t or nil
+   if c.t<c.move.exposure[1] then v.exposureOpensIn=c.move.exposure[1]-c.t end
    v.exposureEnded=c.t>=c.move.exposure[2]
   else
    if c.failureDamage then v.failureDamage=c.failureDamage[s.actors[s.active]] end

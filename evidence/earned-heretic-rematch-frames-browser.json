@@ -1,0 +1,476 @@
+{
+  "heretic-stopped": {
+    "image": "heretic-stopped.png",
+    "frames": {
+      "左右の結合点": {
+        "tick": 934,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14658,
+            "rgbAbsoluteError": 1050774,
+            "unpackedCommands": 5029,
+            "packedCommands": 943,
+            "unpackedBytes": 614453,
+            "packedBytes": 201650,
+            "combatCanvasMs": 4.0999999940395355,
+            "canvasSha256": "7038876685edcb73820295c1ebafa4fa0474b67518a3b9cdb4d8946f65515f69"
+          },
+          "h32c16": {
+            "differentPixels": 14709,
+            "rgbAbsoluteError": 1275534,
+            "unpackedCommands": 2344,
+            "packedCommands": 479,
+            "unpackedBytes": 282881,
+            "packedBytes": 94042,
+            "combatCanvasMs": 2,
+            "canvasSha256": "1232e4a0fe381286f2afa0357d31cf506902d3a4083c0cc0477fbb89b0e6cbb5"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 29.0秒"
+      },
+      "最初の押し壁": {
+        "tick": 1024,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14528,
+            "rgbAbsoluteError": 1012235,
+            "unpackedCommands": 5038,
+            "packedCommands": 952,
+            "unpackedBytes": 616511,
+            "packedBytes": 202055,
+            "combatCanvasMs": 4.300000011920929,
+            "canvasSha256": "4bda80ea987d4ba9374c0a4dbf45dd87c6f8c2e5f10d5783080726d7c94f015f"
+          },
+          "h32c16": {
+            "differentPixels": 14578,
+            "rgbAbsoluteError": 1251132,
+            "unpackedCommands": 2353,
+            "packedCommands": 488,
+            "unpackedBytes": 284254,
+            "packedBytes": 94746,
+            "combatCanvasMs": 2,
+            "canvasSha256": "c0682c49911f13bf874c623bbaa68f38700898dae96899bd4df3914ca4ba33f3"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 27.5秒"
+      },
+      "結合点が壊れ、押し壁が消える": {
+        "tick": 1139,
+        "originalCombatCanvasMs": 0.6000000238418579,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 15335,
+            "rgbAbsoluteError": 1138550,
+            "unpackedCommands": 5006,
+            "packedCommands": 926,
+            "unpackedBytes": 605667,
+            "packedBytes": 197320,
+            "combatCanvasMs": 4.299999982118607,
+            "canvasSha256": "6112cb469df45f2ab0956ef836db321fed7991a92212662134068e627c03d152"
+          },
+          "h32c16": {
+            "differentPixels": 15441,
+            "rgbAbsoluteError": 1362427,
+            "unpackedCommands": 2330,
+            "packedCommands": 462,
+            "unpackedBytes": 280092,
+            "packedBytes": 91726,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "21c8557ca34ac33597f0148b79ae6224027f1b9985c8a1da1ef7721f4dc65356"
+          }
+        },
+        "hereticText": "結合点を破壊 ｜ 詠唱中断まで本体にあと24回 ｜ 残り 25.6秒"
+      },
+      "詠唱中断": {
+        "tick": 2003,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13166,
+            "rgbAbsoluteError": 948546,
+            "unpackedCommands": 4133,
+            "packedCommands": 53,
+            "unpackedBytes": 506324,
+            "packedBytes": 94292,
+            "combatCanvasMs": 3.399999976158142,
+            "canvasSha256": "e78e2e76dbf06dac9ce083115687092228c1130d2d8a6319d96212e9abd935a9"
+          },
+          "h32c16": {
+            "differentPixels": 13193,
+            "rgbAbsoluteError": 1151585,
+            "unpackedCommands": 1921,
+            "packedCommands": 53,
+            "unpackedBytes": 235252,
+            "packedBytes": 45457,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "9215215c7fa94ff0d484ab9a442ed1e4e4b9047554825ea46c4b9cb4cfce063e"
+          }
+        },
+        "hereticText": "詠唱を中断 ｜ 反撃開始まで1.0秒"
+      },
+      "反撃開始": {
+        "tick": 2063,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12992,
+            "rgbAbsoluteError": 960011,
+            "unpackedCommands": 4132,
+            "packedCommands": 52,
+            "unpackedBytes": 501461,
+            "packedBytes": 94147,
+            "combatCanvasMs": 3.199999988079071,
+            "canvasSha256": "590004181559d3b8f0cd7380d58113a72815133cc1ed5e790095a40686dc3c44"
+          },
+          "h32c16": {
+            "differentPixels": 13019,
+            "rgbAbsoluteError": 1138003,
+            "unpackedCommands": 1920,
+            "packedCommands": 52,
+            "unpackedBytes": 229706,
+            "packedBytes": 45312,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "1806d2e71fec3fad6630b3d41416168bdfa9fd13c412766fcdd5f4bc95a6b0b8"
+          }
+        },
+        "hereticText": "詠唱を中断 ｜ 反撃できる時間 12.0秒"
+      },
+      "反撃終了": {
+        "tick": 2783,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13044,
+            "rgbAbsoluteError": 951941,
+            "unpackedCommands": 4136,
+            "packedCommands": 50,
+            "unpackedBytes": 509366,
+            "packedBytes": 94012,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "1be6bae940a6115395bf89a18306b36bd1d4a2ddd9a313e103dffb2195aa115f"
+          },
+          "h32c16": {
+            "differentPixels": 13121,
+            "rgbAbsoluteError": 1132049,
+            "unpackedCommands": 1915,
+            "packedCommands": 50,
+            "unpackedBytes": 234714,
+            "packedBytes": 45041,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "10e7b75c31ed395b32dad19663407fcfaa2220dd081728afe0d767388d9229fa"
+          }
+        },
+        "hereticText": "反撃終了"
+      }
+    }
+  },
+  "heretic-open-expired": {
+    "image": "heretic-open-expired.png",
+    "frames": {
+      "左右の結合点": {
+        "tick": 934,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14646,
+            "rgbAbsoluteError": 1057424,
+            "unpackedCommands": 5029,
+            "packedCommands": 943,
+            "unpackedBytes": 608580,
+            "packedBytes": 198885,
+            "combatCanvasMs": 3.5,
+            "canvasSha256": "0692652341c2643cb945452a8d710164443a33baf10c8101bf4888234454a7f0"
+          },
+          "h32c16": {
+            "differentPixels": 14705,
+            "rgbAbsoluteError": 1273779,
+            "unpackedCommands": 2344,
+            "packedCommands": 479,
+            "unpackedBytes": 280331,
+            "packedBytes": 92812,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "c669b98d4deb7656515d6041850a15b292c2a87fddeb1087d8b28500a83311b6"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 29.0秒"
+      },
+      "最初の押し壁": {
+        "tick": 1024,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14544,
+            "rgbAbsoluteError": 1012109,
+            "unpackedCommands": 5038,
+            "packedCommands": 952,
+            "unpackedBytes": 616151,
+            "packedBytes": 201939,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "14d3930a129079f87271414e550b2d83d16050246a01c6fc6b2ac70285d9ca10"
+          },
+          "h32c16": {
+            "differentPixels": 14597,
+            "rgbAbsoluteError": 1241418,
+            "unpackedCommands": 2353,
+            "packedCommands": 488,
+            "unpackedBytes": 283993,
+            "packedBytes": 94643,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "9718926ba15a87973ed23d4d827a8d83167445cb62615755f47d0a8e8c849603"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 27.5秒"
+      },
+      "結合点が壊れ、押し壁が消える": {
+        "tick": 1139,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 15362,
+            "rgbAbsoluteError": 1149032,
+            "unpackedCommands": 5006,
+            "packedCommands": 926,
+            "unpackedBytes": 610021,
+            "packedBytes": 199629,
+            "combatCanvasMs": 3.2999999821186066,
+            "canvasSha256": "a6227124ed4944f4a5234e71df03d147c79eb495f5dcce61727c78a702abe569"
+          },
+          "h32c16": {
+            "differentPixels": 15489,
+            "rgbAbsoluteError": 1370132,
+            "unpackedCommands": 2330,
+            "packedCommands": 462,
+            "unpackedBytes": 282217,
+            "packedBytes": 92812,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "01d7ebde1b46fdec1e42ebd35d8ef2fef078fef9db7840222f0e586d50e9fa71"
+          }
+        },
+        "hereticText": "結合点を破壊 ｜ 詠唱中断まで本体にあと24回 ｜ 残り 25.6秒"
+      },
+      "詠唱の期限切れ": {
+        "tick": 2674,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12986,
+            "rgbAbsoluteError": 949054,
+            "unpackedCommands": 4132,
+            "packedCommands": 52,
+            "unpackedBytes": 507489,
+            "packedBytes": 94140,
+            "combatCanvasMs": 3,
+            "canvasSha256": "ec3e084306c8276b873704c177a1e8b9e6c74191bf7230bc2c6089a4e31684da"
+          },
+          "h32c16": {
+            "differentPixels": 13074,
+            "rgbAbsoluteError": 1140082,
+            "unpackedCommands": 1920,
+            "packedCommands": 52,
+            "unpackedBytes": 234416,
+            "packedBytes": 45305,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "db10ba50044d9594678496a43a472b0d430a425650ee8c7755f0e4dbde0bf6a6"
+          }
+        },
+        "hereticText": "期限切れ ｜ 詠唱残り 24 ｜ 衝撃に備える"
+      },
+      "腐敗の衝撃が命中": {
+        "tick": 2854,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12909,
+            "rgbAbsoluteError": 638879,
+            "unpackedCommands": 4179,
+            "packedCommands": 99,
+            "unpackedBytes": 506928,
+            "packedBytes": 97796,
+            "combatCanvasMs": 3.5,
+            "canvasSha256": "7743b20e71ab34451b0d9d9c14ae78adaac42494ac6df620a3da053e87980284"
+          },
+          "h32c16": {
+            "differentPixels": 13028,
+            "rgbAbsoluteError": 769247,
+            "unpackedCommands": 1967,
+            "packedCommands": 99,
+            "unpackedBytes": 234869,
+            "packedBytes": 48961,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "631d273c32dca227d27d289fc2edeca9c9b8a0bf2b61e3d662edaea2b868013a"
+          }
+        },
+        "hereticText": "腐敗の衝撃が命中 ｜ 125ダメージ"
+      }
+    }
+  },
+  "heretic-closed-expired": {
+    "image": "heretic-closed-expired.png",
+    "frames": {
+      "左右の結合点": {
+        "tick": 934,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14580,
+            "rgbAbsoluteError": 1055140,
+            "unpackedCommands": 5030,
+            "packedCommands": 944,
+            "unpackedBytes": 608644,
+            "packedBytes": 198949,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "db78f9e8f5d50c7544ce55099c444705a19aa29f90bd319276fe86c147aacf9b"
+          },
+          "h32c16": {
+            "differentPixels": 14635,
+            "rgbAbsoluteError": 1271264,
+            "unpackedCommands": 2345,
+            "packedCommands": 480,
+            "unpackedBytes": 280395,
+            "packedBytes": 92876,
+            "combatCanvasMs": 1.199999988079071,
+            "canvasSha256": "aaf8090ee40e779138fb5ffc6134c0b9ad470f95713c5aa6cfaddadf74667bbf"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 29.0秒"
+      },
+      "最初の押し壁": {
+        "tick": 1024,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14530,
+            "rgbAbsoluteError": 1011790,
+            "unpackedCommands": 5039,
+            "packedCommands": 953,
+            "unpackedBytes": 616215,
+            "packedBytes": 202003,
+            "combatCanvasMs": 2.800000011920929,
+            "canvasSha256": "5de39c8ad335894d5daa51911071175b134636df3e3e4ed586dd09f5b67287b4"
+          },
+          "h32c16": {
+            "differentPixels": 14578,
+            "rgbAbsoluteError": 1240837,
+            "unpackedCommands": 2354,
+            "packedCommands": 489,
+            "unpackedBytes": 284057,
+            "packedBytes": 94707,
+            "combatCanvasMs": 1.300000011920929,
+            "canvasSha256": "5c7e0606723d4fac1f312cc88b678f25d0500fe15308db146d43382f00baaf03"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 27.5秒"
+      },
+      "穴が上段に移った押し壁": {
+        "tick": 1384,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14226,
+            "rgbAbsoluteError": 928287,
+            "unpackedCommands": 5040,
+            "packedCommands": 954,
+            "unpackedBytes": 617113,
+            "packedBytes": 201976,
+            "combatCanvasMs": 3.7000000178813934,
+            "canvasSha256": "858048171ed5a3d1d88c3f0d6279c0b56caab5ad4fdd4014742954088f78ad42"
+          },
+          "h32c16": {
+            "differentPixels": 14380,
+            "rgbAbsoluteError": 1127410,
+            "unpackedCommands": 2355,
+            "packedCommands": 490,
+            "unpackedBytes": 283564,
+            "packedBytes": 94250,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "37619a49eb8f966c6eab7847f04e1908770e37197bebc570a393d603d513274f"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は上段（上段へ移動） ｜ 片方を壊す ｜ 残り 21.5秒"
+      },
+      "押し壁で旅人が後退": {
+        "tick": 1460,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13714,
+            "rgbAbsoluteError": 1011359,
+            "unpackedCommands": 5040,
+            "packedCommands": 954,
+            "unpackedBytes": 617715,
+            "packedBytes": 202392,
+            "combatCanvasMs": 4,
+            "canvasSha256": "4bf1cbf0891c91a7f72f752669f2428caf799d2812432cf779d842a3373aaf6d"
+          },
+          "h32c16": {
+            "differentPixels": 13773,
+            "rgbAbsoluteError": 1218969,
+            "unpackedCommands": 2355,
+            "packedCommands": 490,
+            "unpackedBytes": 284291,
+            "packedBytes": 95083,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "a1bb1fec699a99be1ab02cb2024a223be947af289817bb0033bc571ffc8d5046"
+          }
+        },
+        "hereticText": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は上段（上段へ移動） ｜ 片方を壊す ｜ 残り 20.3秒"
+      },
+      "詠唱の期限切れ": {
+        "tick": 2674,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 15377,
+            "rgbAbsoluteError": 1209379,
+            "unpackedCommands": 4963,
+            "packedCommands": 883,
+            "unpackedBytes": 611168,
+            "packedBytes": 197445,
+            "combatCanvasMs": 3.800000011920929,
+            "canvasSha256": "1d418d269f53e4556491aa9c25122b1d708657313e5cd62b88001bdc7da44858"
+          },
+          "h32c16": {
+            "differentPixels": 15440,
+            "rgbAbsoluteError": 1433584,
+            "unpackedCommands": 2287,
+            "packedCommands": 419,
+            "unpackedBytes": 279125,
+            "packedBytes": 89911,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "c1baecddecc3a4089076a9c514adf61f1a060859965ecd2abc921f90ee184cbc"
+          }
+        },
+        "hereticText": "期限切れ ｜ 結合点が残った ｜ 衝撃に備える"
+      },
+      "腐敗の衝撃が命中": {
+        "tick": 2854,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12864,
+            "rgbAbsoluteError": 649244,
+            "unpackedCommands": 4180,
+            "packedCommands": 100,
+            "unpackedBytes": 507366,
+            "packedBytes": 97860,
+            "combatCanvasMs": 3.2000000178813934,
+            "canvasSha256": "7f7806220e5ee45bbc85ef895b4933d9d796bebcd395bb23b42a094418a7ccd0"
+          },
+          "h32c16": {
+            "differentPixels": 12913,
+            "rgbAbsoluteError": 775826,
+            "unpackedCommands": 1968,
+            "packedCommands": 100,
+            "unpackedBytes": 235036,
+            "packedBytes": 49025,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "26cc5205fab93ceca4eead1aca474698046549a3f073304e6e4889104ecd4a35"
+          }
+        },
+        "hereticText": "腐敗の衝撃が命中 ｜ 125ダメージ"
+      }
+    }
+  }
+}

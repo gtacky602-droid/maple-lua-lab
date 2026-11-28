@@ -34,3 +34,14 @@
 Luaで押し壁の通路、当たり判定、二重加算、核破壊後の片付け、期限ちょうどの最終命中、12秒の反撃窓、失敗からの復帰、報告後のセーブ再開を確認。Chromeでは広場から入場し、通常攻撃で結合点と詠唱を突破して討伐・報告まで確認した。 [Lua検証](../../evidence/heretic-weekly-lua.json) [Chrome検証](../../evidence/heretic-weekly-browser.json)
 
 技ごとの連続作画、効果音、参照モデルの背面、全編成での難度、戦闘途中の保存と再開、別端末間の通信、本番3D配置と幻境実機検証が残る。現行ラボは町から再開し、記録するのは討伐済みの状態と依頼の進行。
+
+## Lv200セーブでの最上級4勝
+
+偽月の異端者の最上級4勝と依頼報告119件を記録したセーブで、スメールの樹陰の広場から最上級へ入った。押し壁の案内は、現在の高さで穴を通過できるかを実際の衝突判定と同じ条件で表示する。結合点と本体の必要命中回数、残り時間、反撃が始まるまでの時間も表示する。
+
+- Chromeの初回は床側の穴を通過し、旅人の位置とHPが変わらないことを確認した。右の結合点に3回、本体の詠唱に24回当てて中断した。討伐で32,560,274 EXPと3,590,160モラ、ナヒーダへの報告で1,230,000 EXPと26,500モラを獲得した。 [最上級初回と報告](../../evidence/earned-heretic-first-expert-browser.json)
+- Luaの3連戦は詠唱の中断、結合点を壊してからの時間切れ、両方を残しての時間切れを比較した。中断後の12秒で336ダメージを与え、時間切れの2戦では各125ダメージを受けた。壁の穴から外れたときは30.8px押し戻されたが、接触によるHP減少はなかった。周回報酬は各18,999,684 EXPと1,538,640モラ。検証中は旅人の聖遺物を一時変更し、同行者の攻撃を止めた。同行者は再戦3回とも戦闘不能になった。 [3連戦の記録](../../evidence/earned-heretic-rematch-lua.json)
+- 元の装備と未回収聖遺物を保持した。Chromeで左道の真諦者と偽月の異端者の最上級各4勝、報告120件を復元した。 [再読込の記録](../../evidence/earned-heretic-rematch-browser.json)
+- 3戦の17場面を元絵・中間・軽量で比較した。結合点が出ている同じフレームで、標準の描画命令7,085件に対して軽量16色は2,097件だった。軽量版はパック前後でCanvasの画素が一致し、gzip転送量は44,862 Bから36,907 Bになった。 [比較の記録](../../evidence/earned-heretic-rematch-frames-browser.json)
+
+最上級初回後のセーブから、`python -X utf8 test_earned_heretic_chant.py --from-save work/earned-heretic/first/heretic-complete.json --output-dir work/earned-heretic/replays --chain --weapon SW07` で3戦を再現できる。ラボを起動して `node test_earned_weekly_frames.mjs work/earned-heretic/replays work/earned-heretic/comparison` を実行すると3画質を比較できる。

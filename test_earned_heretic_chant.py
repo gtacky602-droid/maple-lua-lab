@@ -1,24 +1,28 @@
 """Compare breaking the anchors and chant, partial success, and leaving the first trial alone."""
 
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, break_anchor, interrupt):
+def replay(source, output, break_anchor, interrupt, *, weapon='SW06', next_save=None):
     spec = next(b for b in read('content/weekly-boss-spawns.json')['weeklyBosses']
                 if b['controller'] == 'heretic')
-    trip, slot, start, _, mode, key, prior = expert_rematch(source.resolve(), runtime(), spec)
+    trip, slot, start, loadout, mode, key, prior = expert_rematch(
+        source.resolve(), runtime(), spec, weapon=weapon, trial_flower=next_save is not None,
+        keep_pending_loot=next_save is not None)
     state, hero = trip.state, trip.actor
     before = state.progression.total, state.mora
     moves = spec['moves']
     trial = moves['WH13']
     frames, pushes, anchors, chant, failure_hits, phases = {}, [], [], [], [], []
     opened, stopped, expired = None, None, None
-    exposure = 0
+    exposure = exposure_damage = 0
     released = False
 
     def sample(label, tick, cast):
@@ -39,6 +43,8 @@ def replay(source, output, break_anchor, interrupt):
                     target = slot.anchors[len(slot.anchors)]
             else:
                 goal = 475
+        elif card == 'WH19' and exposure and not released and not exposure_damage and not slot.primary.invulnerable:
+            target = slot.primary
         elif slot.form == 1 or released:
             if not slot.primary.invulnerable and slot.primary.y > 399:
                 target = slot.primary
@@ -53,7 +59,7 @@ def replay(source, output, break_anchor, interrupt):
                 goal = hero.x + (23 if dx > 0 else -23)
         controls = trip.lua.table(left=goal < hero.x - 9, right=goal > hero.x + 9,
                                   attack=bool(target) and abs(dx) < 117 and dx * hero.dir > 0 and hero.y > 399)
-        hp_before = hero.hp
+        hp_before, boss_before = hero.hp, slot.primary.hp
         seq_before = state.events[len(state.events)].seq if len(state.events) else 0
         trip.tick(1, controls)
         if slot.waitUntil:
@@ -61,6 +67,8 @@ def replay(source, output, break_anchor, interrupt):
         assert not state.returns and hero.hp > 0
 
         move = slot.cast
+        if stopped and not released and exposure and card == 'WH19':
+            exposure_damage += max(0, boss_before-slot.primary.hp)
         if first_trial:
             assert slot.primary.hp == spec['p2Hp']
             if cast.t == trial['spawn_tick']:
@@ -123,6 +131,7 @@ def replay(source, output, break_anchor, interrupt):
     if interrupt:
         opens, closes = moves['WH19']['exposure']
         assert stopped and not expired and not failure_hits and exposure == closes - opens
+        assert exposure_damage > 0
         assert chant == list(range(trial['chant_count'] - 1, -1, -1))
         counter = frames['反撃開始']['view']['heretic']
         assert counter['trialResult'] == {'anchorsBroken': True, 'remainingChant': 0}
@@ -136,23 +145,47 @@ def replay(source, output, break_anchor, interrupt):
         assert result['failureDamage'] == spec['damage']['failure']
         case = 'heretic-open-expired' if break_anchor else 'heretic-closed-expired'
         label = '結合点を壊して時間切れ' if break_anchor else '結合点を残して時間切れ'
+    hp_at_clear = [actor.hp for actor in state.actors.values()]
     verify_repeat(trip, before, start, mode, key, prior)
+    checkpoint = None
+    if next_save:
+        assert not loadout['sold']
+        saved = restore_rematch_equipment(trip, start, loadout, 'sumeru-hub')
+        assert saved['story']['quests']['heretic-weekly-commission']['status'] == 'complete'
+        assert len([q for q in saved['story']['quests'].values() if q['status']=='complete']) == 120
+        for boss, record in start['endgame']['weekly'].items():
+            if boss != key:
+                assert saved['endgame']['weekly'][boss] == record
+        before_ids = {entry['item']['id'] for entry in start['inventory']['ground']}
+        assert before_ids <= {entry['item']['id'] for entry in saved['inventory']['ground']}
+        data = (json.dumps(saved, ensure_ascii=False, separators=(',', ':')) + '\n').encode('utf-8')
+        next_save.write_bytes(data)
+        checkpoint = sha256(data).hexdigest()
     (output / f'{case}-frames.json').write_text(
         json.dumps(frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf8')
     print(case, tick, opened, stopped, expired, 'pushes', pushes, 'shock', failure_hits, 'exposure', exposure, flush=True)
     return dict(controller='heretic', case=case, label=label, ticks=tick, sourceSha256=trip.source,
                 phases=phases, anchorHits=anchors, opened=opened, chantHits=chant, stopped=stopped,
                 expired=expired, pushes=pushes, shockHits=failure_hits, exposureTicks=exposure,
-                expertClears=[prior, prior + 1])
+                exposureDamage=exposure_damage, expertClears=[prior, prior + 1],
+                reward=dict(xp=mode.xp,mora=mode.mora), trialLoadout=loadout,
+                survivingHp=hp_at_clear, checkpointSha256=checkpoint)
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
     parser.add_argument('--from-save', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--chain', action='store_true', help='Save each rematch as the source for the next')
+    parser.add_argument('--weapon', default='SW06')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    results = [replay(args.from_save, args.output_dir, opened, interrupted)
-               for opened, interrupted in ((True, True), (True, False), (False, False))]
+    results = []
+    source = args.from_save
+    for opened, interrupted, name in ((True, True, 'stopped-save.json'), (True, False, 'open-expired-save.json'),
+                                        (False, False, 'complete.json')):
+        checkpoint = args.output_dir/name if args.chain else None
+        results.append(replay(source, args.output_dir, opened, interrupted, weapon=args.weapon, next_save=checkpoint))
+        source = checkpoint or source
     (args.output_dir / 'weekly-mechanics.json').write_text(
         json.dumps(results, ensure_ascii=False, indent=2) + '\n', 'utf8')
