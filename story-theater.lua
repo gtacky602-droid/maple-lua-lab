@@ -67,6 +67,11 @@ return function(C)
   s.storyNotice=milestone.followCart.departure
  end
 
+ local function cartCanFollow(s,cart)
+  local a=s.actors[s.active]
+  return a.hp>0 and math.abs(a.x-cart.x)<=cart.spec.leash
+ end
+
  local function tickEmitter(s,emitter,count)
   if not emitter or count>=emitter.stopAt then return end
   local a=s.actors[s.active]
@@ -87,8 +92,7 @@ return function(C)
    cart.delay=math.max(0,cart.delay-dt)
    return
   end
-  local a=s.actors[s.active]
-  if a.hp<=0 or math.abs(a.x-cart.x)>cart.spec.leash then return end
+  if not cartCanFollow(s,cart) then return end
   cart.x=math.min(cart.spec.stop,cart.x+cart.spec.speed*dt)
   if cart.x<cart.spec.stop then return end
   s.theaterCart=nil
@@ -327,7 +331,7 @@ return function(C)
 
  local function movingCartPhase(s,cart)
   if cart.delay>0 then return 'starting' end
-  if math.abs(s.actors[s.active].x-cart.x)>cart.spec.leash then return 'waitingForPlayer' end
+  if not cartCanFollow(s,cart) then return 'waitingForPlayer' end
   return 'following'
  end
 
@@ -472,10 +476,17 @@ return function(C)
   end
   f.storyTheaterCart={x=x,phase=phase}
   x=x-s.camera
+  if phase=='waitingForPlayer' then
+   local signX=math.max(86,math.min(874,x))
+   local y=route.y-route.height-12
+   local caption=x<86 and '← メカが待機中' or x>874 and 'メカが待機中 →' or 'メカが待機中'
+   box(draws,signX-72,y-16,144,22,'#252b34')
+   label(draws,caption,signX,y,'#ffdfa0')
+  end
   if x< -95 or x>1055 then return end
   C.drawFieldDisplayArt(layer,C.parcelMekaArt,x,route.y,route.height,mode,profile,false)
-  if phase=='starting' or phase=='waitingForPlayer' then
-   label(draws,phase=='starting' and '出発のベル' or 'メカに近づく',x,route.y-route.height-12,'#ffdfa0')
+  if phase=='starting' then
+   label(draws,'出発のベル',x,route.y-route.height-12,'#ffdfa0')
   end
  end
 

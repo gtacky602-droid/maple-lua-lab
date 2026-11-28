@@ -1,0 +1,35 @@
+{
+  "sourceSha256": "3e7dc72af8036f3d60594594bd0b7006228b1a0f0a21aaa5e63b4fef41e8b702",
+  "startLevel": 80,
+  "finishLevel": 81,
+  "proposals": [
+    "水路に沈んだ",
+    "今の倉庫へ運んだ",
+    "旧搬入口へ運んだ"
+  ],
+  "waiting": {
+    "cartX": 1178,
+    "screenX": 1178,
+    "caption": "メカが待機中 →",
+    "heldTicks": 180
+  },
+  "returnedToBellAfterReload": true,
+  "guardBattle": {
+    "node": "fontaine-old-scenery-door",
+    "targets": [
+      "fontaine-old-door-patrol-1",
+      "fontaine-old-door-patrol-2"
+    ],
+    "xp": 3452,
+    "kills": 2
+  },
+  "reported": {
+    "quest": "fontaine-moon-parcel",
+    "xp": 1329885,
+    "mora": 3100,
+    "ore": 3
+  },
+  "commissionCount": 14,
+  "recordAfterReload": true,
+  "returns": 0
+}

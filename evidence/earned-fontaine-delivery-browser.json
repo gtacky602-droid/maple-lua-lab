@@ -1,0 +1,44 @@
+{
+  "receiptAndThreeClues": true,
+  "wrongLeadRejected": true,
+  "cartWaitsForPlayer": true,
+  "bellMarkerHiddenDuringChase": true,
+  "actualChaseOpensEntrance": true,
+  "twoGuards": true,
+  "moonFound": true,
+  "shortcutAndReadbackAfterReload": true,
+  "scenes": [
+    {
+      "key": "fontaineDelivery",
+      "file": "fontaine-delivery-quay-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "fontaineBackstage",
+      "file": "fontaine-backstage-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "commands": {
+    "png": 42,
+    "standard": 6636,
+    "light": 1749,
+    "caption": "メカが待機中"
+  },
+  "reward": [
+    1329885,
+    3100,
+    3
+  ],
+  "errors": [],
+  "source": "work/earned-sumeru-frontier/fontaine-arrival.json",
+  "startLevel": 80,
+  "restoredLevel": 81,
+  "offscreen": {
+    "png": 15,
+    "standard": 3532,
+    "light": 886,
+    "caption": "メカが待機中 →"
+  },
+  "returnedToBellAfterReload": true
+}
