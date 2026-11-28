@@ -31,6 +31,56 @@
       "walk"
     ],
     [
+      "mond-town",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "mond-border",
+      "walk"
+    ],
+    [
+      "mond-border",
+      "dragonspine-camp",
+      "walk"
+    ],
+    [
+      "dragonspine-camp",
+      "mond-wp-6601",
+      "walk"
+    ],
+    [
+      "mond-wp-6601",
+      "mond-wp-6594",
+      "walk"
+    ],
+    [
+      "mond-wp-6594",
+      "mond-wp-6608",
+      "walk"
+    ],
+    [
+      "mond-wp-6608",
+      "mond-wp-6609",
+      "walk"
+    ],
+    [
+      "mond-wp-6609",
+      "mond-wp-6603",
+      "walk"
+    ],
+    [
+      "mond-wp-6603",
+      "mond-wp-6537",
+      "walk"
+    ],
+    [
+      "mond-wp-6537",
+      "mond-wp-6603",
+      "walk"
+    ],
+    [
       "mond-road",
       "dornman-camp",
       "walk"
@@ -42,36 +92,83 @@
     ],
     [
       "mond-wp-95797",
-      "mond-wp-95803",
-      "lift"
-    ],
-    [
-      "mond-wp-95803",
-      "mond-wp-95797",
-      "lift"
-    ],
-    [
-      "mond-wp-95797",
       "mond-wp-95799",
       "boat"
     ],
     [
       "mond-wp-95799",
+      "mond-wp-95803",
+      "walk"
+    ],
+    [
+      "mond-wp-95803",
+      "mond-wp-95798",
+      "lift"
+    ],
+    [
+      "mond-wp-95798",
+      "mond-wp-95803",
+      "lift"
+    ],
+    [
+      "mond-wp-95803",
+      "mond-wp-95799",
+      "walk"
+    ],
+    [
+      "mond-wp-95799",
       "mond-wp-95797",
+      "boat"
+    ],
+    [
+      "dornman-camp",
+      "mond-wp-95797",
+      "walk"
+    ],
+    [
+      "mond-wp-95797",
+      "mond-wp-95799",
       "boat"
     ]
   ],
   "journal": [
     "mond-mapped-lakeside",
+    "mond-mapped-snowline",
     "mond-mapped-islet"
   ],
+  "snowApproaches": [
+    {
+      "quest": "mond-mapped-snowline",
+      "before_step": 2,
+      "stops": [
+        "mond-wp-6594",
+        "mond-wp-6608",
+        "mond-wp-6609",
+        "mond-wp-6603"
+      ]
+    }
+  ],
+  "portTunnel": {
+    "from": "mond-wp-95799",
+    "label": "徒歩",
+    "region": "branch-06",
+    "approach": "現在地から左へ",
+    "level": 169,
+    "hint": "港の下層へ続く連絡坑道",
+    "mode": "walk",
+    "id": "mond-wp-95803",
+    "name": "ドーンマンポート・港の下層通路",
+    "previewX": 262
+  },
+  "blockedAt": 165,
+  "requiredLevel": 169,
   "restored": true,
   "pin": {
-    "kind": "statue",
     "id": "teyvat:12",
-    "name": "モンド・北の湖と神像"
+    "name": "モンド・北の湖と神像",
+    "kind": "statue"
   },
-  "visitedCount": 10,
+  "visitedCount": 67,
   "mobileSelectorFits": true,
   "pageErrors": []
 }
