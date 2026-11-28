@@ -161,6 +161,12 @@ for site in spec['sites']:
     assert state().huntNotes.site==id_ and s.kinichHunt.phase=='retreat'
     wait_phase('turn')
     assert s.kinichHunt.enemy.x==spec['turn']
+    turn=frame().storyKinichHunt
+    assert 0<turn.returnSeconds<=spec['delay'] and turn.siteLabel==site['label']
+    act('pause')
+    advance(core,s,45,idle)
+    assert frame().storyKinichHunt.returnSeconds==turn.returnSeconds
+    act('pause')
     wait_phase('engaged')
     enemy=s.kinichHunt.enemy
     assert enemy.x==site['home'] and s.kinichHunt.engaged==id_

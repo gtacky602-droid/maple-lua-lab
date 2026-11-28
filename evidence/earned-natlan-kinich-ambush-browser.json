@@ -1,0 +1,25 @@
+{
+  "slopeAfterReload": true,
+  "directWithoutClues": true,
+  "actualJumpToLedge": true,
+  "atlasAmbushSites": true,
+  "turnCountdown": true,
+  "differentDialogue": true,
+  "shortcutBothWays": true,
+  "mobileFits": true,
+  "sourceSha256": "ffdac267130f8b47e164335961d41fbe54fcdeba8a9e85b2bd5e658a20408e8c",
+  "startLevel": 109,
+  "reportedLevel": 110,
+  "priorCompleted": 82,
+  "reward": [
+    1807313,
+    5600,
+    5
+  ],
+  "calls": {
+    "png": 24,
+    "rect": 17949,
+    "light": 4799
+  },
+  "errors": []
+}

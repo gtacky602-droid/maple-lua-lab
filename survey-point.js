@@ -222,6 +222,8 @@ export function constructionWorksite(plan,supplies){
 }
 
 export function worksitePoints(quest){
+ if(quest?.kinichHunt)return [...quest.kinichHunt.clues,...quest.kinichHunt.sites]
+  .map(point=>({...point,node:quest.target,name:point.label}));
  if(quest?.cargo)return quest.cargo.map(p=>({...p,node:quest.recovery?.node??quest.target}));
  if(quest?.trail?.clues)return [...quest.trail.clues,...(quest.trail.meeting?[{...quest.trail.meeting,node:quest.target}]:[])];
  if(quest?.delivery)return [...quest.delivery.packages.map(p=>({...p,node:quest.hub,name:p.stall})),
