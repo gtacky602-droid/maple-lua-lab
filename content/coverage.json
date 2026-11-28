@@ -8638,6 +8638,16 @@
       "lua_evidence": ["evidence/earned-fontaine-freminet.json", "evidence/earned-fontaine-lyney.json"],
       "browser_evidence": ["evidence/earned-fontaine-freminet-browser.json", "evidence/earned-fontaine-lyney-browser.json"]
     },
+    "earned_fontaine_waterworks": {
+      "entry_level": 94,
+      "reported_quests": ["fon-morte-sluice-survey", "fon-erinnyes-root-water-survey"],
+      "objective_counts": [4, 5],
+      "depth_guided_instruments": ["gauge", "valve", "current", "temperature"],
+      "report_dependent_legend_entrances": ["chassanion-legend-bubble-room", "erinnyes-corrouge-cleft"],
+      "legend_entry_level": 100,
+      "lua_evidence": "evidence/earned-fontaine-waterworks.json",
+      "browser_evidence": "evidence/earned-fontaine-waterworks-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,
