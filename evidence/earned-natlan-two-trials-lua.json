@@ -1,0 +1,68 @@
+[
+  {
+    "order": [
+      "water",
+      "high"
+    ],
+    "branches": {
+      "water": {
+        "enemies": 5,
+        "boardingPhases": [
+          "wait",
+          "board",
+          "riding",
+          "landed"
+        ],
+        "pausedKeepsArrival": true
+      },
+      "high": {
+        "enemies": 3,
+        "remainingAfterReload": 2
+      }
+    },
+    "payout": {
+      "quest": "natlan-two-trials",
+      "xp": 4363734,
+      "mora": 7300
+    },
+    "ore": 5,
+    "level": 103,
+    "sourceSha256": "a1fb1b622964de8b8396da536b7a52e497bd55511c8c4628f142dd7466b171e1",
+    "reportRestored": true,
+    "nextQuestAvailable": "natlan-sunset-duel",
+    "returns": 0
+  },
+  {
+    "order": [
+      "high",
+      "water"
+    ],
+    "branches": {
+      "high": {
+        "enemies": 3,
+        "remainingAfterReload": 2
+      },
+      "water": {
+        "enemies": 5,
+        "boardingPhases": [
+          "wait",
+          "board",
+          "riding",
+          "landed"
+        ],
+        "pausedKeepsArrival": true
+      }
+    },
+    "payout": {
+      "quest": "natlan-two-trials",
+      "xp": 4363734,
+      "mora": 7300
+    },
+    "ore": 5,
+    "level": 103,
+    "sourceSha256": "a1fb1b622964de8b8396da536b7a52e497bd55511c8c4628f142dd7466b171e1",
+    "reportRestored": true,
+    "nextQuestAvailable": "natlan-sunset-duel",
+    "returns": 0
+  }
+]

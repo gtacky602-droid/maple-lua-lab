@@ -8,10 +8,16 @@ Lv100で旗取りの依頼を報告すると、谷の集落で「得意な道だ
 
 落水時はHPを失わず近い岸へ戻ります。戦闘途中に保存しても、その枝で退けた敵は依頼の途中では復活しません。報告後は高台・水辺の狩場と会場への近道を使えます。狩場では練習用の敵が再び出現します。キィニチとムアラニは台詞と水の跡の演出で案内します。対戦は次の依頼の制作範囲です。
 
+## 浮き台の案内と継続セーブ
+
+岸のそばでは、浮き台がその岸に着くまでの残り秒数が画面下に出ます。停泊中はジャンプで乗れることと出発までの時間を、乗ってからは向かう岸と到着までの時間を表示します。一時停止すると浮き台の位置と残り秒数が止まります。
+
+旗取りを報告したLv101セーブから、水辺→高台と高台→水辺の両順序をLuaで完走しました。高台で一体倒して再開すると残り二体で、水辺の達成印も引き継がれました。会場印と対戦札を確認して報告し、4,363,734 EXP、7,300モラ、強化鉱5を受け取り、Lv103に到達しました。 [Luaの両順序と保存復元](../../evidence/earned-natlan-two-trials-lua.json) · [Chromeの継続試走](../../evidence/earned-natlan-two-trials-browser.json)
+
 ## 仮素材と描画比較
 
 水辺はラボ用の仮背景画像です。本番は3D配置で制作する方針です。浮き台は、板と縄、目印、接地位置を原案モデルの三方向から確認してドット絵を作りました。浮き台単体の描画矩形は標準1,060件、軽量16色227件です。ラボでは `P` で停止し、描画方式を変えて同じ場面を比較できます。[形状モデルの三方向](../../evidence/natlan-trial-raft-views.png) · [素材記録](../../evidence/natlan-trial-raft-art.json)
 
-Chromeで浮き台に乗った同じフレームを切り替えると、描画命令数はPNG19件、標準矩形6,275件、軽量16色1,531件でした。[PNG版](../../evidence/natlan-two-trials-raft-png.png) · [軽量16色版](../../evidence/natlan-two-trials-raft-light.png)
+Chromeの継続試走で浮き台に乗った同じフレームを切り替えると、描画命令数はPNG13件、標準矩形5,764件、軽量16色1,394件でした。以前の試走の画像も比較できます。 [継続試走の比較記録](../../evidence/earned-natlan-two-trials-browser.json) · [以前のPNG版](../../evidence/natlan-two-trials-raft-png.png) · [以前の軽量16色版](../../evidence/natlan-two-trials-raft-light.png)
 
 [Luaでの検証](../../evidence/natlan-two-trials-lua.json) · [Chromeでの検証](../../evidence/natlan-two-trials-browser.json) · [方向転換の合図](../../evidence/natlan-two-trials-turn.png) · [対戦札](../../evidence/natlan-two-trials-match-card.png)
