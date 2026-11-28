@@ -13,8 +13,8 @@
   "earlyKillOneReward": true,
   "questReportAndSavedCooldown": true,
   "sameSceneCommands": {
-    "png": 41,
-    "standard": 9538,
-    "light": 2584
+    "png": 39,
+    "standard": 9536,
+    "light": 2582
   }
 }

@@ -64,7 +64,8 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
- await gate(1380,approach);
+ await gate(1380,'natlan-quarry-road');
+ await gate(64,approach);
  await gate(1195,arena);
  assert.match((await frame()).location,/アトクパンの溶岩棚/);
  const scenery=await page.evaluate(async()=>{
@@ -115,14 +116,14 @@ try{
     b?.move==='FLD04'&&(inWindow(103,125)||inWindow(169,191));
    const dx=(b?.x??925)-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    const inReach=Math.abs(dx)<120&&!turn;
-   if(inReach&&a.ground&&!f.macro&&!jump){
+   if(inReach&&a.ground&&!f.macro&&!a.lock&&!jump){
     if(step==='heatRock'||step==='heatMolten')window.lab.action('slot1');
     if(step==='overburn'&&window.lavaAllowCooling)window.lab.action('slot2');
    }
    hold('Space',jump);
    hold('KeyA',dx<-84||(turn&&dx<0));
    hold('KeyD',dx>84||(turn&&dx>0));
-   hold('KeyJ',inReach);
+   hold('KeyJ',inReach&&['rock','molten','finish'].includes(step));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -136,6 +137,7 @@ try{
  assert.match(await page.locator('#fieldBossLabel').textContent(),/熔焰の龍/);
  await canvas.screenshot({path:prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(()=>window.lab.frame.commands>1000);
  const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');
@@ -161,7 +163,8 @@ try{
  assert.equal(defeated.mora-beforeFight.mora,410);
  assert.equal(defeated.story.quests[quest].count,1);
  await gate(65,approach);
- await gate(60,hub);
+ await gate(552,'natlan-quarry-road');
+ await gate(1610,hub);
  const beforeReport=await frame();
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q].status==='complete',quest);
