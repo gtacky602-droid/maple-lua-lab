@@ -18,6 +18,7 @@ s.actors[1].x=900;hp=s.actors[1].hp;tick(74)
 check('moving avoids clap',s.actors[1].hp==hp and b.phase=='exposed')
 strike();check('lethal damage gated until revival',b.hp==1 and s.kills==0)
 tick();check('low hp starts four orb revival',b.phase=='revival' and len(b.orbs)==4)
+assert '残った風玉で回復（あと12.0秒）' in c.frame(s).boss.label
 strike();check('revival invulnerable',b.hp==1)
 s.actors[1].x=b.orbs[1].x;s.actors[1].y=345;tick()
 check('airborne collection',b.collected==1 and b.orbs[1].taken)

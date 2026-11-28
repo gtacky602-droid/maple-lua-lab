@@ -1,0 +1,85 @@
+{
+  "inputSha256": "de91e5648b768b6c00a71536977d508505e6397a34dd22f2ccb41076fe293fe5",
+  "level": 200,
+  "journeys": [
+    [
+      "mond-town",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "anemo-approach",
+      "walk"
+    ],
+    [
+      "anemo-approach",
+      "anemo-field-basin",
+      "walk"
+    ],
+    [
+      "anemo-field-basin",
+      "anemo-approach",
+      "walk"
+    ],
+    [
+      "anemo-approach",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "mond-town",
+      "walk"
+    ]
+  ],
+  "field": {
+    "first": {
+      "generation": 1,
+      "move": "FA01",
+      "openingTick": 109,
+      "hpBefore": 870,
+      "attackHint": "核が静止・足元から攻撃（あと1.5秒）",
+      "remaining": 59.983333333333334,
+      "time": 21.200000000000077
+    },
+    "respawn": {
+      "hp": 870,
+      "seconds": 59.98333333332994
+    },
+    "second": {
+      "generation": 2,
+      "move": "FA01",
+      "openingTick": 109,
+      "hpBefore": 870,
+      "attackHint": "核が静止・足元から攻撃（あと1.5秒）",
+      "remaining": 60,
+      "time": 84.03333333332985
+    }
+  },
+  "capture": {
+    "move": "FA01",
+    "tick": 42,
+    "frames": {
+      "h48c32": {
+        "legacyDraws": 6490,
+        "packedDraws": 11,
+        "legacyGzip": 119431,
+        "packedGzip": 49543,
+        "identicalPixels": true
+      },
+      "h32c16": {
+        "legacyDraws": 2809,
+        "packedDraws": 11,
+        "legacyGzip": 62853,
+        "packedGzip": 33358,
+        "identicalPixels": true
+      }
+    }
+  },
+  "commission": "complete",
+  "fieldClears": 2,
+  "weeklyUnchanged": true,
+  "reported": 122,
+  "pageErrors": []
+}

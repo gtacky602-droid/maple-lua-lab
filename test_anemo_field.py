@@ -85,6 +85,7 @@ assert b.hp == before
 
 # Walk away from the locked clap. Walking into the still-active zone can hit once.
 clap = at(s, slot, 'FA01', 42)
+assert '掌の間合いから離れる' in core.frame(s).fieldBoss.label
 center, hp = clap.center, a.hp
 for _ in range(41):
     tick(s, left=True)
@@ -97,10 +98,14 @@ assert a.hp == hp-13
 a.inv = 0
 at(s, slot, 'FA01', 100)
 assert a.hp == hp-13
+at(s, slot, 'FA01', 108)
+opening = core.frame(s).fieldBoss
+assert opening.recovering and '核が静止' in opening.label and '1.5秒' in opening.label
 
 # The low falling ring is jumpable on the normal jump arc.
 spot(a, HOME-96)
 drop = at(s, slot, 'FA02', 79)
+assert '低い衝撃波を跳び越す' in core.frame(s).fieldBoss.label
 hp, center = a.hp, drop.center
 core.action(s, 'jump')
 for _ in range(22):
@@ -119,6 +124,7 @@ assert b.hp < before
 # Direction locks on the first side. Both vortices cross that lane once.
 spot(a, HOME-95)
 vortices = at(s, slot, 'FA03', 42)
+assert '小旋風が通る側から離れる' in core.frame(s).fieldBoss.label
 assert vortices.dir == -1
 spot(a, HOME+95)
 hp = a.hp

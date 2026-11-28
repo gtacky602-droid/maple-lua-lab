@@ -1,8 +1,9 @@
 return function(C)
- local anemo={}
+ local anemo={packRectArt=true}
  local U=88
  local tau=2*math.pi
  local coreHeight,coreClearance=44,18
+ local hints={clap='掌の間合いから離れる',drop='低い衝撃波を跳び越す',vortices='小旋風が通る側から離れる'}
 
  local function ramp(t,first,last)
   return math.max(0,math.min(1,(t-first)/(last-first)))
@@ -24,6 +25,16 @@ return function(C)
 
  function anemo.shareCast(cast,actors)
   C.shareFieldHits({cast.seen,cast.vortexHits[1],cast.vortexHits[2]},actors)
+ end
+
+ function anemo.label(boss,cast)
+  if not cast then return '足元の核に攻撃' end
+  local move=cast.move
+  if cast.tick>=move.recover then
+   local seconds=math.ceil((move.total-cast.tick)/6)/10
+   return string.format('核が静止・足元から攻撃（あと%.1f秒）',seconds)
+  end
+  return move.title..'・'..hints[move.pattern]
  end
 
  local function vortexX(boss,cast,age)
