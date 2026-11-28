@@ -1,0 +1,24 @@
+{
+  "quest": "fon-emilie-scent",
+  "atelierBackground": {
+    "key": "fontaineScentAtelier",
+    "file": "fon-emilie-scent-atelier-background-v1.png",
+    "state": "ready"
+  },
+  "shoreBackground": {
+    "key": "fontaineScentShore",
+    "file": "fon-emilie-scent-shore-background-v1.png",
+    "state": "ready"
+  },
+  "normalAttackBattle": true,
+  "assignedCompanion": "emilie",
+  "restoredBottle": "花のやわらかさ",
+  "calls": {
+    "png": 15,
+    "rect": 7348,
+    "light": 1923
+  },
+  "errors": [],
+  "source": "work/earned-fontaine-generator/generator-complete.json",
+  "restoredReport": true
+}

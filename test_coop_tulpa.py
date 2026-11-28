@@ -58,9 +58,11 @@ def run_lua():
     assert half.id==-boss.id and half.hp==26 and len(room.enemies)==2
     assert all(native(core.frame(s).fieldBoss.summon)==native(core.frame(parties[0]).fieldBoss.summon)
                for s in parties)
+    assert all(core.frame(s).fieldBoss.summonTicks==120 for s in parties)
     assert all(core.checkpoint(s).fieldBosses[BOSS].hp==1030 for s in parties)
 
     wait_cast(step,slot,'FHT03',84)
+    assert all(core.frame(s).fieldBoss.summonTicks==90 for s in parties)
     assert abs(half.x-boss.x)<abs(first_x-boss.x)
     assert hit(lua,core,parties[3],half,element='hydro')==0
     assert hit(lua,core,parties[3],half)==19 and half.hp==7 and half.coopHits is None
@@ -74,6 +76,7 @@ def run_lua():
     assert cast.summon is None and len(room.enemies)==1 and boss.hp==1030
     assert all(s.kills==s.mora==s.progression.killXp==0 for s in parties)
     assert all(core.frame(s).fieldBoss.label=='合流を阻止・小さな奔流' for s in parties)
+    assert all(core.frame(s).fieldBoss.summonTicks is None for s in parties)
     assert [e.target for e in parties[1].events.values() if e.kind=='object_destroyed']==[-ENTITY]
     place(parties[0],boss.x-121)
     place(parties[1],boss.x-35)
@@ -92,6 +95,7 @@ def run_lua():
     assert cast.tick==174 and cast.absorbed and boss.form=='surge'
     assert boss.hp==wounded and len(room.enemies)==1
     assert all(core.frame(s).fieldBoss.label=='合流済み・広い奔流から離れる' for s in parties)
+    assert all(core.frame(s).fieldBoss.summonTicks is None for s in parties)
     for s in parties[:2]:
         place(s,boss.x-121)
     starts = [s.seq for s in parties[:2]]
@@ -133,6 +137,7 @@ def run_lua():
     assert len(newcomer.enemies)==2 and core.frame(newcomer).fieldBoss.summon.hp==half.hp==17
     assert newcomer.fieldSlots[BOSS].cast is None and solo.fieldSlots[BOSS].cast is None
     return {'bossHp':1030,'summonHp':26,'fourPlayersSharePositionAndHp':True,
+            'sharedSummonCountdownTicks':[120,90],'timerEndsAfterEitherOutcome':True,
             'pendingHitAtMergeTickStopsAbsorption':True,'noRewardsFromHalfTulpa':True,
             'unabsorbedAndAbsorbedDamage':[20,28],'absorptionDoesNotHeal':True,
             'summonOnlyPlayerGetsNoBossCredit':True,'bossDeathCleansUpLiveSummon':True,
@@ -169,6 +174,8 @@ def run_http(url):
         hit(lua,core,g['state'],room.fieldSlot.cast.summon,10)
     frames = [c.frame() for c in (host,guest)]
     assert all(f['fieldBoss']['summon']['hp']==17 and len(f['coop']['enemies'])==2 for f in frames)
+    host_ticks, guest_ticks = (f['fieldBoss']['summonTicks'] for f in frames)
+    assert 0<guest_ticks<=host_ticks<=90
     for client in (host,guest):
         assert cross(client,65,APPROACH)['coop']['code']==code
     with LOCK:
@@ -191,6 +198,7 @@ def run_http(url):
     assert a['story']['quests'][QUEST]['count']==1 and QUEST not in b['story']['quests']
     assert all(f['checkpoint']['endgame']['bosses'][BOSS]['clears']==1 for f in (a,b))
     return {'participants':2,'sameSummonHpInBothViews':True,
+            'runningSummonCountdownInBothViews':True,
             'emptyMapPreservesLiveSummon':True,'portalReturnKeepsSameSlotAndSummon':True,
             'bothViewsRemoveSummonOnBossDeath':True,'individualRewardsAndRecords':True}
 

@@ -8569,6 +8569,19 @@
       "lua_evidence": "evidence/earned-fontaine-generator.json",
       "browser_evidence": ["evidence/earned-fontaine-finale-browser.json", "evidence/earned-fontaine-generator-browser.json"]
     },
+    "earned_fontaine_tulpa": {
+      "start_level": 91,
+      "entry_level": 91,
+      "arena_gate_level": 88,
+      "perfume_quest": "fon-emilie-scent",
+      "field_boss": "boss-20051201",
+      "reported_commissions_total": 18,
+      "numbered_hammer_impacts": 2,
+      "half_tulpa_window_ticks": 120,
+      "replayed_outcomes": ["blocked", "merged"],
+      "lua_evidence": "evidence/earned-fontaine-tulpa.json",
+      "browser_evidence": ["evidence/earned-fontaine-emilie-browser.json", "evidence/earned-fontaine-tulpa-stop-browser.json", "evidence/earned-fontaine-tulpa-merge-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

@@ -3,6 +3,11 @@
     "bossHp": 1030,
     "summonHp": 26,
     "fourPlayersSharePositionAndHp": true,
+    "sharedSummonCountdownTicks": [
+      120,
+      90
+    ],
+    "timerEndsAfterEitherOutcome": true,
     "pendingHitAtMergeTickStopsAbsorption": true,
     "noRewardsFromHalfTulpa": true,
     "unabsorbedAndAbsorbedDamage": [
@@ -20,6 +25,7 @@
   "http": {
     "participants": 2,
     "sameSummonHpInBothViews": true,
+    "runningSummonCountdownInBothViews": true,
     "emptyMapPreservesLiveSummon": true,
     "portalReturnKeepsSameSlotAndSummon": true,
     "bothViewsRemoveSummonOnBossDeath": true,
