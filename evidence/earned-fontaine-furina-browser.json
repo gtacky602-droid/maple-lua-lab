@@ -1,0 +1,21 @@
+{
+  "quest": "fon-furina-cues",
+  "source": "work/earned-fontaine-emperor/emperor-complete.json",
+  "background": {
+    "key": "fontaineRehearsal",
+    "file": "fontaine-rehearsal-background-v1.png",
+    "state": "ready"
+  },
+  "completedWithTextCues": true,
+  "earlyCueRetried": true,
+  "savedFirstRehearsal": true,
+  "restoredReport": true,
+  "level": 85,
+  "mobileWidth": 390,
+  "calls": {
+    "png": 27,
+    "rect": 30659,
+    "light": 6856
+  },
+  "errors": []
+}

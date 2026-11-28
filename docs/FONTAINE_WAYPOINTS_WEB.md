@@ -22,6 +22,12 @@ M地図の「水中」で水中の移動先を絞り込める。水中の門を�
 
 熔殻の洞の門はLv82。鉄甲熔炎帝王の「熔弾の二落ち」では、着弾する位置に番号が出る。「双角の噴火」の後は、通常攻撃が正面から減衰せずに通る時間を頭上のバーとHP欄に表示する。最大2.4秒。討伐報告後、15件目の通常ボスの記録と再出現待ちを読み込み直した。 [Luaの継続再走](../evidence/earned-fontaine-emperor.json) · [Chromeの開戦・討伐・復元](../evidence/earned-fontaine-emperor-browser.json)
 
+## フリーナの稽古と真珠珊瑚の洞
+
+「拍手は、まだ早い！」では幕・照明・波の順で装置を試す。試運転を保存した後も、一拍待って幕と照明を合わせる稽古から再開できる。早すぎる合図では幕が開かず、条件を満たしてから波を送ると報告できる。 [稽古と報告のChrome検証](../evidence/earned-fontaine-furina-browser.json)
+
+真珠珊瑚の洞の門はLv84。千年真珠の海駿の雷落としは、急降下までの最大0.7秒を真珠の近くとHP欄で知らせ、着地点へ伸びる線を表示する。真珠に異なる攻撃を2回当てると急降下が止まり、着地点の印も消える。中断・着地のどちらでも、真珠が消灯してからの最大2.4秒を反撃時間として表示する。別々の試走で両方を通常攻撃から討伐・報告し、16件目の通常ボスの記録を復元した。着地させる試走では「同行者の攻撃を控える」を使った。 [Luaの両経路](../evidence/earned-fontaine-seahorse.json) · [中断のChrome検証](../evidence/earned-fontaine-seahorse-interrupt-browser.json) · [着地のChrome検証](../evidence/earned-fontaine-seahorse-land-browser.json)
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |
