@@ -3,8 +3,8 @@
   "bygone_markers": 17,
   "floor_markers": 49,
   "swimmable_stages": 37,
-  "reciprocal_routes": 153,
-  "directed_gates": 306,
+  "reciprocal_routes": 170,
+  "directed_gates": 340,
   "visited_stages": [
     "bygone-camp",
     "bygone-depth",
@@ -123,6 +123,168 @@
     "fontaine-field",
     "fontaine-hub",
     "nostoi-castle-approach"
+  ],
+  "travel_modes": {
+    "direct": 244,
+    "waterway": 54,
+    "boat": 14,
+    "lift": 28
+  },
+  "reviewed_studio_pairs": 47,
+  "editor_deletions_confirmed_absent": 14,
+  "source_save": {
+    "path": "natlan-ready-save.json",
+    "sha256": "b8905436ba6819ce82c1b5d1d9e31fbf60d32ce64f30aba57a1e0526f42530d8",
+    "level": 100
+  },
+  "party_wipes": 0,
+  "shore_guides": [
+    [
+      {
+        "from": "fon-wp-50041",
+        "to": "fon-wp-50063",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-50063",
+        "to": "fon-wp-50041",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ],
+    [
+      {
+        "from": "fon-wp-50061",
+        "to": "fon-wp-56363",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-56363",
+        "to": "fon-wp-50061",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ],
+    [
+      {
+        "from": "fon-wp-53849",
+        "to": "fon-wp-53864",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-53864",
+        "to": "fon-wp-53849",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ],
+    [
+      {
+        "from": "fon-wp-53849",
+        "to": "fon-wp-53866",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-53866",
+        "to": "fon-wp-53849",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ],
+    [
+      {
+        "from": "fon-wp-53869",
+        "to": "fon-wp-53865",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-53865",
+        "to": "fon-wp-53869",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ],
+    [
+      {
+        "from": "fon-wp-53871",
+        "to": "fon-wp-50071",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-50071",
+        "to": "fon-wp-53871",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ],
+    [
+      {
+        "from": "fon-wp-55772",
+        "to": "fon-wp-55768",
+        "mode": "dive",
+        "label": "潜水口",
+        "hint": "門を通ると水中へ（中層）",
+        "departure_y": 480,
+        "arrival_y": 360
+      },
+      {
+        "from": "fon-wp-55768",
+        "to": "fon-wp-55772",
+        "mode": "land",
+        "label": "上陸口",
+        "hint": "中層の門（今の深さで通れる）",
+        "departure_y": 360,
+        "arrival_y": 480
+      }
+    ]
+  ],
+  "north_lock_approach": [
+    "fon-wp-50077",
+    "fon-wp-50058",
+    "fon-wp-50056",
+    "fon-wp-53867"
   ],
   "wrong_depth_rejected": true,
   "pause_and_swim_bounds_verified": true,

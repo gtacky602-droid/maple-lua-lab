@@ -165,13 +165,15 @@ return function(C, atlas)
    return vehicle.kind=='ferry' and 'boat' or 'arrival'
   elseif edge.requiresArrival then return 'arrival'
   elseif edge.wind then return 'wind'
-  elseif from.swim and to.swim then return 'swim'
+  elseif from.swim then return to.swim and 'swim' or 'land'
+  elseif to.swim then return 'dive'
   elseif edge.studioMode=='special_road' then return 'special' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',swim='遊泳',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩',special='特別な道'}
+ local route_labels = {boat='舟・寄港',water='水路',swim='遊泳',dive='潜水口',land='上陸口',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩',special='特別な道'}
  local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',air='#a6e3cf',wall='#eabb75',spiritway='#f0d3ff',phase='#eebcfa',night='#d5a0f5',arrival='#ebf4db',
-                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054',swim='#c2f1ec',special='#f7c6ed'}
+                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054',swim='#c2f1ec',
+                       dive='#99e2e0',land='#99e2e0',special='#f7c6ed'}
 
  local function direct_motion(mode)
   return mode=='walk' or mode=='swim'
@@ -203,6 +205,11 @@ return function(C, atlas)
   return edge.rideLabel and side..'・'..edge.rideLabel or side
  end
 
+ local function swim_layer(swim,y)
+  local fraction=(y-swim.top)/math.max(1,swim.bottom-swim.top)
+  return fraction<1/3 and '浅い層' or fraction<2/3 and '中層' or '深い層'
+ end
+
  local function route_hint(edge,node,destination,actorY)
   local voyage=node.voyage
   local instruction=edge.darkOnly and '灯りを消して足場を出す'
@@ -218,8 +225,7 @@ return function(C, atlas)
   if edge.y and (node.swim or node.toyDive) then
    local depth='門と同じ深さまで泳ぐ'
    if node.swim and node.swim.top and node.swim.bottom then
-    local fraction=(edge.y-node.swim.top)/math.max(1,node.swim.bottom-node.swim.top)
-    depth=(fraction<1/3 and '浅い層' or fraction<2/3 and '中層' or '深い層')..'の門'
+    depth=swim_layer(node.swim,edge.y)..'の門'
    end
    if actorY then
     local dy=edge.y-actorY
@@ -227,6 +233,10 @@ return function(C, atlas)
    end
    parts[#parts+1]=depth
   elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
+  if destination.swim and not node.swim and route_mode(edge,node,destination)=='dive' then
+   local swim=destination.swim
+   parts[#parts+1]='門を通ると水中へ（'..swim_layer(swim,edge.arrivalY or swim.entryY)..'）'
+  end
   local gate=not automatic_arrival(node,edge) and (parallel_gate_hint(edge,node) or (not edge.windowStart and edge.rideLabel))
   if gate then parts[#parts+1]=gate end
   if instruction then parts[#parts+1]=instruction end

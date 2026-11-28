@@ -1,6 +1,10 @@
 """Traverse the Fontaine catalog on foot, through rides and using ordinary swim input."""
 
+from argparse import ArgumentParser
+from collections import Counter
+from hashlib import sha256
 import json
+from pathlib import Path
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
@@ -19,6 +23,7 @@ nodes = {n['id']:n for n in graph['nodes']}
 quests = {q['id']:q for q in graph['quests']}
 cat = read('content/map-catalog.json')
 review = read('sources/map-research/fontaine-marker-review.json')
+plan = read('design/world/atlas-route-plan.json')
 stats = read('content/coverage.json')['map_catalog']
 points = {p['id']:p for p in cat['nodes'] if p['map_id']==34 or p['map_id']==2 and p['area_id']==8}
 mapping = review['stage_by_marker']
@@ -34,9 +39,24 @@ assert floors == review['floor_markers'] and len(floors) == 49
 stages = set(mapping.values())
 exits = {key:n['exits'] for key,n in nodes.items()}
 edges = {(a,e['to']):e for a in stages for e in exits[a] if e['to'] in stages}
-assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 306
-for key,count in [('boatSeconds',14),('liftSeconds',30),('waterwaySeconds',54)]:
-    assert sum(key in edge for edge in edges.values()) == count
+assert set(edges) == {(b,a) for a,b in edges}
+assert len(edges) == sum(e['to'] in stages for a in stages for e in exits[a])
+removed = [row for row in plan['removed_editor_routes'] if all(k in mapping for k in row['fields'])]
+for row in removed:
+    a,b = (mapping[k] for k in row['fields'])
+    assert (a,b) not in edges and (b,a) not in edges, row
+adopted = [row for row in plan['sites_only_route_review']
+           if row['finding']=='field_studio_lab_connection' and all(k in mapping for k in row['fields'])]
+for row in adopted:
+    for path in row['runtime_paths'].values():
+        assert all(any(e['to']==b for e in exits[a]) for a,b in zip(path,path[1:])), row
+travel_modes = Counter(
+    next((mode for key,mode in (('boatSeconds','boat'),('liftSeconds','lift'),
+                               ('waterwaySeconds','waterway')) if key in edge), 'direct')
+    for edge in edges.values()
+)
+shore = sorted((a,b) for (a,b),edge in edges.items() if not nodes[a].get('swim') and nodes[b].get('swim')
+               and edge.get('studioRoute') and not any(k in edge for k in ('boatSeconds','liftSeconds','waterwaySeconds')))
 
 
 def accessible(stage, x, y):
@@ -68,12 +88,22 @@ undersea = review['bygone_undersea_link']
 assert undersea['mode'] in edges[undersea['from'],undersea['to']]
 assert undersea['mode'] in edges[undersea['to'],undersea['from']]
 
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save', type=Path, help='Earned late-Fontaine checkpoint at the hub')
+args = parser.parse_args()
 lua, core = runtime()
-state = core.new(16)
-core.action(state,'campaign')
-core.grantExp(state,sum(core.expNeeded(level) for level in range(1,99)),'quest')
-assert state.progression.level == 99
-core.enterStoryNode(state,'fontaine-hub')
+source_save = None
+if args.from_save:
+    raw = args.from_save.read_bytes()
+    state = core.restore(lua.table_from(validate_save(json.loads(raw)), recursive=True), 16)
+    assert state.story.node=='fontaine-hub' and not state.auto
+    source_save = {'path':args.from_save.name,'sha256':sha256(raw).hexdigest(),'level':state.progression.level}
+else:
+    state = core.new(16)
+    core.action(state,'campaign')
+    core.grantExp(state,sum(core.expNeeded(level) for level in range(1,99)),'quest')
+    assert state.progression.level == 99
+    core.enterStoryNode(state,'fontaine-hub')
 (ROOT/'work').mkdir(exist_ok=True)
 write('work/fontaine-waypoint-browser-save.json',validate_save(native(core.checkpoint(state))))
 trail = TrailWalk(lua,core,state,edges,exits)
@@ -138,7 +168,7 @@ assert state.story.node=='fontaine-hub' and not state.story.visited['fon-wp-5006
 accept(samples)
 complete(samples)
 accept(lock)
-follow('fon-wp-50050','fon-wp-50056','fon-wp-53867')
+north_lock_approach = trail.follow_atlas('fon-wp-53867')
 complete(lock)
 follow('fontaine-field','bygone-camp')
 accept(marsh)
@@ -150,10 +180,30 @@ complete(nostoi)
 
 sweep = TrailWalk(lua,core,state,edges,exits)
 assert sweep.explore()==stages and sweep.crossings==set(edges)
+assert state.returns==0
 saved = validate_save(native(core.checkpoint(state)))
 restored = core.restore(lua.table_from(saved,recursive=True))
 assert all(restored.story.visited[n] for n in stages)
-assert all(restored.story.quests[q].status=='complete' for q in [samples,lock,marsh,nostoi])
+assert all(restored.story.quests[q].status=='complete' and restored.story.quests[q].cycles==1
+           for q in [samples,lock,marsh,nostoi])
+shore_walk = TrailWalk(lua,core,restored,edges,exits)
+shore_guides = []
+for land,water in shore:
+    core.action(restored,'story_fast:'+land)
+    assert restored.story.node==land and not restored.storySwimming
+    pair = []
+    for origin,target,mode,label in ((land,water,'dive','潜水口'),(water,land,'land','上陸口')):
+        core.action(restored,'world_map_focus:'+target)
+        guide = core.frame(restored,'sprite','legacy').worldMap.guide
+        stop = guide.stops[1]
+        assert guide.status=='ready' and len(guide.stops)==1 and (stop['from'],stop.id,stop.mode,stop.label)==(
+            origin,target,mode,label)
+        core.action(restored,'world_map_close')
+        shore_walk.cross(target)
+        assert bool(restored.storySwimming)==(mode=='dive')
+        pair.append({'from':origin,'to':target,'mode':mode,'label':label,'hint':stop.hint,
+                     'departure_y':edges[origin,target].get('y',480),'arrival_y':shore_walk.actor.y})
+    shore_guides.append(pair)
 core.action(restored,'story_fast:fon-wp-50065')
 assert restored.storySwimming and restored.story.node=='fon-wp-50065'
 a=restored.actors[restored.active]
@@ -172,6 +222,10 @@ write('evidence/fontaine-waypoint-test.json',{
     'fontaine_markers':100,'bygone_markers':17,'floor_markers':len(floors),
     'swimmable_stages':len(review['swim_markers']),'reciprocal_routes':len(sweep.crossings)//2,
     'directed_gates':len(sweep.crossings),'visited_stages':sorted(stages),
+    'travel_modes':travel_modes,'reviewed_studio_pairs':len(adopted),
+    'editor_deletions_confirmed_absent':len(removed),'source_save':source_save,'party_wipes':state.returns,
+    'shore_guides':shore_guides,
+    'north_lock_approach':north_lock_approach,
     'wrong_depth_rejected':True,'pause_and_swim_bounds_verified':True,
     'reported_quests':[samples,lock,marsh,nostoi],'restored_visits_and_swim_warp':True,
 })
