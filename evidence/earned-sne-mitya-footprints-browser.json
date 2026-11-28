@@ -1,0 +1,50 @@
+{
+  "shedScene": {
+    "key": "sneSurveyShed",
+    "file": "sne-survey-shed-background-v1.png",
+    "state": "ready"
+  },
+  "ridgeScene": {
+    "key": "sneSurveyRidge",
+    "file": "sne-survey-ridge-background-v1.png",
+    "state": "ready"
+  },
+  "firstMeetingBeforeMain": false,
+  "threeSamples": true,
+  "wrongSetupsRejected": true,
+  "setupRestored": true,
+  "joinedAndStarter": true,
+  "shortcutAndFixedReadback": true,
+  "commands": {
+    "png": 35,
+    "standard": 8133,
+    "light": 2224
+  },
+  "reward": [
+    10267605,
+    9200
+  ],
+  "patrol": {
+    "level": 145,
+    "reward": [
+      13085336,
+      530
+    ],
+    "safeRouteFlagAfterReload": true,
+    "footprintAndCrackMatch": true,
+    "commands": {
+      "png": 88,
+      "light": 4852
+    },
+    "refinedCheck": {
+      "labelY": 279,
+      "flagWorldX": 626,
+      "crackY": 470,
+      "png": 79,
+      "light": 6584
+    }
+  },
+  "sourceSha256": "d1b6ad2dde9c72cef30492c7c225669dc357344438b7eba18234dfb7a6f75afb",
+  "priorQuests": 95,
+  "errors": []
+}

@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## ミティヤの加入と雪線の巡回路
+
+終着駅のLv142セーブから観測器を固定してミティヤを同行に選び、雪線の切通しでLv145に達した。アリョーシャの依頼ではトゥガリンの足跡が岩棚の手前で途切れ、上段から下の割れ目を確認すると旗が残る。観測器の設置途中と報告後の旗は保存から再現した。 [加入と巡回路](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [Luaの続き](evidence/earned-sne-mitya-footprints-lua.json) · [Chromeの保存検査](evidence/earned-sne-mitya-footprints-browser.json)
+
 ## 白虹行きの列車と最初の切符
 
 雪の町に着いたLv140セーブから、雪線の切通しでLv141になり、「この切符は、冒険行き！」を報告した。観測器の途中保存を読み直し、保線カートと上段標識から再開できる。列車の窓に流れる雪は元PNGと復号背景に重なり、一時停止で止まる。乗車中の保存は雪の町、着駅後の保存は終着駅からLv142で再開する。 [依頼と乗り直し](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [Luaの検査](evidence/earned-white-pass-ticket-lua.json) · [Chromeの検査](evidence/earned-white-pass-ticket-browser.json)

@@ -1,0 +1,60 @@
+{
+  "sourceSha256": "d1b6ad2dde9c72cef30492c7c225669dc357344438b7eba18234dfb7a6f75afb",
+  "milestones": [
+    {
+      "id": "sne-mitya-observation",
+      "node": "sne-survey-shed",
+      "seconds": 23.47,
+      "level": 142,
+      "total": 425017404,
+      "killXp": 232049433,
+      "questXp": 192967971
+    },
+    {
+      "id": "lv145",
+      "node": "white-pass-cut",
+      "seconds": 1208.3,
+      "level": 145,
+      "total": 490981340,
+      "killXp": 298013369,
+      "questXp": 192967971
+    },
+    {
+      "id": "white-pass-footprints",
+      "node": "snezhnaya-hub",
+      "seconds": 1228.05,
+      "level": 145,
+      "total": 504439402,
+      "killXp": 298386095,
+      "questXp": 206053307
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-cut",
+      "target": 145,
+      "kills": 2346,
+      "xp": 62673792,
+      "huntSeconds": 1084.53,
+      "routeKills": 2448,
+      "routeXp": 65848896,
+      "routeSeconds": 1173.13
+    }
+  ],
+  "mityaRewardXp": 10267605,
+  "footprintsReward": [
+    13085336,
+    530
+  ],
+  "visibleTracks": true,
+  "visibleCrackOnGround": true,
+  "overlookRequired": true,
+  "safePathFlag": true,
+  "level": 145,
+  "priorQuests": 95,
+  "companion": "mitya",
+  "inventoryKept": 68,
+  "recoveryTrips": 0,
+  "inventoryTrips": 2,
+  "partyWipes": 0
+}
