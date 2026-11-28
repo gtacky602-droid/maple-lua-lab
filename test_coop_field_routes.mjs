@@ -121,10 +121,10 @@ const cases={
   boss:'boss-24090501',quest:'overseer-commission',hp:1125,mora:420,xp:351500,scene:'overseerField',
   asset:'overseer-field',pose:'poses',label:'cooled',fixture:'overseer-field',report:[8200,540],stance:87,
   evade:{FOV01:[104,175,246],FOV02:[107,132],FOV03:[156,242,328]}},
- spiritspeaker:{hub:'natlan-hub',arena:'spiritspeaker-field-grotto',approach:'natlan-field',
+ spiritspeaker:{hub:'natlan-hub',transit:['natlan-quarry-road'],arena:'spiritspeaker-field-grotto',approach:'natlan-field',
   boss:'boss-25520101',quest:'spiritspeaker-commission',hp:1060,mora:420,xp:398700,scene:'spiritspeakerField',
-  asset:'spiritspeaker-field',pose:'poses',label:'reflections',fixture:'spiritspeaker-field',report:[8600,560],stance:74,
-  evade:{FSP01:[99,168],FSP02:[107,180],FSP03:[235,315,395,475]}},
+  asset:'spiritspeaker-field',pose:'poses',label:'echoes',fixture:'spiritspeaker-field',report:[8600,560],stance:74,
+  evade:{FSP01:[99,168],FSP02:[107,180],FSP03:[139,211]}},
  duckle:{hub:'nod-town',arena:'nod-duckle-workyard',approach:'nod-field',
   boss:'boss-24100101',quest:'knuckle-duckle-commission',hp:1135,mora:445,xp:526400,scene:'duckleField',
   asset:'knuckle-duckle-field',pose:'poses',label:'repair-units',fixture:'knuckle-duckle-field',report:[8500,570],stance:76,
@@ -214,7 +214,7 @@ async function fight(page,side,key,config) {
   const gravityTracks=new Set(),fireLayouts=new Set(),exposedAt=new Set(),pearls=new Set(),interruptedAt=new Set();
   const sharedObjects=new Set(),diveLayouts=new Set(),cannonLayouts=new Set();
   const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
-  const reflectionLayouts=new Set(),reflectionLayers=new Set();
+  const echoLayouts=new Set();
   const repairLayouts=new Set(),thermalStates=new Set();
   const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
   const anchorLayers=new Set();
@@ -231,7 +231,7 @@ async function fight(page,side,key,config) {
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
   let jumpProbe=null,jump=null,lastHp=Infinity,hpMonotonic=true;
   let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
-  let reflectionBroken=false,lastReflectionFire=-Infinity;
+  let echoRecovery=false;
   let machineDown=false,shipHeating=false,lastShipFire=-Infinity;
   let adaptationEnded=false,gloomDown=false,shieldDown=false,nextIce=-Infinity,iceCasts=0;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
@@ -263,7 +263,7 @@ async function fight(page,side,key,config) {
      pearls:[...pearls],interruptedAt:[...interruptedAt],sharedObjects:[...sharedObjects],diveLayouts:[...diveLayouts],
      cannonLayouts:[...cannonLayouts],hpMonotonic,heatStates:[...heatStates],eruptionLayouts:[...eruptionLayouts],
      coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows],
-     reflectionLayouts:[...reflectionLayouts],reflectionLayers:[...reflectionLayers],reflectionBroken,
+     echoLayouts:[...echoLayouts],echoRecovery,
      repairLayouts:[...repairLayouts],thermalStates:[...thermalStates],machineDown,
      ...(key==='herra'?{adaptedElements:[...adaptedElements],adaptationEnded,gloomDown}:{}),
      ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
@@ -486,18 +486,16 @@ async function fight(page,side,key,config) {
     }
    }
    if(key==='spiritspeaker'){
-    if(b.underground&&b.summons?.length){
+    if(b.echoesVisible&&!b.underground&&!b.summons){
      const sprites=f.draws.filter(d=>d.source===art);
-     if(sprites.length===b.summons.length&&sprites.every((d,i)=>Math.abs(d.x+f.camera-b.summons[i].x)<.001)){
-      if(b.summons.length===4&&b.summons.every(unit=>unit.hp===unit.maxhp)){
-       reflectionLayouts.add(b.summons.map(unit=>unit.x.toFixed(3)).join(','));
-       visual=true;
-      }
-      if(b.summons.some(unit=>unit.hp<unit.maxhp))
-       reflectionLayers.add(b.summons.map(unit=>`${unit.id}:${unit.hp}`).join(','));
+     if(sprites.length===3&&sprites[2].opacity===undefined&&Math.abs(sprites[2].x+f.camera-b.x)<.001&&
+        sprites.slice(0,2).every((d,i)=>d.opacity>0&&d.opacity<1&&
+         Math.abs(d.x+f.camera-(b.echoLanes[i].left+b.echoLanes[i].right)/2)<.001)){
+      echoLayouts.add(b.echoLanes.map(({left,right})=>[left,right].map(x=>x.toFixed(3)).join(':')).join(','));
+      visual=b.tick>=126&&b.tick<144;
      }
     }
-    if(b.form==='down'&&sprite&&!b.underground&&!b.summons) reflectionBroken=true;
+    if(b.move==='FSP03'&&b.recoveryTicks>0&&sprite&&!b.echoLanes) echoRecovery=true;
    }
    if(key==='duckle'){
     const sprites=f.draws.filter(d=>d.source===art);
@@ -629,7 +627,7 @@ async function fight(page,side,key,config) {
    const other=b.bodies?.[side===-1?1:0];
    const device=config.breakable&&b.summon&&(!config.breakable.pips||b.cannonBounds);
    const sharedSummon=key==='moongecko'?b.summon:
-    (key==='spiritspeaker'||key==='duckle'||key==='nightmare'||key==='vigil'||key==='flugel')&&
+    (key==='duckle'||key==='nightmare'||key==='vigil'||key==='flugel')&&
      b.summons?.at(side===-1?0:-1);
    const target=device||sharedSummon||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
@@ -674,9 +672,6 @@ async function fight(page,side,key,config) {
    if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
     window.lab.action('slot1');nextHeal=f.t+10;
    }
-   if(key==='spiritspeaker'&&sharedSummon&&inReach&&a.ground&&!f.macro&&f.t-lastReflectionFire>3.2){
-    window.lab.action('slot1');lastReflectionFire=f.t;
-   }
    if(key==='battleship'&&shipHeating&&!machineDown&&b.form!=='shield'&&
       side===(b.thermal.heat%2===0?-1:1)&&inReach&&a.ground&&!f.macro&&f.t-lastShipFire>3.2){
     window.lab.action('slot1');lastShipFire=f.t;
@@ -716,7 +711,7 @@ async function fight(page,side,key,config) {
    const watchPapilla=key==='papilla'&&b.hp<420&&flightTargets.size===0;
    const watchLava=key==='lava-dragon'&&b.hp<650&&lavaStage!=='finish';
    const watchOverseer=key==='overseer'&&b.hp<520&&cooledFlows.size===0;
-   const watchReflections=key==='spiritspeaker'&&!reflectionBroken&&!sharedSummon&&b.hp<520;
+   const watchEchoes=key==='spiritspeaker'&&!echoRecovery&&b.hp<520;
    const watchDuck=key==='duckle'&&!machineDown&&!sharedSummon&&b.hp<570;
    const watchShip=key==='battleship'&&!machineDown&&(b.form==='shield'?b.tick<28:b.hp<570);
    const watchHerra=key==='herra'&&!gloomDown&&b.hp<680;
@@ -727,7 +722,7 @@ async function fight(page,side,key,config) {
    const watchGuard=guard&&(!guardReady||b.move===guard.move&&b.tick<84||!guardDown&&guardAmount===0&&b.hp<500);
    const watchWave=wave&&!valiantDown&&!(breakDrink&&b.tick>=160);
    hold('KeyJ',!watchWave&&!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
-    !watchLava&&!watchOverseer&&!watchReflections&&!watchDuck&&!watchShip&&!watchHerra&&!watchNightmare&&
+    !watchLava&&!watchOverseer&&!watchEchoes&&!watchDuck&&!watchShip&&!watchHerra&&!watchNightmare&&
     !watchCocoon&&!watchVigil&&!watchLion&&!watchGuard&&!healing&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
@@ -853,9 +848,8 @@ async function run(key,config) {
   assert.ok(a.cooledFlows.some(flow=>b.cooledFlows.includes(flow)),JSON.stringify(results));
  }
  if(key==='spiritspeaker'){
-  assert.ok(a.reflectionLayouts.some(layout=>b.reflectionLayouts.includes(layout)),JSON.stringify(results));
-  assert.ok(a.reflectionLayers.some(layers=>b.reflectionLayers.includes(layers)),JSON.stringify(results));
-  assert.ok(a.reflectionBroken&&b.reflectionBroken,JSON.stringify(results));
+  assert.ok(a.echoLayouts.some(layout=>b.echoLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.echoRecovery&&b.echoRecovery,JSON.stringify(results));
  }
  if(key==='duckle'){
   assert.ok(a.repairLayouts.some(layout=>b.repairLayouts.includes(layout)),JSON.stringify(results));

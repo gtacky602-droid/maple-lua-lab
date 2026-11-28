@@ -559,11 +559,11 @@ Luaの4人試験で複数人の加熱と冷却、同じ噴流への個別命中�
 
 ## 迷える霊覚の修験者
 
-Lv114の謎煙の修練窟へは、ナタ・岩場の道の門から入る。試作の本体HPは1,060。色彩の分身では本体が隠れ、4体の分身の位置と守りの残り層を全員で共有する。分身1体につき3層あり、新しい直接攻撃で1層、炎の直接攻撃で2層削れる。4体を倒すと本体が3秒間ダウンする。 [現行の戦闘仕様](field-boss-v1/NATLAN_SPIRITSPEAKER.md) · [分身が出現した画面](../evidence/coop-spiritspeaker-reflections.png)
+ナタの谷の集落から赤岩の採掘路と岩場の道を経て、Lv114の謎煙の修練窟に入る。本体HPは1,060。二影の位置と攻撃順を共有し、命中はプレイヤーごとに判定する。影が出ている間も本体に攻撃が通る。二撃後の反撃時間は2.4秒。 [現行の戦闘仕様](field-boss-v1/NATLAN_SPIRITSPEAKER.md) · [二影の戦闘画面](../evidence/coop-spiritspeaker-echoes.png)
 
-本体を攻撃して討伐に参加した人に、各398,700 EXPと420モラが入る。依頼を受けた人が集落に戻って報告すると、8,600 EXPと560モラが入る。Luaの4人試験で攻撃の受付、途中参加、個別報酬を、HTTPの2人試験で全員離脱後の再合流と保存を確認した。Chromeの2画面では、同じ4体を倒して本体を追撃し、討伐と依頼報告を保存した。 [Lua・HTTPの検証](../evidence/coop-spiritspeaker-lua-http.json) · [Chromeの試走](../evidence/coop-spiritspeaker-browser.json)
+Lv114の試験では、討伐に参加した人にそれぞれ398,700EXPと420モラが入った。受注者の依頼報告は8,600EXPと560モラ。Luaの4人試験では、二影の攻撃への別々の命中、途中参加、本体HPと個別報酬を照合した。HTTPの2人試験では、全員離脱後に同じ攻撃状態へ再合流できた。Chromeの2画面では、二影の位置・反撃時間の共有と、各自の討伐および受注者の報告を確認した。 [Lua・HTTPの検証](../evidence/coop-spiritspeaker-lua-http.json) · [Chromeの試走](../evidence/coop-spiritspeaker-browser.json)
 
-`python test_spiritspeaker_field.py` で試験用のセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs spiritspeaker` を実行すると試走を再現できる。本体を表示したまま二影が順に攻撃する案は後続の設計。 [二影の設計案](field-boss-v1/NATLAN_REMAINING_MOVESETS.md#fsp03色彩の二影順筆)
+`python test_spiritspeaker_field.py` で試験用のセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs spiritspeaker` を実行すると試走を再現できる。
 
 ## ボコボコダックと重量級陸巡艦「バトルシップ」
 

@@ -1,38 +1,251 @@
 {
-  "browser": "Chrome",
-  "companion": "wanderer",
-  "play": {
-    "won": true,
-    "seconds": 51.58,
-    "moves": [
-      "FSP01",
-      "FSP02",
-      "FSP03"
+  "inputSha256": "f4039af25ff7df938ea7e284cbddf059b05af4d1e5c94b5dee5fe2360b48a726",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
     ],
-    "hp": 126,
-    "returns": 0,
-    "interrupted": true,
-    "fireCasts": 2
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "spiritspeaker-field-grotto",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "spiritspeaker-field-grotto",
+      "walk"
+    ],
+    [
+      "spiritspeaker-field-grotto",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "originalAttack": 74956
   },
   "scenery": {
     "key": "spiritspeakerField",
     "file": "spiritspeaker-field-background-v1.png",
     "state": "ready"
   },
-  "questAcceptedInUi": true,
-  "questReport": {
+  "echoSequence": {
+    "lanes": [
+      {
+        "right": 861.2,
+        "left": 782
+      },
+      {
+        "right": 773.2,
+        "left": 694
+      }
+    ],
+    "heroDamage": 0,
+    "bodyDamageDuringEchoes": 7,
+    "hitAt": 168,
+    "recoveryTicks": 144,
+    "hpAfterReload": 1046
+  },
+  "captures": {
+    "ice": {
+      "label": "二つの氷色の筆跡・1/2・番号の範囲から離れる",
+      "tick": 76,
+      "marks": [
+        [
+          "1",
+          861.2
+        ],
+        [
+          "2",
+          742.4
+        ]
+      ],
+      "poses": [
+        {
+          "x": 936,
+          "box": [
+            1265,
+            25,
+            410,
+            439
+          ]
+        }
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 3401,
+          "packedDraws": 21,
+          "plainGzip": 90731,
+          "packedGzip": 64985,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 1596,
+          "packedDraws": 21,
+          "plainGzip": 51449,
+          "packedGzip": 41352,
+          "identicalPixels": true
+        }
+      }
+    },
+    "echoes": {
+      "label": "色彩の二影・順筆・1/2・影が順に攻撃・狙うのは本体",
+      "tick": 132,
+      "marks": [
+        [
+          "1",
+          821.6
+        ],
+        [
+          "2",
+          733.6
+        ]
+      ],
+      "poses": [
+        {
+          "x": 821.6,
+          "opacity": 0.44,
+          "box": [
+            1265,
+            25,
+            410,
+            439
+          ]
+        },
+        {
+          "x": 733.6,
+          "opacity": 0.32,
+          "box": [
+            645,
+            575,
+            405,
+            449
+          ]
+        },
+        {
+          "x": 936,
+          "box": [
+            25,
+            575,
+            413,
+            458
+          ]
+        }
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 10879,
+          "packedDraws": 24,
+          "plainGzip": 189705,
+          "packedGzip": 119450,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 4897,
+          "packedDraws": 24,
+          "plainGzip": 90813,
+          "packedGzip": 65228,
+          "identicalPixels": true
+        }
+      }
+    },
+    "second": {
+      "label": "色彩の二影・順筆・2/2・影が順に攻撃・狙うのは本体",
+      "tick": 218,
+      "marks": [
+        [
+          "2",
+          733.6
+        ]
+      ],
+      "poses": [
+        {
+          "x": 821.6,
+          "opacity": 0.2,
+          "box": [
+            645,
+            575,
+            405,
+            449
+          ]
+        },
+        {
+          "x": 733.6,
+          "opacity": 0.57,
+          "box": [
+            645,
+            25,
+            511,
+            358
+          ]
+        },
+        {
+          "x": 936,
+          "box": [
+            25,
+            575,
+            413,
+            458
+          ]
+        }
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 10597,
+          "packedDraws": 15,
+          "plainGzip": 185155,
+          "packedGzip": 117441,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 4747,
+          "packedDraws": 15,
+          "plainGzip": 88657,
+          "packedGzip": 64357,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 11961,
+    "mora": 420
+  },
+  "reportReward": {
     "xp": 8600,
     "mora": 560
   },
-  "sameSceneCommands": {
-    "png": 36,
-    "standard": 28331,
-    "light": 7621
-  },
-  "fourReflections": true,
-  "hiddenBody": true,
-  "reflectionsBrokenTick": 285,
-  "savedRespawn": true,
-  "viewport390": true,
+  "fieldClears": 1,
+  "reported": 138,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
   "errors": []
 }

@@ -1483,18 +1483,6 @@
   "resist": {
     "cryo": 0.4
   },
-  "reflections": {
-    "layers": 3,
-    "pyroLayers": 2,
-    "offsets": [
-      -2.3,
-      -0.75,
-      0.75,
-      2.3
-    ],
-    "downTicks": 180,
-    "downFactor": 1.25
-  },
   "moves": [
     {
       "id": "FSP01",
@@ -1549,34 +1537,25 @@
     },
     {
       "id": "FSP03",
-      "kind": "reflections",
-      "title": "色彩の分身",
+      "kind": "echoes",
+      "title": "色彩の二影・順筆",
       "reach": 230,
       "lock": 60,
       "deploy": 64,
-      "tell": 60,
-      "reachU": 1.65,
+      "bands": [[0.85, 1.75], [1.85, 2.75]],
       "height": 0.7,
       "active": [
         [
-          240,
-          254
+          144,
+          158
         ],
         [
-          320,
-          334
-        ],
-        [
-          400,
-          414
-        ],
-        [
-          480,
-          494
+          216,
+          230
         ]
       ],
-      "recover": 660,
-      "total": 780,
+      "recover": 240,
+      "total": 384,
       "damage": 22,
       "element": "cryo"
     }
