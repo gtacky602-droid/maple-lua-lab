@@ -22,6 +22,31 @@ return function(C)
  end
 
  local pyro=C.fieldRegisvine(C.pyroFieldArt,poseFor)
+ pyro.packRectArt=true
+ local baseLabel=pyro.label
+
+ function pyro.label(boss,cast)
+  if boss.down>0 then
+   return string.format('核を破壊・ダウン（あと%.1f秒）',math.ceil(boss.down/6)/10)
+  end
+  if boss.rise>0 then return baseLabel(boss) end
+  if boss.coreHits==0 and boss.rearm==0 then
+   if cast and cast.move.pattern=='slam' then return '核を破壊・火走りが消えるとダウン' end
+   return '核を破壊・攻撃が終わるとダウン'
+  end
+  if not cast then return end
+  local move,t=cast.move,cast.tick
+  if t>=move.recover then
+   return boss.coreHits>0 and '反撃の隙・地上で根元に近づいて攻撃' or '反撃の隙'
+  end
+  if move.pattern=='slam' then
+   if t<move.shotTicks[1] then return move.title..'・低い炎を跳び越す' end
+   if t<move.shotTicks[1]+move.shotLife then return '火走り・低い炎を跳び越す' end
+   return '火走りが消えた・攻撃できる'
+  end
+  if move.pattern=='bolts' then return move.title..'・二発目まで注意' end
+  return move.title..'・薙ぎの範囲から離れる'
+ end
 
  function pyro.farMove(spec)
   return spec.moves[2]
