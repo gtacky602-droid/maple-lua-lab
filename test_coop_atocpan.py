@@ -133,15 +133,16 @@ def check_overseer(lua, core):
     wait_cast(step,slot,'FOV03',300)
     assert [hits(s,boss,mark) for s,mark in zip(states,marks)]==[[24],[27],[],[]]
     assert purge.flow==4
-    attack(lua,core,host,boss,element='cryo',reaction=True)
+    attack(lua,core,host,boss,element='cryo',startedAt=host.t,reaction=True)
     assert purge.flow==4 and purge.chilled==0
     chill=lua.table_from(dict(id=1,atk=20,x=boss.x,y=480,dir=1,radial=True,range=140,
-                             limit=1,mult=1,element='cryo',color='#fff0ac',gain=0,critRate=0))
+                             limit=1,mult=1,element='cryo',color='#fff0ac',gain=0,critRate=0,
+                             startedAt=host.t))
     core.resolveCast(host,chill)
     core.resolveCast(host,chill)
     assert purge.flow==3 and purge.chilled==72
     wait_cast(step,slot,'FOV03',308)
-    attack(lua,core,guest,boss,element='cryo')
+    attack(lua,core,guest,boss,element='cryo',startedAt=guest.t)
     wait_cast(step,slot,'FOV03',331)
     assert purge.flow==2 and purge.chilled==49 and boss.form=='cooled'
     for s in states:
@@ -149,7 +150,7 @@ def check_overseer(lua, core):
         assert native(view.purgePoints)==points and native(view.flow)=={'level':2,'max':5,'chilledTicks':49}
     wait_cast(step,slot,'FOV03',333)
     assert purge.damage[3]==24 and hits(observer,boss,marks[2])==[24]
-    attack(lua,core,host,boss,element='cryo')
+    attack(lua,core,host,boss,element='cryo',startedAt=host.t)
     assert purge.flow==1 and purge.damage[3]==24
     place(guest,points[2])
     wait_cast(step,slot,'FOV03',341)

@@ -24,7 +24,8 @@ def portal(state,x,node):
 
 
 def enter(state):
-    portal(state,1380,approach)
+    portal(state,1380,'natlan-quarry-road')
+    portal(state,64,approach)
     portal(state,1195,shelf)
     portal(state,258,arena)
 
@@ -105,6 +106,12 @@ assert all(math.isclose(delta,88*offset) for delta,offset in zip(
     (purge.origin-x for x in locked),(.72,1.72,2.74)))
 spot(hero,locked[0])
 hp=hero.hp
+until(state,slot,'FOV03',109)
+assert purge.flow==0
+until(state,slot,'FOV03',110)
+assert purge.flow==1
+assert [d.text for d in core.frame(state,'sprite').draws.values()
+        if d.kind=='text' and d.y==501]==['1','2','3']
 until(state,slot,'FOV03',173)
 assert hero.hp==hp-24 and purge.seen[1][1] and not purge.seen[2][1]
 spot(hero,locked[1])
@@ -125,6 +132,8 @@ purge=until(state,slot,'FOV03',300)
 assert purge.flow==4
 spot(hero,boss.x-92)
 assert strike(state,boss,'cryo',reaction=True)==normal and purge.flow==4 and purge.chilled==0
+assert strike(state,boss,'cryo',startedAt=purge.openedAt-1/60)==normal
+assert purge.flow==4 and purge.chilled==0
 hp=boss.hp
 assert core.attack(state,hero,'SK25')
 assert purge.flow==3 and purge.chilled==72
@@ -149,6 +158,9 @@ fresh=restored.fieldSlots[boss_id]
 assert fresh.enemy.hp==boss.hp and fresh.enemy.form=='hover' and fresh.cast is None
 until(state,slot,'FOV03',372)
 assert boss.form=='recover'
+recovery=core.frame(state,'sprite').fieldBoss
+assert recovery.recoveryTicks==144 and recovery.flow is None
+assert (purge.flow,purge.flowClock,purge.chilled)==(0,0,0)
 hp=boss.hp
 portal(state,65,shelf)
 assert slot.cast is None and boss.form=='hover'
@@ -170,6 +182,17 @@ xp,mora=restored.progression.questXp,restored.mora
 for _ in range(2):
     core.action(restored,'story_report:'+quest)
 assert restored.progression.questXp-xp==8200 and restored.mora-mora==540
+
+state,slot,boss,hero=make(cryo=True)
+purge=until(state,slot,'FOV03',159)
+assert (purge.flow,purge.flowClock)==(1,49)
+strike(state,boss,'cryo')
+until(state,slot,'FOV03',160)
+assert (purge.damage[1],purge.chilled)==(18,71)
+until(state,slot,'FOV03',230)
+assert (purge.flow,purge.flowClock,purge.chilled)==(0,49,1)
+until(state,slot,'FOV03',231)
+assert (purge.flow,purge.flowClock,purge.chilled)==(1,0,0)
 
 
 def solo():
@@ -195,7 +218,9 @@ def solo():
 
 result=dict(threeBladeWindowsOneHitEach=True,waveFixedAndTravels=True,threeFixedPurgeColumns=True,
             thirdPurgeDamage=dict(uncool=uncool,cooled=cooled),multiHitCountsOneCryoCast=True,
-            cryoReactionExcluded=True,exitAndSaveClearFlowWithoutResettingHp=True,oneRewardAndSave=True,
+            cryoReactionExcluded=True,castStartedBeforePurgeExcluded=True,
+            firstFlowTick=110,coolingTicks=72,recoveryTicks=144,
+            exitAndSaveClearFlowWithoutResettingHp=True,oneRewardAndSave=True,
             normalAttackWithoutCooling=solo(),sameSceneCommands=dict(png=png.commands,standard=standard.commands,light=light.commands))
 (ROOT/'evidence/overseer-field-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)

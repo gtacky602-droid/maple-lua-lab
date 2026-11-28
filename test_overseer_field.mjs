@@ -5,8 +5,8 @@ import {chromium} from 'playwright';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'),id='boss-24090501',quest='overseer-commission';
-const hub='natlan-hub',approach='natlan-field',shelf='atocpan-lava-field',arena='atocpan-overseer-ruin';
-const prefix='evidence/overseer-field',source='overseer-field-poses-source-v1.png';
+const hub='natlan-hub',quarry='natlan-quarry-road',approach='natlan-field',shelf='atocpan-lava-field',arena='atocpan-overseer-ruin';
+const prefix=process.env.OVERSEER_TEST_PREFIX??'evidence/overseer-field',source='overseer-field-poses-source-v1.png';
 const errors=[],frame=()=>page.evaluate(()=>window.lab.frame);
 page.on('pageerror',error=>errors.push(error.message));
 page.setDefaultTimeout(55000);
@@ -63,7 +63,8 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
- await gate(1380,approach);
+ await gate(1380,quarry);
+ await gate(64,approach);
  await gate(1195,shelf);
  await gate(258,arena);
  assert.match((await frame()).location,/統御の遺構/);
@@ -105,14 +106,15 @@ try{
     b?.move==='FOV03'&&(inWindow(137,158)||inWindow(223,244));
    const dx=(b?.x??915)-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    const inReach=Math.abs(dx)<120&&!turn;
-   if(!usedCryo&&inReach&&a.ground&&b?.move==='FOV03'&&inWindow(300,320)){
+   const preparingCryo=b?.move==='FOV03'&&inWindow(270,326)&&!usedCryo;
+   if(preparingCryo&&inReach&&a.ground&&!a.lock&&!f.macro&&inWindow(300,326)){
     window.lab.action('slot1');
     usedCryo=true;
    }
    hold('Space',jump);
    hold('KeyA',dx<-89||(turn&&dx<0));
    hold('KeyD',dx>89||(turn&&dx>0));
-   hold('KeyJ',inReach);
+   hold('KeyJ',inReach&&!preparingCryo);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -132,6 +134,7 @@ try{
  assert.match(await page.locator('#fieldBossLabel').textContent(),/冷却中/);
  await canvas.screenshot({path:prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(()=>window.lab.frame.commands>1000);
  const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');
@@ -151,7 +154,8 @@ try{
  assert.equal(defeated.story.quests[quest].count,1);
  await gate(65,shelf);
  await gate(65,approach);
- await gate(60,hub);
+ await gate(552,quarry);
+ await gate(1610,hub);
  const beforeReport=await frame();
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q].status==='complete',quest);

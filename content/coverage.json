@@ -3,6 +3,7 @@
   "updated": "2026-11-29",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_overseer_field": {"level":200,"boss":"boss-24090501","fieldWins":1,"fixedPurgePoints":3,"purgeDamage":0,"cryoCoolingTicks":72,"recoveryTicks":144,"revisitAndReloadKeepHp":true,"reportedQuests":137,"comparisonScenes":3,"browser":"evidence/earned-overseer-field-browser.json","coop":"evidence/coop-atocpan-lua-http.json"},
   "earned_lava_dragon_field": {"level":200,"boss":"boss-26270301","fieldWins":1,"separateFireCasts":4,"overburnCancelsSecondEruption":true,"eruptionDamage":0,"cooledWithWater":true,"reportedQuests":136,"comparisonScenes":3,"browser":"evidence/earned-lava-dragon-field-browser.json","coop":"evidence/coop-atocpan-lua-http.json"},
   "earned_papilla_field": {"level":200,"boss":"boss-22120101","fieldWins":1,"sharedHpAcrossForms":true,"revisitAndReloadKeepHp":true,"fixedFungusLanding":true,"fungusDamage":0,"reportedQuests":135,"comparisonScenes":3,"browser":"evidence/earned-papilla-field-browser.json","coop":"evidence/coop-config-papilla-lua-http.json"},
   "earned_config_device_field": {"level":200,"boss":"boss-24090201","fieldWins":1,"fixedCannonAim":true,"dodgeAndInterruptDamage":0,"distinctCollectorHits":3,"downTicks":180,"reportedQuests":134,"comparisonScenes":3,"browser":"evidence/earned-config-device-field-browser.json","coop":"evidence/coop-config-papilla-lua-http.json"},

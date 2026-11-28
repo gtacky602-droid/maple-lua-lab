@@ -1,5 +1,5 @@
 return function(C)
- local overseer={}
+ local overseer={packRectArt=true}
  local U=88
  local cyan,white,blue,ink='#73dfff','#ebfcff','#448ac7','#182d3b'
  local function clamp(n,lo,hi) return math.max(lo,math.min(hi,n)) end
@@ -23,7 +23,9 @@ return function(C)
  function overseer.frame(f,b,s,c)
   if not c then return end
   f.waveX=c.waveX
-  if c.centers and c.tick<c.move.recover then
+  if c.tick>=c.move.recover then
+   f.recoveryTicks=c.move.total-c.tick
+  elseif c.centers then
    f.purgePoints=c.centers
    f.flow={level=c.flow,max=c.flowMax,chilledTicks=c.chilled}
   end
@@ -55,17 +57,21 @@ return function(C)
   return c.lane[1],c.lane[2]
  end
 
- function overseer.onHit(cast,_,s,slot)
+ function overseer.onHit(cast,b,s,slot,_element,_damage,party)
   local c=slot.cast
   if cast.element~='cryo' or cast.reaction or not c or c.move.kind~='purge' or
-     c.tick<c.move.lock or c.tick>=c.move.recover or c.cooledCasts[cast] then return end
+     not c.openedAt or c.cooledCasts[cast] or
+     not C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt) then return end
   c.cooledCasts[cast]=true
   c.flow=math.max(0,c.flow-1)
   c.chilled=s.flow.coolTicks
  end
  local function flow(s,c)
-  if c.tick<c.move.lock or c.tick>=c.move.recover then return end
-  if c.chilled>0 then c.chilled=c.chilled-1;return end
+  if c.tick<=c.move.lock or c.tick>=c.move.recover then return end
+  if c.chilled>0 then
+   c.chilled=c.chilled-1
+   if c.chilled>0 then return end
+  end
   c.flowClock=c.flowClock+1
   if c.flowClock>=s.flow.interval then
    c.flow=math.min(c.flowMax,c.flow+1)
@@ -77,7 +83,11 @@ return function(C)
   local m,t=c.move,c.tick+1
   c.tick=t
   if t<=m.lock and a then c.dir=a.x<c.origin and -1 or 1;b.facing=c.dir end
-  if t==m.lock then lock(s,c);b.facing=c.dir end
+  if t==m.lock then
+   lock(s,c)
+   b.facing=c.dir
+   if m.kind=='purge' then c.openedAt=state.t end
+  end
   local pose,form='blade-ready',m.kind
   if m.kind=='purge' then
    flow(s,c)
@@ -97,7 +107,13 @@ return function(C)
                    s.floorY-(m.low or 0)*U)
    end
   end
-  if t>=m.recover then form,pose='recover','cooled' end
+  if t>=m.recover then
+   form,pose='recover','cooled'
+   if t==m.recover and m.kind=='purge' then
+    c.flow,c.flowClock,c.chilled=0,0,0
+    c.openedAt,c.cooledCasts=nil,nil
+   end
+  end
   place(b,s,form,pose)
   if t<m.total then return false end
   overseer.spawn(b,s)
@@ -106,8 +122,20 @@ return function(C)
 
  function overseer.label(b,c)
   if b.form=='recover' then return '輪が閉じる・反撃の好機' end
-  if b.form=='cooled' then return '冷却中・液流の蓄積が停止' end
-  if c and c.move.kind=='purge' and c.tick>=c.move.lock then return '掃討モード・液流 '..c.flow..'／'..c.flowMax end
+  if not c or c.tick<c.move.lock then return end
+  local m=c.move
+  if m.kind=='wave' then return '滑走水刃・低い進路から離れる' end
+  local status=m.title
+  if m.kind=='purge' then
+   status='掃討モード・液流 '..c.flow..'／'..c.flowMax
+   if c.chilled>0 then
+    status=string.format('冷却中・液流 %d／%d・蓄積停止あと%.1f秒',c.flow,c.flowMax,math.ceil(c.chilled/6)/10)
+   end
+  end
+  for i,w in ipairs(m.active) do
+   if c.tick<w[2] then return status..'・'..i..'/3の範囲から離れる' end
+  end
+  return status..'・攻撃終了'
  end
 
  local function rect(f,x,y,w,h,color)
@@ -128,15 +156,15 @@ return function(C)
     C.drawOverseerFieldArt(f,(left+right)/2,bottom,pose,mode,profile,m.kind=='wave' and b.facing<0)
    end
   end
-  if #m.active>1 then
-   f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=top-7,text=i..' / '..#m.active,size=13,color=white}
-  end
  end
  function overseer.draw(f,state,b,s,c,mode,profile)
   local x=b.x-state.camera
   if c and c.tick>=c.move.lock then
    for i,w in ipairs(c.move.active) do
-    if c.tick<w[2] then warning(f,c,b,state.camera,s.floorY,i,mode,profile);break end
+    if c.tick<w[2] then
+     warning(f,c,b,state.camera,s.floorY,i,mode,profile)
+     if c.move.kind~='purge' then break end
+    end
    end
   end
   C.drawOverseerFieldArt(f,x,b.y,c and b.pose or 'idle',mode,profile,b.facing<0)
@@ -148,6 +176,22 @@ return function(C)
     local color=i<=c.flow and cyan or blue
     if c.chilled>0 then color=i<=c.flow and white or '#3d586a' end
     rect(f,x-width/2+(i-1)*13+1,y+2,10,4,color)
+   end
+  end
+ end
+
+ function overseer.drawOverlay(f,state,s,c)
+  if not c or c.tick<c.move.lock or c.move.kind=='wave' then return end
+  local purge=c.move.kind=='purge'
+  for i,w in ipairs(c.move.active) do
+   if c.tick<w[2] then
+    local left,right=bounds(c,i)
+    local x,y=(left+right)/2-state.camera,s.floorY
+    local width=purge and 20 or 29
+    rect(f,x-width/2,y+6,width,19,ink)
+    rect(f,x-width/2,y+6,width,2,cyan)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,text=purge and tostring(i) or i..'/3',size=13,color=white}
+    if not purge then return end
    end
   end
  end
