@@ -5,6 +5,7 @@ from pathlib import Path
 import json
 from html.parser import HTMLParser
 from palette_rects import pack_grid
+from legend_light_blend import refine_legend_profiles
 
 root=Path(__file__).resolve().parents[1]
 def read(path):
@@ -34,7 +35,7 @@ class SpeciesLabels(HTMLParser):
 def sprite(file):
     return read('assets/'+file)
 def crop(file):
-    art=sprite(file)
+    art=refine_legend_profiles(file,sprite(file))
     return art['source'],tuple(art['box'])
 
 nodes={n['id']:n for n in read('content/story-graph.json')['nodes']}

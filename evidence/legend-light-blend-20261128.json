@@ -1,0 +1,590 @@
+{
+  "baseline": "94ed76968510906e03928137066fa82edbbfeb77",
+  "posesVerified": 24,
+  "posesReduced": 22,
+  "preservedOpacityMask": true,
+  "preservedSourceAndAnchors": true,
+  "preservedOriginalAndOtherProfiles": true,
+  "preservedReservedAccents": true,
+  "unchangedCombatStates": 48,
+  "poses": {
+    "chizhang-legend-terrace": {
+      "chizhang-ember": {
+        "idle": {
+          "before": 1519,
+          "after": 1204,
+          "changedPixels": 311,
+          "maxRgbDistance": 34.5
+        },
+        "brace": {
+          "before": 1619,
+          "after": 1169,
+          "changedPixels": 475,
+          "maxRgbDistance": 34.79
+        },
+        "strike": {
+          "before": 1782,
+          "after": 1358,
+          "changedPixels": 395,
+          "maxRgbDistance": 33.97
+        }
+      },
+      "chizhang-frost": {
+        "idle": {
+          "before": 1486,
+          "after": 1161,
+          "changedPixels": 319,
+          "maxRgbDistance": 33.72
+        },
+        "brace": {
+          "before": 1568,
+          "after": 1085,
+          "changedPixels": 514,
+          "maxRgbDistance": 35.19
+        },
+        "strike": {
+          "before": 1727,
+          "after": 1312,
+          "changedPixels": 394,
+          "maxRgbDistance": 29.98
+        }
+      }
+    },
+    "witztli-tristars-camp": {
+      "legend-tristars-cryo": {
+        "idle": {
+          "before": 957,
+          "after": 901,
+          "changedPixels": 62,
+          "maxRgbDistance": 30.23
+        },
+        "brace": {
+          "before": 989,
+          "after": 871,
+          "changedPixels": 108,
+          "maxRgbDistance": 24.49
+        },
+        "strike": {
+          "before": 978,
+          "after": 867,
+          "changedPixels": 94,
+          "maxRgbDistance": 28.18
+        }
+      },
+      "legend-tristars-electro": {
+        "idle": {
+          "before": 896,
+          "after": 820,
+          "changedPixels": 77,
+          "maxRgbDistance": 35.83
+        },
+        "brace": {
+          "before": 951,
+          "after": 801,
+          "changedPixels": 127,
+          "maxRgbDistance": 34.37
+        },
+        "strike": {
+          "before": 1017,
+          "after": 868,
+          "changedPixels": 125,
+          "maxRgbDistance": 34.79
+        }
+      },
+      "legend-tristars-pyro": {
+        "idle": {
+          "before": 743,
+          "after": 648,
+          "changedPixels": 90,
+          "maxRgbDistance": 35.81
+        },
+        "brace": {
+          "before": 799,
+          "after": 719,
+          "changedPixels": 73,
+          "maxRgbDistance": 30.82
+        },
+        "strike": {
+          "before": 748,
+          "after": 662,
+          "changedPixels": 80,
+          "maxRgbDistance": 33.67
+        }
+      }
+    },
+    "sne-novokichev-ore-yard": {
+      "legend-rowdy-root": {
+        "idle": {
+          "before": 731,
+          "after": 682,
+          "changedPixels": 46,
+          "maxRgbDistance": 35.75
+        },
+        "brace": {
+          "before": 781,
+          "after": 718,
+          "changedPixels": 59,
+          "maxRgbDistance": 34.47
+        },
+        "strike": {
+          "before": 943,
+          "after": 854,
+          "changedPixels": 95,
+          "maxRgbDistance": 34.93
+        }
+      },
+      "legend-rowdy-long-ear": {
+        "idle": {
+          "before": 597,
+          "after": 579,
+          "changedPixels": 58,
+          "maxRgbDistance": 33.0
+        },
+        "brace": {
+          "before": 717,
+          "after": 717,
+          "changedPixels": 0,
+          "maxRgbDistance": 0.0
+        },
+        "strike": {
+          "before": 760,
+          "after": 760,
+          "changedPixels": 0,
+          "maxRgbDistance": 0.0
+        }
+      },
+      "legend-rowdy-guard": {
+        "idle": {
+          "before": 917,
+          "after": 861,
+          "changedPixels": 65,
+          "maxRgbDistance": 34.25
+        },
+        "brace": {
+          "before": 829,
+          "after": 770,
+          "changedPixels": 58,
+          "maxRgbDistance": 32.02
+        },
+        "strike": {
+          "before": 905,
+          "after": 842,
+          "changedPixels": 58,
+          "maxRgbDistance": 35.48
+        }
+      }
+    }
+  },
+  "luaMotionChecks": {
+    "chizhang-legend-terrace": [
+      {
+        "move": "LC01",
+        "tick": 0,
+        "before": 3005,
+        "after": 2365
+      },
+      {
+        "move": "LC01",
+        "tick": 32,
+        "before": 3109,
+        "after": 2334
+      },
+      {
+        "move": "LC01",
+        "tick": 92,
+        "before": 3273,
+        "after": 2524
+      },
+      {
+        "move": "LC01",
+        "tick": 118,
+        "before": 3105,
+        "after": 2330
+      },
+      {
+        "move": "LC02",
+        "tick": 0,
+        "before": 3005,
+        "after": 2365
+      },
+      {
+        "move": "LC02",
+        "tick": 32,
+        "before": 3091,
+        "after": 2293
+      },
+      {
+        "move": "LC02",
+        "tick": 95,
+        "before": 3251,
+        "after": 2521
+      },
+      {
+        "move": "LC02",
+        "tick": 108,
+        "before": 3087,
+        "after": 2289
+      },
+      {
+        "move": "LC03",
+        "tick": 0,
+        "before": 3005,
+        "after": 2365
+      },
+      {
+        "move": "LC03",
+        "tick": 32,
+        "before": 3197,
+        "after": 2264
+      },
+      {
+        "move": "LC03",
+        "tick": 95,
+        "before": 3361,
+        "after": 2454
+      },
+      {
+        "move": "LC03",
+        "tick": 106,
+        "before": 3192,
+        "after": 2259
+      },
+      {
+        "move": "LC03",
+        "tick": 143,
+        "before": 3352,
+        "after": 2487
+      },
+      {
+        "move": "LC03",
+        "tick": 155,
+        "before": 3187,
+        "after": 2254
+      }
+    ],
+    "witztli-tristars-camp": [
+      {
+        "move": "GT01",
+        "tick": 0,
+        "before": 2602,
+        "after": 2375
+      },
+      {
+        "move": "GT01",
+        "tick": 32,
+        "before": 2641,
+        "after": 2352
+      },
+      {
+        "move": "GT01",
+        "tick": 94,
+        "before": 2632,
+        "after": 2350
+      },
+      {
+        "move": "GT01",
+        "tick": 138,
+        "before": 2634,
+        "after": 2345
+      },
+      {
+        "move": "GT02",
+        "tick": 0,
+        "before": 2602,
+        "after": 2375
+      },
+      {
+        "move": "GT02",
+        "tick": 32,
+        "before": 2673,
+        "after": 2372
+      },
+      {
+        "move": "GT02",
+        "tick": 97,
+        "before": 2741,
+        "after": 2441
+      },
+      {
+        "move": "GT02",
+        "tick": 128,
+        "before": 2665,
+        "after": 2364
+      },
+      {
+        "move": "GT02",
+        "tick": 153,
+        "before": 2733,
+        "after": 2433
+      },
+      {
+        "move": "GT02",
+        "tick": 174,
+        "before": 2657,
+        "after": 2356
+      },
+      {
+        "move": "GT03",
+        "tick": 0,
+        "before": 2602,
+        "after": 2375
+      },
+      {
+        "move": "GT03",
+        "tick": 32,
+        "before": 2674,
+        "after": 2462
+      },
+      {
+        "move": "GT03",
+        "tick": 96,
+        "before": 2625,
+        "after": 2407
+      },
+      {
+        "move": "GT03",
+        "tick": 114,
+        "before": 2666,
+        "after": 2454
+      },
+      {
+        "move": "GT03",
+        "tick": 144,
+        "before": 2617,
+        "after": 2399
+      },
+      {
+        "move": "GT03",
+        "tick": 163,
+        "before": 2658,
+        "after": 2446
+      }
+    ],
+    "sne-novokichev-ore-yard": [
+      {
+        "move": "GR01",
+        "tick": 0,
+        "before": 2251,
+        "after": 2128
+      },
+      {
+        "move": "GR01",
+        "tick": 30,
+        "before": 2308,
+        "after": 2171
+      },
+      {
+        "move": "GR01",
+        "tick": 93,
+        "before": 2472,
+        "after": 2309
+      },
+      {
+        "move": "GR01",
+        "tick": 136,
+        "before": 2301,
+        "after": 2164
+      },
+      {
+        "move": "GR02",
+        "tick": 0,
+        "before": 2251,
+        "after": 2128
+      },
+      {
+        "move": "GR02",
+        "tick": 30,
+        "before": 2387,
+        "after": 2282
+      },
+      {
+        "move": "GR02",
+        "tick": 97,
+        "before": 2432,
+        "after": 2327
+      },
+      {
+        "move": "GR02",
+        "tick": 131,
+        "before": 2379,
+        "after": 2274
+      },
+      {
+        "move": "GR02",
+        "tick": 154,
+        "before": 2424,
+        "after": 2319
+      },
+      {
+        "move": "GR02",
+        "tick": 176,
+        "before": 2371,
+        "after": 2266
+      },
+      {
+        "move": "GR03",
+        "tick": 0,
+        "before": 2251,
+        "after": 2128
+      },
+      {
+        "move": "GR03",
+        "tick": 30,
+        "before": 2187,
+        "after": 2061
+      },
+      {
+        "move": "GR03",
+        "tick": 100,
+        "before": 2265,
+        "after": 2135
+      },
+      {
+        "move": "GR03",
+        "tick": 119,
+        "before": 2179,
+        "after": 2053
+      },
+      {
+        "move": "GR03",
+        "tick": 143,
+        "before": 2257,
+        "after": 2127
+      },
+      {
+        "move": "GR03",
+        "tick": 162,
+        "before": 2171,
+        "after": 2045
+      },
+      {
+        "move": "GR03",
+        "tick": 185,
+        "before": 2249,
+        "after": 2119
+      },
+      {
+        "move": "GR03",
+        "tick": 205,
+        "before": 2163,
+        "after": 2037
+      }
+    ]
+  },
+  "openingBodyRectangles": {
+    "chizhang-legend-terrace": {
+      "old": 3005,
+      "new": 2365,
+      "savingsPercent": 21.3
+    },
+    "witztli-tristars-camp": {
+      "old": 2596,
+      "new": 2369,
+      "savingsPercent": 8.74
+    },
+    "sne-novokichev-ore-yard": {
+      "old": 2245,
+      "new": 2122,
+      "savingsPercent": 5.48
+    }
+  },
+  "browserOpeningComparisons": [
+    {
+      "node": "chizhang-legend-terrace",
+      "name": "移即・天虞",
+      "before": {
+        "count": 3005,
+        "overlap": "96.3%",
+        "error": 16.72
+      },
+      "metrics": [
+        {
+          "count": "6,191",
+          "overlap": "98.1%",
+          "error": "7.98 / 255"
+        },
+        {
+          "count": "2,365",
+          "overlap": "96.3%",
+          "error": "16.92 / 255"
+        }
+      ]
+    },
+    {
+      "node": "witztli-tristars-camp",
+      "name": "異色三連星",
+      "before": {
+        "count": 2602,
+        "overlap": "95.4%",
+        "error": 25.17
+      },
+      "metrics": [
+        {
+          "count": "5,817",
+          "overlap": "97.8%",
+          "error": "18.09 / 255"
+        },
+        {
+          "count": "2,375",
+          "overlap": "95.4%",
+          "error": "25.23 / 255"
+        }
+      ]
+    },
+    {
+      "node": "sne-novokichev-ore-yard",
+      "name": "鉱荷の集積場",
+      "before": {
+        "count": 2251,
+        "overlap": "96.8%",
+        "error": 28.2
+      },
+      "metrics": [
+        {
+          "count": "4,937",
+          "overlap": "97.5%",
+          "error": "19.38 / 255"
+        },
+        {
+          "count": "2,128",
+          "overlap": "96.8%",
+          "error": "28.23 / 255"
+        }
+      ]
+    },
+    {
+      "node": "ninianne-legend-bank",
+      "name": "湖辺のニニアン",
+      "before": null,
+      "metrics": [
+        {
+          "count": "291",
+          "overlap": "98.8%",
+          "error": "1.67 / 255"
+        },
+        {
+          "count": "248",
+          "overlap": "96.8%",
+          "error": "1.36 / 255"
+        }
+      ]
+    },
+    {
+      "node": "vivianne-legend-bank",
+      "name": "湖辺のヴィヴィアン",
+      "before": null,
+      "metrics": [
+        {
+          "count": "274",
+          "overlap": "96.1%",
+          "error": "2.55 / 255"
+        },
+        {
+          "count": "213",
+          "overlap": "94.6%",
+          "error": "3.35 / 255"
+        }
+      ]
+    }
+  ]
+}

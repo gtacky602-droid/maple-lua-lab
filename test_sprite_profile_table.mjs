@@ -37,8 +37,27 @@ try {
  const camera=page.locator('#camera');
  await camera.evaluate(el=>{el.value=Number(el.value)>0?'0':el.max;el.dispatchEvent(new Event('input'))});
  assert.ok(await page.locator('#spriteProfileTable').isHidden());
- assert.deepEqual(errors,[]);
  assert.equal(Object.keys(seen).length,56);
- await fs.writeFile('evidence/sprite-profile-comparison.json',JSON.stringify({scope:'On-screen body rectangles and opening-pose mask/color comparison to PNG; the camera is centered on the default subject group.',arenas:seen},null,2)+'\n');
+ await fs.writeFile('evidence/sprite-profile-comparison.json',JSON.stringify({scope:'On-screen sprite and attached rectangles, with opening-pose mask and color compared to PNG at the default camera.',arenas:seen},null,2)+'\n');
+ const survey=page.locator('#legendProfileSurvey');
+ await survey.locator('summary').click();
+ const links=survey.locator('li a');
+ await links.first().waitFor();
+ assert.match(await survey.locator('output').textContent(),/56会場.*10会場/);
+ const light=Object.entries(seen).map(([node,rows])=>[node,rows.find(row=>row.profile==='h32c16')]);
+ for(const [order,compare] of [
+  ['rectangles',(a,b)=>b.rectangles-a.rectangles],
+  ['overlap',(a,b)=>parseFloat(a.overlap)-parseFloat(b.overlap)],
+ ]){
+  await survey.locator('select').selectOption(order);
+  const expected=[...light].sort((a,b)=>compare(a[1],b[1])).slice(0,10).map(([id])=>id);
+  const urls=await links.evaluateAll(anchors=>anchors.map(a=>a.href));
+  assert.deepEqual(urls.map(url=>new URL(url).searchParams.get('node')),expected);
+ }
+ await links.first().click();
+ await page.waitForFunction(()=>window.mapArt?.ready&&window.mapArt.backgroundState==='ready');
+ await page.locator('#compareSpriteProfiles').click();
+ assert.equal(await page.locator('#spriteComparisonStrip canvas').count(),4);
+ assert.deepEqual(errors,[]);
  console.log('Three measured profiles at all 56 legend openings, same camera and position.');
 } finally {await browser.close();}

@@ -12126,6 +12126,15 @@
         "evidence/group-legend-openings-browser.json"
       ]
     },
+    "light_profile_refinement": {
+      "formations": 3,
+      "poses_verified": 24,
+      "poses_with_fewer_rectangles": 22,
+      "lua_combat_states_matched": 48,
+      "preserved_opacity_mask": true,
+      "comparison": "evidence/legend-light-blend-20261128.png",
+      "evidence": "evidence/legend-light-blend-20261128.json"
+    },
     "basis": [
       "design/world/encounters.json",
       "content/field-boss-spawns.json",

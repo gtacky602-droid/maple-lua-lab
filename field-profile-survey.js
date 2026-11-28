@@ -32,3 +32,44 @@ panel.addEventListener('toggle',async()=>{
  finally{delete panel.dataset.loading}
 });
 region.addEventListener('change',()=>{if(scores)render()});
+
+const legends=document.querySelector('#legendProfileSurvey');
+const legendOrder=legends.querySelector('select');
+const legendList=legends.querySelector('ol');
+const legendStatus=legends.querySelector('output');
+let legendScores;
+
+function renderLegends(){
+ const byCost=legendOrder.value==='rectangles';
+ const ordered=[...legendScores].sort((a,b)=>byCost?b.rectangles-a.rectangles:a.overlap-b.overlap);
+ legendList.replaceChildren();
+ for(const legend of ordered.slice(0,10)){
+  const params=new URLSearchParams({node:legend.node,placements:'live',background:'original',profile:'h32c16'});
+  const item=document.createElement('li'),link=document.createElement('a');
+  link.href='map-art.html?'+params+'#compareSpriteProfiles';
+  link.textContent=legend.name;
+  item.append(link,'　'+legend.rectangles.toLocaleString('ja-JP')+'矩形 ／ 形の重なり '+legend.overlap.toFixed(1)+'%');
+  legendList.append(item);
+ }
+ legendStatus.textContent=legendScores.length+'会場のうち上位'+legendList.children.length+'会場。開戦時の配置を、全員が見える画角で測定しています。';
+}
+
+legends.addEventListener('toggle',async()=>{
+ if(!legends.open || legendScores || legends.dataset.loading)return;
+ legends.dataset.loading='true';
+ try{
+  const [scoresResponse,scenesResponse]=await Promise.all([
+   fetch('evidence/sprite-profile-comparison.json'),fetch('content/group-legend-openings.json')
+  ]);
+  if(!scoresResponse.ok || !scenesResponse.ok)throw Error('legend art');
+  const [{arenas},scenes]=await Promise.all([scoresResponse.json(),scenesResponse.json()]);
+  legendScores=Object.entries(arenas).map(([node,rows])=>{
+   const light=rows.find(row=>row.profile==='h32c16');
+   return {node,name:scenes[node].parts.map(part=>part.name).join('・'),
+    rectangles:light.rectangles,overlap:parseFloat(light.overlap)};
+  });
+  renderLegends();
+ }catch{legendStatus.textContent='集計を読み込めませんでした。閉じてから開くと再試行します。'}
+ finally{delete legends.dataset.loading}
+});
+legendOrder.addEventListener('change',()=>{if(legendScores)renderLegends()});
