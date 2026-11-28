@@ -26,6 +26,14 @@ assert len(atlas['regions']) == 24
 assert {p['id'] for r in atlas['regions'] for p in r['points']} == nodes.keys()
 assert len(fields) == plan['live_bound_fields'] == 979
 assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 106
+markers = {node['id']: node['mapPoint'] for node in nodes.values() if node.get('mapPoint')}
+stage_links = read('content/coverage.json')['map_catalog']['stage_links']
+assert set(stage_links) == set(markers.values())
+for stage, marker in markers.items():
+    assert stage_links[marker]['stage_id'] == stage
+    assert stage_links[marker]['gates'] == [
+        markers[gate['to']] for gate in nodes[stage]['exits'] if gate['to'] in markers
+    ], (stage, marker)
 assert not drafts and not plan['draft_field_approaches']
 pending = {point['field'] for region in atlas['regions'] for point in region['points'] if point.get('entrancePending')}
 assert not pending and not plan['unverified_entrance_exteriors']

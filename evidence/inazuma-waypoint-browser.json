@@ -32,8 +32,33 @@
     ],
     [
       "inazuma-port",
-      "watatsumi-landing",
+      "inazuma-road",
       "walk"
+    ],
+    [
+      "inazuma-road",
+      "ina-wp-12729",
+      "walk"
+    ],
+    [
+      "ina-wp-12729",
+      "ina-wp-12735",
+      "walk"
+    ],
+    [
+      "ina-wp-12735",
+      "ina-wp-47990",
+      "lift"
+    ],
+    [
+      "ina-wp-47990",
+      "ina-wp-12735",
+      "lift"
+    ],
+    [
+      "inazuma-port",
+      "watatsumi-landing",
+      "boat"
     ],
     [
       "watatsumi-landing",
@@ -107,11 +132,11 @@
     ],
     [
       "enkan-wp-21582",
-      "enkan-wp-21583",
+      "enkan-wp-21585",
       "walk"
     ],
     [
-      "enkan-wp-21583",
+      "enkan-wp-21585",
       "enkan-wp-21584",
       "walk"
     ],
@@ -123,15 +148,24 @@
   ],
   "groups": [
     "モンド",
+    "璃月",
     "鳴神島・離島",
+    "鶴観",
     "海祇島",
     "淵下宮",
     "セイライ島"
+  ],
+  "southRoute": [
+    "enkan-wp-21582",
+    "enkan-wp-21585",
+    "enkan-wp-21584",
+    "enkan-wp-21592"
   ],
   "lockedBeforeCentralBeacon": true,
   "lastBeaconStaysLitAfterReload": true,
   "reported": [
     "ina-mapped-seirai-ferry",
+    "ina-mapped-undersea-floor",
     "ina-mapped-enkan-beacons"
   ],
   "pageErrors": []

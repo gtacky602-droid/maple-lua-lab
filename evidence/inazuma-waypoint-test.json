@@ -1,8 +1,60 @@
 {
+  "start_level": 60,
+  "source_save_sha256": "a2493375deb1b141a6a99c62f9dee428822338067ca6b7b4eadfbb196b86e929",
   "map_2_inazuma": 53,
   "map_7_enkanomiya": 24,
-  "reciprocal_routes": 106,
-  "directed_crossings": 212,
+  "reciprocal_routes": 105,
+  "directed_crossings": 210,
+  "travel_modes": {
+    "walk": 158,
+    "boat": 26,
+    "lift": 18,
+    "phase": 6,
+    "waterway": 2
+  },
+  "editor_revision": 1,
+  "removed_routes_checked": [
+    {
+      "id": "WORLD2-E-teyvat_13652--teyvat_13669",
+      "fields": [
+        "teyvat:13652",
+        "teyvat:13669"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-teyvat_13652--teyvat_16014",
+      "fields": [
+        "teyvat:13652",
+        "teyvat:16014"
+      ],
+      "mode": "boat"
+    },
+    {
+      "id": "WORLD2-E-map7_21582--map7_21583",
+      "fields": [
+        "map7:21582",
+        "map7:21583"
+      ],
+      "mode": "phase_gate"
+    }
+  ],
+  "adopted_routes_checked": [
+    [
+      "teyvat:12720",
+      "teyvat:16014"
+    ],
+    [
+      "map7:21582",
+      "map7:21585"
+    ]
+  ],
+  "southern_beacon_route_after_review": [
+    "enkan-wp-21582",
+    "enkan-wp-21585",
+    "enkan-wp-21584",
+    "enkan-wp-21592"
+  ],
   "stage_ids": [
     "enkan-wp-21573",
     "enkan-wp-21574",
@@ -110,5 +162,6 @@
     "ina-mapped-undersea-floor",
     "ina-mapped-enkan-beacons"
   ],
+  "party_wipes": 0,
   "beacon_remained_lit_after_save": true
 }
