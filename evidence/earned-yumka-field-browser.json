@@ -1,0 +1,152 @@
+{
+  "inputSha256": "809c40115b9b886d712c70243f1c06566cdafef87111915fdfdcb55cb1f657de",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "yumka-field-ravine",
+      "walk"
+    ],
+    [
+      "yumka-field-ravine",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "belly": {
+    "locked": 770.8166666666666,
+    "landed": 770.8166666666666,
+    "airborneY": 404.7111111111111,
+    "playerDamage": 0,
+    "recoveryTicks": 144
+  },
+  "fruit": {
+    "points": [
+      858.8166666666666,
+      946.8166666666666
+    ],
+    "gap": {
+      "x": 902,
+      "tick": 71
+    },
+    "firstFlightY": 370.69135802469134,
+    "secondFlightY": 373.5,
+    "impacts": [
+      129,
+      184
+    ],
+    "playerDamage": 0
+  },
+  "captures": {
+    "belly": {
+      "label": "腹落ち・着地点から離れる",
+      "tick": 106,
+      "marks": [
+        [
+          "着地",
+          770.8166666666666,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4015,
+          "packedDraws": 13,
+          "legacyGzip": 102995,
+          "packedGzip": 69704,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1775,
+          "packedDraws": 13,
+          "legacyGzip": 54416,
+          "packedGzip": 42624,
+          "identicalPixels": true
+        }
+      }
+    },
+    "fruit": {
+      "label": "炎の実 1/2・床の番号から離れる",
+      "tick": 107,
+      "marks": [
+        [
+          "1",
+          858.8166666666666,
+          501
+        ],
+        [
+          "2",
+          946.8166666666666,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4820,
+          "packedDraws": 17,
+          "legacyGzip": 109953,
+          "packedGzip": 76066,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2096,
+          "packedDraws": 17,
+          "legacyGzip": 57829,
+          "packedGzip": 45216,
+          "identicalPixels": true
+        }
+      }
+    },
+    "recovery": {
+      "label": "前脚をつく・反撃",
+      "tick": 204,
+      "marks": [],
+      "recoveryTicks": 108,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3726,
+          "packedDraws": 1,
+          "legacyGzip": 96812,
+          "packedGzip": 67636,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1499,
+          "packedDraws": 1,
+          "legacyGzip": 51258,
+          "packedGzip": 40668,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 6372,
+    "mora": 370
+  },
+  "fieldClears": 1,
+  "reported": 133,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
