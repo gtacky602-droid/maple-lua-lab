@@ -594,6 +594,7 @@ return function(C)
   local cutoff=c and c.key=='WG09' and c.t<spec.arena.cutTick
   if cutoff then
    local edge=c.left+spec.arena.cutStep
+   v.cutCue={remaining=spec.arena.cutTick-c.t,needsMove=active(s).x<=edge}
    local nextLedge=ledge(spec,edge)
    rect(c.left,spec.floorY-6,edge-c.left,6,ember)
    for x=c.left+3,edge-10,13 do rect(x,spec.floorY-16,7,5,ember,.7) end

@@ -194,7 +194,12 @@ step(s,60+spec.restTicks+1)
 assert w.cast.key=='WG09'
 step(s,215)
 assert s.platforms[1].x==40 and frame(s)['left']==40
+place(a,128)
+assert frame(s)['cutCue']=={'remaining':1,'needsMove':True}
+place(a,129)
+assert frame(s)['cutCue']=={'remaining':1,'needsMove':False}
 step(s,1)
+assert 'cutCue' not in frame(s)
 assert s.platforms[1].x==128 and frame(s)['left']==128
 assert s.platforms[2].x==198 and s.platforms[1].w==792
 place(a,215)

@@ -1,0 +1,633 @@
+{
+  "primal-barrier-broken": {
+    "image": "primal-barrier-broken.png",
+    "frames": {
+      "障壁・受付開始": {
+        "tick": 464,
+        "originalCombatCanvasMs": 0.7999999821186066,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 42107,
+            "rgbAbsoluteError": 2754026,
+            "unpackedCommands": 9445,
+            "packedCommands": 1002,
+            "unpackedBytes": 1241981,
+            "packedBytes": 306055,
+            "combatCanvasMs": 6,
+            "canvasSha256": "db4655019a6e6d081f106ac96172f989da3e360892299c041e2986e139ca2b51"
+          },
+          "h32c16": {
+            "differentPixels": 42231,
+            "rgbAbsoluteError": 3293658,
+            "unpackedCommands": 4265,
+            "packedCommands": 538,
+            "unpackedBytes": 546129,
+            "packedBytes": 139292,
+            "combatCanvasMs": 2.699999988079071,
+            "canvasSha256": "f106747063b038cb9d264d0cef7b36ad6e453325d7a0098a857c53a071470156"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁 12/12 ｜ 受付終了まで12.0秒"
+      },
+      "障壁・地を這う衝撃波": {
+        "tick": 584,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 41950,
+            "rgbAbsoluteError": 2729692,
+            "unpackedCommands": 9427,
+            "packedCommands": 984,
+            "unpackedBytes": 1241071,
+            "packedBytes": 305064,
+            "combatCanvasMs": 6.4000000059604645,
+            "canvasSha256": "f6d1ca568b3a226d499dc339b15a4b16bc4e8dfac550232e5bdc7ba9eb5da880"
+          },
+          "h32c16": {
+            "differentPixels": 42040,
+            "rgbAbsoluteError": 3270693,
+            "unpackedCommands": 4247,
+            "packedCommands": 520,
+            "unpackedBytes": 544419,
+            "packedBytes": 138658,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "329a588727e12f87560ca530c23e29946e8aee47c6065258e153862b49f7b328"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁 8/12 ｜ 受付終了まで10.0秒"
+      },
+      "障壁破壊": {
+        "tick": 861,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 47361,
+            "rgbAbsoluteError": 2984179,
+            "unpackedCommands": 9409,
+            "packedCommands": 966,
+            "unpackedBytes": 1240021,
+            "packedBytes": 303958,
+            "combatCanvasMs": 6.299999982118607,
+            "canvasSha256": "132b6cfa3e89b1d33833c6ebd92a1ca6ed66b85a5979d02a9f582a4f2b301621"
+          },
+          "h32c16": {
+            "differentPixels": 47467,
+            "rgbAbsoluteError": 3575114,
+            "unpackedCommands": 4229,
+            "packedCommands": 502,
+            "unpackedBytes": 543660,
+            "packedBytes": 136993,
+            "combatCanvasMs": 2.7000000178813934,
+            "canvasSha256": "b8751760530356cd1426f27745f42ba8950e28d542cbfb583d65e0e0b2b7b7bc"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁を破壊 ｜ 反撃開始まで1.0秒"
+      },
+      "最初の反撃・開始": {
+        "tick": 921,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 31447,
+            "rgbAbsoluteError": 2089707,
+            "unpackedCommands": 9408,
+            "packedCommands": 965,
+            "unpackedBytes": 1236123,
+            "packedBytes": 302234,
+            "combatCanvasMs": 6.0999999940395355,
+            "canvasSha256": "d32043f475703b5b4682ad812ddb6f56878d178f0f023e8d7847ee646bc66e4d"
+          },
+          "h32c16": {
+            "differentPixels": 31498,
+            "rgbAbsoluteError": 2533516,
+            "unpackedCommands": 4228,
+            "packedCommands": 501,
+            "unpackedBytes": 534400,
+            "packedBytes": 134256,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "558fa71f505b2847e2281c6eec1d2af2039c10c2f9cc5e0cb9b4dab34cdf35a9"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁を破壊 ｜ 反撃できる時間 8.0秒"
+      },
+      "最初の反撃・終了": {
+        "tick": 1401,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 31458,
+            "rgbAbsoluteError": 2099898,
+            "unpackedCommands": 9408,
+            "packedCommands": 965,
+            "unpackedBytes": 1239439,
+            "packedBytes": 303769,
+            "combatCanvasMs": 6.0999999940395355,
+            "canvasSha256": "2af6319b460fee8116f32e59fc37faee30906a3eaedc517d0ae2788faa46f4b1"
+          },
+          "h32c16": {
+            "differentPixels": 31504,
+            "rgbAbsoluteError": 2543534,
+            "unpackedCommands": 4228,
+            "packedCommands": 501,
+            "unpackedBytes": 538718,
+            "packedBytes": 136134,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "4f7b408bee96d03854024c159a0ddf5a72d2bb18dacff54cb369225244193c21"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 反撃終了"
+      },
+      "白線の予告 1回目": {
+        "tick": 2322,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45221,
+            "rgbAbsoluteError": 2928311,
+            "unpackedCommands": 9450,
+            "packedCommands": 1007,
+            "unpackedBytes": 1242985,
+            "packedBytes": 306781,
+            "combatCanvasMs": 6.9000000059604645,
+            "canvasSha256": "25a469fcc90951cacb1f12518bbb03a42785f5a1cc4b719916560b8eba70b3d9"
+          },
+          "h32c16": {
+            "differentPixels": 45304,
+            "rgbAbsoluteError": 3510032,
+            "unpackedCommands": 4270,
+            "packedCommands": 543,
+            "unpackedBytes": 546774,
+            "packedBytes": 139934,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "2b30c924eee0ed5c0b975be37f211c1571db407de7dff551bb600319a58cca55"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 白線の右側を維持 ｜ 床切断まで1.0秒"
+      },
+      "足場切断 1回目": {
+        "tick": 2382,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45223,
+            "rgbAbsoluteError": 2940847,
+            "unpackedCommands": 9438,
+            "packedCommands": 995,
+            "unpackedBytes": 1241820,
+            "packedBytes": 305753,
+            "combatCanvasMs": 6.800000011920929,
+            "canvasSha256": "28597aaa40eeaeb5b163ab67e5734dd98a3fe5781a4b4130fda4d2ffcaaecea4"
+          },
+          "h32c16": {
+            "differentPixels": 45308,
+            "rgbAbsoluteError": 3515629,
+            "unpackedCommands": 4258,
+            "packedCommands": 531,
+            "unpackedBytes": 545590,
+            "packedBytes": 138919,
+            "combatCanvasMs": 2.800000011920929,
+            "canvasSha256": "ba049c5e641da09eaac82a686aa675836147e987d642badcf6627dbc425dcf3a"
+          }
+        },
+        "primalText": "足場 9/10"
+      },
+      "左・中央・右の三柱": {
+        "tick": 3056,
+        "originalCombatCanvasMs": 0.7999999821186066,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 41272,
+            "rgbAbsoluteError": 2616659,
+            "unpackedCommands": 9463,
+            "packedCommands": 1020,
+            "unpackedBytes": 1239817,
+            "packedBytes": 305591,
+            "combatCanvasMs": 6.300000011920929,
+            "canvasSha256": "78fe90eb3826bf2ceae6e15d138729414f56f6a90cf9afbb033bfd0e7248053b"
+          },
+          "h32c16": {
+            "differentPixels": 41347,
+            "rgbAbsoluteError": 3149910,
+            "unpackedCommands": 4283,
+            "packedCommands": 556,
+            "unpackedBytes": 541113,
+            "packedBytes": 137792,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "644c6035f68bf53adb6699e4ff92ce8ca2bd544075111f12f4ca25ba439c8503"
+          }
+        },
+        "primalText": "足場 9/10 ｜ 左の柱 6/6 ｜ 中央の柱 6/6 ｜ 右の柱 6/6 ｜ 受付終了まで17.0秒"
+      },
+      "白線の予告 2回目": {
+        "tick": 4878,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45499,
+            "rgbAbsoluteError": 2944342,
+            "unpackedCommands": 9774,
+            "packedCommands": 1007,
+            "unpackedBytes": 1283238,
+            "packedBytes": 313314,
+            "combatCanvasMs": 6.799999982118607,
+            "canvasSha256": "9b376810fc7f1ae78fb9e3c73064c761f811944bd663b3e1d25c6ed9be5ac150"
+          },
+          "h32c16": {
+            "differentPixels": 45586,
+            "rgbAbsoluteError": 3562422,
+            "unpackedCommands": 4385,
+            "packedCommands": 543,
+            "unpackedBytes": 559164,
+            "packedBytes": 141664,
+            "combatCanvasMs": 3.2999999821186066,
+            "canvasSha256": "89c9a0a2dc264bb7e56bcf9cafadfab2c1c474f952fae8f2e1cbbf94df69d78f"
+          }
+        },
+        "primalText": "足場 9/10 ｜ 白線の右側を維持 ｜ 床切断まで1.0秒"
+      },
+      "足場切断 2回目": {
+        "tick": 4938,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45499,
+            "rgbAbsoluteError": 2941213,
+            "unpackedCommands": 9762,
+            "packedCommands": 995,
+            "unpackedBytes": 1278031,
+            "packedBytes": 310948,
+            "combatCanvasMs": 7,
+            "canvasSha256": "b636dd47d99479c9e5966476edddad08e5b1b9543bb1e4bac03383134cf965c0"
+          },
+          "h32c16": {
+            "differentPixels": 45597,
+            "rgbAbsoluteError": 3564768,
+            "unpackedCommands": 4373,
+            "packedCommands": 531,
+            "unpackedBytes": 552711,
+            "packedBytes": 138715,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "94f44927c77333a3147dba738c8629a390ce46d53a608e71c31ba24db9cbed66"
+          }
+        },
+        "primalText": "足場 8/10"
+      },
+      "白線の予告 3回目": {
+        "tick": 7176,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44967,
+            "rgbAbsoluteError": 2823534,
+            "unpackedCommands": 8620,
+            "packedCommands": 177,
+            "unpackedBytes": 1138600,
+            "packedBytes": 204091,
+            "combatCanvasMs": 6,
+            "canvasSha256": "151727d6fe0ddc2d0fd82e260e2931f810a8fd8b48d0ab29b986bc0222fa81e1"
+          },
+          "h32c16": {
+            "differentPixels": 45057,
+            "rgbAbsoluteError": 3385871,
+            "unpackedCommands": 3904,
+            "packedCommands": 177,
+            "unpackedBytes": 501624,
+            "packedBytes": 95451,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "4d1c8654a1c8813a1cdcfea67f6f26357c72e1c558a257cd23ed4749a80fc497"
+          }
+        },
+        "primalText": "足場 8/10 ｜ 白線の右側を維持 ｜ 床切断まで1.0秒"
+      },
+      "足場切断 3回目": {
+        "tick": 7236,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44989,
+            "rgbAbsoluteError": 2836128,
+            "unpackedCommands": 8608,
+            "packedCommands": 165,
+            "unpackedBytes": 1135776,
+            "packedBytes": 203171,
+            "combatCanvasMs": 5.5999999940395355,
+            "canvasSha256": "2b771f477b445763c689b4f78e8106d5e2a2bfb276ba3e607a85f18b3a82d6a6"
+          },
+          "h32c16": {
+            "differentPixels": 45080,
+            "rgbAbsoluteError": 3396103,
+            "unpackedCommands": 3892,
+            "packedCommands": 165,
+            "unpackedBytes": 499499,
+            "packedBytes": 94531,
+            "combatCanvasMs": 2.600000023841858,
+            "canvasSha256": "683a56a0551db3775afc6efdfda2122108b5ca86b1439c0d1c79aacf309c05a8"
+          }
+        },
+        "primalText": "足場 7/10"
+      }
+    }
+  },
+  "primal-barrier-expired": {
+    "image": "primal-barrier-expired.png",
+    "frames": {
+      "障壁・受付開始": {
+        "tick": 464,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 42104,
+            "rgbAbsoluteError": 2745205,
+            "unpackedCommands": 9445,
+            "packedCommands": 1002,
+            "unpackedBytes": 1238803,
+            "packedBytes": 304577,
+            "combatCanvasMs": 6.9000000059604645,
+            "canvasSha256": "bccf63f6d3d99cd73bb2ea561958dd58e6cecc2df9d2614da3a93a0cddbe05ca"
+          },
+          "h32c16": {
+            "differentPixels": 42230,
+            "rgbAbsoluteError": 3289874,
+            "unpackedCommands": 4265,
+            "packedCommands": 538,
+            "unpackedBytes": 539920,
+            "packedBytes": 136599,
+            "combatCanvasMs": 3,
+            "canvasSha256": "a69c2802d3fa8a21924cea28d93230173c85ce0b0fb2e64645921cc2b28a6121"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁 12/12 ｜ 受付終了まで12.0秒"
+      },
+      "障壁・地を這う衝撃波": {
+        "tick": 584,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 41909,
+            "rgbAbsoluteError": 2736434,
+            "unpackedCommands": 9428,
+            "packedCommands": 985,
+            "unpackedBytes": 1241364,
+            "packedBytes": 305160,
+            "combatCanvasMs": 6,
+            "canvasSha256": "ff9094f250601d9de4bc34188a2f2dce4766fa2568cdfbafa8b6c24062900ce3"
+          },
+          "h32c16": {
+            "differentPixels": 41986,
+            "rgbAbsoluteError": 3277116,
+            "unpackedCommands": 4248,
+            "packedCommands": 521,
+            "unpackedBytes": 545172,
+            "packedBytes": 138332,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "58c6cdec2282ef1fc100ac8737130b5f8beabcbdd42f099cf2944af648c868c8"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁 12/12 ｜ 受付終了まで10.0秒"
+      },
+      "障壁・時間切れ": {
+        "tick": 1184,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 47275,
+            "rgbAbsoluteError": 3032485,
+            "unpackedCommands": 9409,
+            "packedCommands": 966,
+            "unpackedBytes": 1235646,
+            "packedBytes": 301624,
+            "combatCanvasMs": 5.0999999940395355,
+            "canvasSha256": "b4b32e1914cdaea9cb20e32c808da62208f199fc8ba8efd2ffb5a6eaeb8ed740"
+          },
+          "h32c16": {
+            "differentPixels": 47378,
+            "rgbAbsoluteError": 3640497,
+            "unpackedCommands": 4229,
+            "packedCommands": 502,
+            "unpackedBytes": 541514,
+            "packedBytes": 135882,
+            "combatCanvasMs": 2,
+            "canvasSha256": "b4616b89783b54c41eda5632648ea480206fe1ae42add7c77746bc9bd22061e3"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁の受付終了 ｜ 大玉に注意"
+      },
+      "障壁・時間切れの大玉": {
+        "tick": 1251,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 46525,
+            "rgbAbsoluteError": 2982515,
+            "unpackedCommands": 9410,
+            "packedCommands": 967,
+            "unpackedBytes": 1239857,
+            "packedBytes": 303895,
+            "combatCanvasMs": 6.5,
+            "canvasSha256": "490ae350d4301f22dcded9256982a9936b41a3f80a46b5a2b1a4282fd189f4d6"
+          },
+          "h32c16": {
+            "differentPixels": 46619,
+            "rgbAbsoluteError": 3576008,
+            "unpackedCommands": 4230,
+            "packedCommands": 503,
+            "unpackedBytes": 542432,
+            "packedBytes": 136500,
+            "combatCanvasMs": 2.699999988079071,
+            "canvasSha256": "17749d68bef2d7cad52da79c31f1daf73798ea15170aaa2dfdfacf78003124cb"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 障壁の受付終了"
+      },
+      "白線の予告 1回目": {
+        "tick": 2285,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45225,
+            "rgbAbsoluteError": 2940818,
+            "unpackedCommands": 9450,
+            "packedCommands": 1007,
+            "unpackedBytes": 1242508,
+            "packedBytes": 306546,
+            "combatCanvasMs": 4.5,
+            "canvasSha256": "95c3c34d28149a2ab93103098c10ee0a2c11bf399cbf1dc7f49f79a6038bc3b6"
+          },
+          "h32c16": {
+            "differentPixels": 45308,
+            "rgbAbsoluteError": 3515290,
+            "unpackedCommands": 4270,
+            "packedCommands": 543,
+            "unpackedBytes": 545214,
+            "packedBytes": 139282,
+            "combatCanvasMs": 2,
+            "canvasSha256": "d7db6fd1d0837c7e3b9979f286f26203102bf7e04e65c0ced6798a01562773a2"
+          }
+        },
+        "primalText": "足場 10/10 ｜ 白線の右側を維持 ｜ 床切断まで1.0秒"
+      },
+      "足場切断 1回目": {
+        "tick": 2345,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45221,
+            "rgbAbsoluteError": 2928311,
+            "unpackedCommands": 9438,
+            "packedCommands": 995,
+            "unpackedBytes": 1242073,
+            "packedBytes": 305869,
+            "combatCanvasMs": 5,
+            "canvasSha256": "600a751743f07098979ce2755accea87ae23c50a2ae3e1151d6d566a8775a18b"
+          },
+          "h32c16": {
+            "differentPixels": 45304,
+            "rgbAbsoluteError": 3510032,
+            "unpackedCommands": 4258,
+            "packedCommands": 531,
+            "unpackedBytes": 545862,
+            "packedBytes": 139022,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "18d91191a74533f3133f5a770b88026c4d96c0f17f79dd137db815d01d5ba4b9"
+          }
+        },
+        "primalText": "足場 9/10"
+      },
+      "左・中央・右の三柱": {
+        "tick": 3019,
+        "originalCombatCanvasMs": 0.7000000178813934,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 41272,
+            "rgbAbsoluteError": 2624458,
+            "unpackedCommands": 9463,
+            "packedCommands": 1020,
+            "unpackedBytes": 1243223,
+            "packedBytes": 307156,
+            "combatCanvasMs": 4.800000011920929,
+            "canvasSha256": "98b6e34dfd637e4d264335b74a5493b57ac6fdc0a83c743cf99e1a694da882b6"
+          },
+          "h32c16": {
+            "differentPixels": 41348,
+            "rgbAbsoluteError": 3149179,
+            "unpackedCommands": 4283,
+            "packedCommands": 556,
+            "unpackedBytes": 547041,
+            "packedBytes": 140370,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "6ff35b89b7eadf7b4665d88b2c6129cb3b2da64c6cdc4b0a18dd0c5870d66a29"
+          }
+        },
+        "primalText": "足場 9/10 ｜ 左の柱 6/6 ｜ 中央の柱 6/6 ｜ 右の柱 6/6 ｜ 受付終了まで17.0秒"
+      },
+      "白線の予告 2回目": {
+        "tick": 4841,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45488,
+            "rgbAbsoluteError": 2941450,
+            "unpackedCommands": 9774,
+            "packedCommands": 1007,
+            "unpackedBytes": 1283621,
+            "packedBytes": 313548,
+            "combatCanvasMs": 5,
+            "canvasSha256": "a812d037607ed00d947b48c53ca0220a81b67ee12f57c0c25fccdc39fb57ceea"
+          },
+          "h32c16": {
+            "differentPixels": 45580,
+            "rgbAbsoluteError": 3559496,
+            "unpackedCommands": 4385,
+            "packedCommands": 543,
+            "unpackedBytes": 560958,
+            "packedBytes": 142315,
+            "combatCanvasMs": 2,
+            "canvasSha256": "63a82e1d9a21f9bed837c1d471dbb08098dea1d71600de5fbdd71afb2a1bf3a1"
+          }
+        },
+        "primalText": "足場 9/10 ｜ 白線の右側を維持 ｜ 床切断まで1.0秒"
+      },
+      "足場切断 2回目": {
+        "tick": 4901,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 45513,
+            "rgbAbsoluteError": 2949911,
+            "unpackedCommands": 9762,
+            "packedCommands": 995,
+            "unpackedBytes": 1282317,
+            "packedBytes": 312393,
+            "combatCanvasMs": 5.4000000059604645,
+            "canvasSha256": "39bc8ebcaa4648320f6a0a0aed687f1f865d2f90d9d830ae20280e08b6a98d0e"
+          },
+          "h32c16": {
+            "differentPixels": 45603,
+            "rgbAbsoluteError": 3569106,
+            "unpackedCommands": 4373,
+            "packedCommands": 531,
+            "unpackedBytes": 558243,
+            "packedBytes": 140743,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "5394185599f36d2cfed3a20c04172de5adc619aebfb5254de199c14c3d7f9a3c"
+          }
+        },
+        "primalText": "足場 8/10"
+      },
+      "白線の予告 3回目": {
+        "tick": 7139,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44966,
+            "rgbAbsoluteError": 2822537,
+            "unpackedCommands": 8620,
+            "packedCommands": 177,
+            "unpackedBytes": 1139323,
+            "packedBytes": 204105,
+            "combatCanvasMs": 4.899999976158142,
+            "canvasSha256": "3f0ae2c6ac39b9428a408f7e67e0c1a7a44797b9f6f8efdf8b92f8e9da58db13"
+          },
+          "h32c16": {
+            "differentPixels": 45057,
+            "rgbAbsoluteError": 3384676,
+            "unpackedCommands": 3904,
+            "packedCommands": 177,
+            "unpackedBytes": 501666,
+            "packedBytes": 95465,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "b66a59ee70f10491e1e29b2b29f66d334f80714ca7fdab566a81b1161a9e2b20"
+          }
+        },
+        "primalText": "足場 8/10 ｜ 白線の右側を維持 ｜ 床切断まで1.0秒"
+      },
+      "足場切断 3回目": {
+        "tick": 7199,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44990,
+            "rgbAbsoluteError": 2837360,
+            "unpackedCommands": 8608,
+            "packedCommands": 165,
+            "unpackedBytes": 1137694,
+            "packedBytes": 203185,
+            "combatCanvasMs": 5,
+            "canvasSha256": "839a8dd55373dd41b71690f88210cd93558ad9e4d35a536085c09ff21965ae4c"
+          },
+          "h32c16": {
+            "differentPixels": 45080,
+            "rgbAbsoluteError": 3401163,
+            "unpackedCommands": 3892,
+            "packedCommands": 165,
+            "unpackedBytes": 500718,
+            "packedBytes": 94545,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "c77773b10ac2415107ee7a076864a15aa85005d783833c1eae2d2866b0c640c1"
+          }
+        },
+        "primalText": "足場 7/10"
+      }
+    }
+  }
+}

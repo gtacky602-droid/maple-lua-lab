@@ -1,0 +1,90 @@
+{
+  "scenery": {
+    "key": "sunderedForge",
+    "file": "sundered-forge-background-v1.png",
+    "state": "ready"
+  },
+  "trials": [
+    "WG05",
+    "WG14",
+    "WG16"
+  ],
+  "cuts": [
+    {
+      "left": 40,
+      "width": 880,
+      "collisionLeft": 40
+    },
+    {
+      "left": 128,
+      "width": 792,
+      "collisionLeft": 128
+    },
+    {
+      "left": 216,
+      "width": 704,
+      "collisionLeft": 216
+    },
+    {
+      "left": 304,
+      "width": 616,
+      "collisionLeft": 304
+    }
+  ],
+  "cues": {
+    "cut": {
+      "text": "足場 10/10 ｜ 白線の右側を維持 ｜ 床切断まで3.6秒",
+      "x": 455
+    },
+    "pillars": "足場 9/10 ｜ 左の柱 6/6 ｜ 中央の柱 6/6 ｜ 右の柱 6/6 ｜ 受付終了まで17.0秒",
+    "brokenPillars": [
+      29091122,
+      29091123,
+      29091124
+    ]
+  },
+  "gatePrompt": "足場 10/10 ｜ 障壁 12/12 ｜ 受付終了まで11.6秒",
+  "physicalBarrierConfirmed": true,
+  "trialStatus": "足場 10/10 ｜ 障壁を破壊 ｜ 反撃できる時間 7.6秒",
+  "firstExposedTicks": 480,
+  "commands": {
+    "png": 172,
+    "standard": 15272,
+    "light": 4264
+  },
+  "viewport390": true,
+  "clearReportRestore": true,
+  "remainingHp": 84884,
+  "sourceSha256": "86bc4c7247682e8b7318ed39f53a9e3e166479fd4b9224aca920900c97addd63",
+  "guide": [
+    {
+      "name": "源焔の再現戦",
+      "label": "徒歩",
+      "region": "region-06",
+      "id": "primal-fire-sundered-forge",
+      "previewX": 351,
+      "from": "natlan-hub",
+      "level": 104,
+      "mode": "walk",
+      "approach": "現在地から右へ"
+    }
+  ],
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "payout": {
+    "xp": 420000,
+    "mora": 12800
+  },
+  "transfer": {
+    "rawGzip": 70015,
+    "packedGzip": 53769,
+    "pixelMatch": true
+  },
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": []
+}

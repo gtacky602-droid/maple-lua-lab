@@ -1,0 +1,9 @@
+{
+  "sourceSha256": "3f1b762113478040ef3e8f3bdd4d3fee692f950d9be8c5fe85b16e222c58fe1f",
+  "expertWins": 3,
+  "knaveExpertWins": 3,
+  "reported": 117,
+  "attack": 74956,
+  "remaining": 58.13333333333333,
+  "errors": []
+}
