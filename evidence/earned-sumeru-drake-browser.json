@@ -1,0 +1,46 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "coreInterrupted": true,
+    "seconds": 21.53,
+    "moves": [
+      "FAD01",
+      "FAD02",
+      "FAD03"
+    ],
+    "dodgeWindows": 6,
+    "finished": true,
+    "hp": 356,
+    "returns": 0
+  },
+  "levelAtEntry": 68,
+  "route": [
+    "sumeru-field",
+    "aeonblight-field-chamber"
+  ],
+  "coreCommands": {
+    "png": 31,
+    "standard": 14867,
+    "light": 3920,
+    "remaining": 113
+  },
+  "commissionRestored": true,
+  "fieldKill": {
+    "xp": 46150,
+    "mora": 235
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 14,
+    "standard": 11266,
+    "light": 2937
+  },
+  "coreGeometryMatched": true,
+  "airbornePoseTracksBody": true,
+  "viewport390": true,
+  "errors": []
+}

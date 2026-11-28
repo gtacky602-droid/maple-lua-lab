@@ -1,0 +1,91 @@
+{
+  "sourceSha256": "4ffbc09d78e80768f1b2d80734231288f30c62f354980e79e92b582cab741a7a",
+  "forest": {
+    "startLevel": 62,
+    "endLevel": 65,
+    "wrongSettingRejected": true,
+    "routes": [
+      "sumeru-root-slope",
+      "sumeru-branch-run"
+    ],
+    "liftSeconds": 1.55,
+    "report": {
+      "quest": "sumeru-forest-levels",
+      "xp": 526257,
+      "mora": 2200
+    }
+  },
+  "observatory": {
+    "startLevel": 65,
+    "endLevel": 68,
+    "reportedQuest": {
+      "quest": "sumeru-observatory-map",
+      "xp": 1033165,
+      "mora": 3800
+    },
+    "canopyBossClears": 1,
+    "readback": true
+  },
+  "locks": [
+    {
+      "level": 62,
+      "requires": 66,
+      "target": "aeonblight-field-chamber"
+    },
+    {
+      "level": 65,
+      "requires": 66,
+      "target": "aeonblight-field-chamber"
+    }
+  ],
+  "combat": {
+    "levelAtEntry": 68,
+    "levelAfterKill": 69,
+    "moves": {
+      "FAD01": {
+        "hpAtLock": 384,
+        "lock": 48,
+        "landing": null,
+        "hpAfterAttack": 384
+      },
+      "FAD02": {
+        "hpAtLock": 384,
+        "lock": 48,
+        "landing": null,
+        "hpAfterAttack": 364
+      },
+      "FAD03": {
+        "hpAtLock": 384,
+        "lock": 60,
+        "landing": 709.5,
+        "hpAfterAttack": 384
+      }
+    },
+    "bolts": [
+      1,
+      2,
+      3
+    ],
+    "airborne": true,
+    "chestCore": {
+      "ticks": 114,
+      "worldX": 771.84
+    },
+    "stagger": {
+      "ticks": 149,
+      "interrupted": true
+    },
+    "hpBefore": 384,
+    "hpAfter": 364,
+    "seconds": 29.57,
+    "xp": 46150,
+    "mora": 235
+  },
+  "report": {
+    "quest": "aeonblight-commission",
+    "xp": 4000,
+    "mora": 300
+  },
+  "restoredCooldown": 3386,
+  "returns": 0
+}

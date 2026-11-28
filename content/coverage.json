@@ -8465,6 +8465,17 @@
         "evidence/earned-sumeru-regisvine-browser.json"
       ]
     },
+    "earned_sumeru_canopy_drake": {
+      "progression_levels": [62, 65, 68, 69],
+      "canopy_routes": ["sumeru-root-slope", "sumeru-branch-run"],
+      "canopy_lift_seconds": 1.55,
+      "observatory_story_boss": "original-canopy-fungus",
+      "drake_gate_level": 66,
+      "drake_core_exposure_ticks": 114,
+      "drake_core_down_ticks": 150,
+      "lua_evidence": "evidence/earned-sumeru-canopy-drake.json",
+      "browser_evidence": ["evidence/earned-sumeru-canopy-browser.json", "evidence/earned-sumeru-drake-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

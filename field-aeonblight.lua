@@ -101,12 +101,16 @@ return function(C)
   if b.stagger>0 then return '胸部コアで中断・ダウン' end
   if b.rise>0 then return '立て直し' end
   if b.weakpoint then return '胸部コア露出' end
-  if c and c.tick>=c.move.recover then return '足を止める・反撃' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・足を止める' end
  end
- function drake.frame(f,b)
+ local function coreWindow(b,s,c)
+  return b.weakpoint and c and math.max(0,s.core.close-c.tick) or nil
+ end
+ function drake.frame(f,b,s,c)
   f.flying=not not b.flying
   f.downTicks=b.stagger
   f.riseTicks=b.rise
+  f.coreWindowTicks=coreWindow(b,s,c)
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
@@ -151,7 +155,14 @@ return function(C)
    end
   end
   C.drawAeonblightFieldArt(f,x,b.y,pose,mode,profile,b.facing>0)
-  if b.weakpoint then coreMarker(f,b.weakpoint,camera) end
+  local remaining=coreWindow(b,s,c)
+  if remaining then
+   local point=b.weakpoint
+   coreMarker(f,point,camera)
+   local barX,barY=point.x-camera-15,point.y+point.radius+5
+   rect(f,barX-1,barY-1,32,5,'#302235')
+   rect(f,barX,barY,30*remaining/(s.core.close-c.move.lock),3,white)
+  end
   if c and c.move.fire then
    local h=y-.75*U
    for i,fired in ipairs(c.move.fire) do
