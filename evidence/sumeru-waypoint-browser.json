@@ -42,6 +42,56 @@
     ],
     [
       "sumeru-hub",
+      "sum-wp-28740",
+      "boat"
+    ],
+    [
+      "sum-wp-28740",
+      "sum-wp-28743",
+      "walk"
+    ],
+    [
+      "sum-wp-28743",
+      "sum-wp-28708",
+      "walk"
+    ],
+    [
+      "sum-wp-28708",
+      "sum-wp-32451",
+      "walk"
+    ],
+    [
+      "sum-wp-32451",
+      "sum-wp-28709",
+      "walk"
+    ],
+    [
+      "sum-wp-28709",
+      "sum-wp-32451",
+      "walk"
+    ],
+    [
+      "sum-wp-32451",
+      "sum-wp-32452",
+      "lift"
+    ],
+    [
+      "sum-wp-32452",
+      "sum-wp-28709",
+      "lift"
+    ],
+    [
+      "sum-wp-28709",
+      "sum-wp-32452",
+      "lift"
+    ],
+    [
+      "sum-wp-32452",
+      "sum-wp-32451",
+      "lift"
+    ],
+    [
+      "sumeru-hub",
       "sumeru-field",
       "walk"
     ],
@@ -89,31 +139,88 @@
       "sum-wp-41836",
       "sum-wp-41838",
       "lift"
+    ],
+    [
+      "tunigi-camp",
+      "tunigi-depth",
+      "walk"
+    ],
+    [
+      "tunigi-depth",
+      "sum-wp-46523",
+      "lift"
+    ],
+    [
+      "sum-wp-46523",
+      "tunigi-depth",
+      "lift"
+    ],
+    [
+      "tunigi-depth",
+      "sum-wp-46525",
+      "walk"
+    ],
+    [
+      "sum-wp-46525",
+      "sum-wp-46514",
+      "walk"
     ]
   ],
   "groupLabels": [
     "モンド",
+    "璃月",
+    "鳴神島・離島",
+    "鶴観",
     "スメールの森林",
     "砂漠北西部",
+    "失われた苗畑・別階層",
+    "失われた苗畑",
     "ハドラマヴェス砂漠",
-    "ハドラマヴェス砂漠・別階層"
+    "ハドラマヴェス砂漠・別階層",
+    "砂漠北西部・別階層"
   ],
   "render": {
     "marker": "teyvat:28707",
-    "png": 31,
-    "standard": 6081,
-    "light": 1574,
+    "png": 30,
+    "standard": 5941,
+    "light": 1477,
     "actor": [
-      736.5,
+      764.5,
       480
     ],
     "frozen": true
+  },
+  "shortcut": {
+    "previewX": 1242,
+    "region": "region-04",
+    "level": 72,
+    "label": "徒歩",
+    "approach": "現在地から左へ",
+    "from": "sum-wp-32451",
+    "hint": "深層の根室へ続く横穴",
+    "mode": "walk",
+    "name": "失われた苗畑・苗畑の深層の根室",
+    "id": "sum-wp-28709"
+  },
+  "firstLift": {
+    "previewX": 973,
+    "region": "region-04",
+    "level": 70,
+    "label": "昇降機",
+    "approach": "現在地から左へ",
+    "from": "sum-wp-32451",
+    "hint": "苗畑浅層の昇降機・移動に1.8秒",
+    "mode": "lift",
+    "name": "失われた苗畑・苗畑の浅層回廊",
+    "id": "sum-wp-32452"
   },
   "windInitiallyBlocked": true,
   "restoredLayerWarp": true,
   "reported": [
     "sum-mapped-north-quay",
-    "sum-mapped-desert-wind"
+    "sum-mapped-twin-shaft",
+    "sum-mapped-desert-wind",
+    "sum-mapped-tunigi-water"
   ],
   "pageErrors": []
 }
