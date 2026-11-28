@@ -8451,6 +8451,20 @@
       "lua_evidence": "evidence/earned-inazuma-sumeru.json",
       "browser_evidence": "evidence/earned-inazuma-sumeru-browser.json"
     },
+    "earned_sumeru_opening_bosses": {
+      "arrival_level": 60,
+      "clear_levels": [60, 62],
+      "encounters_cleared_and_commissions_restored": ["boss-26110101", "boss-26020301"],
+      "opening_quest": "sumeru-leaf-crossing",
+      "opening_quest_objectives": 5,
+      "numbered_impact_warnings": ["FJ03", "FER03"],
+      "lua_evidence": "evidence/earned-sumeru-opening-bosses.json",
+      "browser_evidence": [
+        "evidence/earned-sumeru-jadeplume-browser.json",
+        "evidence/earned-sumeru-leaf-crossing-browser.json",
+        "evidence/earned-sumeru-regisvine-browser.json"
+      ]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

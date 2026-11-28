@@ -118,6 +118,7 @@ return function(C)
       mark(f,left,right,y,t>=w[1])
       if m.pattern=='rain' then
        local center=(left+right)/2
+       C.drawFieldImpactNumber(f,center,y,i,white)
        if t>=w[1] then column(f,center,top,y,left,right)
        else
         local inset=math.min((right-left)/3,(w[1]-t)/6)

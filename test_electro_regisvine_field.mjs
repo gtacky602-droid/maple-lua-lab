@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureNumberedFieldWarning,verifySumeruBossGuide} from './tools/browser_waypoint_test.mjs';
 
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-sumeru-opening-bosses':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='electro-regisvine-field';
@@ -41,8 +44,9 @@ async function pause(value){
 }
 
 async function fight(){
- await page.evaluate(()=>{
-  const held=new Set(),moves=new Set(),dodges=new Set();
+ await page.evaluate(earnedRun=>{
+  const held=new Set(),moves=new Set(),dodges=new Set(),coreCounts=new Set();
+  let breakCore=false,sawDown=false;
   const warnings={FER01:[92],FER02:[94,142],FER03:[104,146,188]};
   let prior='',lastTick=-1,used=new Set();
   const start=window.lab.frame.t;
@@ -55,35 +59,47 @@ async function fight(){
    const f=window.lab.frame,b=f.fieldBoss,a=f.actors[f.active-1];
    if(!b||b.phase==='respawn'||f.returns>0||f.t-start>130){
     for(const code of [...held])hold(code,false);
-    window.electroVineFieldResult={seconds:+(f.t-start).toFixed(2),moves:[...moves],dodgeWindows:dodges.size,finished:b?.phase==='respawn',hp:a.hp,returns:f.returns};
+    window.electroVineFieldResult={seconds:+(f.t-start).toFixed(2),moves:[...moves],dodgeWindows:dodges.size,coreCounts:[...coreCounts],sawDown,finished:b?.phase==='respawn',hp:a.hp,returns:f.returns};
     return;
    }
    if(f.paused){requestAnimationFrame(control);return}
    if(prior!==b.move||b.tick<lastTick){prior=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move)moves.add(b.move);
+   coreCounts.add(b.coreHits);
+   if(b.downTicks>0)sawDown=true;
+   if(b.move==='FER03'&&b.tick>=210)breakCore=true;
    for(const at of warnings[b.move]||[]){
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);dodges.add(b.move+at);hold('ShiftLeft',true);hold('ShiftLeft',false);
     }
    }
    const dx=b.x-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
-   hold('KeyA',dx<-99||(turn&&dx<0));
-   hold('KeyD',dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   const reach=breakCore&&b.coreHits>0?62:99;
+   hold('KeyA',dx<-reach||(turn&&dx<0));
+   hold('KeyD',dx>reach||(turn&&dx>0));
+   hold('KeyJ',(!earnedRun||breakCore)&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },earned);
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(earned?output+'/electro-regisvine-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='sumeru-hub',quest);
+ let route;
+ if(earned){
+  const f=await frame();
+  assert.equal(f.progression.level,62);
+  assert.equal(f.story.quests['sumeru-leaf-crossing'].status,'complete');
+  assert.equal(f.story.quests['jadeplume-commission'].status,'complete');
+  route=await verifySumeruBossGuide(page,arena);
+ }
  await gate(1380,'sumeru-field');
  await gate(1240,arena);
  const scenery=await page.evaluate(async()=>{
@@ -100,9 +116,10 @@ try{
  await pause(true);
  const original=await frame(), before=original;
  assert.equal(original.fieldBoss.maxhp,1240);
+ assert.match(await page.locator('#fieldBossLabel').textContent(),/根元の核 あと3回/);
  assert.ok(original.draws.some(d=>d.source==='electro-regisvine-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='electro-regisvine-field-poses-source-v1.png'));
  const standard=await frame();
@@ -110,10 +127,13 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  await fight();
+ const numberedCommands=earned?await captureNumberedFieldWarning(page,{
+  move:'FER03',before:85,color:'#fff3b1',output:output+'/regisvine-numbered'
+ }):undefined;
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
   if(b?.move!=='FER03'||b.tick<108||b.tick>=114||!draws.some(d=>d.color==='#b77fff28'&&d.h>114))return false;
@@ -123,7 +143,7 @@ try{
  await page.waitForFunction(()=>window.lab.frame.paused);
  const rain=await frame();
  assert.ok(rain.draws.some(d=>d.color==='#b77fff28'&&Math.abs(d.h-114.4)<.001));
- await canvas.screenshot({path:'evidence/'+prefix+'-lightning.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-lightning.png'});
  await pause(false);
  await page.waitForFunction(()=>window.electroVineFieldResult,undefined,{timeout:140000});
  const play=await page.evaluate(()=>window.electroVineFieldResult);
@@ -131,6 +151,13 @@ try{
  assert.deepEqual(play.moves,['FER01','FER02','FER03']);
  assert.ok(play.dodgeWindows>=3);
  assert.equal(play.returns,0);
+ if(earned){
+  assert.ok(play.sawDown);
+  // Browser frames can combine inputs from the same simulation interval.
+  assert.equal(play.coreCounts[0],3);
+  assert.equal(play.coreCounts.at(-1),0);
+  assert.ok(play.coreCounts.some(n=>n===1||n===2));
+ }
  const defeated=await frame();
  assert.deepEqual([defeated.progression.killXp-before.progression.killXp,defeated.mora-before.mora],[killXp,225]);
  assert.equal(defeated.story.quests[quest].count,1);
@@ -146,6 +173,17 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(earned){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('町から再開'));
+  const f=await frame();
+  assert.equal(f.story.node,'sumeru-hub');
+  assert.equal(f.story.quests[quest].status,'complete');
+  assert.equal(f.story.quests[quest].cycles,1);
+  assert.equal(f.endgame.bosses[id].clears,1);
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('迅電樹');
@@ -155,8 +193,8 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
-  browser:'Chrome',play,fieldKill:{xp:killXp,mora:225},commissionReport:{xp:4000,mora:300},
+ await fs.writeFile(earned?'evidence/earned-sumeru-regisvine-browser.json':'evidence/'+prefix+'-browser.json',JSON.stringify({
+  browser:'Chrome',play,...(earned?{level:62,route,numberedCommands,commissionRestored:true}:{}),fieldKill:{xp:killXp,mora:225},commissionReport:{xp:4000,mora:300},
   persistedCooldown:true,
   sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},lightningColumnMatchesHeight:true,viewport390:true,errors
  },null,2)+'\n');

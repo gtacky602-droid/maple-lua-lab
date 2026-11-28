@@ -9,7 +9,8 @@ const [roots,bank,junction,rootPath,branch,stop,approach,terrace,observatory]=[
   'sumeru-branch-run','sumeru-observation-stop','sumeru-observatory-approach',
   'sumeru-observatory-terrace','sumeru-sky-observatory'];
 const [first,second,third]=['sumeru-leaf-crossing','sumeru-forest-levels','sumeru-observatory-map'];
-const prefix='evidence/sumeru-canopy';
+const earnedFirst=process.argv.includes('--earned-first');
+const prefix=earnedFirst?'work/earned-sumeru-opening-bosses/leaf-bridge':'evidence/sumeru-canopy';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -152,14 +153,19 @@ async function airflow(selection){
   await wait(choice=>window.lab.frame.storyAirflow?.selection===choice,selection);
 }
 
-try{
+async function run(){
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8872/');
   await wait(()=>window.lab?.frame);
-  const fixture=await fs.readFile('work/sumeru-canopy-fixture.json','utf8');
-  const {rewards}=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+  const fixture=await fs.readFile(earnedFirst?prefix+'-ready.json':'work/sumeru-canopy-fixture.json','utf8');
+  const {rewards}=JSON.parse(await fs.readFile('evidence/sumeru-canopy-lua.json','utf8'));
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),fixture);
   await page.click('#loadProgress');
   await nodeIs(hub);
+  if(earnedFirst){
+    const start=await frame();
+    assert.equal(start.progression.level,60);
+    assert.equal(start.story.quests['jadeplume-commission'].status,'complete');
+  }
   await quest(first,'受注','active');
   await gate(875,roots);
   const river=await background();
@@ -184,6 +190,22 @@ try{
   await gate(1529,hub);
   await report(first,rewards[0]);
   console.log('Leaf bridge persists after reload, first quest reported');
+
+  if(earnedFirst){
+    await saveReload();
+    const f=await frame();
+    assert.equal(f.progression.level,62);
+    assert.equal(f.story.quests[first].status,'complete');
+    assert.equal(f.story.quests[first].cycles,1);
+    assert.equal(f.story.quests['jadeplume-commission'].status,'complete');
+    assert.equal(f.returns,0);
+    assert.deepEqual(errors,[]);
+    await fs.writeFile('evidence/earned-sumeru-leaf-crossing-browser.json',JSON.stringify({
+      browser:'Chrome',startLevel:60,finishLevel:62,quest:first,objectives:5,
+      reward:rewards[0],restoredLeafBridge:true,restoredReport:true,returns:f.returns
+    },null,2)+'\n');
+    return;
+  }
 
   await quest(second,'受注','active');
   await gate(1026,junction);
@@ -258,6 +280,10 @@ try{
     scenes:[river,canopy],commands,rewards,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
+}
+
+try{
+  await run();
 }catch(error){
   console.error(await page.evaluate(()=>{
     const f=window.lab?.frame;

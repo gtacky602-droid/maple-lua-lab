@@ -1,0 +1,51 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 22.88,
+    "moves": [
+      "FER01",
+      "FER02",
+      "FER03"
+    ],
+    "dodgeWindows": 6,
+    "coreCounts": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "sawDown": true,
+    "finished": true,
+    "hp": 370,
+    "returns": 0
+  },
+  "level": 62,
+  "route": [
+    "sumeru-field",
+    "electro-regisvine-field-cave"
+  ],
+  "numberedCommands": {
+    "png": 60,
+    "standard": 10455,
+    "light": 2930,
+    "warningTick": 49
+  },
+  "commissionRestored": true,
+  "fieldKill": {
+    "xp": 39950,
+    "mora": 225
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 39,
+    "standard": 9959,
+    "light": 2689
+  },
+  "lightningColumnMatchesHeight": true,
+  "viewport390": true,
+  "errors": []
+}

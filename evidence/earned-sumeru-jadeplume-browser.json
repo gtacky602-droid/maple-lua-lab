@@ -1,0 +1,44 @@
+{
+  "browser": "Chrome",
+  "physical_normal_with_default_amber": {
+    "seconds": 17.083333333332366,
+    "order": [
+      "FJ01",
+      "FJ02",
+      "FJ03",
+      "FJ01",
+      "FJ02"
+    ],
+    "returns": 0,
+    "hp": 366,
+    "maxGap": 0.09999999999999432,
+    "finished": true
+  },
+  "level": 60,
+  "route": [
+    "sumeru-field",
+    "sumeru-jadeplume-grove"
+  ],
+  "numberedCommands": {
+    "png": 49,
+    "standard": 11565,
+    "light": 3304,
+    "warningTick": 49
+  },
+  "commissionRestored": true,
+  "airborne_sprite_tracks_boss_y": true,
+  "normal_route_and_sumeru_backdrop": true,
+  "save_and_game_clock_respawn": false,
+  "remainingAfterReload": 37.916666666666664,
+  "reward": {
+    "xp": 39950,
+    "mora": 180
+  },
+  "sameSceneCommands": {
+    "standard": 9585,
+    "light": 2774
+  },
+  "accessible_from_playable_catalog": true,
+  "viewport_390": true,
+  "errors": []
+}

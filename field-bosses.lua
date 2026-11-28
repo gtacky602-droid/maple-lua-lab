@@ -15,6 +15,15 @@ return function(C,configs,controllers)
    if shared[key] then body.sharedHealth[key]=value else rawset(body,key,value) end
   end
  }
+ function C.drawFieldImpactNumber(f,x,floorY,index,color)
+  local y=floorY-104
+  for offset=10,80,14 do
+   f.draws[#f.draws+1]={kind='rect',x=x-1,y=y+offset,w=2,h=7,color=color,opacity=.55}
+  end
+  f.draws[#f.draws+1]={kind='rect',x=x-11,y=y-18,w=22,h=20,color='#201c31'}
+  f.draws[#f.draws+1]={kind='rect',x=x-11,y=y+2,w=22,h=2,color=color}
+  f.draws[#f.draws+1]={kind='text',x=x,y=y-1,size=16,text=tostring(index),color=color}
+ end
  function C.bindFieldPartner(primary,partner)
   partner.sharedHealth=primary
   primary.fieldPartner=setmetatable(partner,healthProxy)
