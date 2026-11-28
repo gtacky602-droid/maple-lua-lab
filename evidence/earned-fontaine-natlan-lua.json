@@ -1,0 +1,343 @@
+{
+  "sourceSha256": "32dcd5bd331962629a7d4fb5065e4595add66fc650061689a09604f1e74979ff",
+  "levels": [
+    96,
+    99,
+    100
+  ],
+  "berylGate": {
+    "target": "sites-hunt-50034",
+    "fromNode": "fontaine-entry",
+    "level": 99,
+    "remainingXp": 6053445
+  },
+  "level100Gates": [
+    {
+      "target": "deianeira-legend-lab",
+      "fromNode": "fon-wp-55768",
+      "level": 100,
+      "remainingXp": 2361700
+    },
+    {
+      "target": "iron-viscount-legend-pool",
+      "fromNode": "iron-viscount-thermal-gallery",
+      "level": 100,
+      "remainingXp": 2361700
+    },
+    {
+      "target": "natlan-entry",
+      "fromNode": "fontaine-field",
+      "level": 100,
+      "remainingXp": 2344871
+    }
+  ],
+  "hunt": [
+    {
+      "stage": "fontaine-beryl-foothills",
+      "kills": 1308,
+      "xp": 6057348,
+      "betweenPassesKills": 10,
+      "betweenPassesXp": 46310,
+      "ticks": 192631,
+      "recoveries": 0,
+      "passes": [
+        {
+          "kills": 91,
+          "xp": 421421,
+          "ticks": 4500
+        },
+        {
+          "kills": 97,
+          "xp": 449207,
+          "ticks": 4500
+        },
+        {
+          "kills": 35,
+          "xp": 162085,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 27,
+          "xp": 125037,
+          "ticks": 4500
+        },
+        {
+          "kills": 22,
+          "xp": 101882,
+          "ticks": 3631
+        }
+      ]
+    },
+    {
+      "stage": "sites-hunt-50034",
+      "kills": 396,
+      "xp": 2349302,
+      "betweenPassesKills": 15,
+      "betweenPassesXp": 79685,
+      "ticks": 22947,
+      "recoveries": 0,
+      "passes": [
+        {
+          "kills": 114,
+          "xp": 679098,
+          "ticks": 4500
+        },
+        {
+          "kills": 68,
+          "xp": 405076,
+          "ticks": 4500
+        },
+        {
+          "kills": 60,
+          "xp": 357420,
+          "ticks": 4500
+        },
+        {
+          "kills": 60,
+          "xp": 357420,
+          "ticks": 4500
+        },
+        {
+          "kills": 60,
+          "xp": 357420,
+          "ticks": 4500
+        },
+        {
+          "kills": 19,
+          "xp": 113183,
+          "ticks": 447
+        }
+      ]
+    }
+  ],
+  "legendRoundTrips": [
+    "deianeira-legend-lab",
+    "iron-viscount-legend-pool"
+  ],
+  "natlanRoute": [
+    {
+      "name": "フォンテーヌ・水路沿い",
+      "previewX": 1380,
+      "region": "region-05",
+      "id": "fontaine-field",
+      "level": 80,
+      "mode": "walk",
+      "approach": "現在地から右へ",
+      "from": "fontaine-hub",
+      "label": "徒歩"
+    },
+    {
+      "from": "fontaine-field",
+      "previewX": 1380,
+      "region": "region-06",
+      "id": "natlan-entry",
+      "level": 100,
+      "mode": "walk",
+      "name": "ナタ・地域の入口",
+      "label": "徒歩"
+    },
+    {
+      "from": "natlan-entry",
+      "previewX": 1380,
+      "region": "region-06",
+      "id": "natlan-hub",
+      "level": 100,
+      "mode": "walk",
+      "name": "ナタ・谷の集落",
+      "label": "徒歩"
+    }
+  ],
+  "accepted": "natlan-ridge-flag",
+  "restored": true,
+  "returns": 0
+}

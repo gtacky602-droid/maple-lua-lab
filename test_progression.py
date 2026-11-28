@@ -21,6 +21,9 @@ check('exact threshold levels once',s.progression.level==2 and s.progression.xp=
 check('level does not grant equipment ATK',a.atk==atk)
 c.grantExp(s,c.expNeeded(2)+c.expNeeded(3)+3,'quest')
 check('multiple levels and remainder',s.progression.level==4 and s.progression.xp==3)
+check('gate EXP uses the full required level and current progress',
+      c.expRemainingToLevel(s,6)==c.expNeeded(4)+c.expNeeded(5)-3
+      and c.expRemainingToLevel(s,4) is None)
 c.action(s,'town');s.campaign.quest='report';s.campaign.count=8
 total=s.progression.total;c.action(s,'report');c.action(s,'report')
 check('quest reward once',s.progression.total==total+500 and s.progression.questRewarded)
@@ -61,6 +64,9 @@ for level,old_xp in [(2,60),(40,901),(199,190001),(200,45)]:
           (CURVE_ID,level,previous['progression']['total'],previous['progression']['total']))
     check(f'legacy Lv{level} preserves relative progress or overflow',
           (state['xp'],state['overflowXp'])==(expected_xp,old_xp if level==CAP else 0))
+    if level<CAP:
+        check(f'legacy Lv{level} gate EXP uses migrated progress',
+              c.expRemainingToLevel(migrated,level+1)==c.expNeeded(level)-expected_xp)
     loaded=c.restore(lua.table_from(native(c.checkpoint(migrated)),recursive=True),12)
     check(f'legacy Lv{level} migration is idempotent',native(c.checkpoint(loaded))['progression']==state)
 

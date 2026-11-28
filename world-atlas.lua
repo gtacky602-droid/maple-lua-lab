@@ -493,7 +493,10 @@ return function(C, atlas)
      end
     end
     leg.level=nodes[leg.id].level
-    if leg.reason=='必要Lv'..leg.level then leg.questReason=C.atlasQuestGateRestriction(s,leg.edge) end
+    if leg.reason=='必要Lv'..leg.level then
+     leg.questReason=C.atlasQuestGateRestriction(s,leg.edge)
+     leg.levelExpRemaining=C.expRemainingToLevel(s,leg.level)
+    end
     leg.edge=nil;leg.first=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason
@@ -521,6 +524,7 @@ return function(C, atlas)
      end
     end
     guide.requiredLevel=high
+    guide.levelExpRemaining=C.expRemainingToLevel(s,high)
     return guide
    end
   end

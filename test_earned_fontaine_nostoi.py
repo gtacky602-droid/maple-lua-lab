@@ -18,43 +18,43 @@ def write(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
-def hunt_to_96(trip):
+def hunt_until(trip, stage, parent, target_level, approach_x=None):
     state = trip.state
-    exp_per_enemy = LEVELS[94]['normal_enemy_base_exp']
+    exp_per_enemy = LEVELS[nodes[stage]['level']-1]['normal_enemy_base_exp']
     before = state.progression.total
     initial_kills = state.kills
     initial_kill_xp = state.progression.killXp
     passes, recoveries = [], 0
-    trip.travel(MOUNTAIN)
+    trip.travel(parent)
     for _ in range(90):
-        if state.progression.level == 96:
+        if state.progression.level == target_level:
             break
         if trip.actor.hp < 95:
             trip.warp(HUB)
             assert trip.actor.hp == trip.actor.maxhp
-            trip.warp(MOUNTAIN)
+            trip.warp(parent)
             recoveries += 1
-        trip.cross(HILLS)
+        trip.cross(stage)
         kills, kill_xp = state.kills, state.progression.killXp
+        if approach_x:
+            trip.approach(approach_x, 480, stage)
         trip.act('auto')
         for tick in range(1, 4501):
             trip.tick(1)
-            if state.progression.level == 96 or trip.actor.hp < 65:
+            if state.progression.level == target_level or trip.actor.hp < 65:
                 break
         trip.act('auto')
         n = state.kills-kills
         xp = state.progression.killXp-kill_xp
         assert n > 0 and xp == n * exp_per_enemy and state.returns == 0
         passes.append(dict(kills=n, xp=xp, ticks=tick))
-        trip.cross(MOUNTAIN)
-    assert state.progression.level == 96
+        trip.cross(parent)
+    assert state.progression.level == target_level
     xp = sum(row['xp'] for row in passes)
     kills = sum(row['kills'] for row in passes)
     extra_xp = state.progression.killXp-initial_kill_xp-xp
     extra_kills = state.kills-initial_kills-kills
     assert state.progression.total-before == xp+extra_xp and extra_xp >= 0
-    trip.warp(HUB)
-    write(WORK / 'level96-ready.json', trip.snapshot())
     return dict(kills=kills+extra_kills, xp=xp+extra_xp, betweenPassesKills=extra_kills,
                 betweenPassesXp=extra_xp, ticks=sum(row['ticks'] for row in passes), recoveries=recoveries, passes=passes)
 
@@ -132,7 +132,9 @@ if __name__ == '__main__':
     assert trip.state.story.quests['knave-weekly-commission'].status == 'complete'
     trip.act('story_accept:'+QUEST)
     assert not trip.state.story.quests[QUEST]
-    hunting = hunt_to_96(trip)
+    hunting = hunt_until(trip, HILLS, MOUNTAIN, 96)
+    trip.warp(HUB)
+    write(WORK / 'level96-ready.json', trip.snapshot())
     print(f"Lv96 reached with {hunting['kills']} defeats", flush=True)
     record = survey(trip)
     assert trip.state.returns == 0

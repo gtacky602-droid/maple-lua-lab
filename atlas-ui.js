@@ -14,6 +14,7 @@ function fieldLabel(place) {
  return place.huntKind === 'elite' ? '任意戦' : place.huntKind ? '狩場' : place.questField ? '依頼の進行地点' : '';
 }
 const entries = value => Array.isArray(value) ? value : [];
+const expFormat = new Intl.NumberFormat('ja-JP');
 
 export function initAtlas(action, clearKeys) {
  const open = document.getElementById('atlasOpen');
@@ -211,7 +212,8 @@ export function initAtlas(action, clearKeys) {
   const arriving = guide?.status === 'arriving';
   itineraryTitle.textContent = (arriving ? 'この地点へ移動中' : guide?.afterTransfer ? '移動完了後の道順' : '現在地からの道順') +
     (stops.length ? ` ｜ ${stops.length}区間` : '');
-  itineraryNote.textContent = guide?.requiredLevel ? `この道順はLv${guide.requiredLevel}から通れます。`
+  const nextLevelXp = guide?.levelExpRemaining == null ? '' : `（あと ${expFormat.format(guide.levelExpRemaining)} EXP）`;
+  itineraryNote.textContent = guide?.requiredLevel ? `この道順はLv${guide.requiredLevel}から通れます${nextLevelXp}。`
    : guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。'
    : arriving && guide.paused ? '地図を閉じると移動を再開します。'
    : stops[0]?.secondsRemaining != null || stops[0]?.stopWindow ? '地図を閉じると移動を再開します。'
@@ -226,7 +228,8 @@ export function initAtlas(action, clearKeys) {
    const stop=stops[blockedAt],lastReachable=stops[blockedAt-1];
    const from=lastReachable?.name??(guide.afterTransfer?'移動先':view.location);
    const description=document.createElement('p');
-   const requirements=[stop.reason,stop.questReason].filter(Boolean).join('・');
+   const exp = guide.requiredLevel===stop.level || stop.levelExpRemaining==null ? '' : `あと ${expFormat.format(stop.levelExpRemaining)} EXP`;
+   const requirements=[stop.reason,exp,stop.questReason].filter(Boolean).join('・');
    description.textContent=`最初に通れない入口　${from} → ${stop.name}（${requirements}）`;
    barrier.append(description);
    if(lastReachable){
