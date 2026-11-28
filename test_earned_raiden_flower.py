@@ -1,16 +1,19 @@
 """Compare charged and uncharged flower outcomes from an earned expert rematch."""
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, route):
+def replay(source, output, route, *, weapon='SW06', next_save=None):
     engine = runtime()
     spec = next(b for b in read('content/weekly-boss-spawns.json')['weeklyBosses'] if b['controller'] == 'raiden')
-    trip, slot, start, loadout, mode, record_key, prior = expert_rematch(source.resolve(), engine, spec)
+    trip, slot, start, loadout, mode, record_key, prior = expert_rematch(
+        source.resolve(), engine, spec, weapon=weapon, trial_flower=next_save is not None)
     state, hero = trip.state, trip.actor
     before = state.progression.total, state.mora
     frames, stages, charges, first_slash = {}, [], [], {}
@@ -99,23 +102,51 @@ def replay(source, output, route):
     upcoming = frames['大太刀の直前']['view']['flower']
     resolved = frames['大太刀の判定']['view']['flower']
     assert upcoming['inside'] == first_slash['inside'] and not upcoming.get('slashResult')
+    assert upcoming['slashIn'] == 1
+    if route == 'outside':
+        direction = 'left' if first_slash['heroX'] > first_slash['flowerX'] else 'right'
+        assert upcoming['approach'] == direction
     assert resolved['slashResult'] == ('protected' if route == 'protected' else 'hit')
+    assert 'slashIn' not in resolved
+    reward = trip.frame().weeklyBoss.reward
+    payout = dict(xp=reward.xp, mora=reward.mora, first=reward.first)
+    party_hp = [actor.hp for actor in state.actors.values()]
     verify_repeat(trip, before, start, mode, record_key, prior)
     key = 'raiden-' + route
     title = {'protected': '雷電・充填済みの保護域内', 'outside': '雷電・充填済みの保護域外',
              'empty': '雷電・未充填'}[route]
     (output / f'{key}-frames.json').write_text(json.dumps(frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf-8')
     print(key, tick, first_slash, 'stages', [row['stage'] for row in stages], flush=True)
-    return dict(controller='raiden', case=key, label=title, ticks=tick, sourceSha256=trip.source,
-                stages=stages, loadout=loadout, charges=charges, slash=first_slash,
-                downFrames=defense_frames, expertClears=[prior, prior + 1])
+    proof = dict(controller='raiden', case=key, label=title, ticks=tick, sourceSha256=trip.source,
+                 stages=stages, loadout=loadout, charges=charges, slash=first_slash,
+                 downFrames=defense_frames, reward=payout, expertClears=[prior, prior + 1],
+                 partyHp=party_hp, returns=0)
+    if next_save:
+        saved = restore_rematch_equipment(trip, start, loadout, 'inazuma-town')
+        assert saved['azhdahaPair'] == start['azhdahaPair']
+        assert saved['endgame']['bosses'] == start['endgame']['bosses']
+        assert saved['endgame']['weekly'][record_key]['clears'] == prior + 1
+        assert saved['weeklyBosses'][spec['id']]['waitTicks'] > 0
+        raw = (json.dumps(saved, ensure_ascii=False) + '\n').encode()
+        next_save.write_bytes(raw)
+        proof.update(savedSha256=sha256(raw).hexdigest(), equipmentRestored=True)
+    return proof
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
     parser.add_argument('--from-save', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--weapon', default='SW06')
+    parser.add_argument('--chain', action='store_true', help='Continue from the previous ranked win')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    results = [replay(args.from_save, args.output_dir, route) for route in ('protected', 'outside', 'empty')]
+    results = []
+    source = args.from_save
+    for index, route in enumerate(('protected', 'outside', 'empty'), 1):
+        filename = f'rematch-{index}-save.json' if index < 3 else 'complete.json'
+        next_save = args.output_dir / filename if args.chain else None
+        results.append(replay(source, args.output_dir, route, weapon=args.weapon, next_save=next_save))
+        if next_save:
+            source = next_save
     (args.output_dir / 'weekly-mechanics.json').write_text(json.dumps(results, ensure_ascii=False, indent=2) + '\n', 'utf-8')

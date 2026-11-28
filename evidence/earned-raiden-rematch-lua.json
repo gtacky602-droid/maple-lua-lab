@@ -1,0 +1,295 @@
+[
+  {
+    "controller": "raiden",
+    "case": "raiden-protected",
+    "label": "雷電・充填済みの保護域内",
+    "ticks": 8608,
+    "sourceSha256": "935397036eb252e64de492006f25c1a0710b2d80220e572781ca8afd4e611737",
+    "stages": [
+      {
+        "stage": "normal",
+        "tick": 0,
+        "bossHp": 1500
+      },
+      {
+        "stage": "switch",
+        "tick": 1111,
+        "bossHp": 1500
+      },
+      {
+        "stage": "normal",
+        "tick": 1135,
+        "bossHp": 1500
+      },
+      {
+        "stage": "awaken",
+        "tick": 2282,
+        "bossHp": 1500
+      },
+      {
+        "stage": "armored",
+        "tick": 2462,
+        "bossHp": 1500
+      },
+      {
+        "stage": "collapse",
+        "tick": 7707,
+        "bossHp": 1500
+      },
+      {
+        "stage": "repair",
+        "tick": 8283,
+        "bossHp": 1500
+      },
+      {
+        "stage": "normal",
+        "tick": 8463,
+        "bossHp": 1500
+      }
+    ],
+    "loadout": {
+      "sold": [
+        1195
+      ],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "charges": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slash": {
+      "charge": 5,
+      "inside": true,
+      "hpLoss": 0,
+      "event": "raiden:WR15:protected",
+      "moveTick": 60,
+      "elapsedTicks": 4910,
+      "heroX": 198.5,
+      "flowerX": 192
+    },
+    "downFrames": 480,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "partyHp": [
+      90341,
+      0
+    ],
+    "returns": 0,
+    "savedSha256": "0b06d3c0d9f304887cddd31d68037484a881109a6fcab545847cf7ef27d25a6b",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "raiden",
+    "case": "raiden-outside",
+    "label": "雷電・充填済みの保護域外",
+    "ticks": 8608,
+    "sourceSha256": "0b06d3c0d9f304887cddd31d68037484a881109a6fcab545847cf7ef27d25a6b",
+    "stages": [
+      {
+        "stage": "normal",
+        "tick": 0,
+        "bossHp": 1500
+      },
+      {
+        "stage": "switch",
+        "tick": 1111,
+        "bossHp": 1500
+      },
+      {
+        "stage": "normal",
+        "tick": 1135,
+        "bossHp": 1500
+      },
+      {
+        "stage": "awaken",
+        "tick": 2282,
+        "bossHp": 1500
+      },
+      {
+        "stage": "armored",
+        "tick": 2462,
+        "bossHp": 1500
+      },
+      {
+        "stage": "collapse",
+        "tick": 7707,
+        "bossHp": 1500
+      },
+      {
+        "stage": "repair",
+        "tick": 8283,
+        "bossHp": 1500
+      },
+      {
+        "stage": "normal",
+        "tick": 8463,
+        "bossHp": 1500
+      }
+    ],
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "charges": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slash": {
+      "charge": 5,
+      "inside": false,
+      "hpLoss": 62,
+      "event": "raiden:WR15:hit",
+      "moveTick": 60,
+      "elapsedTicks": 4910,
+      "heroX": 314.0,
+      "flowerX": 192
+    },
+    "downFrames": 480,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "partyHp": [
+      90217,
+      0
+    ],
+    "returns": 0,
+    "savedSha256": "f80ea8d8b2872ae47cf2bb19d97dd0749f449f2dda49ea733a8e7f14736fbb30",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "raiden",
+    "case": "raiden-empty",
+    "label": "雷電・未充填",
+    "ticks": 8608,
+    "sourceSha256": "f80ea8d8b2872ae47cf2bb19d97dd0749f449f2dda49ea733a8e7f14736fbb30",
+    "stages": [
+      {
+        "stage": "normal",
+        "tick": 0,
+        "bossHp": 1500
+      },
+      {
+        "stage": "switch",
+        "tick": 1111,
+        "bossHp": 1500
+      },
+      {
+        "stage": "normal",
+        "tick": 1135,
+        "bossHp": 1500
+      },
+      {
+        "stage": "awaken",
+        "tick": 2282,
+        "bossHp": 1500
+      },
+      {
+        "stage": "armored",
+        "tick": 2462,
+        "bossHp": 1500
+      },
+      {
+        "stage": "collapse",
+        "tick": 7707,
+        "bossHp": 1500
+      },
+      {
+        "stage": "repair",
+        "tick": 8283,
+        "bossHp": 1500
+      },
+      {
+        "stage": "normal",
+        "tick": 8463,
+        "bossHp": 1500
+      }
+    ],
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "charges": [],
+    "slash": {
+      "charge": 0,
+      "inside": true,
+      "hpLoss": 62,
+      "event": "raiden:WR15:hit",
+      "moveTick": 60,
+      "elapsedTicks": 4910,
+      "heroX": 198.5,
+      "flowerX": 192
+    },
+    "downFrames": 480,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      3,
+      4
+    ],
+    "partyHp": [
+      90217,
+      0
+    ],
+    "returns": 0,
+    "savedSha256": "586466c4034c9f4aa6681b642975c4278e57b9f2e7799a8fa2ccff04254f33da",
+    "equipmentRestored": true
+  }
+]

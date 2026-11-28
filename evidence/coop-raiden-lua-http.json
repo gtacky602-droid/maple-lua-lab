@@ -11,7 +11,8 @@
     "hitOutside": 2,
     "drainAppliedOnce": 30,
     "downTicks": 480,
-    "wipeResets": true
+    "wipeResets": true,
+    "slashCountdownAndDirectionPerParty": true
   },
   "http": {
     "participants": 2,

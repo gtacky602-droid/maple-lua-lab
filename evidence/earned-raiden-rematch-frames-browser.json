@@ -1,0 +1,533 @@
+{
+  "raiden-protected": {
+    "image": "raiden-protected.png",
+    "frames": {
+      "追念の花蕊・75": {
+        "tick": 4205,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 17111,
+            "rgbAbsoluteError": 1415070,
+            "unpackedCommands": 7232,
+            "packedCommands": 16,
+            "unpackedBytes": 879593,
+            "packedBytes": 162575,
+            "combatCanvasMs": 3.5999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 17188,
+            "rgbAbsoluteError": 1695875,
+            "unpackedCommands": 3385,
+            "packedCommands": 16,
+            "unpackedBytes": 352433,
+            "packedBytes": 74977,
+            "combatCanvasMs": 1.5999999940395355
+          }
+        },
+        "flowerText": "通常攻撃で充填 1 / 5 ｜ 残り9秒"
+      },
+      "追念の花蕊・360": {
+        "tick": 4490,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16860,
+            "rgbAbsoluteError": 1393116,
+            "unpackedCommands": 7259,
+            "packedCommands": 43,
+            "unpackedBytes": 881214,
+            "packedBytes": 164874,
+            "combatCanvasMs": 3.100000023841858
+          },
+          "h32c16": {
+            "differentPixels": 16918,
+            "rgbAbsoluteError": 1669087,
+            "unpackedCommands": 3412,
+            "packedCommands": 43,
+            "unpackedBytes": 353954,
+            "packedBytes": 77276,
+            "combatCanvasMs": 1.4000000059604645
+          }
+        },
+        "flowerText": "保護域内 ｜ 大太刀を防げる"
+      },
+      "大太刀の直前": {
+        "tick": 4909,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16062,
+            "rgbAbsoluteError": 1294318,
+            "unpackedCommands": 7293,
+            "packedCommands": 77,
+            "unpackedBytes": 883887,
+            "packedBytes": 167047,
+            "combatCanvasMs": 3.2000000178813934
+          },
+          "h32c16": {
+            "differentPixels": 16123,
+            "rgbAbsoluteError": 1552380,
+            "unpackedCommands": 3446,
+            "packedCommands": 77,
+            "unpackedBytes": 356982,
+            "packedBytes": 79449,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "flowerText": "保護域内 ｜ 大太刀を防げる ｜ 大太刀まで0.1秒"
+      },
+      "大太刀の判定": {
+        "tick": 4910,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16062,
+            "rgbAbsoluteError": 1294318,
+            "unpackedCommands": 7293,
+            "packedCommands": 77,
+            "unpackedBytes": 883887,
+            "packedBytes": 167047,
+            "combatCanvasMs": 3.2999999821186066
+          },
+          "h32c16": {
+            "differentPixels": 16123,
+            "rgbAbsoluteError": 1552380,
+            "unpackedCommands": 3446,
+            "packedCommands": 77,
+            "unpackedBytes": 356982,
+            "packedBytes": 79449,
+            "combatCanvasMs": 1.399999976158142
+          }
+        },
+        "flowerText": "花蕊で大太刀を防いだ"
+      },
+      "装甲崩壊・攻撃可能": {
+        "tick": 7803,
+        "originalCombatCanvasMs": 0.10000002384185791,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6484,
+            "rgbAbsoluteError": 542224,
+            "unpackedCommands": 2493,
+            "packedCommands": 14,
+            "unpackedBytes": 306451,
+            "packedBytes": 55240,
+            "combatCanvasMs": 1.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 6589,
+            "rgbAbsoluteError": 647643,
+            "unpackedCommands": 1135,
+            "packedCommands": 14,
+            "unpackedBytes": 139128,
+            "packedBytes": 25396,
+            "combatCanvasMs": 0.5999999940395355
+          }
+        }
+      },
+      "装甲修復": {
+        "tick": 8403,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9097,
+            "rgbAbsoluteError": 709114,
+            "unpackedCommands": 2496,
+            "packedCommands": 17,
+            "unpackedBytes": 297566,
+            "packedBytes": 55432,
+            "combatCanvasMs": 1.5999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 9224,
+            "rgbAbsoluteError": 874974,
+            "unpackedCommands": 1138,
+            "packedCommands": 17,
+            "unpackedBytes": 124222,
+            "packedBytes": 25588,
+            "combatCanvasMs": 0.7000000178813934
+          }
+        }
+      },
+      "復帰": {
+        "tick": 8463,
+        "originalCombatCanvasMs": 0.09999999403953552,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9082,
+            "rgbAbsoluteError": 702636,
+            "unpackedCommands": 2496,
+            "packedCommands": 17,
+            "unpackedBytes": 297124,
+            "packedBytes": 55432,
+            "combatCanvasMs": 1.399999976158142
+          },
+          "h32c16": {
+            "differentPixels": 9194,
+            "rgbAbsoluteError": 876789,
+            "unpackedCommands": 1138,
+            "packedCommands": 17,
+            "unpackedBytes": 124756,
+            "packedBytes": 25588,
+            "combatCanvasMs": 0.699999988079071
+          }
+        }
+      }
+    }
+  },
+  "raiden-outside": {
+    "image": "raiden-outside.png",
+    "frames": {
+      "追念の花蕊・75": {
+        "tick": 4205,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 17110,
+            "rgbAbsoluteError": 1413095,
+            "unpackedCommands": 7232,
+            "packedCommands": 16,
+            "unpackedBytes": 877316,
+            "packedBytes": 162575,
+            "combatCanvasMs": 3.4000000059604645
+          },
+          "h32c16": {
+            "differentPixels": 17186,
+            "rgbAbsoluteError": 1690445,
+            "unpackedCommands": 3385,
+            "packedCommands": 16,
+            "unpackedBytes": 349154,
+            "packedBytes": 74977,
+            "combatCanvasMs": 1.5999999940395355
+          }
+        },
+        "flowerText": "通常攻撃で充填 1 / 5 ｜ 残り9秒"
+      },
+      "追念の花蕊・360": {
+        "tick": 4490,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16858,
+            "rgbAbsoluteError": 1391622,
+            "unpackedCommands": 7259,
+            "packedCommands": 43,
+            "unpackedBytes": 879615,
+            "packedBytes": 164874,
+            "combatCanvasMs": 3.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 16917,
+            "rgbAbsoluteError": 1662642,
+            "unpackedCommands": 3412,
+            "packedCommands": 43,
+            "unpackedBytes": 351453,
+            "packedBytes": 77276,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "flowerText": "保護域内 ｜ 大太刀を防げる"
+      },
+      "大太刀の直前": {
+        "tick": 4909,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 17026,
+            "rgbAbsoluteError": 1417030,
+            "unpackedCommands": 7287,
+            "packedCommands": 77,
+            "unpackedBytes": 881598,
+            "packedBytes": 167035,
+            "combatCanvasMs": 3.300000011920929
+          },
+          "h32c16": {
+            "differentPixels": 17070,
+            "rgbAbsoluteError": 1689954,
+            "unpackedCommands": 3449,
+            "packedCommands": 77,
+            "unpackedBytes": 357109,
+            "packedBytes": 79573,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "flowerText": "保護域外 ｜ 左の保護域へ ｜ 大太刀まで0.1秒"
+      },
+      "大太刀の判定": {
+        "tick": 4910,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 17026,
+            "rgbAbsoluteError": 1417030,
+            "unpackedCommands": 7287,
+            "packedCommands": 77,
+            "unpackedBytes": 881598,
+            "packedBytes": 167035,
+            "combatCanvasMs": 3.800000011920929
+          },
+          "h32c16": {
+            "differentPixels": 17070,
+            "rgbAbsoluteError": 1689954,
+            "unpackedCommands": 3449,
+            "packedCommands": 77,
+            "unpackedBytes": 357109,
+            "packedBytes": 79573,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "flowerText": "大太刀が命中"
+      },
+      "装甲崩壊・攻撃可能": {
+        "tick": 7803,
+        "originalCombatCanvasMs": 0.09999999403953552,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6496,
+            "rgbAbsoluteError": 555717,
+            "unpackedCommands": 2493,
+            "packedCommands": 14,
+            "unpackedBytes": 306314,
+            "packedBytes": 55240,
+            "combatCanvasMs": 1.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 6539,
+            "rgbAbsoluteError": 647316,
+            "unpackedCommands": 1135,
+            "packedCommands": 14,
+            "unpackedBytes": 138959,
+            "packedBytes": 25396,
+            "combatCanvasMs": 0.5999999940395355
+          }
+        }
+      },
+      "装甲修復": {
+        "tick": 8403,
+        "originalCombatCanvasMs": 0.10000002384185791,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9101,
+            "rgbAbsoluteError": 718126,
+            "unpackedCommands": 2496,
+            "packedCommands": 17,
+            "unpackedBytes": 297486,
+            "packedBytes": 55433,
+            "combatCanvasMs": 1.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 9163,
+            "rgbAbsoluteError": 871399,
+            "unpackedCommands": 1138,
+            "packedCommands": 17,
+            "unpackedBytes": 125299,
+            "packedBytes": 25589,
+            "combatCanvasMs": 0.5
+          }
+        }
+      },
+      "復帰": {
+        "tick": 8463,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9087,
+            "rgbAbsoluteError": 713381,
+            "unpackedCommands": 2496,
+            "packedCommands": 17,
+            "unpackedBytes": 297124,
+            "packedBytes": 55432,
+            "combatCanvasMs": 1.300000011920929
+          },
+          "h32c16": {
+            "differentPixels": 9131,
+            "rgbAbsoluteError": 875875,
+            "unpackedCommands": 1138,
+            "packedCommands": 17,
+            "unpackedBytes": 124756,
+            "packedBytes": 25588,
+            "combatCanvasMs": 0.699999988079071
+          }
+        }
+      }
+    }
+  },
+  "raiden-empty": {
+    "image": "raiden-empty.png",
+    "frames": {
+      "追念の花蕊・75": {
+        "tick": 4205,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 17110,
+            "rgbAbsoluteError": 1417310,
+            "unpackedCommands": 7231,
+            "packedCommands": 15,
+            "unpackedBytes": 877219,
+            "packedBytes": 162478,
+            "combatCanvasMs": 3.300000011920929
+          },
+          "h32c16": {
+            "differentPixels": 17186,
+            "rgbAbsoluteError": 1694877,
+            "unpackedCommands": 3384,
+            "packedCommands": 15,
+            "unpackedBytes": 349057,
+            "packedBytes": 74880,
+            "combatCanvasMs": 1.5999999940395355
+          }
+        },
+        "flowerText": "通常攻撃で充填 0 / 5 ｜ 残り9秒"
+      },
+      "追念の花蕊・360": {
+        "tick": 4490,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 17110,
+            "rgbAbsoluteError": 1417310,
+            "unpackedCommands": 7231,
+            "packedCommands": 15,
+            "unpackedBytes": 877219,
+            "packedBytes": 162478,
+            "combatCanvasMs": 3.300000011920929
+          },
+          "h32c16": {
+            "differentPixels": 17186,
+            "rgbAbsoluteError": 1694877,
+            "unpackedCommands": 3384,
+            "packedCommands": 15,
+            "unpackedBytes": 349057,
+            "packedBytes": 74880,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "flowerText": "通常攻撃で充填 0 / 5 ｜ 残り4秒"
+      },
+      "大太刀の直前": {
+        "tick": 4909,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16225,
+            "rgbAbsoluteError": 1310139,
+            "unpackedCommands": 7265,
+            "packedCommands": 49,
+            "unpackedBytes": 881247,
+            "packedBytes": 164651,
+            "combatCanvasMs": 3.2000000178813934
+          },
+          "h32c16": {
+            "differentPixels": 16288,
+            "rgbAbsoluteError": 1575830,
+            "unpackedCommands": 3418,
+            "packedCommands": 49,
+            "unpackedBytes": 354428,
+            "packedBytes": 77053,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "flowerText": "保護域なし ｜ 大太刀に備える ｜ 大太刀まで0.1秒"
+      },
+      "大太刀の判定": {
+        "tick": 4910,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16225,
+            "rgbAbsoluteError": 1310139,
+            "unpackedCommands": 7265,
+            "packedCommands": 49,
+            "unpackedBytes": 881247,
+            "packedBytes": 164651,
+            "combatCanvasMs": 3
+          },
+          "h32c16": {
+            "differentPixels": 16288,
+            "rgbAbsoluteError": 1575830,
+            "unpackedCommands": 3418,
+            "packedCommands": 49,
+            "unpackedBytes": 354428,
+            "packedBytes": 77053,
+            "combatCanvasMs": 1.4000000059604645
+          }
+        },
+        "flowerText": "大太刀が命中"
+      },
+      "装甲崩壊・攻撃可能": {
+        "tick": 7803,
+        "originalCombatCanvasMs": 0.09999999403953552,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6495,
+            "rgbAbsoluteError": 548524,
+            "unpackedCommands": 2493,
+            "packedCommands": 14,
+            "unpackedBytes": 306314,
+            "packedBytes": 55240,
+            "combatCanvasMs": 1.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 6604,
+            "rgbAbsoluteError": 652828,
+            "unpackedCommands": 1135,
+            "packedCommands": 14,
+            "unpackedBytes": 138959,
+            "packedBytes": 25396,
+            "combatCanvasMs": 0.5
+          }
+        }
+      },
+      "装甲修復": {
+        "tick": 8403,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9099,
+            "rgbAbsoluteError": 708635,
+            "unpackedCommands": 2496,
+            "packedCommands": 17,
+            "unpackedBytes": 297486,
+            "packedBytes": 55433,
+            "combatCanvasMs": 1.4000000059604645
+          },
+          "h32c16": {
+            "differentPixels": 9225,
+            "rgbAbsoluteError": 874224,
+            "unpackedCommands": 1138,
+            "packedCommands": 17,
+            "unpackedBytes": 125299,
+            "packedBytes": 25589,
+            "combatCanvasMs": 0.6000000238418579
+          }
+        }
+      },
+      "復帰": {
+        "tick": 8463,
+        "originalCombatCanvasMs": 0.09999999403953552,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9082,
+            "rgbAbsoluteError": 702636,
+            "unpackedCommands": 2496,
+            "packedCommands": 17,
+            "unpackedBytes": 297124,
+            "packedBytes": 55432,
+            "combatCanvasMs": 1.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 9194,
+            "rgbAbsoluteError": 876789,
+            "unpackedCommands": 1138,
+            "packedCommands": 17,
+            "unpackedBytes": 124756,
+            "packedBytes": 25588,
+            "combatCanvasMs": 0.5
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "questEntry": true,
+  "ordinaryAndArmored": true,
+  "fivePhysicalFlowerHits": true,
+  "protectedAtSlash": true,
+  "attackableArmorDown": true,
+  "clears": 1,
+  "reportAndRestore": true,
+  "viewport390": true,
+  "scene": {
+    "key": "euthymiaDuel",
+    "file": "euthymia-duel-background-v1.png",
+    "state": "ready"
+  },
+  "warning": {
+    "text": "保護域内 ｜ 大太刀を防げる ｜ 大太刀まで0.9秒",
+    "ticks": 54
+  },
+  "armorHits": [
+    0.25,
+    0.25
+  ],
+  "remainingHp": 90697,
+  "sameStateCommands": {
+    "png": 80,
+    "standard": 13118,
+    "light": 3814
+  },
+  "sourceSha256": "da659648c5f30ec6d382821507204128d9cf1ad1b57e50c7e0b566d9eaaef80a",
+  "guide": [
+    "raiden-thunder-echo-arena"
+  ],
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "questReward": {
+    "xp": 44000,
+    "mora": 3400
+  },
+  "expertWins": 1,
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": [],
+  "ordinaryRegression": {
+    "protectedAtSlash": true,
+    "attackableArmorDown": true,
+    "errors": []
+  }
+}
