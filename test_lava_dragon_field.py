@@ -27,8 +27,12 @@ def make(fixture=False):
     state=core.new(12)
     core.action(state,'story_start')
     core.grantExp(state,LEVELS[109]['maple_reference_total_exp_to_reach'],'quest')
+    if fixture:
+        core.enterStoryNode(state,'fontaine-hub')
     core.enterStoryNode(state,hub)
     if fixture:
+        assert core.growthSkillCondition(state,'SK17') is True
+        assert core.growthSkillCondition(state,'SK21') is True
         (ROOT/'work').mkdir(exist_ok=True)
         save=validate_save(native(core.checkpoint(state)))
         save['companion']='wanderer'
@@ -37,7 +41,8 @@ def make(fixture=False):
         (ROOT/'work/lava-dragon-field-fixture.json').write_text(json.dumps(save),encoding='utf8')
     core.action(state,'story_accept:'+quest)
     assert state.story.quests[quest].status=='active'
-    portal(state,1380,approach)
+    portal(state,1380,'natlan-quarry-road')
+    portal(state,64,approach)
     portal(state,1195,arena)
     state.actors[2].hp=0
     slot=state.fieldSlots[boss_id]
@@ -131,6 +136,10 @@ until(state,slot,'FLD04',137)
 png,standard,light=[core.frame(state,mode,profile) for mode,profile in
                    [('sprite','legacy'),('rect','legacy'),('rect','h32c16')]]
 assert png.t==standard.t==light.t and light.commands<standard.commands
+assert '熱 2/4' in png.fieldBoss.label and '噴出 1/2' in png.fieldBoss.label
+numbers=[d for d in png.draws.values() if d.kind=='text' and d.color=='#fff1be']
+assert [(d.text,d.y) for d in numbers]==[('1',501),('2',501)]
+assert all(math.isclose(d.x+png.camera,x) for d,x in zip(numbers,marks))
 assert any(d.source=='lava-dragon-field-poses-source-v1.png' for d in png.draws.values())
 assert hero.hp==hp-31 and eruption.seen[1][1] and not eruption.seen[2][1]
 spot(hero,marks[1])
@@ -148,6 +157,8 @@ strike(state,boss,'pyro')
 assert boss.form=='molten' and boss.lavaHeat==3
 strike(state,boss,'pyro')
 assert boss.form=='overburn' and boss.lavaHeat==4 and boss.overburnTicks==180
+hot=core.frame(state,'sprite','legacy').fieldBoss
+assert hot.recoveryTicks==180 and '過燃焼・熱 4/4' in hot.label
 calc_overburn=math.floor(24*100/105*1.25)
 assert strike(state,boss)==calc_overburn and calc_overburn>normal
 ticks(state,179)
@@ -172,6 +183,7 @@ for _ in range(3):
 assert boss.form=='overburn'
 strike(state,boss,'hydro')
 assert boss.form=='rock' and boss.lavaHeat==0 and boss.overburnTicks==0
+assert core.frame(state,'sprite','legacy').fieldBoss.recoveryTicks is None
 
 for _ in range(3):
     strike(state,boss,'pyro')
@@ -179,7 +191,8 @@ hp=boss.hp
 save=validate_save(native(core.checkpoint(state)))
 restored=core.restore(lua.table_from(save,recursive=True),12)
 assert restored.story.node==hub
-portal(restored,1380,approach)
+portal(restored,1380,'natlan-quarry-road')
+portal(restored,64,approach)
 portal(restored,1195,arena)
 saved_boss=restored.fieldSlots[boss_id].enemy
 assert saved_boss.hp==hp and saved_boss.form=='rock' and saved_boss.lavaHeat==0

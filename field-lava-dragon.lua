@@ -1,5 +1,5 @@
 return function(C)
- local lava={}
+ local lava={packRectArt=true}
  local U=88
  local gold,orange,white,ink='#ffd081','#ff8742','#fff1be','#301b1e'
  local function clamp(n,lo,hi) return math.max(lo,math.min(hi,n)) end
@@ -68,6 +68,11 @@ return function(C)
 
  function lava.frame(f,b,s,c)
   f.lavaHeat={level=b.lavaHeat,max=s.heat.overburnAt,overburnTicks=b.overburnTicks}
+  if b.form=='overburn' then
+   f.recoveryTicks=b.overburnTicks
+  elseif c and c.tick>=c.move.recover then
+   f.recoveryTicks=c.move.total-c.tick
+  end
   if c and c.bounds and c.move.kind=='eruption' and c.tick<c.move.recover then
    f.eruptionPoints={}
    for i,band in ipairs(c.bounds) do f.eruptionPoints[i]=(band[1]+band[2])/2 end
@@ -131,14 +136,20 @@ return function(C)
   return true
  end
 
- function lava.label(b,c)
-  if b.form=='overburn' then return '過燃焼・反撃の好機' end
-  local state=b.form=='molten' and '熔焰の龍' or 'アースゴーレム'
-  if c then
-   if c.tick>=c.move.recover then return state..'・反撃の好機' end
-   return state..'・'..c.move.title
+ function lava.label(b,c,s)
+  local heat='熱 '..b.lavaHeat..'/'..s.heat.overburnAt
+  if b.form=='overburn' then return '過燃焼・'..heat..'・反撃の好機' end
+  local form=b.form=='molten' and '熔焰の龍' or 'アースゴーレム'
+  local status=form..'・'..heat..'・'
+  if not c then return status..'炎で加熱／水・氷で冷却' end
+  local m,t=c.move,c.tick
+  if t>=m.recover then return status..'反撃の好機' end
+  if c.bounds and #m.active>1 then
+   for i,w in ipairs(m.active) do
+    if t<w[2] then return status..m.title..' '..i..'/2・床の番号から離れる' end
+   end
   end
-  return state..'・炎で加熱／水・氷で冷却'
+  return status..m.title
  end
 
  local function rect(f,x,y,w,h,color)
@@ -160,9 +171,6 @@ return function(C)
      end
     end
     for x=left,right-5,13 do rect(f,x,y-5,7,3,color) end
-    if #m.active>1 then
-     f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=top-6,text=i..' / 2',size=13,color=white}
-    end
    end
   end
  end
@@ -185,6 +193,19 @@ return function(C)
    local spread=math.floor((24-b.lavaFlash)*1.3)
    rect(f,x-39-spread,y-8,13,3,flare)
    rect(f,x+26+spread,y-8,13,3,flare)
+  end
+ end
+
+ function lava.drawOverlay(f,state,s,c)
+  if not c or not c.bounds or #c.move.active==1 then return end
+  for i,w in ipairs(c.move.active) do
+   if c.tick<w[2] then
+    local band=c.bounds[i]
+    local x,y=(band[1]+band[2])/2-state.camera,s.floorY
+    rect(f,x-10,y+6,20,19,ink)
+    rect(f,x-10,y+6,20,2,orange)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,text=tostring(i),size=13,color=white}
+   end
   end
  end
  return lava

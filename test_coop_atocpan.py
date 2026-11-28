@@ -64,8 +64,9 @@ def check_lava(lua, core):
     for s in states:
         frame=core.frame(s,'sprite')
         assert native(frame.fieldBoss.eruptionPoints)==points and frame.fieldBoss.lavaHeat.level==2
-        labels=[d for d in frame.draws.values() if d.text in ('1 / 2','2 / 2') and d.color=='#fff1be']
-        assert len(labels)==2 and all(math.isclose(d.x+frame.camera,x) for d,x in zip(labels,points))
+        labels=[d for d in frame.draws.values() if d.text in ('1','2') and d.color=='#fff1be']
+        assert [(d.text,d.y) for d in labels]==[('1',501),('2',501)]
+        assert all(math.isclose(d.x+frame.camera,x) for d,x in zip(labels,points))
     wait_cast(step,slot,'FLD04',209)
     assert [hits(s,boss,mark) for s,mark in zip(states,marks)]==[[31],[31],[],[]]
     for s in states:

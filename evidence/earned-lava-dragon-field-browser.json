@@ -1,0 +1,189 @@
+{
+  "inputSha256": "d72c5543d2dba329484e82582497e87c493a7fe49e7f50e6d3e7a7eb30691e3b",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "atocpan-lava-field",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "atocpan-lava-field",
+      "walk"
+    ],
+    [
+      "atocpan-lava-field",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "restoredAttack": 74956
+  },
+  "heat": [
+    {
+      "heat": 1,
+      "form": "rock",
+      "hp": 1061,
+      "beforeTick": 151,
+      "changedTime": 23.083333333333304
+    },
+    {
+      "heat": 2,
+      "form": "molten",
+      "hp": 1016,
+      "beforeTick": 34,
+      "changedTime": 26.149999999999796
+    },
+    {
+      "heat": 3,
+      "form": "molten",
+      "hp": 977,
+      "beforeTick": 155,
+      "changedTime": 29.48333333333294
+    },
+    {
+      "heat": 4,
+      "form": "overburn",
+      "hp": 932,
+      "beforeTick": 156,
+      "changedTime": 34.71666666666598
+    }
+  ],
+  "eruption": {
+    "points": [
+      819.1333333333336,
+      951.1333333333336
+    ],
+    "playerDamage": 0,
+    "secondCancelled": true
+  },
+  "cooling": {
+    "elapsedSeconds": 1.549999999999912,
+    "overburnNormalDamage": 9,
+    "hpAfterCooling": 882,
+    "hpAfterReload": 882
+  },
+  "captures": {
+    "rock": {
+      "label": "アースゴーレム・熱 0/4・岩腕の打ち下ろし",
+      "tick": 59,
+      "hp": 1100,
+      "heat": 0,
+      "marks": [],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 7068,
+          "packedDraws": 17,
+          "legacyGzip": 119046,
+          "packedGzip": 91094,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2901,
+          "packedDraws": 17,
+          "legacyGzip": 59517,
+          "packedGzip": 50546,
+          "identicalPixels": true
+        }
+      }
+    },
+    "molten": {
+      "label": "熔焰の龍・熱 3/4・熔岩の二連噴出 1/2・床の番号から離れる",
+      "tick": 132,
+      "hp": 977,
+      "heat": 3,
+      "marks": [
+        [
+          "1",
+          819.1333333333336,
+          501
+        ],
+        [
+          "2",
+          951.1333333333336,
+          501
+        ]
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4843,
+          "packedDraws": 29,
+          "legacyGzip": 100334,
+          "packedGzip": 74479,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2125,
+          "packedDraws": 29,
+          "legacyGzip": 55518,
+          "packedGzip": 44782,
+          "identicalPixels": true
+        }
+      }
+    },
+    "overburn": {
+      "label": "過燃焼・熱 4/4・反撃の好機",
+      "hp": 932,
+      "heat": 4,
+      "marks": [],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4242,
+          "packedDraws": 6,
+          "legacyGzip": 93882,
+          "packedGzip": 69965,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1776,
+          "packedDraws": 6,
+          "legacyGzip": 49673,
+          "packedGzip": 42719,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 9297,
+    "mora": 410
+  },
+  "fieldClears": 1,
+  "reported": 136,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
