@@ -16,8 +16,8 @@ export async function dvalinGate(page,x,node){
  await page.keyboard.press('KeyF');await page.waitForFunction(node=>window.lab.frame.story.node===node,node);
 }
 
-export async function driveDvalin(page,{maxSeconds=260,crystalOffset=-30}={}){
- await page.evaluate(({maxSeconds,crystalOffset})=>{
+export async function driveDvalin(page,{maxSeconds=260,crystalOffset=-30,firstCrystalLimit=null}={}){
+ await page.evaluate(({maxSeconds,crystalOffset,firstCrystalLimit})=>{
   const held=new Set(),moves=new Set(),strikes=new Map(),start=window.lab.frame.t,platforms=[{x:0,w:264},{x:303.6,w:264},{x:607.2,w:264}];
   let aiLanded=false,manualLanded=false,maxFalls=0;
   function hold(code,on){if(on===held.has(code))return;on?held.add(code):held.delete(code);window.dispatchEvent(new KeyboardEvent(on?'keydown':'keyup',{code,bubbles:true,cancelable:true}))}
@@ -39,7 +39,8 @@ export async function driveDvalin(page,{maxSeconds=260,crystalOffset=-30}={}){
    const dodge=m==='WD01'&&t>=52&&t<103||m==='WD06'&&t>=150&&t<193;
    if(dodge){jump=true;if(a.ground)window.lab.action('jump')}
    if(m==='WD08'){
-    dest=b.crystal.x+crystalOffset;jump=true;attack=t>=42&&t<462;aim=b.crystal.x;
+    const firstCap=firstCrystalLimit!==null&&b.breaks===1&&b.crystal.damage>=firstCrystalLimit;
+    dest=b.crystal.x+crystalOffset;jump=true;attack=t>=42&&t<462&&!firstCap;aim=b.crystal.x;
     if(a.ground&&a.y>423&&Math.abs(dest-a.x)<100)window.lab.action('jump');
    }else if((m==='WD02'||m==='WD03')&&c){
     dest=c.center+(m==='WD02'?65:c.dir*75);aim=c.center+65;attack=true;
@@ -67,5 +68,5 @@ export async function driveDvalin(page,{maxSeconds=260,crystalOffset=-30}={}){
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- },{maxSeconds,crystalOffset});
+ },{maxSeconds,crystalOffset,firstCrystalLimit});
 }

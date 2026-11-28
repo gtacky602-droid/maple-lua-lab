@@ -1,0 +1,81 @@
+{
+  "sourceSha256": "de91e5648b768b6c00a71536977d508505e6397a34dd22f2ccb41076fe293fe5",
+  "expertWins": 3,
+  "weeklyExpert": [
+    {
+      "id": "boss-29010101",
+      "name": "空を裂く魔龍・トワリン",
+      "clears": 3
+    },
+    {
+      "id": "boss-29020101",
+      "name": "北風の王狼・アンドリアス",
+      "clears": 2
+    },
+    {
+      "id": "boss-29030101",
+      "name": "「公子」",
+      "clears": 4
+    },
+    {
+      "id": "boss-29040101",
+      "name": "若陀龍王",
+      "clears": 5
+    },
+    {
+      "id": "boss-29050101",
+      "name": "淑女",
+      "clears": 3
+    },
+    {
+      "id": "boss-29060201",
+      "name": "禍津御建鳴神命",
+      "clears": 4
+    },
+    {
+      "id": "boss-29070101",
+      "name": "正機の神",
+      "clears": 3
+    },
+    {
+      "id": "boss-29080101",
+      "name": "アペプのオアシス守護者",
+      "clears": 3
+    },
+    {
+      "id": "boss-29090101",
+      "name": "呑星の鯨",
+      "clears": 3
+    },
+    {
+      "id": "boss-29091001",
+      "name": "召使",
+      "clears": 3
+    },
+    {
+      "id": "boss-29091101",
+      "name": "蝕まれし源焔の主",
+      "clears": 3
+    },
+    {
+      "id": "boss-29122000",
+      "name": "扉に通ずる対局",
+      "clears": 3
+    },
+    {
+      "id": "boss-29130201",
+      "name": "「博士」・偽月の異端者",
+      "clears": 4
+    },
+    {
+      "id": "boss-29150101",
+      "name": "ドットーレ・左道の真諦者",
+      "clears": 4
+    }
+  ],
+  "reported": 121,
+  "attack": 74956,
+  "remaining": 47.3,
+  "pendingArtifacts": 3,
+  "errors": []
+}

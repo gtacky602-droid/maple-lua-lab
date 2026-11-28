@@ -1,0 +1,1026 @@
+{
+  "dvalin-hit-first": {
+    "image": "dvalin-hit-first.png",
+    "frames": {
+      "開戦": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 34356,
+            "rgbAbsoluteError": 2286256,
+            "unpackedCommands": 9755,
+            "packedCommands": 844,
+            "unpackedBytes": 1198563,
+            "packedBytes": 304783,
+            "combatCanvasMs": 6.399999976158142
+          },
+          "h32c16": {
+            "differentPixels": 34632,
+            "rgbAbsoluteError": 2859565,
+            "unpackedCommands": 4298,
+            "packedCommands": 380,
+            "unpackedBytes": 525898,
+            "packedBytes": 132021,
+            "combatCanvasMs": 2.7999999821186066
+          }
+        }
+      },
+      "前脚・体勢への攻撃": {
+        "tick": 594,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 31961,
+            "rgbAbsoluteError": 2198086,
+            "unpackedCommands": 12153,
+            "packedCommands": 850,
+            "unpackedBytes": 1474256,
+            "packedBytes": 326653,
+            "combatCanvasMs": 7.5999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 32082,
+            "rgbAbsoluteError": 2689009,
+            "unpackedCommands": 5296,
+            "packedCommands": 386,
+            "unpackedBytes": 560336,
+            "packedBytes": 140200,
+            "combatCanvasMs": 2.9000000059604645
+          }
+        }
+      },
+      "最初の踏み場に着地": {
+        "tick": 881,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21971,
+            "rgbAbsoluteError": 1610149,
+            "unpackedCommands": 9046,
+            "packedCommands": 845,
+            "unpackedBytes": 1117206,
+            "packedBytes": 288042,
+            "combatCanvasMs": 5.9000000059604645,
+            "canvasSha256": "73cfa5b8b11e7bd1d4d82edbd19badf50f088b1fd56b0594f227f61b07683c92"
+          },
+          "h32c16": {
+            "differentPixels": 22215,
+            "rgbAbsoluteError": 1951623,
+            "unpackedCommands": 3850,
+            "packedCommands": 381,
+            "unpackedBytes": 469932,
+            "packedBytes": 122215,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "4d53727ad93360cdebe1de22f319a7cd01718b97640d834af618810a177cb2da"
+          }
+        },
+        "dvalinText": "踏み場で待機 ｜ 結晶が開くまで0.5秒"
+      },
+      "結晶の露出・1回目": {
+        "tick": 909,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21719,
+            "rgbAbsoluteError": 1613352,
+            "unpackedCommands": 8908,
+            "packedCommands": 847,
+            "unpackedBytes": 1098608,
+            "packedBytes": 284887,
+            "combatCanvasMs": 5.4000000059604645,
+            "canvasSha256": "c462b8c89ac8c7ad82538dbf21255f7eaba999cb177f6bd4a18d6e04d45e36b5"
+          },
+          "h32c16": {
+            "differentPixels": 21920,
+            "rgbAbsoluteError": 1961855,
+            "unpackedCommands": 3819,
+            "packedCommands": 383,
+            "unpackedBytes": 462919,
+            "packedBytes": 122000,
+            "combatCanvasMs": 2.699999988079071,
+            "canvasSha256": "8d5fb58b329546ff26c1137c11716f698baf1c9d4a5e1736c6d399595dfc800f"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "首の結晶に命中": {
+        "tick": 910,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21876,
+            "rgbAbsoluteError": 1593458,
+            "unpackedCommands": 8912,
+            "packedCommands": 851,
+            "unpackedBytes": 1099084,
+            "packedBytes": 285363,
+            "combatCanvasMs": 5.799999982118607,
+            "canvasSha256": "ac64348b3e0cd8ef3fd57e6b5b245f0b1e351ab15db36431dc05ca433bb0b954"
+          },
+          "h32c16": {
+            "differentPixels": 22060,
+            "rgbAbsoluteError": 1932694,
+            "unpackedCommands": 3823,
+            "packedCommands": 387,
+            "unpackedBytes": 462159,
+            "packedBytes": 121240,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "05666ac9f8c1757970b92b0f8c86bcaa92479c234349718f1afe38e5740f6f75"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・1回目": {
+        "tick": 1329,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20957,
+            "rgbAbsoluteError": 1542406,
+            "unpackedCommands": 8645,
+            "packedCommands": 846,
+            "unpackedBytes": 1064340,
+            "packedBytes": 278289,
+            "combatCanvasMs": 4.799999982118607,
+            "canvasSha256": "0ec205d90fd3dbf0fe125f59cb21e7cee0d62f25190330c9cc36c036b93fd869"
+          },
+          "h32c16": {
+            "differentPixels": 21151,
+            "rgbAbsoluteError": 1875245,
+            "unpackedCommands": 3708,
+            "packedCommands": 382,
+            "unpackedBytes": 446789,
+            "packedBytes": 116773,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "5fab71124c2f58a28da569bd63521a3af355a693099760aeaecbfc1dc7a383fa"
+          }
+        },
+        "dvalinText": "結晶に96ダメージ ｜ 踏み場が降下"
+      },
+      "足元の床まで降下中": {
+        "tick": 1367,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21073,
+            "rgbAbsoluteError": 1565405,
+            "unpackedCommands": 8643,
+            "packedCommands": 844,
+            "unpackedBytes": 1068183,
+            "packedBytes": 279932,
+            "combatCanvasMs": 4.799999982118607,
+            "canvasSha256": "f04d798a34b72fa7d2c639f37d34f513f0ae4e14324956f57ac878d9b419b04b"
+          },
+          "h32c16": {
+            "differentPixels": 21272,
+            "rgbAbsoluteError": 1915371,
+            "unpackedCommands": 3706,
+            "packedCommands": 380,
+            "unpackedBytes": 453211,
+            "packedBytes": 119197,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "93f91de115953f1aebb7894780b2b5ce66a09637a2f72f75de31c0bf673c02bd"
+          }
+        },
+        "dvalinText": "結晶に96ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・2回目": {
+        "tick": 2616,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21765,
+            "rgbAbsoluteError": 1610082,
+            "unpackedCommands": 8910,
+            "packedCommands": 849,
+            "unpackedBytes": 1097031,
+            "packedBytes": 285856,
+            "combatCanvasMs": 5.600000023841858,
+            "canvasSha256": "3177bd33aab211d8f9edc865376ee3c95efda65d31f395be1c087d0c54678250"
+          },
+          "h32c16": {
+            "differentPixels": 22008,
+            "rgbAbsoluteError": 1963190,
+            "unpackedCommands": 3821,
+            "packedCommands": 385,
+            "unpackedBytes": 462351,
+            "packedBytes": 121984,
+            "combatCanvasMs": 2.2999999821186066,
+            "canvasSha256": "d8a077ccf2928eab48df7034e58df9d9ba649b5993f76a529b016ca4062a208b"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・2回目": {
+        "tick": 3036,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20948,
+            "rgbAbsoluteError": 1533608,
+            "unpackedCommands": 8645,
+            "packedCommands": 846,
+            "unpackedBytes": 1065423,
+            "packedBytes": 280043,
+            "combatCanvasMs": 5.5,
+            "canvasSha256": "e5c14a99cb7f6925065a7addaa0f66845b86e15090cd94f168672dab3fa29cf1"
+          },
+          "h32c16": {
+            "differentPixels": 21163,
+            "rgbAbsoluteError": 1874491,
+            "unpackedCommands": 3708,
+            "packedCommands": 382,
+            "unpackedBytes": 451240,
+            "packedBytes": 119283,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "e63c931781da5db3819e262fb6b2d8c583613d865632cf9feac645081b5e0d24"
+          }
+        },
+        "dvalinText": "結晶に96ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・3回目": {
+        "tick": 4323,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20151,
+            "rgbAbsoluteError": 1382110,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 994702,
+            "packedBytes": 182762,
+            "combatCanvasMs": 4.5999999940395355,
+            "canvasSha256": "7aed55cf85b1d597de86c5b7ac5eca0bd27d74600f8e1fcfb5000ec4af28ed6a"
+          },
+          "h32c16": {
+            "differentPixels": 20344,
+            "rgbAbsoluteError": 1699079,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 415833,
+            "packedBytes": 77354,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "801a2813b85f0a05bc53a336fd9651bd0a63e45600d090e9f97554d4d4352c61"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・3回目": {
+        "tick": 4743,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19522,
+            "rgbAbsoluteError": 1360331,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 964657,
+            "packedBytes": 176825,
+            "combatCanvasMs": 4.5,
+            "canvasSha256": "0c45b426220be09b655584401f37ada1c9474df18b39a1df472dad0d137f40f8"
+          },
+          "h32c16": {
+            "differentPixels": 19698,
+            "rgbAbsoluteError": 1664326,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 407203,
+            "packedBytes": 74747,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "85fca93f862db883a18def56cdf2873d0537ad6603a39dd4e8b59e2397c90ffa"
+          }
+        },
+        "dvalinText": "結晶に102ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・4回目": {
+        "tick": 6030,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20136,
+            "rgbAbsoluteError": 1391412,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 993377,
+            "packedBytes": 182762,
+            "combatCanvasMs": 4.299999982118607,
+            "canvasSha256": "513755103ed0964a1f2ebd5405d0e2c7d64ec8654ca1891017746b76f4163c31"
+          },
+          "h32c16": {
+            "differentPixels": 20385,
+            "rgbAbsoluteError": 1705543,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 417594,
+            "packedBytes": 77354,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "90ca153116899ce39cbc60caff8cd8bb33a5e77b2910978b9ae7a69becac1627"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・4回目": {
+        "tick": 6450,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19492,
+            "rgbAbsoluteError": 1354143,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 959601,
+            "packedBytes": 176826,
+            "combatCanvasMs": 4.5,
+            "canvasSha256": "f56d04fa80a696dece642f21b24a29f4a801304e25182aafface346b9c5197e9"
+          },
+          "h32c16": {
+            "differentPixels": 19738,
+            "rgbAbsoluteError": 1660817,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 405539,
+            "packedBytes": 74748,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "d1136aaabe152ca01bc04b3e8b5a0aab07985eefab5a6f18f8eda936384bc6ea"
+          }
+        },
+        "dvalinText": "結晶に100ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・5回目": {
+        "tick": 7737,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20163,
+            "rgbAbsoluteError": 1387388,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 994716,
+            "packedBytes": 182776,
+            "combatCanvasMs": 4.600000023841858,
+            "canvasSha256": "6a973ca5a444991f7f44408f46a7a427ce63edb76c80d5e957b057c7a2146740"
+          },
+          "h32c16": {
+            "differentPixels": 20354,
+            "rgbAbsoluteError": 1704404,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 415847,
+            "packedBytes": 77368,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "edf91e2af2a0b78a66e1c6aaa52e7107a77042319d84795f75407633ce1eef29"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・5回目": {
+        "tick": 8157,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19518,
+            "rgbAbsoluteError": 1358058,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 964717,
+            "packedBytes": 176825,
+            "combatCanvasMs": 4.800000011920929,
+            "canvasSha256": "8a9a1d5410947ea299f46c79fa53893dc9a9c9d9712f528ec873fd80acaf167f"
+          },
+          "h32c16": {
+            "differentPixels": 19706,
+            "rgbAbsoluteError": 1658120,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 408113,
+            "packedBytes": 74747,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "b8fea53131708c8d818dc3b53b214f2a83d8fc14367e70f1fb7845a661320185"
+          }
+        },
+        "dvalinText": "結晶に96ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・6回目": {
+        "tick": 9444,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20150,
+            "rgbAbsoluteError": 1401384,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 993950,
+            "packedBytes": 182775,
+            "combatCanvasMs": 4.9000000059604645,
+            "canvasSha256": "745645ca9b0214e57d904026256c2b526f72d0bb684f5deb790008277c39aaa0"
+          },
+          "h32c16": {
+            "differentPixels": 20399,
+            "rgbAbsoluteError": 1718272,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 417734,
+            "packedBytes": 77367,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "c281a01da6f1ee8161b2165a08e34e10962508d3609ba5bc47144a224cc41e9f"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・6回目": {
+        "tick": 9864,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19491,
+            "rgbAbsoluteError": 1350390,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 961783,
+            "packedBytes": 176826,
+            "combatCanvasMs": 4.9000000059604645,
+            "canvasSha256": "5c6cb4828ab7a18b65f7e0461aa7e91ca9a3868e7abc488c446a55c8e972c1c2"
+          },
+          "h32c16": {
+            "differentPixels": 19740,
+            "rgbAbsoluteError": 1660582,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 406747,
+            "packedBytes": 74748,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "d54ead9cb022cf776664c1f95ca9d538e6826aaf65cb6e82ad682d1928376677"
+          }
+        },
+        "dvalinText": "結晶に98ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・7回目": {
+        "tick": 11151,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20189,
+            "rgbAbsoluteError": 1405071,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 996481,
+            "packedBytes": 182760,
+            "combatCanvasMs": 5.199999988079071,
+            "canvasSha256": "aa435a22a28d939a72b14a7d0122a345e3b55ab1daaf58c2c904bb599248a62a"
+          },
+          "h32c16": {
+            "differentPixels": 20383,
+            "rgbAbsoluteError": 1718800,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 418271,
+            "packedBytes": 77352,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "9fe67b672afbcbdc4d3373e2a3d917887db8cb0cf2fcbdbedc762b68c7e97ea5"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      }
+    }
+  },
+  "dvalin-wait-next": {
+    "image": "dvalin-wait-next.png",
+    "frames": {
+      "開戦": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 34359,
+            "rgbAbsoluteError": 2286092,
+            "unpackedCommands": 9755,
+            "packedCommands": 844,
+            "unpackedBytes": 1198339,
+            "packedBytes": 304664,
+            "combatCanvasMs": 6.4000000059604645
+          },
+          "h32c16": {
+            "differentPixels": 34629,
+            "rgbAbsoluteError": 2858232,
+            "unpackedCommands": 4298,
+            "packedCommands": 380,
+            "unpackedBytes": 524610,
+            "packedBytes": 131472,
+            "combatCanvasMs": 2.600000023841858
+          }
+        }
+      },
+      "前脚・体勢への攻撃": {
+        "tick": 594,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 31960,
+            "rgbAbsoluteError": 2199035,
+            "unpackedCommands": 12153,
+            "packedCommands": 850,
+            "unpackedBytes": 1470817,
+            "packedBytes": 325118,
+            "combatCanvasMs": 8
+          },
+          "h32c16": {
+            "differentPixels": 32074,
+            "rgbAbsoluteError": 2695286,
+            "unpackedCommands": 5296,
+            "packedCommands": 386,
+            "unpackedBytes": 555987,
+            "packedBytes": 138322,
+            "combatCanvasMs": 3.4000000059604645
+          }
+        }
+      },
+      "最初の踏み場に着地": {
+        "tick": 881,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21956,
+            "rgbAbsoluteError": 1602729,
+            "unpackedCommands": 9046,
+            "packedCommands": 845,
+            "unpackedBytes": 1116987,
+            "packedBytes": 287923,
+            "combatCanvasMs": 5.9000000059604645,
+            "canvasSha256": "0d589e8b78690326f72ee2d246f05fcdd9342ed83f57bd821245aadaf60fe690"
+          },
+          "h32c16": {
+            "differentPixels": 22209,
+            "rgbAbsoluteError": 1956301,
+            "unpackedCommands": 3850,
+            "packedCommands": 381,
+            "unpackedBytes": 468493,
+            "packedBytes": 121666,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "3e42bd843bcb7455eabda66385077793667aea56e7e99b4c7590ad7c05ddb675"
+          }
+        },
+        "dvalinText": "踏み場で待機 ｜ 結晶が開くまで0.5秒"
+      },
+      "結晶の露出・1回目": {
+        "tick": 909,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21697,
+            "rgbAbsoluteError": 1597413,
+            "unpackedCommands": 8908,
+            "packedCommands": 847,
+            "unpackedBytes": 1098513,
+            "packedBytes": 284837,
+            "combatCanvasMs": 5.9000000059604645,
+            "canvasSha256": "4664ec99ed5316a9ab436b75e5bbc9dc6c54200c474046a0fc8a19a2d0849085"
+          },
+          "h32c16": {
+            "differentPixels": 21905,
+            "rgbAbsoluteError": 1939937,
+            "unpackedCommands": 3819,
+            "packedCommands": 383,
+            "unpackedBytes": 463111,
+            "packedBytes": 122021,
+            "combatCanvasMs": 2.600000023841858,
+            "canvasSha256": "be519b5300409387e8a8bf86750610e959ef2772ea9c6e0cec1bfb46c75e4e58"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・1回目": {
+        "tick": 1329,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20953,
+            "rgbAbsoluteError": 1538639,
+            "unpackedCommands": 8643,
+            "packedCommands": 844,
+            "unpackedBytes": 1067823,
+            "packedBytes": 279794,
+            "combatCanvasMs": 5.9000000059604645,
+            "canvasSha256": "192930c0ba27f44072323ba32b4cffc31eb9f35877a9edec23a7b0a683e1bee8"
+          },
+          "h32c16": {
+            "differentPixels": 21152,
+            "rgbAbsoluteError": 1872224,
+            "unpackedCommands": 3706,
+            "packedCommands": 380,
+            "unpackedBytes": 452813,
+            "packedBytes": 119278,
+            "combatCanvasMs": 2.2999999821186066,
+            "canvasSha256": "5a92265e397c870f2f7221ba622a4a477c537d661eb26405048b09d3d91e1079"
+          }
+        },
+        "dvalinText": "結晶が閉じた ｜ 次の体勢崩しへ"
+      },
+      "足元の床まで降下中": {
+        "tick": 1367,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21076,
+            "rgbAbsoluteError": 1570764,
+            "unpackedCommands": 8643,
+            "packedCommands": 844,
+            "unpackedBytes": 1068176,
+            "packedBytes": 279852,
+            "combatCanvasMs": 5.5,
+            "canvasSha256": "3ed2bc90686350abc7c416d19377b10567d75d8fc4c695821e1a3b3bbae0c508"
+          },
+          "h32c16": {
+            "differentPixels": 21276,
+            "rgbAbsoluteError": 1912552,
+            "unpackedCommands": 3706,
+            "packedCommands": 380,
+            "unpackedBytes": 453307,
+            "packedBytes": 119533,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "bca1519d6e6e3928e695f1aaebc4762a7ff4c67812501f9e63f70c9dcbf4d653"
+          }
+        },
+        "dvalinText": "結晶が閉じた ｜ 次の体勢崩しへ"
+      },
+      "結晶の露出・2回目": {
+        "tick": 2616,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21759,
+            "rgbAbsoluteError": 1593502,
+            "unpackedCommands": 8908,
+            "packedCommands": 847,
+            "unpackedBytes": 1096916,
+            "packedBytes": 285733,
+            "combatCanvasMs": 5.5999999940395355,
+            "canvasSha256": "1ec9028f4412e8f5375195938f5349389dffa23822835ae8693d484db0d3e712"
+          },
+          "h32c16": {
+            "differentPixels": 21989,
+            "rgbAbsoluteError": 1949342,
+            "unpackedCommands": 3819,
+            "packedCommands": 383,
+            "unpackedBytes": 462288,
+            "packedBytes": 121854,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "5815d61e632459cb55cde9a2f72c4b01a4d713b69806a3bfc1dc2ce443e078b4"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "首の結晶に命中": {
+        "tick": 2617,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 21888,
+            "rgbAbsoluteError": 1579973,
+            "unpackedCommands": 8912,
+            "packedCommands": 851,
+            "unpackedBytes": 1096326,
+            "packedBytes": 285771,
+            "combatCanvasMs": 5.9000000059604645,
+            "canvasSha256": "e0405bb07f2d4d385673f2144aac12bcc0451e8ea7031efc6ea0f5c438d9c0b8"
+          },
+          "h32c16": {
+            "differentPixels": 22118,
+            "rgbAbsoluteError": 1932427,
+            "unpackedCommands": 3823,
+            "packedCommands": 387,
+            "unpackedBytes": 460706,
+            "packedBytes": 121376,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "4e0bff683812414ff340d1a5bbaa0742e43088870d3bb4797eacd6065a33371d"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・2回目": {
+        "tick": 3036,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20952,
+            "rgbAbsoluteError": 1537212,
+            "unpackedCommands": 8645,
+            "packedCommands": 846,
+            "unpackedBytes": 1064414,
+            "packedBytes": 279594,
+            "combatCanvasMs": 4.9000000059604645,
+            "canvasSha256": "f9778df398b25f21fa1189ab1f4179955d3c44ed4a13cafd5ea419f5876087c5"
+          },
+          "h32c16": {
+            "differentPixels": 21171,
+            "rgbAbsoluteError": 1878117,
+            "unpackedCommands": 3708,
+            "packedCommands": 382,
+            "unpackedBytes": 451021,
+            "packedBytes": 119191,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "dcbbad76859caf8472aad796302d4d5cd23d4d31ba5696e307fcee2e9cdb4208"
+          }
+        },
+        "dvalinText": "結晶に96ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・3回目": {
+        "tick": 4323,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20169,
+            "rgbAbsoluteError": 1394648,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 997111,
+            "packedBytes": 182762,
+            "combatCanvasMs": 5.199999988079071,
+            "canvasSha256": "9d36ce5f804c2b96d86b72dbed73d63467cd483e6f97c70dad3042ea8f76cf5b"
+          },
+          "h32c16": {
+            "differentPixels": 20358,
+            "rgbAbsoluteError": 1704942,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 419377,
+            "packedBytes": 77354,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "589dc6545c6ae274d744cc5190d28cac282084b36f3179fd6008793dbd68f5df"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・3回目": {
+        "tick": 4743,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19513,
+            "rgbAbsoluteError": 1353159,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 962672,
+            "packedBytes": 176825,
+            "combatCanvasMs": 4,
+            "canvasSha256": "c9a2a099e7d49d0bbf17ff97d8ecffd8c50818e9be47736185803a71c98a8279"
+          },
+          "h32c16": {
+            "differentPixels": 19692,
+            "rgbAbsoluteError": 1660642,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 407074,
+            "packedBytes": 74747,
+            "combatCanvasMs": 2,
+            "canvasSha256": "cf33d1705f5d433fdfda26b9f5f04d0c203519d637d9a77c5d9f1cc4e50b27d4"
+          }
+        },
+        "dvalinText": "結晶に98ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・4回目": {
+        "tick": 6030,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20154,
+            "rgbAbsoluteError": 1402700,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 993286,
+            "packedBytes": 182776,
+            "combatCanvasMs": 5,
+            "canvasSha256": "1b6a55ea845ec8af14ec8d3816249cb3eecf19587f05b51d27fafc944b581570"
+          },
+          "h32c16": {
+            "differentPixels": 20401,
+            "rgbAbsoluteError": 1719338,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 416869,
+            "packedBytes": 77368,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "477473213f01204d3099a49ca24e6945099b1645d9b2e0f5d1f97fe8b013b2b0"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・4回目": {
+        "tick": 6450,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19498,
+            "rgbAbsoluteError": 1355686,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 961585,
+            "packedBytes": 176825,
+            "combatCanvasMs": 5.300000011920929,
+            "canvasSha256": "e045def22e9cc937b971f2f8b3d2ed60bd8921776b1c54e018a9c89886ed33ab"
+          },
+          "h32c16": {
+            "differentPixels": 19746,
+            "rgbAbsoluteError": 1666828,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 405667,
+            "packedBytes": 74747,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "97c2034f58e8c9d5d29a5dd6ff83eb286c48a5279e0336b9d50361305703d702"
+          }
+        },
+        "dvalinText": "結晶に96ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・5回目": {
+        "tick": 7737,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20180,
+            "rgbAbsoluteError": 1395366,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 996694,
+            "packedBytes": 182776,
+            "combatCanvasMs": 5.300000011920929,
+            "canvasSha256": "37441fe905d4141cd7e24a96c449226c1fdf07ce8d30b0909f7885daf2319b52"
+          },
+          "h32c16": {
+            "differentPixels": 20381,
+            "rgbAbsoluteError": 1711208,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 419366,
+            "packedBytes": 77368,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "b7a51231ff0ddbf2eae5c8e9b1b2ca7c4fe891660668ec70bbd44fbf32b30bf3"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・5回目": {
+        "tick": 8157,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19514,
+            "rgbAbsoluteError": 1358138,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 965277,
+            "packedBytes": 176825,
+            "combatCanvasMs": 5,
+            "canvasSha256": "62f7ce27da2ab6bec944ada8bce82be25473537492f38751a142d9430c6769e8"
+          },
+          "h32c16": {
+            "differentPixels": 19705,
+            "rgbAbsoluteError": 1660757,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 408240,
+            "packedBytes": 74747,
+            "combatCanvasMs": 2,
+            "canvasSha256": "19c944afaeed6e766048a999c97b565d4e8a6d63a917e6b324d86d2b96f91b2a"
+          }
+        },
+        "dvalinText": "結晶に98ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・6回目": {
+        "tick": 9444,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20130,
+            "rgbAbsoluteError": 1391769,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 993391,
+            "packedBytes": 182776,
+            "combatCanvasMs": 5,
+            "canvasSha256": "54190a8fc8b80ee90eb837641b2671f11a6f764e84939134f57350ee7b4bae14"
+          },
+          "h32c16": {
+            "differentPixels": 20380,
+            "rgbAbsoluteError": 1705274,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 417608,
+            "packedBytes": 77368,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "a79114f65cad790e896bdc9e508b63096dbaed3233130f93ffe3ab27f4bce490"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・6回目": {
+        "tick": 9864,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19493,
+            "rgbAbsoluteError": 1352900,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 959805,
+            "packedBytes": 176826,
+            "combatCanvasMs": 4.9000000059604645,
+            "canvasSha256": "522a196172c8f82d082e6ae55716773dd354c027cde1b4fb77f8a8bbdef37431"
+          },
+          "h32c16": {
+            "differentPixels": 19737,
+            "rgbAbsoluteError": 1658388,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 403228,
+            "packedBytes": 74748,
+            "combatCanvasMs": 2.100000023841858,
+            "canvasSha256": "6516e6d90ffddf5b57dbdfc4180e4e2a2d6bacf2bc02be44c9f755096a4228c5"
+          }
+        },
+        "dvalinText": "結晶に100ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・7回目": {
+        "tick": 11151,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20155,
+            "rgbAbsoluteError": 1385962,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 994511,
+            "packedBytes": 182775,
+            "combatCanvasMs": 5.4000000059604645,
+            "canvasSha256": "891e964810b8e822c9a91776acafc126f3823cd8036234328662873588c464ca"
+          },
+          "h32c16": {
+            "differentPixels": 20352,
+            "rgbAbsoluteError": 1701302,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 418157,
+            "packedBytes": 77367,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "441416fa2553d8ead088ce9d72ea4d37a1b143a55e21eba195b447f89540ffdb"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      },
+      "踏み場が降下・7回目": {
+        "tick": 11571,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 19518,
+            "rgbAbsoluteError": 1358058,
+            "unpackedCommands": 7815,
+            "packedCommands": 16,
+            "unpackedBytes": 964717,
+            "packedBytes": 176825,
+            "combatCanvasMs": 4.800000011920929,
+            "canvasSha256": "57e520e6917313eb0afadbf2c2fa3eae954b37671b2841eb4c71341f01a275f8"
+          },
+          "h32c16": {
+            "differentPixels": 19706,
+            "rgbAbsoluteError": 1658120,
+            "unpackedCommands": 3342,
+            "packedCommands": 16,
+            "unpackedBytes": 408113,
+            "packedBytes": 74747,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "e1555c91d2806eac3e3c29b422b5eb5a4deec8b462b333e8731cdcb9c4c107ab"
+          }
+        },
+        "dvalinText": "結晶に98ダメージ ｜ 踏み場が降下"
+      },
+      "結晶の露出・8回目": {
+        "tick": 12858,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20141,
+            "rgbAbsoluteError": 1392819,
+            "unpackedCommands": 8080,
+            "packedCommands": 19,
+            "unpackedBytes": 993250,
+            "packedBytes": 182776,
+            "combatCanvasMs": 4.799999982118607,
+            "canvasSha256": "feead72c1abc181ae13b152bbc0b65e91ca73d98121b68c1bc6ada1370fcddce"
+          },
+          "h32c16": {
+            "differentPixels": 20387,
+            "rgbAbsoluteError": 1710386,
+            "unpackedCommands": 3455,
+            "packedCommands": 19,
+            "unpackedBytes": 417774,
+            "packedBytes": 77368,
+            "combatCanvasMs": 2,
+            "canvasSha256": "d73e5bf51065f77cb06e44ba73ec9159b600a783a6ca099d7b0f23371c06281e"
+          }
+        },
+        "dvalinText": "首の結晶を攻撃（J） ｜ 残り7.0秒"
+      }
+    }
+  }
+}

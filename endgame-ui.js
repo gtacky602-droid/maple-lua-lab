@@ -2,7 +2,14 @@ import {initArtifactDomainUI} from './artifact-domain-ui.js';
 
 export function dvalinCrystalText(view){
  const crystal=view.crystal;
- if(crystal?.remaining)return view.label+` ｜ 残り${(crystal.remaining/60).toFixed(1)}秒`;
+ if(crystal?.remaining||crystal?.opensIn){
+  const position=crystal.onStep===undefined?view.label:
+   crystal.onStep?(crystal.remaining?'首の結晶を攻撃（J）':'踏み場で待機'):
+   crystal.direction?`${crystal.direction==='left'?'左':'右'}へ移動して結晶の下へ`:'踏み場へジャンプ';
+  const ticks=crystal.remaining??crystal.opensIn;
+  const time=(Math.ceil(ticks/6)/10).toFixed(1);
+  return `${position} ｜ ${crystal.remaining?'残り':'結晶が開くまで'}${time}秒`;
+ }
  if(view.stage==='takeoff'&&crystal?.damage!==undefined){
   return crystal.damage>0?`結晶に${crystal.damage}ダメージ ｜ 踏み場が降下`:'結晶が閉じた ｜ 次の体勢崩しへ';
  }

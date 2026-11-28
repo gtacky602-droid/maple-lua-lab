@@ -51,7 +51,16 @@ assert b.hp==600 and w.guard==18
 # Exposure half-open boundaries, actual vertical reach, and HP-only crystal.
 s,w,b,a=make();expose(s,w);cr=w.parts[4]
 until(s,w,'WD08',41);strike(s,cr,y=420,atk=24);assert b.hp==600
+spot(a,w.crystalX-100)
+cue=C.frame(s).weeklyBoss.crystal
+assert cue.opensIn==1 and cue.direction=='right' and not cue.onStep
+spot(a,w.crystalX)
+cue=C.frame(s).weeklyBoss.crystal
+assert cue.opensIn==1 and cue.direction is None and not cue.onStep
 ticks(s);assert w.cast.tick==42 and not cr.underground
+spot(a,w.crystalX,420)
+cue=C.frame(s).weeklyBoss.crystal
+assert cue.onStep and cue.remaining==420 and cue.opensIn is None
 strike(s,cr,y=480,atk=24);assert b.hp==600 # nearest crystal edge is 80px above ground
 strike(s,cr,y=420,atk=24);assert b.hp==578
 until(s,w,'WD08',461);strike(s,cr,y=420,atk=24);assert b.hp==556
