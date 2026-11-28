@@ -624,6 +624,7 @@ function hud(f,calls,renderMs){
   const summonHint=field.summonTicks>0?' ｜ 合流まで '+(Math.ceil(field.summonTicks/6)/10).toFixed(1)+'秒':'';
   const resonatorHint=field.resonatorTicks>0?' ｜ 発火まで '+(Math.ceil(field.resonatorTicks/6)/10).toFixed(1)+'秒':'';
   const rootCoreHint=field.hp>0&&field.coreHits>0?' ｜ 根元の核 あと'+field.coreHits+'回':'';
+  const recoveryHint=field.hp>0&&field.recoveryTicks>0?' ｜ 反撃できる時間 あと'+(Math.ceil(field.recoveryTicks/6)/10).toFixed(1)+'秒':'';
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:field.phase==='cleared'||oasis?.defense||journey?.scene==='inner'?field.label:
    `HP ${Math.ceil(field.hp)} / ${field.maxhp} ｜ ${dvalinCrystalText(field)||field.label}`;
   const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
@@ -647,7 +648,7 @@ function hud(f,calls,renderMs){
   const refuge=field.safeLaneCue;
   const lane=refuge?` ｜ ${refuge.ticks>0?'次の安全帯':'安全帯'} ${['左','中央','右'][refuge.lane-1]} ${refuge.wave}/${refuge.total}${refuge.ticks>0?`（あと ${(Math.ceil(refuge.ticks/6)/10).toFixed(1)}秒）`:''}`:'';
   const tuning=(field.draftHp?' ｜ 比較版HP':'')+(field.draftMoves?' ｜ 短縮技案':'');
-  const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${tuning}${lane}${mark}${party}${rootCoreHint}${exposureHint}${emergenceHint}${gravityHint}${summonHint}${resonatorHint}`;
+  const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${tuning}${lane}${mark}${party}${rootCoreHint}${exposureHint}${emergenceHint}${gravityHint}${summonHint}${resonatorHint}${recoveryHint}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
   fieldHp.hidden=field.phase==='respawn'||field.phase==='cleared'||!phases.hidden||!!oasis?.defense||journey?.scene==='inner';
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;

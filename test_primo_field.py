@@ -5,6 +5,7 @@ import math
 from experience import LEVELS, RUNTIME_EXP
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from test_coop_local import expand_rectangles
 
 lua, core = runtime()
 ID, ENTRY, NODE = 'boss-26050101', 'primo-approach', 'primo-field-vault'
@@ -121,6 +122,7 @@ s, slot, a, b = training()
 cast = at(s, slot, 'FV03', 112)
 hp = a.hp
 assert a.ground
+assert core.frame(s).fieldBoss.label == '原岩の噴出・盾で受けるか跳び越す'
 core.action(s, 'jump')
 for _ in range(32):
     step(s, jump=True)
@@ -189,6 +191,14 @@ for generation, element in enumerate(order, 1):
     frame = core.frame(s)
     sprite = next(d for d in frame.draws.values() if d.source == 'primo-source-v1.png')
     assert native(sprite.tint) == spec['variants'][(generation-1)%4].get('tint')
+    if generation <= len(spec['variants']):
+        for profile in ('h48c32', 'h32c16'):
+            raw = native(core.frame(s, 'rect', profile))
+            s.packRectArt = True
+            packed = native(core.frame(s, 'rect', profile))
+            s.packRectArt = None
+            assert packed['fieldBoss']['drawCount'] < raw['fieldBoss']['drawCount']
+            assert list(expand_rectangles(packed)) == raw['draws']
     if generation == len(order):
         break
     if generation > 1:

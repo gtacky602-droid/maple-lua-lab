@@ -1,0 +1,136 @@
+{
+  "inputSha256": "1bcfef2605979ff1569837a003e579493a13d8edcf3c125c7a3feddac43b8dbc",
+  "level": 200,
+  "journeys": [
+    [
+      "liyue-harbor",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "primo-approach",
+      "walk"
+    ],
+    [
+      "primo-approach",
+      "primo-field-vault",
+      "walk"
+    ],
+    [
+      "primo-field-vault",
+      "primo-approach",
+      "walk"
+    ],
+    [
+      "primo-approach",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "liyue-harbor",
+      "walk"
+    ]
+  ],
+  "trialAtk": 259,
+  "restoredAtk": 74956,
+  "element": "hydro",
+  "unshielded": {
+    "damage": 22,
+    "startTick": 168,
+    "observedAt": 168,
+    "endTick": 288,
+    "seconds": 2,
+    "display": "エンシェントヴィシャップ・岩（水）（Lv36） ｜ HP 970 / 970 ｜ 息継ぎ ｜ 反撃できる時間 あと2.0秒"
+  },
+  "shielded": {
+    "damage": 0,
+    "absorbed": 22,
+    "startTick": 168,
+    "observedAt": 168,
+    "endTick": 348,
+    "seconds": 3,
+    "display": "エンシェントヴィシャップ・岩（水）（Lv36） ｜ HP 858 / 970 ｜ 盾で受けた・隙＋1秒 ｜ 反撃できる時間 あと3.0秒"
+  },
+  "lateAttack": {
+    "tick": 295,
+    "damage": 189
+  },
+  "captures": {
+    "normalRecovery": {
+      "label": "息継ぎ",
+      "tick": 168,
+      "recoveryTicks": 120,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 8017,
+          "packedDraws": 1,
+          "legacyGzip": 165641,
+          "packedGzip": 98315,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3368,
+          "packedDraws": 1,
+          "legacyGzip": 72353,
+          "packedGzip": 53282,
+          "identicalPixels": true
+        }
+      }
+    },
+    "absorbed": {
+      "label": "盾で受けた・隙＋1秒",
+      "tick": 134,
+      "guardTick": 132,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 8224,
+          "packedDraws": 21,
+          "legacyGzip": 168504,
+          "packedGzip": 100693,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3554,
+          "packedDraws": 21,
+          "legacyGzip": 80207,
+          "packedGzip": 55270,
+          "identicalPixels": true
+        }
+      }
+    },
+    "extension": {
+      "label": "盾で受けた・隙＋1秒",
+      "tick": 290,
+      "guardTick": 132,
+      "recoveryTicks": 58,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 8017,
+          "packedDraws": 1,
+          "legacyGzip": 165263,
+          "packedGzip": 98405,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3368,
+          "packedDraws": 1,
+          "legacyGzip": 72742,
+          "packedGzip": 53679,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 255,
+    "mora": 165
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 127,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
