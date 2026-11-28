@@ -6,6 +6,7 @@ import json
 import subprocess
 import sys
 from math import ceil
+from pathlib import Path
 
 from experience import LEVELS, RUNTIME_EXP
 from runtime import ROOT, native, runtime
@@ -23,7 +24,10 @@ parser.add_argument('--draft-gear', choices=('carried', 'empty', 'empty-late-ref
                     help='Use the existing Lv100 checkpoint; start with carried gear or an empty bag')
 parser.add_argument('--checkpoint', action='store_true', help='Use the existing earned Lv100 checkpoint')
 parser.add_argument('--after-revisits', action='store_true', help='Continue the earned eight-quest Fontaine adventure')
+parser.add_argument('--earned-start', type=Path, help='Continue the Lv111 save after the Natlan festival quests')
 args = parser.parse_args()
+if args.earned_start and (args.checkpoint or args.after_revisits or args.draft_gear):
+    parser.error('--earned-start selects its own standard-balance checkpoint')
 if args.after_revisits and args.draft_gear:
     parser.error('The earned revisits route uses the carried inventory and standard balance')
 draft = args.draft_gear is not None
@@ -31,14 +35,21 @@ empty_start = args.draft_gear in ('empty', 'empty-late-refresh')
 
 hub = 'natlan-hub'
 suffix = '-after-revisits' if args.after_revisits else f'-draft-{args.draft_gear}' if draft else ''
-work = ROOT / 'work' / ('natlan-fresh-route' + suffix)
+work = ROOT / 'work' / ('earned-natlan-port' if args.earned_start else 'natlan-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-if not (draft or args.after_revisits or args.checkpoint):
+if not (draft or args.after_revisits or args.checkpoint or args.earned_start):
     subprocess.run([sys.executable, str(ROOT / 'test_fontaine_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
-source_file = 'evidence/fontaine-revisit-save.json' if args.after_revisits else 'work/fontaine-fresh-route/natlan-save.json'
+source_file = args.earned_start or ('evidence/fontaine-revisit-save.json' if args.after_revisits else 'work/fontaine-fresh-route/natlan-save.json')
 source = (ROOT/source_file).read_bytes()
 checkpoint = validate_save(json.loads(source))
-assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == 100
+assert checkpoint['story']['node'] == hub and checkpoint['progression']['level'] == (111 if args.earned_start else 100)
+chapter_quests = ('natlan-ridge-flag', 'natlan-two-trials', 'natlan-sunset-duel',
+                  'natlan-kachina-charms', 'natlan-mualani-surf', 'natlan-kinich-ambush')
+if args.earned_start:
+    chapter_quests += ('natlan-xilonen-springs', 'natlan-iansan-self-test')
+    assert all(checkpoint['story']['quests'][id]['status'] == 'complete' for id in chapter_quests)
+    carried_ids = {item['id'] for item in checkpoint['inventory']['items']} | {
+        drop['item']['id'] for drop in checkpoint['inventory']['ground']}
 if empty_start:
     checkpoint['inventory']['items'] = []
     checkpoint['inventory']['ground'] = []
@@ -102,6 +113,19 @@ def mark(id):
                killXp=p.killXp, kills=state.kills)
     milestones.append(row)
     print(id, p.level, p.total, flush=True)
+
+
+level_guides = []
+
+
+def record_level_guide(target, level, hunt):
+    act('world_map_focus:' + target)
+    guide = frame().worldMap.guide
+    assert guide.status == 'blocked' and guide.requiredLevel == level and guide.levelHunt.id == hunt
+    assert guide.levelExpRemaining == core.expRemainingToLevel(state, level)
+    level_guides.append(dict(target=target, atLevel=state.progression.level, level=level,
+                             remainingExp=guide.levelExpRemaining, hunt=hunt))
+    act('world_map_close')
 
 
 def report(id):
@@ -168,134 +192,135 @@ if draft or args.after_revisits:
         assert equipment_snapshot()['wornArtifacts'] == 2
     arrival_equipment = equipment_snapshot()
 
-first, staging, slope, cleft, summit = (
-    'natlan-ridge-flag', 'natlan-flag-staging', 'natlan-flag-slope', 'natlan-flag-cleft', 'natlan-flag-summit',
-)
-quest = accept(first)
-cross(staging)
-collect(382)
-cross(slope)
-collect(445)
-near(842, 391)
-collect(1445, 391)
-cross(cleft)
-collect(750, 391)
-wait(lambda: quest.count == 4)
-assert any(p.raceBridge for p in state.platforms.values())
-cross(summit)
-collect(1105, 390)
-cross(hub)
-report(first)
+if not args.earned_start:
+    first, staging, slope, cleft, summit = (
+        'natlan-ridge-flag', 'natlan-flag-staging', 'natlan-flag-slope', 'natlan-flag-cleft', 'natlan-flag-summit',
+    )
+    quest = accept(first)
+    cross(staging)
+    collect(382)
+    cross(slope)
+    collect(445)
+    near(842, 391)
+    collect(1445, 391)
+    cross(cleft)
+    collect(750, 391)
+    wait(lambda: quest.count == 4)
+    assert any(p.raceBridge for p in state.platforms.values())
+    cross(summit)
+    collect(1105, 390)
+    cross(hub)
+    report(first)
 
-second, steps, high, river, turn, meet = (
-    'natlan-two-trials', 'natlan-high-trial-steps', 'natlan-high-trial-field',
-    'natlan-river-float-run', 'natlan-river-turn-basin', 'natlan-duel-entry',
-)
-quest = accept(second)
-cross(summit)
-collect(795, 390)
-cross(steps)
-collect(522, 391)
-near(900, 302)
-collect(1044, 302)
-cross(high)
-fight(lambda: quest.pathProgress.high.count == 3, (300, 480))
-collect(1534, 390)
-cross(summit, river)
-collect(252)
-near(388)
-raft = state.riverDecks[1].platform
-wait(lambda: raft.x == 340)
-jump_to(388, 430)
-wait(lambda: raft.x == 914)
-jump_to(1117, 480)
-fight(lambda: quest.pathProgress.water.count == 2, (1125, 480))
-cross(turn)
-near(397)
-jump_to(478, 411)
-jump_to(646, 390)
-wait(lambda: trail.actor.x >= 846, controls=trail.inputs['right'])
-wait(lambda: trail.actor.ground and trail.actor.y == 411)
-raft = state.riverDecks[1].platform
-wait(lambda: 785 < raft.x < 805 and (state.t - state.storyEnteredAt) % 12.8 < 6.4)
-wait(lambda: trail.actor.x >= 906, controls=trail.inputs['right'])
-wait(lambda: trail.actor.ground and trail.actor.y == 435, ticks=120)
-wait(lambda: raft.x == 1070)
-jump_to(1270, 480)
-fight(lambda: quest.pathProgress.water.count == 3, (1250, 480))
-collect(1480)
-assert quest.pathProgress.high.count == quest.pathProgress.water.count == 4
-cross(summit, meet)
-collect(431)
-collect(847, 390)
-cross(hub)
-report(second)
+    second, steps, high, river, turn, meet = (
+        'natlan-two-trials', 'natlan-high-trial-steps', 'natlan-high-trial-field',
+        'natlan-river-float-run', 'natlan-river-turn-basin', 'natlan-duel-entry',
+    )
+    quest = accept(second)
+    cross(summit)
+    collect(795, 390)
+    cross(steps)
+    collect(522, 391)
+    near(900, 302)
+    collect(1044, 302)
+    cross(high)
+    fight(lambda: quest.pathProgress.high.count == 3, (300, 480))
+    collect(1534, 390)
+    cross(summit, river)
+    collect(252)
+    near(388)
+    raft = state.riverDecks[1].platform
+    wait(lambda: raft.x == 340)
+    jump_to(388, 430)
+    wait(lambda: raft.x == 914)
+    jump_to(1117, 480)
+    fight(lambda: quest.pathProgress.water.count == 2, (1125, 480))
+    cross(turn)
+    near(397)
+    jump_to(478, 411)
+    jump_to(646, 390)
+    wait(lambda: trail.actor.x >= 846, controls=trail.inputs['right'])
+    wait(lambda: trail.actor.ground and trail.actor.y == 411)
+    raft = state.riverDecks[1].platform
+    wait(lambda: 785 < raft.x < 805 and (state.t - state.storyEnteredAt) % 12.8 < 6.4)
+    wait(lambda: trail.actor.x >= 906, controls=trail.inputs['right'])
+    wait(lambda: trail.actor.ground and trail.actor.y == 435, ticks=120)
+    wait(lambda: raft.x == 1070)
+    jump_to(1270, 480)
+    fight(lambda: quest.pathProgress.water.count == 3, (1250, 480))
+    collect(1480)
+    assert quest.pathProgress.high.count == quest.pathProgress.water.count == 4
+    cross(summit, meet)
+    collect(431)
+    collect(847, 390)
+    cross(hub)
+    report(second)
 
-third, review, arena, rostrum = (
-    'natlan-sunset-duel', 'natlan-sunset-review', 'natlan-sunset-arena', 'natlan-sunset-rostrum',
-)
-quest = accept(third)
-cross(meet)
-collect(418)
-cross(review)
-collect(801, 390)
-cross(arena)
-near(650, 390)
-fight(lambda: quest.count >= 3, (650, 390))
-collect(1408)
-cross(rostrum)
-collect(853, 390)
-cross(hub)
-if args.after_revisits:
-    forge_seed=validate_save(native(core.checkpoint(state)))
-    (ROOT/'evidence/natlan-forge-access-save.json').write_bytes((json.dumps(forge_seed,ensure_ascii=False,sort_keys=True)+'\n').encode())
-report(third)
+    third, review, arena, rostrum = (
+        'natlan-sunset-duel', 'natlan-sunset-review', 'natlan-sunset-arena', 'natlan-sunset-rostrum',
+    )
+    quest = accept(third)
+    cross(meet)
+    collect(418)
+    cross(review)
+    collect(801, 390)
+    cross(arena)
+    near(650, 390)
+    fight(lambda: quest.count >= 3, (650, 390))
+    collect(1408)
+    cross(rostrum)
+    collect(853, 390)
+    cross(hub)
+    if args.after_revisits:
+        forge_seed=validate_save(native(core.checkpoint(state)))
+        (ROOT/'evidence/natlan-forge-access-save.json').write_bytes((json.dumps(forge_seed,ensure_ascii=False,sort_keys=True)+'\n').encode())
+    report(third)
 
-kachina, charms = 'natlan-kachina-charms', 'natlan-charm-trail'
-quest = accept(kachina)
-collect(452)
-cross(charms)
-collect(331)
-fight(lambda: quest.count == 3, (570, 480))
-collect(1116)
-collect(1480, 386)
-cross(hub)
-collect(452)
-act('story_charm_color:teal')
-act('story_charm_pattern:row')
-act('story_charm_confirm')
-report(kachina)
+    kachina, charms = 'natlan-kachina-charms', 'natlan-charm-trail'
+    quest = accept(kachina)
+    collect(452)
+    cross(charms)
+    collect(331)
+    fight(lambda: quest.count == 3, (570, 480))
+    collect(1116)
+    collect(1480, 386)
+    cross(hub)
+    collect(452)
+    act('story_charm_color:teal')
+    act('story_charm_pattern:row')
+    act('story_charm_confirm')
+    report(kachina)
 
-mualani, course, cove = 'natlan-mualani-surf', 'natlan-surf-run', 'natlan-surf-cove'
-quest = accept(mualani)
-collect(302)
-cross(course)
-collect(190)
-for _ in range(850):
-    if not state.surfRound:
-        break
-    actor = trail.actor
-    if actor.ground and (462 <= actor.x < 532 or 1015 <= actor.x < 1080):
-        act('jump')
-    tick(1, trail.inputs['right'])
-assert quest.count == 3
-cross(cove)
-collect(445)
-wait(lambda: frame().storySurf.ready, ticks=350)
-act('story_surf_hit')
-tick()
-assert quest.count == 4
-cross(hub)
-report(mualani)
+    mualani, course, cove = 'natlan-mualani-surf', 'natlan-surf-run', 'natlan-surf-cove'
+    quest = accept(mualani)
+    collect(302)
+    cross(course)
+    collect(190)
+    for _ in range(850):
+        if not state.surfRound:
+            break
+        actor = trail.actor
+        if actor.ground and (462 <= actor.x < 532 or 1015 <= actor.x < 1080):
+            act('jump')
+        tick(1, trail.inputs['right'])
+    assert quest.count == 3
+    cross(cove)
+    collect(445)
+    wait(lambda: frame().storySurf.ready, ticks=350)
+    act('story_surf_hit')
+    tick()
+    assert quest.count == 4
+    cross(hub)
+    report(mualani)
 
-kinich, hunt = 'natlan-kinich-ambush', 'natlan-kinich-hunt'
-quest = accept(kinich)
-collect(392)
-cross(hunt)
-fight(lambda: quest.count == 2, (810, 480))
-assert quest.huntNotes.outcome == 'direct'
-cross(hub)
-report(kinich)
+    kinich, hunt = 'natlan-kinich-ambush', 'natlan-kinich-hunt'
+    quest = accept(kinich)
+    collect(392)
+    cross(hunt)
+    fight(lambda: quest.count == 2, (810, 480))
+    assert quest.huntNotes.outcome == 'direct'
+    cross(hub)
+    report(kinich)
 
 recovered_gear = None
 if empty_start:
@@ -353,11 +378,21 @@ def refresh_artifacts():
     return equipment
 
 
-equipment = refresh_artifacts()
+equipment = ({role: [item.id for item in state.inventory['items'].values() if item.owner == role]
+              for role in (1, 2)} if args.earned_start else refresh_artifacts())
 
 
 def clear_backlog():
     items = state.inventory['items']
+    if args.earned_start:
+        while len(state.inventory.ground):
+            for item in list(items.values()):
+                if item.id not in carried_ids and item.owner == 0 and not item.locked:
+                    act('artifact_sell:' + str(item.id))
+            pending = len(state.inventory.ground)
+            act('artifact_recover')
+            assert len(state.inventory.ground) < pending
+        return
     spare = sorted(
         (item for item in items.values() if item.owner == 0 and not item.locked),
         key=lambda item: (item.rarity, item.itemLv, item.id),
@@ -379,6 +414,9 @@ act('story_nearby_portal')
 assert state.story.node == port and not state.voyage
 
 red_clay, rock_shelves, domain = 'natlan-terrace-red-clay', 'natlan-east-valley-rocks', 'sites-hunt-73159'
+if args.earned_start:
+    assert closed.levelExpRemaining == core.expRemainingToLevel(state, 120)
+    record_level_guide(ship, 120, red_clay)
 cross(rocky_road, quarry, hub, entry, ridge, slope_side, boulder)
 for stage, required in ((red_clay, 110), (rock_shelves, 115), (domain, 119)):
     act('world_map_toggle')
@@ -411,7 +449,9 @@ for stage, parent, threshold in route_hunts:
     if draft and threshold == 120:
         start_save = validate_save(native(core.checkpoint(state)))
         (work/'lv119-hunt-start.json').write_text(json.dumps(start_save, ensure_ascii=False), encoding='utf8')
-    for _ in range(125):
+    remaining_exp = core.expRemainingToLevel(state, threshold)
+    max_passes = ceil(remaining_exp/min_exp) if args.earned_start else 125
+    for _ in range(max_passes):
         if state.progression.level >= threshold:
             break
         needs_recovery = trail.actor.hp < 95 or (draft and (state.actors[1].hp < 95 or state.actors[2].hp <= 0))
@@ -452,6 +492,13 @@ for stage, parent, threshold in route_hunts:
     totals['seconds'] = round(totals.pop('ticks') / 60, 2)
     hunting.append(totals)
     mark('lv' + str(threshold))
+    if args.earned_start:
+        tier_save = validate_save(native(core.checkpoint(state)))
+        (work / f'lv{threshold}.json').write_text(json.dumps(tier_save, ensure_ascii=False) + '\n', encoding='utf8')
+        if threshold == 115:
+            record_level_guide(domain, 119, rock_shelves)
+        elif threshold == 119:
+            record_level_guide(ship, 120, domain)
     if draft and threshold == 112:
         before_wall, after_wall = claim_wall_reward()
         if args.draft_gear == 'empty':
@@ -505,7 +552,7 @@ assert state.returns == 0
 saved = validate_save(native(core.checkpoint(state)))
 restored = core.restore(lua.table_from(saved, recursive=True), 12)
 assert restored.story.node == nod and restored.progression.total == state.progression.total
-quests = (first, second, third, kachina, mualani, kinich)
+quests = chapter_quests
 assert all(restored.story.quests[id].status == 'complete' and restored.story.quests[id].cycles == 1 for id in quests)
 next_quest = 'nod-first-treasure'
 core.action(restored, 'story_accept:' + next_quest)
@@ -538,10 +585,20 @@ if draft:
                   artifactRecovery=recovered_gear, gearUpdates=gear_updates)
     assert restored.story.quests[wall_quest].status == 'complete'
     assert core.equippedWeapon(restored, 'traveler') == 'SW06'
-if args.after_revisits:
+if args.after_revisits or args.earned_start:
     for key, record in checkpoint['story']['quests'].items():
         if record['status']=='complete':
             assert saved['story']['quests'][key]==record
+if args.after_revisits:
     result['sourceSha256'] = sha256(source.replace(b'\r\n',b'\n')).hexdigest()
     (ROOT/'evidence/natlan-after-fontaine-save.json').write_bytes((json.dumps(saved,ensure_ascii=False,sort_keys=True)+'\n').encode('utf8'))
-(ROOT / 'evidence' / f'natlan-fresh-route{suffix}.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')
+if args.earned_start:
+    saved_ids = {item['id'] for item in saved['inventory']['items']} | {
+        drop['item']['id'] for drop in saved['inventory']['ground']}
+    assert carried_ids <= saved_ids
+    result.update(startLevel=111, preservedPriorQuests=len(checkpoint['story']['quests']),
+                  carriedArtifacts=len(carried_ids), levelGuides=level_guides)
+    result_path = ROOT / 'evidence/earned-natlan-port-lua.json'
+else:
+    result_path = ROOT / 'evidence' / f'natlan-fresh-route{suffix}.json'
+result_path.write_text(json.dumps(result, indent=2) + '\n', encoding='utf8')

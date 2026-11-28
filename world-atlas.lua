@@ -9,6 +9,26 @@ return function(C, atlas)
   end
  end
 
+ local natlanHuntOrder={'sites-hunt-73159','natlan-east-valley-rocks','natlan-terrace-red-clay'}
+ local natlanHuntGates={['natlan-east-valley-rocks']=true,['sites-hunt-73159']=true,['natlan-voyage']=true}
+
+ local function showNatlanHunt(guide,nodes,region,level)
+  if not (guide and guide.requiredLevel) or region~=places['natlan-terrace-red-clay'] then return end
+  for _,stop in ipairs(guide.stops) do
+   if stop.reason then
+    if not (natlanHuntGates[stop.id] and stop.levelExpRemaining and not stop.questReason) then return end
+    for _,id in ipairs(natlanHuntOrder) do
+     local node=nodes[id]
+     if node and node.level<=level then
+      guide.levelHunt={id=id,name=node.name,level=node.level,region=places[id]}
+      return
+     end
+    end
+    return
+   end
+  end
+ end
+
  local colors = {
   grove={'#557251','#b9cf78','#d8df9b','#47765a'},
   stone={'#8b6256','#cba678','#f0cd91','#9d795c'},
@@ -736,6 +756,7 @@ return function(C, atlas)
     progress=region_progress(nodes,f.storyGraph,s,options,region)}
   if region then
    result.points,result.selected,result.routes,result.guide=local_map(result.draws, region, nodes, s, map)
+   showNatlanHunt(result.guide,nodes,result.currentRegion,s.progression.level)
   else
    result.points=overview(result.draws,options,f.story.node,nodes)
    if map.layer=='boss' then

@@ -5,8 +5,10 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
-const proof=JSON.parse(await fs.readFile('evidence/natlan-fresh-route.json','utf8'));
-const path='work/natlan-fresh-route/nod-ready-save.json';
+const earned=process.env.LAB_NATLAN_PORT_CHECKPOINT;
+const proof=JSON.parse(await fs.readFile(earned?'evidence/earned-natlan-port-lua.json':'evidence/natlan-fresh-route.json','utf8'));
+const path=earned||'work/natlan-fresh-route/nod-ready-save.json';
+const output=earned?'work/earned-natlan-port':'evidence';
 const saved=JSON.parse(await fs.readFile(path,'utf8'));
 const port='natlan-port',ship='natlan-voyage',arrival='nod-port',approach='nod-field',town='nod-town';
 const firstQuest='nod-first-treasure';
@@ -54,7 +56,7 @@ try {
  assert.deepEqual(route.map(([id])=>id),[ship,arrival,approach,town]);
  assert.deepEqual(route.map(([,mode])=>mode),['boat','boat','walk','walk']);
  await page.locator('#atlasItineraryStops').getByText(/出航から90秒で着岸/).waitFor();
- await atlas.screenshot({path:'evidence/natlan-fresh-nod-atlas.png'});
+ await atlas.screenshot({path:output+'/natlan-fresh-nod-atlas.png'});
  await page.keyboard.press('Escape');
  await atlas.waitFor({state:'hidden'});
 
@@ -84,9 +86,18 @@ try {
  assert.equal(after.progression.total,before.progression.total+travelKillXp);
  for(const id of proof.completedQuests) assert.equal(after.story.quests[id].status,'complete');
  await drive.accept(firstQuest);
+ if(earned){
+  await page.locator('#saveProgress').click();
+  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const checkpoint=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+  const next=JSON.parse(checkpoint);
+  for(const [id,record] of Object.entries(saved.story.quests))assert.deepEqual(next.story.quests[id],record,id);
+  assert.equal(next.story.quests[firstQuest].status,'active');
+  await fs.writeFile(output+'/nod-browser-save.json',checkpoint+'\n');
+ }
  assert.deepEqual(errors,[]);
 
- await fs.writeFile('evidence/natlan-fresh-route-browser.json',JSON.stringify({
+ await fs.writeFile(output+'/natlan-fresh-route-browser.json',JSON.stringify({
   importedLevel:before.progression.level,arrivalLevel:after.progression.level,route,hunts,
   completedQuests:proof.completedQuests,ferrySeconds:aboard.voyage.total,autoLanded:true,
   mapPausedVoyage:true,firstNodQuestAccepted:firstQuest,travelKillXp,errors

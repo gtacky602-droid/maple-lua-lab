@@ -238,6 +238,14 @@ export function initAtlas(action, clearKeys) {
     detour.onclick=()=>showPlace(lastReachable);
     barrier.append(detour);
    }
+   const hunt=guide.levelHunt;
+   if(hunt){
+    const training=document.createElement('button');
+    training.type='button';
+    training.textContent=`Lv${hunt.level}の狩場「${hunt.name}」への道順を見る`;
+    training.onclick=()=>showPlace(hunt);
+    barrier.append(training);
+   }
    appendGateLink(barrier,stop.from,stop);
   }
   itineraryStops.replaceChildren(...stops.map(stop => {

@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## ナタの狩場案内と北行き航路
+
+M地図の東谷の岩棚・東の秘境周辺・北行き航路がレベルで閉じているときは、今のレベルで入れる狩場への道順を開ける。七記録を揃えたLv111から、段丘の赤土棚・東谷の岩棚・東の秘境周辺で計5,080体を倒し、Lv120で出航した。聖遺物76点と報告済み85件を保持した。 [入口と案内](evidence/earned-natlan-port-gate-browser.json) · [育成と航海の検証](evidence/earned-natlan-port-lua.json)
+
 ## イアンサの訓練と初回との差
 
 記録台で走行時間、被弾、区間別停止時間の初回との差を表示する。シロネン報告済みのLv111セーブで改善点の途中保存、二周の記録、報告後の三周目を通した。幅390pxで保存した二周と今回を並べられる。同じセーブから夕映え会場に入り、七つの記録とイアンサの訓練路へのM地図リンクを確認した。 [通し検証](evidence/earned-natlan-iansan-training-browser.json) · [ナタの記録台](evidence/earned-natlan-festival-browser.json)

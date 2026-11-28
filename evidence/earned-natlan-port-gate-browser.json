@@ -1,0 +1,24 @@
+{
+  "startLevel": 111,
+  "gates": [
+    {
+      "gate": "natlan-east-valley-rocks",
+      "level": 115,
+      "remainingExp": 12888328,
+      "hunt": "natlan-terrace-red-clay"
+    },
+    {
+      "gate": "sites-hunt-73159",
+      "level": 119,
+      "remainingExp": 33730700,
+      "hunt": "natlan-terrace-red-clay"
+    },
+    {
+      "gate": "natlan-voyage",
+      "level": 120,
+      "remainingExp": 39792556,
+      "hunt": "natlan-terrace-red-clay"
+    }
+  ],
+  "errors": []
+}
