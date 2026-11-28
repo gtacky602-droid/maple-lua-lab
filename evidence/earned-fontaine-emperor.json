@@ -1,0 +1,68 @@
+{
+  "sourceSha256": "859374c8bb76973664c317afac34f5409ef5e7c2db7ca906ea4daee0c0a9f148",
+  "gateChecks": [
+    {
+      "node": "fontaine-field",
+      "target": "emperor-field-cove",
+      "reason": "必要レベル 82"
+    }
+  ],
+  "chapter": {
+    "reward": {
+      "quest": "fontaine-understage-crew",
+      "xp": 1921946,
+      "mora": 3900,
+      "ore": 4
+    },
+    "checkpoint": "fontaine-parcel-storeroom",
+    "hpBeforeCover": 384,
+    "hpWithCover": 370,
+    "guards": {
+      "node": "fontaine-understage-workfloor",
+      "targets": [
+        "fontaine-understage-guard-left",
+        "fontaine-understage-guard-right"
+      ],
+      "xp": 3452,
+      "kills": 2
+    },
+    "readback": true
+  },
+  "entryLevel": 84,
+  "combat": {
+    "moves": [
+      "FEC01",
+      "FEC02",
+      "FEC03"
+    ],
+    "order": [
+      [
+        "1",
+        455.0,
+        375
+      ],
+      [
+        "2",
+        345.0,
+        375
+      ]
+    ],
+    "timers": {
+      "168": 144,
+      "216": 96
+    },
+    "hitExposed": true,
+    "hpBefore": 384,
+    "hpAfter": 384,
+    "seconds": 19.85,
+    "xp": 98800
+  },
+  "report": {
+    "quest": "emperor-commission",
+    "xp": 5000,
+    "mora": 360
+  },
+  "restoredCooldown": 3382,
+  "commissionCount": 15,
+  "returns": 0
+}

@@ -8531,6 +8531,18 @@
       "lua_evidence": "evidence/earned-fontaine-delivery.json",
       "browser_evidence": "evidence/earned-fontaine-delivery-browser.json"
     },
+    "earned_fontaine_emperor": {
+      "start_level": 81,
+      "entry_level": 84,
+      "arena_gate_level": 82,
+      "chapter_objectives": 10,
+      "reported_commissions_total": 15,
+      "encounter_cleared_and_commission_restored": "boss-26160302",
+      "ordered_landing_points": 2,
+      "exposure_ticks": 144,
+      "lua_evidence": "evidence/earned-fontaine-emperor.json",
+      "browser_evidence": ["evidence/earned-fontaine-understage-browser.json", "evidence/earned-fontaine-emperor-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

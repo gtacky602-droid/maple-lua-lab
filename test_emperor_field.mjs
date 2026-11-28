@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureNumberedFieldWarning} from './tools/browser_waypoint_test.mjs';
 
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-fontaine-emperor':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='emperor-field';
@@ -41,7 +44,7 @@ async function pause(value){
 }
 
 async function fight(){
- await page.evaluate(()=>{
+ await page.evaluate(earned=>{
   const held=new Set(),moves=new Set(),dodges=new Set();
   const warnings={FEC01:[98],FEC02:[104,152],FEC03:[116]};
   let prior='',lastTick=-1,used=new Set();
@@ -70,20 +73,40 @@ async function fight(){
    const dx=b.x-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',dx<-99||(turn&&dx<0));
    hold('KeyD',dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   hold('KeyJ',(!earned||window.emperorCounterReady)&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },earned);
+}
+
+async function mapRoute(){
+ await page.evaluate(()=>document.activeElement.blur());
+ await page.keyboard.press('KeyM');
+ const atlas=page.locator('#worldAtlas');
+ await atlas.waitFor();
+ await page.locator('#atlasRegion').selectOption('region-05');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-05');
+ await page.locator('#atlasLayer').selectOption('boss');
+ await page.locator('#atlasField').selectOption(arena);
+ await page.waitForFunction(id=>window.lab.frame.worldMap?.selected?.id===id,arena);
+ const route=(await frame()).worldMap.guide;
+ assert.equal(route.status,'ready');
+ const stops=route.stops.map(stop=>[stop.id,stop.mode]);
+ assert.deepEqual(stops,[['fontaine-field','walk'],[arena,'walk']]);
+ await page.locator('#atlasClose').click();
+ await atlas.waitFor({state:'hidden'});
+ return stops;
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(earned?output+'/emperor-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='fontaine-hub',quest);
+ const route=earned?await mapRoute():null;
  await gate(1380,'fontaine-field');
  await gate(510,arena);
  const scenery=await page.evaluate(async()=>{
@@ -103,7 +126,7 @@ try{
  assert.equal(original.fieldBoss.form,'guarded');
  assert.ok(original.draws.some(d=>d.source==='emperor-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='emperor-field-poses-source-v1.png'));
  const standard=await frame();
@@ -111,10 +134,13 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  await fight();
+ const fireOrder=earned?await captureNumberedFieldWarning(page,{
+  move:'FEC02',before:108,color:'#fff1b0',count:2,output:output+'/emperor-fire-order'
+ }):null;
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
   if(b?.move!=='FEC02'||b.tick<95||b.tick>=107||
@@ -123,7 +149,7 @@ try{
   return true;
  });
  await page.waitForFunction(()=>window.lab.frame.paused);
- await canvas.screenshot({path:'evidence/'+prefix+'-fire.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-fire.png'});
  await pause(false);
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
@@ -134,7 +160,22 @@ try{
  });
  await page.waitForFunction(()=>window.lab.frame.paused);
  assert.match(await page.locator('#fieldBossLabel').textContent(),/正面から反撃/);
- await canvas.screenshot({path:'evidence/'+prefix+'-exposed.png'});
+ const exposed=await frame();
+ assert.equal(exposed.fieldBoss.exposureTicks,312-exposed.fieldBoss.tick);
+ assert.match(await page.locator('#fieldBossLabel').textContent(),/あと\d+\.\d秒/);
+ await canvas.screenshot({path:output+'/'+prefix+'-exposed.png'});
+ if(earned){
+  await page.locator('#renderMode').selectOption('h32c16');
+  await page.waitForFunction(()=>window.lab.frame.commands>1000);
+  const compressed=await frame();
+  assert.equal(compressed.fieldBoss.exposureTicks,exposed.fieldBoss.exposureTicks);
+  const timer=f=>f.draws.find(d=>d.color==='#a6eee7'&&d.h===3);
+  assert.ok(timer(exposed));
+  assert.deepEqual(timer(compressed),timer(exposed));
+  await canvas.screenshot({path:output+'/'+prefix+'-exposed-light.png'});
+  await page.locator('#renderMode').selectOption('sprite');
+  await page.evaluate(()=>{window.emperorCounterReady=true});
+ }
  await pause(false);
  await page.waitForFunction(()=>window.emperorFieldResult,undefined,{timeout:140000});
  const play=await page.evaluate(()=>window.emperorFieldResult);
@@ -157,6 +198,16 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(earned){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(q=>window.lab.frame.story?.quests[q]?.status==='complete',quest);
+  const recovered=await frame();
+  assert.equal(recovered.story.quests[quest].cycles,1);
+  assert.equal(recovered.endgame.bosses[id].clears,1);
+  assert.equal(recovered.story.quests['fontaine-understage-crew'].status,'complete');
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('鉄甲熔炎帝王');
@@ -166,10 +217,11 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
+ await fs.writeFile(earned?'evidence/earned-fontaine-emperor-browser.json':output+'/'+prefix+'-browser.json',JSON.stringify({
   browser:'Chrome',play,fieldKill:{xp:killXp,mora:280},commissionReport:{xp:5000,mora:360},
   persistedCooldown:true,
-  sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},guardedAndExposed:true,fallArcVisible:true,viewport390:true,errors
+  sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},guardedAndExposed:true,fallArcVisible:true,viewport390:true,errors,
+  ...(earned?{route,fireOrder,exposedRemainingTicks:exposed.fieldBoss.exposureTicks,restoredCommission:true}:{})
  },null,2)+'\n');
  console.log('Emperor field Chrome route, all moves, clear, report, save passed');
 }catch(error){
