@@ -1,0 +1,88 @@
+{
+  "level": 96,
+  "approach": [
+    "nostoi-castle-approach"
+  ],
+  "journeys": [
+    [
+      "fontaine-hub",
+      "nostoi-castle-approach",
+      "walk"
+    ],
+    [
+      "nostoi-castle-approach",
+      "fon-wp-68341",
+      "walk"
+    ],
+    [
+      "fon-wp-68341",
+      "fon-wp-68345",
+      "waterway"
+    ],
+    [
+      "fon-wp-68345",
+      "fon-wp-68342",
+      "waterway"
+    ],
+    [
+      "fon-wp-68342",
+      "fon-wp-68343",
+      "swim"
+    ],
+    [
+      "fon-wp-68343",
+      "fon-wp-68344",
+      "waterway"
+    ],
+    [
+      "fon-wp-68344",
+      "fon-wp-68343",
+      "waterway"
+    ],
+    [
+      "fon-wp-68343",
+      "fon-wp-68342",
+      "swim"
+    ],
+    [
+      "fon-wp-68342",
+      "fon-wp-68345",
+      "waterway"
+    ],
+    [
+      "fon-wp-68345",
+      "fon-wp-68341",
+      "waterway"
+    ]
+  ],
+  "depthPrompts": [
+    {
+      "from": "fon-wp-68345",
+      "target": "fon-wp-68342",
+      "direction": "down",
+      "prompt": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 第一層から北室へ潜る水路へは潜水"
+    },
+    {
+      "from": "fon-wp-68343",
+      "target": "fon-wp-68344",
+      "direction": "up",
+      "prompt": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 記録棚の下層へ潜る水路へは浮上"
+    }
+  ],
+  "shelfPrompt": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 棚の文字を記録するには浮上",
+  "restoredMidQuestAt": 3,
+  "steps": 6,
+  "report": {
+    "xp": 205000,
+    "mora": 15800
+  },
+  "restoredShelfAndWarp": true,
+  "returns": 0,
+  "render": {
+    "png": 30,
+    "standard": 2956,
+    "light": 771,
+    "frozen": true
+  },
+  "pageErrors": []
+}

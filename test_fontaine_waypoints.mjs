@@ -11,7 +11,8 @@ const quests=Object.fromEntries(graph.quests.map(q=>[q.id,q]));
 const samples='fon-mapped-depth-samples',bygone='fon-mapped-bygone-current';
 const lock='fon-mapped-north-lock',nostoi='fon-mapped-nostoi-record';
 const north=process.argv.includes('--north-surveys');
-const captures=process.env.LAB_FONTAINE_CAPTURES||(north?'work/earned-fontaine-surveys':'evidence');
+const nostoiReplay=process.argv.includes('--nostoi');
+const captures=process.env.LAB_FONTAINE_CAPTURES||(nostoiReplay?'work/earned-fontaine-nostoi':north?'work/earned-fontaine-surveys':'evidence');
 await fs.mkdir(captures,{recursive:true});
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1200,height:960}});
@@ -53,7 +54,7 @@ async function verifyDepthPrompt(target,direction){
  const current=await d.node();
  await page.keyboard.press('KeyF');
  assert.equal(await d.node(),current);
- if(north){
+ if(north||nostoiReplay){
   await page.locator('.game').screenshot({path:join(captures,target+'-depth-'+direction+'.png')});
   await page.setViewportSize({width:390,height:844});
   assert.ok(await diveHelp.evaluate(el=>el.scrollWidth<=el.clientWidth));
@@ -161,12 +162,94 @@ async function survey(id,approach){
  return route;
 }
 
-try{
- await page.goto(base);
+async function reloadAtCount(id,expected){
+ await page.locator('#saveProgress').click();
+ await page.waitForFunction(([id,n])=>{
+  const raw=localStorage.getItem('maple-lua-lab.checkpoint.v1');
+  return raw&&JSON.parse(raw).story.quests[id]?.count===n;
+ },[id,expected]);
+ await page.reload();
  await page.waitForFunction(()=>window.lab?.frame);
- await page.locator('#importSave').setInputFiles(north?'work/earned-fontaine-surveys/surveys-ready.json':
-  'work/fontaine-waypoint-browser-save.json');
+ await page.locator('#loadProgress').click();
  await waitNode('fontaine-hub');
+ await count(id,expected);
+}
+
+async function earnNostoi(){
+ const quest=quests[nostoi],shelf=quest.itinerary.at(-1);
+ const game=page.locator('.game');
+ const frame=()=>page.evaluate(()=>window.lab.frame);
+ assert.equal((await frame()).progression.level,96);
+ assert.equal((await frame()).story.quests['knave-weekly-commission'].status,'complete');
+ await accept(nostoi);
+ const approach=await followAtlas(quest.itinerary[0].from);
+ for(const [i,step] of quest.itinerary.slice(0,-1).entries()){
+  assert.equal(await d.node(),step.from);
+  if(i===2||i===4){
+   const gate=nodes[step.from].exits.find(e=>e.to===step.node);
+   await walk(gate.x);
+   await changeHeight(gate.y+(i===2?-75:75));
+   await verifyDepthPrompt(step.node,i===2?'down':'up');
+  }
+  const stops=await atlasGuide(step.node);
+  assert.deepEqual(stops.map(s=>s.id),[step.node]);
+  if(i===2)assert.match(stops[0].hint,/第一層から北室へ潜る水路/);
+  await cross(step.node);
+  await count(nostoi,i+1);
+  if(i===2){
+   await reloadAtCount(nostoi,3);
+   await warp(step.node);
+   await diveHelp.waitFor();
+  }
+ }
+ await walk(shelf.x-24);
+ await changeHeight(shelf.y+78);
+ await page.waitForFunction(()=>window.lab.frame.storySwimInstrument?.direction==='up');
+ const prompt=await diveHelp.textContent();
+ assert.match(prompt,/棚の文字を記録するには浮上/);
+ await game.screenshot({path:join(captures,'record-shelf-depth.png')});
+ await page.keyboard.press('KeyG');
+ await count(nostoi,5);
+ assert.equal((await frame()).story.quests[nostoi].count,5);
+ await changeHeight(shelf.y);
+ await page.waitForFunction(()=>window.lab.frame.storyNearbyMilestone?.label==='記録を取る');
+ const palette=graph.waterInstruments.recordShelf;
+ const hasProp=async part=>{
+  const [,,w,h,color]=palette[part][0];
+  return (await frame()).draws.some(d=>d.kind==='rect'&&d.w===w&&d.h===h&&d.color===color);
+ };
+ assert.ok(await hasProp('before'));
+ const render=await compareProfiles();
+ await inspect(shelf,nostoi,6);
+ assert.ok(await hasProp('after')&&await hasProp('pending'));
+ await game.screenshot({path:join(captures,'record-shelf-checked.png')});
+ const back=await atlasGuide('fon-wp-68343');
+ assert.match(back[0].hint,/記録棚から南室へ戻る水路/);
+ await follow('fon-wp-68343','fon-wp-68342','fon-wp-68345','fon-wp-68341');
+ assert.equal(await diveHelp.isHidden(),true);
+ await warp(quest.hub);
+ const before=await frame();
+ await report(nostoi);
+ const after=await frame();
+ assert.deepEqual([after.progression.questXp-before.progression.questXp,after.mora-before.mora],[quest.xp,quest.mora]);
+ await reloadAtCount(nostoi,6);
+ assert.equal((await frame()).story.quests[nostoi].status,'complete');
+ const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+ await fs.writeFile(join(captures,'nostoi-browser-save.json'),saved+'\n');
+ await warp(shelf.node);
+ assert.ok(await hasProp('reported'));
+ assert.equal((await frame()).storySwimInstrument??null,null);
+ await game.screenshot({path:join(captures,'record-shelf-reported.png')});
+ assert.equal((await frame()).returns,0);
+ assert.deepEqual(errors,[]);
+ await fs.writeFile('evidence/earned-fontaine-nostoi-browser.json',JSON.stringify({
+  level:96,approach,journeys,depthPrompts,shelfPrompt:prompt,restoredMidQuestAt:3,steps:6,
+  report:{xp:quest.xp,mora:quest.mora},restoredShelfAndWarp:true,returns:0,render,pageErrors:errors
+ },null,2)+'\n');
+ console.log('Earned Lv96 Nostoi route passed in Chrome.');
+}
+
+async function surveyCatalog(){
  if(north)assert.equal(await page.evaluate(()=>window.lab.frame.progression.level),92);
  await survey(samples);
  const lockRoute=await survey(lock,'fon-wp-53867');
@@ -209,6 +292,17 @@ try{
   differentDepthRejection:true,reloadAndWarp:true,pageErrors:errors
  },null,2)+'\n');
  console.log('Chrome passed '+reported.length+' reports, depth prompts, diving and landing, and the saved underwater warp.');
+}
+
+try{
+ await page.goto(base);
+ await page.waitForFunction(()=>window.lab?.frame);
+ const source=nostoiReplay?'work/earned-fontaine-nostoi/level96-ready.json':
+  north?'work/earned-fontaine-surveys/surveys-ready.json':'work/fontaine-waypoint-browser-save.json';
+ await page.locator('#importSave').setInputFiles(source);
+ await waitNode('fontaine-hub');
+ if(nostoiReplay)await earnNostoi();
+ else await surveyCatalog();
 }catch(error){
  console.error('Last completed crossings:',journeys);
  console.error('Last browser state:',await page.evaluate(()=>{
