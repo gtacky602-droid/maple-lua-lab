@@ -1,0 +1,142 @@
+{
+  "source": "work/earned-fontaine-acts/acts-browser-complete.json",
+  "endLevel": 94,
+  "depths": [
+    {
+      "quest": "fon-morte-sluice-survey",
+      "index": 1,
+      "direction": "down",
+      "message": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 塔の外圧計を調べるには潜水"
+    },
+    {
+      "quest": "fon-morte-sluice-survey",
+      "index": 3,
+      "direction": "up",
+      "message": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 内側の水門を調べるには浮上"
+    },
+    {
+      "quest": "fon-erinnyes-root-water-survey",
+      "index": 3,
+      "direction": "down",
+      "message": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 水脈の底にある根元の流れを記録するには潜水"
+    },
+    {
+      "quest": "fon-erinnyes-root-water-survey",
+      "index": 4,
+      "direction": "up",
+      "message": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ 上側の根のそばで水温を測るには浮上"
+    }
+  ],
+  "compression": {
+    "png": 18,
+    "standard": 2946,
+    "light": 761
+  },
+  "journeys": [
+    [
+      "fontaine-hub",
+      "fontaine-field",
+      "walk"
+    ],
+    [
+      "fontaine-field",
+      "fon-wp-50064",
+      "waterway"
+    ],
+    [
+      "fon-wp-50064",
+      "fon-wp-50065",
+      "swim"
+    ],
+    [
+      "fon-wp-50065",
+      "fon-wp-50066",
+      "swim"
+    ],
+    [
+      "fon-wp-50066",
+      "fon-wp-55767",
+      "swim"
+    ],
+    [
+      "fon-wp-55767",
+      "fon-wp-55765",
+      "swim"
+    ],
+    [
+      "fon-wp-55765",
+      "morte-tower-sluice",
+      "waterway"
+    ],
+    [
+      "morte-tower-sluice",
+      "fon-wp-55765",
+      "waterway"
+    ],
+    [
+      "fon-wp-55765",
+      "morte-tower-sluice",
+      "waterway"
+    ],
+    [
+      "morte-tower-sluice",
+      "fon-wp-55765",
+      "waterway"
+    ],
+    [
+      "fontaine-hub",
+      "fon-wp-50047",
+      "walk"
+    ],
+    [
+      "fon-wp-50047",
+      "fon-wp-50048",
+      "walk"
+    ],
+    [
+      "fon-wp-50048",
+      "fon-wp-55776",
+      "walk"
+    ],
+    [
+      "fon-wp-55776",
+      "fon-wp-55784",
+      "lift"
+    ],
+    [
+      "fon-wp-55784",
+      "erinnyes-root-waterway",
+      "waterway"
+    ],
+    [
+      "erinnyes-root-waterway",
+      "fon-wp-55784",
+      "waterway"
+    ],
+    [
+      "fon-wp-55784",
+      "erinnyes-root-waterway",
+      "waterway"
+    ],
+    [
+      "erinnyes-root-waterway",
+      "fon-wp-55784",
+      "waterway"
+    ]
+  ],
+  "routeBefore": "fon-wp-55765",
+  "routeAfter": "morte-tower-sluice",
+  "rootApproach": "erinnyes-root-waterway",
+  "reportAfterReload": true,
+  "payouts": {
+    "fon-morte-sluice-survey": {
+      "xp": 165000,
+      "mora": 12750
+    },
+    "fon-erinnyes-root-water-survey": {
+      "xp": 176000,
+      "mora": 14350
+    }
+  },
+  "errors": []
+}

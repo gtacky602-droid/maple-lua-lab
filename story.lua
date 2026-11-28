@@ -532,8 +532,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
  end
+ function C.inspectionOffset(a,item)
+  local dx,dy=item.x-a.x,item.y-a.y
+  return math.abs(dx)<54 and 0 or dx,math.abs(dy)<34 and 0 or dy
+ end
  local function canInspect(a,item)
-  return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
+  if a.hp<=0 then return false end
+  local dx,dy=C.inspectionOffset(a,item)
+  return dx==0 and dy==0
  end
  local function growthViewpoint(s)
   local node=nodes[s.story.node]
@@ -2958,6 +2964,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        markers[#markers+1]={kind='text',x=x,y=captionY,text=caption,color='#fff0b9',size=14}
       end
      end
+     if milestone.waterInstrument and s.storySwimming and not s.lift and not s.paused then
+      local actor=s.actors[s.active]
+      local dx,dy=C.inspectionOffset(actor,milestone)
+      if actor.hp>0 and dx==0 and dy~=0 then
+       f.storySwimInstrument={objective=milestone.objective,direction=dy>0 and 'down' or 'up'}
+      end
+     end
      if not f.storyNearbyMilestone and not s.paused
          and not (milestone.flagLowerSeconds and s.flagLowering)
          and (not milestone.teaCup or teaCase.allowed(s,q,state))
@@ -2971,7 +2984,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          or milestone.stonePairBoard and s.stonePairOpen and '石飾りを閉じる'
          or milestone.photoPanel and s.photoPanel and '写真を閉じる'
          or milestone.discoveryBoard and s.nahidaMapOpen and '絵地図を閉じる'
-         or milestone.modelBoard and s.kavehModelOpen and '模型を閉じる' or milestone.action}
+         or milestone.modelBoard and s.kavehModelOpen and '模型を閉じる' or milestone.action or milestone.label}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
       if milestone.surveyMap then f.storySurveyMap=milestone.surveyMap end
      end

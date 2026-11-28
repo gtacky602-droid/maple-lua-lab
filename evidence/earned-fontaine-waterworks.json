@@ -1,0 +1,115 @@
+{
+  "sourceSha256": "0f53b1b9f48185ff31f7065f0a3f173b42f6bdbb6051b3116d7933d2ea1c2f1b",
+  "morte": {
+    "approach": [
+      [
+        "fontaine-field",
+        "walk"
+      ],
+      [
+        "fon-wp-50064",
+        "water"
+      ],
+      [
+        "fon-wp-50065",
+        "swim"
+      ],
+      [
+        "fon-wp-50066",
+        "swim"
+      ],
+      [
+        "fon-wp-55767",
+        "swim"
+      ],
+      [
+        "fon-wp-55765",
+        "swim"
+      ]
+    ],
+    "depth": [
+      {
+        "step": 1,
+        "instrument": "gauge",
+        "direction": "down",
+        "markY": 392,
+        "attemptedY": 316
+      },
+      {
+        "step": 3,
+        "instrument": "valve",
+        "direction": "up",
+        "markY": 305,
+        "attemptedY": 384
+      }
+    ],
+    "restoredAtCount": 1,
+    "restoredReport": true,
+    "entranceBefore": {
+      "entrance": "fon-wp-55765",
+      "target": "chassanion-legend-bubble-room",
+      "requiredLevel": 100
+    },
+    "entranceAfter": {
+      "entrance": "morte-tower-sluice",
+      "target": "chassanion-legend-bubble-room",
+      "requiredLevel": 100
+    },
+    "payout": {
+      "quest": "fon-morte-sluice-survey",
+      "xp": 165000,
+      "mora": 12750
+    }
+  },
+  "erinnyes": {
+    "approach": [
+      [
+        "fon-wp-50047",
+        "walk"
+      ],
+      [
+        "fon-wp-50048",
+        "walk"
+      ],
+      [
+        "fon-wp-55776",
+        "walk"
+      ],
+      [
+        "fon-wp-55784",
+        "lift"
+      ]
+    ],
+    "depth": [
+      {
+        "step": 3,
+        "instrument": "current",
+        "direction": "down",
+        "markY": 404,
+        "attemptedY": 324
+      },
+      {
+        "step": 4,
+        "instrument": "temperature",
+        "direction": "up",
+        "markY": 226,
+        "attemptedY": 309
+      }
+    ],
+    "restoredReport": true,
+    "questRequirementCleared": true,
+    "entrance": {
+      "entrance": "erinnyes-root-waterway",
+      "target": "erinnyes-corrouge-cleft",
+      "requiredLevel": 100
+    },
+    "payout": {
+      "quest": "fon-erinnyes-root-water-survey",
+      "xp": 176000,
+      "mora": 14350
+    }
+  },
+  "endLevel": 94,
+  "returns": 0,
+  "completedInstrumentsStopGuiding": true
+}
