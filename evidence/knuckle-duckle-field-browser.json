@@ -1,42 +1,158 @@
 {
-  "browser": "Chrome",
-  "companion": "wanderer",
-  "play": {
-    "won": true,
-    "seconds": 48.68,
-    "moves": [
-      "FDK01",
-      "FDK02",
-      "FDK03"
+  "inputSha256": "4eefeaec7f3410de5379ebd9776af976faa3d9c236ac7e69d3e17aa1e8b5c038",
+  "level": 200,
+  "journeys": [
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
     ],
-    "hp": 140,
-    "returns": 0,
-    "down": true,
-    "usedSkill": true,
-    "started": true,
-    "destroyed": [
-      -24100102,
-      -24100103
+    [
+      "nod-field",
+      "nod-duckle-workyard",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-duckle-workyard",
+      "walk"
+    ],
+    [
+      "nod-duckle-workyard",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
     ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "originalAttack": 74956
   },
   "scenery": {
     "key": "duckleField",
     "file": "knuckle-duckle-field-background-v1.png",
     "state": "ready"
   },
-  "questAcceptedInUi": true,
-  "questReport": {
+  "arrival": {
+    "starts": [
+      657.0000000000009,
+      551.4000000000009
+    ],
+    "lane": {
+      "right": 808.84,
+      "left": 645.16
+    },
+    "hpBefore": 1135,
+    "hpAfter": 1135,
+    "heroDamage": 0
+  },
+  "interruption": {
+    "defeated": 2,
+    "tick": 246,
+    "counterDamage": 14,
+    "hpAfterReload": 1121
+  },
+  "captures": {
+    "jump": {
+      "label": "跳び込みハンマー",
+      "tick": 108,
+      "form": "airborne",
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 4446,
+          "packedDraws": 12,
+          "plainGzip": 91680,
+          "packedGzip": 70994,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 1956,
+          "packedDraws": 12,
+          "plainGzip": 50947,
+          "packedGzip": 42889,
+          "identicalPixels": true
+        }
+      }
+    },
+    "repairs": {
+      "label": "補修メカ 0／2・あと2.9秒・2機で放電中断",
+      "tick": 126,
+      "form": "charging",
+      "summons": [
+        {
+          "id": -24100101000003,
+          "x": 665.8854368932048,
+          "y": 480,
+          "hp": 16,
+          "maxhp": 16
+        },
+        {
+          "id": -24100101000004,
+          "x": 576.6893203883504,
+          "y": 480,
+          "hp": 16,
+          "maxhp": 16
+        }
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 5783,
+          "packedDraws": 23,
+          "plainGzip": 106717,
+          "packedGzip": 79414,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2575,
+          "packedDraws": 23,
+          "plainGzip": 57564,
+          "packedGzip": 47073,
+          "identicalPixels": true
+        }
+      }
+    },
+    "release": {
+      "label": "放電・床の印から退避",
+      "tick": 342,
+      "form": "charging",
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 4766,
+          "packedDraws": 9,
+          "plainGzip": 101857,
+          "packedGzip": 73957,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2159,
+          "packedDraws": 9,
+          "plainGzip": 55636,
+          "packedGzip": 44764,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 15792,
+    "mora": 445
+  },
+  "reportReward": {
     "xp": 8500,
     "mora": 570
   },
-  "sameSceneCommands": {
-    "png": 43,
-    "standard": 12804,
-    "light": 3573
-  },
-  "twoMechaDucksAt": 64,
-  "wardBrokenBy": 163,
-  "savedRespawn": true,
-  "viewport390": true,
+  "fieldClears": 1,
+  "reported": 139,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
   "errors": []
 }

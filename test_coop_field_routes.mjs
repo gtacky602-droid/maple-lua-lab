@@ -127,7 +127,7 @@ const cases={
   evade:{FSP01:[99,168],FSP02:[107,180],FSP03:[139,211]}},
  duckle:{hub:'nod-town',arena:'nod-duckle-workyard',approach:'nod-field',
   boss:'boss-24100101',quest:'knuckle-duckle-commission',hp:1135,mora:445,xp:526400,scene:'duckleField',
-  asset:'knuckle-duckle-field',pose:'poses',label:'repair-units',fixture:'knuckle-duckle-field',report:[8500,570],stance:76,
+  asset:'knuckle-duckle-field',pose:'poses',label:'repair-march',fixture:'knuckle-duckle-field',report:[8500,570],stance:76,
   evade:{FDK01:[97,165],FDK02:[124],FDK03:[336]}},
  battleship:{hub:'nod-town',arena:'nod-battleship-depot',approach:'nod-field',
   boss:'boss-23090101',quest:'battleship-commission',hp:1170,mora:455,xp:597050,scene:'battleshipField',
@@ -499,12 +499,13 @@ async function fight(page,side,key,config) {
    }
    if(key==='duckle'){
     const sprites=f.draws.filter(d=>d.source===art);
-    if(b.repairWard.hp>0&&b.summons?.length===2&&sprites.length===3&&
+    if(b.repairSequence&&!b.repairWard&&b.summons?.length===2&&sprites.length===3&&
+       (b.summons[0].x-b.x)*(b.summons[1].x-b.x)>0&&
        sprites.slice(1).every((d,i)=>Math.abs(d.x+f.camera-b.summons[i].x)<.001)){
      repairLayouts.add(b.summons.map(unit=>unit.id).join(','));
      visual=true;
     }
-    if(b.form==='down'&&b.repairWard.hp===0&&!b.summons) machineDown=true;
+    if(b.form==='down'&&b.repairSequence?.interrupted&&b.repairSequence.defeated===2&&!b.summons) machineDown=true;
    }
    if(key==='battleship'){
     if(b.move==='FBT02'&&b.tick>=212) shipHeating=true;

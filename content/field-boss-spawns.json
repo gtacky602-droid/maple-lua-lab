@@ -1378,11 +1378,10 @@
       "level":122,"hp":1135,"mora":445,"artHeight":155,"floorY":480,"home":920,
       "arenaMin":335,"arenaMax":1590,"noticeRange":335,"noticeTicks":36,"restTicks":42,
       "leashTicks":300,"respawnTicks":3600,"walkSpeed":63,"contactDamage":0,
-      "ward":{"max":100,"factor":0.55,"chip":1,"damage":60,"repair":25,"unitHp":16,"offset":2,"speed":0.58,"arrival":54,"down":144,"lunarFactor":1.6},
       "moves":[
         {"id":"FDK01","kind":"punch","title":"ミットの二連打","reach":174,"lock":48,"near":0.24,"far":1.85,"height":0.92,"low":0.18,"active":[[101,115],[170,183]],"recover":212,"total":294,"damage":18,"element":"physical"},
         {"id":"FDK02","kind":"stomp","title":"跳び込みハンマー","reach":219,"lock":60,"distance":1.45,"width":1.65,"height":0.77,"air":[92,128],"lift":0.83,"active":[[128,144]],"recover":172,"total":296,"damage":26,"element":"physical"},
-        {"id":"FDK03","kind":"ward","title":"メカダックの補修","reach":222,"lock":64,"guard":40,"deploy":62,"roll":94,"distance":1.8,"width":1.86,"height":0.96,"active":[[340,360]],"recover":384,"total":480,"damage":32,"element":"electro"}
+        {"id":"FDK03","kind":"discharge","title":"メカダック補修・放電","reach":222,"lock":64,"deploy":76,"roll":94,"expire":300,"repairOffsets":[1.3,2.5],"repairDestination":0.65,"repairHp":16,"downTicks":144,"standTicks":24,"distance":1.8,"width":1.86,"height":0.96,"active":[[340,360]],"recover":384,"total":528,"damage":32,"element":"electro"}
       ]
     },
     {

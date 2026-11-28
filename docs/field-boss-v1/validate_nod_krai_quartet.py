@@ -430,9 +430,22 @@ def validate_runtime_source(config, bosses, moves, migration, data):
             require(not (old_moves.keys() & extra.keys()), "runtime_source: duplicate extra move ID")
             old_moves.update(extra)
         same_members(list(old_moves), migration["source_move_ids"][boss_id], "runtime_source." + boss_id + ".move_ids")
+        discharge = old_moves.get("FDK03")
+        if discharge and discharge.get("kind") == "discharge":
+            target = moves["FDK03"]
+            repairs = data["repair_ducks"]
+            fixed_values(discharge, {
+                "lock": target["lock"], "deploy": repairs["spawn_tick"],
+                "expire": repairs["despawn_tick"], "repairHp": repairs["source_hp_comparison"],
+                "repairOffsets": repairs["offsets_u"], "active": [event["active"] for event in target["events"]],
+                "recover": target["recovery"][0], "total": target["total"],
+            }, "runtime_source.FDK03")
+            require("ward" not in old, "runtime_source.FDK03: discharge still has a legacy ward")
+        else:
+            discharge = None
         for move_id, old_move in old_moves.items():
             fields(old_move, ("total", "damage"), "runtime_source." + move_id)
-            if move_id in migration["source_signature_totals"]:
+            if old_move is not discharge and move_id in migration["source_signature_totals"]:
                 exact(old_move["total"], migration["source_signature_totals"][move_id], "runtime_source." + move_id + ".total")
             for table, key in (("source_air_ticks", "air"), ("source_hidden_ticks", "hide")):
                 if move_id in migration[table]:
@@ -442,7 +455,7 @@ def validate_runtime_source(config, bosses, moves, migration, data):
             for event in moves[move_id]["events"]:
                 if event["owner"] == "boss":
                     exact(event["source_damage_comparison"], old_move["damage"], "runtime_source." + move_id + ".damage")
-        if boss_id in ("boss-24100101", "boss-22150101"):
+        if not discharge and boss_id in ("boss-24100101", "boss-22150101"):
             section = "repair_ducks" if boss_id == "boss-24100101" else "fishers"
             fields(old, ("ward",), "runtime_source." + boss_id)
             fields(old["ward"], ("unitHp",), "runtime_source." + boss_id + ".ward")
@@ -552,7 +565,7 @@ def main():
                         default=Path(__file__).with_name("MANIFEST_NOD_KRAI_QUARTET.json"))
     parser.add_argument("--self-test", action="store_true", help="run invalid fixtures and valid boundary cases")
     parser.add_argument("--check-runtime-source", action="store_true",
-                        help="compare the old JSON snapshot, including coolingMove; does not execute Lua")
+                        help="compare the runtime JSON with preserved values and migrated moves; does not execute Lua")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     try:
@@ -574,7 +587,7 @@ def main():
           f"{summary['current_catalog_normal_rows']} normal rows (reference count is 49)")
     print("PASS: REC144, bounded air/hide, ordered child hits, optional interrupts, source/state and cleanup declarations")
     if args.check_runtime_source:
-        print("PASS: 12 old source move IDs, preserved fields and timing snapshots match (FBT03 includes coolingMove)")
+        print("PASS: 12 runtime move IDs, preserved fields and migrated timings match (FBT03 includes coolingMove)")
     if args.self_test:
         print(f"PASS: {negatives} invalid design fixtures rejected / {positives} valid boundary fixtures accepted / "
               f"{runtime_negatives} invalid runtime-source fixtures rejected")

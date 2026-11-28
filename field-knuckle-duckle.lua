@@ -1,5 +1,5 @@
 return function(C)
- local duck={}
+ local duck={packRectArt=true}
  local U=88
  local serial=0
  local gold,pink,white,ink='#ffd44b','#e77add','#fff2b5','#2b2635'
@@ -27,12 +27,12 @@ return function(C)
  end
  function duck.onDefeat(state,b,s,c) duck.cancel(b,s,state,c) end
  function duck.damageFactor(_,cast,b,s)
-  if s.draftMoves then return 1 end
+  if not s.ward then return 1 end
   if b.repairUnit then return cast.key=='SK54' and s.ward.lunarFactor or 1 end
   return b.duckWard>0 and s.ward.factor or 1
  end
  function duck.onHit(_,b,s)
-  if not s.draftMoves and not b.repairUnit and b.duckWard>0 then b.duckWard=math.max(0,b.duckWard-s.ward.chip) end
+  if s.ward and not b.repairUnit and b.duckWard>0 then b.duckWard=math.max(0,b.duckWard-s.ward.chip) end
  end
  function duck.begin(b,s,m)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
@@ -42,14 +42,15 @@ return function(C)
   C.shareFieldHits(c.seen,actors)
  end
  function duck.frame(f,b,s,c)
-  if s.draftMoves then
-   f.draftMoves=true
-   if c and c.move.kind=='discharge' and c.left then
-    f.repairSequence={defeated=c.defeatedRepairs or 0,lane={left=c.left,right=c.right}}
-   end
-   return
+  if s.ward then f.repairWard={hp=b.duckWard,maxhp=s.ward.max} end
+  if not c or c.reposition then return end
+  local m=c.move
+  if m.kind=='discharge' and c.left then
+   f.repairSequence={defeated=c.defeatedRepairs or 0,lane={left=c.left,right=c.right},interrupted=c.broken~=nil,
+    arrivalTicks=not c.broken and math.max(0,m.expire-c.tick) or nil}
   end
-  f.repairWard={hp=b.duckWard,maxhp=s.ward.max}
+  if b.form=='down' then f.recoveryTicks=c.broken+(m.downTicks or s.ward.down)-c.tick
+  elseif b.form=='recover' then f.recoveryTicks=m.total-c.tick end
  end
 
  local function lock(s,c,a)
@@ -61,7 +62,7 @@ return function(C)
    local dx=clamp((a and a.x or c.origin)-c.origin,-m.distance*U,m.distance*U)
    local radius=m.width*U/2
    c.dest=c.origin+dx
-   if not s.draftMoves then c.dest=clamp(c.dest,s.arenaMin+radius,s.arenaMax-radius) end
+   if m.kind~='discharge' and not s.draftMoves then c.dest=clamp(c.dest,s.arenaMin+radius,s.arenaMax-radius) end
    c.left,c.right=c.dest-radius,c.dest+radius
    if m.kind=='discharge' then
     c.repairStarts={}
@@ -156,9 +157,31 @@ return function(C)
 
  function duck.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
+  if c.reposition then
+   b.facing=s.home>b.x and 1 or -1
+   b.x=b.x+clamp(s.home-b.x,-s.walkSpeed/60,s.walkSpeed/60)
+   if b.x==s.home then
+    c.origin,c.tick,c.reposition=b.x,0,nil
+   end
+   return false
+  end
   c.tick=t
   if t<=m.lock and a then c.dir=a.x<c.origin and -1 or 1;b.facing=c.dir end
-  if t==m.lock then lock(s,c,a) end
+  if t==m.lock then
+   lock(s,c,a)
+   if m.kind=='discharge' then
+    local outer=c.repairStarts[#c.repairStarts]+c.dir*18
+    local fits=outer>=s.arenaMin and outer<=s.arenaMax and c.left>=s.arenaMin and c.right<=s.arenaMax and
+     C.fieldGroundRetreat(state,c.dir,c.left,c.right,m.active[1][1]-t,c.origin)
+    if not fits then
+     c.left,c.right,c.repairStarts=nil,nil,nil
+     duck.spawn(b,s)
+     if b.x==s.home then return true end
+     c.reposition=true
+     return false
+    end
+   end
+  end
   if m.kind=='ward' and not c.broken then
    repairs(state,b,s,c)
    if t>=m.guard and t<m.recover and b.duckWard<=0 then
@@ -192,7 +215,10 @@ return function(C)
                    s.floorY-(m.low or 0)*U)
    end
   end
-  if t==m.recover then clear(state,c);b.duckWard=0 end
+  if t==m.recover then
+   clear(state,c)
+   if s.ward then b.duckWard=0 end
+  end
   if t>=m.recover then form,pose='recover','down' end
   place(b,s,y,form,pose)
   if t<m.total then return false end
@@ -201,19 +227,22 @@ return function(C)
  end
 
  function duck.label(b,c,s)
-  if s.draftMoves then
+  if c and c.reposition then return '試運転場の中央へ移動中' end
+  if c and c.move.kind=='discharge' then
    if b.form=='down' then return '放電を中断・反撃の隙' end
    if b.form=='stand' then return '立ち上がり' end
    if b.form=='recover' then return '反撃の隙' end
-   if b.form=='charging' then
-    if c.tick>=c.move.expire then return '放電・床の印から退避' end
-    if c.summons then return '補修メカ '..c.defeatedRepairs..'／'..#c.repairStarts..'・2機で放電中断' end
+   if c.tick>=c.move.expire then return '放電・床の印から退避' end
+   if c.summons then
+    local seconds=math.ceil((c.move.expire-c.tick)/6)/10
+    return string.format('補修メカ %d／2・あと%.1f秒・2機で放電中断',c.defeatedRepairs,seconds)
    end
+   if c.left then return '放電位置を固定・補修メカが来る' end
   end
   if b.form=='down' then return 'バリアが割れた・反撃の好機' end
   if b.form=='stand' then return '立ち上がり' end
   if b.form=='recover' then return '駆動を止める・反撃の好機' end
-  if b.duckWard>0 then
+  if s.ward and b.duckWard>0 then
    if c and c.summons and (c.summons[1].hp>0 or c.summons[2].hp>0) then return 'メカダックを壊すとバリアが弱まる' end
    return 'バリア稼働中・衝撃範囲から退避'
   end
@@ -250,19 +279,16 @@ return function(C)
  function duck.draw(f,state,b,s,c,mode,profile)
   local cam,y=state.camera,s.floorY
   local x=b.x-cam
-  if c and not s.draftMoves then warning(f,c,cam,y) end
+  if c then warning(f,c,cam,y) end
   C.drawKnuckleDuckFieldArt(f,x,b.y,c and b.pose or 'idle',mode,profile,b.facing<0)
-  if c and s.draftMoves then
-   warning(f,c,cam,y)
-   if c.reboundXs and c.tick-c.broken<18 then
-    local u=(c.tick-c.broken)/18
-    for _,start in ipairs(c.reboundXs) do
-     local trail=start+(c.origin-start)*u-cam
-     rect(f,trail-5,y-27-28*4*u*(1-u),10,4,gold)
-    end
+  if c and c.reboundXs and c.tick-c.broken<18 then
+   local u=(c.tick-c.broken)/18
+   for _,start in ipairs(c.reboundXs) do
+    local trail=start+(c.origin-start)*u-cam
+    rect(f,trail-5,y-27-28*4*u*(1-u),10,4,gold)
    end
   end
-  if b.duckWard>0 then
+  if s.ward and b.duckWard>0 then
    local height=C.knuckleDuckFieldArt[b.pose].profiles.legacy.height
    rect(f,x-41,y-height-13,82,8,ink)
    rect(f,x-39,y-height-11,78*b.duckWard/s.ward.max,4,pink)
@@ -278,6 +304,14 @@ return function(C)
     end
    end
   end
+ end
+
+ function duck.drawOverlay(f,state,s,c)
+  if not c or c.move.kind~='discharge' or not c.left or c.broken or c.tick>=c.move.active[1][2] then return end
+  local x=(c.left+c.right)/2-state.camera
+  rect(f,x-19,s.floorY+6,38,18,ink)
+  rect(f,x-19,s.floorY+6,38,2,pink)
+  f.draws[#f.draws+1]={kind='text',x=x,y=s.floorY+20,text='放電',size=12,color=white}
  end
  return duck
 end
