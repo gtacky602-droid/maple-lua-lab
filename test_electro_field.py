@@ -103,6 +103,7 @@ assert all(combo.seen[i][1] for i in (1,2,3))
 
 # The real core and the swept capsule travel together once, toward the locked endpoint.
 drill = at(s, slot, 'FE02', 36)
+assert '走路から離れるかジャンプ' in core.frame(s).fieldBoss.label
 spot(a, HOME+130)
 hp = a.hp
 at(s, slot, 'FE02', 84)
@@ -117,6 +118,7 @@ assert b.hp < hp
 at(s, slot, 'FE02', 121)
 field = core.frame(s).fieldBoss
 assert b.x == drill.dest and field.recovering and field.label.startswith('反撃の隙')
+assert 'あと1.2秒' in field.label
 
 # Two ordinary jumps across two timed waves. The same path grounded takes exactly two hits.
 def wave_trial(jump):
@@ -131,6 +133,7 @@ def wave_trial(jump):
     spot(actor, state.enemy.x-103)
     wave = at(scene, state, 'FE03', 42)
     assert wave.dir == -1
+    assert '1発目をジャンプで回避' in core.frame(scene).fieldBoss.label
     initial_hp = actor.hp
     positions = []
     for t in range(43,199):
@@ -138,6 +141,8 @@ def wave_trial(jump):
             assert actor.ground
             core.action(scene, 'jump')
         tick(scene, jump=jump)
+        if t == 131:
+            assert '2発目をジャンプで回避' in core.frame(scene).fieldBoss.label
         if t in (96,168):
             positions.append(round(FLOOR-actor.y,2))
     assert actor.hp == initial_hp-(0 if jump else 18), (jump, actor.hp, initial_hp, positions)

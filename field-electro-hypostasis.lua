@@ -1,5 +1,5 @@
 return function(C)
- local electro={}
+ local electro={packRectArt=true}
  local U=88
  local coreHeight,coreClearance=46,18
 
@@ -90,11 +90,19 @@ return function(C)
  function electro.label(boss,cast)
   if not cast then return end
   local move,t=cast.move,cast.tick
-  if t>=move.recover then return '反撃の隙・核が見える' end
+  if t>=move.recover then
+   return string.format('反撃の隙・足元の核に攻撃（あと%.1f秒）',math.ceil((move.total-t)/6)/10)
+  end
   if move.strikes then
    local i=strikeIndex(move,t)
-   return move.title..'（'..move.strikes[i].title..' '..i..'/3）'
+   return move.title..'（'..move.strikes[i].title..' '..i..'/3）・射線から離れるかジャンプ'
   end
+  if move.distance then return move.title..'・走路から離れるかジャンプ' end
+  if t<move.shotTicks[1] then return move.title..'・1発目をジャンプで回避' end
+  if t<move.shotTicks[1]+move.shotLife then return move.title..'・1発目が通過中' end
+  if t<move.shotTicks[2] then return move.title..'・2発目をジャンプで回避' end
+  if t<move.shotTicks[2]+move.shotLife then return move.title..'・2発目が通過中' end
+  return move.title..'・2発目が消えた'
  end
 
  local function rect(f,x,y,w,h,color)
