@@ -60,6 +60,9 @@ def check_lua(lua, core):
     for s in states:
         frame = core.frame(s, 'sprite')
         assert native(frame.fieldBoss.gravity) == native(zone)
+        assert frame.fieldBoss.gravityTicks == 144
+        assert [d.text for d in frame.draws.values() if d.kind=='text' and d.size==13
+                and d.color=='#a9deeb'] == ['1','2','3']
         strip = next(d for d in frame.draws.values() if d.color == '#a9deeb' and d.y == 477)
         assert math.isclose(strip.x + frame.camera, zone.left)
         assert math.isclose(strip.x + strip.w + frame.camera, zone.right)
@@ -84,7 +87,9 @@ def check_lua(lua, core):
     assert core.fieldGravityFactor(host, host.actors[1]) == .55
     step()
     assert all(core.fieldGravityFactor(s, s.actors[1]) == 1 for s in states)
-    assert all(core.frame(s).fieldBoss.gravity is None for s in states)
+    for s in states:
+        field = core.frame(s).fieldBoss
+        assert field.gravity is None and field.gravityTicks is None and field.recovering
     finish(lua, core, GENERATOR, slot, states)
     check_adoption(core, GENERATOR, 'FFG01', 90, 17)
     return dict(participants=4, hp=boss.maxhp, jumpHeight=dict(inside=height[0], outside=height[1]),

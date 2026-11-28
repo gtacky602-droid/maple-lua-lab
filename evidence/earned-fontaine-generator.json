@@ -1,0 +1,81 @@
+{
+  "sourceSha256": "7036ab59ea7435d5f7f3dc527170932b2815dfa21a203b42fcd7afc7724a3062",
+  "gateChecks": [
+    {
+      "node": "fontaine-field",
+      "target": "field-generator-field-chamber",
+      "reason": "必要レベル 86"
+    }
+  ],
+  "chapter": {
+    "stagePlan": "deck",
+    "firstClearXp": 3020570,
+    "report": {
+      "quest": "fontaine-grand-finale",
+      "xp": 3550820,
+      "mora": 6100
+    },
+    "rehearsedPhases": [
+      "lights",
+      "wave",
+      "bow"
+    ],
+    "recordAfterReload": true
+  },
+  "entryLevel": 90,
+  "finishLevel": 91,
+  "combat": {
+    "moves": [
+      "FFG01",
+      "FFG02",
+      "FFG03"
+    ],
+    "order": [
+      [
+        "1",
+        462.5,
+        151,
+        "#a9deeb"
+      ],
+      [
+        "2",
+        487.5,
+        151,
+        "#a9deeb"
+      ],
+      [
+        "3",
+        512.5,
+        151,
+        "#a9deeb"
+      ]
+    ],
+    "bolts": [
+      1,
+      2
+    ],
+    "pulseTicks": [
+      114,
+      146,
+      178
+    ],
+    "jumpHeight": {
+      "normal": 157.08,
+      "inside": 290.06
+    },
+    "gravityEnded": true,
+    "counterHit": true,
+    "hpBefore": 384,
+    "hpAfter": 367,
+    "seconds": 21.1,
+    "xp": 129550
+  },
+  "report": {
+    "quest": "field-generator-commission",
+    "xp": 5400,
+    "mora": 380
+  },
+  "restoredCooldown": 3004,
+  "commissionCount": 17,
+  "returns": 0
+}
