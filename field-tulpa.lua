@@ -2,6 +2,7 @@ return function(C)
  local tulpa={}
  local U=88
  local blue,foam,ink='#8de7ff','#ecfcff','#245582'
+ local orderColor,timerColor='#fff1b0','#a6eee7'
  local function clamp(x,a,b) return math.max(a,math.min(x,b)) end
 
  function tulpa.spawn(b,s)
@@ -78,6 +79,15 @@ return function(C)
   end
  end
 
+ local function mergeWindow(c)
+  if c and c.summon and c.summon.hp>0 then return c.move.summon.merge-c.tick end
+ end
+
+ function tulpa.frame(f,b,s,c)
+  f.summonTicks=mergeWindow(c)
+  if b.form=='settled' and c then f.exposureTicks=c.move.total-c.tick end
+ end
+
  function tulpa.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
   c.tick=t
@@ -136,6 +146,11 @@ return function(C)
    end
   end
   C.drawTulpaFieldArt(f,x,y,pose,mode,profile,b.facing<0)
+  if c and c.points and c.tick>=c.move.lock then
+   for i,window in ipairs(c.move.active) do
+    if c.tick<window[1] then C.drawFieldImpactNumber(f,c.points[i]-camera,y,i,orderColor) end
+   end
+  end
   local summon=c and c.summon
   if summon and summon.hp>0 then
    local sx=summon.x-camera
@@ -144,6 +159,8 @@ return function(C)
    C.drawTulpaFieldArt(f,sx,y,'half',mode,profile,sx>x)
    rect(f,sx-16,y-59,32,4,ink)
    rect(f,sx-16,y-59,32*summon.hp/summon.maxhp,4,foam)
+   local rules=c.move.summon
+   C.drawFieldTimer(f,sx,y-68,mergeWindow(c),rules.merge-rules.spawn,timerColor)
   end
  end
  return tulpa

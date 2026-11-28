@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureNumberedFieldWarning} from './tools/browser_waypoint_test.mjs';
 
+const route=process.argv.includes('--stop')?'stop':process.argv.includes('--merge')?'merge':null;
+const output=route?'work/earned-fontaine-tulpa':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='tulpa-field';
@@ -41,7 +44,7 @@ async function pause(value){
 }
 
 async function fight(){
- await page.evaluate(()=>{
+ await page.evaluate(route=>{
   const held=new Set(),moves=new Set(),dodges=new Set();
   const warnings={FHT01:[],FHT02:[152],FHT03:[]};
   let prior='',lastTick=-1,used=new Set();
@@ -67,27 +70,62 @@ async function fight(){
      used.add(at);dodges.add(b.move+at);hold('ShiftLeft',true);hold('ShiftLeft',false);
     }
    }
-   const dx=b.x-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
+   const half=route==='stop'&&b.summon?.hp>0?b.summon:null;
+   const dx=(half?.x??b.x)-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    const jump=(b.move==='FHT01'&&b.tick>=76&&b.tick<109)||
     (b.move==='FHT02'&&b.tick>=77&&b.tick<113)||(b.move==='FHT03'&&b.tick>=181&&b.tick<215);
    if(jump)dodges.add(b.move+'jump');
    hold('Space',jump);
-   hold('KeyA',dx<-99||(turn&&dx<0));
-   hold('KeyD',dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   const distance=half?58:99;
+   hold('KeyA',dx<-distance||(turn&&dx<0));
+   hold('KeyD',dx>distance||(turn&&dx>0));
+   hold('KeyJ',(!route||half||window.tulpaCounterReady)&&Math.abs(dx)<(half?94:125)&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },route);
+}
+
+function shot(name){
+ return canvas.screenshot({path:`${output}/${prefix}${route?'-'+route:''}-${name}.png`});
+}
+
+async function compareHalf(summoned){
+ const menu=page.locator('#renderMode');
+ const timer=f=>f.draws.find(d=>d.kind==='rect'&&d.color==='#a6eee7'&&d.h===3);
+ assert.ok(timer(summoned));
+ assert.equal(summoned.fieldBoss.summonTicks,174-summoned.fieldBoss.tick);
+ assert.match(await page.locator('#fieldBossLabel').textContent(),/合流まで \d+\.\d秒/);
+ await menu.selectOption('rect');
+ await page.waitForFunction(n=>window.lab.frame.commands>n*3,summoned.commands);
+ const standard=await frame();
+ await menu.selectOption('h32c16');
+ await page.waitForFunction(n=>window.lab.frame.commands<n*.75,standard.commands);
+ const light=await frame();
+ for(const view of [standard,light]){
+  assert.equal(view.t,summoned.t);
+  assert.equal(view.fieldBoss.summonTicks,summoned.fieldBoss.summonTicks);
+  assert.deepEqual(timer(view),timer(summoned));
+ }
+ await shot('half-light');
+ await menu.selectOption('sprite');
+ await page.waitForFunction(n=>window.lab.frame.commands===n,summoned.commands);
+ return {png:summoned.commands,standard:standard.commands,light:light.commands,summonTicks:summoned.fieldBoss.summonTicks};
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(route?output+'/tulpa-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='fontaine-hub',quest);
+ const entryLevel=(await frame()).progression.level;
+ if(route==='merge'){
+  const ally=page.locator('#allyFire');
+  if((await ally.getAttribute('aria-pressed'))!=='true')await ally.click();
+  await page.waitForFunction(()=>document.getElementById('allyFire').getAttribute('aria-pressed')==='true');
+ }
  await gate(1380,'fontaine-field');
  await gate(320,arena);
  const scenery=await page.evaluate(async()=>{
@@ -107,7 +145,7 @@ try{
  assert.equal(original.fieldBoss.form,'water');
  assert.ok(original.draws.some(d=>d.source==='tulpa-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await shot('png');
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='tulpa-field-poses-source-v1.png'));
  const standard=await frame();
@@ -115,10 +153,13 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await shot('light');
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  await fight();
+ const hammer=route?await captureNumberedFieldWarning(page,{
+  move:'FHT02',before:102,color:'#fff1b0',count:2,output:output+'/'+route+'-water-hammer'
+ }):null;
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
   if(b?.move!=='FHT03'||!b.summon||b.tick<56||b.tick>=92||
@@ -130,7 +171,8 @@ try{
  const summoned=await frame();
  assert.equal(summoned.fieldBoss.summon.maxhp,26);
  assert.match(await page.locator('#fieldBossLabel').textContent(),/半身が接近/);
- await canvas.screenshot({path:'evidence/'+prefix+'-half.png'});
+ await shot('half');
+ const halfProfiles=route?await compareHalf(summoned):null;
  await pause(false);
  await page.waitForFunction(()=>{
   const {fieldBoss:b}=window.lab.frame;
@@ -139,9 +181,22 @@ try{
   return true;
  });
  await page.waitForFunction(()=>window.lab.frame.paused);
- const mergeOutcome=(await frame()).fieldBoss.label;
+ const resolution=await frame();
+ const mergeOutcome=resolution.fieldBoss.label;
  assert.match(mergeOutcome,/合流済み|合流を阻止/);
- await canvas.screenshot({path:'evidence/'+prefix+'-merge.png'});
+ assert.equal(resolution.fieldBoss.summonTicks,undefined);
+ let surgeWidth;
+ if(route){
+  assert.match(mergeOutcome,route==='stop'?/合流を阻止/:/合流済み/);
+  const band=resolution.draws.find(d=>d.kind==='rect'&&d.color==='#8de7ff'&&d.w>100&&d.h===2);
+  surgeWidth=+band.w.toFixed(2);
+  assert.equal(surgeWidth,route==='stop'?158.4:316.8);
+  assert.equal(resolution.kills,original.kills);
+  assert.equal(resolution.progression.killXp,original.progression.killXp);
+  assert.equal(resolution.mora,original.mora);
+  await page.evaluate(()=>{window.tulpaCounterReady=true});
+ }
+ await shot('merge');
  await pause(false);
  await page.waitForFunction(()=>window.tulpaFieldResult,undefined,{timeout:140000});
  const play=await page.evaluate(()=>window.tulpaFieldResult);
@@ -164,6 +219,16 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(route){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(q=>window.lab.frame.story?.quests[q]?.status==='complete',quest);
+  const restored=await frame();
+  assert.equal(restored.endgame.bosses[id].clears,1);
+  assert.equal(restored.story.quests[quest].cycles,1);
+  assert.equal(restored.story.quests['fon-emilie-scent'].status,'complete');
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('水形タルパ');
@@ -173,11 +238,13 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
+ const reportPath=route?`evidence/earned-fontaine-tulpa-${route}-browser.json`:'evidence/'+prefix+'-browser.json';
+ await fs.writeFile(reportPath,JSON.stringify({
   browser:'Chrome',play,fieldKill:{xp:killXp,mora:315},commissionReport:{xp:5600,mora:390},
   persistedCooldown:true,
   sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},
-  summonWasVisible:true,mergeOutcome,viewport390:true,errors
+  summonWasVisible:true,mergeOutcome,viewport390:true,errors,
+  ...(route?{route,entryLevel,hammer,halfProfiles,surgeWidth,restoredCommission:true}:{})
  },null,2)+'\n');
  console.log('Tulpa field Chrome route, all moves, clear, report, save passed');
 }catch(error){

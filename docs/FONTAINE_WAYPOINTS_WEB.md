@@ -34,6 +34,12 @@ M地図の「水中」で水中の移動先を絞り込める。水中の門を�
 
 重力試験室の門はLv86。実験用フィールド生成装置の低重力場には三連地震の順番と、効果の残り時間を表示する。いま来ている地震の番号が光る。低重力場の外では通常の高さで跳び、枠内では高いジャンプで地震をまとめてかわす。Lv90の継続セーブで討伐と報告を進め、通常ボス17件目と再出現待ちを復元した。 [Luaの継続再走](../evidence/earned-fontaine-generator.json) · [重力試験室のChrome検証](../evidence/earned-fontaine-generator-browser.json)
 
+## エミリエの調香と潮影の洞
+
+「旅の香りを、ひとしずく」では、Lv91の継続セーブでエミリエに会い、9件の目的を達成した。「花のやわらかさ」を選び、報告後に保存を読み込み直して香り瓶を確認した。 [調香クエストのChrome検証](../evidence/earned-fontaine-emilie-browser.json)
+
+潮影の洞の門はLv88。水形タルパの「水槌の二打」では着地点に順番が出る。半身が現れると、半身の上とボスのHP欄に合流までの残り時間を表示する。猶予は最大2秒。半身を倒すと奔流の幅は158.4px、合流すると316.8pxになる。同じ継続セーブから、阻止と合流の両方を試し、18件目の通常ボスの依頼を報告した。合流を観察する試走では「同行者の攻撃を控える」を使った。 [Luaの継続再走](../evidence/earned-fontaine-tulpa.json) · [阻止のChrome検証](../evidence/earned-fontaine-tulpa-stop-browser.json) · [合流のChrome検証](../evidence/earned-fontaine-tulpa-merge-browser.json)
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |

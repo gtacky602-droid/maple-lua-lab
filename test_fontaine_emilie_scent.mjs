@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const hub='fontaine-hub',atelier='fon-emilie-atelier',shore='fon-emilie-scent-shore';
-const quest='fon-emilie-scent',prefix='evidence/fon-emilie-scent';
+const earned=process.argv.includes('--earned');
+const quest='fon-emilie-scent',prefix=earned?'work/earned-fontaine-tulpa/emilie':'evidence/fon-emilie-scent';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -106,9 +107,11 @@ async function compareAtelier(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8921/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/fon-emilie-scent-fixture.json','utf8');
+ const source=earned?'work/earned-fontaine-generator/generator-complete.json':'work/fon-emilie-scent-fixture.json';
+ const seed=await fs.readFile(source,'utf8');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load();
+ if(earned)assert.equal((await frame()).progression.level,91);
  await questButton('受注');
  await count(0);
  await gate(403,atelier);
@@ -132,9 +135,10 @@ try{
  await count(3);
  assert.equal((await frame()).total,1);
  await shot('shore');
+ const kills=(await frame()).kills;
  await walk(1030);
  await held('KeyJ',()=>count(4));
- assert.equal((await frame()).kills,1);
+ assert.equal((await frame()).kills,kills+1);
  await collect(1325,'岸に流れ着いた木片を拾う');
  await count(5);
  await gate(1490,atelier);
@@ -159,14 +163,20 @@ try{
  assert.match(await page.locator('#starterEquipmentStatus').textContent(),/調香師の入門長柄/);
  await reload();
  assert.equal((await frame()).companion.id,'emilie');
+ if(earned){
+  const restored=await frame();
+  assert.equal(restored.story.quests[quest].cycles,1);
+  assert.equal(restored.story.quests['field-generator-commission'].status,'complete');
+ }
  await gate(403,atelier);
  await collect(565,'記念小瓶を読む');
  await wait(()=>window.lab.frame.storyNotice?.startsWith('記念小瓶「花のやわらかさ」。'));
  const calls=await compareAtelier();
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-web.json',JSON.stringify({
+ const report=earned?'evidence/earned-fontaine-emilie-browser.json':prefix+'-web.json';
+ await fs.writeFile(report,JSON.stringify({
   quest,atelierBackground,shoreBackground,normalAttackBattle:true,assignedCompanion:'emilie',
-  restoredBottle:'花のやわらかさ',calls,errors
+  restoredBottle:'花のやわらかさ',calls,errors,...(earned?{source,restoredReport:true}:{})
  },null,2)+'\n');
  console.log(quest,calls);
 }catch(error){

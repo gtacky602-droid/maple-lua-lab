@@ -1215,6 +1215,7 @@
       "id":"boss-20051201",
       "controller":"tulpa",
       "coop":true,
+      "showRecovery":true,
       "entity":20051201,
       "name":"水形タルパ",
       "node":"tulpa-field-grotto",

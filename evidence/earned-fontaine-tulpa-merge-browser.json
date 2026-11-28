@@ -1,0 +1,49 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 30,
+    "moves": [
+      "FHT01",
+      "FHT02",
+      "FHT03"
+    ],
+    "dodgeWindows": 4,
+    "finished": true,
+    "hp": 384,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 148300,
+    "mora": 315
+  },
+  "commissionReport": {
+    "xp": 5600,
+    "mora": 390
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 22,
+    "standard": 8451,
+    "light": 2309
+  },
+  "summonWasVisible": true,
+  "mergeOutcome": "合流済み・広い奔流から離れる",
+  "viewport390": true,
+  "errors": [],
+  "route": "merge",
+  "entryLevel": 91,
+  "hammer": {
+    "png": 40,
+    "standard": 9593,
+    "light": 2574,
+    "warningTick": 54
+  },
+  "halfProfiles": {
+    "png": 40,
+    "standard": 10173,
+    "light": 2813,
+    "summonTicks": 112
+  },
+  "surgeWidth": 316.8,
+  "restoredCommission": true
+}
