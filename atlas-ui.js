@@ -226,7 +226,8 @@ export function initAtlas(action, clearKeys) {
    const stop=stops[blockedAt],lastReachable=stops[blockedAt-1];
    const from=lastReachable?.name??(guide.afterTransfer?'移動先':view.location);
    const description=document.createElement('p');
-   description.textContent=`最初に通れない入口　${from} → ${stop.name}（${stop.reason}）`;
+   const requirements=[stop.reason,stop.questReason].filter(Boolean).join('・');
+   description.textContent=`最初に通れない入口　${from} → ${stop.name}（${requirements}）`;
    barrier.append(description);
    if(lastReachable){
     const detour=document.createElement('button');
@@ -240,7 +241,7 @@ export function initAtlas(action, clearKeys) {
    const li = document.createElement('li');
    const button = document.createElement('button');
    const timing = stop.secondsRemaining != null ? `到着まで ${Math.ceil(stop.secondsRemaining)}秒` : stop.hint;
-   const details = [stop.approach, stop.label, stop.level && `必要Lv${stop.level}`, stop.reason!==`必要Lv${stop.level}` && stop.reason, timing, stop.stopWindow && stopTiming(stop.stopWindow), stop.wind && windTiming(stop.wind), stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
+   const details = [stop.approach, stop.label, stop.level && `必要Lv${stop.level}`, stop.reason!==`必要Lv${stop.level}` && stop.reason, stop.questReason, timing, stop.stopWindow && stopTiming(stop.stopWindow), stop.wind && windTiming(stop.wind), stop.automaticArrival && '到着後に自動で移動'].filter(Boolean);
    button.textContent = `${stop.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(stop);
    li.append(button);appendGateLink(li,stop.from,stop);

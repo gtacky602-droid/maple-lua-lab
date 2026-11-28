@@ -346,6 +346,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   return gateRestriction(s,edge,true)
  end
+ function C.atlasQuestGateRestriction(s,edge)
+  if edge.requires then return gateRestriction(s,edge,true) end
+ end
  function C.gateHasRubble(s,edge)
   local rule=edge.requires
   local progress=edge.rubbleOnClosed and s.story.quests[rule.quest]
@@ -478,6 +481,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
           trainBoard=n.voyage and n.voyage.kind=='train' or nil,
           trolleyBoard=n.voyage and n.voyage.kind=='trolley' or nil,
           trolleyStop=s.voyage and s.voyage.kind=='trolley' and edge.windowStart~=nil or nil};distance=dx
+     if reason=='必要レベル '..n.level then best.questReason=C.atlasQuestGateRestriction(s,edge) end
      if edge.wind then
       local calm,seconds=windWindow(s,edge.wind)
       best.wind={calm=calm,seconds=seconds}

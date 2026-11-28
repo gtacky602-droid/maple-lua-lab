@@ -798,7 +798,7 @@ function hud(f,calls,renderMs){
  if(portal){
   const go=$('nearbyPortalGo');
   const automatic=Boolean(portal.automaticArrival);
-  const status=automatic?'着岸後に自動で移動':portal.available?'移動できます':portal.reason;
+  const status=automatic?'着岸後に自動で移動':portal.available?'移動できます':[portal.reason,portal.questReason].filter(Boolean).join(' ｜ ');
   const wind=portal.wind?` ｜ ${portal.wind.calm?'風が止んでいます　残り':'風が止むまで'} ${Math.ceil(portal.wind.seconds)}秒`:'';
   const level=portal.available && portal.level>1 ? `（必要Lv${portal.level}）` : '';
   $('nearbyPortalText').textContent=`行き先：${portal.name}${level} ｜ ${status}${wind}`;
