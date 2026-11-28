@@ -1,0 +1,158 @@
+{
+  "sourceSha256": "260eb417304aacdb721059ebe7074a4b4e9ec2e1df1ee6eca273ae4cd88a507b",
+  "locks": [
+    {
+      "node": "thunder-approach",
+      "target": "thunder-field-crest",
+      "reason": "必要レベル 48",
+      "atLevel": 47,
+      "gateLevel": 48,
+      "atlasReason": "必要Lv48"
+    },
+    {
+      "node": "inazuma-town",
+      "target": "pyro-hypostasis-field-terrace",
+      "reason": "必要レベル 50",
+      "atLevel": 47,
+      "gateLevel": 50,
+      "atlasReason": "必要Lv50"
+    },
+    {
+      "node": "inazuma-town",
+      "target": "pyro-hypostasis-field-terrace",
+      "reason": "必要レベル 50",
+      "atLevel": 48,
+      "gateLevel": 50,
+      "atlasReason": "必要Lv50"
+    }
+  ],
+  "progression": [
+    {
+      "quest": "ina-itto-three-games",
+      "xp": 106600,
+      "mora": 1550,
+      "startLevel": 47,
+      "finishLevel": 48
+    },
+    {
+      "quest": "ina-walking-teahouse",
+      "xp": 145027,
+      "mora": 1750,
+      "startLevel": 48,
+      "finishLevel": 50
+    }
+  ],
+  "trials": {
+    "thunder": {
+      "hpBefore": 384,
+      "hpAfter": 384,
+      "noDamageInFirstCycle": true,
+      "allMoves": [
+        "FTM01",
+        "FTM02",
+        "FTM03"
+      ],
+      "dodged": {
+        "FTM01": {
+          "warningTick": 48,
+          "lastActiveTick": 114,
+          "hp": 384,
+          "position": 706.0,
+          "bolts": 0
+        },
+        "FTM02": {
+          "warningTick": 42,
+          "lastActiveTick": 180,
+          "hp": 384,
+          "position": 926.5,
+          "bolts": 3
+        },
+        "FTM03": {
+          "warningTick": 54,
+          "lastActiveTick": 132,
+          "hp": 384,
+          "position": 793.5,
+          "bolts": 0
+        }
+      },
+      "aerial": true,
+      "recoveryLabels": [
+        "FTM01",
+        "FTM02",
+        "FTM03"
+      ],
+      "counterHit": true,
+      "seconds": 19.37,
+      "xp": 20350,
+      "mora": 190,
+      "level": 48,
+      "gateLevel": 48,
+      "route": [
+        "inazuma-road",
+        "thunder-approach",
+        "thunder-field-crest"
+      ],
+      "report": {
+        "quest": "thunder-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 2691
+    },
+    "pyro": {
+      "hpBefore": 384,
+      "hpAfter": 384,
+      "noDamageInFirstCycle": true,
+      "allMoves": [
+        "FHP01",
+        "FHP02",
+        "FHP03"
+      ],
+      "dodged": {
+        "FHP01": {
+          "warningTick": 54,
+          "lastActiveTick": 132,
+          "hp": 384,
+          "position": 912.5,
+          "bolts": 0
+        },
+        "FHP02": {
+          "warningTick": 48,
+          "lastActiveTick": 216,
+          "hp": 384,
+          "position": 818.0,
+          "bolts": 3
+        },
+        "FHP03": {
+          "warningTick": 54,
+          "lastActiveTick": 126,
+          "hp": 384,
+          "position": 674.5,
+          "bolts": 0
+        }
+      },
+      "aerial": true,
+      "recoveryLabels": [
+        "FHP01",
+        "FHP02",
+        "FHP03"
+      ],
+      "counterHit": true,
+      "seconds": 20.85,
+      "xp": 23750,
+      "mora": 195,
+      "level": 50,
+      "gateLevel": 50,
+      "route": [
+        "pyro-hypostasis-field-terrace"
+      ],
+      "report": {
+        "quest": "pyro-hypostasis-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 3387
+    }
+  },
+  "returns": 0
+}

@@ -8410,6 +8410,17 @@
         "evidence/earned-inazuma-quest-overlap-browser.json"
       ]
     },
+    "earned_inazuma_thunder_pyro": {
+      "arrival_level": 47,
+      "arena_gate_levels": [48, 50],
+      "clear_levels": [48, 50],
+      "progression_quests": 2,
+      "encounters_cleared_and_commissions_restored": ["boss-20070101", "boss-20040601"],
+      "attacks_evaded_with_inputs": 6,
+      "three_fixed_direction_projectiles_each": true,
+      "lua_evidence": "evidence/earned-inazuma-thunder-pyro.json",
+      "browser_evidence": "evidence/earned-inazuma-thunder-pyro-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

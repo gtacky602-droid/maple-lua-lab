@@ -406,6 +406,7 @@
     {
       "id": "boss-20070101",
       "controller": "thunder",
+      "showRecovery": true,
       "coop": true,
       "entity": 20070101,
       "name": "雷音権現",
@@ -581,6 +582,7 @@
     {
       "id": "boss-20040601",
       "controller": "pyroHypostasis",
+      "showRecovery": true,
       "coop": true,
       "entity": 20040601,
       "name": "無相の炎",

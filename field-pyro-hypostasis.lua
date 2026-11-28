@@ -66,7 +66,7 @@ return function(C)
   return t>=m.total
  end
  function pyro.label(b,c)
-  if c and c.tick>=c.move.recover then return '炎がほどける' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・炎がほどける' end
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
