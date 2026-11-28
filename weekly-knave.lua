@@ -422,6 +422,13 @@ return function(C)
   local b={form=w.form,card=c and c.key,title=title,tick=c and c.t,actors=rows,active=a.id,x=e.x,nearLamp=lampAt(spec,a),
    hold=hold and math.max(0,hold.next-w.clock),window=window and c.t>=window[1] and c.t<window[2],
    exposure=w.phase=='exposure' and 252-c.t,airborne=c and c.key=='WK18' and e.invulnerable}
+  local debt=ledger(w,a).debt
+  if debt>0 then
+   local lamps=spec.lamps
+   local index=math.abs(a.x-lamps.x[1])<=math.abs(a.x-lamps.x[2]) and 1 or 2
+   b.lampCue={index=index,needsGround=not b.nearLamp and math.abs(a.x-lamps.x[index])<=lamps.radius,
+    payments=math.ceil(debt/(a.maxhp*lamps.ratio)-1e-7)}
+  end
   if b.window then b.interruptTicks=window[2]-c.t end
   if c and c.key=='WK11' then b.transformTicks=c.move.total-c.t end
   if c and c.interruptedBy then

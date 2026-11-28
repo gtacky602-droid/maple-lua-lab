@@ -34,3 +34,14 @@
 LuaとChromeで確認した範囲は検査記録に記載した。装備違いでの難度、全行動の回避経路、遠隔接続、本番3D、実機の描画性能は今後の検証に残る。 [Lua](../../evidence/knave-weekly-lua.json)・[Chrome](../../evidence/knave-weekly-browser.json)
 
 呑星の鯨を報告済みのLv94セーブから召使の依頼を受注し、M地図が案内する門から入った。返済灯はGで一回返済していったん離し、画面のボタンを長押しして残りを完済した。羽印で赤宴を中断し、双鎌を討伐した時点でLv95に到達した。依頼の280,000 EXPと9,600モラを受け取り、1勝と報告状態を復元した。同一フレームの標準矩形は片鎌5,549件、双鎌8,391件。軽量16色では片鎌1,475件、双鎌2,331件。 [Lv94からのChrome検証](../../evidence/earned-fontaine-knave-browser.json)
+
+## Lv200セーブでの最上級3勝
+
+呑星の鯨の最上級3勝と報告116件を記録したセーブから、水辺の広場の受付で召使の最上級に入った。契約中は近い返済灯と、灯だけで完済するまでの回数を表示する。灯の真上にいて床から離れているときは、降りてから操作するよう案内する。
+
+- Chromeの初回はGで1回返済し、離してから画面のボタンを長押しして残り4回を返済した。凶月・双鎌の「赤宴・前方奔流」を羽印で中断して討伐し、32,560,274 EXPと3,590,160モラを獲得した。 [初回の記録](../../evidence/earned-knave-first-expert-browser.json)
+- Luaでそのセーブから2戦を続けた。羽印で中断した戦闘は3.6秒の反撃中に336ダメージを与えた。範囲外へ移動した戦闘は羽印が残り、前方奔流からのダメージを受けずに討伐した。どちらも18,999,684 EXPと1,538,640モラを獲得した。再戦では旅人の聖遺物を一時変更し、同行者の攻撃を止めた状態で進めた。同行者は両方の再戦で戦闘不能になった。 [再戦の記録](../../evidence/earned-knave-rematch-lua.json)
+- 元の装備に戻したセーブをChromeで開き直し、召使と呑星の鯨が最上級各3勝、依頼報告が116件であることを確認した。別のLv94セーブではリネへの報告で280,000 EXPと9,600モラを受け取った。 [Lv200の再読込](../../evidence/earned-knave-rematch-browser.json) ・ [Lv94の報告](../../evidence/earned-knave-report-browser.json)
+- 2戦の17場面を元絵・中間・軽量の3画質で比較した。変身中の同一画面で標準の描画命令8,510件と軽量16色の2,400件を計測した。軽量版をパックすると画素を保ったままgzip転送量が49,458 Bから47,431 Bになった。 [比較の記録](../../evidence/earned-knave-rematch-frames-browser.json)
+
+最上級初回のセーブから、`python -X utf8 test_earned_knave_feast.py --from-save work/earned-knave/first/knave-complete.json --output-dir work/earned-knave/replays --chain --weapon SW07` で2戦を再現できる。ラボを起動し、`node test_earned_weekly_frames.mjs work/earned-knave/replays work/earned-knave/comparison` で3画質を比較する。

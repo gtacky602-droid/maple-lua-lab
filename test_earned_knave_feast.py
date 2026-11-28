@@ -1,16 +1,19 @@
 """Replay the Knave's expert Red Feast from the campaign save using player inputs."""
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, interrupt):
+def replay(source, output, interrupt, *, weapon='SW06', next_save=None):
     spec=next(row for row in read('content/weekly-boss-spawns.json')['weeklyBosses']
               if row['controller']=='knave')
-    trip, slot, start, loadout, mode, key, prior=expert_rematch(source.resolve(),runtime(),spec)
+    trip, slot, start, loadout, mode, key, prior=expert_rematch(
+        source.resolve(),runtime(),spec,weapon=weapon,trial_flower=next_save is not None)
     state, hero, boss=trip.state, trip.actor, slot.primary
     before=state.progression.total,state.mora
     hp_start=boss.hp
@@ -67,7 +70,7 @@ def replay(source, output, interrupt):
                 if not interrupt and move_tick==180:
                     sample('前方奔流の判定中',tick-1)
             if move=='WK17':
-                attack=slot.phase=='exposure' and attack and boss.hp>hero.atk*4
+                attack=slot.phase=='exposure' and attack and exposure_damage==0
                 if slot.phase=='exposure':
                     exposure_ticks+=1
                     if move_tick==36:
@@ -90,6 +93,7 @@ def replay(source, output, interrupt):
             elif event.actor==hero.id and event.kind=='knave:WK08:lamp' and first_payment is None:
                 first_payment={'tick':tick,'amount':event.value}
                 sample('返済灯で契約を返済',tick)
+                assert frames['返済灯で契約を返済']['view']['knave']['lampCue']['payments']==4
             elif event.actor==hero.id and event.kind=='knave:WK08:feather' and '完済して羽印を取得' not in frames:
                 sample('完済して羽印を取得',tick)
         if move=='WK17' and 36<=move_tick<252:
@@ -119,7 +123,20 @@ def replay(source, output, interrupt):
     assert (exposure_ticks,exposure_damage>0)==((216,True) if interrupt else (0,False))
     reward=trip.frame().weeklyBoss.reward
     payout=dict(xp=reward.xp,mora=reward.mora,first=reward.first)
+    surviving_hp=[actor.hp for actor in state.actors.values()]
     verify_repeat(trip,before,start,mode,key,prior)
+    checkpoint=None
+    if next_save:
+        assert not loadout['sold']
+        saved=restore_rematch_equipment(trip,start,loadout,'fontaine-hub')
+        assert saved['story']['quests']['knave-weekly-commission']['status']=='complete'
+        assert len([q for q in saved['story']['quests'].values() if q['status']=='complete'])==116
+        for boss_key,record in start['endgame']['weekly'].items():
+            if boss_key!=key:
+                assert saved['endgame']['weekly'][boss_key]==record
+        data=(json.dumps(saved,ensure_ascii=False,separators=(',',':'))+'\n').encode('utf-8')
+        next_save.write_bytes(data)
+        checkpoint=sha256(data).hexdigest()
     case='knave-interrupt' if interrupt else 'knave-evade'
     label='羽印で赤宴を中断' if interrupt else '赤宴の範囲から離れる'
     (output/f'{case}-frames.json').write_text(json.dumps(
@@ -128,15 +145,21 @@ def replay(source, output, interrupt):
     return dict(controller='knave',case=case,label=label,ticks=tick,sourceSha256=trip.source,
                 bossHp=hp_start,loadout=loadout,forms=forms,contract=first_debt,firstPayment=first_payment,
                 handoff=handoff,result=result,feastHits=feast_hits,exposureTicks=exposure_ticks,exposureDamage=exposure_damage,
-                reward=payout,expertClears=[prior,prior+1])
+                reward=payout,expertClears=[prior,prior+1],survivingHp=surviving_hp,checkpointSha256=checkpoint)
 
 
 if __name__=='__main__':
     parser=ArgumentParser(description=__doc__)
     parser.add_argument('--from-save',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
+    parser.add_argument('--chain',action='store_true',help='Save each rematch as the source for the next')
+    parser.add_argument('--weapon',default='SW06')
     args=parser.parse_args()
     args.output_dir.mkdir(parents=True,exist_ok=True)
-    fights=[replay(args.from_save,args.output_dir,interrupt) for interrupt in (True,False)]
+    first_save=args.output_dir/'interrupt-save.json' if args.chain else None
+    final_save=args.output_dir/'complete.json' if args.chain else None
+    first=replay(args.from_save,args.output_dir,True,weapon=args.weapon,next_save=first_save)
+    second=replay(first_save or args.from_save,args.output_dir,False,weapon=args.weapon,next_save=final_save)
+    fights=[first,second]
     (args.output_dir/'weekly-mechanics.json').write_text(
         json.dumps(fights,ensure_ascii=False,indent=2)+'\n','utf8')

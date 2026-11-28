@@ -1,0 +1,471 @@
+{
+  "knave-interrupt": {
+    "image": "knave-interrupt.png",
+    "frames": {
+      "片鎌": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10496,
+            "rgbAbsoluteError": 943552,
+            "unpackedCommands": 3453,
+            "packedCommands": 2456,
+            "unpackedBytes": 425670,
+            "packedBytes": 324953,
+            "combatCanvasMs": 3.199999988079071,
+            "canvasSha256": "33df6da86fc2caaed429d32cd9ff3d7a048ceed278512024b251113abce0c7c1"
+          },
+          "h32c16": {
+            "differentPixels": 10547,
+            "rgbAbsoluteError": 1112445,
+            "unpackedCommands": 1544,
+            "packedCommands": 1097,
+            "unpackedBytes": 184962,
+            "packedBytes": 140598,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "e55e78fa9358bdd4c6d7960b62c0afdf7ae1365f1280cc2cac311e19d9b2c80d"
+          }
+        },
+        "knaveText": "旅人 契約 0 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "凶月・双鎌": {
+        "tick": 310,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16295,
+            "rgbAbsoluteError": 1172638,
+            "unpackedCommands": 5295,
+            "packedCommands": 4298,
+            "unpackedBytes": 645612,
+            "packedBytes": 547082,
+            "combatCanvasMs": 4.899999976158142,
+            "canvasSha256": "988f51dead64e980b617e5107c3d8fb763c0269e039fa8ad56566310ee3945a5"
+          },
+          "h32c16": {
+            "differentPixels": 16345,
+            "rgbAbsoluteError": 1414410,
+            "unpackedCommands": 2400,
+            "packedCommands": 1953,
+            "unpackedBytes": 288212,
+            "packedBytes": 246637,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "4f2b17193048ea6668f883b266441ecaef13ed61a56a52de687c0fe579f0f23c"
+          }
+        },
+        "knaveText": "凶月の羽化 ｜ 戦闘再開まで1.6秒 ｜ 旅人 契約 0 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "旅人に命の契約": {
+        "tick": 551,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16418,
+            "rgbAbsoluteError": 1174074,
+            "unpackedCommands": 5295,
+            "packedCommands": 4298,
+            "unpackedBytes": 641029,
+            "packedBytes": 540521,
+            "combatCanvasMs": 5,
+            "canvasSha256": "2315242ba79b9bfb6c4cee0621f90db56577cced7e507d1d54b5a8e8272b8ec4"
+          },
+          "h32c16": {
+            "differentPixels": 16487,
+            "rgbAbsoluteError": 1448482,
+            "unpackedCommands": 2400,
+            "packedCommands": 1953,
+            "unpackedBytes": 280986,
+            "packedBytes": 235892,
+            "combatCanvasMs": 2.100000023841858,
+            "canvasSha256": "f4cfadd8736f202f3ecfab76afd32022e7ccc9b80779cde38ba3995008697b9d"
+          }
+        },
+        "knaveText": "血償の宣告 ｜ 左の返済灯へ ｜ 完済まであと5回 ｜ 旅人 契約 22695 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "返済灯で契約を返済": {
+        "tick": 699,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16500,
+            "rgbAbsoluteError": 1127685,
+            "unpackedCommands": 5314,
+            "packedCommands": 4311,
+            "unpackedBytes": 652739,
+            "packedBytes": 550192,
+            "combatCanvasMs": 4.699999988079071,
+            "canvasSha256": "2e79747e88825cde2c09ac5086f1833c6c30051c847bf81f3c0a6cd1699eadcf"
+          },
+          "h32c16": {
+            "differentPixels": 16578,
+            "rgbAbsoluteError": 1397841,
+            "unpackedCommands": 2410,
+            "packedCommands": 1966,
+            "unpackedBytes": 294447,
+            "packedBytes": 249677,
+            "combatCanvasMs": 2.100000023841858,
+            "canvasSha256": "d3663e0e3aaf2a79e75d1082ee5eccbede13d8ac174de862febfbb476fe7287a"
+          }
+        },
+        "knaveText": "赤宴・内外三巡 ｜ 左の返済灯 ｜ 完済まであと4回 ｜ 旅人 契約 18156 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "完済して羽印を取得": {
+        "tick": 819,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16601,
+            "rgbAbsoluteError": 1131286,
+            "unpackedCommands": 5315,
+            "packedCommands": 4312,
+            "unpackedBytes": 645195,
+            "packedBytes": 545756,
+            "combatCanvasMs": 4.699999988079071,
+            "canvasSha256": "a08f006e2825b236527a998400d016377d86eb20928220df1d070a65f0575a69"
+          },
+          "h32c16": {
+            "differentPixels": 16675,
+            "rgbAbsoluteError": 1396777,
+            "unpackedCommands": 2411,
+            "packedCommands": 1967,
+            "unpackedBytes": 288580,
+            "packedBytes": 245130,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "8f4f0dcc199dfef224713122e1b1263ce7c8536c5dd1044e2c360f52a28afd42"
+          }
+        },
+        "knaveText": "赤宴・内外三巡 ｜ 償還の一撃（H）で中断・残り4.6秒 ｜ 旅人 契約 0 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "赤宴・前方奔流の予兆": {
+        "tick": 2416,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14617,
+            "rgbAbsoluteError": 927408,
+            "unpackedCommands": 4870,
+            "packedCommands": 3471,
+            "unpackedBytes": 593084,
+            "packedBytes": 454175,
+            "combatCanvasMs": 4.199999988079071,
+            "canvasSha256": "6ce2c962de248451d3713070041b8067904587a6a32492994be85cabc9565512"
+          },
+          "h32c16": {
+            "differentPixels": 14692,
+            "rgbAbsoluteError": 1149855,
+            "unpackedCommands": 2180,
+            "packedCommands": 1590,
+            "unpackedBytes": 263055,
+            "packedBytes": 208069,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "bdb0ecaab6cefead849cc025ba8d31700036fd2ce069342bc77e7ad0d0868a38"
+          }
+        },
+        "knaveText": "赤宴・前方奔流 ｜ 左の返済灯へ ｜ 完済まであと10回 ｜ 旅人 契約 45390 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "羽印で中断できる時間": {
+        "tick": 2512,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14645,
+            "rgbAbsoluteError": 909707,
+            "unpackedCommands": 4872,
+            "packedCommands": 3473,
+            "unpackedBytes": 595341,
+            "packedBytes": 453461,
+            "combatCanvasMs": 4.200000017881393,
+            "canvasSha256": "fc86ce438b5217ed4ae826ee5edb3fd0dbf8b1d18bb9c6864c8f67f3416d7296"
+          },
+          "h32c16": {
+            "differentPixels": 14753,
+            "rgbAbsoluteError": 1143841,
+            "unpackedCommands": 2182,
+            "packedCommands": 1592,
+            "unpackedBytes": 262960,
+            "packedBytes": 204332,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "25b2bcf32be166eb8650258c0e8ff8ab5f344cfed28504d3d64995510ef1818a"
+          }
+        },
+        "knaveText": "赤宴・前方奔流 ｜ 償還の一撃（H）で中断・残り3.4秒 ｜ 旅人 契約 45390 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "断宴・3.6秒の反撃": {
+        "tick": 2548,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12566,
+            "rgbAbsoluteError": 800641,
+            "unpackedCommands": 4869,
+            "packedCommands": 3470,
+            "unpackedBytes": 598415,
+            "packedBytes": 459506,
+            "combatCanvasMs": 4.0999999940395355,
+            "canvasSha256": "ae3a287b790b4dfc1657c4a9df235e5fb5749ff62e9dd665abde00c9ab48cc36"
+          },
+          "h32c16": {
+            "differentPixels": 12648,
+            "rgbAbsoluteError": 977845,
+            "unpackedCommands": 2179,
+            "packedCommands": 1589,
+            "unpackedBytes": 264798,
+            "packedBytes": 209812,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "843f7fe6c8d09572700856e80f02876d31fa1e0d76c582fcc1749a8f163f7376"
+          }
+        },
+        "knaveText": "旅人が羽印で赤宴を中断 ｜ 反撃できる時間 3.6秒 ｜ 旅人 契約 45390 / 45390 ｜ 同行 契約 0 / 75"
+      }
+    }
+  },
+  "knave-evade": {
+    "image": "knave-evade.png",
+    "frames": {
+      "片鎌": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 10496,
+            "rgbAbsoluteError": 943552,
+            "unpackedCommands": 3453,
+            "packedCommands": 2456,
+            "unpackedBytes": 425670,
+            "packedBytes": 324953,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "33df6da86fc2caaed429d32cd9ff3d7a048ceed278512024b251113abce0c7c1"
+          },
+          "h32c16": {
+            "differentPixels": 10547,
+            "rgbAbsoluteError": 1112445,
+            "unpackedCommands": 1544,
+            "packedCommands": 1097,
+            "unpackedBytes": 184962,
+            "packedBytes": 140598,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "e55e78fa9358bdd4c6d7960b62c0afdf7ae1365f1280cc2cac311e19d9b2c80d"
+          }
+        },
+        "knaveText": "旅人 契約 0 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "凶月・双鎌": {
+        "tick": 310,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16295,
+            "rgbAbsoluteError": 1172638,
+            "unpackedCommands": 5295,
+            "packedCommands": 4298,
+            "unpackedBytes": 645612,
+            "packedBytes": 547082,
+            "combatCanvasMs": 4.4000000059604645,
+            "canvasSha256": "988f51dead64e980b617e5107c3d8fb763c0269e039fa8ad56566310ee3945a5"
+          },
+          "h32c16": {
+            "differentPixels": 16345,
+            "rgbAbsoluteError": 1414410,
+            "unpackedCommands": 2400,
+            "packedCommands": 1953,
+            "unpackedBytes": 288212,
+            "packedBytes": 246637,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "4f2b17193048ea6668f883b266441ecaef13ed61a56a52de687c0fe579f0f23c"
+          }
+        },
+        "knaveText": "凶月の羽化 ｜ 戦闘再開まで1.6秒 ｜ 旅人 契約 0 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "旅人に命の契約": {
+        "tick": 551,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16431,
+            "rgbAbsoluteError": 1178808,
+            "unpackedCommands": 5295,
+            "packedCommands": 4298,
+            "unpackedBytes": 641800,
+            "packedBytes": 540861,
+            "combatCanvasMs": 4.4000000059604645,
+            "canvasSha256": "8d39731833106756e18b649996e7d452b6420bf02b38df4696557e24c8a31268"
+          },
+          "h32c16": {
+            "differentPixels": 16498,
+            "rgbAbsoluteError": 1450110,
+            "unpackedCommands": 2400,
+            "packedCommands": 1953,
+            "unpackedBytes": 281052,
+            "packedBytes": 235933,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "c01f48e264bdd376d700f40a55633c7122ea6c6101ee9c71b8951dfd63c92a04"
+          }
+        },
+        "knaveText": "血償の宣告 ｜ 左の返済灯へ ｜ 完済まであと5回 ｜ 旅人 契約 22695 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "返済灯で契約を返済": {
+        "tick": 699,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16483,
+            "rgbAbsoluteError": 1129852,
+            "unpackedCommands": 5314,
+            "packedCommands": 4311,
+            "unpackedBytes": 652012,
+            "packedBytes": 549852,
+            "combatCanvasMs": 4.800000011920929,
+            "canvasSha256": "e6f0d7ab925e246a79b76c861626ccec0c9651175d5992947f364850fd648052"
+          },
+          "h32c16": {
+            "differentPixels": 16572,
+            "rgbAbsoluteError": 1405335,
+            "unpackedCommands": 2410,
+            "packedCommands": 1966,
+            "unpackedBytes": 294351,
+            "packedBytes": 249636,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "badef404f438d74720990af27cfdc2a2b2829ce54515f51802407cbd2945a7c8"
+          }
+        },
+        "knaveText": "赤宴・内外三巡 ｜ 左の返済灯 ｜ 完済まであと4回 ｜ 旅人 契約 18156 / 45390 ｜ 同行 契約 0 / 75"
+      },
+      "完済して羽印を取得": {
+        "tick": 819,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 16599,
+            "rgbAbsoluteError": 1132576,
+            "unpackedCommands": 5315,
+            "packedCommands": 4312,
+            "unpackedBytes": 650341,
+            "packedBytes": 548181,
+            "combatCanvasMs": 5.200000017881393,
+            "canvasSha256": "dc78b96a4e0a987994e7dcaf7928b0fdf3c0dcae7e23b090fe68bb21210824d0"
+          },
+          "h32c16": {
+            "differentPixels": 16670,
+            "rgbAbsoluteError": 1405496,
+            "unpackedCommands": 2411,
+            "packedCommands": 1967,
+            "unpackedBytes": 291034,
+            "packedBytes": 246319,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "2ffe3ab54c467cfefd30b5e523d8614f1aa15f0b1496da20002b96d0d08ea03c"
+          }
+        },
+        "knaveText": "赤宴・内外三巡 ｜ 償還の一撃（H）で中断・残り4.6秒 ｜ 旅人 契約 0 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "赤宴・前方奔流の予兆": {
+        "tick": 2416,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14607,
+            "rgbAbsoluteError": 918290,
+            "unpackedCommands": 4870,
+            "packedCommands": 3471,
+            "unpackedBytes": 596055,
+            "packedBytes": 454175,
+            "combatCanvasMs": 4.5,
+            "canvasSha256": "cf3bb6fd5121b0cf30c440d74bac425654b50fb58139e17ee75675685ec9c305"
+          },
+          "h32c16": {
+            "differentPixels": 14699,
+            "rgbAbsoluteError": 1143633,
+            "unpackedCommands": 2180,
+            "packedCommands": 1590,
+            "unpackedBytes": 266697,
+            "packedBytes": 208069,
+            "combatCanvasMs": 2,
+            "canvasSha256": "97a9b78f2781fae8965f32ec0eaa302d2291855f3ce94e1c94979118c9f70688"
+          }
+        },
+        "knaveText": "赤宴・前方奔流 ｜ 左の返済灯へ ｜ 完済まであと10回 ｜ 旅人 契約 45390 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "羽印で中断できる時間": {
+        "tick": 2512,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14645,
+            "rgbAbsoluteError": 909707,
+            "unpackedCommands": 4872,
+            "packedCommands": 3473,
+            "unpackedBytes": 595341,
+            "packedBytes": 453461,
+            "combatCanvasMs": 4.399999976158142,
+            "canvasSha256": "fc86ce438b5217ed4ae826ee5edb3fd0dbf8b1d18bb9c6864c8f67f3416d7296"
+          },
+          "h32c16": {
+            "differentPixels": 14753,
+            "rgbAbsoluteError": 1143841,
+            "unpackedCommands": 2182,
+            "packedCommands": 1592,
+            "unpackedBytes": 262960,
+            "packedBytes": 204332,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "25b2bcf32be166eb8650258c0e8ff8ab5f344cfed28504d3d64995510ef1818a"
+          }
+        },
+        "knaveText": "赤宴・前方奔流 ｜ 償還の一撃（H）で中断・残り3.4秒 ｜ 旅人 契約 45390 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "前方奔流の判定中": {
+        "tick": 2596,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14441,
+            "rgbAbsoluteError": 941055,
+            "unpackedCommands": 4475,
+            "packedCommands": 3478,
+            "unpackedBytes": 546079,
+            "packedBytes": 445635,
+            "combatCanvasMs": 4,
+            "canvasSha256": "1e1e62c6efb6d91170147d9f857fa2c40a14ac42326a0f0073511dc2f09961df"
+          },
+          "h32c16": {
+            "differentPixels": 14537,
+            "rgbAbsoluteError": 1154359,
+            "unpackedCommands": 2044,
+            "packedCommands": 1597,
+            "unpackedBytes": 247027,
+            "packedBytes": 201957,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "8844c6d1a7d5740083a2172d7ae36ca872ac99cb2e2eaa7403976b60bec1c9fd"
+          }
+        },
+        "knaveText": "赤宴・前方奔流 ｜ 償還の一撃（H）で中断・残り2.0秒 ｜ 旅人 契約 45390 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      },
+      "前方奔流が収まる": {
+        "tick": 2663,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14676,
+            "rgbAbsoluteError": 962203,
+            "unpackedCommands": 4468,
+            "packedCommands": 3471,
+            "unpackedBytes": 545377,
+            "packedBytes": 445175,
+            "combatCanvasMs": 3.9000000059604645,
+            "canvasSha256": "d0baa77646b80f4fce962e4a01e5909bf34ec276255522d8aac80c40d756477a"
+          },
+          "h32c16": {
+            "differentPixels": 14743,
+            "rgbAbsoluteError": 1175885,
+            "unpackedCommands": 2037,
+            "packedCommands": 1590,
+            "unpackedBytes": 248944,
+            "packedBytes": 204782,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "68b6f491857d63ce5b9ed476fd7bed37295cdbb4243b4320ffef23fff5f9c5f3"
+          }
+        },
+        "knaveText": "前方奔流が収まった ｜ 償還の一撃（H）で中断・残り0.9秒 ｜ 旅人 契約 45390 / 45390 ◇ 羽印 ｜ 同行 契約 0 / 75"
+      }
+    }
+  }
+}
