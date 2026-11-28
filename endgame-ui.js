@@ -30,13 +30,28 @@ export function knaveFeastText(view){
 
 export function shoukiTrialText(view){
  const result=view.trialResult;
- if(!result)return '';
- if(result.kind==='core-hit'){
+ if(result?.kind==='core-hit'){
   return '端末弾が胸部に命中'+(view.exposure?` ｜ 攻撃できる時間 残り${Math.ceil(view.exposure/60)}秒`:'');
  }
- if(result.resumed)return '装甲0で戦闘再開 ｜ 足元から本体を攻撃';
- if(result.damage===undefined)return '時間切れ。刹那生滅が来る';
- return result.damage?`刹那生滅が命中・${result.damage}ダメージ`:'刹那生滅の被ダメージなし';
+ if(view.trialTime!==undefined){
+  const aim=view.aim;
+  let action;
+  if(view.trialSpawning)action='滅度機の出現を待つ';
+  else if(view.trialLeft>0)action=`滅度機を攻撃（J） ｜ 残り${view.trialLeft}基`;
+  else if(aim?.fired)action='端末弾が飛行中';
+  else if(aim?.confirmed)action='端末を発射準備中';
+  else if(aim&&!aim.mine)action='味方が端末を照準中';
+  else if(aim?.canConfirm===false)action='射撃受付終了 ｜ Escで照準を中止';
+  else if(aim)action=aim.target==='core'?'胸部へ射撃を確定（H）':'照準を胸部に戻す';
+  else action=view.canAim?'端末を構える（H）':'端末の発射受付終了';
+  return `${action} ｜ 残り${(Math.ceil(view.trialTime/6)/10).toFixed(1)}秒`;
+ }
+ if(result){
+  if(result.resumed)return '装甲0で戦闘再開 ｜ 足元から本体を攻撃';
+  if(result.damage===undefined)return '時間切れ。刹那生滅が来る';
+  return result.damage?`刹那生滅が命中・${result.damage}ダメージ`:'刹那生滅の被ダメージなし';
+ }
+ return '';
 }
 
 export function signoraSealStrikeText(strike){

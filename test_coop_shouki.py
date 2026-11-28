@@ -138,6 +138,7 @@ def terminal(lua,core):
     core.action(guest,'encounter_cancel')
     assert w.aim.target=='core' and not w.aim.confirmed and w.charge==100
     assert view(core,host).aim.mine and not view(core,guest).aim.mine
+    assert view(core,host).aim.canConfirm and not view(core,guest).aim.canConfirm
     assert view(core,guest).aim.slot==members[0].id and view(core,guest).aim.owner==1
     host.actors[2].hp=host.actors[2].maxhp
     core.action(host,'swap')
@@ -317,7 +318,7 @@ if __name__=='__main__':
                          separateShieldCooldowns=True,foreignTargetAndCancelRejected=True,swapAndOfflineReleaseReservation=True,
                          launchedShotSurvivesExit=True,oldAndMultiHitInputsRejected=True,perPartyCompanionOrders=True,
                          independentPodCredit=True,podSupportQualifiesForReward=True,coreExposureTicks=600,
-                         personalTimeoutDamage=True,wipeReset=True),
+                         personalTimeoutDamage=True,wipeReset=True,terminalConfirmPermissionPerParty=True),
                 http=dict(participants=2,ownerLeavesBeforeFireWithoutSpending=True,replacementShoots=True,
                           sharedTrialFrozenOutsideArena=True,sharedTrialResult=True,
                           sharedHp=1630,personalXp=EXP,personalMora=1370,ownQuestAndSaves=True))

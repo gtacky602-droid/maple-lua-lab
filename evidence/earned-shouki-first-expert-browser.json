@@ -1,0 +1,97 @@
+{
+  "entry": true,
+  "manualMatrix": true,
+  "twoPhases": true,
+  "reservedAndCancelled": true,
+  "keyboardTerminal": true,
+  "terminalHitArmor": true,
+  "manualTrialParts": 4,
+  "terminalHitCore": true,
+  "exposureTicks": 599,
+  "trialNotices": {
+    "aim": {
+      "ticks": 649,
+      "hint": "胸部へ射撃を確定（H） ｜ 残り10.9秒"
+    },
+    "flight": {
+      "ticks": 575,
+      "hint": "端末弾が飛行中 ｜ 残り9.6秒"
+    }
+  },
+  "art": {
+    "upper": 1160,
+    "upperWidth": 1392.6417704011064,
+    "torsoSourceEnd": 737,
+    "torsoBottom": 480,
+    "floor": 480,
+    "waistClearance": 0,
+    "armored": 1160,
+    "trial": 1160,
+    "collapse": 1160,
+    "upperLeft": -216.32088520055322,
+    "upperTop": -680,
+    "armoredTop": -680,
+    "machineBehindParty": true,
+    "shieldCore": {
+      "x": 480,
+      "exposed": true,
+      "y": 298.69986168741355
+    },
+    "trialCore": {
+      "x": 480,
+      "exposed": false,
+      "y": 298.69986168741355
+    }
+  },
+  "clearReportRestore": true,
+  "remainingHp": 90708,
+  "viewport390": true,
+  "scene": {
+    "key": "godmakingHall",
+    "file": "godmaking-hall-background-v1.png",
+    "state": "ready"
+  },
+  "upperCommands": {
+    "png": 38,
+    "standard": 6145,
+    "light": 2307
+  },
+  "upperTransfer": {
+    "rawGzip": 49322,
+    "packedGzip": 39429,
+    "pixelMatch": true
+  },
+  "commands": {
+    "png": 10,
+    "standard": 6201,
+    "light": 2276
+  },
+  "sourceSha256": "586466c4034c9f4aa6681b642975c4278e57b9f2e7799a8fa2ccff04254f33da",
+  "guide": [
+    "shouki-godmaking-arena"
+  ],
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "questReward": {
+    "xp": 80000,
+    "mora": 5200
+  },
+  "expertWins": 1,
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": [],
+  "ordinaryTimeoutRegression": {
+    "pulse": {
+      "kind": "timeout",
+      "resumed": false,
+      "remainingPods": 2,
+      "damage": 72
+    },
+    "hud": "刹那生滅が命中・72ダメージ",
+    "resumedArmor": 0,
+    "resumedDamage": true
+  }
+}

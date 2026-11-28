@@ -570,6 +570,7 @@ return function(C)
     p2=armored,blocks={},targets={},canAim=not q and canAim(w,spec) and w.charge==spec.charge.max,
     left=w.clock<(w.suppressed.left or 0),right=w.clock<(w.suppressed.right or 0),
     trialLeft=name=='trial' and w.trialLeft or nil,trialTime=name=='trial' and math.max(0,spec.trial.deadline-w.stageTick) or nil,
+    trialSpawning=name=='trial' and w.stageTick<60 or nil,
     assist=assist and assist.index}
   if name=='collapse' and b.damageable then state.exposure=spec.moves.WN17.recovery-w.stageTick end
   if name=='overload' and b.damageable then state.exposure=420-w.stageTick end
@@ -581,8 +582,13 @@ return function(C)
   if device then
    state.device={id=device.id,title=device.title,cooldown=math.max(0,(w.deviceCd[device.id] or 0)-w.clock)}
   end
-  if q then state.aim={owner=q.owner,slot=q.slot or (q.party.coopMember and q.party.coopMember.id),
-   mine=q.party==s and q.actor==actor(s),target=q.target,confirmed=not not q.confirmed,fired=not not q.fired,tick=q.tick} end
+  if q then
+   local active=actor(s)
+   local mine=q.party==s and q.actor==active
+   state.aim={owner=q.owner,slot=q.slot or (q.party.coopMember and q.party.coopMember.id),
+    mine=mine,target=q.target,confirmed=not not q.confirmed,fired=not not q.fired,tick=q.tick,
+    canConfirm=mine and active.hp>0 and not s.auto and not q.confirmed and canAim(w,spec)}
+  end
   b.shouki=state
   if e.hp<=0 then return end
   local function rect(x,y,width,height,color,opacity)
