@@ -1,0 +1,32 @@
+{
+  "heard": "traveler",
+  "orientationAfterReload": true,
+  "normalJumpCrossing": true,
+  "companionCrossing": true,
+  "fallRescue": true,
+  "bothBankMarkers": true,
+  "battleAndChest": true,
+  "chestOre": 5,
+  "readbackAfterReport": true,
+  "sameFrameComparison": true,
+  "sourceSha256": "0608e0b87fde23b89325717044401073d49c7e700a9c339dc6ecd03ef9643758",
+  "startLevel": 120,
+  "reportedLevel": 121,
+  "priorCompleted": 85,
+  "reward": [
+    9733199,
+    8700,
+    0
+  ],
+  "art": {
+    "key": "nodMoonShallows",
+    "file": "nod-moon-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 20,
+    "standard": 2903,
+    "light": 792
+  },
+  "errors": []
+}

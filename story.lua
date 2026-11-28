@@ -2570,6 +2570,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)
+   if n.id=='nod-moon-shallows' and s.storyMoonDeck then
+    local deck=s.storyMoonDeck
+    for _,jump in ipairs({{deck.x-36,'右へジャンプ →'},{deck.x+deck.w+32,'← 左へジャンプ'}}) do
+     local x=jump[1]-s.camera
+     if x>=0 and x<=960 then
+      markers[#markers+1]={kind='rect',x=x-12,y=473,w=24,h=6,color='#304553'}
+      markers[#markers+1]={kind='rect',x=x-9,y=474,w=18,h=3,color='#ffe09b'}
+      markers[#markers+1]={kind='text',x=x,y=350,text=jump[2],size=14,color='#fff1bb'}
+     end
+    end
+   end
    local stageProps
    if n.furinaRehearsal or n.groupPhotoQuest or n.magicScene or n.toyDive or n.toyDisplay then
     stageProps=markerLayer(s,f,markers,mode)
