@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='nod-moon-bloom',hub='nod-bloom-gate',trail='nod-bloom-trail',grove='nod-bloom-grove';
-const prefix='evidence/nod-moon-bloom';
+const checkpoint=process.env.LAB_MOON_BLOOM_CHECKPOINT;
+const prefix=process.env.LAB_MOON_BLOOM_OUTPUT||'evidence/nod-moon-bloom';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -102,21 +104,27 @@ async function compare(){
 async function saveReload(){
   await page.locator('#saveProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
   await page.reload();
   await wait(()=>window.lab?.frame);
   await page.locator('#loadProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
   await at(hub);
+  return saved;
 }
 
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8906/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/nod-moon-bloom-fixture.json','utf8');
-  const lua=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+  const seed=await fs.readFile(checkpoint||'work/nod-moon-bloom-fixture.json','utf8');
+  const input=JSON.parse(seed);
+  const lua=JSON.parse(await fs.readFile('evidence/nod-moon-bloom-lua.json','utf8'));
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await page.locator('#loadProgress').click();
-  await at('nod-town');
+  if(checkpoint){
+    await at('nod-rumor-quay');
+    await gate(62,'nod-town');
+  }else await at('nod-town');
   await gate(371,hub);
   await questButton('受注','active');
   await inspect(270,1);
@@ -147,7 +155,14 @@ try{
   await jump(526,386);
   await jump(874,290);
   await inspect(1018,6);
-  assert.ok((await frame()).storyBloom.opened);
+  await key('KeyP');
+  await wait(()=>window.lab.frame.paused);
+  const mid=await frame();
+  assert.ok(mid.storyBloom.opened&&mid.storyBloom.opening);
+  await shot('opening');
+  assert.equal((await frame()).t,mid.t);
+  await key('KeyP');
+  await wait(()=>!window.lab.frame.paused&&!window.lab.frame.storyBloom.opening);
   await wait(()=>window.lab.frame.actors.every(a=>a.ground&&a.y===290));
   await inspect(1240,7);
   const commands=await compare();
@@ -157,23 +172,32 @@ try{
   const after=await frame();
   const reward=[after.progression.questXp-before.progression.questXp,after.mora-before.mora];
   assert.deepEqual(reward,lua.reportReward);
-  await saveReload();
+  const completed=await saveReload(),saved=JSON.parse(completed);
+  const prior=Object.entries(input.story.quests).filter(([,state])=>state.status==='complete');
+  for(const [id,state] of prior)assert.deepEqual(saved.story.quests[id],state,id);
+  for(const item of input.inventory.items)assert.ok(saved.inventory.items.some(i=>i.id===item.id),item.id);
+  assert.equal((await frame()).companion.id,before.companion.id);
+  if(checkpoint)await fs.writeFile(prefix+'-complete.json',completed+'\n');
   await gate(794,grove);
   await ground(290);
-  assert.ok((await frame()).storyBloom.decorated);
+  assert.ok((await frame()).storyBloom.decorated&&!(await frame()).storyBloom.opening);
   await inspect(1240);
   await wait(()=>window.lab.frame.storyNotice?.includes('体力を回復しました'));
   await shot('revisit');
   assert.deepEqual(errors,[]);
   const proof={trailScene,groveScene,closedUntilCleared:true,peacefulGrove:true,lowerAndUpperJump:true,companionClimbed:true,
-    openedFromUpperSeat:true,permanentDecoration:true,restAfterReload:true,commands,reward,errors};
+    openedFromUpperSeat:true,openingPaused:true,openingSettledOnRevisit:true,
+    permanentDecoration:true,restAfterReload:true,commands,reward,sourceSha256:createHash('sha256').update(seed).digest('hex'),
+    levelBefore:input.progression.level,levelAfter:saved.progression.level,priorCompleted:prior.length,
+    inventoryKept:input.inventory.items.length,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(()=>{
     const f=window.lab?.frame;
-    return {node:f?.story.node,actor:f?.actors[0],notice:f?.storyNotice,portal:f?.storyNearbyPortal,
+    return {node:f?.story?.node,actor:f?.actors[0],notice:f?.storyNotice,portal:f?.storyNearbyPortal,
       milestone:f?.storyNearbyMilestone,bloom:f?.storyBloom,total:f?.total,auto:f?.auto};
   }),errors);
+  await page.screenshot({path:prefix+'-failure.png'});
   throw error;
 }finally{await browser.close()}

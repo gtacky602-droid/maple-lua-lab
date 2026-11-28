@@ -116,12 +116,21 @@ assert progress(s).count==5 and not frame(s).storyBloom.opened
 jump(s,526,480,386)
 jump(s,874,386,290)
 inspect(s,1018,290)
+f=frame(s)
+assert f.storyBloom.opening and any(d.source=="nod-moon-bloom-bud-source-v1.png" for d in f.draws.values())
+core.action(s,"pause")
+advance(core,s,55,lua.table())
+assert frame(s).storyBloom.opening and frame(s).t==f.t
+core.action(s,"pause")
+advance(core,s,18,lua.table())
+assert frame(s).storyBloom.opening and any(d.source=="nod-moon-bloom-plants-source-v1.png" and d.h<120
+                                       for d in frame(s).draws.values())
 companion=s.actors[2]
 companion.x,companion.y,companion.vy,companion.ground=447,480,0,True
 advance(core,s,230,lua.table_from({}))
 assert companion.ground and companion.y==290 and abs(companion.x-s.actors[1].x)<=75
 f=frame(s)
-assert f.storyBloom.opened and not f.storyBloom.decorated
+assert f.storyBloom.opened and not f.storyBloom.opening and not f.storyBloom.decorated
 assert {d.h for d in f.draws.values() if d.source=="nod-moon-bloom-plants-source-v1.png"}=={82,120}
 assert all(d.source!="nod-moon-bloom-bud-source-v1.png" for d in f.draws.values())
 inspect(s,1240,290)
@@ -135,7 +144,7 @@ reward=(QUEST_REPORT_EXP["Q-NOD-S04"],6800)
 assert tuple(b-a for a,b in zip(before,after))==reward
 s=restore(s)
 gate(s,794,grove)
-assert s.actors[1].y==290 and frame(s).storyBloom.decorated
+assert s.actors[1].y==290 and frame(s).storyBloom.decorated and not frame(s).storyBloom.opening
 s.actors[1].hp=s.actors[2].hp=51
 for _ in range(2):
     inspect(s,1240,290)
@@ -146,7 +155,8 @@ assert len(s.enemies)==3
 
 proof=dict(m01Prerequisite=True,combatBeforeGrove=True,partialFightSaved=True,peacefulGrove=True,
            animalSpritesUnaffected=True,normalJumps=[386,290],companionClimbed=True,flowersAndFruitSaved=True,
-           twoPerspectives=True,viewNeedsElevation=True,permanentDecoration=True,restHealsWithoutReward=True,
+           twoPerspectives=True,viewNeedsElevation=True,openingFreezesWithPause=True,openingSettledOnRevisit=True,
+           permanentDecoration=True,restHealsWithoutReward=True,
            replayableTrail=True,reportReward=reward)
 (ROOT/"evidence/nod-moon-bloom-lua.json").write_text(json.dumps(proof,indent=2)+"\n",encoding="utf8")
 (ROOT/"work/nod-moon-bloom-fixture.json").write_text(json.dumps(fixture),encoding="utf8")

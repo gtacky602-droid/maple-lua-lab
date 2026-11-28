@@ -1,0 +1,36 @@
+{
+  "trailScene": {
+    "key": "nodMoonWood",
+    "file": "nod-moon-wood-background-v1.png",
+    "state": "ready"
+  },
+  "groveScene": {
+    "key": "nodBloomGrove",
+    "file": "nod-moon-bloom-background-v1.png",
+    "state": "ready"
+  },
+  "closedUntilCleared": true,
+  "peacefulGrove": true,
+  "lowerAndUpperJump": true,
+  "companionClimbed": true,
+  "openedFromUpperSeat": true,
+  "openingPaused": true,
+  "openingSettledOnRevisit": true,
+  "permanentDecoration": true,
+  "restAfterReload": true,
+  "commands": {
+    "png": 31,
+    "standard": 9570,
+    "light": 2538
+  },
+  "reward": [
+    7253017,
+    6800
+  ],
+  "sourceSha256": "b86c5ea24189f1c249d4d53e4e22b702d33c48c1abfb35159b22b65a0f65ee57",
+  "levelBefore": 129,
+  "levelAfter": 130,
+  "priorCompleted": 92,
+  "inventoryKept": 80,
+  "errors": []
+}
