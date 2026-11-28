@@ -90,6 +90,15 @@ export function narwhalJourneyText(journey,stage){
  if(v.kernelStagger)return `核を中断 ｜ 幻影に${v.kernelStagger.loss}ダメージ・残り${Math.ceil(v.kernelStagger.ticks/60)}秒`;
  if(v.incoming)return `核の受付終了 ｜ ${narwhalForms[v.incoming]}`;
  if(v.exposure)return `反撃できる時間 残り${Math.ceil(v.exposure/60)}秒`;
+ if(v.exposureOpensIn){
+  const returned=v.returnLoss===undefined?'星海に到着':`鯨に${v.returnLoss}ダメージ`;
+  return `${returned} ｜ 反撃まで${Math.ceil(v.exposureOpensIn/60)}秒`;
+ }
+ if(v.transitionTicks){
+  const destination=stage==='expel'?'星海に戻るまで':v.scene==='inner'?'腹中で動けるまで':'腹中に入るまで';
+  return `${destination}${Math.ceil(v.transitionTicks/60)}秒`;
+ }
+ if(stage==='weak')return '反撃終了';
  if(v.returnLoss!==undefined)return `星海へ帰還 ｜ 鯨に${v.returnLoss}ダメージ`;
  if(stage==='swallow')return '腹中へ移動中';
  if(stage==='expel')return '星海へ帰還中';
