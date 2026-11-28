@@ -8626,6 +8626,18 @@
       "lua_evidence": ["evidence/earned-bygone-current.json", "evidence/earned-bygone-resonance.json"],
       "browser_evidence": ["evidence/earned-bygone-current-browser.json", "evidence/earned-bygone-resonance-browser.json"]
     },
+    "earned_fontaine_freminet_lyney": {
+      "start_level": 92,
+      "freminet_quest": "fon-freminet-dive",
+      "freminet_route": "bubbles",
+      "level_after_freminet": 93,
+      "lyney_quest": "fon-lyney-magic",
+      "lyney_plan": "light",
+      "level_after_lyney": 94,
+      "next_quest_accepted": "fon-morte-sluice-survey",
+      "lua_evidence": ["evidence/earned-fontaine-freminet.json", "evidence/earned-fontaine-lyney.json"],
+      "browser_evidence": ["evidence/earned-fontaine-freminet-browser.json", "evidence/earned-fontaine-lyney-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

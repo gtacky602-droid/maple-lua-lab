@@ -1,5 +1,6 @@
 from copy import deepcopy
 import json
+import sys
 
 from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
@@ -15,6 +16,9 @@ graph=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
 quests={q['id']:q for q in graph['quests']}
 advance=lua.eval('function(C,s,n,input) for _=1,n do C.step(s,1/60,input) end end')
 idle,jump,right=(lua.table_from(data) for data in ({},{'jump':True},{'right':True}))
+earned='--earned' in sys.argv
+work=ROOT/'work/earned-fontaine-acts'
+morte='fon-morte-sluice-survey'
 
 
 def act(key):
@@ -83,16 +87,19 @@ def rehearse(variant,pos,name,label):
     assert state().storyChoice==variant and state().count==5
     collect(1179,'新しい演目の合図を待つ')
     assert state().count==5 and observe('wait').variant==variant
+    cue_remaining=observe('wait').cueRemaining
+    assert cue_remaining==quests[quest]['pocketMagic']['cueDelay']
     act('story_collect')
     assert '合図の前' in observe('wait').message
     act('pause')
     observed=s.t
     advance(core,s,120,idle)
     assert s.t==observed and state().count==5
+    assert observe('wait').cueRemaining==cue_remaining
     act('pause')
     advance(core,s,66,right)
     assert s.actors[s.active].x==1179
-    assert observe('cue').variant==variant
+    assert observe('cue').variant==variant and observe('cue').cueRemaining is None
     collect(1179,label)
     observe('show')
     advance(core,s,74,idle)
@@ -118,22 +125,28 @@ def witness_and_report():
     return [s.progression.questXp-before[0],s.mora-before[1]]
 
 
-s=core.new(12)
-act('story_start')
-core.grantExp(s,LEVELS[79]['maple_reference_total_exp_to_reach'],'quest')
-core.enterStoryNode(s,hub)
-act('story_accept:'+quest)
-assert state() is None
-reached(main1,quests[main1]['goal'],'complete')
-act('story_accept:'+quest)
-assert state() is None
-reached(main2,quests[main2]['goal'],'complete')
-fixture=checkpoint()
-reached(main3,quests[main3]['goal'],'complete')
-late_fixture=checkpoint()
-(ROOT/'work/fon-lyney-magic-fixture.json').write_text(json.dumps(late_fixture,ensure_ascii=False)+'\n',encoding='utf8')
-
-s=restore(fixture)
+if earned:
+    s=restore(validate_save(json.loads((work/'freminet-complete.json').read_bytes())))
+    assert s.story.node==hub and s.progression.level==93 and state(main3).status=='complete'
+    assert state('fon-freminet-dive').storyChoice=='bubbles'
+    act('story_accept:'+morte)
+    assert state(morte) is None
+else:
+    s=core.new(12)
+    act('story_start')
+    core.grantExp(s,LEVELS[79]['maple_reference_total_exp_to_reach'],'quest')
+    core.enterStoryNode(s,hub)
+    act('story_accept:'+quest)
+    assert state() is None
+    reached(main1,quests[main1]['goal'],'complete')
+    act('story_accept:'+quest)
+    assert state() is None
+    reached(main2,quests[main2]['goal'],'complete')
+    fixture=checkpoint()
+    reached(main3,quests[main3]['goal'],'complete')
+    late_fixture=checkpoint()
+    (ROOT/'work/fon-lyney-magic-fixture.json').write_text(json.dumps(late_fixture,ensure_ascii=False)+'\n',encoding='utf8')
+    s=restore(fixture)
 act('story_accept:'+quest)
 gate(1240,room)
 gate(997,wings)
@@ -143,9 +156,13 @@ move(553)
 act('story_collect')
 assert state().count==1
 act('jump')
-advance(core,s,26,jump)
-advance(core,s,28,idle)
-assert s.actors[1].y==392
+for _ in range(120):
+    advance(core,s,1,jump)
+    actor=s.actors[s.active]
+    if actor.y==392 and actor.ground:
+        break
+else:
+    raise AssertionError((s.active,actor.x,actor.y,actor.ground,s.storyNotice))
 collect(553,'上段から箱の通り道を調べる',392)
 gate(1555,seats)
 collect(424,'客席から舞台を見渡す')
@@ -158,10 +175,11 @@ assert state().count==4 and displayed('broken') and not displayed('cart')
 after_stop=checkpoint()
 
 rewards=[]
-for variant,pos,name,label in [
+plans=[
     ('curtain',1100,'二重の幕を使う','合図に合わせて幕を開ける'),
     ('light',1303,'逆光の影絵を使う','合図に合わせて逆光を切り替える'),
-]:
+]
+for variant,pos,name,label in (plans[1:] if earned else plans):
     s=restore(after_stop)
     assert s.story.node==room and state().count==4
     gate(997,wings)
@@ -189,35 +207,50 @@ for variant,pos,name,label in [
     advance(core,s,134,idle)
     assert s.progression.questXp==score
 
-# Report the side quest before the chapter's first staged performance.
-reached('fon-furina-cues',4,'complete')
-reached(main3,5,'active')
-core.enterStoryNode(s,stage)
-move(1046)
-assert frame().storyLyneyMagic is None
-move(1447,390)
-act('story_collect')
-advance(core,s,91,idle)
-act('story_collect')
-assert state(main3).count==6
-assert not observe('idle').message and frame().storyFurinaFinale.phase=='lights'
-advance(core,s,187,idle)
-assert observe('reveal').chapter and observe('reveal').variant=='light'
-advance(core,s,140,idle)
-assert not observe('idle').chapter
-gate(1602,hub,y=390)
-act('story_report:'+main3)
-s=restore(checkpoint())
+if earned:
+    gate(1216,hub)
+else:
+    # Report the side quest before the chapter's first staged performance.
+    reached('fon-furina-cues',4,'complete')
+    reached(main3,5,'active')
+    core.enterStoryNode(s,stage)
+    move(1046)
+    assert frame().storyLyneyMagic is None
+    move(1447,390)
+    act('story_collect')
+    advance(core,s,91,idle)
+    act('story_collect')
+    assert state(main3).count==6
+    assert not observe('idle').message and frame().storyFurinaFinale.phase=='lights'
+    advance(core,s,187,idle)
+    assert observe('reveal').chapter and observe('reveal').variant=='light'
+    advance(core,s,140,idle)
+    assert not observe('idle').chapter
+    gate(1602,hub,y=390)
+    act('story_report:'+main3)
+    s=restore(checkpoint())
 gate(1320,stage)
 move(1046)
 assert observe('idle').variant=='light'
 collect(1046,'主舞台の追加演目を見る')
 advance(core,s,73,idle)
 assert observe('reveal').birds
-assert rewards==[[QUEST_REPORT_EXP['Q-FON-S04'],4200]]*2
+assert rewards==[[QUEST_REPORT_EXP['Q-FON-S04'],4200]]*(1 if earned else 2)
 
 proof={'quest':quest,'requiresMain2':True,'upperWingRoute':True,'audienceOcclusion':True,
-       'wheelFailureLocksCart':True,'twoSafePlans':True,'pauseAndEarlyCueHandled':True,
-       'storedPlanReplays':True,'chapterFirstShowAndEncore':True,'sameRewards':rewards}
-(ROOT/'evidence/fon-lyney-magic-lua.json').write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
+       'wheelFailureLocksCart':True,'pauseAndEarlyCueHandled':True,
+       'storedPlanReplays':True}
+report=ROOT/'evidence/fon-lyney-magic-lua.json'
+if earned:
+    assert s.progression.level==94 and s.returns==0
+    advance(core,s,160,idle)
+    gate(1602,hub,y=390)
+    act('story_accept:'+morte)
+    assert state(morte).status=='active' and state(morte).count==0
+    (work/'acts-complete.json').write_text(json.dumps(checkpoint(),ensure_ascii=False)+'\n','utf8')
+    proof.update(startLevel=93,endLevel=94,plan='逆光の影絵',morteAccepted=True,mainStageEncore=True,rewards=rewards)
+    report=ROOT/'evidence/earned-fontaine-lyney.json'
+else:
+    proof.update(twoSafePlans=True,chapterFirstShowAndEncore=True,sameRewards=rewards)
+report.write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
 print(quest,proof)

@@ -84,16 +84,18 @@ return function(C,canInspect)
 
   local stops={route.start,route.turn,marker,route.dock}
   local remaining=math.max(0,s.t-(s.toyDive.routedAt or s.t))*route.speed
+  local x,y
   for i=1,#stops-1 do
    local a,b=stops[i],stops[i+1]
    local dx,dy=b.x-a.x,b.y-a.y
    local distance=math.sqrt(dx*dx+dy*dy)
-   if remaining<distance then
+   if not x and remaining<distance then
     local ratio=remaining/distance
-    return a.x+dx*ratio,a.y+dy*ratio,false
+    x,y=a.x+dx*ratio,a.y+dy*ratio
    end
    remaining=remaining-distance
   end
+  if x then return x,y,false,-remaining/route.speed end
   return route.dock.x,route.dock.y,true
  end
 
@@ -204,8 +206,15 @@ return function(C,canInspect)
   end
   if view.pushed then view.message='戻る向きの流れです。下の穏やかな側道へ回れます。' end
   if state.count>=2 then
-   local tx,ty,settled=toyPosition(s,q,state)
-   view.toy={x=tx,y=ty,arrived=settled}
+   local tx,ty,settled,seconds=toyPosition(s,q,state)
+   view.toy={x=tx,y=ty,arrived=settled,remaining=seconds}
+   if state.count<q.goal and not view.pushed then
+    if seconds then
+     view.message=('玩具の到着まで %.1f秒'):format(math.ceil(seconds*10)/10)
+    elseif settled then
+     view.message='玩具が帰り着きました。近くでGを押して見届けます。'
+    end
+   end
    if state.count<q.goal then art(layer,s,C.freminetDiveArt.toy,tx,ty+29,76,mode,profile) end
    if settled and state.count<q.goal then label(draws,s,tx,ty-66,'帰り着いた玩具') end
   end

@@ -1,0 +1,28 @@
+{
+  "quest": "fon-lyney-magic",
+  "wingBackground": {
+    "key": "fontaineMagicWings",
+    "file": "fon-lyney-magic-wings-background-v1.png",
+    "state": "ready"
+  },
+  "seatsBackground": {
+    "key": "fontaineMagicSeats",
+    "file": "fon-lyney-magic-seats-background-v1.png",
+    "state": "ready"
+  },
+  "upperAisleAndWheel": true,
+  "storedLightPlan": true,
+  "audienceShowAndChapterEncore": true,
+  "calls": {
+    "png": 16,
+    "rect": 17179,
+    "light": 3984
+  },
+  "errors": [],
+  "source": "work/earned-fontaine-acts/freminet-browser-complete.json",
+  "startLevel": 93,
+  "endLevel": 94,
+  "plan": "逆光の影絵",
+  "cueRemaining": 0.93333333333333,
+  "morteAccepted": true
+}

@@ -1,0 +1,24 @@
+{
+  "quest": "fon-freminet-dive",
+  "background": {
+    "key": "fontaineToyShallows",
+    "file": "fon-freminet-dive-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "pushBackAndSidePass": true,
+  "touchMovesVertically": true,
+  "checkpointResumesOriginalParty": true,
+  "markerSavedAndToyReturned": true,
+  "postQuestExhibitAndLookout": true,
+  "calls": {
+    "png": 120,
+    "rect": 15130,
+    "light": 3981
+  },
+  "errors": [],
+  "source": "work/earned-fontaine-acts/freminet-ready.json",
+  "startLevel": 92,
+  "endLevel": 93,
+  "route": "泡の列",
+  "arrivalTimer": 3.0226514246560114
+}
