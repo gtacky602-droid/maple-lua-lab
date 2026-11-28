@@ -246,6 +246,8 @@ M地図から背景比較を開くと、その地点の本編の敵配置を表�
 
 週ボスの外観更新では、人型の表示高と足元を固定し、頭側の帯を詰めた比率を戦闘と開戦プレビューに反映した。源焔の主の開戦画面では、離れた橙・紫の左右の翼を本体の背面に描く。開戦時だけを同じカメラ位置で比較し、元PNGと3段階の矩形で見比べられる。 [開戦の照合](../evidence/weekly-opening-poses-browser.json)
 
+現行の戦闘を外観の更新前後で比較するには、Luaラボと同じPython環境で `python test_weekly_visual_pass.py --visual-change 27cb63a5 --output work/weekly-visual-regression.json` を実行する。比較用の一時コピーから外観の差分だけを戻し、後続のマップ・戦闘更新を両方に含めて検査する。
+
 専用の5段階背景はラボ全1,528ステージ中199地点に対応した。秘境周辺の狩場と脇部屋（sites-hunt）124地点はすべて対応済み。別地域の狩場・脇部屋（branch-hunt）62地点は、往日の海3/3地点、沈玉の谷59/59地点に対応した。書き出し検査の locationCoverage に、地域別件数と残っている地点IDを記録する。フィールドボス配置表の120会場は3か所、週ボス配置表の18会場（内部マップを含む）は7か所に専用の5段階背景がある。[背景の対応範囲](../evidence/scenery-download-tiers.json)
 
 同じ方式で新しい背景セットを作るには、Python環境にLupa・NumPy・Pillow・Zopfliを用意し、生成記録と元PNGをassetsへ置き、`python tools/build_scenery_batch.py ina-islands` の引数に記録の接頭辞を指定する。5段階をLuaで復号し、可逆な詰め方の変更前後で全画素が一致した場合に容量と画質の比較結果を出力する。

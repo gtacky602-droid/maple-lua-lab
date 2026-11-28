@@ -145,24 +145,34 @@ def wing_motion(lua,core):
 
 if __name__=='__main__':
     parser=ArgumentParser(description=__doc__)
-    parser.add_argument('--baseline',required=True)
+    parser.add_argument('--visual-change', required=True,
+                        help='Commit that introduced the visuals to remove from the comparison runtime')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
-    baseline=subprocess.check_output(['git','rev-parse',args.baseline],text=True).strip()
+    visual_change=subprocess.check_output(
+        ['git','rev-parse','--verify',f'{args.visual_change}^{{commit}}'],text=True).strip()
+    visual_files=[f'{visual_change}^',visual_change,'--','*.lua','content/weekly-boss-spawns.json']
     files=subprocess.check_output(
-        ['git','diff','--name-only',baseline,'--','*.lua','content/weekly-boss-spawns.json'],text=True).splitlines()
+        ['git','diff','--name-only','--no-renames',*visual_files],text=True).splitlines()
+    patch=subprocess.check_output(['git','diff','--no-ext-diff','--no-color','--no-renames',*visual_files])
     with tempfile.TemporaryDirectory() as folder:
         override=Path(folder)
         for file in files:
             path=override/file
             path.parent.mkdir(exist_ok=True,parents=True)
-            path.write_bytes(subprocess.check_output(['git','show',f'{baseline}:{file}']))
+            path.write_bytes((ROOT/file).read_text(encoding='utf8').encode('utf8'))
+        # Keep later combat and map changes in both runtimes. Revert only the
+        # visual commit in the temporary copy, and fail if its hunks conflict.
+        subprocess.run(['git','apply','--reverse','--whitespace=nowarn'],
+                       cwd=override,input=patch,check=True)
         game.ROOT=BaselineFiles(override)
         try:
             old=game.runtime()
         finally:
             game.ROOT=ROOT
     current=game.runtime()
-    record=dict(base=baseline,encounters=verify(old,current),wingMotion=wing_motion(*current))
+    head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+    record=dict(testedCommit=head,removedVisualChange=visual_change,
+                encounters=verify(old,current),wingMotion=wing_motion(*current))
     args.output.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n','utf8')
     print(len(record['encounters']), 'bosses;', record['wingMotion']['minimumGapPx'], 'px minimum wing gap')
