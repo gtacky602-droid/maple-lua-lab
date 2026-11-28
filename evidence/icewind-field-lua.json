@@ -5,6 +5,7 @@
   "duetPositionsAndHitOrder": true,
   "cryoBolts": true,
   "armorAndDistinctCasts": true,
+  "armorMarksCountDistinctLeadHits": true,
   "exitClearsArmorWhileKeepingHp": true,
   "variantQuestAndSaveIsolation": true,
   "normalAttackSolo": {
@@ -28,8 +29,8 @@
     }
   },
   "sameSceneCommands": {
-    "png": 28,
-    "standard": 8356,
-    "light": 2309
+    "png": 52,
+    "standard": 8380,
+    "light": 2333
   }
 }

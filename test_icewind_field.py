@@ -62,6 +62,11 @@ def damage(state, enemy, cast=None):
     return hp-enemy.hp
 
 
+def armor_marks(state):
+    return [d.color for d in core.frame(state).draws.values()
+            if d.kind=='rect' and d.w==8 and d.h==4 and d.color in ('#addefe','#302235')]
+
+
 state = ready()
 fixture = validate_save(native(core.checkpoint(state)))
 (ROOT/'work').mkdir(exist_ok=True)
@@ -148,14 +153,17 @@ assert duet.sources[1].damageElement == 'cryo' and duet.sources[2].damageElement
 spot(hero, lead.x-90)
 guard = until(state, slot, 'FIP03', 54)
 assert lead.form == 'guarded' and '0/3' in core.frame(state, 'sprite').fieldBoss.label
+assert armor_marks(state)==['#302235']*3
 assert damage(state, other) == lead_hit and guard.guardHits == 0
 repeat_cast = strike(lead)
 for _ in range(2):
     assert damage(state, lead, repeat_cast) == math.floor(lead_hit*.6)
 assert guard.guardHits == 1
+assert armor_marks(state)==['#addefe','#302235','#302235']
 assert damage(state, lead) == math.floor(lead_hit*.6)
 assert damage(state, lead) == math.floor(lead_hit*.6)
 assert lead.form == 'guard-broken' and damage(state, lead) == lead_hit
+assert not armor_marks(state)
 hp = hero.hp
 for i, tick in enumerate((120, 174), 1):
     until(state, slot, 'FIP03', tick-1)
@@ -229,6 +237,7 @@ def normal_clear(variant):
 result = dict(
     sharedHpAndOneAoeHit=True, distinctElementSources=True, lockedSweepAndWind=True,
     duetPositionsAndHitOrder=True, cryoBolts=True, armorAndDistinctCasts=True,
+    armorMarksCountDistinctLeadHits=True,
     exitClearsArmorWhileKeepingHp=True, variantQuestAndSaveIsolation=True,
     normalAttackSolo={variant: normal_clear(variant) for variant in variants},
     sameSceneCommands=dict(png=png.commands, standard=standard.commands, light=light.commands),

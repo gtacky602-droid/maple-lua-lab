@@ -1243,7 +1243,7 @@
       ]
     },
     {
-      "id":"icewind-coppelia","controller":"icewind","coop":true,"entity":24070301,"lead":"anemo",
+      "id":"icewind-coppelia","controller":"icewind","coop":true,"showRecovery":true,"entity":24070301,"lead":"anemo",
       "name":"氷風組曲：コッペリアの葬送","node":"icewind-coppelia-field","storyChallenge":"icewind-coppelia",
       "level":90,"hp":1030,"mora":325,"artHeight":125,"floorY":480,"home":840,"partnerOffset":200,
       "arenaMin":350,"arenaMax":1560,"noticeRange":300,"noticeTicks":36,"restTicks":36,
@@ -1255,7 +1255,7 @@
       ]
     },
     {
-      "id":"icewind-coppelius","controller":"icewind","coop":true,"entity":24070301,"lead":"cryo",
+      "id":"icewind-coppelius","controller":"icewind","coop":true,"showRecovery":true,"entity":24070301,"lead":"cryo",
       "name":"氷風組曲：コペリウスの劫罰","node":"icewind-coppelius-field","storyChallenge":"icewind-coppelius",
       "level":90,"hp":1030,"mora":325,"artHeight":125,"floorY":480,"home":940,"partnerOffset":-195,
       "arenaMin":350,"arenaMax":1560,"noticeRange":300,"noticeTicks":36,"restTicks":36,

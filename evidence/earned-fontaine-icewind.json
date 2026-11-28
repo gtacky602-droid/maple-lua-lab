@@ -1,0 +1,121 @@
+{
+  "sourceSha256": "265cd536f0e79ff943eb10be4462fcf4f7595b7bf7a79204e60e1433540d45db",
+  "startLevel": 91,
+  "endLevel": 91,
+  "reportedCommissions": 20,
+  "returns": 0,
+  "separateRecords": {
+    "icewind-coppelia": {
+      "battle": {
+        "seconds": 19.03,
+        "hp": 384,
+        "marks": {
+          "FIC01": [
+            [
+              "1",
+              379.4000000000001,
+              301
+            ]
+          ],
+          "FIC02": [
+            [
+              "1",
+              493.28,
+              301
+            ],
+            [
+              "2",
+              306.72,
+              301
+            ]
+          ],
+          "FIC03": [
+            [
+              "1",
+              350.78,
+              301
+            ],
+            [
+              "2",
+              482.78,
+              301
+            ],
+            [
+              "3",
+              614.78,
+              301
+            ]
+          ]
+        },
+        "recoveryTicks": {
+          "FIC01": 120,
+          "FIC02": 100,
+          "FIC03": 144
+        },
+        "counterHit": true
+      },
+      "report": {
+        "quest": "icewind-coppelia-commission",
+        "xp": 6000,
+        "mora": 400
+      },
+      "restoredCooldown": 3376
+    },
+    "icewind-coppelius": {
+      "battle": {
+        "seconds": 18.8,
+        "hp": 367,
+        "marks": {
+          "FIP01": [
+            [
+              "1",
+              635.5,
+              301
+            ],
+            [
+              "2",
+              605.5,
+              301
+            ]
+          ],
+          "FIP02": [
+            [
+              "1",
+              306.72,
+              301
+            ],
+            [
+              "2",
+              493.28,
+              301
+            ]
+          ],
+          "FIP03": [
+            [
+              "1",
+              301.22,
+              301
+            ],
+            [
+              "2",
+              333.22,
+              301
+            ]
+          ]
+        },
+        "recoveryTicks": {
+          "FIP01": 90,
+          "FIP02": 96,
+          "FIP03": 144
+        },
+        "counterHit": true
+      },
+      "report": {
+        "quest": "icewind-coppelius-commission",
+        "xp": 6000,
+        "mora": 400
+      },
+      "restoredCooldown": 3062
+    }
+  }
+}

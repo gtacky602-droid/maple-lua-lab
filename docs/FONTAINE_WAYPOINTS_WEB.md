@@ -40,6 +40,14 @@ M地図の「水中」で水中の移動先を絞り込める。水中の門を�
 
 潮影の洞の門はLv88。水形タルパの「水槌の二打」では着地点に順番が出る。半身が現れると、半身の上とボスのHP欄に合流までの残り時間を表示する。猶予は最大2秒。半身を倒すと奔流の幅は158.4px、合流すると316.8pxになる。同じ継続セーブから、阻止と合流の両方を試し、18件目の通常ボスの依頼を報告した。合流を観察する試走では「同行者の攻撃を控える」を使った。 [Luaの継続再走](../evidence/earned-fontaine-tulpa.json) · [阻止のChrome検証](../evidence/earned-fontaine-tulpa-stop-browser.json) · [合流のChrome検証](../evidence/earned-fontaine-tulpa-merge-browser.json)
 
+## 氷風組曲の二演目
+
+水辺の広場から「氷風の舞台入口」へ行き、Lv90で二つの会場を選べる。各演目で二体がHPを共有する。コッペリアの葬送では終幕の三つの旋風を順に表示する。コペリウスの劫罰では氷弾二発の発射順と、同じ場所を攻撃する二振りの順番を並べて表示する。氷装甲の目盛りはコペリウスに別々の攻撃を当てると点灯し、装甲が解除されると消える。演目ごとに終幕後の反撃時間は最大2.4秒。
+
+水形タルパを報告済みのLv91セーブから両演目を続けて攻略した。討伐依頼を一つずつ報告し、通常ボスの報告数が18から20になった。両演目の勝利記録と再出現待ちを個別に復元した。 [Luaの継続再走](../evidence/earned-fontaine-icewind.json) · [Chromeの両演目と描画比較](../evidence/earned-fontaine-icewind-browser.json)
+
+継続セーブを用意したら `python -X utf8 test_earned_fontaine_icewind.py` でLuaの再走を行う。ラボを起動して `node test_icewind_field.mjs --earned` を実行すると、生成された開始セーブで両会場を回り、描画比較を `work/earned-fontaine-icewind/` に保存する。
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |
