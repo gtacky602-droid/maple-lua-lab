@@ -1,5 +1,6 @@
 return function(C)
  local attack,action,step,frame,prerequisite=C.attack,C.action,C.step,C.frame,C.skillPrerequisite
+ local cooldown=24
  -- v0.5 direct/channel trial scope; deployment copying remains undecided.
  local eligible={skill1=true,SK05=true,SK07=true,SK09=true,SK10=true,SK11=true,SK13=true,SK14=true,SK15=true,SK17=true,SK19=true,SK21=true,SK25=true,SK26=true,SK27=true,SK28=true,SK31=true,SK32=true,SK36=true,SK39=true,SK43=true,SK49=true,SK51=true,SK52=true,SK57=true}
  local function copy(t)
@@ -31,7 +32,7 @@ return function(C)
   cast.key='SK59';cast.echoOf=source.cast.key;cast.mult=cast.mult*.55;cast.x=a.x;cast.y=a.y;cast.dir=a.dir;cast.color='#e9dcff';cast.next=s.t+.12
   if cast.groundWave then C.placeGroundCast(s,cast) end
   if cast.travelSpeed then cast.lastPulseX=cast.x end
-  a.cd.SK59=24;a.lock=cast.channel and source.lock or .35;s.skillNotice=nil
+  a.cd.SK59=cooldown;a.lock=cast.channel and source.lock or .35;s.skillNotice=nil
   if source.dash then a.dash=source.dash;a.dashDir=a.dir end
   if cast.channel then a.channel='SK59' end
   if cast.remaining>0 then s.pending[#s.pending+1]=cast end
@@ -46,6 +47,36 @@ return function(C)
   if s.actors[1].hp<=0 or returns~=s.returns then s.echoSource=nil end
  end
  function C.frame(s,mode,profile)
-  local f=frame(s,mode,profile);f.echoSource=s.echoSource and s.echoSource.cast.key or nil;return f
+  local f=frame(s,mode,profile)
+  local a=s.actors[1]
+  local remaining=a.cd.SK59 or 0
+  f.echoSource=s.echoSource and s.echoSource.cast.key or nil
+  local available=s.active==1 and a.hp>0 and a.light>0 and f.echoSource~=nil and remaining==0
+   and a.lock<=0 and #s.pending<64 and (not C.canAttack or C.canAttack(s))
+   and C.skillPrerequisite(s,a,'SK59')==true
+  if available then
+   for _,slot in ipairs(f.loadout) do
+    for _,key in ipairs(slot) do
+     if key=='SK59' then f.echoReady=true end
+    end
+   end
+  end
+  local flash=a.hp>0 and remaining>cooldown-.46
+  local x=math.floor(a.x-s.camera)
+  if (f.echoReady or flash) and x>=-50 and x<=1010 then
+   local spread=flash and math.floor(20+48*(cooldown-remaining)) or 12
+   local y=math.floor(a.y)-(flash and 43 or 78)
+   local function rect(px,py,w,h,color)
+    f.draws[#f.draws+1]={kind='rect',x=px,y=py,w=w,h=h,color=color}
+   end
+   for _,dir in ipairs({-1,1}) do
+    local px=x+spread*dir
+    rect(px-4,y-2,8,4,'#c6b0fa')
+    rect(px-2,y-5,4,10,'#c6b0fa')
+    rect(px-1,y-1,2,2,'#f4eaff')
+   end
+   f.commands=#f.draws
+  end
+  return f
  end
 end

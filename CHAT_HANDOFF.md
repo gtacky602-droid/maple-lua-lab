@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 光界反響を湯気谷の温泉水路で実戦
+
+極光谷・氷棚に入ったLv165セーブからLv170へ進んだ。ミティヤの「光を、もう一度」を受注し、M地図を開いて温泉水路へ歩いた。光界解放中に雷撃を記録し、場所を移して光界反響を当てて報告した。技名と使用可能の表示、薄紫の合図は元PNGでも軽量16色でも使える。 [成長依頼と操作](docs/balance/GROWTH_LIGHT_WEB.md) · [Lv170までのLua試走](evidence/earned-light-echo-lua.json) · [温泉水路と実戦のChrome検証](evidence/earned-light-echo-browser.json)
+
 ## 光界解放と観測を報告し、極光谷の氷棚へ
 
 終着駅のLv160セーブでアルベドとアンバーの依頼を受け、氷の切通しで光界解放中の通常攻撃を当て、ドラゴンスパインで地形を観測した。光界解放中は旅人の周りを小さな光が回り、観測地点には測量台が出る。Chromeで両依頼を報告したセーブからLv165まで進み、M地図の案内で氷棚へ入った。 [二つの成長依頼](docs/balance/GROWTH_LIGHT_WEB.md) · [実戦と観測のChrome検証](evidence/earned-light-aurora-browser.json) · [氷棚のChrome検証](evidence/earned-light-ice-shelf-browser.json)

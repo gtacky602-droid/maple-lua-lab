@@ -1,0 +1,35 @@
+{
+  "hunts": [
+    {
+      "node": "aurora-ice-shelf",
+      "toLevel": 170,
+      "kills": 7699,
+      "exp": 583550109,
+      "autoKills": 7304,
+      "autoSeconds": 3556.55,
+      "seconds": 3766.57
+    }
+  ],
+  "milestones": [
+    {
+      "id": "lv170",
+      "node": "aurora-ice-shelf",
+      "level": 170,
+      "exp": 2243988652,
+      "kills": 51067,
+      "seconds": 3785.37
+    }
+  ],
+  "equipment": [],
+  "rests": 6,
+  "inventoryStops": 3,
+  "sourceSha256": "09f5e46783de89521eb81a2a408a201fdb6a238f8b465c9fe7d98cd4afd5ad05",
+  "level": 170,
+  "priorQuests": 104,
+  "inventoryKept": 65,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "wipes": 0,
+  "channelEntered": true,
+  "echoUnlocked": true
+}

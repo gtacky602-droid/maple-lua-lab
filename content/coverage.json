@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_light_echo": {"levels":[165,170],"channel":"aurora-steam-channel","echoInCombat":true,"sourceSkill":"SK09","preservedQuests":104,"luaRecord":"evidence/earned-light-echo-lua.json","browserRecord":"evidence/earned-light-echo-browser.json"},
   "earned_light_aurora_shelf": {"levels":[160,165],"releaseInCombat":true,"dragonspineObserved":true,"shelf":"aurora-ice-shelf","lightBrowser":"evidence/earned-light-aurora-browser.json","shelfLua":"evidence/earned-light-ice-shelf-lua.json","shelfBrowser":"evidence/earned-light-ice-shelf-browser.json"},
   "earned_white_pass_summit": {"levels":[153,155,156,158,160],"boss":"original-frost-antler","firstClearExp":61667202,"sketchAfterReport":true,"opened":"aurora-ice-cut","lightRelease":true,"bossLua":"evidence/earned-white-pass-summit-lua.json","bossBrowser":"evidence/earned-white-pass-summit-browser.json","auroraLua":"evidence/earned-white-pass-aurora-lua.json","auroraBrowser":"evidence/earned-white-pass-aurora-browser.json"},
   "earned_white_pass_snow": {"levels":[149,150,153],"footworkRestored":true,"snowScore":[5,2],"snowFlightAndPoints":true,"restRestored":true,"weapon":"SW07","snowBrowser":"evidence/earned-white-pass-snow-browser.json","restLua":"evidence/earned-white-pass-rest-lua.json","restBrowser":"evidence/earned-white-pass-rest-browser.json"},
