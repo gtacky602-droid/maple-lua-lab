@@ -4,7 +4,11 @@ import {chromium} from 'playwright';
 
 const hub='natlan-hub',summit='natlan-flag-summit',steps='natlan-high-trial-steps';
 const high='natlan-high-trial-field',river='natlan-river-float-run',turn='natlan-river-turn-basin';
-const meet='natlan-duel-entry',quest='natlan-two-trials',prefix='evidence/natlan-two-trials';
+const meet='natlan-duel-entry',quest='natlan-two-trials';
+const earned=process.argv.includes('--earned');
+const work='work/earned-natlan-two-trials';
+const prefix=process.env.LAB_TRIAL_EVIDENCE??(earned?work+'/trial':'evidence/natlan-two-trials');
+if(earned)await fs.mkdir(work,{recursive:true});
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -131,6 +135,7 @@ async function compare(){
   await wait(n=>window.lab.frame.commands<n*.65,standard.commands);
   const light=await frame();
   assert.ok([standard,light].every(f=>f.t===png.t&&f.storyRiverDecks[0].x===position));
+  assert.deepEqual(light.storyRiverBoarding,png.storyRiverBoarding);
   await screenshot('raft-light');
   await menu.selectOption('sprite');
   await key('KeyP');
@@ -141,11 +146,16 @@ async function compare(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8893/');
   await wait(()=>window.lab?.frame);
-  const raw=await fs.readFile('work/natlan-two-trials-fixture.json','utf8');
-  const {reward:expectedReward}=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+  const raw=await fs.readFile(earned?'work/earned-natlan-flag/ledges-browser-complete.json':'work/natlan-two-trials-fixture.json','utf8');
+  const {reward:expectedReward}=JSON.parse(await fs.readFile('evidence/natlan-two-trials-lua.json','utf8'));
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),raw);
   await page.locator('#loadProgress').click();
   await nodeIs(hub);
+  const start=await frame();
+  if(earned){
+   assert.equal(start.progression.level,101);
+   assert.equal(start.story.quests['natlan-ridge-flag'].status,'complete');
+  }
   await questButton('受注','active');
   await gate(1227,summit);
   await jump(795,390);
@@ -167,12 +177,19 @@ try{
   await wait(()=>window.lab.frame.storyNotice?.includes('近い岸'));
   assert.equal((await frame()).actors[0].hp,initialHealth);
   await walk(388);
+  await wait(()=>window.lab.frame.storyRiverBoarding?.phase==='wait');
+  assert.match(await page.locator('#storyForest').textContent(),/この岸に着くまで[\d.]+秒/);
+  if(earned)await screenshot('wait-for-raft');
   await wait(()=>{const p=window.lab.frame.storyRiverDecks?.[0];return p?.x===340&&p.dockSeconds>1.25;});
+  assert.equal((await frame()).storyRiverBoarding.phase,'board');
+  assert.match(await page.locator('#storyForest').textContent(),/ジャンプで乗れます。出発まで[\d.]+秒/);
   await jump(388,430);
   const onDeck=(await frame()).actors[0].x;
   await wait(x=>window.lab.frame.actors[0].x>x+120&&window.lab.frame.actors[0].ground,onDeck);
+  assert.match(await page.locator('#storyForest').textContent(),/右岸に着くまで[\d.]+秒/);
   const commands=await compare();
   await wait(()=>window.lab.frame.storyRiverDecks[0].x===914);
+  assert.equal((await frame()).storyRiverBoarding.phase,'landed');
   await jump(1105,480,true);
   await auto(true);await count(2,'water');await auto(false);
   await gate(1610,turn);
@@ -193,7 +210,7 @@ try{
   assert.equal((await record()).count,1);
   await saveReload(summit);
   assert.equal((await record()).pathProgress.water.count,4);
-  await wait(()=>document.querySelector('#storyForest').textContent.includes('水辺 達成'));
+  await wait(()=>document.querySelector('#storyForest').textContent.includes('水辺 通過'));
   console.log('Both river crossings and saved water branch verified');
 
   await jump(969,390);
@@ -202,6 +219,15 @@ try{
   await jump(900,302);await inspect(1044,2,'high');
   await gate(1420,high);
   await walk(303);await highGuard('natlan-high-mark-1');
+  if(earned){
+   assert.equal((await record()).pathProgress.high.count,2);
+   await saveReload(summit);
+   assert.equal((await record()).pathProgress.water.count,4);
+   assert.equal((await record()).pathProgress.high.sweep['natlan-high-mark-1'],true);
+   await jump(969,390);await gate(969,steps);
+   await jump(522,391);await jump(900,302);
+   await gate(1420,high);
+  }
   await jump(577,390);await highGuard('natlan-high-mark-2');
   await jump(715,300);await walk(938);await highGuard('natlan-high-mark-3');
   await count(3,'high');
@@ -221,6 +247,13 @@ try{
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
   assert.deepEqual(reward,expectedReward);
   await saveReload(hub);
+  if(earned){
+   assert.equal((await frame()).progression.level,103);
+   assert.equal((await record()).status,'complete');
+   assert.equal((await frame()).returns,0);
+   const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+   await fs.writeFile(work+'/two-trials-browser-complete.json',saved+'\n');
+  }
   await gate(1314,meet);
   await jump(847,390);
   await key('KeyG');
@@ -228,8 +261,9 @@ try{
   assert.deepEqual(errors,[]);
   const proof={waterThenHigh:true,realMovingDeck:true,bankRescue:true,rockRouteBoardsFinalRaft:true,
     waterSavedBeforeHigh:true,highStepsAndThreeGuards:true,threeMarksAndMatchCard:true,
-    shortcutAndReadback:true,riverside,commands,reward,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+    shortcutAndReadback:true,riverside,commands,reward,boardingHud:true,
+    ...(earned?{levels:[start.progression.level,after.progression.level],restoredHighSweep:true}:{}),errors};
+  await fs.writeFile(earned?'evidence/earned-natlan-two-trials-browser.json':prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(()=>{

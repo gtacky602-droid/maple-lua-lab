@@ -4,11 +4,12 @@ return function(C)
  local function cycle(spec,elapsed)
   local duration=spec.travel
   local stop=spec.hold
-  local t=elapsed%(2*(duration+stop))
-  if t<stop then return spec.left,0,stop-t end
-  if t<stop+duration then return spec.left+(spec.right-spec.left)*(t-stop)/duration,1,0 end
-  if t<2*stop+duration then return spec.right,0,2*stop+duration-t end
-  return spec.right-(spec.right-spec.left)*(t-2*stop-duration)/duration,-1,0
+  local length=2*(duration+stop)
+  local t=elapsed%length
+  if t<stop then return spec.left,0,stop-t,0,stop+duration-t end
+  if t<stop+duration then return spec.left+(spec.right-spec.left)*(t-stop)/duration,1,0,length-t,stop+duration-t end
+  if t<2*stop+duration then return spec.right,0,2*stop+duration-t,length-t,0 end
+  return spec.right-(spec.right-spec.left)*(t-2*stop-duration)/duration,-1,0,length-t,length+stop+duration-t
  end
 
  function platforms.enter(s,river)
@@ -17,9 +18,9 @@ return function(C)
   if not river then return end
   s.riverDecks={}
   for _,spec in ipairs(river.decks) do
-   local x,direction,dockSeconds=cycle(spec,spec.offset or 0)
+   local x,direction,dockSeconds,left,right=cycle(spec,spec.offset or 0)
    local p={x=x,y=spec.y,w=spec.w,riverDeck=true}
-   s.riverDecks[#s.riverDecks+1]={spec=spec,platform=p,direction=direction,dockSeconds=dockSeconds}
+   s.riverDecks[#s.riverDecks+1]={spec=spec,platform=p,direction=direction,dockSeconds=dockSeconds,left=left,right=right}
    s.platforms[#s.platforms+1]=p
   end
  end
@@ -29,7 +30,7 @@ return function(C)
   local t=s.t-s.storyEnteredAt+math.max(0,math.min(dt,1/30))
   for _,entry in ipairs(s.riverDecks) do
    local spec,p=entry.spec,entry.platform
-   local x,direction,dockSeconds=cycle(spec,t+(spec.offset or 0))
+   local x,direction,dockSeconds,left,right=cycle(spec,t+(spec.offset or 0))
    if x~=p.x then
     for _,a in ipairs(s.actors) do
      if a.hp>0 and a.ground and a.y==p.y and a.x>=p.x and a.x<=p.x+p.w then
@@ -39,6 +40,7 @@ return function(C)
     p.x=x
    end
    entry.direction,entry.dockSeconds=direction,dockSeconds
+   entry.left,entry.right=left,right
   end
  end
 
@@ -70,6 +72,23 @@ return function(C)
   end
  end
 
+ local function boarding(a,river,entry)
+  if not a.ground or a.hp<=0 then return end
+  local p=entry.platform
+  if a.y==p.y and a.x>=p.x and a.x<=p.x+p.w then
+   if entry.direction==0 then return {phase='landed',side=entry.left==0 and 'left' or 'right',seconds=entry.dockSeconds} end
+   local side=entry.direction==1 and 'right' or 'left'
+   return {phase='riding',side=side,seconds=entry[side]}
+  end
+  for i,bank in ipairs(river.banks) do
+   if a.y==bank.y and math.abs(a.x-bank.x)<92 then
+    local side=i==1 and 'left' or 'right'
+    if entry[side]==0 then return {phase='board',side=side,seconds=entry.dockSeconds} end
+    return {phase='wait',side=side,seconds=entry[side]}
+   end
+  end
+ end
+
  function platforms.observe(s,f,layer,river,mode,profile)
   if not river then return end
   local draws=layer.draws
@@ -79,6 +98,7 @@ return function(C)
    local x=p.x+p.w/2-s.camera
    f.storyRiverDecks[#f.storyRiverDecks+1]={x=p.x,y=p.y,w=p.w,direction=entry.direction,
     atBank=entry.direction==0,dockSeconds=entry.dockSeconds}
+   f.storyRiverBoarding=f.storyRiverBoarding or boarding(s.actors[s.active],river,entry)
    if x>=-115 and x<=1075 then
     C.drawFieldDisplayArt(layer,C.natlanTrialRaftArt,x,p.y+spec.drawBelow,spec.height,mode,profile,false)
    end

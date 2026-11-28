@@ -491,8 +491,19 @@ function hud(f,calls,renderMs){
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
  const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyWandererSurvey?.message??f.storyObservationVisitors?.message??f.storyColleiGuide?.message??f.storyKavehRoom?.message??f.storyNahidaDiscovery?.message??f.storyEmilieScent?.message??f.storyNaviaPhoto?.message??f.storyIansan?.message??f.storySpringCourse?.message??f.storyKinichHunt?.message??f.storySurf?.message??f.storyToyDive?.message??f.storyDiveExhibit?.message??f.storyLyneyMagic?.message??f.storyFurinaFinale?.message??(!f.storyFurinaRehearsal?.open?f.storyFurinaRehearsal?.message:undefined)??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
- forest.hidden=!fieldNote;
- if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
+ const boarding=f.storyRiverBoarding;
+ let raftNote='';
+ if(boarding){
+  const seconds=(Math.ceil(boarding.seconds*10)/10).toFixed(1);
+  const bank=boarding.side==='left'?'左岸':'右岸';
+  if(boarding.phase==='board')raftNote=`浮き台にジャンプで乗れます。出発まで${seconds}秒`;
+  else if(boarding.phase==='wait')raftNote=`浮き台がこの岸に着くまで${seconds}秒`;
+  else if(boarding.phase==='riding')raftNote=`${bank}に着くまで${seconds}秒`;
+  else raftNote=`${bank}に到着。出発まで${seconds}秒`;
+ }
+ const note=[fieldNote,raftNote].filter(Boolean).join(' ｜ ');
+ forest.hidden=!note;
+ if(note&&forest.textContent!==note)forest.textContent=note;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;
  const voyage=f.voyage;
  const lift=f.storyLift??(voyage&&{destination:voyage.destinationName??voyage.destination,seconds:voyage.total??voyage.seconds+voyage.elapsed,remaining:voyage.seconds});
