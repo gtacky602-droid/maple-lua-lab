@@ -3,12 +3,48 @@
     "quest": "natlan-witztli-three-echoes",
     "startLevel": 100,
     "reached": "witztli-sealed-stone-bank",
-    "crossings": 16
+    "crossings": 18,
+    "approach": [
+      "natlan-quarry-road",
+      "natlan-field",
+      "nat-wp-72428",
+      "nat-wp-72760",
+      "nat-wp-72436",
+      "witztli-sealed-stone-bank"
+    ],
+    "routeBack": [
+      "nat-wp-72436",
+      "nat-wp-72760",
+      "nat-wp-72428",
+      "natlan-field",
+      "natlan-quarry-road",
+      "natlan-hub"
+    ]
   },
   {
     "quest": "natlan-seaward-signs",
     "startLevel": 108,
     "reached": "night-wind-seaward-fork",
-    "crossings": 14
+    "crossings": 16,
+    "approach": [
+      "natlan-quarry-road",
+      "natlan-field",
+      "natlan-port",
+      "nat-wp-79058",
+      "nat-wp-79056",
+      "nat-wp-79054",
+      "nat-wp-79053",
+      "night-wind-seaward-fork"
+    ],
+    "routeBack": [
+      "nat-wp-79053",
+      "nat-wp-79054",
+      "nat-wp-79056",
+      "nat-wp-79058",
+      "natlan-port",
+      "natlan-field",
+      "natlan-quarry-road",
+      "natlan-hub"
+    ]
   }
 ]

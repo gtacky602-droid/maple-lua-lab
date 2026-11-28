@@ -12,7 +12,7 @@ edges = {(src, e['to']): e for src, gates in exits.items() for e in gates}
 lua, core = runtime()
 seed = validate_save(json.loads((ROOT/'work/fontaine-fresh-route/natlan-save.json').read_bytes()))
 
-def play(quest_id, approach):
+def play(quest_id):
     q = quests[quest_id]
     state = core.restore(lua.table_from(seed, recursive=True), 12)
     walk = TrailWalk(lua, core, state, edges, exits)
@@ -22,12 +22,7 @@ def play(quest_id, approach):
     assert state.progression.level == q['level']
     core.action(state, 'story_accept:'+quest_id)
     assert state.story.quests[quest_id].status == 'active'
-    core.action(state, 'world_map_focus:'+q['target'])
-    guide = core.frame(state).worldMap.guide
-    assert guide.status == 'ready', (quest_id, guide.status)
-    core.action(state, 'world_map_close')
-    for dest in approach:
-        walk.cross(dest)
+    approach = walk.follow_atlas(q['target'])
     def inspect(spot):
         walk.approach(spot['x'], spot['y'], quest_id)
         core.action(state, 'story_collect')
@@ -45,16 +40,17 @@ def play(quest_id, approach):
                 walk.approach(920, 346, quest_id)
             inspect(spot)
     assert state.story.quests[quest_id].count == q['goal']
-    for dest in [*reversed(approach[:-1]), q['hub']]:
-        walk.cross(dest)
+    route_back = walk.follow_atlas(q['hub'])
     core.action(state, 'story_report:'+quest_id)
     save = validate_save(native(core.checkpoint(state)))
     assert save['story']['quests'][quest_id]['status'] == 'complete'
-    return dict(quest=quest_id, startLevel=q['level'], reached=q['target'], crossings=len(walk.crossings))
+    assert state.returns == 0
+    return dict(quest=quest_id, startLevel=q['level'], reached=q['target'], crossings=len(walk.crossings),
+                approach=approach, routeBack=route_back)
 
 results = [
-    play('natlan-witztli-three-echoes', ['natlan-field','nat-wp-72428','nat-wp-72760','nat-wp-72436','witztli-sealed-stone-bank']),
-    play('natlan-seaward-signs', ['natlan-field','natlan-port','nat-wp-79058','nat-wp-79056','nat-wp-79054','nat-wp-79053','night-wind-seaward-fork'])
+    play('natlan-witztli-three-echoes'),
+    play('natlan-seaward-signs')
 ]
 (ROOT/'evidence/natlan-trail-entry-levels.json').write_text(json.dumps(results, indent=2)+'\n', encoding='utf8')
 print(results)

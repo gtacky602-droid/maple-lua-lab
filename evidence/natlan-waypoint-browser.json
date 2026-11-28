@@ -1,6 +1,146 @@
 {
   "journeys": [
     [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "nat-wp-72450",
+      "walk"
+    ],
+    [
+      "nat-wp-72450",
+      "nat-wp-72432",
+      "lift"
+    ],
+    [
+      "nat-wp-72432",
+      "nat-wp-72435",
+      "walk"
+    ],
+    [
+      "nat-wp-72435",
+      "nat-wp-72432",
+      "walk"
+    ],
+    [
+      "nat-wp-72432",
+      "nat-wp-72435",
+      "walk"
+    ],
+    [
+      "nat-wp-72435",
+      "nat-wp-72434",
+      "raised"
+    ],
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-port",
+      "walk"
+    ],
+    [
+      "natlan-port",
+      "natlan-voyage",
+      "walk"
+    ],
+    [
+      "natlan-voyage",
+      "ochkanatlan-dock",
+      "walk"
+    ],
+    [
+      "ochkanatlan-dock",
+      "ochkanatlan-ruins",
+      "walk"
+    ],
+    [
+      "ochkanatlan-ruins",
+      "nat-wp-79546",
+      "walk"
+    ],
+    [
+      "nat-wp-79546",
+      "nat-wp-79549",
+      "walk"
+    ],
+    [
+      "nat-wp-79549",
+      "nat-wp-79295",
+      "raised"
+    ],
+    [
+      "ochkanatlan-dock",
+      "natlan-voyage",
+      "walk"
+    ],
+    [
+      "natlan-voyage",
+      "natlan-port",
+      "walk"
+    ],
+    [
+      "natlan-port",
+      "nat-resort-pier",
+      "boat"
+    ],
+    [
+      "nat-resort-pier",
+      "nat-wp-85957",
+      "walk"
+    ],
+    [
+      "nat-wp-85957",
+      "nat-wp-85960",
+      "walk"
+    ],
+    [
+      "nat-wp-85960",
+      "nat-wp-85962",
+      "walk"
+    ],
+    [
+      "nat-wp-85962",
+      "nat-wp-85968",
+      "walk"
+    ],
+    [
+      "nat-wp-85968",
+      "nat-wp-85966",
+      "walk"
+    ],
+    [
+      "nat-wp-85966",
+      "nat-wp-85967",
+      "walk"
+    ],
+    [
       "nat-mountain-camp",
       "nat-wp-84104",
       "walk"
@@ -108,9 +248,18 @@
   ],
   "groups": [
     "モンド",
+    "璃月",
+    "鳴神島・離島",
+    "鶴観",
+    "スメールの森林",
+    "フォンテーヌ南部",
+    "フォンテーヌ廷",
+    "テケメカンの谷",
     "万火のほとぎ周辺",
     "クァワカン断崖周辺",
     "オシカ・ナタ",
+    "レンポ島",
+    "万火のほとぎ周辺・別階層",
     "アトクパンの大地",
     "古の聖山",
     "古の聖山・別階層",
@@ -118,9 +267,54 @@
     "空の神殿"
   ],
   "reported": [
+    "nat-mapped-valley-trail",
+    "nat-mapped-ochka-supplies",
+    "nat-mapped-resort-canal",
     "nat-mapped-mountain-layers",
     "nat-mapped-sky-lift"
   ],
+  "entryLevel": 100,
+  "quarryRoutes": {
+    "out": [
+      "natlan-quarry-road",
+      "natlan-field"
+    ],
+    "back": [
+      "natlan-quarry-road",
+      "natlan-hub"
+    ]
+  },
+  "valleyApproach": [
+    "nat-wp-72450",
+    "nat-wp-72432",
+    "nat-wp-72435"
+  ],
+  "ship": {
+    "window": [
+      30,
+      50
+    ],
+    "earlyDisembarkRejected": true,
+    "initialMapWindow": {
+      "seconds": 28,
+      "phase": "waiting",
+      "kind": "ferry"
+    },
+    "resumed": 50.03333333333333
+  },
+  "returnLift": {
+    "id": "nat-wp-96375",
+    "hint": "上段の入口・中段の足場を経由して上段へ・中央の昇降台へ下りる・移動に2.3秒",
+    "name": "空の神殿・中央の昇降台",
+    "approach": "現在地から左へ",
+    "mode": "lift",
+    "label": "昇降機",
+    "region": "official-area-14",
+    "from": "nat-wp-96376",
+    "previewX": 760,
+    "previewY": 300,
+    "level": 132
+  },
   "movingLiftInBothDirections": true,
   "twoJumpLanding": [
     480,
