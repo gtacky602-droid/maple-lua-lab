@@ -72,6 +72,7 @@ def start():
 
 fixture = checkpoint(start())
 stats = {}
+rest_cues = {}
 for gift in routes[quest]["itinerary"][1]["choices"]:
     s=start()
     assert not any(q.id==legacy for q in frame(s).storyGraph.quests.values())
@@ -129,7 +130,10 @@ for gift in routes[quest]["itinerary"][1]["choices"]:
     assert sum(d.source==npc_source for d in pose.draws.values())==1
     assert sum(d.source==gift_source for d in pose.draws.values())==1
     inspect(s,777,386)
-    assert pose.storyResonanceCue is None and frame(s).storyResonanceCue.pattern=="海辺の風鈴"
+    cue=frame(s).storyResonanceCue
+    assert pose.storyResonanceCue is None
+    assert cue.pattern=={"biscuit":"焼き菓子を分ける","chime":"海辺の風鈴","tea":"香草茶でひと休み"}[gift["id"]]
+    rest_cues[gift["id"]]=dict(label=cue.pattern,notes=list(cue.notes.values()))
     assert frame(s).coastDetourRest.rested and s.storyNotice==routes[quest]["detourLines"][gift["id"]]
     assert all(a.hp==a.maxhp for a in s.actors.values())
     gate(s,1432,coast,False)
@@ -157,6 +161,7 @@ for gift in routes[quest]["itinerary"][1]["choices"]:
     assert len(s.actors)==2
 
 assert len(set(stats.values()))==1,stats
+assert len({tuple(cue["notes"]) for cue in rest_cues.values()})==3
 s=start()
 core.enterStoryNode(s,port)
 core.action(s,"story_accept:"+legacy)
@@ -171,7 +176,7 @@ core.action(s,"story_select_joined:"+legacy)
 assert frame(s).companion.id=="columbina" and frame(s).starterEquipment is None
 
 proof = dict(offeredAfterFirstMeeting=True, independentOfMainReport=True, noEarlySelection=True,
-             threeChoices=list(stats), identicalStarterStats=list(stats.values())[0],
+             threeChoices=list(stats), restCues=rest_cues, identicalStarterStats=list(stats.values())[0],
              partialFightAndGiftRestored=True, safeBenchAndRestCue=True,
              helperIsNotAnExtraPartyActor=True, noDuplicateNpcForCurrentCompanion=True,
              keepsakeAfterReportAndReload=True, oldQuestReportedAndSelected=True, freshLegacyHidden=True,

@@ -25,9 +25,8 @@ export function initAirflowAudio(){
   const cue=frame.storyResonanceCue??frame.storyAirflowCue;
   if(!cue)return;
   const key=`${frame.session}:${cue.id}:${cue.untilTime}`;
-  if(key===lastCue)return;
+  if(key===lastCue||!enabled||context?.state!=='running'||frame.paused)return;
   lastCue=key;
-  if(!enabled||context?.state!=='running'||frame.paused)return;
   const start=context.currentTime+.02;
   cue.notes.forEach((pitch,index)=>{
    const at=start+index*.17,osc=context.createOscillator(),envelope=context.createGain();

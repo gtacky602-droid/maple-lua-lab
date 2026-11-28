@@ -1,0 +1,51 @@
+{
+  "afterFirstMeeting": true,
+  "threeVisibleWares": true,
+  "choice": "tea",
+  "noGiftCost": true,
+  "fightAndRest": true,
+  "restCue": {
+    "label": "香草茶でひと休み",
+    "notes": [
+      76,
+      72
+    ]
+  },
+  "restAudioScheduled": true,
+  "joinedAndStarter": true,
+  "reloadAndReturn": true,
+  "mainUnfinished": false,
+  "sourceSha256": "a9346c2cc4ddd062b79f5d45771648cede4756fcf389cac9058f2da56fd1c815",
+  "startLevel": 128,
+  "reportedLevel": 128,
+  "priorCompleted": 88,
+  "practice": {
+    "reaction": "月感電",
+    "target": "月殻の大ヤドカニ",
+    "reward": [
+      320000,
+      6000,
+      1
+    ]
+  },
+  "marketScene": {
+    "key": "nodNightStalls",
+    "file": "nod-night-stalls-background-v1.png",
+    "state": "ready"
+  },
+  "restScene": {
+    "key": "nodFarSea",
+    "file": "nod-far-sea-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 25,
+    "standard": 5711,
+    "light": 1573
+  },
+  "reward": [
+    3406620,
+    3200
+  ],
+  "errors": []
+}
