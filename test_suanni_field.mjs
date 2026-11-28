@@ -127,6 +127,7 @@ try{
  assert.match(await page.locator('#fieldBossLabel').textContent(),/水の着地点と波から離れる/);
  await canvas.screenshot({path:prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(()=>window.lab.frame.commands>1000);
  const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');

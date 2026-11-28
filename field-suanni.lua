@@ -1,5 +1,5 @@
 return function(C)
- local suanni={}
+ local suanni={packRectArt=true}
  local U=88
  local colors={physical='#e7e3bc',anemo='#9df4ce',hydro='#91d6ff'}
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
@@ -28,7 +28,12 @@ return function(C)
 
  function suanni.frame(f,b,s,c)
   f.flying=b.form=='airborne' or nil
-  if c and c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+  if not c then return end
+  if c.tick>=c.move.recover then
+   f.recoveryTicks=c.move.total-c.tick
+  elseif c.dest then
+   f.destinationX=c.dest
+  end
  end
 
  local function bounds(c,band)
@@ -86,9 +91,20 @@ return function(C)
  end
 
  function suanni.label(b,c)
-  if b.form=='airborne' or b.form=='landing' then return '水の着地点と波から離れる' end
-  if b.form=='resting' then return '頭が下がる・反撃' end
-  if b.form=='windup' then return '① 風の輪、② 水の着地点' end
+  if not c or c.tick<c.move.lock then return end
+  local m,t=c.move,c.tick
+  if t>=m.recover then return '頭が下がる・反撃' end
+  if m.kind=='claw' then
+   if t<m.bands[1].finish then return '前爪 1/2・正面から離れる' end
+   return '風尾 2/2・背後から離れる'
+  end
+  if m.kind=='blades' then
+   local step=t<m.bolts[2].fire and '1/2' or '2/2'
+   return '双水刃 '..step..'・射線から外れるか跳び越す'
+  end
+  if t<m.bands[1].finish then return '① 風の輪から離れる → ② 水の着地点' end
+  if t<m.bolts[1].fire then return '② 水の着地点と波から離れる' end
+  return '水波・着地点の前方から離れる'
  end
 
  local function rect(f,x,y,w,h,color)
@@ -97,7 +113,7 @@ return function(C)
  local function marker(f,x,y,label,color)
   f.draws[#f.draws+1]={kind='text',x=x,y=y,text=tostring(label),size=13,color=color}
  end
- local function drawBand(f,band,c,i,camera,y)
+ local function drawBand(f,band,c,camera,y)
   local left,right=bounds(c,band)
   left,right=left-camera,right-camera
   local top,bottom=y-band.height*U,y-(band.low or 0)*U
@@ -110,7 +126,6 @@ return function(C)
    rect(f,left,top,2,bottom-top,color)
    rect(f,right-2,top,2,bottom-top,color)
   end
-  marker(f,(left+right)/2,bottom-15,i,color)
  end
 
  local function drawBolt(f,bolt,c,i,camera,y)
@@ -148,13 +163,28 @@ return function(C)
    elseif t>=m.bands[1].start and t<m.bands[1].finish then pose='tail'
    else pose='crouch' end
    if t>=m.lock then
-    for i,band in ipairs(m.bands) do
-     if t<band.finish then drawBand(f,band,c,i,camera,y) end
+    for _,band in ipairs(m.bands) do
+     if t<band.finish then drawBand(f,band,c,camera,y) end
     end
     for i,bolt in ipairs(m.bolts) do drawBolt(f,bolt,c,i,camera,y) end
    end
   end
   C.drawSuanniFieldArt(f,b.x-camera,b.y,pose,mode,profile,b.facing>0)
+ end
+
+ function suanni.drawOverlay(f,state,s,c)
+  if not c or c.tick<c.move.lock then return end
+  for i,band in ipairs(c.move.bands) do
+   if c.tick<band.finish then
+    local left,right=bounds(c,band)
+    local x=(left+right)/2-state.camera
+    -- Separate rows also keep both numbers readable when the landing locks on the wind ring.
+    local y,color=s.floorY+(band.landing and 21 or 0),colors[band.element]
+    rect(f,x-10,y+6,20,19,'#162a36')
+    rect(f,x-10,y+6,20,2,color)
+    marker(f,x,y+21,i,color)
+   end
+  end
  end
  return suanni
 end

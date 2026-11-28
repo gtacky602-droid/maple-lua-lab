@@ -681,6 +681,11 @@ return function(C,configs,controllers)
    behavior.draw(layer,s,boss,spec,cast,mode,profile)
    f.fieldBoss.drawCount=#layer.draws
    for _,draw in ipairs(f.draws) do layer.draws[#layer.draws+1]=draw end
+   if behavior.drawOverlay then
+    local start=#layer.draws
+    behavior.drawOverlay(layer,s,spec,cast)
+    f.fieldBoss.drawCount=f.fieldBoss.drawCount+#layer.draws-start
+   end
    f.draws=layer.draws;f.commands=#f.draws
   end
   return f
