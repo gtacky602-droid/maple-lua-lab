@@ -44,7 +44,8 @@ def make(fixture=False):
         (ROOT/'work/config-device-field-fixture.json').write_text(json.dumps(save),encoding='utf8')
     core.action(state,'story_accept:'+quest)
     assert state.story.quests[quest].status=='active'
-    portal(state,1380,approach)
+    portal(state,1380,'natlan-quarry-road')
+    portal(state,64,approach)
     portal(state,435,arena)
     state.actors[2].hp=0
     slot=state.fieldSlots[boss_id]
@@ -128,6 +129,9 @@ png,standard,light=[core.frame(state,mode,profile) for mode,profile in
                    [('sprite','legacy'),('rect','legacy'),('rect','h32c16')]]
 assert png.t==standard.t==light.t and light.commands<standard.commands
 assert png.fieldBoss.summon.hp==1
+assert 'あと1回・受付あと' in png.fieldBoss.label
+marker=next(d for d in png.draws.values() if d.kind=='text' and d.text=='着弾')
+assert marker.y==501 and math.isclose(marker.x+png.camera,(charge.left+charge.right)/2)
 assert sum(1 for d in png.draws.values() if d.source=='config-device-field-poses-source-v1.png')==2
 until(state,slot,'FSC03',299)
 assert core.attack(state,hero,'normal')
@@ -135,12 +139,14 @@ assert collector.hp==0 and state.kills==kills and state.mora==mora
 ticks(state)
 assert charge.brokenAt==300 and charge.summon is None and len(state.enemies)==1
 assert boss.form=='down' and boss.hitBottom==480
+assert core.frame(state,'sprite','legacy').fieldBoss.recoveryTicks==180
 spot(hero,(charge.left+charge.right)/2)
 hp=hero.hp
 until(state,slot,'FSC03',479)
 assert boss.form=='down' and hero.hp==hp and not charge.seen[1][hero.id]
 until(state,slot,'FSC03',480)
 assert boss.form=='stand'
+assert core.frame(state,'sprite','legacy').fieldBoss.recoveryTicks is None
 until(state,slot,'FSC03',503)
 assert boss.form=='stand'
 ticks(state)
@@ -160,12 +166,15 @@ locked=(charge.left,charge.right)
 spot(hero,charge.right+60)
 until(state,slot,'FSC03',300)
 assert charge.summon is None and len(state.enemies)==1
+assert '集積器を攻撃できない' in core.frame(state,'sprite','legacy').fieldBoss.label
 spot(hero,sum(locked)/2)
 hp=hero.hp
 until(state,slot,'FSC03',323)
 assert hero.hp==hp and (charge.left,charge.right)==locked
 until(state,slot,'FSC03',341)
 assert hero.hp==hp-34 and charge.seen[1][hero.id]
+until(state,slot,'FSC03',360)
+assert core.frame(state,'sprite','legacy').fieldBoss.recoveryTicks==144
 
 hero.hp=hero.maxhp
 spot(hero,boss.x-86)

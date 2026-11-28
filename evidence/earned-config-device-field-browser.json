@@ -1,0 +1,145 @@
+{
+  "inputSha256": "5fc3b8003f6ce9c4ff46774c621fef1d3f6f7b5b8c379481a4ff14a272e72c72",
+  "level": 200,
+  "journeys": [
+    [
+      "natlan-hub",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "config-device-field-workshop",
+      "walk"
+    ],
+    [
+      "config-device-field-workshop",
+      "natlan-field",
+      "walk"
+    ],
+    [
+      "natlan-field",
+      "natlan-quarry-road",
+      "walk"
+    ],
+    [
+      "natlan-quarry-road",
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "natural": {
+    "bounds": {
+      "left": 660.1,
+      "right": 800.9
+    },
+    "firedAt": 326,
+    "playerX": 828.5,
+    "playerDamage": 0,
+    "recoveryTicks": 144
+  },
+  "interrupted": {
+    "counts": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "breakTick": 258,
+    "downTicks": 180,
+    "wouldFireAt": 326,
+    "playerX": 821.5,
+    "bounds": {
+      "left": 758.1,
+      "right": 898.9
+    },
+    "playerDamage": 0,
+    "collectorRewards": 0
+  },
+  "captures": {
+    "collector": {
+      "label": "集積器に別々の攻撃をあと1回・受付あと2.4秒",
+      "tick": 159,
+      "marker": [
+        828.5,
+        501
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 6024,
+          "packedDraws": 25,
+          "legacyGzip": 104986,
+          "packedGzip": 73625,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2583,
+          "packedDraws": 25,
+          "legacyGzip": 54185,
+          "packedGzip": 43903,
+          "identicalPixels": true
+        }
+      }
+    },
+    "blast": {
+      "label": "球雷砲・着弾範囲から離れる",
+      "tick": 328,
+      "marker": [
+        730.5,
+        501
+      ],
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 6008,
+          "packedDraws": 9,
+          "legacyGzip": 114629,
+          "packedGzip": 83713,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2567,
+          "packedDraws": 9,
+          "legacyGzip": 57989,
+          "packedGzip": 48269,
+          "identicalPixels": true
+        }
+      }
+    },
+    "down": {
+      "label": "球雷砲を中断・反撃の好機",
+      "tick": 328,
+      "marker": null,
+      "recoveryTicks": 110,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 2019,
+          "packedDraws": 1,
+          "legacyGzip": 54976,
+          "packedGzip": 43372,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 838,
+          "packedDraws": 1,
+          "legacyGzip": 35522,
+          "packedGzip": 30718,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 7227,
+    "mora": 380
+  },
+  "fieldClears": 1,
+  "reported": 134,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

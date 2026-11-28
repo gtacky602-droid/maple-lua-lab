@@ -1,5 +1,5 @@
 return function(C)
- local device={}
+ local device={packRectArt=true}
  local U=88
  local amber,white,ink='#ffb44d','#fff3c9','#16202c'
  local function clamp(n,lo,hi) return math.max(lo,math.min(hi,n)) end
@@ -26,7 +26,14 @@ return function(C)
  end
 
  function device.frame(f,b,s,c)
-  if c and c.move.kind=='charge' and c.left and not c.brokenAt and c.tick<c.move.recover then
+  if not c then return end
+  local m,t=c.move,c.tick
+  if c.brokenAt then
+   f.cannonInterrupted=true
+   if b.form=='down' then f.recoveryTicks=c.brokenAt+180-t end
+  elseif t>=m.recover then
+   f.recoveryTicks=m.total-t
+  elseif m.kind=='charge' and c.left then
    f.cannonBounds={left=c.left,right=c.right}
   end
  end
@@ -103,9 +110,19 @@ return function(C)
   if b.form=='down' then return '球雷砲を中断・反撃の好機' end
   if b.form=='stand' then return '機体が浮き上がる' end
   if b.form=='recover' then return '腕を下ろす・反撃の好機' end
-  if c and c.move.kind=='charge' and c.tick>=c.move.lock and c.tick<c.move.active[1][1] then
-   if c.summon then return '集積器に別々の攻撃をあと'..c.summon.hp..'回、または着弾範囲から退避' end
-   return '球雷砲・着弾範囲から退避'
+  if not c or c.tick<c.move.lock then return end
+  local m,t=c.move,c.tick
+  if m.kind=='charge' then
+   if c.summon then
+    local seconds=math.ceil((m.close-t)/6)/10
+    return string.format('集積器に別々の攻撃をあと%d回・受付あと%.1f秒',c.summon.hp,seconds)
+   end
+   if t<m.active[1][1] then return '集積器を攻撃できない・着弾範囲から退避' end
+   if t<m.active[1][2] then return '球雷砲・着弾範囲から離れる' end
+   return '着弾終了・腕が下りるまで待つ'
+  end
+  for i,w in ipairs(m.active) do
+   if t<w[2] then return m.title..' '..i..'/2・予告の帯から離れる' end
   end
  end
 
@@ -132,9 +149,6 @@ return function(C)
     rect(f,right-2,top,2,bottom-top,amber)
    end
    for x=left,right-5,12 do rect(f,x,band,6,2,amber) end
-  end
-  if #m.active>1 then
-   f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=top-7,text=i..' / 2',size=13,color=white}
   end
  end
 
@@ -165,6 +179,22 @@ return function(C)
    if pulse<16 then
     local x,y=b.x-cam,b.y-167
     rect(f,x-18,y,36,3,amber);rect(f,x-10,y+5,20,2,white)
+   end
+  end
+ end
+
+ function device.drawOverlay(f,state,s,c)
+  if not c or not c.left or c.brokenAt then return end
+  local m=c.move
+  for i,w in ipairs(m.active) do
+   if c.tick<w[2] then
+    local x,y=(c.left+c.right)/2-state.camera,s.floorY
+    local charge=m.kind=='charge'
+    local width=charge and 34 or 29
+    rect(f,x-width/2,y+6,width,19,ink)
+    rect(f,x-width/2,y+6,width,2,amber)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,text=charge and '着弾' or i..'/2',size=13,color=white}
+    return
    end
   end
  end
