@@ -486,8 +486,15 @@ return function(C)
   if shadow and scene=='inner' then
    b.shadow={x=shadow.x,hp=shadow.hp,max=shadow.maxhp,damageable=stage=='inner' and not shadow.invulnerable and shadow.hp>0}
   end
-  if stage=='weak' and w.stageTick>=spec.transition.weakOpen and w.stageTick<spec.transition.weakClose then
-   b.exposure=spec.transition.weakClose-w.stageTick
+  local tick,tr=w.stageTick,spec.transition
+  if stage=='swallow' then
+   b.transitionTicks=(scene=='outer' and tr.sceneTick or spec.moves.WV07.total)-tick
+  elseif stage=='expel' then
+   if scene=='inner' then b.transitionTicks=tr.sceneTick-tick
+   else b.exposureOpensIn=spec.moves.WV14.total-tick+tr.weakOpen end
+  elseif stage=='weak' then
+   if tick<tr.weakOpen then b.exposureOpensIn=tr.weakOpen-tick
+   elseif tick<tr.weakClose then b.exposure=tr.weakClose-tick end
   end
   if stage=='expel' or stage=='weak' then b.returnLoss=w.returnLoss end
   if w.special and c then

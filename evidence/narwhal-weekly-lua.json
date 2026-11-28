@@ -26,6 +26,8 @@
   "shadow_hp_separate_and_second_halves": true,
   "return_damage_once": true,
   "exposure_ticks": 600,
+  "transition_countdowns_at_scene_switch": true,
+  "exposure_countdown_after_return_loss_ticks": 120,
   "scene_exit_resets_trial": true,
   "scene_casts_cleared": true,
   "low_hp_uses_close_range_moves": true,

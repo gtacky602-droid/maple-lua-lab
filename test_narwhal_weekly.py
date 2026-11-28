@@ -154,10 +154,12 @@ s.blizzard=lua.table_from({'x':238,'y':480,'expires':s.t+3})
 s.moonDomain=s.t+10
 swallow(s,w,spec)
 assert s.blizzard is None and s.moonDomain is None
+assert core.frame(s).weeklyBoss.narwhal.transitionTicks==spec.transition.sceneTick
 ticks(core,s,95)
-assert s.story.node==outer
+assert s.story.node==outer and core.frame(s).weeklyBoss.narwhal.transitionTicks==1
 ticks(core,s,1)
 assert s.story.node==inner and a.x==238 and a.hp==60 and s.actors[2].hp==0 and s.gauge==41
+assert core.frame(s).weeklyBoss.narwhal.transitionTicks==spec.moves.WV07.total-spec.transition.sceneTick
 assert math.isclose(a.cd.skill1,10-97/60) and w.epoch==2
 assert not core.attack(s,a,'normal')
 ticks(core,s,84)
@@ -180,20 +182,25 @@ assert w.shadow.hp==570 and w.primary.hp==2200 and c.successUntil==c.t+96
 assert len(events(s,'WV11:kernel-hit'))==4 and len(events(s,'WV13:kernel-loss'))==1
 hit(s,w.shadow.x,10000)
 assert w.stage=='expel' and w.shadow.hp==0 and s.kills==0
+assert core.frame(s).weeklyBoss.narwhal.transitionTicks==spec.transition.sceneTick
 ticks(core,s,95)
-assert s.story.node==inner
+assert s.story.node==inner and core.frame(s).weeklyBoss.narwhal.transitionTicks==1
 ticks(core,s,1)
 assert s.story.node==outer and w.primary.hp==2200 and w.epoch==4
+assert core.frame(s).weeklyBoss.narwhal.exposureOpensIn==spec.moves.WV14.total-spec.transition.sceneTick+spec.transition.weakOpen
 ticks(core,s,23)
 assert w.primary.hp==2200
 ticks(core,s,1)
 assert w.primary.hp==1760 and len(events(s,'WV14:return-loss'))==1
+assert core.frame(s).weeklyBoss.narwhal.exposureOpensIn==120
 ticks(core,s,60)
-assert w.stage=='weak' and w.primary.invulnerable
+view=core.frame(s).weeklyBoss.narwhal
+assert w.stage=='weak' and w.primary.invulnerable and view.exposureOpensIn==60 and view.exposure is None
 ticks(core,s,60)
 assert core.frame(s).weeklyBoss.narwhal.exposure==600 and not w.primary.invulnerable
 ticks(core,s,600)
-assert w.primary.invulnerable and w.stage=='weak'
+view=core.frame(s).weeklyBoss.narwhal
+assert w.primary.invulnerable and w.stage=='weak' and view.exposure is None and view.exposureOpensIn is None
 ticks(core,s,60)
 assert w.stage=='outer' and w.h==0
 entry(s,w,spec)
@@ -246,6 +253,7 @@ result={'live_timings':checked,'shared_segments':True,'hostility_one_per_cast_lo
         'eye_eight_real_hits':True,'real_story_scene_and_preserved_hp_ct':True,
         'kernel_ground_reach_four_new_casts':True,'kernel_half_open_ticks':[60,360],'kernel_failed_transition':420,
         'shadow_hp_separate_and_second_halves':True,'return_damage_once':True,'exposure_ticks':600,
+        'transition_countdowns_at_scene_switch':True,'exposure_countdown_after_return_loss_ticks':120,
         'scene_exit_resets_trial':True,'scene_casts_cleared':True,'low_hp_uses_close_range_moves':True,
         'return_lethal_and_report_restore':True}
 (ROOT/'evidence/narwhal-weekly-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')

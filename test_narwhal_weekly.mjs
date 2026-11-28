@@ -3,11 +3,16 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {checkWeeklyAtlas} from './tools/browser_weekly_atlas.mjs';
 
+const earned=process.argv.includes('--earned');
+const source=earned?'work/earned-fontaine-access/access-complete.json':'work/narwhal-weekly-gear.json';
+const output=process.env.LAB_WEEKLY_EVIDENCE||(earned?'work/earned-fontaine-narwhal':'evidence');
+await fs.mkdir(output,{recursive:true});
+const checkpoint=JSON.parse(await fs.readFile(source,'utf8'));
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:85000});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const canvas=page.locator('#game'),prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/narwhal-weekly';
+const canvas=page.locator('#game'),prefix=output+'/narwhal-weekly';
 const hub='fontaine-hub',outer='narwhal-star-sea',inner='narwhal-inner-echo';
 const quest='narwhal-weekly-commission',id='boss-29090101';
 const errors=[];
@@ -30,10 +35,18 @@ async function scene(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8949/');
  await wait(()=>window.lab?.frame);
- await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/narwhal-weekly-gear.json','utf8'));
+ await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),JSON.stringify(checkpoint));
  await page.locator('#loadProgress').click();
  await wait(hub=>window.lab.frame.story.node===hub,hub);
+ if(earned){
+  const f=await frame();
+  assert.deepEqual([f.progression.level,f.progression.total],[94,checkpoint.progression.total]);
+  for(const survey of ['fon-hidden-lab-access','fon-beryl-thermal-vents']){
+   assert.equal(f.story.quests[survey].status,'complete');
+  }
+  await page.locator('#allyFire').click();
+  await wait(()=>window.lab.frame.holdAllyFire);
+ }
  const row=page.locator(`[data-quest="${quest}"]`);
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='active',quest);
@@ -68,6 +81,11 @@ try{
    if(last.stage!==b.narwhalStage){
     last.stage=b.narwhalStage;window.narwhalStages.push({stage:last.stage,t:f.t,hp:b.hp});
    }
+   const hint=document.querySelector('#weeklyNarwhalHint').textContent;
+   const cues=window.narwhalCues??={};
+   const name=v.transitionTicks?`${b.narwhalStage}-${v.scene}`:
+    v.exposureOpensIn?(v.returnLoss?'exposure-after-damage':'exposure-before-damage'):null;
+   if(name&&!cues[name])cues[name]={hint,remaining:v.transitionTicks??v.exposureOpensIn,t:f.t};
    if(f.paused){
     for(const code of [...held])key(code,false);
    }else{
@@ -151,6 +169,12 @@ try{
  assert.equal(returned.weeklyBoss.narwhal.epoch,4);
  assert.equal(returned.events.filter(e=>e.kind==='narwhal:WV14:return-loss').length,1);
  assert.equal(returned.events.find(e=>e.kind==='narwhal:WV14:return-loss').value,440);
+ const cues=await page.evaluate(()=>window.narwhalCues);
+ assert.match(cues['swallow-outer'].hint,/腹中に入るまで[12]秒/);
+ assert.match(cues['swallow-inner'].hint,/腹中で動けるまで[12]秒/);
+ assert.match(cues['expel-inner'].hint,/星海に戻るまで[12]秒/);
+ assert.match(cues['exposure-before-damage'].hint,/星海に到着.*反撃まで[123]秒/);
+ assert.match(cues['exposure-after-damage'].hint,/鯨に440ダメージ.*反撃まで[12]秒/);
  await page.locator('.game').screenshot({path:prefix+'-return.png'});
  await page.evaluate(()=>{window.narwhalFinish=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.phase==='respawn');
@@ -162,8 +186,12 @@ try{
  assert.deepEqual(stages.slice(0,5),['outer','swallow','inner','expel','weak']);
  await page.getByRole('button',{name:'拠点へ：フォンテーヌ・水辺の広場',exact:true}).click();
  await wait(hub=>window.lab.frame.story.node===hub,hub);
+ const beforeReport=await frame();
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='complete',quest);
+ const afterReport=await frame();
+ const payout={xp:afterReport.progression.total-beforeReport.progression.total,mora:afterReport.mora-beforeReport.mora};
+ if(earned)assert.deepEqual(payout,{xp:230000,mora:8500});
  await page.locator('#saveProgress').click();
  await wait(()=>document.getElementById('saveStatus').textContent.includes('冒険を保存しました'));
  await page.reload();
@@ -172,10 +200,12 @@ try{
  await wait(quest=>window.lab.frame.story?.quests[quest]?.status==='complete',quest);
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.weeklyBosses[id].hp,0);
+ assert.equal((await frame()).endgame.bosses[id].clears,1);
+ if(earned)await fs.writeFile(output+'/narwhal-complete.json',JSON.stringify(saved,null,2)+'\n');
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({stages,outer:open,inner:belly,atlasEntry,atlasReturn,eyeEightHits:true,
   kernelFourCastPhysical:true,kernelLoss:190,returnLoss:440,exposure:returned.weeklyBoss.narwhal.exposure,
-  clearReportRestore:true,viewport390:true,remainingHp:finished.actors[0].hp,
+  source,level:checkpoint.progression.level,cues,payout,clearReportRestore:true,viewport390:true,remainingHp:finished.actors[0].hp,
   commands:{png:kernel.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Narwhal Chrome: eye, scene switch, corrected kernel, return, clear, report and save passed');
 }catch(error){
