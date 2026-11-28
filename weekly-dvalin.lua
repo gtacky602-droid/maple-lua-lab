@@ -26,6 +26,9 @@ return function(C)
  local function removeParts(s)
   for i=#s.enemies,1,-1 do if s.enemies[i].weeklyPart then table.remove(s.enemies,i) end end
  end
+ local function onStep(a,w,spec,y)
+  return y~=nil and a.hp>0 and a.ground and math.abs(a.y-y)<3 and math.abs(a.x-w.crystalX)<spec.stepWidth/2+2
+ end
  local function platforms(s,w,spec,padY)
   s.platforms={}
   for _,p in ipairs(spec.platforms) do s.platforms[#s.platforms+1]={x=p.x,y=p.y,w=p.w} end
@@ -33,7 +36,7 @@ return function(C)
    local old=w.padY
    if old and padY~=old then
     for _,a in ipairs(s.actors) do
-     if a.hp>0 and a.ground and math.abs(a.y-old)<3 and math.abs(a.x-w.crystalX)<spec.stepWidth/2+2 then
+     if onStep(a,w,spec,old) then
       a.y=padY;a.vy=0
      end
     end
@@ -319,7 +322,14 @@ return function(C)
   b.crystal={x=w.crystalX,y=spec.crystalY,active=b.exposed};b.falls=w.falls
   if c and c.startingHp then
    b.crystal.damage=c.startingHp-w.primary.hp
-   if b.exposed then b.crystal.remaining=crystalClose-c.tick end
+   if c.tick<crystalClose then
+    local a=s.actors[s.active]
+    b.crystal.onStep=onStep(a,w,spec,w.padY)
+    local dx=w.crystalX-a.x
+    if math.abs(dx)>spec.stepWidth/2 then b.crystal.direction=dx>0 and 'right' or 'left' end
+    if b.exposed then b.crystal.remaining=crystalClose-c.tick
+    else b.crystal.opensIn=crystalOpen-c.tick end
+   end
   end
   b.padY=w.padY
   if c and c.zone then b.attack={zone=c.zone,left=c.left,right=c.right,center=c.center,dir=c.dir,

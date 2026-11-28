@@ -1,0 +1,61 @@
+{
+  "browser": "Chrome",
+  "companion": "mitya",
+  "play": {
+    "won": true,
+    "seconds": 178.35,
+    "hp": 90699,
+    "returns": 0,
+    "moves": [
+      "WD02",
+      "WD03",
+      "WD08",
+      "WD05",
+      "WD06",
+      "WD07"
+    ],
+    "breaks": 7,
+    "falls": 0,
+    "aiLanded": true,
+    "manualLanded": true,
+    "manualCrystalDamage": 600
+  },
+  "scenery": {
+    "key": "dvalinWeekly",
+    "file": "dvalin-weekly-background-v1.png",
+    "state": "ready"
+  },
+  "mapRoute": [
+    "mond-road",
+    "dvalin-sky-arena"
+  ],
+  "crystalCue": "空を裂く魔龍・トワリン（Lv180） ｜ 最上級 ｜ HP 568 / 600 ｜ 首の結晶を攻撃（J） ｜ 残り4.9秒",
+  "firstCrystalDamage": 98,
+  "uiQuestAccepted": true,
+  "questReport": {
+    "xp": 1400,
+    "mora": 360
+  },
+  "savedWeeklyRespawn": true,
+  "sameSceneCommands": {
+    "png": 21,
+    "standard": 14075,
+    "light": 3822
+  },
+  "viewport390": true,
+  "sourceSha256": "f66fa5b32d99880b50cc9f80e69c524ada797f1c706a5defb3945133da2f91e6",
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "transfer": {
+    "rawGzip": 72449,
+    "packedGzip": 51445,
+    "pixelMatch": true
+  },
+  "trialAttack": 7,
+  "trialHp": 90779,
+  "errors": []
+}

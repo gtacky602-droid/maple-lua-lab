@@ -1,0 +1,243 @@
+[
+  {
+    "controller": "dvalin",
+    "case": "dvalin-hit-first",
+    "label": "最初の露出で結晶を攻撃",
+    "ticks": 11188,
+    "sourceSha256": "acf51fcb979fcb4cee0a1535481f09ac043cd077913ca4597f1b8751f613eab8",
+    "bossHp": 600,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW04",
+      "attack": [
+        7,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "moves": [
+      "WD01",
+      "WD02",
+      "WD03",
+      "WD04",
+      "WD05",
+      "WD06",
+      "WD07",
+      "WD08"
+    ],
+    "completedWindows": [
+      {
+        "number": 1,
+        "damage": 96,
+        "landed": true
+      },
+      {
+        "number": 2,
+        "damage": 96,
+        "landed": true
+      },
+      {
+        "number": 3,
+        "damage": 102,
+        "landed": true
+      },
+      {
+        "number": 4,
+        "damage": 100,
+        "landed": true
+      },
+      {
+        "number": 5,
+        "damage": 96,
+        "landed": true
+      },
+      {
+        "number": 6,
+        "damage": 98,
+        "landed": true
+      }
+    ],
+    "padLandings": [
+      {
+        "window": 1,
+        "moveTick": 14
+      },
+      {
+        "window": 2,
+        "moveTick": 26
+      },
+      {
+        "window": 3,
+        "moveTick": 27
+      },
+      {
+        "window": 4,
+        "moveTick": 26
+      },
+      {
+        "window": 5,
+        "moveTick": 27
+      },
+      {
+        "window": 6,
+        "moveTick": 26
+      },
+      {
+        "window": 7,
+        "moveTick": 27
+      }
+    ],
+    "hazardZones": [
+      1,
+      2
+    ],
+    "floorRewarningTick": null,
+    "breaks": 7,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "survivingHp": [
+      90767,
+      0
+    ],
+    "checkpointSha256": "8f9e00e13ef3e62d90427c135715fb6560b793e8a974dd87db561b992a1e0387"
+  },
+  {
+    "controller": "dvalin",
+    "case": "dvalin-wait-next",
+    "label": "次の露出まで待つ",
+    "ticks": 12903,
+    "sourceSha256": "8f9e00e13ef3e62d90427c135715fb6560b793e8a974dd87db561b992a1e0387",
+    "bossHp": 600,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW04",
+      "attack": [
+        7,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "moves": [
+      "WD01",
+      "WD02",
+      "WD03",
+      "WD04",
+      "WD05",
+      "WD06",
+      "WD07",
+      "WD08"
+    ],
+    "completedWindows": [
+      {
+        "number": 1,
+        "damage": 0,
+        "landed": true
+      },
+      {
+        "number": 2,
+        "damage": 96,
+        "landed": true
+      },
+      {
+        "number": 3,
+        "damage": 98,
+        "landed": true
+      },
+      {
+        "number": 4,
+        "damage": 96,
+        "landed": true
+      },
+      {
+        "number": 5,
+        "damage": 98,
+        "landed": true
+      },
+      {
+        "number": 6,
+        "damage": 100,
+        "landed": true
+      },
+      {
+        "number": 7,
+        "damage": 98,
+        "landed": true
+      }
+    ],
+    "padLandings": [
+      {
+        "window": 1,
+        "moveTick": 14
+      },
+      {
+        "window": 2,
+        "moveTick": 26
+      },
+      {
+        "window": 3,
+        "moveTick": 27
+      },
+      {
+        "window": 4,
+        "moveTick": 26
+      },
+      {
+        "window": 5,
+        "moveTick": 27
+      },
+      {
+        "window": 6,
+        "moveTick": 26
+      },
+      {
+        "window": 7,
+        "moveTick": 27
+      },
+      {
+        "window": 8,
+        "moveTick": 26
+      }
+    ],
+    "hazardZones": [
+      1,
+      2
+    ],
+    "floorRewarningTick": null,
+    "breaks": 8,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "survivingHp": [
+      90767,
+      0
+    ],
+    "checkpointSha256": "de91e5648b768b6c00a71536977d508505e6397a34dd22f2ccb41076fe293fe5"
+  }
+]
