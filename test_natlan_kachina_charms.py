@@ -116,11 +116,15 @@ assert state().count==3 and not state().sweep
 collect(1116)
 assert state().count==4
 move(1480)
+s.camera=860
+jump_cue='ジャンプ長押しで上の足場へ'
+assert any(d.text==jump_cue for d in frame().draws.values())
 act('story_collect')
 assert state().count==4
 act('jump')
 advance(core,s,56,jump)
 assert s.actors[1].y==386 and s.actors[1].ground,(s.actors[1].x,s.actors[1].y,s.actors[1].vy,s.active)
+assert not any(d.text==jump_cue for d in frame().draws.values())
 act('story_collect')
 assert state().count==5
 gate(1740,hub)

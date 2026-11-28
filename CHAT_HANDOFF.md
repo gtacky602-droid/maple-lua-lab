@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## カチーナの石飾りと採集路の案内
+
+琥珀色の大岩の手前とM地図で、ジャンプを長押しして足場に乗る手順を確認できる。夕映え報告済みのLv109セーブから、魔物一体を倒した保存の再開、石飾りの下書きと展示、カチーナの同行と初期装備をChromeで通した。 [採集手順](docs/balance/NATLAN_KACHINA_CHARMS_WEB.md) · [通し検証](evidence/earned-natlan-kachina-charms-browser.json)
+
 ## 夕映えの一番勝負の合図と、Lv103からの通し検証
 
 勝負ゲージの下に、往復突進、水柱、反撃の間の残り秒数と行動を表示する。高台と水辺を報告済みのLv103セーブからLv109まで進み、保存後に記録台を読み返した。練習戦で報酬と初勝利記録が増えないことを確認した。 [会場と操作](docs/balance/NATLAN_SUNSET_DUEL_WEB.md) · [Chromeの通し検証](evidence/earned-natlan-sunset-duel-browser.json)
