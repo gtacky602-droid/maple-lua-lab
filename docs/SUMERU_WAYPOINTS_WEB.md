@@ -34,6 +34,14 @@
 
 機翼の間の門はLv66。今回のドレイク戦にはLv68で入り、討伐でLv69に達した。胸砲の予告中は胸部コアの残り時間をHP欄と胸元のバーに出す。露出は最大1.9秒で、その間にコアへ攻撃が当たると胸砲が止まり、約2.5秒ダウンする。 [Luaの通し検証](../evidence/earned-sumeru-canopy-drake.json) · [森と観測所のChrome検証](../evidence/earned-sumeru-canopy-browser.json) · [ドレイクのChrome検証](../evidence/earned-sumeru-drake-browser.json)
 
+## 枯蔓の洞から砂鏡の遺構へ
+
+Lv69の継続セーブからスメールの森を経由して枯蔓の洞に入り、無相の草を討伐した。蔓球が着地して核が開くと「反撃の隙」が表示され、最大2.4秒の残り時間を核の上のバーとHP欄で確認できる。蔓鞭と草弾の後にも、それぞれの反撃時間が表示される。
+
+「今日の案内役は、私！」ではコレイと目印を選び、雨で閉じた道を根の下から迂回する。報告の220,004 EXPでLv70に到達。Lv69では閉じていた砂鏡の遺構へ、Lv70でスメールの入口から入った。
+
+半永久統制マトリックスは三点の光柱に着弾順を表示する。透影移動中にも核への通常攻撃が通ることをHPの差で確認した。透明度を抑える設定でも床の印と核の輪郭が見える。 [Luaの継続再走](../evidence/earned-sumeru-dendro-matrix.json) · [無相の草のChrome検証](../evidence/earned-sumeru-dendro-hypostasis-browser.json) · [コレイのChrome検証](../evidence/earned-sumeru-collei-browser.json) · [マトリックスのChrome検証](../evidence/earned-sumeru-asimon-browser.json)
+
 ## 国境・木橋と石廟の出入り
 
 Lv64で、層岩巨淵の西の岩棚から国境洞道を抜けてスメール側の神像へ進める。樹陰の広場へ行く前に神像で保存した場合は、訪問済みの巨淵の拠点から再開できる。稲妻から来てガンダ丘の木橋を渡った先で保存した場合も、樹陰の広場が未訪問なら訪問済みの稲妻の拠点から再開できる。スメール側から巨淵へ渡る帰路にも、通常の拠点が未訪問の場合の再開先を設定した。 [巨淵側からのM地図](../evidence/sumeru-chasm-crossing-atlas.png)

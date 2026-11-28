@@ -1,0 +1,18 @@
+{
+  "browser": "Chrome",
+  "startLevel": 69,
+  "finishLevel": 70,
+  "rainClosesOriginalRoute": true,
+  "detourReachedWelcome": true,
+  "restoredReport": true,
+  "commands": {
+    "png": 21,
+    "standard": 7052,
+    "light": 1836
+  },
+  "reward": [
+    220004,
+    2100
+  ],
+  "errors": []
+}
