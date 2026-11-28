@@ -1,0 +1,34 @@
+{
+  "quayScene": {
+    "key": "nodNightStalls",
+    "file": "nod-night-stalls-background-v1.png",
+    "state": "ready"
+  },
+  "ledgeScene": {
+    "key": "nodMoonShallows",
+    "file": "nod-moon-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "witnessesReloaded": true,
+  "rejectedBeforeComparison": true,
+  "comparisonReplay": true,
+  "orientationAfterReload": true,
+  "repeatedComparisonAfterReload": true,
+  "published": "小石が旅した話",
+  "harborTitle": "小石が旅した話",
+  "commands": {
+    "png": 23,
+    "standard": 18155,
+    "light": 4511
+  },
+  "reward": [
+    5637939,
+    5400
+  ],
+  "sourceSha256": "cc577a7f9d93e2d82fce890435a834bbbc6dfec357426af80806f2cf06aa8972",
+  "startLevel": 129,
+  "reportedLevel": 129,
+  "priorCompleted": 91,
+  "inventoryKept": 80,
+  "errors": []
+}

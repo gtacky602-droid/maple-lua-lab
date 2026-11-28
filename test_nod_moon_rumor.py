@@ -91,6 +91,7 @@ assert len(s.enemies)==0
 
 move(s,470)
 assert frame(s).storyReflection.orientation=="未調整"
+assert frame(s).storyReflection.comparison=="Gで照らす先を選ぶ"
 core.action(s,"story_reflection_confirm")
 assert progress(s).count==4
 speak(s,470)
@@ -106,14 +107,28 @@ assert progress(s).count==4
 core.action(s,"story_reflection_light")
 dark=frame(s)
 assert not dark.storyReflection.lit and "灰色" in dark.storyReflection.image
+assert dark.storyReflection.comparison=="点灯して、同じ向きで比べる"
+core.action(s,"story_reflection_confirm")
+assert progress(s).count==4
+s=restore(checkpoint(s))
+assert s.story.node==quay
+gate(s,1470,ledge)
+move(s,470)
+resumed=frame(s).storyReflection
+assert resumed.orientation=="現物の石" and resumed.lit
+assert resumed.comparison=="消灯して、光がないときの見え方を確かめる"
 core.action(s,"story_reflection_confirm")
 assert progress(s).count==4
 core.action(s,"story_reflection_light")
+dark=frame(s)
+core.action(s,"story_reflection_light")
 lit=frame(s)
 assert lit.storyReflection.lit and "縁だけ" in lit.storyReflection.image
+assert lit.storyReflection.comparison=="消灯と点灯を確認済み。照合する"
 assert lit.commands>dark.commands and lit.t==dark.t
 core.action(s,"story_reflection_confirm")
 assert progress(s).count==5 and frame(s).storyReflection.replay
+assert progress(s).reflectAngle is None
 gate(s,62,quay)
 post_reflection=checkpoint(s)
 
@@ -139,9 +154,13 @@ for option in routes[quest]["itinerary"][-1]["choices"]:
     assert frame(s).storyReflection.replay and frame(s).storyReflection.orientation=="現物の石"
     core.action(s,"story_reflection_light")
     assert not frame(s).storyReflection.lit and progress(s).count==6
+    speak(s,470)
+    assert progress(s).reflectAngle is None
+    checkpoint(s)
 
 proof=dict(m02Prerequisite=True,threeEscalatingRumors=True,threeBoards=True,threeWitnessSprites=True,readback=True,
            witnessesSaved=True,wrongAimRejected=True,darkAndLightRequired=True,replayAfterReport=True,
+           alignedMirrorRestored=True,lightComparisonRepeatedAfterRestore=True,replayDoesNotWriteAngle=True,
            titles=titles,firstReportReward=reward)
 (ROOT/"evidence/nod-moon-rumor-lua.json").write_text(json.dumps(proof,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
 (ROOT/"work/nod-moon-rumor-fixture.json").write_text(json.dumps(fixture),encoding="utf8")

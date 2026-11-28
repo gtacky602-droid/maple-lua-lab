@@ -16,14 +16,14 @@ return function(C)
    state.angle=state.angle%#config.faces+1
    state.darkSeen=false
    if not config.record and matches(item,state) then return true end
-   if config.rememberAngle then progress.reflectAngle=state.angle end
+   if config.rememberAngle and not replay then progress.reflectAngle=state.angle end
    s.storyNotice=config.faces[state.angle].label..'に向けました。'
   elseif config.record and action=='light' then
    state.lit=not state.lit
    if not state.lit and state.angle>0 then state.darkSeen=true end
   elseif config.record and action=='confirm' then
    if not state.darkSeen or not state.lit then
-    s.storyNotice='向きを選び、消灯時の刻線と点灯時の像を見比べてください。'
+    s.storyNotice='向きを選び、消灯時と点灯時の見え方を見比べてください。'
    elseif matches(item,state) then return true
    else s.storyNotice='照射の記録が合いません。向きを変えて照合してください。' end
   end
@@ -73,7 +73,15 @@ return function(C)
    local orientation=face and face.label or '未調整'
    local image=state.lit and (face and face.image or '像なし') or config.record
    f.storyNearbyMilestone={label=item.action..'（'..orientation..'）'}
-   f.storyReflection={orientation=orientation,lit=state.lit,image=image,record=config.record,darkLabel=config.darkLabel,replay=replay}
+   local comparison
+   if config.record then
+    if not face then comparison='Gで照らす先を選ぶ'
+    elseif not state.darkSeen and not state.lit then comparison='点灯してから消灯し、光がないときの見え方を確かめる'
+    elseif not state.darkSeen then comparison='消灯して、光がないときの見え方を確かめる'
+    elseif not state.lit then comparison='点灯して、同じ向きで比べる'
+    else comparison='消灯と点灯を確認済み。照合する' end
+   end
+   f.storyReflection={orientation=orientation,lit=state.lit,image=image,record=config.record,darkLabel=config.darkLabel,replay=replay,comparison=comparison}
   end
  end
 
