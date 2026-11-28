@@ -23,6 +23,7 @@ QUEST_FIELD_ARRIVALS = {
     'chenyu-depth','chenyu-tea-terraces','chenyu-cart-road',
     'enkanomiya-depth','enkan-guide-shelf',
     'dornman-depth','dornman-wind-stairs','dornman-flag-trestle',
+    'ochkanatlan-ruins','ochka-tide-stairs','ochka-patched-court',
 }
 
 

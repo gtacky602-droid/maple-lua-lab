@@ -1,0 +1,508 @@
+{
+  "base": "98b9654e0bb330246e9e2f82d8f85438e457012e",
+  "portalConnectionsAndDeparturesPreserved": true,
+  "portalArrivals": [
+    {
+      "origin": "ochkanatlan-dock",
+      "destination": "ochkanatlan-ruins",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "ochkanatlan-dock",
+      "destination": "ochka-tide-stairs",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "ochka-tide-stairs",
+      "destination": "ochka-patched-court",
+      "positions": [
+        [
+          160,
+          480
+        ],
+        [
+          120,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "ochka-patched-court",
+      "destination": "ochka-tide-stairs",
+      "positions": [
+        [
+          1625,
+          480
+        ],
+        [
+          1585,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "ochka-sifting-kiln",
+      "destination": "ochka-patched-court",
+      "positions": [
+        [
+          1320,
+          480
+        ],
+        [
+          1280,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-79540",
+      "destination": "ochkanatlan-ruins",
+      "positions": [
+        [
+          1205,
+          480
+        ],
+        [
+          1165,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-79546",
+      "destination": "ochkanatlan-ruins",
+      "positions": [
+        [
+          600,
+          480
+        ],
+        [
+          560,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-80025",
+      "destination": "ochkanatlan-ruins",
+      "positions": [
+        [
+          342,
+          480
+        ],
+        [
+          302,
+          480
+        ]
+      ]
+    },
+    {
+      "origin": "nat-wp-80035",
+      "destination": "ochkanatlan-ruins",
+      "positions": [
+        [
+          910,
+          480
+        ],
+        [
+          870,
+          480
+        ]
+      ]
+    }
+  ],
+  "waypointArrivals": [
+    {
+      "node": "ochkanatlan-ruins",
+      "positions": [
+        [
+          500,
+          480
+        ],
+        [
+          460,
+          480
+        ]
+      ]
+    }
+  ],
+  "ordinaryHunts": 165,
+  "earnedRoutes": {
+    "supplies": {
+      "level": 140,
+      "disembarkedAt": 30.0,
+      "sourceSha256": "96922fd3eba39a30bcd3b7e0c860f0cd0af7fa5b3da08612cdeafb457b9dc5ad",
+      "itineraries": [
+        {
+          "start": "natlan-hub",
+          "destination": "natlan-port",
+          "stops": [
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-quarry-road",
+              "previewX": 1380,
+              "name": "ナタ・赤岩の採掘路",
+              "approach": "現在地から右へ",
+              "region": "region-06",
+              "from": "natlan-hub"
+            },
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-field",
+              "previewX": 64,
+              "name": "ナタ・岩場の道",
+              "region": "region-06",
+              "from": "natlan-quarry-road"
+            },
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-port",
+              "previewX": 1380,
+              "name": "ナタ・花翼の集付近の港（仮）",
+              "region": "region-06",
+              "from": "natlan-field"
+            }
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "ochkanatlan-survey",
+          "xp": 5000,
+          "mora": 300
+        },
+        {
+          "quest": "nat-mapped-ochka-supplies",
+          "xp": 719000,
+          "mora": 23800
+        }
+      ],
+      "battles": [],
+      "locks": [],
+      "returns": 0
+    },
+    "stopover": {
+      "level": 180,
+      "disembarkedAt": 30.0,
+      "courtRequiredLevel": 182,
+      "sourceSha256": "fa9c6f9456388ee818249284ef7718b3e9dff8894aa23c79742b187db4783cd0",
+      "itineraries": [
+        {
+          "start": "natlan-hub",
+          "destination": "natlan-port",
+          "stops": [
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-quarry-road",
+              "previewX": 1380,
+              "name": "ナタ・赤岩の採掘路",
+              "approach": "現在地から右へ",
+              "region": "region-06",
+              "from": "natlan-hub"
+            },
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-field",
+              "previewX": 64,
+              "name": "ナタ・岩場の道",
+              "region": "region-06",
+              "from": "natlan-quarry-road"
+            },
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-port",
+              "previewX": 1380,
+              "name": "ナタ・花翼の集付近の港（仮）",
+              "region": "region-06",
+              "from": "natlan-field"
+            }
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "ochka-stopover-survey",
+          "xp": 11200000,
+          "mora": 5100
+        }
+      ],
+      "battles": [],
+      "locks": [],
+      "returns": 0
+    },
+    "court": {
+      "level": 200,
+      "disembarkedAt": 30.0,
+      "remainingAfterRestore": 4,
+      "returnMarkerSaved": true,
+      "sourceSha256": "be12e6a1c135925235317001d28aaa66d4f5a371afcd78bb3fc25e88b8946af2",
+      "itineraries": [
+        {
+          "start": "natlan-hub",
+          "destination": "natlan-port",
+          "stops": [
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-quarry-road",
+              "previewX": 1380,
+              "name": "ナタ・赤岩の採掘路",
+              "approach": "現在地から右へ",
+              "region": "region-06",
+              "from": "natlan-hub"
+            },
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-field",
+              "previewX": 64,
+              "name": "ナタ・岩場の道",
+              "region": "region-06",
+              "from": "natlan-quarry-road"
+            },
+            {
+              "mode": "walk",
+              "label": "徒歩",
+              "level": 100,
+              "id": "natlan-port",
+              "previewX": 1380,
+              "name": "ナタ・花翼の集付近の港（仮）",
+              "region": "region-06",
+              "from": "natlan-field"
+            }
+          ]
+        }
+      ],
+      "reports": [
+        {
+          "quest": "ochka-stopover-survey",
+          "xp": 11200000,
+          "mora": 5100
+        },
+        {
+          "quest": "ochka-wall-marks",
+          "xp": 15500000,
+          "mora": 6800
+        }
+      ],
+      "battles": [
+        {
+          "node": "ochka-patched-court",
+          "targets": [
+            "ochka-court-blocking-carrier"
+          ],
+          "xp": 84048,
+          "kills": 1
+        }
+      ],
+      "locks": [],
+      "returns": 0
+    }
+  },
+  "carrierBrowser": {
+    "restoredAtDock": true,
+    "ordinaryEnemiesAtCourt": 4,
+    "completedAndRestored": true,
+    "markerLitAfterReload": true,
+    "errors": []
+  },
+  "sameCameraChrome": {
+    "ochkanatlan-ruins": {
+      "before": {
+        "total": 6,
+        "visible": 4,
+        "camera": 345,
+        "backgroundFile": "ochkanatlan-background-v1.png"
+      },
+      "after": {
+        "total": 6,
+        "visible": 4,
+        "camera": 345,
+        "backgroundFile": "ochkanatlan-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 400,
+              "y": 450
+            },
+            "color": {
+              "x": 400,
+              "y": 450
+            }
+          },
+          "union": 7524,
+          "overlap": 7247,
+          "overlapPercent": 96.3184476342371,
+          "meanRgbError": 14.775309323398188
+        },
+        "rows": [
+          [
+            "標準",
+            "3,880",
+            "99.3%",
+            "5.29 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "2,217",
+            "98.2%",
+            "9.64 / 255",
+            "-42.9%"
+          ],
+          [
+            "最軽量・16色",
+            "878",
+            "96.3%",
+            "14.78 / 255",
+            "-77.4%"
+          ]
+        ]
+      }
+    },
+    "ochka-tide-stairs": {
+      "before": {
+        "total": 6,
+        "visible": 4,
+        "camera": 620,
+        "backgroundFile": "ochka-cliff-background-v1.png"
+      },
+      "after": {
+        "total": 6,
+        "visible": 4,
+        "camera": 620,
+        "backgroundFile": "ochka-cliff-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 640,
+              "y": 360
+            },
+            "color": {
+              "x": 640,
+              "y": 360
+            }
+          },
+          "union": 7792,
+          "overlap": 7376,
+          "overlapPercent": 94.6611909650924,
+          "meanRgbError": 22.87292118582791
+        },
+        "rows": [
+          [
+            "標準",
+            "5,032",
+            "97.0%",
+            "13.66 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "3,188",
+            "96.4%",
+            "17.28 / 255",
+            "-36.6%"
+          ],
+          [
+            "最軽量・16色",
+            "1,396",
+            "94.7%",
+            "22.87 / 255",
+            "-72.3%"
+          ]
+        ]
+      }
+    },
+    "ochka-patched-court": {
+      "before": {
+        "total": 5,
+        "visible": 3,
+        "camera": 450,
+        "backgroundFile": "ochka-cliff-background-v1.png"
+      },
+      "after": {
+        "total": 5,
+        "visible": 3,
+        "camera": 450,
+        "backgroundFile": "ochka-cliff-background-v1.png"
+      },
+      "quality": {
+        "light": {
+          "locations": {
+            "shape": {
+              "x": 880,
+              "y": 360
+            },
+            "color": {
+              "x": 880,
+              "y": 360
+            }
+          },
+          "union": 5844,
+          "overlap": 5532,
+          "overlapPercent": 94.6611909650924,
+          "meanRgbError": 22.87292118582791
+        },
+        "rows": [
+          [
+            "標準",
+            "3,774",
+            "97.0%",
+            "13.66 / 255",
+            "—"
+          ],
+          [
+            "中間・32色",
+            "2,391",
+            "96.4%",
+            "17.29 / 255",
+            "-36.6%"
+          ],
+          [
+            "最軽量・16色",
+            "1,047",
+            "94.7%",
+            "22.87 / 255",
+            "-72.3%"
+          ]
+        ]
+      }
+    }
+  }
+}

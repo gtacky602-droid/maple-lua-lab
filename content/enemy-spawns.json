@@ -1250,14 +1250,18 @@
         "id": "ochkanatlan-ruins-1",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 300,
+        "x": 690,
+        "patrolMin": 673,
+        "patrolMax": 709,
         "platform": 0
       },
       {
         "id": "ochkanatlan-ruins-2",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 510,
+        "x": 775,
+        "patrolMin": 755,
+        "patrolMax": 793,
         "platform": 0
       },
       {
@@ -1265,13 +1269,17 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 850,
-        "platform": 0
+        "patrolMin": 827,
+        "patrolMax": 873,
+        "platform": 3
       },
       {
         "id": "ochkanatlan-ruins-4",
         "kind": 1,
         "art": "hydro-slime",
-        "x": 1120,
+        "x": 1320,
+        "patrolMin": 1295,
+        "patrolMax": 1345,
         "platform": 0
       },
       {
@@ -1279,6 +1287,8 @@
         "kind": 1,
         "art": "hydro-slime",
         "x": 290,
+        "patrolMin": 267,
+        "patrolMax": 313,
         "platform": 1
       },
       {
@@ -1286,6 +1296,8 @@
         "kind": 2,
         "art": "pyro-slime",
         "x": 575,
+        "patrolMin": 552,
+        "patrolMax": 598,
         "platform": 2
       }
     ],
@@ -3423,19 +3435,19 @@
       {"id":"dawn-crystal-field-2-14","x":1545,"platform":2,"hp":16,"kind":1,"art":"pebble-courier"}
     ],
     "ochka-tide-stairs": [
-      {"id":"ochka-tide-stairs-1","x":250,"platform":0,"hp":27,"kind":1,"art":"pebble-courier"},
-      {"id":"ochka-tide-stairs-2","x":476,"platform":0,"hp":27,"kind":2,"art":"pebble-courier"},
-      {"id":"ochka-tide-stairs-3","x":707,"platform":1,"hp":27,"kind":1,"art":"pebble-courier"},
-      {"id":"ochka-tide-stairs-4","x":1160,"platform":2,"hp":27,"kind":2,"art":"pebble-courier"},
-      {"id":"ochka-tide-stairs-5","x":1390,"platform":0,"hp":27,"kind":1,"art":"pebble-courier"},
-      {"id":"ochka-tide-stairs-6","x":1560,"platform":0,"hp":27,"kind":2,"art":"pebble-courier"}
+      {"id":"ochka-tide-stairs-1","x":392,"platform":0,"hp":27,"kind":1,"art":"pebble-courier","patrolMin":368,"patrolMax":415},
+      {"id":"ochka-tide-stairs-2","x":476,"platform":0,"hp":27,"kind":2,"art":"pebble-courier","patrolMin":453,"patrolMax":499},
+      {"id":"ochka-tide-stairs-3","x":707,"platform":1,"hp":27,"kind":1,"art":"pebble-courier","patrolMin":691,"patrolMax":729},
+      {"id":"ochka-tide-stairs-4","x":1160,"platform":2,"hp":27,"kind":2,"art":"pebble-courier","patrolMin":1135,"patrolMax":1185},
+      {"id":"ochka-tide-stairs-5","x":1332,"platform":0,"hp":27,"kind":1,"art":"pebble-courier","patrolMin":1305,"patrolMax":1355},
+      {"id":"ochka-tide-stairs-6","x":1305,"platform":2,"hp":27,"kind":2,"art":"pebble-courier","patrolMin":1280,"patrolMax":1325}
     ],
     "ochka-patched-court": [
-      {"id":"ochka-court-low-carrier","x":215,"platform":0,"hp":30,"kind":1,"art":"pebble-courier"},
-      {"id":"ochka-court-left-carrier","x":438,"platform":1,"hp":30,"kind":1,"art":"pebble-courier"},
-      {"id":"ochka-court-blocking-carrier","x":816,"platform":0,"hp":68,"kind":2,"art":"pebble-courier"},
-      {"id":"ochka-court-side-carrier","x":1030,"platform":0,"hp":32,"kind":1,"art":"pebble-courier"},
-      {"id":"ochka-court-upper-carrier","x":1350,"platform":2,"hp":36,"kind":2,"art":"pebble-courier"}
+      {"id":"ochka-court-low-carrier","x":265,"platform":0,"hp":30,"kind":1,"art":"pebble-courier","patrolMin":240,"patrolMax":288},
+      {"id":"ochka-court-left-carrier","x":395,"platform":1,"hp":30,"kind":1,"art":"pebble-courier","patrolMin":371,"patrolMax":420},
+      {"id":"ochka-court-blocking-carrier","x":816,"platform":0,"hp":68,"kind":2,"art":"pebble-courier","patrolMin":782,"patrolMax":850,"questPhase":1},
+      {"id":"ochka-court-side-carrier","x":1030,"platform":0,"hp":32,"kind":1,"art":"pebble-courier","patrolMin":1005,"patrolMax":1055},
+      {"id":"ochka-court-upper-carrier","x":1380,"platform":2,"hp":36,"kind":2,"art":"pebble-courier","patrolMin":1360,"patrolMax":1391}
     ],
     "novo-frozen-works": [
       {"id":"novo-works-hoist-guard","name":"巻き上げ機の見張り","x":758,"platform":1,"hp":51,"kind":2,"art":"snow-mantle-beetle"},

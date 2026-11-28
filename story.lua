@@ -1653,7 +1653,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if theater.encore(s,node.theater,canInspect) then return end
    if inspectMilestone(s,'rotate') then
-    if spawnState and not wasSpawnPhase and spawnState.count==node.spawnAt then spawnEnemies(s,node,1) end
+    if spawnState and not wasSpawnPhase and spawnState.count==node.spawnAt then
+     local retained
+     if node.keepOtherEnemies then
+      retained={}
+      for _,enemy in ipairs(s.enemies) do
+       if enemy.spawnId then retained[enemy.spawnId]=enemy end
+      end
+     end
+     spawnEnemies(s,node,1)
+     if retained then
+      for i,enemy in ipairs(s.enemies) do s.enemies[i]=retained[enemy.spawnId] or enemy end
+     end
+    end
     return
    end
    if node.nightBanner and nightBanner.read(s,node,quests[node.clearedBy],spawnState) then return end
