@@ -1,0 +1,175 @@
+{
+  "inputSha256": "01c5eb7e52003e69f3f19d7baf7d0743b1d5abad538e90169b70d64782b65e8a",
+  "level": 200,
+  "journeys": [
+    [
+      "liyue-harbor",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "pyro-approach",
+      "walk"
+    ],
+    [
+      "pyro-approach",
+      "pyro-field-grotto",
+      "walk"
+    ],
+    [
+      "pyro-field-grotto",
+      "pyro-approach",
+      "walk"
+    ],
+    [
+      "pyro-approach",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "liyue-harbor",
+      "walk"
+    ]
+  ],
+  "trialAtk": 7,
+  "restoredAtk": 74956,
+  "jump": {
+    "startTick": 88,
+    "startedGrounded": true,
+    "distance": 186.5,
+    "damage": 0,
+    "tick": 111,
+    "height": 144.08333333333331,
+    "label": "火走り・低い炎を跳び越す"
+  },
+  "distant": {
+    "hp": 705,
+    "coreHits": 3,
+    "tick": 185,
+    "downTicks": 0,
+    "distance": 102.5,
+    "grounded": true,
+    "label": "反撃の隙・地上で根元に近づいて攻撃",
+    "hpBefore": 710
+  },
+  "roots": [
+    {
+      "hp": 695,
+      "coreHits": 2,
+      "tick": 14,
+      "downTicks": 0,
+      "distance": 74.5,
+      "grounded": true,
+      "label": "首落としと火走り・低い炎を跳び越す",
+      "hpBefore": 700
+    },
+    {
+      "hp": 685,
+      "coreHits": 1,
+      "tick": 52,
+      "downTicks": 0,
+      "distance": 74.5,
+      "grounded": true,
+      "label": "首落としと火走り・低い炎を跳び越す",
+      "hpBefore": 690
+    },
+    {
+      "hp": 675,
+      "coreHits": 0,
+      "tick": 90,
+      "downTicks": 0,
+      "distance": 74.5,
+      "grounded": true,
+      "label": "核を破壊・火走りが消えるとダウン",
+      "hpBefore": 680
+    }
+  ],
+  "duringDown": {
+    "hp": 665,
+    "coreHits": 0,
+    "downTicks": 231,
+    "distance": 74.5,
+    "grounded": true,
+    "label": "核を破壊・ダウン（あと3.9秒）",
+    "hpBefore": 670
+  },
+  "captures": {
+    "warning": {
+      "label": "首落としと火走り・低い炎を跳び越す",
+      "tick": 53,
+      "downTicks": 0,
+      "coreHits": 3,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4129,
+          "packedDraws": 36,
+          "legacyGzip": 96090,
+          "packedGzip": 69048,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1899,
+          "packedDraws": 36,
+          "legacyGzip": 53091,
+          "packedGzip": 42561,
+          "identicalPixels": true
+        }
+      }
+    },
+    "pending": {
+      "label": "核を破壊・火走りが消えるとダウン",
+      "tick": 110,
+      "downTicks": 0,
+      "coreHits": 0,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3321,
+          "packedDraws": 7,
+          "legacyGzip": 90057,
+          "packedGzip": 63366,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1443,
+          "packedDraws": 7,
+          "legacyGzip": 50265,
+          "packedGzip": 39796,
+          "identicalPixels": true
+        }
+      }
+    },
+    "down": {
+      "label": "核を破壊・ダウン（あと4.0秒）",
+      "downTicks": 238,
+      "coreHits": 0,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 2590,
+          "packedDraws": 1,
+          "legacyGzip": 79047,
+          "packedGzip": 57614,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1147,
+          "packedDraws": 1,
+          "legacyGzip": 45933,
+          "packedGzip": 37310,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 147,
+    "mora": 150
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 128,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

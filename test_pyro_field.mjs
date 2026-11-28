@@ -117,7 +117,7 @@ try{
  await canvas.screenshot({path:`work/${prefix}-wave.png`});
  await page.waitForFunction(()=>{
   const b=window.lab.frame.fieldBoss;
-  return b?.label==='核を破壊・ダウン';
+  return b?.downTicks>0;
  },undefined,{timeout:65000});
  await canvas.screenshot({path:`evidence/${prefix}-down.png`});
  await page.waitForFunction(()=>window.pyroResult,undefined,{timeout:120000});

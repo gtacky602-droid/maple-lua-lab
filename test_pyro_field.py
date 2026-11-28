@@ -98,6 +98,7 @@ at(s,slot,'FP01',95)
 assert a.hp==hp
 at(s,slot,'FP01',123)
 assert a.hp==hp-13
+assert core.frame(s).fieldBoss.label=='火走り・低い炎を跳び越す'
 
 # Two independent fireballs use the normal projectile collision and wall resistance.
 spot(a,-67)
@@ -141,8 +142,10 @@ core.resolveCast(s,pulse(-76,'hydro'))
 assert b.coreHits==0
 at(s,slot,'FP01',155)
 assert b.down==0
+assert core.frame(s).fieldBoss.label=='核を破壊・火走りが消えるとダウン'
 step(s)
 assert b.down==240 and slot.cast is None
+assert core.frame(s).fieldBoss.label=='核を破壊・ダウン（あと4.0秒）'
 assert b.hitTop==FLOOR-core.pyroFieldArt.down.profiles.legacy.height
 for _ in range(240):step(s)
 assert (b.down,b.rise,b.rearm)==(0,24,1200)
