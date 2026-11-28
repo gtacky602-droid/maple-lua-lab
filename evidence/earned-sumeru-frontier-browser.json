@@ -1,0 +1,87 @@
+{
+  "water": {
+    "objectives": 7,
+    "crossings": [
+      [
+        "tunigi-camp",
+        "tunigi-depth",
+        "walk"
+      ],
+      [
+        "tunigi-depth",
+        "sum-wp-46523",
+        "lift"
+      ],
+      [
+        "sum-wp-46523",
+        "tunigi-depth",
+        "lift"
+      ],
+      [
+        "tunigi-depth",
+        "sum-wp-46525",
+        "walk"
+      ],
+      [
+        "sum-wp-46525",
+        "sum-wp-46514",
+        "walk"
+      ]
+    ],
+    "reloadedReports": [
+      "sum-mapped-tunigi-water",
+      "tunigi-survey"
+    ]
+  },
+  "wind": {
+    "closed": {
+      "text": "風待ち 5秒",
+      "png": 46,
+      "standard": 3479,
+      "light": 920
+    },
+    "open": {
+      "text": "弱風 残り3秒",
+      "png": 35,
+      "standard": 3468,
+      "light": 909
+    },
+    "crossings": [
+      [
+        "sum-wp-41835",
+        "sum-wp-41838",
+        "walk"
+      ],
+      [
+        "sum-wp-41838",
+        "sum-wp-41836",
+        "lift"
+      ],
+      [
+        "sum-wp-41836",
+        "sum-wp-41838",
+        "lift"
+      ]
+    ],
+    "lowerLevelWaypointRestored": true
+  },
+  "fontaine": {
+    "route": [
+      [
+        "sumeru-field",
+        "walk"
+      ],
+      [
+        "fontaine-entry",
+        "walk"
+      ],
+      [
+        "fontaine-hub",
+        "walk"
+      ]
+    ],
+    "level": 80,
+    "accepted": "fontaine-moon-parcel",
+    "restored": true
+  }
+}

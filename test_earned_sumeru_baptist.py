@@ -81,12 +81,11 @@ def wander(trip):
     return dict(objectives=quest.count, report=trip.reports[-1])
 
 
-def grow(trip):
-    parent, hunt = 'sum-wp-28741', 'sumeru-north-forest-floor'
+def hunt_to_level(trip, parent, hunt, target_level):
     trip.travel(parent)
     sorties = []
-    while trip.state.progression.level < 74:
-        assert len(sorties) < 30
+    while trip.state.progression.level < target_level:
+        assert len(sorties) < 90
         if trip.actor.hp < 90:
             trip.warp(HUB)
             trip.warp(parent)
@@ -95,7 +94,7 @@ def grow(trip):
         trip.act('auto')
         for _ in range(560):
             trip.tick(8)
-            if trip.state.progression.level >= 74 or trip.actor.hp < 65:
+            if trip.state.progression.level >= target_level or trip.actor.hp < 65:
                 break
         trip.act('auto')
         after = trip.totals()
@@ -193,7 +192,7 @@ def run(source):
     for key in SURVEYS:
         if not state.story.quests[key] or state.story.quests[key].status!='complete':
             surveys[key] = walk_objectives(trip,quests[key])
-    sorties = grow(trip)
+    sorties = hunt_to_level(trip, 'sum-wp-28741', 'sumeru-north-forest-floor', 74)
     assert state.progression.level==74
     trip.act('story_accept:'+QUEST)
     save(trip,'baptist-ready')
