@@ -244,9 +244,9 @@ M地図から背景比較を開くと、その地点の本編の敵配置を表�
 
 正機の神・トワリン・アンドリアスの3会場で、M地図から実際の開戦時の姿を比較できる。造神工房は新しい仮背景を使い、風龍の空域と奔狼領は既存の原画を5段階に変換した。トワリンは床から150 px浮いた開戦時の姿、アンドリアスは接地した待機姿を表示する。正機の神は床とくびれを合わせた上半身を幅約1,393 pxで描く。元PNGと3段階の機体表示を、Luaの座標と矩形列から描いた画像に照合した。[3会場の照合](../evidence/weekly-opening-poses-browser.json) · [背景の5段階](../evidence/weekly-opening-background-tiers-browser.json)
 
-週ボスの外観更新では、人型の表示高と足元を固定し、頭側の帯を詰めた比率を戦闘と開戦プレビューに反映した。源焔の主の開戦画面では、離れた橙・紫の左右の翼を本体の背面に描く。開戦時だけを同じカメラ位置で比較し、元PNGと3段階の矩形で見比べられる。 [開戦の照合](../evidence/weekly-opening-poses-browser.json)
+週ボスの外観更新では、人型の表示高と足元を固定し、頭側の帯を詰めた比率を戦闘と開戦プレビューに反映した。源焔の主の開戦画面では、離れた橙・紫の左右の翼を本体の背面に描く。開戦時を同じカメラ位置で比較し、元PNGと3段階の矩形で見比べられる。横に並ぶ幅では画像の上端を揃え、描画量や輪郭の測定は画像の下に表示する。狭い画面では元PNGから順に縦に並ぶ。 [開戦の照合](../evidence/weekly-opening-poses-browser.json)
 
-現行の戦闘を外観の更新前後で比較するには、Luaラボと同じPython環境で `python test_weekly_visual_pass.py --visual-change 27cb63a5 --output work/weekly-visual-regression.json` を実行する。比較用の一時コピーから外観の差分だけを戻し、後続のマップ・戦闘更新を両方に含めて検査する。
+現行の戦闘を週ボスの外観更新前後で比較するには、Luaラボと同じPython環境で `python test_weekly_visual_pass.py --visual-change 27cb63a5 --output work/weekly-visual-regression.json` を実行する。比較用の一時コピーで週ボスの描画呼び出しと配置設定を更新前に戻す。共通描画処理や後続のマップ・戦闘の更新は両方に含める。旅人の走行描画は `node test_running_palette_batches.mjs` で照合する。
 
 専用の5段階背景はラボ全1,528ステージ中199地点に対応した。秘境周辺の狩場と脇部屋（sites-hunt）124地点はすべて対応済み。別地域の狩場・脇部屋（branch-hunt）62地点は、往日の海3/3地点、沈玉の谷59/59地点に対応した。書き出し検査の locationCoverage に、地域別件数と残っている地点IDを記録する。フィールドボス配置表の120会場は3か所、週ボス配置表の18会場（内部マップを含む）は7か所に専用の5段階背景がある。[背景の対応範囲](../evidence/scenery-download-tiers.json)
 

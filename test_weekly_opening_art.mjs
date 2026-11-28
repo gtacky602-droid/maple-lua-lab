@@ -3,6 +3,13 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {waypointDriver,holdPortalFrame} from './tools/browser_waypoint_test.mjs';
 
+async function canvasLayout(page){
+ return page.evaluate(()=>['png','rect'].map(id=>{
+  const {x,y,width,height}=document.getElementById(id).getBoundingClientRect();
+  return {x,y,width,height};
+ }));
+}
+
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
 const opening=JSON.parse(await fs.readFile('evidence/weekly-opening-poses-lua.json','utf8'));
@@ -88,8 +95,23 @@ try{
    assert.ok((await view.locator('#viewportCost').innerText()).includes(count.toLocaleString('ja-JP')+'個'));
    counts[profile]={...pose.profiles[profile],heldDraws:pose.heldRects.length,differentPixels:error};
   }
+  const [left,right]=await canvasLayout(view);
+  assert.equal(left.y,right.y,key+' canvas tops');
+  assert.equal(left.height,right.height,key+' canvas heights');
+  assert.ok(right.x>=left.x+left.width,key+' side-by-side comparison');
   if(['shouki','signora','raiden','azhdaha','primal_fire'].includes(key)){
    await view.locator('main').screenshot({path:`${captures}/weekly-opening-${key}-light.png`});
+  }
+  if(key==='primal_fire'){
+   await view.locator('#compareSpriteProfiles').click();
+   await view.locator('#spriteProfileTable').waitFor({state:'visible'});
+   assert.deepEqual(await canvasLayout(view),[left,right]);
+   await view.setViewportSize({width:390,height:844});
+   const [top,bottom]=await canvasLayout(view);
+   assert.equal(top.x,bottom.x);
+   assert.equal(top.width,bottom.width);
+   assert.ok(bottom.y>=top.y+top.height && bottom.x+bottom.width<=390);
+   await view.locator('main').screenshot({path:`${captures}/weekly-opening-primal_fire-mobile.png`});
   }
   assert.deepEqual(errors,[]);
   results[key]={node:pose.node,background:live.background,opening:live.draw,profiles:counts};
