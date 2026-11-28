@@ -5,7 +5,8 @@ import {chromium} from 'playwright';
 const hub='fontaine-hub',loft='fontaine-moon-fly-loft',wings='fontaine-stage-wings';
 const catwalk='fontaine-lift-catwalk',floor='fontaine-understage-workfloor';
 const store='fontaine-parcel-storeroom',rehearsal='fontaine-rehearsal-room',quest='fontaine-understage-crew';
-const prefix='evidence/fontaine-understage';
+const earned=process.argv.includes('--earned');
+const prefix=earned?'work/earned-fontaine-emperor/fontaine-understage':'evidence/fontaine-understage';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -129,10 +130,12 @@ async function saveReload(node){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8874/');
   await wait(()=>window.lab?.frame);
-  const raw=await fs.readFile('work/fontaine-understage-fixture.json','utf8');
+  const source=earned?'work/earned-fontaine-delivery/delivery-complete.json':'work/fontaine-understage-fixture.json';
+  const raw=await fs.readFile(source,'utf8');
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),raw);
   await page.locator('#loadProgress').click();
   await nodeIs(hub);
+  if(earned)await wait(()=>window.lab.frame.progression.level===81);
   await questButton('受注','active');
   await gate(995,loft);
   await gate(1110,wings);
@@ -199,8 +202,15 @@ try{
   const after=await frame();
   const reward=[after.progression.questXp-before.progression.questXp,
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
-  assert.deepEqual(reward,JSON.parse(await fs.readFile(prefix+'-lua.json','utf8')).reward);
+  assert.deepEqual(reward,JSON.parse(await fs.readFile('evidence/fontaine-understage-lua.json','utf8')).reward);
+  if(earned)assert.equal(after.progression.level,84);
   await saveReload(hub);
+  if(earned){
+    const restored=await frame();
+    assert.equal(restored.progression.level,84);
+    assert.equal(restored.story.quests[quest].cycles,1);
+    assert.equal(restored.story.quests['fontaine-moon-parcel'].status,'complete');
+  }
   await gate(1240,rehearsal);
   await walk(764);
   await key('KeyG');
@@ -209,8 +219,9 @@ try{
   assert.deepEqual(errors,[]);
   const proof={normalStairs:true,liftRoundTrip:true,realProjectilesAndCover:true,incorrectChoicesRejected:true,
     storeCheckpoint:true,threeRecordsAndReroute:true,shortcutAndReadback:true,scenes:[floorScene,rehearsalScene],
-    commands,reward,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+    commands,reward,errors,...(earned?{source,startLevel:81,restoredLevel:84}:{})};
+  const report=earned?'evidence/earned-fontaine-understage-browser.json':prefix+'-browser.json';
+  await fs.writeFile(report,JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(()=>{

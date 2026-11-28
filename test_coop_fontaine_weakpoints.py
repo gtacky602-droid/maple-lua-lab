@@ -44,6 +44,9 @@ def check_emperor(lua, core):
         bars = [d for d in frame.draws.values() if d.color == '#ffad66' and d.y == 476 and d.h == 2]
         assert len(bars) == 2
         assert all(math.isclose(d.x+d.w/2+frame.camera,x) for d,x in zip(bars,points))
+        numbered = [d for d in frame.draws.values() if d.kind == 'text' and d.color == '#fff1b0']
+        assert [d.text for d in numbered] == ['1','2']
+        assert all(math.isclose(d.x+frame.camera,x) for d,x in zip(numbered,points))
     wait_cast(step, slot, 'FEC02', 166)
     assert [hits(s, boss, mark) for s, mark in zip(states, marks)] == [[19], [19], [], []]
 
@@ -59,6 +62,7 @@ def check_emperor(lua, core):
     for s in states:
         frame = core.frame(s, 'sprite')
         assert frame.fieldBoss.form == 'exposed'
+        assert frame.fieldBoss.exposureTicks == 144 and frame.fieldBoss.recovering
         sprite = next(d for d in frame.draws.values() if d.source == 'emperor-field-poses-source-v1.png')
         assert sprite.h == 91
     assert attack(lua, core, host, boss, x=boss.x-55, range=125, atk=100) == rear

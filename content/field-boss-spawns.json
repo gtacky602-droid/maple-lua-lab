@@ -1123,6 +1123,7 @@
       "id":"boss-26160302",
       "controller":"emperor",
       "coop":true,
+      "showRecovery":true,
       "entity":26160302,
       "name":"鉄甲熔炎帝王",
       "node":"emperor-field-cove",

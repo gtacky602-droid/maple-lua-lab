@@ -1,0 +1,35 @@
+{
+  "normalStairs": true,
+  "liftRoundTrip": true,
+  "realProjectilesAndCover": true,
+  "incorrectChoicesRejected": true,
+  "storeCheckpoint": true,
+  "threeRecordsAndReroute": true,
+  "shortcutAndReadback": true,
+  "scenes": [
+    {
+      "key": "fontaineUnderstage",
+      "file": "fontaine-understage-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "fontaineRehearsal",
+      "file": "fontaine-rehearsal-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "commands": {
+    "png": 17,
+    "standard": 7843,
+    "light": 1939
+  },
+  "reward": [
+    1921946,
+    3900,
+    4
+  ],
+  "errors": [],
+  "source": "work/earned-fontaine-delivery/delivery-complete.json",
+  "startLevel": 81,
+  "restoredLevel": 84
+}
