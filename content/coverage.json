@@ -8396,6 +8396,20 @@
       "lua_evidence": "evidence/earned-snezhnaya-bosses-lua.json",
       "browser_evidence": "evidence/earned-drifting-snow-browser.json"
     },
+    "earned_inazuma_field_mechanics": {
+      "arrival_level": 40,
+      "arena_gate_levels": [44, 46],
+      "clear_levels": [44, 47],
+      "progression_quests": 4,
+      "encounters_cleared_and_commissions_restored": ["boss-25090101", "boss-24021101"],
+      "attacks_evaded_with_inputs": 6,
+      "lua_evidence": "evidence/earned-inazuma-field-bosses.json",
+      "browser_evidence": [
+        "evidence/earned-maguu-field-browser.json",
+        "evidence/earned-array-field-browser.json",
+        "evidence/earned-inazuma-quest-overlap-browser.json"
+      ]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

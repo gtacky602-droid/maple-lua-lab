@@ -49,7 +49,7 @@ return function(C)
   return t>=m.total
  end
  function maguu.label(b,c)
-  if c and c.tick>=c.move.recover then return '納刀・息継ぎ' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・納刀' end
  end
  function maguu.draw(f,s,b,spec,c,mode,profile)
   local x=b.x-s.camera
