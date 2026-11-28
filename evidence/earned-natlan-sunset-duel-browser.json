@@ -1,0 +1,44 @@
+{
+  "firstRunAndReplay": true,
+  "warningsAndOpening": true,
+  "sameFrameComparison": true,
+  "moves": [
+    "SR01",
+    "SR02"
+  ],
+  "chargeMoved": true,
+  "lockedSplashMarks": [
+    842.5,
+    968.5
+  ],
+  "firstClearSaved": true,
+  "firstClearExp": 6826100,
+  "recordAndReport": true,
+  "noRepeatReward": true,
+  "scene": {
+    "key": "natlanSunset",
+    "file": "natlan-sunset-arena-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 22,
+    "standard": 4649,
+    "light": 1181,
+    "cue": "時間差の水柱を予告 あと0.9秒 ｜ 番号のついた印から横へ離れる"
+  },
+  "reward": [
+    8024394,
+    10800,
+    6
+  ],
+  "sourceSha256": "e1824039d3602ee6a9d3a5c6a43073ab15f421abfd7af40de40d759f957608a4",
+  "startLevel": 103,
+  "reportedLevel": 109,
+  "restoredRecord": "夕映えの記録「二つの道と三つの印をつなぎ、模擬戦を終えた。」",
+  "firstClear": {
+    "companion": "emilie",
+    "bestTicks": 1167,
+    "clears": 1
+  },
+  "errors": []
+}

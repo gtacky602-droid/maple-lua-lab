@@ -104,13 +104,13 @@ return function(C)
   return {{x=x,hits={}},{x=x+direction*splash.offset,hits={}}}
  end
 
- local function open(round)
-  return round and (round.phase=='opening' or round.phase=='splashOpening')
+ local function open(phase)
+  return phase=='opening' or phase=='splashOpening'
  end
 
  function duel.damageFactor(s)
   local round=roundAndClock(s)
-  return open(round) and 1 or .65
+  return open(round and round.phase) and 1 or .65
  end
 
  local function stepRound(s,round,boss,target)
@@ -118,7 +118,7 @@ return function(C)
   local spec=round.spec
   local index,phase,_,position,lane=timing(s.t-round.start,spec)
   round.phase=phase
-  boss.recovering=open(round)
+  boss.recovering=open(phase)
   if lane then
    boss.x=position
    local direction=lane[1]<lane[2] and 1 or -1
@@ -214,8 +214,10 @@ return function(C)
   local slot=C.fieldSlot(s,spec.encounter)
   if slot and slot.enemy.hp<=0 then return end
   local _,phase,remaining,position,lane=timing(clock-round.start,spec)
+  local hint=open(phase) and '水走者が止まっている間に攻撃'
+   or (lane and '上段の岩棚へジャンプ' or '番号のついた印から横へ離れる')
   f.storyDuel={phase=phase,label=captions[phase],remaining=remaining,replay=s.storyDuelReplay~=nil,
-   move=lane and 'SR01' or 'SR02'}
+   move=lane and 'SR01' or 'SR02',hint=hint}
   if not lane then
    if phase~='splashOpening' then drawMarks(draws,f,s,spec,position,round) end
    return
