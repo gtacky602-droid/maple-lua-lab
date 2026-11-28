@@ -1,0 +1,138 @@
+[
+  {
+    "controller": "knave",
+    "case": "knave-interrupt",
+    "label": "羽印で赤宴を中断",
+    "ticks": 2809,
+    "sourceSha256": "bbf3e3f66fc6d7d3845452f88859058f7ed965541ec66de606d42cb4dddf3851",
+    "bossHp": 2400,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "forms": [
+      1,
+      2
+    ],
+    "contract": {
+      "tick": 551,
+      "amount": 22694.75,
+      "maxHp": 90779
+    },
+    "firstPayment": {
+      "tick": 699,
+      "amount": 4538.95
+    },
+    "handoff": {
+      "tick": 2512,
+      "moveTick": 96,
+      "hp": 81455,
+      "debt": 45389.5,
+      "feather": true
+    },
+    "result": {
+      "tick": 2764,
+      "interrupted": true,
+      "hp": 79641,
+      "debt": 45389.5,
+      "feather": false
+    },
+    "feastHits": [],
+    "exposureTicks": 216,
+    "exposureDamage": 336.0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "survivingHp": [
+      78734,
+      0
+    ],
+    "checkpointSha256": "4098b551c2b8bdfd831e1027b73514f78f3ab64f41087f9c4648257986f40099"
+  },
+  {
+    "controller": "knave",
+    "case": "knave-evade",
+    "label": "赤宴の範囲から離れる",
+    "ticks": 2790,
+    "sourceSha256": "4098b551c2b8bdfd831e1027b73514f78f3ab64f41087f9c4648257986f40099",
+    "bossHp": 2400,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "forms": [
+      1,
+      2
+    ],
+    "contract": {
+      "tick": 551,
+      "amount": 22694.75,
+      "maxHp": 90779
+    },
+    "firstPayment": {
+      "tick": 699,
+      "amount": 4538.95
+    },
+    "handoff": {
+      "tick": 2512,
+      "moveTick": 96,
+      "hp": 81455,
+      "debt": 45389.5,
+      "feather": true
+    },
+    "result": {
+      "tick": 2663,
+      "interrupted": false,
+      "hp": 79641,
+      "debt": 45389.5,
+      "feather": true
+    },
+    "feastHits": [],
+    "exposureTicks": 0,
+    "exposureDamage": 0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "survivingHp": [
+      78734,
+      0
+    ],
+    "checkpointSha256": "86bc4c7247682e8b7318ed39f53a9e3e166479fd4b9224aca920900c97addd63"
+  }
+]

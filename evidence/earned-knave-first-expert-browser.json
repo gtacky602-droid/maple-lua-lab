@@ -1,0 +1,72 @@
+{
+  "source": "work/earned-narwhal/replays/complete.json",
+  "sourceSha256": "a1590b38c7d7106a73ad1a15e3867a657834257b57afdf1a2ff92113c1fe8158",
+  "priorReport": true,
+  "route": [
+    {
+      "previewX": 186,
+      "region": "region-05",
+      "level": 88,
+      "from": "fontaine-hub",
+      "name": "凶月の再現戦",
+      "approach": "入口のそばにいます",
+      "id": "knave-crimson-court",
+      "label": "徒歩",
+      "mode": "walk"
+    }
+  ],
+  "scenery": {
+    "key": "crimsonMoonCourt",
+    "file": "crimson-moon-court-background-v1.png",
+    "state": "ready"
+  },
+  "declared": true,
+  "levels": [
+    200,
+    200,
+    200
+  ],
+  "interruptCue": {
+    "t": 54.166666666664874,
+    "ticks": 203,
+    "card": "WK15",
+    "form": 2,
+    "text": "赤宴・前方奔流 ｜ 償還の一撃（H）で中断・残り3.4秒"
+  },
+  "transformCue": "凶月の羽化 ｜ 戦闘再開まで1.6秒",
+  "lampCue": "血償の宣告 ｜ 左の返済灯 ｜ 完済まであと5回",
+  "keyboardAndPointerRepayment": true,
+  "repayments": 5,
+  "partialBeforeRelease": 18156,
+  "manualHitInterrupted": true,
+  "forms": 2,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "remainingHp": 77765,
+  "commands": {
+    "first": {
+      "png": 12,
+      "standard": 5668,
+      "light": 1544
+    },
+    "second": {
+      "png": 14,
+      "standard": 8510,
+      "light": 2400,
+      "transfer": {
+        "rawGzip": 49458,
+        "packedGzip": 47431,
+        "pixelMatch": true
+      }
+    }
+  },
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": []
+}

@@ -206,7 +206,7 @@ try {
           profiles[key] = {differentPixels, rgbAbsoluteError, unpackedCommands:variant.unpackedCount,
             packedCommands:variant.packed.draws.length, unpackedBytes:variant.unpackedBytes,
             packedBytes:variant.packedBytes, combatCanvasMs:variantTimes[index]};
-          if (sample.view.shouki||sample.view.apep||sample.view.signoraStage||sample.view.id==='boss-29030101'||['rerir','ronova','wanderer','farka','capitano','beidou'].includes(sample.view.match)) {
+          if (knave||sample.view.shouki||sample.view.apep||sample.view.signoraStage||sample.view.id==='boss-29030101'||['rerir','ronova','wanderer','farka','capitano','beidou'].includes(sample.view.match)) {
             const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', packed));
             profiles[key].canvasSha256 = Array.from(digest, byte => byte.toString(16).padStart(2, '0')).join('');
           }
@@ -217,7 +217,7 @@ try {
           ...(hereticText && {hereticText}), ...(finaleText && {finaleText}), ...(rerirText && {rerirText}),
           ...(ronovaText && {ronovaText}), ...(wandererText && {wandererText}), ...(farkaText && {farkaText}),
           ...(beidouText && {beidouText}), ...(childeText && {childeText}), ...(apepText && {apepText}),
-          ...(signoraText && {signoraText}), ...(shoukiText && {shoukiText})};
+          ...(signoraText && {signoraText}), ...(shoukiText && {shoukiText}), ...(knaveText && {knaveText})};
       }
       return comparison;
     }, {frames, nodes, title:label});

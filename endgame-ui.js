@@ -13,18 +13,28 @@ export function knaveContractText(view){
  return view.actors.map(a=>`${a.id===1?'旅人':'同行'} 契約 ${a.debt} / ${a.cap}${a.feather?' ◇ 羽印':''}`).join(' ｜ ');
 }
 
+function knaveLampText(view,selected){
+ if(!selected.debt)return '';
+ const cue=view.lampCue;
+ if(!cue)return '回復するか、両端の返済灯へ';
+ const lamp=cue.index===1?'左の返済灯':'右の返済灯';
+ const destination=cue.needsGround?`床へ降りて${lamp}へ`:view.nearLamp?lamp:`${lamp}へ`;
+ return `${destination} ｜ 完済まであと${cue.payments}回`;
+}
+
 export function knaveFeastText(view){
- if(view.transformTicks)return `凶月の羽化 ｜ 戦闘再開まで${Math.ceil(view.transformTicks/6)/10}秒`;
+ const seconds=ticks=>(Math.ceil(ticks/6)/10).toFixed(1);
+ if(view.transformTicks)return `凶月の羽化 ｜ 戦闘再開まで${seconds(view.transformTicks)}秒`;
  const result=view.feastResult;
  if(result?.kind==='interrupted'){
   const owner=result.actor===1?'旅人':result.actor===2?'同行キャラ':'味方';
-  return owner+'が羽印で赤宴を中断'+(view.exposure?` ｜ 反撃できる時間 ${(view.exposure/60).toFixed(1)}秒`:'');
+  return owner+'が羽印で赤宴を中断'+(view.exposure?` ｜ 反撃できる時間 ${seconds(view.exposure)}秒`:'');
  }
  const selected=view.actors[view.active-1];
  const interrupt=view.window&&selected.feather&&('償還の一撃（H）で中断'+
-  (view.interruptTicks?`・残り${Math.ceil(view.interruptTicks/6)/10}秒`:''));
+  (view.interruptTicks?`・残り${seconds(view.interruptTicks)}秒`:''));
  if(result?.kind==='ended')return ['前方奔流が収まった',interrupt].filter(Boolean).join(' ｜ ');
- const hint=interrupt||(view.airborne?'高空。地面の赤い予告から離れる':selected.debt?'回復するか、両端の返済灯へ':'');
+ const hint=interrupt||(view.airborne?'高空。地面の赤い予告から離れる':knaveLampText(view,selected));
  return [view.title,hint].filter(Boolean).join(' ｜ ');
 }
 

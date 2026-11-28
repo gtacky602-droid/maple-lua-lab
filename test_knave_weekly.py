@@ -100,6 +100,13 @@ assert len(events(s, 'WK08:feather')) == 1
 s, w, spec = start()
 a, d = s.actors[1], w.actors[s.actors[1]]
 declare(s, w, spec)
+assert native(core.frame(s).weeklyBoss.knave.lampCue) == dict(index=1, needsGround=False, payments=5)
+place(a, 912, 420)
+upper = core.frame(s).weeklyBoss.knave
+assert upper.nearLamp is None and native(upper.lampCue) == dict(index=2, needsGround=True, payments=5)
+place(a, 912, 480)
+assert core.frame(s).weeklyBoss.knave.nearLamp == 2
+place(a, 44, 480)
 step(s, 1, hold)
 start_tick = w.clock
 step(s, 44, hold)
@@ -107,6 +114,7 @@ assert len(events(s, 'WK08:lamp')) == 0
 step(s, 1, hold)
 assert isclose(d.debt, a.maxhp*.20)
 assert d.lastPay-start_tick == 45
+assert core.frame(s).weeklyBoss.knave.lampCue.payments == 4
 step(s, 29, hold)
 assert len(events(s, 'WK08:lamp')) == 1
 step(s, 1, hold)
@@ -120,6 +128,7 @@ step(s, 1, hold)
 assert isclose(d.debt, a.maxhp*.10)
 step(s, 60, hold)
 assert d.debt == 0 and d.feather and len(events(s, 'WK08:lamp')) == 5
+assert core.frame(s).weeklyBoss.knave.lampCue is None
 assert a.hp < a.maxhp and len(events(s, 'WK08:feather')) == 1  # The periodic damage stayed active through the hold.
 
 c = move(s, w, spec, 'WK10')
