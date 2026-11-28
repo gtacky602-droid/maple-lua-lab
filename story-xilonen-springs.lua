@@ -228,6 +228,7 @@ return function(C,canInspect)
     local draft=record.draft or record.layout
     view.panel=true
     view.sections,view.layout,view.ready=spec.sections,draft,completeLayout(spec,draft)
+    if view.ready and record.best then view.draftBest=record.best[layoutKey(spec,draft)] end
    end
   elseif node.id==spec.course and record and record.layout then
    for i,section in ipairs(spec.sections) do
@@ -242,7 +243,10 @@ return function(C,canInspect)
    art('timer',spec.start.x-58,spec.start.y,64)
    art('flag',spec.finish.x,spec.finish.y,83)
    view.best=record.best and record.best[layoutKey(spec,record.layout)]
-   if run then view.section=run.section;view.retries=run.retries
+   if run then
+    view.section,view.retries=run.section,run.retries
+    local section=spec.sections[run.section]
+    if section then view.sectionLabel=section.label end
    elseif canInspect(a,spec.start) then nearby('試走を始める') end
   else
    if state.count==0 then art('timer',q.itinerary[1].x,480,64) end

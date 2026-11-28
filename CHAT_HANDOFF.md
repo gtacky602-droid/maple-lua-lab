@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## シロネンの踏み台と配置別の記録
+
+設計台では三つの型を選んだ時点で、その組み合わせの最速記録を確認できる。試走中は区間名と復帰回数を表示する。キィニチ報告済みのLv110セーブで、二つの型の計測、天井に当たった後の組み替え、二つの配置の完走と記録の復元を通した。 [工房と試走路](docs/balance/NATLAN_XILONEN_COURSE_WEB.md) · [通し検証](evidence/earned-natlan-xilonen-course-browser.json)
+
 ## キィニチの待ち伏せ地点と岩場への近道
 
 M地図に未調査の手がかりと待ち伏せ候補を表示する。選んだ地点は地図にも表示し、岩棚のリンクから足場と登り方を開ける。折り返しまでの秒数はLuaの戦闘時刻に連動する。波札受領済みのLv109セーブで、待ち伏せ先を保存してから討伐・報告し、再読み込み後に岩場への近道を往復した。 [狩道の操作](docs/balance/NATLAN_KINICH_AMBUSH_WEB.md) · [通し検証](evidence/earned-natlan-kinich-ambush-browser.json)
