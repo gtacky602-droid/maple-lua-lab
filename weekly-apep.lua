@@ -190,9 +190,20 @@ return function(C,D)
  local function domeReady(w,spec)
   return w.wave and w.wave.t>=spec.dome.opens and w.wave.t<spec.dome.expires
  end
+ local function aboveDome(a,spec)
+  return a.y-72<spec.floorY-spec.dome.safeHeight
+ end
+ local function nearestDome(a,spec)
+  local index,distance=1,math.huge
+  for i,x in ipairs(spec.dome.x) do
+   local dx=math.abs(a.x-x)
+   if dx<distance then index,distance=i,dx end
+  end
+  return index
+ end
  local function shielded(a,w,spec)
   if not domeReady(w,spec) or a.hp<=0 or a.y>spec.floorY+5 then return false end
-  if a.y-72<spec.floorY-spec.dome.safeHeight then return false end
+  if aboveDome(a,spec) then return false end
   for _,x in ipairs(spec.dome.x) do if math.abs(a.x-x)+8<=spec.dome.safeHalf then return true end end
   return false
  end
@@ -276,11 +287,7 @@ return function(C,D)
   if w and spec.controller=='apep' then
    if w.stage=='shelter' then
     if a.y<=spec.floorY-65 then return spec.center end
-    local closest=nil
-    for _,x in ipairs(spec.dome.x) do
-     if not closest or math.abs(a.x-x)<math.abs(a.x-closest) then closest=x end
-    end
-    return closest
+    return spec.dome.x[nearestDome(a,spec)]
    elseif w.stage=='defense' then D.ai(s,w,a) end
    for _,warn in ipairs(warnings(spec,w.cast)) do
     local b=warn.b
@@ -330,12 +337,15 @@ return function(C,D)
    b.moveTick=t
    if t>=spec.moves.WP16.total then b.move='WP17';b.label='終末の余波' end
    v.domes={}
-   for _,x in ipairs(spec.dome.x) do v.domes[#v.domes+1]={x=x,open=domeReady(w,spec)} end
-   v.protected=shielded(player(s),w,spec)
+   local open,active=domeReady(w,spec),player(s)
+   for _,x in ipairs(spec.dome.x) do v.domes[#v.domes+1]={x=x,open=open} end
+   v.protected=shielded(active,w,spec)
+   if active.hp>0 then v.domeCue={index=nearestDome(active,spec),needsGround=aboveDome(active,spec)} end
    v.domeTime=spec.dome.expires-t
-   for _,window in ipairs(spec.moves.WP17.windows) do
+   local windows=spec.moves.WP17.windows
+   for group,window in ipairs(windows) do
     local hit=spec.moves.WP16.total+window[1]
-    if hit>t then v.nextPulse=hit-t;break end
+    if hit>t then v.nextPulse=hit-t;v.nextPulseFinal=group==#windows;break end
    end
   elseif stage=='weak' and w.stageTick>=spec.dome.exposureStart and w.stageTick<spec.moves.WP18.recovery then
    v.exposure=spec.moves.WP18.recovery-w.stageTick

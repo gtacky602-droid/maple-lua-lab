@@ -253,7 +253,17 @@ assert not core.frame(s).weeklyBoss.apep.protected
 ticks(core,s,1)
 assert core.frame(s).weeklyBoss.apep.protected
 assert all(v.open for v in core.frame(s).weeklyBoss.apep.domes.values())
-ticks(core,s,660)
+place(a,132,419)
+view=core.frame(s).weeklyBoss.apep
+assert not view.protected and view.domeCue.index==1 and view.domeCue.needsGround
+place(a,132,420)
+view=core.frame(s).weeklyBoss.apep
+assert view.protected and not view.domeCue.needsGround and not view.nextPulseFinal
+place(a,132)
+ticks(core,s,479)
+view=core.frame(s).weeklyBoss.apep
+assert view.nextPulseFinal and view.nextPulse==1
+ticks(core,s,181)
 assert w.stage=='weak' and w.wave is None
 assert [e.value for e in events(s,'WP17:protected') if e.actor==1]==[1,2,3,4]
 assert [e.value for e in events(s,'WP17:protected') if e.actor==2]==[1,2,3,4]
@@ -307,7 +317,8 @@ assert restored.story.quests[quest].status=='complete' and restored.weeklySlots[
 result={'live_timings':checked,'shared_hitbox':True,'same_tick_progress_and_retry':True,'max_live':peak,
         'waves_not_duplicated':True,'guard_and_breeder_never_overlap':True,'prey_without_points':True,
         'obstacle_walk_jump_break':True,'burst_cancelled_by_kill_and_cleanup':True,'domes_through_final_pulse':True,
-        'ally_climbs_down_to_shelter':True,'exposed_ticks':480,'outside_damage_and_lethal_cleanup':True,
+        'ally_climbs_down_to_shelter':True,'height_boundary_and_final_wave_notice':True,
+        'exposed_ticks':480,'outside_damage_and_lethal_cleanup':True,
         'route_report_and_save':True}
 (ROOT/'evidence/apep-weekly-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print('Apep Lua: shared health, six roles, defense settlement, walls and domes, clear and restore passed')

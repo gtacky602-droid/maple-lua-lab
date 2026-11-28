@@ -13,6 +13,8 @@
     "innerSafeAndHighPlatformUnsafe": true,
     "oneHitPerActorPerPulse": true,
     "exposure": 480,
+    "perActorFinalPulse": true,
+    "nearestDomeAndHeightPerParty": true,
     "wipeReset": true
   },
   "http": {
@@ -20,6 +22,7 @@
     "normalInputsShareDefense": true,
     "frozenAndResumedDefense": true,
     "separateProtection": true,
+    "perActorFinalPulse": true,
     "sharedHp": 1580,
     "personalXp": 160050,
     "personalMora": 1500,

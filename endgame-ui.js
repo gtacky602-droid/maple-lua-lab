@@ -74,8 +74,15 @@ export function apepDomeText(view){
  if(view.exposure)return [result,`攻撃の好機 ｜ 残り${Math.ceil(view.exposure/60)}秒`].filter(Boolean).join(' ｜ ');
  if(result)return result;
  if(!view.domes?.length)return '';
- return (view.domes[0].open?(view.protected?'保護域の内側':'ドームの内側へ'):'ドームが開くまで待つ')+
-  (view.nextPulse?` ｜ 次の余波まで${Math.ceil(view.nextPulse/60)}秒`:'');
+ const position=view.domeCue&&['左','中央','右'][view.domeCue.index-1];
+ const dome=position?`${position}のドーム`:'ドーム';
+ let action;
+ if(!view.domes[0].open)action='ドームが開くまで待つ';
+ else if(view.protected)action=`${dome}の内側`;
+ else if(view.domeCue?.needsGround)action=`床に降りて${dome}へ`;
+ else action=`${dome}の内側へ`;
+ const pulseLabel=view.nextPulseFinal?'最後の余波':'次の余波';
+ return action+(view.nextPulse?` ｜ ${pulseLabel}まで${(Math.ceil(view.nextPulse/6)/10).toFixed(1)}秒`:'');
 }
 
 export function childeDropText(drop,cleanseSide){

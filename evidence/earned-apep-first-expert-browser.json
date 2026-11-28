@@ -1,0 +1,103 @@
+{
+  "entered": true,
+  "phases": [
+    "dark",
+    "expose",
+    "defense",
+    "rebirth",
+    "prime",
+    "shelter",
+    "weak"
+  ],
+  "defenseRetries": 0,
+  "defenseComparison": {
+    "t": 11.366666666666811,
+    "units": [
+      [
+        29080202,
+        95.38,
+        "melee"
+      ],
+      [
+        29080203,
+        864.62,
+        "ranged"
+      ],
+      [
+        29080204,
+        127.38,
+        "ranged"
+      ],
+      [
+        29080205,
+        832.62,
+        "melee"
+      ]
+    ],
+    "progress": 26,
+    "meterWidth": 14,
+    "commands": {
+      "png": 38,
+      "light": 1830
+    }
+  },
+  "finalPulse": {
+    "protected": true,
+    "damage": 0
+  },
+  "pulseText": "ドームで最後の余波を防いだ",
+  "warning": {
+    "needsGround": false,
+    "index": 1,
+    "ticks": 119,
+    "text": "左のドームの内側 ｜ 最後の余波まで2.0秒"
+  },
+  "eightSecondOpening": true,
+  "clearReportRestore": true,
+  "remainingHp": 90734,
+  "transfer": {
+    "rawGzip": 82516,
+    "packedGzip": 58832,
+    "pixelMatch": true
+  },
+  "viewport390": true,
+  "scene": {
+    "key": "oasisHeart",
+    "file": "oasis-heart-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 96,
+    "standard": 15921,
+    "light": 4613
+  },
+  "sourceSha256": "1fe92278b052ed24d39db6c6be708d118854e28edcfe81fb8eb16dd802e19119",
+  "guide": [
+    "apep-oasis-heart-arena"
+  ],
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "questReward": {
+    "xp": 90000,
+    "mora": 5600
+  },
+  "expertWins": 1,
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": [],
+  "ordinaryOutsideRegression": {
+    "finalPulse": {
+      "damage": 54,
+      "protected": false
+    },
+    "warning": {
+      "needsGround": false,
+      "index": 1,
+      "ticks": 99,
+      "text": "左のドームの内側へ ｜ 最後の余波まで1.7秒"
+    }
+  }
+}

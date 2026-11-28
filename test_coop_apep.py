@@ -190,6 +190,8 @@ def domes(lua,core,wipe=False):
     run(step,60)
     for s,is_safe in zip(parties,(True,True,False,False)):
         assert view(core,s).protected==is_safe and len(view(core,s).domes)==3
+    assert [(view(core,s).domeCue.index,view(core,s).domeCue.needsGround) for s in parties]==[
+        (1,False),(3,False),(1,False),(1,True)]
     before=[s.actors[1].hp for s in parties]
     run(step,spec.dome.expires-60)
     assert w.stage=='weak' and w.wave is None
@@ -284,7 +286,7 @@ if __name__=='__main__':
                          oneSporeContact=True,interceptionProtectsHeart=True,wallCollisionPerActor=True,
                          independentWallOrders=True,oldAndRepeatedWallHitsRejected=True,wallClearsWithSource=True,
                          innerSafeAndHighPlatformUnsafe=True,oneHitPerActorPerPulse=True,exposure=480,
-                         perActorFinalPulse=True,wipeReset=True),
+                         perActorFinalPulse=True,nearestDomeAndHeightPerParty=True,wipeReset=True),
                 http=dict(participants=2,normalInputsShareDefense=True,frozenAndResumedDefense=True,
                           separateProtection=True,perActorFinalPulse=True,sharedHp=1580,personalXp=EXP,
                           personalMora=1500,ownQuestAndSaves=True))

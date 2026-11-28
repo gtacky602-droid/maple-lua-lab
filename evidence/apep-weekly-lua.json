@@ -19,6 +19,7 @@
   "burst_cancelled_by_kill_and_cleanup": true,
   "domes_through_final_pulse": true,
   "ally_climbs_down_to_shelter": true,
+  "height_boundary_and_final_wave_notice": true,
   "exposed_ticks": 480,
   "outside_damage_and_lethal_cleanup": true,
   "route_report_and_save": true
