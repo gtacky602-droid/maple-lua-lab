@@ -4,11 +4,12 @@
       "participants": 4,
       "punchesAndStompHitIndividually": true,
       "sameAirPosition": true,
-      "sharedRepairStates": [
-        100,
-        40,
-        0
+      "sharedDestroyedCounts": [
+        0,
+        1,
+        2
       ],
+      "interruptedOnTick": 300,
       "noRewardsForRepairUnits": true,
       "individualRewards": true
     },

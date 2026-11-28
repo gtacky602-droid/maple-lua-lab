@@ -21,6 +21,14 @@
     "boss-25140101": 6500000,
     "boss-25134601": 6800000
   },
+  "legacyFieldBossMoves": {
+    "boss-24100101": {
+      "ward": {"max":100,"factor":0.55,"chip":1,"damage":60,"repair":25,"unitHp":16,"offset":2,"speed":0.58,"arrival":54,"down":144,"lunarFactor":1.6},
+      "moves": {
+        "FDK03": {"id":"FDK03","kind":"ward","title":"メカダックの補修","reach":222,"lock":64,"guard":40,"deploy":62,"roll":94,"distance":1.8,"width":1.86,"height":0.96,"active":[[340,360]],"recover":384,"total":480,"damage":32,"element":"electro"}
+      }
+    }
+  },
   "fieldBossMoveOverrides": {
     "boss-25134601": {
       "WB02": { "returnStart": 180, "returnEnd": 218, "chainMargin": 0.14 },
@@ -92,11 +100,7 @@
       }
     },
     "boss-24100101": {
-      "FDK03": {
-        "kind": "discharge", "title": "メカダック補修・放電", "deploy": 76, "expire": 300,
-        "repairOffsets": [1.3, 2.5], "repairDestination": 0.65, "repairHp": 55000,
-        "downTicks": 144, "standTicks": 24, "total": 528
-      }
+      "FDK03": { "repairHp": 55000 }
     },
     "boss-23090101": {
       "FBT03": {

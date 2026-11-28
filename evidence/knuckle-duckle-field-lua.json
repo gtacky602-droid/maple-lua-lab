@@ -1,21 +1,24 @@
 {
   "twoPunchBands": true,
   "lockedJumpAndHurtbox": true,
-  "normalAttacksDestroyBothBots": true,
-  "lunarCastBonus": true,
-  "bossHpSeparateFromBarrier": true,
-  "survivingBotRestoresWard": true,
-  "interruptionHasNoShockwave": true,
-  "doNothingStillHasFixedAvoidableShockwave": true,
+  "sameSideRepairs": true,
+  "mechaHp": 16,
+  "arrivalsAtTick": 300,
+  "arrivalLeavesBossHpUnchanged": true,
+  "damageWithFixedDischarge": 32,
+  "brokenAtTick": 300,
+  "recoveryTicks": 144,
+  "defeatsCancelDischarge": true,
+  "edgeReposition": true,
   "exitSaveAndKillCleanup": true,
   "oneRewardAndReport": true,
   "normalAttackSolo": {
-    "seconds": 99.62,
+    "seconds": 84.75,
     "hp": 140
   },
   "sameSceneCommands": {
-    "png": 23,
-    "standard": 10821,
-    "light": 3022
+    "png": 29,
+    "standard": 10827,
+    "light": 3028
   }
 }

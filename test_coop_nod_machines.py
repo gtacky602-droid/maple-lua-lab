@@ -37,28 +37,32 @@ def check_duck(lua, core):
     wait_cast(step, slot, 'FDK02', 143)
     assert [hits(s, boss, mark) for s, mark in zip(states, marks)] == [[26], [26], [], []]
 
-    wait_cast(step, slot, 'FDK03', 64)
+    wait_cast(step, slot, 'FDK03', 76)
     ward = slot.cast
     left, right = ward.summons[1], ward.summons[2]
     initial = frames(core, states)
-    assert all(f['repairWard'] == {'hp': 100, 'maxhp': 100} for f in initial)
+    assert all('repairWard' not in f and f['repairSequence'] == initial[0]['repairSequence'] for f in initial)
     assert all(f['summons'] == initial[0]['summons'] for f in initial)
     assert [unit['hp'] for unit in initial[0]['summons']] == [16, 16]
+    assert (left.x-boss.x)*(right.x-boss.x)>0
     assert attack(lua, core, host, left, atk=50) == 16
     step()
-    assert left.resolved == 'destroyed' and boss.duckWard == 40
-    assert all(f['repairWard']['hp'] == 40 and [u['id'] for u in f['summons']] == [right.id]
+    assert left.resolved == 'destroyed'
+    assert all(f['repairSequence']['defeated'] == 1 and [u['id'] for u in f['summons']] == [right.id]
                for f in frames(core, states))
+    wait_cast(step, slot, 'FDK03', 299)
     assert attack(lua, core, guest, right, atk=50) == 16
     step()
-    assert boss.duckWard == 0 and boss.form == 'down' and ward.broken < 340
-    assert all('summons' not in f and f['form'] == 'down' for f in frames(core, states))
+    assert boss.form == 'down' and ward.broken == 300
+    assert all('summons' not in f and f['form'] == 'down' and f['recoveryTicks'] == 144
+               and f['repairSequence']['defeated'] == 2 for f in frames(core, states))
     assert all(s.kills == s.mora == s.progression.killXp == 0 for s in states)
     assert boss.hp == boss.maxhp == 1135 and boss.coopHits is None
     finish(lua, core, DUCK, slot, states)
     check_adoption(core, DUCK, 'FDK01', 101, 18)
     return dict(participants=4, punchesAndStompHitIndividually=True, sameAirPosition=True,
-                sharedRepairStates=[100, 40, 0], noRewardsForRepairUnits=True, individualRewards=True)
+                sharedDestroyedCounts=[0, 1, 2], interruptedOnTick=300,
+                noRewardsForRepairUnits=True, individualRewards=True)
 
 
 def check_ship(lua, core):
@@ -115,7 +119,7 @@ if __name__ == '__main__':
     lua, core = runtime()
     result = {'duckle': {'lua': check_duck(lua, core)}, 'battleship': {'lua': check_ship(lua, core)}}
     with lab() as url:
-        result['duckle']['http'] = check_http(url, DUCK, 'FDK03', 64, 'summons', 100, gate=1110)
+        result['duckle']['http'] = check_http(url, DUCK, 'FDK03', 76, 'summons', 100, gate=1110)
         result['battleship']['http'] = check_http(url, SHIP, 'FBT02', 56, 'thermal', 115, gate=945)
     (ROOT/'evidence/coop-nod-machines-lua-http.json').write_text(
         json.dumps(result, indent=2)+'\n', encoding='utf8')

@@ -52,6 +52,7 @@ try {
   Math.abs(unit.x-rolled.boss.x)<Math.abs(spawned.boss.summons[index].x-spawned.boss.x)));
  await page.locator('#fieldBossLabel').filter({hasText:'補修メカ'}).waitFor();
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(file => !window.lab.frame.draws.some(draw => draw.source===file),source);
  const standard=await scene();
  await page.locator('.game').screenshot({path:'evidence/short-duckle-mechas.png'});

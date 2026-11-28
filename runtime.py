@@ -152,6 +152,12 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
         if skill['owner'] == 'traveler' and skill.get('category') in ('単独', '二元素', '三元素')
     }
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
+    if draft_balance and not draft_field_moves:
+        for spec in field_specs:
+            legacy = balance['legacyFieldBossMoves'].get(spec['id'])
+            if legacy:
+                spec.update({key: value for key, value in legacy.items() if key != 'moves'})
+                spec['moves'] = [legacy['moves'].get(move['id'], move) for move in spec['moves']]
     if draft_balance and draft_field_boss_hp:
         proportional_hp = {
             'driftingSnow': ('coffin', ('heal',)),
@@ -167,7 +173,7 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
             spec['hp'] = draft_hp
             ratio = draft_hp / spec['baseHp']
             scaled = proportional_hp.get(spec['controller'])
-            if scaled:
+            if scaled and scaled[0] in spec:
                 key, fields = scaled
                 for field in fields:
                     spec[key][field] = round(spec[key][field] * ratio)

@@ -4,19 +4,19 @@
   "bossHp": 1135,
   "results": [
     {
-      "seconds": 25.98,
+      "seconds": 24.75,
       "hp": 104,
       "kills": 1,
-      "startingMora": 10,
+      "startingMora": 50,
       "mora": 445,
-      "startingXp": 9282,
+      "startingXp": 46410,
       "xp": 526400,
       "moves": [
         "FDK01",
         "FDK02",
         "FDK03"
       ],
-      "manualDamage": 272,
+      "manualDamage": 264,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -52,29 +52,28 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [],
-      "reflectionLayers": [],
-      "reflectionBroken": false,
+      "echoLayouts": [],
+      "echoRecovery": false,
       "repairLayouts": [
-        "-24100102,-24100103"
+        "-24100101000003,-24100101000004"
       ],
       "thermalStates": [],
       "machineDown": true
     },
     {
-      "seconds": 26,
+      "seconds": 24.73,
       "hp": 140,
       "kills": 1,
-      "startingMora": 0,
+      "startingMora": 50,
       "mora": 445,
-      "startingXp": 0,
+      "startingXp": 46410,
       "xp": 526400,
       "moves": [
         "FDK01",
         "FDK02",
         "FDK03"
       ],
-      "manualDamage": 256,
+      "manualDamage": 249,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -110,11 +109,10 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [],
-      "reflectionLayers": [],
-      "reflectionBroken": false,
+      "echoLayouts": [],
+      "echoRecovery": false,
       "repairLayouts": [
-        "-24100102,-24100103"
+        "-24100101000003,-24100101000004"
       ],
       "thermalStates": [],
       "machineDown": true
@@ -127,14 +125,14 @@
   "saves": [
     {
       "clears": 1,
-      "mora": 455,
-      "xp": 535682,
+      "mora": 495,
+      "xp": 572810,
       "respawn": true
     },
     {
       "clears": 1,
-      "mora": 445,
-      "xp": 526400,
+      "mora": 495,
+      "xp": 572810,
       "respawn": true
     }
   ],
