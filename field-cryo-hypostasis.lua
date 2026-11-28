@@ -1,5 +1,5 @@
 return function(C)
- local cryo={}
+ local cryo={packRectArt=true}
  local U=88
  local function clamp(x,a,b) return math.min(b,math.max(a,x)) end
  function cryo.spawn(b,s)
@@ -29,7 +29,10 @@ return function(C)
  end
  function cryo.frame(f,b,s,c)
   if not c then return end
-  if c.tick>=c.move.recover then f.recovering=true end
+  if c.tick>=c.move.recover then
+   f.recovering=true
+   f.recoveryTicks=c.move.total-c.tick
+  end
   if c.tick>=c.move.lock and c.tick<c.move.active[#c.move.active][2] then
    if c.move.kind=='wheel' then f.destinationX=c.dest end
    if c.move.kind=='fall' then f.fallPoints=c.points end
@@ -60,7 +63,15 @@ return function(C)
   return t>=m.total
  end
  function cryo.label(b,c)
-  if c and c.tick>=c.move.recover then return '殻がほどける' end
+  if not c then return end
+  local move,t=c.move,c.tick
+  if t>=move.recover then return '殻がほどける・低い核を攻撃' end
+  if move.kind=='wheel' then return move.title..'・走路から離れるか跳び越す' end
+  if move.kind=='clap' then return move.title..'・両掌の範囲から離れる' end
+  for i,window in ipairs(move.active) do
+   if t<window[2] then return move.title..' '..i..'/3・床の番号を避ける' end
+  end
+  return '落氷が止まった・低い核を攻撃'
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}

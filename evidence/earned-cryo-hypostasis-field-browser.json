@@ -1,0 +1,135 @@
+{
+  "inputSha256": "643ffbf916b937c5807a68166fe1fc9d5687c2817b81ce44b2796ea472e023fb",
+  "level": 200,
+  "journeys": [
+    [
+      "dragonspine-camp",
+      "dragonspine-depth",
+      "walk"
+    ],
+    [
+      "dragonspine-depth",
+      "cryo-hypostasis-field-basin",
+      "walk"
+    ],
+    [
+      "cryo-hypostasis-field-basin",
+      "dragonspine-depth",
+      "walk"
+    ],
+    [
+      "dragonspine-depth",
+      "dragonspine-camp",
+      "walk"
+    ]
+  ],
+  "wheel": {
+    "locked": 723.5,
+    "actual": 723.5,
+    "player": 622,
+    "damage": 0
+  },
+  "fall": {
+    "points": [
+      727.7,
+      648.5,
+      569.3
+    ],
+    "gap": {
+      "x": 685,
+      "tick": 70,
+      "target": 688.1
+    },
+    "falls": [
+      {
+        "index": 1,
+        "tick": 108,
+        "hp": 356
+      },
+      {
+        "index": 2,
+        "tick": 145,
+        "hp": 356
+      },
+      {
+        "index": 3,
+        "tick": 181,
+        "hp": 356
+      }
+    ],
+    "damage": 0
+  },
+  "captures": {
+    "wheel": {
+      "label": "氷輪の直走・走路から離れるか跳び越す",
+      "tick": 54,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 2234,
+          "packedDraws": 5,
+          "legacyGzip": 67512,
+          "packedGzip": 53931,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 951,
+          "packedDraws": 5,
+          "legacyGzip": 41016,
+          "packedGzip": 35244,
+          "identicalPixels": true
+        }
+      }
+    },
+    "fall": {
+      "label": "三本の落氷 1/3・床の番号を避ける",
+      "tick": 70,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 1324,
+          "packedDraws": 16,
+          "legacyGzip": 56844,
+          "packedGzip": 47422,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 586,
+          "packedDraws": 16,
+          "legacyGzip": 37308,
+          "packedGzip": 32870,
+          "identicalPixels": true
+        }
+      }
+    },
+    "recovery": {
+      "label": "殻がほどける・低い核を攻撃",
+      "tick": 199,
+      "recoveryTicks": 53,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 2584,
+          "packedDraws": 1,
+          "legacyGzip": 74250,
+          "packedGzip": 56732,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1100,
+          "packedDraws": 1,
+          "legacyGzip": 43711,
+          "packedGzip": 36520,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 35,
+    "mora": 145
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 129,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
