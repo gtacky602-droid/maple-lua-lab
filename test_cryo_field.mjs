@@ -123,7 +123,7 @@ try{
  await startFight();
  await page.waitForFunction(source=>{
   const f=window.lab.frame;
-  return f.fieldBoss?.label==='核を破壊・ダウン'&&f.draws.some(d=>d.source===source);
+  return f.fieldBoss?.downTicks>0&&f.draws.some(d=>d.source===source);
  },actions);
  await canvas.screenshot({path:'evidence/cryo-regisvine-field-down.png'});
  await page.waitForFunction(()=>window.cryoFight,{},{timeout:125000});

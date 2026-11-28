@@ -1,0 +1,134 @@
+{
+  "inputSha256": "d15aea057d870d93c0b971083c36e5798d43adc1ff793f7a05bfff353b68b0d4",
+  "level": 200,
+  "journeys": [
+    [
+      "mond-town",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "mond-border",
+      "walk"
+    ],
+    [
+      "mond-border",
+      "cryo-approach",
+      "walk"
+    ],
+    [
+      "cryo-approach",
+      "cryo-field-grove",
+      "walk"
+    ],
+    [
+      "cryo-field-grove",
+      "cryo-approach",
+      "walk"
+    ],
+    [
+      "cryo-approach",
+      "mond-border",
+      "walk"
+    ],
+    [
+      "mond-border",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "mond-town",
+      "walk"
+    ]
+  ],
+  "trialAtk": 7,
+  "restoredAtk": 74956,
+  "distant": {
+    "distance": 111.5,
+    "damage": 5,
+    "coreHits": 3,
+    "downTicks": 0,
+    "move": "FC01"
+  },
+  "coreStrikes": [
+    {
+      "distance": 80,
+      "damage": 5,
+      "coreHits": 2,
+      "downTicks": 0,
+      "move": "FC01"
+    },
+    {
+      "distance": 80,
+      "damage": 5,
+      "coreHits": 1,
+      "downTicks": 0,
+      "move": "FC01"
+    },
+    {
+      "distance": 80,
+      "damage": 5,
+      "coreHits": 0,
+      "downTicks": 0,
+      "move": "FC01"
+    }
+  ],
+  "downHit": {
+    "distance": 80,
+    "damage": 5,
+    "coreHits": 0,
+    "downTicks": 207
+  },
+  "rearmSeconds": 20,
+  "captures": {
+    "warning": {
+      "label": "首落とし・地上で根元に近づいて攻撃",
+      "move": "FC01",
+      "downTicks": 0,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 4573,
+          "packedDraws": 7,
+          "legacyGzip": 91437,
+          "packedGzip": 71273,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2030,
+          "packedDraws": 7,
+          "legacyGzip": 52525,
+          "packedGzip": 42972,
+          "identicalPixels": true
+        }
+      }
+    },
+    "down": {
+      "label": "核を破壊・ダウン（あと4.0秒）",
+      "downTicks": 239,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3329,
+          "packedDraws": 1,
+          "legacyGzip": 79670,
+          "packedGzip": 62386,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1432,
+          "packedDraws": 1,
+          "legacyGzip": 45420,
+          "packedGzip": 39057,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "returns": 0,
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 123,
+  "priorWeeklyRecordsPreserved": true,
+  "errors": []
+}
