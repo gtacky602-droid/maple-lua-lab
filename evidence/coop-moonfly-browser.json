@@ -4,19 +4,19 @@
   "bossHp": 1050,
   "results": [
     {
-      "seconds": 30.38,
+      "seconds": 30.22,
       "hp": 465,
       "kills": 1,
-      "startingMora": 40,
+      "startingMora": 80,
       "mora": 485,
-      "startingXp": 33416,
+      "startingXp": 66832,
       "xp": 871150,
       "moves": [
         "FMF01",
         "FMF02",
         "FMF03"
       ],
-      "manualDamage": 138,
+      "manualDamage": 152,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -52,33 +52,35 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [],
-      "reflectionLayers": [],
-      "reflectionBroken": false,
+      "echoLayouts": [],
+      "echoRecovery": false,
       "repairLayouts": [],
-      "thermalStates": [],
+      "coolingLayouts": [],
+      "coolingLayers": [],
       "machineDown": false,
       "caught": true,
       "escaped": true,
       "peerStillBound": true,
       "anchorLayers": [],
       "anchorBroken": false,
-      "geoExposure": false
+      "geoExposure": false,
+      "firstBoundTick": 133,
+      "clearTick": 195
     },
     {
-      "seconds": 30.38,
-      "hp": 465,
+      "seconds": 30.18,
+      "hp": 460.875,
       "kills": 1,
-      "startingMora": 10,
+      "startingMora": 90,
       "mora": 485,
-      "startingXp": 8354,
+      "startingXp": 75186,
       "xp": 871150,
       "moves": [
         "FMF01",
         "FMF02",
         "FMF03"
       ],
-      "manualDamage": 134,
+      "manualDamage": 132,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -114,18 +116,20 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [],
-      "reflectionLayers": [],
-      "reflectionBroken": false,
+      "echoLayouts": [],
+      "echoRecovery": false,
       "repairLayouts": [],
-      "thermalStates": [],
+      "coolingLayouts": [],
+      "coolingLayers": [],
       "machineDown": false,
       "caught": true,
       "escaped": true,
       "peerStillBound": false,
       "anchorLayers": [],
       "anchorBroken": false,
-      "geoExposure": false
+      "geoExposure": false,
+      "firstBoundTick": 132,
+      "clearTick": 312
     }
   ],
   "questCounts": [
@@ -135,14 +139,14 @@
   "saves": [
     {
       "clears": 1,
-      "mora": 525,
-      "xp": 904566,
+      "mora": 565,
+      "xp": 937982,
       "respawn": true
     },
     {
       "clears": 1,
-      "mora": 495,
-      "xp": 879504,
+      "mora": 575,
+      "xp": 946336,
       "respawn": true
     }
   ],

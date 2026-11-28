@@ -1,0 +1,33 @@
+{
+  "waveElements": [
+    "dendro",
+    "pyro",
+    "pyro"
+  ],
+  "hitTicks": [
+    132,
+    216,
+    300
+  ],
+  "hpLossEach": 25,
+  "partialHealing": 4,
+  "naturalClearTick": 312,
+  "damageBeforeDuringAfter": [
+    95,
+    85,
+    95
+  ],
+  "naturalRecoveryTicks": 144,
+  "lethalAndOutsideFirstWaveUnmarked": true,
+  "invulnerableAndShieldedUnmarked": true,
+  "clearedOnDefeatAndExit": true,
+  "unrelatedParentPreserved": true,
+  "level": 130,
+  "maxHp": 1050,
+  "edgeReposition": true,
+  "oneRewardAndReport": true,
+  "normalAttackSolo": {
+    "seconds": 78.62,
+    "hp": 140
+  }
+}

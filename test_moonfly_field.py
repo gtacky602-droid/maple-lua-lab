@@ -6,7 +6,8 @@ from runtime import ROOT, native, runtime
 from savegame import validate_save
 
 
-lua,core=runtime()
+# The former full-HP escape remains playable through the comparison profile.
+lua,core=runtime(draft_balance=True,draft_field_boss_hp=False)
 boss_id,quest='boss-26301101','moonfly-commission'
 hub,road,arena='nod-town','nod-field','nod-moonfly-hollow'
 empty=lua.table()

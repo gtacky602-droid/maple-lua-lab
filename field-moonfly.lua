@@ -1,5 +1,5 @@
 return function(C)
- local moonfly={}
+ local moonfly={packRectArt=true}
  local U=88
  local lime,fire,pale='#c9db48','#ffad57','#eef6c4'
  local function place(b,s,form,pose)
@@ -14,7 +14,7 @@ return function(C)
   place(b,s,'idle','idle')
  end
  function moonfly.cancel(b,s,state,c)
-  if not s.draftMoves then C.clearEncounterCocoons(state)
+  if s.cocoon then C.clearEncounterCocoons(state)
   elseif c then C.clearEncounterCocoons(state,c) end
   moonfly.spawn(b,s)
  end
@@ -34,7 +34,7 @@ return function(C)
   local start,finish=c.origin+c.dir*near*U,c.origin+c.dir*far*U
   return math.min(start,finish),math.max(start,finish)
  end
- local function lock(c,s)
+ local function lock(c,s,state)
   local m=c.move
   if m.kind=='kick' then
    c.left,c.right=front(c,m.near,m.far)
@@ -45,14 +45,20 @@ return function(C)
    c.centers={}
    for i,offset in ipairs(m.offsets) do c.centers[i]=c.origin+c.dir*offset*U end
   elseif m.waves then
-   c.waves={}
+   local waves={}
    for i,wave in ipairs(m.waves) do
     local left,right=front(c,wave.near,wave.far)
-    c.waves[i]={left=left,right=right,element=wave.element}
+    if not s.draftMoves and (left<s.arenaMin or right>s.arenaMax or
+       not C.fieldGroundRetreat(state,c.dir,left,right,m.active[i][1]-m.lock,c.origin)) then
+     return false
+    end
+    waves[i]={left=left,right=right,element=wave.element}
    end
+   c.waves=waves
   else
    c.left,c.right=c.origin-m.radius*U,c.origin+m.radius*U
   end
+  return true
  end
  local function bounds(c,i)
   if c.waves then return c.waves[i].left,c.waves[i].right end
@@ -72,9 +78,22 @@ return function(C)
  end
  function moonfly.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
+  if c.reposition then
+   b.facing=s.home>b.x and 1 or -1
+   b.x=b.x+b.facing*math.min(math.abs(s.home-b.x),s.walkSpeed/60)
+   if b.x==s.home then c.origin,c.tick,c.reposition=b.x,0,nil end
+   return false
+  end
   c.tick=t
   if t<=m.lock and a then c.dir=a.x<c.origin and -1 or 1;b.facing=c.dir end
-  if t==m.lock then lock(c,s);b.facing=c.dir end
+  if t==m.lock then
+   if not lock(c,s,state) then
+    place(b,s,'idle','idle')
+    c.reposition=true
+    return false
+   end
+   b.facing=c.dir
+  end
   local form,pose='attack','ready'
   if m.kind=='cocoon' then
    if t==m.bind then C.bindRadiantCocoon(state,s,c.source,c.left,c.right) end
@@ -113,7 +132,9 @@ return function(C)
   if mark and state.t<mark.untilTime then return '脱出・与えるダメージ強化' end
   if b.form=='winged' then return (b.element=='pyro' and '炎の羽' or '草の羽')..'・'..c.move.title end
   if b.form=='charging' then return '繭に集光・爆発範囲から退避' end
-  if b.form=='recover' then return '羽がほどけた・反撃の好機' end
+  if b.form=='recover' then
+   return '羽がほどけた・反撃 あと'..string.format('%.1f',(c.move.total-c.tick)/60)..'秒'
+  end
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}

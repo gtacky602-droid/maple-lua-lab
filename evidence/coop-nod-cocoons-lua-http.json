@@ -1,6 +1,31 @@
 {
   "moonfly": {
     "lua": {
+      "waveElements": [
+        "dendro",
+        "pyro",
+        "pyro"
+      ],
+      "hitTicks": [
+        132,
+        216,
+        300
+      ],
+      "hpLossEach": 25,
+      "partialHealing": 4,
+      "naturalClearTick": 312,
+      "damageBeforeDuringAfter": [
+        95,
+        85,
+        95
+      ],
+      "naturalRecoveryTicks": 144,
+      "lethalAndOutsideFirstWaveUnmarked": true,
+      "invulnerableAndShieldedUnmarked": true,
+      "clearedOnDefeatAndExit": true,
+      "unrelatedParentPreserved": true
+    },
+    "legacyLua": {
       "participants": 4,
       "bindingsAndHealingArePerActor": true,
       "visiblePartyEffects": true,

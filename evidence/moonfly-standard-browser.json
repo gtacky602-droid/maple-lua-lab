@@ -1,0 +1,191 @@
+{
+  "inputSha256": "d0d57e57750c9d60c86fba66085a92a4043f808df77233e4e3e202352e6da807",
+  "level": 200,
+  "journeys": [
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-moonfly-hollow",
+      "walk"
+    ],
+    [
+      "nod-moonfly-hollow",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-moonfly-hollow",
+      "walk"
+    ],
+    [
+      "nod-moonfly-hollow",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "finishAttack": 259,
+    "originalAttack": 74956
+  },
+  "scenery": {
+    "key": "moonflyField",
+    "file": "moonfly-field-background-v1.png",
+    "state": "ready"
+  },
+  "evasion": {
+    "heroDamage": 0,
+    "waves": [
+      {
+        "left": 715.8000000000002,
+        "element": "dendro",
+        "index": 1,
+        "active": true,
+        "right": 891.8000000000002
+      },
+      {
+        "left": 715.8000000000002,
+        "element": "pyro",
+        "index": 2,
+        "active": true,
+        "right": 891.8000000000002
+      },
+      {
+        "left": 676.2000000000002,
+        "element": "pyro",
+        "index": 3,
+        "active": true,
+        "right": 905.0000000000002
+      }
+    ],
+    "counterDamage": 14,
+    "hpAfterReload": 1036
+  },
+  "cocoon": {
+    "boundTick": 133,
+    "clearedTick": 201,
+    "before": 331,
+    "after": 339.9,
+    "maxHp": 356,
+    "clearedByPartialHeal": true
+  },
+  "captures": {
+    "grass": {
+      "label": "草の羽・集光の繭・三拍の羽解放",
+      "tick": 132,
+      "form": "winged",
+      "wave": {
+        "left": 715.8000000000002,
+        "element": "dendro",
+        "index": 1,
+        "active": true,
+        "right": 891.8000000000002
+      },
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 4506,
+          "packedDraws": 17,
+          "plainGzip": 92839,
+          "packedGzip": 72057,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2019,
+          "packedDraws": 17,
+          "plainGzip": 52159,
+          "packedGzip": 44156,
+          "identicalPixels": true
+        }
+      }
+    },
+    "flame": {
+      "label": "炎の羽・集光の繭・三拍の羽解放",
+      "tick": 216,
+      "form": "winged",
+      "wave": {
+        "left": 715.8000000000002,
+        "element": "pyro",
+        "index": 2,
+        "active": true,
+        "right": 891.8000000000002
+      },
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 4338,
+          "packedDraws": 17,
+          "plainGzip": 86597,
+          "packedGzip": 70391,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 1902,
+          "packedDraws": 17,
+          "plainGzip": 49799,
+          "packedGzip": 43142,
+          "identicalPixels": true
+        }
+      }
+    },
+    "release": {
+      "label": "繭に集光・爆発範囲から退避",
+      "tick": 301,
+      "form": "charging",
+      "wave": {
+        "left": 676.2000000000002,
+        "element": "pyro",
+        "index": 3,
+        "active": true,
+        "right": 905.0000000000002
+      },
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 2114,
+          "packedDraws": 21,
+          "plainGzip": 55342,
+          "packedGzip": 44276,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 963,
+          "packedDraws": 21,
+          "plainGzip": 36196,
+          "packedGzip": 31717,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 26135,
+    "mora": 485
+  },
+  "reportReward": {
+    "xp": 9400,
+    "mora": 650
+  },
+  "fieldClears": 1,
+  "reported": 143,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

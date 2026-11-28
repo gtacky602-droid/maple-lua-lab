@@ -7,6 +7,7 @@ from test_coop_anemo import place, wait_cast
 from test_coop_local import lab
 from test_coop_oceanid_maguu import check_http, exp, finish, hits, party, share, SPECS
 from test_coop_sumeru_field import attack
+from test_draft_moonfly_moves import waves_and_expiration, protection_and_cleanup
 
 
 FLY = ('boss-26301101', 'nod-town', 'nod-field', 'moonfly-commission')
@@ -23,7 +24,7 @@ def arrange(states, boss):
         party.actors[1].hp = party.actors[1].maxhp
 
 
-def check_fly(lua, core):
+def check_legacy_fly(lua, core):
     room, states, step = share(core, FLY)
     lead, guest, rejoin, observer = states
     slot, boss = room.fieldSlot, room.fieldSlot.enemy
@@ -140,7 +141,9 @@ def check_disconnected_breaker(lua, core):
 
 def write_fixture(core, case, key, attack_skill):
     state = party(core, case)
+    core.enterStoryNode(state, 'fontaine-hub')
     core.enterStoryNode(state, case[1])
+    assert core.growthSkillCondition(state, 'SK18') is True
     # A low-level flower gives a single healing field room to recover a missed jump.
     assert core.giveArtifact(state, 1, 68, 3)
     core.action(state, 'artifact_equip:1')
@@ -154,14 +157,17 @@ def write_fixture(core, case, key, attack_skill):
 
 if __name__ == '__main__':
     lua, core = runtime()
-    result = {'moonfly': {'lua': check_fly(lua, core)}, 'moongecko': {'lua': check_gecko(lua, core)}}
+    result = {'moonfly': {'lua': waves_and_expiration(lua, core) | protection_and_cleanup(lua, core)},
+              'moongecko': {'lua': check_gecko(lua, core)}}
+    legacy_lua, legacy_core = runtime(draft_balance=True, draft_field_boss_hp=False)
+    result['moonfly']['legacyLua'] = check_legacy_fly(legacy_lua, legacy_core)
     check_disconnected_breaker(lua, core)
     result['moongecko']['lua']['lethalBacklashAfterBreakerLeavesSettlesOnce'] = True
     write_fixture(core, FLY, 'moonfly', 'SK17')
     write_fixture(core, GECKO, 'moongecko', 'SK05')
     del lua, core
     with lab() as url:
-        result['moonfly']['http'] = check_http(url, FLY, 'FMF03', 96, 'label', 114, gate=180)
+        result['moonfly']['http'] = check_http(url, FLY, 'FMF03', 132, 'wingWave', 216, gate=180)
     with lab() as url:
         result['moongecko']['http'] = check_http(url, GECKO, 'FMG03', 112, 'summon', 140, gate=1260)
     (ROOT/'evidence/coop-nod-cocoons-lua-http.json').write_text(
