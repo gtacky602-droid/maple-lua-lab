@@ -1,0 +1,602 @@
+{
+  "childe-early": {
+    "image": "childe-early.png",
+    "frames": {
+      "第2形態への変身": {
+        "tick": 889,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8603,
+            "rgbAbsoluteError": 836405,
+            "unpackedCommands": 2778,
+            "packedCommands": 858,
+            "unpackedBytes": 340689,
+            "packedBytes": 147064,
+            "combatCanvasMs": 2.800000011920929,
+            "canvasSha256": "0b5fbf524f3e8f960cdd32367302388407080d74951b09aaf33e1cf3eb9daf2c"
+          },
+          "h32c16": {
+            "differentPixels": 8683,
+            "rgbAbsoluteError": 989285,
+            "unpackedCommands": 1253,
+            "packedCommands": 394,
+            "unpackedBytes": 151026,
+            "packedBytes": 65114,
+            "combatCanvasMs": 1.300000011920929,
+            "canvasSha256": "24eb4c3a7264428b63666bbe99bb6bd5c7dd71f70c990f6a8ed5580fb38b2831"
+          }
+        }
+      },
+      "雷断流を受ける": {
+        "tick": 1117,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8356,
+            "rgbAbsoluteError": 818202,
+            "unpackedCommands": 2781,
+            "packedCommands": 861,
+            "unpackedBytes": 341248,
+            "packedBytes": 146713,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "4bf121948acfa7da2ab443d42674c41f9ac73a4e7bab9191135f247d0be011dd"
+          },
+          "h32c16": {
+            "differentPixels": 8412,
+            "rgbAbsoluteError": 964594,
+            "unpackedCommands": 1256,
+            "packedCommands": 397,
+            "unpackedBytes": 149560,
+            "packedBytes": 65120,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "646bb3f3021c44d793fb91f9639589914e9dc151be1d2947dd5bc3b48a1b2707"
+          }
+        }
+      },
+      "追雷の予告": {
+        "tick": 2239,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7388,
+            "rgbAbsoluteError": 715871,
+            "unpackedCommands": 2785,
+            "packedCommands": 859,
+            "unpackedBytes": 341063,
+            "packedBytes": 146327,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "d68fa1bb27cd4f9c9feef6ace51346a74d3dd81d7e6a54683cdff9d163c5b5ef"
+          },
+          "h32c16": {
+            "differentPixels": 7436,
+            "rgbAbsoluteError": 839283,
+            "unpackedCommands": 1251,
+            "packedCommands": 395,
+            "unpackedBytes": 149028,
+            "packedBytes": 64328,
+            "combatCanvasMs": 1.2000000178813934,
+            "canvasSha256": "50fc50a4a21d40459dfd690262170a8b8c011ac5345e37435d293b396b609e77"
+          }
+        },
+        "childeText": "追尾中。左の金灯で追雷を止める ｜ 固定まで1.4秒"
+      },
+      "金灯で断流を解除": {
+        "tick": 2266,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6485,
+            "rgbAbsoluteError": 589329,
+            "unpackedCommands": 2939,
+            "packedCommands": 856,
+            "unpackedBytes": 361436,
+            "packedBytes": 149699,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "2bdaba2e85b115ac2fac0cfbb3293512c807e5d4d02ad9554057ebde87ea13a0"
+          },
+          "h32c16": {
+            "differentPixels": 6527,
+            "rgbAbsoluteError": 693207,
+            "unpackedCommands": 1333,
+            "packedCommands": 392,
+            "unpackedBytes": 148967,
+            "packedBytes": 66014,
+            "combatCanvasMs": 1.2999999821186066,
+            "canvasSha256": "2a98ecc62b04d6151e931729b2d09940aacaa1ad7534dcdeddb867091068cbd5"
+          }
+        },
+        "childeText": "固定前に断流を解除。追雷中止"
+      },
+      "追雷後の反撃開始": {
+        "tick": 2323,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7079,
+            "rgbAbsoluteError": 629513,
+            "unpackedCommands": 3178,
+            "packedCommands": 856,
+            "unpackedBytes": 390263,
+            "packedBytes": 155293,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "165288919faa1fe92522cf3baafc5cfa53e34eab6445b71ac5f271fb6d43e738"
+          },
+          "h32c16": {
+            "differentPixels": 7114,
+            "rgbAbsoluteError": 749385,
+            "unpackedCommands": 1394,
+            "packedCommands": 392,
+            "unpackedBytes": 166743,
+            "packedBytes": 68134,
+            "combatCanvasMs": 1.100000023841858,
+            "canvasSha256": "3dd5dc82ec2762df3542e42fd0b341a59624a67b74973c26534820f9fd062dd5"
+          }
+        },
+        "childeText": "固定前に断流を解除。追雷中止 ｜ 反撃の隙 1.0秒"
+      },
+      "第3形態への変身": {
+        "tick": 3400,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6586,
+            "rgbAbsoluteError": 566060,
+            "unpackedCommands": 2276,
+            "packedCommands": 32,
+            "unpackedBytes": 280638,
+            "packedBytes": 51215,
+            "combatCanvasMs": 2,
+            "canvasSha256": "4d92810ef19eadb576fdacf4d6c6095ddc05bfecae3f880da35addadabf62c90"
+          },
+          "h32c16": {
+            "differentPixels": 6658,
+            "rgbAbsoluteError": 688415,
+            "unpackedCommands": 1006,
+            "packedCommands": 32,
+            "unpackedBytes": 120525,
+            "packedBytes": 23361,
+            "combatCanvasMs": 0.9000000059604645,
+            "canvasSha256": "1f46dc194ce722538a78f020a8072da6b2430f9d117180816cd150c732336b13"
+          }
+        }
+      }
+    }
+  },
+  "childe-late-evade": {
+    "image": "childe-late-evade.png",
+    "frames": {
+      "第2形態への変身": {
+        "tick": 897,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8616,
+            "rgbAbsoluteError": 838436,
+            "unpackedCommands": 2779,
+            "packedCommands": 859,
+            "unpackedBytes": 339341,
+            "packedBytes": 146678,
+            "combatCanvasMs": 2.7000000178813934,
+            "canvasSha256": "abd29ce2c81e026ba26e8256fe2acbd2282fa43b53bdfef96fea4b1d2db2ba5a"
+          },
+          "h32c16": {
+            "differentPixels": 8677,
+            "rgbAbsoluteError": 993436,
+            "unpackedCommands": 1254,
+            "packedCommands": 395,
+            "unpackedBytes": 147956,
+            "packedBytes": 65085,
+            "combatCanvasMs": 1.2999999821186066,
+            "canvasSha256": "44697df54b716034340d0fb5e8e2b7e49b6bbda51e8cf2b24aeaf4f15c531abe"
+          }
+        }
+      },
+      "雷断流を受ける": {
+        "tick": 1125,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8351,
+            "rgbAbsoluteError": 819716,
+            "unpackedCommands": 2781,
+            "packedCommands": 861,
+            "unpackedBytes": 337134,
+            "packedBytes": 146594,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "b1e1800f6e21adbc65c36005da1f0a68cb8883888c318fab7b6527c31b28b31d"
+          },
+          "h32c16": {
+            "differentPixels": 8424,
+            "rgbAbsoluteError": 966414,
+            "unpackedCommands": 1256,
+            "packedCommands": 397,
+            "unpackedBytes": 148421,
+            "packedBytes": 64571,
+            "combatCanvasMs": 1.100000023841858,
+            "canvasSha256": "f5c77b34e5c95cb212f1e1c6e2b7c8cfc356792b7eeaed5325c3665c1ea69732"
+          }
+        }
+      },
+      "追雷の予告": {
+        "tick": 2247,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7384,
+            "rgbAbsoluteError": 712923,
+            "unpackedCommands": 2785,
+            "packedCommands": 859,
+            "unpackedBytes": 342613,
+            "packedBytes": 146359,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "c4fd28f33721a81a68ad59f874cb44b396473330bc5d64c6f512c0d597138c53"
+          },
+          "h32c16": {
+            "differentPixels": 7422,
+            "rgbAbsoluteError": 836590,
+            "unpackedCommands": 1251,
+            "packedCommands": 395,
+            "unpackedBytes": 149354,
+            "packedBytes": 64992,
+            "combatCanvasMs": 1.199999988079071,
+            "canvasSha256": "8e1bcbba37a898ddbc4a635a83dc93eb9087ac3f6873ace88b633d1eb1ffa2be"
+          }
+        },
+        "childeText": "追尾中。左の金灯で追雷を止める ｜ 固定まで1.4秒"
+      },
+      "追雷の落下地点が固定": {
+        "tick": 2331,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7367,
+            "rgbAbsoluteError": 711130,
+            "unpackedCommands": 2785,
+            "packedCommands": 859,
+            "unpackedBytes": 339286,
+            "packedBytes": 146562,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "6259a6fb4ea3f6c32c831e178c6570a7c34d3d11f1e77133bfec35199b5e8fb6"
+          },
+          "h32c16": {
+            "differentPixels": 7416,
+            "rgbAbsoluteError": 833643,
+            "unpackedCommands": 1251,
+            "packedCommands": 395,
+            "unpackedBytes": 149470,
+            "packedBytes": 64980,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "8693ab693dc86c38d129887e9fa0c66ee4ad93f591572fd18673a5714de8fd4f"
+          }
+        },
+        "childeText": "追雷の落下地点が固定。予告位置から離れる"
+      },
+      "金灯で断流を解除": {
+        "tick": 2358,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6798,
+            "rgbAbsoluteError": 587422,
+            "unpackedCommands": 2941,
+            "packedCommands": 858,
+            "unpackedBytes": 357984,
+            "packedBytes": 147631,
+            "combatCanvasMs": 2.600000023841858,
+            "canvasSha256": "ebd2b30ff7b3f3f9638e227429952d53e5baba80532c6313e90068bca65da711"
+          },
+          "h32c16": {
+            "differentPixels": 6851,
+            "rgbAbsoluteError": 730903,
+            "unpackedCommands": 1335,
+            "packedCommands": 394,
+            "unpackedBytes": 150001,
+            "packedBytes": 65712,
+            "combatCanvasMs": 1.2000000178813934,
+            "canvasSha256": "37e49fd97dd4c01cdc4fa8eab87a500f291a1b5d6a36303a2153f004e12e5938"
+          }
+        },
+        "childeText": "断流解除済み。落撃地点は固定。予告位置から離れる"
+      },
+      "固定位置への落撃": {
+        "tick": 2391,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5899,
+            "rgbAbsoluteError": 567496,
+            "unpackedCommands": 2784,
+            "packedCommands": 858,
+            "unpackedBytes": 343178,
+            "packedBytes": 146509,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "0dc5ec983166dc95e9cdc1dba0a9512af78ca046313eba68f90a02a07e80c0a0"
+          },
+          "h32c16": {
+            "differentPixels": 5864,
+            "rgbAbsoluteError": 678071,
+            "unpackedCommands": 1250,
+            "packedCommands": 394,
+            "unpackedBytes": 150125,
+            "packedBytes": 64901,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "1ce9c2bfc41837498fc1fd1e131f388bbc5fdc4aaadbfb253b0a03ee2768040d"
+          }
+        },
+        "childeText": "固定地点に落撃"
+      },
+      "追雷後の反撃開始": {
+        "tick": 2421,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5891,
+            "rgbAbsoluteError": 566666,
+            "unpackedCommands": 2782,
+            "packedCommands": 856,
+            "unpackedBytes": 344271,
+            "packedBytes": 146824,
+            "combatCanvasMs": 2.2999999821186066,
+            "canvasSha256": "8fa0ec3b279faf19dd8914659e2c1a1ce7accd3ce8b9f3444341d89253ea3da3"
+          },
+          "h32c16": {
+            "differentPixels": 5874,
+            "rgbAbsoluteError": 677265,
+            "unpackedCommands": 1248,
+            "packedCommands": 392,
+            "unpackedBytes": 150606,
+            "packedBytes": 64859,
+            "combatCanvasMs": 1,
+            "canvasSha256": "98bd298a9f59e85b9e2f82e3fceaa89ae98fe953cc38c783ca3821506b83d800"
+          }
+        },
+        "childeText": "落撃の被ダメージなし ｜ 反撃の隙 2.0秒"
+      },
+      "第3形態への変身": {
+        "tick": 3551,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6583,
+            "rgbAbsoluteError": 560982,
+            "unpackedCommands": 2275,
+            "packedCommands": 31,
+            "unpackedBytes": 280723,
+            "packedBytes": 51150,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "74ccaba0d5abb18ea31e3aad199c5375c8927603e77f6f23d66cb8f0c0fa1533"
+          },
+          "h32c16": {
+            "differentPixels": 6650,
+            "rgbAbsoluteError": 681878,
+            "unpackedCommands": 1005,
+            "packedCommands": 31,
+            "unpackedBytes": 120856,
+            "packedBytes": 23296,
+            "combatCanvasMs": 1,
+            "canvasSha256": "a0b5d0bb37cf0ecf921990323be7e1470d04aba627c0b3f40f2cbdf6e65beb3a"
+          }
+        }
+      }
+    }
+  },
+  "childe-late-hit": {
+    "image": "childe-late-hit.png",
+    "frames": {
+      "第2形態への変身": {
+        "tick": 889,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8615,
+            "rgbAbsoluteError": 836302,
+            "unpackedCommands": 2778,
+            "packedCommands": 858,
+            "unpackedBytes": 339680,
+            "packedBytes": 146615,
+            "combatCanvasMs": 2.699999988079071,
+            "canvasSha256": "5b3490ce871fb47f1af9312c7a3a8af5532317dfd81282b6aa689dd3e24bac05"
+          },
+          "h32c16": {
+            "differentPixels": 8683,
+            "rgbAbsoluteError": 989687,
+            "unpackedCommands": 1253,
+            "packedCommands": 394,
+            "unpackedBytes": 150807,
+            "packedBytes": 65022,
+            "combatCanvasMs": 1.2999999821186066,
+            "canvasSha256": "e1acb2a441aa6d5b40a14158ea2c7932bda0180d043c0be40f092dbc36d4cd45"
+          }
+        }
+      },
+      "雷断流を受ける": {
+        "tick": 1117,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8362,
+            "rgbAbsoluteError": 815818,
+            "unpackedCommands": 2781,
+            "packedCommands": 861,
+            "unpackedBytes": 341020,
+            "packedBytes": 146626,
+            "combatCanvasMs": 2.5,
+            "canvasSha256": "786429777429548c632df36e5e3bdf4d8156d42c3e319d880c618c7e031a8dc7"
+          },
+          "h32c16": {
+            "differentPixels": 8402,
+            "rgbAbsoluteError": 963945,
+            "unpackedCommands": 1256,
+            "packedCommands": 397,
+            "unpackedBytes": 149841,
+            "packedBytes": 65235,
+            "combatCanvasMs": 1.199999988079071,
+            "canvasSha256": "be931112e615f9bce16526c164cb72b7739596b3567fb0a8cc9bf826f9121aeb"
+          }
+        }
+      },
+      "追雷の予告": {
+        "tick": 2239,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7389,
+            "rgbAbsoluteError": 710886,
+            "unpackedCommands": 2785,
+            "packedCommands": 859,
+            "unpackedBytes": 342319,
+            "packedBytes": 146902,
+            "combatCanvasMs": 2.699999988079071,
+            "canvasSha256": "f5dd843b4ce548c67ab8da3ebea8a96ae68f79675a122aa0c3128fde78fdffa0"
+          },
+          "h32c16": {
+            "differentPixels": 7427,
+            "rgbAbsoluteError": 836368,
+            "unpackedCommands": 1251,
+            "packedCommands": 395,
+            "unpackedBytes": 150585,
+            "packedBytes": 65021,
+            "combatCanvasMs": 1.2000000178813934,
+            "canvasSha256": "11f96564c9aec912b42a0d46ed546a94d3fbf14d181ce9afb5f422cf6af0f1ba"
+          }
+        },
+        "childeText": "追尾中。左の金灯で追雷を止める ｜ 固定まで1.4秒"
+      },
+      "追雷の落下地点が固定": {
+        "tick": 2323,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7375,
+            "rgbAbsoluteError": 715466,
+            "unpackedCommands": 2785,
+            "packedCommands": 859,
+            "unpackedBytes": 338419,
+            "packedBytes": 144880,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "f8e28f3050ce071c5bb316742610860feb49629767b24889cdcb55a77f3bbd6f"
+          },
+          "h32c16": {
+            "differentPixels": 7409,
+            "rgbAbsoluteError": 831532,
+            "unpackedCommands": 1251,
+            "packedCommands": 395,
+            "unpackedBytes": 142866,
+            "packedBytes": 62298,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "db14528a65bcc1a27d00cabc987055f856997975569572775865c0ce15e15c82"
+          }
+        },
+        "childeText": "追雷の落下地点が固定。予告位置から離れる"
+      },
+      "金灯で断流を解除": {
+        "tick": 2350,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6795,
+            "rgbAbsoluteError": 584336,
+            "unpackedCommands": 2941,
+            "packedCommands": 858,
+            "unpackedBytes": 358827,
+            "packedBytes": 148375,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "2b32d3154f6a893b5e1dbcb7b0674f3a65f1f43193bf731921a47815a579707f"
+          },
+          "h32c16": {
+            "differentPixels": 6848,
+            "rgbAbsoluteError": 730975,
+            "unpackedCommands": 1335,
+            "packedCommands": 394,
+            "unpackedBytes": 145745,
+            "packedBytes": 64220,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "b41cf5cabb97f9cefa2744740fe1b4306ad1e6cde65d14a9c9a04fb014db9a18"
+          }
+        },
+        "childeText": "断流解除済み。落撃地点は固定。予告位置から離れる"
+      },
+      "固定位置への落撃": {
+        "tick": 2383,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6849,
+            "rgbAbsoluteError": 671494,
+            "unpackedCommands": 2779,
+            "packedCommands": 859,
+            "unpackedBytes": 337804,
+            "packedBytes": 146465,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "cfd8275bb6395327ee9546338b722414a9c6357710893eebd8a731d310f96685"
+          },
+          "h32c16": {
+            "differentPixels": 6904,
+            "rgbAbsoluteError": 795573,
+            "unpackedCommands": 1254,
+            "packedCommands": 395,
+            "unpackedBytes": 148676,
+            "packedBytes": 64563,
+            "combatCanvasMs": 1.0999999940395355,
+            "canvasSha256": "2aebaa38e011e9bffb85de7f86d2ea0e141540f192c4c5a0428d74345cc14caa"
+          }
+        },
+        "childeText": "落撃が命中・26ダメージ"
+      },
+      "追雷後の反撃開始": {
+        "tick": 2413,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7001,
+            "rgbAbsoluteError": 693117,
+            "unpackedCommands": 2777,
+            "packedCommands": 857,
+            "unpackedBytes": 341700,
+            "packedBytes": 146331,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "76fbf54e45da7a1cd1ff03dbae8ff0457df8a8a68644543c154f4ec88ec2d56f"
+          },
+          "h32c16": {
+            "differentPixels": 7054,
+            "rgbAbsoluteError": 811759,
+            "unpackedCommands": 1252,
+            "packedCommands": 393,
+            "unpackedBytes": 149555,
+            "packedBytes": 64429,
+            "combatCanvasMs": 1.199999988079071,
+            "canvasSha256": "7abfeb4aaba7ed558bd1fd75d3c763df4126d4620749613edea361b2142819dc"
+          }
+        },
+        "childeText": "落撃が命中・26ダメージ ｜ 反撃の隙 2.0秒"
+      },
+      "第3形態への変身": {
+        "tick": 3550,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6587,
+            "rgbAbsoluteError": 565488,
+            "unpackedCommands": 2276,
+            "packedCommands": 32,
+            "unpackedBytes": 280788,
+            "packedBytes": 51215,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "815796171dd8b632c4ae662fe622c44a05e1b23e00a1fe0e4a4f5f49ccf294c2"
+          },
+          "h32c16": {
+            "differentPixels": 6656,
+            "rgbAbsoluteError": 687741,
+            "unpackedCommands": 1006,
+            "packedCommands": 32,
+            "unpackedBytes": 120921,
+            "packedBytes": 23361,
+            "combatCanvasMs": 1,
+            "canvasSha256": "885f2e493f47436c53bee1c5e114653c2678f529aca4701c496cef8b158965ec"
+          }
+        }
+      }
+    }
+  }
+}

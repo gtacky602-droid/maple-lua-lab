@@ -380,6 +380,7 @@ return function(C)
    bed.phaseHp[i]={max=hp,hp=clamp(e.hp-threshold(spec,i),0,hp)}
   end
   bed.mark=w.marks[s]
+  if bed.mark then bed.cleanseSide=s.actors[s.active].x<=480 and 'left' or 'right' end
   bed.move=w.shift and 'WC14' or c and c.id or nil
   bed.moveTick=w.shift and w.shift.tick or c and c.tick or nil
   bed.label=w.shift and (w.shift.timing.title..'・変身中') or c and
@@ -395,6 +396,7 @@ return function(C)
     phase=c.cancelled and 'cancelled' or tracking and 'tracking' or c.tick>=active and 'landed' or 'locked',
     x=not c.cancelled and (previewX or c.land) or nil,
     targeted=c.target==s,cleansed=c.cleansed,
+    lockIn=c.target==s and tracking and not c.cancelled and c.move.locks[1]-c.tick or nil,
     damage=damage or not c.cancelled and c.tick>=close and 0 or nil,
     recovery=c.tick>=c.recovery and c.total-c.tick or nil
    }
@@ -406,9 +408,11 @@ return function(C)
    f.draws[#f.draws+1]={kind='text',x=x-s.camera,y=y,text=value,color=color,size=14}
   end
   local edgeColor=(w.cleanseUntil[s] or 0)>s.t and '#fff5cd' or '#caaf69'
-  for _,x in ipairs({spec.edge,960-spec.edge}) do
-   rect(x-6,410,12,69,'#55463b');rect(x-2,409,4,69,edgeColor)
-   text(x,400,'解除',edgeColor)
+  for i,x in ipairs({spec.edge,960-spec.edge}) do
+   local nearest=bed.cleanseSide==(i==1 and 'left' or 'right')
+   local lampColor=nearest and '#fff5cd' or edgeColor
+   rect(x-6,410,12,69,'#55463b');rect(x-2,409,4,69,lampColor)
+   text(x,400,nearest and '金灯へ' or '解除',lampColor)
   end
   if e.hp<=0 then return end
   local ink=(w.form>1 and '#b595f2' or '#71bffe')

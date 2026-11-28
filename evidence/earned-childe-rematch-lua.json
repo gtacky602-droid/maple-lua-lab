@@ -1,0 +1,231 @@
+[
+  {
+    "controller": "childe",
+    "case": "childe-early",
+    "label": "地点固定前に断流解除",
+    "ticks": 5126,
+    "sourceSha256": "229a206824e4ae804bba74c94bed8fa2d89d3d4d5a7476b050b29f93c68dedb8",
+    "bossHP": 960,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "forms": [
+      1,
+      2,
+      3
+    ],
+    "transformations": [
+      {
+        "form": 2,
+        "hp": 720
+      },
+      {
+        "form": 3,
+        "hp": 420
+      }
+    ],
+    "mark": {
+      "tick": 1117,
+      "move": "WC07",
+      "actor": 1
+    },
+    "lock": null,
+    "cleanse": {
+      "tick": 2266,
+      "moveTick": 27,
+      "x": 41.0
+    },
+    "impact": null,
+    "recoveryTicks": 60,
+    "recoveryDamage": 10,
+    "partyHp": [
+      90380,
+      0
+    ],
+    "returns": 0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "savedSha256": "865668607955c9fe2039bec34ffd7e24ac9d3b591c179832cc7a686878329da0",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "childe",
+    "case": "childe-late-evade",
+    "label": "固定後に解除して落撃を回避",
+    "ticks": 5277,
+    "sourceSha256": "865668607955c9fe2039bec34ffd7e24ac9d3b591c179832cc7a686878329da0",
+    "bossHP": 960,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "forms": [
+      1,
+      2,
+      3
+    ],
+    "transformations": [
+      {
+        "form": 2,
+        "hp": 720
+      },
+      {
+        "form": 3,
+        "hp": 420
+      }
+    ],
+    "mark": {
+      "tick": 1125,
+      "move": "WC07",
+      "actor": 1
+    },
+    "lock": {
+      "tick": 2331,
+      "moveTick": 84,
+      "x": 135.5
+    },
+    "cleanse": {
+      "tick": 2358,
+      "moveTick": 111,
+      "x": 41.0
+    },
+    "impact": {
+      "tick": 2391,
+      "moveTick": 144,
+      "x": 135.5,
+      "heroX": 34.0,
+      "damage": 0,
+      "reapplied": false
+    },
+    "recoveryTicks": 120,
+    "recoveryDamage": 10,
+    "partyHp": [
+      90380,
+      0
+    ],
+    "returns": 0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "savedSha256": "2e2eeaf0b1dd7c265f775c367ce0b6b10f056175a2a8187c35ad6432b2483baa",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "childe",
+    "case": "childe-late-hit",
+    "label": "固定後に解除して落撃が命中",
+    "ticks": 5268,
+    "sourceSha256": "2e2eeaf0b1dd7c265f775c367ce0b6b10f056175a2a8187c35ad6432b2483baa",
+    "bossHP": 960,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "forms": [
+      1,
+      2,
+      3
+    ],
+    "transformations": [
+      {
+        "form": 2,
+        "hp": 720
+      },
+      {
+        "form": 3,
+        "hp": 420
+      }
+    ],
+    "mark": {
+      "tick": 1117,
+      "move": "WC07",
+      "actor": 1
+    },
+    "lock": {
+      "tick": 2323,
+      "moveTick": 84,
+      "x": 135.5
+    },
+    "cleanse": {
+      "tick": 2350,
+      "moveTick": 111,
+      "x": 41.0
+    },
+    "impact": {
+      "tick": 2383,
+      "moveTick": 144,
+      "x": 135.5,
+      "heroX": 107.5,
+      "damage": 26,
+      "reapplied": true
+    },
+    "recoveryTicks": 120,
+    "recoveryDamage": 10,
+    "partyHp": [
+      90354,
+      0
+    ],
+    "returns": 0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      3,
+      4
+    ],
+    "savedSha256": "6323d055414c76497a72fa8c39473a0f2bf69751c8cb3c1e3d91b4fb3ef448aa",
+    "equipmentRestored": true
+  }
+]

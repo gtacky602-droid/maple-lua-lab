@@ -1,0 +1,61 @@
+{
+  "entry": true,
+  "threeForms": true,
+  "actualBattleAndReport": true,
+  "endedHp": 90630,
+  "storedBestAndRespawn": true,
+  "viewport390": true,
+  "sameStateCommands": {
+    "png": 27,
+    "standard": 7634,
+    "light": 2038
+  },
+  "riptide": {
+    "route": "early",
+    "trail": {
+      "mark": true,
+      "lock": null,
+      "cleanse": "before",
+      "resumeAttack": false
+    },
+    "drop": {
+      "targeted": true,
+      "phase": "cancelled",
+      "cleansed": "before",
+      "recovery": 57
+    },
+    "hud": "固定前に断流を解除。追雷中止 ｜ 反撃の隙 0.9秒"
+  },
+  "transfer": {
+    "profile": "h32c16",
+    "pixelMatch": true,
+    "packedBytes": 38944,
+    "rawBytes": 47648,
+    "packedRecords": 392,
+    "rawRecords": 2038
+  },
+  "backdrop": {
+    "key": "liyueGoldenVault",
+    "file": "li-golden-vault-background-v1.png",
+    "state": "ready"
+  },
+  "sourceSha256": "22247a825fba0ba7b094261e6245eee11c0e25f6dc61fdede5d5b9233f1f76e9",
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "questReward": {
+    "xp": 18000,
+    "mora": 1800
+  },
+  "lampGuide": {
+    "side": "left",
+    "lockIn": 84,
+    "hud": "追尾中。左の金灯で追雷を止める ｜ 固定まで1.4秒"
+  },
+  "expertWins": 1,
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": []
+}
