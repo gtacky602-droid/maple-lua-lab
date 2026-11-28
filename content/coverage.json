@@ -8441,6 +8441,16 @@
       "lua_evidence": "evidence/earned-enkanomiya-bathysmal.json",
       "browser_evidence": "evidence/earned-enkanomiya-bathysmal-browser.json"
     },
+    "earned_inazuma_sumeru_crossing": {
+      "start_level": 54,
+      "survey_unlock_levels": [47, 48, 57],
+      "survey_reports": 3,
+      "enkanomiya_floating_stone_directions": 16,
+      "sumeru_ferry_required_level": 60,
+      "sumeru_ferry_seconds_each_way": 4.8,
+      "lua_evidence": "evidence/earned-inazuma-sumeru.json",
+      "browser_evidence": "evidence/earned-inazuma-sumeru-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

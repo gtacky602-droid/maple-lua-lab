@@ -455,7 +455,7 @@ return function(C, atlas)
        local automatic=automatic_arrival(node,edge)
        local parallel=not automatic and parallel_gate_hint(edge,node)
        previous[edge.to]={first=first,from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
-        label=route_labels[mode],mode=mode,hint=route_hint(s,edge,node,nextNode,
+        label=edge.floatingStone and '浮石' or route_labels[mode],mode=mode,hint=route_hint(s,edge,node,nextNode,
          first and id==s.story.node and not s.lift and s.actors[s.active].y or nil),
         gateX=parallel and edge.x or nil,automaticArrival=automatic}
        queue[#queue+1]=edge.to
@@ -648,7 +648,7 @@ return function(C, atlas)
     if nodes[edge.to] then
      local pocketRole=positions[edge.to] and positions[edge.to].pocketRole
      routes[#routes+1]={stopWindow=C.storyStopWindow(s,selected.id,edge),wind=C.storyGateWind(s,selected.id,edge),sealState=C.gateFixtureState(s,selected.id,edge),routeFixture=edge.routeFixture,previewX=not automatic_arrival(nodes[selected.id],edge) and edge.x or nil,previewY=edge.y,pocketRole=pocketRole,entryHeight=pocketRole and (edge.y or 480),id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
-       level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
+       level=nodes[edge.to].level,label=edge.floatingStone and '浮石' or route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        visited=state.visited[edge.to] or false,
        huntKind=positions[edge.to] and positions[edge.to].huntKind,questField=nodes[edge.to].questField,restricted=edge.requires~=nil,
        reason=C.atlasGateRestriction(s,selected.id,edge),
