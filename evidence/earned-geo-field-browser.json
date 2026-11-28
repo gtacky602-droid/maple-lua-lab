@@ -1,0 +1,140 @@
+{
+  "inputSha256": "a3200f44cdfced2b3811661c7a98f1c7530ba27fb7da39092fb6098372359478",
+  "level": 200,
+  "journeys": [
+    [
+      "liyue-harbor",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "liyue-wp-52",
+      "walk"
+    ],
+    [
+      "liyue-wp-52",
+      "liyue-wp-53",
+      "walk"
+    ],
+    [
+      "liyue-wp-53",
+      "geo-approach",
+      "boat"
+    ],
+    [
+      "geo-approach",
+      "geo-field-court",
+      "walk"
+    ],
+    [
+      "geo-field-court",
+      "geo-approach",
+      "walk"
+    ],
+    [
+      "geo-approach",
+      "liyue-wp-53",
+      "boat"
+    ],
+    [
+      "liyue-wp-53",
+      "liyue-wp-52",
+      "walk"
+    ],
+    [
+      "liyue-wp-52",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "liyue-harbor",
+      "walk"
+    ]
+  ],
+  "trialAtk": 7,
+  "restoredAtk": 74956,
+  "skipped": {
+    "startTick": 133,
+    "startedGrounded": true,
+    "damage": 0,
+    "tick": 151,
+    "height": 133.25,
+    "label": "単柱の震動・柱の周りをジャンプで回避"
+  },
+  "strikes": [
+    {
+      "label": "近くで柱に攻撃 1/3（震動まで1.9秒）",
+      "tick": 39,
+      "hp": 973
+    },
+    {
+      "label": "近くで柱に攻撃 2/3（震動まで1.3秒）",
+      "tick": 77,
+      "hp": 959
+    },
+    {
+      "label": "柱破壊・核が静止（あと2.5秒）",
+      "tick": 113,
+      "hp": 945
+    }
+  ],
+  "hitAtExposure": {
+    "hpBefore": 945,
+    "hpAfter": 938,
+    "label": "柱破壊・核が静止（あと1.9秒）"
+  },
+  "captures": {
+    "pillar": {
+      "label": "近くで柱に攻撃 0/3（震動まで1.8秒）",
+      "tick": 45,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 8597,
+          "packedDraws": 20,
+          "legacyGzip": 142885,
+          "packedGzip": 61044,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3565,
+          "packedDraws": 20,
+          "legacyGzip": 75585,
+          "packedGzip": 38563,
+          "identicalPixels": true
+        }
+      }
+    },
+    "exposed": {
+      "label": "柱破壊・核が静止（あと2.5秒）",
+      "tick": 113,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 5001,
+          "packedDraws": 5,
+          "legacyGzip": 98994,
+          "packedGzip": 51037,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 2080,
+          "packedDraws": 5,
+          "legacyGzip": 55839,
+          "packedGzip": 34435,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 177,
+    "mora": 160
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 125,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}

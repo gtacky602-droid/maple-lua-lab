@@ -90,7 +90,7 @@ def run_lua():
     hp = slot.enemy.hp
     core.resolveCast(parties[1], attack(lua, element='geo'))
     assert cast.cracks == 2 and slot.enemy.hp == hp
-    assert all(core.frame(s).fieldBoss.label.endswith('2/3') for s in parties)
+    assert all(core.frame(s).fieldBoss.label.startswith('近くで柱に攻撃 2/3') for s in parties)
 
     wait_cast(step, slot, 'FG03', 148)
     third = attack(lua)
@@ -98,7 +98,7 @@ def run_lua():
     parties[2].pending[len(parties[2].pending)+1] = third
     step()
     assert cast.cracks == 3 and cast.exposure == 0
-    assert all(core.frame(s).fieldBoss.label == '柱破壊・核が静止' for s in parties)
+    assert all(core.frame(s).fieldBoss.label == '柱破壊・核が静止（あと2.5秒）' for s in parties)
     assert all(s.kills == s.mora == s.progression.killXp == 0 for s in parties)
     for _ in range(149):
         step()
@@ -175,11 +175,11 @@ def run_http(url):
         wait_cast(lambda: core.stepCoop(world,TICK),world.fieldSlot,'FG03',54)
         core.resolveCast(h['state'],attack(lua))
         core.resolveCast(g['state'],attack(lua))
-    assert all(client.frame()['fieldBoss']['label'].endswith('2/3') for client in (host,guest))
+    assert all(client.frame()['fieldBoss']['label'].startswith('近くで柱に攻撃 2/3') for client in (host,guest))
     with LOCK:
         core.resolveCast(g['state'],attack(lua))
     frames = [c.frame() for c in (host,guest)]
-    assert all(f['fieldBoss']['label']=='柱破壊・核が静止' and f['kills']==0 for f in frames)
+    assert all(f['fieldBoss']['label'].startswith('柱破壊・核が静止') and f['kills']==0 for f in frames)
     with LOCK:
         core.resolveCast(g['state'],attack(lua,1600))
     a, b = [c.frame(checkpoint=True) for c in (host,guest)]

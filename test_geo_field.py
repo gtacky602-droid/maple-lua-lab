@@ -138,6 +138,7 @@ core.resolveCast(s,hit(-72))
 assert pillar.cracks==0
 step(s)
 assert pillar.tick==36
+assert core.frame(s).fieldBoss.label=='近くで柱に攻撃 0/3（震動まで1.9秒）'
 hp=b.hp
 core.resolveCast(s,hit(-108))
 assert b.hp<hp and pillar.cracks==0
@@ -157,7 +158,7 @@ assert pillar.cracks==2 and b.hp==hp
 cash,expr,kill=s.mora,s.progression.killXp,s.kills
 at(s,slot,'FG03',149)
 core.resolveCast(s,hit(-74))
-assert pillar.cracks==3 and pillar.exposure==0 and core.frame(s).fieldBoss.label=='柱破壊・核が静止'
+assert pillar.cracks==3 and pillar.exposure==0 and core.frame(s).fieldBoss.label=='柱破壊・核が静止（あと2.5秒）'
 assert (s.mora,s.progression.killXp,s.kills)==(cash,expr,kill)
 hp=a.hp
 for _ in range(149):step(s)
