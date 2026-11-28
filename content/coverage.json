@@ -8556,6 +8556,19 @@
       "lua_evidence": "evidence/earned-fontaine-seahorse.json",
       "browser_evidence": ["evidence/earned-fontaine-furina-browser.json", "evidence/earned-fontaine-seahorse-interrupt-browser.json", "evidence/earned-fontaine-seahorse-land-browser.json"]
     },
+    "earned_fontaine_generator": {
+      "start_level": 85,
+      "chapter": "fontaine-grand-finale",
+      "first_performance_rehearsed": true,
+      "arena_gate_level": 86,
+      "entry_level": 90,
+      "reported_commissions_total": 17,
+      "field_boss": "boss-24080101",
+      "gravity_ticks": 144,
+      "numbered_pulses": 3,
+      "lua_evidence": "evidence/earned-fontaine-generator.json",
+      "browser_evidence": ["evidence/earned-fontaine-finale-browser.json", "evidence/earned-fontaine-generator-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

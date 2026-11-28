@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-fontaine-generator':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='field-generator-field';
@@ -65,7 +67,7 @@ async function jumpApex(){
 }
 
 async function fight(){
- await page.evaluate(()=>{
+ await page.evaluate(earned=>{
   const held=new Set(),moves=new Set(),dodges=new Set();
   const start=window.lab.frame.t;
   function hold(code,on){
@@ -97,20 +99,54 @@ async function fight(){
    hold('Space',!!jump);
    hold('KeyA',locked?move<0:dx<-99||(turn&&dx<0));
    hold('KeyD',locked?move>0:dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0&&(!locked||dx*direction>=0));
+   hold('KeyJ',(!earned||(moves.size===3&&dodges.size===3))&&Math.abs(dx)<125&&dx*a.dir>=0&&(!locked||dx*direction>=0));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
+ },earned);
+}
+
+async function gravityComparison(){
+ await page.waitForFunction(()=>{
+  const f=window.lab.frame,b=f.fieldBoss,a=f.actors[f.active-1];
+  if(b?.move!=='FFG03'||b.gravity?.factor!==.55||b.tick>=86||a.x<=b.gravity.left||a.x>=b.gravity.right)return false;
+  window.lab.action('pause');
+  return true;
  });
+ await page.waitForFunction(()=>window.lab.frame.paused);
+ const png=await frame(),menu=page.locator('#renderMode');
+ const marks=f=>f.draws.filter(d=>d.kind==='text'&&d.size===13&&['1','2','3'].includes(d.text));
+ assert.deepEqual(marks(png).map(d=>d.text),['1','2','3']);
+ assert.equal(png.fieldBoss.gravityTicks,216-png.fieldBoss.tick);
+ assert.match(await page.locator('#fieldBossLabel').textContent(),/低重力の残り/);
+ await canvas.screenshot({path:output+'/'+prefix+'-pulses.png'});
+ await menu.selectOption('rect');
+ await page.waitForFunction(n=>window.lab.frame.commands>n*3,png.commands);
+ const standard=await frame();
+ await menu.selectOption('h32c16');
+ await page.waitForFunction(n=>window.lab.frame.commands<n*.75,standard.commands);
+ const light=await frame();
+ for(const sample of [standard,light]){
+  assert.equal(sample.t,png.t);
+  assert.equal(sample.fieldBoss.gravityTicks,png.fieldBoss.gravityTicks);
+  assert.deepEqual(marks(sample),marks(png));
+ }
+ await canvas.screenshot({path:output+'/'+prefix+'-pulses-light.png'});
+ await menu.selectOption('sprite');
+ await page.waitForFunction(n=>window.lab.frame.commands===n,png.commands);
+ await pause(false);
+ return {png:png.commands,standard:standard.commands,light:light.commands,pulseOrder:['1','2','3'],
+         gravityTicks:png.fieldBoss.gravityTicks};
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(earned?output+'/generator-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='fontaine-hub',quest);
+ if(earned)assert.equal((await frame()).progression.level,90);
  await gate(1380,'fontaine-field');
  await gate(1165,arena);
  const scenery=await page.evaluate(async()=>{
@@ -130,7 +166,7 @@ try{
  assert.equal(original.fieldBoss.gravity,undefined);
  assert.ok(original.draws.some(d=>d.source==='field-generator-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='field-generator-field-poses-source-v1.png'));
  const standard=await frame();
@@ -138,12 +174,13 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  const normalJump=await jumpApex();
  assert.ok(normalJump>135&&normalJump<185,normalJump);
- await page.waitForFunction(()=>{
+ const pulses=earned?await gravityComparison():null;
+ if(!earned)await page.waitForFunction(()=>{
   const {fieldBoss:b,actors}=window.lab.frame;
   return b?.move==='FFG03'&&b.gravity?.factor===.55&&b.tick<86&&
    actors[0].x>b.gravity.left&&actors[0].x<b.gravity.right;
@@ -152,10 +189,10 @@ try{
  assert.ok(lowGravityJump>normalJump*1.7,lowGravityJump);
  const high=await frame();
  assert.ok(high.fieldBoss.gravity&&high.actors[0].y<255);
- await canvas.screenshot({path:'evidence/'+prefix+'-gravity.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-gravity.png'});
  await page.waitForFunction(()=>{
   const {fieldBoss:b}=window.lab.frame;
-  return b?.move==='FFG03'&&b.tick>=216&&!b.gravity;
+  return b?.move==='FFG03'&&b.tick>=216&&!b.gravity&&!b.gravityTicks;
  });
  await fight();
  await page.waitForFunction(()=>window.generatorFieldResult,undefined,{timeout:140000});
@@ -179,6 +216,17 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(earned){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(q=>window.lab.frame.story?.quests[q]?.status==='complete',quest);
+  const restored=await frame();
+  assert.equal(restored.story.quests[quest].cycles,1);
+  assert.equal(restored.endgame.bosses[id].clears,1);
+  assert.equal(restored.story.quests['fontaine-grand-finale'].status,'complete');
+  assert.equal(restored.story.quests['fon-furina-cues'].status,'complete');
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('実験用フィールド生成装置');
@@ -188,11 +236,12 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
+ await fs.writeFile(earned?'evidence/earned-fontaine-generator-browser.json':output+'/'+prefix+'-browser.json',JSON.stringify({
   browser:'Chrome',play,fieldKill:{xp:killXp,mora:305},commissionReport:{xp:5400,mora:380},
   persistedCooldown:true,
   sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},
-  jumpHeight:{normal:normalJump,inside:lowGravityJump},viewport390:true,errors
+  jumpHeight:{normal:normalJump,inside:lowGravityJump},viewport390:true,errors,
+  ...(earned?{pulses,entryLevel:90,restoredCommission:true}:{})
  },null,2)+'\n');
  console.log('Field Generator Chrome route, all moves, clear, report, save passed');
 }catch(error){

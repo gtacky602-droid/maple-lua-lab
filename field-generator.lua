@@ -3,6 +3,14 @@ return function(C)
  local U=88
  local amber,cream,blue='#ecb679','#fff1c4','#a9deeb'
 
+ local function gravityTicks(c)
+  if c and c.gravity then return c.move.gravity.finish-c.tick end
+ end
+
+ function generator.frame(f,b,s,c)
+  f.gravityTicks=gravityTicks(c)
+ end
+
  function generator.spawn(b,s)
   b.hitBottom=s.floorY-.36*U
   b.hitTop=b.hitBottom-71
@@ -78,6 +86,18 @@ return function(C)
    rect(f,side-4,z.top,10,3,blue)
   end
   rect(f,left,z.bottom-3,right-left,3,blue)
+  local center=(left+right)/2
+  for i,w in ipairs(c.move.active) do
+   local x=center+(i-2)*25
+   local pending=c.tick<w[1]
+   local active=not pending and c.tick<w[2]
+   rect(f,x-11,z.top+8,22,20,active and '#7a402b' or '#253343')
+   f.draws[#f.draws+1]={kind='text',x=x,y=z.top+23,text=tostring(i),size=13,
+                        color=active and cream or pending and blue or '#8a9aaa'}
+  end
+  local remaining=gravityTicks(c)
+  local g=c.move.gravity
+  if remaining then C.drawFieldTimer(f,center,z.top+35,remaining,g.finish-g.start,blue) end
  end
 
  function generator.draw(f,state,b,s,c,mode,profile)

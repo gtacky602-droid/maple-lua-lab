@@ -1,0 +1,48 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 20.28,
+    "moves": [
+      "FFG03",
+      "FFG01",
+      "FFG02"
+    ],
+    "dodgeWindows": 3,
+    "finished": true,
+    "hp": 312,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 129550,
+    "mora": 305
+  },
+  "commissionReport": {
+    "xp": 5400,
+    "mora": 380
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 25,
+    "standard": 9478,
+    "light": 2491
+  },
+  "jumpHeight": {
+    "normal": 157.08,
+    "inside": 290.06
+  },
+  "viewport390": true,
+  "errors": [],
+  "pulses": {
+    "png": 95,
+    "standard": 9255,
+    "light": 2491,
+    "pulseOrder": [
+      "1",
+      "2",
+      "3"
+    ],
+    "gravityTicks": 142
+  },
+  "entryLevel": 90,
+  "restoredCommission": true
+}

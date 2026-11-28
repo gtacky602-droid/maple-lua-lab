@@ -1,0 +1,48 @@
+{
+  "evacuation": true,
+  "deckAfterReload": true,
+  "twoGuardLevels": true,
+  "scene": {
+    "key": "fontaineGrandStage",
+    "file": "fontaine-grand-stage-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 40,
+    "standard": 16058,
+    "light": 4118
+  },
+  "battle": {
+    "moves": [
+      "GF02",
+      "GF01"
+    ],
+    "recovered": [
+      "GF02",
+      "GF01"
+    ],
+    "alive": true,
+    "returns": 0
+  },
+  "bossClearSaved": true,
+  "firstClearExp": 3020570,
+  "shutdownConfetti": true,
+  "earlyCueRejected": true,
+  "performance": true,
+  "performanceAfterReload": true,
+  "noBossAfterShow": true,
+  "reward": [
+    3550820,
+    6100,
+    5
+  ],
+  "errors": [],
+  "source": "work/earned-fontaine-seahorse/seahorse-complete.json",
+  "startLevel": 85,
+  "restoredLevel": 90,
+  "rehearsal": [
+    "lights",
+    "wave",
+    "bow"
+  ]
+}

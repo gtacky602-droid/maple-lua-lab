@@ -5,7 +5,8 @@ import {observeRuinAttacks} from './tools/browser_ruin_guardian_test.mjs';
 
 const hub='fontaine-hub',watch='fontaine-stage-watch',wing='fontaine-scenery-booth';
 const runway='fontaine-grand-stage-approach',arena='fontaine-grand-stage',quest='fontaine-grand-finale';
-const prefix='evidence/fontaine-finale';
+const earned=process.argv.includes('--earned');
+const prefix=earned?'work/earned-fontaine-generator/fontaine-finale':'evidence/fontaine-finale';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game');
@@ -122,11 +123,17 @@ async function auto(on){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8875/');
   await wait(()=>window.lab?.frame);
-  const raw=await fs.readFile('work/fontaine-finale-fixture.json','utf8');
-  const luaProof=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+  const source=earned?'work/earned-fontaine-seahorse/seahorse-complete.json':'work/fontaine-finale-fixture.json';
+  const raw=await fs.readFile(source,'utf8');
+  const luaProof=JSON.parse(await fs.readFile('evidence/fontaine-finale-lua.json','utf8'));
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),raw);
   await page.locator('#loadProgress').click();
   await nodeIs(hub);
+  if(earned){
+    const before=await frame();
+    assert.equal(before.progression.level,85);
+    assert.equal(before.story.quests['fon-furina-cues'].status,'complete');
+  }
   await questButton('受注','active');
   await gate(1171,watch);
   await walk(424);
@@ -180,6 +187,14 @@ try{
   await key('KeyG');
   await count(6);
   await cue('performed');
+  const rehearsal=[];
+  if(earned){
+    for(const phase of ['lights','wave','bow']){
+      await wait(phase=>window.lab.frame.storyFurinaFinale?.phase===phase,phase);
+      rehearsal.push(phase);
+    }
+    await screenshot('first-applause');
+  }
   await gate(1602,hub);
   const before=await frame();
   await questButton('報告','complete');
@@ -188,6 +203,7 @@ try{
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
   assert.deepEqual(reward,luaProof.reward);
   await saveReload(hub);
+  if(earned)assert.equal((await frame()).progression.level,90);
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'))
     .endgame.bosses['original-grand-finale'].clears),1);
   await gate(1320,arena);
@@ -200,8 +216,10 @@ try{
   assert.deepEqual(errors,[]);
   const proof={evacuation:true,deckAfterReload:true,twoGuardLevels:true,scene:stageScene,commands,battle,bossClearSaved:true,
     firstClearExp:luaProof.firstClearExp,shutdownConfetti:true,earlyCueRejected:true,performance:true,
-    performanceAfterReload:true,noBossAfterShow:true,reward,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+    performanceAfterReload:true,noBossAfterShow:true,reward,errors,
+    ...(earned?{source,startLevel:85,restoredLevel:90,rehearsal}:{})};
+  const report=earned?'evidence/earned-fontaine-finale-browser.json':prefix+'-browser.json';
+  await fs.writeFile(report,JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(()=>{
