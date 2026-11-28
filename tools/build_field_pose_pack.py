@@ -3,11 +3,11 @@ import json
 import sys
 from pathlib import Path
 from pack_pose_files import pack_pose_files
-from legend_light_blend import FILES, refine_legend_profiles
 
 root = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(root))
 from field_pose_files import enemy_pose_files, legend_pose_files
+from tools.legend_pose_profiles import FILES, refine_pose
 
 def read(name):
     return json.loads((root/'content'/name).read_bytes())
@@ -16,7 +16,7 @@ ordinary = enemy_pose_files(read('enemy-art-layout.json'))
 legends = legend_pose_files(read('field-boss-spawns.json')['fieldBosses'])
 files = set(ordinary.values()).union(*(poses.values() for poses in legends.values()))
 assets = root/'assets'
-overrides = {name: refine_legend_profiles(name, json.loads((assets/name).read_bytes()))
+overrides = {name: refine_pose(name, json.loads((assets/name).read_bytes()), assets)
              for name in files & FILES}
 before, after = pack_pose_files(assets, assets/'field-packed', sorted(files), overrides,
                                 archive=assets/'field-poses.zip')

@@ -1,0 +1,486 @@
+{
+  "baseline": "341f59ee104c3c1481851bffcdbff22c4b3a4886",
+  "statesWithIdenticalPoseAndCombatState": 15,
+  "stages": {
+    "night-trial-ichcahuipilli": {
+      "name": "イチカウイピリの庇護",
+      "level": 118,
+      "poses": {
+        "idle": {
+          "tick": 0,
+          "rectangles": {
+            "before": 531,
+            "after": 518
+          },
+          "fullActorLayerRectangles": {
+            "before": 531,
+            "after": 518
+          },
+          "sourceBoundingBox": [
+            117,
+            154,
+            55,
+            122
+          ],
+          "renderedHeight": 122,
+          "before": {
+            "union": 2853,
+            "overlap": 2533,
+            "overlapPercent": 88.78373641780581,
+            "meanRgbError": 28.605211212001578
+          },
+          "after": {
+            "union": 2758,
+            "overlap": 2662,
+            "overlapPercent": 96.51921682378536,
+            "meanRgbError": 29.504758327072377
+          }
+        },
+        "brace": {
+          "tick": 30,
+          "rectangles": {
+            "before": 466,
+            "after": 466
+          },
+          "fullActorLayerRectangles": {
+            "before": 482,
+            "after": 482
+          },
+          "sourceBoundingBox": [
+            408,
+            155,
+            48,
+            121
+          ],
+          "renderedHeight": 121,
+          "before": {
+            "union": 2466,
+            "overlap": 2221,
+            "overlapPercent": 90.06488240064883,
+            "meanRgbError": 35.4936214918205
+          },
+          "after": {
+            "union": 2355,
+            "overlap": 2321,
+            "overlapPercent": 98.55626326963906,
+            "meanRgbError": 35.893580353295995
+          }
+        },
+        "strike": {
+          "tick": 100,
+          "rectangles": {
+            "before": 614,
+            "after": 609
+          },
+          "fullActorLayerRectangles": {
+            "before": 632,
+            "after": 627
+          },
+          "sourceBoundingBox": [
+            685,
+            156,
+            71,
+            120
+          ],
+          "renderedHeight": 120,
+          "before": {
+            "union": 3255,
+            "overlap": 2933,
+            "overlapPercent": 90.10752688172043,
+            "meanRgbError": 30.389703375383565
+          },
+          "after": {
+            "union": 3184,
+            "overlap": 3096,
+            "overlapPercent": 97.23618090452261,
+            "meanRgbError": 31.107450473729543
+          }
+        }
+      }
+    },
+    "night-trial-potapo": {
+      "name": "ポタポの応援",
+      "level": 118,
+      "poses": {
+        "idle": {
+          "tick": 0,
+          "rectangles": {
+            "before": 244,
+            "after": 244
+          },
+          "fullActorLayerRectangles": {
+            "before": 244,
+            "after": 244
+          },
+          "sourceBoundingBox": [
+            101,
+            12,
+            86,
+            120
+          ],
+          "renderedHeight": 120,
+          "before": {
+            "union": 1650,
+            "overlap": 1455,
+            "overlapPercent": 88.18181818181819,
+            "meanRgbError": 38.64810996563574
+          },
+          "after": {
+            "union": 1583,
+            "overlap": 1531,
+            "overlapPercent": 96.7150979153506,
+            "meanRgbError": 38.27389505769649
+          }
+        },
+        "brace": {
+          "tick": 30,
+          "rectangles": {
+            "before": 268,
+            "after": 266
+          },
+          "fullActorLayerRectangles": {
+            "before": 275,
+            "after": 273
+          },
+          "sourceBoundingBox": [
+            394,
+            9,
+            76,
+            123
+          ],
+          "renderedHeight": 123,
+          "before": {
+            "union": 1710,
+            "overlap": 1503,
+            "overlapPercent": 87.89473684210526,
+            "meanRgbError": 39.267243291195385
+          },
+          "after": {
+            "union": 1617,
+            "overlap": 1551,
+            "overlapPercent": 95.91836734693878,
+            "meanRgbError": 39.297012679991404
+          }
+        },
+        "strike": {
+          "tick": 94,
+          "rectangles": {
+            "before": 294,
+            "after": 288
+          },
+          "fullActorLayerRectangles": {
+            "before": 303,
+            "after": 297
+          },
+          "sourceBoundingBox": [
+            679,
+            9,
+            82,
+            123
+          ],
+          "renderedHeight": 123,
+          "before": {
+            "union": 1791,
+            "overlap": 1583,
+            "overlapPercent": 88.38637632607482,
+            "meanRgbError": 38.87871130764371
+          },
+          "after": {
+            "union": 1704,
+            "overlap": 1620,
+            "overlapPercent": 95.07042253521126,
+            "meanRgbError": 38.07304526748971
+          }
+        }
+      }
+    },
+    "sne-furiosa-domain-outlook": {
+      "name": "フュリオサ",
+      "level": 158,
+      "poses": {
+        "idle": {
+          "tick": 0,
+          "rectangles": {
+            "before": 810,
+            "after": 804
+          },
+          "fullActorLayerRectangles": {
+            "before": 810,
+            "after": 804
+          },
+          "sourceBoundingBox": [
+            90,
+            296,
+            103,
+            124
+          ],
+          "renderedHeight": 124,
+          "before": {
+            "union": 5207,
+            "overlap": 4660,
+            "overlapPercent": 89.49491069713847,
+            "meanRgbError": 34.5620886981402
+          },
+          "after": {
+            "union": 5078,
+            "overlap": 4852,
+            "overlapPercent": 95.5494289090193,
+            "meanRgbError": 34.991275075570215
+          }
+        },
+        "brace": {
+          "tick": 30,
+          "rectangles": {
+            "before": 898,
+            "after": 892
+          },
+          "fullActorLayerRectangles": {
+            "before": 905,
+            "after": 899
+          },
+          "sourceBoundingBox": [
+            390,
+            297,
+            90,
+            123
+          ],
+          "renderedHeight": 123,
+          "before": {
+            "union": 5683,
+            "overlap": 5161,
+            "overlapPercent": 90.81471054020764,
+            "meanRgbError": 35.963895885810246
+          },
+          "after": {
+            "union": 5438,
+            "overlap": 5324,
+            "overlapPercent": 97.90364104450165,
+            "meanRgbError": 36.411595291760584
+          }
+        },
+        "strike": {
+          "tick": 95,
+          "rectangles": {
+            "before": 894,
+            "after": 886
+          },
+          "fullActorLayerRectangles": {
+            "before": 903,
+            "after": 895
+          },
+          "sourceBoundingBox": [
+            676,
+            297,
+            93,
+            123
+          ],
+          "renderedHeight": 123,
+          "before": {
+            "union": 5620,
+            "overlap": 5120,
+            "overlapPercent": 91.1032028469751,
+            "meanRgbError": 35.00084635416667
+          },
+          "after": {
+            "union": 5400,
+            "overlap": 5261,
+            "overlapPercent": 97.42592592592592,
+            "meanRgbError": 35.52867008806944
+          }
+        }
+      }
+    },
+    "sne-crystal-tree-refuge": {
+      "name": "災禍古樹",
+      "level": 198,
+      "poses": {
+        "idle": {
+          "tick": 0,
+          "rectangles": {
+            "before": 652,
+            "after": 641
+          },
+          "fullActorLayerRectangles": {
+            "before": 652,
+            "after": 641
+          },
+          "sourceBoundingBox": [
+            111,
+            152,
+            71,
+            124
+          ],
+          "renderedHeight": 124,
+          "before": {
+            "union": 3680,
+            "overlap": 3072,
+            "overlapPercent": 83.47826086956522,
+            "meanRgbError": 22.93967013888889
+          },
+          "after": {
+            "union": 3567,
+            "overlap": 3279,
+            "overlapPercent": 91.9259882253995,
+            "meanRgbError": 23.831960963708447
+          }
+        },
+        "brace": {
+          "tick": 30,
+          "rectangles": {
+            "before": 787,
+            "after": 784
+          },
+          "fullActorLayerRectangles": {
+            "before": 794,
+            "after": 791
+          },
+          "sourceBoundingBox": [
+            396,
+            156,
+            91,
+            120
+          ],
+          "renderedHeight": 120,
+          "before": {
+            "union": 4061,
+            "overlap": 3503,
+            "overlapPercent": 86.25954198473282,
+            "meanRgbError": 25.154439052240935
+          },
+          "after": {
+            "union": 3901,
+            "overlap": 3732,
+            "overlapPercent": 95.66777749295052,
+            "meanRgbError": 25.939174705251876
+          }
+        },
+        "strike": {
+          "tick": 99,
+          "rectangles": {
+            "before": 802,
+            "after": 797
+          },
+          "fullActorLayerRectangles": {
+            "before": 811,
+            "after": 806
+          },
+          "sourceBoundingBox": [
+            648,
+            155,
+            110,
+            121
+          ],
+          "renderedHeight": 121,
+          "before": {
+            "union": 4163,
+            "overlap": 3570,
+            "overlapPercent": 85.75546480903195,
+            "meanRgbError": 25.4187675070028
+          },
+          "after": {
+            "union": 3929,
+            "overlap": 3799,
+            "overlapPercent": 96.691270043268,
+            "meanRgbError": 26.048784767921383
+          }
+        }
+      }
+    },
+    "dorn-churldric-cooking-camp": {
+      "name": "チャルデリック",
+      "level": 175,
+      "poses": {
+        "idle": {
+          "tick": 0,
+          "rectangles": {
+            "before": 985,
+            "after": 984
+          },
+          "fullActorLayerRectangles": {
+            "before": 985,
+            "after": 984
+          },
+          "sourceBoundingBox": [
+            93,
+            10,
+            101,
+            122
+          ],
+          "renderedHeight": 122,
+          "before": {
+            "union": 6027,
+            "overlap": 5356,
+            "overlapPercent": 88.8667662186826,
+            "meanRgbError": 26.775827732138413
+          },
+          "after": {
+            "union": 5729,
+            "overlap": 5599,
+            "overlapPercent": 97.73084307907139,
+            "meanRgbError": 27.25968923021968
+          }
+        },
+        "brace": {
+          "tick": 30,
+          "rectangles": {
+            "before": 979,
+            "after": 951
+          },
+          "fullActorLayerRectangles": {
+            "before": 986,
+            "after": 958
+          },
+          "sourceBoundingBox": [
+            373,
+            16,
+            96,
+            116
+          ],
+          "renderedHeight": 116,
+          "before": {
+            "union": 5547,
+            "overlap": 5032,
+            "overlapPercent": 90.71570218135929,
+            "meanRgbError": 29.899841017488075
+          },
+          "after": {
+            "union": 5279,
+            "overlap": 5279,
+            "overlapPercent": 100,
+            "meanRgbError": 30.05146176674875
+          }
+        },
+        "strike": {
+          "tick": 95,
+          "rectangles": {
+            "before": 1004,
+            "after": 998
+          },
+          "fullActorLayerRectangles": {
+            "before": 1013,
+            "after": 1007
+          },
+          "sourceBoundingBox": [
+            622,
+            17,
+            156,
+            115
+          ],
+          "renderedHeight": 115,
+          "before": {
+            "union": 5846,
+            "overlap": 5348,
+            "overlapPercent": 91.48135477249402,
+            "meanRgbError": 26.01913487908252
+          },
+          "after": {
+            "union": 5564,
+            "overlap": 5508,
+            "overlapPercent": 98.99352983465133,
+            "meanRgbError": 27.13574195110143
+          }
+        }
+      }
+    }
+  }
+}

@@ -156,9 +156,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 985,
-        "overlap": "88.8%",
-        "error": "26.83 / 255"
+        "rectangles": 984,
+        "overlap": "97.7%",
+        "error": "27.29 / 255"
       }
     ],
     "erinnyes-corrouge-cleft": [
@@ -436,9 +436,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 531,
-        "overlap": "88.7%",
-        "error": "28.63 / 255"
+        "rectangles": 518,
+        "overlap": "96.6%",
+        "error": "29.51 / 255"
       }
     ],
     "night-trial-ironbeard": [
@@ -477,8 +477,8 @@
       {
         "profile": "h32c16",
         "rectangles": 244,
-        "overlap": "88.2%",
-        "error": "38.65 / 255"
+        "overlap": "96.7%",
+        "error": "38.28 / 255"
       }
     ],
     "night-trial-reji": [
@@ -916,9 +916,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 652,
-        "overlap": "83.3%",
-        "error": "23.05 / 255"
+        "rectangles": 641,
+        "overlap": "92.1%",
+        "error": "23.94 / 255"
       }
     ],
     "sne-furiosa-domain-outlook": [
@@ -936,9 +936,9 @@
       },
       {
         "profile": "h32c16",
-        "rectangles": 810,
-        "overlap": "89.4%",
-        "error": "34.61 / 255"
+        "rectangles": 804,
+        "overlap": "95.6%",
+        "error": "35.02 / 255"
       }
     ],
     "sne-novokichev-ore-yard": [

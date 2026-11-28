@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 from tools.palette_rects import pack_grid
-from tools.legend_light_blend import refine_legend_profiles
+from tools.legend_pose_profiles import refine_pose
 
 root=Path(__file__).resolve().parent
 assets=root/'assets'
@@ -16,7 +16,7 @@ index=json.loads((assets/'placement-pose-index.json').read_bytes())
 layouts=json.loads((root/'content/enemy-art-layout.json').read_bytes())
 count=0
 for name,pose in bundle.items():
-    source=refine_legend_profiles(name,json.loads((assets/name).read_bytes()))
+    source=refine_pose(name,json.loads((assets/name).read_bytes()),assets)
     grids=source.pop('profiles')
     packed={key:dict(pack_grid(grid, compact_positions=True),colors=grid['colors']) for key,grid in grids.items()}
     assert pose==dict(source,profiles=packed),name
