@@ -11,6 +11,20 @@ return function(C)
  end
 
  local cryo=C.fieldRegisvine(C.cryoFieldArt,poseFor)
+ cryo.packRectArt=true
+ local baseLabel=cryo.label
+
+ function cryo.label(boss,cast)
+  if boss.down>0 then
+   return string.format('核を破壊・ダウン（あと%.1f秒）',math.ceil(boss.down/6)/10)
+  end
+  if boss.rise>0 then return baseLabel(boss) end
+  if boss.coreHits==0 and boss.rearm==0 then return '核を破壊・攻撃が終わるとダウン' end
+  if boss.coreHits>0 then
+   local title=cast and (cast.tick<cast.move.recover and cast.move.title or '反撃の隙')..'・' or ''
+   return title..'地上で根元に近づいて攻撃'
+  end
+ end
 
  function cryo.farMove(spec)
   return spec.moves[3]

@@ -95,6 +95,8 @@ a.inv=0
 wait(lambda:move('FC03',95))
 assert slot.cast.shots[2] and a.hp==122
 assert b.coreHits==3 and b.hp==spec['hp']
+wait(lambda:move('FC03',156))
+assert core.frame(s).fieldBoss.label=='反撃の隙・地上で根元に近づいて攻撃'
 
 # The same wall that stops existing enemy projectiles must stop both field shots.
 s=make();slot=enter();s.actors[2].hp=0;a=spot(110)
@@ -118,15 +120,18 @@ core.resolveCast(s,pulse(-75,'pyro'))
 assert b.coreHits==1 and b.hp==hp-26
 core.resolveCast(s,pulse(-75))
 assert b.coreHits==0 and b.down==0 and b.hp==hp-32
+assert core.frame(s).fieldBoss.label=='核を破壊・攻撃が終わるとダウン'
 wait(lambda:move('FC01',83))
 assert b.down==0
 step()
 assert b.down==240 and slot.cast is None
+assert core.frame(s).fieldBoss.label=='核を破壊・ダウン（あと4.0秒）'
 assert b.hitTop==480-core.cryoFieldArt.down.profiles.legacy.height
 for _ in range(240):step()
 assert b.down==0 and b.rise==24 and b.rearm==1200
 for _ in range(24):step()
 assert b.rise==0 and b.coreHits==0
+assert '攻撃が終わるとダウン' not in core.frame(s).fieldBoss.label
 b.hp=spec['hp']
 a.inv=30
 for _ in range(1176):step()
