@@ -1,0 +1,117 @@
+{
+  "sourceSha256": "af1206cf84f4cc9b4aa09d4a91bcdcd5f4fc9a1fdb21463d5fdcf9ec85fe5781",
+  "route": [
+    {
+      "id": "lv115",
+      "seconds": 3932.37,
+      "level": 115,
+      "total": 83435527,
+      "questXp": 53361230,
+      "killXp": 30074297,
+      "kills": 9905
+    },
+    {
+      "id": "lv119",
+      "seconds": 15260.8,
+      "level": 119,
+      "total": 104274895,
+      "questXp": 53361230,
+      "killXp": 50913665,
+      "kills": 12359
+    },
+    {
+      "id": "lv120",
+      "seconds": 15904.2,
+      "level": 120,
+      "total": 110360120,
+      "questXp": 53361230,
+      "killXp": 56998890,
+      "kills": 12916
+    },
+    {
+      "id": "nod-town",
+      "seconds": 16038.08,
+      "level": 120,
+      "total": 110419336,
+      "questXp": 53361230,
+      "killXp": 57058106,
+      "kills": 12928
+    }
+  ],
+  "completedQuests": [
+    "natlan-ridge-flag",
+    "natlan-two-trials",
+    "natlan-sunset-duel",
+    "natlan-kachina-charms",
+    "natlan-mualani-surf",
+    "natlan-kinich-ambush",
+    "natlan-xilonen-springs",
+    "natlan-iansan-self-test"
+  ],
+  "hunts": [
+    {
+      "stage": "natlan-terrace-red-clay",
+      "sorties": 51,
+      "kills": 2071,
+      "xp": 12836058,
+      "seconds": 3725.65
+    },
+    {
+      "stage": "natlan-east-valley-rocks",
+      "sorties": 146,
+      "kills": 2452,
+      "xp": 20822384,
+      "seconds": 10830.62
+    },
+    {
+      "stage": "sites-hunt-73159",
+      "sorties": 9,
+      "kills": 557,
+      "xp": 6085225,
+      "seconds": 589.62
+    }
+  ],
+  "equippedEarnedArtifactIds": {
+    "1": [
+      2,
+      10
+    ],
+    "2": []
+  },
+  "recoveryTrips": 0,
+  "inventoryTrips": 4,
+  "partyWipes": 0,
+  "ferrySeconds": 90.0,
+  "stopoverResumeSeconds": 40,
+  "seaSaveRestoredToPort": true,
+  "mapPausesVoyage": true,
+  "savedAndRestored": true,
+  "firstNodQuestAvailable": "nod-first-treasure",
+  "scope": "Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting.",
+  "startLevel": 111,
+  "preservedPriorQuests": 85,
+  "carriedArtifacts": 76,
+  "levelGuides": [
+    {
+      "target": "natlan-voyage",
+      "atLevel": 111,
+      "level": 120,
+      "remainingExp": 39811883,
+      "hunt": "natlan-terrace-red-clay"
+    },
+    {
+      "target": "sites-hunt-73159",
+      "atLevel": 115,
+      "level": 119,
+      "remainingExp": 20836718,
+      "hunt": "natlan-east-valley-rocks"
+    },
+    {
+      "target": "natlan-voyage",
+      "atLevel": 119,
+      "level": 120,
+      "remainingExp": 6081294,
+      "hunt": "sites-hunt-73159"
+    }
+  ]
+}

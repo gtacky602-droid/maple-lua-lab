@@ -1,0 +1,46 @@
+{
+  "importedLevel": 120,
+  "arrivalLevel": 120,
+  "route": [
+    [
+      "natlan-voyage",
+      "boat"
+    ],
+    [
+      "nod-port",
+      "boat"
+    ],
+    [
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "walk"
+    ]
+  ],
+  "hunts": [
+    "natlan-entry",
+    "natlan-field",
+    "natlan-quarry-road",
+    "natlan-riverside-range",
+    "natlan-terrace-red-clay",
+    "natlan-east-valley-rocks"
+  ],
+  "completedQuests": [
+    "natlan-ridge-flag",
+    "natlan-two-trials",
+    "natlan-sunset-duel",
+    "natlan-kachina-charms",
+    "natlan-mualani-surf",
+    "natlan-kinich-ambush",
+    "natlan-xilonen-springs",
+    "natlan-iansan-self-test"
+  ],
+  "ferrySeconds": 90,
+  "autoLanded": true,
+  "mapPausedVoyage": true,
+  "firstNodQuestAccepted": "nod-first-treasure",
+  "travelKillXp": 37128,
+  "errors": []
+}
