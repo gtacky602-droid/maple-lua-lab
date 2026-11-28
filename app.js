@@ -406,8 +406,8 @@ function updateProgression(f){
  $('surfHit').disabled=!!f.paused;
  $('surfHit').classList.toggle('selected',!!surf?.ready);
  $('surfJump').hidden=!boarding;
- const surfText=boarding?`左右で進む・Spaceで跳ぶ　｜　輪 ${surf.rings} / ${surf.ringTotal}`:
-  rally?(surf.ready?'返球！':'左右で合わせ、合図で J を押す'):'';
+ const surfText=boarding?`左右で進む・Spaceで跳ぶ　｜　輪 ${surf.rings} / ${surf.ringTotal}（任意）　｜　浅瀬に戻った回数 ${surf.retries}`:
+  rally?(surf.ready?'返球！ J または返球ボタン':surf.waiting?'コホラ竜がボールを拾っています':'浜の目印に寄り、合図で返球'):'';
  if($('surfStatus').textContent!==surfText)$('surfStatus').textContent=surfText;
  $('touchJump').hidden=diving||swimming||solo;
  document.querySelectorAll('.touch [data-hold="left"],.touch [data-hold="right"]').forEach(button=>{button.hidden=solo});

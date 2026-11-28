@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const hub='natlan-hub', course='natlan-surf-run', cove='natlan-surf-cove';
-const quest='natlan-mualani-surf', prefix='evidence/nat-mualani-surf';
+const quest='natlan-mualani-surf',checkpoint=process.env.LAB_SURF_CHECKPOINT;
+const prefix=process.env.LAB_SURF_OUTPUT||'evidence/nat-mualani-surf';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'), errors=[];
@@ -54,6 +56,18 @@ async function load(){
  await at(hub);
 }
 
+async function save(){
+ await page.locator('#saveProgress').click();
+ await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+ return page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+}
+
+async function reload(){
+ await page.reload();
+ await wait(()=>window.lab?.frame);
+ await load();
+}
+
 async function background(key){
  const status=await page.evaluate(async()=>{
   const {sceneryStatus,backgroundReady}=await import('./scenery.js');
@@ -83,6 +97,9 @@ async function compare(){
   assert.equal(f.camera,png.camera);
   assert.deepEqual(f.storySurf,png.storySurf);
   assert.deepEqual(f.story.quests[quest],png.story.quests[quest]);
+ }
+ for(const f of [png,standard,light]){
+  assert.ok(f.draws.some(d=>d.kind==='rect'&&d.color==='#ffdb86'&&d.x+f.camera===512&&d.y===475));
  }
  await menu.selectOption('sprite');
  await wait(n=>window.lab.frame.commands===n,png.commands);
@@ -114,9 +131,14 @@ async function skate(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8927/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/nat-mualani-surf-fixture.json','utf8');
+ const seed=await fs.readFile(checkpoint||'work/nat-mualani-surf-fixture.json','utf8');
+ const input=JSON.parse(seed);
+ assert.equal(input.story.quests[quest],undefined);
+ if(checkpoint)assert.equal(input.story.quests['natlan-kachina-charms'].status,'complete');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load();
+ const start=await frame();
+ assert.equal(start.progression.level,input.progression.level);
  await button('受注').click();
  await collect(302,'ムアラニに水遊びの話を聞く');
  await count(1);
@@ -125,24 +147,39 @@ try{
  await collect(190,'練習ボードに乗る');
  await count(2);
  await shot('course');
+ const beforeFall=await frame();
  await canvas.click();
  await page.keyboard.down('KeyD');
  try{await wait(()=>window.lab.frame.storySurf?.retries>0)}finally{await page.keyboard.up('KeyD')}
  const fell=await frame();
  assert.ok(fell.actors[fell.active-1].x<360);
- assert.equal(fell.hits,0);
+ assert.equal(fell.hits,beforeFall.hits);
+ assert.deepEqual(fell.actors.map(actor=>actor.hp),beforeFall.actors.map(actor=>actor.hp));
+ assert.match(await page.locator('#surfStatus').innerText(),/浅瀬に戻った回数 [1-9]/);
+ await save();
+ await reload();
+ await count(2);
+ await gate(545,course);
+ await collect(190,'練習ボードをもう一度借りる');
+ await wait(()=>window.lab.frame.storySurf?.phase==='run');
+ assert.equal((await frame()).storySurf.retries,0);
  await skate();
  await gate(1562,cove);
  await background('natlanSurfCove');
  assert.equal((await frame()).total,0);
  await collect(445,'コホラ竜と返球遊びを始める');
  await wait(()=>window.lab.frame.storySurf.phase==='cove');
+ await wait(()=>window.lab.frame.storySurf?.waiting);
+ assert.match(await page.locator('#surfStatus').innerText(),/ボールを拾っています/);
+ await wait(()=>window.lab.frame.storySurf?.retries>0);
+ await count(3);
  await wait(()=>window.lab.frame.storySurf?.ball?.y<385);
  const calls=await compare();
  const hit=page.locator('#surfHit');
  await wait(()=>window.lab.frame.storySurf?.ready);
  await page.keyboard.press('KeyJ');
  await count(4);
+ const firstReturn=await frame();
 
  await collect(445,'もう一回、返球遊びを始める');
  await wait(()=>window.lab.frame.storySurf?.phase==='cove');
@@ -157,25 +194,39 @@ try{
  await wait(()=>window.lab.frame.storySurf?.ready);
  await hit.click();
  await wait(()=>window.lab.frame.storySurf?.result==='cove');
- assert.equal((await frame()).story.quests[quest].count,4);
+ const replay=await frame();
+ assert.equal(replay.story.quests[quest].count,4);
+ assert.equal(replay.progression.questXp,firstReturn.progression.questXp);
+ assert.equal(replay.mora,firstReturn.mora);
 
  await page.setViewportSize({width:1280,height:960});
  await gate(1074,hub);
+ const beforeReport=await frame();
  await button('報告').click();
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='complete',quest);
- await page.locator('#saveProgress').click();
- await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
- await page.reload();
- await wait(()=>window.lab?.frame);
- await load();
+ const afterReport=await frame();
+ const reward=[afterReport.progression.questXp-beforeReport.progression.questXp,afterReport.mora-beforeReport.mora];
+ assert.deepEqual(reward,[1404867,4900]);
+ const complete=await save(),saved=JSON.parse(complete);
+ const preserved=Object.entries(input.story.quests).filter(([,state])=>state.status==='complete');
+ for(const [id,state] of preserved)assert.deepEqual(saved.story.quests[id],state,id);
+ if(checkpoint)await fs.writeFile(prefix+'-complete.json',complete+'\n');
+ await reload();
+ const restored=await frame();
+ assert.equal(restored.story.quests[quest].status,'complete');
+ assert.equal(restored.progression.questXp,afterReport.progression.questXp);
+ assert.equal(restored.companion.id,start.companion.id);
  await collect(307,'水しぶきの波札を見る');
  await wait(()=>document.querySelector('#storyObjective')?.textContent?.includes('水しぶきの波札')||
   document.body.textContent.includes('ムアラニとコホラ竜と遊んだ記念'));
  await move(275);
  await shot('memento');
  assert.deepEqual(errors,[]);
- const proof={waveFallRecovery:true,jumpOverBothWaves:true,keyboardRally:true,mobileRallyButton:true,
-  replayExitAndReport:true,mementoOnReload:true,calls,errors};
+ const proof={waveFallRecovery:true,courseSaveAndResume:true,jumpOverBothWaves:true,missAndRethrow:true,
+  landingMarkerAllProfiles:true,keyboardRally:true,mobileRallyButton:true,
+  replayExitAndReport:true,mementoOnReload:true,sourceSha256:createHash('sha256').update(seed).digest('hex'),
+  startLevel:start.progression.level,reportedLevel:restored.progression.level,companion:restored.companion.id,
+  priorCompleted:preserved.length,reward,calls,errors};
  await fs.writeFile(prefix+'-web.json',JSON.stringify(proof,null,2)+'\n');
  console.log('Mualani browser playthrough passed',calls);
 }catch(err){
@@ -184,7 +235,7 @@ try{
   return {node:f?.story?.node,quest:f?.story?.quests['natlan-mualani-surf'],camera:f?.camera,actors:f?.actors,
    m:f?.storyNearbyMilestone,portal:f?.storyNearbyPortal,surf:f?.storySurf,paused:f?.paused};
  }));
- await page.screenshot({path:'work/nat-mualani-surf-failure.png'});
+ await page.screenshot({path:prefix+'-failure.png'});
  throw err;
 }finally{
  await browser.close();

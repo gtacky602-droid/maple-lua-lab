@@ -1,5 +1,6 @@
 return function(C,canInspect)
  local surf={}
+ local returnGrace=.18
  local function clamp(x,low,high) return math.max(low,math.min(x,high)) end
 
  local function settle(s,x,y)
@@ -76,7 +77,7 @@ return function(C,canInspect)
 
  local function canReturn(spec,round,actor)
   local x=ballAt(spec,round.elapsed)
-  return round.elapsed>=spec.lobSeconds*.74 and round.elapsed<=spec.lobSeconds+.18 and math.abs(x-actor.x)<=52
+  return round.elapsed>=spec.lobSeconds*.74 and round.elapsed<=spec.lobSeconds+returnGrace and math.abs(x-actor.x)<=52
  end
 
  local function runStep(s,spec,round,actor,dt,dx)
@@ -138,10 +139,10 @@ return function(C,canInspect)
     end
     s.storyNotice='まだ届きません。落ちてくるボールの近くで返球しましょう。'
    end
-   if round.elapsed>=spec.lobSeconds+.18+spec.waitSeconds then
+   if round.elapsed>=spec.lobSeconds+returnGrace+spec.waitSeconds then
     round.retries=round.retries+1
     round.elapsed=0
-    s.storyNotice='コホラ竜が拾って投げ直します。'
+    s.storyNotice=nil
    end
   end
   s.camera=clamp(actor.x-460,0,math.max(0,s.worldwidth-960))
@@ -179,6 +180,7 @@ return function(C,canInspect)
   end
   local actor=s.actors[s.active]
   local view={course=spec.kind,phase=round and round.kind or 'idle',message=s.storyNotice}
+  if round then view.retries=round.retries end
   if spec.kind=='run' then
    art('board',round and actor.x or spec.station,round and actor.y+11 or 480,22,round and actor.dir<0)
    for i,ring in ipairs(spec.rings) do
@@ -197,7 +199,7 @@ return function(C,canInspect)
     end
    end
    if round then
-    view.rings,view.ringTotal,view.retries=round.count,#spec.rings,round.retries
+    view.rings,view.ringTotal=round.count,#spec.rings
     nearby('ボードを降りて浅瀬へ戻る')
    elseif canPlay(s,spec,state) then
     nearby(state.count==1 and '練習ボードに乗る' or '練習ボードをもう一度借りる')
@@ -209,7 +211,13 @@ return function(C,canInspect)
    if round then
     x,y=ballAt(spec,round.elapsed)
     view.ready=canReturn(spec,round,actor)
+    view.waiting=round.elapsed>spec.lobSeconds+returnGrace
     view.ball={x=x,y=y}
+    local landing=spec.landing-s.camera
+    if landing>=0 and landing<=960 then
+     draws[#draws+1]={kind='rect',x=landing-18,y=474,w=36,h=6,color='#284854'}
+     draws[#draws+1]={kind='rect',x=landing-13,y=475,w=26,h=3,color='#ffdb86'}
+    end
     if view.ready then label(x,y-29,'返球！') end
     nearby('返球遊びをやめる')
    elseif result then
