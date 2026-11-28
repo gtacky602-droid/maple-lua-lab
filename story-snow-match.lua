@@ -79,6 +79,7 @@ return function(C,canInspect)
     r.note='雪壁が投球を防いだ'
    elseif kind then
     r.score[ball.owner]=math.min(spec.score,r.score[ball.owner]+1)
+    r.lastPoint={owner=ball.owner,x=ball.x,y=ball.y,at=s.t}
     if kind=='flag' then
      r.flags[id]=ball.owner
      if ball.owner==1 then r.flagHits=r.flagHits+1 end
@@ -204,7 +205,20 @@ return function(C,canInspect)
     rect(draws,x+(w.x-x)*t-3,spec.hostY-51+(w.y-(spec.hostY-51))*t-2,6,3,color)
    end
   end
-  for _,ball in ipairs(r.balls) do snow(draws,ball.x,ball.y) end
+  for _,ball in ipairs(r.balls) do
+   local color=ball.owner==1 and '#c4f4ffa8' or '#ffddaea8'
+   local age=2.6-ball.remaining
+   for i=1,2 do
+    local delay=i*.022
+    if age>=delay then rect(draws,ball.x-ball.vx*delay-2,ball.y-ball.vy*delay-1,5-i,3,color) end
+   end
+   snow(draws,ball.x,ball.y)
+  end
+  local point=r.lastPoint
+  if point and s.t-point.at<.65 then
+   text(draws,point.x,point.y-16-math.floor((s.t-point.at)*22),'+1',
+     point.owner==1 and '#bff5ff' or '#ffd5a2',17)
+  end
   if r.snowed and r.snowed.untilTime>s.t then
    local a=s.actors[s.active]
    local hx,hy=r.snowed.owner==1 and a.x or x,r.snowed.owner==1 and a.y or spec.hostY

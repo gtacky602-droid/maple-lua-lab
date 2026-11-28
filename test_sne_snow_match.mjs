@@ -1,9 +1,13 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const quest='sne-snow-match-quest',station='white-pass-station',arena='sne-snow-match';
-const prefix='evidence/sne-snow-match';
+const footwork='white-pass-footwork',rest='white-pass-rest',woods='white-pass-woods';
+const output='work/earned-white-pass-snow';
+const checkpoint=process.env.LAB_SNOW_MATCH_CHECKPOINT, restOnly=process.argv.includes('--rest');
+const prefix=checkpoint||restOnly?`${output}/snow`:'evidence/sne-snow-match';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),errors=[];
@@ -54,9 +58,9 @@ async function inspect(x,n){
   if(n!==undefined)await count(n);
 }
 
-async function questButton(name,status){
-  await page.locator('[data-quest="'+quest+'"]').getByRole('button',{name,exact:true}).click();
-  await wait(({quest,status})=>window.lab.frame.story.quests[quest]?.status===status,{quest,status});
+async function questButton(name,status,id=quest){
+  await page.locator('[data-quest="'+id+'"]').getByRole('button',{name,exact:true}).click();
+  await wait(({id,status})=>window.lab.frame.story.quests[id]?.status===status,{id,status});
 }
 
 async function scenery(){
@@ -96,21 +100,92 @@ async function compare(){
 async function saveReload(){
   await page.locator('#saveProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const save=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
   await page.reload();
   await wait(()=>window.lab?.frame);
   await page.locator('#loadProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
   await at(station);
+  return JSON.parse(save);
 }
 
-try{
-  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8909/');
-  await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/sne-snow-match-fixture.json','utf8');
-  const lua=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+async function practiceFootwork(){
+  await questButton('受注','active',footwork);
+  await walk(450);
+  await ground(480);
+  assert.notEqual((await frame()).storyNearbyMilestone?.label,'台に跳び上がる');
+  await page.keyboard.down('Space');
+  try{await ground(390)}finally{await page.keyboard.up('Space')}
+  await inspect(450);
+  await wait(id=>window.lab.frame.story.quests[id]?.count===1,footwork);
+  const partial=await saveReload();
+  assert.equal(partial.story.quests[footwork].count,1);
+  await walk(670);
+  await ground(480);
+  assert.equal((await frame()).draws.filter(d=>d.color==='#b9d1df').length,2);
+  await inspect(670);
+  await wait(id=>window.lab.frame.story.quests[id]?.count===2,footwork);
+  const before=await frame();
+  await questButton('報告','complete',footwork);
+  const after=await frame();
+  assert.ok(after.draws.some(d=>d.text==='足取りを記録済み'));
+  await shot('footwork');
+  return {midPracticeRestored:true,landingRecorded:true,
+    reward:[after.progression.questXp-before.progression.questXp,after.mora-before.mora]};
+}
+
+function preserved(input,saved){
+  for(const [id,q] of Object.entries(input.story.quests)){
+    if(q.status==='complete')assert.deepEqual(saved.story.quests[id],q,id);
+  }
+  const items=new Set(saved.inventory.items.map(item=>item.id));
+  for(const item of input.inventory.items)assert.ok(items.has(item.id),item.id);
+  assert.equal(saved.companion,input.companion);
+  assert.equal(saved.weapons.equipped.traveler,'SW07');
+}
+
+async function verifyRest(){
+  const seed=JSON.parse(await fs.readFile(`${output}/rest-ready.json`,'utf8'));
+  const lua=JSON.parse(await fs.readFile(`${output}/lua.json`,'utf8'));
+  await page.locator('#importSave').setInputFiles(`${output}/rest-ready.json`);
+  await at(station);
+  assert.equal((await frame()).progression.level,153);
+  await walk(670);
+  await wait(()=>window.lab.frame.storyNearbyMilestone?.label==='足取りのメモを見返す');
+  await key('KeyG');
+  await wait(()=>window.lab.frame.storyNotice?.includes('足をそろえてから次の一歩'));
+  await questButton('受注','active',rest);
+  await inspect(895);
+  await wait(id=>window.lab.frame.story.quests[id]?.count===1,rest);
+  await gate(1144,woods);
+  await inspect(185);
+  await wait(id=>window.lab.frame.story.quests[id]?.count===2,rest);
+  await gate(55,station);
+  const before=await frame();
+  await questButton('報告','complete',rest);
+  const after=await frame();
+  const reward=[after.progression.questXp-before.progression.questXp,after.mora-before.mora];
+  assert.deepEqual(reward,lua.reward);
+  const finished=await saveReload();
+  preserved(seed,finished);
+  assert.equal(finished.story.quests[rest].status,'complete');
+  assert.deepEqual(finished.story.quests[quest].snowMatchRecord,lua.snowRecord);
+  assert.deepEqual(errors,[]);
+  await fs.writeFile(`${output}/rest-complete.json`,JSON.stringify(finished)+'\n');
+  const proof={reward,level:finished.progression.level,snowRecord:lua.snowRecord,companion:finished.companion,
+    weapon:finished.weapons.equipped.traveler,completedRestAfterReload:true,footworkReadback:true,errors};
+  await fs.writeFile(`${output}/rest-browser.json`,JSON.stringify(proof,null,2)+'\n');
+  console.log(proof);
+}
+
+async function verifyMatch(){
+  const seed=await fs.readFile(checkpoint??'work/sne-snow-match-fixture.json','utf8');
+  const input=JSON.parse(seed);
+  const lua=JSON.parse(await fs.readFile('evidence/sne-snow-match-lua.json','utf8'));
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await page.locator('#loadProgress').click();
   await at(station);
+  const practice=checkpoint?await practiceFootwork():null;
   await questButton('受注','active');
   await inspect(327,1);
   await gate(724,arena);
@@ -133,7 +208,11 @@ try{
   await canvas.click();
   await page.keyboard.down('Space');
   try{await ground(398)}finally{await page.keyboard.up('Space')}
-  await throwUntil(()=>window.lab.frame.storySnowball?.flagHits===1);
+  await throwUntil(()=>window.lab.frame.draws.some(d=>d.color==='#c4f4ffa8'));
+  await throwUntil(()=>{
+    const f=window.lab.frame;
+    return f.storySnowball?.flagHits===1&&f.draws.some(d=>d.text==='+1'&&d.color==='#bff5ff');
+  });
   await walk(211);
   await ground(480);
   const commands=await compare();
@@ -158,7 +237,12 @@ try{
   const after=await frame();
   const reward=[after.progression.questXp-before.progression.questXp,after.mora-before.mora];
   assert.deepEqual(reward,lua.reward);
-  await saveReload();
+  const saved=await saveReload();
+  if(checkpoint){
+    preserved(input,saved);
+    assert.equal(saved.story.quests[footwork].status,'complete');
+    await fs.writeFile(`${output}/snow-complete.json`,JSON.stringify(saved)+'\n');
+  }
   await gate(724,arena);
   assert.equal((await frame()).storySnowball.record.wins,1);
   await inspect(178);
@@ -167,9 +251,18 @@ try{
   assert.equal((await frame()).story.quests[quest].snowMatchRecord.wins,1);
   assert.deepEqual(errors,[]);
   const proof={scene,coverBlocks:true,feintShown:true,flagPoint:true,opponentHit:true,
-    coverFalls:true,noHealthDamage:true,winSavedAndReplay:true,venueControls:true,commands,reward,errors};
+    coverFalls:true,noHealthDamage:true,winSavedAndReplay:true,venueControls:true,commands,reward,
+    visibleFlightAndPoint:true,practice,snowRecord:saved.story.quests[quest].snowMatchRecord,level:saved.progression.level,
+    sourceSha256:createHash('sha256').update(seed).digest('hex'),errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
+}
+
+try{
+  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8909/');
+  await wait(()=>window.lab?.frame);
+  if(restOnly)await verifyRest();
+  else await verifyMatch();
 }catch(error){
   console.error(await page.evaluate(()=>{
     const f=window.lab?.frame;

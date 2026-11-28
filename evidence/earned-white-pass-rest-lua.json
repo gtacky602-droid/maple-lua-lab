@@ -1,0 +1,55 @@
+{
+  "sourceSha256": "76274f2dd79c502f46dc333971bb65d078127bfd20c61d0058fb1cb24f645a22",
+  "milestones": [
+    {
+      "id": "lv153",
+      "node": "white-pass-woods",
+      "seconds": 1652.23,
+      "level": 153,
+      "total": 799003146,
+      "killXp": 508828767,
+      "questXp": 290174379
+    },
+    {
+      "id": "white-pass-rest",
+      "node": "white-pass-station",
+      "seconds": 1654.63,
+      "level": 153,
+      "total": 820424111,
+      "killXp": 508996922,
+      "questXp": 311427189
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-woods",
+      "target": 153,
+      "kills": 3069,
+      "xp": 114682392,
+      "huntSeconds": 1522.13,
+      "routeKills": 3309,
+      "routeXp": 123650712,
+      "routeSeconds": 1647.58
+    }
+  ],
+  "reward": [
+    21252810,
+    650
+  ],
+  "snowRecord": {
+    "draws": 0,
+    "wins": 1,
+    "best": 5,
+    "player": 5,
+    "losses": 0,
+    "opponent": 2
+  },
+  "priorQuests": 100,
+  "level": 153,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "inventoryKept": 68,
+  "recoveryTrips": 0,
+  "inventoryTrips": 4,
+  "partyWipes": 0
+}

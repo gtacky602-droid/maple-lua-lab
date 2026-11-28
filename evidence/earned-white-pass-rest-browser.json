@@ -1,0 +1,20 @@
+{
+  "reward": [
+    21252810,
+    650
+  ],
+  "level": 153,
+  "snowRecord": {
+    "draws": 0,
+    "wins": 1,
+    "best": 5,
+    "player": 5,
+    "losses": 0,
+    "opponent": 2
+  },
+  "companion": "mitya",
+  "weapon": "SW07",
+  "completedRestAfterReload": true,
+  "footworkReadback": true,
+  "errors": []
+}

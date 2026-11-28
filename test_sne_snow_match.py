@@ -93,7 +93,9 @@ core.action(s,"auto")
 core.action(s,"swap")
 assert not len(s.pending) and not s.auto and s.active==initial_active and not core.canAttack(s)
 core.action(s,"normal")
-run(s,42)
+run(s,2)
+assert any(d.color=="#c4f4ffa8" for d in frame(s).draws.values())
+run(s,40)
 assert frame(s).storySnowball.blocked==1 and s.snowballRound.score[1]==0
 core.action(s,"pause")
 elapsed=frame(s).storySnowball.remaining
@@ -106,6 +108,7 @@ run(s,60,jump=True)
 assert s.actors[1].y==398 and s.actors[1].ground
 run(s,34,attack=True)
 assert frame(s).storySnowball.flagHits==1
+assert any(d.text=="+1" and d.color=="#bff5ff" for d in frame(s).draws.values())
 move(s,667)
 run(s,45,attack=True)
 assert frame(s).storySnowball.flagHits==2
