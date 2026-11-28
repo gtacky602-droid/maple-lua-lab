@@ -49,7 +49,8 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
- await gate(1380,approach);
+ await gate(1380,'natlan-quarry-road');
+ await gate(64,approach);
  await gate(690,arena);
  assert.match((await frame()).location,/山王の峡谷/);
  const scenery=await page.evaluate(async()=>{
@@ -110,9 +111,10 @@ try{
  assert.equal(png.fieldBoss.summon,undefined);
  assert.ok(png.draws.some(d=>d.source===source&&d.h===30&&d.y<png.fieldBoss.y));
  assert.equal(png.draws.filter(d=>d.source===source).length,2);
- assert.match(await page.locator('#fieldBossLabel').textContent(),/残り一つ/);
+ assert.match(await page.locator('#fieldBossLabel').textContent(),/炎の実 1\/2/);
  await canvas.screenshot({path:prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(()=>window.lab.frame.commands>1000);
  const standard=await frame();
  await page.locator('#renderMode').selectOption('h32c16');
@@ -131,7 +133,8 @@ try{
  assert.equal(defeated.mora-beforeFight.mora,370);
  assert.equal(defeated.story.quests[quest].count,1);
  await gate(65,approach);
- await gate(60,hub);
+ await gate(552,'natlan-quarry-road');
+ await gate(1610,hub);
  const beforeReport=await frame();
  await row.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q].status==='complete',quest);

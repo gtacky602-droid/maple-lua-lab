@@ -1,5 +1,5 @@
 return function(C)
- local yumka={}
+ local yumka={packRectArt=true}
  local U=88
  local amber,cream,leaf='#ffab62','#fff0c3','#d0ed89'
  local function clamp(value,lo,hi) return math.max(lo,math.min(hi,value)) end
@@ -26,7 +26,10 @@ return function(C)
 
  function yumka.frame(f,b,s,c)
   f.flying=b.form=='airborne' or nil
-  if c and c.tick<c.move.recover then
+  if not c then return end
+  if c.tick>=c.move.recover then
+   f.recoveryTicks=c.move.total-c.tick
+  else
    f.destinationX=c.dest
    f.firePoints=c.points
   end
@@ -89,10 +92,14 @@ return function(C)
 
  function yumka.label(b,c)
   if b.form=='resting' then return '前脚をつく・反撃' end
-  if b.form=='airborne' then return '腹落ち・着地点から離れる' end
-  if c and c.move.fire and c.tick>=c.move.lock and c.tick<c.move.fire[2] then
-   return c.tick<c.move.fire[1] and '実が二つ・①→②の順' or '残り一つ・②の着地点'
+  if not c or c.tick<c.move.lock then return end
+  local m,t=c.move,c.tick
+  if m.kind=='tail' then return '重尾の一回し・足元の帯から離れる' end
+  if m.kind=='belly' then return '腹落ち・着地点から離れる' end
+  for i,w in ipairs(m.active) do
+   if t<w[2] then return '炎の実 '..i..'/2・床の番号から離れる' end
   end
+  return '着弾終了・前脚をつくまで待つ'
  end
 
  local function rect(f,x,y,w,h,color)
@@ -109,7 +116,6 @@ return function(C)
    rect(f,left,top,right-left,bottom-top,color..'55')
    rect(f,left,top,right-left,2,cream)
   end
-  f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=bottom-15,text=tostring(i),size=13,color=cream}
  end
 
  function yumka.draw(f,state,b,s,c,mode,profile)
@@ -148,6 +154,21 @@ return function(C)
    end
   end
   C.drawYumkaFieldArt(f,b.x-camera,b.y,pose,mode,profile,b.facing<0)
+ end
+
+ function yumka.drawOverlay(f,state,s,c)
+  if not c or c.tick<c.move.lock or c.move.kind=='tail' then return end
+  for i,w in ipairs(c.move.active) do
+   if c.tick<w[2] then
+    local left,right=bounds(c,i)
+    local x,y=(left+right)/2-state.camera,s.floorY
+    local belly=c.move.kind=='belly'
+    local width=belly and 34 or 20
+    rect(f,x-width/2,y+6,width,19,'#302e2b')
+    rect(f,x-width/2,y+6,width,2,belly and leaf or amber)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+21,text=belly and '着地' or tostring(i),size=13,color=cream}
+   end
+  end
  end
  return yumka
 end

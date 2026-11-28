@@ -42,7 +42,8 @@ def make(fixture=False):
         (ROOT/'work/yumka-field-fixture.json').write_text(json.dumps(save), encoding='utf8')
     core.action(state, 'story_accept:'+quest)
     assert state.story.quests[quest].status == 'active'
-    portal(state, 1380, approach)
+    portal(state, 1380, 'natlan-quarry-road')
+    portal(state, 64, approach)
     portal(state, 690, arena)
     state.actors[2].hp = 0
     slot = state.fieldSlots[boss_id]
@@ -85,6 +86,9 @@ spot(hero, boss.x-157)
 belly = until(state, slot, 'FYM02', 60)
 locked = belly.dest
 assert math.isclose(locked, belly.origin-1.4*88)
+frame = core.frame(state, 'sprite', 'legacy')
+marker = next(d for d in frame.draws.values() if d.kind == 'text' and d.text == '着地')
+assert marker.y == 501 and math.isclose(marker.x+frame.camera, locked)
 spot(hero, boss.x+137)
 until(state, slot, 'FYM02', 102)
 assert belly.dest == locked and math.isclose(boss.y, 480-.9*88)
@@ -102,6 +106,7 @@ until(state, slot, 'FYM02', 122)
 assert hero.hp == hp-25 and boss.y == 480 and boss.x == locked and belly.seen[1][1]
 until(state, slot, 'FYM02', 168)
 assert boss.form == 'resting' and belly.move.total-168 == 144
+assert core.frame(state, 'sprite', 'legacy').fieldBoss.recoveryTicks == 144
 assert strike(state, boss) == damage
 
 spot(hero, boss.x-88)
@@ -117,7 +122,8 @@ png, standard, light = [core.frame(state, mode, profile) for mode, profile in
 assert png.t == standard.t == light.t and light.commands < standard.commands
 assert sum(1 for d in png.draws.values() if d.source == 'yumka-field-poses-source-v1.png') == 2
 assert hero.hp == hp and not fruit.seen[1][1] and png.fieldBoss.summon is None
-assert '残り一つ' in png.fieldBoss.label
+assert '炎の実 1/2' in png.fieldBoss.label
+assert [(d.text,d.y) for d in png.draws.values() if d.kind == 'text' and d.color == '#fff0c3'] == [('1',501),('2',501)]
 until(state, slot, 'FYM03', 129)
 assert hero.hp == hp-20 and fruit.seen[1][1] and not fruit.seen[2][1]
 spot(hero, points[1])
@@ -125,6 +131,7 @@ until(state, slot, 'FYM03', 174)
 assert hero.hp == hp-20 and (fruit.points[1],fruit.points[2]) == points
 until(state, slot, 'FYM03', 182)
 assert hero.hp == hp-40 and fruit.seen[2][1]
+assert '炎の実 2/2' in core.frame(state, 'sprite', 'legacy').fieldBoss.label
 
 hero.hp = hero.maxhp
 spot(hero, boss.x-95)
