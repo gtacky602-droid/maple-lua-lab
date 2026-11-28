@@ -1,0 +1,223 @@
+{
+  "andrius": {
+    "image": "andrius.png",
+    "frames": {
+      "WA09-予兆": {
+        "tick": 2330,
+        "originalCombatCanvasMs": 0.6000000238418579,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 25085,
+            "rgbAbsoluteError": 2075660,
+            "unpackedCommands": 9752,
+            "packedCommands": 35,
+            "unpackedBytes": 1172638,
+            "packedBytes": 221032,
+            "combatCanvasMs": 10.5
+          },
+          "h32c16": {
+            "differentPixels": 25218,
+            "rgbAbsoluteError": 2124366,
+            "unpackedCommands": 4188,
+            "packedCommands": 35,
+            "unpackedBytes": 419570,
+            "packedBytes": 94108,
+            "combatCanvasMs": 4.299999982118607
+          }
+        }
+      },
+      "WA09-落下と冷気床": {
+        "tick": 2359,
+        "originalCombatCanvasMs": 0.7000000178813934,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 25085,
+            "rgbAbsoluteError": 2075660,
+            "unpackedCommands": 9754,
+            "packedCommands": 37,
+            "unpackedBytes": 1172749,
+            "packedBytes": 221143,
+            "combatCanvasMs": 9.599999994039536
+          },
+          "h32c16": {
+            "differentPixels": 25218,
+            "rgbAbsoluteError": 2124366,
+            "unpackedCommands": 4190,
+            "packedCommands": 37,
+            "unpackedBytes": 419681,
+            "packedBytes": 94219,
+            "combatCanvasMs": 4
+          }
+        }
+      },
+      "WA10-予兆": {
+        "tick": 2607,
+        "originalCombatCanvasMs": 0.8999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26069,
+            "rgbAbsoluteError": 2141559,
+            "unpackedCommands": 10211,
+            "packedCommands": 112,
+            "unpackedBytes": 1259328,
+            "packedBytes": 233755,
+            "combatCanvasMs": 10.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 26125,
+            "rgbAbsoluteError": 2428674,
+            "unpackedCommands": 4517,
+            "packedCommands": 112,
+            "unpackedBytes": 550061,
+            "packedBytes": 104049,
+            "combatCanvasMs": 4.199999988079071
+          }
+        }
+      },
+      "WA10-一波": {
+        "tick": 2671,
+        "originalCombatCanvasMs": 1,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26069,
+            "rgbAbsoluteError": 2132493,
+            "unpackedCommands": 10211,
+            "packedCommands": 112,
+            "unpackedBytes": 1257491,
+            "packedBytes": 233759,
+            "combatCanvasMs": 9.5
+          },
+          "h32c16": {
+            "differentPixels": 26120,
+            "rgbAbsoluteError": 2428819,
+            "unpackedCommands": 4517,
+            "packedCommands": 112,
+            "unpackedBytes": 546715,
+            "packedBytes": 104053,
+            "combatCanvasMs": 4.100000023841858
+          }
+        }
+      },
+      "WA10-二波": {
+        "tick": 2701,
+        "originalCombatCanvasMs": 0.9000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26068,
+            "rgbAbsoluteError": 2140810,
+            "unpackedCommands": 10211,
+            "packedCommands": 112,
+            "unpackedBytes": 1259892,
+            "packedBytes": 233759,
+            "combatCanvasMs": 9.699999988079071
+          },
+          "h32c16": {
+            "differentPixels": 26126,
+            "rgbAbsoluteError": 2430363,
+            "unpackedCommands": 4517,
+            "packedCommands": 112,
+            "unpackedBytes": 550192,
+            "packedBytes": 104053,
+            "combatCanvasMs": 4.5
+          }
+        }
+      },
+      "WA10-三波": {
+        "tick": 2731,
+        "originalCombatCanvasMs": 0.800000011920929,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26069,
+            "rgbAbsoluteError": 2141395,
+            "unpackedCommands": 10201,
+            "packedCommands": 102,
+            "unpackedBytes": 1258677,
+            "packedBytes": 233104,
+            "combatCanvasMs": 10.700000017881393
+          },
+          "h32c16": {
+            "differentPixels": 26125,
+            "rgbAbsoluteError": 2428504,
+            "unpackedCommands": 4507,
+            "packedCommands": 102,
+            "unpackedBytes": 549410,
+            "packedBytes": 103398,
+            "combatCanvasMs": 4.300000011920929
+          }
+        }
+      },
+      "WA11-予兆": {
+        "tick": 2869,
+        "originalCombatCanvasMs": 0.7999999821186066,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 26369,
+            "rgbAbsoluteError": 2161877,
+            "unpackedCommands": 10155,
+            "packedCommands": 56,
+            "unpackedBytes": 1256269,
+            "packedBytes": 230136,
+            "combatCanvasMs": 10.099999994039536
+          },
+          "h32c16": {
+            "differentPixels": 26426,
+            "rgbAbsoluteError": 2451562,
+            "unpackedCommands": 4461,
+            "packedCommands": 56,
+            "unpackedBytes": 546569,
+            "packedBytes": 100430,
+            "combatCanvasMs": 4.700000017881393
+          }
+        }
+      },
+      "WA11-疾走": {
+        "tick": 2895,
+        "originalCombatCanvasMs": 1,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 33823,
+            "rgbAbsoluteError": 2483112,
+            "unpackedCommands": 18300,
+            "packedCommands": 58,
+            "unpackedBytes": 2368604,
+            "packedBytes": 413768,
+            "combatCanvasMs": 19.299999982118607
+          },
+          "h32c16": {
+            "differentPixels": 33896,
+            "rgbAbsoluteError": 2795514,
+            "unpackedCommands": 7963,
+            "packedCommands": 58,
+            "unpackedBytes": 1019911,
+            "packedBytes": 178593,
+            "combatCanvasMs": 8.300000011920929
+          }
+        }
+      },
+      "WA11-接触": {
+        "tick": 2908,
+        "originalCombatCanvasMs": 1.0999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 28635,
+            "rgbAbsoluteError": 2205206,
+            "unpackedCommands": 18300,
+            "packedCommands": 58,
+            "unpackedBytes": 2373721,
+            "packedBytes": 413768,
+            "combatCanvasMs": 19.200000017881393
+          },
+          "h32c16": {
+            "differentPixels": 28705,
+            "rgbAbsoluteError": 2510399,
+            "unpackedCommands": 7963,
+            "packedCommands": 58,
+            "unpackedBytes": 1024608,
+            "packedBytes": 178593,
+            "combatCanvasMs": 7.5999999940395355
+          }
+        }
+      }
+    }
+  }
+}

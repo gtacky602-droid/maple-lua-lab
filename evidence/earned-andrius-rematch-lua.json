@@ -1,0 +1,142 @@
+[
+  {
+    "controller": "andrius",
+    "boss": "boss-29020101",
+    "sourceSha256": "598f2e7d3a954d7c158bd5c972388556f9318ba33caee15575d55aa55e839228",
+    "loadout": {
+      "sold": [
+        506,
+        508,
+        509,
+        500,
+        665,
+        667,
+        911,
+        913
+      ],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        356,
+        150
+      ]
+    },
+    "hpLossDuringLateCasts": {
+      "WA09": [
+        {
+          "tick": 168,
+          "hpLost": 18
+        }
+      ],
+      "WA10": [
+        {
+          "tick": 108,
+          "hpLost": 12
+        },
+        {
+          "tick": 168,
+          "hpLost": 12
+        }
+      ],
+      "WA11": [
+        {
+          "tick": 94,
+          "hpLost": 18
+        }
+      ]
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "hits": 6,
+    "node": "andrius-wolf-ring",
+    "events": {},
+    "hpRemaining": 0,
+    "damage": 900,
+    "status": "clear",
+    "maxHp": 900,
+    "partyHp": [
+      107,
+      0
+    ],
+    "moves": [
+      {
+        "id": "WA01",
+        "tick": 49
+      },
+      {
+        "id": "WA02",
+        "tick": 187
+      },
+      {
+        "id": "WA03",
+        "tick": 343
+      },
+      {
+        "id": "WA04",
+        "tick": 559
+      },
+      {
+        "id": "WA05",
+        "tick": 763
+      },
+      {
+        "id": "WA06",
+        "tick": 955
+      },
+      {
+        "id": "WA07",
+        "tick": 1579
+      },
+      {
+        "id": "WA08",
+        "tick": 1819
+      },
+      {
+        "id": "WA09",
+        "tick": 2227
+      },
+      {
+        "id": "WA10",
+        "tick": 2563
+      },
+      {
+        "id": "WA11",
+        "tick": 2815
+      }
+    ],
+    "phases": [
+      {
+        "id": "P1",
+        "tick": 0
+      },
+      {
+        "id": "INTERLUDE",
+        "tick": 955
+      },
+      {
+        "id": "P2",
+        "tick": 1578
+      },
+      {
+        "id": "finished",
+        "tick": 3002
+      }
+    ],
+    "ticks": 3002,
+    "elapsed": 50.033333333330496,
+    "repeatReward": {
+      "xp": 18999684,
+      "first": false,
+      "mora": 1538640
+    },
+    "equipmentRestored": true
+  }
+]

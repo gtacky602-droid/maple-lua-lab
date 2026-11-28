@@ -1,0 +1,40 @@
+{
+  "sourceSha256": "5d3d2709708dcf34416a8eb02670df94e2c78c74a9e432c14217e933be555f61",
+  "guide": [
+    "mond-road",
+    "andrius-wolf-ring"
+  ],
+  "level": 200,
+  "normalWins": 1,
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "baseReward": {
+    "xp": 18999684,
+    "mora": 1538640
+  },
+  "firstWait": 48.8,
+  "restoredWait": 43.81666666666667,
+  "attack": 74956,
+  "recordAfterReload": true,
+  "mobileDeskFits": true,
+  "play": {
+    "won": true,
+    "seconds": 1.12,
+    "hp": 332,
+    "returns": 0,
+    "moves": [
+      "WA01"
+    ],
+    "transitions": 0,
+    "falls": 0,
+    "aiUpper": false,
+    "manualUpper": false,
+    "immuneEvent": false,
+    "manualDamage": 871
+  },
+  "errors": []
+}

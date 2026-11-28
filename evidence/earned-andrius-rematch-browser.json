@@ -1,0 +1,12 @@
+{
+  "sourceSha256": "0ba761b42df2ad30ccf0e6e73f2f8403e3a13b1365e677c38e7536840d4fd6ff",
+  "expertWins": 2,
+  "normalWins": 1,
+  "cooldownPaused": true,
+  "restoredWait": 49.61666666666667,
+  "restoredQuests": 110,
+  "travelerAttack": 74956,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "errors": []
+}

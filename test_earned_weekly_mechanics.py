@@ -57,7 +57,7 @@ def rectangle_frame(trip, profile):
                 packedBytes=len(json.dumps(commands, ensure_ascii=False, separators=(',', ':')).encode()))
 
 
-def equipment(trip):
+def equipment(trip, weapon='SW06'):
     bag = trip.state.inventory
     items = list(bag['items'].values())
     slots = max(0, len(items) + len(bag.ground) - 80)
@@ -71,15 +71,16 @@ def equipment(trip):
     removed = [i.id for i in items if i.owner and i.slot != 1]
     for item in removed:
         trip.act(f'artifact_remove:{item}')
-    trip.act('weapon_equip:traveler:SW06')
+    assert trip.core.canEquipWeapon(trip.state, 'traveler', weapon), weapon
+    trip.act(f'weapon_equip:traveler:{weapon}')
     trip.act('hold_ally_fire')
-    assert trip.core.equippedWeapon(trip.state, 'traveler') == 'SW06'
-    return dict(sold=[i.id for i in spares[:slots]], removed=removed,
+    assert trip.core.equippedWeapon(trip.state, 'traveler') == weapon
+    return dict(sold=[i.id for i in spares[:slots]], removed=removed, weapon=weapon,
                 attack=[a.atk for a in trip.state.actors.values()],
                 maxHp=[a.maxhp for a in trip.state.actors.values()])
 
 
-def expert_rematch(source, engine, spec, lobby_action=None):
+def expert_rematch(source, engine, spec, lobby_action=None, *, weapon='SW06'):
     trip = SurveyJourney(source, engine, select_traveler=True)
     start = trip.snapshot()
     key, node = spec['id'], spec['node']
@@ -87,7 +88,7 @@ def expert_rematch(source, engine, spec, lobby_action=None):
     trip.warp(hub)
     if lobby_action:
         trip.act(lobby_action)
-    loadout = equipment(trip)
+    loadout = equipment(trip, weapon)
     origin, gate = next((n['id'], g) for n in nodes.values() for g in n['exits'] if g['to'] == node)
     trip.travel(origin)
     trip.approach(gate['x'], gate.get('y', 480), node)

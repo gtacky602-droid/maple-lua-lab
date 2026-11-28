@@ -341,7 +341,9 @@ return function(C,configs,controllers)
    local stored=s.weeklySlots and s.weeklySlots[target.id]
    local remaining=stored and wait(s.t,stored)/60 or 0
    local history=s.endgame and s.endgame.weekly
-   f.weeklyDesk={id=target.id,name=target.name,remaining=remaining,modes={}}
+   f.weeklyDesk={id=target.id,name=target.name,remaining=remaining,modes={},
+    storyRecord=s.endgame and s.endgame.bosses and s.endgame.bosses[target.id],
+    resistance=controllers[target.controller].entranceResistance}
    for _,rank in ipairs(target.modes) do
     f.weeklyDesk.modes[#f.weeklyDesk.modes+1]={id=rank.id,name=rank.name,level=rank.level,
      available=portal.available and not s.paused and remaining==0 and s.progression.level>=rank.level,
