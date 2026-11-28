@@ -171,10 +171,6 @@
       "mond-roadside-rest"
     ],
     [
-      "mond-wp-14",
-      "mond-wp-19"
-    ],
-    [
       "mond-wp-15",
       "mond-wp-13"
     ],
@@ -205,10 +201,6 @@
     [
       "mond-wp-19",
       "mond-border"
-    ],
-    [
-      "mond-wp-19",
-      "mond-wp-14"
     ],
     [
       "mond-wp-19",
@@ -308,10 +300,6 @@
     ],
     [
       "mond-wp-6537",
-      "mond-wp-6601"
-    ],
-    [
-      "mond-wp-6537",
       "mond-wp-6603"
     ],
     [
@@ -329,6 +317,10 @@
     [
       "mond-wp-6594",
       "mond-wp-6601"
+    ],
+    [
+      "mond-wp-6594",
+      "mond-wp-6608"
     ],
     [
       "mond-wp-6596",
@@ -368,10 +360,6 @@
     ],
     [
       "mond-wp-6601",
-      "mond-wp-6537"
-    ],
-    [
-      "mond-wp-6601",
       "mond-wp-6594"
     ],
     [
@@ -397,6 +385,10 @@
     [
       "mond-wp-6606",
       "mond-wp-6608"
+    ],
+    [
+      "mond-wp-6608",
+      "mond-wp-6594"
     ],
     [
       "mond-wp-6608",
@@ -527,6 +519,10 @@
       "mond-wp-95797"
     ],
     [
+      "mond-wp-95799",
+      "mond-wp-95803"
+    ],
+    [
       "mond-wp-95800",
       "mond-wp-95798"
     ],
@@ -549,6 +545,10 @@
     [
       "mond-wp-95803",
       "mond-wp-95798"
+    ],
+    [
+      "mond-wp-95803",
+      "mond-wp-95799"
     ]
   ],
   "reported_quests": [
@@ -556,6 +556,81 @@
     "mond-mapped-snowline",
     "mond-mapped-islet"
   ],
+  "source_saves": {
+    "survey": {
+      "path": "lv180-save.json",
+      "sha256": "fa9c6f9456388ee818249284ef7718b3e9dff8894aa23c79742b187db4783cd0",
+      "level": 180
+    },
+    "port_gate": {
+      "path": "lv165-save.json",
+      "sha256": "729703acafe024ff755de68ee31dbfc0ab50f583c228a64353a8d61ecdb9e962",
+      "level": 165
+    }
+  },
+  "party_wipes": 0,
+  "travel_modes": {
+    "walk": 112,
+    "boat": 6,
+    "raised": 4,
+    "lift": 2
+  },
+  "reviewed_studio_pairs": 6,
+  "editor_deletions_confirmed_absent": 3,
+  "quest_approaches": [
+    {
+      "quest": "mond-mapped-snowline",
+      "before_step": 2,
+      "stops": [
+        "mond-wp-6594",
+        "mond-wp-6608",
+        "mond-wp-6609",
+        "mond-wp-6603"
+      ]
+    }
+  ],
+  "current_detours": [
+    {
+      "from": "mond-wp-14",
+      "to": "mond-wp-19",
+      "outward": [
+        "mond-roadside-rest",
+        "mond-road",
+        "mond-border",
+        "mond-wp-19"
+      ],
+      "returning": [
+        "mond-border",
+        "mond-road",
+        "mond-roadside-rest",
+        "mond-wp-14"
+      ]
+    },
+    {
+      "from": "mond-wp-6601",
+      "to": "mond-wp-6537",
+      "outward": [
+        "mond-wp-6594",
+        "mond-wp-6608",
+        "mond-wp-6609",
+        "mond-wp-6603",
+        "mond-wp-6537"
+      ],
+      "returning": [
+        "mond-wp-6603",
+        "mond-wp-6609",
+        "mond-wp-6608",
+        "mond-wp-6594",
+        "mond-wp-6601"
+      ]
+    }
+  ],
+  "port_tunnel": {
+    "from": "mond-wp-95799",
+    "to": "mond-wp-95803",
+    "blocked_at": 165,
+    "opened_at": 169
+  },
   "save_restored": true,
   "unvisited_fast_travel_rejected": true,
   "fast_travel_does_not_advance_arrival_steps": true,
