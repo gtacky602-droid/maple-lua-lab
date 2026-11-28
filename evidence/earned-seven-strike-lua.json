@@ -1,0 +1,53 @@
+{
+  "hunts": [
+    {
+      "node": "aurora-steam-channel",
+      "toLevel": 175,
+      "kills": 7660,
+      "exp": 757967232,
+      "autoKills": 6986,
+      "autoSeconds": 3530.17,
+      "seconds": 3869.82
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "toLevel": 180,
+      "kills": 8406,
+      "exp": 972885062,
+      "autoKills": 6657,
+      "autoSeconds": 3342.65,
+      "seconds": 4273.55
+    }
+  ],
+  "milestones": [
+    {
+      "id": "lv175",
+      "node": "aurora-steam-channel",
+      "level": 175,
+      "exp": 3010783722,
+      "kills": 58829,
+      "seconds": 3896.35
+    },
+    {
+      "id": "lv180",
+      "node": "aurora-mineral-terraces",
+      "level": 180,
+      "exp": 3989225136,
+      "kills": 67305,
+      "seconds": 8208.2
+    }
+  ],
+  "equipment": [],
+  "rests": 47,
+  "inventoryStops": 1,
+  "sourceSha256": "6f6e26cef0f19d82acc03b0121b1aab87bc9c371d4f5afb0e4b10fa4f161a5ae",
+  "level": 180,
+  "priorQuests": 105,
+  "inventoryKept": 65,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "wipes": 0,
+  "terracesEntered": true,
+  "mineEntered": true,
+  "sevenUnlocked": true
+}
