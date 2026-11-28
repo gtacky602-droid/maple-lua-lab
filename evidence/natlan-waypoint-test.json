@@ -183,9 +183,78 @@
     "ochkanatlan-dock",
     "ochkanatlan-ruins"
   ],
-  "reciprocal_routes_including_ship": 212,
-  "directed_crossings": 424,
+  "reciprocal_routes_including_ship": 222,
+  "directed_crossings": 444,
   "timed_ship_stop_and_reboarding": true,
+  "ship_window": {
+    "start": 30,
+    "end": 50,
+    "initial_map_window": {
+      "phase": "waiting",
+      "seconds": 28,
+      "kind": "ferry"
+    }
+  },
+  "directed_marker_crossings": 440,
+  "travel_modes": {
+    "walk": 313,
+    "lift": 82,
+    "boat": 32,
+    "raised": 7,
+    "ship_deck": 4,
+    "waterway": 6
+  },
+  "reviewed_studio_pairs": 32,
+  "editor_deletions_confirmed_absent": 15,
+  "retired_floor_links": [
+    {
+      "from": "nat-wp-72437",
+      "to": "nat-wp-72445",
+      "mode": "liftSeconds"
+    }
+  ],
+  "current_routes_for_retired_floor_links": [
+    {
+      "from": "nat-wp-72437",
+      "to": "nat-wp-72445",
+      "outward": [
+        "nat-wp-72438",
+        "nat-wp-72445"
+      ],
+      "inward": [
+        "nat-wp-72438",
+        "nat-wp-72437"
+      ]
+    }
+  ],
+  "source_saves": {
+    "late": {
+      "path": "snow-ready-save.json",
+      "level": 140,
+      "sha256": "aa7827b513822ea28cca658a5c5598441848a0c230b35b4024324f5c89782a14"
+    },
+    "entry": {
+      "path": "natlan-save.json",
+      "level": 100,
+      "sha256": "a8b765738f9ea68cd6a96ae631b2d436b919cbb77968199a3e11884e24782ed1"
+    }
+  },
+  "party_wipes": 0,
+  "quarry_routes": {
+    "out": [
+      "natlan-quarry-road",
+      "natlan-field"
+    ],
+    "back": [
+      "natlan-quarry-road",
+      "natlan-hub"
+    ]
+  },
+  "valley_approach": [
+    "nat-wp-72450",
+    "nat-wp-72432",
+    "nat-wp-72435"
+  ],
   "animated_lift": {
     "from": "nat-wp-96375",
     "to": "nat-wp-96376",

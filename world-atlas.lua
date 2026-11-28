@@ -232,7 +232,10 @@ return function(C, atlas)
     depth=depth..'（'..(dy>=60 and '今の位置から潜る' or dy<=-60 and '今の位置から浮上' or '今の深さで通れる')..'）'
    end
    parts[#parts+1]=depth
-  elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
+  elseif edge.y and edge.y<480 then
+   parts[#parts+1]='上段の入口'
+   if edge.approachHint and (not actorY or actorY>edge.y) then parts[#parts+1]=edge.approachHint end
+  end
   if destination.swim and not node.swim and route_mode(edge,node,destination)=='dive' then
    local swim=destination.swim
    parts[#parts+1]='門を通ると水中へ（'..swim_layer(swim,edge.arrivalY or swim.entryY)..'）'
