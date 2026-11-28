@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 白虹峠の道標と報酬の剣
+
+巡回を終えたLv145セーブで雪線の切通しを狩り、Lv148で第2章を受注した。樹林の二本杭、岩棚の赤い旗、峠小屋の案内板を確認してLv149に到達。案内板は報告後も読み返せる。終着駅で白虹峠の剣を装備すると旅人の攻撃力は44から327になり、保存後も装備が戻る。 [道と剣の手順](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [Luaの試走](evidence/earned-white-pass-woods-lua.json) · [Chromeの再開と描画](evidence/earned-white-pass-woods-browser.json)
+
 ## ミティヤの加入と雪線の巡回路
 
 終着駅のLv142セーブから観測器を固定してミティヤを同行に選び、雪線の切通しでLv145に達した。アリョーシャの依頼ではトゥガリンの足跡が岩棚の手前で途切れ、上段から下の割れ目を確認すると旗が残る。観測器の設置途中と報告後の旗は保存から再現した。 [加入と巡回路](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [Luaの続き](evidence/earned-sne-mitya-footprints-lua.json) · [Chromeの保存検査](evidence/earned-sne-mitya-footprints-browser.json)
