@@ -573,6 +573,7 @@ function hud(f,calls,renderMs){
  narwhal.hidden=!journey||field.phase==='respawn'||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
+  const emergenceHint=field.emergeTicks>0?' ｜ 出現まで'+(Math.ceil(field.emergeTicks/6)/10).toFixed(1)+'秒':'';
   const exposedCoreHint=field.coreWindowTicks>0?' ｜ あと'+(Math.ceil(field.coreWindowTicks/6)/10).toFixed(1)+'秒':'';
   const rootCoreHint=field.hp>0&&field.coreHits>0?' ｜ 根元の核 あと'+field.coreHits+'回':'';
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:field.phase==='cleared'||oasis?.defense||journey?.scene==='inner'?field.label:
@@ -596,7 +597,7 @@ function hud(f,calls,renderMs){
   const party=f.storyTravelerTrial?(f.coop?.shared?' ｜ 旅人のみで共闘':' ｜ 旅人単独'):'';
   const difficulty=field.difficulty?` ｜ ${field.difficulty}`:'';
   const tuning=(field.draftHp?' ｜ 比較版HP':'')+(field.draftMoves?' ｜ 短縮技案':'');
-  const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${tuning}${mark}${party}${rootCoreHint}${exposedCoreHint}`;
+  const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${tuning}${mark}${party}${rootCoreHint}${exposedCoreHint}${emergenceHint}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
   fieldHp.hidden=field.phase==='respawn'||field.phase==='cleared'||!phases.hidden||!!oasis?.defense||journey?.scene==='inner';
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;

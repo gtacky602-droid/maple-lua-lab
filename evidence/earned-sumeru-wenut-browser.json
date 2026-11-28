@@ -1,0 +1,46 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 23.07,
+    "moves": [
+      "FWN01",
+      "FWN02",
+      "FWN03"
+    ],
+    "dodgeWindows": 4,
+    "finished": true,
+    "hp": 362,
+    "returns": 0
+  },
+  "levelAtEntry": 72,
+  "route": [
+    "sumeru-entry",
+    "wenut-field-cavern"
+  ],
+  "emergenceCommands": {
+    "png": 24,
+    "standard": 8470,
+    "light": 2286,
+    "emergenceX": 958.5,
+    "hiddenCountdown": 21
+  },
+  "commissionRestored": true,
+  "fieldKill": {
+    "xp": 71200,
+    "mora": 250
+  },
+  "commissionReport": {
+    "xp": 4400,
+    "mora": 320
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 24,
+    "standard": 9003,
+    "light": 2503
+  },
+  "hiddenWithMarker": true,
+  "visibleHeadAndFirstWindOrb": true,
+  "viewport390": true,
+  "errors": []
+}

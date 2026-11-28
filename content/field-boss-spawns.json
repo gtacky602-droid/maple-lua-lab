@@ -1061,6 +1061,7 @@
       "id":"boss-26130101",
       "coop":true,
       "controller":"wenut",
+      "showRecovery":true,
       "entity":26130101,
       "name":"風蝕ウェネト",
       "node":"wenut-field-cavern",

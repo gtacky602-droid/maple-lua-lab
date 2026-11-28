@@ -1,0 +1,91 @@
+{
+  "sourceSha256": "e45b514766a187ed2004cefefaa6f095918a45f2157c4aa7030951afee1a05b4",
+  "gateChecks": [
+    {
+      "level": 70,
+      "needed": 72
+    },
+    {
+      "level": 71,
+      "needed": 72
+    }
+  ],
+  "workshop": {
+    "levelBefore": 70,
+    "levelAfter": 71,
+    "wrongSeatRejected": true,
+    "restoredLayout": {
+      "shelf": "wall",
+      "window": "inward",
+      "seat": "aisle"
+    },
+    "report": {
+      "quest": "sum-kaveh-model",
+      "xp": 293808,
+      "mora": 2450
+    }
+  },
+  "discoveries": {
+    "levelBefore": 71,
+    "levelAfter": 72,
+    "dewElevation": 394,
+    "restoredPostedMap": {
+      "sky": "canopy",
+      "dew": "gleam",
+      "leaf": "panel"
+    },
+    "report": {
+      "quest": "sum-nahida-map",
+      "xp": 386920,
+      "mora": 2600
+    }
+  },
+  "combat": {
+    "levelAtEntry": 72,
+    "levelAfterKill": 72,
+    "moves": {
+      "FWN01": {
+        "lock": 48,
+        "position": null,
+        "hpAtLock": 384,
+        "hpAfterAttack": 384
+      },
+      "FWN02": {
+        "lock": 54,
+        "position": null,
+        "hpAtLock": 384,
+        "hpAfterAttack": 384
+      },
+      "FWN03": {
+        "lock": 54,
+        "position": 755.0,
+        "hpAtLock": 384,
+        "hpAfterAttack": 384
+      }
+    },
+    "emergenceTimer": {
+      "54": 60,
+      "78": 36,
+      "98": 16,
+      "113": 1,
+      "114": 0
+    },
+    "orbs": [
+      1,
+      2
+    ],
+    "counterHit": true,
+    "hpBefore": 384,
+    "hpAfter": 362,
+    "seconds": 19.58,
+    "xp": 71200,
+    "mora": 250
+  },
+  "report": {
+    "quest": "wenut-commission",
+    "xp": 4400,
+    "mora": 320
+  },
+  "restoredCooldown": 3352,
+  "returns": 0
+}

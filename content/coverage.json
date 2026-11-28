@@ -8490,6 +8490,19 @@
         "evidence/earned-sumeru-asimon-browser.json"
       ]
     },
+    "earned_sumeru_wenut": {
+      "project_progression_levels": [70, 71, 72],
+      "wenut_gate_level": 72,
+      "encounter_cleared_and_commission_restored": "boss-26130101",
+      "emergence_tell_ticks": 60,
+      "underground_ticks": 36,
+      "lua_evidence": "evidence/earned-sumeru-wenut.json",
+      "browser_evidence": [
+        "evidence/earned-sumeru-kaveh-browser.json",
+        "evidence/earned-sumeru-nahida-browser.json",
+        "evidence/earned-sumeru-wenut-browser.json"
+      ]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

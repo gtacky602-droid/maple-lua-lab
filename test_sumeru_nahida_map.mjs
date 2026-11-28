@@ -4,6 +4,8 @@ import {chromium} from 'playwright';
 
 const hub='sumeru-hub',stop='sumeru-observation-stop',glade='sum-nahida-dew-glade';
 const quest='sum-nahida-map',prefix='evidence/sum-nahida-map';
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-sumeru-wenut/nahida':prefix;
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),map=page.locator('#discoveryMap'),errors=[];
@@ -14,7 +16,7 @@ page.on('pageerror',error=>errors.push(error.message));
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:22000});
 const at=node=>wait(node=>window.lab?.frame?.story?.node===node,node);
-const shot=(name,locator=page.locator('.game'))=>locator.screenshot({path:prefix+'-'+name+'.png'});
+const shot=(name,locator=page.locator('.game'))=>locator.screenshot({path:output+'-'+name+'.png'});
 
 async function key(code){
  await canvas.click();
@@ -106,14 +108,19 @@ async function compareGlade(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8920/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/sum-nahida-map-fixture.json','utf8');
+ const seed=await fs.readFile(earned?output+'-ready.json':'work/sum-nahida-map-fixture.json','utf8');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load();
+ if(earned){
+  const f=await frame();
+  assert.equal(f.progression.level,71);
+  assert.equal(f.story.quests['sum-kaveh-model'].status,'complete');
+ }
  await questButton('受注','active');
  await collect(950,'ナヒーダに発見の話を聞く');
  await collect(950,'絵地図を開く');
  await map.waitFor();
- assert.equal(await pick('sky').isDisabled(),true);
+ assert.equal(await pick('sky').isDisabled(),!earned);
  assert.equal(await pick('dew').isDisabled(),true);
  await choose('leaf','panel');
  await choose('branches','sound');
@@ -172,8 +179,9 @@ try{
  await collect(950,'広場に掲示した絵地図を読む');
  assert.deepEqual(await map.locator('strong').allTextContents(),entries);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-web.json',JSON.stringify({
-  quest,background,checked:{reloadedDraft:true,optionalGlade:true,lockedFourthCard:true,postedAfterReload:true,mobileWidth:390},
+ if(earned)assert.equal((await frame()).progression.level,72);
+ await fs.writeFile(earned?'evidence/earned-sumeru-nahida-browser.json':prefix+'-web.json',JSON.stringify({
+  quest,background,...(earned?{startLevel:71,finishLevel:72}:{}),checked:{reloadedDraft:true,optionalGlade:true,lockedFourthCard:true,postedAfterReload:true,mobileWidth:390},
   entries,calls,errors
  },null,2)+'\n');
  console.log(quest,calls);

@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {verifySumeruBossGuide} from './tools/browser_waypoint_test.mjs';
 
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-sumeru-wenut':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='wenut-field';
@@ -41,10 +44,10 @@ async function pause(value){
 }
 
 async function fight(){
- await page.evaluate(()=>{
+ await page.evaluate(earnedRun=>{
   const held=new Set(),moves=new Set(),dodges=new Set();
   const warnings={FWN01:[104],FWN02:[104],FWN03:[152,202]};
-  let prior='',lastTick=-1,used=new Set();
+  let prior='',lastTick=-1,used=new Set(),readyToAttack=!earnedRun;
   const start=window.lab.frame.t;
   function hold(code,on){
    if(on===held.has(code))return;
@@ -62,6 +65,7 @@ async function fight(){
    if(prior!==b.move||b.tick<lastTick){prior=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move)moves.add(b.move);
+   if(b.move==='FWN03'&&b.tick>=240)readyToAttack=true;
    for(const at of warnings[b.move]||[]){
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);dodges.add(b.move+at);hold('ShiftLeft',true);hold('ShiftLeft',false);
@@ -70,20 +74,28 @@ async function fight(){
    const dx=b.x-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',dx<-99||(turn&&dx<0));
    hold('KeyD',dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   hold('KeyJ',readyToAttack&&!b.underground&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },earned);
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(earned?output+'/wenut-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='sumeru-hub',quest);
+ let route;
+ if(earned){
+  const current=await frame();
+  assert.equal(current.progression.level,72);
+  assert.equal(current.story.quests['sum-kaveh-model'].status,'complete');
+  assert.equal(current.story.quests['sum-nahida-map'].status,'complete');
+  route=await verifySumeruBossGuide(page,arena,'sumeru-entry');
+ }
  await gate(60,'sumeru-entry');
  await gate(800,arena);
  const scenery=await page.evaluate(async()=>{
@@ -102,7 +114,7 @@ try{
  assert.equal(original.fieldBoss.maxhp,1080);
  assert.ok(original.draws.some(d=>d.source==='wenut-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='wenut-field-poses-source-v1.png'));
  const standard=await frame();
@@ -110,7 +122,7 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  await fight();
@@ -124,8 +136,12 @@ try{
  await page.waitForFunction(()=>window.lab.frame.paused);
  const hidden=await frame();
  assert.equal(hidden.fieldBoss.underground,true);
+ assert.ok(hidden.fieldBoss.emergeTicks>0);
+ assert.equal(hidden.fieldBoss.emergeTicks,114-hidden.fieldBoss.tick);
+ assert.ok(hidden.draws.some(d=>d.color==='#302235'&&d.w===32&&Math.abs(d.x+16+hidden.camera-hidden.fieldBoss.emergeX)<.01));
+ assert.match(await page.locator('#fieldBossLabel').innerText(),/砂の下.*出現まで[0-9.]+秒/);
  assert.ok(!hidden.draws.some(d=>d.source===prefix+'-poses-source-v1.png'));
- await canvas.screenshot({path:'evidence/'+prefix+'-burrow.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-burrow.png'});
  await pause(false);
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
@@ -137,12 +153,28 @@ try{
  await page.waitForFunction(()=>window.lab.frame.paused);
  const emerged=await frame();
  assert.ok(emerged.draws.some(d=>d.source===prefix+'-poses-source-v1.png'&&d.h===99));
- await canvas.screenshot({path:'evidence/'+prefix+'-orb.png'});
+ assert.equal(emerged.fieldBoss.x,hidden.fieldBoss.emergeX);
+ assert.equal(emerged.fieldBoss.emergeTicks,undefined);
+ await canvas.screenshot({path:output+'/'+prefix+'-orb.png'});
+ let emergenceCommands;
+ if(earned){
+  await page.locator('#renderMode').selectOption('rect');
+  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.kind==='boss_sprite'));
+  const standard=await frame();
+  await page.locator('#renderMode').selectOption('h32c16');
+  await page.waitForFunction(n=>window.lab.frame.commands<n*.72,standard.commands);
+  const light=await frame();
+  assert.deepEqual([standard.t,light.t,light.fieldBoss.x],[emerged.t,emerged.t,emerged.fieldBoss.x]);
+  await canvas.screenshot({path:output+'/wenut-field-orb-light.png'});
+  emergenceCommands={png:emerged.commands,standard:standard.commands,light:light.commands,
+   emergenceX:hidden.fieldBoss.emergeX,hiddenCountdown:hidden.fieldBoss.emergeTicks};
+  await page.locator('#renderMode').selectOption('sprite');
+ }
  await pause(false);
  await page.waitForFunction(()=>window.wenutFieldResult,undefined,{timeout:140000});
  const play=await page.evaluate(()=>window.wenutFieldResult);
  assert.ok(play.finished,JSON.stringify(play));
- assert.deepEqual(play.moves,['FWN01','FWN02','FWN03']);
+ assert.deepEqual([...play.moves].sort(),['FWN01','FWN02','FWN03']);
  assert.ok(play.dodgeWindows>=3);
  assert.equal(play.returns,0);
  const defeated=await frame();
@@ -160,6 +192,17 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(earned){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('町から再開'));
+  const current=await frame();
+  assert.equal(current.story.node,'sumeru-hub');
+  assert.equal(current.story.quests[quest].status,'complete');
+  assert.equal(current.story.quests[quest].cycles,1);
+  assert.equal(current.endgame.bosses[id].clears,1);
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('風蝕ウェネト');
@@ -169,8 +212,8 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
-  browser:'Chrome',play,fieldKill:{xp:killXp,mora:250},commissionReport:{xp:4400,mora:320},
+ await fs.writeFile(earned?'evidence/earned-sumeru-wenut-browser.json':'evidence/'+prefix+'-browser.json',JSON.stringify({
+  browser:'Chrome',play,...(earned?{levelAtEntry:72,route,emergenceCommands,commissionRestored:true}:{}),fieldKill:{xp:killXp,mora:250},commissionReport:{xp:4400,mora:320},
   persistedCooldown:true,
   sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},hiddenWithMarker:true,visibleHeadAndFirstWindOrb:true,viewport390:true,errors
  },null,2)+'\n');

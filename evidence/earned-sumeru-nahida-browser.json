@@ -1,0 +1,28 @@
+{
+  "quest": "sum-nahida-map",
+  "background": {
+    "key": "sumeruNahidaGlade",
+    "file": "sum-nahida-map-glade-background-v1.png",
+    "state": "ready"
+  },
+  "startLevel": 71,
+  "finishLevel": 72,
+  "checked": {
+    "reloadedDraft": true,
+    "optionalGlade": true,
+    "lockedFourthCard": true,
+    "postedAfterReload": true,
+    "mobileWidth": 390
+  },
+  "entries": [
+    "葉の橋",
+    "枝間水路",
+    "大きな朝露"
+  ],
+  "calls": {
+    "png": 8,
+    "rect": 5596,
+    "light": 1420
+  },
+  "errors": []
+}
