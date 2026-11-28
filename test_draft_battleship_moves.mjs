@@ -46,6 +46,7 @@ try {
  await page.locator('#fieldBossLabel').filter({hasText:'冷却板'}).waitFor();
 
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(file => !window.lab.frame.draws.some(draw => draw.source===file),source);
  const standard=await scene();
  await page.locator('.game').screenshot({path:'evidence/short-battleship-plate.png'});

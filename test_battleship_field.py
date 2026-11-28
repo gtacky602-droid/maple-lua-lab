@@ -10,7 +10,6 @@ lua,core=runtime()
 boss_id,quest='boss-23090101','battleship-commission'
 hub,road,arena='nod-town','nod-field','nod-battleship-depot'
 empty=lua.table()
-same=lua.eval('rawequal')
 
 
 def spot(actor,x,y=480):
@@ -74,125 +73,128 @@ def strike(state,boss,element='physical',**changes):
     core.resolveCast(state,cast(state,boss,element,**changes))
     return hp-boss.hp
 
-
 state,slot,boss,hero=make(fixture=True)
-assert (boss.level,boss.hp,boss.form,boss.heat)==(124,1170,'idle',0)
+assert (boss.level,boss.hp,boss.form)==(124,1170,'idle')
 normal=strike(state,boss)
 saw=until(state,slot,'FBT01',48)
 lane=(saw.left,saw.right)
 spot(hero,saw.origin+95)
 hp=hero.hp
-until(state,slot,'FBT01',122)
+until(state,slot,'FBT01',120)
 assert hero.hp==hp and not saw.seen[1][1] and (saw.left,saw.right)==lane
 spot(hero,sum(lane)/2)
 until(state,slot,'FBT01',129)
-assert hero.hp==hp-24 and saw.seen[1][1] and saw.source.damageElement=='pyro'
+assert hero.hp==hp-24 and saw.seen[1][1]
 
-fire=until(state,slot,'FBT02',56)
-marks=list(fire.centers.values())
-assert math.isclose(abs(marks[0]-marks[1]),1.42*88)
-spot(hero,marks[0])
+cannons=until(state,slot,'FBT02',56)
+centers=list(cannons.centers.values())
+assert len(centers)==2
+markers=[d for d in core.frame(state,'sprite').draws.values() if d.kind=='text' and d.y==500]
+assert [d.text for d in markers]==['1','2']
+spot(hero,centers[0])
 hp=hero.hp
 until(state,slot,'FBT02',129)
-assert hero.hp==hp-21 and fire.seen[1][1] and not fire.seen[2][1]
-spot(hero,marks[1])
+assert hero.hp==hp-21 and cannons.seen[1][1] and not cannons.seen[2][1]
+spot(hero,centers[1])
+hero.inv=0
 until(state,slot,'FBT02',197)
-assert hero.hp==hp-42 and fire.seen[2][1] and fire.source.damageElement=='cryo'
+assert hero.hp==hp-42 and list(cannons.centers.values())==centers
 
-spot(hero,boss.x-88)
-assert core.attack(state,hero,'SK21')
-ticks(state,25)
-assert boss.heat==1 and boss.iceWard==0
-strike(state,boss,'pyro',reaction=True,key='reaction:swirl')
-assert boss.heat==1
-strike(state,boss,'pyro',reaction=True,key='reaction:burning')
-assert boss.heat==2 and boss.iceWard==0
-hot=strike(state,boss)
-assert hot==math.floor(24*100/105*1.25)>normal
+hero.hp=hero.maxhp
+spot(hero,boss.x-90)
+opening=until(state,slot,'FBT03',59)
+old=cast(state,boss,'physical',x=opening.origin+opening.dir*.60*88,range=18)
+ticks(state)
+plate=opening.plate
+assert opening.tick==60 and opening.plateLayers==5 and boss.heat==boss.iceWard==0
+core.resolveCast(state,old)
+assert opening.plateLayers==5
+assert strike(state,boss,'pyro',x=plate.x,range=18,reaction=True)==0 and opening.plateLayers==5
+assert strike(state,boss,x=plate.x,y=350,vertical=12,range=18)==0 and opening.plateLayers==5
+assert strike(state,boss,range=18)==normal and opening.plateLayers==5
+punch=cast(state,boss,'physical',x=plate.x,range=18)
 hp=boss.hp
-for _ in range(2):
-    strike(state,boss,'pyro')
-ward=slot.cast
-assert boss.hp<hp and same(boss,slot.enemy) and boss.id==23090101
-assert boss.heat==4 and boss.iceWard==5 and ward.move.id=='FBT03' and ward.tick==0
-assert len(state.enemies)==1 and ward.centers is None
-guarded=strike(state,boss)
-assert guarded==math.floor(24*100/105*.45)<normal and boss.iceWard==4
-until(state,slot,'FBT03',100)
-assert boss.heat==3 and boss.iceWard==4
+for _ in range(3): core.resolveCast(state,punch)
+assert opening.plateLayers==4 and boss.hp==hp
+assert strike(state,boss,'pyro',x=plate.x,range=18)==0 and opening.plateLayers==2
+assert strike(state,boss,x=plate.x,range=88)==normal and opening.plateLayers==1
 png,standard,light=[core.frame(state,mode,profile) for mode,profile in
                    [('sprite','legacy'),('rect','legacy'),('rect','h32c16')]]
 assert png.t==standard.t==light.t and light.commands<standard.commands
-assert any(d.source=='battleship-field-poses-source-v1.png' for d in png.draws.values())
-assert '氷バリア' in png.fieldBoss.label
+assert png.fieldBoss.thermal is None and png.fieldBoss.coolingPlate.layers==1
 
-same_cast=cast(state,boss,'pyro')
-for _ in range(3):
-    core.resolveCast(state,same_cast)
-assert boss.iceWard==2
-strike(state,boss,'pyro')
-assert boss.iceWard==0
+until(state,slot,'FBT03',299)
+assert strike(state,boss,x=plate.x,range=18)==0 and opening.plateLayers==0
 ticks(state)
-assert boss.form=='down' and ward.broken==101 and boss.heat==0
-spot(hero,(ward.left+ward.right)/2)
+assert opening.broken==300 and boss.form=='down'
+assert core.frame(state).fieldBoss.recoveryTicks==168 and not opening.plate
+spot(hero,(opening.left+opening.right)/2)
 hp=hero.hp
-until(state,slot,'FBT03',268)
-assert boss.form=='down' and not ward.seen[1][1] and hero.hp==hp
+until(state,slot,'FBT03',467)
+assert boss.form=='down' and hero.hp==hp and not opening.seen[1][1]
 ticks(state)
-assert boss.form=='idle' and slot.cast is None
+assert boss.form=='standing'
+until(state,slot,'FBT03',491)
+ticks(state)
+assert slot.cast is None and boss.form=='idle'
+
+hero.hp=hero.maxhp
+spot(hero,boss.x-92)
+natural=until(state,slot,'FBT03',60)
+spot(hero,(natural.left+natural.right)/2)
+hp=hero.hp
+until(state,slot,'FBT03',300)
+assert natural.plate is None and strike(state,boss,range=18)==normal
+until(state,slot,'FBT03',323)
+assert hero.hp==hp
+ticks(state)
+assert hero.hp==hp-33
+until(state,slot,'FBT03',360)
+assert core.frame(state).fieldBoss.recoveryTicks==144
 
 state,slot,boss,hero=make()
-for _ in range(4):
-    strike(state,boss,'pyro')
-ward=until(state,slot,'FBT03',60)
-locked=(ward.left,ward.right)
-spot(hero,ward.right+142)
-until(state,slot,'FBT03',256)
-assert boss.heat==1 and boss.iceWard==5 and (ward.left,ward.right)==locked and not ward.seen[1][1]
-spot(hero,sum(locked)/2)
-hp=hero.hp
-until(state,slot,'FBT03',269)
-assert hero.hp==hp-33 and ward.seen[1][1]
-until(state,slot,'FBT03',340)
-assert boss.heat==0 and boss.iceWard==0 and boss.form=='recover'
-until(state,slot,'FBT03',423)
-ticks(state)
-assert boss.form=='idle' and slot.cast is None
-
-for _ in range(4):
-    strike(state,boss,'pyro')
-hp=boss.hp
-snap=validate_save(native(core.checkpoint(state)))
-restored=core.restore(lua.table_from(snap,recursive=True),12)
+strike(state,boss)
+opening=until(state,slot,'FBT03',60)
+snapshot=validate_save(native(core.checkpoint(state)))
+restored=core.restore(lua.table_from(snapshot,recursive=True),12)
 enter(restored)
-fresh=restored.fieldSlots[boss_id]
-assert fresh.enemy.hp==hp and fresh.enemy.iceWard==fresh.enemy.heat==0 and fresh.cast is None
+assert restored.fieldSlots[boss_id].enemy.hp==boss.hp and restored.fieldSlots[boss_id].cast is None
+hp=boss.hp
 portal(state,65,road)
-assert slot.cast is None and boss.heat==boss.iceWard==0
+assert slot.cast is None and boss.form=='idle'
 portal(state,945,arena)
 assert boss.hp==hp
-for _ in range(4):
-    strike(state,boss,'pyro')
+spot(hero,boss.x-92)
+hero.hp=hero.maxhp
+until(state,slot,'FBT03',60)
 boss.hp=1
 kills,mora=state.kills,state.mora
-assert strike(state,boss,'pyro')==1 and slot.phase=='respawn' and slot.cast is None
-assert state.story.quests[quest].count==1 and state.kills==kills+1 and state.mora==mora+455
-snap=validate_save(native(core.checkpoint(state)))
-assert snap['fieldBosses'][boss_id]['waitTicks']==3600
-restored=core.restore(lua.table_from(snap,recursive=True),12)
+assert strike(state,boss)==1 and slot.phase=='respawn' and slot.cast is None
+assert state.kills==kills+1 and state.mora==mora+455
+assert state.story.quests[quest].count==1
+snapshot=validate_save(native(core.checkpoint(state)))
+assert snapshot['fieldBosses'][boss_id]['waitTicks']==3600
+restored=core.restore(lua.table_from(snapshot,recursive=True),12)
 xp,mora=restored.progression.questXp,restored.mora
-for _ in range(2):
-    core.action(restored,'story_report:'+quest)
+for _ in range(2): core.action(restored,'story_report:'+quest)
 assert restored.progression.questXp-xp==8800 and restored.mora-mora==590
+
+state,slot,boss,hero=make()
+edge=until(state,slot,'FBT03',1)
+boss.x=edge.origin=402
+spot(hero,350)
+until(state,slot,'FBT03',60)
+assert edge.reposition and edge.plate is None and edge.left is None
+ticks(state,100)
+assert boss.x>402 and not edge.seen[1][1]
 
 
 def solo():
     state,slot,boss,hero=make()
     moves=set()
     for _ in range(145*60):
-        assert boss.heat==0 and boss.iceWard==0
         if boss.hp<=0:
-            assert moves=={'FBT01','FBT02'} and state.returns==0
+            assert moves=={'FBT01','FBT02','FBT03'} and state.returns==0
             return dict(seconds=round(state.t,2),hp=hero.hp)
         dx=boss.x-hero.x
         turn=abs(dx)>8 and dx*hero.dir<0
@@ -207,10 +209,10 @@ def solo():
     raise AssertionError((state.t,boss.hp,hero.hp))
 
 
-result=dict(fixedSweepAndTwinFrostShots=True,pyroCastsDeduplicated=True,burningAddsHeat=True,
-            sameReceiverAtOverheatAndWard=True,normalTestDamage=dict(base=normal,heated=hot,ward=guarded),
-            brokenWardCancelsDischarge=True,unbrokenWardDischargesLocallyAndResets=True,
-            exitAndSaveKeepHp=True,oneRewardAndReport=True,normalAttackWithoutHeating=solo(),
-            sameSceneCommands=dict(png=png.commands,standard=standard.commands,light=light.commands))
+result=dict(fixedSweepAndTwinFrostShots=True,naturalCoolingWithoutHeating=True,plateLayers=5,
+            freshDirectHitsOnly=True,plateAndHealthIndependent=True,normalChip=1,pyroChip=2,
+            finalAcceptedTick=299,brokenAtTick=300,interruptedRecoveryTicks=168,naturalRecoveryTicks=144,
+            dischargeDamage=33,edgeReposition=True,exitAndSaveKeepHp=True,oneRewardAndReport=True,
+            normalAttackSolo=solo(),sameSceneCommands=dict(png=png.commands,standard=standard.commands,light=light.commands))
 (ROOT/'evidence/battleship-field-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)

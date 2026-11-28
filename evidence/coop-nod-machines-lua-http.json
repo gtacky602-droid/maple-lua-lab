@@ -23,15 +23,16 @@
     "lua": {
       "participants": 4,
       "sawAndCannonsHitIndividually": true,
-      "distinctPartiesShareHeat": true,
-      "repeatAndSwirlDoNotHeat": true,
-      "rejoinPreservesShield": true,
-      "sharedShieldStates": [
+      "sharedPlateLayers": [
         5,
+        4,
         2,
         0
       ],
-      "breakCancelsDischarge": true,
+      "rejoinPreservesPlate": true,
+      "plateHitAloneLeavesHpUnchanged": true,
+      "interruptedOnTick": 300,
+      "interruptionCancelsDischarge": true,
       "individualRewards": true
     },
     "http": {

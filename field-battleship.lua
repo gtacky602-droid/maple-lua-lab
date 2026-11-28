@@ -1,5 +1,5 @@
 return function(C)
- local ship={}
+ local ship={packRectArt=true}
  local U=88
  local frost,white,amber,ink='#8fddff','#f1fcff','#ffa750','#212d3c'
  local function clamp(n,lo,hi) return math.max(lo,math.min(hi,n)) end
@@ -24,23 +24,27 @@ return function(C)
   C.shareFieldHits(c.seen,actors)
  end
  function ship.frame(f,b,s,c)
-  if s.draftMoves then
-   f.draftMoves=true
-   if c and c.move.kind=='plate' and c.left then
-    f.coolingLane={left=c.left,right=c.right}
-    if c.plate and c.plateLayers>0 then
-     local p=c.plate
-     f.coolingPlate={left=p.x-p.hitHalfWidth,right=p.x+p.hitHalfWidth,top=p.hitTop,bottom=p.hitBottom,
-      layers=c.plateLayers,maxLayers=c.move.plateLayers}
-    end
-   end
-   return
+  f.draftMoves=s.draftMoves
+  if s.thermal then
+   f.thermal={heat=b.heat,maxHeat=s.thermal.max,ward=b.iceWard,maxWard=s.thermal.wardHp}
   end
-  f.thermal={heat=b.heat,maxHeat=s.thermal.max,ward=b.iceWard,maxWard=s.thermal.wardHp}
+  if not c or c.reposition then return end
+  local m=c.move
+  if m.kind=='plate' and c.left then
+   f.coolingLane={left=c.left,right=c.right}
+   f.coolingInterrupted=c.broken~=nil
+  end
+  if c.plate and c.plateLayers>0 then
+   local p=c.plate
+   f.coolingPlate={left=p.x-p.hitHalfWidth,right=p.x+p.hitHalfWidth,top=p.hitTop,bottom=p.hitBottom,
+    layers=c.plateLayers,maxLayers=m.plateLayers,remainingTicks=m.plateClose-c.tick}
+  end
+  if b.form=='down' then f.recoveryTicks=c.broken+(m.downTicks or s.thermal.downTicks)-c.tick
+  elseif b.form=='recover' then f.recoveryTicks=m.total-c.tick end
  end
 
  function ship.onHit(cast,b,s,slot)
-  if s.draftMoves then return end
+  if not s.thermal then return end
   if (cast.reaction and cast.key~='reaction:burning') or b.heatContacts[cast] then return end
   local c=slot.cast
   local mode=c and c.move.kind
@@ -63,7 +67,7 @@ return function(C)
  end
 
  function ship.damageFactor(_,_,b,s)
-  if s.draftMoves then return 1 end
+  if not s.thermal then return 1 end
   if b.iceWard>0 then return s.thermal.wardFactor end
   if b.heat>=s.thermal.hotAt then return s.thermal.hotFactor end
   return 1
@@ -76,14 +80,14 @@ return function(C)
    c.left,c.right=math.min(x0,x1),math.max(x0,x1)
   elseif m.kind=='fire' then
    local edge=(m.offsets[#m.offsets]+m.width/2)*U
-   if not s.draftMoves and (c.origin+c.dir*edge<s.arenaMin or c.origin+c.dir*edge>s.arenaMax) then c.dir=-c.dir end
+   if s.thermal and (c.origin+c.dir*edge<s.arenaMin or c.origin+c.dir*edge>s.arenaMax) then c.dir=-c.dir end
    c.centers={}
    for i,offset in ipairs(m.offsets) do c.centers[i]=c.origin+c.dir*offset*U end
   else
    local dx=clamp((a and a.x or c.origin)-c.origin,-m.distance*U,m.distance*U)
    local radius=m.width*U/2
    local center=c.origin+dx
-   if not s.draftMoves then center=clamp(center,s.arenaMin+radius,s.arenaMax-radius) end
+   if m.kind=='ward' then center=clamp(center,s.arenaMin+radius,s.arenaMax-radius) end
    c.left,c.right=center-radius,center+radius
    if m.kind=='plate' then
     c.plate={x=c.origin+c.dir*(m.plateNear+m.plateFar)*U/2,y=s.floorY,boss=true,
@@ -120,6 +124,15 @@ return function(C)
   return c.left,c.right
  end
 
+ local function fits(state,s,c)
+  for i,w in ipairs(c.move.active) do
+   local left,right=bounds(c,i)
+   if left<s.arenaMin or right>s.arenaMax or
+      not C.fieldGroundRetreat(state,c.dir,left,right,w[1]-c.tick,c.origin) then return false end
+  end
+  return true
+ end
+
  local function finish(b,s)
   b.heat,b.iceWard=0,0
   place(b,s,'idle','idle')
@@ -127,6 +140,12 @@ return function(C)
 
  function ship.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
+  if c.reposition then
+   b.facing=s.home>b.x and 1 or -1
+   b.x=b.x+clamp(s.home-b.x,-s.walkSpeed/60,s.walkSpeed/60)
+   if b.x==s.home then c.origin,c.tick,c.reposition=b.x,0,nil end
+   return false
+  end
   c.tick=t
   if m.kind=='ward' and t<m.recover then
    if b.iceWard<=0 and not c.broken then c.broken=t;b.heat=0 end
@@ -145,7 +164,17 @@ return function(C)
    return true
   end
   if t<=m.lock and a then c.dir=a.x<c.origin and -1 or 1;b.facing=c.dir end
-  if t==m.lock then lock(state,s,c,a);b.facing=c.dir end
+  if t==m.lock then
+   lock(state,s,c,a)
+   b.facing=c.dir
+   if not s.thermal and not fits(state,s,c) then
+    c.left,c.right,c.centers,c.plate,c.plateLayers,c.plateContacts,c.openedAt=nil,nil,nil,nil,nil,nil,nil
+    finish(b,s)
+    if b.x==s.home then return true end
+    c.reposition=true
+    return false
+   end
+  end
   local form,pose='attack',m.pose
   if m.kind=='ward' then form='shield' end
   if m.kind=='plate' then form='cooling' end
@@ -163,16 +192,20 @@ return function(C)
   end
   place(b,s,form,pose)
   if t<m.total then return false end
-  place(b,s,'idle',b.heat>=s.thermal.hotAt and 'heated' or 'idle')
+  place(b,s,'idle',s.thermal and b.heat>=s.thermal.hotAt and 'heated' or 'idle')
   return true
  end
 
  function ship.label(b,c,s)
-  if s.draftMoves then
+  if c and c.reposition then return '整備庫の中央へ移動中' end
+  if c and c.move.kind=='plate' then
    if b.form=='down' then return '冷却板を破壊・反撃の隙' end
    if b.form=='standing' then return '起き上がり' end
    if b.form=='recover' then return '反撃の隙' end
-   if c and c.plate and c.plateLayers>0 then return '冷却板 '..c.plateLayers..'／'..c.move.plateLayers..'・炎で2層' end
+   if c.plate and c.plateLayers>0 then
+    local seconds=math.ceil((c.move.plateClose-c.tick)/6)/10
+    return string.format('冷却板 %d／%d・あと%.1f秒・炎で2層',c.plateLayers,c.move.plateLayers,seconds)
+   end
    if b.form=='cooling' and c.tick>=c.move.plateClose then return '冷却放出・床の印から退避' end
   end
   if b.form=='down' then return '氷バリア破壊・反撃の好機' end
@@ -198,21 +231,18 @@ return function(C)
     local tint=m.element=='pyro' and amber or frost
     if c.tick>=w[1] then rect(f,l,top,r-l,bottom-top,tint..'55');rect(f,l,top,r-l,3,white) end
     for x=l+1,r-5,13 do rect(f,x,bottom-4,7,3,tint) end
-    if #m.active>1 then f.draws[#f.draws+1]={kind='text',x=(l+r)/2,y=top-7,text=i..' / 2',size=13,color=white} end
-    break
    end
   end
  end
  function ship.draw(f,state,b,s,c,mode,profile)
   local x,y=b.x-state.camera,s.floorY
-  if c and not s.draftMoves then warning(f,c,state.camera,y) end
-  local hot=b.heat>=s.thermal.hotAt
+  if c then warning(f,c,state.camera,y) end
+  local hot=s.thermal and b.heat>=s.thermal.hotAt
   local pose=b.pose
   if hot and not c then pose='heated' end
   local nativeLeft=pose=='saw-ready' or pose=='sweep'
   C.drawBattleshipFieldArt(f,x,b.y,pose,mode,profile,(b.facing<0)~=nativeLeft)
-  if s.draftMoves then
-   if c then warning(f,c,state.camera,y) end
+  if not s.thermal then
    if c and c.plate then
     local p=c.plate
     local l,r=p.x-p.hitHalfWidth-state.camera,p.x+p.hitHalfWidth-state.camera
@@ -245,6 +275,22 @@ return function(C)
    rect(f,x-39,bar-7,78*b.iceWard/s.thermal.wardHp,2,frost)
   elseif hot and pose~='heated' then
    rect(f,x-22,y-74,6,5,amber);rect(f,x-10,y-77,11,6,amber);rect(f,x+5,y-74,7,5,amber)
+  end
+ end
+
+ function ship.drawOverlay(f,state,s,c)
+  if not c or c.broken or (not c.left and not c.centers) then return end
+  local m=c.move
+  if m.kind~='fire' and m.kind~='plate' then return end
+  for i,w in ipairs(m.active) do
+   if c.tick<w[2] then
+    local left,right=bounds(c,i)
+    local x,y=(left+right)/2-state.camera,s.floorY
+    local width=m.kind=='fire' and 20 or 38
+    rect(f,x-width/2,y+6,width,18,ink)
+    rect(f,x-width/2,y+6,width,2,frost)
+    f.draws[#f.draws+1]={kind='text',x=x,y=y+20,text=m.kind=='fire' and tostring(i) or '放出',size=12,color=white}
+   end
   end
  end
  return ship

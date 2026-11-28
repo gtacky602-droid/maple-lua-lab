@@ -1,4 +1,4 @@
-"""Verify shared repair units and thermal shielding in the Nod-Krai arenas."""
+"""Verify shared repair units and the cooling plate in the Nod-Krai arenas."""
 import json
 
 from runtime import ROOT, native, runtime
@@ -83,36 +83,44 @@ def check_ship(lua, core):
     wait_cast(step, slot, 'FBT02', 197)
     assert [hits(s, boss, mark) for s, mark in zip(states, marks)] == [[21], [21], [], []]
 
-    flame = lua.table_from(dict(id=1, atk=20, x=boss.x, y=480, dir=1, radial=True, range=24, limit=1,
-                                mult=1, color='#ffddb3', gain=0, element='pyro', critRate=0))
-    core.resolveCast(host, flame)
-    core.resolveCast(host, flame)
-    attack(lua, core, guest, boss, element='pyro', reaction=True, key='reaction:swirl')
-    assert boss.heat == 1
-    for state in (guest, host, guest):
-        attack(lua, core, state, boss, element='pyro')
-    ward = slot.cast
-    assert boss.form == 'shield' and ward.move.id == 'FBT03' and boss.iceWard == 5
+    for state in states:
+        place(state, boss.x-92)
+    wait_cast(step, slot, 'FBT03', 60)
+    cold = slot.cast
+    initial = frames(core, states)
+    shared_plate = initial[0]['coolingPlate']
+    assert all(f['coolingPlate'] == shared_plate and f['coolingLane'] == initial[0]['coolingLane'] for f in initial)
+    assert shared_plate['layers'] == 5 and all('thermal' not in f for f in initial)
+
+    x = cold.plate.x
+    hp = boss.hp
+    assert attack(lua, core, guest, boss, x=x, range=18, startedAt=guest.t) == 0
+    assert cold.plateLayers == 4 and boss.hp == hp
     member = spectator.coopMember
     core.detachCoop(member)
     core.attachCoop(room, spectator, member)
-    assert all(f['thermal'] == {'heat': 4, 'maxHeat': 4, 'ward': 5, 'maxWard': 5} for f in frames(core, states))
-    attack(lua, core, host, boss)
-    attack(lua, core, guest, boss, element='pyro')
-    assert all(f['thermal']['ward'] == 2 for f in frames(core, states))
-    wait_cast(step, slot, 'FBT03', 250)
-    attack(lua, core, host, boss, element='pyro')
+    assert core.frame(spectator).fieldBoss.coolingPlate.layers == 4
+    damage = attack(lua, core, host, boss, x=x, range=88, element='pyro', startedAt=host.t)
+    assert damage > 0 and boss.hp == hp-damage
+    assert all(f['coolingPlate']['layers'] == 2 for f in frames(core, states))
+
     marks = [state.seq for state in states]
-    place(host, (ward.left+ward.right)/2)
-    place(guest, (ward.left+ward.right)/2)
-    wait_cast(step, slot, 'FBT03', 268)
-    assert boss.form == 'down' and boss.iceWard == boss.heat == 0 and ward.broken == 251
-    assert [hits(s, boss, mark) for s, mark in zip(states, marks)] == [[], [], [], []]
+    wait_cast(step, slot, 'FBT03', 299)
+    assert attack(lua, core, guest, boss, x=x, range=18, element='pyro', startedAt=guest.t) == 0
+    step()
+    assert cold.broken == 300 and boss.form == 'down'
+    assert all(f['coolingInterrupted'] and f['recoveryTicks'] == 168 and 'coolingPlate' not in f
+               for f in frames(core, states))
+    place(host, (cold.left+cold.right)/2)
+    place(guest, (cold.left+cold.right)/2)
+    wait_cast(step, slot, 'FBT03', 341)
+    assert [hits(state, boss, mark) for state, mark in zip(states, marks)] == [[], [], [], []]
     finish(lua, core, SHIP, slot, states)
     check_adoption(core, SHIP, 'FBT01', 114, 24)
-    return dict(participants=4, sawAndCannonsHitIndividually=True, distinctPartiesShareHeat=True,
-                repeatAndSwirlDoNotHeat=True, rejoinPreservesShield=True,
-                sharedShieldStates=[5, 2, 0], breakCancelsDischarge=True, individualRewards=True)
+    return dict(participants=4, sawAndCannonsHitIndividually=True,
+                sharedPlateLayers=[5, 4, 2, 0], rejoinPreservesPlate=True,
+                plateHitAloneLeavesHpUnchanged=True, interruptedOnTick=300,
+                interruptionCancelsDischarge=True, individualRewards=True)
 
 
 if __name__ == '__main__':
@@ -120,7 +128,7 @@ if __name__ == '__main__':
     result = {'duckle': {'lua': check_duck(lua, core)}, 'battleship': {'lua': check_ship(lua, core)}}
     with lab() as url:
         result['duckle']['http'] = check_http(url, DUCK, 'FDK03', 76, 'summons', 100, gate=1110)
-        result['battleship']['http'] = check_http(url, SHIP, 'FBT02', 56, 'thermal', 115, gate=945)
+        result['battleship']['http'] = check_http(url, SHIP, 'FBT03', 60, 'coolingLane', 112, gate=945)
     (ROOT/'evidence/coop-nod-machines-lua-http.json').write_text(
         json.dumps(result, indent=2)+'\n', encoding='utf8')
     print(json.dumps(result))

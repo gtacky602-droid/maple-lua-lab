@@ -424,7 +424,26 @@ def validate_runtime_source(config, bosses, moves, migration, data):
         old = fields(configured[boss_id], ("moves",), "runtime_source." + boss_id)
         fixed_values(old, boss["preserve_source_fields"], "runtime_source." + boss_id)
         old_moves = rows_by_id(old["moves"], "runtime_source." + boss_id + ".moves")
+        cooling = old_moves.get("FBT03")
+        if cooling and cooling.get("kind") == "plate":
+            target = moves["FBT03"]
+            plate = data["cooling_plate"]
+            fixed_values(cooling, {
+                "lock": plate["window"][0], "plateClose": plate["window"][1],
+                "plateNear": plate["shape"]["u"][0], "plateFar": plate["shape"]["u"][1],
+                "plateLow": plate["shape"]["z"][0], "plateHigh": plate["shape"]["z"][1],
+                "plateLayers": plate["layers"], "pyroChip": plate["pyro_direct_chip"],
+                "downTicks": plate["interrupt"]["down_ticks"], "standTicks": plate["interrupt"]["standup_ticks"],
+                "active": [event["active"] for event in target["events"]],
+                "recover": target["recovery"][0], "total": target["total"],
+            }, "runtime_source.FBT03")
+            require(old.get("attackPulse") is True and "thermal" not in old and "coolingMove" not in old,
+                    "runtime_source.FBT03: plate requires direct attack pulses and its own move")
+        else:
+            cooling = None
         for field in migration["source_extra_move_fields"].get(boss_id, []):
+            if cooling and field == "coolingMove":
+                continue
             fields(old, (field,), "runtime_source." + boss_id)
             extra = rows_by_id([old[field]], "runtime_source." + boss_id + "." + field)
             require(not (old_moves.keys() & extra.keys()), "runtime_source: duplicate extra move ID")
@@ -445,7 +464,7 @@ def validate_runtime_source(config, bosses, moves, migration, data):
             discharge = None
         for move_id, old_move in old_moves.items():
             fields(old_move, ("total", "damage"), "runtime_source." + move_id)
-            if old_move is not discharge and move_id in migration["source_signature_totals"]:
+            if old_move is not discharge and old_move is not cooling and move_id in migration["source_signature_totals"]:
                 exact(old_move["total"], migration["source_signature_totals"][move_id], "runtime_source." + move_id + ".total")
             for table, key in (("source_air_ticks", "air"), ("source_hidden_ticks", "hide")):
                 if move_id in migration[table]:
@@ -541,12 +560,13 @@ def self_test(data, catalog, config=None):
         [edit(("cooling_plate", "layers"), data["cooling_plate"]["layers"] + 1)],
     ]
     for edits in positives:
-        validate(changed(data, edits), catalog, config)
+        validate(changed(data, edits), catalog)
     runtime_cases = 0
     if config is not None:
         ship_index = next(i for i, row in enumerate(config["fieldBosses"]) if row["id"] == "boss-23090101")
+        source_field = "coolingMove" if "coolingMove" in config["fieldBosses"][ship_index] else "attackPulse"
         for name, path, value, remove in (
-            ("missing coolingMove", ("fieldBosses", ship_index, "coolingMove"), None, True),
+            ("missing cooling setup", ("fieldBosses", ship_index, source_field), None, True),
             ("changed preserved HP", ("fieldBosses", ship_index, "hp"), config["fieldBosses"][ship_index]["hp"] + 1, False),
         ):
             bad_config = changed(config, [(path, value, remove)])
@@ -587,7 +607,7 @@ def main():
           f"{summary['current_catalog_normal_rows']} normal rows (reference count is 49)")
     print("PASS: REC144, bounded air/hide, ordered child hits, optional interrupts, source/state and cleanup declarations")
     if args.check_runtime_source:
-        print("PASS: 12 runtime move IDs, preserved fields and migrated timings match (FBT03 includes coolingMove)")
+        print("PASS: 12 runtime move IDs, preserved fields and migrated timings match")
     if args.self_test:
         print(f"PASS: {negatives} invalid design fixtures rejected / {positives} valid boundary fixtures accepted / "
               f"{runtime_negatives} invalid runtime-source fixtures rejected")

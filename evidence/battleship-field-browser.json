@@ -1,36 +1,153 @@
 {
-  "browser": "Chrome",
-  "companion": "wanderer",
-  "play": {
-    "won": true,
-    "seconds": 42.53,
-    "moves": [
-      "FBT01",
-      "FBT02",
-      "FBT03"
+  "inputSha256": "a4917d2ffdc0a878e5d6cf60e119ba4dd90a154037cd44bb5787a9aa66831c47",
+  "level": 200,
+  "journeys": [
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
     ],
-    "hp": 140,
-    "returns": 0,
-    "melting": true,
-    "down": true
+    [
+      "nod-field",
+      "nod-battleship-depot",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-battleship-depot",
+      "walk"
+    ],
+    [
+      "nod-battleship-depot",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "originalAttack": 74956
   },
   "scenery": {
     "key": "battleshipField",
     "file": "battleship-field-background-v1.png",
     "state": "ready"
   },
-  "questAcceptedInUi": true,
-  "questReport": {
+  "natural": {
+    "lane": {
+      "right": 902.5,
+      "left": 726.5
+    },
+    "initialLayers": 5,
+    "heroDamage": 0,
+    "recoveryTicks": 144
+  },
+  "interruption": {
+    "afterFireLayers": 3,
+    "afterThreeFireHits": 3,
+    "normalChipTicks": [
+      109,
+      147,
+      185
+    ],
+    "observedDownTick": 185,
+    "hpAfterReload": 1089
+  },
+  "captures": {
+    "cannon": {
+      "label": "冷却砲の二連射",
+      "tick": 78,
+      "form": "attack",
+      "marks": [
+        "1",
+        "2"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 11597,
+          "packedDraws": 21,
+          "plainGzip": 192735,
+          "packedGzip": 125633,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 5109,
+          "packedDraws": 21,
+          "plainGzip": 87743,
+          "packedGzip": 66819,
+          "identicalPixels": true
+        }
+      }
+    },
+    "plate": {
+      "label": "冷却板 5／5・あと3.8秒・炎で2層",
+      "tick": 76,
+      "form": "cooling",
+      "marks": [
+        "放出"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 12297,
+          "packedDraws": 28,
+          "plainGzip": 206747,
+          "packedGzip": 131688,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 5270,
+          "packedDraws": 28,
+          "plainGzip": 88421,
+          "packedGzip": 68606,
+          "identicalPixels": true
+        }
+      }
+    },
+    "release": {
+      "label": "冷却放出・床の印から退避",
+      "tick": 326,
+      "form": "cooling",
+      "marks": [
+        "放出"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 12289,
+          "packedDraws": 20,
+          "plainGzip": 207490,
+          "packedGzip": 131498,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 5262,
+          "packedDraws": 20,
+          "plainGzip": 88718,
+          "packedGzip": 68386,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 17912,
+    "mora": 455
+  },
+  "reportReward": {
     "xp": 8800,
     "mora": 590
   },
-  "sameSceneCommands": {
-    "png": 29,
-    "standard": 23561,
-    "light": 6292
-  },
-  "wardBrokenAt": 186,
-  "savedRespawn": true,
-  "viewport390": true,
+  "fieldClears": 1,
+  "reported": 140,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
   "errors": []
 }

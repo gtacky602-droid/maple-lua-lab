@@ -157,7 +157,8 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
             legacy = balance['legacyFieldBossMoves'].get(spec['id'])
             if legacy:
                 spec.update({key: value for key, value in legacy.items() if key != 'moves'})
-                spec['moves'] = [legacy['moves'].get(move['id'], move) for move in spec['moves']]
+                moves = [legacy['moves'].get(move['id'], move) for move in spec['moves']]
+                spec['moves'] = [move for move in moves if move is not None]
     if draft_balance and draft_field_boss_hp:
         proportional_hp = {
             'driftingSnow': ('coffin', ('heal',)),
