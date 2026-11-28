@@ -131,6 +131,29 @@ return function(C,imprint,artifactSets)
   if item.slot<=2 then return math.floor(base*factor+.5) end
   return math.floor(base*factor*100+.5)/100
  end
+ function C.gearGoalCandidates(s)
+  local bag=s.inventory
+  local equipped,best={},{}
+  for _,item in ipairs(bag.items) do
+   if equippedRole(s,item)==s.active then equipped[item.slot]=C.artifactStats(item) end
+  end
+  local starter=s.active==2 and not equipped[1] and C.starterEquipment and C.starterEquipment(s,s.companion)
+  if starter then equipped[1]=starter.flower.hp end
+  for _,item in ipairs(bag.items) do
+   if item.owner==0 and item.setId==bag.targetSet then
+    local slot=item.slot
+    local stat=C.artifactStats(item)
+    if stat>(equipped[slot] or 0) and (not best[slot] or stat>best[slot].after) then
+     best[slot]={id=item.id,slot=slot,before=equipped[slot],after=stat}
+    end
+   end
+  end
+  local available={}
+  for slot=1,5 do
+   if best[slot] then available[#available+1]=best[slot] end
+  end
+  return available
+ end
  function C.artifactChoicePreview(s,choices)
   setup(s)
   local result={full=#s.inventory.items>=80,options={}}

@@ -449,6 +449,10 @@ return function(C,abyss,weekly,matches,controllers)
    end
   elseif s.story and s.story.active and s.story.node=='mond-town' then
    f.endgameDesk={weekly={},abyss={}}
+   local quest=s.story.quests[finalQuest]
+   if quest and quest.status=='active' and quest.count<2 and s.endgame and s.endgame.goal=='gear' then
+    f.endgameDesk.gear={actor=s.active,set=sets[s.inventory.targetSet],items=C.gearGoalCandidates(s)}
+   end
    for id,spec in pairs(abyss.modes) do
     local soloBlock=spec.solo and s.coop~=nil
     f.endgameDesk.abyss[id]={name=spec.name,level=spec.level,

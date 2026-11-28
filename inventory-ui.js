@@ -100,7 +100,9 @@ export function initInventoryUI(action){
   previewControls.hidden=!inTown;
   const view=inTown?f.artifactPreview:null;
   const affordable=view?.kind==='inherit'&&f.mora>=view.cost;
-  const next=JSON.stringify([view,affordable,f.paused]);
+  const canEquip=view?.kind==='compare'&&!view.example
+    &&f.inventory.items.some(item=>item.id===view.after.id&&item.owner===0);
+  const next=JSON.stringify([view,affordable,canEquip,f.paused]);
   if(next===previewSignature)return;
   previewSignature=next;
   previewStatus.replaceChildren();
@@ -122,6 +124,11 @@ export function initInventoryUI(action){
    message(`${view.example?'教材の比較':'装備の比較'} ｜ 対象ドロップ ${displaySet(view.targetSet)}`);
    message(`装備中 ${view.starter?`${view.starter.name} HP +${view.starter.hp}`:describe(view.before)}`);
    message(`比較する品 ${describe(view.after)}`);
+   if(canEquip){
+    const equip=control('比較した品を装備',`artifact_equip:${view.after.id}`);
+    equip.disabled=f.paused;
+    previewStatus.append(equip);
+   }
    return;
   }
   message(`${view.example?'教材の':''}${view.kind==='upgrade'?'強化':'継承'}の試算 ｜ ${view.capped?'通常強化は上限です':number.format(view.cost)+'モラ'}`);

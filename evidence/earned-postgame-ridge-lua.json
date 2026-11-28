@@ -1,0 +1,53 @@
+{
+  "hunts": [
+    {
+      "node": "dawn-vein-mine",
+      "toLevel": 185,
+      "kills": 12039,
+      "exp": 1230723929,
+      "autoKills": 8797,
+      "autoSeconds": 4385.23,
+      "seconds": 6059.48
+    },
+    {
+      "node": "dawn-vein-deep",
+      "toLevel": 190,
+      "kills": 13147,
+      "exp": 1585477947,
+      "autoKills": 9044,
+      "autoSeconds": 4518.13,
+      "seconds": 6641.17
+    }
+  ],
+  "milestones": [
+    {
+      "id": "lv185",
+      "node": "dawn-vein-mine",
+      "level": 185,
+      "exp": 5238004284,
+      "kills": 79530,
+      "seconds": 6101.33
+    },
+    {
+      "id": "lv190",
+      "node": "dawn-vein-deep",
+      "level": 190,
+      "exp": 6831857129,
+      "kills": 92781,
+      "seconds": 12798.7
+    }
+  ],
+  "equipment": [],
+  "rests": 98,
+  "inventoryStops": 0,
+  "sourceSha256": "61f1ebd9d2ff48cc826b90209bbc8053d0aa13aa5712c2000fe6e3f0bf102c43",
+  "level": 190,
+  "priorQuests": 107,
+  "inventoryKept": 72,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "wipes": 0,
+  "deepMineEntered": true,
+  "ridgeEntered": true,
+  "travelerAttack": 74956
+}

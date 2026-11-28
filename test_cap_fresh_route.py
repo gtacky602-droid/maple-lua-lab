@@ -25,12 +25,13 @@ earned = parser.add_mutually_exclusive_group()
 earned.add_argument('--light-source', type=Path, help='Continue the earned Lv160 light quests and reach the ice shelf')
 earned.add_argument('--echo-source', type=Path, help='Continue the earned Lv165 ice shelf save to the steam channel')
 earned.add_argument('--seven-source', type=Path, help='Continue the earned Lv170 echo save to the frozen mine entrance')
+earned.add_argument('--goal-source', type=Path, help='Continue the earned Lv180 gear goal save to Dawn Crystal Ridge')
 options = parser.parse_args()
-earned_source = options.light_source or options.echo_source or options.seven_source
+earned_source = options.light_source or options.echo_source or options.seven_source or options.goal_source
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
 if earned_source and (options.replay or options.after_revisits or options.draft_balance):
-    parser.error('The earned light-quest route supplies its own standard-balance save')
+    parser.error('The earned route supplies its own standard-balance save')
 draft = options.draft_balance
 suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
 if options.replay:
@@ -41,22 +42,28 @@ if options.replay:
         command.append('--after-revisits')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / ('earned-seven-strike' if options.seven_source else
-                        'earned-light-echo' if options.echo_source else
-                        'earned-light-aurora-shelf' if options.light_source else 'cap-fresh-route' + suffix)
-work.mkdir(parents=True, exist_ok=True)
-source_file = ROOT/'evidence/snez-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json'
-source=(earned_source or source_file).read_bytes()
-initial = validate_save(json.loads(source))
 station, snow, town = 'white-pass-station', 'snezhnaya-hub', 'mond-town'
 chain = [
     station, 'aurora-ice-cut', 'aurora-ice-shelf', 'aurora-steam-channel', 'aurora-mineral-terraces',
     'dawn-vein-mine', 'dawn-vein-deep', 'dawn-glass-ridge', 'dawn-glass-divide', 'dawn-crystal-field',
 ]
-start_nodes = (station, snow, chain[3]) if options.seven_source else (
-    (station, chain[2]) if options.echo_source else (station, town) if options.light_source else (station,))
+if options.goal_source:
+    work_name, start_nodes, start_level, hunts = 'earned-postgame-goal', (station, town, chain[5]), 180, (5, 6)
+elif options.seven_source:
+    work_name, start_nodes, start_level, hunts = 'earned-seven-strike', (station, snow, chain[3]), 170, (3, 4)
+elif options.echo_source:
+    work_name, start_nodes, start_level, hunts = 'earned-light-echo', (station, chain[2]), 165, (2,)
+elif options.light_source:
+    work_name, start_nodes, start_level, hunts = 'earned-light-aurora-shelf', (station, town), 160, (1,)
+else:
+    work_name, start_nodes, start_level, hunts = 'cap-fresh-route' + suffix, (station,), 160, ()
+work = ROOT / 'work' / work_name
+work.mkdir(parents=True, exist_ok=True)
+source_file = ROOT/'evidence/snez-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json'
+source=(earned_source or source_file).read_bytes()
+initial = validate_save(json.loads(source))
 assert initial['story']['node'] in start_nodes
-assert initial['progression']['level'] == (170 if options.seven_source else 165 if options.echo_source else 160)
+assert initial['progression']['level'] == start_level
 assert initial['story']['quests']['white-pass-summit']['status'] == 'complete'
 release, branch, echo, seven, personal = ('growth-' + key for key in
     ('light-release', 'branch-visit', 'light-echo', 'seven-strike', 'next-goal'))
@@ -368,26 +375,26 @@ def gear_goal():
     fast(station)
 
 
-assert (core.growthSkillCondition(state, 'SK59') is True) == bool(options.seven_source)
-assert core.growthSkillCondition(state, 'SK60')[0] is False
+assert (core.growthSkillCondition(state, 'SK59') is True) == (start_level >= 170)
+assert (core.growthSkillCondition(state, 'SK60') is True) == (start_level >= 180)
 if earned_source:
     prior = {id:q for id,q in initial['story']['quests'].items() if q['status']=='complete'}
-    if options.seven_source:
+    if options.goal_source:
+        assert initial['story']['visited'][chain[5]] and seven in prior and personal in prior
+        assert initial['endgame']['goal']=='gear'
+        upgraded_atk = state.actors[1].atk
+    elif options.seven_source:
         assert initial['story']['visited'][chain[3]] and echo in prior and seven not in prior
-        hunt(3,175)
-        save('lv175-save')
-        index, level = 4, 180
     elif options.echo_source:
         assert initial['story']['visited'][chain[2]] and echo not in prior
-        index, level = 2, 170
-    else:
-        index, level = 1, 165
     if options.light_source and (release not in prior or branch not in prior):
         assert release not in prior and branch not in prior
         learn_release()
         save('lua-light-reports')
-    hunt(index,level)
-    checkpoint = save(f'lv{level}-save')
+    for index in hunts:
+        level = 160+5*index
+        hunt(index,level)
+        checkpoint = save(f'lv{level}-save')
     resumed = core.restore(lua.table_from(checkpoint,recursive=True),12)
     assert resumed.story.node==station and resumed.progression.level==level
     assert resumed.story.quests[release].status==resumed.story.quests[branch].status=='complete'
@@ -400,7 +407,11 @@ if earned_source:
     progression.update(sourceSha256=sha256(source).hexdigest(),level=resumed.progression.level,
                        priorQuests=len(prior),inventoryKept=len(kept&original_items),
                        weapon='SW07',companion=resumed.companion,wipes=state.returns)
-    if options.seven_source:
+    if options.goal_source:
+        assert resumed.story.visited[chain[6]]
+        assert resumed.actors[1].atk==upgraded_atk
+        progression.update(deepMineEntered=True, ridgeEntered=True, travelerAttack=upgraded_atk)
+    elif options.seven_source:
         assert core.growthSkillCondition(resumed,'SK60') is True
         assert resumed.story.visited[chain[4]]
         progression.update(terracesEntered=True, mineEntered=True, sevenUnlocked=True)

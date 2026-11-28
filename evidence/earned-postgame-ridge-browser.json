@@ -1,0 +1,20 @@
+{
+  "sourceSha256": "22075c5b0fa77a19971a5cb13e2fc691287761a682a98be0ce3fc2f1e6e98193",
+  "level": 190,
+  "priorQuests": 107,
+  "guide": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf",
+    "aurora-steam-channel",
+    "aurora-mineral-terraces",
+    "dawn-vein-mine",
+    "dawn-vein-deep",
+    "dawn-glass-ridge"
+  ],
+  "enemies": 28,
+  "visitedRidge": true,
+  "travelerAttack": 74956,
+  "companion": "mitya",
+  "weapon": "SW07",
+  "errors": []
+}

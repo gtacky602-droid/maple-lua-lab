@@ -1,0 +1,24 @@
+{
+  "sourceSha256": "b5a8afd197d2293cc9518ea1242d6e50bbdad8550bb2a23b25dc8fcd2c6949b1",
+  "level": 180,
+  "priorQuests": 106,
+  "set": "剣闘士のフィナーレ",
+  "candidate": 602,
+  "featherMain": [
+    33,
+    58320
+  ],
+  "travelerAttack": [
+    327,
+    74956
+  ],
+  "previewDidNotCompleteGoal": true,
+  "mobileCandidatesFit": true,
+  "reward": [
+    0,
+    20000,
+    3
+  ],
+  "companion": "mitya",
+  "errors": []
+}

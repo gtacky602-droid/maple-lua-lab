@@ -28,6 +28,7 @@
 #growthTrialHelp{margin:0 0 8px}
 #endgameDesk,#endgameRun,#stygianDesk{padding:10px 18px;background:#173a3b;color:#eaf7ee}
 #endgameDesk h2,#endgameRun p,#stygianDesk h2{margin:0 0 8px}
+#endgameGoals[hidden],#endgameGearCandidates[hidden]{display:none}
 #stygianDesk h2{font-size:16px;color:#ffe2a4}
 #stygianDesk .controls{margin:6px 0 0}
 #artifactDomainChoices{margin:6px 0 0}
@@ -283,6 +284,7 @@ canvas.sight-picture{display:block;width:min(100%,162px);height:auto;aspect-rati
   <button data-action="endgame_goal:discover">未発見の寄り道を探す</button>
   <button data-action="endgame_goal:boss">ボスの自己記録を更新</button>
  </div>
+ <div id="endgameGearCandidates" class="controls" hidden></div>
 </section>
 <div id="wildlifeSighting" hidden style="padding:8px 18px">近くの水中生物　<a id="wildlifeEntry" target="_blank" rel="noopener"></a></div>
 <div id="nearbyPortal" hidden style="padding:10px 18px;background:#173a3b"><span id="nearbyPortalText"></span> <span id="nearbyPortalCooldown" hidden style="white-space:nowrap"></span> <button id="nearbyPortalGo" data-action="story_nearby_portal">F：この門を通る</button></div>
