@@ -55,7 +55,7 @@ async function fight(){
    if(prior!==b.move||b.tick<lastTick){prior=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move)moves.add(b.move);
-   const exposure=b.label==='柱破壊・核が静止';
+   const exposure=b.label.startsWith('柱破壊・核が静止');
    if(exposure&&!inExposure)pillars++;
    inExposure=exposure;
    if(a.ground&&!exposure)for(const at of jumps[b.move]||[]){
@@ -120,7 +120,7 @@ try{
  await canvas.screenshot({path:`evidence/${prefix}-pillar.png`});
  await page.waitForFunction(source=>{
   const f=window.lab.frame;
-  return f.fieldBoss?.label==='柱破壊・核が静止'&&!f.draws.some(d=>d.source===source);
+  return f.fieldBoss?.label.startsWith('柱破壊・核が静止')&&!f.draws.some(d=>d.source===source);
  },pillarArt);
  const broken=await frame();
  assert.deepEqual([broken.mora,broken.progression.killXp,broken.kills],[before.mora,before.progression.killXp,before.kills]);

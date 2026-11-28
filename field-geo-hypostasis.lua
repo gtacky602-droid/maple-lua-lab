@@ -1,5 +1,5 @@
 return function(C)
- local geo={}
+ local geo={packRectArt=true}
  local intercept=C.interceptHit
  local U=88
  local coreHeight,coreClearance=48,.5*U
@@ -97,13 +97,19 @@ return function(C)
 
  function geo.label(boss,cast)
   if not cast or not cast.move.pillar then return end
-  local pillar=cast.move.pillar
+  local move=cast.move
+  local pillar=move.pillar
   if cast.exposure then
-   return cast.exposure<pillar.expose and '柱破壊・核が静止' or '殻を組み直す'
+   if cast.exposure>=pillar.expose then return '殻を組み直す' end
+   return string.format('柱破壊・核が静止（あと%.1f秒）',math.ceil((pillar.expose-cast.exposure)/6)/10)
   end
-  if cast.tick>=pillar.open and cast.tick<cast.move.active[1][1] then
-   return '近くで柱に攻撃 '..cast.cracks..'/'..pillar.hits
+  local shock=move.active[1]
+  if cast.tick>=pillar.open and cast.tick<shock[1] then
+   local seconds=math.ceil((shock[1]-cast.tick)/6)/10
+   return string.format('近くで柱に攻撃 %d/%d（震動まで%.1f秒）',cast.cracks,pillar.hits,seconds)
   end
+  if cast.tick<shock[2] then return '単柱の震動・柱の周りをジャンプで回避' end
+  return '震動が止まった・足元の核に攻撃'
  end
 
  local function rect(f,x,y,w,h,color)

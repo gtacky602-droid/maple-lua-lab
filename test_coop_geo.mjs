@@ -33,7 +33,7 @@ async function start(accept) {
 }
 
 const labels=['近くで柱に攻撃 0/3','近くで柱に攻撃 1/3','近くで柱に攻撃 2/3','柱破壊・核が静止'];
-const waitLabel=(page,i)=>page.waitForFunction(label=>window.lab.frame.fieldBoss?.label===label,labels[i]);
+const waitLabel=(page,i)=>page.waitForFunction(label=>window.lab.frame.fieldBoss?.label.startsWith(label),labels[i]);
 async function strike(page,other,i) {
  await page.keyboard.down('KeyJ');
  try { await waitLabel(page,i); }
@@ -69,7 +69,7 @@ async function fight(page) {
    if(b.move!==previous||b.tick<last) { previous=b.move; used=new Set(); }
    last=b.tick;
    if(b.move) moves.add(b.move);
-   const exposed=b.label==='柱破壊・核が静止';
+   const exposed=b.label.startsWith('柱破壊・核が静止');
    if(a.ground&&!exposed) for(const at of triggers[b.move]||[]) {
     if(b.tick>=at&&b.tick<at+7&&!used.has(at)) { used.add(at); jumpUntil=f.t+.7; }
    }
