@@ -1,0 +1,144 @@
+{
+  "inputSha256": "4ff03cdcb9878974878bcba28000ff465129a01aaef62633c8707cf52dc43e79",
+  "level": 200,
+  "journeys": [
+    [
+      "liyue-harbor",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "oceanid-approach",
+      "walk"
+    ],
+    [
+      "oceanid-approach",
+      "oceanid-field-reservoir",
+      "walk"
+    ],
+    [
+      "oceanid-field-reservoir",
+      "oceanid-approach",
+      "walk"
+    ],
+    [
+      "oceanid-approach",
+      "liyue-field",
+      "walk"
+    ],
+    [
+      "liyue-field",
+      "liyue-harbor",
+      "walk"
+    ]
+  ],
+  "trialAtk": 259,
+  "restoredAtk": 74956,
+  "firstHit": {
+    "tick": 17,
+    "distance": 105,
+    "ahead": true,
+    "bossY": 480,
+    "grounded": true,
+    "hp": 629
+  },
+  "airborne": {
+    "tick": 95,
+    "distance": 49.41666666666663,
+    "ahead": true,
+    "bossY": 368.34567901234567,
+    "grounded": true,
+    "hp": 358
+  },
+  "landing": {
+    "locked": 680,
+    "actual": 680,
+    "floor": 480,
+    "groundSwingDamage": 0,
+    "playerOffset": 89
+  },
+  "recovery": {
+    "label": "水蛙を攻撃（あと2.0秒）",
+    "tick": 151,
+    "hpBefore": 358
+  },
+  "captures": {
+    "boar": {
+      "label": "水猪の短突進・走路から離れるかジャンプ",
+      "tick": 49,
+      "hp": 358,
+      "y": 480,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3584,
+          "packedDraws": 18,
+          "legacyGzip": 81760,
+          "packedGzip": 64548,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1579,
+          "packedDraws": 18,
+          "legacyGzip": 47015,
+          "packedGzip": 40218,
+          "identicalPixels": true
+        }
+      }
+    },
+    "crane": {
+      "label": "水鶴の二波・1発目に備える",
+      "tick": 49,
+      "hp": 358,
+      "y": 480,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 2758,
+          "packedDraws": 23,
+          "legacyGzip": 74441,
+          "packedGzip": 58145,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1300,
+          "packedDraws": 23,
+          "legacyGzip": 44922,
+          "packedGzip": 38275,
+          "identicalPixels": true
+        }
+      }
+    },
+    "frog": {
+      "label": "着地まで0.4秒・床の予告から離れる",
+      "tick": 90,
+      "hp": 358,
+      "y": 380.44444444444446,
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 3908,
+          "packedDraws": 19,
+          "legacyGzip": 91080,
+          "packedGzip": 69487,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 1781,
+          "packedDraws": 19,
+          "legacyGzip": 52058,
+          "packedGzip": 42772,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 368,
+    "mora": 170
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 126,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
