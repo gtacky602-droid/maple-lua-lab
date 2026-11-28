@@ -12,6 +12,8 @@
   "flowersAndFruitSaved": true,
   "twoPerspectives": true,
   "viewNeedsElevation": true,
+  "openingFreezesWithPause": true,
+  "openingSettledOnRevisit": true,
   "permanentDecoration": true,
   "restHealsWithoutReward": true,
   "replayableTrail": true,

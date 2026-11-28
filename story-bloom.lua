@@ -21,11 +21,11 @@ return function(C,canInspect)
   rect(draws,x+width/2-13,y-3,6,3,'#363650')
  end
 
- local function overhead(layer,x,y,mode,profile)
+ local function overhead(layer,x,y,mode,profile,height)
   local draws=layer.draws
   rect(draws,x-50,y-119,100,115,'#9990b2')
   rect(draws,x-48,y-117,96,111,'#242345')
-  art(layer,'overhead',x,y-27,82,mode,profile)
+  art(layer,'overhead',x,y-27,height,mode,profile)
   caption(draws,x,y-11,'月花の内側','#ffe1ab')
  end
 
@@ -65,6 +65,7 @@ return function(C,canInspect)
   end
 
   local view,decorated,nearSeats=false,false,false
+  local phase=s.storyBloomOpenedAt and math.min(8,math.floor((s.t-s.storyBloomOpenedAt)*10)) or 8
   local message
   for i,step in ipairs(q.itinerary) do
    local prop=step.bloomProp
@@ -81,7 +82,7 @@ return function(C,canInspect)
     bench(draws,x,y,94)
     caption(draws,x,y-28,'上の見晴らし席')
     view=count>=i
-    if view and a.y<324 then overhead(layer,x+117,y-26,mode,profile) end
+    if view and phase>=4 and a.y<324 then overhead(layer,x+117,y-26,mode,profile,62+(phase-4)*5) end
    elseif prop=='charm' then
     rect(draws,x+31,y-59,5,59,'#696279')
     rect(draws,x+11,y-59,25,4,'#c8aabe')
@@ -98,11 +99,13 @@ return function(C,canInspect)
    end
   end
   local flower=config.flower
-  art(layer,view and 'flower' or 'bud',flower.x-s.camera,flower.y,120,mode,profile)
+  local open=view and phase>=2
+  art(layer,open and 'flower' or 'bud',flower.x-s.camera,flower.y,open and 96+phase*3 or 120,mode,profile)
+  local opening=view and phase<8
   if view and a.y<324 and not message then
-   message='上の見晴らし席 ｜ 月花の金色のしべが見えます'
+   message=opening and '上の見晴らし席 ｜ 月花が開いています' or '上の見晴らし席 ｜ 月花の金色のしべが見えます'
   end
-  f.storyBloom={opened=view,decorated=decorated,nearSeats=nearSeats,message=message}
+  f.storyBloom={opened=view,opening=opening,decorated=decorated,nearSeats=nearSeats,message=message}
  end
 
  return bloom

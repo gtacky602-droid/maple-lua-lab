@@ -679,6 +679,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if milestone.reflect then s.reflection=nil;state.reflectAngle=nil end
   if milestone.riverTurn then s.riverTurnAt=s.t end
   if milestone.boxGlimpse then s.storyBoxGlimpseStart=s.t end
+  if milestone.bloomProp=='vista' then s.storyBloomOpenedAt=s.t end
   if parent then
    local join=quest.itinerary[parent.count+1]
    if not join or join.kind~='paths' then return end
@@ -1256,6 +1257,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if firstVisit and (n.branch or n.hiddenGroup) and C.endgameGoalEvent then C.endgameGoalEvent(s,'discover') end
   s.storyEnteredAt=s.t
   s.storyBoxGlimpseStart=nil
+  s.storyBloomOpenedAt=nil
   s.storyPatrolShot=nil
   s.snowballRound=nil
   s.snowMatchVenue=n.snowMatch~=nil

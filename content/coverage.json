@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_nod_moon_bloom": {"levels":[129,130],"companionClimbed":true,"openingPaused":true,"openingSettledOnRevisit":true,"standardCommands":9570,"lightCommands":2538,"luaRecord":"evidence/nod-moon-bloom-lua.json","browserRecord":"evidence/earned-nod-moon-bloom-browser.json"},
   "earned_nod_moon_rumor": {"level":129,"witnesses":3,"orientationRestored":true,"harborJournal":true,"published":"traveling-story","standardCommands":18155,"lightCommands":4511,"luaRecord":"evidence/nod-moon-rumor-lua.json","browserRecord":"evidence/earned-nod-moon-rumor-browser.json"},
   "earned_nod_appraisal": {"levels":[128,129],"parts":3,"measurementAndSortingRestored":true,"readingsMobileWidth":390,"yardRevisited":true,"standardCommands":7253,"lightCommands":1829,"luaRecord":"evidence/nod-appraisal-lua.json","browserRecord":"evidence/earned-nod-appraisal-browser.json"},
   "earned_columbina_detour": {"startLevel":128,"choice":"tea","giftCues":3,"joined":"columbina","practice":"Q-G07","reaction":"moon-electro","target":"original-moon-crab","luaRecord":"evidence/columbina-detour-lua.json","browserRecord":"evidence/earned-columbina-detour-browser.json"},
