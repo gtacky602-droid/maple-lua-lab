@@ -48,6 +48,12 @@ M地図の「水中」で水中の移動先を絞り込める。水中の門を�
 
 継続セーブを用意したら `python -X utf8 test_earned_fontaine_icewind.py` でLuaの再走を行う。ラボを起動して `node test_icewind_field.mjs --earned` を実行すると、生成された開始セーブで両会場を回り、描画比較を `work/earned-fontaine-icewind/` に保存する。
 
+## ナヴィアの集合写真と色褪せた城
+
+「集合写真は、まだ撮れない！」では、三人の仕事を手伝ってから椅子と台を並べ、タイマーを巻いて集合位置へ走る。二枚から「菓子を囲む休憩写真」を選んで報告し、Lv91からLv92に到達した。再読み込み後も写真広場の掲示板に同じ写真が残った。 [Luaの検証](../evidence/earned-fontaine-navia-photo.json) · [Chromeの検証](../evidence/earned-fontaine-navia-photo-browser.json)
+
+色褪せた城の入口はLv92。魔像レガトゥスの共鳴器の上とボスのHP欄に、発火までの最大112tick（約1.87秒）を表示した。共鳴器を壊せば炎を中断できる。炎を避けて待つ場合も、動きが止まった後に最大2.4秒の反撃時間がある。同じLv92セーブから両方の方法で討伐し、通常ボス21件目の報告と再出現待ちを復元した。炎を避ける試走では「同行者の攻撃を控える」を使った。 [Luaの両経路](../evidence/earned-fontaine-legatus.json) · [中断のChrome検証](../evidence/earned-fontaine-legatus-interrupt-browser.json) · [回避のChrome検証](../evidence/earned-fontaine-legatus-release-browser.json)
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |

@@ -22,6 +22,7 @@
       "participants": 4,
       "hp": 1010,
       "sharedDashPathAndSummonHp": true,
+      "sharedResonanceCountdownAndStagger": true,
       "twoPlayersBreakOnLastTick": true,
       "noRewardForResonator": true,
       "uninterruptedFlameHitsPerPlayer": true,

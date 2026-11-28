@@ -1,0 +1,20 @@
+{
+  "quest": "fon-navia-photo",
+  "threeWorkers": true,
+  "occlusionRejected": true,
+  "layoutRestored": true,
+  "timerFailureRetried": true,
+  "actualWalkToMark": true,
+  "pausedTimer": true,
+  "rewards": [
+    [
+      799743,
+      3600
+    ]
+  ],
+  "sourceSha256": "edddea46bc4836861706410083055ac0a97d0b72d92013a5665e1e43ac3dabfc",
+  "startLevel": 91,
+  "reportedLevel": 92,
+  "postedPrint": "菓子を囲む休憩写真",
+  "postedRestored": true
+}

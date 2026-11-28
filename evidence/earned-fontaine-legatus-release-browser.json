@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "won": true,
+    "seconds": 18.58,
+    "moves": [
+      "FLG01",
+      "FLG02",
+      "FLG03"
+    ],
+    "hp": 384,
+    "returns": 0,
+    "recovery": {
+      "label": "前脚を止める・反撃",
+      "ticks": 143,
+      "resonatorGone": true
+    }
+  },
+  "scenery": {
+    "key": "legatusField",
+    "file": "legatus-field-background-v1.png",
+    "state": "ready"
+  },
+  "resonatorWasVisible": true,
+  "questReport": {
+    "xp": 6200,
+    "mora": 420
+  },
+  "sameSceneCommands": {
+    "png": 19,
+    "standard": 10410,
+    "light": 2685
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": [],
+  "route": "release",
+  "reloadedReport": true,
+  "resonatorCommands": {
+    "png": 35,
+    "standard": 10372,
+    "light": 2694
+  },
+  "resonatorTicks": 111
+}

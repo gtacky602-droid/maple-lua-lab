@@ -1,5 +1,7 @@
 from copy import deepcopy
+from hashlib import sha256
 import json
+import sys
 
 from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
@@ -13,6 +15,9 @@ graph = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
 quests = {q['id']: q for q in graph['quests']}
 advance = lua.eval('function(C,s,n,input) for _=1,n do C.step(s,1/60,input) end end')
 idle, right = lua.table(), lua.table_from({'right': True})
+earned = '--earned' in sys.argv
+work = ROOT/'work/earned-fontaine-legatus'
+source = ROOT/'work/earned-fontaine-icewind/icewind-complete.json'
 
 
 def act(key):
@@ -70,18 +75,25 @@ def reject(change):
         raise AssertionError('Invalid photo progress accepted')
 
 
-s=core.new(12)
-act('story_start')
-core.grantExp(s,LEVELS[79]['maple_reference_total_exp_to_reach'],'quest')
-core.enterStoryNode(s,hub)
-act('story_accept:'+quest)
-assert state() is None
-route=quests[main]
-s.story.quests[main]=lua.table_from(dict(status='complete',count=route['goal'],cycles=1))
-for step in route['itinerary']:
-    s.story.visited[step['node']]=True
-fixture=checkpoint()
-(ROOT/'work/fon-navia-photo-fixture.json').write_text(json.dumps(fixture,ensure_ascii=False)+'\n',encoding='utf8')
+if earned:
+    work.mkdir(parents=True,exist_ok=True)
+    raw=source.read_bytes()
+    s=restore(validate_save(json.loads(raw)))
+    assert s.story.node==hub and s.progression.level==91 and s.story.quests[main].status=='complete'
+    assert state() is None
+else:
+    s=core.new(12)
+    act('story_start')
+    core.grantExp(s,LEVELS[79]['maple_reference_total_exp_to_reach'],'quest')
+    core.enterStoryNode(s,hub)
+    act('story_accept:'+quest)
+    assert state() is None
+    route=quests[main]
+    s.story.quests[main]=lua.table_from(dict(status='complete',count=route['goal'],cycles=1))
+    for step in route['itinerary']:
+        s.story.visited[step['node']]=True
+    fixture=checkpoint()
+    (ROOT/'work/fon-navia-photo-fixture.json').write_text(json.dumps(fixture,ensure_ascii=False)+'\n',encoding='utf8')
 
 gate(316,terrace,False)
 act('story_accept:'+quest)
@@ -141,7 +153,8 @@ assert state().count==7 and s.photoTimer is None
 
 captured=checkpoint()
 rewards=[]
-for print_id in ['formal','candid']:
+prints=['candid'] if earned else ['formal','candid']
+for print_id in prints:
     s=restore(captured)
     gate(316,terrace)
     collect(1724,'二枚の写真を見比べる')
@@ -168,9 +181,19 @@ for print_id in ['formal','candid']:
     act('story_photo_publish:formal')
     assert state().groupPhoto.posted==print_id
 
-assert rewards==[[QUEST_REPORT_EXP['Q-FON-S03'],3600]]*2
+assert rewards==[[QUEST_REPORT_EXP['Q-FON-S03'],3600]]*len(prints)
 proof={'quest':quest,'main1Required':True,'threeWorkers':True,'occlusionRejected':True,
        'layoutRestored':True,'timerFailureRetried':True,'actualWalkToMark':True,
        'pausedTimer':True,'variantsRestoreAndDisplay':True,'rewards':rewards}
-(ROOT/'evidence/fon-navia-photo-lua.json').write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
+report=ROOT/'evidence/fon-navia-photo-lua.json'
+if earned:
+    assert s.progression.level==92 and s.returns==0
+    act('story_photo_close')
+    gate(1843,hub)
+    (work/'photo-complete.json').write_text(json.dumps(checkpoint(),ensure_ascii=False)+'\n','utf8')
+    proof.update(sourceSha256=sha256(raw).hexdigest(),startLevel=91,reportedLevel=92,
+                 postedPrint='菓子を囲む休憩写真',postedRestored=True)
+    del proof['variantsRestoreAndDisplay'], proof['main1Required']
+    report=ROOT/'evidence/earned-fontaine-navia-photo.json'
+report.write_text(json.dumps(proof,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
 print(quest,proof)

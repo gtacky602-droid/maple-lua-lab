@@ -1,0 +1,65 @@
+{
+  "sourceSha256": "5107d7fef1bc2383cf44925239557e2bff09c0d043d34cb63e910c1e24a0b44d",
+  "gateAt91": "必要レベル 92",
+  "entryLevel": 92,
+  "postedPhoto": "菓子を囲む休憩写真",
+  "reportedCommissions": 21,
+  "runs": {
+    "interrupt": {
+      "battle": {
+        "moves": [
+          "FLG01",
+          "FLG02",
+          "FLG03"
+        ],
+        "timer": [
+          112,
+          511.9,
+          407,
+          30.0
+        ],
+        "interrupted": true,
+        "recoveryTicks": 144,
+        "counterHit": true,
+        "seconds": 17.05,
+        "hp": 384,
+        "xp": 191700
+      },
+      "report": {
+        "quest": "legatus-commission",
+        "xp": 6200,
+        "mora": 420
+      },
+      "cooldown": 3096,
+      "returns": 0
+    },
+    "release": {
+      "battle": {
+        "moves": [
+          "FLG01",
+          "FLG02",
+          "FLG03"
+        ],
+        "timer": [
+          112,
+          511.9,
+          407,
+          30.0
+        ],
+        "interrupted": false,
+        "recoveryTicks": 144,
+        "counterHit": true,
+        "seconds": 19.38,
+        "hp": 384,
+        "xp": 191700
+      },
+      "report": {
+        "quest": "legatus-commission",
+        "xp": 6200,
+        "mora": 420
+      },
+      "cooldown": 3106,
+      "returns": 0
+    }
+  }
+}
