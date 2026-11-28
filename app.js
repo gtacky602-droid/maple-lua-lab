@@ -566,7 +566,7 @@ function hud(f,calls,renderMs){
   $('weeklyKnaveActors').textContent=knaveContractText(knave);
   $('weeklyKnaveLamp').hidden=!(knave.nearLamp&&selected.debt);
   $('weeklyKnaveLamp').textContent=knave.hold?`返済灯を保持中 ｜ 次まで ${(knave.hold/60).toFixed(1)}秒`:'返済灯を長押し（G）';
-  $('weeklyKnaveStrike').hidden=!selected.feather;
+  $('weeklyKnaveStrike').hidden=!(selected.feather&&knave.window);
   $('weeklyKnaveHint').textContent=knaveFeastText(knave);
  }
  phases.hidden=!field?.phaseHp||field.phase==='respawn';

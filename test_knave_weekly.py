@@ -123,14 +123,18 @@ assert d.debt == 0 and d.feather and len(events(s, 'WK08:lamp')) == 5
 assert a.hp < a.maxhp and len(events(s, 'WK08:feather')) == 1  # The periodic damage stayed active through the hold.
 
 c = move(s, w, spec, 'WK10')
+assert core.frame(s).weeklyBoss.knave.interruptTicks is None
 step(s, 88)
+assert core.frame(s).weeklyBoss.knave.interruptTicks is None
 normal(s, w, 'encounter_interact', offset=200)
 step(s, 20)
+assert core.frame(s).weeklyBoss.knave.interruptTicks == c.move.interrupt[2] - c.t
 assert d.feather and len(events(s, 'WK09')) == 0
 normal(s, w)
 assert d.feather and len(events(s, 'WK09')) == 0
 normal(s, w, 'encounter_interact')
 assert d.feather is None and w.cast.key == 'WK17' and len(events(s, 'WK09')) == 1
+assert core.frame(s).weeklyBoss.knave.interruptTicks is None
 step(s, 35)
 assert w.phase == 'interrupted'
 step(s, 1)
@@ -172,13 +176,17 @@ declare(s, w, spec)
 hp = a.hp
 normal(s, w, atk=10000)
 assert w.primary.hp == spec.secondHp and w.cast.key == 'WK11' and w.primary.invulnerable
+transform = w.cast
+assert core.frame(s).weeklyBoss.knave.transformTicks == transform.move.total-transform.t
 pause_at = w.debtClock
 step(s, 143)
 assert w.form == 1 and not s.kills
 step(s, 1)
 assert w.form == 2 and w.primary.invulnerable
+assert core.frame(s).weeklyBoss.knave.transformTicks == 96
 step(s, 96)
 assert not w.primary.invulnerable and w.debtClock == pause_at and a.hp == hp and d.debt > 0
+assert core.frame(s).weeklyBoss.knave.transformTicks is None
 for key in ('WK14', 'WK15', 'WK16', 'WK18'):
     c = move(s, w, spec, key)
     place(a, 26)
@@ -225,6 +233,7 @@ result = {'manifest_fixed_cards': fixed, 'declaration_no_direct_damage': True,
           'heal_before_hp_clamp': True, 'repayment_first_tick': 45, 'repayment_interval': 30,
           'lamp_continues_during_drain': True, 'one_feather_per_payment': True,
           'manual_hit_only_in_window': True, 'exposure_ticks': 216, 'transformation_pauses_drain_ticks': 240,
+          'window_countdown_matches_cast_end': True, 'transform_countdown_matches_combat_resume': True,
           'ownership_cancel_and_death': True, 'major_attack_has_ground_escape': True,
           'separate_hp_sections': True, 'exit_resets_trial': True, 'reward_and_restore': True}
 (ROOT/'evidence/knave-weekly-lua.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')

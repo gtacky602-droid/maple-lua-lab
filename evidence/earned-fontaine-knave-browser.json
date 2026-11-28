@@ -1,0 +1,58 @@
+{
+  "source": "work/earned-fontaine-narwhal/narwhal-complete.json",
+  "route": [
+    {
+      "label": "徒歩",
+      "approach": "入口のそばにいます",
+      "mode": "walk",
+      "from": "fontaine-hub",
+      "level": 88,
+      "id": "knave-crimson-court",
+      "previewX": 186,
+      "region": "region-05",
+      "name": "凶月の再現戦"
+    }
+  ],
+  "scenery": {
+    "key": "crimsonMoonCourt",
+    "file": "crimson-moon-court-background-v1.png",
+    "state": "ready"
+  },
+  "declared": true,
+  "levels": [
+    94,
+    95,
+    95
+  ],
+  "payout": {
+    "xp": 280000,
+    "mora": 9600
+  },
+  "interruptCue": {
+    "t": 20.616666666666777,
+    "ticks": 233,
+    "text": "赤宴・地紋・円 ｜ 償還の一撃（H）で中断・残り3.9秒"
+  },
+  "transformCue": "凶月の羽化 ｜ 戦闘再開まで1.6秒",
+  "keyboardAndPointerRepayment": true,
+  "repayments": 5,
+  "partialBeforeRelease": 77,
+  "manualHitInterrupted": true,
+  "forms": 2,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "remainingHp": 321,
+  "commands": {
+    "first": {
+      "png": 12,
+      "standard": 5549,
+      "light": 1475
+    },
+    "second": {
+      "png": 14,
+      "standard": 8391,
+      "light": 2331
+    }
+  },
+  "errors": []
+}
