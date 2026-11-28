@@ -1,0 +1,648 @@
+{
+  "apep-covered": {
+    "image": "apep-covered.png",
+    "frames": {
+      "暗色の守護者": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 67900,
+            "rgbAbsoluteError": 3029872,
+            "unpackedCommands": 13743,
+            "packedCommands": 837,
+            "unpackedBytes": 1548086,
+            "packedBytes": 399132,
+            "combatCanvasMs": 11.400000005960464,
+            "canvasSha256": "68293e1997c092ba273b69054c08751dc66d5b8b07211396b1bebd02b00108fe"
+          },
+          "h32c16": {
+            "differentPixels": 67955,
+            "rgbAbsoluteError": 3625375,
+            "unpackedCommands": 6139,
+            "packedCommands": 373,
+            "unpackedBytes": 685512,
+            "packedBytes": 174612,
+            "combatCanvasMs": 4.700000017881393,
+            "canvasSha256": "fc78d490efc2c230808d5d400d9ac31d96c10541162593072faf253990fdaef8"
+          }
+        }
+      },
+      "露出した心": {
+        "tick": 98,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 64864,
+            "rgbAbsoluteError": 2846867,
+            "unpackedCommands": 13747,
+            "packedCommands": 841,
+            "unpackedBytes": 1687993,
+            "packedBytes": 399051,
+            "combatCanvasMs": 11.399999976158142,
+            "canvasSha256": "f947addbfbcc227f20884d94b01c51d1af2f4d40cf80b5d8a9fe59b3b2994a12"
+          },
+          "h32c16": {
+            "differentPixels": 64939,
+            "rgbAbsoluteError": 3360354,
+            "unpackedCommands": 6143,
+            "packedCommands": 377,
+            "unpackedBytes": 739187,
+            "packedBytes": 174887,
+            "combatCanvasMs": 4.699999988079071,
+            "canvasSha256": "ed57157275786c0e1ea9bbae27aef6a85a79c1f134a08611c07e03c24f5907a2"
+          }
+        }
+      },
+      "心の防衛開始": {
+        "tick": 277,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5271,
+            "rgbAbsoluteError": 562166,
+            "unpackedCommands": 1860,
+            "packedCommands": 863,
+            "unpackedBytes": 226835,
+            "packedBytes": 126605,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "8328e19543f8b95204582558000203a633aa64d83b0a773db4f625de55655944"
+          },
+          "h32c16": {
+            "differentPixels": 5271,
+            "rgbAbsoluteError": 656729,
+            "unpackedCommands": 846,
+            "packedCommands": 399,
+            "unpackedBytes": 101497,
+            "packedBytes": 56406,
+            "combatCanvasMs": 0.7999999821186066,
+            "canvasSha256": "1b4ea203c8d9da213630deba2f658d6009c99e36699671753eb501c018545d60"
+          }
+        }
+      },
+      "接近する増殖体": {
+        "tick": 337,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9336,
+            "rgbAbsoluteError": 884026,
+            "unpackedCommands": 4096,
+            "packedCommands": 867,
+            "unpackedBytes": 489330,
+            "packedBytes": 137075,
+            "combatCanvasMs": 3.800000011920929,
+            "canvasSha256": "af6ece1f066ecac196d061c01d0912f59f978cb4645eb1b8b29c8df311eb6a82"
+          },
+          "h32c16": {
+            "differentPixels": 9378,
+            "rgbAbsoluteError": 1011170,
+            "unpackedCommands": 1830,
+            "packedCommands": 403,
+            "unpackedBytes": 199004,
+            "packedBytes": 61162,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "ce9ad3d77f3e9166adf9e5d513d9e750fe64c5190b5a24d1ca83bb26470c6abc"
+          }
+        }
+      },
+      "原初の蘇生": {
+        "tick": 1471,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5259,
+            "rgbAbsoluteError": 536636,
+            "unpackedCommands": 1856,
+            "packedCommands": 859,
+            "unpackedBytes": 227097,
+            "packedBytes": 126484,
+            "combatCanvasMs": 1.7999999821186066,
+            "canvasSha256": "1d9fc8de7d1317b3a52dca1e88108e6ba3b3b21216061a69370427efb45cf5d1"
+          },
+          "h32c16": {
+            "differentPixels": 5327,
+            "rgbAbsoluteError": 649211,
+            "unpackedCommands": 842,
+            "packedCommands": 395,
+            "unpackedBytes": 101119,
+            "packedBytes": 56114,
+            "combatCanvasMs": 0.8999999761581421,
+            "canvasSha256": "ff273dc28d948b9f0711e2263e41331a65fb13f40947a9ad45ac40f174dbc8c0"
+          }
+        }
+      },
+      "緑の守護者": {
+        "tick": 1681,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44666,
+            "rgbAbsoluteError": 2963253,
+            "unpackedCommands": 9859,
+            "packedCommands": 839,
+            "unpackedBytes": 1204204,
+            "packedBytes": 304281,
+            "combatCanvasMs": 7.5,
+            "canvasSha256": "2e90031f3d1220551578fd4ab07d8daea72fd6e5acdd855f30f1027f21f52aac"
+          },
+          "h32c16": {
+            "differentPixels": 44776,
+            "rgbAbsoluteError": 3781371,
+            "unpackedCommands": 4530,
+            "packedCommands": 375,
+            "unpackedBytes": 551203,
+            "packedBytes": 133565,
+            "combatCanvasMs": 3.300000011920929,
+            "canvasSha256": "85d35e91b9de733123c974665281b1363a5e2e3a2572f54a311a103056d91a86"
+          }
+        }
+      },
+      "保護域の準備": {
+        "tick": 2443,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44279,
+            "rgbAbsoluteError": 2964570,
+            "unpackedCommands": 9865,
+            "packedCommands": 839,
+            "unpackedBytes": 1210820,
+            "packedBytes": 306689,
+            "combatCanvasMs": 7.5,
+            "canvasSha256": "4a01301c71daf914242f88481d561541b6ab3cfdc5e3a5f4e5d5f22b6f4be173"
+          },
+          "h32c16": {
+            "differentPixels": 44392,
+            "rgbAbsoluteError": 3743950,
+            "unpackedCommands": 4527,
+            "packedCommands": 375,
+            "unpackedBytes": 554011,
+            "packedBytes": 136394,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "8409d6a13dd9a813273916aedf50e6f098d51e2bf4262387356bfab5d3c8414a"
+          }
+        },
+        "apepText": "ドームが開くまで待つ ｜ 次の余波まで4.0秒"
+      },
+      "ドームで最初の余波を防ぐ": {
+        "tick": 2683,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 40180,
+            "rgbAbsoluteError": 2689952,
+            "unpackedCommands": 9945,
+            "packedCommands": 925,
+            "unpackedBytes": 1211549,
+            "packedBytes": 311504,
+            "combatCanvasMs": 7.899999976158142,
+            "canvasSha256": "ccba8f595b22523c85c45d3339f0c8550bba88fb8619e948785deb82cb0432eb"
+          },
+          "h32c16": {
+            "differentPixels": 40219,
+            "rgbAbsoluteError": 3420375,
+            "unpackedCommands": 4616,
+            "packedCommands": 461,
+            "unpackedBytes": 562662,
+            "packedBytes": 142599,
+            "combatCanvasMs": 3.5999999940395355,
+            "canvasSha256": "d7aa99047b4e4bca0243cf0bac66eac1f94c3f7bbd7552bb7160ac92ef4d4b00"
+          }
+        },
+        "apepText": "中央のドームの内側 ｜ 次の余波まで1.5秒"
+      },
+      "最後の余波の直前": {
+        "tick": 2982,
+        "originalCombatCanvasMs": 0.6000000238418579,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 39864,
+            "rgbAbsoluteError": 2665644,
+            "unpackedCommands": 9937,
+            "packedCommands": 917,
+            "unpackedBytes": 1215485,
+            "packedBytes": 313764,
+            "combatCanvasMs": 7.800000011920929,
+            "canvasSha256": "20bdd7d01eb7b76265e202e6b9805ee8d908be1bb45e4d18c87d4ea725ae79ae"
+          },
+          "h32c16": {
+            "differentPixels": 39923,
+            "rgbAbsoluteError": 3378529,
+            "unpackedCommands": 4608,
+            "packedCommands": 453,
+            "unpackedBytes": 554776,
+            "packedBytes": 143324,
+            "combatCanvasMs": 3.5,
+            "canvasSha256": "7403ff597c2c1e40a4c1eedb7fa872508afbab2f78eaba54ab3e17b7ac8cd1b1"
+          }
+        },
+        "apepText": "中央のドームの内側 ｜ 最後の余波まで0.1秒"
+      },
+      "最後の余波": {
+        "tick": 2983,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 39257,
+            "rgbAbsoluteError": 2632845,
+            "unpackedCommands": 9945,
+            "packedCommands": 925,
+            "unpackedBytes": 1214877,
+            "packedBytes": 313784,
+            "combatCanvasMs": 7.800000011920929,
+            "canvasSha256": "f5c3246a9e5e5c42de3ed73ee3d64c0ca58f11ec86cb0122e5578f04f9c6e3b8"
+          },
+          "h32c16": {
+            "differentPixels": 39317,
+            "rgbAbsoluteError": 3345117,
+            "unpackedCommands": 4616,
+            "packedCommands": 461,
+            "unpackedBytes": 553334,
+            "packedBytes": 142986,
+            "combatCanvasMs": 3.5,
+            "canvasSha256": "c93ebdb0eaf3378a012d3f341078e5ac2ab2890a96796fdfc80ab3b70f949314"
+          }
+        },
+        "apepText": "ドームで最後の余波を防いだ"
+      },
+      "余波後の脱力": {
+        "tick": 3163,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20470,
+            "rgbAbsoluteError": 1593436,
+            "unpackedCommands": 9859,
+            "packedCommands": 839,
+            "unpackedBytes": 1209555,
+            "packedBytes": 307020,
+            "combatCanvasMs": 7.4000000059604645,
+            "canvasSha256": "174b863e58ab7e3f20e14c1c4e037aab9835db6aaade126cacbbdb9b73709c9c"
+          },
+          "h32c16": {
+            "differentPixels": 20528,
+            "rgbAbsoluteError": 1887091,
+            "unpackedCommands": 4530,
+            "packedCommands": 375,
+            "unpackedBytes": 557179,
+            "packedBytes": 136535,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "2c3f63157dffc85e7034c334940854530512ff46842496681c33889e7b7d19df"
+          }
+        },
+        "apepText": "ドームで最後の余波を防いだ"
+      },
+      "8秒の攻撃機会": {
+        "tick": 3223,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 20469,
+            "rgbAbsoluteError": 1584398,
+            "unpackedCommands": 9859,
+            "packedCommands": 839,
+            "unpackedBytes": 1203924,
+            "packedBytes": 303994,
+            "combatCanvasMs": 7.5999999940395355,
+            "canvasSha256": "6fec61230e68bad6005d3c7c8acda1fc37d203c419c10f303d8df0694af5f41b"
+          },
+          "h32c16": {
+            "differentPixels": 20514,
+            "rgbAbsoluteError": 1880222,
+            "unpackedCommands": 4530,
+            "packedCommands": 375,
+            "unpackedBytes": 554649,
+            "packedBytes": 135171,
+            "combatCanvasMs": 3.300000011920929,
+            "canvasSha256": "650fe3e3efde2655b1562be0ba3ee382621a788fd6ebf034506545e8224bebd4"
+          }
+        },
+        "apepText": "ドームで最後の余波を防いだ ｜ 攻撃の好機 ｜ 残り8秒"
+      }
+    }
+  },
+  "apep-outside": {
+    "image": "apep-outside.png",
+    "frames": {
+      "暗色の守護者": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 67900,
+            "rgbAbsoluteError": 3030246,
+            "unpackedCommands": 13743,
+            "packedCommands": 837,
+            "unpackedBytes": 1547862,
+            "packedBytes": 399013,
+            "combatCanvasMs": 10.599999994039536,
+            "canvasSha256": "8ed43205ed842f3d43ba3f39f12d6e1db5973ac033025256be45e1c8eb6b6495"
+          },
+          "h32c16": {
+            "differentPixels": 67952,
+            "rgbAbsoluteError": 3624551,
+            "unpackedCommands": 6139,
+            "packedCommands": 373,
+            "unpackedBytes": 684224,
+            "packedBytes": 174063,
+            "combatCanvasMs": 4.699999988079071,
+            "canvasSha256": "8cf7cfa9256d29bb14197463a0723c0730cf9f4697dd4f9cf9e36ce06fad18a9"
+          }
+        }
+      },
+      "露出した心": {
+        "tick": 106,
+        "originalCombatCanvasMs": 0.7999999821186066,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 64809,
+            "rgbAbsoluteError": 2870407,
+            "unpackedCommands": 13748,
+            "packedCommands": 842,
+            "unpackedBytes": 1688194,
+            "packedBytes": 399171,
+            "combatCanvasMs": 11,
+            "canvasSha256": "d900963ea97d30d2e32183ef0a86f4f6f7e85d4b1991ddfc7b8806b4efa3d301"
+          },
+          "h32c16": {
+            "differentPixels": 64869,
+            "rgbAbsoluteError": 3398829,
+            "unpackedCommands": 6144,
+            "packedCommands": 378,
+            "unpackedBytes": 737359,
+            "packedBytes": 174135,
+            "combatCanvasMs": 4.699999988079071,
+            "canvasSha256": "d3fa78a5d7788671aee6aa4766675549e91e355ec1525a071628c73ead4fdf51"
+          }
+        }
+      },
+      "心の防衛開始": {
+        "tick": 285,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5260,
+            "rgbAbsoluteError": 564952,
+            "unpackedCommands": 1860,
+            "packedCommands": 863,
+            "unpackedBytes": 228072,
+            "packedBytes": 127141,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "f6c7c036fe50e9f9de6683458f3023eb2309a80f0944b324f66731b84a425e04"
+          },
+          "h32c16": {
+            "differentPixels": 5278,
+            "rgbAbsoluteError": 656358,
+            "unpackedCommands": 846,
+            "packedCommands": 399,
+            "unpackedBytes": 101435,
+            "packedBytes": 56383,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "5bdb7eb389b11273aec0f95e6652b2a21e0414afc60014ea16ce482cad26f829"
+          }
+        }
+      },
+      "接近する増殖体": {
+        "tick": 345,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 9336,
+            "rgbAbsoluteError": 884026,
+            "unpackedCommands": 4096,
+            "packedCommands": 867,
+            "unpackedBytes": 489330,
+            "packedBytes": 137075,
+            "combatCanvasMs": 3.899999976158142,
+            "canvasSha256": "af6ece1f066ecac196d061c01d0912f59f978cb4645eb1b8b29c8df311eb6a82"
+          },
+          "h32c16": {
+            "differentPixels": 9378,
+            "rgbAbsoluteError": 1011170,
+            "unpackedCommands": 1830,
+            "packedCommands": 403,
+            "unpackedBytes": 199004,
+            "packedBytes": 61162,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "ce9ad3d77f3e9166adf9e5d513d9e750fe64c5190b5a24d1ca83bb26470c6abc"
+          }
+        }
+      },
+      "原初の蘇生": {
+        "tick": 1479,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5244,
+            "rgbAbsoluteError": 542021,
+            "unpackedCommands": 1856,
+            "packedCommands": 859,
+            "unpackedBytes": 221719,
+            "packedBytes": 123719,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "97192981c1d6616061138dbf8290a33e8733234656912adf1abd2833887d68af"
+          },
+          "h32c16": {
+            "differentPixels": 5321,
+            "rgbAbsoluteError": 645212,
+            "unpackedCommands": 842,
+            "packedCommands": 395,
+            "unpackedBytes": 98656,
+            "packedBytes": 54884,
+            "combatCanvasMs": 0.9000000059604645,
+            "canvasSha256": "ef281f3308c346d429c49c5b48252ed2b1ac9fb147ac46e06a72e5b02c078672"
+          }
+        }
+      },
+      "緑の守護者": {
+        "tick": 1689,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44327,
+            "rgbAbsoluteError": 2971824,
+            "unpackedCommands": 9859,
+            "packedCommands": 839,
+            "unpackedBytes": 1203017,
+            "packedBytes": 303534,
+            "combatCanvasMs": 7.4000000059604645,
+            "canvasSha256": "c4a7b1f22633a6d2b3f705b5fc56489eb08a8c6ff8ff6cccbde8dbfaf54f4029"
+          },
+          "h32c16": {
+            "differentPixels": 44462,
+            "rgbAbsoluteError": 3755002,
+            "unpackedCommands": 4530,
+            "packedCommands": 375,
+            "unpackedBytes": 551521,
+            "packedBytes": 135054,
+            "combatCanvasMs": 3.300000011920929,
+            "canvasSha256": "c8034bed3b34a0f3141e4d85311a9da5b150ad038fbf9ed34bca95f122d7bd3e"
+          }
+        }
+      },
+      "保護域の準備": {
+        "tick": 2451,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 44022,
+            "rgbAbsoluteError": 2932469,
+            "unpackedCommands": 9865,
+            "packedCommands": 839,
+            "unpackedBytes": 1212533,
+            "packedBytes": 305011,
+            "combatCanvasMs": 7.5,
+            "canvasSha256": "02f6af879a3fcc82fae9aa4530d4c7115ddf5c9c1d7a5d7d5e09a32512662397"
+          },
+          "h32c16": {
+            "differentPixels": 44126,
+            "rgbAbsoluteError": 3704945,
+            "unpackedCommands": 4527,
+            "packedCommands": 375,
+            "unpackedBytes": 549802,
+            "packedBytes": 133716,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "4286ce21678e372042dcdad94b45de8107f0d67cafa4931baf37437fd05da31a"
+          }
+        },
+        "apepText": "ドームが開くまで待つ ｜ 次の余波まで4.0秒"
+      },
+      "ドームで最初の余波を防ぐ": {
+        "tick": 2691,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 40180,
+            "rgbAbsoluteError": 2689952,
+            "unpackedCommands": 9945,
+            "packedCommands": 925,
+            "unpackedBytes": 1211549,
+            "packedBytes": 311504,
+            "combatCanvasMs": 7.100000023841858,
+            "canvasSha256": "ccba8f595b22523c85c45d3339f0c8550bba88fb8619e948785deb82cb0432eb"
+          },
+          "h32c16": {
+            "differentPixels": 40219,
+            "rgbAbsoluteError": 3420375,
+            "unpackedCommands": 4616,
+            "packedCommands": 461,
+            "unpackedBytes": 562662,
+            "packedBytes": 142599,
+            "combatCanvasMs": 3.300000011920929,
+            "canvasSha256": "d7aa99047b4e4bca0243cf0bac66eac1f94c3f7bbd7552bb7160ac92ef4d4b00"
+          }
+        },
+        "apepText": "中央のドームの内側 ｜ 次の余波まで1.5秒"
+      },
+      "最後の余波の直前": {
+        "tick": 2990,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 42622,
+            "rgbAbsoluteError": 2783117,
+            "unpackedCommands": 9943,
+            "packedCommands": 917,
+            "unpackedBytes": 1217365,
+            "packedBytes": 313776,
+            "combatCanvasMs": 7.5999999940395355,
+            "canvasSha256": "f229e7c89f962c77c66825c5db1eeb4bb2e6f94a40facabad2ebd11332e3dd85"
+          },
+          "h32c16": {
+            "differentPixels": 42671,
+            "rgbAbsoluteError": 3554360,
+            "unpackedCommands": 4605,
+            "packedCommands": 453,
+            "unpackedBytes": 554422,
+            "packedBytes": 143200,
+            "combatCanvasMs": 3.5999999940395355,
+            "canvasSha256": "c58de82d527bc300602e683340f889cd88bbba3947c40f30e4e821fce76a7396"
+          }
+        },
+        "apepText": "中央のドームの内側へ ｜ 最後の余波まで0.1秒"
+      },
+      "最後の余波": {
+        "tick": 2991,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 41615,
+            "rgbAbsoluteError": 2699112,
+            "unpackedCommands": 9951,
+            "packedCommands": 925,
+            "unpackedBytes": 1217871,
+            "packedBytes": 314282,
+            "combatCanvasMs": 7.5999999940395355,
+            "canvasSha256": "eb6f285863651255cd3fae1733e5b36e58519ee965f7f3326b8950ee6b938ef2"
+          },
+          "h32c16": {
+            "differentPixels": 41657,
+            "rgbAbsoluteError": 3456337,
+            "unpackedCommands": 4613,
+            "packedCommands": 461,
+            "unpackedBytes": 554928,
+            "packedBytes": 143706,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "fa6536ff00046ff916a51ead1796080c4e2becf047f776655a88a2c6e512b25e"
+          }
+        },
+        "apepText": "最後の余波が命中・54ダメージ"
+      },
+      "余波後の脱力": {
+        "tick": 3171,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 23169,
+            "rgbAbsoluteError": 1722648,
+            "unpackedCommands": 9865,
+            "packedCommands": 839,
+            "unpackedBytes": 1210194,
+            "packedBytes": 306464,
+            "combatCanvasMs": 7.4000000059604645,
+            "canvasSha256": "2ec7d57a6ee07b77d6b3595535c913efa951362468bf542a75e1d7ca1585fc4c"
+          },
+          "h32c16": {
+            "differentPixels": 23215,
+            "rgbAbsoluteError": 2082813,
+            "unpackedCommands": 4527,
+            "packedCommands": 375,
+            "unpackedBytes": 555387,
+            "packedBytes": 135770,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "76a24d7ec95ed51d2dec7737228ec74e1b59d696ab8ab3f1fc937a9b9cb3a352"
+          }
+        },
+        "apepText": "最後の余波が命中・54ダメージ"
+      },
+      "8秒の攻撃機会": {
+        "tick": 3231,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 23165,
+            "rgbAbsoluteError": 1713194,
+            "unpackedCommands": 9865,
+            "packedCommands": 839,
+            "unpackedBytes": 1207142,
+            "packedBytes": 305011,
+            "combatCanvasMs": 7.4000000059604645,
+            "canvasSha256": "1884eb4b6e46ca070788a90db256016ee50be4f8be3f613a764545376a7e01d4"
+          },
+          "h32c16": {
+            "differentPixels": 23187,
+            "rgbAbsoluteError": 2070929,
+            "unpackedCommands": 4527,
+            "packedCommands": 375,
+            "unpackedBytes": 550832,
+            "packedBytes": 133716,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "8cf9753330b35593fa1e93c0662cf529b9e540034bf8a5777ceed2d2f804b700"
+          }
+        },
+        "apepText": "最後の余波が命中・54ダメージ ｜ 攻撃の好機 ｜ 残り8秒"
+      }
+    }
+  }
+}

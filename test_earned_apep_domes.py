@@ -1,17 +1,20 @@
 """Play Apep's expert defense and compare the last pulse inside and outside a dome."""
 
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, covered):
+def replay(source, output, covered, *, weapon='SW06', next_save=None):
     spec = next(row for row in read('content/weekly-boss-spawns.json')['weeklyBosses']
                 if row['controller'] == 'apep')
-    trip, slot, start, loadout, mode, key, prior = expert_rematch(source.resolve(), runtime(), spec)
+    trip, slot, start, loadout, mode, key, prior = expert_rematch(
+        source.resolve(), runtime(), spec, weapon=weapon, trial_flower=next_save is not None)
     state, hero, boss = trip.state, trip.actor, slot.primary
     before = state.progression.total, state.mora
     hp_start = boss.hp
@@ -42,7 +45,8 @@ def replay(source, output, covered):
                     'rebirth': '原初の蘇生', 'prime': '緑の守護者', 'shelter': '保護域の準備',
                     'weak': '余波後の脱力'}[stage], tick-1)
         goal, target = hero.x, None
-        if stage == 'dark' and not boss.invulnerable or stage in ('weak', 'prime') and opening_ticks:
+        finish = opening_ticks and (next_save is None or opening_ticks >= 480 or opening_damage == 0)
+        if stage == 'dark' and not boss.invulnerable or stage in ('weak', 'prime') and finish:
             target = boss.x
         elif stage == 'defense':
             defense = dict(lastProgress=heart.progress, kills=heart.kills)
@@ -94,6 +98,8 @@ def replay(source, output, covered):
         assert not state.returns and hero.hp > 0 and slot.stage != 'failed', (tick, defense, stages)
         if slot.stage == 'weak' and slot.stageTick == spec['dome']['exposureStart']:
             sample('8秒の攻撃機会', tick)
+        if wave and wave.t == last_wave-1 and not opening_ticks:
+            sample('最後の余波の直前',tick)
         if wave and wave.t in wave_times and not opening_ticks:
             group = wave_times.index(wave.t)+1
             event = next(e for e in reversed(list(state.events.values()))
@@ -115,27 +121,51 @@ def replay(source, output, covered):
     final_result = {'protected': covered, 'damage': pulses[-1]['damage']}
     assert frames['最後の余波']['view']['apep']['finalPulse'] == final_result
     assert frames['8秒の攻撃機会']['view']['apep']['finalPulse'] == final_result
+    notice = frames['最後の余波の直前']['view']['apep']
+    assert notice['nextPulseFinal'] and notice['nextPulse'] == 1
+    assert notice['domeCue']['index'] == 2 and not notice['domeCue']['needsGround']
+    assert notice['protected'] == covered
     assert opening_damage > 0
     reward = trip.frame().weeklyBoss.reward
     payout = dict(xp=reward.xp, mora=reward.mora, first=reward.first)
+    party_hp = [actor.hp for actor in state.actors.values()]
     verify_repeat(trip, before, start, mode, key, prior)
     case = 'apep-covered' if covered else 'apep-outside'
     label = '最後の余波をドームで防ぐ' if covered else '最後の余波がドーム外で命中'
     (output / f'{case}-frames.json').write_text(
         json.dumps(frames, ensure_ascii=False, separators=(',', ':'))+'\n', 'utf8')
     print(case, tick, defense, pulses, opening_ticks, opening_damage, flush=True)
-    return dict(controller='apep', case=case, label=label, ticks=tick, sourceSha256=trip.source,
-                bossHP=hp_start, loadout=loadout, stages=stages, defense=defense, pulses=pulses,
-                openingTicks=opening_ticks, damageDuringOpening=opening_damage, reward=payout,
-                expertClears=[prior, prior+1])
+    proof = dict(controller='apep', case=case, label=label, ticks=tick, sourceSha256=trip.source,
+                 bossHP=hp_start, loadout=loadout, stages=stages, defense=defense, pulses=pulses,
+                 openingTicks=opening_ticks, damageDuringOpening=opening_damage, reward=payout,
+                 expertClears=[prior, prior+1], partyHp=party_hp, returns=0)
+    if next_save:
+        saved = restore_rematch_equipment(trip, start, loadout, 'sumeru-hub')
+        assert saved['azhdahaPair'] == start['azhdahaPair']
+        assert saved['endgame']['bosses'] == start['endgame']['bosses']
+        assert saved['endgame']['weekly'][key]['clears'] == prior+1
+        assert saved['weeklyBosses'][spec['id']]['waitTicks'] > 0
+        raw = (json.dumps(saved, ensure_ascii=False)+'\n').encode()
+        next_save.write_bytes(raw)
+        proof.update(savedSha256=sha256(raw).hexdigest(), equipmentRestored=True)
+    return proof
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
     parser.add_argument('--from-save', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--weapon', default='SW06')
+    parser.add_argument('--chain', action='store_true', help='Continue from the previous ranked win')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    fights = [replay(args.from_save, args.output_dir, safe) for safe in (True, False)]
+    fights = []
+    source = args.from_save
+    for safe in (True, False):
+        filename = 'rematch-1-save.json' if safe else 'complete.json'
+        next_save = args.output_dir / filename if args.chain else None
+        fights.append(replay(source, args.output_dir, safe, weapon=args.weapon, next_save=next_save))
+        if next_save:
+            source = next_save
     (args.output_dir / 'weekly-mechanics.json').write_text(
         json.dumps(fights, ensure_ascii=False, indent=2)+'\n', 'utf8')
