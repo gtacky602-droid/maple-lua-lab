@@ -26,3 +26,14 @@
 Pで一時停止し、画像・標準矩形・軽量を切り替える。異界で三体を表示する同じ場面は、標準の15,711件から軽量4,281件へ描画コマンドが72.8%減った。軽量では髪と杖の細部が簡略化され、擬影を区別する月具の印が残る。 [画像](../../evidence/false-moon-weekly-png.png)・[標準](../../evidence/false-moon-weekly-standard.png)・[軽量](../../evidence/false-moon-weekly-light.png)
 
 Luaで禁令の境界、同行や旧技との区別、擬影の精算と回帰上限を確認した。Chromeのソロ試走では柱での保護、裂け目の取り消しと入り直し、擬影3体の討伐、帰還時の損傷408、直視の禁令、討伐報告・保存再開まで確認した。全編成の回避経路、連続作画、音、幻境での移植と性能は残る。 [Lua](../../evidence/false-moon-weekly-lua.json)・[Chrome](../../evidence/false-moon-weekly-browser.json)
+
+## Lv200セーブでの最上級4勝
+
+対局の最上級3勝と依頼報告118件を記録したセーブで、ナド・クライの町の広場から最上級へ入った。柱の案内は、左・中央・右のうち近い青い枠と衝撃までの残り時間を表示する。高い足場からは床へ降りるよう案内する。裂け目まで移動する段階とHで入場確認できる段階を区別し、受付の残り時間を0.1秒刻みで出す。
+
+- Chromeの初回は、停止の禁令を1回破った際の罰、柱での防御、裂け目の取り消しと再入場、擬影3体と帰還時の408ダメージ、直視の禁令を守る経路を確認した。討伐で32,560,274 EXPと3,590,160モラ、ラウマへの報告で840,000 EXPと21,200モラを獲得した。 [最上級初回と報告](../../evidence/earned-false-moon-first-expert-browser.json)
+- Luaの3連戦では擬影3体、1体で早期帰還、裂け目を見送る場合を比較した。帰還ダメージは408、136、0。異界へ入った2戦の反撃は各6秒で、その間に336ダメージを加えた。柱の枠の内側では衝撃を防ぎ、外側では106ダメージを受けた。周回報酬は各18,999,684 EXPと1,538,640モラ。検証中は旅人の聖遺物を一時変更し、同行者の攻撃を止めた。 [3連戦の記録](../../evidence/earned-false-moon-rematch-lua.json)
+- 元の装備と未回収の聖遺物を保持し、Chromeで博士の最上級4勝、対局の最上級3勝、報告119件を復元した。 [再読込の記録](../../evidence/earned-false-moon-rematch-browser.json)
+- 3戦の23場面を元絵・中間・軽量で比較した。三擬影の同一フレームで標準の描画命令は14,536件、軽量16色は4,048件。軽量版はパック前後でCanvasの画素が一致し、gzip転送量が71,032 Bから36,283 Bになった。 [比較の記録](../../evidence/earned-false-moon-rematch-frames-browser.json)
+
+最上級初回後のセーブから、`python -X utf8 test_earned_false_moon.py --from-save work/earned-false-moon/first/false-moon-complete.json --output-dir work/earned-false-moon/replays --chain --weapon SW07` で3戦を再現できる。ラボを起動し、`node test_earned_weekly_frames.mjs work/earned-false-moon/replays work/earned-false-moon/comparison` で3画質を比較する。

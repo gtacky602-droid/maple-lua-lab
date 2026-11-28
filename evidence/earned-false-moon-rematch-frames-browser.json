@@ -1,0 +1,638 @@
+{
+  "false-moon-full": {
+    "image": "false-moon-full.png",
+    "frames": {
+      "柱と衝撃の予告": {
+        "tick": 962,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8211,
+            "rgbAbsoluteError": 698627,
+            "unpackedCommands": 4243,
+            "packedCommands": 905,
+            "unpackedBytes": 523616,
+            "packedBytes": 183446,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "d99b56e31b370b7e2fc43edd656b461912df93a417f7c5486223da6bb69ec855"
+          },
+          "h32c16": {
+            "differentPixels": 8129,
+            "rgbAbsoluteError": 867032,
+            "unpackedCommands": 1958,
+            "packedCommands": 441,
+            "unpackedBytes": 239181,
+            "packedBytes": 84556,
+            "combatCanvasMs": 1,
+            "canvasSha256": "2c5046f9e8514be400571ec273dfef81401155874e5fdcd861e83da7c7f6bbea"
+          }
+        },
+        "falseMoonText": "青い枠の内側で待機 ｜ 衝撃まで1.0秒"
+      },
+      "青い枠で衝撃を防ぐ": {
+        "tick": 1022,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8131,
+            "rgbAbsoluteError": 695847,
+            "unpackedCommands": 4244,
+            "packedCommands": 906,
+            "unpackedBytes": 519739,
+            "packedBytes": 181492,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "0ebc34fe6c084fabce8521be16340bad6fce79f8affd15c1fe3f1933b0cb9495"
+          },
+          "h32c16": {
+            "differentPixels": 8098,
+            "rgbAbsoluteError": 860631,
+            "unpackedCommands": 1959,
+            "packedCommands": 442,
+            "unpackedBytes": 233822,
+            "packedBytes": 81946,
+            "combatCanvasMs": 0.9000000059604645,
+            "canvasSha256": "aac29a0b35b328f4163781961d982bdfdf4c5e66d6b2a70d7e1962c39dd02442"
+          }
+        },
+        "falseMoonText": "柱で衝撃を防いだ"
+      },
+      "中央に裂け目が開く": {
+        "tick": 1287,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7072,
+            "rgbAbsoluteError": 664565,
+            "unpackedCommands": 4212,
+            "packedCommands": 880,
+            "unpackedBytes": 516708,
+            "packedBytes": 180630,
+            "combatCanvasMs": 2,
+            "canvasSha256": "3716528eff5efa6e2c4ca7d18014b3d8ebf12ea7d8ccb3645a511ebca2abe063"
+          },
+          "h32c16": {
+            "differentPixels": 7072,
+            "rgbAbsoluteError": 827276,
+            "unpackedCommands": 1936,
+            "packedCommands": 416,
+            "unpackedBytes": 235622,
+            "packedBytes": 81629,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "e3a063c4a92ad83931b0cb94bcf522daa7d7955ca1b4f40dd73b78874cfc7a6b"
+          }
+        },
+        "falseMoonText": "Hで異界への入場を確認 ｜ 受付終了まで11.5秒"
+      },
+      "裂け目・入場確認": {
+        "tick": 1287,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7072,
+            "rgbAbsoluteError": 664565,
+            "unpackedCommands": 4212,
+            "packedCommands": 880,
+            "unpackedBytes": 516708,
+            "packedBytes": 180630,
+            "combatCanvasMs": 2,
+            "canvasSha256": "3716528eff5efa6e2c4ca7d18014b3d8ebf12ea7d8ccb3645a511ebca2abe063"
+          },
+          "h32c16": {
+            "differentPixels": 7072,
+            "rgbAbsoluteError": 827276,
+            "unpackedCommands": 1936,
+            "packedCommands": 416,
+            "unpackedBytes": 235622,
+            "packedBytes": 81629,
+            "combatCanvasMs": 1,
+            "canvasSha256": "e3a063c4a92ad83931b0cb94bcf522daa7d7955ca1b4f40dd73b78874cfc7a6b"
+          }
+        },
+        "falseMoonText": "異界へ移るまで 1.5秒"
+      },
+      "異界へ移動": {
+        "tick": 1467,
+        "originalCombatCanvasMs": 0.09999999403953552,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5249,
+            "rgbAbsoluteError": 558431,
+            "unpackedCommands": 1829,
+            "packedCommands": 832,
+            "unpackedBytes": 226264,
+            "packedBytes": 125071,
+            "combatCanvasMs": 1,
+            "canvasSha256": "dc028a0877c479cf79b2b0b8355c9d5e22e1fe802790f936b91fec366c4c410b"
+          },
+          "h32c16": {
+            "differentPixels": 5272,
+            "rgbAbsoluteError": 644910,
+            "unpackedCommands": 815,
+            "packedCommands": 368,
+            "unpackedBytes": 99506,
+            "packedBytes": 54401,
+            "combatCanvasMs": 0.4000000059604645,
+            "canvasSha256": "448f0e94605e1a952d5a676b9ea78310e526bb45174b559390988c59ad1c7605"
+          }
+        },
+        "falseMoonText": "異界へ移動中"
+      },
+      "異界の三擬影": {
+        "tick": 1558,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 23430,
+            "rgbAbsoluteError": 1349964,
+            "unpackedCommands": 9254,
+            "packedCommands": 850,
+            "unpackedBytes": 1250615,
+            "packedBytes": 186285,
+            "combatCanvasMs": 4,
+            "canvasSha256": "bb6352b4f625f0e64a1dc25efac158d407c20941650c839c176653d948df7272"
+          },
+          "h32c16": {
+            "differentPixels": 23298,
+            "rgbAbsoluteError": 1712419,
+            "unpackedCommands": 4195,
+            "packedCommands": 386,
+            "unpackedBytes": 565282,
+            "packedBytes": 81897,
+            "combatCanvasMs": 1.600000023841858,
+            "canvasSha256": "a83e6948d7abae1460bf884beb3f07597d55f377652b3870bc54c137e9d8cdf4"
+          }
+        },
+        "falseMoonText": "倒した擬影 0 / 3 ｜ 残り 30秒 ｜ 右端から帰還可"
+      },
+      "外界へ帰還": {
+        "tick": 1807,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13245,
+            "rgbAbsoluteError": 1194002,
+            "unpackedCommands": 4207,
+            "packedCommands": 875,
+            "unpackedBytes": 518232,
+            "packedBytes": 180414,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "d53d74a776e574bbd56db136df2994e07191e19f77a94633e0f2e1da4ad493f1"
+          },
+          "h32c16": {
+            "differentPixels": 13247,
+            "rgbAbsoluteError": 1440215,
+            "unpackedCommands": 1931,
+            "packedCommands": 411,
+            "unpackedBytes": 235220,
+            "packedBytes": 81553,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "dc0c95bfd138b4d4020eebf74e55202167ff049ce821dfb09b5f018be3847473"
+          }
+        },
+        "falseMoonText": "外界へ帰還"
+      },
+      "帰還後の反撃・開始": {
+        "tick": 1837,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 11920,
+            "rgbAbsoluteError": 1092746,
+            "unpackedCommands": 4209,
+            "packedCommands": 877,
+            "unpackedBytes": 520101,
+            "packedBytes": 180491,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "159f9273c1775a6eae6b54a776007cf56697e86f8ed83035d56dcd8ae5ad550a"
+          },
+          "h32c16": {
+            "differentPixels": 11892,
+            "rgbAbsoluteError": 1304905,
+            "unpackedCommands": 1933,
+            "packedCommands": 413,
+            "unpackedBytes": 235736,
+            "packedBytes": 81630,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "4f207ec48f90a80628e9ec015dde6d5284341bc8d6f48b5286d93c767ee2cd0c"
+          }
+        },
+        "falseMoonText": "博士に408ダメージ ｜ 反撃できる時間 6.0秒"
+      },
+      "帰還後の反撃・終了": {
+        "tick": 2197,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13218,
+            "rgbAbsoluteError": 1184966,
+            "unpackedCommands": 4207,
+            "packedCommands": 875,
+            "unpackedBytes": 517990,
+            "packedBytes": 180279,
+            "combatCanvasMs": 2,
+            "canvasSha256": "cb3268933c85879654478464ea97d2ecb2494db136da7e9956afe0b61a7ff788"
+          },
+          "h32c16": {
+            "differentPixels": 13233,
+            "rgbAbsoluteError": 1438881,
+            "unpackedCommands": 1931,
+            "packedCommands": 411,
+            "unpackedBytes": 236651,
+            "packedBytes": 81948,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "f9abad597e8b1bb6c6022df3eeee3fbe313ef892f275f5f03ba63f8eb7b12945"
+          }
+        },
+        "falseMoonText": "博士に408ダメージ ｜ 反撃終了"
+      }
+    }
+  },
+  "false-moon-early": {
+    "image": "false-moon-early.png",
+    "frames": {
+      "柱と衝撃の予告": {
+        "tick": 962,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8752,
+            "rgbAbsoluteError": 769966,
+            "unpackedCommands": 4236,
+            "packedCommands": 904,
+            "unpackedBytes": 520647,
+            "packedBytes": 183001,
+            "combatCanvasMs": 1.899999976158142,
+            "canvasSha256": "cd3c9b34b28be7d7db3d0fe47359e5632fbf9aa2b2aa1c31d608c545e45b3256"
+          },
+          "h32c16": {
+            "differentPixels": 8704,
+            "rgbAbsoluteError": 935880,
+            "unpackedCommands": 1960,
+            "packedCommands": 440,
+            "unpackedBytes": 239419,
+            "packedBytes": 84591,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "c9fcfa6de78a00785d256b8add598d618ec0cceb05b84236b2941081161d1aaf"
+          }
+        },
+        "falseMoonText": "左の柱の青い枠へ ｜ 衝撃まで1.0秒"
+      },
+      "保護の外で衝撃が命中": {
+        "tick": 1022,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8602,
+            "rgbAbsoluteError": 771517,
+            "unpackedCommands": 4237,
+            "packedCommands": 905,
+            "unpackedBytes": 520808,
+            "packedBytes": 182945,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "7c922ad7c85cdb190311ff87f1c24b224803e51f4aa70b2b576c9db15ad0c1fd"
+          },
+          "h32c16": {
+            "differentPixels": 8596,
+            "rgbAbsoluteError": 922393,
+            "unpackedCommands": 1961,
+            "packedCommands": 441,
+            "unpackedBytes": 239737,
+            "packedBytes": 84548,
+            "combatCanvasMs": 1,
+            "canvasSha256": "cd251292f42668bb6603b16830c9b78512c3954239d3699495f142d4f1a88598"
+          }
+        },
+        "falseMoonText": "衝撃が命中 ｜ 106ダメージ"
+      },
+      "中央に裂け目が開く": {
+        "tick": 1287,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7077,
+            "rgbAbsoluteError": 673040,
+            "unpackedCommands": 4212,
+            "packedCommands": 880,
+            "unpackedBytes": 517807,
+            "packedBytes": 181109,
+            "combatCanvasMs": 2.2000000178813934,
+            "canvasSha256": "c9f81377fa2c437ba8a3f0405eff307a3898c3d52255cc89f9230c2f842c281f"
+          },
+          "h32c16": {
+            "differentPixels": 7077,
+            "rgbAbsoluteError": 828374,
+            "unpackedCommands": 1936,
+            "packedCommands": 416,
+            "unpackedBytes": 237451,
+            "packedBytes": 82421,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "d004cb59d0d091d50f7a94c6dea9d2d280640689f57647ce3aa66aacb04c4868"
+          }
+        },
+        "falseMoonText": "Hで異界への入場を確認 ｜ 受付終了まで11.5秒"
+      },
+      "裂け目・入場確認": {
+        "tick": 1287,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7077,
+            "rgbAbsoluteError": 673040,
+            "unpackedCommands": 4212,
+            "packedCommands": 880,
+            "unpackedBytes": 517807,
+            "packedBytes": 181109,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "c9f81377fa2c437ba8a3f0405eff307a3898c3d52255cc89f9230c2f842c281f"
+          },
+          "h32c16": {
+            "differentPixels": 7077,
+            "rgbAbsoluteError": 828374,
+            "unpackedCommands": 1936,
+            "packedCommands": 416,
+            "unpackedBytes": 237451,
+            "packedBytes": 82421,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "d004cb59d0d091d50f7a94c6dea9d2d280640689f57647ce3aa66aacb04c4868"
+          }
+        },
+        "falseMoonText": "異界へ移るまで 1.5秒"
+      },
+      "異界へ移動": {
+        "tick": 1467,
+        "originalCombatCanvasMs": 0.09999999403953552,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 5252,
+            "rgbAbsoluteError": 545817,
+            "unpackedCommands": 1829,
+            "packedCommands": 832,
+            "unpackedBytes": 225508,
+            "packedBytes": 124738,
+            "combatCanvasMs": 0.9000000059604645,
+            "canvasSha256": "17c23b4ae7e25737d50b3e38a1f431663834c2c10760999f6bc175a1e69f214a"
+          },
+          "h32c16": {
+            "differentPixels": 5252,
+            "rgbAbsoluteError": 639929,
+            "unpackedCommands": 815,
+            "packedCommands": 368,
+            "unpackedBytes": 99559,
+            "packedBytes": 54412,
+            "combatCanvasMs": 0.4000000059604645,
+            "canvasSha256": "19c511bef65567f4e07d9fa5863704d547befd04f48d4ae53e277b403069ec3a"
+          }
+        },
+        "falseMoonText": "異界へ移動中"
+      },
+      "異界の三擬影": {
+        "tick": 1558,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 23481,
+            "rgbAbsoluteError": 1354490,
+            "unpackedCommands": 9254,
+            "packedCommands": 850,
+            "unpackedBytes": 1252055,
+            "packedBytes": 186860,
+            "combatCanvasMs": 4.0999999940395355,
+            "canvasSha256": "0d4834a3d532b690af118e41a8e0d69f9dfb55bf65296c8f0be618750dda52dc"
+          },
+          "h32c16": {
+            "differentPixels": 23325,
+            "rgbAbsoluteError": 1730243,
+            "unpackedCommands": 4195,
+            "packedCommands": 386,
+            "unpackedBytes": 567187,
+            "packedBytes": 82590,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "ca0705e88b613ac22572fc7e7b457d9444d76da6f4559251f7d7e005125491da"
+          }
+        },
+        "falseMoonText": "倒した擬影 0 / 3 ｜ 残り 30秒 ｜ 右端から帰還可"
+      },
+      "右端の出口から帰還": {
+        "tick": 1756,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 15540,
+            "rgbAbsoluteError": 998101,
+            "unpackedCommands": 6648,
+            "packedCommands": 845,
+            "unpackedBytes": 891524,
+            "packedBytes": 179598,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "c617dae79ee4e8d4b2cd877241d06c06a4a70170fe1e2811b65722d924f0dbe2"
+          },
+          "h32c16": {
+            "differentPixels": 15492,
+            "rgbAbsoluteError": 1200403,
+            "unpackedCommands": 3002,
+            "packedCommands": 381,
+            "unpackedBytes": 399921,
+            "packedBytes": 78811,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "da4fa6be5f85f454046ad632beb7b46c3cb3f2b9b92fc40625405e10ed1ad58b"
+          }
+        },
+        "falseMoonText": "倒した擬影 1 / 3 ｜ 残り 27秒 ｜ 右端から帰還可"
+      },
+      "外界へ帰還": {
+        "tick": 1847,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13258,
+            "rgbAbsoluteError": 1186717,
+            "unpackedCommands": 4207,
+            "packedCommands": 875,
+            "unpackedBytes": 514766,
+            "packedBytes": 178980,
+            "combatCanvasMs": 2.2999999821186066,
+            "canvasSha256": "06b870a9650347baf50dcba9d1b3f0baa2b1e0b9fcde4d71437c8f1618d934da"
+          },
+          "h32c16": {
+            "differentPixels": 13221,
+            "rgbAbsoluteError": 1443925,
+            "unpackedCommands": 1931,
+            "packedCommands": 411,
+            "unpackedBytes": 231008,
+            "packedBytes": 79536,
+            "combatCanvasMs": 1,
+            "canvasSha256": "ecd859bbdd8dd2429d8cab179284fdcf40aba1fcd7e90c96d80f903ca3d5ba00"
+          }
+        },
+        "falseMoonText": "外界へ帰還"
+      },
+      "帰還後の反撃・開始": {
+        "tick": 1877,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 11892,
+            "rgbAbsoluteError": 1094849,
+            "unpackedCommands": 4209,
+            "packedCommands": 877,
+            "unpackedBytes": 521682,
+            "packedBytes": 181055,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "938fba9c19a1c5d1f524c7dda848c716e476110431224a263c79fdac5420c142"
+          },
+          "h32c16": {
+            "differentPixels": 11884,
+            "rgbAbsoluteError": 1298924,
+            "unpackedCommands": 1933,
+            "packedCommands": 413,
+            "unpackedBytes": 237902,
+            "packedBytes": 82267,
+            "combatCanvasMs": 0.9000000059604645,
+            "canvasSha256": "4754fd27b27087638dd1226c0cb0f7bdaf1a792ccbff7ef105c1b589e45f2d3e"
+          }
+        },
+        "falseMoonText": "博士に136ダメージ ｜ 反撃できる時間 6.0秒"
+      },
+      "帰還後の反撃・終了": {
+        "tick": 2237,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13261,
+            "rgbAbsoluteError": 1188723,
+            "unpackedCommands": 4207,
+            "packedCommands": 875,
+            "unpackedBytes": 518365,
+            "packedBytes": 180737,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "703330ee7a5292cd66beb56c93833504207c4d01867dfaf2c46f26f59ba1fbf0"
+          },
+          "h32c16": {
+            "differentPixels": 13218,
+            "rgbAbsoluteError": 1440751,
+            "unpackedCommands": 1931,
+            "packedCommands": 411,
+            "unpackedBytes": 236917,
+            "packedBytes": 82094,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "76130fd405a50f2fba6f27020e12ffd0990bd19e6fb1117c6894c7ee3a57e78d"
+          }
+        },
+        "falseMoonText": "博士に136ダメージ ｜ 反撃終了"
+      }
+    }
+  },
+  "false-moon-missed": {
+    "image": "false-moon-missed.png",
+    "frames": {
+      "柱と衝撃の予告": {
+        "tick": 962,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8752,
+            "rgbAbsoluteError": 769966,
+            "unpackedCommands": 4236,
+            "packedCommands": 904,
+            "unpackedBytes": 520647,
+            "packedBytes": 183001,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "cd3c9b34b28be7d7db3d0fe47359e5632fbf9aa2b2aa1c31d608c545e45b3256"
+          },
+          "h32c16": {
+            "differentPixels": 8704,
+            "rgbAbsoluteError": 935880,
+            "unpackedCommands": 1960,
+            "packedCommands": 440,
+            "unpackedBytes": 239419,
+            "packedBytes": 84591,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "c9fcfa6de78a00785d256b8add598d618ec0cceb05b84236b2941081161d1aaf"
+          }
+        },
+        "falseMoonText": "左の柱の青い枠へ ｜ 衝撃まで1.0秒"
+      },
+      "保護の外で衝撃が命中": {
+        "tick": 1022,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 8602,
+            "rgbAbsoluteError": 771517,
+            "unpackedCommands": 4237,
+            "packedCommands": 905,
+            "unpackedBytes": 520808,
+            "packedBytes": 182945,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "7c922ad7c85cdb190311ff87f1c24b224803e51f4aa70b2b576c9db15ad0c1fd"
+          },
+          "h32c16": {
+            "differentPixels": 8596,
+            "rgbAbsoluteError": 922393,
+            "unpackedCommands": 1961,
+            "packedCommands": 441,
+            "unpackedBytes": 239737,
+            "packedBytes": 84548,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "cd251292f42668bb6603b16830c9b78512c3954239d3699495f142d4f1a88598"
+          }
+        },
+        "falseMoonText": "衝撃が命中 ｜ 106ダメージ"
+      },
+      "中央に裂け目が開く": {
+        "tick": 1287,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 7077,
+            "rgbAbsoluteError": 673040,
+            "unpackedCommands": 4212,
+            "packedCommands": 880,
+            "unpackedBytes": 517807,
+            "packedBytes": 181109,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "c9f81377fa2c437ba8a3f0405eff307a3898c3d52255cc89f9230c2f842c281f"
+          },
+          "h32c16": {
+            "differentPixels": 7077,
+            "rgbAbsoluteError": 828374,
+            "unpackedCommands": 1936,
+            "packedCommands": 416,
+            "unpackedBytes": 237451,
+            "packedBytes": 82421,
+            "combatCanvasMs": 0.7999999821186066,
+            "canvasSha256": "d004cb59d0d091d50f7a94c6dea9d2d280640689f57647ce3aa66aacb04c4868"
+          }
+        },
+        "falseMoonText": "Hで異界への入場を確認 ｜ 受付終了まで11.5秒"
+      },
+      "裂け目・受付終了": {
+        "tick": 1977,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 6861,
+            "rgbAbsoluteError": 641756,
+            "unpackedCommands": 4212,
+            "packedCommands": 880,
+            "unpackedBytes": 514358,
+            "packedBytes": 179091,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "666a290aa9960ffdd02d29e349acdf95d2b91d68183cb59e413ce64473033687"
+          },
+          "h32c16": {
+            "differentPixels": 6876,
+            "rgbAbsoluteError": 788769,
+            "unpackedCommands": 1936,
+            "packedCommands": 416,
+            "unpackedBytes": 230891,
+            "packedBytes": 79747,
+            "combatCanvasMs": 0.800000011920929,
+            "canvasSha256": "05aa07888e0f101c345ef6428f335566d5835d9f393c6a65d4a22c6223c2b80a"
+          }
+        },
+        "falseMoonText": "裂け目の受付終了"
+      }
+    }
+  }
+}

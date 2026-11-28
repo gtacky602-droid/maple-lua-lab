@@ -149,7 +149,15 @@ step(s,150)
 safe,other=s.actors[1],s.actors[2]
 other.hp=other.maxhp
 step(s,209)
+place(safe,735,339)
+cue=core.frame(s).weeklyBoss.falseMoon
+assert not cue.cover and native(cue.wardCue)==dict(index=3,remaining=1,inPosition=False,needsGround=True)
+place(safe,520)
+cue=core.frame(s).weeklyBoss.falseMoon
+assert cue.cover and native(cue.wardCue)==dict(index=2,remaining=1,inPosition=True,needsGround=False)
 place(safe,160)
+cue=core.frame(s).weeklyBoss.falseMoon
+assert cue.cover and native(cue.wardCue)==dict(index=1,remaining=1,inPosition=True,needsGround=False)
 place(other,623)
 safe.inv,other.inv=0,0
 p1,p2=safe.hp,other.hp
@@ -163,7 +171,12 @@ c=choose(s,w,spec,'WM13')
 step(s,120)
 core.action(s,'encounter_interact')
 assert c.confirm is None
+place(a,480,339)
+blocked=core.frame(s).weeklyBoss.falseMoon
+assert not blocked.canUse and blocked.riftNeedsDescend
 place(a,480)
+ready=core.frame(s).weeklyBoss.falseMoon
+assert ready.canUse and not ready.riftNeedsDescend
 core.action(s,'encounter_interact')
 assert c.confirm==210
 core.action(s,'encounter_cancel')
