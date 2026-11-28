@@ -1,0 +1,74 @@
+{
+  "importedLevel": 100,
+  "arrivalLevel": 100,
+  "route": [
+    [
+      "fontaine-field",
+      "walk"
+    ],
+    [
+      "natlan-entry",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "completedQuests": 77,
+  "hunts": [
+    "fontaine-entry",
+    "fontaine-field",
+    "fontaine-outskirts-loading",
+    "fontaine-beryl-bank",
+    "fontaine-beryl-foothills"
+  ],
+  "firstNatlanQuestAccepted": "natlan-ridge-flag",
+  "joined": {
+    "low": {
+      "target": "sites-hunt-50034",
+      "from": "fontaine-entry",
+      "level": 99,
+      "xp": 6055689
+    },
+    "blocked": [
+      {
+        "target": "deianeira-legend-lab",
+        "from": "fon-wp-55768",
+        "level": 100,
+        "xp": 2358334
+      },
+      {
+        "target": "iron-viscount-legend-pool",
+        "from": "iron-viscount-thermal-gallery",
+        "level": 100,
+        "xp": 2358334
+      },
+      {
+        "target": "natlan-entry",
+        "from": "fontaine-field",
+        "level": 100,
+        "xp": 2344871
+      }
+    ],
+    "roundTrips": [
+      [
+        "fon-wp-55768",
+        "deianeira-legend-lab",
+        "fon-wp-55768"
+      ],
+      [
+        "iron-viscount-thermal-gallery",
+        "iron-viscount-legend-pool",
+        "iron-viscount-thermal-gallery"
+      ]
+    ],
+    "openedHuntAt99": true,
+    "restoreDiscardedQueuedGate": true
+  },
+  "importedXp": 37608910,
+  "arrivalXp": 37627264,
+  "travelKillXp": 18354,
+  "retainedGroundLoot": 3,
+  "errors": []
+}

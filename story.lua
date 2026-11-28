@@ -481,7 +481,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
           trainBoard=n.voyage and n.voyage.kind=='train' or nil,
           trolleyBoard=n.voyage and n.voyage.kind=='trolley' or nil,
           trolleyStop=s.voyage and s.voyage.kind=='trolley' and edge.windowStart~=nil or nil};distance=dx
-     if reason=='必要レベル '..n.level then best.questReason=C.atlasQuestGateRestriction(s,edge) end
+     if reason=='必要レベル '..n.level then
+      best.questReason=C.atlasQuestGateRestriction(s,edge)
+      best.levelExpRemaining=C.expRemainingToLevel(s,n.level)
+     end
      if edge.wind then
       local calm,seconds=windWindow(s,edge.wind)
       best.wind={calm=calm,seconds=seconds}

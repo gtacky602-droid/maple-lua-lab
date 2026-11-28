@@ -161,7 +161,10 @@ try {
  assert.equal(chenyu.status,'blocked');
  assert.equal(chenyu.requiredLevel,23);
  assert.deepEqual(chenyu.stops.map(stop=>stop.id),['liyue-wp-64825','liyue-wp-64842']);
- assert.equal(await page.locator('#atlasItineraryNote').textContent(),'この道順はLv23から通れます。');
+ const remaining=await page.evaluate(()=>window.lab.frame.nextExp-window.lab.frame.progression.xp);
+ assert.equal(chenyu.levelExpRemaining,remaining);
+ assert.equal(await page.locator('#atlasItineraryNote').textContent(),
+  `この道順はLv23から通れます（あと ${remaining.toLocaleString('ja-JP')} EXP）。`);
  await page.setViewportSize({width:1280,height:900});
  await atlas.screenshot({path:'evidence/atlas-chenyu-lv23-detour.png'});
 

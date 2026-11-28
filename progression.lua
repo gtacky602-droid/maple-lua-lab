@@ -6,6 +6,10 @@ return function(C,config)
 
  function C.expNeeded(level) return levels[level].required_exp_to_next end
  local function spent(level) return levels[level].maple_reference_total_exp_to_reach end
+ function C.expRemainingToLevel(s,level)
+  local p=s.progression
+  if p and level>p.level and levels[level] then return math.max(0,spent(level)-spent(p.level)-p.xp) end
+ end
 
  local function setup(s)
   if s.campaign and not s.progression then
