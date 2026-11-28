@@ -22,7 +22,7 @@ return function(C)
   return available(s,q,state) and state.count==q.goal-1 and near(s,q.sights.bridge)
  end
 
- local function nearby(s,q,state)
+ function sights.nearby(s,q,state)
   if not available(s,q,state) then return end
   if atBridge(s,q,state) and not s.sightMenu then return q.sights.bridge end
   for _,place in ipairs(q.sights.places) do
@@ -36,7 +36,7 @@ return function(C)
  end
 
  function sights.inspect(s,q,state)
-  local place=nearby(s,q,state)
+  local place=sights.nearby(s,q,state)
   if not place then return false end
   if place==q.sights.bridge then
    s.sightMenu=true
@@ -150,7 +150,7 @@ return function(C)
   end
   if s.sightNotice then f.storySightMessage=s.sightNotice end
   if not visible(s,q,state) then return end
-  local item=nearby(s,q,state)
+  local item=sights.nearby(s,q,state)
   if item then f.storyNearbySight={label=item==spec.bridge and '橋から港を眺める' or item.name..'を調べる'} end
   if s.sightMenu and atBridge(s,q,state) then f.storySightChoices=places(spec) end
   local active=state.status=='active' and state.count<q.goal

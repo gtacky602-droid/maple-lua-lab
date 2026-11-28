@@ -1,0 +1,39 @@
+{
+  "browser": "Chrome",
+  "earned": true,
+  "restoredCommission": true,
+  "play": {
+    "seconds": 18.45,
+    "moves": [
+      "FMK01",
+      "FMK02",
+      "FMK03"
+    ],
+    "recoveries": [
+      "FMK01",
+      "FMK02",
+      "FMK03"
+    ],
+    "dodges": 4,
+    "finished": true,
+    "hp": 371,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 14950,
+    "mora": 180
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "directTrialHp": 700,
+  "sameSceneCommands": {
+    "png": 16,
+    "standard": 9914,
+    "light": 2647
+  },
+  "viewport390": true,
+  "errors": []
+}

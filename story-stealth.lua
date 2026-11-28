@@ -213,13 +213,13 @@ return function(C,canInspect)
   end
  end
 
- function stealth.nap(s,f,draws,q,state,mode,profile)
+ function stealth.nap(s,f,draws,q,state,mode,profile,activeSight)
   if state and state.count>=q.goal-1 then
    local step=q.itinerary[q.goal]
    local x=step.x-s.camera
    art(draws,'nap',x,step.y,43,mode,profile,packingFor(s,f,mode))
    label(draws,x,step.y-94,'早柚の昼寝場所')
-   if state.status=='complete' and not f.storyNearbyMilestone and not s.paused and canMark(s,step) then
+   if state.status=='complete' and not activeSight and not f.storyNearbyMilestone and not s.paused and canMark(s,step) then
     f.storyNearbyMilestone={label='木の実のそばのお礼をもう一度読む'}
    end
   end

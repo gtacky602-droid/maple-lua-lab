@@ -24,6 +24,18 @@ Luaで必要Lvの一つ手前で乗船できないこと、会場までの往復
 
 ワープ・神像、狩場・脇部屋、長距離便、短い乗り物の集計に入っていない稲妻27地点を、既存の本編、寄り道、日次、通常・週ボスの試験資料に対応付けた。既存の戦闘試験には会場内から開始したものも含まれる。 [27地点の検証資料索引](../design/world/inazuma-stage-evidence.json)
 
+## 離島から通常ボスの討伐調査へ
+
+離島の波止場で討伐調査を受け、M地図の「ボス」から挑戦場を選ぶ。海辺の街道からそれぞれの挑戦入口へ歩き、奥の門をFで通る。剣鬼の古庭はLv44、機巧の石庭はLv46から入れる。攻撃の予告が出た側を避け、HP欄に「反撃の隙」が出ている間に攻める。
+
+獲得済みLv40の稲妻到着セーブを使い、灯籠、早柚の見回り、綾華の絵図の報告でLv44に到達して魔偶剣鬼を討伐。続けて鳥居の依頼を報告するとLv47になり、恒常からくり陣形まで進めた。Luaで各3行動の攻撃判定を被弾せずに通過し、討伐EXPとモラ、離島での報告、報酬の二重受領防止、再読み込み後の討伐記録と再出現待ち時間を確認した。 [Lv40からの再走](../evidence/earned-inazuma-field-bosses.json)
+
+Chromeでは育成後のセーブから2戦ともM地図の案内を開き、6行動の「反撃の隙」、討伐報告、再読み込みを確認した。固定した同じ戦闘フレームで、標準から16色に切り替えると、剣鬼は9,914→2,647、陣形は6,832→1,729描画命令。 [魔偶剣鬼](../evidence/earned-maguu-field-browser.json) · [恒常からくり陣形](../evidence/earned-array-field-browser.json)
+
+早柚の依頼を報告したあとも、綾華の「海の坂」を調べられる。海の坂の案内が出ている間はその調査が優先され、調査後は同じ場所で早柚のお礼をもう一度読める。 [Chromeでの操作検証](../evidence/earned-inazuma-quest-overlap-browser.json)
+
+再検証は `python -X utf8 test_earned_inazuma_bosses.py`。到着時のセーブが未作成なら、先に `python -X utf8 test_liyue_fresh_route.py` を実行する。Chromeでは検証ラボの `LAB_URL` を設定して `node test_maguu_field.mjs --earned`、`node test_array_field.mjs --earned`、`node test_earned_inazuma_quest_overlap.mjs` を実行する。
+
 ## 調査クエスト
 
 | 依頼 | 受注場所 | 必要Lv | 調査 |

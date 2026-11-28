@@ -1,0 +1,171 @@
+{
+  "sourceSha256": "dafb14f1ee451019871ab1559ae97f7fe326f0603d04d472401167559eefdba9",
+  "obtainedEquipment": [
+    {
+      "id": 10,
+      "level": 60,
+      "slot": 1
+    },
+    {
+      "id": 2,
+      "level": 31,
+      "slot": 2
+    }
+  ],
+  "sayuReadbackAndAyakaSight": true,
+  "training": [
+    {
+      "quest": "inazuma-moving-lantern",
+      "xp": 120956,
+      "mora": 350,
+      "startLevel": 40,
+      "finishLevel": 42
+    },
+    {
+      "quest": "ina-sayu-quiet-route",
+      "xp": 78355,
+      "mora": 1050,
+      "startLevel": 42,
+      "finishLevel": 43
+    },
+    {
+      "quest": "ayaka-join",
+      "xp": 42335,
+      "mora": 200,
+      "startLevel": 43,
+      "finishLevel": 44
+    },
+    {
+      "quest": "inazuma-torii-maze",
+      "xp": 186561,
+      "mora": 440,
+      "startLevel": 44,
+      "finishLevel": 47
+    }
+  ],
+  "locks": [
+    {
+      "node": "maguu-approach",
+      "target": "maguu-field-dojo",
+      "reason": "必要レベル 44",
+      "atLevel": 40,
+      "gateLevel": 44,
+      "atlasReason": "必要Lv44"
+    },
+    {
+      "node": "array-approach",
+      "target": "array-field-court",
+      "reason": "必要レベル 46",
+      "atLevel": 40,
+      "gateLevel": 46,
+      "atlasReason": "必要Lv46"
+    },
+    {
+      "node": "array-approach",
+      "target": "array-field-court",
+      "reason": "必要レベル 46",
+      "atLevel": 44,
+      "gateLevel": 46,
+      "atlasReason": "必要Lv46"
+    }
+  ],
+  "trials": {
+    "maguu": {
+      "seconds": 19.7,
+      "startHP": 384,
+      "finishHP": 384,
+      "evaded": {
+        "FMK01": {
+          "warningTick": 54,
+          "activeEndTick": 138,
+          "hp": 384,
+          "avoidedByCrossing": true
+        },
+        "FMK02": {
+          "warningTick": 42,
+          "activeEndTick": 150,
+          "hp": 384,
+          "avoidedByCrossing": true
+        },
+        "FMK03": {
+          "warningTick": 48,
+          "activeEndTick": 144,
+          "hp": 384,
+          "avoidedByCrossing": true
+        }
+      },
+      "recoveryLabels": [
+        "FMK01",
+        "FMK02",
+        "FMK03"
+      ],
+      "counterHit": true,
+      "airborneSeen": false,
+      "killXp": 14950,
+      "killMora": 180,
+      "arena": "maguu-field-dojo",
+      "route": [
+        "inazuma-road",
+        "maguu-approach",
+        "maguu-field-dojo"
+      ],
+      "level": 44,
+      "gateLevel": 44,
+      "report": {
+        "quest": "maguu-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restored": true
+    },
+    "array": {
+      "seconds": 19.58,
+      "startHP": 384,
+      "finishHP": 384,
+      "evaded": {
+        "FPA01": {
+          "warningTick": 48,
+          "activeEndTick": 108,
+          "hp": 384,
+          "avoidedByCrossing": true
+        },
+        "FPA02": {
+          "warningTick": 42,
+          "activeEndTick": 126,
+          "hp": 384,
+          "avoidedByCrossing": true
+        },
+        "FPA03": {
+          "warningTick": 54,
+          "activeEndTick": 126,
+          "hp": 384,
+          "avoidedByCrossing": true
+        }
+      },
+      "recoveryLabels": [
+        "FPA01",
+        "FPA02",
+        "FPA03"
+      ],
+      "counterHit": true,
+      "airborneSeen": true,
+      "killXp": 17450,
+      "killMora": 185,
+      "arena": "array-field-court",
+      "route": [
+        "inazuma-road",
+        "array-approach",
+        "array-field-court"
+      ],
+      "level": 47,
+      "gateLevel": 46,
+      "report": {
+        "quest": "array-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restored": true
+    }
+  },
+  "returns": 0
+}
