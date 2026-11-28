@@ -1,0 +1,67 @@
+{
+  "background": {
+    "key": "hereticLattice",
+    "file": "heretic-lattice-background-v1.png",
+    "state": "ready"
+  },
+  "cards": [
+    "WH03",
+    "WH04",
+    "WH10",
+    "WH11",
+    "WH13",
+    "WH19"
+  ],
+  "trial": {
+    "route": "interrupt",
+    "deadline": 1800,
+    "wall": {
+      "floorPassage": true,
+      "x": 434,
+      "text": "左の結合点 3/3 ｜ 右の結合点 3/3 ｜ 押し壁の穴は床側（今の高さで通れる） ｜ 片方を壊す ｜ 残り 26.9秒"
+    },
+    "acceptedChantHits": 24
+  },
+  "acceptedChantHits": 24,
+  "deadline": 1800,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 113,
+    "standard": 7085,
+    "light": 2097
+  },
+  "sourceSha256": "57ceaef4ae561beb9231e5c113cd707afd291ead2d41fd085ed2c123a9e8d713",
+  "guide": [
+    {
+      "name": "左道の再現戦・結合格子",
+      "label": "徒歩",
+      "approach": "入口のそばにいます",
+      "from": "sumeru-hub",
+      "level": 144,
+      "region": "region-04",
+      "id": "sumeru-heretic-lattice",
+      "previewX": 222,
+      "mode": "walk"
+    }
+  ],
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "payout": {
+    "xp": 1230000,
+    "mora": 26500
+  },
+  "transfer": {
+    "rawGzip": 44862,
+    "packedGzip": 36907,
+    "pixelMatch": true
+  },
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "remainingHp": 90532,
+  "errors": []
+}

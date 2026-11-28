@@ -125,14 +125,17 @@ place(a,711)
 hp=a.hp
 step(s,137)
 assert w.cast.child.key=='WH14' and not w.cast.child.gap.upper
+assert core.frame(s).weeklyBoss.heretic.hole.fits
 assert not same_wall_actor(w,a) and a.x==711 and a.hp==hp
 step(s,360)
 assert w.cast.child.key=='WH14' and w.cast.child.gap.upper
+assert not core.frame(s).weeklyBoss.heretic.hole.fits
 assert same_wall_actor(w,a) and 30.7<=711-a.x<=30.9 and a.hp==hp
 assert len(events(s,'WH14:push'))==1
 place(a,711,339)
 step(s,14)
 assert a.x==711 and a.y==339 and len(events(s,'WH14:push'))==1
+assert core.frame(s).weeklyBoss.heretic.hole.fits
 break_anchor(s,w)
 opened=w.cast.brokenAt
 assert opened<1800

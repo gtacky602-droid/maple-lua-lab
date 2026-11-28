@@ -267,17 +267,25 @@ export function gateEncounterText(gate){
 }
 
 export function hereticChantText(v){
+ const seconds=ticks=>(Math.max(0,Math.ceil(ticks/6))/10).toFixed(1);
  if(v.deadline){
-  const remaining=`残り ${Math.max(0,Math.ceil((v.deadline-v.tick)/60))}秒`;
-  if(v.open)return `結合点を破壊 ｜ 詠唱 ${v.chant} / ${v.maxChant} ｜ 本体へ攻撃 ｜ ${remaining}`;
-  const anchors=Array.isArray(v.anchors)?v.anchors.map(a=>a.hp).join(' / '):'';
-  const gap=v.hole?` ｜ 押し壁の穴は${v.hole.upper?'上段':'床側'}`:'';
-  return anchors?`結合点 左・右 ${anchors} ｜ 片方を壊す ｜ ${remaining}${gap}`:`結合点が現れる ｜ ${remaining}`;
+  const remaining=`残り ${seconds(v.deadline-v.tick)}秒`;
+  if(v.open)return `結合点を破壊 ｜ 詠唱中断まで本体にあと${v.chant}回 ｜ ${remaining}`;
+  const anchors=Array.isArray(v.anchors)?v.anchors:[];
+  if(!anchors.length)return `結合点が現れる ｜ ${remaining}`;
+  const sides=anchors.map((a,i)=>`${i===0?'左':'右'}の結合点 ${a.hp}/${a.maxhp}`);
+  if(v.hole){
+   const level=v.hole.upper?'上段':'床側';
+   const position=v.hole.fits?'今の高さで通れる':v.hole.upper?'上段へ移動':'床へ降りる';
+   sides.push(`押し壁の穴は${level}（${position}）`);
+  }
+  return [...sides,'片方を壊す',remaining].join(' ｜ ');
  }
  if(v.card==='WH10')return '光背を構築中';
  if(v.card==='WH19'){
-  if(v.exposure)return `詠唱を中断 ｜ 反撃できる時間 ${(v.exposure/60).toFixed(1)}秒`;
-  return v.exposureEnded?'反撃終了':'詠唱を中断 ｜ 反撃までもうすぐ';
+  if(v.exposure)return `詠唱を中断 ｜ 反撃できる時間 ${seconds(v.exposure)}秒`;
+  if(v.exposureEnded)return '反撃終了';
+  return v.exposureOpensIn?`詠唱を中断 ｜ 反撃開始まで${seconds(v.exposureOpensIn)}秒`:'詠唱を中断 ｜ 反撃までもうすぐ';
  }
  if(v.card==='WH18'){
   if(v.failureDamage>0)return `腐敗の衝撃が命中 ｜ ${v.failureDamage}ダメージ`;

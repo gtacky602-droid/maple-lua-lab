@@ -1,0 +1,229 @@
+[
+  {
+    "controller": "heretic",
+    "case": "heretic-stopped",
+    "label": "結合点を壊して詠唱を中断",
+    "ticks": 3048,
+    "sourceSha256": "fa04c7c59814cb78c134db00dffb1f79509e8c8646777c7c7154ce87a4fd72cf",
+    "phases": [
+      "p1",
+      "changing",
+      "p2",
+      "trial",
+      "p2"
+    ],
+    "anchorHits": [
+      2,
+      1,
+      0
+    ],
+    "opened": {
+      "tick": 265,
+      "remaining": 1535,
+      "chant": 24
+    },
+    "chantHits": [
+      23,
+      22,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "stopped": {
+      "tick": 1129,
+      "hp": 2250
+    },
+    "expired": null,
+    "pushes": [],
+    "shockHits": [],
+    "exposureTicks": 720,
+    "exposureDamage": 336,
+    "expertClears": [
+      1,
+      2
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90510,
+      0
+    ],
+    "checkpointSha256": "81847755565348ac5e840691bc5625036e62857d1e846217dc1c3aa8ec8d95b7"
+  },
+  {
+    "controller": "heretic",
+    "case": "heretic-open-expired",
+    "label": "結合点を壊して時間切れ",
+    "ticks": 3267,
+    "sourceSha256": "81847755565348ac5e840691bc5625036e62857d1e846217dc1c3aa8ec8d95b7",
+    "phases": [
+      "p1",
+      "changing",
+      "p2",
+      "trial",
+      "p2"
+    ],
+    "anchorHits": [
+      2,
+      1,
+      0
+    ],
+    "opened": {
+      "tick": 265,
+      "remaining": 1535,
+      "chant": 24
+    },
+    "chantHits": [],
+    "stopped": null,
+    "expired": {
+      "tick": 1800,
+      "hp": 2250,
+      "chant": 24
+    },
+    "pushes": [],
+    "shockHits": [
+      {
+        "tick": 180,
+        "loss": 125
+      }
+    ],
+    "exposureTicks": 0,
+    "exposureDamage": 0,
+    "expertClears": [
+      2,
+      3
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90344,
+      0
+    ],
+    "checkpointSha256": "d6788382ad7c1d0353094d940d7a7326d73300bc7674c36c5233263c54bfcd9b"
+  },
+  {
+    "controller": "heretic",
+    "case": "heretic-closed-expired",
+    "label": "結合点を残して時間切れ",
+    "ticks": 3322,
+    "sourceSha256": "d6788382ad7c1d0353094d940d7a7326d73300bc7674c36c5233263c54bfcd9b",
+    "phases": [
+      "p1",
+      "changing",
+      "p2",
+      "trial",
+      "p2"
+    ],
+    "anchorHits": [],
+    "opened": null,
+    "chantHits": [],
+    "stopped": null,
+    "expired": {
+      "tick": 1800,
+      "hp": 2250,
+      "chant": 24
+    },
+    "pushes": [
+      {
+        "tick": 586,
+        "distance": 30.8
+      },
+      {
+        "tick": 1310,
+        "distance": 30.8
+      }
+    ],
+    "shockHits": [
+      {
+        "tick": 180,
+        "loss": 125
+      }
+    ],
+    "exposureTicks": 0,
+    "exposureDamage": 0,
+    "expertClears": [
+      3,
+      4
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90467,
+      0
+    ],
+    "checkpointSha256": "f66fa5b32d99880b50cc9f80e69c524ada797f1c706a5defb3945133da2f91e6"
+  }
+]
