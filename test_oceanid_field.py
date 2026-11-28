@@ -160,6 +160,7 @@ assert not crane.projectiles[2]
 spot(a, b, -93)
 frog = at(s, slot, 'FO03', 54)
 assert b.form == 'frog'
+assert core.frame(s).fieldBoss.label == '着地まで1.0秒・床の予告から離れる'
 dest = frog.dest
 at(s, slot, 'FO03', 96)
 assert math.isclose(b.y, FLOOR-112) and b.hitBottom < FLOOR-75
@@ -174,9 +175,11 @@ at(s, slot, 'FO03', 113)
 assert a.hp == hp and b.y < FLOOR
 step(s)
 assert b.x == dest and b.y == FLOOR and frog.seen[1] and a.hp == hp-21
+assert core.frame(s).fieldBoss.label == '水蛙が着地・飛沫の範囲から離れる'
 a.inv = 0
 at(s, slot, 'FO03', 150)
 assert a.hp == hp-21
+assert core.frame(s).fieldBoss.label == '水蛙を攻撃（あと2.0秒）'
 hp = b.hp
 attack(s, b.x)
 assert b.hp == hp-19

@@ -1,5 +1,5 @@
 return function(C)
- local oceanid={}
+ local oceanid={packRectArt=true}
  local U=88
  local water='#7cdefa'
  local danger='#ffca93'
@@ -115,10 +115,31 @@ return function(C)
   return t>=move.total
  end
 
- function oceanid.label(boss,cast)
+ function oceanid.label(boss,cast,spec)
   if not cast then return boss.formLabel end
-  if cast.tick>=cast.move.recover then return boss.formLabel..'・息継ぎ' end
-  return cast.move.title
+  local move,t=cast.move,cast.tick
+  if cast.from~=move.form and t<spec.transformTicks then
+   return spec.forms[cast.from].name..'から'..spec.forms[move.form].name..'に変化'
+  end
+  if t>=move.recover then
+   return string.format('%sを攻撃（あと%.1f秒）',boss.formLabel,math.ceil((move.total-t)/6)/10)
+  end
+  if move.airborne then
+   local landing=move.airborne[2]
+   if t<move.lock then return move.title..'・着地に備える' end
+   if t<landing then
+    return string.format('着地まで%.1f秒・床の予告から離れる',math.ceil((landing-t)/6)/10)
+   end
+   if t<move.active[1][2] then return '水蛙が着地・飛沫の範囲から離れる' end
+   return '水蛙が着地・地上から攻撃'
+  end
+  if move.shotTicks then
+   if t<move.shotTicks[1] then return move.title..'・1発目に備える' end
+   if t<move.shotTicks[2] then return move.title..'・次の波に備える' end
+   if t<move.shotTicks[2]+move.shotLife then return move.title..'・2発目を避ける' end
+   return '水波が消えた・水鶴を攻撃'
+  end
+  return move.title..'・走路から離れるかジャンプ'
  end
 
  local function rect(f,x,y,w,h,color)
