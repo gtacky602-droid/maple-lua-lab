@@ -2,9 +2,13 @@
 
 [ローカルLuaラボ](http://127.0.0.1:8968/)で「本編ルートへ」を選ぶ。ナタからの船はLv120で乗船し、デッキに乗り続けるとナド・クライの到着港に着く。門の近くでF、調査の目印や操作盤の近くでG。到達済みの地点は地区・階層別のワープ一覧から選べる。
 
-公開地図のナド・クライ90地点と独立地図「霜月」の33地点を、既存3ステージと新設120ステージに割り当てた。階層ID付きはナド・クライ20地点、霜月14地点。小舟、昇降機、水路、同じ階層の回廊を含めて151本の道を往復できる。 [HoYoLAB公式テイワットマップ](https://act.hoyolab.com/ys/app/interactive-map/index.html) · [ID・座標・階層の照合記録](../sources/map-research/nod-marker-review.json)
+公開地図のナド・クライ90地点と独立地図「霜月」の33地点を、既存3ステージと新設120ステージに割り当てた。階層ID付きはナド・クライ20地点、霜月14地点。設計室の採用版では、小舟、昇降機、水路と回廊を含めて158組の道を往復できる。 [HoYoLAB公式テイワットマップ](https://act.hoyolab.com/ys/app/interactive-map/index.html) · [ID・座標・階層の照合記録](../sources/map-research/nod-marker-review.json)
 
-円環島から昇降機に乗ると霜月の入口拠点に入る。この昇降機の位置と通行条件はラボ用。パハ島の西の支柱と霜月の第二層には、消灯で足場と門が現れる部屋を設けた。操作盤で消灯し、右側の足場へ跳ぶ。部屋に入り直すと灯りは点灯状態に戻る。
+円環島から昇降機に乗ると霜月の入口拠点に入る。この昇降機の位置と通行条件はラボ用。パハ島の西の支柱と霜月の第二層では、点灯中のM地図に「操作盤でGを押して消灯し、影の足場へ」と表示する。消灯すると足場と門が現れ、地図の案内も「消灯中。影の足場へ」に切り替わる。部屋に入り直すと灯りは点灯状態に戻る。
+
+パハ島の西翼奥へ初めて行くときは、西の支柱の岸から灯室を経由する。西翼奥を訪問すると、岸から直接向かう近道が地図に表示される。
+
+レンポ島の町北の神像から町西の高台へ向かうときは、町の北の林縁を経由する。 [現行の経由地](../evidence/nod-waypoint-test.json)
 
 M地図の「狩場・任意戦」から、北の林縁のトウヒ棚Lv130、西の高台の霜斜面Lv133、冬越えの折返し道Lv136を探せる。試作のトウヒ棚には通常敵42体、霜斜面には48体を配置した。 [育成の試走記録](../evidence/nod-fresh-route.json)
 
@@ -29,7 +33,7 @@ LuaでLv135→136とLv139→140の各境界、右奥の門、雪原の上段の�
 
 ## 検証
 
-- Luaで123地点を訪ね、151本の道を両方向に通り、調査クエスト4件を報告まで進めた。ナタの船が到着港に着くこと、消灯で足場に乗れること、灯室に入り直すと明るくなること、保存した訪問・報告が復元されることを確認した。 [Luaの検証結果](../evidence/nod-waypoint-test.json)
-- Chromeでパハ島と霜月の消灯前後を確認した。消灯すると背景画像が切り替わり、右側の足場と門が出る。円環島から霜月へ移動し、回廊の依頼を報告。再読み込み後に灯室へワープすると点灯状態から始まった。 [Chromeの検証結果](../evidence/nod-waypoint-browser.json) · [点灯中](../evidence/nod-waypoint-light-on.png) · [消灯後](../evidence/nod-waypoint-light-off.png)
+- Luaで獲得済みLv120とLv140のセーブを使い、ナタ発の船の到着、123地点・316方向の踏破、調査4件の報告と報酬の単回受け取りを確認した。消灯で足場に乗れることと、保存した訪問・報告が復元されることも確認した。 [Luaの検証結果](../evidence/nod-waypoint-test.json)
+- Chromeでパハ島と霜月の消灯、初回訪問後のパハ島の近道、調査4件の報告を確認した。再読み込み後に霜月の灯室へワープすると点灯状態から始まった。特別地域の旧セーブでは町の広場から再開し、旧依頼の報告済み記録と装備済みの月縁の帰路剣を確認した。 [Chromeの検証結果](../evidence/nod-waypoint-browser.json)
 
-Luaの検証は `python -X utf8 test_nod_waypoints.py`。そこで用意される `work/nod-waypoint-browser-save.json` を「JSONを読み込んで再開」で開くと、Lv139の北部沿岸の拠点から円環島やパハ島へワープできる。Chromeの検証は `node test_nod_waypoints.mjs`。別ポートの場合は `LAB_URL` を指定する。
+Luaの検証は `python -X utf8 test_nod_waypoints.py`。獲得済みセーブで再現するには `--voyage-save work/natlan-fresh-route/nod-ready-save.json --from-save work/nod-fresh-route/snow-ready-save.json` を渡す。旧セーブの試験データは `python -X utf8 test_suspended_region.py --browser-save work/nod-waypoint-legacy-browser-save.json` で作る。ラボを起動して `node test_nod_waypoints.mjs` を実行する。別ポートの場合は `LAB_URL` を指定する。

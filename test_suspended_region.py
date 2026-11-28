@@ -1,10 +1,19 @@
 """Check the active adventure and compatibility with saves from the removed branch."""
+from argparse import ArgumentParser
 import json
+from pathlib import Path
 
 from experience import LEVELS
 from coop_rooms import CoopRooms, RULES
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+
+
+def legacy_special_save():
+    save = json.loads((ROOT / 'evidence/all-legends-expedition-save.json').read_bytes())
+    save['story']['node'] = 'nod-quiet-rim'
+    save['weapons']['equipped']['traveler'] = 'SW08'
+    return validate_save(save)
 
 
 def test_nod_krai_special_region():
@@ -38,11 +47,7 @@ def test_nod_krai_special_region():
     core.action(state, 'story_portal:nod-town')
     assert state.story.node == 'nod-town'
 
-    save = json.loads((ROOT / 'evidence/all-legends-expedition-save.json').read_bytes())
-    save['story']['node'] = 'nod-quiet-rim'
-    save['weapons']['equipped']['traveler'] = 'SW08'
-    save = validate_save(save)
-    restored = core.restore(lua.table_from(save, recursive=True), 12)
+    restored = core.restore(lua.table_from(legacy_special_save(), recursive=True), 12)
     assert restored.story.node == 'nod-town'
     assert restored.story.quests['nod-rim-return'].status == 'complete'
     assert core.equippedWeapon(restored, 'traveler') == 'SW08'
@@ -57,5 +62,10 @@ def test_nod_krai_special_region():
 
 
 if __name__ == '__main__':
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('--browser-save', type=Path)
+    args = parser.parse_args()
     test_nod_krai_special_region()
+    if args.browser_save:
+        args.browser_save.write_text(json.dumps(legacy_special_save(), ensure_ascii=False), encoding='utf8')
     print('Nod-Krai routes, removed atlas region, archived quests and legacy save verified')

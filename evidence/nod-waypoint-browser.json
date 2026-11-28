@@ -1,6 +1,76 @@
 {
   "journeys": [
     [
+      "nod-port",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-wp-88128",
+      "raised"
+    ],
+    [
+      "nod-wp-88128",
+      "nod-wp-88147",
+      "walk"
+    ],
+    [
+      "nod-wp-88147",
+      "nod-wp-88148",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-wp-88128",
+      "raised"
+    ],
+    [
+      "nod-wp-88128",
+      "nod-wp-88147",
+      "walk"
+    ],
+    [
+      "nod-wp-88147",
+      "nod-wp-88148",
+      "walk"
+    ],
+    [
+      "nod-wp-88148",
+      "nod-wp-88154",
+      "boat"
+    ],
+    [
+      "nod-wp-88154",
+      "nod-wp-88155",
+      "walk"
+    ],
+    [
+      "nod-wp-88155",
+      "nod-wp-88157",
+      "walk"
+    ],
+    [
+      "nod-wp-88157",
+      "nod-wp-88160",
+      "boat"
+    ],
+    [
+      "nod-wp-88160",
+      "nod-wp-88162",
+      "walk"
+    ],
+    [
+      "nod-wp-88162",
+      "nod-wp-88169",
+      "lift"
+    ],
+    [
       "nod-wp-88169",
       "nod-wp-88170",
       "raised"
@@ -9,6 +79,91 @@
       "nod-wp-88170",
       "nod-wp-88169",
       "walk"
+    ],
+    [
+      "nod-wp-88162",
+      "nod-wp-88170",
+      "walk"
+    ],
+    [
+      "nod-wp-88170",
+      "nod-wp-88162",
+      "walk"
+    ],
+    [
+      "nod-wp-88162",
+      "nod-wp-88168",
+      "walk"
+    ],
+    [
+      "nod-wp-88168",
+      "nod-wp-92867",
+      "boat"
+    ],
+    [
+      "nod-wp-92867",
+      "nod-north-harbor",
+      "walk"
+    ],
+    [
+      "nod-north-harbor",
+      "nod-wp-92868",
+      "walk"
+    ],
+    [
+      "nod-wp-92868",
+      "nod-wp-92870",
+      "walk"
+    ],
+    [
+      "nod-wp-92870",
+      "nod-wp-92871",
+      "walk"
+    ],
+    [
+      "nod-wp-92871",
+      "nod-wp-92873",
+      "raised"
+    ],
+    [
+      "nod-wp-92873",
+      "nod-wp-92895",
+      "lift"
+    ],
+    [
+      "nod-north-harbor",
+      "nod-wp-92868",
+      "walk"
+    ],
+    [
+      "nod-wp-92868",
+      "nod-wp-92870",
+      "walk"
+    ],
+    [
+      "nod-wp-92870",
+      "nod-wp-92871",
+      "walk"
+    ],
+    [
+      "nod-wp-92871",
+      "nod-wp-92872",
+      "walk"
+    ],
+    [
+      "nod-wp-92872",
+      "nod-wp-99218",
+      "boat"
+    ],
+    [
+      "nod-wp-99218",
+      "nod-wp-99223",
+      "boat"
+    ],
+    [
+      "nod-wp-99223",
+      "nod-wp-99219",
+      "boat"
     ],
     [
       "nod-wp-99219",
@@ -88,6 +243,14 @@
   ],
   "groups": [
     "モンド",
+    "璃月",
+    "鳴神島・離島",
+    "鶴観",
+    "スメールの森林",
+    "フォンテーヌ南部",
+    "フォンテーヌ廷",
+    "テケメカンの谷",
+    "万火のほとぎ周辺",
     "クァワカン断崖周辺",
     "レンポ島",
     "パハ島周辺",
@@ -98,9 +261,37 @@
     "霜月",
     "霜月・別階層"
   ],
-  "frostmoonQuest": "nod-mapped-frostmoon-shadow",
+  "reported": [
+    "nod-mapped-harbor-lamp",
+    "nod-mapped-paha-shadow",
+    "nod-mapped-north-bay",
+    "nod-mapped-frostmoon-shadow"
+  ],
+  "shadowApproach": [
+    "nod-wp-88128",
+    "nod-wp-88147",
+    "nod-wp-88148",
+    "nod-wp-88154",
+    "nod-wp-88155",
+    "nod-wp-88157",
+    "nod-wp-88160",
+    "nod-wp-88162"
+  ],
+  "firstVisit": [
+    "nod-wp-88169",
+    "nod-wp-88170"
+  ],
+  "afterVisitShortcut": [
+    "nod-wp-88170"
+  ],
   "shadowDoorAndPlatformHiddenUntilDark": true,
   "backgroundChangesWithLamp": true,
   "loadAndWarpRestoreBrightRoom": true,
+  "legacy": {
+    "location": "nod-town",
+    "oldQuest": "complete",
+    "equipped": "SW08",
+    "hidden": true
+  },
   "pageErrors": []
 }
