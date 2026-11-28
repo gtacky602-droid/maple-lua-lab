@@ -1,7 +1,77 @@
 {
   "markers": 83,
-  "reciprocal_routes": 117,
-  "directed_crossings": 234,
+  "reciprocal_routes": 120,
+  "directed_crossings": 240,
+  "directed_marker_crossings": 236,
+  "travel_modes": {
+    "walk": 217,
+    "boat": 10,
+    "lift": 6,
+    "raised": 5,
+    "waterway": 2
+  },
+  "reviewed_studio_pairs": 11,
+  "editor_deletions_confirmed_absent": 8,
+  "stone_chamber_routes": [
+    {
+      "from": "liyue-wp-64826",
+      "to": "liyue-wp-64849",
+      "mode": "walk",
+      "hint": "西峰の石室へ続く横穴"
+    },
+    {
+      "from": "liyue-wp-64849",
+      "to": "liyue-wp-64826",
+      "mode": "walk",
+      "hint": "西岸の道へ戻る横穴"
+    },
+    {
+      "from": "liyue-wp-64827",
+      "to": "liyue-wp-64849",
+      "mode": "lift",
+      "hint": "西峰の石室へ降りる昇降機・移動に1.8秒"
+    },
+    {
+      "from": "liyue-wp-64849",
+      "to": "liyue-wp-64827",
+      "mode": "lift",
+      "hint": "西峰の石棚へ上がる昇降機・移動に1.8秒"
+    }
+  ],
+  "current_detours": [
+    {
+      "from": "liyue-field",
+      "to": "liyue-wp-100",
+      "approach": [
+        "liyue-wp-97",
+        "liyue-wp-100"
+      ],
+      "returning": [
+        "liyue-wp-97",
+        "liyue-field"
+      ]
+    },
+    {
+      "from": "liyue-wp-110",
+      "to": "primo-approach",
+      "approach": [
+        "liyue-wp-43",
+        "liyue-field",
+        "primo-approach"
+      ],
+      "returning": [
+        "liyue-field",
+        "liyue-wp-43",
+        "liyue-wp-110"
+      ]
+    }
+  ],
+  "source_save": {
+    "path": "ferry-ready-save.json",
+    "level": 40,
+    "sha256": "7e351aea505a3d14476ad554c43d49a612b46fff4ccd0c91fa3276a07e7e6dec"
+  },
+  "party_wipes": 0,
   "stage_ids": [
     "chasm-camp",
     "chenyu-camp",

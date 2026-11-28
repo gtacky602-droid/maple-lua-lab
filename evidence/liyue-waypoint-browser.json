@@ -1,6 +1,6 @@
 {
-  "total": 149,
-  "visited": 17,
+  "total": 875,
+  "visited": 33,
   "journeys": [
     [
       "liyue-harbor",
@@ -73,6 +73,56 @@
       "lift"
     ],
     [
+      "chenyu-camp",
+      "chenyu-depth",
+      "walk"
+    ],
+    [
+      "chenyu-depth",
+      "liyue-wp-64846",
+      "walk"
+    ],
+    [
+      "liyue-wp-64846",
+      "liyue-wp-64830",
+      "walk"
+    ],
+    [
+      "liyue-wp-64830",
+      "liyue-wp-64824",
+      "walk"
+    ],
+    [
+      "liyue-wp-64824",
+      "liyue-wp-64828",
+      "walk"
+    ],
+    [
+      "liyue-wp-64828",
+      "liyue-wp-64826",
+      "walk"
+    ],
+    [
+      "liyue-wp-64826",
+      "liyue-wp-64849",
+      "walk"
+    ],
+    [
+      "liyue-wp-64849",
+      "liyue-wp-64827",
+      "lift"
+    ],
+    [
+      "liyue-wp-64827",
+      "liyue-wp-64849",
+      "lift"
+    ],
+    [
+      "liyue-wp-64849",
+      "liyue-wp-64826",
+      "walk"
+    ],
+    [
       "liyue-harbor",
       "liyue-field",
       "walk"
@@ -86,6 +136,31 @@
       "chasm-camp",
       "liyue-wp-24912",
       "lift"
+    ],
+    [
+      "liyue-wp-24912",
+      "liyue-wp-24910",
+      "walk"
+    ],
+    [
+      "liyue-wp-24910",
+      "liyue-wp-24909",
+      "walk"
+    ],
+    [
+      "liyue-wp-24909",
+      "liyue-wp-24908",
+      "walk"
+    ],
+    [
+      "liyue-wp-24908",
+      "liyue-wp-28732",
+      "walk"
+    ],
+    [
+      "liyue-wp-28732",
+      "liyue-wp-24912",
+      "raised"
     ],
     [
       "liyue-wp-24912",
@@ -107,7 +182,34 @@
   ],
   "reported": [
     "liyue-mapped-east-shore",
-    "liyue-mapped-hidden-cave"
+    "liyue-mapped-hidden-cave",
+    "liyue-mapped-chasm-shaft"
+  ],
+  "stoneRoutes": [
+    {
+      "from": "liyue-wp-64826",
+      "to": "liyue-wp-64849",
+      "mode": "walk",
+      "hint": "西峰の石室へ続く横穴"
+    },
+    {
+      "from": "liyue-wp-64849",
+      "to": "liyue-wp-64827",
+      "mode": "lift",
+      "hint": "西峰の石棚へ上がる昇降機・移動に1.8秒"
+    },
+    {
+      "from": "liyue-wp-64827",
+      "to": "liyue-wp-64849",
+      "mode": "lift",
+      "hint": "西峰の石室へ降りる昇降機・移動に1.8秒"
+    },
+    {
+      "from": "liyue-wp-64849",
+      "to": "liyue-wp-64826",
+      "mode": "walk",
+      "hint": "西岸の道へ戻る横穴"
+    }
   ],
   "restore": true,
   "pageErrors": []
