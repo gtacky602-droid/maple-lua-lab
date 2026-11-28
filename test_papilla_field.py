@@ -44,7 +44,8 @@ def make(fixture=False):
         (ROOT/'work/papilla-field-fixture.json').write_text(json.dumps(save),encoding='utf8')
     core.action(state,'story_accept:'+quest)
     assert state.story.quests[quest].status=='active'
-    portal(state,1380,approach)
+    portal(state,1380,'natlan-quarry-road')
+    portal(state,64,approach)
     portal(state,235,arena)
     state.actors[2].hp=0
     slot=state.fieldSlots[boss_id]
@@ -132,9 +133,11 @@ spot(hero,wing.origin-88)
 hp=hero.hp
 until(state,slot,'FMP02',137)
 assert boss.form=='wing' and boss.pose=='wing-strike' and hero.hp==hp-18
+assert '機竜影 1/2' in core.frame(state,'sprite','legacy').fieldBoss.label
 assert wing.seen[1][1] and not wing.seen[2][1] and damage(state,boss,'physical')==normal
 until(state,slot,'FMP02',197)
 assert hero.hp==hp-36 and wing.seen[2][1] and wing.source.damageElement=='physical'
+assert '機竜影 2/2' in core.frame(state,'sprite','legacy').fieldBoss.label
 same_receiver(state,slot,boss)
 
 spot(hero,boss.x-150)
@@ -150,12 +153,15 @@ png,standard,light=[core.frame(state,mode,profile) for mode,profile in
                    [('sprite','legacy'),('rect','legacy'),('rect','h32c16')]]
 assert png.t==standard.t==light.t and light.commands<standard.commands
 assert any(d.source=='papilla-field-poses-source-v1.png' and d.y==boss.y for d in png.draws.values())
+marker=next(d for d in png.draws.values() if d.kind=='text' and d.text=='着地')
+assert marker.y==501 and math.isclose(marker.x+png.camera,fungus.dest)
 hp=boss.hp
 save=validate_save(native(core.checkpoint(state)))
 restored=core.restore(lua.table_from(save,recursive=True),12)
 restored_slot=restored.fieldSlots[boss_id]
 assert restored.story.node==hub and restored_slot.enemy.hp==hp and restored_slot.cast is None
-portal(restored,1380,approach)
+portal(restored,1380,'natlan-quarry-road')
+portal(restored,64,approach)
 portal(restored,235,arena)
 assert restored_slot.enemy.form=='root' and restored_slot.enemy.y==480
 same_receiver(restored,restored_slot,restored_slot.enemy)
@@ -168,6 +174,7 @@ assert hero.hp==hp-26 and fungus.seen[1][1] and boss.x==fungus.dest and boss.y==
 assert fungus.source.damageElement=='dendro'
 until(state,slot,'FMP03',180)
 assert boss.form=='recover' and fungus.move.total-180==144
+assert core.frame(state,'sprite','legacy').fieldBoss.recoveryTicks==144
 
 hp=boss.hp
 portal(state,65,approach)
