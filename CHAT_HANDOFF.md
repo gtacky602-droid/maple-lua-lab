@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 若陀龍王の最上級5勝と四組の吸収
+
+北風の王狼の最上級2勝を記録したLv200セーブで、M地図から伏龍の封印へ進んだ。最上級初回と北斗への報告をChromeで、続く炎＋氷、炎＋雷、水＋氷、水＋雷の4勝をLuaで確認した。元素選択を保存し、雷の尾戦では早めに次の安全帯を表示する。各雷戦で旅人が三波とも移動で回避。元の装備を戻したセーブから、若陀龍王の最上級5勝と依頼報告111件をChromeで再開した。 [操作と試走](docs/weekly-boss-v1/AZHDAHA_WEB.md)・[22場面の画質比較記録](evidence/earned-azhdaha-rematch-frames-browser.json)
+
 ## 北風の王狼の本編戦から最上級の再戦へ
 
 報告110件のLv200セーブで、本編戦の再出現待ちから最上級へ進んだ。入口に本編戦の勝数と耐性、難度選択に討伐数を表示し、読み直すと攻略済みの最も高い難度を選ぶ。Chromeで最上級初回、続くLuaで装備を比較用に調整して全11技を含む再戦を確認。最上級2勝、通常報酬、装備と再出現待ちの復元まで検証した。 [操作と報酬](docs/weekly-boss-v1/ANDRIUS_WEB.md) · [初回のChrome試走](evidence/earned-andrius-first-expert-browser.json) · [再戦のLua試走](evidence/earned-andrius-rematch-lua.json) · [再戦後のChrome確認](evidence/earned-andrius-rematch-browser.json)

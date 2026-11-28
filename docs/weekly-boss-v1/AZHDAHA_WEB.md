@@ -11,7 +11,11 @@
 
 本体の背には第一元素、尾には第二元素の発光模様が出る。炎は上に伸びる亀裂、水は波、雷は折れ線、氷は結晶の形。吸収の開始時に発光し、吸収後も残る。地上に残る露出尾にも第二元素の模様が出る。
 
-獲得済みセーブのコピーから最高難度4組を再現するには、`test_earned_azhdaha_branches.py --from-save work/current-atlas-recheck/current-atlas-save.json --output-dir work/azhdaha-absorption-frames` を実行する。ラボを配信中に `node test_earned_weekly_frames.mjs work/azhdaha-absorption-frames work/azhdaha-absorption-gallery` を実行すると、20場面を3画質で並べた画像と一覧ができる。 [再戦・命中・画質の記録](../../evidence/azhdaha-absorption-branches-20261127.json)
+港の受付で選んだ元素はセーブに残る。従来のセーブでは炎＋氷を初期選択にする。雷の「樹尾の戦場」は、初波の2秒前に左の安全帯を知らせる。次の波は前の波が終わった時点で表示する。戦闘画面の残り時間と地面の目印を見ながら、左、中央、右へ移動できる。
+
+北風の王狼の最上級2勝を記録したLv200セーブから、M地図で伏龍の封印へ進んだ。若陀龍王の最上級を初回32,560,274 EXP・3,590,160モラでクリアし、港で北斗に報告した。続く四組のLua再戦は各18,999,684 EXP・1,538,640モラ。雷を含む二戦では旅人が尾戦の安全帯を三波とも通過した。試走用コピーでは火力を下げて獲得済みの花に付け替え、荷物整理で未装備品を1点売却した。装備を戻したセーブで、若陀龍王の最上級5勝と報告済み依頼111件をChromeで確認した。 [初回](../../evidence/earned-azhdaha-first-expert-browser.json)・[四組の再戦](../../evidence/earned-azhdaha-rematch-lua.json)・[再開](../../evidence/earned-azhdaha-rematch-browser.json)
+
+同じ再戦を再現するには、初回戦を保存したJSONを `test_earned_azhdaha_branches.py --from-save SAVE --output-dir OUTPUT --weapon SW07 --chain` に渡す。ラボを配信中に `node test_earned_weekly_frames.mjs OUTPUT OUTPUT/comparison` を実行すると、22場面を3画質で比較できる。各元素の命中を確かめた従来の試走も参照できる。 [22場面の比較記録](../../evidence/earned-azhdaha-rematch-frames-browser.json)・[従来の試走](../../evidence/azhdaha-absorption-branches-20261127.json)
 
 共闘では同じ難度・元素の組み合わせを選んだ参加者が、HP・地脈の吸収・尾・安全帯を共有する。刻印と盾は被弾したキャラクターごとに判定する。 [入場ルートと共闘の検証](../COOP_WEB_PREVIEW.md#若陀龍王の週ボス戦)
 

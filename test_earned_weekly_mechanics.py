@@ -57,7 +57,7 @@ def rectangle_frame(trip, profile):
                 packedBytes=len(json.dumps(commands, ensure_ascii=False, separators=(',', ':')).encode()))
 
 
-def equipment(trip, weapon='SW06'):
+def equipment(trip, weapon='SW06', *, trial_flower=False):
     bag = trip.state.inventory
     items = list(bag['items'].values())
     slots = max(0, len(items) + len(bag.ground) - 80)
@@ -71,16 +71,24 @@ def equipment(trip, weapon='SW06'):
     removed = [i.id for i in items if i.owner and i.slot != 1]
     for item in removed:
         trip.act(f'artifact_remove:{item}')
+    flower = None
+    if trial_flower:
+        flower = max((i for i in bag['items'].values() if i.slot == 1 and i.owner in (0, 1)),
+                     key=trip.core.artifactStats)
+        trip.act(f'artifact_equip:{flower.id}')
     assert trip.core.canEquipWeapon(trip.state, 'traveler', weapon), weapon
     trip.act(f'weapon_equip:traveler:{weapon}')
     trip.act('hold_ally_fire')
     assert trip.core.equippedWeapon(trip.state, 'traveler') == weapon
-    return dict(sold=[i.id for i in spares[:slots]], removed=removed, weapon=weapon,
-                attack=[a.atk for a in trip.state.actors.values()],
-                maxHp=[a.maxhp for a in trip.state.actors.values()])
+    result = dict(sold=[i.id for i in spares[:slots]], removed=removed, weapon=weapon,
+                  attack=[a.atk for a in trip.state.actors.values()],
+                  maxHp=[a.maxhp for a in trip.state.actors.values()])
+    if flower:
+        result['flower'] = flower.id
+    return result
 
 
-def expert_rematch(source, engine, spec, lobby_action=None, *, weapon='SW06'):
+def expert_rematch(source, engine, spec, lobby_action=None, *, weapon='SW06', trial_flower=False):
     trip = SurveyJourney(source, engine, select_traveler=True)
     start = trip.snapshot()
     key, node = spec['id'], spec['node']
@@ -88,7 +96,7 @@ def expert_rematch(source, engine, spec, lobby_action=None, *, weapon='SW06'):
     trip.warp(hub)
     if lobby_action:
         trip.act(lobby_action)
-    loadout = equipment(trip, weapon)
+    loadout = equipment(trip, weapon, trial_flower=trial_flower)
     origin, gate = next((n['id'], g) for n in nodes.values() for g in n['exits'] if g['to'] == node)
     trip.travel(origin)
     trip.approach(gate['x'], gate.get('y', 480), node)
@@ -118,6 +126,25 @@ def verify_repeat(trip, before, start, mode, record_key, prior):
     assert saved['story']['quests'] == start['story']['quests']
     assert saved['story']['visited'] == start['story']['visited']
     assert trip.state.returns == 0
+
+
+def restore_rematch_equipment(trip, start, loadout, hub):
+    trip.warp(hub)
+    removed = set(loadout['removed'])
+    if 'flower' in loadout:
+        trip.act(f"artifact_remove:{loadout['flower']}")
+        removed.update(i['id'] for i in start['inventory']['items'] if i['owner'] == 1 and i['slot'] == 1)
+    for item in start['inventory']['items']:
+        if item['id'] in removed:
+            assert item['owner'] == 1
+            trip.act(f"artifact_equip:{item['id']}")
+    trip.act('weapon_equip:traveler:' + start['weapons']['equipped']['traveler'])
+    saved = trip.snapshot()
+    assert saved['weapons'] == start['weapons'] and saved['companion'] == start['companion']
+    assert [i for i in saved['inventory']['items'] if i['owner']] == [
+        i for i in start['inventory']['items'] if i['owner']
+    ]
+    return saved
 
 
 def capture_scene(trip, tick, stage, move, move_tick):

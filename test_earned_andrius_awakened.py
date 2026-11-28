@@ -4,7 +4,8 @@ import json
 from pathlib import Path
 
 from runtime import ROOT, native, runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
 cues = {
@@ -77,17 +78,7 @@ def replay(source, output, save_rematch=False, weapon='SW06'):
     proof = dict(controller='andrius', boss=spec['id'], sourceSha256=trip.source, loadout=loadout,
                  hpLossDuringLateCasts=contacts, expertClears=[prior, prior + 1], **outcome)
     if save_rematch:
-        trip.warp('mond-town')
-        removed = set(loadout['removed'])
-        for item in start['inventory']['items']:
-            if item['id'] in removed:
-                assert item['owner'] == 1
-                trip.act(f"artifact_equip:{item['id']}")
-        trip.act('weapon_equip:traveler:' + start['weapons']['equipped']['traveler'])
-        saved = trip.snapshot()
-        assert saved['weapons'] == start['weapons'] and saved['companion'] == start['companion']
-        original_equipped = [i for i in start['inventory']['items'] if i['owner']]
-        assert [i for i in saved['inventory']['items'] if i['owner']] == original_equipped
+        saved = restore_rematch_equipment(trip, start, loadout, 'mond-town')
         assert saved['endgame']['bosses'][spec['id']] == start['endgame']['bosses'][spec['id']]
         assert saved['endgame']['weekly'][record_key]['clears'] == prior + 1
         assert saved['weeklyBosses'][spec['id']]['waitTicks'] > 0

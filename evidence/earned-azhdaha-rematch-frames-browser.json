@@ -1,0 +1,550 @@
+{
+  "azhdaha-pyro-cryo": {
+    "image": "azhdaha-pyro-cryo.png",
+    "frames": {
+      "WZ09-1": {
+        "tick": 282,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 258998,
+            "rgbAbsoluteError": 11086424,
+            "unpackedCommands": 12623,
+            "packedCommands": 897,
+            "unpackedBytes": 1538861,
+            "packedBytes": 302039,
+            "combatCanvasMs": 11
+          },
+          "h32c16": {
+            "differentPixels": 259374,
+            "rgbAbsoluteError": 14522619,
+            "unpackedCommands": 5831,
+            "packedCommands": 433,
+            "unpackedBytes": 696810,
+            "packedBytes": 134965,
+            "combatCanvasMs": 5
+          }
+        }
+      },
+      "WZ09-2": {
+        "tick": 823,
+        "originalCombatCanvasMs": 1.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 255046,
+            "rgbAbsoluteError": 10915857,
+            "unpackedCommands": 12662,
+            "packedCommands": 936,
+            "unpackedBytes": 1543467,
+            "packedBytes": 306842,
+            "combatCanvasMs": 10.5
+          },
+          "h32c16": {
+            "differentPixels": 255398,
+            "rgbAbsoluteError": 14307999,
+            "unpackedCommands": 5870,
+            "packedCommands": 472,
+            "unpackedBytes": 699877,
+            "packedBytes": 139111,
+            "combatCanvasMs": 5
+          }
+        }
+      },
+      "WZ12": {
+        "tick": 1790,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 2406,
+            "rgbAbsoluteError": 253896,
+            "unpackedCommands": 1095,
+            "packedCommands": 98,
+            "unpackedBytes": 128713,
+            "packedBytes": 28205,
+            "combatCanvasMs": 1.0999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 2399,
+            "rgbAbsoluteError": 301096,
+            "unpackedCommands": 545,
+            "packedCommands": 98,
+            "unpackedBytes": 61223,
+            "packedBytes": 16129,
+            "combatCanvasMs": 0.5
+          }
+        }
+      },
+      "WZ10": {
+        "tick": 3039,
+        "originalCombatCanvasMs": 1.300000011920929,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 252445,
+            "rgbAbsoluteError": 10629774,
+            "unpackedCommands": 11811,
+            "packedCommands": 103,
+            "unpackedBytes": 1437397,
+            "packedBytes": 203239,
+            "combatCanvasMs": 9.900000005960464
+          },
+          "h32c16": {
+            "differentPixels": 252662,
+            "rgbAbsoluteError": 13982704,
+            "unpackedCommands": 5490,
+            "packedCommands": 103,
+            "unpackedBytes": 651942,
+            "packedBytes": 94678,
+            "combatCanvasMs": 4.299999982118607
+          }
+        }
+      },
+      "WZ11": {
+        "tick": 5375,
+        "originalCombatCanvasMs": 1.399999976158142,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 253166,
+            "rgbAbsoluteError": 10626164,
+            "unpackedCommands": 11837,
+            "packedCommands": 105,
+            "unpackedBytes": 1443144,
+            "packedBytes": 203672,
+            "combatCanvasMs": 10
+          },
+          "h32c16": {
+            "differentPixels": 253442,
+            "rgbAbsoluteError": 14028833,
+            "unpackedCommands": 5500,
+            "packedCommands": 105,
+            "unpackedBytes": 655952,
+            "packedBytes": 94866,
+            "combatCanvasMs": 4.300000011920929
+          }
+        }
+      }
+    }
+  },
+  "azhdaha-pyro-electro": {
+    "image": "azhdaha-pyro-electro.png",
+    "frames": {
+      "WZ09-1": {
+        "tick": 282,
+        "originalCombatCanvasMs": 1.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 258998,
+            "rgbAbsoluteError": 11086086,
+            "unpackedCommands": 12623,
+            "packedCommands": 897,
+            "unpackedBytes": 1539617,
+            "packedBytes": 302372,
+            "combatCanvasMs": 11.599999994039536
+          },
+          "h32c16": {
+            "differentPixels": 259379,
+            "rgbAbsoluteError": 14529939,
+            "unpackedCommands": 5831,
+            "packedCommands": 433,
+            "unpackedBytes": 696757,
+            "packedBytes": 134954,
+            "combatCanvasMs": 5.200000017881393
+          }
+        }
+      },
+      "WZ09-2": {
+        "tick": 823,
+        "originalCombatCanvasMs": 1.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 255141,
+            "rgbAbsoluteError": 10917851,
+            "unpackedCommands": 12662,
+            "packedCommands": 936,
+            "unpackedBytes": 1543781,
+            "packedBytes": 306959,
+            "combatCanvasMs": 11.599999994039536
+          },
+          "h32c16": {
+            "differentPixels": 255503,
+            "rgbAbsoluteError": 14315092,
+            "unpackedCommands": 5870,
+            "packedCommands": 472,
+            "unpackedBytes": 701730,
+            "packedBytes": 139885,
+            "combatCanvasMs": 5.200000017881393
+          }
+        }
+      },
+      "WZ12-予兆": {
+        "tick": 1669,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 254120,
+            "rgbAbsoluteError": 10771388,
+            "unpackedCommands": 11823,
+            "packedCommands": 97,
+            "unpackedBytes": 1440339,
+            "packedBytes": 203094,
+            "combatCanvasMs": 11.599999994039536
+          },
+          "h32c16": {
+            "differentPixels": 254472,
+            "rgbAbsoluteError": 14120080,
+            "unpackedCommands": 5495,
+            "packedCommands": 97,
+            "unpackedBytes": 656227,
+            "packedBytes": 94424,
+            "combatCanvasMs": 4.699999988079071
+          }
+        }
+      },
+      "WZ12": {
+        "tick": 1790,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 2636,
+            "rgbAbsoluteError": 244333,
+            "unpackedCommands": 1102,
+            "packedCommands": 99,
+            "unpackedBytes": 131221,
+            "packedBytes": 28189,
+            "combatCanvasMs": 1.5
+          },
+          "h32c16": {
+            "differentPixels": 2628,
+            "rgbAbsoluteError": 304269,
+            "unpackedCommands": 543,
+            "packedCommands": 99,
+            "unpackedBytes": 60868,
+            "packedBytes": 15977,
+            "combatCanvasMs": 0.5999999940395355
+          }
+        }
+      },
+      "WZ10": {
+        "tick": 3039,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 253466,
+            "rgbAbsoluteError": 10740332,
+            "unpackedCommands": 11835,
+            "packedCommands": 103,
+            "unpackedBytes": 1441359,
+            "packedBytes": 203463,
+            "combatCanvasMs": 10.799999982118607
+          },
+          "h32c16": {
+            "differentPixels": 253774,
+            "rgbAbsoluteError": 14161059,
+            "unpackedCommands": 5498,
+            "packedCommands": 103,
+            "unpackedBytes": 654409,
+            "packedBytes": 94657,
+            "combatCanvasMs": 4.800000011920929
+          }
+        }
+      },
+      "WZ11": {
+        "tick": 5375,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 238503,
+            "rgbAbsoluteError": 9954273,
+            "unpackedCommands": 11234,
+            "packedCommands": 99,
+            "unpackedBytes": 1368326,
+            "packedBytes": 193744,
+            "combatCanvasMs": 11.299999982118607
+          },
+          "h32c16": {
+            "differentPixels": 238730,
+            "rgbAbsoluteError": 13115913,
+            "unpackedCommands": 5235,
+            "packedCommands": 99,
+            "unpackedBytes": 623876,
+            "packedBytes": 90485,
+            "combatCanvasMs": 4.5
+          }
+        }
+      }
+    }
+  },
+  "azhdaha-hydro-cryo": {
+    "image": "azhdaha-hydro-cryo.png",
+    "frames": {
+      "WZ09-1": {
+        "tick": 282,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 260042,
+            "rgbAbsoluteError": 11126450,
+            "unpackedCommands": 12623,
+            "packedCommands": 897,
+            "unpackedBytes": 1539600,
+            "packedBytes": 302355,
+            "combatCanvasMs": 12.799999982118607
+          },
+          "h32c16": {
+            "differentPixels": 260398,
+            "rgbAbsoluteError": 14581722,
+            "unpackedCommands": 5831,
+            "packedCommands": 433,
+            "unpackedBytes": 696740,
+            "packedBytes": 134937,
+            "combatCanvasMs": 5.5
+          }
+        }
+      },
+      "WZ09-2": {
+        "tick": 823,
+        "originalCombatCanvasMs": 1.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 256091,
+            "rgbAbsoluteError": 10961767,
+            "unpackedCommands": 12662,
+            "packedCommands": 936,
+            "unpackedBytes": 1543793,
+            "packedBytes": 306971,
+            "combatCanvasMs": 11.900000005960464
+          },
+          "h32c16": {
+            "differentPixels": 256421,
+            "rgbAbsoluteError": 14353134,
+            "unpackedCommands": 5870,
+            "packedCommands": 472,
+            "unpackedBytes": 701742,
+            "packedBytes": 139897,
+            "combatCanvasMs": 5.299999982118607
+          }
+        }
+      },
+      "WZ12": {
+        "tick": 1790,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 2408,
+            "rgbAbsoluteError": 262497,
+            "unpackedCommands": 1095,
+            "packedCommands": 98,
+            "unpackedBytes": 129136,
+            "packedBytes": 28205,
+            "combatCanvasMs": 1
+          },
+          "h32c16": {
+            "differentPixels": 2412,
+            "rgbAbsoluteError": 302796,
+            "unpackedCommands": 545,
+            "packedCommands": 98,
+            "unpackedBytes": 61181,
+            "packedBytes": 16129,
+            "combatCanvasMs": 0.5999999940395355
+          }
+        }
+      },
+      "WZ10": {
+        "tick": 3039,
+        "originalCombatCanvasMs": 1.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 253583,
+            "rgbAbsoluteError": 10698863,
+            "unpackedCommands": 11808,
+            "packedCommands": 100,
+            "unpackedBytes": 1438990,
+            "packedBytes": 203096,
+            "combatCanvasMs": 10.699999988079071
+          },
+          "h32c16": {
+            "differentPixels": 253787,
+            "rgbAbsoluteError": 14040846,
+            "unpackedCommands": 5487,
+            "packedCommands": 100,
+            "unpackedBytes": 654410,
+            "packedBytes": 94535,
+            "combatCanvasMs": 4.699999988079071
+          }
+        }
+      },
+      "WZ11": {
+        "tick": 5375,
+        "originalCombatCanvasMs": 1.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 254215,
+            "rgbAbsoluteError": 10676431,
+            "unpackedCommands": 11837,
+            "packedCommands": 105,
+            "unpackedBytes": 1440656,
+            "packedBytes": 203661,
+            "combatCanvasMs": 12
+          },
+          "h32c16": {
+            "differentPixels": 254482,
+            "rgbAbsoluteError": 14091409,
+            "unpackedCommands": 5500,
+            "packedCommands": 105,
+            "unpackedBytes": 654834,
+            "packedBytes": 94855,
+            "combatCanvasMs": 5.100000023841858
+          }
+        }
+      }
+    }
+  },
+  "azhdaha-hydro-electro": {
+    "image": "azhdaha-hydro-electro.png",
+    "frames": {
+      "WZ09-1": {
+        "tick": 282,
+        "originalCombatCanvasMs": 1.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 260042,
+            "rgbAbsoluteError": 11126450,
+            "unpackedCommands": 12623,
+            "packedCommands": 897,
+            "unpackedBytes": 1539600,
+            "packedBytes": 302355,
+            "combatCanvasMs": 12.300000011920929
+          },
+          "h32c16": {
+            "differentPixels": 260398,
+            "rgbAbsoluteError": 14581722,
+            "unpackedCommands": 5831,
+            "packedCommands": 433,
+            "unpackedBytes": 696740,
+            "packedBytes": 134937,
+            "combatCanvasMs": 6.199999988079071
+          }
+        }
+      },
+      "WZ09-2": {
+        "tick": 823,
+        "originalCombatCanvasMs": 1.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 256188,
+            "rgbAbsoluteError": 10958443,
+            "unpackedCommands": 12662,
+            "packedCommands": 936,
+            "unpackedBytes": 1543764,
+            "packedBytes": 306942,
+            "combatCanvasMs": 12.800000011920929
+          },
+          "h32c16": {
+            "differentPixels": 256530,
+            "rgbAbsoluteError": 14366842,
+            "unpackedCommands": 5870,
+            "packedCommands": 472,
+            "unpackedBytes": 701713,
+            "packedBytes": 139868,
+            "combatCanvasMs": 5.700000017881393
+          }
+        }
+      },
+      "WZ12-予兆": {
+        "tick": 1669,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 255167,
+            "rgbAbsoluteError": 10811980,
+            "unpackedCommands": 11823,
+            "packedCommands": 97,
+            "unpackedBytes": 1440322,
+            "packedBytes": 203077,
+            "combatCanvasMs": 11.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 255499,
+            "rgbAbsoluteError": 14171830,
+            "unpackedCommands": 5495,
+            "packedCommands": 97,
+            "unpackedBytes": 656210,
+            "packedBytes": 94407,
+            "combatCanvasMs": 4.600000023841858
+          }
+        }
+      },
+      "WZ12": {
+        "tick": 1790,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 2636,
+            "rgbAbsoluteError": 244333,
+            "unpackedCommands": 1102,
+            "packedCommands": 99,
+            "unpackedBytes": 131221,
+            "packedBytes": 28189,
+            "combatCanvasMs": 1.0999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 2628,
+            "rgbAbsoluteError": 304269,
+            "unpackedCommands": 543,
+            "packedCommands": 99,
+            "unpackedBytes": 60868,
+            "packedBytes": 15977,
+            "combatCanvasMs": 0.699999988079071
+          }
+        }
+      },
+      "WZ10": {
+        "tick": 3039,
+        "originalCombatCanvasMs": 1.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 254593,
+            "rgbAbsoluteError": 10791579,
+            "unpackedCommands": 11832,
+            "packedCommands": 100,
+            "unpackedBytes": 1441214,
+            "packedBytes": 203318,
+            "combatCanvasMs": 10.599999994039536
+          },
+          "h32c16": {
+            "differentPixels": 254885,
+            "rgbAbsoluteError": 14210108,
+            "unpackedCommands": 5495,
+            "packedCommands": 100,
+            "unpackedBytes": 654264,
+            "packedBytes": 94512,
+            "combatCanvasMs": 4
+          }
+        }
+      },
+      "WZ11": {
+        "tick": 5375,
+        "originalCombatCanvasMs": 1.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 239552,
+            "rgbAbsoluteError": 10005939,
+            "unpackedCommands": 11234,
+            "packedCommands": 99,
+            "unpackedBytes": 1368315,
+            "packedBytes": 193733,
+            "combatCanvasMs": 10
+          },
+          "h32c16": {
+            "differentPixels": 239769,
+            "rgbAbsoluteError": 13177973,
+            "unpackedCommands": 5235,
+            "packedCommands": 99,
+            "unpackedBytes": 623865,
+            "packedBytes": 90474,
+            "combatCanvasMs": 4.4000000059604645
+          }
+        }
+      }
+    }
+  }
+}

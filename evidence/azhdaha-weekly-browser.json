@@ -7,17 +7,24 @@
   "bothAbsorptionsAndTargetableTail": true,
   "normalKeyBattleAndReport": true,
   "savedRespawn": true,
-  "remainingHp": 114,
+  "laneWarning": {
+    "lane": 1,
+    "ticks": 120,
+    "total": 3,
+    "wave": 1,
+    "moveTick": 60
+  },
+  "remainingHp": 789,
   "viewport390": true,
   "scene": {
-    "key": "liyuequarry",
-    "file": "liyue-quarry-background-v1.png",
+    "key": "liyueSealedCavern",
+    "file": "li-sealed-cavern-background-v1.png",
     "state": "ready"
   },
   "sameStateCommands": {
-    "png": 29,
-    "standard": 23292,
-    "light": 6545
+    "png": 73,
+    "standard": 13732,
+    "light": 3917
   },
   "errors": []
 }

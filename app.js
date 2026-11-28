@@ -644,8 +644,10 @@ function hud(f,calls,renderMs){
   const form=field.formName?`・${field.formName}`:'';
   const party=f.storyTravelerTrial?(f.coop?.shared?' ｜ 旅人のみで共闘':' ｜ 旅人単独'):'';
   const difficulty=field.difficulty?` ｜ ${field.difficulty}`:'';
+  const refuge=field.safeLaneCue;
+  const lane=refuge?` ｜ ${refuge.ticks>0?'次の安全帯':'安全帯'} ${['左','中央','右'][refuge.lane-1]} ${refuge.wave}/${refuge.total}${refuge.ticks>0?`（あと ${(Math.ceil(refuge.ticks/6)/10).toFixed(1)}秒）`:''}`:'';
   const tuning=(field.draftHp?' ｜ 比較版HP':'')+(field.draftMoves?' ｜ 短縮技案':'');
-  const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${tuning}${mark}${party}${rootCoreHint}${exposureHint}${emergenceHint}${gravityHint}${summonHint}${resonatorHint}`;
+  const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${tuning}${lane}${mark}${party}${rootCoreHint}${exposureHint}${emergenceHint}${gravityHint}${summonHint}${resonatorHint}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
   fieldHp.hidden=field.phase==='respawn'||field.phase==='cleared'||!phases.hidden||!!oasis?.defense||journey?.scene==='inner';
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;

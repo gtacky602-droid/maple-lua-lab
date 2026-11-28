@@ -16,11 +16,12 @@ async function freeze(kind){
   const f=window.lab.frame,b=f.weeklyBoss;
   if(!b||f.paused)return false;
   const ready=kind==='infusion'?b.move==='WZ09'&&b.form===1&&b.moveTick>=65:
+   kind==='lane-warning'?b.safeLaneCue?.wave===1&&b.moveTick<120:
    b.tail&&b.safeLane===1&&b.moveTick>=140;
   if(!ready)return false;
   window.lab.action('pause');
   return true;
- },kind,kind==='tail'?110000:85000);
+ },kind,kind==='infusion'?85000:110000);
  await wait(()=>window.lab.frame.paused);
  return frame();
 }
@@ -115,6 +116,14 @@ try{
  await canvas.screenshot({path:prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await resume();
+ const warning=await freeze('lane-warning');
+ assert.ok(warning.weeklyBoss.safeLaneCue.ticks>60&&!warning.weeklyBoss.safeLane);
+ await wait(()=>document.getElementById('fieldBossLabel').textContent.includes('次の安全帯 左 1/3'));
+ await page.setViewportSize({width:390,height:844});
+ assert.ok(await page.locator('#fieldBoss').evaluate(el=>el.scrollWidth<=el.clientWidth&&el.getBoundingClientRect().right<=390));
+ await page.locator('.game').screenshot({path:prefix+'-warning.png'});
+ await page.setViewportSize({width:1240,height:940});
+ await resume();
  const tail=await freeze('tail');
  assert.ok(tail.weeklyBoss.tail&&tail.weeklyBoss.damageable&&tail.weeklyBoss.form===3);
  assert.equal(tail.draws.some(draw=>draw.source==='azhdaha-idle-source-v1.png'),false);
@@ -145,6 +154,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,chosenPair:['hydro','electro'],
   bothAbsorptionsAndTargetableTail:true,normalKeyBattleAndReport:true,savedRespawn:true,
+  laneWarning:{...warning.weeklyBoss.safeLaneCue,moveTick:warning.weeklyBoss.moveTick},
   remainingHp:defeated.actors[0].hp,viewport390:true,scene,
   sameStateCommands:{png:infused.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Azhdaha Chrome: selected pair, portal, two absorptions, tail, combat, report and save passed');

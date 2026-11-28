@@ -1,0 +1,31 @@
+{
+  "sourceSha256": "0ba761b42df2ad30ccf0e6e73f2f8403e3a13b1365e677c38e7536840d4fd6ff",
+  "level": 200,
+  "guide": [
+    "azhdaha-dragon-seal-arena"
+  ],
+  "pair": [
+    "hydro",
+    "electro"
+  ],
+  "attack": 74956,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "questReward": {
+    "xp": 24000,
+    "mora": 2200
+  },
+  "repeatReward": {
+    "xp": 18999684,
+    "mora": 1538640
+  },
+  "firstExpertClear": 1,
+  "andriusExpertWins": 2,
+  "remainingTicks": 3387,
+  "pairAfterReload": true,
+  "reportedAfterReload": "complete",
+  "errors": []
+}
