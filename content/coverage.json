@@ -8431,6 +8431,16 @@
       "lua_evidence": "evidence/earned-inazuma-island-bosses.json",
       "browser_evidence": "evidence/earned-inazuma-island-bosses-browser.json"
     },
+    "earned_enkanomiya_bathysmal": {
+      "arrival_level": 54,
+      "arena_gate_level": 46,
+      "round_trip_seconds_each_way": {"ferry": 4.2, "waterway": 3.8},
+      "encounter_cleared_and_commission_restored": "bathysmal-herd",
+      "attacks_evaded_with_inputs": 3,
+      "pair_shared_hp": 1120,
+      "lua_evidence": "evidence/earned-enkanomiya-bathysmal.json",
+      "browser_evidence": "evidence/earned-enkanomiya-bathysmal-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

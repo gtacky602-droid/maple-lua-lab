@@ -905,6 +905,7 @@
       "id": "bathysmal-herd",
       "controller": "bathysmal",
       "coop": true,
+      "showRecovery": true,
       "entity": 26050701,
       "name": "アビサルヴィシャップの群れ",
       "node": "bathysmal-field-sanctum",

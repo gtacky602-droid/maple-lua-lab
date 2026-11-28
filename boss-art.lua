@@ -28,8 +28,8 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   if row<=cut then return row*(band/.28) end
   return height*band+(row-cut)*((1-band)/.72)
  end
- local function draw(f,assetData,x,y,h,mode,profile,flip,palette,tint,opacity,band)
-  local w=h*assetData.box[3]/assetData.box[4];local anchor=assetData.anchorX or .5;local left=x-(flip and (1-anchor) or anchor)*w
+ local function draw(f,assetData,x,y,h,mode,profile,flip,palette,tint,opacity,band,width)
+  local w=width or h*assetData.box[3]/assetData.box[4];local anchor=assetData.anchorX or .5;local left=x-(flip and (1-anchor) or anchor)*w
   if mode=='rect' then
    local asset=assetData.profiles[profile] or assetData.profiles.legacy
    if f.rectIndex and not palette and not f.clipToViewport then
@@ -170,9 +170,14 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   draw(f,art,x,y-ruinSerpentPoseOffsets[pose]*scale,art.profiles.legacy.height*scale,mode,profile,flip)
  end
  function C.drawBathysmalFieldArt(f,x,y,index,pose,mode,profile,flip)
-  local art=(index==1 and C.rimebiterFieldArt or C.bolteaterFieldArt)[pose]
-  local h=pose=='idle' and 110 or art.profiles.legacy.height
-  draw(f,art,x,y,h,mode,profile,flip)
+  local poses=index==1 and C.rimebiterFieldArt or C.bolteaterFieldArt
+  if pose=='recover' then
+   local art=poses.idle
+   draw(f,art,x,y,94,mode,profile,flip,nil,nil,nil,nil,110*art.box[3]/art.box[4])
+  else
+   local art=poses[pose]
+   draw(f,art,x,y,pose=='idle' and 110 or art.profiles.legacy.height,mode,profile,flip)
+  end
  end
  function C.drawAeonblightFieldArt(f,x,y,pose,mode,profile,flip)
   local art=C.aeonblightFieldArt[pose]

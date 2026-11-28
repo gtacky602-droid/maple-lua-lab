@@ -1,0 +1,92 @@
+{
+  "browser": "Chrome",
+  "level": 54,
+  "journeys": [
+    [
+      "inazuma-port",
+      "watatsumi-landing",
+      "boat"
+    ],
+    [
+      "watatsumi-landing",
+      "ina-wp-15942",
+      "walk"
+    ],
+    [
+      "ina-wp-15942",
+      "enkanomiya-camp",
+      "waterway"
+    ],
+    [
+      "enkanomiya-camp",
+      "enkanomiya-depth",
+      "walk"
+    ],
+    [
+      "enkanomiya-depth",
+      "bathysmal-field-sanctum",
+      "walk"
+    ],
+    [
+      "bathysmal-field-sanctum",
+      "enkanomiya-depth",
+      "walk"
+    ],
+    [
+      "enkanomiya-depth",
+      "enkanomiya-camp",
+      "walk"
+    ],
+    [
+      "enkanomiya-camp",
+      "ina-wp-15942",
+      "waterway"
+    ],
+    [
+      "ina-wp-15942",
+      "watatsumi-landing",
+      "walk"
+    ],
+    [
+      "watatsumi-landing",
+      "inazuma-port",
+      "boat"
+    ]
+  ],
+  "play": {
+    "finished": true,
+    "moves": [
+      "FBH01",
+      "FBH02",
+      "FBH03"
+    ],
+    "recoveries": [
+      "FBH01",
+      "FBH02",
+      "FBH03"
+    ],
+    "airborne": [
+      1,
+      2
+    ],
+    "bolts": [
+      1,
+      2
+    ],
+    "marks": [
+      584.54,
+      698.94
+    ],
+    "returns": 0,
+    "hp": 384,
+    "seconds": 22.8
+  },
+  "restored": true,
+  "cooldown": 3063,
+  "finishedAt": "inazuma-port",
+  "sameFrameCommands": {
+    "png": 24,
+    "standard": 17158,
+    "light": 4750
+  }
+}
