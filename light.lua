@@ -34,7 +34,19 @@ return function(C)
  end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile)
-  f.lightForm={seconds=s.actors[1].light,elementBonus=.18,companionAIBonus=.1,cost=60}
+  local traveler=s.actors[1]
+  f.lightForm={seconds=traveler.light,elementBonus=.18,companionAIBonus=.1,cost=60}
+  local x=traveler.x-s.camera
+  if traveler.light>0 and x>=-50 and x<=1010 then
+   for i=0,3 do
+    local phase=s.t*5+i*math.pi/2
+    local px=math.floor(x+math.cos(phase)*33)
+    local py=math.floor(traveler.y-37+math.sin(phase)*21)
+    f.draws[#f.draws+1]={kind='rect',x=px-5,y=py-2,w=10,h=4,color='#ffd68cba'}
+    f.draws[#f.draws+1]={kind='rect',x=px-2,y=py-5,w=4,h=10,color='#fff4ce'}
+   end
+   f.commands=#f.draws
+  end
   return f
  end
 end

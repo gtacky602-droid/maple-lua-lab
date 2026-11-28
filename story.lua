@@ -2503,8 +2503,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local growthPoint=growthViewpoint(s)
    if growthPoint then
     local x,y=growthPoint.x-s.camera,growthPoint.y
-    markers[#markers+1]={kind='rect',x=x-1,y=y-45,w=3,h=45,color='#f3cb78'}
-    markers[#markers+1]={kind='text',x=x,y=y-58,text='観測地点',size=15,color='#ffe2a0'}
+    if x>=-35 and x<=995 then
+     markers[#markers+1]={kind='rect',x=x-22,y=y-6,w=44,h=6,color='#4f607b'}
+     markers[#markers+1]={kind='rect',x=x-13,y=y-42,w=5,h=36,color='#706080'}
+     markers[#markers+1]={kind='rect',x=x+8,y=y-42,w=5,h=36,color='#706080'}
+     markers[#markers+1]={kind='rect',x=x-20,y=y-51,w=40,h=15,color='#e1ac6e'}
+     markers[#markers+1]={kind='rect',x=x-16,y=y-48,w=32,h=8,color='#68586b'}
+     markers[#markers+1]={kind='rect',x=x+8,y=y-48,w=8,h=8,color='#b8e9f0'}
+     markers[#markers+1]={kind='text',x=x,y=y-96,text='観測地点',size=15,color='#ffe2a0'}
+    end
     if not s.paused and canInspect(s.actors[s.active],growthPoint) then f.growthBranchObserve=true end
    end
    local cue=s.storyCue

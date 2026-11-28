@@ -1,0 +1,34 @@
+{
+  "hunts": [
+    {
+      "node": "aurora-ice-cut",
+      "toLevel": 165,
+      "kills": 7625,
+      "exp": 429569625,
+      "autoKills": 7367,
+      "autoSeconds": 3552.75,
+      "seconds": 3675.13
+    }
+  ],
+  "milestones": [
+    {
+      "id": "lv165",
+      "node": "aurora-ice-cut",
+      "level": 165,
+      "exp": 1656530740,
+      "kills": 43299,
+      "seconds": 3686.12
+    }
+  ],
+  "equipment": [],
+  "rests": 4,
+  "inventoryStops": 3,
+  "sourceSha256": "576043b27e031c95583876b65fe13bc89bb0166525e0842f24a7c4cff2a78d05",
+  "level": 165,
+  "shelfEntered": true,
+  "priorQuests": 104,
+  "inventoryKept": 65,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "wipes": 0
+}
