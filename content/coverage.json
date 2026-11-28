@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_electro_field": {"level":200,"boss":"boss-20040101","fieldWins":1,"comboJumps":3,"drillJumps":1,"waveJumps":2,"reportedQuests":124,"comparisonScenes":3,"browser":"evidence/earned-electro-field-browser.json","coop":"evidence/coop-electro-lua-http.json"},
   "earned_cryo_field": {"level":200,"boss":"boss-26020101","fieldWins":1,"rootCasts":3,"downTicks":240,"coreRearmSeconds":20,"reportedQuests":123,"comparisonScenes":2,"browser":"evidence/earned-cryo-field-browser.json","coop":"evidence/coop-cryo-field-lua-http.json"},
   "earned_anemo_field": {"level":200,"boss":"boss-20040201","fieldWins":2,"naturalRespawnSeconds":60,"reportedQuests":122,"comparisonProfiles":["h48c32","h32c16"],"browser":"evidence/earned-anemo-field-browser.json","coop":"evidence/coop-cryo-field-lua-http.json"},
   "earned_dvalin_ranked_rematches": {"level":200,"boss":"boss-29010101","expertWins":3,"crystalOutcomes":2,"firstCrystalDamage":[96,0],"guardBreaks":[7,8],"exposureTicks":420,"reportedQuests":121,"adaptedWeeklyExpertRecords":14,"comparisonScenes":38,"firstBrowser":"evidence/earned-dvalin-first-expert-browser.json","repeatLua":"evidence/earned-dvalin-rematch-lua.json","repeatBrowser":"evidence/earned-dvalin-rematch-browser.json","profileComparison":"evidence/earned-dvalin-rematch-frames-browser.json"},

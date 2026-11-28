@@ -1,0 +1,174 @@
+{
+  "inputSha256": "494e9ddf86e070d03feba23e5b4a1e944218d67eec5b780dfc9e4eb0c567c1d3",
+  "level": 200,
+  "journeys": [
+    [
+      "mond-town",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "electro-approach",
+      "walk"
+    ],
+    [
+      "electro-approach",
+      "electro-field-shelf",
+      "walk"
+    ],
+    [
+      "electro-field-shelf",
+      "electro-approach",
+      "walk"
+    ],
+    [
+      "electro-approach",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "mond-town",
+      "walk"
+    ]
+  ],
+  "combo": [
+    {
+      "shape": "グー",
+      "startTick": 63,
+      "sampleTick": 79,
+      "height": 124.22222222222223,
+      "damage": 0,
+      "startedGrounded": true,
+      "clearedInAir": true
+    },
+    {
+      "shape": "チョキ",
+      "startTick": 123,
+      "sampleTick": 139,
+      "height": 124.22222222222223,
+      "damage": 0,
+      "startedGrounded": true,
+      "clearedInAir": true
+    },
+    {
+      "shape": "パー",
+      "startTick": 190,
+      "sampleTick": 205,
+      "height": 119.16666666666669,
+      "damage": 0,
+      "startedGrounded": true,
+      "clearedInAir": true
+    }
+  ],
+  "drill": {
+    "movement": 193.60000000000002,
+    "jump": {
+      "startTick": 79,
+      "sampleTick": 97,
+      "height": 128.91666666666669,
+      "damage": 0,
+      "startedGrounded": true,
+      "clearedInAir": true
+    }
+  },
+  "waves": [
+    {
+      "startTick": 78,
+      "sampleTick": 96,
+      "height": 133.25,
+      "damage": 0,
+      "startedGrounded": true,
+      "clearedInAir": true
+    },
+    {
+      "startTick": 149,
+      "sampleTick": 168,
+      "height": 128.91666666666669,
+      "damage": 0,
+      "startedGrounded": true,
+      "clearedInAir": true
+    }
+  ],
+  "recovery": {
+    "move": "FE03",
+    "tick": 211,
+    "label": "反撃の隙・足元の核に攻撃（あと1.0秒）"
+  },
+  "captures": {
+    "palm": {
+      "move": "FE01",
+      "tick": 161,
+      "label": "三形の連撃（パー 3/3）・射線から離れるかジャンプ",
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 8997,
+          "packedDraws": 12,
+          "legacyGzip": 152786,
+          "packedGzip": 52006,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3965,
+          "packedDraws": 12,
+          "legacyGzip": 78478,
+          "packedGzip": 34731,
+          "identicalPixels": true
+        }
+      }
+    },
+    "drill": {
+      "move": "FE02",
+      "tick": 39,
+      "label": "直進ドリル・走路から離れるかジャンプ",
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 7792,
+          "packedDraws": 11,
+          "legacyGzip": 135045,
+          "packedGzip": 51759,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3436,
+          "packedDraws": 11,
+          "legacyGzip": 71686,
+          "packedGzip": 34691,
+          "identicalPixels": true
+        }
+      }
+    },
+    "wave": {
+      "move": "FE03",
+      "tick": 132,
+      "label": "二つの低い雷波・2発目をジャンプで回避",
+      "profiles": {
+        "h48c32": {
+          "legacyDraws": 7790,
+          "packedDraws": 9,
+          "legacyGzip": 133913,
+          "packedGzip": 51689,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "legacyDraws": 3434,
+          "packedDraws": 9,
+          "legacyGzip": 70945,
+          "packedGzip": 34686,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 38,
+    "mora": 140
+  },
+  "fieldClears": 1,
+  "commission": "complete",
+  "reported": 124,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
+  "errors": []
+}
