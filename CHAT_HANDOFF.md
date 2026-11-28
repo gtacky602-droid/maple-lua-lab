@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## イアンサの訓練と初回との差
+
+記録台で走行時間、被弾、区間別停止時間の初回との差を表示する。シロネン報告済みのLv111セーブで改善点の途中保存、二周の記録、報告後の三周目を通した。幅390pxで保存した二周と今回を並べられる。同じセーブから夕映え会場に入り、七つの記録とイアンサの訓練路へのM地図リンクを確認した。 [通し検証](evidence/earned-natlan-iansan-training-browser.json) · [ナタの記録台](evidence/earned-natlan-festival-browser.json)
+
 ## シロネンの踏み台と配置別の記録
 
 設計台では三つの型を選んだ時点で、その組み合わせの最速記録を確認できる。試走中は区間名と復帰回数を表示する。キィニチ報告済みのLv110セーブで、二つの型の計測、天井に当たった後の組み替え、二つの配置の完走と記録の復元を通した。 [工房と試走路](docs/balance/NATLAN_XILONEN_COURSE_WEB.md) · [通し検証](evidence/earned-natlan-xilonen-course-browser.json)

@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const hub='natlan-hub', course='natlan-iansan-training';
-const quest='natlan-iansan-self-test', prefix='evidence/nat-iansan-training';
+const quest='natlan-iansan-self-test',checkpoint=process.env.LAB_IANSAN_CHECKPOINT;
+const prefix=process.env.LAB_IANSAN_OUTPUT||'evidence/nat-iansan-training';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'), errors=[];
@@ -58,9 +60,11 @@ async function load(){
 async function saveAndReload(){
  await page.locator('#saveProgress').click();
  await wait(()=>document.getElementById('saveStatus').textContent.includes('冒険を保存しました'));
+ const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
  await page.reload();
  await wait(()=>window.lab?.frame);
  await load();
+ return saved;
 }
 
 async function compare(){
@@ -112,9 +116,13 @@ async function finish(newCount){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8930/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/nat-iansan-training-fixture.json','utf8');
+ const seed=await fs.readFile(checkpoint||'work/nat-iansan-training-fixture.json','utf8');
+ const input=JSON.parse(seed);
+ assert.equal(input.story.quests[quest],undefined);
+ if(checkpoint)assert.equal(input.story.quests['natlan-xilonen-springs'].status,'complete');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load();
+ assert.equal((await frame()).progression.level,input.progression.level);
  await button('受注').click();
  await count(0);
  await collect(715,'イアンサに訓練の話を聞く');
@@ -159,6 +167,10 @@ try{
  await page.locator('#iansanReview').waitFor();
  assert.equal(await page.locator('#iansanResults thead th').count(),3);
  assert.equal(await page.locator('#iansanResults tbody tr').count(),5);
+ assert.equal(await page.locator('#iansanResults tbody td small').count(),5);
+ assert.equal(await page.locator('#iansanResults caption').innerText(),'括弧内は初回との差');
+ const timeDelta=((both.retest.ticks-both.baseline.ticks)/60).toFixed(1);
+ assert.equal(await page.locator('#iansanResults tbody tr').first().locator('small').innerText(),`（+${timeDelta}秒）`);
  await shot('comparison','#iansanReview');
  await page.setViewportSize({width:390,height:844});
  const bounds=await page.locator('#iansanReview').boundingBox();
@@ -169,20 +181,44 @@ try{
  await page.keyboard.press('Escape');
  await page.locator('#iansanReview').waitFor({state:'hidden'});
  await gate(56,hub);
+ const before=await frame();
  await button('報告').click();
  await wait(id=>window.lab.frame.story.quests[id]?.status==='complete',quest);
- await saveAndReload();
+ const reported=await frame();
+ const reward=[reported.progression.questXp-before.progression.questXp,reported.mora-before.mora];
+ assert.deepEqual(reward,[2991093,6300]);
+ const complete=await saveAndReload(),saved=JSON.parse(complete);
+ const preserved=Object.entries(input.story.quests).filter(([,state])=>state.status==='complete');
+ for(const [id,state] of preserved)assert.deepEqual(saved.story.quests[id],state,id);
+ if(checkpoint)await fs.writeFile(prefix+'-complete.json',complete+'\n');
+ const restored=await frame();
+ assert.equal(restored.story.quests[quest].status,'complete');
+ assert.equal(restored.companion.id,reported.companion.id);
  await gate(724,course);
  await collect(155,'記録台を見る');
  await wait(()=>window.lab.frame.storyIansan?.panel);
  assert.deepEqual((await frame()).storyIansan.retest,both.retest);
  await page.getByRole('button',{name:'記録を残してもう一周する',exact:true}).click();
  await wait(()=>window.lab.frame.storyIansan?.remaining===3);
- await key('KeyG');
- await wait(()=>!window.lab.frame.storyIansan?.running);
+ await reachMarker();
+ await targets();
+ await finish(4);
+ const replay=await frame();
+ assert.ok(replay.storyIansan.latest?.ticks>0);
+ assert.deepEqual(replay.storyIansan.baseline,both.baseline);
+ assert.deepEqual(replay.storyIansan.retest,both.retest);
+ assert.equal(replay.progression.questXp,reported.progression.questXp);
+ assert.equal(replay.mora,reported.mora);
+ assert.equal(await page.locator('#iansanResults tbody td small').count(),10);
+ await page.setViewportSize({width:390,height:844});
+ assert.ok(await page.locator('#iansanResults').evaluate(table=>table.scrollWidth<=table.clientWidth));
+ await shot('replay-mobile','#iansanReview');
  assert.deepEqual(errors,[]);
  const proof={ordinaryTargetsAndUpperMarker:true,actualHitAndWaterStop:true,oneRecommendation:true,
-  focusAndLogsAfterReload:true,slowerRetestReported:true,mobileTableFits:true,replayAfterReport:true,calls,errors};
+  focusAndLogsAfterReload:true,slowerRetestReported:true,mobileTableFits:true,replayAfterReport:true,
+  baselineDelta:true,replayComparison:true,sourceSha256:createHash('sha256').update(seed).digest('hex'),
+  startLevel:input.progression.level,reportedLevel:restored.progression.level,priorCompleted:preserved.length,
+  baseline:both.baseline,retest:both.retest,replay:replay.storyIansan.latest,reward,calls,errors};
  await fs.writeFile(prefix+'-web.json',JSON.stringify(proof,null,2)+'\n');
  console.log('Iansan browser playthrough passed',calls);
 }catch(err){
@@ -192,7 +228,7 @@ try{
    milestone:f?.storyNearbyMilestone,portal:f?.storyNearbyPortal,practice:f?.storyIansan,paused:f?.paused};
  }));
  console.error('Page errors',errors);
- await page.screenshot({path:'work/nat-iansan-training-failure.png'});
+ await page.screenshot({path:prefix+'-failure.png'});
  throw err;
 }finally{
  await browser.close();
