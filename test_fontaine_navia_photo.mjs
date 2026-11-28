@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
-const hub='fontaine-hub',terrace='fon-photo-terrace',quest='fon-navia-photo',prefix='evidence/fon-navia-photo';
+const earned=process.argv.includes('--earned');
+const hub='fontaine-hub',terrace='fon-photo-terrace',quest='fon-navia-photo';
+const prefix=earned?'work/earned-fontaine-legatus/navia-photo':'evidence/fon-navia-photo';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),panel=page.locator('#groupPhoto'),errors=[];
@@ -93,9 +95,11 @@ async function compareTerrace(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8923/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/fon-navia-photo-fixture.json','utf8');
+ const source=earned?'work/earned-fontaine-icewind/icewind-complete.json':'work/fon-navia-photo-fixture.json';
+ const seed=await fs.readFile(source,'utf8');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load();
+ if(earned)assert.equal((await frame()).progression.level,91);
  await questButton('受注');
  await count(0);
  await gate(316,terrace);
@@ -151,6 +155,7 @@ try{
  await gate(1843,hub);
  await questButton('報告');
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='complete',quest);
+ if(earned)assert.equal((await frame()).progression.level,92);
  await reload();
  await gate(316,terrace);
  await collect(1724,'掲示した集合写真を見る');
@@ -159,9 +164,11 @@ try{
  assert.equal(await panel.locator('figcaption:visible').textContent(),'菓子を囲む休憩写真');
  await shot('posted',panel);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-web.json',JSON.stringify({
+ const evidence=earned?'evidence/earned-fontaine-navia-photo-browser.json':prefix+'-web.json';
+ await fs.writeFile(evidence,JSON.stringify({
   quest,background,positionAdjustedAndRestored:true,timerRetriedAndWalked:true,
-  postedAfterReportAndReload:true,mobileWidth:390,calls,errors
+  postedAfterReportAndReload:true,mobileWidth:390,calls,errors,
+  ...(earned?{source,reportedLevel:92,postedPrint:'菓子を囲む休憩写真'}:{})
  },null,2)+'\n');
  console.log(quest,calls);
 }catch(error){

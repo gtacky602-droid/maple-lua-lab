@@ -6,7 +6,9 @@ const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), id='boss-26140101', quest='legatus-commission';
 const hub='fontaine-hub', approach='nostoi-castle-approach', arena='legatus-field-hall';
-const prefix='evidence/legatus-field', source='legatus-field-poses-source-v1.png';
+const route=process.argv.includes('--release')?'release':process.argv.includes('--interrupt')?'interrupt':null;
+const prefix=route?'work/earned-fontaine-legatus/'+route:'evidence/legatus-field';
+const source='legatus-field-poses-source-v1.png', menu=page.locator('#renderMode');
 const errors=[], frame=()=>page.evaluate(()=>window.lab.frame);
 page.on('pageerror',error=>errors.push(error.message));
 page.setDefaultTimeout(60000);
@@ -43,10 +45,14 @@ try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/legatus-field-fixture.json','utf8'));
+  await fs.readFile(route?'work/earned-fontaine-legatus/legatus-ready.json':'work/legatus-field-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(({hub,quest})=>window.lab.frame.story.node===hub&&
   window.lab.frame.story.quests[quest]?.status==='active',{hub,quest});
+ if(route==='release'){
+  const ally=page.locator('#allyFire');
+  if((await ally.getAttribute('aria-pressed'))!=='true')await ally.click();
+ }
  await gate(820,approach);
  await gate(1050,arena);
  const scenery=await page.evaluate(async()=>{
@@ -81,10 +87,11 @@ try{
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
 
- await page.evaluate(()=>{
+ await page.evaluate(route=>{
   const held=new Set(),moves=new Set();
   const start=window.lab.frame.t;
-  let dodged=false,lastMove;
+  let dodged=false,lastMove,resonatorX;
+  let recovery=null;
   function hold(code,on){
    if(on===held.has(code))return;
    if(on)held.add(code);else held.delete(code);
@@ -95,13 +102,18 @@ try{
    if(!b||b.phase==='respawn'||f.returns>0||f.t-start>135){
     for(const code of [...held])hold(code,false);
     window.legatusResult={won:b?.phase==='respawn',seconds:+(f.t-start).toFixed(2),
-     moves:[...moves],hp:a.hp,returns:f.returns};
+     moves:[...moves],hp:a.hp,returns:f.returns,recovery};
     return;
    }
    if(f.paused){requestAnimationFrame(control);return}
-   if(lastMove!==b.move){dodged=false;lastMove=b.move}
+   if(lastMove!==b.move){dodged=false;lastMove=b.move;resonatorX=undefined}
    if(b.move)moves.add(b.move);
-   const target=b.summon||b,dx=target.x-a.x;
+   const device=route!=='release'?b.summon:null;
+   if(b.summon)resonatorX=b.summon.x;
+   if(b.move==='FLG03'&&b.recovering&&!recovery){
+    recovery={label:b.label,ticks:b.exposureTicks,resonatorGone:!b.summon&&b.resonatorTicks==null};
+   }
+   const target=device||b,dx=target.x-a.x;
    const turn=Math.abs(dx)>8&&dx*a.dir<0;
    const jump=b.move==='FLG01'&&b.tick>=76&&b.tick<89||
     b.move==='FLG02'&&b.tick>=90&&b.tick<119;
@@ -109,15 +121,17 @@ try{
     dodged=true;
     hold('ShiftLeft',true);hold('ShiftLeft',false);
    }
-   const approach=b.summon?58:96;
+   const approach=device?58:96;
+   const gap=a.x-resonatorX;
+   const evade=route==='release'&&b.move==='FLG03'&&b.tick>=115&&b.tick<180&&Math.abs(gap)<159;
    hold('Space',jump);
-   hold('KeyA',dx<-approach||(turn&&dx<0));
-   hold('KeyD',dx>approach||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<(b.summon?95:120)&&!turn);
+   hold('KeyA',evade?gap<0:dx<-approach||(turn&&dx<0));
+   hold('KeyD',evade?gap>=0:dx>approach||(turn&&dx>0));
+   hold('KeyJ',(!route||device||recovery)&&!evade&&Math.abs(dx)<(device?95:120)&&!turn);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },route);
 
  await page.waitForFunction(()=>{
   const b=window.lab.frame.fieldBoss;
@@ -129,12 +143,38 @@ try{
  const signal=await frame();
  assert.equal(signal.fieldBoss.summon.maxhp,14);
  assert.match(await page.locator('#fieldBossLabel').textContent(),/共鳴器を壊すと炎を止められる/);
+ assert.match(await page.locator('#fieldBossLabel').textContent(),/発火まで \d+\.\d秒/);
+ const timer=f=>f.draws.find(d=>d.kind==='rect'&&d.color==='#ffe392'&&d.h===3);
+ const marker=timer(signal);
+ assert.ok(marker);
+ assert.equal(signal.fieldBoss.resonatorTicks,166-signal.fieldBoss.tick);
  await canvas.screenshot({path:prefix+'-resonator.png'});
+ if(route){
+  await menu.selectOption('rect');
+  await page.waitForFunction(n=>window.lab.frame.commands>n*3,signal.commands);
+  const standard=await frame();
+  await menu.selectOption('h32c16');
+  await page.waitForFunction(n=>window.lab.frame.commands<n*.65,standard.commands);
+  const light=await frame();
+  for(const view of [standard,light]){
+   assert.equal(view.t,signal.t);
+   assert.equal(view.fieldBoss.resonatorTicks,signal.fieldBoss.resonatorTicks);
+   assert.deepEqual(timer(view),marker);
+  }
+  await canvas.screenshot({path:prefix+'-resonator-light.png'});
+  await menu.selectOption('sprite');
+  await page.waitForFunction(n=>window.lab.frame.commands===n,signal.commands);
+  signal.pairedCommands={png:signal.commands,standard:standard.commands,light:light.commands};
+ }
  await pause(false);
  await page.waitForFunction(()=>window.legatusResult,undefined,{timeout:300000});
  const play=await page.evaluate(()=>window.legatusResult);
  assert.ok(play.won,JSON.stringify(play));
  assert.deepEqual(play.moves,['FLG01','FLG02','FLG03']);
+ if(route){
+  assert.equal(play.recovery.label,route==='interrupt'?'共鳴が止まる・反撃':'前脚を止める・反撃');
+  assert.ok(play.recovery.resonatorGone&&play.recovery.ticks>=136&&play.recovery.ticks<=144);
+ }
  const defeated=await frame();
  assert.equal(defeated.mora-png.mora,335);
  assert.equal(defeated.story.quests[quest].count,1);
@@ -150,13 +190,22 @@ try{
  const save=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(save.fieldBosses[id].hp,0);
  assert.ok(save.fieldBosses[id].waitTicks>0);
+ if(route){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='complete',quest);
+  assert.equal(save.endgame.bosses[id].clears,1);
+ }
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({
+ const reportPath=route?'evidence/earned-fontaine-legatus-'+route+'-browser.json':prefix+'-browser.json';
+ await fs.writeFile(reportPath,JSON.stringify({
   browser:'Chrome',play,scenery,resonatorWasVisible:true,questReport:{xp:6200,mora:420},
   sameSceneCommands:{png:png.commands,standard:standard.commands,light:light.commands},
-  savedRespawn:true,viewport390:true,errors
+  savedRespawn:true,viewport390:true,errors,
+  ...(route?{route,reloadedReport:true,resonatorCommands:signal.pairedCommands,resonatorTicks:signal.fieldBoss.resonatorTicks}:{})
  },null,2)+'\n');
  console.log('Legatus Chrome route, all moves, render comparison, clear, report and save passed.');
 }catch(error){

@@ -8592,6 +8592,19 @@
       "lua_evidence": "evidence/earned-fontaine-icewind.json",
       "browser_evidence": "evidence/earned-fontaine-icewind-browser.json"
     },
+    "earned_fontaine_legatus": {
+      "start_level": 91,
+      "entry_level": 92,
+      "arena_gate_level": 92,
+      "photo_quest": "fon-navia-photo",
+      "field_boss": "boss-26140101",
+      "resonator_ticks": 112,
+      "recovery_ticks": 144,
+      "replayed_outcomes": ["interrupt", "release"],
+      "reported_commissions_total": 21,
+      "lua_evidence": ["evidence/earned-fontaine-navia-photo.json", "evidence/earned-fontaine-legatus.json"],
+      "browser_evidence": ["evidence/earned-fontaine-navia-photo-browser.json", "evidence/earned-fontaine-legatus-interrupt-browser.json", "evidence/earned-fontaine-legatus-release-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

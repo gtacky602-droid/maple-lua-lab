@@ -102,6 +102,7 @@ def check_legatus(lua, core):
     wait_cast(step, slot, 'FLG03', 54)
     signal, device = slot.cast, slot.cast.summon
     assert len(room.enemies)==2 and boss.form=='resonating' and device.hp==14
+    assert all(core.frame(s).fieldBoss.resonatorTicks==112 for s in states)
     same = lua.eval('rawequal')
     assert all(same(s.enemies[2],device) for s in states)
     assert attack(lua,core,guest,boss)==math.floor(normal*.55)
@@ -111,6 +112,7 @@ def check_legatus(lua, core):
     for s in states:
         frame=core.frame(s,'sprite')
         assert frame.fieldBoss.form=='resonating' and frame.fieldBoss.summon.hp==device.hp
+        assert frame.fieldBoss.resonatorTicks==37
         bar=next(d for d in frame.draws.values() if d.y==415 and d.color=='#ffb464' and d.h==5)
         assert math.isclose(bar.x+17+frame.camera,device.x) and math.isclose(bar.w,34*device.hp/14)
     wait_cast(step,slot,'FLG03',165)
@@ -126,6 +128,7 @@ def check_legatus(lua, core):
     for s,mark in zip(states,marks):
         view=core.frame(s).fieldBoss
         assert view.form=='staggered' and view.summon is None and not hits(s,boss,mark)
+        assert view.resonatorTicks is None and view.exposureTicks==129
 
     # The next resonator can still fire if the party leaves it intact.
     place_all(states,boss.x,(-86,-99,140,219))
@@ -135,6 +138,7 @@ def check_legatus(lua, core):
     marks=[s.seq for s in states]
     wait_cast(step,slot,'FLG03',175)
     assert not signal.interrupted and signal.summon is None
+    assert all(core.frame(s).fieldBoss.resonatorTicks is None for s in states)
     assert [hits(s,boss,mark) for s,mark in zip(states,marks)]==[[24],[24],[],[]]
     place_all(states,boss.x,(-86,-99,135,200))
     wait_cast(step,slot,'FLG03',54)
@@ -143,6 +147,7 @@ def check_legatus(lua, core):
     assert device.hp==0 and len(room.enemies)==1
     check_adoption(core,LEGATUS,'FLG01',99,20)
     return dict(participants=4,hp=1010,sharedDashPathAndSummonHp=True,
+                sharedResonanceCountdownAndStagger=True,
                 twoPlayersBreakOnLastTick=True,noRewardForResonator=True,
                 uninterruptedFlameHitsPerPlayer=True,armorAndFlameStopTogether=True,
                 bossDefeatRemovesResonator=True,soloHitPreservedOnJoin=True)

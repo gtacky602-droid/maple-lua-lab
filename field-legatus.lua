@@ -2,6 +2,7 @@ return function(C)
  local legatus={}
  local U=88
  local gold,cream,ink='#ffb464','#ffe8ac','#493e4b'
+ local timerColor='#ffe392'
 
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
 
@@ -29,8 +30,18 @@ return function(C)
   C.shareFieldHits({c.seen},actors)
  end
 
+ local function resonatorWindow(c)
+  if c and c.summon and c.summon.hp>0 then return c.move.resonator.release-c.tick end
+ end
+
  function legatus.frame(f,b,s,c)
-  if c and c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+  if not c then return end
+  if c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+  f.resonatorTicks=resonatorWindow(c)
+  if b.form=='staggered' then
+   f.recovering=true
+   f.exposureTicks=(c.ends or c.move.total)-c.tick
+  end
  end
 
  local function lock(b,s,c)
@@ -162,7 +173,11 @@ return function(C)
      rect(f,left,top,right-left,2,gold)
     end
     if c.summon then
-     drawResonator(f,c.summon.x-camera,y,c.summon)
+     local x=c.summon.x-camera
+     drawResonator(f,x,y,c.summon)
+     local remaining=resonatorWindow(c)
+     local rules=m.resonator
+     if remaining then C.drawFieldTimer(f,x,y-73,remaining,rules.release-rules.spawn,timerColor) end
     end
    end
   end

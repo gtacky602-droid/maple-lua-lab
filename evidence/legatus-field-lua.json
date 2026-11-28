@@ -9,6 +9,8 @@
   "optionalResonatorInterruption": true,
   "lastTickBreakWins": true,
   "noDeviceRewards": true,
+  "lastTickTimer": 1,
+  "sharedTimerAcrossProfiles": true,
   "cleanupOnExitAndKill": true,
   "oneQuestReportAndSavedRespawn": true,
   "normalAttackSolo": {
@@ -26,9 +28,9 @@
     }
   },
   "sameSceneCommands": {
-    "png": 39,
-    "standard": 8542,
-    "light": 2274
+    "png": 35,
+    "standard": 8538,
+    "light": 2270
   },
   "killXP": 191700
 }

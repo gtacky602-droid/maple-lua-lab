@@ -1,0 +1,21 @@
+{
+  "quest": "fon-navia-photo",
+  "background": {
+    "key": "fontainePhotoTerrace",
+    "file": "fon-navia-photo-terrace-background-v1.png",
+    "state": "ready"
+  },
+  "positionAdjustedAndRestored": true,
+  "timerRetriedAndWalked": true,
+  "postedAfterReportAndReload": true,
+  "mobileWidth": 390,
+  "calls": {
+    "png": 18,
+    "rect": 16923,
+    "light": 4305
+  },
+  "errors": [],
+  "source": "work/earned-fontaine-icewind/icewind-complete.json",
+  "reportedLevel": 92,
+  "postedPrint": "菓子を囲む休憩写真"
+}

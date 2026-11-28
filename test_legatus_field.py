@@ -95,9 +95,11 @@ png, standard, light = [core.frame(state, mode, profile) for mode, profile in
                         [('sprite', 'legacy'), ('rect', 'legacy'), ('rect', 'h32c16')]]
 assert png.t == standard.t == light.t and light.commands < standard.commands
 assert png.fieldBoss.summon.id == device.id
+assert all(f.fieldBoss.resonatorTicks==112 for f in (png, standard, light))
 assert any(d.kind == 'boss_sprite' and d.source == 'legatus-field-poses-source-v1.png' for d in png.draws.values())
 reward_before = (state.kills, state.mora, state.progression.killXp, state.story.quests[quest].count)
 until(state, slot, 'FLG03', 165)
+assert core.frame(state).fieldBoss.resonatorTicks == 1
 assert strike(state, device, 10) > 0 and strike(state, device, 10) > 0 and device.hp == 0
 assert (state.kills, state.mora, state.progression.killXp, state.story.quests[quest].count) == reward_before
 hp = hero.hp
@@ -107,6 +109,7 @@ until(state, slot, 'FLG03', 178)
 assert signal.interrupted and signal.ends == 166+144
 assert signal.summon is None and len(state.enemies) == 1
 assert boss.form == 'staggered' and hero.hp == hp and not signal.seen[1]
+assert core.frame(state).fieldBoss.exposureTicks == 132
 assert strike(state, boss) == normal
 
 hero.hp = hero.maxhp
@@ -199,6 +202,7 @@ interrupted, evaded = clear_solo(True), clear_solo(False)
 assert interrupted['stopped']>0 and evaded['released']>0, (interrupted, evaded)
 result = dict(attacks=['FLG01', 'FLG02', 'FLG03'], lockedDirection=True, chargeUsesSweptBody=True,
               optionalResonatorInterruption=True, lastTickBreakWins=True, noDeviceRewards=True,
+              lastTickTimer=1, sharedTimerAcrossProfiles=True,
               cleanupOnExitAndKill=True, oneQuestReportAndSavedRespawn=True,
               normalAttackSolo=dict(breakResonator=interrupted, evadeFlame=evaded),
               sameSceneCommands=dict(png=png.commands, standard=standard.commands, light=light.commands),
