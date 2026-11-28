@@ -663,6 +663,34 @@ export function drawPlayScenery(ctx,frame,tier){
  return message;
 }
 
+// Only expose the moving flurries through the lower panes of the coach illustration.
+const coachPanes = new Path2D();
+for(const pane of [
+ [[0,302],[110,302],[132,409],[128,466],[0,472]],
+ [[277,303],[542,303],[553,404],[549,452],[500,453],[475,443],[391,451],[267,468],[266,402]],
+ [[713,302],[1059,302],[1081,391],[1072,459],[1029,447],[899,456],[703,471],[690,448]],
+ [[1220,302],[1518,302],[1536,337],[1536,447],[1433,453],[1210,469],[1199,448]],
+]){
+ coachPanes.moveTo(...pane[0]);
+ for(const point of pane.slice(1))coachPanes.lineTo(...point);
+ coachPanes.closePath();
+}
+
+function drawCoachFlurries(ctx,elapsed,offset,w,h){
+ ctx.save();
+ ctx.translate(-offset,0);
+ ctx.scale(w/1536,h/1024);
+ ctx.clip(coachPanes);
+ for(let i=0;i<48;i++){
+  const speed=i%3;
+  const x=1552-(i*323+Math.floor(elapsed*(135+speed*66)))%1568;
+  const y=300+(i*47+Math.floor(elapsed*(6+speed*2)))%177;
+  ctx.fillStyle=speed===0?'#f3f9ffbc':'#d6ecff8c';
+  ctx.fillRect(x,y,5+speed*3,3+speed);
+ }
+ ctx.restore();
+}
+
 export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
  ctx.save();ctx.imageSmoothingEnabled=!previewFile;
  const {image:background,state}=backgroundFor(previewFile??sceneryDefinitions[key].file);
@@ -672,6 +700,7 @@ export function scenery(ctx,frame,previewFile,tierTile,key=sceneryKey(frame)){
   const w=1160,h=540,offset=(frame.voyage?.scroll??Math.max(0,Math.min(1,(frame.camera||0)/1920)))*(w-960);
   if(tierTile===undefined)ctx.drawImage(background,-offset,0,w,h);
   else ctx.drawImage(background,(tierTile%2)*512,Math.floor(tierTile/2)*288,512,288,-offset,0,w,h);
+  if(key==='whitePassCoach'&&frame.voyage?.kind==='train')drawCoachFlurries(ctx,frame.voyage.elapsed,offset,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=['inaCastleKeep','inaFogIslet','inaSeiraiCrags','inaSacredRoots','inaYashioriRift','inaRiftBoneDen','inaSerpentQuarry','inaYougouStair','inaByakkoMeadow','inaThunderaxeCamp'].includes(key)||key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';

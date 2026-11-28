@@ -1,0 +1,32 @@
+{
+  "levels": [
+    141,
+    142
+  ],
+  "observatoryRestored": true,
+  "routeCartStopped": true,
+  "upperSignY": 382,
+  "trainSeconds": 9,
+  "pausedTrain": true,
+  "flurries": [
+    {
+      "background": "png",
+      "moving": 957,
+      "outside": 0,
+      "repeated": 0
+    },
+    {
+      "background": "decoded",
+      "moving": 951,
+      "outside": 0,
+      "repeated": 0
+    }
+  ],
+  "midRideResume": "snezhnaya-hub",
+  "restoredAt": "white-pass-station",
+  "nextChapterLevel": 148,
+  "priorQuests": 94,
+  "inventoryKept": 80,
+  "companion": "columbina",
+  "errors": []
+}
