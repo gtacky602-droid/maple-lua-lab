@@ -1,0 +1,37 @@
+{
+  "ordinaryCombat": true,
+  "highShelfCameo": true,
+  "jumpToOutcrop": true,
+  "partialSweepReload": true,
+  "ledgeCue": true,
+  "atlasLedgeGuide": true,
+  "twoDistinctLooks": true,
+  "mobileWorkshop": true,
+  "draftReload": true,
+  "joinedAndPersistentDisplay": true,
+  "sourceSha256": "4391a309870058c7001e8ea36e709687b70c9ccc0092cf79ecc2decc14211237",
+  "startLevel": 109,
+  "reportedLevel": 109,
+  "priorCompleted": 80,
+  "reward": [
+    1319124,
+    4800
+  ],
+  "restoredGear": {
+    "flower": {
+      "hp": 10,
+      "name": "山道の石花"
+    },
+    "useFlower": true,
+    "weapon": {
+      "atk": 1,
+      "name": "山歩きの入門長柄"
+    }
+  },
+  "calls": {
+    "png": 16,
+    "rect": 13278,
+    "light": 3682
+  },
+  "errors": []
+}

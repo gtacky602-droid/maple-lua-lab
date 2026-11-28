@@ -96,6 +96,10 @@ return function(C,canInspect)
    if count==4 then
     art('amber',outcrop.x+59,outcrop.y,22)
     label(outcrop.x,outcrop.y-107,outcrop.name)
+    local _,vertical=C.inspectionOffset(s.actors[s.active],outcrop)
+    if vertical<0 then
+     label(outcrop.x,outcrop.y-129,'ジャンプ長押しで上の足場へ')
+    end
    end
    return
   end
