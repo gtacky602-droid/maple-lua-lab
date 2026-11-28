@@ -2709,7 +2709,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if #f.rectBatches==0 then f.rectBatches=nil end
    end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
-    if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
+    if n.shoreLights then
+     local progress=s.story.quests[n.pathsQuest]
+     local coast=progress and progress.pathProgress and progress.pathProgress.coast
+     moonInlet.lights(s,markers,n.shoreLights,coast and coast.count>0)
+    end
     if n.coastDetour or n.appraisalQuest or n.rumorQuest or n.bloomQuest or n.patrol or n.id=='nod-port' then
      local layer=markerLayer(s,f,markers,mode)
      if n.coastDetour then coastDetour.observe(s,f,layer,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end

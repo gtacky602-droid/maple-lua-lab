@@ -13,7 +13,14 @@ return function()
   tile(draws,x+w/2-4,y+h/2,8,5,'#c6ad79')
  end
 
- function inlet.lights(s,draws,lamps)
+ local function guide(draws,x,y,text)
+  if x<0 or x>960 then return end
+  tile(draws,x-12,y-6,24,6,'#304553')
+  tile(draws,x-9,y-5,18,3,'#ffe09b')
+  draws[#draws+1]={kind='text',x=math.max(64,math.min(896,x)),y=y-112,text=text,size=14,color='#fff1bb'}
+ end
+
+ function inlet.lights(s,draws,lamps,showRoute)
   for _,lamp in ipairs(lamps) do
    local x,y=lamp.x-s.camera,lamp.y
    if x>=-32 and x<=992 then
@@ -22,11 +29,17 @@ return function()
     tile(draws,x-7,y-47,14,14,'#f7ca79')
     tile(draws,x-4,y-44,8,8,'#fff0b7')
    end
+   if showRoute and lamp.jumpFrom then guide(draws,x,lamp.jumpFrom,lamp.jumpLabel) end
   end
  end
 
  function inlet.observe(s,f,draws,spec,progress)
   if not progress or progress.count<2 then return end
+  local deck=s.storyMoonDeck
+  if deck then
+   guide(draws,deck.x-20-s.camera,deck.y,'岩窟口へ →')
+   guide(draws,deck.x+deck.w+20-s.camera,deck.y,'← 入江へ')
+  end
   local elapsed=s.storyBoxGlimpseStart and s.t-s.storyBoxGlimpseStart
   local glimpse=elapsed and elapsed<spec.seconds
   local moved=progress.count>=spec.after
