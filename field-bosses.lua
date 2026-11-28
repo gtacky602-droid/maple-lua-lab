@@ -6,7 +6,7 @@ return function(C,configs,controllers)
  local byId,byNode,attackPulseNodes={},{},{}
  for _,spec in ipairs(configs) do
   byId[spec.id]=spec;byNode[spec.node]=spec
-  if spec.draftMoves and controllers[spec.controller].onAttackPulse then attackPulseNodes[spec.node]=spec end
+  if (spec.attackPulse or spec.draftMoves) and controllers[spec.controller].onAttackPulse then attackPulseNodes[spec.node]=spec end
  end
  local shared={hp=true,invulnerable=true}
  local healthProxy={

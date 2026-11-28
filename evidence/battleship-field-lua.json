@@ -1,24 +1,26 @@
 {
   "fixedSweepAndTwinFrostShots": true,
-  "pyroCastsDeduplicated": true,
-  "burningAddsHeat": true,
-  "sameReceiverAtOverheatAndWard": true,
-  "normalTestDamage": {
-    "base": 22,
-    "heated": 28,
-    "ward": 10
-  },
-  "brokenWardCancelsDischarge": true,
-  "unbrokenWardDischargesLocallyAndResets": true,
+  "naturalCoolingWithoutHeating": true,
+  "plateLayers": 5,
+  "freshDirectHitsOnly": true,
+  "plateAndHealthIndependent": true,
+  "normalChip": 1,
+  "pyroChip": 2,
+  "finalAcceptedTick": 299,
+  "brokenAtTick": 300,
+  "interruptedRecoveryTicks": 168,
+  "naturalRecoveryTicks": 144,
+  "dischargeDamage": 33,
+  "edgeReposition": true,
   "exitAndSaveKeepHp": true,
   "oneRewardAndReport": true,
-  "normalAttackWithoutHeating": {
+  "normalAttackSolo": {
     "seconds": 87.62,
     "hp": 140
   },
   "sameSceneCommands": {
-    "png": 35,
-    "standard": 21531,
-    "light": 5724
+    "png": 44,
+    "standard": 21540,
+    "light": 5733
   }
 }

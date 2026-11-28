@@ -569,16 +569,16 @@ Lv114の試験では、討伐に参加した人にそれぞれ398,700EXPと420�
 
 ナド・クライの町の広場で部屋を作り、月明かりの道から各会場へ進む。ボコボコダックは工房裏の試運転場にいる。同じ側に現れる補修メカ2機の位置と残りHPを全員で共有する。到着前に両機を壊すと放電を中断し、2.4秒の反撃時間ができる。間に合わなかった場合は、最初に予告された範囲で放電する。 [補修メカが出た画面](../evidence/coop-duckle-repair-march.png)
 
-バトルシップは陸巡艦の整備庫にいる。参加者の炎攻撃で熱を4段階までためると、氷バリアを張って冷却を始める。バリアは5層。攻撃1回で1層、炎は2層削れる。燃焼の継続ダメージも炎として扱う。冷却放出の前にバリアを壊すと、放出を止めて本体を2.8秒間ダウンさせられる。 [氷バリアを張った画面](../evidence/coop-battleship-thermal-shield.png)
+バトルシップは陸巡艦の整備庫にいる。二連射を終えると、前方の低い冷却板と放出の位置が全員に見える。参加者の直接攻撃で板を削り、通常攻撃で1層、炎で2層減る。5層を露出中に削り切ると、放出を中断して2.8秒間反撃できる。 [冷却板が開いた画面](../evidence/coop-battleship-cooling-plate.png)
 
 | ボス | Lv | HP | 討伐参加者一人あたり | 依頼を報告した人 |
 | --- | ---: | ---: | ---: | ---: |
 | ボコボコダック | 122 | 1,135 | 526,400 EXP・445モラ | 8,500 EXP・570モラ |
 | バトルシップ | 124 | 1,170 | 597,050 EXP・455モラ | 8,800 EXP・590モラ |
 
-Luaの4人試験で各参加者への命中とバリア破壊、HTTPの2人試験で退避後の再合流と保存を確認した。Chromeの2画面で両戦のバリア破壊と討伐を確認し、個別報酬と受注者の依頼報告を保存した。試走するには `python test_knuckle_duckle_field.py` と `python test_battleship_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs duckle battleship` を実行する。 [Lua・HTTPの検証](../evidence/coop-nod-machines-lua-http.json) · [ダックのChrome試走](../evidence/coop-duckle-browser.json) · [バトルシップのChrome試走](../evidence/coop-battleship-browser.json)
+Luaの4人試験で参加者ごとの命中と放出の中断、HTTPの2人試験で退避後の再合流と保存を確認した。Chromeの2画面では、補修メカと冷却板をそれぞれ壊して討伐し、個別報酬と受注者の依頼報告を保存した。試走するには `python test_knuckle_duckle_field.py` と `python test_battleship_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs duckle battleship` を実行する。 [Lua・HTTPの検証](../evidence/coop-nod-machines-lua-http.json) · [ダックのChrome試走](../evidence/coop-duckle-browser.json) · [バトルシップのChrome試走](../evidence/coop-battleship-browser.json)
 
-ダックは前方に2機を出す短縮案を通常ラボの共闘でも使う。バトルシップの冷却板は、炎の蓄積とは独立して冷却を行う別の試作案として比較できる。 [ナド・クライの技の設計](field-boss-v1/NOD_KRAI_QUARTET_MOVESETS.md)
+通常ラボの共闘は、ダックの補修メカとバトルシップの冷却板を使う。従来のバリア方式は `-DraftBalance` で比較できる。 [ナド・クライの技の設計](field-boss-v1/NOD_KRAI_QUARTET_MOVESETS.md)
 
 ## 霜夜の空を巡る霊主と昏き魘夢の主
 

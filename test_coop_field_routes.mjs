@@ -131,8 +131,8 @@ const cases={
   evade:{FDK01:[97,165],FDK02:[124],FDK03:[336]}},
  battleship:{hub:'nod-town',arena:'nod-battleship-depot',approach:'nod-field',
   boss:'boss-23090101',quest:'battleship-commission',hp:1170,mora:455,xp:597050,scene:'battleshipField',
-  asset:'battleship-field',pose:'poses',label:'thermal-shield',fixture:'battleship-field',report:[8800,590],stance:77,
-  evade:{FBT01:[109],FBT02:[111,179],FBT03:[247]}},
+  asset:'battleship-field',pose:'poses',label:'cooling-plate',fixture:'battleship-field',report:[8800,590],stance:77,
+  evade:{FBT01:[109],FBT02:[111,179],FBT03:[319]}},
  // The level 144 fixture unlocks both Cryo skills and earns 65% of the boss's base EXP.
  herra:{hub:'nod-town',arena:'nod-herra-terrace',approach:'nod-field',
   boss:'boss-20081001',quest:'frostnight-herra-commission',hp:1200,mora:465,xp:440148,scene:'herraField',
@@ -215,7 +215,7 @@ async function fight(page,side,key,config) {
   const sharedObjects=new Set(),diveLayouts=new Set(),cannonLayouts=new Set();
   const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
   const echoLayouts=new Set();
-  const repairLayouts=new Set(),thermalStates=new Set();
+  const repairLayouts=new Set(),coolingLayouts=new Set(),coolingLayers=new Set();
   const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
@@ -232,7 +232,7 @@ async function fight(page,side,key,config) {
   let jumpProbe=null,jump=null,lastHp=Infinity,hpMonotonic=true;
   let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
   let echoRecovery=false;
-  let machineDown=false,shipHeating=false,lastShipFire=-Infinity;
+  let machineDown=false;
   let adaptationEnded=false,gloomDown=false,shieldDown=false,nextIce=-Infinity,iceCasts=0;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
   let vigilDown=false,lastRecord=-Infinity,lionReady=false,wardDown=false,orbsDown=false,lastLionFire=-Infinity;
@@ -264,7 +264,7 @@ async function fight(page,side,key,config) {
      cannonLayouts:[...cannonLayouts],hpMonotonic,heatStates:[...heatStates],eruptionLayouts:[...eruptionLayouts],
      coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows],
      echoLayouts:[...echoLayouts],echoRecovery,
-     repairLayouts:[...repairLayouts],thermalStates:[...thermalStates],machineDown,
+     repairLayouts:[...repairLayouts],coolingLayouts:[...coolingLayouts],coolingLayers:[...coolingLayers],machineDown,
      ...(key==='herra'?{adaptedElements:[...adaptedElements],adaptationEnded,gloomDown}:{}),
      ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
      ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
@@ -508,12 +508,13 @@ async function fight(page,side,key,config) {
     if(b.form==='down'&&b.repairSequence?.interrupted&&b.repairSequence.defeated===2&&!b.summons) machineDown=true;
    }
    if(key==='battleship'){
-    if(b.move==='FBT02'&&b.tick>=212) shipHeating=true;
-    if(b.thermal.ward>0&&sprite){
-     thermalStates.add(`${b.thermal.heat}:${b.thermal.ward}`);
+    const plate=b.coolingPlate;
+    if(plate&&!b.thermal&&sprite&&f.draws.some(d=>d.color==='#17384dcf'&&Math.abs(d.x+f.camera-plate.left)<.001)){
+     coolingLayouts.add([plate.left,plate.right,plate.top,plate.bottom].map(x=>x.toFixed(3)).join(':'));
+     coolingLayers.add(plate.layers);
      visual=true;
     }
-    if(b.form==='down'&&b.thermal.ward===0&&sprite) machineDown=true;
+    if(b.form==='down'&&b.coolingInterrupted&&!plate&&b.recoveryTicks>0&&sprite) machineDown=true;
    }
    if(key==='herra'){
     if(b.gloom.adaptedElement&&sprite&&b.label.startsWith('元素適応')&&
@@ -630,7 +631,9 @@ async function fight(page,side,key,config) {
    const sharedSummon=key==='moongecko'?b.summon:
     (key==='duckle'||key==='nightmare'||key==='vigil'||key==='flugel')&&
      b.summons?.at(side===-1?0:-1);
-   const target=device||sharedSummon||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
+   const plate=key==='battleship'&&b.coolingPlate;
+   const target=device||sharedSummon||(plate?{x:(plate.left+plate.right)/2}:
+    config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
    if(healing) desired=healX;
@@ -673,10 +676,6 @@ async function fight(page,side,key,config) {
    if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
     window.lab.action('slot1');nextHeal=f.t+10;
    }
-   if(key==='battleship'&&shipHeating&&!machineDown&&b.form!=='shield'&&
-      side===(b.thermal.heat%2===0?-1:1)&&inReach&&a.ground&&!f.macro&&f.t-lastShipFire>3.2){
-    window.lab.action('slot1');lastShipFire=f.t;
-   }
    if(key==='herra'&&!gloomDown&&b.form==='gloom'&&inReach&&a.ground&&!f.macro&&f.t>=nextIce){
     if(adaptationEnded||(side===-1&&iceCasts===0)){
      const first=iceCasts%2===0;
@@ -714,7 +713,7 @@ async function fight(page,side,key,config) {
    const watchOverseer=key==='overseer'&&b.hp<520&&cooledFlows.size===0;
    const watchEchoes=key==='spiritspeaker'&&!echoRecovery&&b.hp<520;
    const watchDuck=key==='duckle'&&!machineDown&&!sharedSummon&&b.hp<570;
-   const watchShip=key==='battleship'&&!machineDown&&(b.form==='shield'?b.tick<28:b.hp<570);
+   const watchShip=key==='battleship'&&!machineDown&&(plate?b.tick<105:b.hp<570);
    const watchHerra=key==='herra'&&!gloomDown&&b.hp<680;
    const watchNightmare=key==='nightmare'&&!shieldDown&&!sharedSummon&&b.hp<640;
    const watchCocoon=hasCocoon&&!sharedSummon&&(!escaped||!peerEscaped);
@@ -857,10 +856,8 @@ async function run(key,config) {
   assert.ok(a.machineDown&&b.machineDown,JSON.stringify(results));
  }
  if(key==='battleship'){
-  for(const result of results){
-   assert.ok(result.thermalStates.some(state=>state.startsWith('4:'))&&result.machineDown,JSON.stringify(results));
-  }
-  assert.ok(a.thermalStates.some(state=>!state.endsWith(':5')&&b.thermalStates.includes(state)),JSON.stringify(results));
+  assert.ok(a.coolingLayouts.some(layout=>b.coolingLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.machineDown&&b.machineDown,JSON.stringify(results));
  }
  if(key==='herra'){
   assert.ok(a.adaptedElements.some(element=>b.adaptedElements.includes(element)),JSON.stringify(results));
