@@ -60,6 +60,11 @@ def frost_attacks(lua,core,room,players):
     cast=lua.table_from({'id':1})
     spec=room.fieldSpec
     assert all(core.damageFactor(s,cast,boss,'physical')==spec.recoveryFactor for s in players)
+    recovery=native(core.frame(players[0]).fieldBoss.recovery)
+    assert 0<recovery['ticks']<=recovery['total'] and recovery['factor']==1.25
+    assert all(native(core.frame(s).fieldBoss.recovery)==recovery for s in players)
+    step()
+    assert all(core.frame(s).fieldBoss.recovery.ticks==recovery['ticks']-1 for s in players)
     for s in players:
         actor_at(s,boss.x-125)
     run_until(step,lambda:slot.cast and slot.cast.move.id=='FR02')

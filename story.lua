@@ -613,8 +613,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
  end
- local function milestoneAt(milestone,node)
+ local function milestoneAt(milestone,node,reported)
   if not milestone or milestone.node==node then return milestone end
+  local display=reported and milestone.reportDisplay
+  if display and display.node==node then return display end
   for _,place in ipairs(milestone.alternatives or {}) do
    if place.node==node then
     local step=copy(milestone)
@@ -888,7 +890,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if completed(s,q.id) then
      local state=s.story.quests[q.id]
      for _,item in ipairs(completedSteps(q,state)) do
-      local done=milestoneAt(item,s.story.node)
+      local done=milestoneAt(item,s.story.node,true)
       if done.stealthNap and done.node==s.story.node and s.actors[s.active].ground and canInspect(s.actors[s.active],done)
        and not (sightQuest and sights.nearby(s,sightQuest,s.story.quests[sightQuest.id])) then
        s.storyNotice=q.closing
@@ -2323,6 +2325,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    rect(-20,-46,40,15,'#a57b53')
    rect(-21,-50,42,5,'#dceef5')
    rect(-10,-42,16,3,'#fff0b9');rect(4,-45,3,9,'#fff0b9')
+  elseif mark=='rainbow-scope' then
+   rect(-7,-34,5,34,'#4d5973');rect(6,-34,5,34,'#4d5973')
+   rect(-15,-6,13,6,'#879db2');rect(7,-6,13,6,'#879db2')
+   rect(-21,-48,39,17,'#53566d');rect(7,-50,14,11,'#83d3dd')
+   rect(-18,-47,36,4,'#d4b58e');rect(-12,-30,30,3,'#bdd2e1')
+  elseif mark=='rainbow-sketch' then
+   rect(-25,-131,50,34,'#745443');rect(-21,-127,42,26,'#fff1d6')
+   rect(-18,-124,36,20,'#85a8cc');rect(-16,-109,32,5,'#d3e9ee')
+   for i=-4,4 do
+    local rise=math.floor((16-i*i)/2)
+    rect(i*4-2,-112-rise,4,2,'#e6b3b2');rect(i*4-2,-110-rise,4,2,'#f8e6bf')
+   end
   else
    rect(-22,-32,10,32,'#775744');rect(8,-43,10,43,'#775744')
    rect(-23,-27,12,4,'#dbaf7d');rect(7,-35,12,4,'#dbaf7d')
@@ -3023,7 +3037,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if state then
       local steps=q.anyPath and completedSteps(q,state) or q.itinerary
       for index=1,q.anyPath and #steps or state.count do
-       local done=milestoneAt(steps[index],s.story.node)
+       local done=milestoneAt(steps[index],s.story.node,state.status=='complete')
        if done.treasure and done.node==s.story.node then
         local x,y=done.treasure.x-s.camera,done.treasure.y
         if x>=-32 and x<=992 then
@@ -3052,7 +3066,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
         end
         local label=done.paperDisplay and paper.giftLabel(q,state) or done.completedLabel
-        markers[#markers+1]={kind='text',x=x,y=y-(done.snowTrail and 103 or done.shoreMark=='guidepost' and 88 or done.routeBeacon and 70 or done.patternBottle and 66 or done.outcrop and 48 or 41),text=label,color='#b9ffce',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(done.snowTrail and 103 or done.shoreMark=='rainbow-sketch' and 144 or done.shoreMark=='guidepost' and 88 or done.routeBeacon and 70 or done.patternBottle and 66 or done.outcrop and 48 or 41),text=label,color='#b9ffce',size=14}
        end
        if (done.readback or done.resonancePages or done.paperDisplay) and state.status=='complete' and not f.storyNearbyMilestone and not s.paused
            and canInspect(s.actors[s.active],done) then
