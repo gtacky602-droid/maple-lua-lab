@@ -1,0 +1,198 @@
+{
+  "sourceSha256": "d289e73c51932b11d00dce12f829647c07e3a86b0ea31f20b351b966bb8b2377",
+  "levels": [
+    95,
+    96
+  ],
+  "hunt": {
+    "kills": 312,
+    "xp": 1444872,
+    "betweenPassesKills": 10,
+    "betweenPassesXp": 46310,
+    "ticks": 26566,
+    "recoveries": 0,
+    "passes": [
+      {
+        "kills": 91,
+        "xp": 421421,
+        "ticks": 4500
+      },
+      {
+        "kills": 97,
+        "xp": 449207,
+        "ticks": 4500
+      },
+      {
+        "kills": 35,
+        "xp": 162085,
+        "ticks": 4500
+      },
+      {
+        "kills": 27,
+        "xp": 125037,
+        "ticks": 4500
+      },
+      {
+        "kills": 27,
+        "xp": 125037,
+        "ticks": 4500
+      },
+      {
+        "kills": 25,
+        "xp": 115775,
+        "ticks": 4066
+      }
+    ]
+  },
+  "survey": {
+    "approach": [
+      {
+        "id": "nostoi-castle-approach",
+        "label": "徒歩",
+        "level": 92,
+        "approach": "現在地から右へ",
+        "from": "fontaine-hub",
+        "previewX": 820,
+        "name": "ノストイ地区・色褪せた城の入口",
+        "region": "region-05",
+        "mode": "walk"
+      }
+    ],
+    "crossed": [
+      {
+        "id": "fon-wp-68341",
+        "label": "徒歩",
+        "level": 92,
+        "approach": "現在地から右へ",
+        "from": "nostoi-castle-approach",
+        "previewX": 920,
+        "name": "ノストイ地区・島南の古い桟橋",
+        "region": "region-05",
+        "mode": "walk"
+      },
+      {
+        "level": 94,
+        "id": "fon-wp-68345",
+        "label": "水路",
+        "hint": "島南から遺構に潜る水路・移動に2.4秒",
+        "approach": "現在地から右へ",
+        "from": "fon-wp-68341",
+        "previewX": 1342,
+        "name": "ノストイ地区・海へ続く第一層",
+        "region": "region-05",
+        "mode": "water"
+      },
+      {
+        "previewY": 362,
+        "level": 95,
+        "id": "fon-wp-68342",
+        "label": "水路",
+        "hint": "中層の門（今の深さで通れる）・第一層から北室へ潜る水路・移動に2.4秒",
+        "approach": "現在地から右へ",
+        "from": "fon-wp-68345",
+        "previewX": 724,
+        "name": "ノストイ地区・深い遺構の北室",
+        "region": "region-05",
+        "mode": "water"
+      },
+      {
+        "previewY": 419,
+        "level": 95,
+        "id": "fon-wp-68343",
+        "label": "遊泳",
+        "hint": "深い層の門（今の深さで通れる）",
+        "approach": "現在地から右へ",
+        "from": "fon-wp-68342",
+        "previewX": 1372,
+        "name": "ノストイ地区・深い遺構の南室",
+        "region": "region-05",
+        "mode": "swim"
+      },
+      {
+        "previewY": 248,
+        "level": 96,
+        "id": "fon-wp-68344",
+        "label": "水路",
+        "hint": "浅い層の門（今の位置から浮上）・記録棚の下層へ潜る水路・移動に2.4秒",
+        "approach": "現在地から右へ",
+        "from": "fon-wp-68343",
+        "previewX": 1372,
+        "name": "ノストイ地区・遺構の下層の記録棚",
+        "region": "region-05",
+        "mode": "water"
+      }
+    ],
+    "depths": [
+      {
+        "target": "fon-wp-68342",
+        "direction": "down"
+      },
+      {
+        "target": "fon-wp-68344",
+        "direction": "up"
+      }
+    ],
+    "returnGuides": [
+      {
+        "previewY": 248,
+        "level": 95,
+        "id": "fon-wp-68343",
+        "label": "水路",
+        "hint": "浅い層の門（今の深さで通れる）・記録棚から南室へ戻る水路・移動に2.4秒",
+        "approach": "現在地から左へ",
+        "from": "fon-wp-68344",
+        "previewX": 76,
+        "name": "ノストイ地区・深い遺構の南室",
+        "region": "region-05",
+        "mode": "water"
+      },
+      {
+        "previewY": 419,
+        "level": 95,
+        "id": "fon-wp-68342",
+        "label": "遊泳",
+        "hint": "深い層の門（今の位置から潜る）",
+        "approach": "現在地から左へ",
+        "from": "fon-wp-68343",
+        "previewX": 76,
+        "name": "ノストイ地区・深い遺構の北室",
+        "region": "region-05",
+        "mode": "swim"
+      },
+      {
+        "previewY": 362,
+        "level": 94,
+        "id": "fon-wp-68345",
+        "label": "水路",
+        "hint": "中層の門（今の深さで通れる）・北室から第一層へ戻る水路・移動に2.4秒",
+        "approach": "現在地から左へ",
+        "from": "fon-wp-68342",
+        "previewX": 76,
+        "name": "ノストイ地区・海へ続く第一層",
+        "region": "region-05",
+        "mode": "water"
+      },
+      {
+        "previewY": 305,
+        "level": 92,
+        "id": "fon-wp-68341",
+        "label": "水路",
+        "hint": "中層の門（今の深さで通れる）・遺構から島南の桟橋へ浮上・移動に2.4秒",
+        "approach": "現在地から左へ",
+        "from": "fon-wp-68345",
+        "previewX": 76,
+        "name": "ノストイ地区・島南の古い桟橋",
+        "region": "region-05",
+        "mode": "water"
+      }
+    ],
+    "steps": 6,
+    "payout": {
+      "quest": "fon-mapped-nostoi-record",
+      "xp": 205000,
+      "mora": 15800
+    },
+    "restored": true
+  },
+  "returns": 0
+}
