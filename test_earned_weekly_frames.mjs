@@ -154,7 +154,7 @@ try {
         const wandererText = sample.view.match === 'wanderer' ? [sample.view.hint, wandererFinalWindText(sample.view)].filter(Boolean).join(' ｜ ') : '';
         const farkaText = sample.view.match === 'farka' ? [sample.view.hint, farkaChainText(sample.view)].filter(Boolean).join(' ｜ ') : '';
         const beidouText = sample.view.match === 'beidou' ? [sample.view.hint, beidouReplyText(sample.view)].filter(Boolean).join(' ｜ ') : '';
-        const childeText = sample.view.riptideDrop ? childeDropText(sample.view.riptideDrop) : '';
+        const childeText = sample.view.riptideDrop ? childeDropText(sample.view.riptideDrop, sample.view.cleanseSide) : '';
         const apepText = sample.view.apep ? apepDomeText(sample.view.apep) : '';
         const signoraText = signoraSealStrikeText(sample.view.sealStrike) ||
           signoraReleaseText(sample.view.deviceRelease, sample.view.deviceLabel);

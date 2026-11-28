@@ -561,7 +561,7 @@ function hud(f,calls,renderMs){
  if(duelCue.textContent!==duelNote)duelCue.textContent=duelNote;
  const phases=$('weeklyPhases');
  const childeHint=$('weeklyChilde');
- const childeText=field?.riptideDrop&&field.phase!=='respawn'?childeDropText(field.riptideDrop):'';
+ const childeText=field?.riptideDrop&&field.phase!=='respawn'?childeDropText(field.riptideDrop,field.cleanseSide):'';
  childeHint.hidden=!childeText;
  if(childeHint.textContent!==childeText)childeHint.textContent=childeText;
  const temperature=$('weeklyTemperature');
@@ -631,7 +631,7 @@ function hud(f,calls,renderMs){
   const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
    field.bodies?.[0]?.maxhp?' ｜ '+field.bodies.map(body=>body.name+' '+(body.hp>0?Math.ceil(body.hp)+'/'+body.maxhp:'討伐')).join(' / '):
    field.bodies?.length===2?' '+field.bodies.map((body,i)=>body.name??(bodyNames[body.element]??elementNames[body.element]??'')+['①','②'][i]).join(' / '):'';
-  let mark=field.mark?` ｜ ${elementNames[field.mark]}断流・両端で解除`:'';
+  let mark=field.mark?` ｜ ${elementNames[field.mark]}断流・${field.cleanseSide==='left'?'左':field.cleanseSide==='right'?'右':'両端'}の金灯で解除`:'';
   if(field.marks){
    for(const [id,item] of Object.entries(field.marks)){
     const role=id==='1'?'旅人':'同行';

@@ -1,17 +1,20 @@
 """Replay three WC10 cleanses through movement and real hits in an earned expert run."""
 
 from argparse import ArgumentParser
+from hashlib import sha256
 import json
 from pathlib import Path
 
 from runtime import runtime
-from test_earned_weekly_mechanics import capture_scene, expert_rematch, read, verify_repeat
+from test_earned_weekly_mechanics import (capture_scene, expert_rematch, read,
+                                         restore_rematch_equipment, verify_repeat)
 
 
-def replay(source, output, route):
+def replay(source, output, route, *, weapon='SW06', next_save=None):
     spec = next(b for b in read('content/weekly-boss-spawns.json')['weeklyBosses']
                 if b['controller'] == 'childe')
-    trip, slot, start, loadout, mode, key, prior = expert_rematch(source.resolve(), runtime(), spec)
+    trip, slot, start, loadout, mode, key, prior = expert_rematch(
+        source.resolve(), runtime(), spec, weapon=weapon, trial_flower=next_save is not None)
     state, hero, boss = trip.state, trip.actor, slot.primary
     hp_start = boss.hp
     before = state.progression.total, state.mora
@@ -46,6 +49,9 @@ def replay(source, output, route):
                 first_drop = True
                 assert before_mark == 'electro'
                 sample('追雷の予告', tick - 1, cast)
+                view = frames['追雷の予告']['view']
+                assert view['cleanseSide'] == 'left' and view['riptideDrop']['lockIn'] == 84
+                assert any(d.get('text') == '金灯へ' for d in frames['追雷の予告']['png'])
             if first_drop:
                 if cast.tick >= cast.recovery:
                     attack = recovery_damage == 0 and abs(dx) < 113 and dx * hero.dir > 0 and abs(hero.y-boss.y)<70
@@ -105,7 +111,8 @@ def replay(source, output, route):
 
     assert forms == [1, 2, 3] and len(transformations) == 2 and finished
     assert mark and cleanse and cleanse['x'] <= spec['edge']
-    assert recovery_ticks == (60 if route == 'early' else 120) and recovery_damage > 0
+    assert recovery_ticks == (60 if route == 'early' else 120) and recovery_damage > 0, (
+        route, recovery_ticks, recovery_damage, lock, cleanse, impact, loadout)
     if route == 'early':
         assert cleanse['moveTick'] < 84 and lock is None and impact is None
         reply = frames['追雷後の反撃開始']['view']['riptideDrop']
@@ -121,6 +128,7 @@ def replay(source, output, route):
                          'x': lock['x'], 'damage': impact['damage'], 'recovery': 120}
     reward = trip.frame().weeklyBoss.reward
     result = dict(xp=reward.xp, mora=reward.mora, first=reward.first)
+    party_hp = [actor.hp for actor in state.actors.values()]
     verify_repeat(trip, before, start, mode, key, prior)
     case = 'childe-' + route
     label = {'early': '地点固定前に断流解除', 'late-evade': '固定後に解除して落撃を回避',
@@ -128,18 +136,38 @@ def replay(source, output, route):
     (output / f'{case}-frames.json').write_text(
         json.dumps(frames, ensure_ascii=False, separators=(',', ':')) + '\n', 'utf8')
     print(case, tick, mark, lock, cleanse, impact, recovery_ticks, recovery_damage, flush=True)
-    return dict(controller='childe', case=case, label=label, ticks=tick, sourceSha256=trip.source,
-                bossHP=hp_start, loadout=loadout, forms=forms, transformations=transformations,
-                mark=mark, lock=lock, cleanse=cleanse, impact=impact, recoveryTicks=recovery_ticks,
-                recoveryDamage=recovery_damage, reward=result, expertClears=[prior, prior + 1])
+    proof = dict(controller='childe', case=case, label=label, ticks=tick, sourceSha256=trip.source,
+                 bossHP=hp_start, loadout=loadout, forms=forms, transformations=transformations,
+                 mark=mark, lock=lock, cleanse=cleanse, impact=impact, recoveryTicks=recovery_ticks,
+                 recoveryDamage=recovery_damage, partyHp=party_hp, returns=0, reward=result,
+                 expertClears=[prior, prior + 1])
+    if next_save:
+        saved = restore_rematch_equipment(trip, start, loadout, 'liyue-harbor')
+        assert saved['azhdahaPair'] == start['azhdahaPair']
+        assert saved['endgame']['bosses'] == start['endgame']['bosses']
+        assert saved['endgame']['weekly'][key]['clears'] == prior + 1
+        assert saved['weeklyBosses'][spec['id']]['waitTicks'] > 0
+        raw = (json.dumps(saved, ensure_ascii=False) + '\n').encode()
+        next_save.write_bytes(raw)
+        proof.update(savedSha256=sha256(raw).hexdigest(), equipmentRestored=True)
+    return proof
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
     parser.add_argument('--from-save', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--weapon', default='SW06')
+    parser.add_argument('--chain', action='store_true', help='Continue from the previous ranked win')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    fights = [replay(args.from_save, args.output_dir, route) for route in ('early', 'late-evade', 'late-hit')]
+    fights = []
+    source = args.from_save
+    for index, route in enumerate(('early', 'late-evade', 'late-hit'), 1):
+        filename = f'rematch-{index}-save.json' if index < 3 else 'complete.json'
+        next_save = args.output_dir / filename if args.chain else None
+        fights.append(replay(source, args.output_dir, route, weapon=args.weapon, next_save=next_save))
+        if next_save:
+            source = next_save
     (args.output_dir / 'weekly-mechanics.json').write_text(
         json.dumps(fights, ensure_ascii=False, indent=2) + '\n', 'utf8')

@@ -63,11 +63,15 @@ export function apepDomeText(view){
   (view.nextPulse?` ｜ 次の余波まで${Math.ceil(view.nextPulse/60)}秒`:'');
 }
 
-export function childeDropText(drop){
+export function childeDropText(drop,cleanseSide){
  const outcome=drop.cleansed==='after'?'断流解除済み。落撃地点は固定':'追雷の落下地点が固定';
  let status;
  if(drop.phase==='cancelled')status=drop.cleansed==='before'?'固定前に断流を解除。追雷中止':'追雷中止';
- else if(drop.phase==='tracking')status=drop.targeted?'追尾中。金灯で追雷を止める':'味方を追尾中。落撃の予告から離れる';
+ else if(drop.phase==='tracking'){
+  const lamp=cleanseSide==='left'?'左の金灯':cleanseSide==='right'?'右の金灯':'金灯';
+  const time=drop.lockIn?` ｜ 固定まで${(Math.ceil(drop.lockIn/6)/10).toFixed(1)}秒`:'';
+  status=drop.targeted?`追尾中。${lamp}で追雷を止める${time}`:'味方を追尾中。落撃の予告から離れる';
+ }
  else if(drop.phase==='locked')status=outcome+'。予告位置から離れる';
  else if(drop.damage===undefined)status='固定地点に落撃';
  else status=drop.damage>0?`落撃が命中・${drop.damage}ダメージ`:'落撃の被ダメージなし';

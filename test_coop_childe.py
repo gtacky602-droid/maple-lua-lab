@@ -163,6 +163,9 @@ def test_lua(lua,core):
     tracked=core.frame(host)
     assert c.land==365
     assert native(tracked.weeklyBoss.riptideDrop)=={'phase':'tracking','targeted':False,'x':628}
+    assert tracked.weeklyBoss.cleanseSide is None
+    target_view=core.frame(guest).weeklyBoss
+    assert target_view.cleanseSide=='right' and target_view.riptideDrop.lockIn==84
     assert any(d.kind=='rect' and d.x==628-79-tracked.camera and d.w==158 for d in tracked.draws.values())
     run(step,84)
     assert c.land==628
