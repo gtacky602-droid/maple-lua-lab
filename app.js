@@ -811,7 +811,10 @@ function hud(f,calls,renderMs){
  const reflection=f.storyReflection;
  $('reflectionControls').hidden=!reflection?.record;
  if(reflection?.record)$('reflectionLight').textContent=reflection.lit?'消灯する':'点灯する';
- $('reflectionImage').textContent=reflection?(reflection.lit?'照射像　':reflection.darkLabel??'消灯時の刻線　')+reflection.image:'';
+ const reflectionText=reflection?(reflection.lit?'照射像　':reflection.darkLabel??'消灯時の刻線　')+reflection.image:'';
+ const comparison=reflection?.comparison;
+ const reflectionStatus=[reflectionText,comparison].filter(Boolean).join(' ｜ ');
+ if($('reflectionImage').textContent!==reflectionStatus)$('reflectionImage').textContent=reflectionStatus;
  const surveyRig=f.storySurveyRig;
  const surveyControls=$('surveyRigControls');
  surveyControls.hidden=!surveyRig;

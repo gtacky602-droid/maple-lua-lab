@@ -8,6 +8,9 @@
   "wrongAimRejected": true,
   "darkAndLightRequired": true,
   "replayAfterReport": true,
+  "alignedMirrorRestored": true,
+  "lightComparisonRepeatedAfterRestore": true,
+  "replayDoesNotWriteAngle": true,
   "titles": [
     "小さな月",
     "波止場のひと光り",

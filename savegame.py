@@ -687,7 +687,7 @@ def validate_save(data):
                 mirror, angle = next_step.get('reflect', {}), q['reflectAngle']
                 if (not mirror.get('rememberAngle') or next_step['node'] not in st['visited']
                         or type(angle) is not int or not 1 <= angle <= len(mirror['faces'])
-                        or angle == mirror['align']):
+                        or (not mirror.get('record') and angle == mirror['align'])):
                     raise ValueError('反射板の向きが不正です')
             if 'surveySupport' in q:
                 next_step = itinerary[q['count']] if q['count'] < len(itinerary) else {}
