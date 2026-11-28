@@ -140,8 +140,8 @@ const cases={
   evade:{FHR01:[103,169],FHR02:[127],FHR03:[179,267]}},
  nightmare:{hub:'nod-town',arena:'nod-nightmare-shore',approach:'nod-field',
   boss:'boss-22150101',quest:'whisperer-nightmares-commission',hp:1340,mora:475,xp:768050,scene:'nightmareField',
-  asset:'whisperer-nightmares-field',pose:'poses',label:'fishers',fixture:'whisperer-nightmares-field',report:[9200,630],stance:76,
-  evade:{FWN01:[95],FWN02:[133],FWN03:[835]}},
+  asset:'whisperer-nightmares-field',pose:'poses',label:'two-fishers',fixture:'whisperer-nightmares-field',report:[9200,630],stance:76,
+  evade:{FWN01:[95],FWN02:[139],FWN03:[151,223,319]}},
  moonfly:{hub:'nod-town',arena:'nod-moonfly-hollow',approach:'nod-field',
   boss:'boss-26301101',quest:'moonfly-commission',hp:1050,mora:485,xp:871150,scene:'moonflyField',
   asset:'moonfly-field',pose:'poses',label:'cocoons',report:[9400,650],stance:82,
@@ -216,7 +216,7 @@ async function fight(page,side,key,config) {
   const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
   const echoLayouts=new Set();
   const repairLayouts=new Set(),coolingLayouts=new Set(),coolingLayers=new Set();
-  const herraLanes=new Set(),herraWaveMarks=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
+  const herraLanes=new Set(),herraWaveMarks=new Set(),fisherLayouts=new Set(),fisherCounts=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
   const wavebinder=key==='wavebinder';
@@ -233,7 +233,7 @@ async function fight(page,side,key,config) {
   let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
   let echoRecovery=false;
   let machineDown=false;
-  let herraRecovery=false,shieldDown=false;
+  let herraRecovery=false,fisherInterrupted=false,lastFisherSkill=-Infinity;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
   let vigilDown=false,lastRecord=-Infinity,lionReady=false,wardDown=false,orbsDown=false,lastLionFire=-Infinity;
   let guardReady=false,guardDown=false,chantSeen=false,paidHp=0,lastGuardFire=-Infinity;
@@ -266,7 +266,7 @@ async function fight(page,side,key,config) {
      echoLayouts:[...echoLayouts],echoRecovery,
      repairLayouts:[...repairLayouts],coolingLayouts:[...coolingLayouts],coolingLayers:[...coolingLayers],machineDown,
      ...(key==='herra'?{herraLanes:[...herraLanes],herraWaveMarks:[...herraWaveMarks],herraRecovery}:{}),
-     ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
+     ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],fisherCounts:[...fisherCounts],fisherInterrupted}:{}),
      ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
      ...(key==='vigil'?{starLayouts:[...starLayouts],vigilDown}:{}),
      ...(key==='flugel'?{orbLayouts:[...orbLayouts],wardDown,orbsDown}:{}),
@@ -530,16 +530,16 @@ async function fight(page,side,key,config) {
     if(b.move==='FHR03'&&b.form==='recover'&&b.recoveryTicks>0&&sprite) herraRecovery=true;
    }
    if(key==='nightmare'){
-    if(b.darkShield.hp>0&&b.summons?.length){
-     shieldStates.add(b.darkShield.hp);
+    if(b.fisherSequence&&!b.darkShield){
+     fisherCounts.add(b.fisherSequence.defeated);
      const sprites=f.draws.filter(d=>d.source===art);
-     if(b.summons.length===4&&sprites.length===5&&sprites.slice(1).every((d,i)=>
+     if(b.summons?.length===2&&sprites.length===3&&sprites.slice(1).every((d,i)=>
        Math.abs(d.x+f.camera-b.summons[i].x)<.001)){
       fisherLayouts.add(b.summons.map(unit=>unit.x.toFixed(3)).join(','));
       visual=true;
      }
     }
-    if(b.form==='down'&&b.darkShield.hp===0&&!b.summons) shieldDown=true;
+    if(b.form==='down'&&b.fisherSequence?.interrupted&&b.fisherSequence.defeated===2&&!b.summons) fisherInterrupted=true;
    }
    const mark=hasCocoon&&f.radiantCocoons?.find(m=>m.actor===f.active);
    const peer=hasCocoon&&f.coop.peers[0]?.actors[0];
@@ -661,6 +661,9 @@ async function fight(page,side,key,config) {
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const inReach=Math.abs(dx)<125&&dx*a.dir>=0;
+   if(key==='nightmare'&&sharedSummon&&b.tick>=103&&inReach&&a.ground&&!f.macro&&f.t-lastFisherSkill>3.2){
+    window.lab.action('slot1');lastFisherSkill=f.t;
+   }
    if(key==='vigil'&&f.active===2&&b.vigil?.monitor&&!b.vigil.recorded&&inReach&&a.lock<=0&&f.t-lastRecord>.8){
     const skill=b.vigil.monitor===1?'skill1':'skill2';
     if((a.cd[skill]??0)===0){window.lab.action(skill);lastRecord=f.t}
@@ -711,7 +714,7 @@ async function fight(page,side,key,config) {
    const watchDuck=key==='duckle'&&!machineDown&&!sharedSummon&&b.hp<570;
    const watchShip=key==='battleship'&&!machineDown&&(plate?b.tick<105:b.hp<570);
    const watchHerra=key==='herra'&&!herraRecovery&&b.hp<680;
-   const watchNightmare=key==='nightmare'&&!shieldDown&&!sharedSummon&&b.hp<640;
+   const watchNightmare=key==='nightmare'&&!fisherInterrupted&&(sharedSummon?b.tick<103:b.hp<640);
    const watchCocoon=hasCocoon&&!sharedSummon&&(!escaped||!peerEscaped);
    const watchVigil=key==='vigil'&&!vigilDown&&!sharedSummon;
    const watchLion=key==='flugel'&&!sharedSummon&&(!lionReady||!orbsDown&&b.hp<620);
@@ -862,8 +865,7 @@ async function run(key,config) {
  }
  if(key==='nightmare'){
   assert.ok(a.fisherLayouts.some(layout=>b.fisherLayouts.includes(layout)),JSON.stringify(results));
-  assert.ok(a.shieldStates.some(hp=>hp<400&&b.shieldStates.includes(hp)),JSON.stringify(results));
-  assert.ok(a.shieldDown&&b.shieldDown,JSON.stringify(results));
+  assert.ok(a.fisherInterrupted&&b.fisherInterrupted,JSON.stringify(results));
  }
  if(key==='moonfly'||key==='moongecko'){
   assert.ok(a.peerStillBound&&results.every(result=>result.caught&&result.escaped),JSON.stringify(results));

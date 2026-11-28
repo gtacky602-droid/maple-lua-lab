@@ -1,37 +1,169 @@
 {
-  "browser": "Chrome",
-  "companion": "wanderer",
-  "play": {
-    "won": true,
-    "seconds": 88.57,
-    "moves": [
-      "FWN01",
-      "FWN02",
-      "FWN03"
+  "inputSha256": "3e45366c52b8fd8406bb7622d7e2140276eabb37b486c1eb8597e47018d3ee6c",
+  "level": 200,
+  "journeys": [
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
     ],
-    "hp": 140,
-    "returns": 0,
-    "casts": 11,
-    "down": true
+    [
+      "nod-field",
+      "nod-nightmare-shore",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-nightmare-shore",
+      "walk"
+    ],
+    [
+      "nod-nightmare-shore",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "interruptionAttack": 259,
+    "originalAttack": 74956
   },
   "scenery": {
     "key": "nightmareField",
     "file": "whisperer-nightmares-field-background-v1.png",
     "state": "ready"
   },
-  "questAcceptedInUi": true,
-  "questReport": {
+  "rift": {
+    "right": 902,
+    "left": 748,
+    "center": 825,
+    "hiddenTicks": 36,
+    "visibleWarningTicks": 24,
+    "heroDamage": 0
+  },
+  "natural": {
+    "lane": {
+      "right": 1071.4,
+      "left": 860.2
+    },
+    "fishers": [
+      {
+        "right": 939.4,
+        "left": 860.2,
+        "x": 899.8
+      },
+      {
+        "right": 1071.4,
+        "left": 992.2,
+        "x": 1031.8
+      }
+    ],
+    "heroDamage": 0,
+    "hpAfterReload": 1326
+  },
+  "interruption": {
+    "fromTick": 189,
+    "defeatedFishers": 2,
+    "unchangedBodyHp": 1326,
+    "noIndividualRewards": true
+  },
+  "captures": {
+    "emerge": {
+      "label": "裂け目から出現・一撃に注意",
+      "tick": 122,
+      "form": "attack",
+      "marks": [
+        "裂け目"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 4666,
+          "packedDraws": 15,
+          "plainGzip": 102271,
+          "packedGzip": 74351,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2118,
+          "packedDraws": 15,
+          "plainGzip": 56606,
+          "packedGzip": 44914,
+          "identicalPixels": true
+        }
+      }
+    },
+    "fishers": {
+      "label": "闇の漁師 0／2・あと2.4秒・2体で放出中断",
+      "tick": 158,
+      "form": "summoning",
+      "marks": [
+        "放出",
+        "1",
+        "2"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 7337,
+          "packedDraws": 44,
+          "plainGzip": 129073,
+          "packedGzip": 89755,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 3224,
+          "packedDraws": 44,
+          "plainGzip": 66190,
+          "packedGzip": 51511,
+          "identicalPixels": true
+        }
+      }
+    },
+    "release": {
+      "label": "深淵の放出・床の印から退避",
+      "tick": 326,
+      "form": "summoning",
+      "marks": [
+        "放出"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 5969,
+          "packedDraws": 22,
+          "plainGzip": 113927,
+          "packedGzip": 84715,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 2650,
+          "packedDraws": 22,
+          "plainGzip": 60760,
+          "packedGzip": 49334,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 23042,
+    "mora": 475
+  },
+  "reportReward": {
     "xp": 9200,
     "mora": 630
   },
-  "sameSceneCommands": {
-    "png": 124,
-    "standard": 18027,
-    "light": 4834
-  },
-  "riftX": 853.1499999999999,
-  "shieldBrokenTick": 417,
-  "savedRespawn": true,
-  "viewport390": true,
+  "fieldClears": 1,
+  "reported": 142,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
   "errors": []
 }

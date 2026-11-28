@@ -471,9 +471,29 @@ def validate_runtime_source(config, bosses, moves, migration, data):
                 if "air" in target:
                     timings["air"] = target["air"]
                 fixed_values(old_moves[move_id], timings, "runtime_source." + move_id)
+        short_nightmare = boss_id == "boss-22150101" and "ward" not in old
+        if short_nightmare:
+            rift, sequence = moves["FWN02"], moves["FWN03"]
+            units = data["fishers"]
+            child_events = sequence["events"][:2]
+            fixed_values(old_moves["FWN02"], {
+                "hide": rift["hidden"], "lock": rift["lock"], "active": [event["active"] for event in rift["events"]],
+                "recover": rift["recovery"][0], "total": rift["total"],
+            }, "runtime_source.FWN02")
+            fixed_values(old_moves["FWN03"], {
+                "kind": "sequence", "lock": sequence["lock"], "deploy": units["spawn_tick"],
+                "expire": units["despawn_tick"], "fisherHp": units["source_hp_comparison"],
+                "fisherDamage": child_events[0]["source_damage_comparison"],
+                "fishers": [{"offset": offset, "near": event["shape"]["u"][0], "far": event["shape"]["u"][1]}
+                            for offset, event in zip(units["offsets_u"], child_events)],
+                "active": [event["active"] for event in sequence["events"]],
+                "recover": sequence["recovery"][0], "total": sequence["total"],
+            }, "runtime_source.FWN03")
         for move_id, old_move in old_moves.items():
             fields(old_move, ("total", "damage"), "runtime_source." + move_id)
-            promoted = old_move is discharge or old_move is cooling or short_gloom and move_id in ("FHR02", "FHR03")
+            promoted = (old_move is discharge or old_move is cooling
+                        or short_gloom and move_id in ("FHR02", "FHR03")
+                        or short_nightmare and move_id in ("FWN02", "FWN03"))
             if not promoted and move_id in migration["source_signature_totals"]:
                 exact(old_move["total"], migration["source_signature_totals"][move_id], "runtime_source." + move_id + ".total")
             for table, key in (("source_air_ticks", "air"), ("source_hidden_ticks", "hide")):
@@ -484,7 +504,7 @@ def validate_runtime_source(config, bosses, moves, migration, data):
             for event in moves[move_id]["events"]:
                 if event["owner"] == "boss":
                     exact(event["source_damage_comparison"], old_move["damage"], "runtime_source." + move_id + ".damage")
-        if not discharge and boss_id in ("boss-24100101", "boss-22150101"):
+        if not discharge and not short_nightmare and boss_id in ("boss-24100101", "boss-22150101"):
             section = "repair_ducks" if boss_id == "boss-24100101" else "fishers"
             fields(old, ("ward",), "runtime_source." + boss_id)
             fields(old["ward"], ("unitHp",), "runtime_source." + boss_id + ".ward")

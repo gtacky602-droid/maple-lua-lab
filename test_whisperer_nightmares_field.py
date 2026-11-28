@@ -32,6 +32,8 @@ def make(fixture=False):
     core.grantExp(state, LEVELS[127]['maple_reference_total_exp_to_reach'], 'quest')
     core.enterStoryNode(state, hub)
     if fixture:
+        core.enterStoryNode(state,'natlan-hub')
+        core.enterStoryNode(state,hub)
         saved = validate_save(native(core.checkpoint(state)))
         saved['companion'] = 'wanderer'
         saved['loadout'][0] = ['SK21']
@@ -68,147 +70,155 @@ def strike(state, target, element='physical', **changes):
     core.resolveCast(state, lua.table_from(attack))
     return hp-target.hp
 
-
 state, slot, boss, hero = make(fixture=True)
 assert (boss.level, boss.hp, boss.form) == (128, 1340, 'idle')
 base = strike(state, boss)
-c = until(state, slot, 'FWN01', 48)
-lane = c.left, c.right
-spot(hero, c.origin+64)
+lunge = until(state, slot, 'FWN01', 48)
+lane = lunge.left, lunge.right
+spot(hero, lunge.origin+64)
 hp = hero.hp
 until(state, slot, 'FWN01', 107)
-assert hero.hp == hp and not c.seen[1][1]
+assert hero.hp == hp and not lunge.seen[1][1]
 spot(hero, sum(lane)/2)
 until(state, slot, 'FWN01', 125)
-assert hero.hp == hp-24 and c.seen[1][1] and (c.left, c.right) == lane
-spot(hero, boss.x-90)
-c = until(state, slot, 'FWN02', 56)
-destination = c.destination
-until(state, slot, 'FWN02', 110)
-assert boss.form == 'rift' and boss.underground and strike(state,boss) == 0
-spot(hero, destination)
-hp = hero.hp
-until(state, slot, 'FWN02', 151)
-assert boss.x == destination and boss.form == 'attack' and not boss.underground
-assert hero.hp == hp-28 and c.seen[1][1]
+assert hero.hp == hp-24 and lunge.seen[1][1] and (lunge.left, lunge.right) == lane
+
+spot(hero,boss.x-90)
+rift = until(state,slot,'FWN02',84)
+destination=rift.destination
+assert boss.underground and strike(state,boss)==0
+assert core.frame(state).fieldBoss.fixedRift.center==destination
+assert [d.text for d in core.frame(state,'sprite').draws.values() if d.kind=='text' and d.y==500]==['裂け目']
+until(state,slot,'FWN02',119)
+assert boss.underground
+ticks(state)
+assert not boss.underground and boss.x==destination and boss.pose=='emerge'
+spot(hero,destination)
+hp=hero.hp
+until(state,slot,'FWN02',143)
+assert hero.hp==hp
+ticks(state)
+assert hero.hp==hp-28
+
 spot(hero,boss.x-88)
-c = until(state, slot, 'FWN03', 64)
-assert boss.damageShield == 400 and len(c.summons) == 4 and len(state.enemies) == 5
-png, standard, light = [core.frame(state, mode, profile) for mode, profile in
-                        [('sprite','legacy'),('rect','legacy'),('rect','h32c16')]]
-assert png.t == standard.t == light.t and light.commands<standard.commands
-assert len([d for d in png.draws.values() if d.source == 'whisperer-nightmares-field-poses-source-v1.png']) == 5
-assert len(png.fieldBoss.summons) == 4
-hp = boss.hp
-assert strike(state,boss) == 0 and boss.hp == hp and boss.damageShield == 400
-assert strike(state,boss,'pyro') == 0 and boss.damageShield == 400-base
-after_pyro = boss.damageShield
-strike(state,boss,'lunar',applicationElement='hydro')
-assert after_pyro-boss.damageShield == base*3 and boss.hp == hp
-strike(state,boss,'electro',atk=400,reaction=True,key='reaction:overloaded')
-assert boss.damageShield == 0 and boss.form == 'down' and len(state.enemies) == 1 and c.summons is None
-assert lua.eval('rawequal')(boss,slot.enemy)
-until(state,slot,'FWN03',243)
-assert boss.form == 'down'
-ticks(state)
-assert slot.cast is None and boss.form == 'idle'
-
-# Four actual summoned receivers can be defeated by physical attacks.
-state, slot, boss, hero = make()
-c = until(state,slot,'FWN03',64)
-hp,mora,kills= boss.hp,state.mora,state.kills
-for index in range(1,5):
-    unit = c.summons[index]
-    while unit.hp>0:
-        strike(state,unit)
-    ticks(state)
-    assert state.mora == mora and state.kills == kills and boss.hp == hp
-    assert boss.damageShield == 400-index*100
-assert boss.form == 'down' and len(state.enemies) == 1 and not c.seen[1][1]
-assert strike(state,boss) == base
-
-# The last Fisher dying immediately before the release cancels that release.
-state, slot, boss, hero = make()
-c = until(state,slot,'FWN03',64)
-for i in range(1,4):
-    strike(state,c.summons[i],atk=100)
-ticks(state)
-until(state,slot,'FWN03',839)
-strike(state,c.summons[4],atk=100)
-ticks(state)
-assert boss.form == 'down' and c.broken == 840 and not c.seen[1][1]
-
-# Failed shield still releases once and clears all its temporary receivers.
-state, slot, boss, hero = make()
-c = until(state,slot,'FWN03',64)
-unit = c.summons[1]
-spot(hero,unit.x)
+c=until(state,slot,'FWN03',72)
+first,second=c.summons.values()
+assert first.hp==second.hp==60 and len(state.enemies)==3
+assert (first.x-boss.x)*(second.x-boss.x)>0
+assert strike(state,boss)==base and boss.damageShield==0
+png,standard,light=[core.frame(state,mode,profile) for mode,profile in
+                    [('sprite','legacy'),('rect','legacy'),('rect','h32c16')]]
+assert png.t==standard.t==light.t and light.commands<standard.commands
+assert png.fieldBoss.darkShield is None and png.fieldBoss.fisherSequence.remainingTicks==228
+assert [d.text for d in png.draws.values() if d.kind=='text' and d.y==500]==['1','2']
+assert len([d for d in png.draws.values() if d.source=='whisperer-nightmares-field-poses-source-v1.png'])==3
+spot(hero,first.x)
 hp=hero.hp
-until(state,slot,'FWN03',243)
-assert hero.hp == hp-9 and unit.seen[1]
-spot(hero,boss.x)
-until(state,slot,'FWN03',839)
-hp=hero.hp
-until(state,slot,'FWN03',857)
-assert hero.hp == hp-38 and c.seen[1][1]
-until(state,slot,'FWN03',880)
-assert len(state.enemies) == 1 and c.summons is None and boss.damageShield == 0
+until(state,slot,'FWN03',155)
+assert hero.hp==hp
+ticks(state)
+assert hero.hp==hp-9 and c.seen[1][1]
+until(state,slot,'FWN03',227)
+assert hero.hp==hp-9 and not c.seen[2][1]
+spot(hero,second.x)
+hero.inv=0
+ticks(state)
+assert hero.hp==hp-18 and c.seen[2][1]
+until(state,slot,'FWN03',300)
+assert c.summons is None and c.defeatedFishers==0 and c.broken is None
+spot(hero,sum((c.left,c.right))/2)
+hero.inv=0
+until(state,slot,'FWN03',323)
+assert hero.hp==hp-18
+ticks(state)
+assert hero.hp==hp-56 and c.seen[3][1]
+until(state,slot,'FWN03',360)
+assert core.frame(state).fieldBoss.recoveryTicks==144
 
-# Save and exit preserve HP and discard the active shield and its summons.
-state, slot, boss, hero = make()
+# One defeated fisher cancels its own strike. A second defeat at tick 299 cancels the release.
+state,slot,boss,hero=make()
+c=until(state,slot,'FWN03',72)
+first,second=c.summons.values()
+hp,kills,mora=boss.hp,state.kills,state.mora
+assert strike(state,first,atk=100)==60
+spot(hero,first.x)
+hero_hp=hero.hp
+until(state,slot,'FWN03',167)
+assert hero.hp==hero_hp and not c.seen[1][1] and c.defeatedFishers==1
+until(state,slot,'FWN03',299)
+assert strike(state,second,atk=100)==60
+ticks(state)
+assert c.broken==300 and c.defeatedFishers==2 and len(state.enemies)==1
+assert boss.form=='down' and core.frame(state).fieldBoss.recoveryTicks==180
+spot(hero,(c.left+c.right)/2)
+hero_hp=hero.hp
+until(state,slot,'FWN03',479)
+assert hero.hp==hero_hp and not c.seen[3][1]
+assert (boss.hp,state.kills,state.mora)==(hp,kills,mora)
+
+# Persist only body HP and the respawn clock, not old telegraphs or summon objects.
+state,slot,boss,hero=make()
 strike(state,boss)
-c = until(state,slot,'FWN03',64)
-hp = boss.hp
-snap = validate_save(native(core.checkpoint(state)))
-restored = core.restore(lua.table_from(snap,recursive=True),12)
-fresh = restored.fieldSlots[boss_id]
-assert fresh.enemy.hp == hp and fresh.enemy.damageShield == 0 and fresh.cast is None
+c=until(state,slot,'FWN03',72)
+save=validate_save(native(core.checkpoint(state)))
+restored=core.restore(lua.table_from(save,recursive=True),12)
 enter(restored)
-assert len(restored.enemies) == 1
+fresh=restored.fieldSlots[boss_id]
+assert fresh.cast is None and fresh.enemy.hp==boss.hp and len(restored.enemies)==1
+hp=boss.hp
 portal(state,65,road)
-assert slot.cast is None and boss.damageShield == 0 and boss.hp == hp
+assert slot.cast is None and c.summons is None
 portal(state,330,arena)
-assert len(state.enemies) == 1
+assert boss.hp==hp and len(state.enemies)==1
+hero.hp=hero.maxhp
 spot(hero,boss.x-88)
-c = until(state,slot,'FWN03',64)
-strike(state,boss,'pyro',atk=500)
+c=until(state,slot,'FWN03',72)
 boss.hp=1
-assert strike(state,boss) == 1 and slot.phase == 'respawn' and slot.cast is None
-assert len(state.enemies) == 1 and state.story.quests[quest].count == 1
-snap = validate_save(native(core.checkpoint(state)))
-assert snap['fieldBosses'][boss_id]['waitTicks'] == 3600
-restored = core.restore(lua.table_from(snap,recursive=True),12)
-assert restored.story.node == hub
+mora=state.mora
+assert strike(state,boss)==1 and state.mora==mora+475 and slot.phase=='respawn'
+assert slot.cast is None and c.summons is None
+assert state.story.quests[quest].count==1
+save=validate_save(native(core.checkpoint(state)))
+assert save['fieldBosses'][boss_id]['waitTicks']==3600
+restored=core.restore(lua.table_from(save,recursive=True),12)
 xp,mora=restored.progression.questXp,restored.mora
-for _ in range(2):
-    core.action(restored,'story_report:'+quest)
-assert (restored.progression.questXp-xp,restored.mora-mora) == (9200,630)
+for _ in range(2): core.action(restored,'story_report:'+quest)
+assert restored.progression.questXp-xp==9200 and restored.mora-mora==630
+
+state,slot,boss,hero=make()
+edge=until(state,slot,'FWN03',1)
+boss.x=edge.origin=405
+spot(hero,345)
+until(state,slot,'FWN03',60)
+assert edge.reposition and edge.left is None and edge.summons is None
+ticks(state,100)
+assert boss.x>405 and edge.summons is None
 
 
 def solo():
     state,slot,boss,hero=make()
     moves=set()
-    for _ in range(240*60):
+    for _ in range(145*60):
         if boss.hp<=0:
-            assert moves == {'FWN01','FWN02','FWN03'} and state.returns == 0
+            assert moves=={'FWN01','FWN02','FWN03'} and state.returns==0
             return dict(seconds=round(state.t,2),hp=hero.hp)
-        dx=boss.x-hero.x
-        turn=abs(dx)>8 and dx*hero.dir<0
         c=slot.cast
         if c:
             moves.add(c.move.id)
             if hero.ground and any(w[1]-23<=c.tick<=w[1]-16 for w in c.move.active.values()):
                 core.action(state,'jump')
-        ticks(state,inputs=lua.table_from(dict(right=dx>82 or (turn and dx>0),
-            left=dx<-82 or (turn and dx<0),attack=abs(dx)<116 and not turn,jump=True)))
-        assert state.returns == 0,(state.t,boss.hp,hero.hp)
+        dx=boss.x-hero.x
+        turn=abs(dx)>8 and dx*hero.dir<0
+        ticks(state,inputs=lua.table_from(dict(right=dx>80 or (turn and dx>0),
+            left=dx<-80 or (turn and dx<0),attack=abs(dx)<116 and not turn,jump=True)))
+        assert state.returns==0,(state.t,boss.hp,hero.hp)
     raise AssertionError((state.t,boss.hp,hero.hp))
 
 
-result=dict(fixedLungeAndRiftDestination=True,riftUntargetable=True,shieldAbsorbsHpDamage=True,
-    lunarShieldDamageMultiplier=3,fourFishersDamageShieldWithoutRewards=True,
-    finalFisherCancelsReleaseAtBoundary=True,unbrokenShieldHasOneRelease=True,
-    summonsRemovedOnExitSaveAndBreak=True,oneQuestReport=True,normalAttackSolo=solo(),
+result=dict(lockedLunge=True,hiddenTicks=36,visibleWarningTicks=24,fisherHp=60,sameSideFishers=True,
+    damagePerGroup=[9,9,38],summoningKeepsBodyTargetable=True,separateFisherCancellation=True,
+    lastAcceptedTick=299,interruptedOnTick=300,interruptedRecoveryTicks=180,naturalRecoveryTicks=144,
+    savesBodyHpAndClearsCast=True,oneRewardAndReport=True,edgeReposition=True,normalAttackSolo=solo(),
     sameSceneCommands=dict(png=png.commands,standard=standard.commands,light=light.commands))
 (ROOT/'evidence/whisperer-nightmares-field-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)

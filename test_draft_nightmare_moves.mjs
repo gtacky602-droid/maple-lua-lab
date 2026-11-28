@@ -51,6 +51,7 @@ try {
  assert.deepEqual(spawned.boss.summons.map(fisher => fisher.maxhp),[60000,60000]);
  await page.locator('#fieldBossLabel').filter({hasText:'闇の漁師'}).waitFor();
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(file => !window.lab.frame.draws.some(draw => draw.source===file),source);
  const standard=await scene();
  await page.locator('.game').screenshot({path:'evidence/short-nightmare-fishers.png'});

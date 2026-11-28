@@ -584,16 +584,16 @@ Luaの4人試験で参加者ごとの命中と放出の中断、HTTPの2人試�
 
 ナド・クライの月明かりの道から霜夜の石壇へ進むと、霜夜の空を巡る霊主と戦える。薄闇の一波目と二波目は同じ範囲に来る。途中から参加しても、床の位置と攻撃順は全員で共通する。命中は参加者ごとに判定し、二波のあとに2.4秒間反撃できる。 [一波目の戦闘画面](../evidence/coop-herra-twin-waves.png)
 
-煙雲の山の昏き浜では、昏き魘夢の主が暗黒のシールドを張り、闇の漁師を4体召喚する。漁師を1体倒すたびにシールドが100削れ、月の攻撃はシールドに通常の3倍のダメージを与える。召喚位置と残りHP、シールド値を全員で共有する。シールドを壊すと残った漁師が消え、本体は3秒間ダウンする。 [闇の漁師が出た画面](../evidence/coop-nightmare-fishers.png)
+煙雲の山の昏き浜では、昏き魘夢の主が同じ側に漁手を2体召喚する。床の番号が漁手の攻撃順を示し、最後に本体が局所放出を行う。位置、残りHP、倒した数を全員で共有する。受付時間内に両方を倒すと放出が止まり、3秒間反撃できる。 [二漁手の画面](../evidence/coop-nightmare-two-fishers.png)
 
 | ボス | Lv | HP | 討伐参加者一人あたり | 依頼を報告した人 |
 | --- | ---: | ---: | ---: | ---: |
 | 霜夜の空を巡る霊主 | 126 | 1,200 | 677,150 EXP・465モラ | 9,000 EXP・610モラ |
 | 昏き魘夢の主 | 128 | 1,340 | 768,050 EXP・475モラ | 9,200 EXP・630モラ |
 
-Luaの4人試験で、霊主の二波を参加者ごとに判定し、途中から戻った参加者にも同じ範囲と反撃時間が見えることを確認した。魘夢の主の召喚・シールド・個別命中も検査した。HTTPの2人試験では退避後に同じ戦闘へ戻れた。Chromeの2画面で両戦の討伐・個別報酬・受注者の報告を保存した。霊主のChrome試走はLv144で行い、レベル差を反映した440,148 EXPを各自が獲得した。 `python test_frostnight_herra_field.py` と `python test_whisperer_nightmares_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs herra nightmare` を実行すると試走できる。 [Lua・HTTPの検証](../evidence/coop-nod-gloom-lua-http.json) · [霊主のChrome試走](../evidence/coop-herra-browser.json) · [魘夢の主のChrome試走](../evidence/coop-nightmare-browser.json)
+Luaの4人試験で、霊主の二波と魘夢の主の漁手の攻撃を参加者ごとに判定した。再合流した参加者にも、霊主の波の範囲と魘夢の主の撃破数が共有された。HTTPの2人試験では退避後に同じ戦闘へ戻れた。Chromeの2画面で両戦の討伐・個別報酬・受注者の報告を保存した。霊主のChrome試走はLv144で行い、レベル差を反映した440,148 EXPを各自が獲得した。 `python test_frostnight_herra_field.py` と `python test_whisperer_nightmares_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs herra nightmare` を実行すると試走できる。 [Lua・HTTPの検証](../evidence/coop-nod-gloom-lua-http.json) · [霊主のChrome試走](../evidence/coop-herra-browser.json) · [魘夢の主のChrome試走](../evidence/coop-nightmare-browser.json)
 
-霊主の薄闇と元素適応を使う従来方式は `-DraftBalance` で比較できる。魘夢の主の潜行と召喚は、後続の短縮案を設計票にまとめている。 [ナド・クライの技の設計](field-boss-v1/NOD_KRAI_QUARTET_MOVESETS.md)
+霊主の元素適応と、魘夢の主の四体召喚・シールドを使う従来方式は `-DraftBalance` で比較できる。 [ナド・クライの技の設計](field-boss-v1/NOD_KRAI_QUARTET_MOVESETS.md)
 
 ## 集光の幻月蝶と集光の月ヤモリ
 
