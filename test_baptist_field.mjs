@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureNumberedFieldWarning,verifySumeruBossGuide} from './tools/browser_waypoint_test.mjs';
 
+const earned=process.argv.includes('--earned');
+const output=earned?'work/earned-sumeru-baptist':'evidence';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:910}});
 const canvas=page.locator('#game'), prefix='baptist-field';
@@ -41,8 +44,8 @@ async function pause(value){
 }
 
 async function fight(){
- await page.evaluate(()=>{
-  const held=new Set(),moves=new Set(),dodges=new Set();
+ await page.evaluate(earned=>{
+  const held=new Set(),moves=new Set(),dodges=new Set(),recoveries=new Set();
   const warnings={FIB01:[84,132],FIB02:[104,146,188],FIB03:[116,152,188]};
   let prior='',lastTick=-1,used=new Set();
   const start=window.lab.frame.t;
@@ -55,13 +58,14 @@ async function fight(){
    const f=window.lab.frame,b=f.fieldBoss,a=f.actors[f.active-1];
    if(!b||b.phase==='respawn'||f.returns>0||f.t-start>130){
     for(const code of [...held])hold(code,false);
-    window.baptistFieldResult={seconds:+(f.t-start).toFixed(2),moves:[...moves],dodgeWindows:dodges.size,finished:b?.phase==='respawn',hp:a.hp,returns:f.returns};
+    window.baptistFieldResult={seconds:+(f.t-start).toFixed(2),moves:[...moves],recoveries:[...recoveries],dodgeWindows:dodges.size,finished:b?.phase==='respawn',hp:a.hp,returns:f.returns};
     return;
    }
    if(f.paused){requestAnimationFrame(control);return}
    if(prior!==b.move||b.tick<lastTick){prior=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move)moves.add(b.move);
+   if(b.recovering&&b.label.includes('反撃の隙'))recoveries.add(b.move);
    for(const at of warnings[b.move]||[]){
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);dodges.add(b.move+at);hold('ShiftLeft',true);hold('ShiftLeft',false);
@@ -70,20 +74,21 @@ async function fight(){
    const dx=b.x-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',dx<-99||(turn&&dx<0));
    hold('KeyD',dx>99||(turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   hold('KeyJ',(!earned||recoveries.size===3)&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
- });
+ },earned);
 }
 
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769/');
  await page.waitForFunction(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
-  await fs.readFile('work/'+prefix+'-fixture.json','utf8'));
+  await fs.readFile(earned?output+'/baptist-ready.json':'work/'+prefix+'-fixture.json','utf8'));
  await page.locator('#loadProgress').click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active'&&window.lab.frame.story.node==='sumeru-hub',quest);
+ const route=earned?await verifySumeruBossGuide(page,arena,'sumeru-entry'):null;
  await gate(60,'sumeru-entry');
  await gate(510,arena);
  const scenery=await page.evaluate(async()=>{
@@ -93,6 +98,12 @@ try{
  });
  assert.deepEqual(scenery,{key:'baptistField',file:prefix+'-background-v1.png',state:'ready'});
  await walk(700);
+ const numberSamples={};
+ if(earned){
+  numberSamples.bolts=await captureNumberedFieldWarning(page,{
+   move:'FIB01',before:84,color:'#fff1b0',count:2,output:output+'/bolts'
+  });
+ }
  await page.waitForFunction(()=>{
   const b=window.lab.frame.fieldBoss;
   return b?.move==='FIB01'&&b.tick>=63&&b.tick<91;
@@ -104,7 +115,7 @@ try{
  assert.match(await page.locator('#fieldBossLabel').textContent(),/炎 → 氷 → 雷/);
  assert.ok(original.draws.some(d=>d.source==='baptist-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
- await canvas.screenshot({path:'evidence/'+prefix+'-png.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-png.png'});
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.source==='baptist-field-poses-source-v1.png'));
  const standard=await frame();
@@ -112,10 +123,18 @@ try{
  await page.waitForFunction(n=>window.lab.frame.commands<n*.64,standard.commands);
  const light=await frame();
  assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
- await canvas.screenshot({path:'evidence/'+prefix+'-light.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
  await pause(false);
  await fight();
+ if(earned){
+  numberSamples.crystals=await captureNumberedFieldWarning(page,{
+   move:'FIB02',before:108,color:'#fff1b0',output:output+'/crystals'
+  });
+  numberSamples.rings=await captureNumberedFieldWarning(page,{
+   move:'FIB03',before:120,color:'#fff1b0',output:output+'/rings'
+  });
+ }
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
   if(b?.move!=='FIB03'||b.tick<74||b.tick>=111||
@@ -126,7 +145,7 @@ try{
  await page.waitForFunction(()=>window.lab.frame.paused);
  const markings=await frame();
  assert.equal(markings.draws.filter(d=>d.color==='#f7edff'&&d.w===6&&d.h===5).length,6);
- await canvas.screenshot({path:'evidence/'+prefix+'-rings.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-rings.png'});
  await pause(false);
  await page.waitForFunction(()=>{
   const {fieldBoss:b,draws}=window.lab.frame;
@@ -136,12 +155,13 @@ try{
   return true;
  });
  await page.waitForFunction(()=>window.lab.frame.paused);
- await canvas.screenshot({path:'evidence/'+prefix+'-burst.png'});
+ await canvas.screenshot({path:output+'/'+prefix+'-burst.png'});
  await pause(false);
  await page.waitForFunction(()=>window.baptistFieldResult,undefined,{timeout:140000});
  const play=await page.evaluate(()=>window.baptistFieldResult);
  assert.ok(play.finished,JSON.stringify(play));
  assert.deepEqual(play.moves,['FIB01','FIB02','FIB03']);
+ if(earned)assert.deepEqual(play.recoveries,play.moves);
  assert.ok(play.dodgeWindows>=3);
  assert.equal(play.returns,0);
  const defeated=await frame();
@@ -159,6 +179,16 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.fieldBosses[id].hp,0);
  assert.ok(saved.fieldBosses[id].waitTicks>0);
+ if(earned){
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await page.waitForFunction(q=>window.lab.frame.story?.quests[q]?.status==='complete',quest);
+  const restored=await frame();
+  assert.equal(restored.story.quests[quest].cycles,1);
+  assert.equal(restored.progression.level,74);
+  assert.equal(restored.endgame.bosses[id].clears,1);
+ }
  const panel=page.locator('#encountersPanel');
  if(await panel.getAttribute('open')===null)await panel.locator('summary').click();
  await page.getByRole('textbox',{name:'ボス名で検索'}).fill('深罪の浸礼者');
@@ -168,9 +198,10 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/'+prefix+'-browser.json',JSON.stringify({
+ await fs.writeFile(earned?'evidence/earned-sumeru-baptist-browser.json':output+'/'+prefix+'-browser.json',JSON.stringify({
   browser:'Chrome',play,fieldKill:{xp:killXp,mora:255},commissionReport:{xp:4600,mora:330},
   persistedCooldown:true,
+  ...(earned?{route,numberSamples,reloadedLevel:74,restoredCommissionCycles:1,restoredBossClears:1}:{}),
   sameSceneCommands:{png:original.commands,standard:standard.commands,light:light.commands},elementSlots:original.fieldBoss.elementSlots,threeMarksAndActiveRing:true,viewport390:true,errors
  },null,2)+'\n');
  console.log('Baptist field Chrome route, all moves, clear, report, save passed');

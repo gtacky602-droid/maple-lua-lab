@@ -1090,6 +1090,7 @@
     {
       "id":"boss-22100501",
       "coop":true,
+      "showRecovery":true,
       "controller":"baptist",
       "entity":22100501,
       "name":"深罪の浸礼者",

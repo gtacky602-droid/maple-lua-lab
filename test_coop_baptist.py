@@ -107,7 +107,9 @@ def run_lua():
         assert results == [[(22,w['element'])] if j==i else [] for j in range(4)]
         tagged.append(results[i][0][1])
     wait_cast(step, slot, 'FIB03', 210)
-    assert all(core.frame(s).fieldBoss.label=='詠唱終了・反撃' for s in states)
+    for state in states:
+        bar = core.frame(state).fieldBoss
+        assert bar.recovering and bar.label=='詠唱終了・反撃の隙'
     assert all(not warnings(core,s) for s in states)
 
     wait_cast(step, slot, 'FIB01', 84)

@@ -2,6 +2,7 @@ return function(C)
  local baptist={}
  local U=88
  local white,dark='#f7edff','#2a1736'
+ local orderColor='#fff1b0'
  local palette={pyro='#ffab72',cryo='#aae8ff',hydro='#64baff',electro='#d3a4ff'}
  local glyphs={
   pyro={{2,0,2,1},{2,1,3,1},{1,2,4,1},{0,3,5,1},{1,4,3,1}},
@@ -100,7 +101,7 @@ return function(C)
  end
 
  function baptist.label(b,c)
-  if c and c.tick>=c.move.recover then return '詠唱終了・反撃' end
+  if c and c.tick>=c.move.recover then return '詠唱終了・反撃の隙' end
  end
 
  local function rect(f,x,y,w,h,color)
@@ -174,6 +175,26 @@ return function(C)
    local gx=x+(i-2)*23
    rect(f,gx-9,y-183,18,18,dark)
    glyph(f,element,gx,y-174,12)
+  end
+  if c then
+   local m,t=c.move,c.tick
+   if t<m.lock or t>=m.recover then return end
+   if m.fire then
+    local center=shotX(c,0)-camera
+    local lineY=y-m.height*U
+    for i,fire in ipairs(m.fire) do
+     if t<fire then
+      local px=center+(i-(#m.fire+1)/2)*25
+      rect(f,px-11,lineY-43,22,20,dark)
+      rect(f,px-11,lineY-24,22,2,orderColor)
+      f.draws[#f.draws+1]={kind='text',x=px,y=lineY-28,size=16,text=tostring(i),color=orderColor}
+     end
+    end
+   else
+    for i,w in ipairs(m.active) do
+     if t<w[1] then C.drawFieldImpactNumber(f,point(c,i)-camera,y,i,orderColor) end
+    end
+   end
   end
  end
  return baptist
