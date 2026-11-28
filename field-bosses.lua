@@ -675,6 +675,9 @@ return function(C,configs,controllers)
   for _,member in ipairs(boss.fieldMembers or {}) do visibleBody=visibleBody or (member.hp>0 and visible(member)) end
   if boss.hp>0 and visibleBody then
    local layer={draws={}}
+   if behavior.packRectArt and f.rectBatches then
+    layer.rectBatches,layer.rectIndex=f.rectBatches,{}
+   end
    behavior.draw(layer,s,boss,spec,cast,mode,profile)
    f.fieldBoss.drawCount=#layer.draws
    for _,draw in ipairs(f.draws) do layer.draws[#layer.draws+1]=draw end

@@ -75,7 +75,8 @@ return function(C)
   local f=frame(s,mode,profile);local b=s.encounter
   if not b then return f end
   f.location='無相の風・2Dアレンジ試作'
-  local labels={shielded='外殻・攻撃無効',clap_warning='挟撃予告・離れる',vortex_warning='竜巻予告',vortices='移動する竜巻を回避',exposed='核が露出・攻撃可能',revival='回復阻止・風域でSpace長押し',defeated='撃破'}
+  local labels={shielded='外殻・攻撃無効',clap_warning='挟撃予告・離れる',vortex_warning='竜巻予告',vortices='移動する竜巻を回避',exposed='核が露出・攻撃可能',defeated='撃破'}
+  labels.revival=string.format('風域でSpace長押し・残った風玉で回復（あと%.1f秒）',math.ceil(math.max(0,b.timer)*10)/10)
   f.boss={name='無相の風（形状仮素材）',hp=b.hp,maxhp=b.maxhp,phase=b.phase,label=labels[b.phase],timer=b.timer,orbs=b.collected}
   local function rect(x,y,w,h,color) f.draws[#f.draws+1]={kind='rect',x=math.floor(x),y=math.floor(y),w=w,h=h,color=color} end
   if b.hp>0 then
