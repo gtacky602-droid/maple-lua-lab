@@ -1154,6 +1154,7 @@
       "id":"boss-26180101",
       "controller":"seahorse",
       "coop":true,
+      "showRecovery":true,
       "entity":26180101,
       "name":"千年真珠の海駿",
       "node":"seahorse-field-cavern",

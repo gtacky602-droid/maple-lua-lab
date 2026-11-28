@@ -8543,6 +8543,19 @@
       "lua_evidence": "evidence/earned-fontaine-emperor.json",
       "browser_evidence": ["evidence/earned-fontaine-understage-browser.json", "evidence/earned-fontaine-emperor-browser.json"]
     },
+    "earned_fontaine_seahorse": {
+      "start_level": 84,
+      "entry_level": 85,
+      "arena_gate_level": 84,
+      "rehearsal": "fon-furina-cues",
+      "encounter_cleared_and_commission_restored": "boss-26180101",
+      "reported_commissions_total": 16,
+      "pearl_window_ticks": 42,
+      "recovery_ticks": 144,
+      "replayed_outcomes": ["interrupt", "land"],
+      "lua_evidence": "evidence/earned-fontaine-seahorse.json",
+      "browser_evidence": ["evidence/earned-fontaine-furina-browser.json", "evidence/earned-fontaine-seahorse-interrupt-browser.json", "evidence/earned-fontaine-seahorse-land-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

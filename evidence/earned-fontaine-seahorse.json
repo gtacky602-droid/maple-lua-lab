@@ -1,0 +1,101 @@
+{
+  "sourceSha256": "3f7822bddde19e9ec6ec424dd77e1c892ab0e38fcc96c658ea695b22f5aedc67",
+  "furina": {
+    "earlyCueRejected": true,
+    "restoredFirstRehearsal": true,
+    "report": {
+      "quest": "fon-furina-cues",
+      "xp": 610121,
+      "mora": 3300
+    }
+  },
+  "entryLevel": 85,
+  "interrupted": {
+    "fight": {
+      "moves": [
+        "FSH01",
+        "FSH02",
+        "FSH03"
+      ],
+      "weakpoint": [
+        42,
+        482.58000000000004,
+        412.88,
+        30.0
+      ],
+      "recovery": [
+        143,
+        490.5,
+        396,
+        29.791666666666668
+      ],
+      "pearlProgress": [
+        0,
+        1
+      ],
+      "interrupted": true,
+      "landed": false,
+      "hitDuringRecovery": true,
+      "bolts": [
+        1,
+        2
+      ],
+      "hpBefore": 384,
+      "hpAfter": 368,
+      "seconds": 15.65,
+      "xp": 113150
+    },
+    "heldAllyFire": false,
+    "report": {
+      "quest": "seahorse-commission",
+      "xp": 5200,
+      "mora": 370
+    },
+    "restoredCooldown": 3062,
+    "returns": 0
+  },
+  "landed": {
+    "fight": {
+      "moves": [
+        "FSH01",
+        "FSH02",
+        "FSH03"
+      ],
+      "weakpoint": [
+        42,
+        482.58000000000004,
+        412.88,
+        30.0
+      ],
+      "recovery": [
+        144,
+        385.0,
+        396,
+        30.0
+      ],
+      "pearlProgress": [
+        0
+      ],
+      "interrupted": false,
+      "landed": true,
+      "hitDuringRecovery": true,
+      "bolts": [
+        1,
+        2
+      ],
+      "hpBefore": 384,
+      "hpAfter": 368,
+      "seconds": 17.57,
+      "xp": 113150
+    },
+    "heldAllyFire": true,
+    "report": {
+      "quest": "seahorse-commission",
+      "xp": 5200,
+      "mora": 370
+    },
+    "restoredCooldown": 3062,
+    "returns": 0
+  },
+  "commissionCount": 16
+}

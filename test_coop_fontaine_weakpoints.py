@@ -125,6 +125,9 @@ def check_seahorse(lua, core):
     wait_cast(step,slot,'FSH03',54)
     interrupted,point=slot.cast,boss.weakpoint
     assert point.required==2 and point.hits==0
+    for state in states:
+        view=core.frame(state,'sprite').fieldBoss
+        assert view.coreWindowTicks==42 and view.destinationX==interrupted.dest
     strike=lua.table_from(dict(id=1,atk=20,x=point.x,y=480,dir=1,radial=True,range=125,limit=2,
                               mult=1,color='#fff0ac',gain=0,element='physical',critRate=0))
     core.resolveCast(host,strike)
@@ -137,6 +140,7 @@ def check_seahorse(lua, core):
     for s in states:
         view=core.frame(s,'sprite').fieldBoss
         assert view.form=='dim' and view.destinationX is None and view.label=='真珠が消灯・反撃'
+        assert view.recovering and view.exposureTicks==144 and view.coreWindowTicks is None
         place(s,interrupted.dest)
     marks=[s.seq for s in states]
     wait_cast(step,slot,'FSH03',311)

@@ -2,6 +2,7 @@ return function(C)
  local seahorse={}
  local U=88
  local blue,pink,white,dark='#b9cdfc','#e1a0ff','#f6edff','#392853'
+ local timerColor='#a6eee7'
  local function clamp(x,a,b) return math.max(a,math.min(x,b)) end
 
  local function place(b,s,lift)
@@ -36,8 +37,18 @@ return function(C)
   C.shareFieldHits({c.seen},actors)
  end
 
+ local function pearlWindow(b,c)
+  if b.weakpoint and c then return c.move.air[1]-c.tick end
+ end
+
+ local function recoveryWindow(b,c)
+  if b.form=='dim' and c then return c.move.total-c.tick end
+ end
+
  function seahorse.frame(f,b,s,c)
   f.flying=b.flying
+  f.coreWindowTicks=pearlWindow(b,c)
+  f.exposureTicks=recoveryWindow(b,c)
   if c and c.dest and not c.interrupted and c.tick>=c.move.lock and c.tick<c.move.recover then
    f.destinationX=c.dest
   end
@@ -171,7 +182,16 @@ return function(C)
    for i=1,point.required do
     rect(f,px+(i-(point.required+1)/2)*8-3,py-13,6,3,i<=point.hits and white or blue)
    end
+   C.drawFieldTimer(f,px,py-24,pearlWindow(b,c),c.move.air[1]-c.move.lock,timerColor)
   end
+  if c and c.dest and not c.interrupted and c.tick>=c.move.lock and c.tick<c.move.air[2] then
+   local px=c.dest-camera
+   rect(f,px-27,y-124,54,19,dark)
+   f.draws[#f.draws+1]={kind='text',x=px,y=y-110,text='着地点',size=13,color=white}
+   for offset=98,14,-14 do rect(f,px-1,y-offset,2,6,blue) end
+  end
+  local remaining=recoveryWindow(b,c)
+  if remaining then C.drawFieldTimer(f,x,y-84,remaining,c.move.total-c.move.recover,timerColor) end
  end
  return seahorse
 end

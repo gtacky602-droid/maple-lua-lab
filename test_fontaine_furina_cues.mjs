@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const hub='fontaine-hub',room='fontaine-rehearsal-room',arena='fontaine-grand-stage';
-const quest='fon-furina-cues',prefix='evidence/fon-furina-cues';
+const earned=process.argv.includes('--earned');
+const quest='fon-furina-cues',prefix=earned?'work/earned-fontaine-seahorse/furina':'evidence/fon-furina-cues';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
 const canvas=page.locator('#game'),panel=page.locator('#furinaRehearsal'),errors=[];
@@ -97,7 +98,8 @@ async function compareRehearsal(){
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8922/');
  await wait(()=>window.lab?.frame);
- const seed=await fs.readFile('work/fon-furina-cues-fixture.json','utf8');
+ const source=earned?'work/earned-fontaine-emperor/emperor-complete.json':'work/fon-furina-cues-fixture.json';
+ const seed=await fs.readFile(source,'utf8');
  await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
  await load(hub);
  await questButton('受注');
@@ -153,6 +155,18 @@ try{
  await questButton('報告');
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='complete',quest);
 
+ if(earned){
+  await reload(hub);
+  const restored=await frame();
+  assert.equal(restored.story.quests[quest].cycles,1);
+  assert.equal(restored.story.quests['emperor-commission'].status,'complete');
+  assert.deepEqual(errors,[]);
+  await fs.writeFile('evidence/earned-fontaine-furina-browser.json',JSON.stringify({
+   quest,source,background,completedWithTextCues:true,earlyCueRetried:true,
+   savedFirstRehearsal:true,restoredReport:true,level:restored.progression.level,mobileWidth:390,calls,errors
+  },null,2)+'\n');
+ }else{
+
  await gate(1320,arena);
  await walk(1325);
  await held('Space',()=>wait(()=>{
@@ -173,6 +187,7 @@ try{
   quest,background,completedWithTextCues:true,earlyCueRetried:true,
   savedFirstRehearsal:true,mobileWidth:390,addedAfterMainAndReplayed:true,calls,errors
  },null,2)+'\n');
+ }
  console.log(quest,calls);
 }catch(error){
  console.error(await page.evaluate(()=>{
