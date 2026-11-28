@@ -2975,6 +2975,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)
       elseif milestone.shoreMark then drawShoreMark(markers,x,y,milestone.shoreMark)
+      elseif milestone.snowTrail then survey.drawSnowTrail(markers,x,y,milestone.snowTrail)
       elseif milestone.patternBottle then drawPatternBottle(markers,x,y,false)
       elseif milestone.pageBook then paper.drawBook(markers,x,y,false)
       elseif not milestone.waterInstrument then
@@ -2984,7 +2985,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       end
       local caption=milestone.name or milestone.label or milestone.objective
       if caption then
-       local captionY=milestone.name and y-(milestone.routeBeacon and 61 or milestone.patternBottle and 66 or milestone.outcrop and 48 or 41) or y+19
+       local captionY=milestone.name and y-(milestone.snowTrail and 103 or milestone.routeBeacon and 61 or milestone.patternBottle and 66 or milestone.outcrop and 48 or 41) or y+19
        markers[#markers+1]={kind='text',x=x,y=captionY,text=caption,color='#fff0b9',size=14}
       end
      end
@@ -3034,6 +3035,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         elseif done.islandTreasure then drawIslandChest(markers,x,y,true)
         elseif done.shoreMark then drawShoreMark(markers,x,y,done.shoreMark)
+        elseif done.snowTrail then
+         survey.drawSnowTrail(markers,x,y,done.snowTrail)
+         if done.snowTrail=='crack' then drawShoreMark(markers,x+44,y,'flag') end
         elseif done.patternBottle then drawPatternBottle(markers,x,y,true)
         elseif done.pageBook then paper.drawBook(markers,x,y,true)
         elseif done.paperDisplay then paper.drawSouvenir(markers,x,y,state.paperSouvenir)
@@ -3042,7 +3046,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
         end
         local label=done.paperDisplay and paper.giftLabel(q,state) or done.completedLabel
-        markers[#markers+1]={kind='text',x=x,y=y-(done.routeBeacon and 70 or done.patternBottle and 66 or done.outcrop and 48 or 41),text=label,color='#b9ffce',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(done.snowTrail and 103 or done.routeBeacon and 70 or done.patternBottle and 66 or done.outcrop and 48 or 41),text=label,color='#b9ffce',size=14}
        end
        if (done.readback or done.resonancePages or done.paperDisplay) and state.status=='complete' and not f.storyNearbyMilestone and not s.paused
            and canInspect(s.actors[s.active],done) then

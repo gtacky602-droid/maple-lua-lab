@@ -13,3 +13,5 @@
 固定後の観測台の同じフレームでは、描画命令はPNG41件、標準矩形7,360件、軽量16色1,952件でした。標準矩形より73.5%少なく、ミティヤの髪と外套、観測器の輪郭は残ります。留め具や毛布の細かな陰影は簡略化されます。 [PNG表示](../../evidence/sne-survey-fixed-png.png) · [軽量16色](../../evidence/sne-survey-fixed-light.png) · [二か所の測定値](../../evidence/sne-survey-yard.png) · [安定が不足する試行](../../evidence/sne-survey-unstable.png)
 
 `python -X utf8 test_sne_mitya_observation.py` で三つの観測結果、設置途中の保存、報告と編成、旧依頼の互換性を確認できます。サーバーを8908で起動して `node test_sne_mitya_observation.mjs` を実行すると、Chromeで受注から報告後の再訪までを確認できます。 [Luaの結果](../../evidence/sne-survey-lua.json) · [Chromeの結果](../../evidence/sne-survey-browser.json)
+
+終着駅に着いたLv142のセーブから巡回まで試す場合は、`test_snez_fresh_route.py --footprints-source` にセーブを渡します。ラボ起動後に `LAB_MITYA_CHECKPOINT` に同じセーブを指定してブラウザー検査を実行すると、保存した設置方法の再開と、Lv145の足跡の依頼も確認できます。 [雪線の巡回路](WHITE_PASS_PROGRESSION_WEB.md#ミティヤとトゥガリンの足跡)

@@ -20,23 +20,27 @@ parser.add_argument('--checkpoint', action='store_true', help='Reuse the earned 
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 parser.add_argument('--after-revisits',action='store_true',help='Continue the adventure with the regional side stories')
 parser.add_argument('--ticket-source', type=Path, help='Replay the first ticket and train from this Lv140 save')
+parser.add_argument('--footprints-source', type=Path, help='Continue from a Lv142 station save through the two side quests')
 options = parser.parse_args()
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
-if options.ticket_source and (options.after_revisits or options.draft_balance or options.checkpoint):
-    parser.error('The ticket replay supplies its own standard-balance checkpoint')
+earned_source = options.ticket_source or options.footprints_source
+if earned_source and (options.after_revisits or options.draft_balance or options.checkpoint
+                      or options.ticket_source and options.footprints_source):
+    parser.error('Choose one standard-balance checkpoint')
 draft = options.draft_balance
 suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
-if not options.checkpoint and not options.after_revisits and not options.ticket_source:
+if not options.checkpoint and not options.after_revisits and not earned_source:
     command = [sys.executable, str(ROOT / 'test_nod_fresh_route.py')]
     if draft:
         command.append('--draft-balance')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / ('earned-white-pass-ticket' if options.ticket_source else 'snez-fresh-route' + suffix)
+work = ROOT / 'work' / ('earned-white-pass-ticket' if options.ticket_source else
+                        'earned-sne-mitya-footprints' if options.footprints_source else 'snez-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
 source_file = ROOT/'evidence/nod-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('nod-fresh-route' + suffix) / 'snezhnaya-save.json'
-source=(options.ticket_source or source_file).read_bytes()
+source=(earned_source or source_file).read_bytes()
 start = validate_save(json.loads(source))
 original_items = {item['id'] for item in start['inventory']['items']}
 hub, road, cut = 'snezhnaya-hub', 'snezhnaya-field', 'white-pass-cut'
@@ -46,7 +50,11 @@ end = 'aurora-ice-cut'
 ticket, trail_quest, summit = 'white-pass-ticket', 'white-pass-trail', 'white-pass-summit'
 mitya, footprints = 'sne-mitya-observation', 'white-pass-footprints'
 footwork, rest, snow = 'white-pass-footwork', 'white-pass-rest', 'sne-snow-match-quest'
-assert start['story']['node'] == hub and start['progression']['level'] == 140
+if options.footprints_source:
+    assert start['story']['node'] == station and start['progression']['level'] == 142
+    assert start['story']['quests'][ticket]['status'] == 'complete'
+else:
+    assert start['story']['node'] == hub and start['progression']['level'] == 140
 assert start['story']['quests']['nod-moon-vault-quest']['status'] == 'complete'
 
 data = read(ROOT / 'content/story-graph.json')
@@ -132,9 +140,9 @@ def report(id):
 def cleanup():
     items = state.inventory['items']
     spare = sorted((item for item in items.values() if item.owner == 0 and not item.locked),
-                   key=lambda item: (bool(options.ticket_source and item.id in original_items),
+                   key=lambda item: (bool(earned_source and item.id in original_items),
                                      item.rarity, item.itemLv, item.id))
-    spare_needed = len(items) + len(state.inventory.ground) - 80 if options.ticket_source else len(items) - 55
+    spare_needed = len(items) + len(state.inventory.ground) - 80 if earned_source else len(items) - 55
     for item in spare[:max(0, spare_needed)]:
         act('artifact_sell:' + str(item.id))
     act('artifact_recover')
@@ -233,16 +241,64 @@ def recruit_mitya():
     report(mitya)
     assert frame().storyJoined.mitya
     cross(hub)
-    cleanup()
+    if not earned_source:
+        cleanup()
     save('mitya-save')
 
+
+cut_route = (hub, road, cut)
+if options.footprints_source:
+    cross(hub)
+    before_xp = state.progression.questXp
+    recruit_mitya()
+    mitya_reward_xp = state.progression.questXp - before_xp
+    cross('sne-survey-shed')
+    act('story_select_joined:' + mitya)
+    assert state.companion == 'mitya' and frame().starterEquipment.flower.hp == 10
+    cross(hub)
+    blocked(footprints)
+    hunt(cut_route, 260, 145)
+    fast(hub)
+    save('footprints-ready')
+    route = accept(footprints)
+    cross(road, cut)
+    near(440)
+    first = frame()
+    assert any(d.color == '#59758b' for d in first.draws.values())
+    assert not any(d.color == '#435872' for d in first.draws.values())
+    inspect(440)
+    assert route.count == 1
+    near(580)
+    assert not frame().storyNearbyMilestone
+    assert any(d.color == '#435872' and d.y == 470 for d in frame().draws.values())
+    inspect(580, 382)
+    assert route.count == 2 and any(d.text == '安全な回り道' for d in frame().draws.values())
+    cross(road, hub)
+    before = state.progression.questXp, state.mora
+    report(footprints)
+    reward = [state.progression.questXp-before[0], state.mora-before[1]]
+    finished = save('lua-complete')
+    resumed = core.restore(lua.table_from(finished, recursive=True), 12)
+    assert resumed.story.node == hub and resumed.story.quests[footprints].status == 'complete'
+    prior = {id:q for id,q in start['story']['quests'].items() if q['status']=='complete'}
+    assert all(finished['story']['quests'][id] == q for id,q in prior.items())
+    assert state.returns == 0 and resumed.companion == 'mitya'
+    kept = {item['id'] for item in finished['inventory']['items']}
+    assert all(item['id'] in kept for item in start['inventory']['items'] if item['owner'] or item.get('locked'))
+    record = dict(sourceSha256=sha256(source).hexdigest(), milestones=milestones, hunts=hunts,
+                  mityaRewardXp=mitya_reward_xp, footprintsReward=reward, visibleTracks=True,
+                  visibleCrackOnGround=True, overlookRequired=True, safePathFlag=True,
+                  level=finished['progression']['level'], priorQuests=len(prior), companion=finished['companion'],
+                  inventoryKept=len(kept & original_items), recoveryTrips=recovery_trips, inventoryTrips=inventory_trips,
+                  partyWipes=state.returns)
+    (work/'lua.json').write_text(json.dumps(record, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
+    sys.exit(0)
 
 assert core.growthSkillCondition(state, 'SK58')[0] is False
 blocked(ticket)
 if not options.ticket_source:
     recruit_mitya()
 
-cut_route = (hub, road, cut)
 hunt(cut_route, 260, 141)
 fast(hub)
 if options.ticket_source:

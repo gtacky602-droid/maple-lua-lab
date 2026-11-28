@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "earned_sne_mitya_footprints": {"levels":[142,145],"companion":"mitya","surveySetupRestored":true,"footprintOverlookRequired":true,"safePathFlagPersists":true,"luaRecord":"evidence/earned-sne-mitya-footprints-lua.json","browserRecord":"evidence/earned-sne-mitya-footprints-browser.json"},
   "earned_white_pass_ticket": {"levels":[140,141,142],"observatoryRestored":true,"trainSeconds":9,"windowFlurriesPause":true,"midRideResume":"snezhnaya-hub","arrived":"white-pass-station","luaRecord":"evidence/earned-white-pass-ticket-lua.json","browserRecord":"evidence/earned-white-pass-ticket-browser.json"},
   "earned_nod_snow_border": {"levels":[131,133,136,140],"hunts":3,"upperGateHints":2,"autoDropsToNormalEnemy":true,"preservedQuests":94,"wipes":0,"luaRecord":"evidence/earned-nod-snow-border-lua.json","browserRecord":"evidence/earned-nod-snow-border-browser.json"},
   "earned_nod_lantern_patrol": {"levels":[130,131],"partialClearRestored":true,"remainingAfterShooter":3,"steamMatchesAndPauses":true,"standardCommands":6101,"lightCommands":1640,"luaRecord":"evidence/nod-lantern-patrol-lua.json","browserRecord":"evidence/earned-nod-lantern-patrol-browser.json"},

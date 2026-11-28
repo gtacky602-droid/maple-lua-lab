@@ -6,6 +6,28 @@ return function(C,canInspect)
   draws[#draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
  end
 
+ function survey.drawSnowTrail(draws,x,y,mark)
+  if mark=='tracks' then
+   for i=0,4 do
+    local left=x-64+i*22
+    local depth=y-12+(i%2)*4
+    rect(draws,left,depth,9,5,'#59758b')
+    rect(draws,left+7,depth-3,5,3,'#829cac')
+    rect(draws,left+13,depth+5,4,2,'#d5e6e8')
+   end
+  elseif mark=='crack' then
+   -- The observer is on the shelf. The crack lies in the snow below it.
+   rect(draws,x-40,475,94,5,'#d3e1e7')
+   rect(draws,x-30,477,27,3,'#465f78')
+   rect(draws,x-8,473,20,4,'#465f78')
+   rect(draws,x+7,470,18,4,'#435872')
+   rect(draws,x+19,466,12,4,'#526f89')
+   rect(draws,x+10,475,22,3,'#647d92')
+   rect(draws,x+29,477,18,3,'#647d92')
+   rect(draws,x-14,y-4,28,4,'#697d8d')
+  end
+ end
+
  local function label(draws,x,y,text,color)
   draws[#draws+1]={kind='text',x=x,y=y,text=text,size=14,color=color or cream}
  end
