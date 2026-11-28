@@ -18,8 +18,11 @@ return function(C)
   local offset=(i==1 and -1 or 1)*spec.cover.offsetU*spec.board.unit
   return M.ring(x+offset,r,spec.floorY,spec.cover.wardHeightU*spec.board.unit,M.water)
  end
+ function M.wardHeightFits(a,z)
+  return a.y<=z.y+1 and a.y-78>=z.y-z.h
+ end
  function M.protects(a,z)
-  return a.x-19>=z.lo and a.x+19<=z.hi and a.y<=z.y+1 and a.y-78>=z.y-z.h
+  return a.x-19>=z.lo and a.x+19<=z.hi and M.wardHeightFits(a,z)
  end
  function M.coverAt(spec,a)
   for i in ipairs(spec.cover.pointsU) do if M.protects(a,M.ward(spec,i)) then return i end end

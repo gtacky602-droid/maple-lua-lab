@@ -189,6 +189,7 @@ export function primalTrialText(primal){
 }
 
 export function falseMoonEncounterText(v){
+ const seconds=ticks=>(Math.max(0,Math.ceil(ticks/6))/10).toFixed(1);
  const votes=v.vote?` ｜ 同意 ${v.vote.count} / ${v.vote.required}`:'';
  const r=v.rule;
  if(r){
@@ -201,13 +202,19 @@ export function falseMoonEncounterText(v){
    if(v.wardResult.protected)return '柱で衝撃を防いだ';
    return v.wardResult.damage?`衝撃が命中 ｜ ${v.wardResult.damage}ダメージ`:'衝撃の被ダメージなし';
   }
-  return v.cover?'保護範囲の内側':'柱の青い枠の中へ';
+  const cue=v.wardCue;
+  if(!cue)return v.cover?'保護範囲の内側':'柱の青い枠の中へ';
+  const side=['左','中央','右'][cue.index-1];
+  const position=cue.inPosition?'青い枠の内側で待機':`${cue.needsGround?'床へ降りて':''}${side}の柱の青い枠へ`;
+  return `${position} ｜ 衝撃まで${seconds(cue.remaining)}秒`;
  }
- if(v.confirm)return `異界へ移るまで ${(v.confirm/60).toFixed(1)}秒${votes}`;
+ if(v.confirm)return `異界へ移るまで ${seconds(v.confirm)}秒${votes}`;
  if(v.card==='WM13'){
   if(v.riftRemaining===undefined)return '盤面中央に裂け目が開く';
   if(!v.riftRemaining)return '裂け目の受付終了';
-  return `中央の裂け目で入場を確認 ｜ 残り ${Math.ceil(v.riftRemaining/60)}秒${votes}`;
+  const entry=v.vote?.mine?'入場に同意済み':v.canUse?'Hで異界への入場を確認':
+   v.riftNeedsDescend?'床へ降りて中央の裂け目へ':'中央の裂け目へ';
+  return `${entry} ｜ 受付終了まで${seconds(v.riftRemaining)}秒${votes}`;
  }
  if(v.card==='WM14')return '異界へ移動中'+votes;
  if(v.card==='WM15')return `倒した擬影 ${v.pendingDamage} / 3 ｜ 残り ${v.seconds}秒 ｜ 右端から帰還可${votes}`;

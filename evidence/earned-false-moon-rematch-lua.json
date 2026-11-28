@@ -1,0 +1,214 @@
+[
+  {
+    "controller": "false_moon",
+    "case": "false-moon-full",
+    "label": "擬影を3体倒して帰還",
+    "ticks": 3127,
+    "sourceSha256": "e44ebb7f11aec1c4d07b7126dadcf6bcc7e045c7c710460b87275902498127f9",
+    "ward": {
+      "tick": 1022,
+      "moveTick": 360,
+      "x": 169.0,
+      "hpLoss": 0,
+      "event": "false-moon:WM08:ward"
+    },
+    "scenes": [
+      {
+        "tick": 1467,
+        "node": "nod-false-moon-rift",
+        "epoch": 1
+      },
+      {
+        "tick": 1807,
+        "node": "nod-false-moon-court",
+        "epoch": 2
+      }
+    ],
+    "pulses": [
+      {
+        "moveTick": 180,
+        "loss": 28
+      }
+    ],
+    "settlement": {
+      "tick": 1813,
+      "defeated": 3,
+      "bossHpBefore": 3400,
+      "bossHpAfter": 2992,
+      "loss": 408
+    },
+    "missedRift": null,
+    "exposureTicks": 360,
+    "exposureDamage": 336,
+    "expertClears": [
+      1,
+      2
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90683,
+      54
+    ],
+    "checkpointSha256": "24288598f2e40c8b61a301c7ccd140f44799ad5ab052949803b67c010a50339c"
+  },
+  {
+    "controller": "false_moon",
+    "case": "false-moon-early",
+    "label": "擬影を1体倒して早期帰還",
+    "ticks": 3195,
+    "sourceSha256": "24288598f2e40c8b61a301c7ccd140f44799ad5ab052949803b67c010a50339c",
+    "ward": {
+      "tick": 1022,
+      "moveTick": 360,
+      "x": 323.0,
+      "hpLoss": 106,
+      "event": "false-moon:WM08:hit"
+    },
+    "scenes": [
+      {
+        "tick": 1467,
+        "node": "nod-false-moon-rift",
+        "epoch": 1
+      },
+      {
+        "tick": 1847,
+        "node": "nod-false-moon-court",
+        "epoch": 2
+      }
+    ],
+    "pulses": [
+      {
+        "moveTick": 180,
+        "loss": 28
+      }
+    ],
+    "settlement": {
+      "tick": 1853,
+      "defeated": 1,
+      "bossHpBefore": 3400,
+      "bossHpAfter": 3264,
+      "loss": 136
+    },
+    "missedRift": null,
+    "exposureTicks": 360,
+    "exposureDamage": 336,
+    "expertClears": [
+      2,
+      3
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90577,
+      86
+    ],
+    "checkpointSha256": "e20bb145fd5680813a71191aa0370b56e1eda535b7a7f2f0c3b352fa4afee56f"
+  },
+  {
+    "controller": "false_moon",
+    "case": "false-moon-missed",
+    "label": "裂け目を見送る",
+    "ticks": 3037,
+    "sourceSha256": "e20bb145fd5680813a71191aa0370b56e1eda535b7a7f2f0c3b352fa4afee56f",
+    "ward": {
+      "tick": 1022,
+      "moveTick": 360,
+      "x": 323.0,
+      "hpLoss": 106,
+      "event": "false-moon:WM08:hit"
+    },
+    "scenes": [],
+    "pulses": [
+      {
+        "moveTick": 180,
+        "loss": 28
+      },
+      {
+        "moveTick": 360,
+        "loss": 28
+      },
+      {
+        "moveTick": 540,
+        "loss": 28
+      },
+      {
+        "moveTick": 720,
+        "loss": 28
+      }
+    ],
+    "settlement": null,
+    "missedRift": {
+      "tick": 2067,
+      "bossHp": 3400,
+      "scene": "nod-false-moon-court"
+    },
+    "exposureTicks": 0,
+    "exposureDamage": 0,
+    "expertClears": [
+      3,
+      4
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90465,
+      86
+    ],
+    "checkpointSha256": "57ceaef4ae561beb9231e5c113cd707afd291ead2d41fd085ed2c123a9e8d713"
+  }
+]

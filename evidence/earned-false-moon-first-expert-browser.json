@@ -1,0 +1,99 @@
+{
+  "court": {
+    "key": "falseMoonCourt",
+    "file": "false-moon-court-native-tiers-v1.webp",
+    "state": "ready",
+    "tile": [
+      0,
+      0,
+      512,
+      288
+    ]
+  },
+  "other": {
+    "key": "falseMoonRift",
+    "file": "false-moon-rift-native-tiers-v1.webp",
+    "state": "ready",
+    "tile": [
+      0,
+      0,
+      512,
+      288
+    ]
+  },
+  "stages": [
+    "outer",
+    "entering",
+    "inner",
+    "returning",
+    "outer"
+  ],
+  "atlasEntry": [
+    {
+      "approach": "入口のそばにいます",
+      "previewX": 210,
+      "id": "nod-false-moon-court",
+      "mode": "walk",
+      "from": "nod-town",
+      "level": 132,
+      "label": "徒歩",
+      "region": "region-07",
+      "name": "偽月の再現戦・外界"
+    },
+    {
+      "mode": "battle",
+      "from": "nod-false-moon-court",
+      "name": "偽月の再現戦・異界",
+      "id": "nod-false-moon-rift",
+      "region": "region-07",
+      "label": "戦闘中に移動",
+      "hint": "裂け目の予告後、中央でH。共闘は生存組全員の同意で移動"
+    }
+  ],
+  "atlasReturn": [
+    {
+      "mode": "battle",
+      "from": "nod-false-moon-rift",
+      "name": "偽月の再現戦・外界",
+      "id": "nod-false-moon-court",
+      "region": "region-07",
+      "label": "戦闘中に帰還",
+      "hint": "擬影3体を倒すか、右端の出口でH。共闘で出口を使うときは全員が同意"
+    }
+  ],
+  "wardCue": "青い枠の内側で待機 ｜ 衝撃まで3.5秒",
+  "entryCue": "Hで異界への入場を確認 ｜ 受付終了まで11.5秒",
+  "walkViolationExactlyOnce": true,
+  "coveredShock": true,
+  "cancelAndConfirm": true,
+  "realShadows": 3,
+  "settlement": 408,
+  "lookAwaySuccess": true,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 17,
+    "standard": 14536,
+    "light": 4048
+  },
+  "sourceSha256": "0499b2956238c4c22b34e1f7dc32632771c61eb2364bf66c24ac469833bd5672",
+  "expertWins": 1,
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "payout": {
+    "xp": 840000,
+    "mora": 21200
+  },
+  "transfer": {
+    "rawGzip": 71032,
+    "packedGzip": 36283,
+    "pixelMatch": true
+  },
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "remainingHp": 90751,
+  "errors": []
+}

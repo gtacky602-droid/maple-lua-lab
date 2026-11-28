@@ -489,13 +489,21 @@ return function(C,M)
   if c.key=='WM08' then
    local opens,closes=table.unpack(c.move.protection)
    if c.t>=60 and c.t<closes then
+    local shockAt=c.move.windows[2][1]
+    local nearest=math.huge
     for i,u in ipairs(spec.cover.pointsU) do
      local x=M.x(spec,u);local ward=M.ward(spec,i)
      v.wards[#v.wards+1]={lo=ward.lo,hi=ward.hi,active=c.t>=opens}
+     local inPosition=M.protects(a,ward)
+     local distance=math.abs(a.x-(ward.lo+ward.hi)/2)
+     if c.t<shockAt and distance<nearest then
+      nearest=distance
+      v.wardCue={index=i,remaining=shockAt-c.t,inPosition=inPosition,needsGround=not M.wardHeightFits(a,ward)}
+     end
      if c.t>=126 then
       rect(x-13,y-125,26,125,'#536783');rect(x-8,y-129,16,13,M.gold);rect(x-4,y-112,8,93,M.water,.7)
      end
-     box(rect,ward,c.t>=opens and M.protects(a,ward))
+     box(rect,ward,c.t>=opens and inPosition)
     end
    end
    if c.t>=300 and c.t<372 then
@@ -530,6 +538,7 @@ return function(C,M)
    v.confirm=c.confirm and c.confirm-c.t
    if c.t>=spec.rift.enterTick then v.riftRemaining=math.max(0,c.move.total-c.move.confirmation_ticks-c.t) end
    if c.t>=spec.rift.enterTick then
+    v.riftNeedsDescend=math.abs(a.x-spec.rift.x)<=spec.rift.radius and a.y<=spec.floorY-48
     rect(spec.rift.x-23,y-103,46,103,'#473661');rect(spec.rift.x-13,y-92,26,89,M.violet,.78)
    end
    local p=c.move.damage_pulses
