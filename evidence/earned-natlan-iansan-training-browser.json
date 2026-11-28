@@ -1,0 +1,52 @@
+{
+  "ordinaryTargetsAndUpperMarker": true,
+  "actualHitAndWaterStop": true,
+  "oneRecommendation": true,
+  "focusAndLogsAfterReload": true,
+  "slowerRetestReported": true,
+  "mobileTableFits": true,
+  "replayAfterReport": true,
+  "baselineDelta": true,
+  "replayComparison": true,
+  "sourceSha256": "4ad0d8711973f57c31b066cbcf234160f359ac6fc910acdd463f65592fa61a5a",
+  "startLevel": 111,
+  "reportedLevel": 111,
+  "priorCompleted": 84,
+  "baseline": {
+    "hits": 1,
+    "stopped": [
+      83,
+      89,
+      142
+    ],
+    "ticks": 734
+  },
+  "retest": {
+    "hits": 2,
+    "stopped": [
+      825,
+      65,
+      0
+    ],
+    "ticks": 1291
+  },
+  "replay": {
+    "hits": 0,
+    "ticks": 515,
+    "stopped": [
+      50,
+      64,
+      0
+    ]
+  },
+  "reward": [
+    2991093,
+    6300
+  ],
+  "calls": {
+    "png": 14,
+    "rect": 12357,
+    "light": 3017
+  },
+  "errors": []
+}

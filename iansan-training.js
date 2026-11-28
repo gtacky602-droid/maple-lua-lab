@@ -1,5 +1,6 @@
 const byId=id=>document.getElementById(id);
 const seconds=ticks=>(ticks/60).toFixed(1)+'秒';
+const hits=count=>count+'回';
 
 export function initIansanTraining(dispatch){
  const run=byId('iansanRun');
@@ -14,6 +15,8 @@ export function initIansanTraining(dispatch){
   if(key===rowsKey)return;
   rowsKey=key;
   const attempts=[['初回',view.baseline],['再試行',view.retest],['今回',view.latest]].filter(([,trial])=>trial);
+  if(attempts.length>1)table.createCaption().textContent='括弧内は初回との差';
+  else table.deleteCaption();
   const head=table.createTHead();
   head.replaceChildren();
   const heading=head.insertRow();
@@ -26,16 +29,26 @@ export function initIansanTraining(dispatch){
   const body=table.tBodies[0];
   body.replaceChildren();
   const metrics=[
-   ['時間',trial=>seconds(trial.ticks)],
-   ['被弾',trial=>trial.hits+'回'],
-   ...view.sectors.map((name,i)=>[name+'で停止',trial=>seconds(trial.stopped[i])]),
+   ['時間',trial=>trial.ticks,seconds],
+   ['被弾',trial=>trial.hits,hits],
+   ...view.sectors.map((name,i)=>[name+'で停止',trial=>trial.stopped[i],seconds]),
   ];
-  for(const [label,get] of metrics){
+  for(const [label,get,format] of metrics){
    const row=body.insertRow(),name=document.createElement('th');
    name.scope='row';
    name.textContent=label;
    row.append(name);
-   for(const [,trial] of attempts)row.insertCell().textContent=get(trial);
+   for(const [,trial] of attempts){
+    const cell=row.insertCell();
+    cell.textContent=format(get(trial));
+    if(trial===view.baseline)continue;
+    const difference=get(trial)-get(view.baseline);
+    const amount=format(Math.abs(difference));
+    const sign=amount===format(0)?'±':difference<0?'−':'+';
+    const comparison=document.createElement('small');
+    comparison.textContent='（'+sign+amount+'）';
+    cell.append(comparison);
+   }
   }
  }
 
