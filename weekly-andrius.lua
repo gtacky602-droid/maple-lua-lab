@@ -1,5 +1,5 @@
 return function(C)
- local wolf={}
+ local wolf={entranceResistance='風・氷 無効 / 物理 有効'}
  local avoid=C.aiAvoidTarget
  local ice,wind,pale,ink='#74ddff','#b9f4d9','#efffff','#233855'
  local roarPulses,roarHeight={108,138,168},390
@@ -297,7 +297,7 @@ return function(C)
   b.move=c and c.move.id;b.tick=c and c.tick;b.variant=c and c.variant
   b.recovery=c and recovery(c) or false
   b.label=w.waitUntil and '試練終了・再挑戦待ち' or c and c.move.title or '王狼の試練'
-  b.resistance='風・氷 無効 / 物理 有効'
+  b.resistance=wolf.entranceResistance
   if c then
    b.attack={left=c.left,right=c.right,center=c.center,origin=c.origin,finish=c.finish,dir=c.dir,
     startX=c.startX,finishX=c.finishX,points=c.points,floorY=c.floorY,entry=c.entry}

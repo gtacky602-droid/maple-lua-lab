@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 北風の王狼の本編戦から最上級の再戦へ
+
+報告110件のLv200セーブで、本編戦の再出現待ちから最上級へ進んだ。入口に本編戦の勝数と耐性、難度選択に討伐数を表示し、読み直すと攻略済みの最も高い難度を選ぶ。Chromeで最上級初回、続くLuaで装備を比較用に調整して全11技を含む再戦を確認。最上級2勝、通常報酬、装備と再出現待ちの復元まで検証した。 [操作と報酬](docs/weekly-boss-v1/ANDRIUS_WEB.md) · [初回のChrome試走](evidence/earned-andrius-first-expert-browser.json) · [再戦のLua試走](evidence/earned-andrius-rematch-lua.json) · [再戦後のChrome確認](evidence/earned-andrius-rematch-browser.json)
+
 ## 報告107件のセーブでLv200・極地の暁晶原へ
 
 暁晶尾根のLv190セーブでLv195の稜線の段丘を開き、Lv200で極地の暁晶原へ入った。上限後はLuaで1分・115体の討伐EXPを集計し、ChromeでもM地図の道をすべて歩いて討伐し、保存から累計と上限後EXPを復元した。画面下の経験値欄はLv200で「MAX」と上限後EXPに切り替わる。 [進行と操作](docs/balance/CAP_AND_STOPOVER_WEB.md) · [Lua試走](evidence/earned-aurora-cap-lua.json) · [Chromeでの試走](evidence/earned-aurora-cap-browser.json)

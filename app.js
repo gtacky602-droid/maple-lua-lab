@@ -856,7 +856,8 @@ function hud(f,calls,renderMs){
   go.textContent=portal.ferryStop?'F：途中下船する':portal.ferryReboard?'F：再乗船する':portal.ferryBoard?'F：乗船する':
    portal.trolleyStop?'F：途中下車する':portal.boatSeconds?'F：小舟に乗る':portal.waterwaySeconds?'F：水路を渡る':
    portal.phaseSeconds?'F：位相門をくぐる':portal.floatingStone?'F：浮石に乗る':portal.liftSeconds?'F：昇降台に乗る':
-   portal.trolleyBoard?'F：トロッコに乗る':portal.trainBoard?'F：列車に乗る':'F：この門を通る';
+   portal.trolleyBoard?'F：トロッコに乗る':portal.trainBoard?'F：列車に乗る':
+   f.weeklyDesk?'F：本編戦へ':'F：この門を通る';
  }
  const companionArtLink=$('companionArtLink');
  companionArtLink.hidden=!!f.storyTravelerTrial;

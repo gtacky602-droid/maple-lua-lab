@@ -297,6 +297,7 @@ export function initEndgameUI(action){
  const abyssButtons={entry:get('abyssEntry'),elite:get('abyssElite'),upper:get('abyssUpper')};
  const weeklyDesk=get('weeklyDesk'),weeklyDifficulty=get('weeklyDifficulty'),weeklyStart=get('weeklyChallengeStart');
  const weeklyDetails=get('weeklyChallengeDetails'),weeklyRecord=get('weeklyChallengeRecord'),weeklyResult=get('weeklyChallengeResult');
+ const weeklyEntranceInfo=get('weeklyEntranceInfo');
  const goals=get('endgameGoals'),goalHelp=get('endgameGoalHelp');
  const gearCandidates=get('endgameGearCandidates');
  const gearParts=['','花 HP','羽 ATK','時計 ATK','杯 元素ダメージ','冠 会心ダメージ'];
@@ -306,6 +307,7 @@ export function initEndgameUI(action){
  const lives=get('stygianLives'),life=get('stygianLife'),aid=get('stygianAid');
  let duel,previousDuel='';
  let weeklyChallenge,weeklySignature='';
+ const recentWeeklyModes=new Map();
  const companion={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',
   ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティヤ'};
  const goalLabels={gear:'狙うセットから、より主能力の高い聖遺物を装備する',
@@ -321,11 +323,14 @@ export function initEndgameUI(action){
   weeklyStart.disabled=!pick.available;
   const rewards=`勝利 ${amount(pick.xp)} EXP・${amount(pick.mora)}モラ${pick.record?'':` ｜ 初回追加 ${amount(pick.firstXp)} EXP・${amount(pick.firstMora)}モラ`}`;
   const pending=weeklyChallenge.wait>0?` ｜ 再出現まで ${weeklyChallenge.wait}秒`:'';
-  weeklyDetails.textContent=`必要Lv${pick.level} ｜ ${hpLabel(pick)} ｜ 攻撃ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
+  weeklyDetails.textContent=`必要Lv${pick.level} ｜ ${hpLabel(pick)} ｜ こちらの与ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
   weeklyRecord.hidden=!pick.record;
-  weeklyRecord.textContent=pick.record?record(pick.record):'';
+  weeklyRecord.textContent=pick.record?`${pick.name}の戦績　${record(pick.record)}`:'';
  }
- weeklyDifficulty.onchange=updateWeeklySelection;
+ weeklyDifficulty.onchange=()=>{
+  if(weeklyChallenge)recentWeeklyModes.set(weeklyChallenge.id,weeklyDifficulty.value);
+  updateWeeklySelection();
+ };
  weeklyStart.onclick=()=>{
   if(!weeklyChallenge||weeklyStart.disabled)return;
   action(`weekly_start:${weeklyChallenge.id}:${weeklyDifficulty.value}`);
@@ -365,11 +370,21 @@ export function initEndgameUI(action){
    if(changed){
     get('weeklyChallengeName').textContent=entry.name;
     weeklyDifficulty.replaceChildren(...entry.modes.map(rank=>new Option(rank.name,rank.id)));
-    weeklyDifficulty.value=(entry.modes.find(rank=>rank.available)||entry.modes[0]).id;
+    const remembered=entry.modes.find(rank=>rank.id===recentWeeklyModes.get(entry.id)&&rank.level<=frame.progression?.level);
+    const cleared=entry.modes.findLast(rank=>rank.record&&rank.level<=frame.progression?.level);
+    weeklyDifficulty.value=(remembered||cleared||entry.modes.find(rank=>rank.available)||entry.modes[0]).id;
    }
-   const signature=JSON.stringify([entry.id,entry.modes,weeklyChallenge.wait]);
+   const signature=JSON.stringify([entry.id,entry.modes,weeklyChallenge.wait,entry.storyRecord,entry.resistance]);
    if(signature!==weeklySignature){
     weeklySignature=signature;
+    for(const [index,rank] of entry.modes.entries()){
+     const label=rank.record?`${rank.name}（${rank.record.clears}勝）`:rank.name;
+     const option=weeklyDifficulty.options[index];
+     if(option.textContent!==label)option.textContent=label;
+    }
+    const entrance=[entry.storyRecord&&`本編戦 ${entry.storyRecord.clears}勝`,entry.resistance].filter(Boolean).join(' ｜ ');
+    weeklyEntranceInfo.hidden=!entrance;
+    if(weeklyEntranceInfo.textContent!==entrance)weeklyEntranceInfo.textContent=entrance;
     updateWeeklySelection();
    }
   }else{
@@ -378,7 +393,7 @@ export function initEndgameUI(action){
   }
   const weeklyReward=frame.weeklyBoss?.reward;
   weeklyResult.hidden=!weeklyReward;
-  const resultText=weeklyReward?`勝利 ｜ ${amount(weeklyReward.xp)} EXP・${amount(weeklyReward.mora)}モラ${weeklyReward.first?' ｜ 初回追加分を含む':''}`:'';
+  const resultText=weeklyReward?`${frame.weeklyBoss.difficulty?frame.weeklyBoss.difficulty+' ':''}勝利 ｜ ${amount(weeklyReward.xp)} EXP・${amount(weeklyReward.mora)}モラ${weeklyReward.first?' ｜ 初回追加分を含む':''}`:'';
   if(weeklyResult.textContent!==resultText)weeklyResult.textContent=resultText;
   const fight=frame.endgameRun;
   run.hidden=!fight;desk.hidden=!frame.endgameDesk||!!frame.growthTrial;
