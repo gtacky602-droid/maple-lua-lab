@@ -22,6 +22,86 @@
     ],
     [
       "fontaine-hub",
+      "fon-wp-50077",
+      "walk"
+    ],
+    [
+      "fon-wp-50077",
+      "fon-wp-50058",
+      "walk"
+    ],
+    [
+      "fon-wp-50058",
+      "fon-wp-50056",
+      "walk"
+    ],
+    [
+      "fon-wp-50056",
+      "fon-wp-53867",
+      "walk"
+    ],
+    [
+      "fon-wp-53867",
+      "fon-wp-53850",
+      "lift"
+    ],
+    [
+      "fon-wp-53850",
+      "fon-wp-53849",
+      "lift"
+    ],
+    [
+      "fon-wp-53849",
+      "fon-wp-53864",
+      "walk"
+    ],
+    [
+      "fon-wp-53864",
+      "fon-wp-53849",
+      "swim"
+    ],
+    [
+      "fon-wp-53849",
+      "fon-wp-53850",
+      "lift"
+    ],
+    [
+      "fon-wp-53850",
+      "fon-wp-53867",
+      "lift"
+    ],
+    [
+      "fontaine-hub",
+      "nostoi-castle-approach",
+      "walk"
+    ],
+    [
+      "nostoi-castle-approach",
+      "fon-wp-68341",
+      "walk"
+    ],
+    [
+      "fon-wp-68341",
+      "fon-wp-68345",
+      "waterway"
+    ],
+    [
+      "fon-wp-68345",
+      "fon-wp-68342",
+      "waterway"
+    ],
+    [
+      "fon-wp-68342",
+      "fon-wp-68343",
+      "swim"
+    ],
+    [
+      "fon-wp-68343",
+      "fon-wp-68344",
+      "waterway"
+    ],
+    [
+      "fontaine-hub",
       "nostoi-castle-approach",
       "walk"
     ],
@@ -73,17 +153,67 @@
   ],
   "labels": [
     "モンド",
+    "璃月",
+    "鳴神島・離島",
+    "鶴観",
+    "スメールの森林",
+    "フォンテーヌ南部",
     "フォンテーヌ廷",
     "ノストイ地区",
     "往日の海",
     "フォンテーヌ湖・水中",
+    "フォンテーヌ北部・別階層",
+    "フォンテーヌ北部",
     "ノストイ地区・水中",
     "往日の海・水中"
   ],
   "reported": [
     "fon-mapped-depth-samples",
-    "fon-mapped-bygone-current"
+    "fon-mapped-north-lock",
+    "fon-mapped-bygone-current",
+    "fon-mapped-nostoi-record"
   ],
+  "lockRoute": [
+    "fon-wp-50077",
+    "fon-wp-50058",
+    "fon-wp-50056",
+    "fon-wp-53867"
+  ],
+  "shore": {
+    "dive": {
+      "approach": "現在地から右へ",
+      "name": "フォンテーヌ湖・北の入江の水底",
+      "region": "region-05",
+      "level": 85,
+      "hint": "門を通ると水中へ（中層）",
+      "mode": "dive",
+      "label": "潜水口",
+      "id": "fon-wp-53864",
+      "previewX": 906,
+      "from": "fon-wp-53849"
+    },
+    "land": {
+      "approach": "入口は今いる位置の上",
+      "mode": "land",
+      "region": "region-05",
+      "hint": "中層の門（今の位置から浮上）",
+      "level": 88,
+      "previewY": 360,
+      "id": "fon-wp-53849",
+      "previewX": 122,
+      "from": "fon-wp-53864",
+      "name": "フォンテーヌ北部・北の水門の第二層",
+      "label": "上陸口"
+    },
+    "wrongDepthRejected": true,
+    "northLockStepsUnchanged": true
+  },
+  "render": {
+    "png": 37,
+    "standard": 3468,
+    "light": 909,
+    "frozen": true
+  },
   "differentDepthRejection": true,
   "reloadAndWarp": true,
   "pageErrors": []
