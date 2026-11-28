@@ -4,6 +4,7 @@ export function initSpringCourse(dispatch){
  const panel=document.getElementById('springLayout');
  const form=document.getElementById('springSlots');
  const sampleResult=document.getElementById('springSampleResult');
+ const layoutRecord=document.getElementById('springLayoutRecord');
  const save=document.getElementById('springLayoutSave');
  const fields=new Map();
  const time=ticks=>(ticks/60).toFixed(1)+'秒';
@@ -17,7 +18,7 @@ export function initSpringCourse(dispatch){
   if(!view)return;
   const result=view.result;
   const message=view.phase==='sample'?'ジャンプで、踏み台の高さを測る':
-   view.phase==='lap'?(view.section<=3?`踏み台 ${view.section} / 3　｜　踏み台の上でジャンプ`:'三か所通過。右の旗へ'):
+   view.phase==='lap'?(view.sectionLabel?`踏み台 ${view.section} / 3　${view.sectionLabel}　｜　踏み台の上でジャンプ　｜　復帰 ${view.retries}回`:'三か所通過。右の旗へ'):
    result?.kind==='lap'?`今回 ${time(result.ticks)}　｜　この配置の最速 ${time(result.best)}`:
    view.best?`この配置の最速 ${time(view.best)}`:
    result?.kind==='sample'?`今回の跳ね上がり 約 ${result.rise} px`:'';
@@ -27,6 +28,9 @@ export function initSpringCourse(dispatch){
   if(!view.panel)return;
   const sampleText=`試走時の高さ　高い型 約 ${view.samples.high} px ／ 低い型 約 ${view.samples.low} px`;
   if(sampleResult.textContent!==sampleText)sampleResult.textContent=sampleText;
+  layoutRecord.hidden=!view.ready;
+  const recordText=view.ready?(view.draftBest?`この配置の最速 ${time(view.draftBest)}`:'この配置の完走記録はまだありません'):'';
+  if(layoutRecord.textContent!==recordText)layoutRecord.textContent=recordText;
   for(const section of view.sections){
    let input=fields.get(section.id);
    if(!input){

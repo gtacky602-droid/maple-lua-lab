@@ -225,11 +225,18 @@ slow_result=finish()
 assert slow_result['ticks']>first_result['ticks'] and slow_result['best']==first_result['best']
 gate(1526,hub,272)
 gate(173,lab)
+collect(650,'三つの踏み台を組み替える')
+assert frame().storySpringCourse.draftBest==first_result['best']
+act('story_spring_pick:reach:high')
+assert frame().storySpringCourse.ready and frame().storySpringCourse.draftBest is None
+act('story_spring_close')
 layout('high','low','high')
 gate(936,course)
 start()
+advance(core,s,75,idle)
 second_result=finish()
 assert second_result['retries']==0 and state().status=='complete'
+assert second_result['best']>first_result['best']
 assert len(native(state().springRecord.best))==2
 assert (s.progression.questXp-before[0],s.mora-before[1])==(2325046,5900)
 assert restore(save()).story.quests[quest].springRecord.best['high-low-low']==first_result['best']

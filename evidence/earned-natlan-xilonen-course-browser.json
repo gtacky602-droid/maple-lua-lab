@@ -1,0 +1,31 @@
+{
+  "samplingWithKeyboardAndTouch": true,
+  "draftReload": true,
+  "ceilingRecovery": true,
+  "configuredLapAndReport": true,
+  "bestAndReplayAfterReload": true,
+  "mobilePlanner": true,
+  "plannerReadsDraftRecord": true,
+  "sourceSha256": "9865982b913584fb68c640c9e61c5c36ae3aaaf10a9973d58baab80d460cbdd9",
+  "startLevel": 110,
+  "reportedLevel": 111,
+  "priorCompleted": 83,
+  "reward": [
+    2325046,
+    5900
+  ],
+  "heights": {
+    "high": 152,
+    "low": 64
+  },
+  "best": {
+    "high-low-high": 541,
+    "high-low-low": 440
+  },
+  "calls": {
+    "png": 17,
+    "rect": 7156,
+    "light": 1673
+  },
+  "errors": []
+}
