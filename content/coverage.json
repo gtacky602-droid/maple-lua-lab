@@ -8503,6 +8503,16 @@
         "evidence/earned-sumeru-wenut-browser.json"
       ]
     },
+    "earned_sumeru_baptist": {
+      "start_level": 72,
+      "arena_gate_level": 74,
+      "commissions_completed_total": 14,
+      "quests_replayed": ["sum-fungus-visitors", "sum-wanderer-observation", "sum-mapped-north-quay", "sum-mapped-twin-shaft"],
+      "encounter_cleared_and_commission_restored": "boss-22100501",
+      "numbered_warnings": {"bolts": 2, "crystals": 3, "rings": 3},
+      "lua_evidence": "evidence/earned-sumeru-baptist.json",
+      "browser_evidence": "evidence/earned-sumeru-baptist-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

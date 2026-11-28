@@ -1,0 +1,480 @@
+{
+  "sourceSha256": "efc937a688afcbed8d3ace3cfe85c15c7d4256c49fc7266245c35820b218105b",
+  "gateChecks": [
+    {
+      "node": "sumeru-entry",
+      "target": "baptist-field-sanctuary",
+      "reason": "必要レベル 74"
+    }
+  ],
+  "visitors": {
+    "notes": [
+      349,
+      440,
+      392
+    ],
+    "objectives": 11,
+    "report": {
+      "quest": "sum-fungus-visitors",
+      "xp": 164740,
+      "mora": 2000
+    }
+  },
+  "wanderer": {
+    "objectives": 8,
+    "report": {
+      "quest": "sum-wanderer-observation",
+      "xp": 153247,
+      "mora": 1850
+    }
+  },
+  "surveys": {
+    "sum-mapped-north-quay": {
+      "objectives": 5,
+      "hub": "sumeru-hub",
+      "routes": [
+        {
+          "start": "sumeru-hub",
+          "destination": "sum-wp-28740",
+          "stops": [
+            {
+              "mode": "boat",
+              "level": 63,
+              "label": "舟・寄港",
+              "approach": "現在地から右へ",
+              "id": "sum-wp-28740",
+              "previewX": 1123,
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "region": "region-04",
+              "from": "sumeru-hub",
+              "name": "スメールの森林・大樹の対岸"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28740",
+          "destination": "sum-wp-28741",
+          "stops": [
+            {
+              "mode": "walk",
+              "level": 64,
+              "label": "徒歩",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-28741",
+              "previewX": 920,
+              "region": "region-04",
+              "from": "sum-wp-28740",
+              "name": "スメールの森林・森林北の分岐"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28741",
+          "destination": "sum-wp-28701",
+          "stops": [
+            {
+              "mode": "walk",
+              "level": 64,
+              "label": "徒歩",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-28701",
+              "previewX": 76,
+              "region": "region-04",
+              "from": "sum-wp-28741",
+              "name": "スメールの森林・北の森の神像"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28701",
+          "destination": "sum-wp-69098",
+          "stops": [
+            {
+              "mode": "walk",
+              "level": 67,
+              "label": "徒歩",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-69098",
+              "previewX": 734,
+              "region": "region-04",
+              "from": "sum-wp-28701",
+              "name": "スメールの森林・バイダ港の船着き場"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-69098",
+          "destination": "sumeru-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "level": 64,
+              "label": "徒歩",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-28701",
+              "previewX": 76,
+              "region": "region-04",
+              "from": "sum-wp-69098",
+              "name": "スメールの森林・北の森の神像"
+            },
+            {
+              "mode": "walk",
+              "level": 64,
+              "previewX": 1392,
+              "id": "sum-wp-28741",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28701",
+              "name": "スメールの森林・森林北の分岐"
+            },
+            {
+              "mode": "walk",
+              "level": 63,
+              "previewX": 953,
+              "id": "sum-wp-28740",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28741",
+              "name": "スメールの森林・大樹の対岸"
+            },
+            {
+              "mode": "boat",
+              "level": 60,
+              "previewX": 1342,
+              "id": "sumeru-hub",
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "label": "舟・寄港",
+              "region": "region-04",
+              "from": "sum-wp-28740",
+              "name": "スメール・樹陰の広場"
+            }
+          ]
+        }
+      ]
+    },
+    "sum-mapped-twin-shaft": {
+      "objectives": 6,
+      "hub": "sumeru-hub",
+      "routes": [
+        {
+          "start": "sumeru-hub",
+          "destination": "sum-wp-32451",
+          "stops": [
+            {
+              "mode": "boat",
+              "level": 63,
+              "label": "舟・寄港",
+              "approach": "入口のそばにいます",
+              "id": "sum-wp-28740",
+              "previewX": 1123,
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "region": "region-04",
+              "from": "sumeru-hub",
+              "name": "スメールの森林・大樹の対岸"
+            },
+            {
+              "mode": "walk",
+              "level": 66,
+              "previewX": 76,
+              "id": "sum-wp-28743",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28740",
+              "name": "スメールの森林・西の湖の東岸"
+            },
+            {
+              "mode": "walk",
+              "level": 63,
+              "previewX": 76,
+              "id": "sum-wp-28708",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28743",
+              "name": "スメールの森林・古木の西の坂"
+            },
+            {
+              "mode": "walk",
+              "level": 68,
+              "previewX": 76,
+              "id": "sum-wp-32451",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28708",
+              "name": "失われた苗畑・枯れた根元の神像"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32451",
+          "destination": "sum-wp-32452",
+          "stops": [
+            {
+              "mode": "lift",
+              "level": 70,
+              "label": "昇降機",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-32452",
+              "previewX": 973,
+              "hint": "苗畑浅層の昇降機・移動に1.8秒",
+              "region": "region-04",
+              "from": "sum-wp-32451",
+              "name": "失われた苗畑・苗畑の浅層回廊"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32452",
+          "destination": "sum-wp-28709",
+          "stops": [
+            {
+              "mode": "lift",
+              "level": 72,
+              "label": "昇降機",
+              "approach": "現在地から右へ",
+              "id": "sum-wp-28709",
+              "previewX": 1412,
+              "hint": "苗畑深層の昇降機・移動に1.8秒",
+              "region": "region-04",
+              "from": "sum-wp-32452",
+              "name": "失われた苗畑・苗畑の深層の根室"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-28709",
+          "destination": "sum-wp-32452",
+          "stops": [
+            {
+              "mode": "lift",
+              "level": 70,
+              "label": "昇降機",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-32452",
+              "previewX": 76,
+              "hint": "苗畑深層の昇降機・移動に1.8秒",
+              "region": "region-04",
+              "from": "sum-wp-28709",
+              "name": "失われた苗畑・苗畑の浅層回廊"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32452",
+          "destination": "sum-wp-32451",
+          "stops": [
+            {
+              "mode": "lift",
+              "level": 68,
+              "label": "昇降機",
+              "approach": "現在地から左へ",
+              "id": "sum-wp-32451",
+              "previewX": 76,
+              "hint": "苗畑浅層の昇降機・移動に1.8秒",
+              "region": "region-04",
+              "from": "sum-wp-32452",
+              "name": "失われた苗畑・枯れた根元の神像"
+            }
+          ]
+        },
+        {
+          "start": "sum-wp-32451",
+          "destination": "sumeru-hub",
+          "stops": [
+            {
+              "mode": "walk",
+              "level": 63,
+              "label": "徒歩",
+              "approach": "現在地から右へ",
+              "id": "sum-wp-28708",
+              "previewX": 1422,
+              "region": "region-04",
+              "from": "sum-wp-32451",
+              "name": "スメールの森林・古木の西の坂"
+            },
+            {
+              "mode": "walk",
+              "level": 66,
+              "previewX": 1392,
+              "id": "sum-wp-28743",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28708",
+              "name": "スメールの森林・西の湖の東岸"
+            },
+            {
+              "mode": "walk",
+              "level": 63,
+              "previewX": 1342,
+              "id": "sum-wp-28740",
+              "label": "徒歩",
+              "region": "region-04",
+              "from": "sum-wp-28743",
+              "name": "スメールの森林・大樹の対岸"
+            },
+            {
+              "mode": "boat",
+              "level": 60,
+              "previewX": 1342,
+              "id": "sumeru-hub",
+              "hint": "大樹の広場と対岸を結ぶ渡し舟・移動に2.6秒",
+              "label": "舟・寄港",
+              "region": "region-04",
+              "from": "sum-wp-28740",
+              "name": "スメール・樹陰の広場"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "reports": [
+    {
+      "quest": "sum-fungus-visitors",
+      "xp": 164740,
+      "mora": 2000
+    },
+    {
+      "quest": "sum-wanderer-observation",
+      "xp": 153247,
+      "mora": 1850
+    },
+    {
+      "quest": "sum-mapped-north-quay",
+      "xp": 46200,
+      "mora": 5700
+    },
+    {
+      "quest": "sum-mapped-twin-shaft",
+      "xp": 56400,
+      "mora": 6500
+    },
+    {
+      "quest": "baptist-commission",
+      "xp": 4600,
+      "mora": 330
+    }
+  ],
+  "hunts": [
+    {
+      "kills": 39,
+      "xp": 44733,
+      "seconds": 74.67
+    },
+    {
+      "kills": 39,
+      "xp": 44733,
+      "seconds": 74.67
+    },
+    {
+      "kills": 39,
+      "xp": 44733,
+      "seconds": 74.67
+    },
+    {
+      "kills": 39,
+      "xp": 44733,
+      "seconds": 74.67
+    },
+    {
+      "kills": 39,
+      "xp": 44733,
+      "seconds": 74.67
+    },
+    {
+      "kills": 9,
+      "xp": 10323,
+      "seconds": 10.13
+    }
+  ],
+  "battle": {
+    "moves": {
+      "FIB01": {
+        "lock": 42,
+        "order": [
+          [
+            "1",
+            456.15999999999997,
+            390.4
+          ],
+          [
+            "2",
+            481.15999999999997,
+            390.4
+          ]
+        ]
+      },
+      "FIB02": {
+        "lock": 48,
+        "order": [
+          [
+            "1",
+            462.5,
+            375
+          ],
+          [
+            "2",
+            370.98,
+            375
+          ],
+          [
+            "3",
+            279.46000000000004,
+            375
+          ]
+        ]
+      },
+      "FIB03": {
+        "lock": 60,
+        "order": [
+          [
+            "1",
+            268.0,
+            375
+          ],
+          [
+            "2",
+            400.0,
+            375
+          ],
+          [
+            "3",
+            532.0,
+            375
+          ]
+        ]
+      }
+    },
+    "bolts": [
+      1,
+      2
+    ],
+    "recoveries": [
+      "FIB01",
+      "FIB02",
+      "FIB03"
+    ],
+    "counterHit": true,
+    "hpBefore": 384,
+    "hpAfter": 368,
+    "seconds": 18.72,
+    "xp": 82300
+  },
+  "restoredCooldown": 3048,
+  "reportedCommissions": [
+    "maguu-commission",
+    "array-commission",
+    "thunder-commission",
+    "pyro-hypostasis-commission",
+    "hydro-hypostasis-commission",
+    "wolflord-commission",
+    "bathysmal-commission",
+    "jadeplume-commission",
+    "electro-regisvine-commission",
+    "aeonblight-commission",
+    "dendro-hypostasis-commission",
+    "asimon-commission",
+    "wenut-commission",
+    "baptist-commission"
+  ],
+  "returns": 0
+}

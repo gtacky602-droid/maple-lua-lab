@@ -164,18 +164,18 @@ export async function verifySumeruBossGuide(page,arena,approach='sumeru-field'){
  return guide.stops.map(stop=>stop.id);
 }
 
-export async function captureNumberedFieldWarning(page,{move,before,color,output}){
- await page.waitForFunction(({move,before,color})=>{
+export async function captureNumberedFieldWarning(page,{move,before,color,output,count=3}){
+ await page.waitForFunction(({move,before,color,count})=>{
   const f=window.lab.frame,b=f.fieldBoss;
-  if(b?.move!==move||b.tick>=before||f.draws.filter(d=>d.kind==='text'&&d.color===color).length!==3)return false;
+  if(b?.move!==move||b.tick>=before||f.draws.filter(d=>d.kind==='text'&&d.color===color).length!==count)return false;
   window.lab.action('pause');
   return true;
- },{move,before,color});
+ },{move,before,color,count});
  await page.waitForFunction(()=>window.lab.frame.paused);
  const read=()=>page.evaluate(()=>window.lab.frame);
  const original=await read();
  const marks=f=>f.draws.filter(d=>d.kind==='text'&&d.color===color).map(d=>[d.x,d.y,d.text]);
- assert.deepEqual(marks(original).map(d=>d[2]),['1','2','3']);
+ assert.deepEqual(marks(original).map(d=>d[2]),Array.from({length:count},(_,i)=>String(i+1)));
  const canvas=page.locator('#game'),renderMode=page.locator('#renderMode');
  await canvas.screenshot({path:output+'.png'});
  await renderMode.selectOption('rect');
