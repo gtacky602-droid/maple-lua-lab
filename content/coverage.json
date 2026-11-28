@@ -8615,6 +8615,17 @@
       "lua_evidence": "evidence/earned-fontaine-surveys.json",
       "browser_evidence": "evidence/earned-fontaine-surveys-browser.json"
     },
+    "earned_bygone_routes": {
+      "survey_entry_level": 92,
+      "reported_surveys": ["bygone-survey", "fon-mapped-bygone-current"],
+      "named_swim_gates": ["bygone-wp-68604", "bygone-wp-68605"],
+      "ruins_entry_gate_level": 148,
+      "ruins_replay_save_level": 200,
+      "reported_ruins_quests": ["bygone-stone-rubbings", "bygone-lit-passage", "bygone-sound-book"],
+      "ruins_boss": "original-bellgate",
+      "lua_evidence": ["evidence/earned-bygone-current.json", "evidence/earned-bygone-resonance.json"],
+      "browser_evidence": ["evidence/earned-bygone-current-browser.json", "evidence/earned-bygone-resonance-browser.json"]
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

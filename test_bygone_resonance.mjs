@@ -7,7 +7,8 @@ import {observeRuinAttacks} from './tools/browser_ruin_guardian_test.mjs';
 const camp='bygone-camp',pier='bygone-waterway-pier',chamber='bygone-resonance-chamber';
 const hall='bygone-inscribed-hall',gallery='bygone-listening-gallery',archive='bygone-bell-archive';
 const first='bygone-stone-rubbings',second='bygone-lit-passage',third='bygone-sound-book';
-const prefix='evidence/bygone-resonance';
+const earned=process.argv.includes('--earned');
+const prefix=earned?'work/earned-bygone-current/ruins':'evidence/bygone-resonance';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1200,height:960}});
 const canvas=page.locator('#game');
@@ -141,10 +142,12 @@ try{
   });
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8868/');
   await wait(()=>window.lab?.frame);
-  const fixture=await fs.readFile('work/bygone-resonance-fixture.json','utf8');
+  const source=earned?'work/earned-bygone-current/ruins-ready.json':'work/bygone-resonance-fixture.json';
+  const fixture=await fs.readFile(source,'utf8');
   await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),fixture);
   await page.click('#loadProgress');
   await nodeIs(camp);
+  if(earned)assert.equal((await frame()).progression.level,200);
   await quest(first,'受注','active');
   await gate(831,pier);
   await gate(821,chamber,true);
@@ -216,10 +219,14 @@ try{
   await quest(third,'受注','active');
   await gate(1265,gallery);
   await gate(1390,archive);
+  if(earned){
+    const ally=page.locator('#allyFire');
+    if((await ally.getAttribute('aria-pressed'))!=='true')await ally.click();
+  }
   await walk(859);
   const ready=await frame();
   assert.equal(ready.fieldBoss.id,'original-bellgate');
-  assert.equal(ready.imprintGrowth.total,0);
+  if(!earned)assert.equal(ready.imprintGrowth.total,0);
   const background=await page.evaluate(async()=>{
     const {sceneryStatus,backgroundReady}=await import('./scenery.js');
     await backgroundReady;
@@ -261,7 +268,9 @@ try{
   assert.deepEqual(errors,[]);
   const proof={threeQuests:true,waterway:true,reversedSilent:true,repairedTones,wrongOrderResets:true,
     mutedOrder:true,bridgeAfterReload:true,firstReport,bookAfterReload:true,bookTones,background,commands,battle,bossClearSaved:true,errors};
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
+  if(earned)Object.assign(proof,{source,level:resumed.progression.level,reported:[first,second,third]});
+  const proofPath=earned?'evidence/earned-bygone-resonance-browser.json':prefix+'-browser.json';
+  await fs.writeFile(proofPath,JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
   console.error(await page.evaluate(()=>{

@@ -1,0 +1,73 @@
+{
+  "level": 92,
+  "reported": [
+    "bygone-survey",
+    "fon-mapped-bygone-current"
+  ],
+  "lockedLateGate": 148,
+  "gates": [
+    {
+      "from": "bygone-wp-68604",
+      "to": "bygone-wp-68605",
+      "direction": "up",
+      "label": "東海の石橋へ続く上の門",
+      "atlas": "浅い層の門（今の位置から浮上）・東海の石橋へ続く上の門"
+    },
+    {
+      "from": "bygone-wp-68605",
+      "to": "bygone-wp-68604",
+      "direction": "down",
+      "label": "西海の峡谷へ戻る下の門",
+      "atlas": "深い層の門（今の位置から潜る）・西海の峡谷へ戻る下の門"
+    }
+  ],
+  "journeys": [
+    [
+      "fontaine-hub",
+      "fontaine-field",
+      "walk"
+    ],
+    [
+      "fontaine-field",
+      "bygone-camp",
+      "walk"
+    ],
+    [
+      "bygone-camp",
+      "bygone-depth",
+      "walk"
+    ],
+    [
+      "bygone-depth",
+      "bygone-wp-68604",
+      "waterway"
+    ],
+    [
+      "bygone-wp-68604",
+      "bygone-wp-68605",
+      "swim"
+    ],
+    [
+      "bygone-wp-68605",
+      "bygone-wp-68604",
+      "swim"
+    ],
+    [
+      "bygone-wp-68604",
+      "bygone-depth",
+      "waterway"
+    ],
+    [
+      "bygone-depth",
+      "bygone-camp",
+      "walk"
+    ]
+  ],
+  "compression": {
+    "png": 26,
+    "standard": 3459,
+    "light": 900
+  },
+  "restoredUnderwaterWarp": true,
+  "errors": []
+}
