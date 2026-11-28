@@ -500,7 +500,7 @@ function hud(f,calls,renderMs){
   $('storyLiftText').textContent=trolley?(trolley.stopover?'停留所に停車中 ｜ Fで途中下車できます':'トロッコで移動中'):
    voyage?.kind==='ferry'?(voyage.stopover?'オシカ・ナタに寄港中':'航海中')+' ｜ '+lift.destination+'まで '+Math.ceil(lift.remaining)+'秒':
    voyage?.kind==='train'?'列車で移動中 ｜ '+lift.destination+'まで '+Math.ceil(lift.remaining)+'秒':
-   (lift.boat?'小舟で移動中':lift.waterway?'水路を移動中':lift.phase?'位相門で移動中':lift.wall?'壁伝いに移動中':lift.spiritway?'スピリットウェイを移動中':lift.windLift?'風に乗って移動中':'昇降台で移動中')+' ｜ '+lift.destination;
+   (lift.boat?'小舟で移動中':lift.waterway?'水路を移動中':lift.phase?'位相門で移動中':lift.wall?'壁伝いに移動中':lift.spiritway?'スピリットウェイを移動中':lift.windLift?'風に乗って移動中':lift.floatingStone?'浮石で移動中':'昇降台で移動中')+' ｜ '+lift.destination;
   $('storyLiftProgress').max=lift.seconds;
   $('storyLiftProgress').value=lift.seconds-lift.remaining;
  }
@@ -800,7 +800,7 @@ function hud(f,calls,renderMs){
   go.disabled=!portal.available;
   go.textContent=portal.ferryStop?'F：途中下船する':portal.ferryReboard?'F：再乗船する':portal.ferryBoard?'F：乗船する':
    portal.trolleyStop?'F：途中下車する':portal.boatSeconds?'F：小舟に乗る':portal.waterwaySeconds?'F：水路を渡る':
-   portal.phaseSeconds?'F：位相門をくぐる':portal.liftSeconds?'F：昇降台に乗る':
+   portal.phaseSeconds?'F：位相門をくぐる':portal.floatingStone?'F：浮石に乗る':portal.liftSeconds?'F：昇降台に乗る':
    portal.trolleyBoard?'F：トロッコに乗る':portal.trainBoard?'F：列車に乗る':'F：この門を通る';
  }
  const companionArtLink=$('companionArtLink');

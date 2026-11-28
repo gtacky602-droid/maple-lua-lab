@@ -1,0 +1,223 @@
+{
+  "sourceSha256": "6b04dafd9653260d355ce0b6809ba4a1d5a96e1b49e6d9a9a69550dcf44d97f5",
+  "startLevel": 54,
+  "arrivalLevel": 60,
+  "surveys": {
+    "ina-mapped-seirai-ferry": {
+      "level": 54,
+      "objectives": 5,
+      "report": {
+        "quest": "ina-mapped-seirai-ferry",
+        "xp": 23500,
+        "mora": 3200
+      }
+    },
+    "ina-mapped-undersea-floor": {
+      "level": 54,
+      "objectives": 5,
+      "report": {
+        "quest": "ina-mapped-undersea-floor",
+        "xp": 25900,
+        "mora": 3500
+      }
+    },
+    "ina-mapped-enkan-beacons": {
+      "level": 57,
+      "objectives": 5,
+      "report": {
+        "quest": "ina-mapped-enkan-beacons",
+        "xp": 38500,
+        "mora": 4900
+      }
+    }
+  },
+  "locks": [
+    {
+      "actual": 54,
+      "required": 60,
+      "destination": "sumeru-entry"
+    },
+    {
+      "actual": 54,
+      "required": 57,
+      "quest": "ina-mapped-enkan-beacons"
+    },
+    {
+      "actual": 59,
+      "required": 60,
+      "destination": "sumeru-entry"
+    }
+  ],
+  "restoredSouthBeacon": true,
+  "crossing": [
+    {
+      "origin": "inazuma-town",
+      "destination": "sumeru-entry",
+      "seconds": 4.8
+    },
+    {
+      "origin": "sumeru-entry",
+      "destination": "inazuma-town",
+      "seconds": 4.8
+    }
+  ],
+  "training": [
+    {
+      "field": "inazuma-outer-shore",
+      "reached": 56,
+      "sorties": [
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 28,
+          "xp": 15512,
+          "seconds": 71.2
+        }
+      ],
+      "teaStops": 0
+    },
+    {
+      "field": "sites-hunt-18667",
+      "reached": 57,
+      "sorties": [
+        {
+          "kills": 80,
+          "xp": 60320,
+          "seconds": 80.0
+        },
+        {
+          "kills": 81,
+          "xp": 61074,
+          "seconds": 80.0
+        },
+        {
+          "kills": 67,
+          "xp": 50518,
+          "seconds": 66.53
+        }
+      ],
+      "teaStops": 0
+    },
+    {
+      "field": "sites-hunt-18667",
+      "reached": 59,
+      "sorties": [
+        {
+          "kills": 78,
+          "xp": 58812,
+          "seconds": 80.0
+        },
+        {
+          "kills": 81,
+          "xp": 61074,
+          "seconds": 80.0
+        },
+        {
+          "kills": 89,
+          "xp": 67106,
+          "seconds": 80.0
+        },
+        {
+          "kills": 81,
+          "xp": 61074,
+          "seconds": 80.0
+        },
+        {
+          "kills": 84,
+          "xp": 63336,
+          "seconds": 80.0
+        },
+        {
+          "kills": 54,
+          "xp": 40716,
+          "seconds": 52.93
+        }
+      ],
+      "teaStops": 0
+    },
+    {
+      "field": "sites-hunt-18667",
+      "reached": 60,
+      "sorties": [
+        {
+          "kills": 84,
+          "xp": 63336,
+          "seconds": 80.0
+        },
+        {
+          "kills": 80,
+          "xp": 60320,
+          "seconds": 80.0
+        },
+        {
+          "kills": 83,
+          "xp": 62582,
+          "seconds": 80.0
+        },
+        {
+          "kills": 40,
+          "xp": 30160,
+          "seconds": 35.2
+        }
+      ],
+      "teaStops": 0
+    }
+  ],
+  "finishedAt": "sumeru-hub",
+  "lockedNorthwestFloatingStone": true,
+  "southernFloatingStoneSeconds": 3.5,
+  "partyWipes": 0
+}

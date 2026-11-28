@@ -58,7 +58,7 @@ def restock(trip):
     trip.warp(PORT)
 
 
-def train(trip, field, level, side_quest=None):
+def train(trip, field, level, side_quest=None, *, position=450):
     state = trip.state
     restores = 0
     sorties = []
@@ -73,7 +73,7 @@ def train(trip, field, level, side_quest=None):
             restock(trip)
             restores += 1
         trip.travel(field)
-        trip.approach(450, 480, field)
+        trip.approach(position, 480, field)
         initial_kills, initial_xp, initial_returns = trip.totals()
         initial_time = state.t
         trip.act('auto')

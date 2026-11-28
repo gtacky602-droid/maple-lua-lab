@@ -266,6 +266,7 @@ export function questRoute(f,q,status,preferredNode){
   else if(next.voyage?.kind==='trolley')notes.push('乗り場に着きました。「F：トロッコに乗る」で進めます');
   else if(edge.boatSeconds)notes.push('桟橋に着きました。「F：小舟に乗る」で進めます');
   else if(edge.waterwaySeconds)notes.push('乗り継ぎ場に着きました。「F：水路を渡る」で進めます');
+  else if(edge.floatingStone)notes.push('浮石の乗り場に着きました。「F：浮石に乗る」で進めます');
   else notes.push(edge.liftSeconds?'昇降台の近くです。「F：昇降台に乗る」で進めます':'次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
  }
  if(edge.boarding)notes.push(edge.boarding);

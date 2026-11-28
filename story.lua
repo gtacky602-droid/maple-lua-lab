@@ -462,6 +462,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     best={to=edge.to,name=automatic and fieldName(s,n) or edge.rideLabel or fieldName(s,n),level=n.level,available=not reason,reason=reason,
           automaticArrival=automatic,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
+          floatingStone=edge.floatingStone,
           ferryBoard=n.voyage and n.voyage.kind=='ferry' or nil,
           ferryReboard=n.voyage and n.voyage.kind=='ferry' and edge.resumeSeconds~=nil or nil,
           ferryStop=s.voyage and s.voyage.kind=='ferry' and edge.windowStart~=nil or nil,
@@ -1850,6 +1851,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
             waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,phase=departure.phaseSeconds~=nil,
             wallTrack=departure.wallTrack,spiritwayTrack=departure.spiritwayTrack,windLift=departure.windLift,
+            floatingStone=departure.floatingStone,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
      if not s.lift.waterway and not s.lift.boat and not s.lift.phase and (dest==previous or departure.animatedLift)
          and departure.arrivalY then s.lift.riders={} end
@@ -2396,7 +2398,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local ride=s.lift
     f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,phase=ride.phase,
                  waterway=ride.waterway or nil,boat=ride.boat or nil,wall=ride.wallTrack and true or nil,
-                 spiritway=ride.spiritwayTrack and true or nil,windLift=ride.windLift}
+                 spiritway=ride.spiritwayTrack and true or nil,windLift=ride.windLift,floatingStone=ride.floatingStone}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    if n.waterSurvey then
@@ -2755,7 +2757,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
    end
-   if s.lift and s.lift.riders and not (s.lift.wallTrack or s.lift.spiritwayTrack) then
+   if s.lift and s.lift.floatingStone then
+    local rider=s.actors[1]
+    local x,y=rider.x-s.camera,rider.y
+    markers[#markers+1]={kind='rect',x=x-68,y=y+1,w=108,h=6,color='#b6d4d6'}
+    markers[#markers+1]={kind='rect',x=x-62,y=y+7,w=96,h=8,color='#617c86'}
+    markers[#markers+1]={kind='rect',x=x-54,y=y+15,w=77,h=5,color='#3c5563'}
+    markers[#markers+1]={kind='rect',x=x-39,y=y+20,w=48,h=4,color='#263c4b'}
+    for i=0,2 do
+     markers[#markers+1]={kind='rect',x=x-54+i*31,y=y+8,w=10,h=2,color='#80f0df'}
+    end
+   elseif s.lift and s.lift.riders and not (s.lift.wallTrack or s.lift.spiritwayTrack) then
     local rider=s.actors[1]
     local x,y=rider.x-s.camera,rider.y
     if s.lift.windLift then
