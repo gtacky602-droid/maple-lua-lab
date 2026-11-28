@@ -9,7 +9,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,spriteImageFor,elementTintedSprite,combatOpacity,drawCombatRect,drawCombatRuns,drawPaletteBatch,omitCombatDraw} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
-import {apepDomeText,childeDropText,dvalinCrystalText,falseMoonEncounterText,gateEncounterText,hereticChantText,knaveContractText,knaveFeastText,narwhalJourneyText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
+import {apepDomeText,childeDropText,dvalinCrystalText,falseMoonEncounterText,gateEncounterText,hereticChantText,knaveContractText,knaveFeastText,narwhalJourneyText,narwhalObjectText,primalTrialText,raidenFlowerText,shoukiTrialText,signoraReleaseText,signoraSealStrikeText} from './endgame-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
 import {initSurveyMap} from './survey-map.js';
@@ -770,9 +770,7 @@ function hud(f,calls,renderMs){
    $('weeklyNarwhalObject').hidden=!object;
    if(object){
     const n=object.max-object.hp;
-    $('weeklyNarwhalObjectText').textContent=object.kind==='kernel'?
-     `幻形の核　通常攻撃 ${n} / ${object.max}回 ｜ 残り${Math.ceil(object.time/60)}秒`:
-     object.time?`渦の眼　命中 ${n} / ${object.max}回 ｜ 残り${Math.ceil(object.time/60)}秒`:'渦の眼の爆発範囲から離れる';
+    $('weeklyNarwhalObjectText').textContent=narwhalObjectText(object);
     $('weeklyNarwhalObjectMeter').max=object.max;
     $('weeklyNarwhalObjectMeter').value=n;
    }

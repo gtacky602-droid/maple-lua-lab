@@ -39,7 +39,7 @@ try {
     await page.goto(base + 'weekly-review-local');
     const rendered = await page.evaluate(async ({frames, nodes, title}) => {
       const {loadScenery, scenery} = await import('./scenery.js');
-      const {apepDomeText, beidouReplyText, childeDropText, dvalinCrystalText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, knaveContractText, knaveFeastText, narwhalJourneyText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, shoukiTrialText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
+      const {apepDomeText, beidouReplyText, childeDropText, dvalinCrystalText, falseMoonEncounterText, farkaChainText, gateEncounterText, hereticChantText, knaveContractText, knaveFeastText, narwhalJourneyText, narwhalObjectText, primalTrialText, raidenFlowerText, rerirTrialText, ronovaVerdictText, shoukiTrialText, signoraReleaseText, signoraSealStrikeText, stygianFinaleText, wandererFinalWindText} = await import('./endgame-ui.js');
       const {drawCombatRect, drawCombatRuns, drawPaletteBatch, elementTintedSprite, combatOpacity, omitCombatDraw, loadImageSet} =
         await import('./sprite-images.js');
       const {paintBandedSprite}=await import('./sprite-layers.js');
@@ -143,7 +143,8 @@ try {
         section.append(label);
         const {falseMoon, finale, flower, gate, heretic, move, narwhal, narwhalStage, primal} = sample.view;
         const flowerText = flower && 'inside' in flower ? raidenFlowerText(flower, move) : '';
-        const journeyText = narwhal ? narwhalJourneyText(narwhal, narwhalStage) : '';
+        const journeyText = narwhal ? [narwhal.object && narwhalObjectText(narwhal.object),
+          narwhalJourneyText(narwhal, narwhalStage)].filter(Boolean).join(' ｜ ') : '';
         const primalText = primal ? primalTrialText(primal) : '';
         const falseMoonText = falseMoon ? falseMoonEncounterText(falseMoon) : '';
         const gateText = gate ? gateEncounterText(gate) : '';

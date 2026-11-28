@@ -1,0 +1,412 @@
+{
+  "narwhal-interrupted": {
+    "image": "narwhal-interrupted.png",
+    "frames": {
+      "渦の眼・受付中": {
+        "tick": 486,
+        "originalCombatCanvasMs": 0.3999999761581421,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 40338,
+            "rgbAbsoluteError": 2579642,
+            "unpackedCommands": 8520,
+            "packedCommands": 848,
+            "unpackedBytes": 1033813,
+            "packedBytes": 277439,
+            "combatCanvasMs": 3.7999999821186066
+          },
+          "h32c16": {
+            "differentPixels": 40393,
+            "rgbAbsoluteError": 3193270,
+            "unpackedCommands": 3897,
+            "packedCommands": 384,
+            "unpackedBytes": 400797,
+            "packedBytes": 121585,
+            "combatCanvasMs": 1.7000000178813934
+          }
+        },
+        "journeyText": "渦の眼　命中 0 / 8回 ｜ 残り7秒"
+      },
+      "腹中へ移動": {
+        "tick": 3701,
+        "originalCombatCanvasMs": 0.20000001788139343,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14431,
+            "rgbAbsoluteError": 1168267,
+            "unpackedCommands": 4610,
+            "packedCommands": 861,
+            "unpackedBytes": 569670,
+            "packedBytes": 188374,
+            "combatCanvasMs": 2.0999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 14488,
+            "rgbAbsoluteError": 1381057,
+            "unpackedCommands": 2192,
+            "packedCommands": 397,
+            "unpackedBytes": 268438,
+            "packedBytes": 86891,
+            "combatCanvasMs": 1
+          }
+        },
+        "journeyText": "腹中で動けるまで2秒"
+      },
+      "幻形の核・受付開始": {
+        "tick": 3863,
+        "originalCombatCanvasMs": 0.19999998807907104,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12595,
+            "rgbAbsoluteError": 981371,
+            "unpackedCommands": 4593,
+            "packedCommands": 844,
+            "unpackedBytes": 565748,
+            "packedBytes": 186048,
+            "combatCanvasMs": 2
+          },
+          "h32c16": {
+            "differentPixels": 12681,
+            "rgbAbsoluteError": 1197320,
+            "unpackedCommands": 2175,
+            "packedCommands": 380,
+            "unpackedBytes": 264347,
+            "packedBytes": 83995,
+            "combatCanvasMs": 1
+          }
+        },
+        "journeyText": "幻形の核 ｜ 通常攻撃をあと4回 ｜ 残り5.0秒 ｜ 幻影を倒すと星海へ帰還"
+      },
+      "幻形の核・判定結果": {
+        "tick": 3973,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 11703,
+            "rgbAbsoluteError": 887051,
+            "unpackedCommands": 4913,
+            "packedCommands": 840,
+            "unpackedBytes": 604458,
+            "packedBytes": 192798,
+            "combatCanvasMs": 2.2999999821186066
+          },
+          "h32c16": {
+            "differentPixels": 11753,
+            "rgbAbsoluteError": 1064791,
+            "unpackedCommands": 2286,
+            "packedCommands": 376,
+            "unpackedBytes": 279106,
+            "packedBytes": 86399,
+            "combatCanvasMs": 1.0999999940395355
+          }
+        },
+        "journeyText": "核を中断 ｜ 幻影に190ダメージ・残り2秒"
+      },
+      "星海へ帰還": {
+        "tick": 4112,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 49981,
+            "rgbAbsoluteError": 3182080,
+            "unpackedCommands": 8527,
+            "packedCommands": 861,
+            "unpackedBytes": 1036731,
+            "packedBytes": 281063,
+            "combatCanvasMs": 5.5999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 50012,
+            "rgbAbsoluteError": 3951146,
+            "unpackedCommands": 3913,
+            "packedCommands": 397,
+            "unpackedBytes": 450279,
+            "packedBytes": 125588,
+            "combatCanvasMs": 2.4000000059604645
+          }
+        },
+        "journeyText": "星海に到着 ｜ 反撃まで3秒"
+      },
+      "帰還時の鯨へのダメージ": {
+        "tick": 4136,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 49881,
+            "rgbAbsoluteError": 3099837,
+            "unpackedCommands": 8726,
+            "packedCommands": 861,
+            "unpackedBytes": 1061460,
+            "packedBytes": 285600,
+            "combatCanvasMs": 6
+          },
+          "h32c16": {
+            "differentPixels": 49949,
+            "rgbAbsoluteError": 3835316,
+            "unpackedCommands": 4013,
+            "packedCommands": 397,
+            "unpackedBytes": 451827,
+            "packedBytes": 128693,
+            "combatCanvasMs": 2.5999999940395355
+          }
+        },
+        "journeyText": "鯨に440ダメージ ｜ 反撃まで2秒"
+      },
+      "反撃開始": {
+        "tick": 4256,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 27165,
+            "rgbAbsoluteError": 1999392,
+            "unpackedCommands": 8505,
+            "packedCommands": 839,
+            "unpackedBytes": 1029456,
+            "packedBytes": 276878,
+            "combatCanvasMs": 5.199999988079071
+          },
+          "h32c16": {
+            "differentPixels": 27196,
+            "rgbAbsoluteError": 2339734,
+            "unpackedCommands": 3891,
+            "packedCommands": 375,
+            "unpackedBytes": 400702,
+            "packedBytes": 121160,
+            "combatCanvasMs": 2.5999999940395355
+          }
+        },
+        "journeyText": "反撃できる時間 残り10秒"
+      }
+    }
+  },
+  "narwhal-missed": {
+    "image": "narwhal-missed.png",
+    "frames": {
+      "渦の眼・受付中": {
+        "tick": 486,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 40334,
+            "rgbAbsoluteError": 2583969,
+            "unpackedCommands": 8520,
+            "packedCommands": 848,
+            "unpackedBytes": 1036824,
+            "packedBytes": 278917,
+            "combatCanvasMs": 5.800000011920929
+          },
+          "h32c16": {
+            "differentPixels": 40401,
+            "rgbAbsoluteError": 3196640,
+            "unpackedCommands": 3897,
+            "packedCommands": 384,
+            "unpackedBytes": 406821,
+            "packedBytes": 124278,
+            "combatCanvasMs": 2.5999999940395355
+          }
+        },
+        "journeyText": "渦の眼　命中 0 / 8回 ｜ 残り7秒"
+      },
+      "腹中へ移動": {
+        "tick": 3701,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14425,
+            "rgbAbsoluteError": 1156979,
+            "unpackedCommands": 4610,
+            "packedCommands": 861,
+            "unpackedBytes": 566264,
+            "packedBytes": 186809,
+            "combatCanvasMs": 3.300000011920929
+          },
+          "h32c16": {
+            "differentPixels": 14464,
+            "rgbAbsoluteError": 1377317,
+            "unpackedCommands": 2192,
+            "packedCommands": 397,
+            "unpackedBytes": 262510,
+            "packedBytes": 84313,
+            "combatCanvasMs": 1.600000023841858
+          }
+        },
+        "journeyText": "腹中で動けるまで2秒"
+      },
+      "幻形の核・受付開始": {
+        "tick": 3863,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 12591,
+            "rgbAbsoluteError": 987276,
+            "unpackedCommands": 4593,
+            "packedCommands": 844,
+            "unpackedBytes": 561484,
+            "packedBytes": 183769,
+            "combatCanvasMs": 3.4000000059604645
+          },
+          "h32c16": {
+            "differentPixels": 12676,
+            "rgbAbsoluteError": 1188838,
+            "unpackedCommands": 2175,
+            "packedCommands": 380,
+            "unpackedBytes": 263832,
+            "packedBytes": 83609,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "journeyText": "幻形の核 ｜ 通常攻撃をあと4回 ｜ 残り5.0秒 ｜ 幻影を倒すと星海へ帰還"
+      },
+      "幻形の核・判定結果": {
+        "tick": 4163,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 13627,
+            "rgbAbsoluteError": 1103473,
+            "unpackedCommands": 4592,
+            "packedCommands": 837,
+            "unpackedBytes": 560382,
+            "packedBytes": 185596,
+            "combatCanvasMs": 3.4000000059604645
+          },
+          "h32c16": {
+            "differentPixels": 13692,
+            "rgbAbsoluteError": 1316734,
+            "unpackedCommands": 2165,
+            "packedCommands": 373,
+            "unpackedBytes": 254047,
+            "packedBytes": 84077,
+            "combatCanvasMs": 1.5999999940395355
+          }
+        },
+        "journeyText": "核の受付終了 ｜ 獣の突進"
+      },
+      "受付終了後・獣の襲来": {
+        "tick": 4309,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 14252,
+            "rgbAbsoluteError": 1153801,
+            "unpackedCommands": 4588,
+            "packedCommands": 839,
+            "unpackedBytes": 564729,
+            "packedBytes": 185654,
+            "combatCanvasMs": 3.2999999821186066
+          },
+          "h32c16": {
+            "differentPixels": 14368,
+            "rgbAbsoluteError": 1386770,
+            "unpackedCommands": 2170,
+            "packedCommands": 375,
+            "unpackedBytes": 266108,
+            "packedBytes": 84473,
+            "combatCanvasMs": 1.5
+          }
+        },
+        "journeyText": "幻影を倒すと星海へ帰還"
+      },
+      "獣の襲来後の隙": {
+        "tick": 4607,
+        "originalCombatCanvasMs": 0.29999998211860657,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 11894,
+            "rgbAbsoluteError": 901032,
+            "unpackedCommands": 3756,
+            "packedCommands": 7,
+            "unpackedBytes": 462301,
+            "packedBytes": 82816,
+            "combatCanvasMs": 2.5
+          },
+          "h32c16": {
+            "differentPixels": 11977,
+            "rgbAbsoluteError": 1068790,
+            "unpackedCommands": 1802,
+            "packedCommands": 7,
+            "unpackedBytes": 218603,
+            "packedBytes": 39758,
+            "combatCanvasMs": 1.100000023841858
+          }
+        },
+        "journeyText": "幻影を倒すと星海へ帰還"
+      },
+      "星海へ帰還": {
+        "tick": 4775,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 47561,
+            "rgbAbsoluteError": 2935064,
+            "unpackedCommands": 7697,
+            "packedCommands": 31,
+            "unpackedBytes": 933687,
+            "packedBytes": 178064,
+            "combatCanvasMs": 5.0999999940395355
+          },
+          "h32c16": {
+            "differentPixels": 47595,
+            "rgbAbsoluteError": 3646639,
+            "unpackedCommands": 3547,
+            "packedCommands": 31,
+            "unpackedBytes": 406546,
+            "packedBytes": 81684,
+            "combatCanvasMs": 2.2999999821186066
+          }
+        },
+        "journeyText": "星海に到着 ｜ 反撃まで3秒"
+      },
+      "帰還時の鯨へのダメージ": {
+        "tick": 4799,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 47482,
+            "rgbAbsoluteError": 2857561,
+            "unpackedCommands": 7896,
+            "packedCommands": 31,
+            "unpackedBytes": 957507,
+            "packedBytes": 182545,
+            "combatCanvasMs": 4.800000011920929
+          },
+          "h32c16": {
+            "differentPixels": 47543,
+            "rgbAbsoluteError": 3543115,
+            "unpackedCommands": 3647,
+            "packedCommands": 31,
+            "unpackedBytes": 405901,
+            "packedBytes": 83978,
+            "combatCanvasMs": 2.2999999821186066
+          }
+        },
+        "journeyText": "鯨に440ダメージ ｜ 反撃まで2秒"
+      },
+      "反撃開始": {
+        "tick": 4919,
+        "originalCombatCanvasMs": 0.30000001192092896,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 25032,
+            "rgbAbsoluteError": 1764041,
+            "unpackedCommands": 7675,
+            "packedCommands": 9,
+            "unpackedBytes": 930094,
+            "packedBytes": 175675,
+            "combatCanvasMs": 4.800000011920929
+          },
+          "h32c16": {
+            "differentPixels": 25057,
+            "rgbAbsoluteError": 2060306,
+            "unpackedCommands": 3525,
+            "packedCommands": 9,
+            "unpackedBytes": 362187,
+            "packedBytes": 79295,
+            "combatCanvasMs": 2
+          }
+        },
+        "journeyText": "反撃できる時間 残り10秒"
+      }
+    }
+  }
+}
