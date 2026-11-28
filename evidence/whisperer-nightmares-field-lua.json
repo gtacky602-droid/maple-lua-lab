@@ -1,20 +1,30 @@
 {
-  "fixedLungeAndRiftDestination": true,
-  "riftUntargetable": true,
-  "shieldAbsorbsHpDamage": true,
-  "lunarShieldDamageMultiplier": 3,
-  "fourFishersDamageShieldWithoutRewards": true,
-  "finalFisherCancelsReleaseAtBoundary": true,
-  "unbrokenShieldHasOneRelease": true,
-  "summonsRemovedOnExitSaveAndBreak": true,
-  "oneQuestReport": true,
+  "lockedLunge": true,
+  "hiddenTicks": 36,
+  "visibleWarningTicks": 24,
+  "fisherHp": 60,
+  "sameSideFishers": true,
+  "damagePerGroup": [
+    9,
+    9,
+    38
+  ],
+  "summoningKeepsBodyTargetable": true,
+  "separateFisherCancellation": true,
+  "lastAcceptedTick": 299,
+  "interruptedOnTick": 300,
+  "interruptedRecoveryTicks": 180,
+  "naturalRecoveryTicks": 144,
+  "savesBodyHpAndClearsCast": true,
+  "oneRewardAndReport": true,
+  "edgeReposition": true,
   "normalAttackSolo": {
-    "seconds": 216.02,
+    "seconds": 103.22,
     "hp": 140
   },
   "sameSceneCommands": {
-    "png": 118,
-    "standard": 16058,
-    "light": 4297
+    "png": 50,
+    "standard": 13718,
+    "light": 3677
   }
 }

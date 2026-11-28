@@ -30,18 +30,12 @@
   "nightmare": {
     "lua": {
       "participants": 4,
-      "separateAreaHits": true,
+      "visibleReappearanceTellTicks": 24,
       "sharedSummons": true,
       "individualFisherHits": true,
-      "lunarDamageToShield": true,
-      "shieldStates": [
-        400,
-        312,
-        12,
-        0
-      ],
-      "lateJoinPreservesShield": true,
-      "shieldBreakDespawnsLivingFisher": true,
+      "lateJoinPreservesDefeatedCount": true,
+      "interruptedOnTick": 300,
+      "interruptionCancelsRelease": true,
       "individualRewards": true,
       "soloFisherHitPreservedOnJoin": true
     },

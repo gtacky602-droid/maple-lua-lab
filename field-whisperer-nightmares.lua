@@ -1,5 +1,5 @@
 return function(C)
- local nightmare={}
+ local nightmare={packRectArt=true}
  local U=88
  local serial=0
  local violet,pale,ink='#d24bfc','#f5b8ff','#242233'
@@ -12,7 +12,7 @@ return function(C)
  function nightmare.spawn(b,s)
   b.damageShield=0
   b.onShieldDamage=nil
-  b.shieldFactors=not s.draftMoves and {lunar=s.ward.lunarFactor} or nil
+  b.shieldFactors=s.ward and {lunar=s.ward.lunarFactor} or nil
   place(b,s,'idle','idle')
  end
  local function clear(state,c)
@@ -39,14 +39,20 @@ return function(C)
   end
  end
  function nightmare.frame(f,b,s,c)
-  if s.draftMoves then
-   f.draftMoves=true
-   if c and c.left and c.move.kind=='sequence' then
-    f.fisherSequence={defeated=c.defeatedFishers or 0,lane={left=c.left,right=c.right}}
-   end
-   return
+  f.draftMoves=s.draftMoves
+  if s.ward then f.darkShield={hp=b.damageShield,maxhp=s.ward.max} end
+  if not c or c.reposition then return end
+  local m=c.move
+  if b.form=='down' then f.recoveryTicks=c.broken+(m.downTicks or s.ward.downTicks)-c.tick
+  elseif b.form=='recover' then f.recoveryTicks=m.total-c.tick end
+  if not c.left then return end
+  if m.kind=='sequence' then
+   f.fisherSequence={defeated=c.defeatedFishers or 0,lane={left=c.left,right=c.right},
+    fishers=c.fisherLanes,interrupted=c.broken~=nil,
+    remainingTicks=not c.broken and math.max(0,m.expire-c.tick) or nil}
+  elseif m.kind=='rift' then
+   f.fixedRift={left=c.left,right=c.right,center=c.destination}
   end
-  f.darkShield={hp=b.damageShield,maxhp=s.ward.max}
  end
  local function breakShield(state,b,s,c)
   if c.broken or b.damageShield>0 then return end
@@ -65,12 +71,12 @@ return function(C)
   if m.kind=='lunge' then
    c.left,c.right=signedLane(c,m.near,m.far)
    c.destination=c.origin+c.dir*m.travel*U
-   if not s.draftMoves then c.destination=clamp(c.destination,s.arenaMin+90,s.arenaMax-90) end
+   if s.ward then c.destination=clamp(c.destination,s.arenaMin+90,s.arenaMax-90) end
   elseif m.kind=='rift' then
    local r=m.width*U/2
    local dx=clamp((a and a.x or c.origin)-c.origin,-m.distance*U,m.distance*U)
    c.destination=c.origin+dx
-   if not s.draftMoves then c.destination=clamp(c.destination,s.arenaMin+r,s.arenaMax-r) end
+   if s.ward then c.destination=clamp(c.destination,s.arenaMin+r,s.arenaMax-r) end
    c.left,c.right=c.destination-r,c.destination+r
   elseif m.kind=='sequence' then
    c.left,c.right=signedLane(c,m.near,m.far)
@@ -82,6 +88,18 @@ return function(C)
   else
    c.left,c.right=s.arenaMin,s.arenaMax
   end
+ end
+ local function laneFits(state,s,c,left,right,tick)
+  return left>=s.arenaMin and right<=s.arenaMax and
+   C.fieldGroundRetreat(state,c.dir,left,right,tick-c.tick,c.origin)
+ end
+ local function fits(state,s,c)
+  local m=c.move
+  if not laneFits(state,s,c,c.left,c.right,m.active[#m.active][1]) then return false end
+  for i,child in ipairs(c.fisherLanes or {}) do
+   if not laneFits(state,s,c,child.left,child.right,m.active[i][1]) then return false end
+  end
+  return true
  end
  local function summonSequence(state,b,s,c)
   serial=serial+1
@@ -172,6 +190,12 @@ return function(C)
  end
  function nightmare.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
+  if c.reposition then
+   b.facing=s.home>b.x and 1 or -1
+   b.x=b.x+clamp(s.home-b.x,-s.walkSpeed/60,s.walkSpeed/60)
+   if b.x==s.home then c.origin,c.tick,c.reposition=b.x,0,nil end
+   return false
+  end
   c.tick=t
   if c.broken then
    local age=t-c.broken
@@ -185,7 +209,16 @@ return function(C)
    return true
   end
   if t<=m.lock and a then c.dir=a.x<c.origin and -1 or 1;b.facing=c.dir end
-  if t==m.lock then lock(c,s,a) end
+  if t==m.lock then
+   lock(c,s,a)
+   if not s.ward and not fits(state,s,c) then
+    c.left,c.right,c.destination,c.fisherLanes=nil,nil,nil,nil
+    place(b,s,'idle','idle')
+    if b.x==s.home then return true end
+    c.reposition=true
+    return false
+   end
+  end
   local form,pose='attack','ready'
   if m.kind=='lunge' and t>=m.advance[1] then
    local q=clamp((t-m.advance[1])/(m.advance[2]-m.advance[1]),0,1)
@@ -226,14 +259,18 @@ return function(C)
   return true
  end
  function nightmare.label(b,c,s)
-  if s.draftMoves then
+  if not s.ward then
+   if c and c.reposition then return '浜の中央へ移動中' end
    if b.form=='down' then return '放出を中断・反撃の隙' end
    if b.form=='standing' then return '起き上がり' end
    if b.form=='recover' then return '反撃の隙' end
    if b.form=='summoning' then
     local m,t=c.move,c.tick
     if t>=m.expire then return '深淵の放出・床の印から退避' end
-    if t>=m.deploy then return '闇の漁師 '..c.defeatedFishers..'／'..#m.fishers..'・2体で放出中断' end
+    if t>=m.deploy then
+     local seconds=math.ceil((m.expire-t)/6)/10
+     return string.format('闇の漁師 %d／%d・あと%.1f秒・2体で放出中断',c.defeatedFishers,#m.fishers,seconds)
+    end
    end
    if c and c.move.kind=='rift' and c.tick>=c.move.hide[2] and c.tick<c.move.active[1][1] then
     return '裂け目から出現・一撃に注意'
@@ -294,7 +331,6 @@ return function(C)
      local window=c.move.active[index]
      if c.tick<window[2] then
       warning(f,lane.left,lane.right,s.floorY,c.move.fisherHeight,c.tick>=window[1],cam)
-      f.draws[#f.draws+1]={kind='text',x=x,y=s.floorY-87,text=tostring(index),size=15,color=pale}
      end
     elseif unit.warningTick then
      warning(f,unit.markLeft,unit.markRight,s.floorY,.58,unit.warningTick>=s.ward.fisherWindup,cam)
@@ -302,6 +338,23 @@ return function(C)
     C.drawWhispererNightmaresFieldArt(f,x,s.floorY,'fisher',mode,profile,unit.x>b.x)
     rect(f,x-22,s.floorY-80,44,5,ink)
     rect(f,x-21,s.floorY-79,42*unit.hp/unit.maxhp,3,pale)
+   end
+  end
+ end
+ local function floorMark(f,x,y,width,text)
+  rect(f,x-width/2,y+6,width,18,ink)
+  rect(f,x-width/2,y+6,width,2,violet)
+  f.draws[#f.draws+1]={kind='text',x=x,y=y+20,text=text,size=12,color=pale}
+ end
+ function nightmare.drawOverlay(f,state,s,c)
+  if not c or c.broken or not c.left then return end
+  local m,cam,y=c.move,state.camera,s.floorY
+  if m.kind=='rift' and c.tick<m.active[1][2] then
+   floorMark(f,c.destination-cam,y,48,'裂け目')
+  elseif m.kind=='sequence' and c.tick<m.active[#m.active][2] then
+   floorMark(f,(c.left+c.right)/2-cam,y+20,38,'放出')
+   for i,unit in ipairs(c.summons or {}) do
+    if unit.hp>0 and c.tick<m.active[i][2] then floorMark(f,unit.x-cam,y,20,tostring(i)) end
    end
   end
  end

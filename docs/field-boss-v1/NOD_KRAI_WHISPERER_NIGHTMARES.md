@@ -1,6 +1,16 @@
 # 昏き魘夢の主
 
-## 短縮技案をラボで試す
+## 通常のラボで試す
+
+ナド・クライの町の広場で討伐調査を受け、月明かりの道から煙雲の山の昏き浜へ進む。Lv128の本体HPは共闘でも1,340固定で、漁手は各HP60の試作値。背景はラボ用の仮画像で、本番では3Dで配置する方針。
+
+- **裂け目からの奇襲**は84tickから0.6秒潜行する。120tickで床の印に現れ、24tickの構えを経て144tickから攻撃する。印は潜行前から表示する。
+- **二漁手・深淵放出**は同じ側に漁手が2体出る。床の「1」「2」「放出」が順に攻撃範囲を示す。漁手は156・228tickに一度ずつ攻撃し、本体の放出は324tickから始まる。
+- **中断と反撃**は300tickより前に2体を倒すと3秒間。片方を攻撃前に倒すと、その漁手の一撃を取り消せる。300tickで生き残った漁手は退場するので、その後は床の「放出」から離れる。自然に放出を終えた場合は2.4秒間反撃できる。
+
+召喚中も本体に攻撃が通る。漁手の倒し方で本体HPは変わらず、討伐報酬475モラと依頼の9,200EXP・630モラは本体の討伐と報告で受け取る。途中保存は本体HPを保持し、再開時に潜行・予告・召喚を初期化する。 [通常ルートと保存](../../evidence/whisperer-nightmares-field-browser.json) · [Luaの検査](../../evidence/whisperer-nightmares-field-lua.json)
+
+## 310万HPでの比較試作
 
 短縮技案の `./Start-Lab.ps1 -Port 9100 -DraftFieldMoves -NoOpen` と、従来技の比較版の `./Start-Lab.ps1 -Port 9099 -DraftBalance -NoOpen` に同じLv128のセーブを読み込む。どちらも本体HPは比較用の310万。ナド・クライの町で依頼を受け、月明かりの道から煙雲の山の昏き浜へ進む。
 
@@ -16,7 +26,7 @@
 
 Luaでは4人部屋で本体HPを共有し、各攻撃の範囲に入った参加者だけが被弾した。漁師が残ったまま退場する場合と、受付の最終tickまでに2体を倒す場合も確認。Chromeでは出現後の予告、漁師2体の討伐による中断を確認した。同一フレームの描画命令は標準16,257から軽量4,275へ減った。 [設計](NOD_KRAI_QUARTET_MOVESETS.md) · [Lua](../../evidence/draft-nightmare-moves-lua.json) · [Chrome](../../evidence/draft-nightmare-moves-browser.json) · [標準描画](../../evidence/short-nightmare-fishers.png) · [軽量描画](../../evidence/short-nightmare-fishers-light.png)
 
-## 従来技の比較元
+## 比較モードに残した従来技
 
 ナド・クライの町の広場で討伐調査を受け、月明かりの道の西側から「煙雲の山の昏き浜」に入る。海岸の画像と横方向の道はラボの試案。本番では背景を3Dで配置する方針。
 
@@ -30,4 +40,4 @@ Luaでは4人部屋で本体HPを共有し、各攻撃の範囲に入った参�
 
 シールド破壊、放出後、退出、討伐時に召喚体を片付ける。保存では本体HPと再出現までの残り時間を保持し、進行中のシールドと召喚体は初期化する。
 
-技の時間、耐久、人数、Lv128・HP1,340、報酬はラボの試案。召喚体とシールドの関係は公式の説明を参照した。対応する3Dモデルは配布ページを確認したが、取得時にHTTP403となり、形状の追加確認は保留している。 [原神公式](https://genshin.hoyoverse.com/ja/news/detail/162159) · [モデルの配布情報](https://models.spriters-resource.com/pc_computer/genshinimpact/asset/586793/)
+四体の漁師とシールドを使う従来方式は `-DraftBalance` で比較できる。召喚体とシールドの関係は公式の説明を参照した。3Dモデルの形状確認は、配布ページでHTTP403が出たため保留している。 [原神公式](https://genshin.hoyoverse.com/ja/news/detail/162159) · [モデルの配布情報](https://models.spriters-resource.com/pc_computer/genshinimpact/asset/586793/)
