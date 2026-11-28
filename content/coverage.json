@@ -8648,6 +8648,16 @@
       "lua_evidence": "evidence/earned-fontaine-waterworks.json",
       "browser_evidence": "evidence/earned-fontaine-waterworks-browser.json"
     },
+    "earned_fontaine_access_surveys": {
+      "entry_level": 94,
+      "reported_quests": ["fon-hidden-lab-access", "fon-beryl-thermal-vents"],
+      "objective_counts": [3, 6],
+      "instrument_depth_hints": ["gauge", "temperature", "current"],
+      "report_dependent_entrances": ["deianeira-legend-lab", "iron-viscount-legend-pool"],
+      "arena_level": 100,
+      "lua_evidence": "evidence/earned-fontaine-access-surveys.json",
+      "browser_evidence": "evidence/earned-fontaine-access-surveys-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

@@ -1,0 +1,61 @@
+{
+  "sourceSha256": "517621e23ffda099b42674070e5fde93960aed56a7611778785bc6bd0929d5ec",
+  "level": 94,
+  "returns": 0,
+  "cases": {
+    "fon-hidden-lab-access": {
+      "steps": 3,
+      "restoredMidSurveyCount": 2,
+      "payout": {
+        "quest": "fon-hidden-lab-access",
+        "xp": 162000,
+        "mora": 13600
+      },
+      "gateBefore": {
+        "entrance": "fon-wp-55768",
+        "level": 100,
+        "questReason": "フォンテーヌ・水辺の広場で依頼「水洞の奥の圧力扉」を報告してください。"
+      },
+      "gateAfter": {
+        "entrance": "fon-wp-55768",
+        "level": 100,
+        "questReason": null
+      },
+      "depthHints": [
+        {
+          "instrument": "gauge",
+          "direction": "up"
+        }
+      ]
+    },
+    "fon-beryl-thermal-vents": {
+      "steps": 6,
+      "restoredMidSurveyCount": 2,
+      "payout": {
+        "quest": "fon-beryl-thermal-vents",
+        "xp": 172000,
+        "mora": 13900
+      },
+      "gateBefore": {
+        "entrance": "iron-viscount-thermal-gallery",
+        "level": 100,
+        "questReason": "フォンテーヌ・水辺の広場で依頼「ベリル地下の排熱門」を報告してください。"
+      },
+      "gateAfter": {
+        "entrance": "iron-viscount-thermal-gallery",
+        "level": 100,
+        "questReason": null
+      },
+      "depthHints": [
+        {
+          "instrument": "temperature",
+          "direction": "down"
+        },
+        {
+          "instrument": "current",
+          "direction": "up"
+        }
+      ]
+    }
+  }
+}

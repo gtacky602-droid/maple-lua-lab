@@ -1,0 +1,60 @@
+{
+  "cases": {
+    "fon-hidden-lab-access": {
+      "steps": 3,
+      "depths": [
+        {
+          "instrument": "gauge",
+          "direction": "up"
+        }
+      ],
+      "gateBefore": {
+        "from": "fon-wp-55768",
+        "reason": "必要Lv100",
+        "questReason": "フォンテーヌ・水辺の広場で依頼「水洞の奥の圧力扉」を報告してください。"
+      },
+      "gateAfter": {
+        "from": "fon-wp-55768",
+        "reason": "必要Lv100",
+        "questReason": null
+      },
+      "restoredReport": true,
+      "payoutXp": 162000,
+      "payoutMora": 13600
+    },
+    "fon-beryl-thermal-vents": {
+      "steps": 6,
+      "depths": [
+        {
+          "instrument": "temperature",
+          "direction": "down"
+        },
+        {
+          "instrument": "current",
+          "direction": "up"
+        }
+      ],
+      "gateBefore": {
+        "from": "iron-viscount-thermal-gallery",
+        "reason": "必要Lv100",
+        "questReason": "フォンテーヌ・水辺の広場で依頼「ベリル地下の排熱門」を報告してください。"
+      },
+      "gateAfter": {
+        "from": "iron-viscount-thermal-gallery",
+        "reason": "必要Lv100",
+        "questReason": null
+      },
+      "restoredReport": true,
+      "compression": {
+        "png": 23,
+        "standard": 2951,
+        "light": 766
+      },
+      "payoutXp": 172000,
+      "payoutMora": 13900
+    }
+  },
+  "errors": [],
+  "source": "work/earned-fontaine-waterworks/waterworks-complete.json",
+  "level": 94
+}

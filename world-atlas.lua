@@ -493,6 +493,7 @@ return function(C, atlas)
      end
     end
     leg.level=nodes[leg.id].level
+    if leg.reason=='必要Lv'..leg.level then leg.questReason=C.atlasQuestGateRestriction(s,leg.edge) end
     leg.edge=nil;leg.first=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason
