@@ -1,0 +1,222 @@
+[
+  {
+    "controller": "primal_fire",
+    "case": "primal-barrier-broken",
+    "label": "蝕まれし源焔の主・障壁破壊",
+    "ticks": 7273,
+    "sourceSha256": "646e892d20b6a73871b973a3c6965b1214b9e5fe8d5ef7d0fb506de268821740",
+    "barrier": {
+      "tick": 861,
+      "moveTick": 457,
+      "event": "primal:WG05:broken",
+      "contacts": [
+        {
+          "moveTick": 61,
+          "units": 11
+        },
+        {
+          "moveTick": 97,
+          "units": 10
+        },
+        {
+          "moveTick": 133,
+          "units": 9
+        },
+        {
+          "moveTick": 169,
+          "units": 8
+        },
+        {
+          "moveTick": 205,
+          "units": 7
+        },
+        {
+          "moveTick": 241,
+          "units": 6
+        },
+        {
+          "moveTick": 277,
+          "units": 5
+        },
+        {
+          "moveTick": 313,
+          "units": 4
+        },
+        {
+          "moveTick": 349,
+          "units": 3
+        },
+        {
+          "moveTick": 385,
+          "units": 2
+        },
+        {
+          "moveTick": 421,
+          "units": 1
+        },
+        {
+          "moveTick": 457,
+          "units": 0
+        }
+      ],
+      "hits": [
+        {
+          "moveTick": 180,
+          "loss": 26
+        },
+        {
+          "moveTick": 360,
+          "loss": 26
+        }
+      ],
+      "bossHp": 2900
+    },
+    "orbHits": [],
+    "exposureTicks": 480,
+    "exposureDamage": 336,
+    "floors": [
+      {
+        "tick": 2382,
+        "hp": 1892,
+        "left": 128,
+        "width": 792
+      },
+      {
+        "tick": 4938,
+        "hp": 1136,
+        "left": 216,
+        "width": 704
+      },
+      {
+        "tick": 7236,
+        "hp": 464,
+        "left": 304,
+        "width": 616
+      }
+    ],
+    "brokenPillars": [
+      29091122,
+      29091123,
+      29091124
+    ],
+    "expertClears": [
+      1,
+      2
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      86186,
+      0
+    ],
+    "checkpointSha256": "874343827c7fcf4e973c2834b62287d506bb57d05dafadefb329f162d9e9cf35"
+  },
+  {
+    "controller": "primal_fire",
+    "case": "primal-barrier-expired",
+    "label": "蝕まれし源焔の主・時間切れ",
+    "ticks": 7236,
+    "sourceSha256": "874343827c7fcf4e973c2834b62287d506bb57d05dafadefb329f162d9e9cf35",
+    "barrier": {
+      "tick": 1184,
+      "moveTick": 780,
+      "event": "primal:WG05:failed",
+      "contacts": [],
+      "hits": [
+        {
+          "moveTick": 180,
+          "loss": 26
+        },
+        {
+          "moveTick": 360,
+          "loss": 26
+        },
+        {
+          "moveTick": 540,
+          "loss": 26
+        }
+      ],
+      "bossHp": 2900
+    },
+    "orbHits": [
+      {
+        "moveTick": 847,
+        "loss": 29
+      }
+    ],
+    "exposureTicks": 0,
+    "exposureDamage": 0,
+    "floors": [
+      {
+        "tick": 2345,
+        "hp": 1892,
+        "left": 128,
+        "width": 792
+      },
+      {
+        "tick": 4901,
+        "hp": 1220,
+        "left": 216,
+        "width": 704
+      },
+      {
+        "tick": 7199,
+        "hp": 548,
+        "left": 304,
+        "width": 616
+      }
+    ],
+    "brokenPillars": [
+      29091122,
+      29091123,
+      29091124
+    ],
+    "expertClears": [
+      2,
+      3
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      86131,
+      0
+    ],
+    "checkpointSha256": "3f1b762113478040ef3e8f3bdd4d3fee692f950d9be8c5fe85b16e222c58fe1f"
+  }
+]

@@ -160,25 +160,31 @@ export function narwhalJourneyText(journey,stage){
 }
 
 const primalObjectNames={gate:'障壁',bud:'芽',pillar:'柱'};
+const primalPillars=['左の柱','中央の柱','右の柱'];
 const primalTrialNames={WG05:'障壁',WG06:'擬態芽',WG14:'柱',WG16:'障壁'};
 
 export function primalTrialText(primal){
- const {cuts,objects,closing,tick,trial,exposure,exposureOpensIn,cutAt,largeOrbWarning}=primal;
+ const {cuts,objects,closing,tick,trial,exposure,exposureOpensIn,cutAt,cutCue,largeOrbWarning}=primal;
+ const seconds=ticks=>(Math.max(0,Math.ceil(ticks/6))/10).toFixed(1);
  const parts=[`足場 ${10-cuts}/10`];
  const targets=Array.isArray(objects)?objects:[];
  if(targets.length){
-  parts.push(targets.map((o,i)=>`${primalObjectNames[o.kind]}${targets.length>1?i+1:''} ${o.units}/${o.max}`).join(' ｜ '),
-   `残り ${Math.ceil((closing-tick)/60)}秒`);
+  const durability=targets.map((o,i)=>{
+   const name=o.kind==='pillar'?primalPillars[i]:primalObjectNames[o.kind]+(targets.length>1?i+1:'');
+   return `${name} ${o.units}/${o.max}`;
+  });
+  parts.push(...durability,`受付終了まで${seconds(closing-tick)}秒`);
  }else{
   const name=primalTrialNames[trial?.card];
   if(trial?.outcome==='expired')parts.push(`${name}の受付終了`);
   if(trial?.outcome==='broken'&&(exposureOpensIn||exposure))parts.push(`${name}を破壊`);
-  if(exposureOpensIn)parts.push('反撃までもうすぐ');
-  else if(exposure)parts.push(`反撃できる時間 ${(exposure/60).toFixed(1)}秒`);
+  if(exposureOpensIn)parts.push(`反撃開始まで${seconds(exposureOpensIn)}秒`);
+  else if(exposure)parts.push(`反撃できる時間 ${seconds(exposure)}秒`);
   else if(trial?.outcome==='broken')parts.push('反撃終了');
  }
  if(largeOrbWarning)parts.push('大玉に注意');
- if(cutAt&&tick<cutAt)parts.push('左端が崩れます。白線より右へ');
+ if(cutCue)parts.push(cutCue.needsMove?'白線より右へ':'白線の右側を維持',`床切断まで${seconds(cutCue.remaining)}秒`);
+ else if(cutAt&&tick<cutAt)parts.push('左端が崩れます。白線より右へ');
  return parts.join(' ｜ ');
 }
 

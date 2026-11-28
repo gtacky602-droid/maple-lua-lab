@@ -20,3 +20,14 @@
 Pで一時停止し、画像・標準矩形・軽量を切り替えると、同じ体勢と床寸法で見比べられる。障壁が開いた同一場面は標準16,349件、軽量4,399件で描画コマンドが73.1%減った。軽量では角の細い筋や鱗の色差が粗くなる。 [画像](../../evidence/primal-fire-weekly-png.png)・[標準](../../evidence/primal-fire-weekly-standard.png)・[軽量](../../evidence/primal-fire-weekly-light.png)
 
 Chromeで通常攻撃による障壁ダウン、三回の床切断、討伐、依頼報告、保存再開を確認した。落下復帰と蝕破の交代後の解決はLuaで確認した。全編成の難度、全技の回避経路、遠隔接続と実機への移植は検証範囲に残る。 [Lua回帰](../../evidence/primal-fire-weekly-lua.json)・[Chromeのプレイ記録](../../evidence/primal-fire-weekly-browser.json)
+
+## Lv200セーブでの最上級3勝
+
+召使の最上級3勝と依頼報告116件を記録したセーブで、ナタの谷の集落から最上級へ入った。障壁の受付と反撃までの時間を0.1秒刻みで表示する。床切断では白線の左右に応じて移動か待機を案内し、三柱の耐久を左・中央・右の順に表示する。
+
+- Chromeの初回はM地図で入口を確認し、通常攻撃で最初の障壁と三柱を壊した。床幅は880→792→704→616pxで、各段階で表示と衝突判定の左端が一致した。初回は32,560,274 EXPと3,590,160モラ、マーヴィカへの報告は420,000 EXPと12,800モラを獲得した。 [初回と報告](../../evidence/earned-primal-first-expert-browser.json)
+- Luaでそのセーブから2戦を続けた。障壁を12回の通常攻撃で壊した戦闘は8秒の反撃中に336ダメージを与えた。時間切れの戦闘は衝撃波3回で78ダメージ、大玉で29ダメージを受けた。どちらも三柱を壊して討伐し、周回ごとに18,999,684 EXPと1,538,640モラを獲得した。試走では旅人の聖遺物を一時変更して同行者の攻撃を止め、同行者は両方の再戦で戦闘不能になった。 [2連戦の記録](../../evidence/earned-primal-rematch-lua.json)
+- 元の装備でセーブを開き直し、源焔の主と召使の最上級各3勝、報告117件をChromeで確認した。 [再読込の記録](../../evidence/earned-primal-rematch-browser.json)
+- 2戦の23場面を元絵・中間・軽量の3画質で比較した。障壁が開いている同じフレームで標準の描画命令15,272件が軽量16色で4,264件になった。軽量版はパック前後でCanvasの全画素が一致し、gzip転送量は70,015 Bから53,769 Bに減った。 [3画質の記録](../../evidence/earned-primal-rematch-frames-browser.json)
+
+最上級初回後のセーブから、`python -X utf8 test_earned_primal_gate.py --from-save work/earned-primal-fire/first/primal-complete.json --output-dir work/earned-primal-fire/replays --chain --weapon SW07` で2戦を再現する。ラボを起動し、`node test_earned_weekly_frames.mjs work/earned-primal-fire/replays work/earned-primal-fire/comparison` で3画質を比較する。
