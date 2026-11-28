@@ -666,6 +666,7 @@
     {
       "id": "boss-20040401",
       "controller": "hydroHypostasis",
+      "showRecovery": true,
       "coop": true,
       "entity": 20040401,
       "name": "無相の水",
@@ -762,6 +763,7 @@
     {
       "id": "boss-22060101",
       "controller": "wolflord",
+      "showRecovery": true,
       "coop": true,
       "entity": 22060101,
       "name": "黄金王獣",

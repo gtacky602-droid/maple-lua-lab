@@ -22,6 +22,14 @@
 
 Luaで必要Lvの一つ手前で乗船できないこと、会場までの往復、乗船中の保存から離島で再開することを確認した。ヤシオリ島では北の尾根から浜道を下って干潟へ行き、上段の門まで往復した。Chromeでも両航路をFで往復した。試走では出発地点と必要Lvを用意した。 [Luaの試走](../evidence/inazuma-island-routes-lua.json) · [Chromeの試走](../evidence/inazuma-island-routes-browser.json)
 
+4戦報告済みのLv50セーブから、花火の依頼・狩りの依頼と海辺の街道でLv52に進み、海祇島へ渡った。無相の水を討伐したあとは離島の外浜でLv54に上がり、鶴観へ渡った。どちらも往復の途中で作ったセーブから離島で再開でき、討伐後の報告と再出現待ち時間も復元した。 [獲得済みのセーブによる再走](../evidence/earned-inazuma-island-bosses.json)
+
+無相の水の「三点の雨紋」は、移動しても予告の3か所が変わらない。黄金王獣は尾の予告が出たら頭側へ回り、二つの黄金首は射線から離れる。両戦のHP欄に「反撃の隙」が出る。Luaの試走では6行動を被弾せずに避け、通常攻撃で討伐できた。 [攻撃と報酬の検証](../evidence/earned-inazuma-island-bosses.json)
+
+ChromeでM地図の案内、両航路の往復、3か所の雨紋と2発の黄金首の表示、討伐報告と再読み込みを確認した。同じ予告フレームで標準と16色を切り替えると、描画命令数は無相の水が7,106→1,850、黄金王獣が9,625→2,537となった。 [Chromeの再走と描画計測](../evidence/earned-inazuma-island-bosses-browser.json)
+
+再検証は `python -X utf8 test_earned_inazuma_island_bosses.py`。その実行で作成したセーブを使い、`LAB_URL` を指定して `node test_earned_inazuma_thunder_pyro.mjs --islands` でChromeから往復する。
+
 ワープ・神像、狩場・脇部屋、長距離便、短い乗り物の集計に入っていない稲妻27地点を、既存の本編、寄り道、日次、通常・週ボスの試験資料に対応付けた。既存の戦闘試験には会場内から開始したものも含まれる。 [27地点の検証資料索引](../design/world/inazuma-stage-evidence.json)
 
 ## 離島から通常ボスの討伐調査へ

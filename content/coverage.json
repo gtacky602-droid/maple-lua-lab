@@ -8421,6 +8421,16 @@
       "lua_evidence": "evidence/earned-inazuma-thunder-pyro.json",
       "browser_evidence": "evidence/earned-inazuma-thunder-pyro-browser.json"
     },
+    "earned_inazuma_island_bosses": {
+      "arrival_level": 50,
+      "sailing_gate_and_clear_levels": [52, 54],
+      "sailing_seconds_each_way": [4.2, 4.8],
+      "encounters_cleared_and_commissions_restored": ["boss-20040401", "boss-22060101"],
+      "attacks_evaded_with_inputs": 6,
+      "mid_sail_checkpoints_restored_at_port": 4,
+      "lua_evidence": "evidence/earned-inazuma-island-bosses.json",
+      "browser_evidence": "evidence/earned-inazuma-island-bosses-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

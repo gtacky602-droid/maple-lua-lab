@@ -78,7 +78,7 @@ return function(C)
   return t>=m.total
  end
  function wolf.label(b,c)
-  if c and c.tick>=c.move.recover then return '頭を下げる・息継ぎ' end
+  if c and c.tick>=c.move.recover then return '反撃の隙・頭を下げる' end
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}

@@ -1,0 +1,308 @@
+{
+  "sourceSha256": "0aa12308bfb9aa7d3c42c39155e97f515d696c08411021b011e65321d054e2f3",
+  "locks": [
+    {
+      "node": "inazuma-port",
+      "target": "watatsumi-landing",
+      "reason": "必要レベル 52",
+      "level": 50,
+      "needLevel": 52,
+      "arena": "hydro-hypostasis-field-cove"
+    },
+    {
+      "node": "inazuma-port",
+      "target": "tsurumi-coast",
+      "reason": "必要レベル 54",
+      "level": 50,
+      "needLevel": 54,
+      "arena": "wolflord-field-ruins"
+    },
+    {
+      "node": "inazuma-port",
+      "target": "tsurumi-coast",
+      "reason": "必要レベル 54",
+      "level": 52,
+      "needLevel": 54,
+      "arena": "wolflord-field-ruins"
+    }
+  ],
+  "extraReports": [
+    {
+      "quest": "ina-window-fireworks",
+      "xp": 57595,
+      "mora": 850
+    },
+    {
+      "quest": "inazuma-contract",
+      "xp": 12000,
+      "mora": 400
+    }
+  ],
+  "training": [
+    {
+      "field": "inazuma-road",
+      "reached": 52,
+      "sorties": [
+        {
+          "kills": 16,
+          "xp": 3146,
+          "seconds": 8.53
+        },
+        {
+          "kills": 97,
+          "xp": 19019,
+          "seconds": 80.0
+        },
+        {
+          "kills": 83,
+          "xp": 15301,
+          "seconds": 80.0
+        },
+        {
+          "kills": 124,
+          "xp": 26312,
+          "seconds": 80.0
+        },
+        {
+          "kills": 68,
+          "xp": 12298,
+          "seconds": 80.0
+        },
+        {
+          "kills": 83,
+          "xp": 16159,
+          "seconds": 80.0
+        },
+        {
+          "kills": 55,
+          "xp": 11297,
+          "seconds": 30.53
+        }
+      ],
+      "teaStops": 0
+    },
+    {
+      "field": "inazuma-outer-shore",
+      "reached": 54,
+      "sorties": [
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 31,
+          "xp": 17174,
+          "seconds": 80.0
+        },
+        {
+          "kills": 25,
+          "xp": 13850,
+          "seconds": 58.4
+        }
+      ],
+      "teaStops": 0
+    }
+  ],
+  "trials": {
+    "hydro": {
+      "hpBefore": 384,
+      "hpAfter": 384,
+      "noDamageInFirstCycle": true,
+      "allMoves": [
+        "FHH01",
+        "FHH02",
+        "FHH03"
+      ],
+      "dodged": {
+        "FHH01": {
+          "warningTick": 54,
+          "lastActiveTick": 126,
+          "hp": 384,
+          "position": 916.0,
+          "bolts": 0
+        },
+        "FHH02": {
+          "warningTick": 48,
+          "lastActiveTick": 156,
+          "hp": 384,
+          "position": 825.0,
+          "bolts": 0
+        },
+        "FHH03": {
+          "warningTick": 48,
+          "lastActiveTick": 198,
+          "hp": 384,
+          "position": 681.5,
+          "bolts": 0,
+          "lockedFallPoints": [
+            744.04,
+            825.0,
+            905.96
+          ]
+        }
+      },
+      "aerial": true,
+      "recoveryLabels": [
+        "FHH01",
+        "FHH02",
+        "FHH03"
+      ],
+      "counterHit": true,
+      "seconds": 23.87,
+      "xp": 27700,
+      "mora": 200,
+      "level": 52,
+      "gateLevel": 52,
+      "route": [
+        "watatsumi-landing",
+        "hydro-hypostasis-field-cove"
+      ],
+      "crossings": [
+        {
+          "origin": "inazuma-port",
+          "destination": "watatsumi-landing",
+          "seconds": 4.2,
+          "restoredMidSailAt": "inazuma-port"
+        },
+        {
+          "origin": "watatsumi-landing",
+          "destination": "inazuma-port",
+          "seconds": 4.2,
+          "restoredMidSailAt": "inazuma-port"
+        }
+      ],
+      "report": {
+        "quest": "hydro-hypostasis-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 3058
+    },
+    "wolflord": {
+      "hpBefore": 384,
+      "hpAfter": 384,
+      "noDamageInFirstCycle": true,
+      "allMoves": [
+        "FWL01",
+        "FWL02",
+        "FWL03"
+      ],
+      "dodged": {
+        "FWL01": {
+          "warningTick": 60,
+          "lastActiveTick": 156,
+          "hp": 384,
+          "position": 916.0,
+          "bolts": 0
+        },
+        "FWL02": {
+          "warningTick": 48,
+          "lastActiveTick": 126,
+          "hp": 384,
+          "position": 681.5,
+          "bolts": 0
+        },
+        "FWL03": {
+          "warningTick": 48,
+          "lastActiveTick": 168,
+          "hp": 384,
+          "position": 814.5,
+          "bolts": 2
+        }
+      },
+      "aerial": true,
+      "recoveryLabels": [
+        "FWL01",
+        "FWL02",
+        "FWL03"
+      ],
+      "counterHit": true,
+      "seconds": 23.85,
+      "xp": 32300,
+      "mora": 210,
+      "level": 54,
+      "gateLevel": 54,
+      "route": [
+        "tsurumi-coast",
+        "wolflord-field-ruins"
+      ],
+      "crossings": [
+        {
+          "origin": "inazuma-port",
+          "destination": "tsurumi-coast",
+          "seconds": 4.8,
+          "restoredMidSailAt": "inazuma-port"
+        },
+        {
+          "origin": "tsurumi-coast",
+          "destination": "inazuma-port",
+          "seconds": 4.8,
+          "restoredMidSailAt": "inazuma-port"
+        }
+      ],
+      "report": {
+        "quest": "wolflord-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 3026
+    }
+  },
+  "returns": 0
+}
