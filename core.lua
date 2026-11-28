@@ -417,6 +417,10 @@ end
 local function reportMotion(s,a,kind,at,dir)
  if C.onPlayerMotion and at and not s.paused and a.hp>0 then C.onPlayerMotion(s,a,kind,at,dir) end
 end
+local function dropThrough(a)
+ a.drop=.25
+ if a.ground then a.ground=false;a.y=a.y+3 end
+end
 function C.action(s,key)
  if key=='hold_ally_fire' then s.holdAllyFire=not s.holdAllyFire;return end
  local a=s.actors[s.active]
@@ -433,8 +437,7 @@ function C.action(s,key)
  elseif key=='jump' then a.buffer=.1;a.jumpInputAt=C.playerAttackAt(s,a)
  elseif key=='drop' then
   if not a.ground or a.y~=480 then
-   a.drop=.25
-   if a.ground then a.ground=false;a.y=a.y+3 end
+   dropThrough(a)
    reportMotion(s,a,'drop',C.playerAttackAt(s,a))
   end
  elseif key=='auto' then s.auto=not s.auto
@@ -618,6 +621,10 @@ function C.step(s,dt,input)
      a.dir=nearest.x>=a.x and 1 or -1
      if abs(nearest.x-a.x)>(a.id==1 and 85 or 220) then move=a.dir end
      if nearest.y<a.y-60 and a.ground then a.buffer=.1 end
+     if s.auto and nearest.expRole=='normal' and not nearest.boss and not nearest.flying and a.ground and a.y<480
+         and nearest.y-a.y>60 and abs(nearest.x-a.x)<85 then
+      a.buffer=0;dropThrough(a)
+     end
      local skillElement=a.id==1 and 'anemo' or 'pyro'
      s.growthAIActor=not s.auto and a.id~=s.active and a.id or nil
      if a.id==2 and C.companionAI and C.companionAI(s,a,nearest) then
