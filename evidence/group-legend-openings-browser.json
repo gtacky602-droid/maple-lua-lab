@@ -428,7 +428,7 @@
       "profiles": {
         "legacy": 3577,
         "h48c32": 2176,
-        "h32c16": 985
+        "h32c16": 984
       },
       "hpBarRectangles": 0,
       "fidelity": {
@@ -464,17 +464,17 @@
           "locations": {
             "shape": {
               "x": 400,
-              "y": 360
+              "y": 450
             },
             "color": {
               "x": 480,
               "y": 405
             }
           },
-          "union": 6029,
-          "overlap": 5353,
-          "overlapPercent": 88.78752695306021,
-          "meanRgbError": 26.830437760757206
+          "union": 5730,
+          "overlap": 5599,
+          "overlapPercent": 97.71378708551484,
+          "meanRgbError": 27.293088051437756
         }
       }
     },
@@ -1265,7 +1265,7 @@
       "profiles": {
         "legacy": 1914,
         "h48c32": 1140,
-        "h32c16": 531
+        "h32c16": 518
       },
       "hpBarRectangles": 0,
       "fidelity": {
@@ -1308,10 +1308,10 @@
               "y": 360
             }
           },
-          "union": 2856,
-          "overlap": 2534,
-          "overlapPercent": 88.72549019607843,
-          "meanRgbError": 28.631938963430677
+          "union": 2755,
+          "overlap": 2662,
+          "overlapPercent": 96.62431941923775,
+          "meanRgbError": 29.514775857751065
         }
       }
     },
@@ -1426,10 +1426,10 @@
               "y": 405
             }
           },
-          "union": 1650,
-          "overlap": 1455,
-          "overlapPercent": 88.18181818181819,
-          "meanRgbError": 38.652233676975946
+          "union": 1583,
+          "overlap": 1531,
+          "overlapPercent": 96.7150979153506,
+          "meanRgbError": 38.276072283910295
         }
       }
     },
@@ -2689,7 +2689,7 @@
       "profiles": {
         "legacy": 2408,
         "h48c32": 1408,
-        "h32c16": 652
+        "h32c16": 641
       },
       "hpBarRectangles": 0,
       "fidelity": {
@@ -2724,18 +2724,18 @@
         "h32c16": {
           "locations": {
             "shape": {
-              "x": 480,
-              "y": 360
+              "x": 400,
+              "y": 405
             },
             "color": {
               "x": 480,
               "y": 405
             }
           },
-          "union": 3689,
-          "overlap": 3074,
-          "overlapPercent": 83.32881539712659,
-          "meanRgbError": 23.050639774452396
+          "union": 3565,
+          "overlap": 3282,
+          "overlapPercent": 92.0617110799439,
+          "meanRgbError": 23.938045906967297
         }
       }
     },
@@ -2748,7 +2748,7 @@
       "profiles": {
         "legacy": 2901,
         "h48c32": 1731,
-        "h32c16": 810
+        "h32c16": 804
       },
       "hpBarRectangles": 0,
       "fidelity": {
@@ -2783,18 +2783,18 @@
         "h32c16": {
           "locations": {
             "shape": {
-              "x": 400,
+              "x": 480,
               "y": 405
             },
             "color": {
               "x": 480,
-              "y": 405
+              "y": 360
             }
           },
-          "union": 5208,
-          "overlap": 4657,
-          "overlapPercent": 89.42012288786482,
-          "meanRgbError": 34.605182163052035
+          "union": 5076,
+          "overlap": 4851,
+          "overlapPercent": 95.56737588652483,
+          "meanRgbError": 35.02329416615131
         }
       }
     },

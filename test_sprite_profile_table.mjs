@@ -41,6 +41,13 @@ try {
  await fs.writeFile('evidence/sprite-profile-comparison.json',JSON.stringify({scope:'On-screen sprite and attached rectangles, with opening-pose mask and color compared to PNG at the default camera.',arenas:seen},null,2)+'\n');
  const survey=page.locator('#legendProfileSurvey');
  await survey.locator('summary').click();
+ for(const path of ['legend-outline-20261128.png','calamitous-tree-outline-20261128.png']){
+  const link=survey.locator(`a[href="evidence/${path}"]`);
+  assert.ok(await link.isVisible());
+  const screenshot=await page.request.get(new URL(await link.getAttribute('href'),page.url()).href);
+  assert.equal(screenshot.status(),200);
+  assert.match(screenshot.headers()['content-type'],/^image\/png/);
+ }
  const links=survey.locator('li a');
  await links.first().waitFor();
  assert.match(await survey.locator('output').textContent(),/56会場.*10会場/);

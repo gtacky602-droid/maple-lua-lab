@@ -50,21 +50,14 @@ def merge_runs(rows):
     return runs
 
 
-def refine_legend_profiles(name, art):
-    if name not in FILES:
-        return art
-    profiles = art['profiles']
-    light = profiles['h32c16']
-    original = rasterize(light)
+def blend_shades(original, palette, protected, distance):
     rows = [row[:] for row in original]
-    protected = set(art.get('reserved_colors', ()))
-    palette = {color: bytes.fromhex(color[1:]) for *_, color in light['runs']}
     similar = {
         color: {shade for shade, channels in palette.items()
-                if sum((a - b) ** 2 for a, b in zip(rgb, channels)) <= RGB_DISTANCE ** 2}
+                if sum((a - b) ** 2 for a, b in zip(rgb, channels)) <= distance ** 2}
         for color, rgb in palette.items()
     }
-    width, height = light['width'], light['height']
+    height, width = len(rows), len(rows[0])
     for _ in range(2):
         for y, row in enumerate(rows):
             for x, color in enumerate(row):
@@ -78,7 +71,21 @@ def refine_legend_profiles(name, art):
                     if shade in similar[source] and neighbors >= max(2, counts[color] + 1):
                         row[x] = shade
                         break
+    return rows
 
+
+def palette_for(grid):
+    return {color: bytes.fromhex(color[1:]) for color in dict.fromkeys(run[4] for run in grid['runs'])}
+
+
+def refine_legend_profiles(name, art):
+    if name not in FILES:
+        return art
+    profiles = art['profiles']
+    light = profiles['h32c16']
+    palette = palette_for(light)
+    protected = frozenset(art.get('reserved_colors', ()))
+    rows = blend_shades(rasterize(light), palette, protected, RGB_DISTANCE)
     runs = merge_runs(rows)
     if len(runs) >= len(light['runs']):
         return art

@@ -30,4 +30,6 @@ M地図から挑戦場を選び、「この地点のドット絵を比較」→�
 
 待機・構え・攻撃を合わせた24素材を照合し、22素材の矩形数が減った。元PNG、32色、透過マスク、接地位置、指定の差し色を保持した。3戦のLuaで既存の48状態を再生して、敵の姿勢とHP、位置、予告を照合した。 [Luaと素材の検証](../evidence/legend-light-blend-20261128.json) · [M地図とLuaの開戦画面の56会場検証](../evidence/group-legend-openings-browser.json)
 
+輪郭の差が大きかった災禍古樹、ポタポの応援、イチカウイピリの庇護、チャルデリック、フュリオサは、似た色をまとめて空いた矩形を枝先や手足の隙間に使う。各姿勢の16色の矩形数は従来の上限以下。元PNG、標準、32色と戦闘の位置・時間・予告は同じ。災禍古樹は、実際のLuaフレームで待機83.5→91.9%、構え86.3→95.7%、攻撃85.8→96.7%まで元PNGとの輪郭の重なりが増えた。15姿勢の色差の増加は最大1.12/255。 [災禍古樹の3姿勢](../evidence/calamitous-tree-outline-20261128.png) · [5体の開戦時](../evidence/legend-outline-20261128.png) · [全15姿勢の計測](../evidence/legend-outline-20261128.json)
+
 素材を再パックする順番は `python -X utf8 tools/build_field_pose_pack.py`、`python -X utf8 tools/build_character_gallery_pack.py --gallery boss`、`python -X utf8 tools/build_field_sprite_index.py`。開戦の比較は `python -X utf8 tools/build_group_legend_openings.py` でLuaの参照フレームを取得し、`LAB_URL` を設定して `node test_group_legend_openings.mjs` と `node test_sprite_profile_table.mjs` を実行する。
