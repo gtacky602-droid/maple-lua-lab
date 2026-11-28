@@ -19,25 +19,29 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--checkpoint', action='store_true', help='Reuse the earned Lv140 save instead of replaying from Lv1')
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 parser.add_argument('--after-revisits',action='store_true',help='Continue the adventure with the regional side stories')
-parser.add_argument('--ticket-source', type=Path, help='Replay the first ticket and train from this Lv140 save')
-parser.add_argument('--footprints-source', type=Path, help='Continue from a Lv142 station save through the two side quests')
+replay = parser.add_mutually_exclusive_group()
+replay.add_argument('--ticket-source', type=Path, help='Replay the first ticket and train from this Lv140 save')
+replay.add_argument('--footprints-source', type=Path, help='Continue from a Lv142 station save through the two side quests')
+replay.add_argument('--woods-source', type=Path, help='Replay the second White Pass chapter from a Lv145 patrol save')
 options = parser.parse_args()
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
-earned_source = options.ticket_source or options.footprints_source
-if earned_source and (options.after_revisits or options.draft_balance or options.checkpoint
-                      or options.ticket_source and options.footprints_source):
-    parser.error('Choose one standard-balance checkpoint')
 draft = options.draft_balance
 suffix = '-after-revisits' if options.after_revisits else '-draft' if draft else ''
+work_name, earned_source = next(((name, source) for name, source in (
+    ('earned-white-pass-ticket', options.ticket_source),
+    ('earned-sne-mitya-footprints', options.footprints_source),
+    ('earned-white-pass-woods', options.woods_source),
+) if source), ('snez-fresh-route' + suffix, None))
+if earned_source and (options.after_revisits or options.draft_balance or options.checkpoint):
+    parser.error('Choose one standard-balance checkpoint')
 if not options.checkpoint and not options.after_revisits and not earned_source:
     command = [sys.executable, str(ROOT / 'test_nod_fresh_route.py')]
     if draft:
         command.append('--draft-balance')
     subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / ('earned-white-pass-ticket' if options.ticket_source else
-                        'earned-sne-mitya-footprints' if options.footprints_source else 'snez-fresh-route' + suffix)
+work = ROOT / 'work' / work_name
 work.mkdir(parents=True, exist_ok=True)
 source_file = ROOT/'evidence/nod-revisit-save.json' if options.after_revisits else ROOT / 'work' / ('nod-fresh-route' + suffix) / 'snezhnaya-save.json'
 source=(earned_source or source_file).read_bytes()
@@ -53,6 +57,9 @@ footwork, rest, snow = 'white-pass-footwork', 'white-pass-rest', 'sne-snow-match
 if options.footprints_source:
     assert start['story']['node'] == station and start['progression']['level'] == 142
     assert start['story']['quests'][ticket]['status'] == 'complete'
+elif options.woods_source:
+    assert start['story']['node'] == hub and start['progression']['level'] == 145
+    assert start['story']['quests'][footprints]['status'] == 'complete'
 else:
     assert start['story']['node'] == hub and start['progression']['level'] == 140
 assert start['story']['quests']['nod-moon-vault-quest']['status'] == 'complete'
@@ -247,6 +254,53 @@ def recruit_mitya():
 
 
 cut_route = (hub, road, cut)
+if options.woods_source:
+    fast(station)
+    blocked(trail_quest)
+    assert not core.canEquipWeapon(state,'traveler','SW07')
+    hunt(cut_route,260,148)
+    fast(station)
+    save('woods-ready')
+    quest = accept(trail_quest)
+    cross(woods)
+    inspect(300)
+    assert quest.count==1
+    near(1115)
+    assert not frame().storyNearbyMilestone
+    inspect(1115,382)
+    assert quest.count==2
+    inspect(1660)
+    assert quest.count==3
+    cross(station)
+    reward_before = state.progression.questXp, state.mora
+    report(trail_quest)
+    reward = [state.progression.questXp-reward_before[0], state.mora-reward_before[1]]
+    attack_before = state.actors[1].atk
+    act('weapon_equip:traveler:SW07')
+    attack_after = state.actors[1].atk
+    assert attack_after>attack_before and core.equippedWeapon(state,'traveler')=='SW07'
+    blocked(summit)
+    finished = save('lua-complete')
+    resumed = core.restore(lua.table_from(finished,recursive=True),12)
+    assert resumed.story.node==station and core.equippedWeapon(resumed,'traveler')=='SW07'
+    assert resumed.actors[1].atk==attack_after
+    prior = {id:q for id,q in start['story']['quests'].items() if q['status']=='complete'}
+    assert all(finished['story']['quests'][id]==q for id,q in prior.items())
+    kept = {item['id'] for item in finished['inventory']['items']}
+    assert all(item['id'] in kept for item in start['inventory']['items'] if item['owner'] or item.get('locked'))
+    assert finished['companion']==start['companion'] and state.returns==0
+    cross(woods)
+    inspect(1660)
+    assert 'Lv155' in state.storyNotice
+    record = dict(sourceSha256=sha256(source).hexdigest(), milestones=milestones, hunts=hunts,
+                  reward=reward, weapon='SW07', travelerAttack=[attack_before,attack_after],
+                  approach='ordinary_jump', reReadSign=True, level=finished['progression']['level'],
+                  priorQuests=len(prior), inventoryKept=len(kept & original_items),
+                  recoveryTrips=recovery_trips, inventoryTrips=inventory_trips, partyWipes=state.returns,
+                  companion=finished['companion'])
+    (work/'lua.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    sys.exit(0)
+
 if options.footprints_source:
     cross(hub)
     before_xp = state.progression.questXp

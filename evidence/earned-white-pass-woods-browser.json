@@ -1,0 +1,28 @@
+{
+  "level": 149,
+  "firstMarkerRestored": true,
+  "requiredUpperShelf": true,
+  "guideStops": [
+    "white-pass-woods"
+  ],
+  "signReadAfterReport": true,
+  "signMatches": true,
+  "commands": {
+    "png": 85,
+    "standard": 21472,
+    "light": 5837
+  },
+  "reward": [
+    40359534,
+    840
+  ],
+  "weapon": "SW07",
+  "travelerAttack": [
+    44,
+    327
+  ],
+  "priorQuests": 97,
+  "inventoryKept": 80,
+  "companion": "mitya",
+  "errors": []
+}

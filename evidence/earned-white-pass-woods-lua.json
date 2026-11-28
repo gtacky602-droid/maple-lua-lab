@@ -1,0 +1,53 @@
+{
+  "sourceSha256": "8eaa5ff50fdce76872bbd6bff5aef27ce866bdb2fcf06e58dd8c762232991e45",
+  "milestones": [
+    {
+      "id": "lv148",
+      "node": "white-pass-cut",
+      "seconds": 1648.68,
+      "level": 148,
+      "total": 589400330,
+      "killXp": 383347023,
+      "questXp": 206053307
+    },
+    {
+      "id": "white-pass-trail",
+      "node": "white-pass-station",
+      "seconds": 1668.85,
+      "level": 149,
+      "total": 631030376,
+      "killXp": 384617535,
+      "questXp": 246412841
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-cut",
+      "target": 148,
+      "kills": 3326,
+      "xp": 81544268,
+      "huntSeconds": 1514.07,
+      "routeKills": 3450,
+      "routeXp": 84608908,
+      "routeSeconds": 1639.6
+    }
+  ],
+  "reward": [
+    40359534,
+    840
+  ],
+  "weapon": "SW07",
+  "travelerAttack": [
+    44,
+    327
+  ],
+  "approach": "ordinary_jump",
+  "reReadSign": true,
+  "level": 149,
+  "priorQuests": 97,
+  "inventoryKept": 68,
+  "recoveryTrips": 1,
+  "inventoryTrips": 2,
+  "partyWipes": 0,
+  "companion": "mitya"
+}
