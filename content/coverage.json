@@ -8605,6 +8605,16 @@
       "lua_evidence": ["evidence/earned-fontaine-navia-photo.json", "evidence/earned-fontaine-legatus.json"],
       "browser_evidence": ["evidence/earned-fontaine-navia-photo-browser.json", "evidence/earned-fontaine-legatus-interrupt-browser.json", "evidence/earned-fontaine-legatus-release-browser.json"]
     },
+    "earned_fontaine_north_surveys": {
+      "start_level": 92,
+      "reported_quests": ["fon-mapped-depth-samples", "fon-mapped-north-lock"],
+      "steps_per_quest": 6,
+      "verified_depth_prompts": ["up", "down"],
+      "second_gate_level_shore_round_trip": true,
+      "restored_reports": true,
+      "lua_evidence": "evidence/earned-fontaine-surveys.json",
+      "browser_evidence": "evidence/earned-fontaine-surveys-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

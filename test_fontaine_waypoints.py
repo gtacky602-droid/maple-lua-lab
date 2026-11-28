@@ -90,7 +90,10 @@ assert undersea['mode'] in edges[undersea['to'],undersea['from']]
 
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--from-save', type=Path, help='Earned late-Fontaine checkpoint at the hub')
+parser.add_argument('--north-surveys', action='store_true', help='Continue the two northern surveys from the earned Lv92 save')
 args = parser.parse_args()
+if args.north_surveys and not args.from_save:
+    parser.error('--north-surveys requires --from-save')
 lua, core = runtime()
 source_save = None
 if args.from_save:
@@ -105,8 +108,14 @@ else:
     assert state.progression.level == 99
     core.enterStoryNode(state,'fontaine-hub')
 (ROOT/'work').mkdir(exist_ok=True)
-write('work/fontaine-waypoint-browser-save.json',validate_save(native(core.checkpoint(state))))
+north_work = ROOT/'work/earned-fontaine-surveys'
+if args.north_surveys:
+    assert source_save['level']==92 and state.endgame.bosses['boss-26140101'].clears==1
+    north_work.mkdir(exist_ok=True)
+write(north_work/'surveys-ready.json' if args.north_surveys else 'work/fontaine-waypoint-browser-save.json',
+      validate_save(native(core.checkpoint(state))))
 trail = TrailWalk(lua,core,state,edges,exits)
+depth_checks, payouts = [], {}
 
 
 def follow(*route):
@@ -129,15 +138,39 @@ def wrong_depth_check(target):
     gate = edges[origin,target]
     assert abs(trail.actor.y-gate['y'])>=60
     trail.approach(gate['x'],trail.actor.y,target)
+    frame = core.frame(state)
+    direction = 'up' if trail.actor.y>gate['y'] else 'down'
+    assert frame.storyNearbyPortal is None and frame.storySwimGate.to==target
+    assert frame.storySwimGate.direction==direction
+    core.action(state,'world_map_focus:'+target)
+    planned = core.frame(state).worldMap.guide.stops[1]
+    assert planned.id==target and ('浮上' if direction=='up' else '潜る') in planned.hint
+    depth_checks.append(dict(origin=origin,target=target,direction=direction,
+                             playerY=trail.actor.y,gateY=gate['y'],atlasHint=planned.hint))
+    core.action(state,'world_map_close')
     core.action(state,'story_portal:'+target)
     assert state.story.node==origin and state.lift is None and '門の近く' in state.storyNotice
     original_y = trail.actor.y
+    movement = trail.inputs[direction]
     core.action(state,'pause')
-    core.step(state,1/60,trail.inputs['up'])
+    core.step(state,1/60,movement)
     assert trail.actor.y==original_y
     core.action(state,'pause')
-    core.step(state,1/60,trail.inputs['up'])
-    assert trail.actor.y<original_y
+    core.step(state,1/60,movement)
+    assert abs(trail.actor.y-gate['y'])<abs(original_y-gate['y'])
+    trail.approach(gate['x'],gate['y'],target)
+    frame = core.frame(state)
+    assert frame.storyNearbyPortal.to==target and frame.storyNearbyPortal.available and frame.storySwimGate is None
+
+
+def north_shore_round_trip():
+    dry,wet = 'fon-wp-53849','fon-wp-53864'
+    trail.cross(wet)
+    gate = edges[wet,dry]
+    trail.approach(gate['x'],gate['y']+95,dry)
+    wrong_depth_check(dry)
+    trail.cross(dry)
+    assert state.story.quests['fon-mapped-north-lock'].count==4
 
 
 def complete(q):
@@ -147,11 +180,17 @@ def complete(q):
             assert state.story.node==step['from']
             if step['node']=='fon-wp-50065':
                 wrong_depth_check(step['node'])
+                if args.north_surveys:
+                    gate = edges[step['from'],step['node']]
+                    trail.approach(gate['x'],gate['y']-72,step['node'])
+                    wrong_depth_check(step['node'])
             trail.cross(step['node'])
         else:
             assert state.story.node==step['node']
             trail.approach(step['x'],step['y'],q)
             core.action(state,'story_collect')
+            if args.north_surveys and q=='fon-mapped-north-lock' and step['node']=='fon-wp-53849':
+                north_shore_round_trip()
         assert state_q.count==i,(q,i,step,state.storyNotice)
     warp(quest['hub'])
     assert not state.storySwimming
@@ -159,6 +198,7 @@ def complete(q):
     for _ in range(2):core.action(state,'story_report:'+q)
     assert state_q.status=='complete' and state_q.cycles==1
     assert (state.progression.questXp-xp,state.mora-mora)==(quest['xp'],quest['mora'])
+    payouts[q] = dict(steps=state_q.count,xp=quest['xp'],mora=quest['mora'])
 
 
 samples, lock, marsh, nostoi = ('fon-mapped-depth-samples','fon-mapped-north-lock',
@@ -170,6 +210,20 @@ complete(samples)
 accept(lock)
 north_lock_approach = trail.follow_atlas('fon-wp-53867')
 complete(lock)
+if args.north_surveys:
+    save = validate_save(native(core.checkpoint(state)))
+    restored = core.restore(lua.table_from(save,recursive=True))
+    assert state.returns==restored.returns==0 and restored.story.node=='fontaine-hub'
+    assert restored.endgame.bosses['boss-26140101'].clears==1
+    assert all(restored.story.quests[q].status=='complete' and restored.story.quests[q].cycles==1
+               for q in (samples,lock))
+    assert core.frame(restored).storySwimGate is None
+    write(north_work/'surveys-complete.json',save)
+    write('evidence/earned-fontaine-surveys.json',dict(source=source_save,reports=payouts,
+          crossings=sorted(trail.crossings),depthChecks=depth_checks,northApproach=north_lock_approach,
+          restoredBothReports=True,partyWipes=state.returns))
+    print('Earned northern surveys reported and restored, including a dive and return to the second gate level.')
+    raise SystemExit(0)
 follow('fontaine-field','bygone-camp')
 accept(marsh)
 complete(marsh)

@@ -10,7 +10,8 @@ const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
 const quests=Object.fromEntries(graph.quests.map(q=>[q.id,q]));
 const samples='fon-mapped-depth-samples',bygone='fon-mapped-bygone-current';
 const lock='fon-mapped-north-lock',nostoi='fon-mapped-nostoi-record';
-const captures=process.env.LAB_FONTAINE_CAPTURES||'evidence';
+const north=process.argv.includes('--north-surveys');
+const captures=process.env.LAB_FONTAINE_CAPTURES||(north?'work/earned-fontaine-surveys':'evidence');
 await fs.mkdir(captures,{recursive:true});
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1200,height:960}});
@@ -21,6 +22,7 @@ const {walk,changeHeight,actor,cross,warp,count,waitNode,accept,report,choices,j
 const diveHelp=page.locator('#fieldSwimHelp');
 const follow=async(...nodes)=>{for(const id of nodes)await cross(id)};
 let shore,render;
+const depthPrompts=[];
 
 async function atlasGuide(target){
  await page.evaluate(()=>document.activeElement.blur());
@@ -40,6 +42,26 @@ async function followAtlas(target){
  return stops.map(stop=>stop.id);
 }
 
+async function verifyDepthPrompt(target,direction){
+ await page.waitForFunction(({target,direction})=>{
+  const cue=window.lab.frame.storySwimGate;
+  return cue?.to===target&&cue.direction===direction;
+ },{target,direction});
+ const label=direction==='up'?'浮上':'潜水';
+ const prompt=await diveHelp.textContent();
+ assert.ok(prompt.endsWith('へは'+label));
+ const current=await d.node();
+ await page.keyboard.press('KeyF');
+ assert.equal(await d.node(),current);
+ if(north){
+  await page.locator('.game').screenshot({path:join(captures,target+'-depth-'+direction+'.png')});
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await diveHelp.evaluate(el=>el.scrollWidth<=el.clientWidth));
+  await page.setViewportSize({width:1200,height:960});
+ }
+ depthPrompts.push({from:current,target,direction,prompt});
+}
+
 async function shoreRoundTrip(){
  const dry='fon-wp-53849',wet='fon-wp-53864';
  const entry=nodes[dry].exits.find(e=>e.to===wet),exit=nodes[wet].exits.find(e=>e.to===dry);
@@ -53,6 +75,7 @@ async function shoreRoundTrip(){
  await walk(exit.x);
  await changeHeight(exit.y+95);
  assert.ok(Math.abs((await actor()).y-exit.y)>60);
+ await verifyDepthPrompt(dry,'up');
  const land=await atlasGuide(dry);
  assert.equal(land.length,1);
  assert.deepEqual([land[0].from,land[0].mode,land[0].label],[wet,'land','上陸口']);
@@ -63,6 +86,7 @@ async function shoreRoundTrip(){
  await cross(dry);
  await diveHelp.waitFor({state:'hidden'});
  assert.deepEqual([(await actor()).x,(await actor()).y],[exit.arrivalX,exit.arrivalY]);
+ assert.equal(await page.evaluate(()=>window.lab.frame.storySwimGate??null),null);
  await count(lock,4);
  return {dive:dive[0],land:land[0],wrongDepthRejected:true,northLockStepsUnchanged:true};
 }
@@ -116,13 +140,18 @@ async function survey(id,approach){
     assert.ok(Math.abs((await actor()).y-gate.y)>60);
     const approaching=await page.evaluate(()=>window.lab.frame.storyNearbyPortal?.to??null);
     assert.notEqual(approaching,step.node);
-    await page.keyboard.press('KeyF');
-    assert.equal(await d.node(),step.from);
+    await verifyDepthPrompt(step.node,'up');
+    if(north){
+     await changeHeight(gate.y-72);
+     assert.ok(gate.y-(await actor()).y>=60);
+     await verifyDepthPrompt(step.node,'down');
+    }
     assert.equal(await diveHelp.isVisible(),true);
     assert.equal(await page.locator('#touchJump').isHidden(),true);
    }
    await cross(step.node);
    await count(id,i+1);
+   assert.notEqual(await page.evaluate(()=>window.lab.frame.storySwimGate?.to),step.node);
   }
  }
  await warp(hub);
@@ -135,23 +164,30 @@ async function survey(id,approach){
 try{
  await page.goto(base);
  await page.waitForFunction(()=>window.lab?.frame);
- await page.locator('#importSave').setInputFiles('work/fontaine-waypoint-browser-save.json');
+ await page.locator('#importSave').setInputFiles(north?'work/earned-fontaine-surveys/surveys-ready.json':
+  'work/fontaine-waypoint-browser-save.json');
  await waitNode('fontaine-hub');
+ if(north)assert.equal(await page.evaluate(()=>window.lab.frame.progression.level),92);
  await survey(samples);
  const lockRoute=await survey(lock,'fon-wp-53867');
- await survey(nostoi,'nostoi-castle-approach');
- await follow('nostoi-castle-approach','fon-wp-68341','fon-wp-68345',
-              'bygone-wp-68599','bygone-wp-68600','bygone-camp');
- await survey(bygone);
+ const reported=[samples,lock];
+ if(!north){
+  await survey(nostoi,'nostoi-castle-approach');
+  await follow('nostoi-castle-approach','fon-wp-68341','fon-wp-68345',
+               'bygone-wp-68599','bygone-wp-68600','bygone-camp');
+  await survey(bygone);
+  reported.push(nostoi,bygone);
+ }
  const labels=await choices.locator('optgroup').evaluateAll(groups=>groups.map(g=>g.label));
- for(const label of ['フォンテーヌ湖・水中','ノストイ地区・水中','往日の海・水中'])assert.ok(labels.includes(label));
+ const expectedLabels=north?['フォンテーヌ湖・水中']:['フォンテーヌ湖・水中','ノストイ地区・水中','往日の海・水中'];
+ for(const label of expectedLabels)assert.ok(labels.includes(label));
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
  await page.waitForFunction(()=>window.lab?.frame);
  await page.locator('#loadProgress').click();
- await waitNode('bygone-camp');
- for(const id of [samples,lock,nostoi,bygone]){
+ await waitNode(north?'fontaine-hub':'bygone-camp');
+ for(const id of reported){
   await page.waitForFunction(id=>window.lab.frame.story.quests[id]?.status==='complete',id);
  }
  await warp('fon-wp-50065');
@@ -162,11 +198,17 @@ try{
  assert.equal(await diveHelp.isHidden(),true);
  assert.deepEqual(errors,[]);
  assert.ok(shore&&render);
- await fs.writeFile(join(captures,'fontaine-waypoint-browser.json'),JSON.stringify({
-  journeys,labels,reported:[samples,lock,bygone,nostoi],lockRoute,shore,render,
+ if(north){
+  assert.equal(await page.evaluate(()=>window.lab.frame.returns),0);
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ }
+ const reportFile=north?'evidence/earned-fontaine-surveys-browser.json':join(captures,'fontaine-waypoint-browser.json');
+ await fs.writeFile(reportFile,JSON.stringify({
+  journeys,labels,reported,lockRoute,shore,render,depthPrompts,
   differentDepthRejection:true,reloadAndWarp:true,pageErrors:errors
  },null,2)+'\n');
- console.log('Chrome passed four reports, diving and landing, the Nostoi–Bygone route and saved underwater warp.');
+ console.log('Chrome passed '+reported.length+' reports, depth prompts, diving and landing, and the saved underwater warp.');
 }catch(error){
  console.error('Last completed crossings:',journeys);
  console.error('Last browser state:',await page.evaluate(()=>{

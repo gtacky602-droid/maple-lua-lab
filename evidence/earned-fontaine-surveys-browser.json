@@ -1,0 +1,165 @@
+{
+  "journeys": [
+    [
+      "fontaine-hub",
+      "fontaine-field",
+      "walk"
+    ],
+    [
+      "fontaine-field",
+      "fon-wp-50064",
+      "waterway"
+    ],
+    [
+      "fon-wp-50064",
+      "fon-wp-50065",
+      "swim"
+    ],
+    [
+      "fon-wp-50065",
+      "fon-wp-50064",
+      "swim"
+    ],
+    [
+      "fontaine-hub",
+      "fon-wp-50077",
+      "walk"
+    ],
+    [
+      "fon-wp-50077",
+      "fon-wp-50058",
+      "walk"
+    ],
+    [
+      "fon-wp-50058",
+      "fon-wp-50056",
+      "walk"
+    ],
+    [
+      "fon-wp-50056",
+      "fon-wp-53867",
+      "walk"
+    ],
+    [
+      "fon-wp-53867",
+      "fon-wp-53850",
+      "lift"
+    ],
+    [
+      "fon-wp-53850",
+      "fon-wp-53849",
+      "lift"
+    ],
+    [
+      "fon-wp-53849",
+      "fon-wp-53864",
+      "walk"
+    ],
+    [
+      "fon-wp-53864",
+      "fon-wp-53849",
+      "swim"
+    ],
+    [
+      "fon-wp-53849",
+      "fon-wp-53850",
+      "lift"
+    ],
+    [
+      "fon-wp-53850",
+      "fon-wp-53867",
+      "lift"
+    ]
+  ],
+  "labels": [
+    "モンド",
+    "璃月",
+    "鳴神島・離島",
+    "鶴観",
+    "海祇島",
+    "スメールの森林",
+    "フォンテーヌ南部",
+    "フォンテーヌ廷",
+    "ノストイ地区",
+    "淵下宮",
+    "砂漠北西部",
+    "ヤシオリ島",
+    "セイライ島",
+    "フォンテーヌ湖・水中",
+    "フォンテーヌ北部・別階層",
+    "フォンテーヌ北部",
+    "失われた苗畑・別階層",
+    "失われた苗畑",
+    "ハドラマヴェス砂漠",
+    "ハドラマヴェス砂漠・別階層",
+    "砂漠北西部・別階層"
+  ],
+  "reported": [
+    "fon-mapped-depth-samples",
+    "fon-mapped-north-lock"
+  ],
+  "lockRoute": [
+    "fon-wp-50077",
+    "fon-wp-50058",
+    "fon-wp-50056",
+    "fon-wp-53867"
+  ],
+  "shore": {
+    "dive": {
+      "label": "潜水口",
+      "id": "fon-wp-53864",
+      "name": "フォンテーヌ湖・北の入江の水底",
+      "approach": "現在地から右へ",
+      "mode": "dive",
+      "from": "fon-wp-53849",
+      "region": "region-05",
+      "level": 85,
+      "hint": "門を通ると水中へ（中層）",
+      "previewX": 906
+    },
+    "land": {
+      "label": "上陸口",
+      "id": "fon-wp-53849",
+      "name": "フォンテーヌ北部・北の水門の第二層",
+      "approach": "入口は今いる位置の上",
+      "mode": "land",
+      "from": "fon-wp-53864",
+      "region": "region-05",
+      "previewY": 360,
+      "level": 88,
+      "hint": "中層の門（今の位置から浮上）",
+      "previewX": 122
+    },
+    "wrongDepthRejected": true,
+    "northLockStepsUnchanged": true
+  },
+  "render": {
+    "png": 37,
+    "standard": 3468,
+    "light": 909,
+    "frozen": true
+  },
+  "depthPrompts": [
+    {
+      "from": "fon-wp-50064",
+      "target": "fon-wp-50065",
+      "direction": "up",
+      "prompt": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ フォンテーヌ湖・中央湖の深い標識へは浮上"
+    },
+    {
+      "from": "fon-wp-50064",
+      "target": "fon-wp-50065",
+      "direction": "down",
+      "prompt": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ フォンテーヌ湖・中央湖の深い標識へは潜水"
+    },
+    {
+      "from": "fon-wp-53864",
+      "target": "fon-wp-53849",
+      "direction": "up",
+      "prompt": "WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG ｜ フォンテーヌ北部・北の水門の第二層へは浮上"
+    }
+  ],
+  "differentDepthRejection": true,
+  "reloadAndWarp": true,
+  "pageErrors": []
+}
