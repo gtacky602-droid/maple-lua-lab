@@ -1,0 +1,15 @@
+{
+  "browser": "Chrome",
+  "startLevel": 60,
+  "finishLevel": 62,
+  "quest": "sumeru-leaf-crossing",
+  "objectives": 5,
+  "reward": [
+    437849,
+    1600,
+    2
+  ],
+  "restoredLeafBridge": true,
+  "restoredReport": true,
+  "returns": 0
+}

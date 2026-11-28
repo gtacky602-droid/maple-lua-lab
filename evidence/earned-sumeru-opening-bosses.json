@@ -1,0 +1,126 @@
+{
+  "sourceSha256": "659c3a675595ab2d9959ee63d34990654df10a827dff84fd23d0a26e25569f47",
+  "trials": {
+    "jadeplume": {
+      "moves": {
+        "FJ01": {
+          "lock": 36,
+          "positions": [],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FJ02": {
+          "lock": 48,
+          "positions": [
+            723.5
+          ],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FJ03": {
+          "lock": 48,
+          "positions": [
+            622.0,
+            537.0,
+            707.0
+          ],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        }
+      },
+      "recoveryLabels": [
+        "FJ01",
+        "FJ02",
+        "FJ03"
+      ],
+      "airborne": true,
+      "coreHits": [],
+      "downTicks": 0,
+      "interrupted": false,
+      "bolts": [],
+      "counterHit": true,
+      "hpBefore": 384,
+      "hpAfter": 366,
+      "seconds": 20.08,
+      "xp": 39950,
+      "mora": 180,
+      "level": 60,
+      "arena": "sumeru-jadeplume-grove",
+      "report": {
+        "quest": "jadeplume-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 3101
+    },
+    "electro-regisvine": {
+      "moves": {
+        "FER01": {
+          "lock": 48,
+          "positions": [],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FER02": {
+          "lock": 42,
+          "positions": [],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        },
+        "FER03": {
+          "lock": 48,
+          "positions": [
+            772.1,
+            688.5,
+            604.9
+          ],
+          "hpAtLock": 384,
+          "hpAfterAttack": 384
+        }
+      },
+      "recoveryLabels": [
+        "FER01",
+        "FER02",
+        "FER03"
+      ],
+      "airborne": false,
+      "coreHits": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "downTicks": 240,
+      "interrupted": false,
+      "bolts": [
+        1,
+        2
+      ],
+      "counterHit": true,
+      "hpBefore": 384,
+      "hpAfter": 384,
+      "seconds": 23.23,
+      "xp": 39950,
+      "mora": 225,
+      "level": 62,
+      "arena": "electro-regisvine-field-cave",
+      "report": {
+        "quest": "electro-regisvine-commission",
+        "xp": 4000,
+        "mora": 300
+      },
+      "restoredCooldown": 3066
+    }
+  },
+  "openingQuest": {
+    "levelBefore": 60,
+    "levelAfter": 62,
+    "objectives": 5,
+    "report": {
+      "quest": "sumeru-leaf-crossing",
+      "xp": 437849,
+      "mora": 1600
+    }
+  },
+  "partyWipes": 0
+}

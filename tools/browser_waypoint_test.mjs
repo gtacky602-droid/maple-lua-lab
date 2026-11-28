@@ -146,3 +146,52 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
 
  return {node,actor,journeys,walk,changeHeight,cross,warp,count,waitNode,accept,report,choices,waypointCount};
 }
+
+export async function verifySumeruBossGuide(page,arena){
+ await page.evaluate(()=>document.activeElement.blur());
+ await page.keyboard.press('KeyM');
+ await page.locator('#worldAtlas').waitFor();
+ await page.locator('#atlasRegion').selectOption('region-04');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.region==='region-04');
+ await page.locator('#atlasLayer').selectOption('boss');
+ await page.locator('#atlasField').selectOption(arena);
+ await page.waitForFunction(arena=>window.lab.frame.worldMap?.selected?.id===arena,arena);
+ const guide=await page.evaluate(()=>window.lab.frame.worldMap.guide);
+ assert.equal(guide.status,'ready');
+ assert.deepEqual(guide.stops.map(stop=>[stop.id,stop.mode]),[['sumeru-field','walk'],[arena,'walk']]);
+ await page.locator('#atlasClose').click();
+ await page.locator('#worldAtlas').waitFor({state:'hidden'});
+ return guide.stops.map(stop=>stop.id);
+}
+
+export async function captureNumberedFieldWarning(page,{move,before,color,output}){
+ await page.waitForFunction(({move,before,color})=>{
+  const f=window.lab.frame,b=f.fieldBoss;
+  if(b?.move!==move||b.tick>=before||f.draws.filter(d=>d.kind==='text'&&d.color===color).length!==3)return false;
+  window.lab.action('pause');
+  return true;
+ },{move,before,color});
+ await page.waitForFunction(()=>window.lab.frame.paused);
+ const read=()=>page.evaluate(()=>window.lab.frame);
+ const original=await read();
+ const marks=f=>f.draws.filter(d=>d.kind==='text'&&d.color===color).map(d=>[d.x,d.y,d.text]);
+ assert.deepEqual(marks(original).map(d=>d[2]),['1','2','3']);
+ const canvas=page.locator('#game'),renderMode=page.locator('#renderMode');
+ await canvas.screenshot({path:output+'.png'});
+ await renderMode.selectOption('rect');
+ await page.waitForFunction(()=>!window.lab.frame.draws.some(d=>d.kind==='boss_sprite'));
+ const standard=await read();
+ await renderMode.selectOption('h32c16');
+ await page.waitForFunction(n=>window.lab.frame.commands<n*.75,standard.commands);
+ const light=await read();
+ assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[original.t,original.t,original.fieldBoss.tick]);
+ assert.deepEqual(marks(standard),marks(original));
+ assert.deepEqual(marks(light),marks(original));
+ await canvas.screenshot({path:output+'-light.png'});
+ await renderMode.selectOption('sprite');
+ await page.waitForFunction(()=>window.lab.frame.draws.some(d=>d.kind==='boss_sprite'));
+ await canvas.click();
+ await page.keyboard.press('KeyP');
+ await page.waitForFunction(()=>!window.lab.frame.paused);
+ return {png:original.commands,standard:standard.commands,light:light.commands,warningTick:original.fieldBoss.tick};
+}

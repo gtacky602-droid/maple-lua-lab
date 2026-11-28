@@ -129,6 +129,13 @@ return function(C)
    end
   end
   C.drawJadeplumeArt(f,boss.x-s.camera,bottom,height,boss.facing>0,pose,mode,profile)
+  if cast and cast.move.pattern=='spores' and cast.tick>=cast.move.lock then
+   for i,window in ipairs(cast.move.active) do
+    if warningVisible(cast,i,window) then
+     C.drawFieldImpactNumber(f,cast.spots[i]-s.camera,spec.floorY,i,'#fff3c3')
+    end
+   end
+  end
  end
  return jade
 end
