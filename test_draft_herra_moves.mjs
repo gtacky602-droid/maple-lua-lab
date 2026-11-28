@@ -52,6 +52,7 @@ try {
  await pause(true);
  await page.locator('#fieldBossLabel').filter({hasText:'薄闇の二連波・一波目'}).waitFor();
  await page.locator('#renderMode').selectOption('rect');
+ await page.locator('#packRectArt').uncheck();
  await page.waitForFunction(file => !window.lab.frame.draws.some(draw => draw.source===file),source);
  const standard=await scene();
  await page.locator('.game').screenshot({path:'evidence/short-herra-wave.png'});

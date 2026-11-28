@@ -1,37 +1,152 @@
 {
-  "browser": "Chrome",
-  "companion": "wanderer",
-  "play": {
-    "won": true,
-    "seconds": 57.25,
-    "moves": [
-      "FHR01",
-      "FHR02",
-      "FHR03"
+  "inputSha256": "9ae2d0b6ca101f569e0557062bde373c8097791ded5fa1c3e0f2defa051db15b",
+  "level": 200,
+  "journeys": [
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
     ],
-    "hp": 116,
-    "returns": 0,
-    "casts": 3,
-    "down": true
+    [
+      "nod-field",
+      "nod-herra-terrace",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-herra-terrace",
+      "walk"
+    ],
+    [
+      "nod-herra-terrace",
+      "nod-field",
+      "walk"
+    ],
+    [
+      "nod-field",
+      "nod-town",
+      "walk"
+    ]
+  ],
+  "gear": {
+    "trialAttack": 7,
+    "originalAttack": 74956
   },
   "scenery": {
     "key": "herraField",
     "file": "frostnight-herra-field-background-v1.png",
     "state": "ready"
   },
-  "questAcceptedInUi": true,
-  "questReport": {
+  "dive": {
+    "right": 890.18,
+    "left": 738.82,
+    "origin": 915.6666666666665,
+    "center": 814.5,
+    "airTicks": 36,
+    "heroDamage": 0
+  },
+  "waves": {
+    "lane": {
+      "right": 940.9,
+      "left": 734.1
+    },
+    "firstHeroY": 333.02777777777777,
+    "secondHeroX": 975.5,
+    "heroDamage": 0,
+    "recoveryTicks": 144,
+    "counterDamage": 14,
+    "hpAfterReload": 1186
+  },
+  "captures": {
+    "dive": {
+      "label": "飛翔からの着地・床の印から離れる",
+      "tick": 116,
+      "form": "airborne",
+      "marks": [
+        "着地"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 7968,
+          "packedDraws": 16,
+          "plainGzip": 139814,
+          "packedGzip": 97052,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 3482,
+          "packedDraws": 16,
+          "plainGzip": 69065,
+          "packedGzip": 54267,
+          "identicalPixels": true
+        }
+      }
+    },
+    "first": {
+      "label": "薄闇の二連波・一波目",
+      "tick": 186,
+      "form": "shadow",
+      "marks": [
+        "1"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 11029,
+          "packedDraws": 10,
+          "plainGzip": 158057,
+          "packedGzip": 119799,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 4504,
+          "packedDraws": 10,
+          "plainGzip": 82331,
+          "packedGzip": 61880,
+          "identicalPixels": true
+        }
+      }
+    },
+    "second": {
+      "label": "薄闇の二連波・二波目",
+      "tick": 273,
+      "form": "shadow",
+      "marks": [
+        "2"
+      ],
+      "profiles": {
+        "h48c32": {
+          "plainDraws": 11029,
+          "packedDraws": 10,
+          "plainGzip": 158567,
+          "packedGzip": 120084,
+          "identicalPixels": true
+        },
+        "h32c16": {
+          "plainDraws": 4504,
+          "packedDraws": 10,
+          "plainGzip": 81922,
+          "packedGzip": 61873,
+          "identicalPixels": true
+        }
+      }
+    }
+  },
+  "reward": {
+    "xp": 20315,
+    "mora": 465
+  },
+  "reportReward": {
     "xp": 9000,
     "mora": 610
   },
-  "sameSceneCommands": {
-    "png": 35,
-    "standard": 21994,
-    "light": 5550
-  },
-  "flightY": 350.05532879818594,
-  "dispelTick": 266,
-  "savedRespawn": true,
-  "viewport390": true,
+  "fieldClears": 1,
+  "reported": 141,
+  "priorWeeklyRecordsPreserved": true,
+  "returns": 0,
   "errors": []
 }

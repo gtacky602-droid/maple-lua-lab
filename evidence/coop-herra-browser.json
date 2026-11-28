@@ -4,19 +4,19 @@
   "bossHp": 1200,
   "results": [
     {
-      "seconds": 35.95,
+      "seconds": 27.72,
       "hp": 121,
       "kills": 1,
-      "startingMora": 20,
+      "startingMora": 80,
       "mora": 465,
-      "startingXp": 3712,
+      "startingXp": 14848,
       "xp": 440148,
       "moves": [
         "FHR01",
         "FHR02",
         "FHR03"
       ],
-      "manualDamage": 187,
+      "manualDamage": 248,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -52,32 +52,35 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [],
-      "reflectionLayers": [],
-      "reflectionBroken": false,
+      "echoLayouts": [],
+      "echoRecovery": false,
       "repairLayouts": [],
-      "thermalStates": [],
+      "coolingLayouts": [],
+      "coolingLayers": [],
       "machineDown": false,
-      "adaptedElements": [
-        "anemo"
+      "herraLanes": [
+        "812.100:1018.900"
       ],
-      "adaptationEnded": true,
-      "gloomDown": true
+      "herraWaveMarks": [
+        "1",
+        "2"
+      ],
+      "herraRecovery": true
     },
     {
-      "seconds": 35.97,
+      "seconds": 27.72,
       "hp": 97,
       "kills": 1,
-      "startingMora": 0,
+      "startingMora": 30,
       "mora": 465,
-      "startingXp": 0,
+      "startingXp": 5568,
       "xp": 440148,
       "moves": [
         "FHR01",
         "FHR02",
         "FHR03"
       ],
-      "manualDamage": 181,
+      "manualDamage": 240,
       "cloaked": false,
       "markers": [],
       "emerged": [],
@@ -113,17 +116,20 @@
       "coolingTime": null,
       "purgeLayouts": [],
       "cooledFlows": [],
-      "reflectionLayouts": [],
-      "reflectionLayers": [],
-      "reflectionBroken": false,
+      "echoLayouts": [],
+      "echoRecovery": false,
       "repairLayouts": [],
-      "thermalStates": [],
+      "coolingLayouts": [],
+      "coolingLayers": [],
       "machineDown": false,
-      "adaptedElements": [
-        "anemo"
+      "herraLanes": [
+        "812.100:1018.900"
       ],
-      "adaptationEnded": true,
-      "gloomDown": true
+      "herraWaveMarks": [
+        "1",
+        "2"
+      ],
+      "herraRecovery": true
     }
   ],
   "questCounts": [
@@ -133,14 +139,14 @@
   "saves": [
     {
       "clears": 1,
-      "mora": 485,
-      "xp": 443860,
+      "mora": 545,
+      "xp": 454996,
       "respawn": true
     },
     {
       "clears": 1,
-      "mora": 465,
-      "xp": 440148,
+      "mora": 495,
+      "xp": 445716,
       "respawn": true
     }
   ],

@@ -1,4 +1,4 @@
-"""Exercise the shared adaptation clock and the Nightmare's shield and fishers."""
+"""Exercise shared waves and the Nightmare's shield and fishers."""
 import json
 
 from runtime import ROOT, native, runtime
@@ -31,59 +31,54 @@ def check_herra(lua, core):
     initial_positions(states, boss)
     wait_cast(step, slot, 'FHR01', 185)
     assert [hits(s, boss) for s in states] == [[19, 19], [19, 19], [], []]
-    wait_cast(step, slot, 'FHR02', 117)
-    assert boss.form == 'airborne'
+    wait_cast(step, slot, 'FHR02', 114)
+    assert boss.form == 'airborne' and abs(boss.y-(480-1.48*88))<.001
     dest = slot.cast.center
     for state, offset in zip(states, (0, 12, -140, 155)):
         place(state, dest+offset)
     marks = [s.seq for s in states]
-    wait_cast(step, slot, 'FHR02', 150)
+    wait_cast(step, slot, 'FHR02', 144)
     assert [hits(s, boss, mark) for s, mark in zip(states, marks)] == [[27], [27], [], []]
+    assert boss.x == dest and boss.y == 480
 
-    wait_cast(step, slot, 'FHR03', 60)
     initial_positions(states, boss)
-    attack(lua, core, host, boss, element='hydro', atk=18)
-    attack(lua, core, guest, boss, element='pyro', atk=55)
-    wait_cast(step, slot, 'FHR03', 324)
+    wait_cast(step, slot, 'FHR03', 59)
+    white = attack(lua, core, host, boss, atk=100)
+    step()
+    cast = slot.cast
+    assert boss.form == 'shadow' and cast.center is not None
+    assert attack(lua, core, host, boss, atk=100) == white > 0
+    for _ in range(3):
+        attack(lua, core, guest, boss, element='cryo')
+    assert cast.broken is None and boss.gloomCharges == 0
+    first_lane = view(core, host)['lockedWave']
+    assert all(view(core, s)['lockedWave'] == first_lane for s in states)
+    left, right = cast.left, cast.right
+    for state, x in zip(states, (cast.center, cast.center+12, left-36, right+40)):
+        place(state, x)
+    marks = [s.seq for s in states]
+    wait_cast(step, slot, 'FHR03', 197)
+    assert [hits(s, boss, mark) for s, mark in zip(states, marks)] == [[24], [24], [], []]
+
     member = late.coopMember
     core.detachCoop(member)
     core.attachCoop(room, late, member)
+    assert view(core, late)['lockedWave'] == first_lane
+    for state, x in zip(states, (left-36, cast.center, cast.center+12, right+40)):
+        place(state, x)
+    wait_cast(step, slot, 'FHR03', 285)
+    wave_hits = [hits(s, boss, mark) for s, mark in zip(states, marks)]
+    assert wave_hits == [[24], [24, 24], [24], []]
+    wait_cast(step, slot, 'FHR03', 324)
     for state in states:
-        f = view(core, state)
-        assert f['gloom'] == dict(charges=0, maxCharges=3, adaptedElement='pyro', remainingTicks=210)
-        assert f['label'].startswith('元素適応・炎')
-    assert [attack(lua, core, s, boss, element='pyro', atk=24) for s in (host, guest, late)] == [13]*3
-    assert attack(lua, core, host, boss, atk=24) == 22
-    for _ in range(209):
-        step()
-    assert all(view(core, s)['gloom']['remainingTicks'] == 1 for s in states)
-    step()
-    for state in states:
-        f = view(core, state)
-        assert f['gloom']['remainingTicks'] == 0 and 'adaptedElement' not in f['gloom']
-        assert not f['label'].startswith('元素適応')
-    assert [attack(lua, core, s, boss, element='pyro', atk=24) for s in (host, guest, late)] == [22]*3
-
-    for state in states:
-        state.actors[1].hp = state.actors[1].maxhp
-    initial_positions(states, boss)
-    wait_cast(step, slot, 'FHR03', 60)
-    cast = lua.table_from(dict(id=1, atk=20, x=boss.x, y=480, dir=1, radial=True, range=24, limit=1,
-                                mult=1, color='#b6edff', gain=0, element='cryo', critRate=0))
-    core.resolveCast(host, cast)
-    core.resolveCast(host, cast)
-    attack(lua, core, guest, boss, element='cryo', reaction=True, key='reaction:test')
-    assert boss.gloomCharges == 1, (boss.gloomCharges, boss.form, boss.hp, native(slot.cast.damageByElement))
-    attack(lua, core, guest, boss, element='lunar')
-    assert all(view(core, s)['gloom']['charges'] == 2 for s in states)
-    attack(lua, core, late, boss, element='cryo')
-    assert boss.form == 'down' and slot.cast.broken == 60 and boss.maxhp == 1200
-    place(late, boss.x+440)
+        frame = view(core,state)
+        assert frame['recoveryTicks'] == 144 and frame['lockedWave'] == first_lane
+        assert 'gloom' not in frame and frame['hp'] == boss.hp
+    assert boss.adaptedElement is None and boss.maxhp == 1200
     finish(lua, core, HERRA, slot, states)
     check_adoption(core, HERRA, 'FHR01', 108, 19)
-    return dict(participants=4, separateAreaHits=True, sameDurationWithDifferentPartyClocks=True,
-                sharedAdaptationTicks=210, elementalDamageBeforeAndAfter=[13, 22],
-                lateJoinPreservesAdaptation=True, dispelNeedsThreeDistinctCasts=True, individualRewards=True)
+    return dict(participants=4, airTicks=36, damageByParticipant=wave_hits, sharedRecoveryTicks=144,
+                sharedLaneOnRejoin=True, noDispel=True, individualRewards=True)
 
 
 def check_nightmare(lua, core):
@@ -163,7 +158,7 @@ if __name__ == '__main__':
     check_fisher_adoption(core)
     result['nightmare']['lua']['soloFisherHitPreservedOnJoin'] = True
     with lab() as url:
-        result['herra']['http'] = check_http(url, HERRA, 'FHR03', 60, 'gloom', 328, gate=510)
+        result['herra']['http'] = check_http(url, HERRA, 'FHR03', 60, 'lockedWave', 328, gate=510)
         result['nightmare']['http'] = check_http(url, NIGHTMARE, 'FWN03', 64, 'summons', 881, gate=330)
     (ROOT/'evidence/coop-nod-gloom-lua-http.json').write_text(
         json.dumps(result, indent=2)+'\n', encoding='utf8')

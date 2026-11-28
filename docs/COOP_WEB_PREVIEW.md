@@ -582,7 +582,7 @@ Luaの4人試験で参加者ごとの命中と放出の中断、HTTPの2人試�
 
 ## 霜夜の空を巡る霊主と昏き魘夢の主
 
-ナド・クライの月明かりの道から霜夜の石壇へ進むと、霜夜の空を巡る霊主と戦える。薄闇に氷か月の攻撃を別々に3回当てると、その場の全員で解除できる。薄闇が時間切れになると、七元素のうち受けたダメージが最も多かった元素に3.5秒間適応する。途中から参加しても、効果が切れる時刻は全員に共通する。 [元素適応中の画面](../evidence/coop-herra-adaptation.png)
+ナド・クライの月明かりの道から霜夜の石壇へ進むと、霜夜の空を巡る霊主と戦える。薄闇の一波目と二波目は同じ範囲に来る。途中から参加しても、床の位置と攻撃順は全員で共通する。命中は参加者ごとに判定し、二波のあとに2.4秒間反撃できる。 [一波目の戦闘画面](../evidence/coop-herra-twin-waves.png)
 
 煙雲の山の昏き浜では、昏き魘夢の主が暗黒のシールドを張り、闇の漁師を4体召喚する。漁師を1体倒すたびにシールドが100削れ、月の攻撃はシールドに通常の3倍のダメージを与える。召喚位置と残りHP、シールド値を全員で共有する。シールドを壊すと残った漁師が消え、本体は3秒間ダウンする。 [闇の漁師が出た画面](../evidence/coop-nightmare-fishers.png)
 
@@ -591,9 +591,9 @@ Luaの4人試験で参加者ごとの命中と放出の中断、HTTPの2人試�
 | 霜夜の空を巡る霊主 | 126 | 1,200 | 677,150 EXP・465モラ | 9,000 EXP・610モラ |
 | 昏き魘夢の主 | 128 | 1,340 | 768,050 EXP・475モラ | 9,200 EXP・630モラ |
 
-Luaの4人試験で、参加者の時刻が異なっても元素適応の終了がそろうことと、召喚・シールド・個別命中の共有を確認した。HTTPの2人試験では退避後に同じ戦闘へ戻れた。Chromeの2画面で両戦の討伐・個別報酬・受注者の報告を保存した。霊主のChrome試走は氷技を2種使えるLv144で行い、レベル差を反映した440,148 EXPを各自が獲得した。 `python test_frostnight_herra_field.py` と `python test_whisperer_nightmares_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs herra nightmare` を実行すると試走できる。 [Lua・HTTPの検証](../evidence/coop-nod-gloom-lua-http.json) · [霊主のChrome試走](../evidence/coop-herra-browser.json) · [魘夢の主のChrome試走](../evidence/coop-nightmare-browser.json)
+Luaの4人試験で、霊主の二波を参加者ごとに判定し、途中から戻った参加者にも同じ範囲と反撃時間が見えることを確認した。魘夢の主の召喚・シールド・個別命中も検査した。HTTPの2人試験では退避後に同じ戦闘へ戻れた。Chromeの2画面で両戦の討伐・個別報酬・受注者の報告を保存した。霊主のChrome試走はLv144で行い、レベル差を反映した440,148 EXPを各自が獲得した。 `python test_frostnight_herra_field.py` と `python test_whisperer_nightmares_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs herra nightmare` を実行すると試走できる。 [Lua・HTTPの検証](../evidence/coop-nod-gloom-lua-http.json) · [霊主のChrome試走](../evidence/coop-herra-browser.json) · [魘夢の主のChrome試走](../evidence/coop-nightmare-browser.json)
 
-今回は現行の試作を使った。霊主の薄闇を短い二連波にまとめる案や、魘夢の主の潜行と召喚を短く整理する案は後続の設計。 [後続の動作設計](field-boss-v1/NOD_KRAI_QUARTET_MOVESETS.md)
+霊主の薄闇と元素適応を使う従来方式は `-DraftBalance` で比較できる。魘夢の主の潜行と召喚は、後続の短縮案を設計票にまとめている。 [ナド・クライの技の設計](field-boss-v1/NOD_KRAI_QUARTET_MOVESETS.md)
 
 ## 集光の幻月蝶と集光の月ヤモリ
 

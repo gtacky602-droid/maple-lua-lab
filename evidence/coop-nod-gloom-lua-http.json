@@ -2,15 +2,23 @@
   "herra": {
     "lua": {
       "participants": 4,
-      "separateAreaHits": true,
-      "sameDurationWithDifferentPartyClocks": true,
-      "sharedAdaptationTicks": 210,
-      "elementalDamageBeforeAndAfter": [
-        13,
-        22
+      "airTicks": 36,
+      "damageByParticipant": [
+        [
+          24
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          24
+        ],
+        []
       ],
-      "lateJoinPreservesAdaptation": true,
-      "dispelNeedsThreeDistinctCasts": true,
+      "sharedRecoveryTicks": 144,
+      "sharedLaneOnRejoin": true,
+      "noDispel": true,
       "individualRewards": true
     },
     "http": {

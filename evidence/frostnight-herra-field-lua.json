@@ -1,21 +1,21 @@
 {
   "fixedWarnedAreas": true,
-  "airborneHeightAndLandingDamage": true,
-  "normalDamage": {
-    "base": 22,
-    "gloom": 14
-  },
-  "chargesOncePerDirectCast": true,
-  "brokenGloomStopsWave": true,
-  "adaptationByTotalDamageAndExpires": true,
+  "airTicks": 36,
+  "landingTick": 132,
+  "lockedBothWaves": true,
+  "damagePerWave": 24,
+  "normalDamageSameInShadow": true,
+  "noDispelOrAdaptation": true,
+  "naturalRecoveryTicks": 144,
+  "edgeReposition": true,
   "saveAndReportOnce": true,
-  "normalAttackWithoutDispel": {
-    "seconds": 102.15,
+  "normalAttackSolo": {
+    "seconds": 91.35,
     "hp": 140
   },
   "sameSceneCommands": {
-    "png": 41,
-    "standard": 19964,
-    "light": 4982
+    "png": 17,
+    "standard": 19940,
+    "light": 4958
   }
 }

@@ -33,6 +33,13 @@
       "thermal":{"max":4,"hotAt":2,"hotFactor":1.25,"wardHp":5,"wardFactor":0.45,"pyroChip":2,"downTicks":168},
       "moves": {"FBT03": null},
       "coolingMove":{"id":"FBT03","kind":"ward","title":"氷バリア・冷却放出","pose":"ward","lock":60,"distance":2.05,"width":2.0,"height":1.17,"active":[[252,270]],"recover":340,"total":424,"damage":33,"element":"cryo","coolEvery":84}
+    },
+    "boss-20081001": {
+      "gloom":{"charges":3,"factor":0.65,"adaptFactor":0.58,"adaptTicks":210,"downTicks":144},
+      "moves": {
+        "FHR02":{"id":"FHR02","kind":"dive","title":"飛翔からの着地","reach":216,"lock":60,"distance":1.55,"width":1.72,"height":0.83,"air":[96,138],"lift":1.48,"active":[[138,151]],"recover":182,"total":288,"damage":27,"element":"cryo"},
+        "FHR03":{"id":"FHR03","kind":"gloom","title":"薄闇の二連波","reach":222,"lock":60,"distance":1.48,"width":2.35,"height":0.72,"active":[[184,198],[272,286]],"recover":324,"total":418,"damage":24,"element":"cryo"}
+      }
     }
   },
   "fieldBossMoveOverrides": {
@@ -109,10 +116,7 @@
       "FDK03": { "repairHp": 55000 }
     },
     "boss-23090101": {},
-    "boss-20081001": {
-      "FHR02": { "air": [96, 132], "active": [[132, 145]], "recover": 176, "total": 282 },
-      "FHR03": { "total": 468 }
-    },
+    "boss-20081001": {},
     "boss-22150101": {
       "FWN02": { "hide": [84, 120], "active": [[144, 158]], "recover": 190, "total": 286 },
       "FWN03": {
