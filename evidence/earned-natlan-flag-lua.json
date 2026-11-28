@@ -1,0 +1,60 @@
+{
+  "slope": {
+    "sourceSha256": "73eafce35b77e3371346f2cfa0aa2584ee50b46d4c7a55eaf02b9ce1840b1da7",
+    "initialLevel": 100,
+    "finalLevel": 101,
+    "route": "natlan-flag-slope",
+    "entryEnemies": 5,
+    "marks": [
+      [
+        445,
+        480
+      ],
+      [
+        1445,
+        391
+      ]
+    ],
+    "readyAtCleft": true,
+    "bridgeCountdownPaused": true,
+    "bridgeRestored": true,
+    "award": {
+      "quest": "natlan-ridge-flag",
+      "xp": 3768926,
+      "mora": 6200,
+      "ore": 4
+    },
+    "nextQuestAvailable": "natlan-two-trials",
+    "reported": true,
+    "returns": 0
+  },
+  "ledges": {
+    "sourceSha256": "73eafce35b77e3371346f2cfa0aa2584ee50b46d4c7a55eaf02b9ce1840b1da7",
+    "initialLevel": 100,
+    "finalLevel": 101,
+    "route": "natlan-flag-ledges",
+    "entryEnemies": 1,
+    "marks": [
+      [
+        560,
+        390
+      ],
+      [
+        1170,
+        302
+      ]
+    ],
+    "readyAtCleft": true,
+    "bridgeCountdownPaused": true,
+    "bridgeRestored": true,
+    "award": {
+      "quest": "natlan-ridge-flag",
+      "xp": 3768926,
+      "mora": 6200,
+      "ore": 4
+    },
+    "nextQuestAvailable": "natlan-two-trials",
+    "reported": true,
+    "returns": 0
+  }
+}
