@@ -3,6 +3,7 @@
   "updated": "2026-11-28",
   "goal_status": "active",
   "scope_complete": false,
+  "inazuma_field_studio_replay": {"editorRevision":1,"markersVisited":77,"directedGatesWalked":210,"oneTimeReports":3,"atlasMarkerLinksRefreshed":194,"luaRecord":"evidence/inazuma-waypoint-test.json","browserRecord":"evidence/inazuma-waypoint-browser.json"},
   "liyue_entry_hunts": {"registeredHunts":126,"newlyClassified":3,"regularEnemiesAdded":26,"entryPeaks":[15,15,15],"portalArrivalsChecked":22,"ingredientSitesChecked":2,"record":"evidence/liyue-entry-density-20261128.json"},
   "inazuma_entry_hunts": {"registeredHunts":128,"newlyClassified":2,"regularEnemiesAdded":19,"entryPeaks":[15,15],"portalArrivalsChecked":11,"record":"evidence/inazuma-entry-density-20261128.json"},
   "sumeru_entry_hunts": {"registeredHunts":131,"newlyClassified":3,"regularEnemiesAdded":28,"entryPeaks":[15,15,15],"portalArrivalsChecked":24,"waypointArrivalsChecked":2,"record":"evidence/sumeru-entry-density-20261128.json"},
@@ -767,7 +768,8 @@
         "name": "古の聖山・南の入口拠点",
         "gates": [
           "teyvat:82560",
-          "map36:84104"
+          "map36:84104",
+          "map36:84107"
         ]
       },
       "map36:84104": {
@@ -798,7 +800,8 @@
         "stage_id": "nat-wp-84107",
         "name": "古の聖山・東島の石棚",
         "gates": [
-          "map36:84109"
+          "map36:84109",
+          "map36:84103"
         ]
       },
       "map36:84108": {
@@ -1098,7 +1101,8 @@
         "stage_id": "frost-wp-99283",
         "name": "霜月・入口台地の内室",
         "gates": [
-          "map40:99282"
+          "map40:99282",
+          "map40:99284"
         ]
       },
       "map40:99284": {
@@ -1107,7 +1111,8 @@
         "gates": [
           "map40:99287",
           "map40:99285",
-          "map40:99282"
+          "map40:99282",
+          "map40:99283"
         ]
       },
       "map40:99285": {
@@ -1450,7 +1455,6 @@
         "stage_id": "enkan-wp-21582",
         "name": "淵下宮・大塔南の石段",
         "gates": [
-          "map7:21583",
           "map7:21580",
           "map7:21585"
         ]
@@ -1459,8 +1463,7 @@
         "stage_id": "enkan-wp-21583",
         "name": "淵下宮・南の遺構の上段",
         "gates": [
-          "map7:21584",
-          "map7:21582"
+          "map7:21584"
         ]
       },
       "map7:21584": {
@@ -1692,7 +1695,6 @@
         "stage_id": "liyue-wp-100",
         "name": "璃月・東岸の岩浜",
         "gates": [
-          "teyvat:343",
           "teyvat:97",
           "teyvat:96"
         ]
@@ -1710,7 +1712,8 @@
         "name": "南東の氷壁・南東岸の神像",
         "gates": [
           "teyvat:100653",
-          "teyvat:105872"
+          "teyvat:105872",
+          "teyvat:100656"
         ]
       },
       "teyvat:100643": {
@@ -1730,7 +1733,8 @@
           "teyvat:100664",
           "teyvat:100672",
           "teyvat:100674",
-          "teyvat:100675"
+          "teyvat:100675",
+          "teyvat:100695"
         ]
       },
       "teyvat:100645": {
@@ -1747,7 +1751,8 @@
         "gates": [
           "teyvat:88142",
           "teyvat:100644",
-          "teyvat:100647"
+          "teyvat:100647",
+          "teyvat:92887"
         ]
       },
       "teyvat:100647": {
@@ -1765,7 +1770,9 @@
         "gates": [
           "teyvat:100651",
           "teyvat:100641",
-          "teyvat:100649"
+          "teyvat:100649",
+          "teyvat:100661",
+          "teyvat:100659"
         ]
       },
       "teyvat:100649": {
@@ -1810,7 +1817,8 @@
         "gates": [
           "teyvat:100647",
           "teyvat:100642",
-          "teyvat:100654"
+          "teyvat:100654",
+          "teyvat:105872"
         ]
       },
       "teyvat:100654": {
@@ -1818,8 +1826,8 @@
         "name": "南東の氷壁・氷壁の南端",
         "gates": [
           "teyvat:100653",
-          "teyvat:100655",
-          "teyvat:100684"
+          "teyvat:100684",
+          "teyvat:100703"
         ]
       },
       "teyvat:100655": {
@@ -1828,7 +1836,7 @@
         "gates": [
           "teyvat:100658",
           "teyvat:100656",
-          "teyvat:100654"
+          "teyvat:100702"
         ]
       },
       "teyvat:100656": {
@@ -1836,7 +1844,8 @@
         "name": "南東の氷壁・南門脇の石段",
         "gates": [
           "teyvat:100657",
-          "teyvat:100655"
+          "teyvat:100655",
+          "teyvat:100642"
         ]
       },
       "teyvat:100657": {
@@ -1864,7 +1873,9 @@
           "teyvat:100660",
           "teyvat:100658",
           "teyvat:100689",
-          "teyvat:100670"
+          "teyvat:100670",
+          "teyvat:100695",
+          "teyvat:100648"
         ]
       },
       "teyvat:100660": {
@@ -1883,7 +1894,10 @@
         "gates": [
           "teyvat:100644",
           "teyvat:100662",
-          "teyvat:100666"
+          "teyvat:100666",
+          "teyvat:100648",
+          "teyvat:100695",
+          "teyvat:100667"
         ]
       },
       "teyvat:100662": {
@@ -1941,7 +1955,9 @@
         "name": "雪の町と白虹峠・港西の桟橋",
         "gates": [
           "teyvat:100668",
-          "teyvat:100666"
+          "teyvat:100666",
+          "teyvat:100661",
+          "teyvat:100695"
         ]
       },
       "teyvat:100668": {
@@ -1949,7 +1965,6 @@
         "name": "雪の町と白虹峠・港の荷揚げ場",
         "gates": [
           "teyvat:100667",
-          "teyvat:100699",
           "teyvat:100669",
           "teyvat:100690"
         ]
@@ -2034,7 +2049,8 @@
         "name": "雪の町と白虹峠・北岸の突端",
         "gates": [
           "teyvat:100676",
-          "teyvat:100678"
+          "teyvat:100678",
+          "teyvat:100699"
         ]
       },
       "teyvat:100678": {
@@ -2120,7 +2136,8 @@
         "gates": [
           "teyvat:100688",
           "teyvat:100686",
-          "teyvat:100682"
+          "teyvat:100682",
+          "teyvat:105012"
         ]
       },
       "teyvat:100688": {
@@ -2182,7 +2199,12 @@
         "stage_id": "sne-wp-100695",
         "name": "雪の町と白虹峠・町南の地下道",
         "gates": [
-          "teyvat:100643"
+          "teyvat:100643",
+          "teyvat:100661",
+          "teyvat:100667",
+          "teyvat:100659",
+          "teyvat:100644",
+          "teyvat:106182"
         ]
       },
       "teyvat:100696": {
@@ -2212,7 +2234,7 @@
         "stage_id": "sne-wp-100699",
         "name": "雪の町と白虹峠・西沖の氷舟",
         "gates": [
-          "teyvat:100668"
+          "teyvat:100677"
         ]
       },
       "teyvat:100700": {
@@ -2221,7 +2243,8 @@
         "gates": [
           "teyvat:100701",
           "teyvat:100684",
-          "teyvat:100702"
+          "teyvat:100702",
+          "teyvat:100703"
         ]
       },
       "teyvat:100701": {
@@ -2236,7 +2259,8 @@
         "stage_id": "sne-wp-100702",
         "name": "南東の氷壁・氷壁下の奥",
         "gates": [
-          "teyvat:100700"
+          "teyvat:100700",
+          "teyvat:100655"
         ]
       },
       "teyvat:100703": {
@@ -2245,7 +2269,9 @@
         "gates": [
           "teyvat:100657",
           "teyvat:100701",
-          "teyvat:100697"
+          "teyvat:100697",
+          "teyvat:100700",
+          "teyvat:100654"
         ]
       },
       "teyvat:100704": {
@@ -2259,8 +2285,7 @@
         "stage_id": "primo-approach",
         "name": "エンシェントヴィシャップ・洞窟入口",
         "gates": [
-          "teyvat:343",
-          "teyvat:110"
+          "teyvat:343"
         ]
       },
       "teyvat:104": {
@@ -2284,14 +2309,16 @@
         "stage_id": "sne-wp-105012",
         "name": "南西雪原・谷底の横穴",
         "gates": [
-          "teyvat:100688"
+          "teyvat:100688",
+          "teyvat:100687"
         ]
       },
       "teyvat:105872": {
         "stage_id": "sne-wp-105872",
         "name": "南東の氷壁・南東の小さな岬",
         "gates": [
-          "teyvat:100642"
+          "teyvat:100642",
+          "teyvat:100653"
         ]
       },
       "teyvat:106": {
@@ -2317,7 +2344,8 @@
         "gates": [
           "teyvat:106193",
           "teyvat:106194",
-          "teyvat:106192"
+          "teyvat:106192",
+          "teyvat:106189"
         ]
       },
       "teyvat:106182": {
@@ -2326,7 +2354,9 @@
         "gates": [
           "teyvat:100679",
           "teyvat:106180",
-          "teyvat:106183"
+          "teyvat:106183",
+          "teyvat:100695",
+          "teyvat:106204"
         ]
       },
       "teyvat:106183": {
@@ -2354,7 +2384,8 @@
         "name": "東部の雪原と工業区・旧線の下層・作業台前",
         "gates": [
           "teyvat:106186",
-          "teyvat:106184"
+          "teyvat:106184",
+          "teyvat:106193"
         ]
       },
       "teyvat:106186": {
@@ -2386,7 +2417,8 @@
         "name": "東部の雪原と工業区・北の林の下の石室",
         "gates": [
           "teyvat:106193",
-          "teyvat:106188"
+          "teyvat:106188",
+          "teyvat:106181"
         ]
       },
       "teyvat:106190": {
@@ -2394,7 +2426,7 @@
         "name": "東部の雪原と工業区・古い線路の埋設区画",
         "gates": [
           "teyvat:106184",
-          "teyvat:106201"
+          "teyvat:106220"
         ]
       },
       "teyvat:106191": {
@@ -2423,7 +2455,8 @@
           "teyvat:106191",
           "teyvat:106194",
           "teyvat:106181",
-          "teyvat:106189"
+          "teyvat:106189",
+          "teyvat:106185"
         ]
       },
       "teyvat:106194": {
@@ -2488,7 +2521,6 @@
         "stage_id": "sne-wp-106201",
         "name": "東部の雪原と工業区・東の工区・地下の旧線の奥",
         "gates": [
-          "teyvat:106190",
           "teyvat:106200"
         ]
       },
@@ -2498,7 +2530,8 @@
         "gates": [
           "teyvat:106183",
           "teyvat:106204",
-          "teyvat:107298"
+          "teyvat:107298",
+          "teyvat:106209"
         ]
       },
       "teyvat:106203": {
@@ -2515,7 +2548,8 @@
           "teyvat:106183",
           "teyvat:106200",
           "teyvat:106202",
-          "teyvat:106205"
+          "teyvat:106205",
+          "teyvat:106182"
         ]
       },
       "teyvat:106205": {
@@ -2560,7 +2594,8 @@
         "name": "東部の雪原と工業区・東の丘の下の小間",
         "gates": [
           "teyvat:106208",
-          "teyvat:107298"
+          "teyvat:107298",
+          "teyvat:106202"
         ]
       },
       "teyvat:106210": {
@@ -2653,7 +2688,8 @@
         "name": "東部の雪原と工業区・分岐駅の下の昇降室",
         "gates": [
           "teyvat:106186",
-          "teyvat:106183"
+          "teyvat:106183",
+          "teyvat:106190"
         ]
       },
       "teyvat:107": {
@@ -2697,8 +2733,7 @@
         "name": "璃月・段差のある沢道",
         "gates": [
           "teyvat:109",
-          "teyvat:43",
-          "teyvat:101"
+          "teyvat:43"
         ]
       },
       "teyvat:111": {
@@ -2828,7 +2863,8 @@
         "stage_id": "ina-wp-12720",
         "name": "神無塚・東の浜の見張り場",
         "gates": [
-          "teyvat:12719"
+          "teyvat:12719",
+          "teyvat:16014"
         ]
       },
       "teyvat:12722": {
@@ -2985,7 +3021,6 @@
           "teyvat:12731",
           "teyvat:15947",
           "teyvat:18584",
-          "teyvat:13669",
           "teyvat:12740"
         ]
       },
@@ -2993,8 +3028,7 @@
         "stage_id": "ina-wp-13669",
         "name": "神無塚・北西の渡し場",
         "gates": [
-          "teyvat:13429",
-          "teyvat:13652"
+          "teyvat:13429"
         ]
       },
       "teyvat:13670": {
@@ -3010,7 +3044,6 @@
         "stage_id": "mond-wp-14",
         "name": "モンド・泉池の南道",
         "gates": [
-          "teyvat:19",
           "teyvat:16"
         ]
       },
@@ -3098,7 +3131,8 @@
         "name": "セイライ島・北西の船着き場",
         "gates": [
           "teyvat:16026",
-          "teyvat:12722"
+          "teyvat:12722",
+          "teyvat:12720"
         ]
       },
       "teyvat:16018": {
@@ -3182,7 +3216,8 @@
         "name": "璃月・湖西の石浜",
         "gates": [
           "teyvat:119",
-          "teyvat:51"
+          "teyvat:51",
+          "teyvat:44"
         ]
       },
       "teyvat:18": {
@@ -3271,8 +3306,7 @@
         "name": "モンド・西の並木と神像",
         "gates": [
           "teyvat:116",
-          "teyvat:6540",
-          "teyvat:14"
+          "teyvat:6540"
         ]
       },
       "teyvat:20": {
@@ -3416,7 +3450,8 @@
         "name": "スメールの森林・北東の林と神像",
         "gates": [
           "teyvat:28747",
-          "teyvat:28749"
+          "teyvat:28749",
+          "teyvat:28750"
         ]
       },
       "teyvat:28701": {
@@ -3444,7 +3479,8 @@
           "teyvat:28713",
           "teyvat:28729",
           "teyvat:28728",
-          "teyvat:28726"
+          "teyvat:28726",
+          "teyvat:28711"
         ]
       },
       "teyvat:28704": {
@@ -3453,7 +3489,8 @@
         "gates": [
           "teyvat:28734",
           "teyvat:28725",
-          "teyvat:28733"
+          "teyvat:28733",
+          "teyvat:28732"
         ]
       },
       "teyvat:28705": {
@@ -3495,7 +3532,9 @@
         "stage_id": "sum-wp-28709",
         "name": "失われた苗畑・苗畑の深層の根室",
         "gates": [
-          "teyvat:32452"
+          "teyvat:32452",
+          "teyvat:32451",
+          "teyvat:28710"
         ]
       },
       "teyvat:28710": {
@@ -3504,7 +3543,8 @@
         "gates": [
           "teyvat:41821",
           "teyvat:32451",
-          "teyvat:28712"
+          "teyvat:28712",
+          "teyvat:28709"
         ]
       },
       "teyvat:28711": {
@@ -3513,7 +3553,8 @@
         "gates": [
           "teyvat:28708",
           "teyvat:28712",
-          "teyvat:28729"
+          "teyvat:28729",
+          "teyvat:28703"
         ]
       },
       "teyvat:28712": {
@@ -3523,7 +3564,8 @@
           "teyvat:28710",
           "teyvat:28715",
           "teyvat:28711",
-          "teyvat:28713"
+          "teyvat:28713",
+          "teyvat:28716"
         ]
       },
       "teyvat:28713": {
@@ -3558,7 +3600,8 @@
         "name": "スメールの森林・南の段丘道",
         "gates": [
           "teyvat:28714",
-          "teyvat:28718"
+          "teyvat:28718",
+          "teyvat:28712"
         ]
       },
       "teyvat:28717": {
@@ -3599,7 +3642,8 @@
         "name": "スメールの森林・南港の川沿い",
         "gates": [
           "teyvat:28720",
-          "teyvat:28722"
+          "teyvat:28722",
+          "teyvat:28724"
         ]
       },
       "teyvat:28722": {
@@ -3622,7 +3666,9 @@
         "stage_id": "sum-wp-28724",
         "name": "スメールの森林・神像の下の茂み洞",
         "gates": [
-          "teyvat:28699"
+          "teyvat:28699",
+          "teyvat:28725",
+          "teyvat:28721"
         ]
       },
       "teyvat:28725": {
@@ -3631,7 +3677,8 @@
         "gates": [
           "teyvat:28727",
           "teyvat:28699",
-          "teyvat:28704"
+          "teyvat:28704",
+          "teyvat:28724"
         ]
       },
       "teyvat:28726": {
@@ -3699,7 +3746,8 @@
         "gates": [
           "teyvat:24908",
           "teyvat:24912",
-          "teyvat:24911"
+          "teyvat:24911",
+          "teyvat:28704"
         ]
       },
       "teyvat:28733": {
@@ -3719,7 +3767,8 @@
         "gates": [
           "teyvat:28735",
           "teyvat:28704",
-          "teyvat:28733"
+          "teyvat:28733",
+          "teyvat:28747"
         ]
       },
       "teyvat:28735": {
@@ -3840,7 +3889,8 @@
         "gates": [
           "teyvat:28746",
           "teyvat:28748",
-          "teyvat:28700"
+          "teyvat:28700",
+          "teyvat:28734"
         ]
       },
       "teyvat:28748": {
@@ -3857,14 +3907,16 @@
         "name": "スメールの森林・北東の岩縁",
         "gates": [
           "teyvat:28748",
-          "teyvat:28700"
+          "teyvat:28700",
+          "teyvat:66770"
         ]
       },
       "teyvat:28750": {
         "stage_id": "sum-wp-28750",
         "name": "スメールの森林・東の境の洞窟",
         "gates": [
-          "teyvat:28748"
+          "teyvat:28748",
+          "teyvat:28700"
         ]
       },
       "teyvat:29": {
@@ -3924,7 +3976,8 @@
           "teyvat:41840",
           "teyvat:28710",
           "teyvat:32452",
-          "teyvat:28708"
+          "teyvat:28708",
+          "teyvat:28709"
         ]
       },
       "teyvat:32452": {
@@ -3962,8 +4015,9 @@
           "teyvat:31",
           "teyvat:101",
           "teyvat:51",
-          "teyvat:100",
-          "teyvat:52"
+          "teyvat:52",
+          "teyvat:97",
+          "teyvat:43"
         ]
       },
       "teyvat:35": {
@@ -4034,16 +4088,13 @@
         "name": "砂漠南部・北の石橋の跡",
         "gates": [
           "teyvat:41828",
-          "teyvat:41819",
-          "teyvat:36680"
+          "teyvat:41819"
         ]
       },
       "teyvat:36680": {
         "stage_id": "sum-wp-36680",
         "name": "砂漠南部・市場跡の石段",
         "gates": [
-          "teyvat:36691",
-          "teyvat:36679",
           "teyvat:36684"
         ]
       },
@@ -4062,7 +4113,9 @@
         "gates": [
           "teyvat:36698",
           "teyvat:36686",
-          "teyvat:36681"
+          "teyvat:36681",
+          "teyvat:36685",
+          "teyvat:36690"
         ]
       },
       "teyvat:36683": {
@@ -4086,7 +4139,8 @@
         "name": "砂漠南部・峡谷東の出口",
         "gates": [
           "teyvat:36686",
-          "teyvat:36681"
+          "teyvat:36681",
+          "teyvat:36682"
         ]
       },
       "teyvat:36686": {
@@ -4127,7 +4181,8 @@
         "name": "砂漠南部・石廟南東の小道",
         "gates": [
           "teyvat:36689",
-          "teyvat:36698"
+          "teyvat:36698",
+          "teyvat:36682"
         ]
       },
       "teyvat:36691": {
@@ -4136,7 +4191,7 @@
         "gates": [
           "teyvat:41819",
           "teyvat:36675",
-          "teyvat:36680"
+          "teyvat:41825"
         ]
       },
       "teyvat:36692": {
@@ -4144,7 +4199,8 @@
         "name": "砂漠南部・西の見張り岩",
         "gates": [
           "teyvat:36693",
-          "teyvat:36696"
+          "teyvat:36696",
+          "teyvat:36702"
         ]
       },
       "teyvat:36693": {
@@ -4227,7 +4283,8 @@
         "name": "砂漠南部・石廟の北の上層",
         "gates": [
           "teyvat:36694",
-          "teyvat:36696"
+          "teyvat:36696",
+          "teyvat:36692"
         ]
       },
       "teyvat:37": {
@@ -4244,7 +4301,8 @@
         "name": "璃月・石の島橋",
         "gates": [
           "teyvat:64844",
-          "teyvat:119"
+          "teyvat:119",
+          "teyvat:64848"
         ]
       },
       "teyvat:39": {
@@ -4323,14 +4381,16 @@
         "gates": [
           "teyvat:41823",
           "teyvat:41825",
-          "teyvat:41822"
+          "teyvat:41822",
+          "teyvat:72412"
         ]
       },
       "teyvat:41825": {
         "stage_id": "sum-wp-41825",
         "name": "ハドラマヴェス砂漠・水庭の東室",
         "gates": [
-          "teyvat:41824"
+          "teyvat:41824",
+          "teyvat:36691"
         ]
       },
       "teyvat:41826": {
@@ -4346,18 +4406,17 @@
         "name": "ハドラマヴェス砂漠・西の輪の低い足場",
         "gates": [
           "teyvat:41830",
-          "teyvat:41822",
-          "teyvat:41828"
+          "teyvat:41822"
         ]
       },
       "teyvat:41828": {
         "stage_id": "sum-wp-41828",
         "name": "ハドラマヴェス砂漠・南の斜面の分岐",
         "gates": [
-          "teyvat:41827",
           "teyvat:41819",
           "teyvat:36679",
-          "teyvat:41820"
+          "teyvat:41820",
+          "teyvat:41837"
         ]
       },
       "teyvat:41829": {
@@ -4391,7 +4450,9 @@
         "gates": [
           "teyvat:41830",
           "teyvat:41834",
-          "teyvat:41835"
+          "teyvat:41835",
+          "teyvat:41833",
+          "teyvat:46515"
         ]
       },
       "teyvat:41833": {
@@ -4399,7 +4460,9 @@
         "name": "ハドラマヴェス砂漠・砂渦の中層",
         "gates": [
           "teyvat:41831",
-          "teyvat:41835"
+          "teyvat:41835",
+          "teyvat:41832",
+          "teyvat:41838"
         ]
       },
       "teyvat:41834": {
@@ -4432,7 +4495,9 @@
         "stage_id": "sum-wp-41837",
         "name": "ハドラマヴェス砂漠・砂渦の下層東口",
         "gates": [
-          "teyvat:41831"
+          "teyvat:41831",
+          "teyvat:41838",
+          "teyvat:41828"
         ]
       },
       "teyvat:41838": {
@@ -4442,7 +4507,9 @@
           "teyvat:41835",
           "teyvat:41820",
           "teyvat:41836",
-          "teyvat:41839"
+          "teyvat:41839",
+          "teyvat:41833",
+          "teyvat:41837"
         ]
       },
       "teyvat:41839": {
@@ -4478,7 +4545,8 @@
         "gates": [
           "teyvat:42",
           "teyvat:44",
-          "teyvat:110"
+          "teyvat:110",
+          "teyvat:343"
         ]
       },
       "teyvat:44": {
@@ -4487,7 +4555,8 @@
         "gates": [
           "teyvat:39",
           "teyvat:119",
-          "teyvat:43"
+          "teyvat:43",
+          "teyvat:1748"
         ]
       },
       "teyvat:45": {
@@ -4529,7 +4598,8 @@
         "name": "砂漠北西部・峡谷南の斜面",
         "gates": [
           "teyvat:46516",
-          "teyvat:41834"
+          "teyvat:41834",
+          "teyvat:41832"
         ]
       },
       "teyvat:46516": {
@@ -4556,14 +4626,16 @@
         "name": "砂漠北西部・西端の石棚",
         "gates": [
           "teyvat:46521",
-          "teyvat:46517"
+          "teyvat:46517",
+          "teyvat:46519"
         ]
       },
       "teyvat:46519": {
         "stage_id": "sum-wp-46519",
         "name": "砂漠北西部・西の崖裏の通路",
         "gates": [
-          "teyvat:46521"
+          "teyvat:46521",
+          "teyvat:46518"
         ]
       },
       "teyvat:46520": {
@@ -4713,7 +4785,8 @@
         "gates": [
           "teyvat:46524",
           "teyvat:50031",
-          "teyvat:46526"
+          "teyvat:46526",
+          "teyvat:50033"
         ]
       },
       "teyvat:50033": {
@@ -4722,18 +4795,17 @@
         "gates": [
           "teyvat:28730",
           "teyvat:50054",
-          "teyvat:50035",
           "teyvat:68340",
-          "teyvat:50046"
+          "teyvat:50032",
+          "teyvat:69098"
         ]
       },
       "teyvat:50035": {
         "stage_id": "fon-wp-50035",
         "name": "フォンテーヌ南部・入江の北岸",
         "gates": [
-          "teyvat:50033",
-          "teyvat:50036",
-          "teyvat:50037"
+          "teyvat:50037",
+          "teyvat:50060"
         ]
       },
       "teyvat:50036": {
@@ -4742,7 +4814,7 @@
         "gates": [
           "teyvat:50040",
           "teyvat:50043",
-          "teyvat:50035"
+          "teyvat:52029"
         ]
       },
       "teyvat:50037": {
@@ -4751,7 +4823,8 @@
         "gates": [
           "teyvat:50038",
           "teyvat:50035",
-          "teyvat:50046"
+          "teyvat:50046",
+          "teyvat:52029"
         ]
       },
       "teyvat:50038": {
@@ -4759,16 +4832,17 @@
         "name": "フォンテーヌ南部・西岸の神像",
         "gates": [
           "teyvat:50039",
-          "teyvat:50037"
+          "teyvat:50037",
+          "teyvat:50044"
         ]
       },
       "teyvat:50039": {
         "stage_id": "fon-wp-50039",
         "name": "フォンテーヌ南部・西の林の道",
         "gates": [
-          "teyvat:50040",
           "teyvat:50038",
-          "teyvat:50041"
+          "teyvat:50041",
+          "teyvat:50042"
         ]
       },
       "teyvat:50040": {
@@ -4776,8 +4850,8 @@
         "name": "フォンテーヌ南部・山裾の水たまり",
         "gates": [
           "teyvat:50042",
-          "teyvat:50039",
-          "teyvat:50036"
+          "teyvat:50036",
+          "teyvat:50043"
         ]
       },
       "teyvat:50041": {
@@ -4786,7 +4860,8 @@
         "gates": [
           "teyvat:50042",
           "teyvat:50039",
-          "teyvat:50053"
+          "teyvat:50053",
+          "teyvat:50063"
         ]
       },
       "teyvat:50042": {
@@ -4795,7 +4870,8 @@
         "gates": [
           "teyvat:56363",
           "teyvat:50040",
-          "teyvat:50041"
+          "teyvat:50041",
+          "teyvat:50039"
         ]
       },
       "teyvat:50043": {
@@ -4803,7 +4879,8 @@
         "name": "フォンテーヌ南部・斜面の暗がり",
         "gates": [
           "teyvat:50036",
-          "teyvat:50044"
+          "teyvat:50044",
+          "teyvat:50040"
         ]
       },
       "teyvat:50044": {
@@ -4811,7 +4888,7 @@
         "name": "フォンテーヌ南部・地下の見張り棚",
         "gates": [
           "teyvat:50043",
-          "teyvat:52029"
+          "teyvat:50038"
         ]
       },
       "teyvat:50045": {
@@ -4828,7 +4905,6 @@
         "stage_id": "fon-wp-50046",
         "name": "フォンテーヌ南部・水路橋南の岸",
         "gates": [
-          "teyvat:50033",
           "teyvat:50037",
           "teyvat:50073",
           "teyvat:50060",
@@ -4839,8 +4915,10 @@
         "stage_id": "fon-wp-50047",
         "name": "フォンテーヌ南部・東の水門前",
         "gates": [
+          "teyvat:50051",
           "teyvat:55761",
-          "teyvat:50048"
+          "teyvat:50048",
+          "teyvat:50054"
         ]
       },
       "teyvat:50048": {
@@ -4848,7 +4926,8 @@
         "name": "フォンテーヌ南部・東の工房跡",
         "gates": [
           "teyvat:50047",
-          "teyvat:55776"
+          "teyvat:55776",
+          "teyvat:55775"
         ]
       },
       "teyvat:50050": {
@@ -4857,18 +4936,20 @@
         "gates": [
           "teyvat:50052",
           "teyvat:50054",
-          "teyvat:50056"
+          "teyvat:50051"
         ]
       },
       "teyvat:50051": {
         "stage_id": "fontaine-field",
         "name": "フォンテーヌ・水路沿い",
         "gates": [
+          "teyvat:50047",
           "teyvat:50054",
           "teyvat:72412",
           "map34:68601",
           "teyvat:50052",
-          "teyvat:50064"
+          "teyvat:50064",
+          "teyvat:50050"
         ]
       },
       "teyvat:50052": {
@@ -4900,7 +4981,9 @@
           "teyvat:50051",
           "teyvat:68339",
           "teyvat:50053",
-          "teyvat:50050"
+          "teyvat:50050",
+          "teyvat:50047",
+          "teyvat:50077"
         ]
       },
       "teyvat:50056": {
@@ -4908,8 +4991,7 @@
         "name": "フォンテーヌ廷・市外北の坂",
         "gates": [
           "teyvat:50058",
-          "teyvat:53867",
-          "teyvat:50050"
+          "teyvat:53867"
         ]
       },
       "teyvat:50058": {
@@ -4932,14 +5014,16 @@
         "stage_id": "fon-wp-50060",
         "name": "フォンテーヌ南部・橋脚脇の昇降路",
         "gates": [
-          "teyvat:50046"
+          "teyvat:50046",
+          "teyvat:50035"
         ]
       },
       "teyvat:50061": {
         "stage_id": "fon-wp-50061",
         "name": "フォンテーヌ廷・地下貯水路の東端",
         "gates": [
-          "teyvat:51964"
+          "teyvat:51964",
+          "teyvat:56363"
         ]
       },
       "teyvat:50062": {
@@ -4958,7 +5042,8 @@
         "gates": [
           "teyvat:50062",
           "teyvat:50072",
-          "teyvat:50065"
+          "teyvat:50065",
+          "teyvat:50041"
         ]
       },
       "teyvat:50064": {
@@ -5023,7 +5108,8 @@
         "gates": [
           "teyvat:53866",
           "teyvat:50068",
-          "teyvat:53864"
+          "teyvat:53864",
+          "teyvat:53871"
         ]
       },
       "teyvat:50072": {
@@ -5075,7 +5161,8 @@
         "name": "フォンテーヌ廷・市外の西の水門",
         "gates": [
           "teyvat:50058",
-          "teyvat:50053"
+          "teyvat:50053",
+          "teyvat:50054"
         ]
       },
       "teyvat:51": {
@@ -5108,7 +5195,8 @@
         "stage_id": "fon-wp-52029",
         "name": "フォンテーヌ南部・西の高台の下の洞",
         "gates": [
-          "teyvat:50044"
+          "teyvat:50037",
+          "teyvat:50036"
         ]
       },
       "teyvat:53": {
@@ -5131,7 +5219,10 @@
         "name": "フォンテーヌ北部・北の水門の第二層",
         "gates": [
           "teyvat:53869",
-          "teyvat:53850"
+          "teyvat:53850",
+          "teyvat:53871",
+          "teyvat:53866",
+          "teyvat:53864"
         ]
       },
       "teyvat:53850": {
@@ -5147,7 +5238,8 @@
         "stage_id": "fon-wp-53851",
         "name": "フォンテーヌ北部・北岸の石室",
         "gates": [
-          "teyvat:53870"
+          "teyvat:53870",
+          "teyvat:53863"
         ]
       },
       "teyvat:53852": {
@@ -5172,16 +5264,16 @@
         "name": "フォンテーヌ北部・演習場南の崖道",
         "gates": [
           "teyvat:53853",
-          "teyvat:55777",
-          "teyvat:53855"
+          "teyvat:55777"
         ]
       },
       "teyvat:53855": {
         "stage_id": "fon-wp-53855",
         "name": "フォンテーヌ北部・東の丘の見張り台",
         "gates": [
-          "teyvat:53854",
-          "teyvat:53868"
+          "teyvat:53868",
+          "teyvat:55777",
+          "teyvat:53857"
         ]
       },
       "teyvat:53856": {
@@ -5198,7 +5290,8 @@
         "name": "フォンテーヌ北部・北東の貯水池",
         "gates": [
           "teyvat:53856",
-          "teyvat:53859"
+          "teyvat:53859",
+          "teyvat:53855"
         ]
       },
       "teyvat:53858": {
@@ -5250,7 +5343,8 @@
         "gates": [
           "teyvat:53852",
           "teyvat:53848",
-          "teyvat:53862"
+          "teyvat:53862",
+          "teyvat:53851"
         ]
       },
       "teyvat:53864": {
@@ -5259,7 +5353,8 @@
         "gates": [
           "teyvat:53865",
           "teyvat:50071",
-          "teyvat:53858"
+          "teyvat:53858",
+          "teyvat:53849"
         ]
       },
       "teyvat:53865": {
@@ -5267,7 +5362,8 @@
         "name": "フォンテーヌ湖・水門西の深い棚",
         "gates": [
           "teyvat:53866",
-          "teyvat:53864"
+          "teyvat:53864",
+          "teyvat:53869"
         ]
       },
       "teyvat:53866": {
@@ -5275,7 +5371,8 @@
         "name": "フォンテーヌ湖・入江西の水中通路",
         "gates": [
           "teyvat:53865",
-          "teyvat:50071"
+          "teyvat:50071",
+          "teyvat:53849"
         ]
       },
       "teyvat:53867": {
@@ -5301,7 +5398,8 @@
         "stage_id": "fon-wp-53869",
         "name": "フォンテーヌ北部・北の水門の第三層",
         "gates": [
-          "teyvat:53849"
+          "teyvat:53849",
+          "teyvat:53865"
         ]
       },
       "teyvat:53870": {
@@ -5316,7 +5414,9 @@
         "stage_id": "fon-wp-53871",
         "name": "フォンテーヌ北部・北の水門の東の下層",
         "gates": [
-          "teyvat:53850"
+          "teyvat:53850",
+          "teyvat:50071",
+          "teyvat:53849"
         ]
       },
       "teyvat:54": {
@@ -5411,7 +5511,8 @@
         "name": "フォンテーヌ湖・東の島の水洞",
         "gates": [
           "teyvat:55770",
-          "teyvat:55766"
+          "teyvat:55766",
+          "teyvat:55772"
         ]
       },
       "teyvat:55769": {
@@ -5446,7 +5547,8 @@
         "gates": [
           "teyvat:55760",
           "teyvat:55770",
-          "teyvat:55783"
+          "teyvat:55783",
+          "teyvat:55768"
         ]
       },
       "teyvat:55773": {
@@ -5463,7 +5565,8 @@
         "name": "フォンテーヌ東部・東岸の南道",
         "gates": [
           "teyvat:55775",
-          "teyvat:55776"
+          "teyvat:55776",
+          "teyvat:55785"
         ]
       },
       "teyvat:55775": {
@@ -5472,7 +5575,8 @@
         "gates": [
           "teyvat:55773",
           "teyvat:55760",
-          "teyvat:55774"
+          "teyvat:55774",
+          "teyvat:50048"
         ]
       },
       "teyvat:55776": {
@@ -5490,7 +5594,8 @@
         "name": "フォンテーヌ東部・東の山並みの外道",
         "gates": [
           "teyvat:53854",
-          "teyvat:55761"
+          "teyvat:55761",
+          "teyvat:53855"
         ]
       },
       "teyvat:55778": {
@@ -5524,7 +5629,8 @@
         "name": "フォンテーヌ東部・東端の崖の渡り",
         "gates": [
           "teyvat:55782",
-          "teyvat:55780"
+          "teyvat:55780",
+          "teyvat:55785"
         ]
       },
       "teyvat:55782": {
@@ -5542,7 +5648,8 @@
         "name": "フォンテーヌ東部・東岸沖の石島",
         "gates": [
           "teyvat:55772",
-          "teyvat:55782"
+          "teyvat:55782",
+          "teyvat:66769"
         ]
       },
       "teyvat:55784": {
@@ -5556,7 +5663,9 @@
         "stage_id": "fon-wp-55785",
         "name": "フォンテーヌ東部・東の崖の下の回廊",
         "gates": [
-          "teyvat:55782"
+          "teyvat:55782",
+          "teyvat:55774",
+          "teyvat:55781"
         ]
       },
       "teyvat:56363": {
@@ -5564,7 +5673,8 @@
         "name": "フォンテーヌ湖・西岸沖の水洞",
         "gates": [
           "teyvat:50042",
-          "teyvat:50062"
+          "teyvat:50062",
+          "teyvat:50061"
         ]
       },
       "teyvat:57": {
@@ -5598,7 +5708,8 @@
         "name": "沈玉の谷・西岸の道",
         "gates": [
           "teyvat:64827",
-          "teyvat:64828"
+          "teyvat:64828",
+          "teyvat:64849"
         ]
       },
       "teyvat:64827": {
@@ -5795,14 +5906,16 @@
         "gates": [
           "teyvat:64847",
           "teyvat:64845",
-          "teyvat:118"
+          "teyvat:118",
+          "teyvat:38"
         ]
       },
       "teyvat:64849": {
         "stage_id": "liyue-wp-64849",
         "name": "沈玉の谷・西峰の石室",
         "gates": [
-          "teyvat:64827"
+          "teyvat:64827",
+          "teyvat:64826"
         ]
       },
       "teyvat:64850": {
@@ -5819,7 +5932,6 @@
         "stage_id": "mond-wp-6537",
         "name": "ドラゴンスパイン・峰下の雪原と神像",
         "gates": [
-          "teyvat:6601",
           "teyvat:6603"
         ]
       },
@@ -5845,7 +5957,8 @@
         "name": "ドラゴンスパイン・谷を見下ろす雪棚",
         "gates": [
           "teyvat:6596",
-          "teyvat:6601"
+          "teyvat:6601",
+          "teyvat:6608"
         ]
       },
       "teyvat:6596": {
@@ -5879,7 +5992,6 @@
         "name": "ドラゴンスパイン・北東の谷戸",
         "gates": [
           "teyvat:6594",
-          "teyvat:6537",
           "teyvat:6538"
         ]
       },
@@ -5913,7 +6025,8 @@
         "gates": [
           "teyvat:6606",
           "teyvat:6596",
-          "teyvat:6609"
+          "teyvat:6609",
+          "teyvat:6594"
         ]
       },
       "teyvat:6609": {
@@ -5937,14 +6050,16 @@
         "name": "沈玉の谷・谷北の埠頭",
         "gates": [
           "teyvat:66768",
-          "teyvat:64837"
+          "teyvat:64837",
+          "teyvat:55783"
         ]
       },
       "teyvat:66770": {
         "stage_id": "liyue-wp-66770",
         "name": "沈玉の谷・谷南の沖合の岩礁",
         "gates": [
-          "teyvat:64829"
+          "teyvat:64829",
+          "teyvat:28749"
         ]
       },
       "teyvat:66979": {
@@ -5968,15 +6083,13 @@
         "name": "ノストイ地区・島北の入江",
         "gates": [
           "teyvat:50033",
-          "teyvat:68339",
-          "teyvat:68341"
+          "teyvat:68339"
         ]
       },
       "teyvat:68341": {
         "stage_id": "fon-wp-68341",
         "name": "ノストイ地区・島南の古い桟橋",
         "gates": [
-          "teyvat:68340",
           "teyvat:68339",
           "teyvat:68345"
         ]
@@ -5994,7 +6107,8 @@
         "name": "ノストイ地区・深い遺構の南室",
         "gates": [
           "teyvat:68342",
-          "teyvat:68344"
+          "teyvat:68344",
+          "teyvat:68345"
         ]
       },
       "teyvat:68344": {
@@ -6010,14 +6124,16 @@
         "gates": [
           "teyvat:68341",
           "teyvat:68342",
-          "map34:68599"
+          "map34:68599",
+          "teyvat:68343"
         ]
       },
       "teyvat:69098": {
         "stage_id": "sum-wp-69098",
         "name": "スメールの森林・バイダ港の船着き場",
         "gates": [
-          "teyvat:28701"
+          "teyvat:28701",
+          "teyvat:50033"
         ]
       },
       "teyvat:7": {
@@ -6035,7 +6151,8 @@
         "gates": [
           "teyvat:50051",
           "teyvat:72431",
-          "teyvat:72413"
+          "teyvat:72413",
+          "teyvat:41824"
         ]
       },
       "teyvat:72413": {
@@ -6053,7 +6170,6 @@
         "name": "テケメカンの谷・東の谷へ入る坂",
         "gates": [
           "teyvat:72440",
-          "teyvat:72438",
           "teyvat:72413"
         ]
       },
@@ -6126,7 +6242,8 @@
         "gates": [
           "teyvat:72421",
           "teyvat:72423",
-          "teyvat:72427"
+          "teyvat:72427",
+          "teyvat:72428"
         ]
       },
       "teyvat:72423": {
@@ -6144,7 +6261,8 @@
         "gates": [
           "teyvat:72425",
           "teyvat:72426",
-          "teyvat:72417"
+          "teyvat:72417",
+          "teyvat:72440"
         ]
       },
       "teyvat:72425": {
@@ -6178,8 +6296,8 @@
         "name": "万火のほとぎ周辺・南の草棚",
         "gates": [
           "teyvat:72430",
-          "teyvat:72759",
-          "teyvat:72760"
+          "teyvat:72760",
+          "teyvat:72422"
         ]
       },
       "teyvat:72429": {
@@ -6188,14 +6306,14 @@
         "gates": [
           "teyvat:79051",
           "teyvat:82575",
-          "teyvat:72430"
+          "teyvat:72430",
+          "teyvat:72451"
         ]
       },
       "teyvat:72430": {
         "stage_id": "natlan-field",
         "name": "ナタ・岩場の道",
         "gates": [
-          "teyvat:72431",
           "teyvat:79059",
           "teyvat:72429",
           "teyvat:72451",
@@ -6208,8 +6326,7 @@
         "name": "ナタ・谷の集落",
         "gates": [
           "teyvat:72412",
-          "teyvat:72430",
-          "teyvat:72432"
+          "teyvat:72450"
         ]
       },
       "teyvat:72432": {
@@ -6219,8 +6336,8 @@
           "teyvat:79387",
           "teyvat:79050",
           "teyvat:72450",
-          "teyvat:72431",
-          "teyvat:72435"
+          "teyvat:72435",
+          "teyvat:79544"
         ]
       },
       "teyvat:72433": {
@@ -6255,6 +6372,7 @@
         "stage_id": "nat-wp-72436",
         "name": "万火のほとぎ周辺・北端の尾根",
         "gates": [
+          "teyvat:72760",
           "teyvat:72433",
           "teyvat:72761"
         ]
@@ -6265,9 +6383,9 @@
         "gates": [
           "teyvat:72760",
           "teyvat:72434",
-          "teyvat:72445",
           "teyvat:72439",
-          "teyvat:72438"
+          "teyvat:72438",
+          "teyvat:72446"
         ]
       },
       "teyvat:72438": {
@@ -6276,7 +6394,7 @@
         "gates": [
           "teyvat:72437",
           "teyvat:72439",
-          "teyvat:72414"
+          "teyvat:72445"
         ]
       },
       "teyvat:72439": {
@@ -6295,7 +6413,8 @@
         "gates": [
           "teyvat:72434",
           "teyvat:72416",
-          "teyvat:72414"
+          "teyvat:72414",
+          "teyvat:72424"
         ]
       },
       "teyvat:72441": {
@@ -6303,7 +6422,8 @@
         "name": "万火のほとぎ周辺・岩窪地下の広間",
         "gates": [
           "teyvat:72442",
-          "teyvat:72434"
+          "teyvat:72434",
+          "teyvat:72455"
         ]
       },
       "teyvat:72442": {
@@ -6331,14 +6451,16 @@
         "stage_id": "nat-wp-72445",
         "name": "万火のほとぎ周辺・岩壁の裏の細道",
         "gates": [
-          "teyvat:72437"
+          "teyvat:72438"
         ]
       },
       "teyvat:72446": {
         "stage_id": "nat-wp-72446",
         "name": "トヤック源泉地・源泉北の地下水路",
         "gates": [
-          "teyvat:72426"
+          "teyvat:72426",
+          "teyvat:72437",
+          "teyvat:72760"
         ]
       },
       "teyvat:72447": {
@@ -6367,14 +6489,17 @@
         "stage_id": "nat-wp-72450",
         "name": "万火のほとぎ周辺・北の地ならし場の下",
         "gates": [
-          "teyvat:72432"
+          "teyvat:72432",
+          "teyvat:72431"
         ]
       },
       "teyvat:72451": {
         "stage_id": "nat-wp-72451",
         "name": "万火のほとぎ周辺・競技場の下の回廊",
         "gates": [
-          "teyvat:72430"
+          "teyvat:72430",
+          "teyvat:79050",
+          "teyvat:72429"
         ]
       },
       "teyvat:72452": {
@@ -6404,7 +6529,8 @@
         "stage_id": "nat-wp-72455",
         "name": "テケメカンの谷・谷北の石室",
         "gates": [
-          "teyvat:72454"
+          "teyvat:72454",
+          "teyvat:72441"
         ]
       },
       "teyvat:72456": {
@@ -6429,7 +6555,6 @@
         "stage_id": "nat-wp-72759",
         "name": "トヤック源泉地・源泉北の神像",
         "gates": [
-          "teyvat:72428",
           "teyvat:72427"
         ]
       },
@@ -6437,10 +6562,12 @@
         "stage_id": "nat-wp-72760",
         "name": "万火のほとぎ周辺・道沿いの神像",
         "gates": [
+          "teyvat:72436",
           "teyvat:72453",
           "teyvat:72426",
           "teyvat:72437",
-          "teyvat:72428"
+          "teyvat:72428",
+          "teyvat:72446"
         ]
       },
       "teyvat:72761": {
@@ -6463,7 +6590,8 @@
         "name": "クァワカン断崖周辺・断崖東の草地",
         "gates": [
           "teyvat:79057",
-          "teyvat:72432"
+          "teyvat:72432",
+          "teyvat:72451"
         ]
       },
       "teyvat:79051": {
@@ -6527,7 +6655,8 @@
         "gates": [
           "teyvat:79051",
           "teyvat:79387",
-          "teyvat:79050"
+          "teyvat:79050",
+          "teyvat:79543"
         ]
       },
       "teyvat:79058": {
@@ -6548,7 +6677,8 @@
           "teyvat:85958",
           "teyvat:79542",
           "teyvat:79060",
-          "teyvat:79058"
+          "teyvat:79058",
+          "teyvat:79544"
         ]
       },
       "teyvat:79060": {
@@ -6579,7 +6709,8 @@
         "name": "クァワカン断崖周辺・断崖東の縁",
         "gates": [
           "teyvat:79057",
-          "teyvat:72432"
+          "teyvat:72432",
+          "teyvat:79543"
         ]
       },
       "teyvat:79482": {
@@ -6671,7 +6802,9 @@
         "stage_id": "nat-wp-79543",
         "name": "クァワカン断崖周辺・北崖の地下道・南口",
         "gates": [
-          "teyvat:79544"
+          "teyvat:79544",
+          "teyvat:79387",
+          "teyvat:79057"
         ]
       },
       "teyvat:79544": {
@@ -6679,7 +6812,9 @@
         "name": "クァワカン断崖周辺・北崖の地下道・北口",
         "gates": [
           "teyvat:79058",
-          "teyvat:79543"
+          "teyvat:79543",
+          "teyvat:72432",
+          "teyvat:79059"
         ]
       },
       "teyvat:79545": {
@@ -6811,7 +6946,8 @@
         "name": "アトクパンの大地・北東の細道",
         "gates": [
           "teyvat:82559",
-          "teyvat:82572"
+          "teyvat:82572",
+          "teyvat:82573"
         ]
       },
       "teyvat:82559": {
@@ -6940,7 +7076,8 @@
         "stage_id": "nat-wp-82573",
         "name": "アトクパンの大地・北の入江の下の洞",
         "gates": [
-          "teyvat:82572"
+          "teyvat:82572",
+          "teyvat:82558"
         ]
       },
       "teyvat:82574": {
@@ -7200,7 +7337,6 @@
         "name": "レンポ島・町北の神像",
         "gates": [
           "teyvat:88145",
-          "teyvat:88144",
           "teyvat:88142",
           "teyvat:88147"
         ]
@@ -7337,8 +7473,7 @@
         "name": "レンポ島・町西の高台",
         "gates": [
           "teyvat:88140",
-          "teyvat:88145",
-          "teyvat:88128"
+          "teyvat:88145"
         ]
       },
       "teyvat:88145": {
@@ -7374,7 +7509,8 @@
         "name": "レンポ島・東の灯台下",
         "gates": [
           "teyvat:88147",
-          "teyvat:88154"
+          "teyvat:88154",
+          "teyvat:88177"
         ]
       },
       "teyvat:88149": {
@@ -7400,7 +7536,8 @@
         "gates": [
           "teyvat:88149",
           "teyvat:88150",
-          "teyvat:88152"
+          "teyvat:88152",
+          "teyvat:88153"
         ]
       },
       "teyvat:88152": {
@@ -7418,7 +7555,8 @@
         "name": "レンポ島・狭い水路の入口",
         "gates": [
           "teyvat:88156",
-          "teyvat:88152"
+          "teyvat:88152",
+          "teyvat:88151"
         ]
       },
       "teyvat:88154": {
@@ -7479,7 +7617,8 @@
         "name": "パハ島周辺・南の連絡桟橋",
         "gates": [
           "teyvat:88161",
-          "teyvat:88157"
+          "teyvat:88157",
+          "teyvat:88162"
         ]
       },
       "teyvat:88161": {
@@ -7499,7 +7638,9 @@
           "teyvat:88169",
           "teyvat:88168",
           "teyvat:88161",
-          "teyvat:88163"
+          "teyvat:88163",
+          "teyvat:88170",
+          "teyvat:88160"
         ]
       },
       "teyvat:88163": {
@@ -7508,7 +7649,8 @@
         "gates": [
           "teyvat:88162",
           "teyvat:88161",
-          "teyvat:88164"
+          "teyvat:88164",
+          "teyvat:88175"
         ]
       },
       "teyvat:88164": {
@@ -7544,7 +7686,8 @@
           "teyvat:88168",
           "teyvat:88164",
           "teyvat:92426",
-          "teyvat:88166"
+          "teyvat:88166",
+          "teyvat:88175"
         ]
       },
       "teyvat:88168": {
@@ -7569,7 +7712,8 @@
         "stage_id": "nod-wp-88170",
         "name": "パハ島周辺・西翼奥の通路",
         "gates": [
-          "teyvat:88169"
+          "teyvat:88169",
+          "teyvat:88162"
         ]
       },
       "teyvat:88171": {
@@ -7609,7 +7753,9 @@
         "stage_id": "nod-wp-88175",
         "name": "パハ島周辺・中央施設の中層東",
         "gates": [
-          "teyvat:88174"
+          "teyvat:88174",
+          "teyvat:88163",
+          "teyvat:88167"
         ]
       },
       "teyvat:88176": {
@@ -7623,7 +7769,8 @@
         "stage_id": "nod-wp-88177",
         "name": "レンポ島・岬の下の水洞",
         "gates": [
-          "teyvat:88154"
+          "teyvat:88154",
+          "teyvat:88148"
         ]
       },
       "teyvat:9": {
@@ -7665,7 +7812,8 @@
         "gates": [
           "teyvat:92876",
           "teyvat:92873",
-          "teyvat:92877"
+          "teyvat:92877",
+          "teyvat:92871"
         ]
       },
       "teyvat:92866": {
@@ -7719,7 +7867,8 @@
         "gates": [
           "teyvat:92870",
           "teyvat:92873",
-          "teyvat:92872"
+          "teyvat:92872",
+          "teyvat:92865"
         ]
       },
       "teyvat:92872": {
@@ -7857,7 +8006,8 @@
         "name": "北部高地・北東の見張り棚",
         "gates": [
           "teyvat:92889",
-          "teyvat:92894"
+          "teyvat:92894",
+          "teyvat:100646"
         ]
       },
       "teyvat:92888": {
@@ -8019,7 +8169,8 @@
         "stage_id": "mond-wp-95799",
         "name": "ドーンマンポート・沖の小島の船着き場",
         "gates": [
-          "teyvat:95797"
+          "teyvat:95797",
+          "teyvat:95803"
         ]
       },
       "teyvat:95800": {
@@ -8049,7 +8200,8 @@
         "stage_id": "mond-wp-95803",
         "name": "ドーンマンポート・港の下層通路",
         "gates": [
-          "teyvat:95798"
+          "teyvat:95798",
+          "teyvat:95799"
         ]
       },
       "teyvat:96": {
@@ -8066,7 +8218,8 @@
         "name": "璃月・街道脇の神像",
         "gates": [
           "teyvat:94",
-          "teyvat:100"
+          "teyvat:100",
+          "teyvat:343"
         ]
       },
       "teyvat:99218": {

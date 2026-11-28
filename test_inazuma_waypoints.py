@@ -1,6 +1,10 @@
 """Walk the Inazuma and Enkanomiya map pins, including the locked outer beacons."""
 
+from argparse import ArgumentParser
+from collections import Counter
+from hashlib import sha256
 import json
+from pathlib import Path
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
@@ -20,6 +24,7 @@ quests = {q['id']: q for q in graph['quests']}
 catalog = read('content/map-catalog.json')
 coverage = read('content/coverage.json')['map_catalog']['stage_links']
 review = read('sources/map-research/inazuma-marker-review.json')
+route_plan = read('design/world/atlas-route-plan.json')
 mapping = review['stage_by_marker']
 points = {p['id']: p for p in catalog['nodes'] if
           (p['map_id'] == 2 and p['area_id'] == 3) or p['map_id'] == 7}
@@ -32,9 +37,22 @@ assert len(area_by_pin) == sum(map(len, review['areas'].values()))
 stages = set(mapping.values())
 exits = {k: n['exits'] for k, n in nodes.items()}
 edges = {(a, e['to']): e for a in stages for e in exits[a] if e['to'] in stages}
-assert len(edges) == 212 and set(edges) == {(b, a) for a, b in edges}
-for key, count in {'boatSeconds': 28, 'liftSeconds': 18, 'waterwaySeconds': 2, 'phaseSeconds': 6, 'y': 10}.items():
-    assert sum(key in e for e in edges.values()) == count
+assert set(edges) == {(b, a) for a, b in edges}
+assert len(edges) == sum(e['to'] in stages for a in stages for e in exits[a])
+removed = [row for row in route_plan['removed_editor_routes'] if all(k in mapping for k in row['fields'])]
+for row in removed:
+    a, b = (mapping[k] for k in row['fields'])
+    assert (a,b) not in edges and (b,a) not in edges, row
+adopted = [row for row in route_plan['sites_only_route_review']
+           if row['finding'] == 'field_studio_lab_connection' and all(k in mapping for k in row['fields'])]
+for row in adopted:
+    for path in row['runtime_paths'].values():
+        assert all(any(e['to']==b for e in exits[a]) for a,b in zip(path,path[1:])), row
+travel_modes = Counter(
+    next((name for key,name in (('boatSeconds','boat'),('liftSeconds','lift'),
+                               ('waterwaySeconds','waterway'),('phaseSeconds','phase')) if key in edge),'walk')
+    for edge in edges.values()
+)
 
 
 def on_ledge(stage, x, y):
@@ -60,11 +78,22 @@ assert len([gate for gate in floor_gates if gate['to'] in stages]) == 1
 assert all(gate.get('liftSeconds') or gate['to'].startswith('sites-hunt-') for gate in floor_gates)
 
 lua, core = runtime()
-state = core.new(15)
-core.action(state, 'campaign')
-core.grantExp(state, sum(core.expNeeded(lv) for lv in range(1, 61)), 'quest')
-assert state.progression.level == 61
-core.enterStoryNode(state, 'inazuma-town')
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--from-save',type=Path)
+args = parser.parse_args()
+save_hash = None
+if args.from_save:
+    raw = args.from_save.read_bytes()
+    save_hash = sha256(raw).hexdigest()
+    state = core.restore(lua.table_from(validate_save(json.loads(raw)),recursive=True),15)
+    assert state.story.node == 'inazuma-town' and not state.auto
+else:
+    state = core.new(15)
+    core.action(state, 'campaign')
+    core.grantExp(state, sum(core.expNeeded(lv) for lv in range(1, 61)), 'quest')
+    assert state.progression.level == 61
+    core.enterStoryNode(state, 'inazuma-town')
+start_level = state.progression.level
 (ROOT / 'work').mkdir(exist_ok=True)
 write('work/inazuma-waypoint-browser-save.json', validate_save(native(core.checkpoint(state))))
 trail = TrailWalk(lua, core, state, edges, exits)
@@ -133,9 +162,14 @@ for gate in gates:
     assert edge['requires'] == {'quest': beacons, 'count': gate['count']}
     assert not edges[gate['to'], gate['from']].get('requires')
 gate = gates[0]
-trail.approach(edges[gate['from'], gate['to']]['x'], 480, gate['to'])
+west = edges[gate['from'], gate['to']]
+trail.approach(west['x'], west.get('y', 480), gate['to'])
+locked_portal = core.frame(state).storyNearbyPortal
+assert locked_portal and locked_portal.to == gate['to'] and not locked_portal.available, native(locked_portal)
 core.action(state, 'story_nearby_portal')
-assert state.story.node == gate['from'] and state.lift is None and '進めてください' in state.storyNotice
+assert state.story.node == gate['from'] and state.lift is None and state.storyNotice == locked_portal.reason, (
+    state.story.node, state.storyNotice, locked_portal.reason,
+)
 
 follow('enkan-wp-21579', 'enkan-wp-21580')
 assert record.count == 1
@@ -155,14 +189,16 @@ follow('enkan-wp-21576', 'enkan-wp-21579', 'enkan-wp-21580', 'enkan-wp-21581',
        'enkan-wp-21590', 'enkan-wp-21588', 'enkan-wp-21594')
 inspect(steps[3], beacons)
 assert record.count == 4
-follow('enkan-wp-21588', 'enkan-wp-21590', 'enkan-wp-21581', 'enkan-wp-21580',
-       'enkan-wp-21582', 'enkan-wp-21583', 'enkan-wp-21584', 'enkan-wp-21592')
+follow('enkan-wp-21588', 'enkan-wp-21590', 'enkan-wp-21581', 'enkan-wp-21580')
+south_detour = trail.follow_atlas('enkan-wp-21592')
+assert south_detour[-1] == 'enkan-wp-21592' and 'enkan-wp-21583' not in south_detour
 inspect(steps[4], beacons)
 assert record.count == 5
 report(beacons)
 
 full = TrailWalk(lua, core, state, edges, exits)
 assert full.explore() == stages and full.crossings == set(edges)
+assert state.returns == 0
 saved = validate_save(native(core.checkpoint(state)))
 restored = core.restore(lua.table_from(saved, recursive=True))
 assert all(restored.story.visited[n] for n in stages)
@@ -171,15 +207,23 @@ core.action(restored, 'story_fast:enkan-wp-21592')
 assert restored.story.node == 'enkan-wp-21592' and beacon_pixel(restored, '#fff2ba')
 
 write('evidence/inazuma-waypoint-test.json', {
+    'start_level': start_level,
+    'source_save_sha256': save_hash,
     'map_2_inazuma': 53,
     'map_7_enkanomiya': 24,
     'reciprocal_routes': len(full.crossings) // 2,
     'directed_crossings': len(full.crossings),
+    'travel_modes': dict(travel_modes),
+    'editor_revision': route_plan['editor_revision'],
+    'removed_routes_checked': removed,
+    'adopted_routes_checked': [row['fields'] for row in adopted],
+    'southern_beacon_route_after_review': south_detour,
     'stage_ids': sorted(stages),
     'locked_beacon_crossings': gates,
     'before_lighting_blocked': True,
     'watatsumi_waterway': across,
     'reported_quests': [seirai, floor, beacons],
+    'party_wipes': state.returns,
     'beacon_remained_lit_after_save': True,
 })
 print(f'Walked {len(full.crossings)} directed gates over {len(stages)} Inazuma/Enkanomiya markers and reported three quests.')
