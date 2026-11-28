@@ -21,6 +21,7 @@ SOURCES={
     'false_moon': 'false-moon-weekly-idle', 'heretic': 'heretic-weekly-idle',
 }
 ENLARGED={'dvalin','azhdaha','raiden','apep','narwhal','primal_fire'}
+HUMAN={'childe','signora','raiden','knave','false_moon','heretic'}
 WINGS=(
     {'#321b3f','#b94a38','#ffad56','#ffebaf'},
     {'#28234f','#594eb5','#a991ff','#d9ecff'},
@@ -71,6 +72,8 @@ def verify(old, current):
         state=open_arena(c,node)
         old_pose,new_pose=body(old[1],previous,prefix),body(c,state,prefix)
         assert old_pose.y==new_pose.y
+        if key in HUMAN:
+            assert old_pose.bodyBand is None and new_pose.bodyBand==.25, key
         if key in ENLARGED:
             assert new_pose.h>old_pose.h, key
         else:
@@ -151,7 +154,10 @@ if __name__=='__main__':
     args=parser.parse_args()
     visual_change=subprocess.check_output(
         ['git','rev-parse','--verify',f'{args.visual_change}^{{commit}}'],text=True).strip()
-    visual_files=[f'{visual_change}^',visual_change,'--','*.lua','content/weekly-boss-spawns.json']
+    # Replay the old weekly poses on today's renderer, including its later field-boss fixes.
+    # The original controllers still use the ordinary draw call for unbanded sprites.
+    visual_files=[f'{visual_change}^',visual_change,'--','weekly-*.lua',
+                  'content/weekly-boss-spawns.json']
     files=subprocess.check_output(
         ['git','diff','--name-only','--no-renames',*visual_files],text=True).splitlines()
     patch=subprocess.check_output(['git','diff','--no-ext-diff','--no-color','--no-renames',*visual_files])
@@ -161,8 +167,8 @@ if __name__=='__main__':
             path=override/file
             path.parent.mkdir(exist_ok=True,parents=True)
             path.write_bytes((ROOT/file).read_text(encoding='utf8').encode('utf8'))
-        # Keep later combat and map changes in both runtimes. Revert only the
-        # visual commit in the temporary copy, and fail if its hunks conflict.
+        # Keep later combat and map changes in both runtimes. Fail if a weekly
+        # pose hunk conflicts with a later change to the same controller.
         subprocess.run(['git','apply','--reverse','--whitespace=nowarn'],
                        cwd=override,input=patch,check=True)
         game.ROOT=BaselineFiles(override)
