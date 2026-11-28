@@ -120,7 +120,6 @@ return function(C)
  end
  function C.drawRadiantCocoons(state,f,camera,localActor)
   if not state.radiantCocoonEffects then return end
-  if localActor then f.radiantCocoons={} end
   for id in pairs(state.radiantCocoonEffects) do
    local mark=C.radiantCocoonEffect(state,id)
    if mark then
@@ -133,6 +132,7 @@ return function(C)
     rect(f,x+15,a.y-55,3,50,color)
     f.draws[#f.draws+1]={kind='text',x=x,y=a.y-65,text=bound and '集光の繭' or '脱出',size=12,color=color}
     if localActor then
+     f.radiantCocoons=f.radiantCocoons or {}
      f.radiantCocoons[#f.radiantCocoons+1]={actor=id,bound=not not bound,
       remaining=C.radiantCocoonRemaining(state,mark)}
     end

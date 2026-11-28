@@ -43,6 +43,12 @@
       "moves": {"FBT03": null},
       "coolingMove":{"id":"FBT03","kind":"ward","title":"氷バリア・冷却放出","pose":"ward","lock":60,"distance":2.05,"width":2.0,"height":1.17,"active":[[252,270]],"recover":340,"total":424,"damage":33,"element":"cryo","coolEvery":84}
     },
+    "boss-26301101": {
+      "cocoon":{"damage":12,"damageFactor":0.75,"healFactor":0.7,"escapeFactor":1.2,"escapeTicks":480},
+      "moves": {
+        "FMF03":{"id":"FMF03","kind":"cocoon","title":"集光の繭・羽の解放","reach":230,"lock":60,"radius":2.35,"bind":96,"flare":170,"charge":398,"height":0.76,"active":[[214,228],[322,336],[450,466]],"recover":490,"total":640,"damage":25,"element":"pyro"}
+      }
+    },
     "boss-20081001": {
       "gloom":{"charges":3,"factor":0.65,"adaptFactor":0.58,"adaptTicks":210,"downTicks":144},
       "moves": {
@@ -109,18 +115,7 @@
         "active": [[324, 342]], "recover": 360, "total": 504, "standTicks": 24
       }
     },
-    "boss-26301101": {
-      "FMF03": {
-        "kind": "wingSequence", "title": "集光の繭・三拍の羽解放",
-        "flare": 168, "charge": 240, "active": [[132, 146], [216, 230], [300, 316]],
-        "recover": 336, "total": 480, "cocoonTicks": 180, "cocoonFactor": 0.9,
-        "waves": [
-          { "near": 0.25, "far": 2.25, "element": "dendro" },
-          { "near": 0.25, "far": 2.25, "element": "pyro" },
-          { "near": 0.10, "far": 2.70, "element": "pyro" }
-        ]
-      }
-    },
+    "boss-26301101": {},
     "boss-24100101": {
       "FDK03": { "repairHp": 55000 }
     },

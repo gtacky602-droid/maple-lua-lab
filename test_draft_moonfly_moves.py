@@ -1,11 +1,13 @@
 """Check Moonfly's locked wing waves and cocoon lifecycle against both Lua profiles."""
 
+import argparse
 import json
 from math import isclose
 
-from runtime import ROOT, runtime
+from runtime import ROOT, native, runtime
+from savegame import validate_save
 from test_coop_anemo import place, wait_cast
-from test_coop_oceanid_maguu import share
+from test_coop_oceanid_maguu import party, share
 from test_coop_sumeru_field import attack, hurt
 from test_draft_nod_boss_balance import SAVES, SPECS, browser_checkpoint
 from test_earned_branch_quests import core as prior_core, lua as prior_lua
@@ -136,6 +138,17 @@ def protection_and_cleanup(lua, core):
 
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--standard', action='store_true', help='Check the normal 1,050-HP route')
+    args=parser.parse_args()
+    if args.standard:
+        lua, core = runtime()
+        result = waves_and_expiration(lua, core) | protection_and_cleanup(lua, core)
+        result.update(standard_route(lua, core))
+        (ROOT/'evidence/moonfly-standard-lua.json').write_text(
+            json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
+        print(json.dumps(result, ensure_ascii=False))
+        return
     short = runtime(draft_field_moves=True)
     result = waves_and_expiration(*short) | protection_and_cleanup(*short)
     old = Trial(SPEC, False, file=SAVE, engine=(prior_lua,prior_core)).finish(normal=True,ticks=16000)
@@ -147,6 +160,67 @@ def main():
     (ROOT/'evidence/draft-moonfly-moves-lua.json').write_text(
         json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('Lua: Moonfly waves, protected hits, partial healing, natural expiry and earned quest verified.')
+
+
+def standard_route(lua, core):
+    def enter(state):
+        for x, node in ((60, CASE[2]), (180, 'nod-moonfly-hollow')):
+            place(state, x)
+            core.action(state, 'story_nearby_portal')
+            assert state.story.node == node
+
+    def make():
+        state = party(core, CASE, accepted=True)
+        core.enterStoryNode(state, SPEC.hub)
+        enter(state)
+        hero = state.actors[1]
+        slot = state.fieldSlots[SPEC.id]
+        place(state, slot.enemy.x-88)
+        return state, slot, hero
+
+    state, slot, hero = make()
+    boss = slot.enemy
+    assert (boss.level, boss.hp) == (130, 1050)
+    step = lambda: core.step(state, 1/60)
+    wait_cast(step, slot, SIGNATURE, 1)
+    edge = slot.cast
+    boss.x = edge.origin = 405
+    place(state, 345)
+    wait_cast(step, slot, SIGNATURE, 60)
+    assert edge.reposition and edge.waves is None
+    for _ in range(100):
+        step()
+    assert boss.x > 405 and hero.hp > 0 and edge.waves is None
+
+    state, slot, hero = make()
+    boss = slot.enemy
+    moves = set()
+    start = state.t
+    for _ in range(140*60):
+        if boss.hp <= 0:
+            break
+        c = slot.cast
+        if c:
+            moves.add(c.move.id)
+            if hero.ground and any(w[1]-23 <= c.tick <= w[1]-16 for w in c.move.active.values()):
+                core.action(state, 'jump')
+        dx = boss.x-hero.x
+        turn = abs(dx)>8 and dx*hero.dir<0
+        inputs = lua.table_from(dict(right=dx>82 or (turn and dx>0),
+            left=dx<-82 or (turn and dx<0), attack=abs(dx)<116 and not turn, jump=True))
+        core.step(state, 1/60, inputs)
+        assert state.returns == 0
+    assert boss.hp == 0 and moves == {'FMF01', 'FMF02', 'FMF03'}
+    assert state.story.quests[SPEC.quest].count == 1
+    snap = validate_save(native(core.checkpoint(state)))
+    assert 0 < snap['fieldBosses'][SPEC.id]['waitTicks'] <= 3600
+    restored = core.restore(lua.table_from(snap, recursive=True), 12)
+    xp, mora = restored.progression.questXp, restored.mora
+    for _ in range(2):
+        core.action(restored, 'story_report:'+SPEC.quest)
+    assert (restored.progression.questXp-xp, restored.mora-mora) == (9400, 650)
+    return dict(level=130, maxHp=1050, edgeReposition=True, oneRewardAndReport=True,
+                normalAttackSolo=dict(seconds=round(state.t-start, 2), hp=hero.hp))
 
 
 if __name__ == '__main__':

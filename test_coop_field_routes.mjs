@@ -145,7 +145,7 @@ const cases={
  moonfly:{hub:'nod-town',arena:'nod-moonfly-hollow',approach:'nod-field',
   boss:'boss-26301101',quest:'moonfly-commission',hp:1050,mora:485,xp:871150,scene:'moonflyField',
   asset:'moonfly-field',pose:'poses',label:'cocoons',report:[9400,650],stance:82,
-  evade:{FMF01:[95,161],FMF02:[107,175],FMF03:[209,317,445]}},
+  evade:{FMF01:[95,161],FMF02:[107,175],FMF03:[211,295]}},
  moongecko:{hub:'nod-town',arena:'nod-gecko-depths',approach:'nod-field',
   boss:'boss-26302101',quest:'moongecko-commission',hp:1160,mora:495,xp:988100,scene:'moongeckoField',
   asset:'moongecko-field',pose:'poses',label:'moonstone-anchor',report:[9600,670],stance:78,
@@ -219,6 +219,7 @@ async function fight(page,side,key,config) {
   const herraLanes=new Set(),herraWaveMarks=new Set(),fisherLayouts=new Set(),fisherCounts=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
+  const shortCocoon=key==='moonfly';
   const wavebinder=key==='wavebinder';
   const jumpEvade=hasCocoon||key==='vigil'||key==='flugel'||wavebinder||config.sharedGuard;
   const drinkLevels=new Set(),valiantLevels=new Set();
@@ -235,6 +236,7 @@ async function fight(page,side,key,config) {
   let machineDown=false;
   let herraRecovery=false,fisherInterrupted=false,lastFisherSkill=-Infinity;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
+  let firstBoundTick=null,clearTick=null;
   let vigilDown=false,lastRecord=-Infinity,lionReady=false,wardDown=false,orbsDown=false,lastLionFire=-Infinity;
   let guardReady=false,guardDown=false,chantSeen=false,paidHp=0,lastGuardFire=-Infinity;
   function hold(code,on) {
@@ -268,6 +270,7 @@ async function fight(page,side,key,config) {
      ...(key==='herra'?{herraLanes:[...herraLanes],herraWaveMarks:[...herraWaveMarks],herraRecovery}:{}),
      ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],fisherCounts:[...fisherCounts],fisherInterrupted}:{}),
      ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
+     ...(shortCocoon?{firstBoundTick,clearTick}:{}),
      ...(key==='vigil'?{starLayouts:[...starLayouts],vigilDown}:{}),
      ...(key==='flugel'?{orbLayouts:[...orbLayouts],wardDown,orbsDown}:{}),
      ...(config.sharedGuard?{guardAmounts:[...guardAmounts],guardDown,chantSeen,paidHp}:{}),
@@ -552,14 +555,24 @@ async function fight(page,side,key,config) {
      escaped=true;
      if(peerTag?.text==='集光の繭') peerStillBound=true;
     }
-    if(key==='moonfly') visual=Boolean(mark?.bound&&peerTag?.text==='集光の繭');
+    if(shortCocoon){
+     visual=Boolean(mark?.bound&&peerTag?.text==='集光の繭');
+     if(mark?.bound) firstBoundTick??=b.tick;
+     if(side===-1&&mark?.bound) healX??=a.x;
+     if(caught&&!mark&&!escaped){
+      escaped=true;
+      clearTick=b.tick;
+      if(peerTag?.text==='集光の繭') peerStillBound=true;
+     }
+     if(caught&&peer&&!peerTag) peerEscaped=true;
+    }
     if(b.summon&&f.draws.some(d=>d.source===art&&Math.abs(d.x+f.camera-b.summon.x)<.001)){
      anchorLayers.add(b.summon.hp);
      visual=Boolean(mark?.bound);
     }
     if(key==='moongecko'&&b.form==='down'&&!b.summon) anchorBroken=true;
     if(b.geoExposureTicks>0) geoExposure=true;
-    if(mark?.bound&&(key==='moonfly'||anchorBroken)&&
+    if(!shortCocoon&&mark?.bound&&anchorBroken&&
        (side===-1||peerEscaped)) healX??=b.x+side*295;
    }
    if(key==='vigil'){
@@ -640,6 +653,7 @@ async function fight(page,side,key,config) {
     config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
+   if(shortCocoon&&!escaped) desired=b.x-(side===-1?82:caught?340:170);
    if(healing) desired=healX;
    const gravityTurn=config.gravityJump&&b.move==='FFG03'&&b.tick<188;
    if(gravityTurn&&side===1) desired=(b.gravity?.right??b.x+264)+26;
@@ -869,6 +883,9 @@ async function run(key,config) {
  }
  if(key==='moonfly'||key==='moongecko'){
   assert.ok(a.peerStillBound&&results.every(result=>result.caught&&result.escaped),JSON.stringify(results));
+ }
+ if(key==='moonfly'){
+  assert.ok(a.clearTick<300&&b.clearTick>=312&&b.clearTick<=318,JSON.stringify(results));
  }
  if(key==='moongecko'){
   assert.ok(a.anchorLayers.some(layers=>b.anchorLayers.includes(layers)),JSON.stringify(results));

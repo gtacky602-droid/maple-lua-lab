@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check design declarations and timing, not Lua behavior, geometry, or balance.
 
---check-runtime-source compares the old JSON snapshot; omit after migration.
+--check-runtime-source checks the current Moonfly sequence and the remaining source snapshots.
 Explicit exceptions keep all checks enabled under python -O.
 """
 import argparse
@@ -330,13 +330,27 @@ def validate_source(config, bosses, moves, migration):
             fields(move, ['damage'], 'runtime.' + move_id)
             for event in moves[move_id]['events']:
                 require(event['source_damage_comparison'] == move['damage'], 'runtime.' + move_id + '.damage')
-            if move_id in migration['source_signature_totals']:
+            if move_id == 'FMF03':
+                design = moves[move_id]
+                fixed(move, {'kind': 'wingSequence', 'lock': design['lock'],
+                             'flare': design['flame_wing_window'][0],
+                             'charge': design['self_cocoon_window'][0],
+                             'active': [event['active'] for event in design['events']],
+                             'recover': design['recovery'][0], 'total': design['total'],
+                             'height': design['events'][0]['shape']['z'][1],
+                             'cocoonTicks': 180, 'cocoonFactor': 0.9}, 'runtime.' + move_id)
+                require(move.get('waves') == [
+                    {'near': e['shape']['u'][0], 'far': e['shape']['u'][1], 'element': e['element']}
+                    for e in design['events']], 'runtime.' + move_id + '.waves')
+            elif move_id in migration['source_signature_totals']:
                 fixed(move, {'total': migration['source_signature_totals'][move_id]}, 'runtime.' + move_id)
             if move_id in migration['source_air_ticks']:
                 fields(move, ['air', 'total'], 'runtime.' + move_id)
                 a, b = span(move['air'], move['total'], 'runtime.' + move_id + '.air')
                 require(b - a == migration['source_air_ticks'][move_id], 'runtime.' + move_id + '.air duration')
-        if boss_id in migration['source_bind_damage']:
+        if boss_id == 'boss-26301101':
+            require('cocoon' not in old, 'runtime: Moonfly must use first-wave binding')
+        elif boss_id in migration['source_bind_damage']:
             fields(old, ['cocoon'], 'runtime.' + boss_id)
             fixed(old['cocoon'], {'damage': migration['source_bind_damage'][boss_id]}, 'runtime.' + boss_id + '.cocoon')
 
@@ -439,7 +453,7 @@ def main():
     print(f"PASS: 3 catalog IDs/names/placements checked; current catalog has {result['current_normal_rows']} normal rows")
     print('PASS: REC144, grounded spear then air, cocoon lifetime/healing, device contacts, monitor records, HP0/cleanup declarations')
     if config is not None:
-        print('PASS: 9 old move IDs, preserved fields, signature/air timing and old bind-damage snapshots match')
+        print('PASS: 9 move IDs and preserved fields, standard Moonfly sequence and pending source snapshots match')
     if tests:
         print(f'PASS: {tests[0]} invalid design fixtures rejected / {tests[1]} valid boundary fixtures accepted / {tests[2]} invalid runtime-source fixtures rejected')
     print('LIMIT: static declarations only; Lua, visuals, damage geometry, evasion, and 45-90 second balance are not tested')

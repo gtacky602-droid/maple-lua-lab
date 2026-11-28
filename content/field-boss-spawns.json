@@ -1430,11 +1430,11 @@
       "level":130,"hp":1050,"mora":485,"artHeight":160,"floorY":480,"hover":36,"home":920,
       "arenaMin":325,"arenaMax":1580,"noticeRange":350,"noticeTicks":36,"restTicks":42,
       "leashTicks":360,"respawnTicks":3600,"walkSpeed":62,"contactDamage":0,"keepHpOnExit":true,
-      "cocoon":{"damage":12,"damageFactor":0.75,"healFactor":0.7,"escapeFactor":1.2,"escapeTicks":480},
       "moves":[
         {"id":"FMF01","kind":"kick","title":"二連の回し蹴り","reach":196,"lock":48,"near":0.14,"far":1.92,"height":0.7,"active":[[100,112],[166,180]],"recover":208,"total":284,"damage":19,"element":"dendro"},
         {"id":"FMF02","kind":"bolts","title":"二つの月光弾","reach":226,"lock":54,"offsets":[0.85,2.15],"width":1.0,"height":0.7,"active":[[112,126],[180,194]],"recover":222,"total":306,"damage":22,"element":"dendro"},
-        {"id":"FMF03","kind":"cocoon","title":"集光の繭・羽の解放","reach":230,"lock":60,"radius":2.35,"bind":96,"flare":170,"charge":398,"height":0.76,"active":[[214,228],[322,336],[450,466]],"recover":490,"total":640,"damage":25,"element":"pyro"}
+        {"id":"FMF03","kind":"wingSequence","title":"集光の繭・三拍の羽解放","reach":230,"lock":60,"flare":168,"charge":240,"height":0.76,"active":[[132,146],[216,230],[300,316]],"recover":336,"total":480,"damage":25,"element":"pyro","cocoonTicks":180,"cocoonFactor":0.9,
+         "waves":[{"near":0.25,"far":2.25,"element":"dendro"},{"near":0.25,"far":2.25,"element":"pyro"},{"near":0.10,"far":2.70,"element":"pyro"}]}
       ]
     },
     {
