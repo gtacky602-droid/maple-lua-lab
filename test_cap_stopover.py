@@ -46,6 +46,14 @@ def inspect(s,x,q,n,*,upper=None):
     assert s.story.quests[q].count==n,(q,s.story.quests[q].count,n)
 
 
+def lit_marker(s,x,y):
+    s.camera=max(0,min(x-400,s.worldwidth-960))
+    f=core.frame(s,'sprite','legacy')
+    return any(d.kind=='rect' and d.color=='#fff2ba'
+               and (d.x,d.y,d.w,d.h)==(x-f.camera-2,y-58,4,11)
+               for d in f.draws.values())
+
+
 def hit(s,e,amount=500):
     core.resolveCast(s,lua.table_from(dict(id=1,targetId=e.id,x=e.x,y=480,atk=amount,dir=1,
         radial=True,mult=1,range=80,limit=1,element='physical',gain=0,color='#ffd083',critRate=0)))
@@ -102,14 +110,22 @@ gate(s,525,steps)
 inspect(s,623,first,0,upper=388)
 inspect(s,282,first,1)
 inspect(s,623,first,2,upper=388)
+assert not lit_marker(s,1450,480)
 inspect(s,1450,first,3)
+assert lit_marker(s,1450,480)
 gate(s,58,dock)
+assert [(a.x,a.y) for a in s.actors.values()]==[(470,480),(430,480)]
 report(s,first,(11200000,5100))
 
 core.action(s,'story_accept:'+second)
 gate(s,525,steps)
 gate(s,1700,court)
+assert len(s.enemies)==4 and all(e.spawnId!='ochka-court-blocking-carrier' for e in s.enemies.values())
+upper=next(e for e in s.enemies.values() if e.spawnId=='ochka-court-upper-carrier')
+upper.hp=upper.hp-3
+damaged_hp=upper.hp
 inspect(s,501,second,1,upper=387)
+assert len(s.enemies)==5 and next(e for e in s.enemies.values() if e.spawnId==upper.spawnId).hp==damaged_hp
 enemy=next(e for e in s.enemies.values() if e.spawnId=='ochka-court-blocking-carrier')
 hit(s,enemy)
 assert s.story.quests[second].count==2
@@ -117,8 +133,12 @@ s=resume(s)
 assert s.story.node==dock and s.story.quests[second].count==2
 gate(s,525,steps)
 gate(s,1700,court)
+assert len(s.enemies)==4 and all(e.spawnId!='ochka-court-blocking-carrier' for e in s.enemies.values())
+assert not lit_marker(s,1290,393)
 inspect(s,1290,second,3,upper=393)
+assert lit_marker(s,1290,393)
 gate(s,55,steps)
+assert [(a.x,a.y) for a in s.actors.values()]==[(1625,480),(1585,480)]
 gate(s,58,dock)
 report(s,second,(15500000,6800))
 coop_fixture=saved(s)
@@ -126,6 +146,7 @@ coop_fixture=saved(s)
 core.action(s,'story_accept:'+third)
 gate(s,525,steps)
 gate(s,1700,court)
+assert lit_marker(s,1290,393)
 gate(s,1410,kiln)
 inspect(s,1350,third,0)
 move_at(s,834)
