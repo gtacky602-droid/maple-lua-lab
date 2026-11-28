@@ -1,0 +1,36 @@
+{
+  "path": "coast",
+  "otherPathUnused": true,
+  "glimpse": true,
+  "report": true,
+  "savedBeforeInlet": true,
+  "saveReloaded": true,
+  "bridgeRestored": true,
+  "bridgeBothDirections": true,
+  "coastalJumpGuides": true,
+  "sourceSha256": "5654ba2ca9f0dde8846c54ae6db94358a80f5e619f3bc4601e9444f9b22d9d61",
+  "startLevel": 121,
+  "reportedLevel": 123,
+  "priorCompleted": 86,
+  "routeScene": {
+    "key": "nodMoonShallows",
+    "file": "nod-moon-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "caveScene": {
+    "key": "nodMoonCave",
+    "file": "nod-moon-cave-background-v1.png",
+    "state": "ready"
+  },
+  "reward": [
+    13612730,
+    10600,
+    0
+  ],
+  "commands": {
+    "png": 46,
+    "standard": 2929,
+    "light": 818
+  },
+  "errors": []
+}

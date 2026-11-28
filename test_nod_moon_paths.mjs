@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 
 const town='nod-town',rest='nod-lull-wood',wood='nod-spruce-clearing',coast='nod-lantern-shore';
 const inlet='nod-box-inlet',cave='nod-moon-cave-mouth',quest='nod-moon-crossroads';
-const prefix='evidence/nod-moon-paths';
+const checkpoint=process.env.LAB_MOON_PATHS_CHECKPOINT;
+const prefix=process.env.LAB_MOON_PATHS_OUTPUT||'evidence/nod-moon-paths';
 const selected=process.env.NOD_PATH||'wood';
 assert.ok(['wood','coast'].includes(selected));
 const browser=await chromium.launch({headless:true,channel:'chrome'});
@@ -89,11 +91,19 @@ async function backdrop(){
 async function saveReload(){
   await page.locator('#saveProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
   await page.reload();
   await wait(()=>window.lab?.frame);
   await page.locator('#loadProgress').click();
   await wait(()=>document.querySelector('#saveStatus').textContent.includes('保存した進行で町から再開しました'));
   await at(town);
+  return saved;
+}
+
+async function requireGuide(label,x,y){
+  const f=await frame();
+  const labelX=Math.max(64,Math.min(896,x-f.camera));
+  assert.ok(f.draws.some(d=>d.text===label&&d.x===labelX&&d.y===y-112),label);
 }
 
 async function compare(){
@@ -119,8 +129,9 @@ async function compare(){
 try{
   await page.goto(process.env.LAB_URL||'http://127.0.0.1:8899/');
   await wait(()=>window.lab?.frame);
-  const seed=await fs.readFile('work/nod-moon-paths-fixture.json','utf8');
-  const luaProof=JSON.parse(await fs.readFile(prefix+'-lua.json','utf8'));
+  const seed=await fs.readFile(checkpoint||'work/nod-moon-paths-fixture.json','utf8');
+  const input=JSON.parse(seed);
+  const luaProof=JSON.parse(await fs.readFile('evidence/nod-moon-paths-lua.json','utf8'));
   await page.evaluate(seed=>localStorage.setItem('maple-lua-lab.checkpoint.v1',seed),seed);
   await page.locator('#loadProgress').click();
   await at(town);
@@ -152,14 +163,19 @@ try{
     await gate(959,coast);
     routeScene=await backdrop();
     assert.equal(routeScene.key,'nodMoonShallows');
+    assert.ok(!(await frame()).draws.some(d=>d.text==='中段へジャンプ ↑'));
     await inspect(405);
     await branch('coast',1);
+    await requireGuide('中段へジャンプ ↑',673,480);
     const ore=(await frame()).inventory.upgradeOre;
-    await jump(847,388);
+    await jump(673,388);
     await inspect(847);
     await branch('coast',2);
     assert.equal((await frame()).inventory.upgradeOre,ore+luaProof.coastOre);
-    await jump(1079,292);
+    await walk(1062);
+    await requireGuide('上段へジャンプ ↑',1062,388);
+    await screenshot('coast-jump');
+    await jump(1062,292);
     assert.equal((await frame()).draws.filter(draw=>draw.color==='#f7ca79').length,3);
     await screenshot('coast');
     await inspect(1400,2);
@@ -168,8 +184,10 @@ try{
     await count(2);
     await branch('coast',3);
     await gate(959,coast);
-    await jump(847,388);
-    await jump(1079,292);
+    await walk(673);
+    await requireGuide('中段へジャンプ ↑',673,480);
+    await jump(673,388);
+    await jump(1062,292);
     await gate(1534,inlet);
     assert.equal((await frame()).actors[0].y,386);
     await down(480);
@@ -180,9 +198,13 @@ try{
   await jump(801,386);
   await inspect(801,4);
   await wait(()=>window.lab.frame.storyBoxGlimpse);
-  const commands=selected==='wood'?await compare():undefined;
+  const commands=selected==='wood'||checkpoint?await compare():undefined;
+  assert.ok(!(await frame()).draws.some(d=>d.text==='岩窟口へ →'));
   await inspect(934,5);
-  assert.ok((await frame()).platforms.some(p=>p.moonDeck));
+  const deck=(await frame()).platforms.find(p=>p.moonDeck);
+  assert.ok(deck);
+  await requireGuide('岩窟口へ →',deck.x-20,deck.y);
+  await screenshot('bridge');
   await gate(1674,cave);
   const caveScene=await backdrop();
   assert.deepEqual(caveScene,{key:'nodMoonCave',file:'nod-moon-cave-background-v1.png',state:'ready'});
@@ -200,14 +222,27 @@ try{
   const reward=[after.progression.questXp-before.progression.questXp,
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
   assert.deepEqual(reward,luaProof.reportReward);
-  await saveReload();
+  const complete=await saveReload(),saved=JSON.parse(complete);
+  const preserved=Object.entries(input.story.quests).filter(([,state])=>state.status==='complete');
+  for(const [id,state] of preserved)assert.deepEqual(saved.story.quests[id],state,id);
+  const restored=await frame();
+  assert.equal(restored.companion.id,after.companion.id);
+  assert.equal(restored.story.quests[quest].status,'complete');
+  if(checkpoint)await fs.writeFile(prefix+'-'+selected+'-complete.json',complete+'\n');
   await gate(1258,cave);
   await gate(55,inlet);
   assert.ok((await frame()).platforms.some(p=>p.moonDeck));
+  await requireGuide('← 入江へ',deck.x+deck.w+20,deck.y);
+  await walk(927);
+  assert.equal((await frame()).actors[0].y,386);
+  await requireGuide('岩窟口へ →',deck.x-20,deck.y);
   assert.equal((await frame()).story.quests[quest].pathProgress[resetBranch].count,0);
   assert.deepEqual(errors,[]);
   const proof={path:selected,otherPathUnused:true,glimpse:true,report:true,savedBeforeInlet:true,saveReloaded:true,
-    bridgeRestored:true,routeScene,caveScene,reward,commands,errors};
+    bridgeRestored:true,bridgeBothDirections:true,coastalJumpGuides:selected==='coast',
+    sourceSha256:createHash('sha256').update(seed).digest('hex'),
+    startLevel:input.progression.level,reportedLevel:restored.progression.level,priorCompleted:preserved.length,
+    routeScene,caveScene,reward,commands,errors};
   await fs.writeFile(prefix+'-'+selected+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){
@@ -216,5 +251,6 @@ try{
     return {node:f?.story.node,actor:f?.actors[0],notice:f?.storyNotice,portal:f?.storyNearbyPortal,
       milestone:f?.storyNearbyMilestone,pathStatus:f?.storyPathStatus,total:f?.total,auto:f?.auto};
   }),errors);
+  await page.screenshot({path:prefix+'-'+selected+'-failure.png'});
   throw error;
 }finally{await browser.close()}
