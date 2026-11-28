@@ -449,16 +449,23 @@ function updateProgression(f){
  const key=summary.join('|');
  if(key===progressionView)return;
  progressionView=key;
+ const progressPanel=$('progressionPanel'),meter=$('progressionMeter');
+ progressPanel.hidden=!p;
  if(!p){
-  $('progressionStatus').textContent='共通レベル：冒険モードで有効。経験値は試算値です。';
   $('regionLevels').textContent='冒険モードで確認できます。';
   return;
  }
  const capped=p.level===f.levelCap;
+ progressPanel.classList.toggle('capped',capped);
+ meter.hidden=capped;
+ if(!capped){
+  meter.max=f.nextExp;
+  meter.value=p.xp;
+ }
  const training=capped?`上限後のEXP ${expFormat.format(p.overflowXp)}`:
   `EXP ${expFormat.format(p.xp)} / ${expFormat.format(f.nextExp)}`;
  $('progressionStatus').textContent=`旅人・仲間 共通Lv ${p.level}${capped?' MAX':''} ｜ ${training} ｜ 累計EXP ${expFormat.format(p.total)}（基礎 ${expFormat.format(p.baseXp)}） ｜ 討伐 ${expFormat.format(p.killXp)}・依頼・初回勝利 ${expFormat.format(p.questXp)}（試算）`;
- $('regionLevels').textContent=f.regionEligibility.map(r=>`${r.name} Lv${r.required}：${r.eligible?'レベル条件達成':'未達'}・正式マップ未実装`).join(' ／ ');
+ $('regionLevels').textContent=f.regionEligibility.map(r=>`${r.name} Lv${r.required}：${r.eligible?'レベル条件達成':'未達'}`).join(' ／ ');
 }
 function hud(f,calls,renderMs){
  $('allyFire').setAttribute('aria-pressed',String(Boolean(f.holdAllyFire)));

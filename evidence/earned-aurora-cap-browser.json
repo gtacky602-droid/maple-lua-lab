@@ -1,0 +1,56 @@
+{
+  "sourceSha256": "16cc550c90ed3f265150b7073aa6f36154515b650e86e23a3a67f8504cd6c490",
+  "imported": {
+    "killXp": 11010220955,
+    "xp": 0,
+    "curve": "maplesea-reference-v02",
+    "questXp": 452478551,
+    "baseXp": 11462699506,
+    "lastKills": 122082,
+    "level": 200,
+    "overflowXp": 364276,
+    "total": 11462699506,
+    "questRewarded": false,
+    "curveAdjustment": 0
+  },
+  "route": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf",
+    "aurora-steam-channel",
+    "aurora-mineral-terraces",
+    "dawn-vein-mine",
+    "dawn-vein-deep",
+    "dawn-glass-ridge",
+    "dawn-glass-divide",
+    "dawn-crystal-field"
+  ],
+  "growthQuests": [
+    "growth-light-release",
+    "growth-branch-visit",
+    "growth-light-echo",
+    "growth-seven-strike",
+    "growth-next-goal"
+  ],
+  "cap": {
+    "killXp": 11020773692,
+    "xp": 0,
+    "curve": "maplesea-reference-v02",
+    "questXp": 452478551,
+    "baseXp": 11473252243,
+    "lastKills": 122218,
+    "level": 200,
+    "overflowXp": 10917013,
+    "total": 11473252243,
+    "questRewarded": false,
+    "curveAdjustment": 0
+  },
+  "addedExp": 889098,
+  "gameSaveReload": true,
+  "equippedItems": 2,
+  "completedQuests": 107,
+  "inventoryAndQuestsRestored": true,
+  "mobileLevelMeter": true,
+  "travelersAttack": 74956,
+  "companion": "mitya",
+  "errors": []
+}

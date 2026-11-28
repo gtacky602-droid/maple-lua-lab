@@ -1,0 +1,24 @@
+{
+  "sourceSha256": "e6174adb1ca5fbb88c00e420898acfcc74f96d61bfc46d587c5c7eba95567998",
+  "completedQuests": [
+    "growth-abyss",
+    "growth-stygian",
+    "growth-weekly"
+  ],
+  "abyssRooms": [
+    1,
+    2,
+    3
+  ],
+  "abyssStars": 3,
+  "abyssRewardSet": "troupe",
+  "abyssRewardRarity": 3,
+  "farkaTrialCleared": true,
+  "weeklyBoss": "andrius",
+  "weeklyAttackRegistered": true,
+  "weeklyDefeated": true,
+  "extraExpAtCap": 3179,
+  "savedAndRestored": true,
+  "weeklyBossId": "boss-29020101",
+  "weeklySavedWins": 1
+}

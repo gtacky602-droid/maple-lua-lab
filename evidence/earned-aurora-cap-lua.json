@@ -1,0 +1,59 @@
+{
+  "hunts": [
+    {
+      "node": "dawn-glass-ridge",
+      "toLevel": 195,
+      "kills": 14077,
+      "exp": 2027051517,
+      "autoKills": 9136,
+      "autoSeconds": 4639.53,
+      "seconds": 7199.28
+    },
+    {
+      "node": "dawn-glass-divide",
+      "toLevel": 200,
+      "kills": 14953,
+      "exp": 2584794203,
+      "autoKills": 9157,
+      "autoSeconds": 4669.47,
+      "seconds": 7623.62
+    }
+  ],
+  "milestones": [
+    {
+      "id": "lv195",
+      "node": "dawn-glass-ridge",
+      "level": 195,
+      "exp": 8866239731,
+      "kills": 107001,
+      "seconds": 7256.6
+    },
+    {
+      "id": "lv200",
+      "node": "dawn-glass-divide",
+      "level": 200,
+      "exp": 11462480067,
+      "kills": 122081,
+      "seconds": 14951.42
+    }
+  ],
+  "equipment": [],
+  "rests": 102,
+  "inventoryStops": 0,
+  "sourceSha256": "e4002b4a030e8a566ce35cc9d0582afca23a75d546b33b9b30354f67de9ff869",
+  "level": 200,
+  "priorQuests": 107,
+  "inventoryKept": 73,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "wipes": 0,
+  "travelerAttack": 74956,
+  "cap": {
+    "node": "dawn-crystal-field",
+    "kills": 115,
+    "extraExp": 34082090,
+    "seconds": 60.0,
+    "overflow": 44444259,
+    "restored": true
+  }
+}
