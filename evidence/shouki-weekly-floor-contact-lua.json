@@ -32,8 +32,8 @@
   "waist_aligned_in_all_profiles": true,
   "armoredCore": {
     "y": 298.69986168741355,
-    "exposed": true,
-    "x": 480
+    "x": 480,
+    "exposed": true
   },
   "armoredOutline": [
     {
@@ -80,6 +80,7 @@
   "four_physical_trials_and_core_collision": true,
   "explicit_ai_assistance_only": true,
   "deadline_tick_prefers_accepted_impact": true,
+  "reserved_shot_confirmation_expires": true,
   "exposure_ticks": 600,
   "ordinary_failure_and_retry": true,
   "route_report_and_save": true

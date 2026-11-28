@@ -320,6 +320,15 @@ assert w.aim is None
 w.stageTick-=1
 place(s.actors[1],120)
 act(s,'encounter_interact')
+assert core.frame(s).weeklyBoss.shouki.aim.canConfirm
+w.stageTick+=1
+assert not core.frame(s).weeklyBoss.shouki.aim.canConfirm
+act(s,'encounter_confirm')
+assert not w.aim.confirmed and w.charge==100
+act(s,'encounter_cancel')
+assert w.aim is None and w.charge==100
+w.stageTick-=1
+act(s,'encounter_interact')
 act(s,'encounter_confirm')
 ticks(core,s,60)
 assert w.shot is not None
@@ -388,7 +397,7 @@ result={'live_durations':checked,'upper_hits_share_hp':True,'independent_floor_a
         'chest_art_aim_and_collision_aligned':True,'combat_hit_heights_unchanged':True,
         'reserve_cancel_swap_and_missed_shot':True,'hit_applies_shield_separately':True,
         'four_physical_trials_and_core_collision':True,'explicit_ai_assistance_only':True,
-        'deadline_tick_prefers_accepted_impact':True,'exposure_ticks':600,
+        'deadline_tick_prefers_accepted_impact':True,'reserved_shot_confirmation_expires':True,'exposure_ticks':600,
         'ordinary_failure_and_retry':True,'route_report_and_save':True}
 (ROOT/'evidence/shouki-weekly-floor-contact-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print('Shouki Lua: two phases, matrices, charge and shield, terminal settlement, trial and save passed')

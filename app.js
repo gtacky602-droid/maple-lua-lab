@@ -126,7 +126,7 @@ addEventListener('keydown',e=>{
   const aim=shouki.aim,device=shouki.device;
   if(e.code==='Escape'&&aim?.mine&&!aim.fired){actions.push('encounter_cancel');return}
   if(e.code==='KeyH'){
-   if(aim?.mine&&!aim.confirmed)actions.push('encounter_confirm');
+   if(aim?.mine&&!aim.confirmed&&aim.canConfirm!==false)actions.push('encounter_confirm');
    else if(shouki.canAim||(device&&!device.cooldown&&shouki.charge>=shouki.max))actions.push('encounter_interact');
    return;
   }
@@ -715,14 +715,12 @@ function hud(f,calls,renderMs){
    const effects={pyro:'氷床を解除',anemo:'ジャンプを補助',left:'左腕を抑制',hydro:'回復場を展開',cryo:'炎床を解除',right:'右腕を抑制'};
    const info=device?`${device.title}・${effects[device.id]}${device.cooldown?` ｜ 再使用まで${Math.ceil(device.cooldown/60)}秒`:''}`:'';
    const hands=v.left||v.right?` ｜ 抑制中 ${v.left?'雷A':''}${v.right?'雷B':''}`:'';
-   const trial=v.trialTime===undefined?'':v.trialLeft?`滅度機を攻撃（J） ｜ 残り${v.trialLeft}基・${Math.ceil(v.trialTime/60)}秒`:
-    v.canAim?`端末を構える（H） ｜ 残り${Math.ceil(v.trialTime/60)}秒`:'端末の発射受付終了';
    const combatHint=field.shoukiStage==='p1'?(info||(
     v.charge===v.max?'元素装置に近づいて起動':'充填ブロックを拾う'))+hands:
     field.shoukiStage==='p2'?(field.damageable?'足元から本体を攻撃':v.canAim?'端末で胸部を照準':'充填ブロックを拾う'):'';
    $('weeklyShoukiHint').textContent=shoukiTrialText(v)||(v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
     aim?(aim.fired?'端末を発射':!aim.mine?'端末が使用中':aim.confirmed?'端末を発射準備中':'Hで射撃を確定・Escで中止'):
-    trial||combatHint);
+    combatHint);
    use.hidden=!device&&!v.canAim;
    use.disabled=!!device&&(device.cooldown>0||v.charge<v.max)||f.paused||f.auto;
    use.textContent=device?device.title+'装置を起動（H）':'端末を構える（H）';
@@ -737,7 +735,8 @@ function hud(f,calls,renderMs){
    panel.hidden=!aim?.mine||aim.fired;
    for(const button of panel.querySelectorAll('button')){
     const action=button.dataset.action;
-    button.disabled=f.paused||f.auto||!aim?.mine||aim.confirmed&&action!=='encounter_cancel';
+    button.disabled=f.paused||f.auto||!aim?.mine||aim.confirmed&&action!=='encounter_cancel'||
+     action==='encounter_confirm'&&aim.canConfirm===false;
     if(action.startsWith('encounter_target:'))button.setAttribute('aria-pressed',String(action.endsWith(':'+aim?.target)));
    }
   }

@@ -1,0 +1,976 @@
+{
+  "shouki-core-hit": {
+    "image": "shouki-core-hit.png",
+    "frames": {
+      "くびれから上の開戦": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 346629,
+            "rgbAbsoluteError": 33759327,
+            "unpackedCommands": 3714,
+            "packedCommands": 867,
+            "unpackedBytes": 453588,
+            "packedBytes": 153721,
+            "combatCanvasMs": 3.4000000059604645,
+            "canvasSha256": "476a00bc9ba20895c8a7b4f6de818c9114bb1a9684e9b49745e3eff211fac525"
+          },
+          "h32c16": {
+            "differentPixels": 347195,
+            "rgbAbsoluteError": 34170008,
+            "unpackedCommands": 2307,
+            "packedCommands": 403,
+            "unpackedBytes": 275023,
+            "packedBytes": 78299,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "d9dc313cbacff6781ca761385bd10eaef53f53529b1d19317a78aefbce65884c"
+          }
+        }
+      },
+      "装甲起動": {
+        "tick": 2085,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 349511,
+            "rgbAbsoluteError": 33754582,
+            "unpackedCommands": 3691,
+            "packedCommands": 844,
+            "unpackedBytes": 454745,
+            "packedBytes": 153488,
+            "combatCanvasMs": 3,
+            "canvasSha256": "c57b167a3cf8eefb21a1c70562f4e0ccac56502663840741e9f5342185e88e4a"
+          },
+          "h32c16": {
+            "differentPixels": 350090,
+            "rgbAbsoluteError": 34169367,
+            "unpackedCommands": 2284,
+            "packedCommands": 380,
+            "unpackedBytes": 279129,
+            "packedBytes": 79233,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "7812e562cbb2d22e0fe236c7f4733f7b89038b9a2157ff06c4adc61ef5399a5d"
+          }
+        }
+      },
+      "装甲戦": {
+        "tick": 2324,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 349042,
+            "rgbAbsoluteError": 33714850,
+            "unpackedCommands": 3694,
+            "packedCommands": 847,
+            "unpackedBytes": 454714,
+            "packedBytes": 153562,
+            "combatCanvasMs": 2.199999988079071,
+            "canvasSha256": "3be4e464721e08ae13ea674c26a7dd729b58be96574bef0d7e99421ee1400c3c"
+          },
+          "h32c16": {
+            "differentPixels": 349627,
+            "rgbAbsoluteError": 34210270,
+            "unpackedCommands": 2287,
+            "packedCommands": 383,
+            "unpackedBytes": 278034,
+            "packedBytes": 78877,
+            "combatCanvasMs": 1.2000000178813934,
+            "canvasSha256": "7f51e7dc8e17efe8ae409597d923393c1703fbcb3a9ff892c3f6d380a0439a85"
+          }
+        }
+      },
+      "端末を発射": {
+        "tick": 2392,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348309,
+            "rgbAbsoluteError": 33609916,
+            "unpackedCommands": 3716,
+            "packedCommands": 863,
+            "unpackedBytes": 454751,
+            "packedBytes": 153338,
+            "combatCanvasMs": 2.899999976158142,
+            "canvasSha256": "aa7c0109b1e08489973fee7798c56b149f9d784baa0441df1c5e80e0fc4024fc"
+          },
+          "h32c16": {
+            "differentPixels": 348828,
+            "rgbAbsoluteError": 34090842,
+            "unpackedCommands": 2300,
+            "packedCommands": 399,
+            "unpackedBytes": 274560,
+            "packedBytes": 78065,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "069a9e0bcc5171fc7934a7fe8b04a5c03bbb7f91962025953a571c2816d6ee5d"
+          }
+        }
+      },
+      "滅度機の試練": {
+        "tick": 3535,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347184,
+            "rgbAbsoluteError": 33803545,
+            "unpackedCommands": 3697,
+            "packedCommands": 844,
+            "unpackedBytes": 457053,
+            "packedBytes": 153519,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "e00a341178b6de202632d537e14306ffdf472ef34f1b46734ddb53fb22c1d771"
+          },
+          "h32c16": {
+            "differentPixels": 347795,
+            "rgbAbsoluteError": 34263808,
+            "unpackedCommands": 2281,
+            "packedCommands": 380,
+            "unpackedBytes": 279139,
+            "packedBytes": 79246,
+            "combatCanvasMs": 1.7999999821186066,
+            "canvasSha256": "ad18edf808885ba7c397a67a0e0e144f45f23321227b7fe46c8099725deed913"
+          }
+        },
+        "shoukiText": "滅度機の出現を待つ ｜ 残り24.0秒"
+      },
+      "滅度機4基が出現": {
+        "tick": 3595,
+        "originalCombatCanvasMs": 0.6000000238418579,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 342194,
+            "rgbAbsoluteError": 33342258,
+            "unpackedCommands": 3725,
+            "packedCommands": 872,
+            "unpackedBytes": 458475,
+            "packedBytes": 155185,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "3231f143817ecdb49ebb93f5e99be9b59b4d4152dd1971826c9805b23a1d5b69"
+          },
+          "h32c16": {
+            "differentPixels": 342796,
+            "rgbAbsoluteError": 33770500,
+            "unpackedCommands": 2309,
+            "packedCommands": 408,
+            "unpackedBytes": 280660,
+            "packedBytes": 80925,
+            "combatCanvasMs": 1.9000000059604645,
+            "canvasSha256": "fecc861635da1b6919915162cefb8c881f747e539e2afc37fbae710c8a02f248"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り4基 ｜ 残り23.0秒"
+      },
+      "滅度機を破壊 1": {
+        "tick": 3705,
+        "originalCombatCanvasMs": 0.6000000238418579,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344009,
+            "rgbAbsoluteError": 33377743,
+            "unpackedCommands": 3719,
+            "packedCommands": 866,
+            "unpackedBytes": 459434,
+            "packedBytes": 155516,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "a7d01bab0632fbf18a204e854f43dec87b51bd55d62d53e878934a397a4c51df"
+          },
+          "h32c16": {
+            "differentPixels": 344565,
+            "rgbAbsoluteError": 33791993,
+            "unpackedCommands": 2303,
+            "packedCommands": 402,
+            "unpackedBytes": 280688,
+            "packedBytes": 80826,
+            "combatCanvasMs": 1.7999999821186066,
+            "canvasSha256": "f15b0ddcc85e8e7317f32bffa3a2d89a2eade9256f968cbe6203918a361c3bb8"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り3基 ｜ 残り21.2秒"
+      },
+      "滅度機を破壊 2": {
+        "tick": 3849,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344985,
+            "rgbAbsoluteError": 33557953,
+            "unpackedCommands": 3706,
+            "packedCommands": 859,
+            "unpackedBytes": 456197,
+            "packedBytes": 154608,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "410b10de732fd39f91d13a3b618eb1cf7e70e67c015a5689da98282c4a952f4d"
+          },
+          "h32c16": {
+            "differentPixels": 345547,
+            "rgbAbsoluteError": 33990429,
+            "unpackedCommands": 2299,
+            "packedCommands": 395,
+            "unpackedBytes": 280424,
+            "packedBytes": 80411,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "c431be0e72881466f6b9d46221e196753e32e61d3c861c5c34080c3f54e5fe16"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り2基 ｜ 残り18.8秒"
+      },
+      "滅度機を破壊 3": {
+        "tick": 4033,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 346370,
+            "rgbAbsoluteError": 33398754,
+            "unpackedCommands": 3699,
+            "packedCommands": 852,
+            "unpackedBytes": 455205,
+            "packedBytes": 154137,
+            "combatCanvasMs": 2.7999999821186066,
+            "canvasSha256": "55df08ef4760fe49c607d0069a64ac561b2fd2c4a433ee427aa87ecfc9027cd0"
+          },
+          "h32c16": {
+            "differentPixels": 346928,
+            "rgbAbsoluteError": 33938138,
+            "unpackedCommands": 2292,
+            "packedCommands": 388,
+            "unpackedBytes": 279820,
+            "packedBytes": 79869,
+            "combatCanvasMs": 1.800000011920929,
+            "canvasSha256": "93ef750f786c0e75c69938c5ca014eafd4d5f606323c9158efaa549f99fba366"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り1基 ｜ 残り15.7秒"
+      },
+      "滅度機を破壊 4": {
+        "tick": 4200,
+        "originalCombatCanvasMs": 0.7000000178813934,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347978,
+            "rgbAbsoluteError": 33722031,
+            "unpackedCommands": 3692,
+            "packedCommands": 845,
+            "unpackedBytes": 453821,
+            "packedBytes": 153031,
+            "combatCanvasMs": 2.800000011920929,
+            "canvasSha256": "6237f99c576501d260b8718feddc8e94d937486fd274d299f7fbc65089410618"
+          },
+          "h32c16": {
+            "differentPixels": 348560,
+            "rgbAbsoluteError": 34193716,
+            "unpackedCommands": 2285,
+            "packedCommands": 381,
+            "unpackedBytes": 279269,
+            "packedBytes": 79321,
+            "combatCanvasMs": 1.899999976158142,
+            "canvasSha256": "4b739c945f6d8e40bf435dcfac46ecf0778ee26cc7f2662dcaada3531e3882f4"
+          }
+        },
+        "shoukiText": "端末を構える（H） ｜ 残り13.0秒"
+      },
+      "試練の胸部を照準": {
+        "tick": 4201,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347883,
+            "rgbAbsoluteError": 33705912,
+            "unpackedCommands": 3702,
+            "packedCommands": 855,
+            "unpackedBytes": 454611,
+            "packedBytes": 153821,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "5dc9ea08011d366a83f8e1815d32cb20be503265c75b7ac00c361253f7294a6c"
+          },
+          "h32c16": {
+            "differentPixels": 348466,
+            "rgbAbsoluteError": 34185441,
+            "unpackedCommands": 2295,
+            "packedCommands": 391,
+            "unpackedBytes": 280059,
+            "packedBytes": 80111,
+            "combatCanvasMs": 2,
+            "canvasSha256": "8095a8b00859c2aa27adf0b07fff605541a5550808a277916d29b59f990b7a29"
+          }
+        },
+        "shoukiText": "胸部へ射撃を確定（H） ｜ 残り12.9秒"
+      },
+      "試練で端末弾が飛行中": {
+        "tick": 4261,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347913,
+            "rgbAbsoluteError": 33829575,
+            "unpackedCommands": 3702,
+            "packedCommands": 855,
+            "unpackedBytes": 455859,
+            "packedBytes": 154360,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "e48fd9c00de3a242ca3cc0293b6d95077d8496f8acbec3c0edf94ad6ff6848ac"
+          },
+          "h32c16": {
+            "differentPixels": 348483,
+            "rgbAbsoluteError": 34297667,
+            "unpackedCommands": 2295,
+            "packedCommands": 391,
+            "unpackedBytes": 280112,
+            "packedBytes": 80136,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "96bd067f524caa8b736b2f2e844a9a8f8d6347fa63fc83e53d5e3e3f00d20bf5"
+          }
+        },
+        "shoukiText": "端末弾が飛行中 ｜ 残り11.9秒"
+      },
+      "胸部に射撃が命中": {
+        "tick": 4276,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348517,
+            "rgbAbsoluteError": 33969753,
+            "unpackedCommands": 3686,
+            "packedCommands": 839,
+            "unpackedBytes": 450141,
+            "packedBytes": 151051,
+            "combatCanvasMs": 2.7999999821186066,
+            "canvasSha256": "5f114c80159a48369330f7b2e7be0ec5ebb05584fca8fee4ab05b379488cf6ac"
+          },
+          "h32c16": {
+            "differentPixels": 349104,
+            "rgbAbsoluteError": 34357613,
+            "unpackedCommands": 2279,
+            "packedCommands": 375,
+            "unpackedBytes": 272558,
+            "packedBytes": 76126,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "ed865b25d605a1440617bffcfb88822d654e46e740a56931e852054643cae41e"
+          }
+        },
+        "shoukiText": "端末弾が胸部に命中"
+      },
+      "攻撃機会10秒": {
+        "tick": 4336,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348531,
+            "rgbAbsoluteError": 33970734,
+            "unpackedCommands": 3686,
+            "packedCommands": 839,
+            "unpackedBytes": 453323,
+            "packedBytes": 152497,
+            "combatCanvasMs": 3.0999999940395355,
+            "canvasSha256": "f14811918a9d389a84e9a67c7e6d54f2644378dfdceac63fde67b1dae1ee7a57"
+          },
+          "h32c16": {
+            "differentPixels": 349107,
+            "rgbAbsoluteError": 34365899,
+            "unpackedCommands": 2279,
+            "packedCommands": 375,
+            "unpackedBytes": 277198,
+            "packedBytes": 78155,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "a017656e2296b4f2f645024e09fdd103c68bb4fb96a16cfbdfb5bf221732309f"
+          }
+        },
+        "shoukiText": "端末弾が胸部に命中 ｜ 攻撃できる時間 残り10秒"
+      },
+      "本体へ反撃": {
+        "tick": 4393,
+        "originalCombatCanvasMs": 0.699999988079071,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 350130,
+            "rgbAbsoluteError": 33756239,
+            "unpackedCommands": 4012,
+            "packedCommands": 841,
+            "unpackedBytes": 490128,
+            "packedBytes": 157615,
+            "combatCanvasMs": 3,
+            "canvasSha256": "54908ed152817cfd8442d9cec5a9fb1ca0ec835f201e91d66d76cdee44681258"
+          },
+          "h32c16": {
+            "differentPixels": 350683,
+            "rgbAbsoluteError": 34240851,
+            "unpackedCommands": 2396,
+            "packedCommands": 377,
+            "unpackedBytes": 290940,
+            "packedBytes": 80328,
+            "combatCanvasMs": 1.7999999821186066,
+            "canvasSha256": "34750df8ca40ac8dd76011ea44222e5faa56d3a728dbf45a8f0ed8ac1f900b73"
+          }
+        },
+        "shoukiText": "端末弾が胸部に命中 ｜ 攻撃できる時間 残り10秒"
+      }
+    }
+  },
+  "shouki-timeout": {
+    "image": "shouki-timeout.png",
+    "frames": {
+      "くびれから上の開戦": {
+        "tick": 0,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 346639,
+            "rgbAbsoluteError": 33771895,
+            "unpackedCommands": 3714,
+            "packedCommands": 867,
+            "unpackedBytes": 456770,
+            "packedBytes": 155167,
+            "combatCanvasMs": 3,
+            "canvasSha256": "a3ea6f4454ebc29c2c4324a2b33a1b1b46c14259dfa3a79d9a9c6e89aa1d3d82"
+          },
+          "h32c16": {
+            "differentPixels": 347215,
+            "rgbAbsoluteError": 34173414,
+            "unpackedCommands": 2307,
+            "packedCommands": 403,
+            "unpackedBytes": 279663,
+            "packedBytes": 80328,
+            "combatCanvasMs": 1.899999976158142,
+            "canvasSha256": "a3356caeff81bfe54cc5e4ad461afcbc03035c85553c24ae8ac8c8d519eae565"
+          }
+        }
+      },
+      "装甲起動": {
+        "tick": 2113,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 349492,
+            "rgbAbsoluteError": 33707055,
+            "unpackedCommands": 3690,
+            "packedCommands": 843,
+            "unpackedBytes": 455706,
+            "packedBytes": 153881,
+            "combatCanvasMs": 3,
+            "canvasSha256": "888f6efb5878313da074c120e983d475cb59b8bdd97e39a185379c6f8e41813a"
+          },
+          "h32c16": {
+            "differentPixels": 350088,
+            "rgbAbsoluteError": 34127949,
+            "unpackedCommands": 2283,
+            "packedCommands": 379,
+            "unpackedBytes": 279404,
+            "packedBytes": 79314,
+            "combatCanvasMs": 1.7000000178813934,
+            "canvasSha256": "bf1ae0d38cbf6b4ed7dfbc4a3597f5645dc814ca9c9c295c4edb3399caebf40c"
+          }
+        }
+      },
+      "装甲戦": {
+        "tick": 2352,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 349038,
+            "rgbAbsoluteError": 33712678,
+            "unpackedCommands": 3694,
+            "packedCommands": 847,
+            "unpackedBytes": 451532,
+            "packedBytes": 152116,
+            "combatCanvasMs": 2.9000000059604645,
+            "canvasSha256": "b9abd3a285c389703ffdeee20b81a4d69dc9cb1e5d71010a444959821c559d4c"
+          },
+          "h32c16": {
+            "differentPixels": 349614,
+            "rgbAbsoluteError": 34204774,
+            "unpackedCommands": 2287,
+            "packedCommands": 383,
+            "unpackedBytes": 273394,
+            "packedBytes": 76848,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "20926e3af7802fba717bd16b196954ad1f1ece5d2ae172b5d9da0e9efd07384b"
+          }
+        }
+      },
+      "端末を発射": {
+        "tick": 2420,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348299,
+            "rgbAbsoluteError": 33616234,
+            "unpackedCommands": 3716,
+            "packedCommands": 863,
+            "unpackedBytes": 459042,
+            "packedBytes": 155352,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "a76bf0c1a460234e906f1528c51f0f1ff453f1485fb34e0e10a2ce87218c28a9"
+          },
+          "h32c16": {
+            "differentPixels": 348828,
+            "rgbAbsoluteError": 34090827,
+            "unpackedCommands": 2300,
+            "packedCommands": 399,
+            "unpackedBytes": 280509,
+            "packedBytes": 80735,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "4fad59ff8cdd26880babef5dbbf117e92043a3826044acabc3bf212368d13037"
+          }
+        }
+      },
+      "滅度機の試練": {
+        "tick": 3563,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347184,
+            "rgbAbsoluteError": 33803068,
+            "unpackedCommands": 3697,
+            "packedCommands": 844,
+            "unpackedBytes": 456659,
+            "packedBytes": 153373,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "ee2b91d5ab0d555e3f7875c765f1ac87e784d1e6d0e5a625fc982e51aaf3594d"
+          },
+          "h32c16": {
+            "differentPixels": 347797,
+            "rgbAbsoluteError": 34259784,
+            "unpackedCommands": 2281,
+            "packedCommands": 380,
+            "unpackedBytes": 277328,
+            "packedBytes": 78443,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "7d3ef487069dd234ddc3352fa71d206148c54006cc46a12ef56ed42e9d1bddac"
+          }
+        },
+        "shoukiText": "滅度機の出現を待つ ｜ 残り24.0秒"
+      },
+      "滅度機4基が出現": {
+        "tick": 3623,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 342197,
+            "rgbAbsoluteError": 33341722,
+            "unpackedCommands": 3725,
+            "packedCommands": 872,
+            "unpackedBytes": 458441,
+            "packedBytes": 155155,
+            "combatCanvasMs": 2.7999999821186066,
+            "canvasSha256": "76a67d1e5469227107887c508b15ceb77df80dd092e4d51e67cba0a4726d36fd"
+          },
+          "h32c16": {
+            "differentPixels": 342801,
+            "rgbAbsoluteError": 33771160,
+            "unpackedCommands": 2309,
+            "packedCommands": 408,
+            "unpackedBytes": 279110,
+            "packedBytes": 80225,
+            "combatCanvasMs": 1.699999988079071,
+            "canvasSha256": "4e5430ffdb971e1a3a466f7765c650be2324a91cef676825df39e2f5637159ec"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り4基 ｜ 残り23.0秒"
+      },
+      "滅度機を破壊 1": {
+        "tick": 3733,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344004,
+            "rgbAbsoluteError": 33373475,
+            "unpackedCommands": 3719,
+            "packedCommands": 866,
+            "unpackedBytes": 455143,
+            "packedBytes": 153502,
+            "combatCanvasMs": 2.4000000059604645,
+            "canvasSha256": "f1ce6bfc2012ef4f12827dca9e973e979023cdb3616a23996edcab5ed33e5fce"
+          },
+          "h32c16": {
+            "differentPixels": 344572,
+            "rgbAbsoluteError": 33794694,
+            "unpackedCommands": 2303,
+            "packedCommands": 402,
+            "unpackedBytes": 274739,
+            "packedBytes": 78156,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "94ed6ffba6cfa4e5fa044e7a9c7f242eddbeb7e73b79f615d7fef74a3dea671e"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り3基 ｜ 残り21.2秒"
+      },
+      "滅度機を破壊 2": {
+        "tick": 3877,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344988,
+            "rgbAbsoluteError": 33556006,
+            "unpackedCommands": 3706,
+            "packedCommands": 859,
+            "unpackedBytes": 456107,
+            "packedBytes": 154578,
+            "combatCanvasMs": 2.7999999821186066,
+            "canvasSha256": "b09d90476b7e48f70013b4ee83d65efb778d710cd8cb16cebd4095ce4ea607df"
+          },
+          "h32c16": {
+            "differentPixels": 345547,
+            "rgbAbsoluteError": 33990414,
+            "unpackedCommands": 2299,
+            "packedCommands": 395,
+            "unpackedBytes": 278814,
+            "packedBytes": 79711,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "cfc845d2a53bc24e613e5dd4015186e93b9041de90531a71a1c5f2f29cac6af7"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り2基 ｜ 残り18.8秒"
+      },
+      "試練の時間切れ": {
+        "tick": 5003,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347958,
+            "rgbAbsoluteError": 33890897,
+            "unpackedCommands": 3688,
+            "packedCommands": 841,
+            "unpackedBytes": 455967,
+            "packedBytes": 153810,
+            "combatCanvasMs": 2.5999999940395355,
+            "canvasSha256": "047fbead3312cbe4ff462a3e3f38b97a264dcc9a5e73d701315e46a261b0fd88"
+          },
+          "h32c16": {
+            "differentPixels": 348524,
+            "rgbAbsoluteError": 34280618,
+            "unpackedCommands": 2281,
+            "packedCommands": 377,
+            "unpackedBytes": 279508,
+            "packedBytes": 79301,
+            "combatCanvasMs": 1.5999999940395355,
+            "canvasSha256": "e9756a0966f9d81bde8bdbd998c543113cf1a5dafb128edf85fe1d44af313b20"
+          }
+        },
+        "shoukiText": "時間切れ。刹那生滅が来る"
+      },
+      "刹那生滅が命中": {
+        "tick": 5183,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344508,
+            "rgbAbsoluteError": 32586655,
+            "unpackedCommands": 2858,
+            "packedCommands": 11,
+            "unpackedBytes": 352596,
+            "packedBytes": 50447,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "4dec1054cf16341638f7dc51f9885b2f89dc89b14c69a24c36080e53e720760e"
+          },
+          "h32c16": {
+            "differentPixels": 345100,
+            "rgbAbsoluteError": 32835889,
+            "unpackedCommands": 1915,
+            "packedCommands": 11,
+            "unpackedBytes": 234657,
+            "packedBytes": 34517,
+            "combatCanvasMs": 1.2999999821186066,
+            "canvasSha256": "022d5a415193c770771713b937eb26c11706cb109f1ba3051d97f140152989a4"
+          }
+        },
+        "shoukiText": "刹那生滅が命中・72ダメージ"
+      },
+      "装甲0で戦闘に戻る": {
+        "tick": 5363,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348192,
+            "rgbAbsoluteError": 33932497,
+            "unpackedCommands": 2856,
+            "packedCommands": 9,
+            "unpackedBytes": 350053,
+            "packedBytes": 50305,
+            "combatCanvasMs": 2,
+            "canvasSha256": "d4c90ae25afd7013d2761b427d3b0a98b7b8c98c3db2495dd2ce38975e96a8fb"
+          },
+          "h32c16": {
+            "differentPixels": 348763,
+            "rgbAbsoluteError": 34300333,
+            "unpackedCommands": 1913,
+            "packedCommands": 9,
+            "unpackedBytes": 231038,
+            "packedBytes": 34375,
+            "combatCanvasMs": 1.2999999821186066,
+            "canvasSha256": "67d373c8131de0526a879ff807c8144359dafb61fb7984a2db09d6c854301d69"
+          }
+        },
+        "shoukiText": "装甲0で戦闘再開 ｜ 足元から本体を攻撃"
+      },
+      "本体へ反撃": {
+        "tick": 5397,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 349337,
+            "rgbAbsoluteError": 33672301,
+            "unpackedCommands": 3264,
+            "packedCommands": 15,
+            "unpackedBytes": 403383,
+            "packedBytes": 59749,
+            "combatCanvasMs": 2.399999976158142,
+            "canvasSha256": "c24feebc9554be00f8fd9394eafabee3e39983c3f939358e1c6ef44af5ad05cb"
+          },
+          "h32c16": {
+            "differentPixels": 349891,
+            "rgbAbsoluteError": 34082499,
+            "unpackedCommands": 2062,
+            "packedCommands": 15,
+            "unpackedBytes": 252800,
+            "packedBytes": 38106,
+            "combatCanvasMs": 1.5,
+            "canvasSha256": "5d7617f7689eccd7dd732519088e63138f1198f17e280248a3bf17fa209db0e6"
+          }
+        },
+        "shoukiText": "装甲0で戦闘再開 ｜ 足元から本体を攻撃"
+      },
+      "再試練の滅度機4基": {
+        "tick": 6323,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344066,
+            "rgbAbsoluteError": 33363930,
+            "unpackedCommands": 2889,
+            "packedCommands": 42,
+            "unpackedBytes": 353608,
+            "packedBytes": 52492,
+            "combatCanvasMs": 2,
+            "canvasSha256": "1d65905e37682a90266f40d55e9e58df22c8f8e584de839dadf97ff3d91bc453"
+          },
+          "h32c16": {
+            "differentPixels": 344629,
+            "rgbAbsoluteError": 33785719,
+            "unpackedCommands": 1946,
+            "packedCommands": 42,
+            "unpackedBytes": 236624,
+            "packedBytes": 36562,
+            "combatCanvasMs": 1.2999999821186066,
+            "canvasSha256": "6d23ffa0d3b43e83dec568cd8064897b8b092ee49d4b4beb3eb3e6593899b9db"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り4基 ｜ 残り23.0秒"
+      },
+      "滅度機を破壊 3": {
+        "tick": 6433,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 344953,
+            "rgbAbsoluteError": 33400846,
+            "unpackedCommands": 2889,
+            "packedCommands": 36,
+            "unpackedBytes": 355165,
+            "packedBytes": 52153,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "c7bfeafffcc2b0a1415da1e3868809a76f8158692fda1501564e8d8b86d6a1cb"
+          },
+          "h32c16": {
+            "differentPixels": 345439,
+            "rgbAbsoluteError": 33834080,
+            "unpackedCommands": 1937,
+            "packedCommands": 36,
+            "unpackedBytes": 235083,
+            "packedBytes": 36087,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "a931b90b477895adcae7a8daddee7284b13530097758d9ec79348df3a050ae4d"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り3基 ｜ 残り21.2秒"
+      },
+      "滅度機を破壊 4": {
+        "tick": 6577,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 345297,
+            "rgbAbsoluteError": 33407472,
+            "unpackedCommands": 2876,
+            "packedCommands": 29,
+            "unpackedBytes": 352563,
+            "packedBytes": 51692,
+            "combatCanvasMs": 2.300000011920929,
+            "canvasSha256": "68ade4d27c3f7ba8b4aaa93cb874a9c8f35b430cd1c40c06c0fb159d812f63a2"
+          },
+          "h32c16": {
+            "differentPixels": 345829,
+            "rgbAbsoluteError": 33838098,
+            "unpackedCommands": 1933,
+            "packedCommands": 29,
+            "unpackedBytes": 234634,
+            "packedBytes": 35762,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "799d6577898dedaa9160d7b69cffa48c740e5dc0e38776395ab9fbd82acc081a"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り2基 ｜ 残り18.8秒"
+      },
+      "滅度機を破壊 5": {
+        "tick": 6744,
+        "originalCombatCanvasMs": 0.5999999940395355,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 346966,
+            "rgbAbsoluteError": 33445346,
+            "unpackedCommands": 2869,
+            "packedCommands": 22,
+            "unpackedBytes": 352314,
+            "packedBytes": 51246,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "09a969c2f66f9b8d1ffd64c821bafd0723a74e2867ab95b660c1d6ef31742127"
+          },
+          "h32c16": {
+            "differentPixels": 347524,
+            "rgbAbsoluteError": 33881454,
+            "unpackedCommands": 1926,
+            "packedCommands": 22,
+            "unpackedBytes": 235267,
+            "packedBytes": 35316,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "7c60c6a486f942b948f09d08b4111be29f259bae6d7bf0d65a46cf895be9ceb8"
+          }
+        },
+        "shoukiText": "滅度機を攻撃（J） ｜ 残り1基 ｜ 残り16.0秒"
+      },
+      "滅度機を破壊 6": {
+        "tick": 7019,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347495,
+            "rgbAbsoluteError": 33550667,
+            "unpackedCommands": 2868,
+            "packedCommands": 15,
+            "unpackedBytes": 354103,
+            "packedBytes": 50817,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "3b18372d24d1384e017710a8026678f1f662a6cfb0726a52aec86802cda1c714"
+          },
+          "h32c16": {
+            "differentPixels": 348039,
+            "rgbAbsoluteError": 33960474,
+            "unpackedCommands": 1916,
+            "packedCommands": 15,
+            "unpackedBytes": 233636,
+            "packedBytes": 34751,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "26bf0c3316d0132cb34c6f8ac54656a30317b5ba28f61eeec5f6f3facaae1f59"
+          }
+        },
+        "shoukiText": "端末を構える（H） ｜ 残り11.4秒"
+      },
+      "試練の胸部を照準": {
+        "tick": 7020,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347411,
+            "rgbAbsoluteError": 33531630,
+            "unpackedCommands": 2878,
+            "packedCommands": 25,
+            "unpackedBytes": 354888,
+            "packedBytes": 51602,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "38744d8b7169392d89a7dcaea82f770e9ca6d42b5d8e2e4b5ebf27cc6c0f7f2b"
+          },
+          "h32c16": {
+            "differentPixels": 347954,
+            "rgbAbsoluteError": 33952333,
+            "unpackedCommands": 1926,
+            "packedCommands": 25,
+            "unpackedBytes": 234421,
+            "packedBytes": 35536,
+            "combatCanvasMs": 1.399999976158142,
+            "canvasSha256": "d4998c80f44da16b4df89fdcacdfc6c9abfc70784131b5689cfe4056d67bfd96"
+          }
+        },
+        "shoukiText": "胸部へ射撃を確定（H） ｜ 残り11.4秒"
+      },
+      "試練で端末弾が飛行中": {
+        "tick": 7080,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 347405,
+            "rgbAbsoluteError": 33624100,
+            "unpackedCommands": 2878,
+            "packedCommands": 25,
+            "unpackedBytes": 354886,
+            "packedBytes": 51600,
+            "combatCanvasMs": 2.0999999940395355,
+            "canvasSha256": "4ddceb9422b5e0822afa779ae53de2d73f44e1258768bfe206f689a12c077b64"
+          },
+          "h32c16": {
+            "differentPixels": 347949,
+            "rgbAbsoluteError": 34043255,
+            "unpackedCommands": 1926,
+            "packedCommands": 25,
+            "unpackedBytes": 234419,
+            "packedBytes": 35534,
+            "combatCanvasMs": 1.300000011920929,
+            "canvasSha256": "f917cf67461fbd747c395d8a7c3bb64b50abf92066cd29ab3d466677e5391952"
+          }
+        },
+        "shoukiText": "端末弾が飛行中 ｜ 残り10.4秒"
+      },
+      "胸部に射撃が命中": {
+        "tick": 7095,
+        "originalCombatCanvasMs": 0.4000000059604645,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348005,
+            "rgbAbsoluteError": 33759356,
+            "unpackedCommands": 2862,
+            "packedCommands": 9,
+            "unpackedBytes": 351957,
+            "packedBytes": 50316,
+            "combatCanvasMs": 2,
+            "canvasSha256": "25f9277664a095902bbc5bd34ec70bb607a8bc875f1b575aa5bfb913f4af3369"
+          },
+          "h32c16": {
+            "differentPixels": 348556,
+            "rgbAbsoluteError": 34114322,
+            "unpackedCommands": 1910,
+            "packedCommands": 9,
+            "unpackedBytes": 230833,
+            "packedBytes": 34250,
+            "combatCanvasMs": 1.4000000059604645,
+            "canvasSha256": "12f618814768cdd43f05c61ed8dd32c8088142929059a6260a91e683350420d0"
+          }
+        },
+        "shoukiText": "端末弾が胸部に命中"
+      },
+      "攻撃機会10秒": {
+        "tick": 7155,
+        "originalCombatCanvasMs": 0.5,
+        "profiles": {
+          "h48c32": {
+            "differentPixels": 348007,
+            "rgbAbsoluteError": 33757213,
+            "unpackedCommands": 2862,
+            "packedCommands": 9,
+            "unpackedBytes": 354234,
+            "packedBytes": 50316,
+            "combatCanvasMs": 2,
+            "canvasSha256": "08dc4b0f31eb1f05f1ba03044fba802f4e11bf7d61000c092f1fe346be5d0eb8"
+          },
+          "h32c16": {
+            "differentPixels": 348550,
+            "rgbAbsoluteError": 34110824,
+            "unpackedCommands": 1910,
+            "packedCommands": 9,
+            "unpackedBytes": 234112,
+            "packedBytes": 34250,
+            "combatCanvasMs": 1.300000011920929,
+            "canvasSha256": "fa3658dfcf22d025137ec7dd8db991bbe06f331057dad365486dc4555aca0572"
+          }
+        },
+        "shoukiText": "端末弾が胸部に命中 ｜ 攻撃できる時間 残り10秒"
+      }
+    }
+  }
+}

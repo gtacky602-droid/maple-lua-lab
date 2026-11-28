@@ -13,13 +13,16 @@
     "independentPodCredit": true,
     "podSupportQualifiesForReward": true,
     "coreExposureTicks": 600,
-    "wipeReset": true
+    "personalTimeoutDamage": true,
+    "wipeReset": true,
+    "terminalConfirmPermissionPerParty": true
   },
   "http": {
     "participants": 2,
     "ownerLeavesBeforeFireWithoutSpending": true,
     "replacementShoots": true,
     "sharedTrialFrozenOutsideArena": true,
+    "sharedTrialResult": true,
     "sharedHp": 1630,
     "personalXp": 119850,
     "personalMora": 1370,

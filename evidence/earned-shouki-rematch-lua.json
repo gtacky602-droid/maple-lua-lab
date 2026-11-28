@@ -1,0 +1,218 @@
+[
+  {
+    "controller": "shouki",
+    "case": "shouki-core-hit",
+    "label": "滅度機4基を壊して胸部に命中",
+    "sourceSha256": "03a54a1d245552d5dcac3c3038fff6ed478bc33430279b0d8e6016e6871f3d5b",
+    "bossHP": 1630,
+    "ticks": 8098,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "stages": [
+      {
+        "name": "p1",
+        "tick": 0,
+        "bossHp": 1630,
+        "armor": 0
+      },
+      {
+        "name": "rise",
+        "tick": 2085,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "p2",
+        "tick": 2324,
+        "bossHp": 1040,
+        "armor": 100
+      },
+      {
+        "name": "trial",
+        "tick": 3535,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "collapse",
+        "tick": 4276,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "p2",
+        "tick": 4996,
+        "bossHp": 876,
+        "armor": 0
+      }
+    ],
+    "pods": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "outcome": {
+      "kind": "core-hit",
+      "tick": 4336,
+      "exposure": 600,
+      "remainingPods": 0
+    },
+    "counterDamage": 164,
+    "resumedDamage": 0,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "partyHp": [
+      90453,
+      0
+    ],
+    "returns": 0,
+    "trialAimTicks": 774,
+    "trialFlightTicks": 714,
+    "savedSha256": "528aaa5a1158406aed001b9ca131f55f80b3619dc244caba2e17ca58da73d04f",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "shouki",
+    "case": "shouki-timeout",
+    "label": "試練の時間切れから戦闘に復帰",
+    "sourceSha256": "528aaa5a1158406aed001b9ca131f55f80b3619dc244caba2e17ca58da73d04f",
+    "bossHP": 1630,
+    "ticks": 10056,
+    "loadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "stages": [
+      {
+        "name": "p1",
+        "tick": 0,
+        "bossHp": 1630,
+        "armor": 0
+      },
+      {
+        "name": "rise",
+        "tick": 2113,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "p2",
+        "tick": 2352,
+        "bossHp": 1040,
+        "armor": 100
+      },
+      {
+        "name": "trial",
+        "tick": 3563,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "failure",
+        "tick": 5003,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "p2",
+        "tick": 5363,
+        "bossHp": 1040,
+        "armor": 0
+      },
+      {
+        "name": "trial",
+        "tick": 6263,
+        "bossHp": 795,
+        "armor": 0
+      },
+      {
+        "name": "collapse",
+        "tick": 7095,
+        "bossHp": 795,
+        "armor": 0
+      },
+      {
+        "name": "p2",
+        "tick": 7815,
+        "bossHp": 637,
+        "armor": 0
+      }
+    ],
+    "pods": [
+      1,
+      2,
+      2,
+      3,
+      4,
+      1
+    ],
+    "outcome": {
+      "kind": "timeout",
+      "tick": 5183,
+      "damage": 72,
+      "remainingPods": 2,
+      "resumedArmor": 0,
+      "resumedAttackable": true,
+      "retry": {
+        "kind": "core-hit",
+        "tick": 7155,
+        "exposure": 600,
+        "remainingPods": 0
+      }
+    },
+    "counterDamage": 158,
+    "resumedDamage": 882,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "partyHp": [
+      90356,
+      0
+    ],
+    "returns": 0,
+    "trialAimTicks": 683,
+    "trialFlightTicks": 623,
+    "savedSha256": "1fe92278b052ed24d39db6c6be708d118854e28edcfe81fb8eb16dd802e19119",
+    "equipmentRestored": true
+  }
+]
