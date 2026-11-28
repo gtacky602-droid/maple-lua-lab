@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 灯台巡回のセーブから雪の町へ
+
+Lv131からトウヒ棚、霜斜面、冬越えの折返し道で討伐してLv140に到達し、峠経由で雪の町へ入った。M地図で町北の神像と雪原の折返し口への跳び方を案内する。自動戦闘は下にいる通常敵に近づくため足場を降りられる。白虹峠の最初の依頼はLv141から。雪線の切通しに入って狩りを始められる。 [進行と狩場](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [獲得セーブからのLua検証](evidence/earned-nod-snow-border-lua.json) · [Chromeの記録](evidence/earned-nod-snow-border-browser.json)
+
 ## 灯台巡回と暖房小屋の湯気
 
 花見を終えたLv130セーブでフリンズの「夜道の先に、温かい一杯」を報告し、Lv131で再開した。高台の投石役を倒した途中セーブを読み直すと地上の3体が残り、M地図にも残りの敵だけが出る。報告後は合流標への近道を往復し、暖房小屋で体力を回復できる。茶卓の湯気は3画質で同じ位置を通り、一時停止で止まる。 [巡回の手順と画質比較](docs/balance/NOD_LANTERN_PATROL_WEB.md) · [獲得セーブでの検証](evidence/earned-nod-lantern-patrol-browser.json)

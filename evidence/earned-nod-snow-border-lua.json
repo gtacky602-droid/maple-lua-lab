@@ -1,0 +1,90 @@
+{
+  "sourceSha256": "e945d1f4652c580cb934190e4f2121c8d8fcef6a82e3b34f604f9b5aad3eab37",
+  "hunts": [
+    {
+      "stage": "nod-north-spruce-shelves",
+      "levels": [
+        131,
+        133
+      ],
+      "placed": 32,
+      "kills": 1464,
+      "xp": 25507272,
+      "seconds": 677.85,
+      "sorties": 10
+    },
+    {
+      "stage": "nod-west-frost-slope",
+      "levels": [
+        133,
+        136
+      ],
+      "placed": 34,
+      "kills": 2237,
+      "xp": 47079902,
+      "seconds": 1100.68,
+      "sorties": 16
+    },
+    {
+      "stage": "winter-frontier-switchback",
+      "levels": [
+        136,
+        140
+      ],
+      "placed": 28,
+      "kills": 3077,
+      "xp": 78226571,
+      "seconds": 2683.95,
+      "sorties": 38
+    }
+  ],
+  "lockedLevels": [
+    133,
+    136,
+    140
+  ],
+  "townHint": "上段の入口・広場中央の左にある長い足場へ、門の真下からジャンプ・町北の神像へ",
+  "recoveryTrips": 13,
+  "frostDescent": {
+    "ordinaryAuto": true,
+    "ordinaryManual": false,
+    "bossAuto": false
+  },
+  "inventoryTrips": 5,
+  "soldOriginalSpares": 12,
+  "borderPlan": [
+    {
+      "id": "snezhnaya-entry",
+      "name": "スネージナヤ・雪原の入口",
+      "mode": "walk",
+      "region": "region-08",
+      "hint": "峠を越えて雪原へ",
+      "approach": "現在地から右へ",
+      "from": "winter-frontier-switchback",
+      "level": 140,
+      "label": "徒歩",
+      "previewX": 1745
+    },
+    {
+      "name": "スネージナヤ・雪の町",
+      "mode": "walk",
+      "region": "region-08",
+      "label": "徒歩",
+      "level": 140,
+      "from": "snezhnaya-entry",
+      "previewX": 1380,
+      "id": "snezhnaya-hub"
+    }
+  ],
+  "upperLanding": [
+    295,
+    380
+  ],
+  "priorQuests": 94,
+  "inventoryKept": 68,
+  "protectedKept": 2,
+  "companion": "columbina",
+  "wipes": 0,
+  "destination": "snezhnaya-hub",
+  "restoredLevel": 140
+}

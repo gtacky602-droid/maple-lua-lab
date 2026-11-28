@@ -4259,7 +4259,9 @@
           "x": 530,
           "y": 340,
           "arrivalX": 940,
-          "arrivalY": 480
+          "arrivalY": 480,
+          "rideLabel": "町北の神像へ",
+          "approachHint": "広場中央の左にある長い足場へ、門の真下からジャンプ"
         }
       ],
       "mapPoint": "teyvat:88142",
@@ -4340,7 +4342,8 @@
           "y": 380,
           "arrivalX": 1745,
           "arrivalY": 480,
-          "rideLabel": "峠から折返し道へ戻る"
+          "rideLabel": "峠から折返し道へ戻る",
+          "approachHint": "雪原の左にある低い足場へ、門の真下からジャンプ"
         },
         {
           "to": "nod-wp-92887",

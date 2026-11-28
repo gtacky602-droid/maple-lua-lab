@@ -1,0 +1,96 @@
+{
+  "journeys": [
+    [
+      "nod-patrol-cabin",
+      "nod-town",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "nod-wp-88128",
+      "raised"
+    ],
+    [
+      "nod-wp-88128",
+      "nod-wp-88145",
+      "walk"
+    ],
+    [
+      "nod-wp-88145",
+      "nod-north-spruce-shelves",
+      "walk"
+    ],
+    [
+      "nod-town",
+      "winter-frontier-switchback",
+      "walk"
+    ],
+    [
+      "winter-frontier-switchback",
+      "snezhnaya-entry",
+      "walk"
+    ],
+    [
+      "snezhnaya-entry",
+      "winter-frontier-switchback",
+      "raised"
+    ],
+    [
+      "winter-frontier-switchback",
+      "snezhnaya-entry",
+      "walk"
+    ],
+    [
+      "snezhnaya-entry",
+      "snezhnaya-hub",
+      "walk"
+    ],
+    [
+      "snezhnaya-hub",
+      "snezhnaya-field",
+      "walk"
+    ],
+    [
+      "snezhnaya-field",
+      "white-pass-cut",
+      "walk"
+    ]
+  ],
+  "townHint": "上段の入口・広場中央の左にある長い足場へ、門の真下からジャンプ・町北の神像へ",
+  "border": [
+    {
+      "level": 140,
+      "id": "snezhnaya-entry",
+      "approach": "現在地から右へ",
+      "mode": "walk",
+      "previewX": 1745,
+      "hint": "峠を越えて雪原へ",
+      "from": "winter-frontier-switchback",
+      "region": "region-08",
+      "label": "徒歩",
+      "name": "スネージナヤ・雪原の入口"
+    },
+    {
+      "level": 140,
+      "id": "snezhnaya-hub",
+      "mode": "walk",
+      "previewX": 1380,
+      "from": "snezhnaya-entry",
+      "region": "region-08",
+      "label": "徒歩",
+      "name": "スネージナヤ・雪の町"
+    }
+  ],
+  "reverseHint": "上段の入口・雪原の左にある低い足場へ、門の真下からジャンプ・峠から折返し道へ戻る",
+  "upperLandingY": 380,
+  "arrivedLevel": 140,
+  "ticketLevel": 141,
+  "firstHunt": "white-pass-cut",
+  "firstHuntEnemies": 28,
+  "renderCommands": {
+    "png": 34,
+    "standard": 17431,
+    "light": 4639
+  },
+  "errors": []
+}
