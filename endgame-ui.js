@@ -117,6 +117,16 @@ export function raidenFlowerText(flower,move){
 
 const narwhalForms={WV12:'獣の突進','WV12.vishap':'竜の跳躍','WV12.jellyfish':'クラゲの水弾'};
 
+export function narwhalObjectText(object){
+ const hits=object.max-object.hp;
+ if(object.kind==='kernel'){
+  const remaining=(Math.ceil(object.time/6)/10).toFixed(1);
+  return `幻形の核 ｜ 通常攻撃をあと${object.hp}回 ｜ 残り${remaining}秒`;
+ }
+ if(!object.time)return '渦の眼の爆発範囲から離れる';
+ return `渦の眼　命中 ${hits} / ${object.max}回 ｜ 残り${Math.ceil(object.time/60)}秒`;
+}
+
 export function narwhalJourneyText(journey,stage){
  const v=journey;
  if(v.kernelStagger)return `核を中断 ｜ 幻影に${v.kernelStagger.loss}ダメージ・残り${Math.ceil(v.kernelStagger.ticks/60)}秒`;

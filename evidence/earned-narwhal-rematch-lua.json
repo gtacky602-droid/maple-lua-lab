@@ -1,0 +1,199 @@
+[
+  {
+    "controller": "narwhal",
+    "case": "narwhal-interrupted",
+    "label": "呑星の鯨・核の中断に成功",
+    "ticks": 4989,
+    "sourceSha256": "4054986e4f68c9344402d1ffee50fda260f73370daaa8e7fe0df353c1830931a",
+    "stages": [
+      {
+        "stage": "outer",
+        "tick": 0,
+        "whaleHp": 2200
+      },
+      {
+        "stage": "swallow",
+        "tick": 3605,
+        "whaleHp": 1528
+      },
+      {
+        "stage": "inner",
+        "tick": 3785,
+        "whaleHp": 1528
+      },
+      {
+        "stage": "expel",
+        "tick": 4017,
+        "whaleHp": 1528
+      },
+      {
+        "stage": "weak",
+        "tick": 4196,
+        "whaleHp": 1088
+      },
+      {
+        "stage": "outer",
+        "tick": 4916,
+        "whaleHp": 752
+      }
+    ],
+    "crossings": [
+      {
+        "scene": "narwhal-inner-echo",
+        "tick": 3701,
+        "epoch": 2
+      },
+      {
+        "scene": "narwhal-star-sea",
+        "tick": 4112,
+        "epoch": 4
+      }
+    ],
+    "kernel": {
+      "tick": 3973,
+      "moveTick": 170,
+      "event": "narwhal:WV13:kernel-loss",
+      "hitCounts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "phantomHpBefore": 760,
+      "phantomHpAfter": 570
+    },
+    "returned": {
+      "tick": 4136,
+      "whaleHpBefore": 1528,
+      "whaleHpAfter": 1088,
+      "loss": 440
+    },
+    "exposureTicks": 600,
+    "openingDamage": 336,
+    "expertClears": [
+      1,
+      2
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90566,
+      28
+    ],
+    "checkpointSha256": "8fd6b60c68ea379e47ff8233e8198e9b7d705b74268f47357a450a5d8ffea8df"
+  },
+  {
+    "controller": "narwhal",
+    "case": "narwhal-missed",
+    "label": "呑星の鯨・核の受付終了",
+    "ticks": 5652,
+    "sourceSha256": "8fd6b60c68ea379e47ff8233e8198e9b7d705b74268f47357a450a5d8ffea8df",
+    "stages": [
+      {
+        "stage": "outer",
+        "tick": 0,
+        "whaleHp": 2200
+      },
+      {
+        "stage": "swallow",
+        "tick": 3605,
+        "whaleHp": 1528
+      },
+      {
+        "stage": "inner",
+        "tick": 3785,
+        "whaleHp": 1528
+      },
+      {
+        "stage": "expel",
+        "tick": 4680,
+        "whaleHp": 1528
+      },
+      {
+        "stage": "weak",
+        "tick": 4859,
+        "whaleHp": 1088
+      },
+      {
+        "stage": "outer",
+        "tick": 5579,
+        "whaleHp": 752
+      }
+    ],
+    "crossings": [
+      {
+        "scene": "narwhal-inner-echo",
+        "tick": 3701,
+        "epoch": 2
+      },
+      {
+        "scene": "narwhal-star-sea",
+        "tick": 4775,
+        "epoch": 4
+      }
+    ],
+    "kernel": {
+      "tick": 4163,
+      "moveTick": 360,
+      "event": "narwhal:WV11:failed",
+      "hitCounts": [],
+      "phantomHpBefore": 760,
+      "phantomHpAfter": 760
+    },
+    "returned": {
+      "tick": 4799,
+      "whaleHpBefore": 1528,
+      "whaleHpAfter": 1088,
+      "loss": 440
+    },
+    "exposureTicks": 600,
+    "openingDamage": 336,
+    "expertClears": [
+      2,
+      3
+    ],
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640
+    },
+    "trialLoadout": {
+      "sold": [],
+      "removed": [
+        602
+      ],
+      "weapon": "SW07",
+      "attack": [
+        259,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "survivingHp": [
+      90538,
+      0
+    ],
+    "checkpointSha256": "a1590b38c7d7106a73ad1a15e3867a657834257b57afdf1a2ff92113c1fe8158"
+  }
+]

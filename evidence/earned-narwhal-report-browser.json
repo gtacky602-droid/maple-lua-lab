@@ -1,0 +1,102 @@
+{
+  "stages": [
+    "outer",
+    "swallow",
+    "inner",
+    "expel",
+    "weak"
+  ],
+  "outer": {
+    "key": "starSea",
+    "file": "narwhal-star-sea-background-v1.png",
+    "state": "ready"
+  },
+  "inner": {
+    "key": "narwhalInner",
+    "file": "narwhal-inner-background-v1.png",
+    "state": "ready"
+  },
+  "atlasEntry": [
+    {
+      "name": "星海の再現戦",
+      "level": 84,
+      "label": "徒歩",
+      "previewX": 700,
+      "id": "narwhal-star-sea",
+      "approach": "現在地から右へ",
+      "region": "region-05",
+      "mode": "walk",
+      "from": "fontaine-hub"
+    },
+    {
+      "label": "戦闘中に移動",
+      "hint": "鯨のHPが20％を超えた状態で敵意100に達すると、捕食で移動",
+      "id": "narwhal-inner-echo",
+      "mode": "battle",
+      "region": "region-05",
+      "name": "呑星の鯨・腹中",
+      "from": "narwhal-star-sea"
+    }
+  ],
+  "atlasReturn": [
+    {
+      "label": "戦闘中に帰還",
+      "hint": "腹中の幻影を倒すと星海へ帰還",
+      "id": "narwhal-star-sea",
+      "mode": "battle",
+      "region": "region-05",
+      "name": "星海の再現戦",
+      "from": "narwhal-inner-echo"
+    }
+  ],
+  "eyeEightHits": true,
+  "kernelFourCastPhysical": true,
+  "kernelLoss": 190,
+  "returnLoss": 440,
+  "kernelText": "幻形の核 ｜ 通常攻撃をあと4回 ｜ 残り5.0秒",
+  "exposure": 600,
+  "source": "work/earned-fontaine-access/access-complete.json",
+  "sourceSha256": "227711ba676e113cc47c28e86dcc5ab7cd52b2db66af0debf4600c4ec104b279",
+  "level": 94,
+  "cues": {
+    "swallow-outer": {
+      "hint": "腹中に入るまで2秒",
+      "remaining": 96,
+      "t": 29.816666666666254
+    },
+    "swallow-inner": {
+      "hint": "腹中で動けるまで2秒",
+      "remaining": 84,
+      "t": 31.416666666666163
+    },
+    "expel-inner": {
+      "hint": "星海に戻るまで2秒",
+      "remaining": 95,
+      "t": 39.74999999999903
+    },
+    "exposure-before-damage": {
+      "hint": "星海に到着 ｜ 反撃まで3秒",
+      "remaining": 144,
+      "t": 41.33333333333227
+    },
+    "exposure-after-damage": {
+      "hint": "鯨に440ダメージ ｜ 反撃まで2秒",
+      "remaining": 120,
+      "t": 41.73333333333225
+    }
+  },
+  "priorReport": false,
+  "payout": {
+    "xp": 230000,
+    "mora": 8500
+  },
+  "clearReportRestore": true,
+  "viewport390": true,
+  "remainingHp": 342,
+  "commands": {
+    "png": 15,
+    "standard": 7392,
+    "light": 2106
+  },
+  "errors": []
+}
