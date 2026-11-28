@@ -9,12 +9,15 @@
     "onePickupPerMoth": true,
     "manualFreshAttackOnly": true,
     "independentCocoonHitInterval": true,
-    "oneTransformationAndIndividualRewards": true
+    "oneTransformationAndIndividualRewards": true,
+    "personalHudResults": true,
+    "localDevicePrompts": true
   },
   "http": {
     "participants": 2,
     "transportedHoldInput": true,
     "localReleaseOnly": true,
+    "personalHudResults": true,
     "departureClearsMothButKeepsCocoon": true,
     "individualRewardsAndQuest": true
   }

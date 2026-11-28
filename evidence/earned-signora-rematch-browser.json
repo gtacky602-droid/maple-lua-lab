@@ -1,0 +1,10 @@
+{
+  "sourceSha256": "da659648c5f30ec6d382821507204128d9cf1ad1b57e50c7e0b566d9eaaef80a",
+  "expertWins": 3,
+  "childeExpertWins": 4,
+  "azhdahaExpertWins": 5,
+  "reported": 113,
+  "attack": 74956,
+  "remaining": 55,
+  "errors": []
+}

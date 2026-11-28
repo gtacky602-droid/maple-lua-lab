@@ -1,0 +1,71 @@
+{
+  "entry": true,
+  "deviceKeyboardHold": true,
+  "cocoonAndPyro": true,
+  "normalKeyBattleAndReport": true,
+  "savedRespawn": true,
+  "remainingHp": 90728,
+  "viewport390": true,
+  "scene": {
+    "key": "tenshukakuDuel",
+    "file": "tenshukaku-duel-background-v1.png",
+    "state": "ready"
+  },
+  "sealResult": {
+    "strike": {
+      "remaining": 0,
+      "damage": 25,
+      "source": "moth"
+    },
+    "hud": "紅蓮蛾の一撃で25削った ｜ 氷の繭が割れた"
+  },
+  "fireResult": {
+    "hold": {
+      "side": 1,
+      "ticks": 2,
+      "total": 30,
+      "text": "左の霜眼を放出（G長押し）",
+      "enabled": true
+    },
+    "route": "release",
+    "temperature": 0.6,
+    "release": {
+      "floors": 1,
+      "side": 1
+    },
+    "fireFloor": 1,
+    "hud": "霜眼（両端） 左 15秒 ／ 右 使用可 ｜ 左の霜眼を放出 ｜ 近くの火床を1か所消した"
+  },
+  "transfer": {
+    "rawGzip": 47019,
+    "packedGzip": 38589,
+    "pixelMatch": true
+  },
+  "sameStateCommands": {
+    "png": 20,
+    "standard": 7965,
+    "light": 2167
+  },
+  "sourceSha256": "6323d055414c76497a72fa8c39473a0f2bf69751c8cb3c1e3d91b4fb3ef448aa",
+  "guide": [
+    "signora-ten-shrine-arena"
+  ],
+  "firstReward": {
+    "xp": 32560274,
+    "mora": 3590160,
+    "first": true
+  },
+  "questReward": {
+    "xp": 36000,
+    "mora": 3000
+  },
+  "expertWins": 1,
+  "trialAttack": 259,
+  "trialHp": 90779,
+  "errors": [],
+  "normalPointerHold": {
+    "viewportWidth": 390,
+    "leftDeviceReleased": true,
+    "errors": []
+  }
+}

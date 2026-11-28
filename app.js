@@ -673,7 +673,13 @@ function hud(f,calls,renderMs){
    const cause=signoraReleaseText(field.deviceRelease,field.deviceLabel)||causes[field.cause];
    $('weeklyDevices').textContent=field.deviceEnabled?
     field.deviceLabel+'（両端） '+devices+held+(cause?' ｜ '+cause:''):'変身中';
-   $('weeklyDeviceButton').hidden=!field.deviceEnabled;
+   const deviceButton=$('weeklyDeviceButton'),cue=field.deviceCue;
+   deviceButton.hidden=!field.deviceEnabled;
+   deviceButton.disabled=!cue?.inRange;
+   if(deviceButton.disabled)holds.interact=false;
+   const deviceName=cue?`${cue.side===1?'左':'右'}の${field.deviceLabel}`:'';
+   deviceButton.textContent=cue?.inRange?`${deviceName}を放出（G長押し）`:
+    cue?.needsGround?`${deviceName}のそばの床へ降りる`:cue?`${deviceName}へ近づく`:'装置の再使用を待つ';
    $('weeklySeal').hidden=!field.seal;
    if(field.seal){
     $('weeklySealHp').max=field.seal.max;$('weeklySealHp').value=field.seal.hp;

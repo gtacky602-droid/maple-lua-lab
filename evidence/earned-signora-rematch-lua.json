@@ -1,0 +1,203 @@
+[
+  {
+    "controller": "signora",
+    "case": "signora-release",
+    "label": "霜眼を長押しして火床を消す",
+    "ticks": 6970,
+    "sourceSha256": "e13b123e6eea8aad5eac0ddcbb5022bc47718434fc24dc4c54020cd8f6badb6b",
+    "bossHP": 1280,
+    "loadout": {
+      "sold": [
+        1199
+      ],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "phases": [
+      "cryo",
+      "seal",
+      "transform",
+      "pyro"
+    ],
+    "moths": [
+      {
+        "id": 1,
+        "damage": 25,
+        "remaining": 75
+      },
+      {
+        "id": 2,
+        "damage": 25,
+        "remaining": 50
+      },
+      {
+        "id": 3,
+        "damage": 25,
+        "remaining": 25
+      },
+      {
+        "id": 4,
+        "damage": 25,
+        "remaining": 0
+      }
+    ],
+    "heat": {
+      "t": 295,
+      "temperature": 0.4333333333333333,
+      "cooldown": 887,
+      "floors": [
+        [
+          297.5,
+          480
+        ]
+      ]
+    },
+    "release": {
+      "device": 1,
+      "moveTick": 282,
+      "before": [
+        [
+          205.5,
+          480
+        ],
+        [
+          297.5,
+          480
+        ]
+      ],
+      "after": [
+        [
+          297.5,
+          480
+        ]
+      ],
+      "beforeTemperature": 12.666666666666746,
+      "afterTemperature": 0
+    },
+    "tornado": {
+      "tick": 3775,
+      "moveTick": 420,
+      "duration": 120
+    },
+    "recoveryDamage": 63,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      1,
+      2
+    ],
+    "partyHp": [
+      90377,
+      0
+    ],
+    "returns": 0,
+    "savedSha256": "460ad61df6de7b50021c223830d001f5a7dae4a20340d5f60bb8f87cdebd1bcd",
+    "equipmentRestored": true
+  },
+  {
+    "controller": "signora",
+    "case": "signora-passive",
+    "label": "霜眼のそばで冷却する",
+    "ticks": 6926,
+    "sourceSha256": "460ad61df6de7b50021c223830d001f5a7dae4a20340d5f60bb8f87cdebd1bcd",
+    "bossHP": 1280,
+    "loadout": {
+      "sold": [
+        1200
+      ],
+      "removed": [
+        602
+      ],
+      "weapon": "SW05",
+      "attack": [
+        9,
+        4
+      ],
+      "maxHp": [
+        90779,
+        150
+      ],
+      "flower": 1187
+    },
+    "phases": [
+      "cryo",
+      "seal",
+      "transform",
+      "pyro"
+    ],
+    "moths": [
+      {
+        "id": 1,
+        "damage": 25,
+        "remaining": 75
+      },
+      {
+        "id": 2,
+        "damage": 25,
+        "remaining": 50
+      },
+      {
+        "id": 3,
+        "damage": 25,
+        "remaining": 25
+      },
+      {
+        "id": 4,
+        "damage": 25,
+        "remaining": 0
+      }
+    ],
+    "heat": {
+      "t": 295,
+      "temperature": 8.000000000000071,
+      "cooldown": 0,
+      "floors": [
+        [
+          205.5,
+          480
+        ],
+        [
+          297.5,
+          480
+        ]
+      ]
+    },
+    "release": null,
+    "tornado": {
+      "tick": 3731,
+      "moveTick": 420,
+      "duration": 120
+    },
+    "recoveryDamage": 60,
+    "reward": {
+      "xp": 18999684,
+      "mora": 1538640,
+      "first": false
+    },
+    "expertClears": [
+      2,
+      3
+    ],
+    "partyHp": [
+      90407,
+      0
+    ],
+    "returns": 0,
+    "savedSha256": "da659648c5f30ec6d382821507204128d9cf1ad1b57e50c7e0b566d9eaaef80a",
+    "equipmentRestored": true
+  }
+]
