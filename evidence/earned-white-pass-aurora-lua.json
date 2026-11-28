@@ -1,0 +1,47 @@
+{
+  "sourceSha256": "a5fc4cf98983aad0e6f75d537a7b47816d62a718672d5ba7825d03b95a7aeed4",
+  "milestones": [
+    {
+      "id": "lv160",
+      "node": "white-pass-ridge",
+      "seconds": 1088.77,
+      "level": 160,
+      "total": 1222708331,
+      "killXp": 776779780,
+      "questXp": 445928551
+    },
+    {
+      "id": "aurora-ice-cut",
+      "node": "aurora-ice-cut",
+      "seconds": 1092.07,
+      "level": 160,
+      "total": 1222708331,
+      "killXp": 776779780,
+      "questXp": 445928551
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-ridge",
+      "target": 160,
+      "kills": 2047,
+      "xp": 116928734,
+      "huntSeconds": 984.18,
+      "routeKills": 2171,
+      "routeXp": 122519684,
+      "routeSeconds": 1074.8
+    }
+  ],
+  "encounter": null,
+  "sketchReadback": true,
+  "entered": "aurora-ice-cut",
+  "lightReleaseAvailable": true,
+  "level": 160,
+  "priorQuests": 102,
+  "inventoryKept": 68,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "recoveryTrips": 2,
+  "inventoryTrips": 2,
+  "partyWipes": 0
+}

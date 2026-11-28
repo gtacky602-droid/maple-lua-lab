@@ -1,0 +1,34 @@
+{
+  "mainQuests": 3,
+  "battle": {
+    "won": true,
+    "hp": 367,
+    "seconds": 0.23,
+    "returns": 0,
+    "moves": [
+      "FR01"
+    ]
+  },
+  "commands": {
+    "png": 17,
+    "rect": 15202,
+    "light": 4286
+  },
+  "onceOnlyBossAward": 61667202,
+  "train": false,
+  "restored": true,
+  "recovery": {
+    "factor": 1.25,
+    "total": 76,
+    "ticks": 73
+  },
+  "sketchReadback": true,
+  "reward": [
+    72834160,
+    1100
+  ],
+  "level": 158,
+  "priorQuests": 101,
+  "sourceSha256": "8bdabb3f51d946afc544e1bc3c0537ff4ca6f729981c8516813fd86cf6f600dc",
+  "errors": []
+}

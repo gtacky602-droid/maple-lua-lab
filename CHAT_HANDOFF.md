@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 霜鎧の大角獣を撃退し、極光谷へ
+
+終着駅のLv153セーブから雪棚を越え、霜鎧の大角獣を撃退して第3章を報告した。胸の継ぎ目が開いたときの反撃時間をゲージで表示し、報告後は終着駅に白虹のスケッチが飾られる。Chromeで報告したLv158セーブをLuaでLv160まで進め、極光谷・氷の切通しと光界解放の発動をChromeで確認した。 [章と境界の詳細](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [第3章のChrome記録](evidence/earned-white-pass-summit-browser.json) · [極光谷のChrome記録](evidence/earned-white-pass-aurora-browser.json)
+
 ## 足取り稽古、雪合戦、待合室
 
 白虹峠の剣を装備したLv149セーブでオデットの稽古を報告し、タルタリヤに5対2で勝った記録を引き継いでLv153の待合室の依頼まで終えた。稽古台と着地先に印を描き、雪玉は投げ手ごとに色を変えた軌跡と命中位置の「+1」を表示する。 [遊び方と進行](docs/balance/WHITE_PASS_PROGRESSION_WEB.md) · [雪合戦のChrome試走](evidence/earned-white-pass-snow-browser.json) · [待合室のLua試走](evidence/earned-white-pass-rest-lua.json) · [待合室の保存確認](evidence/earned-white-pass-rest-browser.json)

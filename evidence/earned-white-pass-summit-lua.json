@@ -1,0 +1,105 @@
+{
+  "sourceSha256": "312aeeba3a0e2adff240478d588e9f44fa7025a20cb8d161a26356140551dcc7",
+  "milestones": [
+    {
+      "id": "lv155",
+      "node": "white-pass-woods",
+      "seconds": 1217.05,
+      "level": 155,
+      "total": 902450120,
+      "killXp": 591022931,
+      "questXp": 311427189
+    },
+    {
+      "id": "lv156",
+      "node": "white-pass-ridge",
+      "seconds": 1728.35,
+      "level": 156,
+      "total": 958857250,
+      "killXp": 647430061,
+      "questXp": 311427189
+    },
+    {
+      "id": "white-pass-summit",
+      "node": "white-pass-station",
+      "seconds": 1776.93,
+      "level": 158,
+      "total": 1100853831,
+      "killXp": 654925280,
+      "questXp": 445928551
+    },
+    {
+      "id": "lv160",
+      "node": "white-pass-ridge",
+      "seconds": 2878.7,
+      "level": 160,
+      "total": 1222732223,
+      "killXp": 776803672,
+      "questXp": 445928551
+    },
+    {
+      "id": "aurora-ice-cut",
+      "node": "aurora-ice-cut",
+      "seconds": 2882.0,
+      "level": 160,
+      "total": 1222732223,
+      "killXp": 776803672,
+      "questXp": 445928551
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-woods",
+      "target": 155,
+      "kills": 2276,
+      "xp": 76544156,
+      "huntSeconds": 1124.97,
+      "routeKills": 2435,
+      "routeXp": 81891485,
+      "routeSeconds": 1212.4
+    },
+    {
+      "node": "white-pass-ridge",
+      "target": 156,
+      "kills": 931,
+      "xp": 53180582,
+      "huntSeconds": 465.4,
+      "routeKills": 985,
+      "routeXp": 55936296,
+      "routeSeconds": 503.18
+    },
+    {
+      "node": "white-pass-ridge",
+      "target": 160,
+      "kills": 2016,
+      "xp": 115152240,
+      "huntSeconds": 994.55,
+      "routeKills": 2150,
+      "routeXp": 121407558,
+      "routeSeconds": 1091.98
+    }
+  ],
+  "encounter": {
+    "firstReward": 61667202,
+    "reportReward": [
+      72834160,
+      1100
+    ],
+    "recovery": {
+      "ticks": 76,
+      "factor": 1.25,
+      "total": 76
+    }
+  },
+  "sketchReadback": true,
+  "entered": "aurora-ice-cut",
+  "lightReleaseAvailable": true,
+  "level": 160,
+  "priorQuests": 101,
+  "inventoryKept": 68,
+  "weapon": "SW07",
+  "companion": "mitya",
+  "recoveryTrips": 2,
+  "inventoryTrips": 4,
+  "partyWipes": 0
+}

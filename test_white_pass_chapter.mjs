@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const hub='snezhnaya-hub',road='snezhnaya-field',cut='white-pass-cut',coach='white-pass-coach';
 const station='white-pass-station',woods='white-pass-woods',ridge='white-pass-ridge',basin='white-rainbow-basin';
 const ticket='white-pass-ticket',trail='white-pass-trail',summit='white-pass-summit';
-const boss='original-frost-antler',prefix='evidence/white-pass';
+const boss='original-frost-antler',output='work/earned-white-pass-summit';
+const earned=process.argv.includes('--summit'),aurora=process.argv.includes('--aurora');
+const prefix=earned||aurora?`${output}/summit`:'evidence/white-pass';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1180,height:960}});
 const board=page.locator('#game');
@@ -122,13 +125,50 @@ async function runCombat(target){
   return results;
 }
 
-try {
-  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8856/');
-  await page.waitForFunction(()=>window.lab?.frame);
-  const fixture=await fs.readFile('work/white-pass-fixture.json','utf8');
+async function loadSave(path){
+  const fixture=await fs.readFile(path,'utf8');
   await page.evaluate(text=>localStorage.setItem('maple-lua-lab.checkpoint.v1',text),fixture);
   await page.click('#loadProgress');
-  await nodeIs(hub);
+  return fixture;
+}
+
+async function checkpoint(){
+  await page.click('#saveProgress');
+  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  const saved=await page.evaluate(()=>localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+  await page.reload();
+  await page.waitForFunction(()=>window.lab?.frame);
+  await page.click('#loadProgress');
+  await nodeIs(station);
+  return JSON.parse(saved);
+}
+
+async function verifyAurora(){
+  await loadSave(`${output}/complete.json`);
+  await nodeIs(station);
+  const initial=await frame();
+  assert.equal(initial.progression.level,160);
+  assert.equal(initial.story.quests[summit].status,'complete');
+  assert.equal(initial.weaponView.traveler,'SW07');
+  await walk(1050);
+  await page.waitForFunction(()=>window.lab.frame.storyNearbyMilestone?.label==='白虹のスケッチを見返す');
+  assert.ok((await frame()).draws.some(d=>d.color==='#745443'&&d.y===349&&d.w===50));
+  await board.screenshot({path:`${prefix}-sketch.png`});
+  await portal(861,'aurora-ice-cut');
+  assert.ok((await frame()).total>0);
+  await board.click();
+  await page.keyboard.press('KeyQ');
+  await page.waitForFunction(()=>window.lab.frame.lightForm?.seconds>0);
+  const lit=await frame();
+  assert.ok(lit.gauge<initial.gauge);
+  await board.screenshot({path:`${prefix}-aurora.png`});
+  const proof={level:160,field:'aurora-ice-cut',lightRelease:true,weapon:'SW07',enemies:lit.total,sketchMounted:true,errors};
+  assert.deepEqual(errors,[]);
+  await fs.writeFile(`${output}/aurora-browser.json`,JSON.stringify(proof,null,2)+'\n');
+  console.log(proof);
+}
+
+async function earlyChapters(){
   await quest(ticket,'受注','active');
   await portal(1380,road);
   await portal(865,cut);
@@ -153,6 +193,20 @@ try {
   await fast('雪原の終着駅',station);
   await quest(trail,'報告','complete');
   console.log('Checked the train and reported the wooded pass');
+}
+
+async function verifySummit(){
+  const seed=await loadSave(earned?`${output}/summit-ready.json`:'work/white-pass-fixture.json');
+  const input=JSON.parse(seed);
+  if(earned){
+    await nodeIs(station);
+    assert.equal((await frame()).progression.level,156);
+    await walk(1050);
+    assert.ok(!(await frame()).draws.some(d=>d.text==='白虹のスケッチ'));
+  }else{
+    await nodeIs(hub);
+    await earlyChapters();
+  }
   await quest(summit,'受注','active');
   await portal(1144,woods);
   await portal(1774,ridge);
@@ -166,6 +220,9 @@ try {
   const png=await frame(),sprite=png.draws.find(d=>d.source==='frost-antler-source-v1.png'&&d.h===136);
   assert.equal(png.fieldBoss.id,boss);
   assert.ok(sprite);
+  assert.ok(png.fieldBoss.recovery.ticks>0);
+  assert.equal(png.fieldBoss.recovery.factor,1.25);
+  assert.ok(png.draws.some(d=>d.text?.startsWith('胸の継ぎ目・反撃')));
   await board.screenshot({path:prefix+'-boss-png.png'});
   const view=page.locator('#renderMode');
   await view.selectOption('rect');
@@ -176,6 +233,7 @@ try {
   const light=await frame();
   assert.equal(rect.t,png.t);
   assert.equal(light.t,png.t);
+  assert.deepEqual(light.fieldBoss.recovery,png.fieldBoss.recovery);
   await board.screenshot({path:prefix+'-boss-light.png'});
   await view.selectOption('sprite');
   await board.click();
@@ -185,21 +243,43 @@ try {
   const battle=await runCombat('boss');
   assert.equal((await frame()).progression.questXp-before,61667202);
   await survey(1380,summit,2,'白虹');
+  await board.screenshot({path:prefix+'-observation.png'});
   await fast('雪原の終着駅',station);
+  const beforeReport=await frame();
   await quest(summit,'報告','complete');
-  await page.click('#saveProgress');
-  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
-  await page.reload();
-  await page.waitForFunction(()=>window.lab?.frame);
-  await page.click('#loadProgress');
-  await nodeIs(station);
+  const reported=await frame();
+  const reward=[reported.progression.questXp-beforeReport.progression.questXp,reported.mora-beforeReport.mora];
+  const saved=await checkpoint();
   const resumed=await frame();
   assert.ok([ticket,trail,summit].every(q=>resumed.story.quests[q]?.status==='complete'));
+  await walk(1050);
+  await page.waitForFunction(()=>window.lab.frame.storyNearbyMilestone?.label==='白虹のスケッチを見返す');
+  await page.keyboard.press('KeyG');
+  await page.waitForFunction(()=>window.lab.frame.storyNotice?.includes('青い氷柱'));
+  await board.screenshot({path:prefix+'-sketch.png'});
+  const prior=Object.entries(input.story.quests).filter(([,q])=>q.status==='complete');
+  if(earned){
+    for(const [id,q] of prior)assert.deepEqual(saved.story.quests[id],q,id);
+    const items=new Set(saved.inventory.items.map(item=>item.id));
+    for(const item of input.inventory.items)assert.ok(items.has(item.id),item.id);
+    assert.equal(saved.weapons.equipped.traveler,'SW07');
+    assert.equal(saved.companion,input.companion);
+    assert.equal(saved.endgame.bosses[boss].clears,1);
+    await fs.writeFile(`${output}/summit-complete.json`,JSON.stringify(saved)+'\n');
+  }
   assert.deepEqual(errors,[]);
   const result={mainQuests:3,battle,commands:{png:png.commands,rect:rect.commands,light:light.commands},
-    onceOnlyBossAward:61667202,train:true,restored:true,errors};
+    onceOnlyBossAward:61667202,train:!earned,restored:true,recovery:png.fieldBoss.recovery,sketchReadback:true,
+    reward,level:saved.progression.level,priorQuests:prior.length,sourceSha256:createHash('sha256').update(seed).digest('hex'),errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(result,null,2)+'\n');
   console.log(result);
+}
+
+try {
+  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8856/');
+  await page.waitForFunction(()=>window.lab?.frame);
+  if(aurora)await verifyAurora();
+  else await verifySummit();
 } catch(e) {
   console.error(await page.evaluate(()=>{
     const f=window.lab?.frame;

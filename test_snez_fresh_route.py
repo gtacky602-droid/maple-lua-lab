@@ -24,6 +24,7 @@ replay.add_argument('--ticket-source', type=Path, help='Replay the first ticket 
 replay.add_argument('--footprints-source', type=Path, help='Continue from a Lv142 station save through the two side quests')
 replay.add_argument('--woods-source', type=Path, help='Replay the second White Pass chapter from a Lv145 patrol save')
 replay.add_argument('--station-side-source', type=Path, help='Continue the earned station side quests through the Lv153 rest request')
+replay.add_argument('--summit-source', type=Path, help='Continue an earned White Pass save through the summit and Lv160')
 options = parser.parse_args()
 if options.after_revisits and options.draft_balance:
     parser.error('The revisit route uses standard balance')
@@ -34,6 +35,7 @@ work_name, earned_source = next(((name, source) for name, source in (
     ('earned-sne-mitya-footprints', options.footprints_source),
     ('earned-white-pass-woods', options.woods_source),
     ('earned-white-pass-snow', options.station_side_source),
+    ('earned-white-pass-summit', options.summit_source),
 ) if source), ('snez-fresh-route' + suffix, None))
 if earned_source and (options.after_revisits or options.draft_balance or options.checkpoint):
     parser.error('Choose one standard-balance checkpoint')
@@ -65,6 +67,9 @@ elif options.woods_source:
 elif options.station_side_source:
     assert start['story']['node'] == station and 149 <= start['progression']['level'] <= 153
     assert start['story']['quests'][trail_quest]['status'] == 'complete'
+elif options.summit_source:
+    assert start['story']['node'] == station and 153 <= start['progression']['level'] <= 160
+    assert start['story']['quests'][rest]['status'] == 'complete'
 else:
     assert start['story']['node'] == hub and start['progression']['level'] == 140
 assert start['story']['quests']['nod-moon-vault-quest']['status'] == 'complete'
@@ -259,6 +264,73 @@ def recruit_mitya():
 
 
 cut_route = (hub, road, cut)
+if options.summit_source:
+    ridge_route = (station,woods,ridge)
+    prior = {id:q for id,q in start['story']['quests'].items() if q['status']=='complete'}
+    boss = 'original-frost-antler'
+    assert core.equippedWeapon(state,'traveler')=='SW07'
+    encounter = None
+    if summit not in prior:
+        blocked(summit)
+        hunt((station,woods),260,155)
+        hunt(ridge_route,260,156)
+        fast(station)
+        save('summit-ready')
+        active = accept(summit)
+        cross(woods,ridge,basin)
+        near(641)
+        slot = state.fieldSlots[boss]
+        for _ in range(240):
+            if slot.enemy.recovering:
+                break
+            advance(core,state,1,trail.idle)
+        counter = frame().fieldBoss.recovery
+        assert counter.ticks>0 and counter.factor==1.25
+        before = state.progression.questXp
+        fight(lambda:slot.phase=='respawn',641,180)
+        assert active.count==1 and state.endgame.bosses[boss].clears==1
+        first_reward = state.progression.questXp-before
+        assert first_reward==61667202
+        inspect(1380)
+        assert active.count==2
+        cross(ridge,woods,station)
+        before = state.progression.questXp,state.mora
+        report(summit)
+        reward = [state.progression.questXp-before[0],state.mora-before[1]]
+        save('lua-summit-complete')
+        encounter = dict(firstReward=first_reward,reportReward=reward,recovery=native(counter))
+    near(1050)
+    assert frame().storyNearbyMilestone.label=='白虹のスケッチを見返す'
+    inspect(1050)
+    assert '青い氷柱' in state.storyNotice
+    if state.progression.level<160:
+        near(861)
+        portal = frame().storyNearbyPortal
+        assert portal.to==end and not portal.available and portal.level==160
+        hunt(ridge_route,260,160)
+    fast(station)
+    cross(end)
+    assert len(state.enemies)>0
+    mark(end)
+    assert core.growthSkillCondition(state,'SK58') is True
+    cross(station)
+    finished = save('complete')
+    restored = core.restore(lua.table_from(finished,recursive=True),12)
+    assert restored.story.node==station and restored.progression.level==160
+    assert restored.story.quests[summit].status=='complete' and restored.endgame.bosses[boss].clears==1
+    assert core.equippedWeapon(restored,'traveler')=='SW07' and restored.companion==start['companion']
+    assert all(finished['story']['quests'][id]==q for id,q in prior.items())
+    kept = {item['id'] for item in finished['inventory']['items']}
+    assert all(item['id'] in kept for item in start['inventory']['items'] if item['owner'] or item.get('locked'))
+    assert state.returns==0
+    record = dict(sourceSha256=sha256(source).hexdigest(), milestones=milestones,hunts=hunts,
+                  encounter=encounter,sketchReadback=True,entered=end,lightReleaseAvailable=True,
+                  level=restored.progression.level,priorQuests=len(prior),inventoryKept=len(kept & original_items),
+                  weapon='SW07',companion=restored.companion,recoveryTrips=recovery_trips,
+                  inventoryTrips=inventory_trips,partyWipes=state.returns)
+    (work/'lua.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    sys.exit(0)
+
 if options.station_side_source:
     prior = {id:q for id,q in start['story']['quests'].items() if q['status']=='complete'}
     assert core.equippedWeapon(state,'traveler')=='SW07'

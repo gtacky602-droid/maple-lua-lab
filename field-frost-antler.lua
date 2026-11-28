@@ -45,9 +45,15 @@ return function(C)
  end
 
  function antler.label(b) if b.recovering then return '息継ぎ・胸の継ぎ目が開いた' end end
+ local function recoveryTicks(cast)
+  local move=cast.move
+  return math.max(0,move.windup+move.activeTicks+move.recoveryTicks-cast.tick)
+ end
  function antler.frame(f,b,spec,cast)
   f.pose,f.recovering=b.pose,b.recovering
-  if cast and not b.recovering then
+  if cast and b.recovering then
+   f.recovery={ticks=recoveryTicks(cast),total=cast.move.recoveryTicks,factor=spec.recoveryFactor}
+  elseif cast then
    f.lane={left=cast.left,right=cast.right,top=spec.floorY-cast.move.height,
     at=cast.move.windup,active=cast.tick>=cast.move.windup,hitLeft=cast.hitLeft,hitRight=cast.hitRight}
   end
@@ -55,7 +61,14 @@ return function(C)
 
  function antler.draw(f,state,b,spec,cast,mode,profile)
   local camera,y=state.camera,spec.floorY
-  if cast and not b.recovering then
+  if cast and b.recovering then
+   local remaining=recoveryTicks(cast)
+   local x=b.x-camera
+   rect(f,x-60,y-spec.artHeight-27,120,5,'#263a50')
+   rect(f,x-60,y-spec.artHeight-27,math.ceil(120*remaining/cast.move.recoveryTicks),5,'#ffd895')
+   f.draws[#f.draws+1]={kind='text',x=x,y=y-spec.artHeight-36,size=14,color='#fff0b9',
+                       text=string.format('胸の継ぎ目・反撃 %.1f秒',math.ceil(remaining/6)/10)}
+  elseif cast then
    local active=cast.tick>=cast.move.windup
    local left,right=cast.left-camera,cast.right-camera
    if active and cast.hitLeft then
