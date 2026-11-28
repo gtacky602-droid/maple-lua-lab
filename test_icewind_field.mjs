@@ -1,15 +1,18 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {captureNumberedFieldWarning} from './tools/browser_waypoint_test.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const url=process.env.LAB_URL||'http://127.0.0.1:8769/';
-const fixture=await fs.readFile('work/icewind-field-fixture.json','utf8');
+const earned=process.argv.includes('--earned');
+const captures=earned?'work/earned-fontaine-icewind':'evidence';
+const fixture=await fs.readFile(earned?captures+'/icewind-ready.json':'work/icewind-field-fixture.json','utf8');
 const {fieldBosses}=JSON.parse(await fs.readFile('content/field-boss-spawns.json','utf8'));
 const hub='fontaine-hub', entrance='icewind-promenade';
 const encounters=[['icewind-coppelia',420],['icewind-coppelius',1060]];
 
-async function play([id,door]){
+async function play([id,door],checkpoint,prior){
  const page=await browser.newPage({viewport:{width:1200,height:910}});
  const canvas=page.locator('#game'), quest=id+'-commission', arena=id+'-field';
  const otherQuest=encounters.find(([key])=>key!==id)[0]+'-commission';
@@ -53,12 +56,13 @@ async function play([id,door]){
  try{
   await page.goto(url);
   await page.waitForFunction(()=>window.lab?.frame);
-  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),fixture);
+  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),checkpoint);
   await page.locator('#loadProgress').click();
   await page.waitForFunction(({hub,quest})=>window.lab.frame.story.node===hub&&
    window.lab.frame.story.quests[quest]?.status==='active',{hub,quest});
   await gate(580,entrance);
   await gate(door,arena);
+  console.log(id,'entered');
   const scenery=await page.evaluate(async()=>{
    const {sceneryStatus,loadScenery}=await import('./scenery.js');
    await loadScenery(window.lab.frame);
@@ -85,7 +89,11 @@ async function play([id,door]){
    }));
   },png.draws.filter(hasPose).map(d=>d.source));
   assert.match(await field.textContent(),spec.lead==='anemo'?/風① \/ ❄ 氷②/:/❄ 氷① \/ 風②/);
-  await canvas.screenshot({path:'evidence/'+arena+'-png.png'});
+  const markers=f=>f.draws.filter(d=>d.kind==='text'&&d.color==='#fff1b0').map(({x,y,text})=>[x,y,text]);
+  const order=markers(png);
+  assert.deepEqual(order.map(mark=>mark[2]),spec.lead==='cryo'?['1','2']:['1']);
+  assert.equal(new Set(order.map(mark=>mark[0])).size,order.length);
+  await canvas.screenshot({path:captures+'/'+arena+'-png.png'});
   await page.locator('#renderMode').selectOption('rect');
   await page.waitForFunction(()=>window.lab.frame.commands>1000);
   const standard=await frame();
@@ -93,12 +101,15 @@ async function play([id,door]){
   await page.waitForFunction(n=>window.lab.frame.commands<n*.6,standard.commands);
   const light=await frame();
   assert.deepEqual([standard.t,light.t,light.fieldBoss.tick],[png.t,png.t,png.fieldBoss.tick]);
-  await canvas.screenshot({path:'evidence/'+arena+'-light.png'});
+  assert.deepEqual(markers(standard),order);
+  assert.deepEqual(markers(light),order);
+  await canvas.screenshot({path:captures+'/'+arena+'-light.png'});
   await page.locator('#renderMode').selectOption('sprite');
   await setPause(false);
 
-  await page.evaluate(spec=>{
+  await page.evaluate(({spec,earned})=>{
    const held=new Set(), moves=new Set();
+   const recovery={};
    const start=window.lab.frame.t;
    let lastMove, origin, dir;
    function hold(code,on){
@@ -111,7 +122,7 @@ async function play([id,door]){
     if(!b||b.phase==='respawn'||f.returns>0||f.t-start>135){
      for(const code of [...held])hold(code,false);
      window.icewindResult={win:b?.phase==='respawn',seconds:+(f.t-start).toFixed(2),
-      moves:[...moves],hp:a.hp,returns:f.returns};
+      moves:[...moves],recovery,hp:a.hp,returns:f.returns};
      return;
     }
     if(f.paused){requestAnimationFrame(step);return}
@@ -124,6 +135,7 @@ async function play([id,door]){
     let move=dx, jump=false, evade=false;
     if(m){
      moves.add(m.id);
+     if(b.recovering&&!(m.id in recovery))recovery[m.id]=b.exposureTicks;
      let arrivals=m.active.map(w=>w[0]);
      if(m.kind==='ice'){
       const gap=(a.x-origin)*dir;
@@ -146,38 +158,35 @@ async function play([id,door]){
     hold('Space',jump);
     hold('KeyA',move<-85||(turn&&move<0));
     hold('KeyD',move>85||(turn&&move>0));
-    hold('KeyJ',Math.abs(dx)<120&&!turn&&!evade);
+    const witnessedFinale=spec.moves[2].id in recovery;
+    hold('KeyJ',(!earned||witnessedFinale)&&Math.abs(dx)<120&&!turn&&!evade);
     requestAnimationFrame(step);
    }
    requestAnimationFrame(step);
-  },spec);
+  },{spec,earned});
 
   const finale=spec.moves[2];
-  await page.waitForFunction(id=>{
-   const b=window.lab.frame.fieldBoss;
-   if(b?.move!==id||b.tick<96||b.tick>=111)return false;
-   window.lab.action('pause');
-   return true;
-  },finale.id);
-  await page.waitForFunction(()=>window.lab.frame.paused);
-  const finalFrame=await frame();
-  assert.equal(finalFrame.draws.filter(hasPose).length,2);
-  if(spec.lead==='cryo')assert.match(await field.textContent(),/氷装甲/);
-  await canvas.screenshot({path:'evidence/'+arena+'-finale.png'});
-  await setPause(false);
+  const finaleComparison=await captureNumberedFieldWarning(page,{
+   move:finale.id,before:finale.active[0][0],count:finale.active.length,
+   color:'#fff1b0',output:captures+'/'+arena+'-finale'
+  });
+  console.log(id,'finale warning compared');
   await page.waitForFunction(()=>window.icewindResult,undefined,{timeout:300000});
   const play=await page.evaluate(()=>window.icewindResult);
   assert.ok(play.win,JSON.stringify(play));
+  console.log(id,'defeated');
   assert.deepEqual(play.moves,spec.moves.map(m=>m.id));
+  if(earned)assert.ok(play.recovery[finale.id]>=138&&play.recovery[finale.id]<=144);
   const defeated=await frame();
   assert.equal(defeated.mora-png.mora,325);
   assert.equal(defeated.story.quests[quest].count,1);
-  assert.equal(defeated.story.quests[otherQuest].count,0);
+  assert.equal(defeated.story.quests[otherQuest].count,prior?1:0);
   await gate(65,entrance);
   await gate(65,hub);
   const before=await frame();
   await page.locator('[data-quest="'+quest+'"]').getByRole('button',{name:'報告',exact:true}).click();
   await page.waitForFunction(q=>window.lab.frame.story.quests[q].status==='complete',quest);
+  console.log(id,'reported');
   const reported=await frame();
   assert.deepEqual([reported.progression.questXp-before.progression.questXp,reported.mora-before.mora],[6000,400]);
   await page.locator('#saveProgress').click();
@@ -185,12 +194,25 @@ async function play([id,door]){
   const save=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
   assert.equal(save.fieldBosses[id].hp,0);
   assert.ok(save.fieldBosses[id].waitTicks>0);
+  if(earned){
+   await page.reload();
+   await page.waitForFunction(()=>window.lab?.frame);
+   await page.locator('#loadProgress').click();
+   await page.waitForFunction(({hub,quest,prior})=>{
+    const f=window.lab.frame;
+    return f.story.node===hub&&f.story.quests[quest]?.status==='complete'&&
+     (!prior||f.story.quests[prior]?.status==='complete');
+   },{hub,quest,prior});
+   assert.equal(save.endgame.bosses[id].clears,1);
+   if(prior)assert.equal(save.endgame.bosses[encounters[0][0]].clears,1);
+  }
   await page.setViewportSize({width:390,height:844});
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   assert.deepEqual(errors,[]);
-  return [id,{play,scenery,orderedElements:png.fieldBoss.bodies.map(b=>b.element),
+  return {checkpoint:JSON.stringify(save),proof:{play,scenery,orderedElements:png.fieldBoss.bodies.map(b=>b.element),
+   order,finaleComparison,
    sameSceneCommands:{png:png.commands,standard:standard.commands,light:light.commands},
-   savedRespawn:true,variantQuestIsolation:true,questReport:{xp:6000,mora:400},viewport390:true}];
+   savedRespawn:true,variantQuestIsolation:true,questReport:{xp:6000,mora:400},viewport390:true}};
  }catch(error){
   console.error(id,await page.evaluate(()=>({node:window.lab?.frame.story.node,field:window.lab?.frame.fieldBoss,
    player:window.lab?.frame.actors[0],play:window.icewindResult})),errors);
@@ -199,9 +221,19 @@ async function play([id,door]){
 }
 
 try{
- const results=await Promise.allSettled(encounters.map(play));
- for(const result of results)if(result.status==='rejected')throw result.reason;
- await fs.writeFile('evidence/icewind-field-browser.json',
-  JSON.stringify({browser:'Chrome',variants:Object.fromEntries(results.map(r=>r.value))},null,2)+'\n');
+ const variants={};
+ let checkpoint=fixture,prior;
+ for(const encounter of encounters){
+  const id=encounter[0];
+  const result=await play(encounter,checkpoint,prior);
+  variants[id]=result.proof;
+  if(earned){
+   checkpoint=result.checkpoint;
+   prior=id+'-commission';
+  }
+ }
+ const report=earned?'earned-fontaine-icewind-browser':'icewind-field-browser';
+ await fs.writeFile('evidence/'+report+'.json',
+  JSON.stringify({browser:'Chrome',earned,variants},null,2)+'\n');
  console.log('Both Icewind modes, render profiles, quest isolation, reports and saves passed.');
 }finally{await browser.close()}

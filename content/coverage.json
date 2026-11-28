@@ -8582,6 +8582,16 @@
       "lua_evidence": "evidence/earned-fontaine-tulpa.json",
       "browser_evidence": ["evidence/earned-fontaine-emilie-browser.json", "evidence/earned-fontaine-tulpa-stop-browser.json", "evidence/earned-fontaine-tulpa-merge-browser.json"]
     },
+    "earned_fontaine_icewind": {
+      "start_level": 91,
+      "arena_gate_level": 90,
+      "shared_hp_per_encounter": 1030,
+      "reported_commissions_total": 20,
+      "finale_recovery_ticks": 144,
+      "separately_reported_and_restored": ["icewind-coppelia", "icewind-coppelius"],
+      "lua_evidence": "evidence/earned-fontaine-icewind.json",
+      "browser_evidence": "evidence/earned-fontaine-icewind-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

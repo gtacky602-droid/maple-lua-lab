@@ -2,6 +2,7 @@ return function(C)
  local icewind={}
  local U=88
  local colors={anemo='#b0f5cd',cryo='#addefe'}
+ local orderColor='#fff1b0'
  local function clamp(x,a,b) return math.max(a,math.min(x,b)) end
  local function advance(x,dest,step) return x+clamp(dest-x,-step,step) end
 
@@ -132,10 +133,14 @@ return function(C)
   if c.tick>=c.move.recover then return '二体が止まる・反撃' end
  end
 
+ function icewind.frame(f,b,s,c)
+  if c and c.tick>=c.move.recover then f.exposureTicks=c.move.total-c.tick end
+ end
+
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
  end
- local function cue(f,i,left,right,top,bottom,color,active)
+ local function cue(f,left,right,top,bottom,color,active)
   if active then
    rect(f,left,top,right-left,bottom-top,color..'44')
    rect(f,left,top,right-left,2,color)
@@ -145,11 +150,11 @@ return function(C)
    rect(f,left,bottom-5,right-left,2,color)
    for x=left+5,right-6,17 do rect(f,x,bottom-10,6,2,color) end
   end
-  f.draws[#f.draws+1]={kind='text',x=(left+right)/2,y=bottom-14,text=tostring(i),size=13,color=color}
  end
 
  function icewind.draw(f,state,b,s,c,mode,profile)
   local camera,y=state.camera,s.floorY
+  local badgeFloor=y-74
   local poses={'idle','idle'}
   if c then
    local m,t=c.move,c.tick
@@ -159,11 +164,18 @@ return function(C)
     poses[1]=(m.kind=='wind' or m.kind=='guard') and 'focus' or 'attack'
     if m.kind=='duet' then poses[2]='attack' end
     if m.kind=='wind' and t>=m.travelEnd then poses[2]='focus' end
+    local sharedCueDrawn=false
     for i,w in ipairs(m.active) do
      if t<w[2] then
       local left,right=bounds(c,i)
       local source=m.kind=='duet' and c.bodies[i] or b
-      cue(f,i,left-camera,right-camera,y-m.height*U,y-(m.low or 0)*U,colors[source.element],t>=w[1])
+      local marker=(left+right)/2-camera
+      if m.kind=='guard' then marker=marker+(i-(#m.active+1)/2)*32 end
+      if not sharedCueDrawn then
+       cue(f,left-camera,right-camera,y-m.height*U,y-(m.low or 0)*U,colors[source.element],t>=w[1])
+       sharedCueDrawn=m.kind=='guard'
+      end
+      C.drawFieldImpactNumber(f,marker,badgeFloor,i,orderColor)
      end
     end
     if m.fire then
@@ -174,6 +186,7 @@ return function(C)
      end
      for i,fire in ipairs(m.fire) do
       local age=t-fire
+      if age<0 then C.drawFieldImpactNumber(f,x1+c.dir*(i-1)*30,badgeFloor,i,orderColor) end
       if age>=0 and age<m.life and not c.shots[i] then
        local x=shot(c,age)-camera
        rect(f,x-7,sy-8,14,16,colors.cryo)
@@ -191,6 +204,11 @@ return function(C)
     rect(f,x-31,y-109,62,3,colors.cryo)
     rect(f,x-31,y-109,3,74,colors.cryo)
     rect(f,x+28,y-109,3,74,colors.cryo)
+    local spacing=12
+    local start=x-(c.guardRequired-1)*spacing/2
+    for hit=1,c.guardRequired do
+     rect(f,start+(hit-1)*spacing-4,y-117,8,4,hit<=c.guardHits and colors.cryo or '#302235')
+    end
    end
   end
  end

@@ -1,0 +1,115 @@
+{
+  "browser": "Chrome",
+  "earned": true,
+  "variants": {
+    "icewind-coppelia": {
+      "play": {
+        "win": true,
+        "seconds": 18.3,
+        "moves": [
+          "FIC01",
+          "FIC02",
+          "FIC03"
+        ],
+        "recovery": {
+          "FIC01": 119,
+          "FIC02": 100,
+          "FIC03": 144
+        },
+        "hp": 344,
+        "returns": 0
+      },
+      "scenery": {
+        "key": "icewindField",
+        "file": "icewind-field-background-v1.png",
+        "state": "ready"
+      },
+      "orderedElements": [
+        "anemo",
+        "cryo"
+      ],
+      "order": [
+        [
+          473.9000000000001,
+          301,
+          "1"
+        ]
+      ],
+      "finaleComparison": {
+        "png": 57,
+        "standard": 11466,
+        "light": 3048,
+        "warningTick": 54
+      },
+      "sameSceneCommands": {
+        "png": 38,
+        "standard": 11604,
+        "light": 3066
+      },
+      "savedRespawn": true,
+      "variantQuestIsolation": true,
+      "questReport": {
+        "xp": 6000,
+        "mora": 400
+      },
+      "viewport390": true
+    },
+    "icewind-coppelius": {
+      "play": {
+        "win": true,
+        "seconds": 18.18,
+        "moves": [
+          "FIP01",
+          "FIP02",
+          "FIP03"
+        ],
+        "recovery": {
+          "FIP01": 89,
+          "FIP02": 95,
+          "FIP03": 143
+        },
+        "hp": 350,
+        "returns": 0
+      },
+      "scenery": {
+        "key": "icewindField",
+        "file": "icewind-field-background-v1.png",
+        "state": "ready"
+      },
+      "orderedElements": [
+        "cryo",
+        "anemo"
+      ],
+      "order": [
+        [
+          632,
+          301,
+          "1"
+        ],
+        [
+          602,
+          301,
+          "2"
+        ]
+      ],
+      "finaleComparison": {
+        "png": 57,
+        "standard": 10546,
+        "light": 2809,
+        "warningTick": 55
+      },
+      "sameSceneCommands": {
+        "png": 56,
+        "standard": 11273,
+        "light": 3039
+      },
+      "savedRespawn": true,
+      "variantQuestIsolation": true,
+      "questReport": {
+        "xp": 6000,
+        "mora": 400
+      },
+      "viewport390": true
+    }
+  }
+}
