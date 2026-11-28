@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## キィニチの待ち伏せ地点と岩場への近道
+
+M地図に未調査の手がかりと待ち伏せ候補を表示する。選んだ地点は地図にも表示し、岩棚のリンクから足場と登り方を開ける。折り返しまでの秒数はLuaの戦闘時刻に連動する。波札受領済みのLv109セーブで、待ち伏せ先を保存してから討伐・報告し、再読み込み後に岩場への近道を往復した。 [狩道の操作](docs/balance/NATLAN_KINICH_AMBUSH_WEB.md) · [通し検証](evidence/earned-natlan-kinich-ambush-browser.json)
+
 ## ムアラニの波乗りと返球の案内
 
 ボードの操作欄に浅瀬へ戻った回数を表示する。入り江ではボールの落ちる浜に目印を描き、返球の合図と拾い直しの時間を表示する。カチーナ加入済みのLv109セーブで練習瀬の途中再開、キーボードと幅390pxでの返球、報告と波札の保存復元を通した。 [波乗りと返球の操作](docs/balance/NATLAN_MUALANI_SURF_WEB.md) · [通し検証](evidence/earned-natlan-mualani-surf-browser.json)

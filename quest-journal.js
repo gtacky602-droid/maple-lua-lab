@@ -209,6 +209,17 @@ export function atlasQuestObjectives(frame,q,node){
   const points=trailStops(q,state,node);
   return points.length?[{text:questObjective(q,frame.storyGraph,state),points}]:[];
  }
+ if(q.kinichHunt&&status==='active'&&state.count===1&&node===q.target){
+  const notes=state.huntNotes;
+  const {clues,sites}=q.kinichHunt;
+  const both=notes?.tracks&&notes?.branch;
+  const points=(both?sites:clues.filter(clue=>!notes?.[clue.id])).map(place=>({
+   label:place.label+(notes?.site===place.id?'（選択中）':''),
+   approachHint:place.approachHint,url:surveyPointUrl(worksitePoint(q,place.id,node))
+  }));
+  return [{text:both?'待ち伏せの候補地':'任意の手がかり',points},
+   {text:questObjective(q,frame.storyGraph,state),points:remainingEnemyPoints(q.itinerary[state.count],state)}];
+ }
  if(q.delivery&&status==='active'){
   const points=deliveryStops(q,state,node);
   return points.length?[{text:questObjective(q,frame.storyGraph,state),points}]:[];

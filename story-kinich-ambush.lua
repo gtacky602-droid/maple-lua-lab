@@ -80,6 +80,10 @@ return function(C,canInspect)
   return false
  end
 
+ local function turnRemaining(current,spec,site,clock)
+  return (site and spec.delay or spec.wait)-(clock-current.turnedAt)
+ end
+
  function hunt.step(s,dt,q,state)
   local current=s.kinichHunt
   if not current or current.enemy.hp<=0 or state.count~=1 then return end
@@ -100,7 +104,7 @@ return function(C,canInspect)
   if current.phase=='retreat' and pace(current,spec.turn,pacePerTick) then
    current.phase,current.turnedAt='turn',s.t
    s.storyNotice='牙獣が東の岩で折り返します。追いつかなくても戻ってきます。'
-  elseif current.phase=='turn' and s.t-current.turnedAt>=(site and spec.delay or spec.wait) then
+  elseif current.phase=='turn' and turnRemaining(current,spec,site,s.t)<=0 then
    current.phase='return'
   elseif current.phase=='return' and pace(current,site and site.home or spec.spawn,pacePerTick) then
    current.phase,current.engaged='engaged',site and site.id or 'direct'
@@ -176,6 +180,11 @@ return function(C,canInspect)
   local view={message=s.storyNotice,phase=current and current.phase or 'cleared',
               tracks=notes and notes.tracks or false,branch=notes and notes.branch or false,
               site=notes and notes.site,outcome=notes and notes.outcome}
+  local site=notes and find(spec.sites,notes.site)
+  if site then view.siteLabel=site.label end
+  if current and current.phase=='turn' then
+   view.returnSeconds=math.max(0,turnRemaining(current,spec,site,s.t))
+  end
   if current and current.enemy.hp>0 then
    local e=current.enemy
    art(C.enemyIdleArt[e.art],e.x,e.y,e.drawHeight,current.dir>0)
