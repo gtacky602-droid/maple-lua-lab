@@ -14,16 +14,17 @@ export function knaveContractText(view){
 }
 
 export function knaveFeastText(view){
+ if(view.transformTicks)return `凶月の羽化 ｜ 戦闘再開まで${Math.ceil(view.transformTicks/6)/10}秒`;
  const result=view.feastResult;
  if(result?.kind==='interrupted'){
   const owner=result.actor===1?'旅人':result.actor===2?'同行キャラ':'味方';
   return owner+'が羽印で赤宴を中断'+(view.exposure?` ｜ 反撃できる時間 ${(view.exposure/60).toFixed(1)}秒`:'');
  }
  const selected=view.actors[view.active-1];
- const canInterrupt=view.window&&selected.feather;
- if(result?.kind==='ended')return '前方奔流が収まった'+(canInterrupt?' ｜ 羽印で反撃に移れる（H）':'');
- const hint=canInterrupt?'償還の一撃（H）で中断':
-  view.airborne?'高空。地面の赤い予告から離れる':selected.debt?'回復するか、両端の返済灯へ':'';
+ const interrupt=view.window&&selected.feather&&('償還の一撃（H）で中断'+
+  (view.interruptTicks?`・残り${Math.ceil(view.interruptTicks/6)/10}秒`:''));
+ if(result?.kind==='ended')return ['前方奔流が収まった',interrupt].filter(Boolean).join(' ｜ ');
+ const hint=interrupt||(view.airborne?'高空。地面の赤い予告から離れる':selected.debt?'回復するか、両端の返済灯へ':'');
  return [view.title,hint].filter(Boolean).join(' ｜ ');
 }
 

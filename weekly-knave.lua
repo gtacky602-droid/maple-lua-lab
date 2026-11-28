@@ -422,6 +422,8 @@ return function(C)
   local b={form=w.form,card=c and c.key,title=title,tick=c and c.t,actors=rows,active=a.id,x=e.x,nearLamp=lampAt(spec,a),
    hold=hold and math.max(0,hold.next-w.clock),window=window and c.t>=window[1] and c.t<window[2],
    exposure=w.phase=='exposure' and 252-c.t,airborne=c and c.key=='WK18' and e.invulnerable}
+  if b.window then b.interruptTicks=window[2]-c.t end
+  if c and c.key=='WK11' then b.transformTicks=c.move.total-c.t end
   if c and c.interruptedBy then
    local owner=c.interruptedBy
    b.feastResult={kind='interrupted',actor=s.actors[owner.id]==owner and owner.id or nil}

@@ -26,6 +26,8 @@
   "manual_hit_only_in_window": true,
   "exposure_ticks": 216,
   "transformation_pauses_drain_ticks": 240,
+  "window_countdown_matches_cast_end": true,
+  "transform_countdown_matches_combat_resume": true,
   "ownership_cancel_and_death": true,
   "major_attack_has_ground_escape": true,
   "separate_hp_sections": true,
