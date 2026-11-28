@@ -8513,6 +8513,15 @@
       "lua_evidence": "evidence/earned-sumeru-baptist.json",
       "browser_evidence": "evidence/earned-sumeru-baptist-browser.json"
     },
+    "earned_sumeru_frontier": {
+      "start_level": 74,
+      "wind_survey_level": 78,
+      "fontaine_gate_level": 80,
+      "quests_replayed": ["sum-mapped-tunigi-water", "tunigi-survey", "sum-mapped-desert-wind"],
+      "arrived_and_restored_at": "fontaine-hub",
+      "lua_evidence": "evidence/earned-sumeru-frontier.json",
+      "browser_evidence": "evidence/earned-sumeru-frontier-browser.json"
+    },
     "original_scenarios": {
       "normal": 15,
       "weekly": 2,

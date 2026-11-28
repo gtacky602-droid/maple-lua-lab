@@ -1,0 +1,399 @@
+{
+  "sourceSha256": "37cc6ab49800b774f69c64512d073fad32d5c3c6c5db27a4d30997585ecb553c",
+  "gateChecks": [
+    {
+      "level": 74,
+      "node": "sumeru-field",
+      "target": "fontaine-entry",
+      "reason": "必要レベル 80"
+    }
+  ],
+  "wind": {
+    "closed": {
+      "seconds": 5,
+      "text": "風待ち 5秒"
+    },
+    "opened": {
+      "seconds": 3,
+      "text": "弱風 残り3秒"
+    }
+  },
+  "waterObjectives": 7,
+  "waterRoute": [
+    [
+      "tunigi-depth",
+      "walk"
+    ],
+    [
+      "sum-wp-46523",
+      "lift"
+    ],
+    [
+      "tunigi-depth",
+      "lift"
+    ],
+    [
+      "sum-wp-46525",
+      "walk"
+    ],
+    [
+      "sum-wp-46514",
+      "walk"
+    ],
+    [
+      "sum-wp-46525",
+      "walk"
+    ],
+    [
+      "tunigi-depth",
+      "walk"
+    ],
+    [
+      "tunigi-camp",
+      "walk"
+    ]
+  ],
+  "reports": [
+    {
+      "quest": "sum-mapped-tunigi-water",
+      "xp": 67000,
+      "mora": 7600
+    },
+    {
+      "quest": "tunigi-survey",
+      "xp": 2300,
+      "mora": 330
+    },
+    {
+      "quest": "sum-mapped-desert-wind",
+      "xp": 80400,
+      "mora": 8400
+    }
+  ],
+  "hunts": {
+    "rootTerracesTo78": [
+      {
+        "kills": 65,
+        "xp": 106990,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 13,
+        "xp": 21398,
+        "seconds": 29.07
+      }
+    ],
+    "rootTerracesTo79": [
+      {
+        "kills": 56,
+        "xp": 92176,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 27,
+        "xp": 44442,
+        "seconds": 74.67
+      },
+      {
+        "kills": 15,
+        "xp": 24690,
+        "seconds": 35.2
+      }
+    ],
+    "northDomainTo80": [
+      {
+        "kills": 63,
+        "xp": 145467,
+        "seconds": 74.67
+      },
+      {
+        "kills": 66,
+        "xp": 152394,
+        "seconds": 74.67
+      },
+      {
+        "kills": 62,
+        "xp": 143158,
+        "seconds": 74.67
+      },
+      {
+        "kills": 64,
+        "xp": 147776,
+        "seconds": 74.67
+      },
+      {
+        "kills": 20,
+        "xp": 46180,
+        "seconds": 19.6
+      }
+    ]
+  },
+  "crossing": [
+    [
+      "sumeru-field",
+      "walk"
+    ],
+    [
+      "fontaine-entry",
+      "walk"
+    ],
+    [
+      "fontaine-hub",
+      "walk"
+    ]
+  ],
+  "arrivalLevel": 80,
+  "arrivalTotalExp": 10035096,
+  "reportedCommissions": [
+    "maguu-commission",
+    "array-commission",
+    "thunder-commission",
+    "pyro-hypostasis-commission",
+    "hydro-hypostasis-commission",
+    "wolflord-commission",
+    "bathysmal-commission",
+    "jadeplume-commission",
+    "electro-regisvine-commission",
+    "aeonblight-commission",
+    "dendro-hypostasis-commission",
+    "asimon-commission",
+    "wenut-commission",
+    "baptist-commission"
+  ],
+  "returns": 0
+}

@@ -2531,7 +2531,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
      marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
     end
-    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=(fixture or edge.wind or edge.windowStart) and edge.x,wind=C.storyGateWind(s,n.id,edge),stopWindow=C.storyStopWindow(s,n.id,edge)}
+    local wind=C.storyGateWind(s,n.id,edge)
+    if wind and x>=0 and x<=960 then
+     local signX=math.max(55,math.min(905,x))
+     local color=wind.calm and '#a6eee7' or '#ffda9c'
+     markers[#markers+1]={kind='rect',x=signX-50,y=y-118,w=100,h=20,color='#212632'}
+     markers[#markers+1]={kind='rect',x=signX-50,y=y-100,w=100,h=2,color=color}
+     markers[#markers+1]={kind='text',x=signX,y=y-105,size=13,color=color,
+                          text=(wind.calm and '弱風 残り' or '風待ち ')..wind.seconds..'秒'}
+    end
+    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y,sealState=fixture,gateX=(fixture or edge.wind or edge.windowStart) and edge.x,wind=wind,stopWindow=C.storyStopWindow(s,n.id,edge)}
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile,canInspect,quests)
